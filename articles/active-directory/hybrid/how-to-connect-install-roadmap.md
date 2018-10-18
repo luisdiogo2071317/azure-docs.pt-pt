@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fdfea3ac6b84088002521700e1d50d17398be31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303099"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318644"
 ---
-#<a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
+# <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
 
 ## <a name="install-azure-ad-connect"></a>Instalar o Azure AD Connect
 
@@ -44,7 +44,7 @@ Pode encontrar a transferência do Azure AD Connect no [Centro de Transferência
 |Transferir o Azure AD Connect | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalar utilizando as definições rápidas | [Instalação rápida do Azure AD Connect](./how-to-connect-install-express.md)|
 |Instalar utilizando as definições personalizadas | [Instalação personalizada do Azure AD Connect](./how-to-connect-install-custom.md)|
-|Atualizar do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
+|Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
 |Após a instalação | [Verificar a instalação e atribuir licenças ](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Saber mais sobre como instalar o Azure AD Connect
@@ -63,7 +63,7 @@ O Azure AD Connect inclui várias funcionalidades que pode ativar como opção o
 
 A [filtragem](how-to-connect-sync-configure-filtering.md) é utilizada quando pretende limitar os objetos que são sincronizados para o Azure AD. Por predefinição, são sincronizados todos os utilizadores, contactos, grupos e computadores com Windows 10. Pode alterar a filtragem com base em domínios, UOs ou atributos.
 
-A [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) sincroniza o hash de palavra-passe no Active Directory para o Azure AD. O utilizador final pode utilizar a mesma palavra-passe no local e na nuvem, mas geri-la apenas numa única localização. Uma vez que utiliza o Active Directory no local como autoridade, pode também utilizar a sua própria política de palavras-passe.
+A [sincronização de hash de palavra-passe](how-to-connect-password-hash-synchronization.md) sincroniza o hash de palavra-passe no Active Directory para o Azure AD. O utilizador final pode utilizar a mesma palavra-passe no local e na nuvem, mas geri-la apenas numa única localização. Uma vez que utiliza o Active Directory no local como autoridade,pode também utilizar a sua própria política de palavras-passe.
 
 A [repetição de escrita de palavras-passe](../authentication/quickstart-sspr.md) permitirá que os utilizadores alterem e reponham as respetivas palavras-passe na nuvem e a aplicação da sua política de palavras-passe no local.
 
@@ -91,7 +91,7 @@ Se nunca trabalhou com uma topologia de sincronização, será boa ideia começa
 
 A [configuração predefinida](concept-azure-ad-connect-sync-default-configuration.md) presume que pode existir mais do que uma floresta na configuração. Nessas topologias, um objeto de utilizador pode ser representado como um contacto noutra floresta. O utilizador pode também ter uma caixa de correio ligada noutra floresta de recursos. O comportamento da configuração predefinida está descrito em [utilizadores e contactos](concept-azure-ad-connect-sync-user-and-contacts.md).
 
-O modelo de configuração em sincronização é designado por [aprovisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md). Os fluxos de atributos avançados utilizam [funções](reference-connect-sync-functions-reference.md) para expressar transformações de atributos. Pode ver e examinar a configuração toda utilizando as ferramentas fornecidas com o Azure AD Connect. Se precisar de efetuar alterações na configuração, certifique-se de que segue as [melhores práticas](how-to-connect-sync-best-practices-changing-default-configuration.md), para que seja mais fácil adotar novas versões.
+O modelo de configuração em sincronização é designado por [aprovisionamento declarativo](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md). Os fluxos de atributos avançadas utilizam [funções](reference-connect-sync-functions-reference.md) para expressar transformações de atributos. Pode ver e examinar a configuração toda utilizando as ferramentas fornecidas com o Azure AD Connect. Se precisar de efetuar alterações na configuração, certifique-se de que segue as [melhores práticas](how-to-connect-sync-best-practices-changing-default-configuration.md), para que seja mais fácil adotar novas versões.
 
 ### <a name="next-steps-to-customize-azure-ad-connect-sync"></a>Passos seguintes para personalizar a sincronização do Azure AD Connect
 |Tópico |Ligação|  
@@ -169,7 +169,6 @@ O portal do Azure AD Connect Health mostra vistas de alertas, monitorização de
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições rápidas](how-to-connect-install-express.md)
 - [Definições personalizadas](how-to-connect-install-custom.md)
@@ -178,6 +177,3 @@ O portal do Azure AD Connect Health mostra vistas de alertas, monitorização de
 - [Azure AD Connect e a federação](how-to-connect-fed-whatis.md)
 - [Instalar os agentes do Azure AD Connect Health](how-to-connect-health-agent-install.md) 
 - [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
-
-
-

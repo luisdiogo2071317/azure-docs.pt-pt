@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070682"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714994"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -40,10 +40,7 @@ Antes de começar, é útil rever as arquiteturas do [VMware](vmware-azure-archi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Os dispositivos exportados por controladores paravirtualizados não são suportados.
- 
-> [!WARNING]
-> É possível migrar VMs noutras plataformas de virtualização (sem ser o VMware ou Hyper-V), como é o caso do XenServer, ao tratar as VMs como servidores físicos. No entanto, esta abordagem não foi testada e validada pela Microsoft, e pode ou não funcionar. Por exemplo, as VMs executadas na plataforma XenServer podem não ser executadas no Azure, a menos que as ferramentas do XenServer e o armazenamento paravirtualizado e controladores de rede sejam desinstalados da VM antes de iniciar a migração.
+Os dispositivos exportados por controladores paravirtualizados não são suportados.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
@@ -124,10 +121,43 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Poderá reparar em tempos de ativação pós-falha superiores Para servidores físicos, máquinas do Linux do VMware, VMs do VMware que não têm o serviço DHCP ativado e VMs do VMware que não têm os controladores de arranque storvsc, vmbus, storflt, intelide e atapi.
 
+## <a name="after-migration"></a>Após a migração
+
+Depois de migrar os computadores para o Azure, tem de concluir uma série de passos.
+
+Alguns passos podem ser automatizados como parte do processo de migração através da funcionalidade de scripts de automatização incorporados nos [planos de recuperação]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation).   
+
+
+### <a name="post-migration-steps-in-azure"></a>Passos de pós-migração no Azure
+
+- Execute otimizações de aplicação pós-migração, tais como atualizar cadeias de ligação de base de dados e configurações de servidor Web. 
+- Execute testes de aplicação final e de aceitação da migração na aplicação migrada em execução no Azure.
+- O [agente de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) gere a interação da VM com o Controlador de Recursos de Infraestrutura do Azure. É necessário para alguns serviços do Azure, como o Azure Backup, o Site Recovery e a Segurança do Azure.
+    - Se estiver a migrar as máquinas do VMware e os servidores físicos, o instalador do Serviço de Mobilidade instala o agente de VM do Azure em computadores Windows. Nas VMs do Linux, recomendamos que instale o agente após a ativação pós-falha. a
+    - Se estiver a migrar VMs do Azure para uma região secundária, o agente de VM do Azure tem de ser aprovisionado na VM antes da migração.
+    - Se estiver a migrar VMs do Hyper-V para o Azure, instale o agente de VM do Azure na VM do Azure após a migração.
+- Remova manualmente qualquer fornecedor/agente do Site Recovery da VM. Se migrar VMs do VMware ou servidores físicos, [desinstale o serviço de Mobilidade][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] a partir da VM do Azure.
+- Para uma maior resiliência:
+    - Mantenha os dados seguros ao fazer uma cópia de segurança das VMs do Azure através do serviço Azure Backup. [Saiba mais]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Mantenha as cargas de trabalho em execução e continuamente disponíveis ao replicar VMs do Azure para uma região secundária com o Site Recovery. [Saiba mais](azure-to-azure-quickstart.md).
+- Para uma maior segurança:
+    - Bloqueie e limite o acesso ao tráfego de entrada com a [administração just-in-time]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) do Centro de Segurança do Azure.
+    - Restrinja o tráfego de rede para os pontos finais de gestão com os [Grupos de Segurança de Rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
+    - Implemente o [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
+    - Leia mais sobre como [proteger recursos de IaaS]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/ ).
+- Para monitorização e gestão:
+    - Considere implementar o [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) para monitorizar a utilização e as despesas do recurso.
+
+### <a name="post-migration-steps-on-premises"></a>Passos de pós-migração no local
+
+- Mova o tráfego da aplicação para a aplicação em execução na instância da VM do Azure migrada.
+- Remova as VMs no local do seu inventário de VMs locais.
+- Remova as VMs no local das cópias de segurança locais.
+- Atualize qualquer documentação interna para mostrar a nova localização e endereço IP das VMs do Azure.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, migrou VMs no local para VMs do Azure. Agora que migrou as VMs:
-- [Configure a recuperação após desastre](azure-to-azure-replicate-after-migration.md) para as VMs migradas.
-- Tire partido das capacidades de [cloud segura e bem gerida](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) para gerir as suas VMs no Azure.
+Neste tutorial, migrou VMs no local para VMs do Azure. Agora pode [configurar a recuperação após desastre](azure-to-azure-replicate-after-migration.md) para uma região secundária do Azure para as VMs do Azure.
+
   

@@ -3,19 +3,19 @@ title: Resumo do Guia de Início Rápido da Imagem Digitalizada
 titleSuffix: Azure Cognitive Services
 description: Nestes guias de início rápido, irá analisar uma imagem, criar uma miniatura e extrair texto manuscrito e impresso através da API de Imagem Digitalizada.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 89502fe49f5eb4b9692d7ee4233c7c46d645b3fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: pafarley
+ms.openlocfilehash: e44eb52323a93bddd629f3591cdbfbf021768629
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576889"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344100"
 ---
 # <a name="quickstart-summary"></a>Início rápido: Resumo
 
@@ -30,7 +30,7 @@ Pode utilizar o serviço de Imagem Digitalizada para realizar as seguintes taref
 * Analisar uma imagem remota
 * Analisar uma imagem local
 * Detetar celebridades e marcos (modelos de domínio)
-* Gerar uma miniatura de forma inteligente
+* Gerir uma miniatura de forma inteligente
 * Detetar e extrair texto impresso (OCR) a partir de uma imagem
 * Detetar e extrair texto manuscrito a partir de uma imagem
 
