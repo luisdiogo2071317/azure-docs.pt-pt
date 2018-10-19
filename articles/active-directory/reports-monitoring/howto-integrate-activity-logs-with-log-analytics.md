@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 10/01/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95dac6804f3226cac23bce95a1b09b2907d084b0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc918d0ee3b3b435905546507287dc655f68e8c9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395688"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429784"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Integrar registos do Azure AD com o Log Analytics através do Azure Monitor (pré-visualização)
 
@@ -30,7 +30,11 @@ O log Analytics permite-lhe dados de consulta para encontrar eventos específico
  * Compare os seus registos de início de sessão do AD do Azure em relação a registos de segurança publicados pelo centro de segurança do Azure
 
  * Resolver problemas de afunilamentos de desempenho na página de início de sessão da sua aplicação ao correlacionar dados de desempenho de aplicações do Azure Application Insights.  
- 
+
+O vídeo seguinte a partir de uma sessão Ignite demonstra as vantagens da utilização do Log Analytics para registos do Azure AD em cenários de usuário prático.
+
+> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
+
 Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com o Log Analytics através do Azure Monitor.
 
 ## <a name="supported-reports"></a>Relatórios suportados

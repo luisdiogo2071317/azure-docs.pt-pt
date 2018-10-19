@@ -4,15 +4,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 76cadc453a696b8d19788525bfb69cf9cacd353d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4e27c21b3b8d84b658b4cad10e05f8fa0b057268
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448242"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427321"
 ---
 # <a name="automation-with-service-principals"></a>Automação com principais de serviço
 
@@ -32,7 +32,7 @@ Principais de serviço podem ser criados no portal do Azure ou através do Power
 Credenciais do principal de serviço e os certificados podem ser armazenados em segurança na automatização do Azure para operações de runbooks. Para saber mais, consulte:
 
 [Ativos de credencial na automatização do Azure](../automation/automation-credentials.md)   
-[Ativos de certificado na automatização do Azure](../automation/automation-certificates.md)
+[Recursos de certificados na Automatização do Azure](../automation/automation-certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Adicionar principais de serviço à função de administrador do servidor
 

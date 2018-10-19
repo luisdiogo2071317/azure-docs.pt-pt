@@ -1,5 +1,5 @@
 ---
-title: Recolher dados recolhidos no OMS Log Analytics | Documentos da Microsoft
+title: Recolher dados recolhidos no Log Analytics | Documentos da Microsoft
 description: Recolhidos é um daemon de Linux do código-fonte aberto que periodicamente recolhe dados de aplicativos e suas informações de nível de sistema.  Este artigo fornece informações sobre a recolha de dados recolhidos no Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb053ef8fc66ff9d71a9576b71eb4edfcd688638
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: a1f28103f8faabae166f09185db3f3e1fee7a5ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041295"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404601"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Recolher dados de recolhidos nos agentes do Linux no Log Analytics
 [Recolhidos](https://collectd.org/) é um daemon de Linux do código-fonte aberto que periodicamente recolhe métricas de desempenho de aplicativos e suas informações de nível de sistema. Aplicativos de exemplo incluem a Máquina Virtual de Java (JVM), o servidor MySQL e o Nginx. Este artigo fornece informações sobre a recolha de dados de desempenho recolhidos no Log Analytics.
@@ -29,7 +29,9 @@ Uma lista completa de plug-ins disponíveis pode ser encontrada em [tabela de pl
 
 ![Descrição geral de recolhidos](media/log-analytics-data-sources-collectd/overview.png)
 
-A seguinte configuração recolhidos está incluída no agente do OMS para Linux, para encaminhar os dados recolhidos para o agente do OMS para Linux.
+A seguinte configuração recolhidos está incluída no agente do Log Analytics para Linux para encaminhar os dados recolhidos para o agente do Log Analytics para Linux.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
     LoadPlugin write_http
 
@@ -52,12 +54,12 @@ Além disso, se utilizar um versões do recolhidos antes 5.5, utilize a seguinte
        </URL>
     </Plugin>
 
-A configuração de recolhidos utiliza a predefinição`write_http` Plug-in para enviar dados de métrica de desempenho através da porta 26000 ao agente do OMS para Linux. 
+A configuração de recolhidos utiliza a predefinição`write_http` Plug-in para enviar dados de métrica de desempenho através da porta 26000 para agente do Log Analytics para Linux. 
 
 > [!NOTE]
 > Esta porta pode ser configurada para uma porta definida pelo personalizada, se necessário.
 
-O agente do OMS para Linux também escuta na porta 26000 para métricas recolhidos e, em seguida, converte-os para as métricas de esquema do OMS. Segue-se o agente do OMS para Linux configuração `collectd.conf`.
+O agente do Log Analytics para Linux também escuta na porta 26000 para métricas recolhidos e, em seguida, converte-os para as métricas de esquema do Log Analytics. Segue-se o agente do Log Analytics para a configuração do Linux `collectd.conf`.
 
     <source>
       type http
@@ -72,19 +74,19 @@ O agente do OMS para Linux também escuta na porta 26000 para métricas recolhid
 
 ## <a name="versions-supported"></a>Versões suportadas
 - Atualmente, o log Analytics suporta recolhidos versão 4.8 e acima.
-- Agente do OMS para Linux v1.1.0-217 ou superior é necessário para a recolha de métrica recolhidos.
+- Agente do log Analytics para Linux v1.1.0-217 ou superior é necessário para a recolha de métrica recolhidos.
 
 
 ## <a name="configuration"></a>Configuração
 Seguem-se passos básicos para configurar a recolha de dados recolhidos no Log Analytics.
 
-1. Configure recolhidos para enviar dados para o agente do OMS para Linux utilizar o plug-in de write_http.  
-2. Configure o agente do OMS para Linux escutar os dados recolhidos na porta adequada.
-3. Reinicie recolhidos e o agente do OMS para Linux.
+1. Configure recolhidos para enviar dados para o agente do Log Analytics para Linux utilizar o plug-in de write_http.  
+2. Configure o agente do Log Analytics para Linux escutar os dados recolhidos na porta adequada.
+3. Reinicie o agente recolhidos e o Log Analytics para Linux.
 
 ### <a name="configure-collectd-to-forward-data"></a>Configurar recolhidos para reencaminhar dados 
 
-1. Para encaminhar os dados recolhidos para o agente do OMS para Linux, `oms.conf` precisa ser adicionado ao diretório de configuração do recolhidos. O destino deste ficheiro depende a distribuição Linux da sua máquina.
+1. Para encaminhar os dados recolhidos para o agente do Log Analytics para Linux, `oms.conf` precisa ser adicionado ao diretório de configuração do recolhidos. O destino deste ficheiro depende a distribuição Linux da sua máquina.
 
     Se o seu diretório de configuração recolhidos está localizado na /etc/collectd.d/:
 
@@ -103,12 +105,12 @@ Seguem-se passos básicos para configurar a recolha de dados recolhidos no Log A
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. Reinicie recolhidos e o agente do OMS para Linux com os seguintes comandos.
+3. Reinicie o agente recolhidos e o Log Analytics para Linux com os seguintes comandos.
 
     sudo recolhidos reinício sudo /opt/microsoft/omsagent/bin/service_control reiniciar o serviço do
 
 ## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Métricas de recolhidos para a conversão do esquema do Log Analytics
-Para manter um modelo familiar entre as métricas de infraestrutura recolhidas pelo agente do OMS para Linux e as novas métricas recolhidas pelo recolhidos o seguinte mapeamento do esquema é usado:
+Para manter um modelo familiar entre as métricas de infraestrutura recolhidas pelo agente de Log Analytics para Linux e novas métricas recolhidas pelo recolhidos é utilizado o seguinte mapeamento do esquema:
 
 | Campo de métrica recolhidos | Campo do log Analytics |
 |:--|:--|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380000"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405451"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuitamente durante 60 dias. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -42,13 +42,13 @@ Pode atualizar uma subscrição do Azure completa para o escalão Standard, que 
 
 ## <a name="upgrade-an-azure-subscription-or-workspace"></a>Atualizar uma subscrição do Azure ou a área de trabalho
 Para atualizar uma subscrição ou a área de trabalho padrão:
-1. No menu principal do Centro de segurança, selecione **introdução ao**.
+1. No menu principal do Centro de Segurança, selecione **Introdução**.
   ![Introdução](./media/security-center-onboarding/get-started.png)
-2. Sob **atualizar**, o Centro de segurança apresenta uma lista de subscrições e áreas de trabalho elegíveis para inclusão. 
-   - Pode clicar no expansível **aplicam-se a sua versão de avaliação** para ver uma lista de todas as subscrições e áreas de trabalho com o respetivo estado de avaliação de elegibilidade.
-   -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para a versão de avaliação.
-   -    Pode selecionar áreas de trabalho elegíveis e subscrições para iniciar a avaliação.
-3.  Clique em **iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
+2. Em **Atualização**, o Centro de Segurança apresenta uma lista de subscrições e áreas de trabalho elegíveis para inclusão. 
+   - Pode clicar em **Aplicar a sua versão de avaliação** para ver uma lista de todas as subscrições e áreas de trabalho com o respetivo estado de elegibilidade de avaliação.
+   -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para avaliação.
+   -    Pode selecionar as áreas de trabalho e subscrições elegíveis para iniciar a avaliação.
+3.  Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
   ![Selecione a subscrição](./media/security-center-onboarding/select-subscription.png)
 
 
@@ -63,11 +63,11 @@ O Centro de Segurança pode monitorizar a postura de segurança dos seus computa
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Adicionar novos computadores não pertencentes ao Azure a partir de **introdução**
 
 1. Volte ao **introdução ao**.   
-2. Selecione o **começar** separador.
+2. Selecione o separador **Introdução**.
 
   ![Não Pertencente ao Azure](./media/security-center-onboarding/non-azure.png)
 
-3. Clique em **configurar** sob **adicionar novos computadores não Azure**. É apresentada uma lista das suas áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que pretende utilizar.
+3. Clique em **Configurar** em **Adicionar novos computadores não Azure**. É apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
   ![Adicionar computador não pertencente ao Azure][7]
 
@@ -82,6 +82,8 @@ Se tiver áreas de trabalho existentes, estão listados na **adicionar novos com
    ![Adicionar uma nova área de trabalho][4]
 
 2. Sob **segurança e auditoria**, selecione **área de trabalho OMS** para criar uma nova área de trabalho.
+> [!NOTE]
+> Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 3. Sob **área de trabalho OMS**, insira as informações da sua área de trabalho.
 4. Sob **área de trabalho do OMS**, selecione **OK**.  Depois de selecionar ' OK ', irá obter uma ligação para transferir um agente do Windows ou Linux e as chaves para o seu ID de área de trabalho utilizar na configuração do agente.
 5. Sob **segurança e auditoria**, selecione **OK**.

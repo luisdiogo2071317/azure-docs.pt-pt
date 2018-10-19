@@ -1,6 +1,6 @@
 ---
-title: Monitorizar contentores no Azure Service Fabric com o Log Analytics | Microsoft Docs
-description: Utilize a análise de registos para monitorização contentores executar em clusters de Service Fabric do Azure.
+title: Monitorizar contentores no Azure Service Fabric com o Log Analytics | Documentos da Microsoft
+description: Utilize o Log Analytics para monitorizar contentores em execução em clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,43 +14,46 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 79d30a47b017379107b63b0006a35534f68c43b9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aabdae370c28f8fa633372be4505c00c25254408
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403255"
 ---
-# <a name="monitor-containers-with-log-analytics"></a>Monitor de contentores com a análise de registos
+# <a name="monitor-containers-with-log-analytics"></a>Contentores de monitor com o Log Analytics
  
-Este artigo aborda os passos necessários para configurar o contentor de análise de registos do OMS solução de monitorização para ver eventos de contentor. Para configurar o cluster para recolher eventos de contentor, consulte este [tutorial passo a passo](service-fabric-tutorial-monitoring-wincontainers.md).
+Este artigo aborda os passos necessários para configurar o solução de monitorização do contentor do Azure Log Analytics para ver eventos de contentor. Para configurar o seu cluster para recolher eventos de contentor, veja este [tutorial passo a passo](service-fabric-tutorial-monitoring-wincontainers.md). 
+
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Configurar o solução de monitorização do contentor
 
 > [!NOTE]
-> Tem de ter definido de análise de registos a cópia de segurança para o cluster, bem como ter o agente do OMS implementados nos nós. Se não, siga os passos no [configurar a análise de registos](service-fabric-diagnostics-oms-setup.md) e [adicionar o agente do OMS a um cluster](service-fabric-diagnostics-oms-agent.md) primeiro.
+> Tem de ter o conjunto de Log Analytics até para o seu cluster, bem como para ter o agente do Log Analytics implementado em seus nós. Se não o fizer, siga os passos em [configurar o Log Analytics](service-fabric-diagnostics-oms-setup.md) e [adicionar o agente Log Analytics a um cluster](service-fabric-diagnostics-oms-agent.md) primeiro.
 
-1. Depois do cluster está configurado com a análise de registos e o agente do OMS, implemente os contentores. Aguarde que os contentores ser implementada antes de mover para o passo seguinte.
+1. Assim que o seu cluster está configurado com o Log Analytics e o agente Log Analytics, implemente os contentores. Aguarde que os contentores ser implementado antes de passar para o passo seguinte.
 
-2. No Azure Marketplace, procure *solução de monitorização do contentor* e clique em de **solução de monitorização do contentor** recurso que aparece na monitorização + gestão categoria.
+2. No Azure Marketplace, procure *solução de monitorização de contentores* e clique nas **solução de monitorização de contentores** recurso que aparece em monitorização + gestão categoria.
 
     ![Adicionar a solução de Contentores](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Crie a solução no interior da área de trabalho mesma que já tiver sido criada para o cluster. Esta alteração aciona automaticamente o agente para iniciar a recolha de dados de docker nos contentores. Em cerca de 15 minutos ou por isso, deverá ver a solução leve cópias de segurança com registos de entrada e de estatísticas. conforme mostrado na imagem abaixo.
+3. Crie a solução dentro da mesma área de trabalho que já foi criada para o cluster. Esta alteração aciona automaticamente o agente para iniciar a recolha de dados de docker nos contentores. Em cerca de 15 minutos ou menos, deverá ver a solução leve a cópia de segurança com registos de entrada e estatísticas, conforme mostrado na imagem abaixo.
 
-    ![Dashboard do OMS básico](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+    ![Dashboard de análise de registos básicas](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-O agente permite a recolha de vários registos de contentor específico que pode ser consultada na OMS, ou utilizados para indicadores de desempenho visualizadas. Os tipos de registo que são recolhidos são:
+O agente permite que a coleção de vários registos de contentor específicas que podem ser consultados no Log Analytics ou usados para visualizar os indicadores de desempenho. Os tipos de registo que são recolhidos são:
 
-* ContainerInventory: mostra informações sobre imagens, o nome e localização do contentor
-* ContainerImageInventory: informações sobre imagens de implementada, incluindo os IDs ou tamanhos
-* ContainerLog: registos de erro específico, registos de docker (stdout, etc.) e outras entradas
+* ContainerInventory: mostra informações sobre a localização do contentor, o nome e imagens
+* ContainerImageInventory: informações sobre imagens implantadas, incluindo IDs ou tamanhos
+* ContainerLog: registos de erro específico, registos do docker (stdout, etc.) e outras entradas
 * ContainerServiceLog: comandos de daemon de docker que foram executados
-* Desempenho: os contadores de desempenho incluindo contentor cpu, memória, o tráfego de rede do disco e/s e métricas personalizadas as máquinas de anfitrião
+* Desempenho: contadores de desempenho incluindo contentor cpu, memória, o tráfego de rede, disco e/s e métricas personalizadas dos computadores anfitrião
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [solução de contentores do OMS](../log-analytics/log-analytics-containers.md).
-* Saiba mais sobre a orquestração do contentor no Service Fabric - [Service Fabric e os contentores](service-fabric-containers-overview.md)
-* Obter familiarized com o [de registo de pesquisa e consultar](../log-analytics/log-analytics-log-searches.md) funcionalidades disponibilizadas como parte da análise de registos
-* Configurar a análise de registos para configurar [automatizada alertas](../log-analytics/log-analytics-alerts.md) regras para ajudar a detetar e diagnóstico
+* Saiba mais sobre [solução contentores do Log Analytics](../log-analytics/log-analytics-containers.md).
+* Saiba mais sobre a orquestração de contentores no Service Fabric - [Service Fabric e contentores](service-fabric-containers-overview.md)
+* Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte do Log Analytics
+* Configurar o Log Analytics para configurar [alertas automáticos](../log-analytics/log-analytics-alerts.md) regras para ajudar a detetar e diagnóstico

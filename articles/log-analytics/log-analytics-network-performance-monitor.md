@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf10226b1d3b2153e0e17d4126c35402d096a857
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353296"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409242"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -65,17 +65,17 @@ Utilize os processos de basic para instalar agentes em [computadores Windows lig
 
 ### <a name="where-to-install-the-agents"></a>Onde instalar os agentes 
 
-* **Monitor de desempenho**: agentes de instalar o Operations Management Suite em, pelo menos, um nó ligado a cada sub-rede a partir do qual pretende monitorizar a conectividade de rede para outras sub-redes.
+* **Monitor de desempenho**: agentes de instalar o Log Analytics em, pelo menos, um nó ligado a cada sub-rede a partir do qual pretende monitorizar a conectividade de rede para outras sub-redes.
 
     Para monitorizar uma ligação de rede, instale agentes em ambos os pontos de extremidade de link. Se tiver a certeza sobre a topologia da sua rede, instale os agentes em servidores com cargas de trabalho críticas entre os quais pretende monitorizar o desempenho da rede. Por exemplo, se quiser monitorar a conexão de rede entre um servidor web e um servidor com o SQL, instale um agente em ambos os servidores. Agentes monitoram a conectividade de rede (links) entre anfitriões, não os próprios hosts. 
 
-* **Monitor de conectividade do serviço**: instalar um agente do Operations Management Suite em cada nó do qual pretende monitorizar a conectividade de rede para o ponto final de serviço. Um exemplo é se pretende monitorizar a conectividade de rede para o Office 365 a partir de seus sites do office O1 e O3 2. o nome. Instale o agente do Operations Management Suite em pelo menos um nó em O1, 2. e O3. 
+* **Monitor de conectividade do serviço**: instalar um agente de Log Analytics em cada nó do qual pretende monitorizar a conectividade de rede para o ponto final de serviço. Um exemplo é se pretende monitorizar a conectividade de rede para o Office 365 a partir de seus sites do office O1 e O3 2. o nome. Instale o agente do Log Analytics em pelo menos um nó em O1, 2. e O3. 
 
-* **Monitor do ExpressRoute**: Instale, pelo menos, um agente do Operations Management Suite na sua rede virtual do Azure. Instale também, pelo menos, um agente na sua sub-rede local, que está conectado por meio de peering privado do ExpressRoute.  
+* **Monitor do ExpressRoute**: Instale, pelo menos, um agente de Log Analytics na sua rede virtual do Azure. Instale também, pelo menos, um agente na sua sub-rede local, que está conectado por meio de peering privado do ExpressRoute.  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Configurar agentes do Operations Management Suite para monitorização 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes do Log Analytics para monitorizar 
 
-Monitor de desempenho de rede utiliza transações sintéticas para monitorar o desempenho de rede entre os agentes de origem e de destino. Pode escolher entre TCP e ICMP como protocolo para monitorização no Monitor de desempenho e Monitor de conectividade do serviço de recursos. Apenas TCP está disponível como o protocolo de monitorização para o Monitor do ExpressRoute. Certifique-se de que a firewall permite a comunicação entre os agentes do Operations Management Suite para monitorizar no protocolo que escolher. 
+Monitor de desempenho de rede utiliza transações sintéticas para monitorar o desempenho de rede entre os agentes de origem e de destino. Pode escolher entre TCP e ICMP como protocolo para monitorização no Monitor de desempenho e Monitor de conectividade do serviço de recursos. Apenas TCP está disponível como o protocolo de monitorização para o Monitor do ExpressRoute. Certifique-se de que a firewall permite a comunicação entre os agentes do Log Analytics para monitorizar no protocolo que escolher. 
 
 * **Protocolo TCP**: Se optar por TCP como protocolo para monitorização, abra a porta de firewall nos agentes utilizados para o Monitor de desempenho de rede e Monitor do ExpressRoute para se certificar de que os agentes podem ligar-se entre si. Para abrir a porta, execute o [EnableRules.ps1](https://aka.ms/npmpowershellscript) script do PowerShell sem quaisquer parâmetros numa janela do PowerShell com privilégios administrativos.
 
@@ -109,7 +109,7 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorar o 
 
    ![Mosaico de Monitor de desempenho de rede](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. Na **programa de configuração** página, verá a opção para instalar agentes do Operations Management Suite e configurar os agentes para monitorização no **definições comuns de** vista. Como explicado anteriormente, se instalar e configurar agentes do Operations Management Suite, selecione o **configuração** vista para configurar a capacidade de que pretende utilizar. 
+4. Na **programa de configuração** página, verá a opção para instalar agentes do Log Analytics e configurar os agentes para monitorização no **definições comuns de** vista. Como explicado anteriormente, se instalar e configurar agentes do Log Analytics, selecione o **configuração** vista para configurar a capacidade de que pretende utilizar. 
 
    **Monitor de desempenho**: selecione o protocolo a utilizar para as transações sintéticas a **predefinido** regra do Monitor de desempenho e selecione **guardar e continuar**. Apenas se aplica esta seleção de protocolo para a regra padrão gerados pelo sistema. Tem de escolher o protocolo de cada vez que criar explicitamente uma regra de Monitor de desempenho. Sempre pode mover para o **predefinido** regra definições na **Monitor de desempenho** separador (aparecer depois de concluir a configuração do seu dia-0) e o protocolo de alterações mais tarde. Se não pretender que a capacidade de Monitor de rPerfomance, pode desativar a regra predefinida dos **predefinição** regra definições na **Monitor de desempenho** separador.
 
@@ -135,7 +135,7 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorar o 
     
 A monitorização para estes peerings é inicialmente desabilitado. Selecione cada peering que pretende monitorizar e configurar a monitorização para os mesmos a partir da vista de detalhes à direita. Selecione **guardar** para guardar a configuração. Para obter mais informações, consulte o artigo "Configurar a monitorização de ExpressRoute". 
 
-Depois de concluída a configuração, que demora 30 minutos para uma hora para que os dados preencher. Embora a solução agrega dados de sua rede, verá a mensagem *solução requer configuração adicional* no Monitor de desempenho de rede **descrição geral** mosaico. Depois dos dados são recolhidos e indexados, a **descrição geral** mosaico é alterado e informa-o estado de funcionamento de rede num resumo. Em seguida, pode editar a monitorização de nós nos quais o Operations Management Suite os agentes estiverem instalados, bem como as sub-redes detetadas a partir do seu ambiente.
+Depois de concluída a configuração, que demora 30 minutos para uma hora para que os dados preencher. Embora a solução agrega dados de sua rede, verá a mensagem *solução requer configuração adicional* no Monitor de desempenho de rede **descrição geral** mosaico. Depois dos dados são recolhidos e indexados, a **descrição geral** mosaico é alterado e informa-o estado de funcionamento de rede num resumo. Em seguida, pode editar a monitorização de nós no qual o Log Analytics os agentes estiverem instalados, bem como as sub-redes detetadas a partir do seu ambiente.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Editar definições de monitorização para sub-redes e nós 
 
@@ -176,7 +176,7 @@ A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre
  
 
  
-A solução utiliza transações sintéticas para avaliar o estado de funcionamento da rede. Agentes do Operations Management Suite instalado em vários pontos no eco de ICMP ou pacotes de TCP de exchange de rede entre si. Se os agentes utilizam pacotes TCP ou ICMP Echo depende de protocolo que selecionou para monitorização. O processo, agentes saiba a perda de pacote e o tempo de ida e volta, se houver. Periodicamente, cada agente também realiza uma rota de rastreamento para outros agentes para encontrar as várias rotas na rede que deve ser testada. Utilizando estes dados, os agentes podem deduzir a latência de rede e as figuras de perda de pacotes. Os testes são repetidos a cada cinco segundos. Os dados são agregados durante cerca de três minutos pelos agentes do antes de ser carregado para o serviço Log Analytics.
+A solução utiliza transações sintéticas para avaliar o estado de funcionamento da rede. Agentes de análise de registo instalados em vários pontos no eco de ICMP ou pacotes de TCP de exchange de rede entre si. Se os agentes utilizam pacotes TCP ou ICMP Echo depende de protocolo que selecionou para monitorização. O processo, agentes saiba a perda de pacote e o tempo de ida e volta, se houver. Periodicamente, cada agente também realiza uma rota de rastreamento para outros agentes para encontrar as várias rotas na rede que deve ser testada. Utilizando estes dados, os agentes podem deduzir a latência de rede e as figuras de perda de pacotes. Os testes são repetidos a cada cinco segundos. Os dados são agregados durante cerca de três minutos pelos agentes do antes de ser carregado para o serviço Log Analytics.
 
 
 
@@ -259,7 +259,7 @@ Monitor de desempenho de rede utiliza as capacidades de alertas do [do Azure Mon
 
 Isso significa que todas as notificações são geridas através do [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Se for um utilizador NPM, criação de um alerta por meio do OMS: 
+Se for um utilizador NPM, criação de um alerta através do Log Analytics: 
 1. Verá um link que irá redirecioná-lo para o Portal do Azure. Clique nele para aceder ao portal.
 2. Clique no mosaico de solução de Monitor de desempenho de rede. 
 3. Navegue para o configurar.  

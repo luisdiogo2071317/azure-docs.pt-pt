@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948014"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404789"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Monitorizar mensagens B2B e configurar o registo para contas de integração no Azure Logic Apps
 
@@ -58,7 +58,9 @@ Pode ativar o registo diretamente a partir de sua conta de integração ou [atra
 
    1. Selecione **enviar para o Log Analytics**. 
    2. Sob **do Log Analytics**, escolha **configurar**. 
-   3. Sob **áreas de trabalho do OMS**, selecione a área de trabalho do Log Analytics a utilizar para o registo.
+   3. Sob **áreas de trabalho do OMS**, selecione a área de trabalho do Log Analytics a utilizar para o registo. 
+   > [!NOTE]
+   > Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics. 
    4. Sob **Log**, selecione a **IntegrationAccountTrackingEvents** categoria.
    5. Escolha **Guardar**.
 
@@ -93,6 +95,8 @@ Pode ativar o registo diretamente a partir de sua conta de integração ou [atra
    1. Selecione **enviar para o Log Analytics**. 
    2. Sob **do Log Analytics**, escolha **configurar**. 
    3. Sob **áreas de trabalho do OMS**, selecione a área de trabalho do Log Analytics a utilizar para o registo.
+   > [!NOTE]
+   > Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
    4. Sob **Log**, selecione a **IntegrationAccountTrackingEvents** categoria.
    5. Quando tiver terminado, escolha **Save** (Guardar).
 
@@ -129,6 +133,6 @@ O Azure suporta estes tipos de esquema, os quais corrigiram esquemas, exceto o t
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Monitorizar mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "mensagens controlar B2B no OMS")
+* [Monitorizar mensagens B2B no Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "mensagens B2B de controle no Log Analytics do Azure")
 * [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")
 

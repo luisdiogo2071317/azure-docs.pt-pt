@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093031"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409259"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -95,17 +95,23 @@ Para utilizar o Log Analytics para armazenar os registos, siga estes passos:
 
 2. Selecione **configurar** para configurar o registo do Log Analytics. 
 
-   O **áreas de trabalho do OMS** é apresentada a página.
+   O **áreas de trabalho do Log Analytics** é apresentada a página.
+
+    >[!NOTE] 
+    >Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Selecione **criar nova área de trabalho**.
 
-    O **área de trabalho OMS** é apresentada a página.
+    O **área de trabalho do Log Analytics** é apresentada a página.
+
+    >[!NOTE] 
+    >Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Para **área de trabalho OMS**, introduza um nome de área de trabalho do OMS. O nome de área de trabalho do OMS tem de ser exclusivos e conter apenas letras, números e hífenes; não são permitidos espaços e carateres de sublinhado. 
+4. Para **área de trabalho do Log Analytics**, introduza um nome de área de trabalho do Log Analytics. O nome de área de trabalho do Log Analytics tem de ser exclusivos e conter apenas letras, números e hífenes; não são permitidos espaços e carateres de sublinhado. 
 
 5. Para **subscrição**, selecione uma subscrição existente na lista pendente. 
 

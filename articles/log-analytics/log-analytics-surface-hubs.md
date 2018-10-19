@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041486"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407170"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorizar o Surface Hubs com o Log Analytics para controlar o respetivo estado de funcionamento
 
@@ -51,7 +51,7 @@ O Intune é um produto da Microsoft que lhe permite gerir centralmente as defini
 1. Iniciar sessão no Intune.
 2. Navegue para **configurações** > **ligado a origens**.
 3. Criar ou editar uma política baseada no modelo de Surface Hub.
-4. Navegue para a secção OMS (informações operacionais do Azure) da política e adicione o Log Analytics *ID da área de trabalho* e *chave de área de trabalho* à política.
+4. Navegue para a secção de informações operacionais do Azure da política e adicione o Log Analytics *ID da área de trabalho* e *chave de área de trabalho* à política.
 5. Guarde a política.
 6. Associe a política com o grupo adequado de dispositivos.
 
@@ -66,9 +66,9 @@ Se não utilizar o Intune para gerir o seu ambiente, pode inscrever dispositivos
 
 1. A partir do seu Surface Hub, abra **definições**.
 2. Introduza as credenciais de administrador do dispositivo quando lhe for pedido.
-3. Clique em **este dispositivo**e o sob **monitorização**, clique em **configurar definições de OMS**.
+3. Clique em **este dispositivo**e o sob **monitorização**, clique em **configurar definições do Log Analytics**.
 4. Selecione **ativar a monitorização**.
-5. Na caixa de diálogo de configurações de OMS, escreva o Log Analytics **ID da área de trabalho** e escreva o **chave de área de trabalho**.  
+5. Na caixa de diálogo de configurações do Log Analytics, escreva o Log Analytics **ID da área de trabalho** e escreva o **chave de área de trabalho**.  
    ![settings](./media/log-analytics-surface-hubs/settings.png)
 6. Clique em **OK** para concluir a configuração.
 

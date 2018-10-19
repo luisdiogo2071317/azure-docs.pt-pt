@@ -1,6 +1,6 @@
 ---
-title: Monitorizar o cluster Azure Kubernetes - operações de gestão
-description: Monitorização de Kubernetes cluster no serviço de contentor do Azure através da análise do registo
+title: Monitorizar o cluster de Kubernetes do Azure - gestão de operações
+description: Monitorização de cluster de Kubernetes no Azure Container Service com o Log Analytics
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -9,32 +9,32 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164324"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426418"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitor de um cluster do serviço de contentor do Azure com a análise de registos
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitorizar um cluster do Azure Container Service com o Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Esta instrução parte do princípio de que tem [criado um cluster de Kubernetes utilizando o serviço de contentor do Azure](container-service-kubernetes-walkthrough.md).
+Este passo a passo pressupõe que tenha [criado um cluster de Kubernetes com o Azure Container Service](container-service-kubernetes-walkthrough.md).
 
-Também parte do princípio que tem o `az` cli do Azure e `kubectl` as ferramentas instaladas.
+Também parte do princípio que tem o `az` cli do Azure e `kubectl` ferramentas instaladas.
 
-Pode testar se tiver o `az` ferramenta instalada através da execução:
+Pode testar se tiver o `az` ferramenta instalada executando:
 
 ```console
 $ az --version
 ```
 
 Se não tiver o `az` ferramenta instalada, existem instruções [aqui](https://github.com/azure/azure-cli#installation).
-Em alternativa, pode utilizar [Shell de nuvem do Azure](https://docs.microsoft.com/azure/cloud-shell/overview), que tem o `az` cli do Azure e `kubectl` ferramentas já instaladas por si.
+Em alternativa, pode utilizar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que tem o `az` da cli do Azure e `kubectl` ferramentas já instaladas para.
 
-Pode testar se tiver o `kubectl` ferramenta instalada através da execução:
+Pode testar se tiver o `kubectl` ferramenta instalada executando:
 
 ```console
 $ kubectl version
@@ -45,59 +45,59 @@ Se não tiver `kubectl` instalado, pode executar:
 $ az acs kubernetes install-cli
 ```
 
-Para testar se tiver chaves kubernetes instaladas na sua ferramenta kubectl que pode executar:
+Para testar se tiver as chaves de kubernetes instaladas na sua ferramenta de kubectl que pode executar:
 ```console
 $ kubectl get nodes
 ```
 
-Se os erros de comando acima terminar, tem de instalar as chaves de cluster kubernetes para a ferramenta de kubectl. Pode fazê-lo com o seguinte comando:
+Se os erros de comando acima horizontalmente, tem de instalar as chaves de cluster do kubernetes em sua ferramenta de kubectl. Pode fazê-lo com o seguinte comando:
 ```console
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-log-analytics"></a>Monitorização de contentores com a análise de registos
+## <a name="monitoring-containers-with-log-analytics"></a>Monitorização de contentores com o Log Analytics
 
-Análise de registos é baseado na nuvem IT solução de gestão que o ajuda a gerir e proteger no local e a infraestrutura de nuvem. da Microsoft Contentor é uma solução na análise de registos, que ajuda-o a ver o inventário de contentor, o desempenho e a registos numa única localização. Pode de auditoria, resolver problemas de contentores através da visualização de registos de localização centralizada e localizar inúteis consumir contentor em excesso num anfitrião.
+Log Analytics é uma solução da Microsoft com base na cloud IT management que ajuda a gerenciar e proteger no local e a infraestrutura na cloud. Solução de contentor é uma solução no Log Analytics, que lhe permite ver o inventário de contentor, desempenho e registos numa única localização. Pode de auditoria, resolver problemas relacionados com contentores visualizando os registos de localização centralizada e encontrar ruidosos consumir em excesso contentor num anfitrião.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Para obter mais informações sobre a solução de contentor, consulte o [análise de registos do contentor solução](../../log-analytics/log-analytics-containers.md).
+Para obter mais informações sobre solução de contentor, consulte a [contentor solução Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-## <a name="installing-log-analytics-on-kubernetes"></a>Análise de registos de instalação no Kubernetes
+## <a name="installing-log-analytics-on-kubernetes"></a>Instalar o Log Analytics no Kubernetes
 
-### <a name="obtain-your-workspace-id-and-key"></a>Obter o ID da área de trabalho e a chave
-Para a análise de registos agente para comunicar com o serviço, tem de ser configurado com um ID de área de trabalho e uma chave de área de trabalho. Para obter o ID da área de trabalho e a chave tem de criar uma conta no <https://mms.microsoft.com>.
-Siga os passos para criar uma conta. Quando tiver terminado a criar a conta, tem de obter o ID e a chave clicando **definições**, em seguida, **origens ligadas**e, em seguida, **servidores Linux**, conforme mostrado abaixo.
+### <a name="obtain-your-workspace-id-and-key"></a>Obter o ID de área de trabalho e a chave
+Para o Log Analytics agente para comunicar com o serviço tem de ser configurado com um ID de área de trabalho e uma chave de área de trabalho. Para obter o ID de área de trabalho e a chave tem de criar uma conta no <https://mms.microsoft.com>.
+Siga os passos para criar uma conta. Assim que estiver concluído a criação da conta, pode obter o ID e chave ao clicar no **do Log Analytics** painel, em seguida, o nome da sua área de trabalho. Em seguida, em **definições avançadas**, **origens ligadas**e, em seguida **servidores Linux**, encontrará as informações necessárias, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Instalar o agente de análise de registos com um DaemonSet
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Instalar o agente de Log Analytics, utilizando um DaemonSet
 DaemonSets são utilizados pelo Kubernetes para executar uma única instância de um contentor em cada anfitrião no cluster.
-Se estiver a perfeita para a execução de agentes de monitorização.
+Eles são perfeitos para a execução de agentes de monitorização.
 
-Eis o [ficheiro DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Guarde-o num ficheiro denominado `oms-daemonset.yaml` e substitua os valores de marcador de posição-para `WSID` e `KEY` com o ID da área de trabalho e a chave no ficheiro.
+Aqui está o [ficheiro DaemonSet YAML](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Guarde-o num ficheiro denominado `oms-daemonset.yaml` e substitua os valores de marcador de posição para `WSID` e `KEY` com o ID de área de trabalho e a chave no ficheiro.
 
-Depois de adicionar o ID da área de trabalho e a chave para a configuração de DaemonSet, pode instalar o agente de análise de registos no seu cluster com o `kubectl` ferramenta da linha de comandos:
+Depois de adicionar o ID de área de trabalho e a chave para a configuração de DaemonSet, pode instalar o agente Log Analytics no seu cluster com o `kubectl` ferramenta da linha de comandos:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Instalar o agente de análise de registos com um segredo Kubernetes
-Para proteger o seu ID da área de trabalho de análise de registos e a chave pode utilizar o segredo Kubernetes como parte do ficheiro de DaemonSet YAML.
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Instalação do agente de Log Analytics com o segredo do Kubernetes
+Para proteger o seu ID de área de trabalho do Log Analytics e a chave pode utilizar o segredo do Kubernetes como parte do ficheiro DaemonSet YAML.
 
- - Copie o script, ficheiro de modelo secreta e o ficheiro de DaemonSet YAML (de [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e certifique-se de que estão no mesmo diretório.
-      - segredo gerar script - gen.sh segredo
-      - modelo secreto - template.yaml segredo
+ - Copie o script, ficheiro de modelo secreta e o ficheiro DaemonSet YAML (partir [repositório](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) e certifique-se de que estão no mesmo diretório.
+      - Gerar script - gen.sh segredo do segredo
+      - modelo secreto - template.yaml do segredo
    - Ficheiro DaemonSet YAML - omsagent-ds-secrets.yaml
- - Execute o script. O script irá perguntar-para o ID de área de trabalho de análise do registo e a chave primária. Inserir que e o script irá criar um ficheiro de yaml secreta, pelo que pode executá-lo.
+ - Execute o script. O script solicitará o ID de área de trabalho do Log Analytics e a chave primária. Inserir que e o script irá criar um ficheiro yaml secreta, para que pode executá-lo.
    ```
    #> sudo bash ./secret-gen.sh
    ```
 
-   - Crie o pod segredos executando o seguinte: ``` kubectl create -f omsagentsecret.yaml ```
+   - Crie o pod segredos ao executar o seguinte: ``` kubectl create -f omsagentsecret.yaml ```
 
    - Para verificar, execute o seguinte:
 
@@ -120,7 +120,7 @@ Para proteger o seu ID da área de trabalho de análise de registos e a chave po
    KEY:    88 bytes
    ```
 
-  - Criar a sua omsagent daemon-set executando ``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Criar a sua omsagent daemon-set através da execução ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Conclusão
-Já está! Após alguns minutos, deverá conseguir ver que fluem para o dashboard de análise de registos de dados.
+Já está! Após alguns minutos, deve ser capaz de ver o fluxo de dados para o dashboard do Log Analytics.

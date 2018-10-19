@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746902"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409361"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -29,7 +29,9 @@ ms.locfileid: "42746902"
 >
 >
 
-A aplicação de orquestração de patch é uma aplicação do Azure Service Fabric que automatiza o sistema operativo, aplicação de patches no cluster do Service Fabric sem tempo de inatividade.
+[Atualizações automáticas da imagem de SO do conjunto de dimensionamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) é a melhor prática para manter seus sistemas de operativos corrigidos no Azure e o Patch Orchestration Application (POA) é um wrapper em torno do serviço de sistemas de RepairManager de recursos de infraestrutura do serviço Isso permite a configuração baseada o agendamento de patch de SO para clusters de alojado não pertencente ao Azure. POA não é necessária para clusters de alojado não pertencente ao Azure, mas agendamento da instalação de patch por domínios de atualização, é necessário para corrigir o Service Fabric clusters anfitriões sem tempo de inatividade.
+
+POA é uma aplicação do Azure Service Fabric que automatiza o sistema operativo, aplicação de patches no cluster do Service Fabric sem tempo de inatividade.
 
 A aplicação de orquestração do patch fornece as seguintes funcionalidades:
 
@@ -284,7 +286,7 @@ Se o serviço de Gestor de reparação não foi encontrado no cluster, é gerado
 
 P. **Por que motivo é que vejo o meu cluster em estado de erro quando a aplicação de orquestração do patch está em execução?**
 
-A. Durante o processo de instalação, a aplicação de orquestração do patch desativa ou reinicia os nós, que temporariamente podem resultar em estado de funcionamento do cluster na direção para baixo.
+R. Durante o processo de instalação, a aplicação de orquestração do patch desativa ou reinicia os nós, que temporariamente podem resultar em estado de funcionamento do cluster na direção para baixo.
 
 Com base na política para o aplicativo, seja um nó pode descer durante uma operação de aplicação de patches *ou* um todo domínio de atualização pode ser reduzidos em simultâneo.
 
@@ -298,15 +300,15 @@ Se o problema persistir, consulte a secção de resolução de problemas.
 
 P. **Aplicação de orquestração do patch está num Estado de aviso**
 
-A. Verifique se um relatório de estado de funcionamento lançado contra a aplicação é a causa raiz. Normalmente, o aviso contém detalhes do problema. Se o problema é transitório, espera-se a aplicação para recuperar automaticamente de neste estado.
+R. Verifique se um relatório de estado de funcionamento lançado contra a aplicação é a causa raiz. Normalmente, o aviso contém detalhes do problema. Se o problema é transitório, espera-se a aplicação para recuperar automaticamente de neste estado.
 
 P. **O que devo fazer se o meu cluster está em mau estado de funcionamento e o que preciso fazer uma atualização do sistema de operativo urgente?**
 
-A. A aplicação de orquestração do patch não instala atualizações enquanto o cluster está em mau estado de funcionamento. Tente colocar o seu cluster para um bom estado de funcionamento para desbloquear o fluxo de trabalho de aplicação do patch orchestration.
+R. A aplicação de orquestração do patch não instala atualizações enquanto o cluster está em mau estado de funcionamento. Tente colocar o seu cluster para um bom estado de funcionamento para desbloquear o fluxo de trabalho de aplicação do patch orchestration.
 
 P. **Deve i definida TaskApprovalPolicy como 'NodeWise' ou 'UpgradeDomainWise' para o meu cluster?**
 
-A. "UpgradeDomainWise" faz com que o cluster geral, aplicação de patches mais rapidamente ao corrigir todos os nós que pertencem a um domínio de atualização em paralelo. Isso significa que nós que pertencem a um domínio de atualização completo seria indisponíveis (no [desativado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) Estado) durante o processo de aplicação de patches.
+R. "UpgradeDomainWise" faz com que o cluster geral, aplicação de patches mais rapidamente ao corrigir todos os nós que pertencem a um domínio de atualização em paralelo. Isso significa que nós que pertencem a um domínio de atualização completo seria indisponíveis (no [desativado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) Estado) durante o processo de aplicação de patches.
 
 Por outro lado "NodeWise" política patches apenas um nó por vez, isso implica a aplicação de patches de cluster geral exigiria mais tempo. No entanto, no máximo, apenas um nó estaria indisponível (no [desativado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) Estado) durante o processo de aplicação de patches.
 
@@ -314,7 +316,7 @@ Se o seu cluster pode tolerar em execução num número de n-1 de domínios de a
 
 P. **Quanto tempo isso take para corrigir um nó?**
 
-A. Aplicação de patches de um nó pode demorar minutos (por exemplo: [atualizações de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions)) para horas (por exemplo: [atualizações cumulativas do Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tempo necessário para corrigir um nó depende principalmente no 
+R. Aplicação de patches de um nó pode demorar minutos (por exemplo: [atualizações de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions)) para horas (por exemplo: [atualizações cumulativas do Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tempo necessário para corrigir um nó depende principalmente no 
  - O tamanho de atualizações
  - Número de atualizações, que têm de ser aplicados a uma janela da aplicação de patches
  - Tempo necessário para instalar as atualizações, reiniciar o nó (se necessário) e concluir os passos de instalação de pós-reinício.
@@ -322,7 +324,7 @@ A. Aplicação de patches de um nó pode demorar minutos (por exemplo: [atualiza
 
 P. **Quanto tempo demora a aplicar o patch num cluster completo?**
 
-A. O tempo necessário para aplicar o patch num cluster completo depende dos seguintes fatores:
+R. O tempo necessário para aplicar o patch num cluster completo depende dos seguintes fatores:
 
 - Tempo necessário para corrigir um nó.
 - A política do serviço de coordenador. -A política predefinida, `NodeWise`, resulta na aplicação de patches apenas um nó de cada vez, que seria mais lento do que `UpgradeDomainWise`. Por exemplo: se um nó demora ~ 1 hora para ser corrigido, inorder para corrigir um nó de 20 (mesmo tipo de nós) do cluster com 5 domínios de atualização, cada um contendo de 4 nós.
@@ -333,11 +335,11 @@ A. O tempo necessário para aplicar o patch num cluster completo depende dos seg
 
 P. **Por que vejo algumas atualizações nos resultados da atualização do Windows obtidos através da REST API, mas não está sob o histórico de atualização do Windows na máquina?**
 
-A. Algumas atualizações de produto apenas apareceria no respetivo histórico de atualização/correção respectivos. Por exemplo, atualizações do Windows Defender podem ou não podem aparecer no histórico de atualização do Windows no Windows Server 2016.
+R. Algumas atualizações de produto apenas apareceria no respetivo histórico de atualização/correção respectivos. Por exemplo, atualizações do Windows Defender podem ou não podem aparecer no histórico de atualização do Windows no Windows Server 2016.
 
 P. **Aplicação de Patch Orchestration pode ser utilizada para corrigir o meu cluster de desenvolvimento (um nó de cluster)?**
 
-A. Não, não podem servir-se aplicações de orquestração do Patch para o cluster de um nó de patch. Esta limitação é por design, como [serviços do sistema de recursos de infraestrutura do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou todas as aplicações cliente enfrentarão o tempo de inatividade e, por conseguinte, qualquer tarefa de reparação para aplicação de patches nunca seria obter aprovada pelo Gestor de reparação.
+R. Não, não podem servir-se aplicações de orquestração do Patch para o cluster de um nó de patch. Esta limitação é por design, como [serviços do sistema de recursos de infraestrutura do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou todas as aplicações cliente enfrentarão o tempo de inatividade e, por conseguinte, qualquer tarefa de reparação para aplicação de patches nunca seria obter aprovada pelo Gestor de reparação.
 
 ## <a name="disclaimers"></a>Exclusão de Responsabilidade
 

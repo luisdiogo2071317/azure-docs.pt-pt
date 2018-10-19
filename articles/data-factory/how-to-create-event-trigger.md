@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309365"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429393"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Criar um acionador que executa um pipeline em resposta a um evento
 
@@ -71,23 +71,26 @@ A tabela seguinte fornece uma descrição geral dos elementos do esquema relacio
 | **Elemento JSON** | **Descrição** | **Tipo** | **Valores permitidos** | **Necessário** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **scope** | O ID de recurso do Azure Resource Manager da conta de armazenamento. | Cadeia | ID de Gestor de recursos do Azure | Sim |
-| **eventos** | O tipo de eventos que fazem com que este acionador a acionar. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação. |
-| **blobPathBeginsWith** | O caminho do blob tem de começar com o padrão fornecido para o acionador a acionar. Por exemplo, '/ registos/blobs/Dezembro /' será disparado somente o acionador para blobs na pasta Dezembro sob o contentor de registos. | Cadeia   | | Tem de ser fornecida, pelo menos, uma destas propriedades: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | O caminho do blob tem de terminar com o padrão fornecido para o acionador a acionar. Por exemplo, "december/boxes.csv" será disparado somente o acionador para blobs com o nome caixas numa pasta de Dezembro. | Cadeia   | | Tem de ser fornecida, pelo menos, uma destas propriedades: blobPathBeginsWith, blobPathEndsWith. |
+| **eventos** | O tipo de eventos que fazem com que este acionador a acionar. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sim, qualquer combinação destes valores. |
+| **blobPathBeginsWith** | O caminho do blob tem de começar com o padrão fornecido para o acionador a acionar. Por exemplo, `/records/blobs/december/` só é acionado o acionador para blobs no `december` pasta sob o `records` contentor. | Cadeia   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **blobPathEndsWith** | O caminho do blob tem de terminar com o padrão fornecido para o acionador a acionar. Por exemplo, `december/boxes.csv` só é acionado o acionador para blobs com o nome `boxes` num `december` pasta. | Cadeia   | | Tem de fornecer um valor para, pelo menos, uma destas propriedades: `blobPathBeginsWith` ou `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemplos de acionadores baseados em eventos
 
 Esta secção fornece exemplos de definições do acionador baseado em evento.
 
--   **Caminho do blob começa com**("/ containername /") – recebe eventos para qualquer blob no contentor.
--   **Caminho do blob começa com**("/ containername/blobs/foldername") – recebe eventos para os blobs no contentor de containername e na pasta foldername. Também pode fazer referência a uma subpasta; Por exemplo, "/ containername/blobs/foldername/subfoldername /'.
--   **Caminho do blob começa com**("/ containername/blobs/foldername/file.txt') – recebe eventos para um blob com o nome file.txt na pasta foldername no contentor containername.
--   **Caminho do blob termina com**('file.txt') – Receives eventos para um blob com o nome file.txt em qualquer caminho.
--   **Caminho do blob termina com**("/ containername/blobs/file.txt') – recebe eventos para um blob com o nome file.txt em containername de contentor.
--   **Caminho do blob termina com**('foldername/file.txt') – Receives eventos para um blob com o nome file.txt na pasta de foldername em qualquer contentor.
+> [!IMPORTANT]
+> Tem de incluir o `/blobs/` segmento do caminho, conforme mostrado nos exemplos a seguir, sempre que especifique o contentor e pasta, contentor e a pasta de ficheiro ou contêiner e de ficheiros.
 
-> [!NOTE]
-> Tem de incluir o `/blobs/` segmento do caminho sempre que especifique o contentor e pasta, contentor e a pasta de ficheiro ou contêiner e de ficheiros.
+| Propriedade | Exemplo | Descrição |
+|---|---|---|
+| **Caminho do blob começa com** | `/containername/` | Recebe eventos para qualquer blob no contentor. |
+| **Caminho do blob começa com** | `/containername/blobs/foldername/` | Recebe eventos para os blobs existentes no `containername` contentor e `foldername` pasta. |
+| **Caminho do blob começa com** | `/containername/blobs/foldername/subfoldername/` | Também pode referenciar uma subpasta. |
+| **Caminho do blob começa com** | `/containername/blobs/foldername/file.txt` | Recebe eventos para um blob com o nome `file.txt` no `foldername` pasta sob o `containername` contentor. |
+| **Caminho do blob termina com** | `file.txt` | Recebe eventos para um blob com o nome `file.txt` eu qualquer caminho. |
+| **Caminho do blob termina com** | `/containername/blobs/file.txt` | Recebe eventos para um blob com o nome `file.txt` no contentor `containername`. |
+| **Caminho do blob termina com** | `foldername/file.txt` | Recebe eventos para um blob com o nome `file.txt` em `foldername` pasta em qualquer contentor. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter informações detalhadas sobre os acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).

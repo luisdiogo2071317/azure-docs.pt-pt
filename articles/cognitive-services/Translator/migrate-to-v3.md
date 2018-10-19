@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128184"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429512"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
 
@@ -32,23 +32,23 @@ O final deste documento contém links úteis para obter mais informações.
 * Translitere - foi adicionado um método transliterate para a API. Este método converterá palavras e frases num script (por exemplo Árabe) em outro script (por exemplo Latim).
 * Linguagens – um novo método de "idiomas" fornece informações de idioma, no formato JSON, para utilização com o "traduzir", "dicionário" e "translitere" métodos.
 * Novo para Translate - novos recursos foram adicionados ao método "traduzir" para dar suporte a alguns dos recursos que estavam na V2 API como métodos separados. Um exemplo é TranslateArray.
-* Método de falar - funcionalidade de texto em voz já não é suportada na API do Microsoft Translator. Funcionalidade de texto em voz está disponível nos serviços cognitivos do Azure, API de voz do Bing.
+* Método de falar - funcionalidade de texto em voz já não é suportada na API do Microsoft Translator. Funcionalidade de texto em voz está disponível no [serviço de voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 A seguinte lista de métodos V2 e V3 identifica as APIs que irá fornecer a funcionalidade com o V2 e V3 métodos.
 
 | V2 o método API   | V3 Compatibilidade da API |
 |:----------- |:-------------|
-| Traduzir     | Traduzir          |
-| TranslateArray      | Traduzir          |
-| GetLanguageNames      | Linguagens          |
-| GetLanguagesForTranslate     | Linguagens        |
-| GetLanguagesForSpeak      | API de voz dos serviços cognitivos         |
-| Fale     | API de voz dos serviços cognitivos          |
-| Detetar     | Detetar         |
-| DetectArray     | Detetar         |
-| AddTranslation     | API de HUB do Microsoft Translator         |
-| AddTranslationArray    | API de HUB do Microsoft Translator          |
-| BreakSentences      | BreakSentence         |
+| Traduzir     | [Traduzir](reference/v3-0-translate.md)          |
+| TranslateArray      | [Traduzir](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [Idiomas](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [Idiomas](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Fale     | [Serviço de voz da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detetar     | [Detetar](reference/v3-0-detect.md)         |
+| DetectArray     | [Detetar](reference/v3-0-detect.md)         |
+| AddTranslation     | [Hub de Microsoft Translator API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Hub de Microsoft Translator API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | A funcionalidade já não é suportada         |
 | GetTranslationsArray      | A funcionalidade já não é suportada         |
 

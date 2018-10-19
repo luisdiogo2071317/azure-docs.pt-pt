@@ -1,5 +1,5 @@
 ---
-title: Filtros de ligação de IP de Hubs de eventos do Azure | Documentos da Microsoft
+title: Filtros de IP de Hubs de eventos do Azure | Documentos da Microsoft
 description: Utilize o IP de filtragem para bloquear as conexões de endereços IP específicos para os Hubs de eventos do Azure.
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886182"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408154"
 ---
 # <a name="use-ip-filters"></a>Utilizar filtros de IP
 
-Para cenários nos quais os Hubs de eventos do Azure só é acessível a partir de certos sites conhecidos, o *filtro IP* funcionalidade permite-lhe configurar regras para rejeitar ou aceitar o tráfego proveniente de endereços de IPv4 específicos. Por exemplo, estes endereços podem ser de um gateway empresarial do NAT.
+Para cenários em que os Hubs de eventos do Azure deve ser apenas acessíveis a partir de certos sites conhecidos, o *filtro IP* funcionalidade permite-lhe configurar regras para rejeitar ou aceitar o tráfego proveniente de endereços de IPv4 específicos. Por exemplo, estes endereços podem ser de um gateway empresarial do NAT.
 
 ## <a name="when-to-use"></a>Quando utilizar
 
-Dois importantes casos em que é útil bloquear determinados endereços IP são os seguintes pontos finais de Hubs de eventos de utilização:
+Utilizam dois importantes casos em que é útil bloquear os Hubs de eventos para determinados endereços IP são os seguintes:
 
 - Os hubs de eventos devem receber o tráfego apenas a partir de um especificado intervalo de endereços IP e rejeitar tudo o resto. Por exemplo, estiver a utilizar os Hubs de eventos com [Azure Express Route] [ express-route] criar ligações privadas para a sua infraestrutura no local. 
 - Precisa recusar tráfego a partir de endereços IP que tenham sido identificados como sendo suspeitas pelo administrador do Hubs de eventos.
@@ -47,12 +47,12 @@ Por exemplo, se pretender aceitar endereços no 70.37.104.0/24 intervalo e rejei
 > [!NOTE]
 > Rejeitar endereços IP pode impedir que outros serviços do Azure (por exemplo, o Azure Stream Analytics, máquinas virtuais do Azure ou o Device Explorer no portal) interagir com os Hubs de eventos.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Criar uma regra de rede virtual com modelos Azure Resource Manager
+### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Criar uma regra de filtro IP com modelos Azure Resource Manager
 
 > [!IMPORTANT]
 > Redes virtuais são suportadas no **padrão** e **dedicado** escalões de Hubs de eventos. Não é suportada no escalão básico. 
 
-O modelo do Resource Manager seguinte permite adicionar uma regra de rede virtual para um espaço de nomes de Hubs de eventos existente.
+O modelo do Resource Manager seguinte permite adicionar uma regra de filtro IP para um espaço de nomes de Hubs de eventos existente.
 
 Parâmetros do modelo:
 

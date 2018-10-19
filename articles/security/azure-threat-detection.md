@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856883"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408834"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançada do Azure
 
-Ofertas do Azure criadas na funcionalidade de deteção de ameaças avançada por meio de serviços como o Azure Active Directory (Azure AD), o Azure Operations Management Suite (OMS) e o Centro de segurança do Azure. Este conjunto de capacidades e serviços de segurança fornece uma forma simple e rápida de compreender o que está acontecendo dentro de suas implementações do Azure.
+Ofertas do Azure criadas na funcionalidade de deteção de ameaças avançada por meio de serviços como o Azure Active Directory (Azure AD), o Azure Log Analytics e o Centro de segurança do Azure. Este conjunto de capacidades e serviços de segurança fornece uma forma simple e rápida de compreender o que está acontecendo dentro de suas implementações do Azure.
 
 O Azure oferece um vasto leque de opções para configurar e personalizar a segurança para satisfazer os requisitos das suas implementações de aplicações. Este artigo discute como a cumprir esses requisitos.
 
@@ -75,21 +75,21 @@ PIM ajuda-o:
 
 -   Obtenha alertas sobre o acesso a uma função com privilégios.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma Microsoft baseado na nuvem gestão solução de TI que ajuda a gerenciar e proteger no local e a infraestrutura na cloud. Porque o OMS estiver implementado como um serviço baseado na nuvem, pode tê-lo em funcionamento rapidamente com um investimento mínimo em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, reduzindo a manutenção contínua e os custos de atualização.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma Microsoft baseado na nuvem gestão solução de TI que ajuda a gerenciar e proteger no local e a infraestrutura na cloud. Uma vez que o Log Analytics é implementado como um serviço baseado na nuvem, pode tê-lo em funcionamento rapidamente com um investimento mínimo em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, reduzindo a manutenção contínua e os custos de atualização.
 
-Além de fornecer serviços importantes por conta própria, OMS pode ser integrado com componentes do System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para expandir a sua segurança existente investimentos de gestão para a cloud. O System Center e o OMS podem trabalhar em conjunto para fornecer uma experiência de gestão híbrida completa.
+Além de fornecer serviços importantes por conta própria, do Log Analytics pode ser integrado com componentes do System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para expandir a sua segurança existente investimentos de gestão para a cloud. System Center e o Log Analytics podem trabalhar em conjunto para fornecer a experiência de um gestão híbrida completa.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Postura de segurança e conformidade holística
 
-O [dashboard segurança OMS e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma visão abrangente da sua organização postura de segurança IT, com consultas de pesquisa incorporada para problemas relevantes que necessitam da sua atenção. O dashboard de segurança e auditoria é o ecrã principal para tudo relacionado à segurança no OMS. Fornece informações de alto nível sobre o estado de segurança dos computadores. Também pode ver todos os eventos a partir das últimas 24 horas, 7 dias, ou qualquer outro período de tempo personalizado.
+O [dashboard de segurança de análise de registo e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma visão abrangente da sua organização postura de segurança IT, com consultas de pesquisa incorporada para problemas relevantes que necessitam da sua atenção. O dashboard de segurança e auditoria é o ecrã principal para tudo relacionado à segurança no Log Analytics. Fornece informações de alto nível sobre o estado de segurança dos computadores. Também pode ver todos os eventos a partir das últimas 24 horas, 7 dias, ou qualquer outro período de tempo personalizado.
 
-Dashboards OMS ajudá-lo rapidamente e facilmente compreender a postura de segurança geral de qualquer ambiente, todos os dentro do contexto de operações de TI, incluindo o software de atualização de avaliação, avaliação de antimalware e linhas de base de configuração. Dados de registo de segurança são imediatamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
+O log Analytics ajudá-lo a rapidamente e facilmente compreender a postura de segurança geral de qualquer ambiente, todos os dentro do contexto de operações de TI, incluindo o software de atualização de avaliação, avaliação de antimalware e linhas de base de configuração. Dados de registo de segurança são imediatamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
 
-![O dashboard de segurança do OMS e auditoria](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![O dashboard de segurança de análise de registo e auditoria](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-O dashboard de auditoria e segurança do OMS está organizado em quatro categorias principais:
+O dashboard de segurança de análise de registo e auditoria está organizado em quatro categorias principais:
 
 -   **Domínios de segurança**: permite que ainda mais explorar os registos de segurança ao longo do tempo; avaliações de software maligno do acesso; de avaliações de atualização de segurança de rede do modo de exibição, identidade e aceder às informações; ver computadores com eventos de segurança; e aceder rapidamente o Azure Dashboard do Centro de segurança.
 
@@ -102,25 +102,25 @@ O dashboard de auditoria e segurança do OMS está organizado em quatro categori
 -   **Consultas de segurança comuns**: apresenta uma lista as consultas de segurança mais comuns que pode utilizar para monitorizar o seu ambiente. Ao selecionar qualquer consulta, o painel de pesquisa abre e apresenta os resultados para essa consulta.
 
 ### <a name="insight-and-analytics"></a>O Insight and analytics
-No centro do [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é o repositório do OMS, que está alojado pelo Azure.
+No centro do [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é o repositório, o que está alojado pelo Azure.
 
 ![Diagrama de informações e análise](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Recolher dados para o repositório de origens ligadas mediante a configuração de origens de dados e adicionar soluções à sua subscrição.
 
-![Dashboard do OMS ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![O dashboard do Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Origens de dados e soluções criam tipos de registo separado com seu próprio conjunto de propriedades, mas pode ainda analisá-los em conjunto em consultas para o repositório. Pode utilizar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são recolhidos por várias origens.
 
 
-É maior parte da interação com o Log Analytics através do portal do OMS, que é executado em qualquer browser e fornece a acesso a definições de configuração e a várias ferramentas para analisar e atuar sobre os dados recolhidos. No portal, pode utilizar:
+É maior parte da interação com o Log Analytics através do portal do Azure, o que é executado em qualquer browser e fornece a acesso a definições de configuração e a várias ferramentas para analisar e atuar sobre os dados recolhidos. No portal, pode utilizar:
 * [Pesquisas de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) onde constrói as consultas para analisar os dados recolhidos.
 * [Dashboards](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que pode personalizar com vistas gráficas das suas pesquisas mais valiosas.
 * [Soluções](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que fornecem ferramentas de análise e funcionalidade adicionais.
 
 ![Ferramentas de análise](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-As soluções acrescentam funcionalidades ao Log Analytics. Eles principalmente executar na cloud e fornecem uma análise de dados que são recolhidos no repositório do OMS. Soluções também podem definir novos tipos de registos a serem recolhidos que podem ser analisados com pesquisas de registos ou por meio de uma interface de usuário adicionais que a solução fornece no dashboard do OMS.
+As soluções acrescentam funcionalidades ao Log Analytics. Eles principalmente executar na cloud e fornecem uma análise de dados que são recolhidos no repositório do Log Analytics. Soluções também podem definir novos tipos de registos a serem recolhidos que podem ser analisados com pesquisas de registos ou por meio de uma interface de usuário adicionais que a solução fornece no dashboard do Log Analytics.
 
 O dashboard de segurança e auditoria é um exemplo desses tipos de soluções.
 
@@ -353,13 +353,13 @@ Ferramentas que ajudam a desvendar shadow IT, avaliar o risco, aplicar política
 
 O cloud App Security a integração de visibilidade com a sua cloud:
 
--   Utilizar a Cloud Discovery para mapear e identificar o seu ambiente na cloud e as aplicações na cloud é através de sua organização.
+-   utilizar a Cloud Discovery para mapear e identificar o seu ambiente na cloud e as aplicações na cloud é através de sua organização.
 
 -   Agora, a aprovação e a proibição de aplicações na sua cloud.
 
--   Utilização de conectores de aplicações fáceis de implementar que tiram partido das APIs de fornecedores, para visibilidade e governação de aplicações que ligam à.
+-   utilização de conectores de aplicações fáceis de implementar que tiram partido das APIs de fornecedores, para visibilidade e governação de aplicações que ligam à.
 
--   Ajudá-lo a ter controlo contínuo, por definição e, em seguida, ao ajustar continuamente, as políticas.
+-   ajudá-lo a ter controlo contínuo, por definição e, em seguida, ao ajustar continuamente, as políticas.
 
 No recolher dados a partir destas origens, Cloud App Security executa uma análise sofisticada nos mesmos. Imediatamente alerta-o para atividades anómalas e dá-lhe mais visibilidade relativamente à seu ambiente na cloud. Pode configurar uma política no Cloud App Security e utilizá-la para proteger todo o seu ambiente na cloud.
 

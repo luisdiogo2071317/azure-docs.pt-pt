@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 481fcb869004a6fca83fdf19c32c41010057de32
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008200"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403990"
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de verificação de segurança operacionais do Azure
 Implementar uma aplicação no Azure é rápida, fácil e económica. Antes de implementar a aplicação na cloud em produção útil ter uma lista de verificação para ajudar a avaliar o seu aplicativo numa lista de ações de essenciais e recomendados de segurança operacional a ser considerada.
@@ -51,8 +51,7 @@ Esta lista de verificação se destina a ajudar as empresas a pensar por meio de
 Muitas organizações com êxito tem implementado e operado as suas aplicações na cloud no Azure. As listas de verificação fornecidas realçam várias listas de verificação que é essencial e ajudá-lo a aumentar a probabilidade de implementações bem-sucedidas e operações de satisfatório. É altamente recomendável estas considerações operacionais e estratégicas para as implementações de aplicações de novas e existentes no Azure.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste documento, foi-lhe apresentada a solução de Segurança e Auditoria do OMS. Para saber mais sobre a Segurança do OMS, veja os artigos seguintes:
+Para saber mais sobre a segurança, veja os artigos seguintes:
 
-- [Descrição geral do Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Estrutura e segurança operacional](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Operações e planeamento do Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

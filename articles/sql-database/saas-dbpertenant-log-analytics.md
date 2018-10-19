@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056714"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405077"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar o Log Analytics com uma aplicação de SQL da base de dados SaaS multi-inquilino
 
@@ -42,7 +42,7 @@ Para a base de dados SQL do Azure, os alertas e monitorização estão disponív
 
 Para cenários de volume elevado, pode utilizar o Log Analytics para monitorização e alertas. Log Analytics é um serviço do Azure separado que permite a análise sobre os registos de diagnóstico e telemetria recolhidos numa área de trabalho de potencialmente vários serviços. O log Analytics proporciona uma consulta incorporada, linguagem e dados de ferramentas de visualização que permitem a análise de dados operacionais. A solução de análise de SQL fornece várias predefinido conjunto elástico e da base de dados de monitorização e alerta consultas e vistas. O log Analytics também fornece um estruturador de vistas personalizado.
 
-Soluções de análise e áreas de trabalho de análise do registo abra no portal do Azure e no Operations Management Suite. O portal do Azure é o mais recente ponto de acesso, mas pode ser por trás de algumas áreas do portal do Operations Management Suite.
+Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics. Soluções de análise e áreas de trabalho de análise do registo abra no portal do Azure. O portal do Azure é o mais recente ponto de acesso, mas pode ser o que há por trás de algumas áreas do portal do Operations Management Suite.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Criar dados de diagnóstico de desempenho mediante a simulação de uma carga de trabalho em seus inquilinos 
 
@@ -70,12 +70,12 @@ Log Analytics é um serviço separado que tem de ser configurado. O log Analytic
 1. No ISE do PowerShell, abra *.... \\WingtipTicketsSaaS-MultiTenantDb-mestre\\módulos de aprendizagem\\monitorização do desempenho e de gestão\\do Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Para executar o script, pressione F5.
 
-Agora é possível abrir o Log Analytics no portal do Azure ou do portal do Operations Management Suite. Demora alguns minutos para recolher dados telemétricos na área de trabalho do Log Analytics e para torná-lo visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico, a experiência é mais interessante. 
+Agora é possível abrir o Log Analytics no portal do Azure. Demora alguns minutos para recolher dados telemétricos na área de trabalho do Log Analytics e para torná-lo visível. Mais tempo deixar o sistema de recolha de dados de diagnóstico, a experiência é mais interessante. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Utilizar o Log Analytics e a Solução de Análise de SQL para monitorizar conjuntos e bases de dados
 
 
-Neste exercício, abra o Log Analytics e o portal do Operations Management Suite para ver a telemetria recolhida para os conjuntos e bases de dados.
+Neste exercício, abra o Log Analytics no portal do Azure para ver a telemetria recolhida para os conjuntos e bases de dados.
 
 1. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir o Log Analytics. Em seguida, procure o Log Analytics.
 
@@ -127,9 +127,9 @@ Neste exercício, abra o Log Analytics e o portal do Operations Management Suite
 
 1. Na área de trabalho do Log Analytics, selecione **Portal do OMS** para abrir a área de trabalho para lá.
 
-    ![Mosaico do Operations Management Suite Portal](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Área de trabalho do Log Analytics](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-No portal do Operations Management Suite, pode explorar os dados de registo e métrica na área de trabalho ainda mais. 
+Na área de trabalho do Log Analytics, pode explorar ainda mais os dados no registo e métrica. 
 
 Monitorização e alertas no Log Analytics são baseadas em consultas sobre os dados na área de trabalho, ao contrário de alertas definidos em cada recurso no portal do Azure. Baseando alertas em consultas, pode definir um único alerta que procura em todas as bases de dados, em vez de definir um por base de dados. Consultas estão limitadas apenas pelos dados disponíveis na área de trabalho.
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364615"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406282"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -79,7 +79,7 @@ Embora conectores carregará automaticamente o saldo dentro de um grupo do conec
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Esta máquina tinha um limite de ligação de 800. Para todas as outras máquinas, nós usamos o limite de ligação de 200 predefinido.
+\* Esta máquina usada uma definição personalizada para gerar alguns dos limites de conexão padrão, além do .net, as definições recomendadas. Recomendamos executar um teste com as predefinições antes de contactar o suporte para resolver este limite foi alterado para o seu inquilino.
  
 >[!NOTE]
 >Não há muita diferença nos TPS máximos entre 4, 8 e 16 máquinas de núcleo. É a principal diferença entre aqueles na latência esperada.  

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7f637014c5f3e246d67ae051f9304e2f2536d725
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340006"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427387"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -22,12 +22,12 @@ ms.locfileid: "49340006"
 
 Melhorias de confiabilidade e correções de erros:
 
-* Corrija o erro fatal potencial devido a condição de corrida no reconhecedor descarte
-* Corrija o erro fatal potencial em caso de propriedades não definidas.
-* Erro adicional e uma verificação de parâmetros.
-* Objective-c: corrigir possíveis erro fatal causado por nome de substituição no NSString.
-* Visibilidade da API de ajustar Objectice-c:
-* JavaScript: correções sobre eventos e respetivos payloads.
+* Correção do erro fatal potencial devido a condição de corrida em reconhecedor descarte
+* Erro fatal potencial fixo em caso de propriedades não definidas.
+* Foram adicionados erros adicionais e verificação de parâmetros.
+* Foi corrigido Objective-c: possível erro fatal causado por nome substituindo no NSString.
+* Objective-c: ajustado visibilidade da API
+* JavaScript: Corrigido em relação a eventos e respetivos payloads.
 * Melhorias de documentação.
 
 No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicionada uma nova amostra para JavaScript.

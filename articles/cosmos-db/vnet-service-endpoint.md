@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cc64bc1af6eee505ccf3d38e214c49ffb7e3304c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378090"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404465"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteger o acesso a uma conta do Azure Cosmos DB utilizando o ponto final de serviço de rede Virtual do Azure
 
@@ -56,8 +56,8 @@ Agora a sua conta do Azure Cosmos DB será a permitir apenas tráfego nesta esco
 
 1. Partir **todos os recursos** painel, localize a conta do Azure Cosmos DB que pretende proteger.  
 
-> [!NOTE]
-> Se tiver uma firewall do IP existente configurado para a sua conta do Azure Cosmos DB, tenha em atenção a configuração de firewall, remover o firewall do IP e, em seguida, ativar o ponto de final de serviço. Se ativar o ponto final de serviço sem disbling o firewall, o tráfego a partir desse intervalo de ip perderá a identidade IP virtual e é removido com uma mensagem de erro de filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar o firewall do IP novamente se necessário.
+   > [!NOTE]
+   > Se tiver uma firewall do IP existente configurado para a sua conta do Azure Cosmos DB, tenha em atenção a configuração de firewall, remover o firewall do IP e, em seguida, ativar o ponto de final de serviço. Se ativar o ponto final de serviço sem disbling o firewall, o tráfego a partir desse intervalo de ip perderá a identidade IP virtual e é removido com uma mensagem de erro de filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar o firewall do IP novamente se necessário.
 
 2. Antes de ativar o ponto final de serviço de rede virtual, copie as informações de firewall do IP associadas com a sua conta do Azure Cosmos DB para utilização futura. Pode reativar o firewall do IP depois de configurar o ponto final de serviço.  
 
@@ -97,9 +97,8 @@ Utilize os seguintes passos para configurar o ponto final de serviço a uma cont
 
 1. Instalar a versão mais recente [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) e [início de sessão](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Certifique-se de que tenha em atenção as definições da firewall IP e eliminar a firewall do IP completamente antes de ativar o ponto final de serviço para a conta.
 
-
-> [!NOTE]
-> Se tiver uma firewall do IP existente configurado para a sua conta do Azure Cosmos DB, tenha em atenção a configuração de firewall, remover o firewall do IP e, em seguida, ativar o ponto de final de serviço. Se ativar o ponto final de serviço sem disbling o firewall, o tráfego a partir desse intervalo de ip perderá a identidade IP virtual e é removido com uma mensagem de erro de filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar o firewall do IP novamente se necessário.
+  > [!NOTE]
+  > Se tiver uma firewall do IP existente configurado para a sua conta do Azure Cosmos DB, tenha em atenção a configuração de firewall, remover o firewall do IP e, em seguida, ativar o ponto de final de serviço. Se ativar o ponto final de serviço sem disbling o firewall, o tráfego a partir desse intervalo de ip perderá a identidade IP virtual e é removido com uma mensagem de erro de filtro IP. Portanto, para evitar este erro deve sempre de desativar as regras de firewall, copiá-los, ative o ponto final de serviço da sub-rede e, finalmente, a ACL a sub-rede do Cosmos DB. Depois de configurar o ponto final de serviço e adicionar a ACL pode reativar o firewall do IP novamente se necessário.
 
 2. Antes de ativar o ponto final de serviço de rede virtual, copie as informações de firewall do IP associadas com a sua conta do Azure Cosmos DB para utilização futura. Será de reativar o firewall do IP depois de configurar o ponto final de serviço.  
 
@@ -270,7 +269,7 @@ Quando estão ativados pontos finais de serviço de rede virtual, os endereços 
 
 O Azure Cosmos DB é um serviço de multi-inquilino com um endereço IP público. Quando restringir o acesso a uma sub-rede de uma rede Virtual do Azure ao utilizar a funcionalidade de ponto final de serviço, o acesso é restrito para a sua conta do Azure Cosmos DB através de determinada rede Virtual do Azure e a respetiva sub-rede.  Conta do Azure Cosmos DB não reside na rede Virtual do Azure. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>E se nada será registado no Log Analytics/OMS se estiver ativado?  
+### <a name="what-if-anything-will-be-logged-in-log-analytics-if-it-is-enabled"></a>E se nada será registado no Log Analytics se estiver ativado?  
 
 O Azure Cosmos DB irá enviar os registos com o endereço IP (sem o último octeto) com o estado 403 para o pedido bloqueado por ACL.  
 

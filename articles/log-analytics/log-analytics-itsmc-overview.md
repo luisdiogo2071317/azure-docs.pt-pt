@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042433"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407508"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
@@ -63,9 +63,13 @@ Antes de poder criar uma ligação, terá de adicionar a solução de conector I
     ![Adicionar solução ITSMC](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.  Na **área de trabalho OMS** secção, selecione a área de trabalho do Log Analytics do Azure onde pretende instalar a solução.
+   >[!NOTE]
+   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 4.  Na **definições de área de trabalho do OMS** secção, selecione o ResourceGroup onde pretende criar o recurso de solução.
 
     ![Área de trabalho ITSMC](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
 5.  Clique em **Criar**.
 
@@ -250,7 +254,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Categoria |
 | Title_s|  Breve descrição |
 | Description_s|  Notas |
-| CreatedDate_t|  Aberturas |
+| CreatedDate_t|  Aberto |
 | ClosedDate_t| Fechado|
 | ResolvedDate_t|Resolvido|
 | Computador  | Item de configuração |
@@ -290,7 +294,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - Certifique-se de que a aplicação Web é implementada com êxito e ligação híbrida é criada. Para verificar a ligação é estabelecida com êxito com a máquina do Service Manager no local, visite o URL da aplicação Web conforme detalhado na documentação de fazer a [ligação híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se não estiver a obter sincronizados dados a partir de ServiceNow para o Log Analytics, certifique-se de que o ServiceNow instância não está a ser suspenso. Instâncias de desenvolvimento do ServiceNow, às vezes, vá em suspensão quando está ocioso por um longo período. Caso contrário, relate o problema.
-3.  Se os alertas do OMS são disparados, mas funciona itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para quaisquer outras informações genéricas, procure nos seguintes locais:
+3.  Se os alertas do Log Analytics são disparados, mas funcionam itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para quaisquer outras informações genéricas, procure nos seguintes locais:
  -  ITSMC: A solução mostra um resumo dos itens de ligações/trabalho/computadores etc. Clique em Mostrar o mosaico **estado do conector**, que leva-o para **pesquisa de registos** com a consulta relevante. Examinar os registros de log com LogType_S como erro para obter mais informações.
  - **Pesquisa de registos** página: ver as informações de erros/relacionados diretamente com a consulta `*`ServiceDeskLog_CL`*`.
 

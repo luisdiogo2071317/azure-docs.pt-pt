@@ -4,20 +4,20 @@ description: Saiba como resolver problemas de gerenciamento de atualizações
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055781"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405232"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas de gerenciamento de atualizações
 
-Este artigo aborda soluções para resolver problemas que poderá encontrar ao utilizar a gestão de atualizações.
+Este artigo aborda soluções para resolver problemas que pode encontrar ao utilizar a gestão de atualizações.
 
 ## <a name="general"></a>Geral
 
@@ -36,7 +36,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 Este erro pode dever-se pelos seguintes motivos:
 
 1. Comunicação de volta para a conta de automatização está a ser bloqueada.
-2. A VM que está a ser carregadas podem ter proveniente de uma máquina clonada que não foi processado pelo Sysprep com o Microsoft Monitoring Agent instalado.
+2. A VM que se pretende incluir talvez proveniente de uma máquina clonada que não foi processado pelo Sysprep com o Microsoft Monitoring Agent instalado.
 
 #### <a name="resolution"></a>Resolução
 
@@ -87,7 +87,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 #### <a name="cause"></a>Causa
 
-Pode haver um proxy, gateway ou uma firewall a bloquear a comunicação de rede.
+Pode haver um proxy, um gateway ou uma firewall a bloquear a comunicação de rede.
 
 #### <a name="resolution"></a>Resolução
 
@@ -105,11 +105,33 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### <a name="cause"></a>Causa
 
-A função de trabalho de Runbook híbrida não foi possível gerar um certificado autoassinado
+A função de trabalho de Runbook híbrida não foi capaz de gerar um certificado autoassinado
 
 #### <a name="resolution"></a>Resolução
 
 Verifique se conta de sistema tem acesso de leitura à pasta **C:\ProgramData\Microsoft\Crypto\RSA** e tente novamente.
+
+### <a name="hresult"></a>Cenário: Máquina mostra como não avaliados e mostra uma exceção de HResult
+
+#### <a name="issue"></a>Problema
+
+Tiver máquinas que mostram como **não avaliados** sob **conformidade**, e verá uma mensagem de exceção abaixo dele.
+
+#### <a name="cause"></a>Causa
+
+Atualização do Windows não está configurada corretamente na máquina.
+
+#### <a name="resolution"></a>Resolução
+
+Faça duplo clique na exceção apresentada a vermelho para ver a mensagem de exceção de todo. Reveja a tabela seguinte para potenciais soluções ou ações a efetuar:
+
+|Exceção  |Resolução ou ação  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Pesquise o código de erro relevantes na [lista de código de erro de atualização do Windows](https://support.microsoft.com/help/938205/windows-update-error-code-list) para obter detalhes adicionais sobre a causa da exceção.        |
+|`0x8024402C` ou `0x8024401C`     | Estes erros são problemas de conectividade de rede. Certifique-se de que o seu computador tem a conectividade de rede adequada para a gestão de atualizações. Consulte a secção sobre [planeamento de rede](../automation-update-management.md#ports) para obter uma lista de portas e endereços que são necessários.        |
+|`0x8024402C`     | Se estiver a utilizar um servidor WSUS, certifique-se os valores de registo `WUServer` e `WUStatusServer` sob a chave de registo `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` o servidor WSUS correto.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Certifique-se de que o serviço de atualização do Windows (wuauserv) está em execução e não está desabilitado.        |
+|Qualquer outra exceção genérica     | Fazer uma pesquisa na internet para encontrar possíveis soluções e trabalhar com seu suporte de TI local.         |
 
 ## <a name="linux"></a>Linux
 
@@ -159,7 +181,7 @@ Se não conseguir resolver um problema de aplicação de patches, fazer uma cóp
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se não VI o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
+Se não vir o seu problema ou não é possível resolver o problema, visite um dos seguintes canais de suporte mais:
 
 * Obtenha respostas de especialistas do Azure através dos [fóruns do Azure](https://azure.microsoft.com/support/forums/)
 * Ligue-se a [@AzureSupport](https://twitter.com/azuresupport) – a conta oficial do Microsoft Azure para melhorar a experiência do cliente ao ligar a comunidade do Azure aos recursos certos: respostas, suporte e especialistas.

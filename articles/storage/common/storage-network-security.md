@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 98972b0c52470e6a404090d993c21a47b11cd660
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068541"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427150"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure Firewalls e redes virtuais
 O armazenamento do Azure fornece um modelo de segurança em camadas, permitindo-lhe proteger as contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede estiverem configuradas, apenas as aplicações de redes permitidas podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, o aplicações continuam a exigir a autorização adequada (uma chave de acesso válido ou um token SAS) para aceder à conta de armazenamento.
@@ -188,7 +188,9 @@ Permitido de intervalos de endereços da internet podem ser fornecidos usando [n
 > Intervalos de endereços pequenos com "/ 31" ou "/ 32" prefixo tamanhos não são suportados.  Estes intervalos devem ser configurados com regras de endereços IP individuais.
 >
 
-Regras de rede IP só são permitidas para **internet pública** endereços IP.  Intervalos de endereços IP reservados para redes privadas (conforme definido em RFC 1918) não são permitidos em regras de IP.  Redes privadas incluem endereços que comecem com *10.\** , *172.16.\** , e *192.168.\** .
+Regras de rede IP só são permitidas para **internet pública** endereços IP.  Reservado para redes privadas de intervalos de endereços de IP (conforme definido na [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos em regras de IP.  Redes privadas incluem endereços que comecem com *10.\** , *172.16.\**   -  *172.31.\**, e *192.168.\** .
+
+Tenha em atenção que as regras de rede IP não tem qualquer efeito nos pedidos com origem na mesma região do Azure que a conta de armazenamento.  Utilize regras de rede virtual para permitir pedidos da mesma região.
 
 Apenas endereços IPV4 são suportados neste momento.
 

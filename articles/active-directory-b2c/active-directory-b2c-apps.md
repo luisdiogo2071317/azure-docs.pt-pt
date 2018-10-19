@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480517"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406522"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipos de aplicativos que podem ser utilizados no Active Directory B2C
 
@@ -88,11 +88,6 @@ Accept: application/json
 
 A API web pode utilizar o token para verificar a identidade do autor da chamada da API e extrair informações sobre o autor da chamada com base nas afirmações codificadas no token. Saiba mais sobre os tipos de tokens e afirmações disponíveis para uma aplicação na [referência de token do Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-> [!NOTE]
-> Atualmente, o Azure AD B2C suporta apenas APIs Web acedidas pelos próprios clientes conhecidos. Por exemplo, sua aplicação completa pode incluir uma aplicação iOS, uma aplicação Android e uma API da web de back-end. Esta arquitetura é totalmente suportada. Permitir que um cliente de parceiro, tal como outra aplicação do iOS, para acessar a mesma web que API não é atualmente suportada. Todos os componentes da sua aplicação completa têm de partilhar um ID de aplicação único.
->
->
-
 Uma API web pode receber tokens de muitos tipos de clientes, incluindo aplicações web, área de trabalho e aplicativos móveis, aplicações de página única, daemons do lado do servidor e outras APIs web. Eis um exemplo de fluxo completo de uma aplicação web que chama uma API web:
 
 1. A aplicação web executa uma política e o utilizador conclui a experiência do usuário.
@@ -114,11 +109,6 @@ Para saber como proteger uma API web utilizando o Azure AD B2C, consulte os tuto
 Aplicações instaladas em dispositivos, tais como aplicações de ambiente de trabalho e móveis, muitas vezes precisam de aceder a serviços de back-end ou APIs web em nome dos utilizadores. Pode adicionar experiências de gestão de identidade personalizada às suas aplicações nativas e chamar com segurança os serviços de back-end através da utilização do Azure AD B2C e o [fluxo de código de autorização de OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
 Neste fluxo, a execução do aplicativo [políticas](active-directory-b2c-reference-policies.md) e recebe um `authorization_code` do Azure AD depois do utilizador conclui a política. O `authorization_code` representa a permissão da aplicação para chamar serviços de back-end em nome de utilizador que tem atualmente sessão iniciada. O aplicativo, em seguida, pode trocar o `authorization_code` em segundo plano para um `id_token` e um `refresh_token`.  O aplicativo pode usar o `id_token` para autenticar a uma API de web de back-end em pedidos de HTTP. Também pode utilizar o `refresh_token` para obter um novo `id_token` quando o antigo expira.
-
-> [!NOTE]
-> O Azure AD B2C atualmente suporta apenas os tokens que são utilizados para aceder a um serviço de web de back-end da aplicação. Por exemplo, a aplicação completa pode incluir uma aplicação iOS, uma aplicação Android e uma API da web de back-end. Esta arquitetura é totalmente suportada. Atualmente, o que permite à sua aplicação iOS aceder a uma API da web de parceiros utilizando os tokens de acesso de OAuth 2.0 não é suportada. Todos os componentes da sua aplicação completa têm de partilhar um ID de aplicação único.
->
->
 
 ## <a name="current-limitations"></a>Limitações atuais
 

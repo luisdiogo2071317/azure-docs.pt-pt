@@ -1,6 +1,6 @@
 ---
 title: Recolha de dados do Log Analytics com um runbook na automatização do Azure | Documentos da Microsoft
-description: Tutoriais passo a passo que conduz pela criação de um runbook na automatização do Azure para recolher dados para o repositório do OMS para análise pelo Log Analytics.
+description: Tutoriais passo a passo que conduz pela criação de um runbook na automatização do Azure para recolher dados para o repositório para análise pelo Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347101"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409514"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
 Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../log-analytics/log-analytics-azure-storage.md).  Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão.  Nestes casos, pode utilizar o [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   
@@ -56,7 +56,7 @@ A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um 
 
 
 ## <a name="2-create-automation-variables"></a>2. Criar variáveis de automatização
-[Variáveis de automatização](..\automation\automation-variables.md) conter valores que podem ser utilizados por todos os runbooks na conta de automatização.  Eles tornam a runbooks mais flexível, permitindo-lhe alterar estes valores sem editar o runbook real. Todas as solicitações da API de Recoletor de dados HTTP requer o ID e a chave da área de trabalho da OMS e recursos de variável são ideais armazenar estas informações.  
+[Variáveis de automatização](..\automation\automation-variables.md) conter valores que podem ser utilizados por todos os runbooks na conta de automatização.  Eles tornam a runbooks mais flexível, permitindo-lhe alterar estes valores sem editar o runbook real. Todas as solicitações da API de Recoletor de dados HTTP requer o ID e a chave da área de trabalho do Log Analytics e recursos de variável são ideais armazenar estas informações.  
 
 ![Variáveis](media/monitoring-runbook-datacollect/variables.png)
 
@@ -211,7 +211,7 @@ Sempre que um runbook é iniciado, [é criada uma tarefa](../automation/automati
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Uso [estruturador de vistas](../log-analytics/log-analytics-view-designer.md) para criar uma vista de exibir os dados já recolhidos para o repositório do Log Analytics.
 - Empacotar o runbook numa [solução de gestão](monitoring-solutions-creating.md) para distribuição a clientes.
 - Saiba mais sobre [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/).

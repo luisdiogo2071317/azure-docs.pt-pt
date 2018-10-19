@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630939"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407712"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão de DSC de PowerShell
 
@@ -100,10 +100,10 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Powershell.DSC | cadeia |
 | tipo | DSC | cadeia |
-| typeHandlerVersion | 2.73 | Int |
+| typeHandlerVersion | 2.73 | int |
 
 ### <a name="settings-property-values"></a>Valores de propriedade de definições
 
@@ -130,7 +130,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação. Um modelo do Resource Manager de exemplo que inclui a extensão de VM de agente do OMS pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação. Um modelo do Resource Manager de exemplo que inclui o extensão de VM de agente do Log Analytics pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
 
 A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. 
 
@@ -139,7 +139,7 @@ Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` o
 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
-A CLI do Azure pode ser utilizada para implementar a extensão de VM de agente do OMS para uma máquina virtual existente. Substitua a chave do OMS e a ID do OMS com os da sua área de trabalho do OMS. 
+A CLI do Azure pode ser utilizada para implementar o agente de Log Analytics a extensão de VM para uma máquina virtual existente. Substitua a chave do Log Analytics e o ID do Log Analytics com os da sua área de trabalho do Log Analytics. 
 
 ```azurecli
 az vm extension set \

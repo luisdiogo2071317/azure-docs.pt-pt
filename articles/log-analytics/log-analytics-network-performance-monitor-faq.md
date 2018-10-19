@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 008eac235cd6b75c4c1d95b64e91923dad5a5106
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355579"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408885"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 
@@ -28,7 +28,7 @@ Este artigo captura as perguntas mais frequentes (FAQ) sobre o Monitor de desemp
 
 [Monitor de desempenho de rede](/azure/networking/network-monitoring-overview) é uma conta baseada na cloud [a monitorização de rede híbrida](log-analytics-network-performance-monitor-performance-monitor.md) solução que ajuda a monitorizar o desempenho de rede entre vários pontos na sua infraestrutura de rede. Ele também ajuda a monitorizar a conectividade de rede [pontos finais de serviços e de aplicações](log-analytics-network-performance-monitor-service-endpoint.md) e [monitorizar o desempenho do Azure ExpressRoute](log-analytics-network-performance-monitor-expressroute.md). 
 
-Monitor de desempenho de rede Deteta problemas de rede, como blackholing de tráfego, erros de encaminhamento e problemas que os métodos de monitorização de rede convencionais não conseguem detetar. A solução gera alertas e notifica-o quando um limiar é quebrado para uma ligação de rede. Também garante que a detecção oportuna de problemas de desempenho de rede e localizes a origem do problema para um segmento de rede específico ou dispositivo. 
+Monitor de desempenho de rede Deteta problemas de rede, como blackholing de tráfego, erros de encaminhamento e problemas que os métodos de monitorização de rede convencionais não conseguem detetar. A solução gera alertas e notifica-o quando existir uma falha do limiar de uma ligação de rede. Também garante a deteção atempada de problemas de desempenho de rede e localiza a origem do problema num dispositivo ou segmento de rede específico. 
 
 Obter mais informações sobre os vários recursos suportados pelo [Monitor de desempenho de rede](https://docs.microsoft.com/azure/networking/network-monitoring-overview) está disponível online.
 
@@ -61,7 +61,7 @@ Pode obter mais detalhes sobre as vantagens relativas de cada protocolo [aqui](l
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Como posso configurar um nó para suportar a monitorização utilizando o protocolo TCP?
 Para o nó suportar a monitorização através do protocolo TCP: 
 * Certifique-se de que a plataforma de nó é o Windows Server (2008 SP1 ou posterior).
-* Execute [EnableRules.ps1](https://aka.ms/npmpowershellscript) script do Powershell no nó. Ver [instruções](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) para obter mais detalhes.
+* Execute [EnableRules.ps1](https://aka.ms/npmpowershellscript) script do Powershell no nó. Ver [instruções](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para obter mais detalhes.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Como posso alterar a porta TCP que está a ser utilizada pelo NPM para monitorização?

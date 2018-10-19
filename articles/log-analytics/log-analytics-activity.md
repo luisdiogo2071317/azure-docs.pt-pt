@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dab2dd2b1d020a7619b18f330640b7f555a1f8c1
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044387"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404074"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
 
@@ -75,8 +75,7 @@ Execute os seguintes passos para configurar a solução Log Analytics da ativida
     3. Na *SubscriptionName* painel, clique em **Connect**.  
         ![Ligar a subscrição](./media/log-analytics-activity/subscription-connect.png)
 
-Se adicionar a solução com o portal do OMS, verá o mosaico seguinte. Iniciar sessão no portal do Azure para ligar uma subscrição do Azure à sua área de trabalho.  
-![a efetuar avaliação](./media/log-analytics-activity/tile-performing-assessment.png)
+Iniciar sessão no portal do Azure para ligar uma subscrição do Azure à sua área de trabalho.  
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 

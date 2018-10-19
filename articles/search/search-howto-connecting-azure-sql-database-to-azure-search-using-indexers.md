@@ -1,20 +1,20 @@
 ---
 title: Ligar a base de dados SQL do Azure para o Azure Search utilizando indexadores | Documentos da Microsoft
 description: Saiba como extrair dados de base de dados do Azure SQL para um índice da Azure Search utilizando indexadores.
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: f92b49ebdff71fc0561cc490cb70ffb479f7fc9e
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 1c498bb857b717682f943af96b222d9712b5d389
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310951"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409225"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Ligar a base de dados SQL do Azure para o Azure Search utilizando indexadores
 

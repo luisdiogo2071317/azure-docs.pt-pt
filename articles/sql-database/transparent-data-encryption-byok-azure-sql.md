@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114673"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408230"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente: Oferecer suporte de sua própria chave
 
@@ -67,8 +67,6 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
   > Se o Azure AD Identity **é acidentalmente eliminado ou permissões do servidor são revogadas** usando a política de acesso do Cofre de chaves, o servidor perde o acesso ao Cofre de chaves e bases de dados do TDE encriptado são removidas dentro de 24 horas.
 
 - Ao utilizar firewalls e redes virtuais com o Azure Key Vault, tem de configurar o seguinte: 
-  - Permitir o acesso das "Redes selecionadas" 
-  - Adicionar redes virtuais existentes e selecione a rede de base de dados SQL, se aplicável (isto é opcional para bases de dados singleton e necessária para instâncias geridas) 
   - Permitr serviços Microsoft fidedignos contornem esta firewall – escolher Sim 
          
     > [!NOTE] 

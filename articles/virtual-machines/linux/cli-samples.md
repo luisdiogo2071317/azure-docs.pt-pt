@@ -1,5 +1,5 @@
 ---
-title: Exemplos da CLI do Azure | Documentos da Microsoft
+title: Exemplos da CLI do Azure | Microsoft Docs
 description: Exemplos da CLI do Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ca9823a76064e504ee04bf5896f1362b5187bc34
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8d573b5a0dafaab5eea98f05163ff99e7ccd3760
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042041"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409089"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Exemplos da CLI do Azure para máquinas virtuais do Linux
 
@@ -49,7 +49,7 @@ A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure
 |**Proteger máquinas virtuais**||
 | [Encriptar uma VM e discos de dados](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Cria um Azure Key Vault, a chave de encriptação e o principal de serviço, em seguida, criptografa uma VM. |
 |**Monitorizar máquinas virtuais**||
-| [Monitorizar uma VM com o Operations Management Suite](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma máquina virtual, instala o agente do Operations Management Suite e inscreve a VM numa área de trabalho do OMS.  |
+| [Monitorizar uma VM com o Log Analytics do Azure](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Cria uma máquina virtual, instala o agente do Log Analytics e inscreve a VM numa área de trabalho do Log Analytics.  |
 |**Resolver problemas relacionados com máquinas virtuais**||
 | [Resolver problemas de um disco de sistema operativo de VMs](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fcli%2fazure%2ftoc.json) | Monta o disco do sistema operativo a partir de uma VM como um disco de dados numa segunda VM. |
 | | |

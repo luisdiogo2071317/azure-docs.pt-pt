@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733194"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404040"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de estado de funcionamento de agente no Azure
 A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics ou um grupo de gestão do System Center Operations Manager ligado ao Log Analytics, o que não respondem e submeter operacional dados.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
@@ -65,7 +65,7 @@ Clique no mosaico **Funcionamento de Agente** para abrir o dashboard **Funcionam
 | Distribuição por Categoria de Agente | Uma partição das diferentes categorias de agentes que estão a enviar eventos de heartbeat: agentes diretos, agentes do OpsMgr ou o Servidor de Gestão do OpsMgr.|
 | Distribuição por Grupo de Gestão | Uma partição dos diferentes Grupos de gestão do SCOM no seu ambiente.|
 | Localização Geográfica dos Agentes | Uma partição dos diferentes países em que tem agentes e uma contagem total do número de agentes que foram instalados em cada país.|
-| Contagem de Gateways Instalados | O número de servidores com o Log Analytics Gateway instalado e uma lista desses servidores.|
+| Contagem de Gateways Instalados | O número de servidores que têm instalado o gateway do Log Analytics e uma lista desses servidores.|
 
 ![Exemplo de dashboard da Solução Funcionamento de Agente](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
@@ -85,7 +85,7 @@ A solução cria um tipo de registo na área de trabalho do Log Analytics.
 | OSMinorVersion | Versão inferior do sistema operativo.|
 | Versão | Versão do agente do log Analytics ou o agente do Operations Manager.|
 | SCAgentChannel | O valor é *Direto* e/ou *SCManagementServer*.|
-| IsGatewayInstalled | Se o Log Analytics Gateway está instalado, o valor é *true*, caso contrário, o valor é *falso*.|
+| IsGatewayInstalled | Se o gateway do Log Analytics estiver instalado, o valor é *true*, caso contrário, o valor é *falso*.|
 | ComputerIP | O endereço IP do computador.|
 | RemoteIPCountry | A localização geográfica onde o computador está implementado.|
 | ManagementGroupName | O nome do grupo de gestão do Operations Manager.|

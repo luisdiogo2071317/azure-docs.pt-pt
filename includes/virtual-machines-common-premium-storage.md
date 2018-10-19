@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49347050"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437112"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 
@@ -151,7 +151,11 @@ Se estiver a utilizar contas de armazenamento premium para discos não geridos e
 ### <a name="premium-storage-disk-limits"></a>Limites de disco de armazenamento Premium
 Quando aprovisiona um disco de armazenamento premium, o tamanho do disco determina o máximo IOPS e débito (largura de banda). O Azure oferece oito GA tipos de discos de armazenamento premium: P4 (discos geridos apenas), P6 (discos geridos apenas), P10, P15 (discos geridos apenas), P20, P30, P40 e P50. Bem como três tamanhos de disco de pré-visualização: P60 P70 e P80. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e débito. Limites para os tipos de disco são descritas na tabela a seguir:
 
-| Tipo de discos Premium | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---| | -------|| -------|| -------| | Tamanho do disco | 32 giB | 64 giB | 128 giB | 256gib | 512 giB | 1024 giB (1 TiB) | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 8192 giB (8 TiB) | 16,384 giB (16 TiB) | 32.767 giB (32 TiB) | | IOPS por disco | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12,500 | 15.000 | 20.000 | | Débito por disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
+| Tipo de discos Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| Tamanho do disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 giB (1 TiB) | 2048 giB (2 TiB)| 4095 giB (4 TiB)| 8192 giB (8 TiB)| 16,384 giB (TiB de 16)| 32.767 giB (32 TiB)|
+| IOPs por disco       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12,500          | 15 000             | 20,000             |
+| Débito por disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
 > Certifique-se de largura de banda suficiente está disponível na sua VM para o tráfego de disco de unidade, conforme descrito em [VMs suportadas de armazenamento Premium](#premium-storage-supported-vms). Caso contrário, o débito de disco e IOPS é restrito para reduzir os valores. Débito máximo e IOPS baseiam-se sobre os limites VM, não aos limites de disco descritos na tabela anterior.  

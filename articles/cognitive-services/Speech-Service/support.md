@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b5d981f06219bd2b5d7325476725ff7a4eccf3b6
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364162"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430107"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -74,8 +74,41 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 
 Exemplos, muitas vezes, são lançados como código-fonte aberto. Para perguntas e questões, crie uma *problema* no respetivo repositório do GitHub. Pode submeter um pedido pull, demasiado. A lista seguinte contém ligações para os repositórios de exemplo:
 
-* [SDK de Voz](https://aka.ms/csspeech/samples)
-* [SDK de dispositivo](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [SDK de Voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+
+Pode criar um relatório de erros, o pedido de funcionalidade, ou fazer uma pergunta geral e partilhar as melhores práticas. Para relatórios de bugs, siga o modelo fornecido:
+
+**Descrever o bug**
+
+Uma descrição do que o bug é clara e concisa.
+
+**Para reproduzir**
+
+Passos para reproduzir o comportamento:
+1. ...
+2. ...
+
+**Comportamento esperado**
+
+Uma descrição clara e concisa de esperado que tal ocorra.
+
+**Versão do SDK de voz de serviços cognitivos**
+
+Qual é a versão do SDK está a utilizar.
+
+**Plataforma de sistema operativo e linguagem de programação**
+
+ - SO: [por exemplo, Windows, Linux, Android, iOS,...] - seja específico
+ - Hardware - x64, x86, ARM,...
+ - Browser [por exemplo, o Chrome, o Safari] (se aplicável)-seja específico
+
+**Contexto adicional**
+
+ - Mensagens de erro, informações de registo, o rastreio, de pilha...
+ - Se as reportar um erro para uma interação de serviço específico, comunique-a SessionId e a hora (incl fuso horário) dos incidentes reportados. SessionId é reportado no todos os chamada-faz uma cópia/eventos recebidos.
+ - Outras informações adicionais
+
 
 ## <a name="uservoice-forum"></a>Fórum do UserVoice
 

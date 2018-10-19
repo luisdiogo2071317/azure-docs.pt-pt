@@ -14,17 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 1b982bddc951e710ba3bfa5fe8621d6595b95a52
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542249"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405349"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para obter um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
+## <a name="quickstarts-and-tutorials"></a>Inícios rápidos e tutoriais
+
+Utilize as seguintes inícios rápidos e tutoriais para saber como desenvolver modelos do resource manager:
+
+- Inícios rápidos
+
+  	|Cargo|Descrição|
+  	|------|-----|
+  	|[Utilizar o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Gere um modelo com o portal e o processo de edição e a implementar o modelo.|
+  	|[Utilizar o Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Utilize o Visual Studio Code para criar e editar modelos e como utilizar o Azure Cloud shell para implementar modelos.|
+  	|[Use o Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Use o Visual Studio para criar, editar e implementar modelos.|
+
+- Tutoriais
+
+  	|Cargo|Descrição|
+  	|------|-----|
+  	|[Utilizar a referência de modelo](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilize a documentação de referência de modelo para desenvolver modelos. O tutorial, encontrar o esquema da conta de armazenamento e utilize as informações para criar uma conta de armazenamento encriptado.|
+  	|[Criar múltiplas instâncias](./resource-manager-tutorial-create-multiple-instances.md)|Crie várias instâncias de recursos do Azure. O tutorial, vai criar várias instâncias da conta de armazenamento.|
+  	|[Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Defina as dependências de recursos. O tutorial, vai criar uma rede virtual, uma máquina virtual e os recursos do Azure dependentes. Saiba como as dependências são definidas.|
+  	|[Condições de utilização](./resource-manager-tutorial-use-conditions.md)|Implemente recursos com base em alguns valores de parâmetro. O tutorial, vai definir um modelo para criar uma nova conta de armazenamento ou utilizar uma conta de armazenamento existente, com base no valor de um parâmetro.|
+  	|[Integrar o Cofre de chaves](./resource-manager-tutorial-use-key-vault.md)|Obter segredos/palavras-passe do Azure Key Vault. O tutorial, vai criar uma máquina virtual.  A palavra-passe de administrador de máquina virtual é obtida a partir de um cofre de chaves.|
+  	|[Criar modelos ligados](./resource-manager-tutorial-create-linked-templates.md)|Modelos de modularizar e chamar outros modelos a partir de um modelo. O tutorial, vai criar uma rede virtual, uma máquina virtual e os recursos dependentes.  A conta de armazenamento dependente é definida num modelo ligado. |
+  	|[Utilize as práticas recomendadas de implantação segura](./deployment-manager-tutorial.md)|Utilize o Gestor de implementação do Azure. |
+
 ## <a name="template-format"></a>Formato de modelo
+
 Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 ```json

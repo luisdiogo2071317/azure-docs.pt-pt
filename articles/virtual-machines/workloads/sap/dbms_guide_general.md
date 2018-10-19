@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3948c226f13f0ff358f9ca467f19cf0e48795911
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162313"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429893"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -216,7 +216,7 @@ Para implementações de série M, recomendamos utilizar o acelerador de escrita
 
 
 ### <a name="azure-non-persistent-disks"></a>Discos não persistentes do Azure
-VMs do Azure oferecem discos não persistentes depois de uma VM é implementada. Em caso de um reinício VM, todo o conteúdo nessas unidades vai ser eliminado. Por conseguinte, é uma vez que os ficheiros de dados e ficheiros de registo/Refazer de bases de dados devem sob nenhuma circunstância estar localizados nessas unidades não persistente. Pode haver exceções para algumas das bases de dados, onde estas unidades não persistente podem ser adequadas para tempdb e temp tablespaces. No entanto, evite utilizar essas unidades para VMs de série, uma vez que essas unidades não persistente são limitadas em débito com essa família VM. Para obter mais detalhes, leia o artigo [Noções básicas sobre a unidade temporária em máquinas de virtuais do Windows Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+VMs do Azure oferecem discos não persistentes depois de uma VM é implementada. Em caso de um reinício VM, todo o conteúdo nessas unidades vai ser eliminado. Por conseguinte, é uma vez que os ficheiros de dados e ficheiros de registo/Refazer de bases de dados devem sob nenhuma circunstância estar localizados nessas unidades não persistente. Pode haver exceções para algumas das bases de dados, onde estas unidades não persistente podem ser adequadas para tempdb e temp tablespaces. No entanto, evite utilizar essas unidades para VMs de série, uma vez que essas unidades não persistente são limitadas em débito com essa família VM. Para obter mais detalhes, leia o artigo [Noções básicas sobre a unidade temporária em VMs do Windows no Azure](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 - - -
 > ![Windows][Logo_Windows] Windows

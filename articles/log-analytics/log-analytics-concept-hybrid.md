@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319749"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406879"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Recolher dados num ambiente híbrido com o agente do Log Analytics
 
@@ -38,7 +38,7 @@ Computadores alojados no seu ambiente podem ser ligados diretamente ao Log Analy
 
 Antes de analisar e atuar sobre os dados recolhidos, tem primeiro de instalar e ligar os agentes para todos os computadores que pretende enviar dados para o serviço Log Analytics. Pode instalar agentes nos computadores no local utilizando a configuração, a linha de comandos, ou com o Desired State Configuration (DSC) na automatização do Azure. 
 
-O agente para Linux e Windows comunica saído com o serviço Log Analytics, através da porta TCP 443 e, se o computador liga-se a um servidor de firewall ou proxy para comunicar através da Internet, reveja os requisitos abaixo para compreender a configuração de rede é necessário.  Se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet, pode configurar uma [Gateway de OMS](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para ligar através do gateway para o Log Analytics. O agente pode, em seguida, receber informações de configuração e enviar os dados recolhidos consoante as regras de recolha de dados e soluções ativados. 
+O agente para Linux e Windows comunica saído com o serviço Log Analytics, através da porta TCP 443 e, se o computador liga-se a um servidor de firewall ou proxy para comunicar através da Internet, reveja os requisitos abaixo para compreender a configuração de rede é necessário.  Se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet, pode configurar uma [gateway do Log Analytics](log-analytics-oms-gateway.md) e, em seguida, configurar o agente para ligar através do gateway para o Log Analytics. O agente pode, em seguida, receber informações de configuração e enviar os dados recolhidos consoante as regras de recolha de dados e soluções ativados. 
 
 Se estiver a monitorizar o computador com o System Center Operations Manager 2012 R2 ou posterior, pode ser multihomed com o serviço do Log Analytics para recolher dados e reencaminhar para o serviço e ainda ser monitorizadas pelo [Operations Manager](log-analytics-om-agents.md). Computadores com Linux monitorizados por um grupo de gestão do Operations Manager integrado com o Log Analytics não recebeu a configuração para origens de dados e os dados recolhidos para a frente através do grupo de gestão. O agente do Windows pode relatar até quatro áreas de trabalho, enquanto o agente Linux só suporta a geração de relatórios para um único espaço de trabalho.  
 
@@ -92,7 +92,7 @@ As informações abaixo lista as informações de configuração de proxy e de f
 
 Se planeja usar a função de trabalho de Runbook de híbrida de automatização do Azure para ligar e registar com o serviço de automatização para utilizar runbooks no seu ambiente, tem de ter acesso para o número de porta e os URLs descritos em [configurar sua rede para o Runbook Worker híbrido](../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-O agente do Windows e Linux suporta a comunicação por meio de um servidor proxy ou Gateway do OMS para o serviço do Log Analytics utilizando o protocolo HTTPS.  Autenticação anónima e básica (nome de utilizador/palavra-passe) são suportados.  Para o agente de Windows ligado diretamente ao serviço, a configuração de proxy é especificada durante a instalação ou [após a implementação](log-analytics-agent-manage.md#update-proxy-settings) no painel de controlo ou com o PowerShell.  
+O agente do Windows e Linux suporta a comunicação por meio de um servidor proxy ou gateway do Log Analytics para o serviço do Log Analytics utilizando o protocolo HTTPS.  Autenticação anónima e básica (nome de utilizador/palavra-passe) são suportados.  Para o agente de Windows ligado diretamente ao serviço, a configuração de proxy é especificada durante a instalação ou [após a implementação](log-analytics-agent-manage.md#update-proxy-settings) no painel de controlo ou com o PowerShell.  
 
 Para o agente do Linux, o servidor proxy é especificado durante a instalação ou [após a instalação](log-analytics-agent-manage.md#update-proxy-settings) ao modificar o ficheiro de configuração de proxy. Conf.  O valor de configuração de proxy de agente do Linux tem a seguinte sintaxe:
 
@@ -106,8 +106,8 @@ Para o agente do Linux, o servidor proxy é especificado durante a instalação 
 |Protocolo | https |
 |Utilizador | Nome de utilizador opcional para a autenticação de proxy |
 |palavra-passe | Palavra-passe opcional para a autenticação de proxy |
-|proxyhost | Endereço ou FQDN do proxy servidor/OMS Gateway |
-|porta | Número de porta opcional para o proxy server/OMS Gateway |
+|proxyhost | Endereço ou FQDN do gateway de análise de registo do servidor proxy |
+|porta | Número de porta opcional para o gateway de análise de registo do servidor de proxy |
 
 Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
@@ -129,4 +129,4 @@ Ligar os computadores no local diretamente com o Log Analytics pode ser feito at
 
 * Saiba mais sobre [pesquisas de registos](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
 
-* Saiba mais sobre [soluções](log-analytics-add-solutions.md) que acrescentam funcionalidades ao Log Analytics e também, recolher dados para o repositório do OMS.
+* Saiba mais sobre [soluções](log-analytics-add-solutions.md) que acrescentam funcionalidades ao Log Analytics e também, recolher dados para a área de trabalho do Log Analytics.

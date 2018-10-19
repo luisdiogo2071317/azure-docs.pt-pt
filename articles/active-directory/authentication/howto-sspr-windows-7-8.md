@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ae2fab560ca9579860aeba91f9322c6521a83de1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168048"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427741"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: Ativar a palavra-passe de reposição do Windows 7, 8 e 8.1
 
@@ -76,6 +76,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * Para ativar o registo verboso, crie REG_DWORD: "EnableLogging" e defina-o como 1.
 * Para desativar o registo verboso, altere o REG_DWORD "EnableLogging" para 0.
+
+Se as máquinas do Windows 7, 8 e 8.1 estiverem atrás de um servidor proxy ou firewall, o tráfego HTTPS (443) para o site passwordreset.microsoftonline.com deve ser permitido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

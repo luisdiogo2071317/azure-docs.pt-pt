@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 34409197a080b4d755b76f140111b7694925b5df
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b9ef650b772a160f7ddf8932f646f8081cb9e551
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094059"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407134"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar cargas de trabalho no local para migração para o Azure
 
@@ -411,8 +411,8 @@ Contoso executa a instalação em cada VM.
 3. Contoso instala o MMA:
     - Contoso aciona o ID de área de trabalho e a chave no comando.
     - Os comandos estão para 64 bits.
-    - O ID de área de trabalho e a chave primária estão localizados no portal do Microsoft Operations Management Suite (OMS). Selecione **configurações**e, em seguida, selecione a **origens ligadas** separador.
-    - Execute os seguintes comandos para transferir o agente do OMS, validar a soma de verificação e, instalar e carregar o agente:
+    - O ID de área de trabalho e a chave primária estão localizados na área de trabalho do Log Analytics no portal do Azure. Selecione **configurações**e, em seguida, selecione a **origens ligadas** separador.
+    - Execute os seguintes comandos para transferir o agente do Log Analytics, validar a soma de verificação e instalar e carregar o agente:
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==

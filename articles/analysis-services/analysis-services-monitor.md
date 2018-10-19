@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 608323c467e0106af816c3432dec24090a9a9599
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d10e9d3d2b6fe339b04d3c0754290313312bc2b7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442938"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427285"
 ---
 # <a name="monitor-server-metrics"></a>Monitorizar as métricas do servidor
 
@@ -36,7 +36,7 @@ Para efetuar mais diagnósticos aprofundados, acompanhar o desempenho e identifi
 ## <a name="server-metrics"></a>Métricas do servidor
 Utilize esta tabela para determinar as métricas que são recomendadas para o seu cenário de monitorização. Apenas as métricas da mesma unidade podem ser mostradas no mesmo gráfico.
 
-|Métrica|Nome a apresentar de métrica|Unidade|Tipo de agregação|Descrição|
+|Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Comprimento de fila da tarefa de conjunto de comandos|Contagem|Média|Número de tarefas na fila do pool de threads de comando.|
 |CurrentConnections|Ligação: Ligações atuais|Contagem|Média|Número atual de ligações de cliente estabelecidas.|

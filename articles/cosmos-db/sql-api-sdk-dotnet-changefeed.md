@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 553917a29b3564fff71d6ab994ec199891cbaae7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716558"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409106"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -42,6 +42,12 @@ ms.locfileid: "44716558"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>compilações de v2
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Foi adicionado suporte para coleções particionadas concessão. A chave de partição tem de ser definida como/ID.
+* Alteração significativa secundárias: os métodos da interface do IChangeFeedDocumentClient e a classe de ChangeFeedDocumentClient foram alterados para incluir parâmetros de RequestOptions e CancellationToken. IChangeFeedDocumentClient é um ponto de extensibilidade avançada que permite-lhe fornecer uma implementação personalizada do cliente do documento para utilizar com o processador do Feed de alterações, por exemplo, para decorar o DocumentClient e interceptar todas as chamadas para ele fazer rastreamento extra, tratamento de erros , etc. Com esta atualização, o código que implementam IChangeFeedDocumentClient tem de ser alterada para incluir novos parâmetros na implementação.
+* Melhorias de diagnóstico pequenas.
+
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Adicionada a nova API, tarefa&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Isto pode ser utilizado para fazer o trabalho estimado para cada partição.

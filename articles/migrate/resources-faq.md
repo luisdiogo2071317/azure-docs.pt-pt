@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239222"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407066"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -62,7 +62,7 @@ Componentes adicionais (por exemplo, software antivírus) é possível adicionar
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Que dados são recolhidos pelo Azure Migrate?
 
-O Azure Migrate suporta dois tipos de deteção, com base na aplicação da deteção e descoberta baseada em agente.
+O Azure Migrate suporta dois tipos de deteção, a deteção com base na aplicação e a deteção com base no agente.
 A deteção com base na aplicação recolhe metadados sobre as VMs no local, a lista completa de metadados recolhidos pela aplicação da esteja listada abaixo:
 
 **Dados de configuração da VM**
@@ -86,7 +86,7 @@ A deteção com base na aplicação recolhe metadados sobre as VMs no local, a l
   - Entrada de rede
   - Saída de rede
 
-A deteção baseada em agente é uma opção disponível sobre a deteção com base na aplicação e ajuda os clientes [visualize as dependências](how-to-create-group-machine-dependencies.md) das VMs no local. Os agentes de dependência recolher detalhes como IP FQDN, o sistema operacional, endereço, endereço MAC, processos em execução dentro da VM e as ligações de TCP de entrada/saída da VM. A deteção baseada em agente é opcional e pode optar por não instalar os agentes se não pretender visualizar as dependências das VMs.
+A deteção com base no agente é uma opção disponível além da deteção com base na aplicação e ajuda os clientes a [visualizarem as dependências](how-to-create-group-machine-dependencies.md) das VMs no local. Os agentes de dependência recolhem detalhes como FQDN, SO, endereço IP, endereço MAC, processos em execução dentro da VM e as ligações de TCP de entrada/saída da VM. A deteção baseada em agente é opcional e pode optar por não instalar os agentes se não pretender visualizar as dependências das VMs.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Deve haver nenhum impacto no desempenho no ambiente de anfitrião do ESXi analisado?
 
@@ -98,7 +98,7 @@ Introduzimos de criação de perfis contínua de dados de desempenho (o que est�
 
 Os dados coletados pela aplicação recoletora são armazenados na localização do Azure que especificar ao criar o projeto de migração. Os dados são armazenados em segurança numa subscrição Microsoft e são eliminados quando o utilizador elimina o projeto do Azure Migrate.
 
-Para a visualização de dependência, se instalar agentes nas VMs, os dados recolhidos pelos agentes do dependência são armazenados nos EUA numa área de trabalho do OMS criado na subscrição do utilizador. Estes dados são eliminados quando eliminar a área de trabalho do OMS na sua subscrição. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Para a visualização de dependência, se instalar agentes nas VMs, os dados recolhidos pelos agentes do dependência são armazenados nos EUA numa área de trabalho do Log Analytics criada na subscrição do utilizador. Estes dados são eliminados quando eliminar a área de trabalho do Log Analytics na sua subscrição. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são encriptados em descanso e em trânsito?
 
@@ -151,7 +151,7 @@ Sim, do Azure Migrate agora permite-lhe ligar uma área de trabalho existente pa
 
 ### <a name="can-i-export-the-dependency-visualization-report"></a>Pode exportar o relatório de visualização de dependências?
 
-Não, não é possível exportar a visualização de dependência. No entanto, uma vez que o Azure Migrate utiliza o mapa de serviço para visualização de dependências, pode utilizar o [APIs de REST de mapa de serviço](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para obter as dependências no formato json.
+Não, a visualização de dependência não pode ser exportada. No entanto, uma vez que o Azure Migrate utiliza o mapa de serviço para visualização de dependências, pode utilizar o [APIs de REST de mapa de serviço](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) para obter as dependências no formato json.
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Como posso automatizar a instalação do Microsoft Monitoring Agent (MMA) e o agente de dependência?
 

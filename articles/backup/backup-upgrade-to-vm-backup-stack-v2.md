@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6f19a536861d236a82cc77a17570d8e3004a2ba1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888276"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406539"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança do Azure VM V2
 
@@ -28,8 +28,8 @@ O modelo de implementação do Resource Manager para a atualização para a pilh
 
 * Capacidade de utilizar contas de armazenamento originais de uma VM não gerida, ao restaurar. Esta capacidade existe mesmo quando a VM tem discos que são distribuídos em contas de armazenamento. Ela acelera as operações de restauro para uma grande variedade de configurações de VM.
     > [!NOTE]
-    > Esta capacidade não é igual a substituir a VM original.
-    >
+    > Esta capacidade não é igual ao substituir os discos da VM com dados de ponto de recuperação. 
+    
 
 ## <a name="whats-changing-in-the-new-stack"></a>O que está mudando na pilha de novo?
 Atualmente, a tarefa de cópia de segurança consiste em duas fases:

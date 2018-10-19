@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167652"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405825"
 ---
 # <a name="date-claims-transformations"></a>Transformações de afirmações de data
 
@@ -25,12 +25,12 @@ Este artigo fornece exemplos para usar as transformações de afirmações de da
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
 
-Verifica que uma data e hora afirmações (tipo de dados de cadeia de caracteres) é maior do que um segundo data e hora de afirmação (tipo de dados de cadeia de caracteres) e lança uma exceção.
+Verifica que uma data e hora afirmações (tipo de dados de cadeia de caracteres) é posterior a uma segundo data e hora afirmação (tipo de dados de cadeia de caracteres) e lança uma exceção.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | cadeia | Tipo de primeira afirmação, que deve ser maior que a segunda declaração. |
-| InputClaim | rightOperand | cadeia | Tipo de segundo afirmação, o que deve ser menor que a primeira declaração. |
+| InputClaim | leftOperand | cadeia | Tipo de primeira afirmação, que deve ser posterior à segunda declaração. |
+| InputClaim | rightOperand | cadeia | Segundo tipo da afirmação, o que deve ser anterior a primeira declaração. |
 | InputParameter | AssertIfEqualTo | boolean | Especifica se esta asserção deve passar se o operando esquerdo for igual do operando direito. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Especifica se esta asserção deve passar se o operando direito está em falta. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Especifica o número de milissegundos para permitir entre os dois data horas a ter em consideração os tempos de igual (por exemplo, para a conta para distorção). |
@@ -39,7 +39,7 @@ O **AssertDateTimeIsGreaterThan** transformação de declarações é sempre exe
 
 ![Execução de AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
-O exemplo a seguir compara os `currentDateTime` afirmação com o `approvedDateTime` de afirmação. É gerado um erro se `currentDateTime` for superior a `approvedDateTime`. A transformação trata valores como igual que estejam dentro de diferença de (30000 milissegundos) de 5 minutos.
+O exemplo a seguir compara os `currentDateTime` afirmação com o `approvedDateTime` de afirmação. É gerado um erro se `currentDateTime` posterior `approvedDateTime`. A transformação trata valores como igual que estejam dentro de diferença de (30000 milissegundos) de 5 minutos.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -138,17 +138,17 @@ Obtenha a atual data e hora UTC e adicione o valor para um ClaimType.
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Determine se um dateTime é maior, menor ou igual a outro. O resultado é um valor booleano de ClaimType novo com um valor de VERDADEIRO ou FALSO.
+Determine se um dateTime mais tarde, é anterior ou igual a outro. O resultado é um valor booleano de ClaimType nova com um valor de `true` ou `false`.
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | DateTime | A primeira dateTime para comparar. Valor nulo lançará uma exceção. |
-| InputClaim | secondDateTime | DateTime | O segundo dateTime para concluir. Valor nulo trata como datetTime atual. |
+| InputClaim | firstDateTime | DateTime | A primeira dateTime para comparar seja anterior ou posterior à data/hora segundo. Valor nulo lançará uma exceção. |
+| InputClaim | secondDateTime | DateTime | O segundo dateTime para comparar seja anterior ou posterior à data/hora primeiro. Valor nulo é tratado como o datetTime atual. |
 | InputParameter | Operador | cadeia | Um dos seguintes valores: mesmo, posterior ou anterior. |
 | InputParameter | timeSpanInSeconds | int | Adicione o período de tempo para a primeira datetime. |
 | outputClaim | Resultado | boolean | ClaimType produzido este ClaimsTransformation po vyvolání. |
 
-Utilize que este afirmações de transformação para determinar se dois ClaimTypes são igual, maior ou menor uns dos outros. Por exemplo, pode armazenar a última vez que um utilizador aceitou os termos de serviços (TOS). Depois de 3 meses, pode pedir ao utilizador aceder a TOS novamente.
+Utilize que este afirmações de transformação para determinar se dois ClaimTypes são igual, posterior ou anterior entre si. Por exemplo, pode armazenar a última vez que um utilizador aceitou os termos de serviços (TOS). Depois de 3 meses, pode pedir ao utilizador aceder a TOS novamente.
 Para executar a transformação de afirmação, tem primeiro de obter a data/hora atual e também o último utilizador de tempo aceita os guias de instruções.
 
 ```XML

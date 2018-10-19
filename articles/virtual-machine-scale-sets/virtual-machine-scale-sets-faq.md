@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: db1ac46521a6ca8688ed1257b8b812321fee2ea3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 8ce8d0cda6f81aca0e5ea89dd813b371f61e8404
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345327"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407372"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -705,7 +705,7 @@ Sim, pode, instalando a extensão do Log Analytics na escala de VMs do conjunto.
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
-Pode encontrar o necessário workspaceId e workspaceKey no portal do OMS. Na página Descrição geral, clique no mosaico de definições. Clique no separador de origens ligadas na parte superior.
+Pode encontrar o necessário workspaceId e workspaceKey na área de trabalho do Log Analytics do portal do Azure. Na página Descrição geral, clique no mosaico de definições. Clique no separador de origens ligadas na parte superior.
 
 Nota: se as conjunto de dimensionamento _upgradePolicy_ está definida para Manual, tem de aplicar a extensão para todas as VMs no conjunto de chamando atualização nos mesmos. Na CLI isso seria _az vmss update-instances_.
 

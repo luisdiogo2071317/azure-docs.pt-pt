@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984471"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426816"
 ---
-# <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicativos do Azure
+# <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
 ## <a name="introduction"></a>Introdução
 O Microsoft Azure fornece vários serviços globais e regionais para gerir a forma como o seu tráfego de rede é distribuído e com balanceamento de carga: o Gestor de tráfego, o serviço de porta de entrada, o Gateway de aplicação e o Balanceador de carga.  Juntamente com muitas regiões que escolheu do Azure e zonais o arquitetura, em conjunto a utilizar estes serviços permitem-lhe criar aplicações de alto desempenho robustas e escaláveis.
@@ -36,7 +36,7 @@ A combinação de serviços global e regionais em seu aplicativo fornece um dese
 - Encaminhamento para enviar o requerente para o back-end mais próximo em termos de latência do desempenho.
 - Prioridade de encaminhamento para direcionar todo o tráfego para um back-end, com outros back-ends como cópia de segurança.
 - Round robin ponderado roteamento, que distribui o tráfego com base no peso atribuído a cada back-end.
-- Encaminhamento geográfico para garantir que os requerentes localizados em regiões geográficas específicas são direcionadas para os back-ends mapeados para essas regiões (por exemplo, todos os pedidos de Espanha devem ser direcionados para a região do Azure dos EUA Leste)
+- Encaminhamento geográfico para garantir que os requerentes localizados em regiões geográficas específicas são direcionadas para os back-ends mapeados para essas regiões (por exemplo, todos os pedidos de Espanha devem ser direcionados para a região do Azure de França Central)
 - Encaminhamento de sub-rede, que permite mapear o endereço IP intervalos para back-ends para que solicitações futuras daqueles serão enviadas para o back-end especificado (por exemplo, todos os utilizadores a ligar a partir do intervalo de endereços IP do seu sede empresarial devem obter conteúdo do web diferente que gerais utilizadores)
 
 O cliente liga-se diretamente a esse back-end. O Gestor de tráfego do Azure Deteta quando um back-end está danificado e, em seguida, redireciona os clientes para outra instância de bom estado de funcionamento. Consulte a [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) documentação para saber mais sobre o serviço.
@@ -83,8 +83,8 @@ O diagrama seguinte mostra a arquitetura de neste cenário:
 
 ## <a name="next-steps"></a>Próximos Passos
 
-- Saiba como [criar uma porta de entrada](quickstart-create-front-door.md).
-- Saiba mais [como funciona a porta da frente](front-door-routing-architecture.md).
+- Saiba como [criar um Front Door](quickstart-create-front-door.md).
+- Saiba [como funciona o Front Door](front-door-routing-architecture.md).
 
 <!--Image references-->
 [1]: ./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure1.png

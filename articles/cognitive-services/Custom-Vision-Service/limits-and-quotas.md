@@ -1,5 +1,5 @@
 ---
-title: Limites e quotas - serviço de visão personalizada
+title: Preços e limites - serviço de visão personalizada
 titlesuffix: Azure Cognitive Services
 description: Saiba mais sobre os limites e quotas para o serviço de visão personalizada.
 services: cognitive-services
@@ -8,22 +8,24 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d0a6b7be62afcd8e9f51b6a9387c9aa33f62d9a9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902865"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430073"
 ---
-# <a name="limits-and-quotas"></a>Limites e quotas
+# <a name="pricing-and-limits"></a>Preços e limites
 
-Existem três camadas de chaves para o serviço de visão personalizada. Recursos F0 e S0 são obtidos através do portal do Azure. Detalhes sobre as definições de preços e as transações são sobre o [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/).  F0 projetos podem ser atualizados para projetos de S0.
+Existem três camadas de chaves para o serviço de visão personalizada. Recursos de projeto de avaliação limitados são anexados ao seu início de sessão de visão personalizada (ou seja, uma conta do Azure Active Directory ou uma conta MSA). Eles se destinam a ser utilizado para avaliações abreviadas do serviço. Pode inscrever-se para uma F0 (gratuito) ou uma subscrição (standard) de S0 através do portal do Azure. Ver o correspondente [página de preços de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) para obter detalhes sobre preços e transações.
 
-Recursos de projeto de avaliação limitados estão ligados ao seu início de sessão de visão personalizada (ou seja, uma conta do AAD ou conta MSA.) Eles se destinam a ser utilizado para avaliações abreviadas do serviço.  As contas criadas durante a pré-visualização gratuita antecipada, antes da introdução das pré-visualizações do Azure (1 de Março de 2018) irão manter as respetivas quotas anteriores para as versões de avaliação limitado. 
+As contas criadas durante a pré-visualização gratuita antecipada, antes da introdução das pré-visualizações do Azure (1 de Março de 2018), irão manter as respetivas quotas anteriores para as versões de avaliação limitado. 
 
-||**Versão de avaliação limitada**|**F0 (Azure)**|**S0 (Azure)**|
+O número de imagens de formação por projeto e etiquetas por projeto devem aumentar ao longo do tempo para projetos de S0.
+
+||**Versão de avaliação limitada**|**F0**|**S0**|
 |-----|-----|-----|-----|
 |Projetos|2|2|100|
 |Imagens de formação por projeto, classificação|5.000|5.000|50,000|
@@ -38,7 +40,7 @@ Recursos de projeto de avaliação limitados estão ligados ao seu início de se
 |[Predição](https://go.microsoft.com/fwlink/?linkid=865445) operações sem armazenamento (transações por segundo)|2|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (chamadas à API por segundo)|2|2|10|
 |[Outras chamadas de API](https://go.microsoft.com/fwlink/?linkid=865446) (transações por segundo)|10|10|10|
-|Tamanho máximo de imagem (carregamento de imagens de formação) |6MB|6MB|6MB|
-|Tamanho máximo de imagem (predição)|4MB|4MB|4MB|
+|Tamanho máximo de imagem (carregamento de imagens de formação) |6 MB|6 MB|6 MB|
+|Tamanho máximo de imagem (predição)|4 MB|4 MB|4 MB|
 
-Limitações sobre *imagens n. º de formação por projeto* e *# etiquetas/projeto* devem ser aumentados ao longo do tempo para projetos de S0. 
+

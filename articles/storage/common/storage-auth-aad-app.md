@@ -1,21 +1,21 @@
 ---
 title: Autenticar com o Azure Active Directory para aceder a dados de BLOBs e filas de seus aplicativos (pré-visualização) | Documentos da Microsoft
-description: Utilize o Azure Active Directory para autenticar a partir de dentro de um aplicativo e, em seguida, autorizar pedidos aos recursos de armazenamento do Azure (pré-visualização).
+description: Utilize o Azure Active Directory para autenticar a partir de dentro de um aplicativo e, em seguida, autorizar pedidos para blobs e filas (pré-visualização).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816383"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427098"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Autenticar com o Azure Active Directory a partir de uma aplicação de armazenamento do Azure (pré-visualização)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Autenticar com o Azure Active Directory a partir de uma aplicação para o acesso para blobs e filas (pré-visualização)
 
 Das principais vantagens da utilização do Azure Active Directory (Azure AD) com o armazenamento do Azure é que as suas credenciais não precisam mais ser armazenada no seu código. Em vez disso, pode solicitar um token de acesso de OAuth 2.0 do Azure AD. O Azure AD processa a autenticação do principal de segurança (um utilizador, grupo ou principal de serviço) de execução do aplicativo. Se a autenticação for bem-sucedida, do Azure AD devolve o token de acesso à aplicação e a aplicação, em seguida, pode utilizar o token de acesso para autorizar os pedidos ao armazenamento do Azure.
 
@@ -26,6 +26,10 @@ Antes de pode autenticar-se uma entidade de segurança da sua aplicação de arm
 Para uma descrição geral do fluxo de concessão de código do OAuth 2.0, consulte [fluxo de concessão de acesso de autorizar a aplicações de web do Azure Active Directory usando o código de OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Atribuir uma função RBAC para um principal de segurança do Azure AD
+
+Para autenticar uma entidade de segurança da sua aplicação de armazenamento do Azure, primeiro de configurar as definições de controlo (RBAC) de acesso baseado em funções para aquela entidade de segurança. O armazenamento do Azure define as funções RBAC que abranger permissões para contentores e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança é concedido acesso a esse recurso. Para obter mais informações, consulte [gerir direitos de acesso aos dados de Blobs do Azure e a fila com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registar a aplicação com um inquilino do Azure AD
 

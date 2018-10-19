@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627445"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406148"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 
@@ -70,9 +70,9 @@ Mediador de serviço do Azure oferece uma interface consistente para gerir o ace
 
 ## <a name="6-metrics-and-logging"></a>6. Métricas e registo
 O Nozzle do Azure Log Analytics é um componente de Cloud Foundry, que reencaminha as métricas do [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) ao [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Com o Nozzle do utilizador, pode recolher, ver e analisar as métricas de estado de funcionamento e desempenho de sistema do CF entre múltiplas implementações.
-Clique em [aqui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) para saber como implementar o Nozzle do Azure Log Analytics para o código-fonte aberto e de ambiente de Cloud Foundry da Pivotal e, em seguida, acessar os dados a partir da consola do Azure Log Analytics OMS. 
+Clique em [aqui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) para saber como implementar o Nozzle do Azure Log Analytics para o código-fonte aberto e de ambiente de Cloud Foundry da Pivotal e, em seguida, acessar os dados a partir da consola do Azure Log Analytics. 
 > [!NOTE]
-> Do PCF 2.0, as métricas de estado de funcionamento BOSH para as VMs são reencaminhadas para o Loggregator Firehose por predefinição e estão integradas na consola do Azure Log Analytics OMS.
+> Do PCF 2.0, as métricas de estado de funcionamento BOSH para as VMs são reencaminhadas para o Loggregator Firehose por predefinição e estão integradas ao console do Log Analytics do Azure.
 
 ## <a name="7-cost-saving"></a>7. Economia de custo
 ### <a name="cost-saving-for-devtest-environments"></a>A guardar para ambientes de desenvolvimento/teste de custos

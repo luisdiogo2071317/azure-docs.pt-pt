@@ -1,6 +1,6 @@
 ---
-title: Usando a API de REST de alerta do OMS Log Analytics
-description: A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics que faz parte do Operations Management Suite (OMS).  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
+title: Usando a API de REST de alerta do Log Analytics
+description: A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics que faz parte do Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079060"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409157"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
-A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Operations Management Suite (OMS).  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
+A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
 
-A API de REST de pesquisa do Log Analytics é RESTful e pode ser acedido através da API de REST do Azure Resource Manager. Neste documento, encontrará exemplos em que a API é acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. O uso de ARMClient e o PowerShell é uma das muitas opções para acessar a API de pesquisa do Log Analytics. Com essas ferramentas, pode utilizar o Gestor de recursos do API RESTful do Azure para fazer chamadas para áreas de trabalho do OMS e executar comandos de pesquisa dentro dos mesmos. A API irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados da pesquisa de muitas formas diferentes através de programação.
+A API de REST de pesquisa do Log Analytics é RESTful e pode ser acedido através da API de REST do Azure Resource Manager. Neste documento, encontrará exemplos em que a API é acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. O uso de ARMClient e o PowerShell é uma das muitas opções para acessar a API de pesquisa do Log Analytics. Com essas ferramentas, pode utilizar o Gestor de recursos do API RESTful do Azure para fazer chamadas para áreas de trabalho do Log Analytics e executar comandos de pesquisa dentro dos mesmos. A API irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados da pesquisa de muitas formas diferentes através de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](log-analytics-log-search-api.md) para obter mais informações.
@@ -67,7 +67,7 @@ Segue-se uma resposta de exemplo para uma agenda.
 ```
 
 ### <a name="creating-a-schedule"></a>Criar uma agenda
-Utilize o método Put com um ID de agendamento exclusivas para criar uma nova agenda.  Tenha em atenção que duas agendas não podem ter o mesmo ID, mesmo que estejam associados a diferentes pesquisas guardadas.  Quando cria uma agenda na consola do OMS, um GUID é criado para o ID de agenda.
+Utilize o método Put com um ID de agendamento exclusivas para criar uma nova agenda.  Tenha em atenção que duas agendas não podem ter o mesmo ID, mesmo que estejam associados a diferentes pesquisas guardadas.  Quando cria uma agenda na consola do Log Analytics, um GUID é criado para o ID de agenda.
 
 > [!NOTE]
 > O nome para pesquisas guardadas tudo, cronogramas e ações criadas com a API de análise de registo tem de ser em minúsculas.
@@ -102,7 +102,7 @@ Todas as ações têm as propriedades na tabela seguinte.  Diferentes tipos de a
 ### <a name="retrieving-actions"></a>Obter ações
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilize o método Get para obter todas as ações para uma agenda.
 
@@ -113,7 +113,7 @@ Utilize o método Get com o ID de ação para obter uma ação específica para 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>Criar ou editar ações
-Utilize o método Put com um ID de ação que é exclusivo para a agenda para criar uma nova ação.  Quando cria uma ação na consola do OMS, é um GUID para o ID de ação.
+Utilize o método Put com um ID de ação que é exclusivo para a agenda para criar uma nova ação.  Quando cria uma ação na consola do Log Analytics, é um GUID para o ID de ação.
 
 > [!NOTE]
 > O nome para pesquisas guardadas tudo, cronogramas e ações criadas com a API de análise de registo tem de ser em minúsculas.
@@ -125,7 +125,7 @@ O formato do pedido para criar uma nova ação varia consoante o tipo de ação,
 ### <a name="deleting-actions"></a>A eliminar ações
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Utilize o método Delete com o ID de ação para eliminar uma ação.
 
@@ -146,7 +146,7 @@ Uma agenda deve ter apenas uma ação do alerta.  Ações de alerta tem uma ou m
 | Ações de Webhook | Enviar dados de alertas, para o serviço desejado como JSON |Não obrigatório, se os alertas são expandidos para o Azure|
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### <a name="thresholds"></a>Limiares
 Ação do alerta deve ter apenas um limiar.  Quando os resultados de uma procura guardada correspondem o limiar numa ação associada que a pesquisa, em seguida, todos os outros processos nessa ação são executados.  Uma ação também pode conter apenas um limiar para que possa ser utilizado com as ações de outros tipos que não contenham limiares.
@@ -355,7 +355,7 @@ Utilize o método Put com um ID de ação existente para modificar um grupo de a
 Notificações por e-mail enviam um e-mail para um ou mais destinatários.  Eles incluem as propriedades na tabela seguinte.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como notificação por email agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como notificação por email agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Propriedade | Descrição |
@@ -396,16 +396,16 @@ Utilize o método Put com um ID de ação existente para modificar uma ação de
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Ações de remediação
-Remediações iniciar um runbook na automatização do Azure, que tenta corrigir o problema identificado por esse alerta.  Tem de criar um webhook para o runbook utilizado uma ação de remediação e, em seguida, especifique o URI na propriedade WebhookUri.  Ao criar esta ação através da consola do OMS, um novo webhook é criado automaticamente para o runbook.
+Remediações iniciar um runbook na automatização do Azure, que tenta corrigir o problema identificado por esse alerta.  Tem de criar um webhook para o runbook utilizado uma ação de remediação e, em seguida, especifique o URI na propriedade WebhookUri.  Ao criar esta ação através do portal do Azure, um novo webhook é criado automaticamente para o runbook.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como a remediação com runbook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como a remediação com runbook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Remediações incluem as propriedades na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| RunbookName |Nome do runbook. Isto deve corresponder ao runbook publicado na conta de automatização configurado na solução de automatização na sua área de trabalho do OMS. |
+| RunbookName |Nome do runbook. Isto deve corresponder ao runbook publicado na conta de automatização configurado na solução de automatização na sua área de trabalho do Log Analytics. |
 | WebhookUri |URI do webhook. |
 | Validade |A data de expiração e hora do webhook.  Se o webhook não tiver uma vencimento, em seguida, isso pode ser qualquer data futura válida. |
 
@@ -458,7 +458,7 @@ Segue-se um exemplo completo para criar um novo alerta de e-mail.  Esta ação c
 Ações de Webhook iniciar um processo chamando uma URL e, opcionalmente, fornecendo um payload de envio.  Eles são semelhantes às ações de remediação, exceto que eles se destinam-se a webhooks que pode invocar processos que não seja runbooks de automatização do Azure.  Eles fornecem também a opção adicional de fornecer um payload possível entregar o processo remoto.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como Webhook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics serão automaticamente expandidos para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas no Azure a partir do Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações como Webhook agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [API do grupo de ação](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Ações de Webhook não têm um limite, mas em vez disso, devem ser adicionadas a uma agenda que tenha a ação do alerta com um limiar.  

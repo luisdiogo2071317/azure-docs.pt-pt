@@ -1,55 +1,55 @@
 ---
-title: A adição de pesquisa do Azure para o Blob Storage | Microsoft Docs
+title: O Azure Search a adicionar ao armazenamento de BLOBs | Documentos da Microsoft
 description: Crie um índice no código utilizando a API REST de HTTP da Azure Search.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/04/2017
-author: chaosrealm
-manager: jlembicz
-ms.author: eugenesh
-ms.openlocfilehash: 71e43920f0e6a64beb7cdb28d0707dd30502bf05
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
+ms.openlocfilehash: 4f8099bbd5af250e58441eb0e202d4674f0671fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790785"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403230"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Pesquisar o armazenamento de Blobs com o Azure Search
 
-Procurar em toda a variedade de tipos de conteúdo armazenado no armazenamento de Blobs do Azure pode ser um problema difíceis de resolver. No entanto, pode indexar e pesquisa o conteúdo dos Blobs em apenas alguns cliques através da utilização da Azure Search. A procurar através de armazenamento de BLOBs requer o aprovisionamento de um serviço da Azure Search. As várias limites de serviço e escalões de preços de pesquisa do Azure podem ser encontrados no [página de preços](https://aka.ms/azspricing).
+A pesquisa em toda a variedade de tipos de conteúdo armazenados no armazenamento de Blobs do Azure pode ser um problema difícil de resolver. No entanto, pode indexar e procure o conteúdo dos Blobs em apenas alguns cliques, utilizando o Azure Search. Procurar no armazenamento de BLOBs requer o aprovisionamento de um serviço Azure Search. Os vários limites de serviço e os escalões de preços do Azure Search podem ser encontrados no [página de preços](https://aka.ms/azspricing).
 
 ## <a name="what-is-azure-search"></a>O que é o Azure Search?
-[A pesquisa do Azure](https://aka.ms/whatisazsearch) é um serviço de pesquisa que torna mais fácil para os programadores adicionar experiências de pesquisa de texto completo robusta para aplicações móveis e web. Como um serviço da Azure Search remove a necessidade de gerir a qualquer infra-estrutura de pesquisa ao oferta um [SLA de disponibilidade de 99,9%](https://aka.ms/azuresearchsla).
+[O Azure Search](https://aka.ms/whatisazsearch) é um serviço de pesquisa que torna mais fácil para os desenvolvedores adicionar experiências de pesquisa de texto completo robusta para aplicações web e móveis. Como um serviço, o Azure Search remove a necessidade de gerir qualquer infraestrutura de pesquisa ao oferecer um [tempo de atividade de 99,9% SLA](https://aka.ms/azuresearchsla).
 
-## <a name="index-and-search-enterprise-document-formats"></a>O índice e pesquisa formatos de documento de enterprise
-Com suporte para [documentar extração](https://aka.ms/azsblobindexer) no Blob storage do Azure, pode indexar o seguinte conteúdo:
+## <a name="index-and-search-enterprise-document-formats"></a>Formatos de documento de enterprise do índice e pesquisa
+Com suporte para [documentar extração](https://aka.ms/azsblobindexer) no armazenamento de Blobs do Azure, permite-lhe indexar o seguinte conteúdo:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-Por extrair texto e metadados destes tipos de ficheiro, pode procurar em vários formatos de ficheiro com uma única consulta. 
+Extraindo texto e os metadados destes tipos de ficheiro, pode pesquisar em vários formatos de arquivo com uma única consulta. 
 
-## <a name="search-through-your-blob-metadata"></a>Procurar os seus metadados do blob
-Um cenário comum que torna mais fácil ordenar através de blobs de qualquer tipo de conteúdo é índice metadados personalizados e propriedades do sistema de cada blob. Desta forma, as informações de todos os blobs estão indexadas independentemente do tipo de documento. Em seguida, pode avançar para ordenação, filtro e aspeto de restrições em todos os conteúdos de armazenamento de Blobs.
+## <a name="search-through-your-blob-metadata"></a>Pesquisar por meio de seus metadados do blob
+É um cenário comum que torna mais fácil ordenar por meio de blobs de qualquer tipo de conteúdo indexar metadados personalizados e as propriedades do sistema para cada blob. Dessa forma, informações para todos os blobs são indexadas, independentemente do tipo de documento. Em seguida, pode avançar para ordenar, filtrar e faceta em todos os conteúdos de armazenamento de Blobs.
 
-[Saiba que mais sobre a indexação de metadados do blob.](https://aka.ms/azsblobmetadataindexing)
+[Saiba que mais sobre indexação os metadados do blob.](https://aka.ms/azsblobmetadataindexing)
 
-## <a name="image-search"></a>Pesquisa de imagem
-Pesquisa em texto completo, navegação por facetas e capacidades de ordenação de pesquisa do Azure agora podem ser aplicadas aos metadados de imagens armazenados em blobs.
+## <a name="image-search"></a>Pesquisa de imagens
+Pesquisa em texto completo, navegação por facetas e capacidades de classificação do Azure Search agora podem ser aplicadas aos metadados de imagens armazenados em blobs.
 
-Se estas imagens são pré-processadas utilizando o [computador visão API](https://www.microsoft.com/cognitive-services/computer-vision-api) de serviços cognitivos da Microsoft, em seguida, é possível indexar o visual foi encontrado em cada imagem incluindo reconhecimento OCR e de escrita de conteúdo. Estamos a trabalhar para adicionar OCR e outras capacidades de processamento de imagem diretamente para a Azure Search, se estiver interessado nestas capacidades, submeter um pedido no nosso [UserVoice](https://aka.ms/azsuv) ou [-nos de correio eletrónico](mailto:azscustquestions@microsoft.com).
+Se estas imagens previamente são processadas utilizando o [API de imagem digitalizada](https://www.microsoft.com/cognitive-services/computer-vision-api) partir dos serviços cognitivos da Microsoft, em seguida, é possível indexar o conteúdo visual encontrado em cada imagem, incluindo o reconhecimento de OCR e de escrita manual. Estamos a trabalhar na adição de OCR e outros recursos de processamento de imagem diretamente para o Azure Search, se estiver interessado nestas capacidades, submeter um pedido no nosso [UserVoice](https://aka.ms/azsuv) ou [envie-num e-mail](mailto:azscustquestions@microsoft.com).
 
-## <a name="index-and-search-through-json-blobs"></a>O índice e a pesquisa através de blobs JSON
-A pesquisa do Azure pode ser configurada para extrair conteúdo estruturado encontrado em blobs que contêm JSON. A pesquisa do Azure pode ser de leitura de blobs JSON e analisar o conteúdo do estruturados nos campos adequados de um documento de pesquisa do Azure. A pesquisa do Azure também pode tirar blobs que contenham uma matriz de objetos JSON e cada elemento do mapa para um documento de Azure Search separado.
+## <a name="index-and-search-through-json-blobs"></a>Índice e a pesquisa por meio de JSON blobs
+O Azure Search pode ser configurado para extrair conteúdo estruturado encontrado nos blobs que contêm o JSON. O Azure Search pode ler JSON blobs e analisar o conteúdo estruturado nos campos apropriados de um documento do Azure Search. O Azure Search também pode tirar blobs que contém uma matriz de objetos JSON e mapeiam cada elemento para um documento separado do Azure Search.
 
-Análise de JSON não é atualmente configurável através do portal. [Saiba mais sobre a análise de JSON na Azure Search.](https://aka.ms/azsjsonblobindexing)
+Análise de JSON não é atualmente configurável através do portal. [Saiba mais sobre análise de JSON no Azure Search.](https://aka.ms/azsjsonblobindexing)
 
 ## <a name="quick-start"></a>Início rápido
-A pesquisa do Azure pode ser adicionada para blobs diretamente a partir da página de portal de armazenamento de Blobs.
+O Azure Search pode ser adicionado para blobs diretamente a partir da página de portal de armazenamento de Blobs.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
-Clique em **adicionar Azure Search** para iniciar um fluxo de onde pode selecionar um serviço de pesquisa do Azure existente ou criar um novo serviço. Se criar um novo serviço, são navegar fora de experiência do portal da sua conta de armazenamento. Pode navegue de volta para a página de portal de armazenamento e selecione novamente a **adicionar Azure Search** opção, onde pode selecionar o serviço existente.
+Clique em **adicionar Azure Search** para iniciar um fluxo, onde pode selecionar um serviço de pesquisa do Azure existente ou criar um novo serviço. Se criar um novo serviço, são navegar para fora da experiência do portal da conta de armazenamento. Pode navegar de volta para a página de portal de armazenamento e a selecionar os **adicionar Azure Search** opção, onde pode selecionar o serviço existente.
 
 ### <a name="next-steps"></a>Próximos Passos
-Saiba mais sobre o indexador de Blob de pesquisa do Azure no completo [documentação](https://aka.ms/azsblobindexer).
+Saiba mais sobre o indexador de Blobs do Azure Search em todo o [documentação](https://aka.ms/azsblobindexer).

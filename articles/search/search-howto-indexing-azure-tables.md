@@ -1,49 +1,49 @@
 ---
-title: Indexar o Table storage do Azure com a Azure Search | Microsoft Docs
-description: Saiba como indexar os dados armazenados no armazenamento de tabelas do Azure com a pesquisa do Azure
-author: chaosrealm
-manager: jlembicz
+title: Indexação do armazenamento de tabelas do Azure com o Azure Search | Documentos da Microsoft
+description: Aprenda a indexar dados armazenados no armazenamento de tabelas do Azure com o Azure Search
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: a171bdd11cd2de030937927eef34d5ad9e0507af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 738518f94869a55cf80db1c87b8c74b167f5cce1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182077"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406930"
 ---
-# <a name="index-azure-table-storage-with-azure-search"></a>Índice Table storage do Azure com a pesquisa do Azure
-Este artigo mostra como utilizar a pesquisa do Azure para dados do índice armazenados no Table storage do Azure.
+# <a name="index-azure-table-storage-with-azure-search"></a>Armazenamento de tabelas do índice do Azure com o Azure Search
+Este artigo mostra como utilizar o Azure Search para dados de índice armazenados no armazenamento de tabelas do Azure.
 
-## <a name="set-up-azure-table-storage-indexing"></a>Configurar a indexação de armazenamento de tabelas do Azure
+## <a name="set-up-azure-table-storage-indexing"></a>Configurar a indexação do armazenamento de tabelas do Azure
 
-Pode configurar um indexador de armazenamento de tabelas do Azure utilizando estes recursos:
+Pode configurar um indexador do armazenamento de tabelas do Azure ao utilizar estes recursos:
 
 * [Portal do Azure](https://ms.portal.azure.com)
-* A pesquisa do Azure [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* A pesquisa do Azure [.NET SDK](https://aka.ms/search-sdk)
+* O Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* O Azure Search [.NET SDK](https://aka.ms/search-sdk)
 
-Aqui iremos demonstrar o fluxo, utilizando a API REST. 
+Aqui Vamos demonstrar o fluxo com a API de REST. 
 
 ### <a name="step-1-create-a-datasource"></a>Passo 1: Criar uma origem de dados
 
-Uma origem de dados Especifica que dados de índice, as credenciais necessárias para aceder os dados e as políticas que ative a pesquisa do Azure identificar eficientemente as alterações nos dados.
+Uma origem de dados especifica os dados a indexar, as credenciais necessárias para acessar os dados e as políticas que permitem a Azure Search identificar com eficiência as alterações nos dados.
 
-Para indexação de tabela, a origem de dados tem de ter as seguintes propriedades:
+Para tabela indexação, a origem de dados tem de ter as seguintes propriedades:
 
 - **nome** é o nome exclusivo da origem de dados dentro do seu serviço de pesquisa.
 - **tipo** tem de ser `azuretable`.
-- **credenciais** parâmetro contém a cadeia de ligação da conta de armazenamento. Consulte o [especificar credenciais](#Credentials) secção para obter detalhes.
+- **credenciais** parâmetro contém a cadeia de ligação de conta de armazenamento. Consulte a [especificar as credenciais](#Credentials) secção para obter detalhes.
 - **contentor** define o nome da tabela e uma consulta opcional.
-    - Especifique o nome da tabela, utilizando o `name` parâmetro.
-    - Opcionalmente, especifique uma consulta ao utilizar o `query` parâmetro. 
+    - Especifique o nome da tabela com o `name` parâmetro.
+    - Opcionalmente, especifique uma consulta com o `query` parâmetro. 
 
 > [!IMPORTANT] 
-> Sempre que possível, utilize um filtro em PartitionKey para um melhor desempenho. Qualquer outra consulta efetua uma análise completa de tabela, resultando num fraco desempenho para tabelas grandes. Consulte o [considerações de desempenho](#Performance) secção.
+> Sempre que possível, utilize um filtro no PartitionKey para um melhor desempenho. Qualquer outra consulta faz uma análise da tabela completa, resultando num fraco desempenho para tabelas grandes. Consulte a [considerações de desempenho](#Performance) secção.
 
 
 Para criar uma origem de dados:
@@ -62,21 +62,21 @@ Para criar uma origem de dados:
 Para obter mais informações sobre a API para criar origem de dados, consulte [criar origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
-#### <a name="ways-to-specify-credentials"></a>Formas para especificar credenciais ####
+#### <a name="ways-to-specify-credentials"></a>Maneiras de especificar credenciais ####
 
 Pode fornecer as credenciais para a tabela de uma das seguintes formas: 
 
-- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` pode obter a cadeia de ligação a partir do portal do Azure acedendo ao **painel de conta de armazenamento** > **definições**  >  **Chaves** (para contas de armazenamento clássico) ou **definições** > **chaves de acesso** (para armazenamento do Azure Resource Manager contas).
-- **Conta de armazenamento partilhado a cadeia de ligação de assinatura de acesso**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso partilhado deve ter a lista e permissões de leitura no contentores (tabelas neste caso) e objetos (linhas da tabela).
+- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` pode obter a cadeia de ligação do portal do Azure ao aceder a **painel de conta de armazenamento** > **definições**  >  **Chaves** (para contas de armazenamento clássicas) ou **definições** > **chaves de acesso** (para o armazenamento do Azure Resource Manager contas).
+- **Conta de armazenamento partilhado a cadeia de ligação de assinatura de acesso**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` a assinatura de acesso partilhado deve ter a lista e permissões de leitura no contentores (tabelas neste caso) e objetos (linhas de tabela).
 -  **Assinatura de acesso partilhado de tabela**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` a assinatura de acesso partilhado deve ter permissões de consulta (leitura) na tabela.
 
-Para obter mais informações sobre o armazenamento partilhado assinaturas de acesso, consulte [utilizar assinaturas de acesso partilhado](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para obter mais informações sobre o armazenamento partilhado assinaturas de acesso, consulte [assinaturas de acesso partilhado do Using](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
-> Se utilizar credenciais de assinatura de acesso partilhado, terá de atualizar as credenciais de origem de dados periodicamente com assinaturas renovadas para impedir a respetiva expiração. Se as credenciais de assinatura de acesso partilhado expirarem, o indexador falha com uma mensagem de erro semelhante a "As credenciais fornecidas na cadeia de ligação são inválidas ou tem expirado."  
+> Se utilizar credenciais de assinatura de acesso partilhado, terá de atualizar as credenciais de origem de dados periodicamente com assinaturas renovadas para evitar que sua expiração. Se as credenciais de assinatura de acesso partilhado expirarem, o indexador irá falhar com uma mensagem de erro semelhante a "Credenciais fornecidas na cadeia de ligação são inválidas ou tem expirado."  
 
 ### <a name="step-2-create-an-index"></a>Passo 2: criar um índice
-O índice Especifica os campos de um documento, os atributos e outras construções que formam a pesquisa de experiência.
+O índice Especifica os campos num documento, os atributos, e a experiência de outras construções que a pesquisa de forma.
 
 Para criar um índice:
 
@@ -110,27 +110,27 @@ Depois do índice e a origem de dados são criados, está pronto para criar o in
       "schedule" : { "interval" : "PT2H" }
     }
 
-Este indexador for executado a cada duas horas. (O intervalo de agendamento está definido como "PT2H".) Para executar um indexador cada 30 minutos, defina o intervalo para "PT30M". O mais curto intervalo suportado é de cinco minutos. A agenda é opcional; Se for omitido, um indexador é executado apenas quando quando for criado. No entanto, pode executar um indexador a pedido em qualquer altura.   
+Este indexador é executado a cada duas horas. (O intervalo de agendamento está definido como "PT2H".) Para executar um indexador a cada 30 minutos, defina o intervalo para "PT30M". O mais curto intervalo suportado é de cinco minutos. A agenda é opcional; Se for omitido, um indexador é executado apenas uma vez, quando é criado. No entanto, pode executar um indexador a pedido em qualquer altura.   
 
-Para obter mais informações sobre a API de indexador criar, consulte [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Para obter mais informações sobre a API para criar indexador, consulte [criar indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 ## <a name="deal-with-different-field-names"></a>Lidar com os nomes de campos diferentes
-Por vezes, os nomes de campo no seu índice existente são diferentes dos nomes de propriedade na tabela. Pode utilizar os mapeamentos de campo para mapear os nomes das propriedades da tabela para os nomes de campo no seu índice de pesquisa. Para saber mais sobre os mapeamentos de campo, consulte o artigo [mapeamentos de campo de indexador de Azure Search ponte as diferenças entre os índices de pesquisa e origens de dados](search-indexer-field-mappings.md).
+Às vezes, os nomes de campos no seu índice existente são diferentes dos nomes de propriedade na sua tabela. Pode usar os mapeamentos de campo para mapear os nomes das propriedades da tabela para os nomes de campos no seu índice de pesquisa. Para saber mais sobre os mapeamentos de campo, veja [mapeamentos de campo do indexador de Azure Search preenchem as diferenças entre os índices de pesquisa e origens de dados](search-indexer-field-mappings.md).
 
-## <a name="handle-document-keys"></a>Processar as chaves do documento
-Na Azure Search, a chave do documento identifica exclusivamente um documento. Todos os índices de pesquisa tem de ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento que está a ser adicionado ao índice. (Na realidade, é o único campo obrigatório.)
+## <a name="handle-document-keys"></a>Lidar com chaves de documento
+No Azure Search, a chave do documento identifica exclusivamente um documento. Todos os índices de pesquisa tem de ter exatamente um campo de chave do tipo `Edm.String`. O campo de chave é necessário para cada documento que está a ser adicionado ao índice. (Na verdade, é o único campo obrigatório.)
 
-Porque as linhas de tabela tem uma chave composta, pesquisa do Azure gera um sintético campo chamado `Key` que é uma concatenação dos valores de chave linha e chave de partição. Por exemplo, se uma linha 's PartitionKey é `PK1` e RowKey `RK1`, em seguida, a `Key` o valor do campo é `PK1RK1`.
+Uma vez que linhas da tabela tem uma chave composta, o Azure Search gera um campo sintético chamado `Key` que é uma concatenação dos valores de chave linha e de chave de partição. Por exemplo, se uma linha 's PartitionKey é `PK1` e é RowKey `RK1`, o `Key` é o valor do campo `PK1RK1`.
 
 > [!NOTE]
-> O `Key` valor pode conter carateres inválidos nas chaves de documento, tais como os traços. Pode lidar com carateres inválidos, utilizando o `base64Encode` [campo a função de mapeamento](search-indexer-field-mappings.md#base64EncodeFunction). Se o fizer, lembre-se também utilizar o URL segura Base64 codificação quando a transmissão de chaves do documento na API chama, tais como a pesquisa.
+> O `Key` valor pode conter carateres que são inválidas no chaves de documento, como travessões. Pode lidar com carateres inválidos ao utilizar o `base64Encode` [função de mapeamento de campo](search-indexer-field-mappings.md#base64EncodeFunction). Se fizer isso, não se esqueça de também usar a codificação de Base64 de seguros de URL ao transmitir as chaves de documento na API de chamadas, como pesquisa.
 >
 >
 
-## <a name="incremental-indexing-and-deletion-detection"></a>Deteção de indexação e eliminação incremental
-Quando configurar um indexador de tabela para executar com base numa agenda,-reindexes linhas apenas novas ou atualizadas, conforme determinado por uma linha `Timestamp` valor. Não tem de especificar uma política de deteção de alteração. A indexação incremental é automaticamente ativado para si.
+## <a name="incremental-indexing-and-deletion-detection"></a>Deteção de indexação e a eliminação incremental
+Quando configurar um indexador de tabelas para executar com base numa agenda, ele reindexes linhas apenas novas ou atualizadas, conforme determinado por uma linha `Timestamp` valor. Não precisa especificar uma política de deteção de alteração. A indexação incremental é automaticamente ativado para si.
 
-Para indicar que certos documentos tem de ser removidos do índice, pode utilizar uma estratégia de eliminação de forma recuperável. Em vez de eliminar uma linha, adicione uma propriedade para indicar que tem eliminado e configurar uma política de deteção de eliminação de forma recuperável na datasource. Por exemplo, a seguinte política considera que uma linha é eliminada se a linha tem uma propriedade `IsDeleted` com o valor `"true"`:
+Para indicar que determinados documentos têm de ser removidos do índice, pode usar uma estratégia de eliminação de forma recuperável. Em vez de excluir uma linha, adicione uma propriedade para indicar que foi eliminada e configurar uma política de deteção de eliminação de forma recuperável na origem de dados. Por exemplo, a seguinte política considera que uma linha é eliminada se a linha tem uma propriedade `IsDeleted` com o valor `"true"`:
 
     PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
@@ -147,21 +147,21 @@ Para indicar que certos documentos tem de ser removidos do índice, pode utiliza
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Considerações de desempenho
 
-Por predefinição, a pesquisa do Azure utiliza o seguinte filtro de consulta: `Timestamp >= HighWaterMarkValue`. Porque as tabelas do Azure não tem um índice secundário o `Timestamp` campo, este tipo de consulta requer uma análise completa de tabela e, por conseguinte, é lento para tabelas grandes.
+Por predefinição, o Azure Search utiliza o seguinte filtro de consulta: `Timestamp >= HighWaterMarkValue`. Uma vez que as tabelas do Azure não tem um índice secundário no `Timestamp` campo, esse tipo de consulta requer a análise da tabela completa e, portanto, lento para tabelas grandes.
 
 
-Seguem-se duas abordagens possíveis para melhorar o desempenho de indexação de tabela. Ambos estes abordagens dependem da utilização de partições de tabela: 
+Seguem-se duas abordagens possíveis para melhorar o desempenho de indexação de tabela. Ambas as abordagens dependem da utilização de partições de tabela: 
 
-- Se os dados naturalmente podem ser particionados em vários intervalos de partição, crie uma origem de dados e um indexador correspondente para cada intervalo de partição. Cada indexador agora tem de processar apenas um partição específica intervalo, resultando num melhor desempenho das consultas. Se os dados que tem de ser indexados têm um pequeno número de partições fixos, mesmo melhores: cada indexador apenas uma análise de partição. Por exemplo, para criar uma origem de dados para processamento de um intervalo de partição com as chaves de `000` para `100`, utilizar uma consulta como esta: 
+- Se seus dados naturalmente podem ser particionados em vários intervalos de partição, crie uma origem de dados e um indexador correspondente para cada intervalo de partição. Agora, cada indexador tem de processar apenas um partição específica intervalo, resultando num melhor desempenho de consulta. Se os dados que precisam ser indexados tem um pequeno número de partições fixos, ainda melhores: cada indexador apenas faz uma análise de partição. Por exemplo, para criar uma origem de dados para o processamento de um intervalo de partição com chaves a partir `000` para `100`, utilize uma consulta como esta: 
     ```
     "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
     ```
 
-- Se os dados particionados tempo (por exemplo, criar uma nova partição cada dia ou de uma semana), considere a seguinte abordagem: 
-    - Utilizar uma consulta com o formato: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Monitorizar o progresso de indexador utilizando [obter API de estado de indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)e atualizar regularmente o `<TimeStamp>` condição da consulta com base no valor de nível máximo mais recente com êxito. 
-    - Com esta abordagem, se necessário acionar um reindexing concluída, terá de repor a consulta de origem de dados, além de repor o indexador. 
+- Se seus dados estão particionados por tempo (por exemplo, crie uma nova partição de cada dia ou da semana), considere a seguinte abordagem: 
+    - Utilizar uma consulta do formulário: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+    - Monitorizar o progresso do indexador utilizando [obter API de estado de indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)e atualizar periodicamente o `<TimeStamp>` condição da consulta com base no valor de marca de água alta mais recente concluída com êxito. 
+    - Com esta abordagem, se precisar disparar uma reindexação completa, terá de repor a consulta de origem de dados, além de redefinir o indexador. 
 
 
-## <a name="help-us-make-azure-search-better"></a>Ajude-na tornar o melhor da Azure Search
-Se tiver de pedidos de funcionalidades ou ideias para melhoramentos, submetê-las no nosso [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+## <a name="help-us-make-azure-search-better"></a>Ajude-na melhorar o Azure Search
+Se tiver de pedidos de funcionalidades ou ideias para melhorias, submeta-as no nosso [site do UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

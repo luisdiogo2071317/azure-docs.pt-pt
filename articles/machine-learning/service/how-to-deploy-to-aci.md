@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237182"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429468"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Implementar serviços web no Azure Container Instances 
 
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Ignorar este pré-requisito se estiver [implementar a partir de um ficheiro de modelo](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Registar um modelo a utilizar [ `Webservice.deploy_from_model` ](#deploy-from-registered-model) ou [ `Webservice.deploy_from_image` ](#deploy-from-image). Ou, se já tiver um modelo registado, recuperá-lo agora.
+Registar um modelo a utilizar [Webservice.deploy_from_model](#deploy-from-registered-model) ou [Webservice.deploy_from_image](#deploy-from-image). Ou, se já tiver um modelo registado, recuperá-lo agora.
 
 ### <a name="retrieve-a-registered-model"></a>Obter um modelo registado
-Se utilizar o Azure Machine Learning para preparar o seu modelo, o modelo já pode ser registado na sua área de trabalho.  Por exemplo, a última etapa do [preparar um modelo](tutorial-train-models-with-aml.md) tutorial] registou o modelo.  Em seguida, a obter o modelo registado para implementar.
+Se utilizar o Azure Machine Learning para preparar o seu modelo, o modelo já pode ser registado na sua área de trabalho.  Por exemplo, a última etapa do [treinar um tutorial de modelo](tutorial-train-models-with-aml.md) registado o modelo.  Em seguida, a obter o modelo registado para implementar.
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>Opção 1: Implementar a partir de ficheiro de modelo
 
 A opção de implementar a partir de um ficheiro de modelo requer a menor quantidade de código para escrever, mas também oferece a menor quantidade de controle sobre a nomenclatura dos componentes. Esta opção começa com um ficheiro de modelo e regista-o para a área de trabalho para.  No entanto, não é possível nomear o modelo ou associar etiquetas ou uma descrição para ele.  
@@ -148,6 +148,7 @@ Esta opção utiliza o método SDK, Webservice.deploy().
 
 1. Agora, pode [testar o serviço web](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>Opção 2: Implementar a partir de modelo registado
 
 A opção de implementar um ficheiro de modelo registado demora mais alguns linhas de código e permite que algum controle sobre a nomenclatura de saídas. Esta opção é um meio cómodo para implementar um modelo registado que já tem.  No entanto, não é possível nomear a imagem do Docker.  
@@ -173,6 +174,7 @@ Esta opção utiliza o método SDK, Webservice.deploy_from_model().
 
 1. Agora, pode [testar o serviço web](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>Opção 3: Implementar a partir da imagem
 
 Implementar um modelo registado (`model`) com `Webservice.deploy_from_image()`. Este método permite-lhe criar a imagem do Docker separadamente e, em seguida, implementar a partir dessa imagem.
@@ -215,6 +217,7 @@ Este método fornece mais controle sobre a criação e nomeação de componentes
 
 Agora pode testar o serviço web.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>Testar o serviço web
 
 O serviço web é o mesmo, independentemente da que foi utilizado o método.  Para obter previsões de indisponibilidade, utilize o `run` método do serviço.  

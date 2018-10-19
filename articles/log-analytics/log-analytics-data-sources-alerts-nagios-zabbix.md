@@ -1,6 +1,6 @@
 ---
-title: Recolher alertas do Nagios e do Zabbix no OMS Log Analytics | Documentos da Microsoft
-description: Nagios e do Zabbix são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los junto com alertas a partir de outras origens.  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas.
+title: Recolher alertas do Nagios e do Zabbix no Log Analytics | Documentos da Microsoft
+description: Nagios e do Zabbix são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los junto com alertas a partir de outras origens.  Este artigo descreve como configurar o agente do Log Analytics para Linux recolher alertas a partir desses sistemas.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041038"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402945"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Recolher alertas do Nagios e do Zabbix no Log Analytics a partir do agente do OMS para Linux 
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los juntamente com [alertas a partir de outras origens](log-analytics-alerts.md).  Este artigo descreve como configurar o agente do OMS para Linux recolher alertas a partir desses sistemas.
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Recolher alertas do Nagios e do Zabbix no Log Analytics a partir do agente do Log Analytics para Linux 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los juntamente com [alertas a partir de outras origens](log-analytics-alerts.md).  Este artigo descreve como configurar o agente do Log Analytics para Linux recolher alertas a partir desses sistemas.
  
 ## <a name="prerequisites"></a>Pré-requisitos
-O agente do OMS para Linux suporta recolher alertas do Nagios até versão 4.2.x e do Zabbix até versão 2.x.
+O agente do Log Analytics para Linux suporta recolher alertas do Nagios até versão 4.2.x e do Zabbix até versão 2.x.
 
 ## <a name="configure-alert-collection"></a>Configurar a recolha de alertas
 

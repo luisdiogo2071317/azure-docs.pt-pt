@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43faf1b29f602d2930a2b5764dd83ea4ce1fc9ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043617"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407729"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente de SQL com a solução de verificação de estado de funcionamento do SQL Server no Log Analytics
 
@@ -86,7 +86,7 @@ Utilize as seguintes informações para configurar a Operations Manager conta Ru
 >
 
 1. No Operations Manager, abra a consola de operações e, em seguida, clique em **administração**.
-2. Sob **configuração de Run As**, clique em **perfis**e abra **OMS SQL avaliação perfil Run As**.
+2. Sob **configuração de Run As**, clique em **perfis**e abra **SQL avaliação perfil Run As**.
 3. Sobre o **contas Run as** página, clique em **Add**.
 4. Selecione uma conta Run As do Windows que contém as credenciais necessárias para o SQL Server, ou clique em **New** para criar um.
 
@@ -123,7 +123,7 @@ Abra uma janela do PowerShell e execute o seguinte script depois atualizou-lo co
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```

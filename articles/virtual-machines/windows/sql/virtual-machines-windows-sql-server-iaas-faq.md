@@ -1,5 +1,5 @@
 ---
-title: SQL Server em Windows FAQ de máquinas virtuais do Azure | Documentos da Microsoft
+title: SQL Server em máquinas de virtuais do Windows no FAQ do Azure | Documentos da Microsoft
 description: Este artigo fornece respostas às perguntas mais frequentes sobre a execução do SQL Server em VMs do Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 48df858095cb867954460ec858567e41ed330063
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009267"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427183"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Perguntas mais frequentes sobre o SQL Server em execução em máquinas de virtuais do Windows Azure
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas mais frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-Este artigo fornece respostas para algumas das perguntas mais comuns sobre a execução [SQL Server em máquinas de virtuais do Windows Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Este artigo fornece respostas para algumas das perguntas mais comuns sobre a execução [SQL Server em Windows máquinas virtuais no Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [!NOTE]
 > Este artigo se concentra em problemas específicos ao SQL Server em VMs do Windows. Se estiver a executar o SQL Server em VMs do Linux, veja a [FAQ de Linux](../../linux/sql/sql-server-linux-faq.md).
@@ -67,7 +67,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
 
    Em primeiro lugar, crie uma máquina virtual do Azure com uma instância do SQL Server. Em seguida, migre as suas bases de dados no local a essa instância. Para estratégias de migração de dados, consulte [migrar uma base de dados do SQL Server para o SQL Server numa VM do Azure](virtual-machines-windows-migrate-sql.md).
 
-## <a name="licensing"></a>Licenças
+## <a name="licensing"></a>Licenciamento
 
 1. **Como posso instalar minha cópia licenciada do SQL Server numa VM do Azure?**
 

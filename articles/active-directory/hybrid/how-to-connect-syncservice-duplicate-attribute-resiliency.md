@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8fe86712b59a896d1f431ef677f592ced382db8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312075"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406199"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
 Resiliência de atributos duplicados é uma funcionalidade do Azure Active Directory que eliminarão fricção causada por **UserPrincipalName** e **ProxyAddress** está em conflito ao executar um da Microsoft ferramentas de sincronização.
@@ -122,7 +122,7 @@ Pode ver os erros de sincronização de diretório no Centro de administração 
 
 ![Utilizadores ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "utilizadores ativos")
 
-Para obter instruções sobre como ver erros de sincronização de diretório no Centro de administração do Office 365, consulte [identificar erros de sincronização de diretório no Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Para obter instruções sobre como ver erros de sincronização de diretório no Centro de administração do Office 365, consulte [identificar erros de sincronização de diretório no Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Relatório de erros de sincronização de identidade
 Quando um objeto com um conflito de atributos duplicados é processado com esse novo comportamento de uma notificação é incluída no e-mail de relatório de erros de sincronização de identidade padrão que é enviado para a notificação técnica contacte para o inquilino. No entanto, há uma mudança importante nesse comportamento. No passado, as informações sobre um conflito de atributos duplicados seriam incluídas nesse cada relatório de erro subsequentes até que o conflito foi resolvido. Com esse novo comportamento, a notificação de erro para um determinado conflito só aparecer uma vez - no momento que o atributo em conflito foi colocado em quarentena.
@@ -173,5 +173,5 @@ Ele deve apontar para [ https://aka.ms/duplicateattributeresiliency ](https://ak
 ## <a name="see-also"></a>Consulte também
 * [Sincronização do Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
-* [Identificar erros de sincronização de diretório no Office 365](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Identificar erros de sincronização de diretório no Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

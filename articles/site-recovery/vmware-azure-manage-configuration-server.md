@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/15/2018
 ms.author: raynew
-ms.openlocfilehash: 35cce4e9e0b722e8ee1b2ea42a79f18a987033f0
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: bb756a89babef96b16419104737e87405b3527ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078651"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407406"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerir o servidor de configuração para VMs de VMware
 
@@ -138,6 +138,9 @@ Execute update rollups para atualizar o servidor de configuração. As atualiza�
 - Se executar 9.6 ou anterior e pretende atualizar para o 9.11, primeiro tem de atualizar para versão 9.7. antes de 9.11.
 
 Links para update rollups para o atualizar para todas as versões do servidor de configuração estão disponíveis no [página de atualizações de wiki](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+> [!IMPORTANT]
+> A cada nova versão "n" de um Azure Site Recovery componenet que é lançado, todas as versões anteriores ao ' n-4' é considerado sem suporte. É sempre aconselhável atualizar para versões mais recentes disponíveis.
 
 Atualize o servidor da seguinte forma:
 

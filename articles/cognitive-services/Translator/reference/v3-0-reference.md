@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129391"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430039"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -95,8 +95,48 @@ Por exemplo, um cliente com uma subscrição de avaliação gratuita iria recebe
 ```
 {
   "error": {
-    "code":403000,
-    "message":"The subscription has exceeded its free quota."
+    "code":403001,
+    "message":"The operation is not allowed because the subscription has exceeded its free quota."
     }
 }
 ```
+O código de erro é uma combinação de número de 6 dígitos o código de estado HTTP de 3 dígitos seguido por uma série de 3 dígitos para ainda mais categorizar o erro. Códigos de erro comuns são:
+
+| Código | Descrição |
+|:----|:-----|
+| 400000| Uma das entradas de pedido não é válida.|
+| 400001| O parâmetro de "escopo" é inválido.|
+| 400002| O parâmetro de "category" é inválido.|
+| 400003| Um especificador de idioma está em falta ou é inválido.|
+| 400004| Um especificador de script de destino ("para o script") está em falta ou é inválido.|
+| 400005| Um texto de entrada está em falta ou é inválido.|
+| 400006| A combinação de idioma e o script não é válida.|
+| 400018| Um especificador de script de origem ("de script") está em falta ou é inválido.|
+| 400019| Um do idioma especificado não é suportado.|
+| 400020| Um dos elementos na matriz de texto de entrada não é válido.|
+| 400021| O parâmetro de versão de API está em falta ou é inválido.|
+| 400023| Um do par de idioma especificado não é válido.|
+| 400035| O idioma de origem ("de" campo) não é válido.|
+| 400036| O idioma de destino ("para" campo) está em falta ou é inválido.|
+| 400042| Uma das opções ("Opções" campo especificado) não é válida.|
+| 400043| O ID de rastreio de cliente (campo ClientTraceId ou cabeçalho X-ClientTranceId) está em falta ou é inválido.|
+| 400050| O texto de entrada é demasiado longo.|
+| 400064| O parâmetro de "tradução" está em falta ou é inválido.|
+| 400070| O número de scripts de destino (parâmetro ToScript) não corresponde ao número de idiomas de destino (para o parâmetro).|
+| 400071| O valor não é válido para TextType.|
+| 400072| A matriz de texto de entrada tem demasiados elementos.|
+| 400073| O parâmetro de script não é válido.|
+| 400074| O corpo do pedido não é um JSON válido.|
+| 400075| A combinação de par e categoria de idioma não é válida.|
+| 400077| Foi excedido o tamanho máximo do pedido.|
+| 400079| A pedido para a tradução entre de e para o idioma personalizadas do sistema não existem.|
+| 401000| O pedido não está autorizado porque as credenciais estão em falta ou inválido.|
+| 401015| "As credenciais fornecidas são para a API de voz. Este pedido requer credenciais para a API de texto. Utilize uma subscrição para a API de texto do Translator."|
+| 403000| A operação não é permitida.|
+| 403001| A operação não é permitida porque a subscrição excedeu a quota gratuita.|
+| 405000| O método de pedido não é suportado para o recurso pedido.|
+| 415000| O cabeçalho Content-Type está em falta ou é inválido.|
+| 429000, 429001, 429002| O servidor rejeitou o pedido porque o cliente está a enviar demasiados pedidos. Reduza a frequência de pedidos para evitar a limitação.|
+| 500000| Ocorreu um erro inesperado. Se o erro persistir, relatá-lo com a data/hora do erro, solicitar o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente a partir do cabeçalho de pedido X-ClientTraceId.|
+| 503000| Serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, relatá-lo com a data/hora do erro, solicitar o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente a partir do cabeçalho de pedido X-ClientTraceId.|
+

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ac7aa294dee25a6dea4ec2ee614f2b2d34d3a6bc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2d641287bcf095f13719667a91b7f61295309b5d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49117682"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430362"
 ---
-> [!IMPORTANT]
+> [!NOTE]
 > - A pré-visualização da autenticação do Azure AD para blobs e filas destina-se apenas a utilização de não produção. Contratos de nível de serviço de produção (SLAs) não estão atualmente disponíveis. Se a autenticação do Azure AD ainda não é suportada para o seu cenário, continue a usar a autorização de chave partilhada ou SAS tokens em seus aplicativos.
 >
 > - Durante a pré-visualização, as atribuições de funções do RBAC podem demorar até cinco minutos para propagar.
@@ -27,5 +27,8 @@ ms.locfileid: "49117682"
 > - O portal do Azure não suporta atualmente a utilização de credenciais do Azure AD para ler e escrever dados de fila. Dados de fila são acedidos através das chaves de conta de armazenamento.
 >
 > - [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) atualmente utiliza a chave de conta de armazenamento para aceder a dados de BLOBs e filas.
+>
+> - Os ficheiros do Azure suporta a autenticação com o Azure AD através de SMB para associados a um domínio apenas VMs (pré-visualização). Para saber mais sobre como utilizar o Azure AD através de SMB para ficheiros do Azure, veja [autenticação de descrição geral do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)](../articles/storage/files/storage-files-active-directory-overview.md).
+
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971253"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404907"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar Nozzle do Azure Log Analytics para o monitoramento de sistema do Cloud Foundry
 
@@ -56,14 +56,14 @@ Antes de configurar o cliente de linha de comando UAA, certifique-se de que o Ru
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar uma área de trabalho do Log Analytics no Azure
 
-É possível criar a área de trabalho do Log Analytics manualmente ou utilizando um modelo. O modelo implementa uma configuração de pré-configurado de KPI de OMS de vistas e alertas para a consola do OMS. 
+É possível criar a área de trabalho do Log Analytics manualmente ou utilizando um modelo. O modelo implementa uma configuração de pré-configurado de KPI de vistas e alertas para a consola do Log Analytics. 
 
 #### <a name="to-create-the-workspace-manually"></a>Para criar manualmente a área de trabalho:
 
 1. No portal do Azure, pesquise a lista de serviços no Azure Marketplace e, em seguida, selecione o Log Analytics.
 2. Selecione **criar**e, em seguida, selecione opções para os seguintes itens:
 
-   * **Área de trabalho OMS**: escreva um nome para a área de trabalho.
+   * **Área de trabalho de análise de registo**: escreva um nome para a área de trabalho.
    * **Subscrição**: Se tiver várias subscrições, selecione aquele que é o mesmo que a implementação de CF.
    * **Grupo de recursos**: pode criar um novo grupo de recursos ou utilize a mesma com a sua implementação CF.
    * **Localização**: introduza a localização.
@@ -71,19 +71,19 @@ Antes de configurar o cliente de linha de comando UAA, certifique-se de que o Ru
 
 Para obter mais informações, consulte [introdução ao Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Para criar a área de trabalho do OMS através do modelo de monitorização do OMS no lugar de mercado do Azure:
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Para criar a área de trabalho do Log Analytics através do modelo de monitorização no lugar de mercado do Azure:
 
 1. Abra o portal do Azure.
 2. Clique no sinal "+" ou "Criar um recurso" no canto superior esquerdo.
-3. Escreva "Cloud Foundry" na janela de pesquisa, selecione "OMS Cloud Foundry solução de monitorização".
-4. O Cloud Foundry da OMS monitorização solução modelo front-página é carregada, clique em "Criar" para iniciar o painel de modelo.
+3. Escreva "Cloud Foundry" na janela de pesquisa, selecione "Cloud Foundry monitorização solução".
+4. O Cloud Foundry monitorização solução modelo front-página é carregada, clique em "Criar" para iniciar o painel de modelo.
 5. Introduza os parâmetros necessários:
-    * **Subscrição**: selecione uma subscrição do Azure para a área de trabalho do OMS, normalmente, o mesmo com a implementação de Cloud Foundry.
-    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para a área de trabalho do OMS.
+    * **Subscrição**: selecione uma subscrição do Azure para a área de trabalho do Log Analytics, normalmente, o mesmo com a implementação de Cloud Foundry.
+    * **Grupo de recursos**: selecione um grupo de recursos existente ou crie um novo para a área de trabalho do Log Analytics.
     * **Localização do grupo de recursos**: selecione a localização do grupo de recursos.
     * **OMS_Workspace_Name**: introduza um nome de área de trabalho, se a área de trabalho não existir, o modelo irá criar um novo.
     * **OMS_Workspace_Region**: selecione a localização para a área de trabalho.
-    * **OMS_Workspace_Pricing_Tier**: selecione a área de trabalho do OMS SKU. Consulte a [preços orientações](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
+    * **OMS_Workspace_Pricing_Tier**: selecione a área de trabalho do Log Analytics SKU. Consulte a [preços orientações](https://azure.microsoft.com/pricing/details/log-analytics/) para referência.
     * **Termos legais**: termos clique legais, em seguida, clique em "Criar" para aceitar o termo legal.
 - Depois de todos os parâmetros forem especificados, clique em "Criar" para implementar o modelo. Quando a implementação estiver concluída, o estado aparecerá no separador de notificação.
 
@@ -137,8 +137,8 @@ cd oms-log-analytics-firehose-nozzle
 Agora pode definir variáveis de ambiente no ficheiro manifest.yml no seu diretório atual. O código a seguir mostra o manifesto da aplicação para o Nozzle do utilizador. Substitua os valores com as suas informações de área de trabalho do Log Analytics específicas.
 
 ```
-OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
+OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
 OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
 OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
@@ -177,11 +177,11 @@ cf apps
 ```
 Certificar-se de que o aplicativo Nozzle do OMS está em execução.
 
-## <a name="view-the-data-in-the-oms-portal"></a>Ver os dados no portal do OMS
+## <a name="view-the-data-in-the-azure-portal"></a>Ver os dados no portal do Azure
 
-Se tiver implementado o OMS solução através de monitorização o modelo do mercado, aceda ao portal do Azure e localizados a solução OMS. Pode encontrar a solução no grupo de recursos que especificou no modelo. Clique a solução, navegue para "Consola do OMS", as vistas pré-configuradas estão listadas, com KPIs de sistema do Cloud Foundry superior, os dados da aplicação, alertas e métricas de estado de funcionamento da VM. 
+Se tiver implementado a solução de monitorização através do modelo do mercado, aceda ao portal do Azure e localize a solução. Pode encontrar a solução no grupo de recursos que especificou no modelo. Clique a solução, navegue para o "Log Analytics Console", as vistas pré-configuradas estão listadas, com KPIs de sistema do Cloud Foundry superior, os dados da aplicação, alertas e métricas de estado de funcionamento da VM. 
 
-Se tiver criado a área de trabalho do OMS manualmente, siga os passos abaixo para criar as vistas e alertas:
+Se tiver criado a área de trabalho do Log Analytics manualmente, siga os passos abaixo para criar as vistas e alertas:
 
 ### <a name="1-import-the-oms-view"></a>1. Importar o modo de exibição do OMS
 
@@ -246,6 +246,6 @@ Nozzle de análise de registo do Azure é de código fonte aberto. Envie suas d�
 
 ## <a name="next-step"></a>Passo seguinte
 
-A partir de PCF2.0, métricas de desempenho da VM são transferidas para bocal de análise de registos do Azure, o reencaminhador de métricas do sistema e integradas para a área de trabalho do OMS. Já não tem o agente do OMS para as métricas de desempenho da VM. No entanto pode ainda utilizar o agente do OMS para recolher informações do Syslog. O agente do OMS é instalado como um complemento Bosh às suas VMs CF. 
+A partir de PCF2.0, métricas de desempenho da VM são transferidas para bocal de análise de registos do Azure, o reencaminhador de métricas do sistema e integradas para a área de trabalho do Log Analytics. Já não tem o agente Log Analytics para as métricas de desempenho da VM. No entanto pode ainda utilizar o agente Log Analytics para recolher informações do Syslog. O agente Log Analytics é instalado como um complemento Bosh às suas VMs CF. 
 
-Para obter detalhes, consulte [agente do OMS de implementar para a implementação de Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).
+Para obter detalhes, consulte [agente de implementar o Log Analytics para a implementação de Cloud Foundry](https://github.com/Azure/oms-agent-for-linux-boshrelease).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125090"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406326"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -37,7 +37,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
 
 - Subscrição do Office 365 organizacional.
 - Credenciais para uma conta de utilizador que seja um Administrador Global.
-- Para receber dados de auditoria, deve [configurar a auditoria](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) na sua subscrição do Office 365.  Tenha em atenção que [auditoria da caixa de correio](https://technet.microsoft.com/library/dn879651.aspx) está configurado separadamente.  Pode ainda instalar a solução e recolher outros dados, se a auditoria não está configurada.
+- Para receber dados de auditoria, deve [configurar a auditoria](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) na sua subscrição do Office 365.  Tenha em atenção que [auditoria da caixa de correio](https://technet.microsoft.com/library/dn879651.aspx) está configurado separadamente.  Pode ainda instalar a solução e recolher outros dados, se a auditoria não está configurada.
  
 
 ## <a name="management-packs"></a>Pacotes de gestão
@@ -477,7 +477,7 @@ Pode remover a solução de gestão do Office 365 usando o processo em [remover 
 
 ## <a name="data-collection"></a>Recolha de dados
 ### <a name="supported-agents"></a>Agentes suportados
-A solução do Office 365 não obter dados a partir de qualquer um da [agentes do OMS](../log-analytics/log-analytics-data-sources.md).  Obtém dados diretamente a partir do Office 365.
+A solução do Office 365 não obter dados a partir de qualquer um da [agentes do Log Analytics](../log-analytics/log-analytics-data-sources.md).  Obtém dados diretamente a partir do Office 365.
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 Poderá demorar algumas horas para dados que inicialmente serão coletados. Assim que for iniciada a recolher, do Office 365, envia uma [webhook notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para o Log Analytics sempre que é criado um registo. Este registo está disponível no Log Analytics dentro de alguns minutos após a ser recebidos.
@@ -518,7 +518,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | OrganizationId | O GUID para o inquilino do Office 365 da sua organização. Este valor será sempre o mesmo para a sua organização, independentemente do serviço do Office 365 em que ocorre. |
 | RecordType | Tipo de operação realizada. |
 | ResultStatus | Indica se a ação (especificada na propriedade operação) foi concluída com êxito ou não. Valores possíveis são com êxito, parcialmente bem sucedido ou falhou. Para a atividade de administrador do Exchange, o valor é True ou False. |
-| UserId | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultou no registo que está sendo registrado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos de atividades realizadas por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
+| ID de utilizador | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultou no registo que está sendo registrado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos de atividades realizadas por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade de ID de utilizador.  Por exemplo, esta propriedade é preenchida com o ID exclusivo do passport (PUID) para eventos realizadas por utilizadores no SharePoint, OneDrive para empresas e o Exchange. Esta propriedade também pode especificar o mesmo valor da propriedade de ID de utilizador para eventos que ocorrem noutros serviços e eventos realizados por contas do sistema|
 | userType | O tipo de utilizador que executou a operação.<br><br>Administração<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
 

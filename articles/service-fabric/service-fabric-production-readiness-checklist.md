@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7557e2b993a5059df8aea63c7394539acc28c110
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295875"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403529"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 
@@ -36,7 +36,7 @@ ms.locfileid: "44295875"
 6. Compreender e escolha o [nível de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) do tipo de nó. Confiabilidade Silver ou superior é recomendada.
 7. As cargas de trabalho para identificar de teste de carga e dimensionamento [requisitos de capacidade](service-fabric-cluster-capacity.md) para o seu cluster. 
 8. Seus serviços e aplicações são monitorizadas e registos de aplicações estão a ser gerados e armazenados, com o alerta. Por exemplo, veja [adicionar registos à sua aplicação do Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorizar contentores com o Log Analytics](service-fabric-diagnostics-oms-containers.md).
-9. O cluster é monitorizado com alertas (por exemplo, com [OMS](service-fabric-diagnostics-event-analysis-oms.md)). 
+9. O cluster é monitorizado com alertas (por exemplo, com [do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)). 
 10. A infraestrutura de conjunto de dimensionamento de máquina virtual subjacente é monitorizada com alertas (por exemplo, com [do Log Analytics](service-fabric-diagnostics-oms-agent.md).
 11. O cluster tem [certificados primário e secundário](service-fabric-cluster-security-update-certs-azure.md) sempre (para que não fica bloqueado).
 12. Manter clusters separados para desenvolvimento, teste e produção. 

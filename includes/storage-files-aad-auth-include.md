@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c2dc0f2dea752dd44ab2805a0d6fc0e5517f5c6c
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ec687580eb86db9df77a657dedc4feec1dbb2b2f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48831709"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430391"
 ---
 [Os ficheiros do Azure](../articles/storage/files/storage-files-introduction.md) suporta a autenticação com base na identidade através de SMB (Server Message Block) (pré-visualização) por meio [serviços de domínio do Azure Active Directory (Azure AD)](../articles/active-directory-domain-services/active-directory-ds-overview.md). Máquinas de virtuais de Windows (VMs) do seu associados a um domínio podem aceder a partilhas de ficheiros do Azure com [do Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md) credenciais. 
 
@@ -22,8 +22,6 @@ O Azure AD autentica uma identidade como um utilizador, grupo ou principal de se
 Como parte da pré-visualização, ficheiros do Azure também suporta preservando, herança e impor [NTFS DACLs](https://technet.microsoft.com/library/2006.01.howitworksntfs.aspx) em todos os arquivos e diretórios numa partilha de ficheiros. Se copia dados de uma partilha de ficheiros para ficheiros do Azure, ou vice-versa, pode especificar que são mantidas DACLs de NTFS. Desta forma, pode implementar cenários de cópia de segurança através de ficheiros do Azure, preservando a DACLS de NTFS entre a partilha de ficheiros no local e a partilha de ficheiros na cloud. 
 
 > [!NOTE]
-> Autenticação do Azure AD através de SMB não é suportada para VMs do Linux para a versão de pré-visualização. Apenas VMs do Windows Server são suportadas.
-
-> Autenticação do Azure AD através de SMB não é suportada para máquinas no local a aceder a ficheiros do Azure com o AD ou credenciais do AAD.
-
-> Autenticação do Azure AD está disponível apenas para contas de armazenamento criadas após 24 de Setembro de 2018.
+> - Autenticação do Azure AD através de SMB não é suportada para VMs do Linux para a versão de pré-visualização. Apenas VMs do Windows Server são suportadas.
+> - Autenticação do Azure AD através de SMB não é suportada para máquinas no local a aceder a ficheiros do Azure com o AD ou credenciais do AAD.
+> - Autenticação do Azure AD está disponível apenas para contas de armazenamento criadas após 24 de Setembro de 2018.

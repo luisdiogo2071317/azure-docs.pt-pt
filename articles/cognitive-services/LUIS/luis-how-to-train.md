@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182044"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426109"
 ---
 # <a name="train-your-luis-app-version"></a>Preparar a sua versão de aplicação LUIS
 
@@ -26,8 +26,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 Treinamento e [teste](luis-concept-test.md) uma aplicação é um processo iterativo. Depois de preparar a aplicação do LUIS, testá-la com expressões de exemplo para ver se as intenções e entidades são reconhecidas corretamente. Se não estiverem, fazer atualizações para a aplicação LUIS, formação e teste novamente. 
 
-## <a name="how-to-train"></a>Como dar formação
-Para iniciar o processo iterativo, primeiro tem de preparar a sua aplicação LUIS, pelo menos, uma vez. Certifique-se que cada intenção tem, pelo menos, uma expressão antes de treinamento.
+Treinamento é aplicado para a versão do Active Directory no portal do LUIS. 
+
+## <a name="how-to-train-interactively"></a>Como dar formação interativamente
+
+Para iniciar o processo interativo no [portal de LUIS](https://www.luis.ai), primeiro tem de preparar a sua aplicação LUIS, pelo menos, uma vez. Certifique-se que cada intenção tem, pelo menos, uma expressão antes de treinamento.
 
 1. Aceder à sua aplicação, selecionando o respetivo nome na **as minhas aplicações** página. 
 
@@ -41,7 +44,18 @@ Para iniciar o processo iterativo, primeiro tem de preparar a sua aplicação LU
 >Se tiver uma ou mais objetivos na sua aplicação que não contêm as expressões de exemplo, não é possível preparar a sua aplicação. Adicione expressões para todos os seus objetivos. Para obter mais informações, consulte [adicionar expressões de exemplo](luis-how-to-add-example-utterances.md).
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
-Treinamento utiliza uma pequena porcentagem de amostragem negativa. Se pretender utilizar todos os dados em vez da amostragem negativa pequena, utilize o [versão configurações API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o `UseAllTrainingData` definido como verdadeiro para desativar esta funcionalidade. 
+
+Treinamento utiliza uma pequena porcentagem de amostragem negativa. Se pretender utilizar todos os dados em vez da amostragem negativa pequena, utilize o [versão configurações API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com o `UseAllTrainingData` defina como verdadeiro para Desative esta funcionalidade. 
+
+## <a name="unnecessary-training"></a>Treinamento desnecessário
+
+Não é necessário preparar após todas as alterações. Treinamento deve ser feito depois de um grupo de alterações são aplicadas ao modelo e a próxima etapa que deseja fazer é testar ou publicar. Se não é necessário testar ou publicar, treinamento não é necessário. 
+
+## <a name="training-with-the-rest-apis"></a>Treinamento com as APIs REST
+
+Treinamento no portal do LUIS é um passo único de prima a **Train** botão. Treinamento com as APIs REST é um processo de dois passos. A primeira é [pedir treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) com HTTP POST. Em seguida, solicitar a [estado de treinamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) com HTTP Get. 
+
+Para saber quando o treinamento estiver concluído, terá de consultar o estado até que todos os modelos são treinados com êxito. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

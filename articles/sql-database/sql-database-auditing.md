@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b18f7efa09b33def2851967b5fc78bb1ddbc61e6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352843"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404924"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -79,7 +79,7 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 
     ![Painel de navegação][3]
 
-5. **Novo** -agora tem várias opções de configuração onde os registos de auditoria serão escritos. Pode escrever os registos para uma conta de armazenamento do Azure, para uma área de trabalho do OMS para consumo pelo Log Analytics ou para hub de eventos para consumo com o hub de eventos. Pode configurar qualquer combinação destas opções e registos de auditoria serão escritos para cada um.
+5. **Novo** -agora tem várias opções de configuração onde os registos de auditoria serão escritos. Pode escrever os registos para uma conta de armazenamento do Azure, para uma área de trabalho do Log Analytics para consumo pelo Log Analytics ou para hub de eventos para consumo com o hub de eventos. Pode configurar qualquer combinação destas opções e registos de auditoria serão escritos para cada um.
 
     ![Opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -87,9 +87,9 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 
     ![conta de armazenamento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Para configurar a auditoria de escrever registos para uma área de trabalho OMS, selecione **Log Analytics (pré-visualização)** e abra **detalhes do Log Analytics**. Selecione ou crie a área de trabalho do OMS em que os registos serão escritos e, em seguida, clique em **OK**.
+7. Para configurar a auditoria de escrever registos para um trabalho do Log Analytics, selecione **Log Analytics (pré-visualização)** e abra **detalhes do Log Analytics**. Selecione ou crie a área de trabalho do Log Analytics para onde os registos serão escritos e, em seguida, clique em **OK**.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Para configurar a auditoria de escrever registos para um hub de eventos, selecione **Hub de eventos (pré-visualização)** e abra **detalhes do Hub de eventos**. Selecione o hub de eventos em que os registos serão escritos e, em seguida, clique em **OK**. Certifique-se de que o hub de eventos está na mesma região que a sua base de dados e o servidor.
 
@@ -109,10 +109,10 @@ Se optar por escrever registos de auditoria para o Log Analytics:
 
 - Em seguida, clicar em **abra no OMS** na parte superior a **registos de auditoria** página irá abrir a vista de registos no Log Analytics, onde pode personalizar o intervalo de tempo e a consulta de pesquisa.
 
-    ![abrir no OMS](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![abrir no Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Em alternativa, também pode aceder os registos de auditoria no painel do Log Analytics. Abra a área de trabalho do Log Analytics e, em **gerais** secção, clique em **registos**. Pode começar com uma consulta simples, tais como: *pesquisar "SQLSecurityAuditEvents"* para ver a auditoria de registos.
-    A partir daqui, pode também usar [Log Analytics do Operations Management Suite (OMS)](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas nos seus dados de registo de auditoria. O log Analytics dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics do OMS, consulte [referência de pesquisa do Log Analytics](../log-analytics/log-analytics-log-search.md).
+    A partir daqui, pode também usar [do Log Analytics](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas nos seus dados de registo de auditoria. O log Analytics dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics, consulte [referência de pesquisa do Log Analytics](../log-analytics/log-analytics-log-search.md).
 
 Se optar por escrever registos de auditoria para o Hub de eventos:
 

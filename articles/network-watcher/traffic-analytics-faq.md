@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578315"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402765"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -77,9 +77,9 @@ Sim.
 
 Sim. Se selecionar uma área de trabalho existente, certifique-se de que foi migrada para a nova linguagem de consulta. Se não pretender atualizar a área de trabalho, terá de criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [atualizar o Azure Log Analytics para a nova pesquisa de registos](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Pode ser de minha conta de armazenamento do Azure numa subscrição e minha área de trabalho do Operations Management Suite ser numa subscrição diferente?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Pode ser de minha conta de armazenamento do Azure numa subscrição e minha área de trabalho do Log Analytics ser numa subscrição diferente?
 
-Sim, a conta de armazenamento do Azure pode estar numa subscrição, e sua área de trabalho do Operations Management Suite pode estar numa subscrição diferente.
+Sim, a conta de armazenamento do Azure pode estar numa subscrição, e sua área de trabalho do Log Analytics pode estar numa subscrição diferente.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Pode armazenar os registos não processados numa subscrição diferente?
 
@@ -115,7 +115,7 @@ Se os problemas persistirem, criar problemas na [fórum do uservoice](https://fe
 
 Poderá ver esta mensagem porque:
 - Análise de tráfego tiver sido recentemente ativada e poderá não ainda ter agregados dados suficientes para o mesmo derivar informações significativas.
-- Estiver a utilizar a versão gratuita da área de trabalho do Operations Management Suite e excedeu os limites de quota. Poderá ter de utilizar uma área de trabalho com uma capacidade maior.
+- Estiver a utilizar a versão gratuita da área de trabalho do Log Analytics e excedeu os limites de quota. Poderá ter de utilizar uma área de trabalho com uma capacidade maior.
     
 Se os problemas persistirem, criar problemas na [fórum do uservoice](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269535"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409072"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -54,7 +54,7 @@ A tabela seguinte lista a versão de API para o recurso utilizado neste exemplo.
 
 
 ## <a name="saved-searches"></a>Pesquisas Guardadas
-Incluem [pesquisas guardadas](../log-analytics/log-analytics-log-searches.md) numa solução para permitir que os utilizadores para consultar os dados recolhidos pela sua solução.  Pesquisas de guardado, são apresentados em **Favoritos** no portal do OMS e **pesquisas guardadas** no portal do Azure.  Uma pesquisa guardada também é necessária para cada alerta.   
+Incluem [pesquisas guardadas](../log-analytics/log-analytics-log-searches.md) numa solução para permitir que os utilizadores para consultar os dados recolhidos pela sua solução.  Pesquisas de guardado, são apresentados em **pesquisas guardadas** no portal do Azure.  Uma pesquisa guardada também é necessária para cada alerta.   
 
 [A pesquisa guardada do log Analytics](../log-analytics/log-analytics-log-searches.md) recursos têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
@@ -90,7 +90,7 @@ Cada propriedade de uma procura guardada é descrita na tabela seguinte.
 [Alertas de registo do Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) são criados pelas regras de alertas do Azure que executam consultas de registo especificado em intervalos regulares.  Se os resultados da consulta corresponderem a critérios especificados, é criado um registo de alerta e uma ou mais ações são executadas usando [grupos de ação](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics automaticamente começará a expandir para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics a partir de 14 de Maio de 2018, começaram a expandir para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Regras de alerta numa solução de gestão são formadas dos seguintes três recursos diferentes.
 
@@ -146,7 +146,7 @@ Uma agenda pode ter várias ações. Uma ação pode definir um ou mais processo
 Ações podem ser definidas com o recurso de [grupo de ação] ou recurso de ação.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics automaticamente começará a expandir para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir de 14 de Maio de 2018, começaram a todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics estender automaticamente para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 Existem dois tipos de recurso de ação especificada pelos **tipo** propriedade.  Uma agenda exige um deles **alerta** ação, que define os detalhes da regra de alerta e quais ações são executadas quando é criado um alerta. Recursos de ação tem um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -242,7 +242,7 @@ Para o utilizador que tiver expandido o seus alertas no Azure - uma agenda já d
 Cada agenda tem um **alerta** ação.  Isso define os detalhes do alerta e, opcionalmente, ações de notificação e remediação.  Uma notificação envia um e-mail para um ou mais endereços.  Uma remediação inicia um runbook na automatização do Azure para tentar corrigir o problema detetado.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics automaticamente começará a expandir para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partir de 14 de Maio de 2018, começaram a todos os alertas numa instância de cloud pública do Azure da área de trabalho do Log Analytics estender automaticamente para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Para os utilizadores que estendem os alertas para o Azure, as ações agora são controladas em grupos de ação do Azure. Quando uma área de trabalho e os seus alertas são expandidas para o Azure, pode obter ou adicionar ações utilizando o [grupo de ação - modelo do Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Esta secção é opcional incluí-lo se pretender que o alerta para enviar correio para um ou mais destinatários.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044302"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408545"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registos de grupos de computadores no Log Analytics
 
@@ -62,7 +62,7 @@ Utilize o procedimento seguinte para criar um grupo de computadores a partir de 
 
 
 ### <a name="active-directory"></a>Active Directory
-Quando configurar o Log Analytics para importar associações a grupos do Active Directory, analisa a associação de grupo de todos os computadores associados a um domínio com o agente do OMS.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador é adicionado para os grupos de computadores correspondentes aos grupos de segurança que são membros.  Esta associação é constantemente atualizada a cada 4 horas.  
+Quando configurar o Log Analytics para importar associações a grupos do Active Directory, analisa a associação de grupo de todos os computadores associados a um domínio com o agente do Log Analytics.  Um grupo de computadores é criado no Log Analytics para cada grupo de segurança no Active Directory, e cada computador é adicionado para os grupos de computadores correspondentes aos grupos de segurança que são membros.  Esta associação é constantemente atualizada a cada 4 horas.  
 
 Configurar o Log Analytics para importar grupos de segurança do Active Directory do Log Analytics **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **do Active Directory**e, em seguida **associações a grupos de computadores do Active Directory de importação**.  Não há nenhuma configuração adicional.
 
@@ -71,7 +71,7 @@ Configurar o Log Analytics para importar grupos de segurança do Active Director
 Quando os grupos foram importados, o menu de lista o número de computadores com a associação a grupos detetados e o número de grupos importados.  Pode clicar em qualquer uma destas ligações para retornar a **grupo de computador** registos com essas informações.
 
 ### <a name="windows-server-update-service"></a>Serviço de Atualização do Windows Server
-Quando configurar o Log Analytics para importar associações a grupos WSUS, analisa a associação ao grupo de direcionamento de todos os computadores com o agente do OMS.  Se estiver a utilizar o lado do cliente como o objetivo, qualquer computador que está ligada ao Log Analytics e faz parte de qualquer WSUS filtragem de grupos tem respetiva associação a grupos importada para o Log Analytics. Se estiver a utilizar o servidor como o objetivo, o OMS agente deve ser instalado no servidor WSUS para que as informações de associação de grupo ser importado para o Log Analytics.  Esta associação é constantemente atualizada a cada 4 horas. 
+Quando configurar o Log Analytics para importar associações a grupos WSUS, analisa a associação ao grupo de direcionamento de todos os computadores com o agente do Log Analytics.  Se estiver a utilizar o lado do cliente como o objetivo, qualquer computador que está ligada ao Log Analytics e faz parte de qualquer WSUS filtragem de grupos tem respetiva associação a grupos importada para o Log Analytics. Se estiver a utilizar o servidor como o objetivo, o Log Analytics agent deve ser instalado no servidor WSUS para que as informações de associação de grupo ser importado para o Log Analytics.  Esta associação é constantemente atualizada a cada 4 horas. 
 
 Configurar o Log Analytics para importar grupos WSUS a partir do Log Analytics **definições avançadas** no portal do Azure.  Selecione **grupos de computadores**, **WSUS**e, em seguida **associações de grupo do WSUS de importação**.  Não há nenhuma configuração adicional.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: ea65dcca3e5de06d1bc966b3e7cb6b608260a053
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27febb01b04bd8ac82b8cd428afce78dc57f8b8d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803972"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403571"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introdução à autenticação baseada em certificados no Azure Active Directory
 
@@ -37,7 +37,7 @@ Para configurar a autenticação baseada em certificados, as seguintes instruç�
 
 - Autenticação baseada em certificados (CBA) só é suportada para ambientes de federados para aplicativos de navegador ou clientes nativos que utilizam autenticação moderna (ADAL). A única exceção é o Exchange Active Sync (EAS) para o Exchange Online (EXO), que pode ser utilizado para contas federadas e geridas.
 - A autoridade de certificação de raiz e quaisquer autoridades de certificação intermediárias devem ser configuradas no Azure Active Directory.
-- Cada autoridade de certificação tem de ter uma lista de revogação de certificados (CRL) que pode ser referenciada por meio de um URL de acesso à Internet.
+- Cada autoridade de certificação tem de ter uma lista de revogação de certificados (CRL) que pode ser referenciada através de um URL de acesso à internet.
 - Tem de ter autoridade de pelo menos um certificado configurada no Azure Active Directory. Pode encontrar passos relacionados a [configurar autoridades de certificação](#step-2-configure-the-certificate-authorities) secção.
 - Para clientes do Exchange ActiveSync, o certificado de cliente tem de ter o endereço de e-mail encaminhável do utilizador no Exchange online no nome do Principal ou o valor de nome de RFC822 do campo nome alternativo do requerente. O Azure Active Directory é o valor de RFC822 mapeado para o atributo de endereço Proxy no diretório.
 - O dispositivo de cliente tem de ter acesso à autoridade de certificação, pelo menos, um que emite certificados de cliente.
@@ -60,7 +60,7 @@ As informações relacionadas existem para as seguintes plataformas de dispositi
 Para configurar as autoridades de certificado no Azure Active Directory, para cada autoridade de certificação, carregar o seguinte:
 
 * A parte pública do certificado, na *. cer* formato
-* Internet voltada para a URLs onde residem as listas de revogação de certificados (CRL)
+* Os URLs de acesso à internet onde residem as listas de revogação de certificados (CRL)
 
 O esquema para uma autoridade de certificação será semelhante ao seguinte:
 

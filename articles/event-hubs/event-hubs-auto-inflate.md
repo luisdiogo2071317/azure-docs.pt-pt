@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 12d8f3764dc52d8e76c3fb4599f6913fc8791f73
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004797"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426146"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure
 
@@ -27,6 +27,8 @@ Os Hubs de eventos do Azure é uma plataforma de transmissão em fluxo de dados 
 
 * As taxas de entrada de dados excederem as unidades de débito do conjunto.
 * Taxas de pedidos de saída de dados excederem as unidades de débito do conjunto.
+
+O serviço de Hubs de eventos aumenta o débito, quando a carga aumenta acima do limiar mínimo, sem quaisquer pedidos a falhar com erros de ServerBusy.
 
 ## <a name="how-auto-inflate-works"></a>Como funciona a ampliação automática
 
@@ -54,6 +56,10 @@ Com esta opção ativada, pode começar com pouco com as unidades de débito e a
 Também pode ativar a ampliação automática com o **dimensionamento** opção no painel de definições no portal do:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> Quando aplica a configuração para aumentar as unidades de débito de ampliação automática, o serviço de Hubs de eventos emite os registos de diagnóstico que dão-lhe informações sobre por que e quando o débito aumentado. 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Ativar a ampliação automática através de um modelo Azure Resource Manager
 
@@ -101,6 +107,7 @@ Pode ativar ampliação automática durante uma implementação de modelo do Azu
 ```
 
 Para o modelo completo, consulte a [espaço de nomes de Hubs de eventos de criar e ativar ampliação](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) modelo no GitHub.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

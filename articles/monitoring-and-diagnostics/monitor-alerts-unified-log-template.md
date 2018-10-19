@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6ec07d02e61d50aa588d75ba7337eb9237e11207
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576872"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402902"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de registo com um modelo do Resource Manager
 Este artigo mostra como pode gerir [alertas de registo](monitor-alerts-unified-log.md) através de programação em escala, no Azure com [modelo Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) e [Da CLI do azure](../azure-resource-manager/resource-group-template-deploy-cli.md). Atualmente alertas do Azure suporta alertas de registo em consultas a partir [do Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
 ## <a name="managing-log-alert-on-log-analytics"></a>Gerir o alerta de registo no Log Analytics
-Alerta de registo para [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) é integrado a [experiência de novos alertas do Azure](monitoring-overview-unified-alerts.md); enquanto ainda é executado fora APIs de análise de registo e permanece compatibilidade com o esquema utilizado anteriormente para gerir [alertas no portal do OMS](..//log-analytics/log-analytics-alerts-creating.md).
+Alerta de registo para [do Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) é integrado a [experiência de novos alertas do Azure](monitoring-overview-unified-alerts.md); enquanto ainda é executado fora APIs de análise de registo e permanece compatibile com esquema utilizada anteriormente.
 
 > [!NOTE]
-> A partir de 14 de Maio de 2018, todos os alertas numa área de trabalho automaticamente começará a expandir para o Azure. Um utilizador voluntariamente pode iniciar a expansão de alertas para o Azure antes de 14 de Maio de 2018. Para obter mais informações, consulte [expandir alertas para o Azure do OMS](monitoring-alerts-extend.md). 
+> A partir de 14 de Maio de 2018, começaram a todos os alertas numa área de trabalho estender automaticamente para o Azure. Para obter mais informações, consulte [expandir alertas para o Azure](monitoring-alerts-extend.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Usando o modelo Azure Resource Manager
 Alertas de registo para o Log Analytics são criadas por regras de alerta que executam uma procura guardada num intervalo regular. Se os resultados da correspondência de consulta especificados critérios, é criado um registo de alerta e uma ou mais ações são executadas. 

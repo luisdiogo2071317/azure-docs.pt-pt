@@ -1,6 +1,6 @@
 ---
 title: Suporte a conexões com o conector de gestão do serviço de TI no Log Analytics do Azure | Documentos da Microsoft
-description: Este artigo fornece informações sobre como ligar seus produtos/serviços ITSM com o conector de TI de gestão de serviço (ITSMC) no OMS Log Analytics para monitorizar e gerir os itens de trabalho ITSM centralmente.
+description: Este artigo fornece informações sobre como ligar seus produtos/serviços ITSM com o conector de TI de gestão de serviço (ITSMC) no Azure Monitor para monitorizar e gerir os itens de trabalho ITSM centralmente.
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042849"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409208"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar produtos/serviços de ITSM com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a conexão entre seus produtos/serviços ITSM e o conector de gestão de serviço de TI (ITSMC) no Log Analytics para gerenciar de forma centralizada seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](log-analytics-itsmc-overview.md).
@@ -76,7 +76,7 @@ Utilize o procedimento seguinte para ligar a sua instância de System Center Ser
 | **Segredo do cliente**   | Escreva o segredo de cliente gerado para este ID.   |
 | **Âmbito de sincronização de dados**   | Selecione os itens de trabalho do Service Manager que pretende sincronizar através do ITSMC.  Estes itens são importados para o Log Analytics de trabalho. **Opções:** incidentes, pedidos de alteração.|
 | **Sincronizar dados** | Escreva o número de dias decorridos que pretende que os dados do. **Limite máximo**: 120 dias. |
-| **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionada, o OMS cria os CIs afetados como itens de configuração (em caso de não existente CIs) no sistema ITSM suportado. **Predefinido**: desativado. |
+| **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionada, o Log Analytics cria os CIs afetados como itens de configuração (em caso de não existente CIs) no sistema ITSM suportado. **Predefinido**: desativado. |
 
 ![Ligação do Service manager](./media/log-analytics-itsmc/service-manager-connection.png)
 
@@ -199,7 +199,7 @@ Certifique-se de que são cumpridos os seguintes pré-requisitos:
     - [Configurar o OAuth para Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Instale a aplicação de utilizador para a integração do Microsoft OMS (aplicação ServiceNow). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Instale a aplicação de utilizador para a integração do Microsoft Log Analytics (aplicação ServiceNow). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Crie função de utilizador de integração para a aplicação de utilizador instalada. Há informações sobre como criar a função de utilizador de integração [aqui](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Procedimento de ligação**
@@ -221,7 +221,7 @@ Utilize o procedimento seguinte para criar uma ligação do ServiceNow:
 
 | **Campo** | **Descrição** |
 | --- | --- |
-| **Nome da Ligação**   | Escreva um nome para a instância do ServiceNow que queira se conectar com ITSMC.  Utilizar este nome mais tarde no OMS, quando configurar os itens de trabalho neste ITSM / ver detalhadas do log analytics. |
+| **Nome da Ligação**   | Escreva um nome para a instância do ServiceNow que queira se conectar com ITSMC.  Utilizar este nome posteriormente no Log Analytics quando configurar os itens de trabalho neste ITSM / ver detalhadas do log analytics. |
 | **Tipo de parceiro**   | Selecione **ServiceNow**. |
 | **Nome de Utilizador**   | Escreva o nome de utilizador de integração que criou na aplicação do ServiceNow para oferecer suporte a ligação ao ITSMC. Obter mais informações: [função de utilizador do ServiceNow Criar aplicação](#create-integration-user-role-in-servicenow-app).|
 | **Palavra-passe**   | Escreva a palavra-passe associada com este nome de utilizador. **Tenha em atenção**: nome de utilizador e palavra-passe são utilizados para gerar tokens de autenticação apenas e não são armazenadas em qualquer lugar no âmbito do serviço ITSMC.  |
@@ -247,6 +247,9 @@ Saiba mais: [itens de trabalho de ITSM criar de alertas do Azure](log-analytics-
 Utilizador o seguinte procedimento:
 
 1.  Visite o [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e instale o **aplicação de utilizador para o ServiceNow e integração do Microsoft OMS** em sua instância do ServiceNow.
+   
+   >[!NOTE]
+   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, OMS agora é referido como o Log Analytics.     
 2.  Após a instalação, visite a barra de navegação à esquerda da instância do ServiceNow, pesquisa e selecione integrador de Microsoft OMS.  
 3.  Clique em **lista de verificação de instalação**.
 

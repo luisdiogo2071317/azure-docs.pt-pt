@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336809"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408069"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
 Serviço de aplicações do Azure fornece a autenticação e autorização incorporadas suportam, para que possa iniciar sessão dos utilizadores e aceder a dados ao escrever o mínimo ou nenhum código na sua aplicação web, a API e o back-end móvel e também [as funções do Azure](../azure-functions/functions-overview.md). Este artigo descreve como o serviço de aplicações ajuda a simplificar a autenticação e autorização para a sua aplicação. 
 
-Proteger a autenticação e autorização requer uma profunda compreensão de segurança, incluindo o Federação, encriptação, [tokens de web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) gerenciamento, [tipos de concessão](https://oauth.net/2/grant-types/)e assim por diante. Serviço de aplicações fornece estes utilitários, para que possa passar mais tempo e energia em fornecer valor comercial para o seu cliente.
+Autorização e autenticação segura requerem uma compreensão profunda de segurança, incluindo o Federação, encriptação, [tokens de web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) gerenciamento [tipos de concessão](https://oauth.net/2/grant-types/)e assim por diante. Serviço de aplicações fornece estes utilitários, para que possa passar mais tempo e energia em fornecer valor comercial para o seu cliente.
 
 > [!NOTE]
 > Não é necessária para utilizar o serviço de aplicações para autenticação e autorização. Muitas estruturas de web são agrupadas com recursos de segurança, e pode usá-los se assim o desejar. Se precisar de mais flexibilidade do serviço de aplicações fornece, também pode escrever seus próprios utilitários.  
@@ -63,9 +63,9 @@ Serviço de aplicações fornece um arquivo de tokens incorporado, que é um rep
 - publicar na cronologia do Facebook do usuário autenticado
 - ler os dados empresariais do utilizador a partir da API do Azure Active Directory Graph ou até mesmo o Microsoft Graph
 
-Os tokens de id, tokens de acesso e tokens de atualização em cache para a sessão autenticada e estão acessíveis apenas pelo utilizador associado.  
-
 Normalmente, deve escrever código para recolher, armazenar e atualizar esses tokens em seu aplicativo. Com o arquivo de tokens, acabou [recuperar os tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) quando precisar delas e [dizer ao serviço de aplicações para atualizá-los](app-service-authentication-how-to.md#refresh-access-tokens) quando eles se torne inválidos. 
+
+Os tokens de id, tokens de acesso e tokens de atualização em cache para a sessão autenticada e estão acessíveis apenas pelo utilizador associado.  
 
 Se não precisa de trabalhar com tokens na sua aplicação, pode desativar o arquivo de tokens.
 
@@ -80,7 +80,7 @@ Serviço de aplicações utiliza [identidade federada](https://en.wikipedia.org/
 | Fornecedor | Ponto final de início de sessão |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Conta Microsoft](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
+| [Conta Microsoft](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
@@ -121,7 +121,7 @@ Os cabeçalhos seguintes descrevem as opções.
 
 ### <a name="allow-all-requests-default"></a>Permitir que todos os pedidos (predefinição)
 
-Autenticação e autorização, não é gerido pelo serviço de aplicações (desativado). 
+Autenticação e autorização, não são geridos pelo serviço de aplicações (desativado). 
 
 Escolha esta opção se não precisar de autenticação e autorização, ou se quiser escrever seu próprio código de autenticação e autorização.
 

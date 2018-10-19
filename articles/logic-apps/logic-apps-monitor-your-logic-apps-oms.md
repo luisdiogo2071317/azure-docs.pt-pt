@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.openlocfilehash: 75094ad17474cd07039724fb0b5e5e377808b51f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9fbb2c8d8563e88f6241b6b7ab6b3ddf08111914
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956665"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409055"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitorizar e obter conhecimentos sobre execuções de aplicação lógica com o Log Analytics
 
@@ -62,9 +62,9 @@ Se já ativou o Log Analytics quando criou a sua aplicação lógica, ignore est
 
    ![Selecione a sua área de trabalho do Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Sob **gerenciamento**, escolha **descrição geral**.
+3. Sob **gerenciamento**, escolha **resumo de área de trabalho**.
 
-   ![Escolha "Portal do OMS"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
+   ![Escolha "Descrição geral"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
 4. Na página Descrição geral, escolha **adicionar** para abrir o mosaico de soluções de gestão. 
 
