@@ -1,33 +1,34 @@
 ---
-title: Projeto de início rápido do Java de pesquisa de resposta - serviços cognitivos Microsoft | Microsoft Docs
-description: Começar a utilizar o projeto resposta Search em Java.
+title: 'Início Rápido: Pesquisa de Respostas do Projeto, Java'
+titlesuffix: Azure Cognitive Services
+description: Comece a utilizar a Pesquisa de Respostas do Projeto em Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353941"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867041"
 ---
-# <a name="project-answer-search-query-in-java"></a>Consulta de pesquisa de resposta de projeto em Java
-Este artigo utiliza o Java para demonstrar a API do Bing resposta pesquisa, parte dos serviços cognitivos da Microsoft no Azure. A API é um serviço Web de REST compatível com qualquer linguagem de programação que pode efetuar pedidos HTTP e analisar JSON.
+# <a name="quickstart-project-answer-search-query-in-java"></a>Início Rápido: Consulta da Pesquisa de Respostas do Projeto em Java
+Este artigo utiliza Java para demonstrar a API de Pesquisa de Respostas do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. A API é um serviço Web REST compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON.
  
-O código de exemplo utiliza o Java com dependências externas mínimas.  Também pode executá-lo no Linux ou Mac OS X Mono a utilizar.
+O código de exemplo utiliza o Java com dependências externas mínimas.  Também pode executá-lo no Linux ou Mac OS X com o Mono.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
 ## <a name="request"></a>Pedir 
 
-O código seguinte cria um `WebRequest`, define o cabeçalho de chave de acesso e adiciona uma cadeia de consulta para "Gibraltar".  Em seguida, envia o pedido e atribui a resposta a uma cadeia que contém o texto JSON.
+O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso e adiciona uma cadeia de consulta a “Gibraltar”.  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
 
 ````
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -47,13 +48,13 @@ O código seguinte cria um `WebRequest`, define o cabeçalho de chave de acesso 
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ````
 
-## <a name="complete-code"></a>Código de conclusão
+## <a name="complete-code"></a>Código completo
 
-A API de pesquisa do Bing resposta devolve resultados do motor de pesquisa do Bing.
-1. Transferir e instalar a biblioteca de gson.
+A API de Pesquisa de Respostas do Bing devolve resultados do motor de busca do Bing.
+1. Transfira ou instale a biblioteca gson.
 2. Crie um novo projeto de Java no seu IDE ou editor favorito.
-3. Adicione o código fornecido abaixo.
-4. Substitua o valor de subscriptionKey com uma chave de acesso válida para a sua subscrição.
+3. Adicione o código indicado abaixo.
+4. Substitua o valor subscriptionKey por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
 
 ````
@@ -149,7 +150,7 @@ public class KnowledgeSrch {
 
 ````
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](c-sharp-quickstart.md)
-- [Guia de introdução do Java](java-quickstart.md)
-- [Guia de introdução do nó](node-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
+- [Início rápido do Node](node-quickstart.md)

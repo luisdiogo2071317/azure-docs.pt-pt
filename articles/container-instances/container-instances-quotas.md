@@ -2,18 +2,17 @@
 title: Quotas e disponibilidade das regiões do Azure Container Instances
 description: As quotas predefinidas e a disponibilidade das regiões do serviço do Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
-ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115280"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902361"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quotas e disponibilidade das regiões do Azure Container Instances
 
@@ -29,11 +28,11 @@ O Azure Container Instances está disponível nas seguintes regiões com a CPU e
 
 | Localização | SO | CPU | Memória (GB) |
 | -------- | -- | :---: | :-----------: |
-| E.U.A. Oeste, E.U.A. Leste, Europa Ocidental, Europa do Norte | Linux | 4 | 14 |
-| E.U.A. Oeste 2, Sudeste Asiático | Linux | 2 | 7 |
-| Leste da Austrália, E.U.A. Leste 2, E.U.A. Central | Linux | 1 | 1.5 |
-| E.U.A. Oeste, E.U.A. Leste, Europa Ocidental, Europa do Norte | Windows | 4 | 14 |
-| E.U.A. Oeste 2, Sudeste Asiático | Windows | 2 | 3.5 |
+| EUA Leste, Europa do Norte, Europa Ocidental, EUA Oeste, EUA Oeste 2 | Linux | 4 | 14 |
+| Leste da Austrália, EUA Leste 2, Sudeste Asiático | Linux | 2 | 7 |
+| Índia Central, EUA Centro-Sul | Linux | 2 | 3.5 |
+| EUA Leste, Europa Ocidental, EUA Oeste | Windows | 4 | 14 |
+| Leste da Austrália, Índia Central, EUA Leste 2, Europa do Norte, EUA Centro-Sul, Sudeste Asiático, EUA Oeste 2 | Windows | 2 | 3.5 |
 
 As instâncias de contentor criadas dentro destes limites de recursos estão sujeitas à disponibilidade numa região de implementação. Quando uma região está sob muita carga, pode ocorrer uma falha ao implementar instâncias. Para mitigar essa falha de implementação, experimente implementar instâncias com definições de memória e CPU inferior ou tente implementar mais tarde.
 

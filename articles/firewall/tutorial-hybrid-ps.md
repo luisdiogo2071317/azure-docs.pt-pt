@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
-ms.openlocfilehash: 919051a945d423a104b286e9c5703c5b749cf026
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946464"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856076"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -134,6 +134,28 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
+## <a name="create-and-configure-the-onprem-vnet"></a>Criar e configurar a VNet OnPrem
+
+Defina as sub-redes a incluir na VNet:
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+Agora, crie a VNet OnPrem:
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+Peça para que seja atribuído um endereço IP público ao gateway que vai criar para a VNet. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não pode especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
 ## <a name="configure-and-deploy-the-firewall"></a>Configurar e implementar a firewall
 
 Implemente agora a firewall na VNet do hub.
@@ -154,11 +176,13 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Configurar regras de rede
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -262,27 +286,7 @@ Quando o cmdlet terminar, veja os valores. No exemplo seguinte, o estado da liga
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>Criar e configurar a VNet OnPrem
 
-Defina as sub-redes a incluir na VNet:
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Agora, crie a VNet OnPrem:
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-Peça para que seja atribuído um endereço IP público ao gateway que vai criar para a VNet. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não pode especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Agrupar as VNets do hub e spoke
 
@@ -300,6 +304,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 Em seguida, crie duas rotas: 
 - Uma rota da sub-rede de gateway do hub para a sub-rede spoke através do endereço IP da firewall
 - Uma rota predefinida da sub-rede spoke através do endereço IP da firewall
+
+> [!NOTE]
+> O Azure Firewall reconhece as suas redes no local através do BGP. Tal pode incluir uma rota predefinida, que irá reencaminhar o tráfego de Internet através da sua rede no local. Se, em alternativa, pretender que o tráfego de Internet seja enviado diretamente da firewall para a Internet, adicione uma rota predefinida definida pelo utilizador (0.0.0.0/0) no AzureFirewallSubnet com o tipo de salto seguinte **Internet**. O tráfego destinado ao local continua a ser forçado a passar pelo túnel através do gateway VPN/ExpressRoute e utiliza as rotas mais específicas obtidas pelo BGP.
 
 ```azurepowershell
 #Create a route table
@@ -397,8 +404,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -407,8 +415,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### <a name="create-the-onprem-virtual-machine"></a>Criar a máquina virtual OnPrem
 Esta é uma máquina virtual simples à qual pode ligar com o Ambiente de Trabalho Remoto ao endereço IP público. A partir daí, pode ligar ao servidor OnPrem através da firewall. Quando lhe for pedido, escreva um nome de utilizador e palavra-passe para a máquina virtual.
@@ -431,10 +439,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. No portal do Azure, ligue à máquina virtual **VM-Onprem**.
-2. Abra uma linha de comandos do Windows PowerShell na **VM Onprem**, e envie o ping do IP privado para **VM-spoke-01**.
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   Deve obter uma resposta.
-1. Abra um browser na **VM-Onprem** e navegue para http://\<IP privado da VM-spoke-01\>
+   You should get a reply.--->
+2. Abra um browser na **VM-Onprem** e navegue para http://\<IP privado da VM-spoke-01\>
 
    Deverá ver a página predefinida dos Serviços de Informação Internet.
 
@@ -444,7 +452,7 @@ $NIC.IpConfigurations.privateipaddress
 
 Verificou que as regras de firewall estão a funcionar:
 
-- Pode enviar pings para o servidor na VNet spoke.
+<!---- You can ping the server on the spoke VNet.--->
 - Pode procurar o servidor Web na VNet spoke.
 - Pode ligar ao servidor na VNet spoke através de RDP.
 

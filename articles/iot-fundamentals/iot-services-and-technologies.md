@@ -1,27 +1,28 @@
 ---
 title: Tecnologias e soluções de Internet das Coisas (IoT) do Azure
 description: Apresenta a coleção de tecnologias e soluções de PaaS/SaaS disponíveis para a criação de uma solução de IoT do Azure.
-author: BryanLa
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631416"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067339"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Tecnologias e soluções de IoT do Azure: PaaS e SaaS
 
 A Microsoft criou um portefólio que suporta as necessidades de todos os clientes ao permitir que todos tenham acesso aos benefícios da transformação digital. O portefólio de produtos IoT do Azure é uma descrição geral das tecnologias e das soluções de PaaS/SaaS disponíveis. Apresenta as duas formas disponíveis para criar a sua própria solução:
+
 - Plataforma como Serviço (PaaS): crie a sua própria aplicação ao utilizar [Aceleradores de soluções Azure IoT](https://www.azureiotsolutions.com/), uma coleção de soluções pré-configuradas de nível empresarial que permitem acelerar o desenvolvimento de soluções de IoT personalizadas.
+
 - Software como Serviço (SaaS): comece rapidamente a trabalhar com o [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), a nova solução de SaaS para desenvolver aplicações de IoT sem a complexidade da solução de IoT. Se a sua organização não possuir os recursos para criar a sua própria solução de IoT, o Azure IoT Central é uma solução de IoT sem código que permite criar modelos de dispositivos, dashboards e regras em minutos.
 
-![Tecnologias e soluções do Azure IoT][img-paas-saas-technologies-solutions]
+![Tecnologias e soluções do Azure IoT](./media/iot-comparison/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>Soluções
 
@@ -57,7 +58,7 @@ As organizações com menos modelos de dispositivos, cenários mais previsíveis
 
 Para implementar uma [arquitetura de solução de IoT](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture) típica, o Azure IoT oferece várias opções ([Aceleradores de soluções do Azure IoT](/azure/iot-suite) e [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)), cada uma delas adequada para diferentes conjuntos de requisitos de cliente.
 
-O [Hub IoT](https://azure.microsoft.com/services/iot-hub/) é a principal PaaS do Azure que o Azure IoT Central e os aceleradores de soluções do Azure IoT utilizam. O Hub IoT permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e um solução na cloud. O Hub IoT ajuda a cumprir os desafios de implementação de IoT, como:
+O [Hub IoT](https://azure.microsoft.com/services/iot-hub/) é a principal PaaS do Azure que o Azure IoT Central e os aceleradores de soluções do Azure IoT utilizam. O Hub IoT permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e uma solução na cloud. O Hub IoT ajuda a cumprir os desafios de implementação de IoT, como:
 
 * Conectividade e gestão de dispositivos de volume elevado.
 * Ingestão de telemetria de volume elevado.
@@ -77,9 +78,9 @@ Escolher o produto do Azure IoT é uma parte crítica do planeamento da soluçã
 
 A decisão do produto a utilizar para criar a sua solução de IoT é, em última análise, determinada por:
 
-* Os seus requisitos comerciais.
+* Os seus requisitos comerciais
 * O tipo de solução que pretende criar
-* O conjunto de competências da organização para criar e manter a solução a longo prazo.
+* O conjunto de competências da organização para criar e manter a solução a longo prazo
 
 ## <a name="technologies-paas"></a>Tecnologias (PaaS)
 
@@ -91,11 +92,10 @@ Comece o seu projeto de IoT com confiança ao tirar partido dos [Azure IoT Start
 Ligue todos os seus dispositivos ao Azure IoT através dos [SDKs de dispositivo](/azure/iot-hub/iot-hub-devguide-sdks) de código aberto. Os SDKs suportam vários sistemas operativos, como Linux, Windows e sistemas operativos em tempo real, bem como várias linguagens de programação, como [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp) e [Python](https://github.com/Azure/azure-iot-sdk-python).
 
 ### <a name="iot"></a>IoT 
-O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) é um serviço totalmente gerido que permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e uma solução de back-end. O Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toque e just-in-time no hub IoT certo sem que seja necessária intervenção humana, permitindo aos clientes aprovisionar milhares de dispositivos de forma segura e dimensionável.
+O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) é um serviço totalmente gerido que permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e o back-end de uma solução. O Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toque e just-in-time no hub IoT certo sem que seja necessária intervenção humana, permitindo aos clientes aprovisionar milhares de dispositivos de forma segura e dimensionável.
 
 ### <a name="edge"></a>Edge
 O [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) é um serviço da Internet das Coisas (IoT). Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou seja, "na periferia". Ao mover partes da sua carga de trabalho para a periferia, irá usufruir de uma latência reduzida e dispor da opção para cenários offline.
-
 
 ### <a name="data-and-analytics"></a>Dados e análises
 Tire partido de uma variedade de ofertas de PaaS para dados e análises do Azure na sua solução de IoT, desde a maximização da eficiência da cloud, com o Azure Machine Learning, ao armazenamento de dados de dispositivos IoT de uma forma económica, com o Azure Data Lake, passando pela visualização de grandes quantidades de dados de dispositivos IoT, com o [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
@@ -103,13 +103,6 @@ Tire partido de uma variedade de ofertas de PaaS para dados e análises do Azure
 ### <a name="visualization-and-integration"></a>Visualização e integração
 O Microsoft Azure oferece uma solução cloud completa que combina um conjunto crescente de serviços cloud integrados com um compromisso de líder da indústria para a proteção e a privacidade dos seus dados. Saiba mais sobre o [Microsoft Azure](https://azure.microsoft.com/).
 
-
-
-
-
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte a secção [Começar](/azure/iot-hub/iot-hub-get-started) para experimentar as funcionalidades de IoT de forma rápida e fácil. Em alternativa, para uma experiência prática mais aprofundada, experimente um dos [Tutoriais](/azure/iot-edge/tutorial-simulate-device-windows).
-
-[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
-
+Veja a [secção de Introdução da documentação do Hub IoT](/azure/iot-hub/iot-hub-get-started) para experimentar as funcionalidades do IoT de forma rápida e fácil. Em alternativa, para uma experiência prática mais aprofundada, experimente um dos [Tutoriais do IoT Edge](/azure/iot-edge/tutorial-simulate-device-windows).

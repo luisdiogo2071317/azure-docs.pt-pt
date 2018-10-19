@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: d208a4b72a27eb288d46ee591f42a8f6b71c4f70
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a1a593dc037901f6661bc8c7268d835bc5a48c94
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094064"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900621"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
-As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/overview/serverless-computing/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. Neste tópico, aprenda a utilizar as Funções para criar uma função “hello world” no portal do Azure.
+As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. Neste tópico, aprenda a utilizar as Funções para criar uma função “hello world” no portal do Azure.
 
 ![Criar uma aplicação de função no portal do Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -44,13 +44,15 @@ Em seguida, vai criar uma função na aplicação Function App nova.
 
 ## <a name="create-function"></a>Criar uma função acionada por HTTP
 
-1. Expanda a aplicação Function App nova e clique no botão **+**, junto a **Functions**.
+1. Expanda a sua nova aplicação de funções, selecione o botão **+** junto a **Funções**, escolha **No portal** e selecione **Continuar**.
 
-2.  Na página **Começar rapidamente**, clique em **WebHook + API**, clique em **Escolher uma linguagem** para a função e clique em **Criar esta função**. 
-   
+    ![Início rápido das Funções, escolher a plataforma.](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+
+1. Escolha **WebHook + API** e selecione **Criar**.
+
     ![Início rápido de funções no portal do Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-É criada uma função na linguagem que escolheu com o modelo de função acionada por HTTP. Este tópico mostra uma função de script do C# no portal, mas pode criar uma função em qualquer [idioma suportado](supported-languages.md). 
+É criada uma função com um modelo específico de linguagem para uma função acionada por HTTP.
 
 Agora, pode enviar um pedido HTTP para executar a função nova.
 
@@ -62,13 +64,13 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 2. Cole o URL da função na barra de endereço do navegador. Adicione o valor da cadeia de consulta `&name=<yourname>` ao final deste URL e prima a tecla `Enter` no teclado para executar o pedido. Deverá ver a resposta devolvida pela função apresentada no browser.  
 
-    Segue-se um exemplo que mostra a resposta no browser Microsoft Edge (outros browsers podem incluir o XML apresentado):
+    O exemplo seguinte mostra a resposta no browser:
 
     ![Resposta da função no browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    O URL do pedido inclui uma chave que é necessária, por predefinição, para aceder à sua função através de HTTP.   
+    O URL do pedido inclui uma chave que é necessária, por predefinição, para aceder à sua função através de HTTP.
 
-3. Quando a sua função é executada, são escritas informações de rastreio nos registos. Para ver a saída de rastreio da execução anterior, regresse à função no portal e clique na seta, na parte inferior do ecrã, para expandir os **Registos**. 
+3. Quando a sua função é executada, são escritas informações de rastreio nos registos. Para ver a saída de rastreio da execução anterior, regresse à função no portal e clique na seta, na parte inferior do ecrã, para expandir os **Registos**.
 
    ![Visualizador de registo de funções no portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -82,7 +84,4 @@ Criou uma aplicação App Function com uma função acionada por HTTP simples.
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Para obter mais informações, veja [Azure Functions HTTP and webhook bindings](functions-bindings-http-webhook.md) (Enlaces de HTTP e webhook das Funções do Azure).
-
-
-
+Para obter mais informações, veja [Enlaces de HTTP das Funções do Azure](functions-bindings-http-webhook.md).

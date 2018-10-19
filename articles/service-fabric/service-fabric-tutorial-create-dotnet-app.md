@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346193"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078499"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço front-end de API Web do ASP.NET Core e um serviço back-end com monitorização de estado
 
@@ -40,7 +40,7 @@ Nesta série de tutoriais, ficará a saber como:
 > * Criar uma aplicação .NET do Service Fabric
 > * [Implementar a aplicação num cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Adicionar um ponto final HTTPS a um serviço de front-end ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configurar o CI/CD com o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurar CI/CD com o Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar a monitorização e os diagnósticos da aplicação](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -52,7 +52,7 @@ Antes de começar este tutorial:
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>Criar um serviço de API Web do ASP.NET como um Reliable Service
 
-Em primeiro lugar, crie o front-end Web da aplicação de voto com o ASP.NET Core. O ASP.NET Core é uma arquitetura de desenvolvimento Web simples para várias plataforma que pode utilizar para criar uma IU Web e APIs Web modernas. Para obter uma compreensão abrangente de como o ASP.NET Core se integra com o Service Fabric, recomendamos vivamente que leia o artigo [ASP.NET Core no Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Por agora, pode seguir este tutorial para começar a trabalhar rapidamente. Para saber mais sobre o ASP.NET Core, veja a [Documentação do ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Em primeiro lugar, crie o front-end Web da aplicação de voto com o ASP.NET Core. O ASP.NET Core é uma arquitetura de desenvolvimento Web simples para várias plataformas que pode utilizar para criar uma IU Web e APIs Web modernas. Para obter uma compreensão abrangente de como o ASP.NET Core se integra com o Service Fabric, recomendamos vivamente que leia o artigo [ASP.NET Core no Reliable Services do Service Fabric](service-fabric-reliable-services-communication-aspnetcore.md). Por agora, pode seguir este tutorial para começar a trabalhar rapidamente. Para saber mais sobre o ASP.NET Core, veja a [Documentação do ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
 
 1. Inicie o Visual Studio como **administrador**.
 
@@ -455,6 +455,9 @@ Neste passo, irá ligar os dois serviços e preparar a aplicação Web do front-
 O Service Fabric garante flexibilidade total na como comunica com o Reliable Services. Dentro de uma única aplicação, poderá ter serviços acessíveis através de TCP. Outros serviços poderão ser acessíveis através de uma API REST HTTP e outros serviços ainda poderão ser acessíveis através de sockets Web. Para obter informações gerais sobre as opções disponíveis e sobre as desvantagens existentes, veja [Comunicar com os serviços](service-fabric-connect-and-communicate-with-services.md).
 
 Este tutorial utiliza a [API Web do ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e o [proxy inverso do Service Fabric](service-fabric-reverseproxy.md), para que o serviço Web de front-end VotingWeb possa comunicar com o serviço VotingData de back-end. O proxy inverso está configurado por predefinição para utilizar a porta 19081 e deve funcionar para este tutorial. A porta é definida no modelo ARM utilizado para configurar o cluster. Para saber qual é a porta utilizada, veja o modelo de cluster no recurso **Microsoft.ServiceFabric/clusters** ou observe o elemento HttpApplicationGatewayEndpoint no Manifesto do cluster.
+
+> [!NOTE]
+> O proxy inverso só é suportado num cluster com o Windows 8 e posterior ou o Windows Server 2012 e posterior.
 
 <u>Recurso Microsoft.ServiceFabric/clusters reverseProxyEndpointPort</u>
 

@@ -1,43 +1,45 @@
 ---
-title: Início rápido c# para o URL do projeto de pré-visualização - serviços cognitivos Microsoft | Microsoft Docs
-description: Começar a utilizar o URL de projeto pré-visualização nos serviços cognitivos Microsoft no Azure.
+title: 'Início Rápido: Pré-visualização do URL do Projeto, C#'
+titlesuffix: Azure Cognitive Services
+description: Comece a utilizar a Pré-visualização do URL do Projeto com C#.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 17d44bd0c23d0a1e67da5a0e91248700d3166c1a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354026"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867447"
 ---
-# <a name="url-preview-query-in-c"></a>Pré-visualização do URL consulta c#
+# <a name="quickstart-url-preview-query-in-c"></a>Início Rápido: Consulta da Pré-visualização do URL com C#
 
-O exemplo do c# seguinte cria uma pré-visualização de Url para o site SwiftKey Web: https://swiftkey.com/en.
+O exemplo de C# seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A edição da Comunidade gratuito irá funcionar.)
+Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
 ## <a name="code-scenario"></a>Cenário de código
 
-O seguinte código c# cria uma versão de pré-visualização do URL do site SwiftKey Web: https://swiftkey.com/en. 
+O exemplo de C# seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en. 
 
-Está implementado nos passos seguintes:
-1. Declare as variáveis para especificar o ponto final e um URL de consulta para pré-visualização.  
+É implementado nos passos seguintes:
+1. Declare variáveis para especificar o ponto final e um URL de consulta para pré-visualização.  
 2. Crie o pedido.
-3. Adicionar o *Ocp-Apim-Subscription-Key* cabeçalho. 
-4. Execute o pedido Web no modo assíncrono. 
-5. Ler a resposta.
+3. Adicione o cabeçalho *Ocp-Apim-Subscription-Key*. 
+4. Execute o pedido Web de forma assíncrona. 
+5. Leia a resposta.
 6. Imprima os cabeçalhos e os resultados JSON para a consola.
 
-**Código de origem**
+**Código fonte**
 
 ```
 using System;
@@ -155,13 +157,13 @@ namespace UrlPrevCshp
 
 Para executar a aplicação:
 
-1. Crie uma nova solução de consola no Visual Studio.
-2. Substitua `Program.cs` com o código fornecido.
-3. Substitua o `YOUR-ACCESS-KEY` valor com uma chave de acesso válido para a sua subscrição.
+1. Crie uma solução de Consola nova no Visual Studio.
+2. Substitua `Program.cs` pelo código fornecido.
+3. Substitua o valor `YOUR-ACCESS-KEY` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Guia de introdução do Java](java-quickstart.md)
-- [Início rápido de JavaScript](javascript.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início Rápido do Java](java-quickstart.md)
+- [Início Rápido do JavaScript](javascript.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

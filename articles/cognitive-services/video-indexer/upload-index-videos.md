@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983889"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884310"
 ---
 # <a name="example-upload-and-index-your-videos"></a>Exemplo: carregar e indexar vídeos  
 
@@ -36,6 +36,11 @@ O artigo também aborda alguns dos parâmetros que pode definir na API para alte
 - Ao carregar o seu vídeo com base no URL (preferencial), o ponto final tem de estar protegido por TLS 1.2 (ou posterior)
 - A opção de matriz de bytes está limitada a 2 GB e expira após 30 minutos
 - O URL fornecido no parâmetro `videoURL` tem de ser codificado
+
+> [!Tip]
+> Recomenda-se a utilização da versão 4.6.2 do .NET Framework ou superior porque as versões .NET Framework mais antigas não têm como predefinição o TLS 1.2.
+>
+> Se tiver de utilizar versões do .NET Framework mais antigas, adicione uma linha ao seu código antes de fazer a chamada à API REST:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="configurations-and-params"></a>Configurações e parâmetros
 
@@ -243,8 +248,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## <a name="common-errors"></a>Erros comuns
 
+Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela operação de Carregamento.
 
+|Código de estado|ErrorType (no corpo da resposta)|Descrição|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
+|400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

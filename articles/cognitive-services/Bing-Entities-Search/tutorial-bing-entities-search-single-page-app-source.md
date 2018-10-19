@@ -1,24 +1,25 @@
 ---
-title: Aplicação de web de página única de pesquisa de imagem do Bing (código de origem) | Microsoft Docs
-description: Código de origem para o tutorial que mostra como utilizar a API de pesquisa do Bing imagem numa aplicação Web de página única.
+title: 'Tutorial: Aplicação Web de página única da Pesquisa de Entidades do Bing (código fonte)'
+titlesuffix: Azure Cognitive Services
+description: Código fonte do tutorial que mostra como utilizar a API de Pesquisa de Entidades do Bing numa aplicação Web de página única.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351601"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815057"
 ---
-# <a name="tutorial-single-page-web-app-source"></a>Tutorial: Origem de aplicação de web de página única
+# <a name="tutorial-single-page-web-app-source"></a>Tutorial: Fonte da aplicação Web de página única
 
-Este é o código de origem completo abordado o [tutorial da aplicação de página única](tutorial-bing-entities-search-single-page-app.md) para pesquisa de imagem do Bing. Para executar a aplicação, copie o código de origem para o bloco de notas ou noutro editor de texto e guarde-o como `bing.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro browser popular.
+Este é o código fonte completo discutido no [tutorial da aplicação de página única](tutorial-bing-entities-search-single-page-app.md) da Pesquisa de Entidades do Bing. Para executar a aplicação, copie o código-fonte para o bloco de notas ou outro editor de texto e guarde-o como `bing.html`. Em seguida, abra o ficheiro guardado no Microsoft Edge ou outro browser popular.
 
 ```html
 <!DOCTYPE html>

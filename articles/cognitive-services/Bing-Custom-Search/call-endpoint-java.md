@@ -1,40 +1,41 @@
 ---
-title: Chamar o ponto final através de Java - pesquisa personalizada do Bing - serviços cognitivos da Microsoft
-description: Este início rápido mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o Java para chamar o ponto final de pesquisa personalizada do Bing.
+title: 'Início Rápido: chamar o ponto final com Java - Pesquisa Personalizada do Bing'
+titlesuffix: Azure Cognitive Services
+description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada com Java para chamar o ponto final de Pesquisa Personalizada do Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951819"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814122"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Chamar o ponto final de pesquisa personalizada do Bing (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Início Rápido: ponto final de Pesquisa Personalizada do Bing (Java)
 
-Este guia de introdução mostra como solicitar os resultados da pesquisa da sua instância de pesquisa personalizada com o Java para chamar o ponto final de pesquisa personalizada do Bing. 
+Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada através de Java para chamar o ponto final de Pesquisa Personalizada do Bing. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido, necessita de:
 
-- Uma instância de pesquisa personalizada do prontos a utilizar. Ver [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).
+- Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 - [Java](https://www.java.com) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar o seu [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou pode utilizar uma chave de subscrição paga do dashboard do Azure (consulte [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga do dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Executar o código
 
 Para executar este exemplo, siga estes passos:
 
-1. Usando o IDE Java à escolha, crie um pacote.  
+1. Com um IDE Java à sua escolha, crie um pacote.  
   
-2. Crie um ficheiro denominado CustomSrchJava.java no pacote e copie o seguinte código para o mesmo. Substitua **seu-SUBSCRIPTION-KEY** e **seu-personalizada-CONFIG-ID** com sua chave de subscrição e a configuração de ID.  
+2. Crie um ficheiro com o nome CustomSrchJava.java no pacote e copie o código seguinte para o mesmo. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de subscrição e ID de configuração.  
   
     ```java
     import java.io.InputStream;
@@ -134,7 +135,7 @@ Para executar este exemplo, siga estes passos:
   
 4. Execute o programa.
     
-## <a name="next-steps"></a>Passos Seguintes
-- [Configurar a sua experiência de interface do Usuário alojada](./hosted-ui.md)
-- [Utilizar marcadores decoration para realçar o texto](./hit-highlighting.md)
-- [Páginas Web de página](./page-webpages.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
+- [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
+- [Páginas Web da página](./page-webpages.md)

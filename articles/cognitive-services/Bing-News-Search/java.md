@@ -1,41 +1,42 @@
 ---
-title: Início rápido de Java para os serviços do Azure cognitivos, Bing notícias pesquisa API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de pesquisa do Bing notícias nos serviços cognitivos Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Notícias do Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para o ajudar a começar rapidamente a utilizar a API de Pesquisa de Notícias do Bing nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 15d0f6490a517466036d3caba1058cfefa551321
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: f7011ceb51d4fb4a5a92c6aeb56a0c26e7d86388
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354860"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803635"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-java"></a>Início rápido para o Bing notícias pesquisa API com Java
+# <a name="quickstart-for-bing-news-search-api-with-java"></a>Início Rápido da API de Pesquisa de Notícias do Bing com Java
 
-Este artigo mostra como utilizar a API de pesquisa do Bing, parte dos serviços cognitivos da Microsoft no Azure. Embora este artigo emprega Java, a API é um serviço de RESTful Web compatível com qualquer linguagem de programação que pode efetuar pedidos HTTP e analisar JSON. 
+Este artigo mostra como utilizar a API da Pesquisa do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize Java, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
 
-O código de exemplo foi escrito para executar em Java 7 como uma aplicação de consola.
+O código de exemplo foi escrito para ser executado com Java 7 como uma aplicação de consola.
 
-Consulte o [referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para detalhes técnicos sobre as APIs.
+Veja a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Terá da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. Precisará da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
-## <a name="bing-news-search"></a>Pesquisa do Bing notícias de última hora
+## <a name="bing-news-search"></a>Pesquisa de Notícias do Bing
 
-O [API de pesquisa do Bing notícias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) devolve resultados de notícias de última hora a partir do Bing motor de busca.
+A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) devolve resultados de notícias do motor de busca do Bing.
 
-1. Transferir ou instalar o [gson biblioteca](https://github.com/google/gson).
+1. Transfira ou instale a [biblioteca gson](https://github.com/google/gson).
 2. Crie um novo projeto de Java no seu IDE ou editor favorito.
-3. Adicione o código fornecido abaixo.
-4. Substitua o `subscriptionKey` valor com uma chave de acesso válida para a sua subscrição.
+3. Adicione o código indicado abaixo.
+4. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
 
 ```java
@@ -148,7 +149,7 @@ class SearchResults{
 
 **Resposta**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 
 ```json
 {
@@ -242,11 +243,11 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo segui
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Notícias de paginação](paging-news.md)
-> [utilizando marcadores decoration para realçar texto](hit-highlighting.md)
-> [pesquisa na web notícias de última hora](search-the-web.md)   
+> [Paginação de notícias](paging-news.md)
+> [Utilizar marcadores decorativos para realçar texto](hit-highlighting.md)
+> [Pesquisar notícias na Web](search-the-web.md)   
 > [Experimente](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
 

@@ -1,37 +1,37 @@
 ---
-title: API com c# de sugestão automática do início rápido para o Bing | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de sugestão automática do Bing nos serviços cognitivos do Azure.
+title: 'Início Rápido: API de Sugestão Automática do Bing, C#'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Sugestão Automática do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 8115950c3b6f3ad439f077847d6645ddaec88dc4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: c735145724577f92e75079f550c99aa9e6656542
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354739"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829586"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-c"></a>API com C de sugestão automática do início rápido para o Bing\#
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-autosuggest-api-with-c"></a>Início Rápido da API de Sugestão Automática do Bing com C#
 
-Este artigo mostra como utilizar o [a API de sugestão automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com c#. A API de sugestão automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial, que o utilizador introduz na caixa de pesquisa. Normalmente, seria chamar esta API sempre que o utilizador escrever um caráter de novo na caixa de pesquisa e, em seguida, apresentar as sugestões na lista pendente caixa de pesquisa. Este artigo mostra como enviar um pedido que devolve as cadeias de consulta sugerida para *sail*.
+Este artigo mostra-lhe como utilizar a API de [Sugestão Automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com C#. A API de Sugestão Automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial que o utilizador introduz na caixa de pesquisa. Normalmente, esta API é chamada sempre que o utilizador escreve um novo caráter na caixa de pesquisa e, em seguida, apresenta as sugestões na lista pendente da caixa de pesquisa. Este artigo mostra como enviar um pedido que devolve as cadeias de consulta sugeridas para *sail*.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A edição da Comunidade gratuito irá funcionar.)
+Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de sugestão automática do Bing v7**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#search) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de Sugestão Automática do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#search) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
-## <a name="get-autosuggest-results"></a>Obter resultados Autosuggest
+## <a name="get-autosuggest-results"></a>Obter resultados de Sugestão Automática
 
-1. Crie um novo projeto c# no seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `subscriptionKey` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto em C# no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```csharp
@@ -160,7 +160,7 @@ namespace AutosuggestSample1
 
 ### <a name="response"></a>Resposta
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -226,12 +226,12 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo segui
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de sugestão automática do Bing](../tutorials/autosuggest.md)
+> [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>Consulte também
 
-- [O que é a sugestão automática do Bing?](../get-suggested-search-terms.md)
-- [Referência de v7 da API de sugestão automática do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
+- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

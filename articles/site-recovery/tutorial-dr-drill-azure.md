@@ -2,16 +2,17 @@
 title: Executar um teste de recuperação após desastre para máquinas no local para o Azure com o Azure Site Recovery | Microsoft Docs
 description: Saiba mais sobre como executar um teste de recuperação após desastre no local para o Azure com o Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3be3631d8d917fe9ff85e8471a35ac2ddece80b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920074"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078159"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure
 
@@ -19,7 +20,7 @@ Neste artigo, mostramos-lhe como executar um teste de recuperação após desast
 
 Este artigo é o quarto tutorial de uma série que lhe mostra como configurar a recuperação após desastre no Azure para VMs VMware ou Hyper-V no local.
 
-Este tutorial pressupõe que concluiu os três primeiros tutoriais: 
+Este tutorial pressupõe que concluiu os três primeiros tutoriais:
     - No [primeiro tutorial](tutorial-prepare-azure.md), configurámos os componentes do Azure necessários para a recuperação após desastre do VMware.
     - No [segundo tutorial](vmware-azure-tutorial-prepare-on-premises.md), preparámos os componentes no local para a recuperação após desastre e revimos os pré-requisitos.
     - No [terceiro tutorial](vmware-azure-tutorial.md), configurámos e ativámos a replicação para a nossa VM do VMware no local.
@@ -44,6 +45,14 @@ Antes de executar uma ativação pós-falha de teste, verifique as propriedades 
 4. Pode ver e modificar as definições de rede, incluindo a rede/sub-rede na qual a VM do Azure será localizada após a ativação pós-falha e o endereço IP que será atribuído à mesma.
 5. Em **Discos**, pode ver informações sobre o sistema operativo e os discos de dados na VM.
 
+## <a name="create-a-network-for-test-failover"></a>Criar uma rede para ativação pós-falha de teste
+
+Recomendamos que, para a ativação pós-falha de teste, escolha uma rede isolada da rede do site de recuperação de produção específica nas definições **Computação e Rede** para cada VM. Por predefinição, quando cria uma rede virtual do Azure, esta fica isolada das outras redes. A rede de teste deve imitar a sua rede de produção:
+
+- A rede de teste deve ter o mesmo número de sub-redes que a sua rede de produção. As sub-redes devem ter os mesmos nomes.
+- A rede de teste deve utilizar o mesmo intervalo de endereços IP.
+- Atualize o DNS da rede de teste com o endereço IP especificado para a VM de DNS nas definições **Computação e Rede**. Leia as [considerações sobre a ativação pós-falha do Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obter mais detalhes.
+
 ## <a name="run-a-test-failover-for-a-single-vm"></a>Executar uma ativação pós-falha de teste para uma única VM
 
 Quando executa uma ativação pós-falha de teste, ocorre o seguinte:
@@ -64,6 +73,12 @@ Execute a ativação pós-falha de teste da seguinte forma:
 7. Para eliminar as VMs do Azure criadas durante a ativação pós-falha de teste, clique em **Limpar ativação pós-falha de teste** na VM. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
 
 Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Poderá reparar em tempos de ativação pós-falha superiores para máquinas do Linux VMware, VMs VMware que não têm o serviço DHCP ativado e VMs VMware que não têm os controladores de arranque storvsc, vmbus, storflt, intelide e atapi.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
+
+Se quiser ligar a VMs do Azure através de RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2b9997fb1fe86d8ffdb67e74fc053773997fb113
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219724"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816485"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Início Rápido: Criar uma máquina virtual do Windows no portal do Azure
 
@@ -72,7 +72,7 @@ Crie uma ligação de ambiente de trabalho remoto para a máquina virtual. Estas
 
 2. Abra o ficheiro RDP transferido e clique em **Ligar** quando lhe for pedido. 
 
-3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Escreva o nome de utilizador como *vmname*\\*nome de utilizador*, introduza a palavra-passe que criou para a máquina virtual e clique em **OK**.
+3. Na janela **Segurança do Windows**, selecione **Mais escolhas** e **Utilizar uma conta diferente**. Escreva o nome de utilizador como **localhost**\\*nome de utilizador*, introduza a palavra-passe que criou para a máquina virtual e clique em **OK**.
 
 4. Poderá receber um aviso de certificado durante o processo de início de sessão. Clique em **Sim** ou **Continuar** para criar a ligação.
 
@@ -99,7 +99,7 @@ Quando já não forem necessários, pode eliminar o grupo de recursos, a máquin
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
+Neste guia de início rápido, implementou uma máquina virtual simples, abriu uma porta de rede para o tráfego Web e instalou um servidor Web básico. Para saber mais sobre as máquinas virtuais do Azure, continue com o tutorial para VMs do Windows.
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquinas virtuais do Windows do Azure](./tutorial-manage-vm.md)

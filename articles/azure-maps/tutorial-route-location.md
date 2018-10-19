@@ -3,18 +3,18 @@ title: Encontrar o trajeto com o Azure Maps | Microsoft Docs
 description: Ir para um ponto de interesse com o Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578942"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816723"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ir para um ponto de interesse com o Azure Maps
 
@@ -126,14 +126,16 @@ Para este tutorial, defina o ponto de partida como Microsoft e o ponto de chegad
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    **map.setCameraBounds** ajusta a janela de mapa de acordo com as coordenadas dos pontos de partida e de chegada. A API **map.addPins** adiciona os pontos ao Controlo de mapas como componentes visuais.
+    **map.setCameraBounds** ajusta a janela de mapa de acordo com as coordenadas dos pontos de partida e de chegada. O **map.addEventListener** garante que todas as funções do mapa adicionadas ao mapa são carregadas depois de o mapa estar totalmente carregado. A API **map.addPins** dentro da escuta de eventos adiciona os pontos ao Controlo de mapa como componentes visuais.
 
 3. Guarde o ficheiro **MapRoute.html** e atualize o browser. Agora, o mapa está centrado em Seattle e consegue ver o alfinete azul redondo a marcar o ponto de partida e o alfinete azul a marcar o ponto de chegada.
 
@@ -143,7 +145,7 @@ Para este tutorial, defina o ponto de partida como Microsoft e o ponto de chegad
 
 ## <a name="get-directions"></a>Obter direções
 
-Esta secção mostra como utilizar a API do serviço de trajetos do Maps para encontrar o trajeto de um determinado ponto inicial para um destino. O serviço de trajetos fornece APIs para planear os trajetos *mais rápidos*, *mais curtos*, *mais ecológicos* ou *mais emocionantes* entre dois locais. Também permite aos utilizadores planear rotas no futuro através da extensa base de dados de tráfego histórico e da previsão das durações das rotas para qualquer dia e hora. Para obter mais informações, veja [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obter indicações de trajetos).
+Esta secção mostra como utilizar a API do serviço de trajetos do Maps para encontrar o trajeto de um determinado ponto inicial para um destino. O serviço de trajetos fornece APIs para planear os trajetos *mais rápidos*, *mais curtos*, *mais ecológicos* ou *mais emocionantes* entre dois locais. Também permite aos utilizadores planear rotas no futuro através da extensa base de dados de tráfego histórico e da previsão das durações das rotas para qualquer dia e hora. Para obter mais informações, veja [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obter indicações de trajetos). Todas as funcionalidades seguintes devem ser adicionadas no **eventListener de carregamento do mapa** para garantir que são carregadas depois de o mapa estar totalmente carregado.
 
 1. Primeiro, adicione uma camada nova no mapa para ver o percurso do trajeto, ou *linestring*. Adicione o seguinte código JavaScript ao bloco *script*.
 
@@ -204,6 +206,10 @@ Neste tutorial, ficou a saber como:
 > * Criar uma nova página Web com a API de controlo de mapas
 > * Definir coordenadas de endereços
 > * Consultar o serviço de trajetos para obter direções para o ponto de interesse
+
+Pode aceder ao código de exemplo deste tutorial aqui:
+
+> [Localizar trajeto com o Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 O tutorial seguinte demonstra como criar uma consulta de trajeto com restrições, como o meio de deslocação ou o tipo de carga, e apresentar vários trajetos no mesmo mapa.
 

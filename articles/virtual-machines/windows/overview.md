@@ -1,5 +1,5 @@
 ---
-title: Descrição Geral das Máquinas Virtuais do Windows | Microsoft Docs
+title: Descrição Geral das Máquinas Virtuais do Windows – Azure | Microsoft Docs
 description: Saiba mais sobre a criação e gestão de máquinas virtuais do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41917712"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816842"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Descrição Geral das Máquinas Virtuais do Windows no Azure
 
@@ -83,9 +83,9 @@ Esta tabela mostra algumas formas para encontrar as informações de uma imagem.
 | Método | Descrição |
 | --- | --- |
 | Portal do Azure |Os valores são especificados automaticamente ao selecionar uma imagem a utilizar. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "localização"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "localização" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "localização" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Localização *location*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Localização *location* -Publicador *publisherName*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Localização *location* -Publicador*publisherName* -Oferta *offerName* |
 | APIs REST |[Listar publicadores de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Listar ofertas da imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Listar skus da imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --Localização*location*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --Localização*location* --Publicador*publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --Localização*location* --Publicador *publisherName* --Oferta *offerName*|
 
 Pode optar por [carregar e utilizar a sua própria imagem](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) e quando o fizer, o nome do publicador, a oferta e o sku não são utilizados.
 
@@ -124,7 +124,7 @@ Esta tabela fornece informações para começar a criar a sua VM.
 | APIs REST |[Criar ou atualizar uma VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | CLI do Azure |[Criar uma VM com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
-Espera que nunca aconteça mas, ocasionalmente, algo corre mal. Se esta situação acontecer, leia as informações em [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure (Resolver problemas de implementação do Gestor de Recursos ao criar uma máquina virtual do Windows no Azure)](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Espera que nunca aconteça mas, ocasionalmente, algo corre mal. Se esta situação acontecer, leia as informações em [Troubleshoot Resource Manager deployment issues with creating a Windows virtual machine in Azure (Resolver problemas de implementação do Gestor de Recursos ao criar uma máquina virtual do Windows no Azure)](../troubleshooting/troubleshoot-deployment-new-vm-windows.md).
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Como posso gerir a VM que criei?
 As VMs podem ser geridas com um portal baseado num browser, ferramentas de linha de comandos com suporte para processamento de scripts ou diretamente através de APs. Algumas tarefas de gestão típicas que pode executar são obter informações sobre uma VM, iniciar sessão numa VM, gerir a disponibilidade e efetuar cópias de segurança.
@@ -141,10 +141,10 @@ Esta tabela mostra-lhe algumas das formas de obter informações sobre uma VM.
 | CLI do Azure |Para obter informações sobre como utilizar a CLI do Azure para gerir VMs, veja [Referência da CLI do Azure](https://docs.microsoft.com/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>Iniciar sessão na VM
-Utilize o botão Ligar no Portal do Azure para [iniciar uma sessão de Ambiente de Trabalho Remoto (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Por vezes, as coisas podem correr ao tentar utilizar uma ligação remota. Se isso acontecer, verifique as informações de ajuda em [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows (Resolver problemas de ligações do Ambiente de Trabalho Remoto numa máquina virtual do Azure com o Windows)](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Utilize o botão Ligar no Portal do Azure para [iniciar uma sessão de Ambiente de Trabalho Remoto (RDP)](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Por vezes, as coisas podem correr ao tentar utilizar uma ligação remota. Se isso acontecer, verifique as informações de ajuda em [Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows (Resolver problemas de ligações do Ambiente de Trabalho Remoto numa máquina virtual do Azure com o Windows)](../troubleshooting/troubleshoot-rdp-connection.md).
 
 ### <a name="manage-availability"></a>Gerir a disponibilidade
-É importante compreender como [garantir a elevada disponibilidade](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) da sua aplicação. Esta configuração envolve a criação de várias VMs para garantir que pelo menos uma está em execução.
+É importante compreender como [garantir a elevada disponibilidade](manage-availability.md) da sua aplicação. Esta configuração envolve a criação de várias VMs para garantir que pelo menos uma está em execução.
 
 Para a sua implementação se qualificar para o nosso Contrato de Nível de Serviço da VM 99.95, tem de implementar duas ou mais VMs que executam a carga de trabalho num [conjunto de disponibilidade](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Esta configuração garante que as VMs são distribuídas em vários domínios de falhas e são implementadas em anfitriões com janelas de manutenção diferentes. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
 
@@ -152,5 +152,5 @@ Para a sua implementação se qualificar para o nosso Contrato de Nível de Serv
 Para proteger dados e ativos nos serviços do Azure Backup e do Azure Site Recovery é utilizado um [Cofre dos Serviços de Recuperação](../../backup/backup-introduction-to-azure-backup.md). Pode utilizar um cofre dos Serviços de Recuperação para [implementar e gerir cópias de segurança para VMs implementadas pelo Gestor de Recursos com o PowerShell](../../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Se a sua intenção for trabalhar com VMs do Linux, consulte [Azure e Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Saiba mais sobre as diretrizes em torno da configuração da sua infraestrutura em [Example Azure infrastructure walkthrough (Instruções sobre a infraestrutura do Azure de exemplo)](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Se a sua intenção for trabalhar com VMs do Linux, consulte [Azure e Linux](../linux/overview.md).
+* Saiba mais sobre as diretrizes em torno da configuração da sua infraestrutura em [Example Azure infrastructure walkthrough (Instruções sobre a infraestrutura do Azure de exemplo)](infrastructure-example.md).

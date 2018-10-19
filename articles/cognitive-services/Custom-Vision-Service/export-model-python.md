@@ -1,35 +1,36 @@
 ---
-title: Executar o modelo de TensorFlow no Python - Service de visão personalizada - Azure cognitivos Services | Microsoft Docs
-description: Executar o modelo de TensorFlow no Python
+title: 'Tutorial: executar um modelo TensorFlow em Python - Serviço de Visão Personalizada'
+titlesuffix: Azure Cognitive Services
+description: Execute um modelo TensorFlow em Python.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: d31036404604104ca28328b6c8bc5d3ca74d83ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355436"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247317"
 ---
-# <a name="run-tensorflow-model-in-python"></a>Executar o modelo de TensorFlow no Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: executar um modelo TensorFlow em Python
 
-Depois de ter [exportou o modelo de TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) do serviço de visão personalizada, este guia de introdução irá mostrar-lhe como utilizar este modelo localmente para classificar as imagens.
+Depois de ter [exportado o seu modelo TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) do Serviço de Visão Personalizada, este início rápido irá mostrar como utilizar este modelo localmente para classificar as imagens.
 
 ## <a name="install-required-components"></a>Instalar os componentes necessários
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar o tutorial, precisa de fazer o seguinte:
+Para utilizar o tutorial, tem de fazer o seguinte:
 
-- Instale o Python 2.7 + ou Python 3.5 +.
+- Instale o Python 2.7+ ou Python 3.5+.
 - Instale o pip.
 
-Também terá de instalar os seguintes pacotes:
+Também terá de instalar os pacotes seguintes:
 
 ```
 pip install tensorflow
@@ -40,7 +41,7 @@ pip install opencv-python
 
 ## <a name="load-your-model-and-tags"></a>Carregar o modelo e as etiquetas
 
-O ficheiro zip transferido contém um model.pb e um labels.txt. Estes ficheiros representam o modelo treinado e as etiquetas de classificação. O primeiro passo é para carregar o modelo para o seu projeto.
+O ficheiro zip transferido contém um model.pb e um labels.txt. Estes ficheiros representam o modelo preparado e as etiquetas de classificação. O primeiro passo é carregar o modelo para o seu projeto.
 
 ```Python
 import tensorflow as tf
@@ -62,9 +63,9 @@ with open(labels_filename, 'rt') as lf:
 
 ## <a name="prepare-an-image-for-prediction"></a>Preparar uma imagem para predição
 
-Existem alguns passos para preparar a imagem para que seja a forma correta para predição. Estes passos imitam a efetuada durante a preparação de manipulação de imagem:
+Existem alguns passos para preparar a imagem para que esteja no formato correto para predição. Estes passos imitam a manipulação de imagem efetuada durante a preparação:
 
-### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Abra o ficheiro e criar uma imagem no espaço de cor BGR
+### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Abrir o ficheiro e criar uma imagem na colorimetria BGR
 
 ```Python
 from PIL import Image
@@ -82,7 +83,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="deal-with-images-with-a-dimension-1600"></a>Lidar com as imagens com uma dimensão > 1600
+### <a name="deal-with-images-with-a-dimension-1600"></a>Lidar com imagens com uma dimensão >1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -90,7 +91,7 @@ image = convert_to_opencv(image)
 image = resize_down_to_1600_max_dim(image)
 ```
 
-### <a name="crop-the-largest-center-square"></a>Recortar o maior quadrado do System center
+### <a name="crop-the-largest-center-square"></a>Recortar o quadrado central maior
 
 ```Python
 # We next get the largest center square
@@ -99,7 +100,7 @@ min_dim = min(w,h)
 max_square_image = crop_center(image, min_dim, min_dim)
 ```
 
-### <a name="resize-down-to-256x256"></a>Redimensionar para baixo até 256 x 256
+### <a name="resize-down-to-256x256"></a>Reduzir o tamanho para 256x256
 
 ```Python
 # Resize that square down to 256x256
@@ -107,7 +108,7 @@ augmented_image = resize_to_256_square(max_square_image)
 ```
 
 
-### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Recortar center para o tamanho de entrada específico para o modelo
+### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Recortar o centro para o tamanho de entrada específico para o modelo
 
 ```Python
 # The compact models have a network size of 227x227, the model requires this size.
@@ -118,7 +119,7 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
-Os passos acima, utilize as seguintes funções de programa auxiliar:
+Os passos acima utilizam as seguintes funções de programa auxiliar:
 
 ```Python
 def convert_to_opencv(image):
@@ -164,7 +165,7 @@ def update_orientation(image):
 
 ## <a name="predict-an-image"></a>Prever uma imagem
 
-Depois da imagem é preparada como um tensor que podemos enviar através do modelo para uma predição:
+Depois de a imagem ser preparada como um tensor, podemos enviá-la através do modelo para uma predição:
 
 ```Python
 
@@ -179,7 +180,7 @@ with tf.Session() as sess:
 
 ## <a name="view-the-results"></a>Ver os resultados
 
-Os resultados da execução tensor a imagem através do modelo, em seguida, terá de ser mapeados para as etiquetas.
+Os resultados da execução do tensor de imagens através do modelo terão de ser mapeados novamente para as etiquetas.
 
 ```Python
     # Print the highest probability label
@@ -189,15 +190,15 @@ Os resultados da execução tensor a imagem através do modelo, em seguida, ter�
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Também pode ser moldado o modelo para uma aplicação móvel:
-* [Utilizar o seu modelo Tensorflow exportado de uma aplicação Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
-* [Utilizar o seu modelo CoreML exportado de uma aplicação Swift iOS](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Utilizar o seu modelo CoreML exportado de uma aplicação do iOS com o Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+Também pode encapsular o modelo numa aplicação móvel:
+* [Utilizar o modelo exportado do Tensorflow numa aplicação Android](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
+* [Utilizar o modelo exportado do CoreML numa aplicação Swift iOS](https://go.microsoft.com/fwlink/?linkid=857726)
+* [Utilizar o modelo exportado do CoreML numa aplicação iOS com Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 

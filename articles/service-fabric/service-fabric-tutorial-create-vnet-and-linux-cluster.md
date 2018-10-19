@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405824"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831488"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster do Service Fabric do Linux numa rede virtual do Azure
 
@@ -85,7 +85,7 @@ Este modelo implementa um cluster seguro de cinco máquinas virtuais e um tipo d
 
 ### <a name="service-fabric-cluster"></a>Cluster do Service Fabric
 
-Um cluster do Linux é implementado com as seguintes características:
+No recurso **Microsoft.ServiceFabric/clusters**, é implementado um cluster Linux com as seguintes características:
 
 * um tipo de nó único
 * cinco nós no tipo de nó primário (configurável nos parâmetros do modelo)
@@ -99,7 +99,7 @@ Um cluster do Linux é implementado com as seguintes características:
 
 ### <a name="azure-load-balancer"></a>Balanceador de carga do Azure
 
-Um balanceador de carga é implementado, e são configuradas sondas e regras para as seguintes portas:
+No recurso **Microsoft.Network/loadBalancers**, é configurado um balanceador de carga e são configuradas pesquisas e regras para as seguintes portas:
 
 * ponto final de ligação de cliente: 19000
 * ponto final de gateway HTTP: 19080
@@ -108,7 +108,7 @@ Um balanceador de carga é implementado, e são configuradas sondas e regras par
 
 ### <a name="virtual-network-and-subnet"></a>Rede virtual e sub-rede
 
-Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e sub-rede também são declarados nos parâmetros do modelo:
+Os nomes da rede virtual e sub-rede são declarados nos parâmetros do modelo.  Os espaços de endereços da rede virtual e da sub-rede também são declarados nos parâmetros do modelo e configurados no recurso **Microsoft.Network/virtualNetworks**:
 
 * espaço de endereços de rede virtual: 10.0.0.0/16
 * espaço de endereços de sub-rede do Service Fabric: 10.0.2.0/24

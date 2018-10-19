@@ -1,38 +1,38 @@
 ---
-title: 'Início rápido: Consulta de entidade de pesquisa de resposta de projeto'
+title: 'Início Rápido: Consulta de Entidades de Pesquisa de Respostas do Projeto'
 titlesuffix: Azure Cognitive Services
-description: Consultas para entidades com a pesquisa de resposta de projeto
+description: Consultas de Entidades com a Pesquisa de Respostas do Projeto
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: efb46fc7064bcad69b5ea84f9bdfe923d95ccbe6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867583"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883606"
 ---
-# <a name="quickstart-query-for-entities"></a>Início rápido: Consultar entidades
+# <a name="quickstart-query-for-entities"></a>Início Rápido: Consulta de Entidades
 
-Se a consulta solicita as informações sobre uma pessoa, local ou coisa, a resposta pode conter um `entities` resposta.  Páginas da Web, as consultas retornam sempre [fatos](fact-queries.md) e/ou [entidades](entity-queries.md) são consulta dependentes.
+Se a consulta requerer informações sobre uma pessoa, local ou coisa, a resposta pode conter uma resposta de `entities`.  As consultas devolvem sempre páginas Web, os [factos](fact-queries.md) e/ou as [entidades](entity-queries.md) são dependentes da consulta.
 
-Entidades de oferecer suporte a três cenários de consulta: 
--   DominantEntity — há apenas uma entidade que corresponde à consulta e a intenção do utilizador. Por exemplo, a consulta, o Space Needle, é um cenário de DominantEntity. 
--   Desambiguação — há mais de uma entidade que corresponde à consulta e a intenção do usuário e cabe ao utilizador selecionar a entidade correta. Por exemplo, a consulta de jogo de Thrones é um cenário de Desambiguação que retorna o programa de televisão e a série de livros. 
--   Lista — existem várias entidades que correspondem à consulta e a intenção do utilizador. Por exemplo, a consulta "Lista de endangered species" é um cenário de lista que retorna valores de tabela formatadas para apresentar em linhas e células. 
+As entidades suportam três cenários de consulta: 
+-   DominantEntity — só existe uma entidade que corresponde à consulta e intenção do utilizador. Por exemplo, a consulta de Space Needle (Obelisco Espacial) é um cenário DominantEntity. 
+-   Desambiguação — há mais de uma entidade que corresponde à consulta e intenção do utilizador, e cabe ao utilizador selecionar a entidade correta. Por exemplo, a consulta de Game of Thrones (Guerra dos Tronos) é um cenário de Desambiguação que devolve a série televisiva e os respetivos livros. 
+-   Lista — existem várias entidades que correspondem à consulta e intenção do utilizador. Por exemplo, a consulta de “List of endangered species” (lista de espécies em risco de extinção) é um cenário de lista que devolve valores tabulares para apresentação em linhas e células. 
  
-Para determinar o cenário de consulta, utilize o `queryScenario` campo o `entities` objeto. Os dados que inclui a entidade dependem do tipo da entidade. Embora as entidades incluem as mesmas informações básicas, algumas entidades como tourist attractions ou livros incluem propriedades adicionais. As entidades que incluem propriedades adicionais incluem a `_type` campo que contém uma sugestão utilizada pelo serializador. As seguintes entidades incluem propriedades adicionais: 
+Para determinar o cenário de consulta, utilize o campo `queryScenario` do objeto `entities`. Os dados que a entidade inclui dependem do tipo de entidade. Embora as entidades incluam as mesmas informações básicas, algumas entidades, como atrações turísticas ou livros, incluem propriedades adicionais. As entidades que incluem propriedades adicionais incluem o campo `_type`, que contém uma sugestão utilizada pelo serializador. As seguintes entidades incluem propriedades adicionais: 
 -   Livro 
 -   MusicRecording 
 -   Pessoa 
--   Attraction 
+-   Atração 
  
-Para determinar o tipo de entidade que contém a resposta, utilize o `entityTypeHints` campo conforme mostrado na consulta para Bill Gates.
+Para determinar o tipo de entidade que a resposta contém, utilize o campo `entityTypeHints`, conforme mostrado na consulta de Bill Gates.
 ````
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
@@ -45,11 +45,11 @@ Para determinar o tipo de entidade que contém a resposta, utilize o `entityType
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
 ````
-Segue-se uma consulta para o Space Needle:
+Segue-se uma consulta de Space Needle (Obelisco Espacial):
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
 ````
-A resposta inclui a `entities` resposta. Tenha em atenção a `entityScenario` e `entityTypeHints` campos. 
+A resposta inclui a resposta de `entities`. Tenha em atenção os campos `entityScenario` e `entityTypeHints`. 
 ````
   "entities": {
     "value": [
@@ -110,16 +110,16 @@ A resposta inclui a `entities` resposta. Tenha em atenção a `entityScenario` e
   },
 ````
 
-Uma consulta pode devolver uma lista, se é relevante.
+Uma consulta pode devolver uma lista, se for relevante.
 
-**Consulta:** a consulta seguinte localiza uma lista de endangered espécie:
+**Consulta:** a consulta seguinte localiza uma lista de “endangered species” (espécies em risco de extinção):
 
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
 ````
 
-**Resposta:** a resposta inclui uma lista formatada para apresentar como valores de tabela:
+**Resposta:** a resposta inclui uma lista formatada para apresentação como valores tabulares:
 ````
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
@@ -220,8 +220,8 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
 ````
 
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido em C#](c-sharp-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido de C#](c-sharp-quickstart.md)
 - [Início rápido de Java](java-quickstart.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+- [Início rápido de Node](node-quickstart.md)
+- [Início rápido de Python](python-quickstart.md)

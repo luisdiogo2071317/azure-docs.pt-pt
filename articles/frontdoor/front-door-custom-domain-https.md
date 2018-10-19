@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 8e3bdd402cbd16469fb333cc470471629f85538c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045459"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883980"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado do Front Door
 
@@ -45,15 +45,14 @@ Neste tutorial, ficará a saber como:
 
 Para poder concluir os passos neste tutorial, tem primeiro de criar um Front Door com, pelo menos, um domínio personalizado carregado. Para obter mais informações, veja [Tutorial: Adicionar um domínio personalizado ao Front Door](front-door-custom-domain.md).
 
----
-
 ## <a name="ssl-certificates"></a>Certificados SSL
+
 Para ativar o protocolo HTTPS para entregar conteúdo de forma segura num domínio personalizado do Front Door, tem de utilizar um certificado SSL. Pode optar por utilizar um certificado gerido pelo Azure Front Door Service ou utilizar o seu próprio certificado.
 
 
-# <a name="option-1-default-enable-https-with-an-afd-managed-certificatetaboption-1-default-enable-https-with-an-afd-managed-certificate"></a>[Opção 1 (predefinição): ativar HTTPS com um certificado gerido por AFD](#tab/option-1-default-enable-https-with-an-afd-managed-certificate)
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Opção 1 (predefinição): utilizar um certificado gerido pelo Front Door
 
-Quando utiliza um certificado gerido por AFD, a funcionalidade HTTPS pode ser ativada com apenas alguns cliques. O Azure Front Door Service processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o sistema anfitrião de font-end predefinido do Front Door (`{hostname}.azurefd.net`), não é necessária mais nenhuma ação. O Front Door vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
+Quando utiliza um certificado gerido pelo Azure Front Door Service, a funcionalidade HTTPS pode ser ativada com apenas alguns cliques. O Azure Front Door Service processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o sistema anfitrião de font-end predefinido do Front Door (`{hostname}.azurefd.net`), não é necessária mais nenhuma ação. O Front Door vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
 
 Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
@@ -68,11 +67,11 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 5. Avance para [Validar o domínio](#validate-the-domain).
 
 
-# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Opção 2: ativar a funcionalidade HTTPS com o seu próprio certificado](#tab/option-2-enable-https-with-your-own-certificate)
+### <a name="option-2-use-your-own-certificate"></a>Opção 2: utilizar o seu próprio certificado
 
 Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Este processo é efetuado através de uma integração com o Azure Key Vault, o que lhe permite armazenar os certificados de forma segura. O Azure Front Door Service utiliza este mecanismo seguro para obter o certificado e requer alguns passos adicionais. Ao criar o certificado SSL, tem de criá-lo com uma autoridade de certificação permitida (AC). Caso contrário, se utilizar uma AC não permitida, o pedido será rejeitado. Para obter uma lista de ACs permitidas, veja [Autoridades de certificação permitidas para ativar o HTTPS personalizado no Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
 
-### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
+#### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Prepare a conta e o certificado do Azure Key Vault
  
 1. Azure Key Vault: tem de ter uma conta do Azure Key Vault em execução na mesma subscrição que o Front Door para o qual pretende ativar HTTPS personalizado. Se não tiver uma, crie uma conta do Azure Key Vault.
  
@@ -83,7 +82,7 @@ Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Est
 > </br> - Atualmente, o Azure Front Door Service suporta apenas certificados do Key Vault armazenados na seção Segredos. A importação do certificado irá falhar se o armazenar na secção Certificados em vez da seção Segredos.
 > </br> - Atualmente, o Azure Front Door Service suporta apenas certificados carregados com um PFX **sem** uma palavra-passe.
 
-### <a name="register-azure-front-door-service"></a>Registar o Azure Front Door Service
+#### <a name="register-azure-front-door-service"></a>Registar o Azure Front Door Service
 
 Registe o principal de serviço do Azure Front Door Service como uma aplicação no Azure Active Directory através do PowerShell.
 
@@ -93,7 +92,7 @@ Registe o principal de serviço do Azure Front Door Service como uma aplicação
 
      `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Conceder ao Azure Front Door Service acesso ao cofre de chaves
+#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Conceder ao Azure Front Door Service acesso ao cofre de chaves
  
 Dê permissão ao Azure Front Door Service para aceder aos certificados na secção Segredos na sua conta do Azure Key Vault.
 
@@ -108,7 +107,7 @@ Dê permissão ao Azure Front Door Service para aceder aos certificados na secç
 
     O Azure Front Door Service pode agora aceder a este cofre de chaves e aos certificados (segredos) que estão armazenados neste cofre de chaves.
  
-### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Selecione o certificado que vai ser implementado pelo Azure Front Door Service
+#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Selecione o certificado que vai ser implementado pelo Azure Front Door Service
  
 1. Volte ao seu Front Door no portal. 
 
@@ -126,8 +125,6 @@ Dê permissão ao Azure Front Door Service para aceder aos certificados na secç
     - As versões dos certificados disponíveis. 
  
 5. Quando utiliza o seu próprio certificado, a validação de domínio não é necessária. Avance para [Aguardar pela propagação](#wait-for-propagation).
-
----
 
 ## <a name="validate-the-domain"></a>Validar o domínio
 

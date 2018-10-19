@@ -1,43 +1,45 @@
 ---
-title: Guia de introdução do Python cognitivos nos serviços da Microsoft, pesquisa de resposta do projeto | Microsoft Docs
-description: Exemplo de Python começar a utilizar a pesquisa de resposta de projeto, Microsoft serviços cognitivos no Azure.
+title: 'Início Rápido: Pesquisa de Respostas do Projeto, Python'
+titlesuffix: Azure Cognitive Services
+description: Introdução ao exemplo do Python com a Pesquisa de Respostas do Projeto.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353930"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869834"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Guia de introdução do projeto Python de pesquisa de resposta
+# <a name="quickstart-project-answer-search-with-python"></a>Início Rápido: Pesquisa de Respostas do Projeto com o Python
 
-O exemplo de Python seguinte cria e envia um pedido para obter informações sobre "Rock de Gibraltar".
+O exemplo do Python que se segue cria e envia um pedido para obter informações sobre o “Rochedo de Gibraltar”.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
-Este exemplo utiliza o Python 3.6.4
+Este exemplo utiliza o Python 3.6.4
 
 ## <a name="code-scenario"></a>Cenário de código 
 
-O código seguinte cria uma pré-visualização de URL.
-Está implementado nos passos seguintes:
-1. Declare as variáveis para especificar o ponto final por anfitrião e caminho.
-2. Especifique o URL de consulta para pré-visualizar e adicione o parâmetro de consulta.  
+O código seguinte cria uma Pré-visualização do URL.
+É implementado nos passos seguintes:
+1. Declare variáveis para especificar o ponto final por anfitrião e por caminho.
+2. Especifique o URL de consulta da pré-visualização e adicione o parâmetro de consulta.  
 3. Defina o parâmetro de consulta.
-4. Definir a função de pesquisa que cria o pedido e adiciona o *Ocp-Apim-Subscription-Key* cabeçalho.
-5. Definir o *Ocp-Apim-Subscription-Key* cabeçalho. 
-6. Estabelecer a ligação e enviar o pedido.
+4. Defina a função Pesquisa que cria o pedido e adiciona o cabeçalho *Ocp-Apim-Subscription-Key*.
+5. Defina o cabeçalho *Ocp-Apim-Subscription-Key*. 
+6. Faça a ligação e envie o pedido.
 7. Imprima os resultados JSON.
 
-O código de completado para esta demonstração segue:
+Segue-se o código completo para esta demonstração:
 
 ````
 import http.client, urllib.parse
@@ -64,7 +66,7 @@ result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
 ````
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](c-sharp-quickstart.md)
-- [Guia de introdução do Java](java-quickstart.md)
-- [Guia de introdução do nó](node-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido do C#](c-sharp-quickstart.md)
+- [Início rápido do Java](java-quickstart.md)
+- [Início rápido do Node](node-quickstart.md)

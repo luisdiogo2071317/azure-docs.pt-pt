@@ -1,30 +1,30 @@
 ---
-title: Guia de introdução do Bing entidade pesquisa SDK Java | Microsoft Docs
-description: Configure a aplicação de consola do SDK de pesquisa do Bing entidade.
-titleSuffix: Azure Cognitive Services
+title: 'Início Rápido: SDK de Pesquisa de Entidades do Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Configure a aplicação de consola do SDK da Pesquisa de Entidades do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: ebfabc00b5dc031ac4e5284450a9d639c383e78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355238"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814496"
 ---
-# <a name="bing-entity-search-sdk-java-quickstart"></a>Guia de introdução do Bing entidade pesquisa SDK Java
+# <a name="quickstart-bing-entity-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Entidades do Bing com Java
 
-O SDK de pesquisa do Bing entidade fornece a funcionalidade de REST API para consultas de entidade e os resultados da análise. 
+O SDK de Pesquisa de Entidades do Bing disponibiliza a funcionalidade de API REST para consultas de entidades e análise de resultados. 
 
-O [código para exemplos do SDK de pesquisa do Java Bing entidade de origem](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) está disponível no Hub de Git. 
+O [código fonte para os exemplos de SDK em Java da Pesquisa de Entidades do Bing](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) está disponível no Git Hub. 
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **pesquisa**. Instale as dependências do SDK de pesquisa do Bing entidade com o Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro de Maven POM requer a declaração:
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**. Instale as dependências do SDK de Pesquisa de Entidades do Bing com o Maven, Gradle ou outro sistema de gestão de dependências. O ficheiro POM do Maven requer a declaração:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/t
     </dependency>
   </dependencies>
 ```
-## <a name="entity-search-client"></a>Cliente de pesquisa de entidade
-Adicione importações para a implementação de classe.
+## <a name="entity-search-client"></a>Cliente da Pesquisa de Entidades
+Adicione as importações à implementação da classe.
 ```
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
 import com.microsoft.azure.cognitiveservices.entitysearch.implementation.EntitySearchAPIImpl;
@@ -50,7 +50,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Implementar o **EntitySearchAPIImpl** cliente, que requer uma instância do **ServiceClientCredentials** classe.
+Implemente o cliente **EntitySearchAPIImpl**, que requer uma instância da classe **ServiceClientCredentials**.
 ```
 public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
     return new EntitySearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -75,7 +75,7 @@ public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Procure a única entidade "Satya Nadella" e uma descrição breve de impressão.
+Procure a entidade única "Satya Nadella" e imprima uma breve descrição da mesma.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
 {
@@ -115,7 +115,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 }
 
 ```
-Procure "William portas" e o identificador de resultados de disambiguation para a consulta é ambígua.
+Procure por "William Gates" e processe resultados de desambiguação de uma consulta ambígua.
 ```
 public static void handlingDisambiguation(String subscriptionKey)
 {
@@ -182,7 +182,7 @@ public static void handlingDisambiguation(String subscriptionKey)
 }
 
 ```
-Procurar um único arquivo com a consulta "Armazenar Microsoft" e o número de telefone para o resultado de impressão.
+Procure uma única loja com a consulta "Microsoft Store" e imprima o respetivo número de telefone como resultado.
 ```
 public static void storeLookup(String subscriptionKey)
 {
@@ -220,7 +220,7 @@ public static void storeLookup(String subscriptionKey)
 }
 
 ```
-Procure uma lista de restaurants com a consulta "Seattle restaurants." Imprima os nomes e números de telefone para os resultados.
+Procure uma lista de restaurantes com a consulta "restaurantes de Seattle." Imprima os nomes e números de telefone para os resultados.
 ```
 public static void multipleRestaurantLookup(String subscriptionKey)
 {
@@ -276,7 +276,7 @@ public static void multipleRestaurantLookup(String subscriptionKey)
 }
 
 ```
-Adicione os métodos descritos neste artigo para uma classe com uma função principal para executar o código.
+Adicione os métodos descritos neste artigo a uma classe com uma função principal para executar o código.
 ```
 package entitySDK;
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
@@ -294,7 +294,7 @@ public class EntitySearchSDK {
     // Include the methods described in this article.
 }
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Amostras do SDK de Java serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Exemplos de SDK Java nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419547"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017453"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Tutorial: Aprovisionar o Azure Data Box Gateway em VMware (Pré-visualização)
 
@@ -96,7 +96,7 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 
 1. Copie a imagem do dispositivo virtual no seu sistema. Transferiu esta imagem virtual (dois ficheiros) através do portal do Azure. Tome nota da localização onde copiou a imagem, uma vez que vai utilizar esta imagem mais à frente no procedimento.
 
-2. Inicie sessão no servidor ESXi com o cliente vSphere. Tem de ter privilégios de administrador para criar uma máquina virtual.
+2. Inicie sessão no servidor ESXi com o cliente Web vSphere. Tem de ter privilégios de administrador para criar uma máquina virtual.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. No painel da direita, em **Datastores** (Arquivos de dados), selecione o arquivo de dados onde pretende carregar o VMDK. O arquivo de dados tem de ser do tipo VMFS 5. O arquivo de dados também tem de ter espaço livre suficiente para os discos de dados e do SO.
+4. No painel da direita, em **Datastores** (Arquivos de dados), selecione o arquivo de dados onde pretende carregar o VMDK. 
+
+    - O arquivo de dados tem de ser do tipo VMFS5. 
+    - O arquivo de dados também tem de ter espaço livre suficiente para os discos de dados e do SO.
    
 5. Clique com o botão direito do rato e selecione **Browse Datastore** (Procurar arquivo de dados).
 
@@ -145,11 +148,11 @@ Execute os passos seguintes para aprovisionar um dispositivo virtual no seu hipe
 15. Na página **Select storage** (Selecionar armazenamento), selecione o arquivo de dados que pretende utilizar para aprovisionar a VM. Clique em **Seguinte**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Na página **Customize settings** (Personalizado definições), defina **CPU** como 4, **Memory** (Memória) como 8192 MB (ou mair) e **Hard disk 1** (Disco rígido 1) como 2 TB (ou mais). Escolha o tipo de **disco rígido SCSI** a adicionar. Neste caso, foi LSI Logic SAS. **Os discos IDE estáticos não são suportados.** O **Disco rígido 1** é o disco virtual de dados. Tenha em atenção que não é possível encolher o disco depois de aprovisionado.
+16. Na página **Customize settings** (Personalizado definições), defina **CPU** como 4, **Memory** (Memória) como 8192 MB (ou mair) e **Hard disk 1** (Disco rígido 1) como 2 TB (ou mais). Escolha **Disco rígido SCSI** para adicionar. Neste caso, foi LSI Logic SAS. **Os discos IDE estáticos não são suportados.** O **Disco rígido 1** é o disco virtual de dados. Tenha em atenção que não é possível encolher o disco depois de aprovisionado.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    Na mesma página, clique em **Add hard disk** (Adicionar disco rígido) e selecione **Existing hard disk** (Disco rígido existente). Esta ação adiciona um disco de SO. 
+    Na mesma página, clique em **Add hard disk** (Adicionar disco rígido) e selecione **Existing hard disk** (Disco rígido existente). Selecione o ficheiro VMDK no arquivo de dados. Esta ação adicionará um disco de SO. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

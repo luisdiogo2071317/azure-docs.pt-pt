@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987582"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857895"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Início Rápido: Carregar, transferir, listar e eliminar blobs com o SDK do Armazenamento do Azure v10 para JavaScript (pré-visualização)
 
@@ -128,7 +128,7 @@ O próximo conjunto de constantes ajuda a revelar a intenção dos cálculos de 
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-Os pedidos feitos pela API podem ser definidos para excederem o tempo limite após um determinado intervalo. A classe *Aborter* é responsável por gerir a forma como os pedidos excedem o limite de tempo e a constante seguinte serve para definir os tempos limite utilizados neste exemplo.
+Os pedidos feitos pela API podem ser definidos para excederem o tempo limite após um determinado intervalo. A classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) é responsável por gerir a forma como os pedidos excedem o limite de tempo e a constante seguinte serve para definir os tempos limite utilizados neste exemplo.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 As seguintes classes são utilizadas neste bloco de código:
 
-- A classe *SharedKeyCredential* é responsável pelo encapsulamento num wrapper das credenciais da conta de armazenamento, para fornecê-las a um pipeline de pedido.
+- A classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) é responsável pelo encapsulamento num wrapper das credenciais da conta de armazenamento, para fornecê-las a um pipeline de pedido.
 
-- A classe *StorageURL* é responsável por criar um novo pipeline.
+- A classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) é responsável por criar um novo pipeline.
 
-- A classe *ServiceURL* modela um URL utilizado na API REST. As instâncias desta classe permitem-lhe executar ações como listar contentores e fornecer informações de contexto para gerar URLs de contentor.
+- A classe [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) modela um URL utilizado na API REST. As instâncias desta classe permitem-lhe executar ações como listar contentores e fornecer informações de contexto para gerar URLs de contentor.
 
-A instância de *ServiceURL* é utilizado com as instâncias de *ContainerURL* e *BlockBlobURL* para gerir contentores e blobs na sua conta de armazenamento.
+A instância de *ServiceURL* é utilizado com as instâncias de [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) e [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) para gerir contentores e blobs na sua conta de armazenamento.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);

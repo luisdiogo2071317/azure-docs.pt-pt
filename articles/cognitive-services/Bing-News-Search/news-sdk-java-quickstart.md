@@ -1,30 +1,30 @@
 ---
-title: Guia de introdução do Bing notícias pesquisa SDK Java | Microsoft Docs
-description: Saiba como configurar a aplicação de consola do SDK de pesquisa do Bing notícias de última hora.
+title: 'Início Rápido: SDK de Pesquisa de Notícias do Bing, Java'
 titleSuffix: Azure Cognitive Services
+description: Saiba como configurar a aplicação de consola do SDK de Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: a6d4baf307fa3edcc0886d32204f2872fe310ce2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355267"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802482"
 ---
-# <a name="bing-news-search-sdk-java-quickstart"></a>Guia de introdução do Bing notícias pesquisa SDK Java
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com Java
 
-O SDK de pesquisa do Bing notícias fornece a funcionalidade de REST API para consultas de notícias e os resultados da análise. 
+O SDK de Pesquisa de Notícias do Bing disponibiliza a funcionalidade de API REST para consultas de notícias e análise de resultados. 
 
-O [origem código para exemplos de Java Bing notícias pesquisa SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) está disponível no Hub de Git.
+O [código fonte para os exemplos de SDK Java da Pesquisa de Notícias do Bing](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) está disponível no Git Hub.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **pesquisa**. Instale as dependências do SDK de pesquisa do Bing notícias com o Maven, Gradle ou outro sistema de gestão de dependência. O ficheiro de Maven POM requer a declaração:
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em **Pesquisa**. Instale as dependências do SDK de Pesquisa de Notícias do Bing com o Maven, Gradle ou outro sistema de gestão de dependências. O ficheiro POM do Maven requer a declaração:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/t
     </dependency>
   </dependencies>
 ```
-## <a name="news-search-client"></a>Cliente de pesquisa de notícias de última hora
-Adicione importações para a implementação de classe.
+## <a name="news-search-client"></a>Cliente de Pesquisa de Notícias
+Adicione as importações à implementação da classe.
 ```
 import com.microsoft.azure.cognitiveservices.newssearch.*;
 import com.microsoft.azure.cognitiveservices.newssearch.implementation.NewsInner;
@@ -48,7 +48,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
 ```
-Implementar o **NewsSearchAPIImpl** cliente, que requer uma instância do **ServiceClientCredentials** classe.
+Implemente o cliente **NewsSearchAPIImpl**, que requer uma instância da classe **ServiceClientCredentials**.
 ```
 public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
     return new NewsSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -74,7 +74,7 @@ public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
 
 
 ```
-Pesquisa de notícias de última hora com uma consulta simples "Quantum informática." Filtrar a pesquisa com o *mercado* e *contagem* parâmetros. Verifique o número de resultados. Imprimir informações sobre o resultado de notícias primeiro: nome, URL, data de publicação, descrição, nome do fornecedor e o número total de correspondências estimados.
+Pesquise notícias com a consulta única de “Quantum Computing” (computação quântica). Filtre a pesquisa com os parâmetros *mercado* e *contagem*. Verifique o número de resultados. Imprima as informações do primeiro resultado de notícias: nome, URL, data de publicação, descrição, nome do fornecedor e número total de correspondências estimadas.
 ```
 public static void newsSearch(String subscriptionKey)
 {
@@ -121,7 +121,7 @@ public static void newsSearch(String subscriptionKey)
 }
 
 ```
-Procurar recentes notícias sobre "Artificial Intelligence". Filtrar a pesquisa com o *reatualização* e *sortBy* parâmetros. Verifique o número de resultados. Imprimir informações sobre o resultado de notícias primeiro: nome, URL, data de publicação, descrição, nome do fornecedor e o número total de correspondências estimados.
+Pesquise notícias recentes sobre “Artificial Intelligence” (inteligência artificial). Filtre a pesquisa com os parâmetros *atualização* e *sortBy*. Verifique o número de resultados. Imprima as informações do primeiro resultado de notícias: nome, URL, data de publicação, descrição, nome do fornecedor e número total de correspondências estimadas.
 ```
 /**
  * Search recent news for (Artificial Intelligence) with the freshness and sortBy parameters.
@@ -172,7 +172,7 @@ public static void newsSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Procurar as notícias **categoria** para *filmes e entretenimento TV* tópicos e utilize o *pesquisa segura* funcionalidade. Verifique o número de resultados. Imprima a categoria, nome, URL, a descrição, data de publicação e o nome do fornecedor para o resultado de notícias primeiro.
+Na **categoria** de notícias, pesquise os tópicos *movie and TV entertainment* e utilize a funcionalidade *pesquisa segura*. Verifique o número de resultados. Imprima a categoria, o nome, o URL, a descrição a data de publicação e o nome do fornecedor do primeiro resultado de notícias.
 ```
 /**
  * Search the news category for (movie and TV entertainment) with safe search. Verify the number of results. 
@@ -223,7 +223,7 @@ public static void newsCategory(String subscriptionKey)
 }
 
 ```
-Para fins de tendência tópicos de notícias de última hora de pesquisa. Verifique o número de resultados. Imprima o nome, texto da consulta, URL de pesquisa da web e URL de pesquisa de notícias de última hora para o resultado de notícias primeiro.
+Pesquise tópicos de notícias populares. Verifique o número de resultados. Imprima o nome, o texto da consulta, o URL de pesquisa Web e o URL de pesquisa de notícias do primeiro resultado de notícias.
 ```
 public static void trendingTopics(String subscriptionKey)
 {
@@ -265,7 +265,7 @@ public static void trendingTopics(String subscriptionKey)
     }
 }
 ```
-Adicione os métodos descritos neste artigo para uma classe com uma função principal para executar o código.
+Adicione os métodos descritos neste artigo a uma classe com uma função principal para executar o código.
 ```
 package javaNewsSDK;
 import com.microsoft.azure.cognitiveservices.newssearch.*;
@@ -284,8 +284,8 @@ public class NewsSearchSDK {
     // Include the methods described in this article.
 }
 ```
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Amostras do SDK de Java serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Exemplos de SDK Java nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 

@@ -1,39 +1,39 @@
 ---
-title: Personalizado pesquisa SDK C# guia de introdução | Documentos da Microsoft
-titleSuffix: Cognitive Services
-description: Configure a aplicação de consola personalizado pesquisa SDK c#.
+title: 'Início rápido: SDK de Pesquisa Personalizada, C#'
+titleSuffix: Azure Cognitive Services
+description: Configurar a aplicação da consola C# no SDK de Pesquisa Personalizada.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6c9917e3a63515f36b386e444edcc53de07799fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949932"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816774"
 ---
-# <a name="c-sdk-quickstart"></a>Início rápido do SDK do c#
+# <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Início Rápido: Utilizar o SDK de Pesquisa Personalizada do Bing com C#
 
-O SDK de pesquisa personalizada do Bing fornece um modelo de programação mais fácil do que a API de REST de pesquisa do Bing personalizado. Esta secção explica como fazer sua primeira chamadas de pesquisa personalizada com o SDK c#.
+O SDK de Pesquisa Personalizada do Bing fornece um modelo de programação mais simples do que a API REST da Pesquisa Personalizada do Bing. Esta secção explica como fazer as suas primeiras chamadas de Pesquisa Personalizada com o SDK com C#.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido, necessita de:
 
-- Uma instância de pesquisa personalizada do prontos a utilizar. Ver [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).  
+- Uma instância de pesquisa personalizada pronta a utilizar. Consulte [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).  
   
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar o seu [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou pode utilizar uma chave de subscrição paga do dashboard do Azure (consulte [conta de API dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
+- Uma chave de subscrição. Pode obter uma chave de subscrição quando ativa a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga do dashboard do Azure (consulte [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
   
-- Visual Studio 2017 instalado. Se não o tiver, pode baixar o **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
+- Visual Studio 2017 instalado. Se ainda não a tem, pode descarregar a versão **gratuita** [do Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
   
-- O [NuGet a pesquisa personalizada](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) pacote instalado. No Explorador de soluções no Visual Studio, faça duplo clique no seu projeto e selecione `Manage NuGet Packages` no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.CustomSearch`.
+- O pacote de [Pesquisa Personalizada do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)instalado. No Explorador de Soluções do Visual Studio, clique com o botão direito do rato no seu projeto e selecione `Manage NuGet Packages` no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.CustomSearch`.
 
-Também é instalar o pacote NuGet a pesquisa personalizada instala as assemblagens seguintes:
+Quando instala o pacote de Pesquisa Personalizada do NuGet também instala as assemblagens seguintes:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -47,15 +47,15 @@ Para executar este exemplo, siga estes passos:
 
 1. Abra o Visual Studio 2017.
   
-2. Clique a **arquivo** menu, clique em **New**, **projeto**e, em seguida, o **Visual c# Console Application** modelo.
+2. Clique no menu **Ficheiro**, clique em **Novo**, **Projeto** e, em seguida, no modelo da **Aplicação da Consola Visual C#**.
   
-3. Nomeie a sua solução CustomSearchSolution e navegue até à pasta colocá-lo na.
+3. Denomine a sua solução de CustomSearchSolution e navegue até à pasta para a colocar lá dentro.
   
 4. Clique em OK para criar a solução.  
   
-4. No Explorador de soluções, faça duplo clique no seu projeto (tem o mesmo nome que a solução) e selecione `Manage NuGet Packages`. Clique em **procurar** no Gestor de pacotes NuGet. Introduza Microsoft.Azure.CognitiveServices.Search.CustomSearch na caixa de pesquisa e prima enter. Selecione o pacote e clique em instalar.  
+4. A partir do Explorador de Soluções, clique com o botão direito do rato no seu projeto (tem o mesmo nome que a solução) e selecione `Manage NuGet Packages`. Clique em **Procurar** no Gestor de Pacotes NuGet. Introduza Microsoft.Azure.CognitiveServices.Search.CustomSearch na caixa de pesquisa e carregue em Enter. Selecione o pacote e clique em Instalar.  
   
-4. Copie o seguinte código para o ficheiro Program.cs. Substitua **seu-SUBSCRIPTION-KEY** e **seu-personalizada-CONFIG-ID** com sua chave de subscrição e a configuração de ID.  
+4. Copie o código seguinte para o ficheiro Program.cs. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** pela sua chave de subscrição e pelo ID de configuração.  
   
     ```csharp
     using System;
@@ -117,27 +117,27 @@ Para executar este exemplo, siga estes passos:
 
 
 
-## <a name="breaking-it-down"></a>Segmentar a Modelagem
+## <a name="breaking-it-down"></a>Reparti-la
 
-Depois de instalar o pacote NuGet a pesquisa personalizada, precisa adicionar uma diretiva para o mesmo.
+Depois de instalar o pacote de Pesquisa Personalizada do NuGet , tem de adicionar uma diretiva de utilização para o mesmo.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
 ```
 
-Em seguida, crie uma instância do cliente de pesquisa personalizada, que utiliza para fazer pedidos de pesquisa. Certifique-se de que substitua `YOUR-SUBSCRIPTION-KEY` com a sua chave.
+Em seguida, crie uma instância do cliente de pesquisa personalizada, que pode utilizar para fazer pedidos de pesquisa. Certifique-se de que substitui `YOUR-SUBSCRIPTION-KEY` pela sua chave.
 
 ```csharp
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
 ```
 
-Agora, pode utilizar o cliente para enviar uma solicitação de pesquisa. Certifique-se de que substitua seu `YOUR-CUSTOM-CONFIG-ID` com o ID de configuração da sua instância (pode encontrar o ID no [portal da pesquisa personalizada](https://www.customsearch.ai/)). Neste exemplo procura Xbox. Atualização conforme necessário.
+Agora, pode utilizar o cliente para enviar um pedido de pesquisa. Certifique-se de que substitui o seu `YOUR-CUSTOM-CONFIG-ID` pelo ID de configuração da sua instância (pode encontrar o ID no [portal de Pesquisa Personalizada](https://www.customsearch.ai/)). Este exemplo efetua uma pesquisa da Xbox. Atualize conforme necessário.
 
 ```csharp
 var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
 ```
 
-O `SearchAsync` método devolve um `WebData` objeto. Uso `WebData` para iterar por meio de qualquer `WebPages` que foram encontrados. Esse código localiza o primeiro resultado de página Web e imprime a página da Web `Name` e `URL`.
+O método `SearchAsync`devolve um objeto `WebData`. Utilize `WebData` para iterar através de quaisquer `WebPages` que tenham sido detetados. Este código localiza o primeiro resultado de página Web, imprime-a `Name` e `URL`.
 
 ```csharp
 //WebPages
@@ -165,17 +165,17 @@ else
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Veja exemplos do SDK. Cada exemplo inclui um arquivo Leiame com detalhes sobre os pré-requisitos e instalação/em execução os exemplos.
+Veja exemplos do SDK. Cada exemplo inclui um arquivo Leia-me com detalhes sobre os pré-requisitos e instalação/execução dos exemplos.
 
-* Introdução ao [amostras do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
+* Introdução aos [exemplos de .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
     * [Pacote NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)
-    * Consulte também [bibliotecas .NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingCustomSearch) para definições e as dependências.
-* Introdução ao [exemplos de NodeJS](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
-    * Consulte também [bibliotecas de NodeJS](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/customSearch) para definições e as dependências.
-* Introdução ao [exemplos de Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * Consulte também [bibliotecas Java](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch) para definições e as dependências.
-* Introdução ao [amostras de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
-    * Consulte também [bibliotecas Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch) para definições e as dependências.
+    * Consulte também [bibliotecas .NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingCustomSearch) para definições e dependências.
+* Introdução aos [exemplos de NodeJS](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
+    * Consulte também [bibliotecas NodeJS](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/customSearch) para definições e dependências.
+* Introdução aos [exemplos de Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
+    * Consulte também [bibliotecas Java](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch) para definições e dependências.
+* Introdução aos [exemplos de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
+    * Consulte também [bibliotecas Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch) para definições e dependências.
 

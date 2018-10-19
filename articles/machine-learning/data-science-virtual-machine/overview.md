@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a6f085b0fa11f117b181714a3b92cdc3a7c9e9a9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032236"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870677"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
-A Máquina Virtual de Ciência de Dados (DSVM) é uma imagem de VM personalizada na cloud do Microsoft Azure, concebida especificamente para fazer ciência de dados. Tem muitas ferramentas populares de ciência de dados e outras pré-instaladas e pré-configuradas para permitir a rápida criação de aplicações inteligentes para análises avançadas. Está disponível no Windows Server e no Linux. Oferecemos a edição Windows da DSVM no Server 2016 e no Server 2012. Oferecemos edições para Linux do DSVM no Ubuntu 16.04 LTS e no CentOS 7.4.
+A Máquina Virtual de Ciência de Dados (DSVM) é uma imagem de VM personalizada na cloud do Microsoft Azure, concebida especificamente para fazer ciência de dados. Tem muitas ferramentas populares de ciência de dados e outras pré-instaladas e pré-configuradas para permitir a rápida criação de aplicações inteligentes para análises avançadas. Está disponível no Windows Server e Linux. Oferecemos a edição Windows da DSVM no Server 2016 e no Server 2012. Oferecemos edições para Linux do DSVM no Ubuntu 16.04 LTS e no CentOS 7.4.
 
 Este tópico aborda o que pode fazer com a VM de Ciência de Dados, descreve alguns dos principais cenários para utilizá-la, detalha as funcionalidades-chave disponíveis nas versões do Windows e do Linux e disponibiliza instruções para começar a utilizá-la.
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>O que posso fazer com a Máquina Virtual de Ciência de Dados?
-O objetivo da Máquina Virtual de Ciência de Dados (DSVM) é dar aos profissionais de dados, independentemente do nível de competências e do cargo, um ambiente de ciência de dados totalmente integrado, pré-configurado e isento de problemas. Em vez de implementar uma área de trabalho comparável por si, pode aprovisionar uma DSVM - poupando dias ou mesmo _semanas_ na instalação, na configuração e nos processos de gestão de pacotes. Quando a DSVM estiver alocada, pode começar a trabalhar imediatamente no seu projeto de ciência de dados.
+O objetivo da Máquina Virtual de Ciência de Dados (DSVM) é dar aos profissionais de dados, independentemente do nível de competências e em vários setores, um ambiente de ciência de dados totalmente integrado, pré-configurado e isento de problemas. Em vez de implementar uma área de trabalho comparável por si, pode aprovisionar uma DSVM - poupando dias ou mesmo _semanas_ na instalação, na configuração e nos processos de gestão de pacotes. Quando a DSVM estiver alocada, pode começar a trabalhar imediatamente no seu projeto de ciência de dados.
 
-A VM de Ciência de Dados foi concebida e configurada para trabalhar com uma vasta gama de cenários de utilização. Pode aumentar ou reduzir o seu ambiente verticalmente, de acordo com as necessidades do projeto. Pode utilizar a sua linguagem preferida para programar tarefas de ciência de dados. Pode instalar outras ferramentas e personalizar o sistema segundo as suas necessidades exatas.
+A VM de Ciência de Dados foi concebida e configurada para trabalhar com uma vasta gama de cenários de utilização. Pode aumentar ou reduzir verticalmente o ambiente, à medida que as necessidades do projeto mudam, utilizar a sua linguagem preferida para programar tarefas de ciência de dados e instalar outras ferramentas para personalizar o sistema de acordo com as suas necessidades exatas.
 
 ## <a name="key-scenarios"></a>Principais cenários
 Esta secção sugere alguns principais cenários para os quais a VM de Ciência de Dados pode ser implementada.
@@ -47,13 +47,13 @@ Normalmente, os formadores e educadores que ensinam as turmas de ciência de dad
 As hackathons/competições de ciência de dados ou a modelação e exploração de dados em grande escala exigem capacidade de hardware aumentada horizontalmente, normalmente para durações curtas. A VM de Ciência de Dados pode ajudar a replicar o ambiente de ciência de dados rapidamente a pedido, em servidores aumentados horizontalmente que permitem que sejam executadas experimentações que exigem recursos de computação de alta potência.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Experimentação e avaliação a curto prazo
-A VM de Ciência de Dados pode ser utilizada para avaliar ou aprender, com um esforço de configuração mínimo, ferramentas como o Microsoft ML Server, o SQL Server, as ferramentas do Visual Studio, o Jupyter, as ferramentas de aprendizagem profunda / ML e ferramentas novas populares na comunidade. Uma vez que a VM de Ciência de Dados pode ser configurada rapidamente, pode ser aplicada a outros cenários de utilização de curto prazo, tais como a replicação de experimentações publicadas, a execução de demonstrações, o acompanhamento de guias em sessões online ou tutoriais de conferência.
+A VM de Ciência de Dados pode ser utilizada para avaliar ou aprender, com um esforço de configuração mínimo, ferramentas como o Microsoft ML Server, o SQL Server, as ferramentas do Visual Studio, o Jupyter, as ferramentas de aprendizagem profunda / ML e ferramentas novas populares na comunidade. Uma vez que a VM de Ciência de Dados pode ser configurada rapidamente, pode ser aplicada a outros cenários de utilização de curto prazo, como a replicação de experimentações publicadas, a execução de demonstrações, o acompanhamento das instruções em sessões online e tutoriais de conferência.
 
 ### <a name="deep-learning"></a>Aprendizagem aprofundada
-A VM de Ciência de Dados pode ser utilizada para modelos de formação através da utilização de algoritmos de aprendizagem aprofundada em GPU (unidades de processamento gráfico) com base em hardware. Ao utilizar as capacidades de dimensionamento de VMs da cloud do Azure, a DSVM ajuda-o a utilizar hardware baseado em GPU na cloud, consoante as necessidades. O utilizador pode mudar para uma VM baseada em GPU quando estiverem a preparar modelos grandes ou precisarem de computações de alta velocidade, mas tenham de manter o mesmo disco do SO.  A edição do Windows Server 2016 da DSVM vem pré-instalada com controladores de GPU, estruturas e versões de GPU de estruturas de aprendizagem aprofundada. No Linux, a aprendizagem aprofundada em GPU está ativada nas DSVMs do CentOs e do Ubuntu.  Pode implementar a edição Ubuntu, CentOS ou Windows 2016 da VM de Ciência de Dados em máquinas virtuais do Azure não baseadas em GPU, caso em que todas as estruturas de aprendizagem aprofundada reverterão para o modo CPU. 
+A VM de Ciência de Dados pode ser utilizada para preparar modelos através da utilização de algoritmos de aprendizagem aprofundada em GPU (unidades de processamento gráfico) com base em hardware. Ao utilizar as capacidades de dimensionamento de VMs da cloud do Azure, a DSVM ajuda-o a utilizar hardware baseado em GPU na cloud, consoante as necessidades. O utilizador pode mudar para uma VM baseada em GPU quando estiverem a preparar modelos grandes ou precisarem de computações de alta velocidade, mas tenham de manter o mesmo disco do SO.  A edição do Windows Server 2016 da DSVM vem pré-instalada com controladores de GPU, estruturas e versões de GPU de estruturas de aprendizagem aprofundada. Na edição do Linux, a aprendizagem aprofundada em GPU está ativada nas DSVMs do CentOS e do Ubuntu. Pode implementar a edição Ubuntu, CentOS ou Windows 2016 da VM de Ciência de Dados numa máquina virtual do Azure não baseada em GPU, caso em que todas as estruturas de aprendizagem aprofundada reverterão para o modo CPU. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>O que está incluído na VM de Ciência de Dados?
-A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas ferramentas populares de ciência de dados e aprendizagem aprofundada. Também inclui ferramentas que simplificam o trabalho com vários produtos de dados e análises do Azure. Pode utilizar o Microsoft ML Server (R, Python) ou o SQL Server 2017 para explorar e compilar modelos preditivos em conjuntos de dados de grande escala. Também está incluído um conjunto de ferramentas da comunidade de código aberto e da Microsoft, bem como códigos de exemplo e blocos de notas. A tabela seguinte detalha e compara os principais componentes incluídos nas edições do Windows e do Linux da Máquina Virtual de Ciência de Dados.
+A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas ferramentas populares de ciência de dados e aprendizagem aprofundada. Também inclui ferramentas que tornam mais fácil trabalhar com vários dados e produtos de análise do Azure, como o Microsoft ML Server (R, Python) para a criação de modelos preditivos ou o SQL Server 2017 para a exploração de conjuntos de dados em grande escala. Também está incluído um conjunto de ferramentas da comunidade de código aberto e da Microsoft, bem como códigos de exemplo e blocos de notas. A tabela seguinte detalha e compara os principais componentes incluídos nas edições do Windows e do Linux da Máquina Virtual de Ciência de Dados.
 
 
 | **Ferramenta**                                                           | **Edição do Windows** | **Edição do Linux** |

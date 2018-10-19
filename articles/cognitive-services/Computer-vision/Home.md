@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: v-deken
-ms.openlocfilehash: 030a8351a8f41c7404fa4ca8d243fff1ad818c2f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a0acae20a6361f5a9b69e427d46dd1b9c7db05e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433604"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869351"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -61,11 +61,11 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 - A imagem tem de ser apresentada no formato JPEG, PNG, GIF ou BMP
 - O tamanho do ficheiro da imagem tem de ser inferior a 4 megabytes (MB)
 - As dimensões da imagem têm de ser superiores a 50 x 50 píxeis  
-  Para o OCR, as dimensões da imagem têm de estar compreendidas entre 50x50 e 4200x4200 píxeis, e a imagem não pode ter mais de 10 megapíxeis.
+  Para OCR, as dimensões da imagem têm de ser entre 50 x 50 e 4200 x 4200 píxeis
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Comece a utilizar a Imagem Digitalizada com um dos nossos inícios rápidos:
+Comece a utilizar a Imagem Digitalizada com um dos nossos manuais de início rápido:
 
 - [Analisar uma imagem](quickstarts-sdk/csharp-analyze-sdk.md)
 - [Extrair texto manuscrito](quickstarts-sdk/csharp-hand-text-sdk.md)

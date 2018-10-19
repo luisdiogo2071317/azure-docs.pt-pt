@@ -3,21 +3,20 @@ title: Criar e publicar uma aplicação gerida do catálogo de serviço do Azure
 description: Mostra como criar uma aplicação gerida do Azure que se destina aos membros da sua organização.
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/08/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095845"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801272"
 ---
-# <a name="publish-a-managed-application-for-internal-consumption"></a>Publicar uma aplicação gerida para consumo interno
+# <a name="create-and-publish-a-managed-application-definition"></a>Criar e publicar uma definição da aplicação gerida
 
 Pode criar e publicar [aplicações geridas](overview.md) do Azure que se destinam aos membros da sua organização. Por exemplo, um departamento de TI pode publicar aplicações geridas que cumprem normas organizacionais. Estas aplicações geridas estão disponíveis através do catálogo de serviço, e não no Azure marketplace.
 
@@ -215,80 +214,7 @@ New-AzureRmManagedApplicationDefinition `
 
 Tem acesso à definição de aplicação gerida, mas deve verificar se outros utilizadores na sua organização podem aceder à mesma. Conceda-lhes, pelo menos, a função de Leitor na definição. Estes podem ter herdado este nível de acesso através da subscrição ou do grupo de recursos. Para verificar quem tem acesso à definição e adicionar utilizadores ou grupos, veja [Utilizar o Controlo de Acesso Baseado em Função para gerir o acesso aos recursos da subscrição do Azure](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="create-the-managed-application"></a>Criar a aplicação gerida
-
-Pode implementar a aplicação gerida através do portal, o PowerShell ou a CLI do Azure.
-
-### <a name="powershell"></a>PowerShell
-
-Em primeiro lugar, vamos utilizar o PowerShell para implementar a aplicação gerida.
-
-```powershell
-# Create resource group
-New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
-
-# Get ID of managed application definition
-$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
-
-# Create the managed application
-New-AzureRmManagedApplication `
-  -Name storageApp `
-  -Location westcentralus `
-  -Kind ServiceCatalog `
-  -ResourceGroupName applicationGroup `
-  -ManagedApplicationDefinitionId $appid `
-  -ManagedResourceGroupName "InfrastructureGroup" `
-  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
-```
-
-A sua aplicação gerida e a infraestrutura gerida agora existem na subscrição.
-
-### <a name="portal"></a>Portal
-
-Agora, vamos utilizar o portal para implementar a aplicação gerida. Veja a interface de utilizador que criou no pacote.
-
-1. Aceda ao portal do Azure. Selecione **+ Criar um recurso** e procure **catálogo de serviço**.
-
-   ![Pesquisar catálogo de serviços](./media/publish-service-catalog-app/create-new.png)
-
-1. Selecionar **Aplicação Gerida do Catálogo de Serviços**.
-
-   ![Selecionar catálogo de serviços](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
-
-1. Selecione **Criar**.
-
-   ![Selecione criar](./media/publish-service-catalog-app/select-create.png)
-
-1. Encontre a aplicação gerida que pretende criar na lista de soluções disponíveis e selecione-a. Selecione **Criar**.
-
-   ![Encontre a aplicação gerida](./media/publish-service-catalog-app/find-application.png)
-
-   Se não vir a definição de aplicações geridas através do portal, poderá ter de alterar as definições de portais. Selecione o **Filtro de Diretório e Subscrição**.
-
-   ![Selecionar o filtro de subscrição](./media/publish-service-catalog-app/select-filter.png)
-
-   Verifique se o filtro de subscrição global inclui a subscrição que contém a definição de aplicações geridas.
-
-   ![Verificar o filtro de subscrição](./media/publish-service-catalog-app/check-global-filter.png)
-
-   Depois de selecionar a subscrição, comece novamente com a criação da aplicação do serviço do catálogo gerido. Deve vê-la agora.
-
-1. Conceda informações básicas que são precisas para a aplicação gerida. Especifique a subscrição e um novo grupo de recursos para conter a aplicação gerida. Selecione **E.U.A. Centro-Oeste** para a localização. Quando terminar, selecione **OK**.
-
-   ![Conceder parâmetros de aplicações geridas](./media/publish-service-catalog-app/add-basics.png)
-
-1. Indique os valores que são específicos para os recursos na aplicação gerida. Quando terminar, selecione **OK**.
-
-   ![Conceder parâmetros do recurso](./media/publish-service-catalog-app/add-storage-settings.png)
-
-1. O modelo valida os valores que concedeu. Se a validação for bem sucedida, selecione **OK** para iniciar a implementação.
-
-   ![Validar aplicação gerida](./media/publish-service-catalog-app/view-summary.png)
-
-Após a conclusão da implementação, a aplicação gerida existe num grupo de recursos denominado applicationGroup. A conta de armazenamento existe num grupo de recursos denominado applicationGroup, além de um valor de cadeia de hash.
-
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
-* Para obter projetos de exemplo, veja [Projetos de exemplo para aplicações geridas do Azure](sample-projects.md).
-* Para saber como criar um ficheiro de definição de IU para uma aplicação gerida, veja [Introdução a CreateUiDefinition](create-uidefinition-overview.md).
+* Para publicar a aplicação gerida no Microsoft Azure Marketplace, veja [Aplicações geridas do Azure no Marketplace](publish-marketplace-app.md).
+* Para implementar uma instância da aplicação gerida, veja [Implementar aplicação de serviço de catálogo através do portal do Azure](deploy-service-catalog-quickstart.md).

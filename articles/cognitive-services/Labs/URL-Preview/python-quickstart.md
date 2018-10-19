@@ -1,43 +1,45 @@
 ---
-title: Guia de introdução do Python para o URL do projeto de pré-visualização - serviços cognitivos Microsoft | Microsoft Docs
-description: Script de exemplo para rapidamente começar a utilizar a pré-visualização de URL do projeto no Microsoft serviços cognitivos no Azure.
+title: 'Início Rápido: Pré-visualização do URL do Projeto, Python'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de script para começar a utilizar rapidamente a Pré-visualização do URL do Projeto com o Python.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 78b2d83b02aa9ea32509029c7456e04e420b8572
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354014"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867277"
 ---
-# <a name="url-preview-python-quickstart"></a>Guia de introdução do Python de pré-visualização do URL
+# <a name="quickstart-url-preview-with-python"></a>Início Rápido: Pré-visualização do URL com o Python
 
-O exemplo de Python seguinte cria uma pré-visualização de Url para o site SwiftKey Web: https://swiftkey.com/en.
+O exemplo de Python seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
-Este exemplo utiliza Python 3.6.
+Este exemplo utiliza o Python 3.6.
 
 ## <a name="code-scenario"></a>Cenário de código 
 
-O código seguinte cria uma pré-visualização de URL.
-Está implementado nos passos seguintes:
-1. Declare as variáveis para especificar o ponto final por anfitrião e caminho.
-2. Especifique o URL de consulta para pré-visualizar e adicione o parâmetro de consulta.  
+O código seguinte cria uma Pré-visualização do URL.
+É implementado nos passos seguintes:
+1. Declare variáveis para especificar o ponto final por anfitrião e por caminho.
+2. Especifique o URL de consulta da pré-visualização e adicione o parâmetro de consulta.  
 3. Defina o parâmetro de consulta.
-4. Definir a função de pesquisa que cria o pedido e adiciona o *Ocp-Apim-Subscription-Key* cabeçalho.
-5. Definir o *Ocp-Apim-Subscription-Key* cabeçalho. 
-6. Estabelecer a ligação e enviar o pedido.
+4. Defina a função Pesquisa que cria o pedido e adiciona o cabeçalho *Ocp-Apim-Subscription-Key*.
+5. Defina o cabeçalho *Ocp-Apim-Subscription-Key*. 
+6. Faça a ligação e envie o pedido.
 7. Imprima os resultados JSON.
 
-O código de completado para esta demonstração segue:
+Segue-se o código completo para esta demonstração:
 
 ````
 import http.client, urllib.parse
@@ -63,8 +65,8 @@ def get_preview ():
 result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
 ````
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](csharp.md)
-- [Guia de introdução do Java](java-quickstart.md)
-- [Início rápido de JavaScript](javascript.md)
-- [Início rápido do URL de nó](node-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido do C#](csharp.md)
+- [Início rápido do Java](java-quickstart.md)
+- [Início rápido do JavaScript](javascript.md)
+- [Início rápido do URL do Node](node-quickstart.md)

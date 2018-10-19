@@ -1,28 +1,29 @@
 ---
-title: Consulta de facto de pesquisa de resposta do projeto - serviços cognitivos Microsoft | Microsoft Docs
-description: Consultas para factos utilizando a pesquisa de resposta do projeto
+title: 'Início Rápido: consulta de factos da Pesquisa de Respostas do Projeto'
+titlesuffix: Azure Cognitive Services
+description: Consultas de factos com a Pesquisa de Respostas do Projeto
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353959"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868351"
 ---
-# <a name="query-for-facts"></a>Consulta para factos
+# <a name="quickstart-query-for-facts"></a>Início Rápido: consulta de factos
 
-Se a consulta é de um facto como uma data ou dados de conhecimento de identificação, a resposta pode conter `facts` respostas. Respostas de facto contém resultados relevantes extraídos de parágrafos em documentos de web.  Estas consultas sempre devolvem páginas Web, e [factos](fact-queries.md) e/ou [entidades](entity-queries.md) são dependentes da consulta.
+Se a consulta for de um facto como uma data ou conhecimentos identificáveis, a resposta pode conter respostas de `facts`. As respostas de facto contêm resultados relevantes, extraídos de parágrafos em documentos Web.  Estas consultas devolvem sempre páginas Web, e os [factos](fact-queries.md) e/ou as [entidades](entity-queries.md) são dependentes da consulta.
 
-As consultas, tais como valentines + 2016, quando + é + ramadan são considerados relacionadas com a data de consultas. Se Bing determina que a consulta está relacionado com a data, a resposta contém um `facts` resposta. 
+As consultas como valentines+2016 (dia+de+são+valentim+2016), when+is+ramadan (quando+é+o+ramadão) são consideradas consultas relacionadas com datas. Se o Bing determinar que a consulta está relacionada com uma data, a resposta contém uma resposta de `facts`. 
 
-O exemplo seguinte é uma data relacionadas com `facts` resposta. 
+Segue-se um exemplo de uma resposta de `facts` relacionada com uma data. 
 
 **Consulta:**
 ````
@@ -30,7 +31,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-**Resposta:** o `subjectName` campo contém uma versão de apresentação da consulta do utilizador que pode utilizar como uma etiqueta quando se apresenta o facto de. Se a cadeia de consulta é valentines + 2016, Bing pode alterá-lo dia 2016 do Valentine. O facto de que contém o campo de descrição.
+**Resposta:** o campo `subjectName` contém uma versão de apresentação da consulta de um utilizador, que pode utilizar como uma etiqueta ao apresentar o facto. Se a cadeia de consulta for valentines+2016 (dia+de+são+valentim+2016), o Bing poderá mudá-la para Valentine's Day 2016 (Dia de São Valentim 2016). O campo de descrição contém o facto.
 
 ````
 {   
@@ -58,7 +59,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-A consulta "Por que motivo é a sky azul?" Devolve um exemplo de uma resposta relacionadas com a dados de conhecimento.
+A consulta “Why is the sky blue?” (Por que o céu azul é azul?) devolve um exemplo de uma resposta relacionada com conhecimentos.
 
 **Consulta:**
 
@@ -67,7 +68,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-**Resposta:** o `value/description` campo contém os dados de conhecimento ou informações solicitadas pela consulta.
+**Resposta:** o campo `value/description` contém os conhecimentos ou as informações pedidos pela consulta.
 
 ````
   "facts": {
@@ -113,14 +114,14 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-## <a name="tabular-data"></a>Dados em tabela
-Em alguns casos, factos podem ser devolvidos como `_type: StructuredValue/TabularData`. A seguinte consulta obtém dados em tabela com informações contrasting sobre café e tea.
+## <a name="tabular-data"></a>Dados tabulares
+Em alguns casos, os factos podem ser devolvidos como `_type: StructuredValue/TabularData`. A consulta seguinte obtém dados tabulares com informações que comparam café e chá.
 
 ````
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
 ````
-O `facts` os resultados incluem as seguintes linhas e células:
+Os resultados dos `facts` incluem as seguintes linhas e células:
 ````
     "value": [
       {
@@ -197,8 +198,8 @@ O `facts` os resultados incluem as seguintes linhas e células:
 
 ````
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](c-sharp-quickstart.md)
-- [Guia de introdução do Java](java-quickstart.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido de C#](c-sharp-quickstart.md)
+- [Início rápido de Java](java-quickstart.md)
+- [Início rápido de Node](node-quickstart.md)
+- [Início rápido de Python](python-quickstart.md)

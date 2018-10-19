@@ -1,26 +1,27 @@
 ---
-title: Deteção de anomalias aplicação do Javascript - serviços cognitivos da Microsoft | Documentos da Microsoft
-description: Explore uma aplicação Web de Javascript que usa a API de deteção de anomalias nos serviços cognitivos da Microsoft. Enviar pontos de dados original a API e obter o valor esperado e os pontos de anomalias.
+title: 'Tutorial: Deteção de Anomalias com Javascript'
+titlesuffix: Azure Cognitive Services
+description: Explore uma aplicação Web de Javascript que utilize a API de Deteção de Anomalias. Envie pontos de dados originais à API e obtenha o valor esperado e os pontos de anomalias.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 5bb123648a683454597b0561f9f82dffb70eab04
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248368"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883708"
 ---
-# <a name="anomaly-detection-javascript-application"></a>Aplicação do Javascript de deteção de anomalias
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Tutorial: Deteção de Anomalias com aplicação de Javascript
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Explore uma aplicação Web que utiliza a API de REST de deteção de anomalias para detetar uma anomalia. O exemplo envia os dados de séries de tempo para a API de deteção de anomalias com a sua chave de subscrição, em seguida, obtém todos os pontos de anomalias e o valor esperado para cada ponto de dados a partir da API.
+Explore uma aplicação Web que utilize a API REST de Deteção de Anomalias para detetar uma anomalia. O exemplo envia os dados de série de tempo para a API de Deteção de Anomalias com a sua chave de subscrição e obtém todos os pontos de anomalias e o valor esperado para cada ponto de dados da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,48 +29,48 @@ Explore uma aplicação Web que utiliza a API de REST de deteção de anomalias 
 
 Este tutorial foi desenvolvido com um editor de texto simples.
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a deteção de anomalias e obter uma chave de subscrição 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a Deteção de Anomalias e obter uma chave de subscrição 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Obtenha e utilize o exemplo
+## <a name="get-and-use-the-example"></a>Obter e utilizar o exemplo
 
-Este tutorial disponibiliza dois cenários para deteção de anomalias de dados de séries de tempo. Vamos começar.
+Este tutorial fornece dois cenários para deteção de anomalias de dados de série de tempo. Vamos começar.
 
 <a name="Step1"></a> 
 ### <a name="download-the-tutorial-project"></a>Transferir o projeto de tutorial
 
-Clone o [Tutorial do deteção de anomalias de JavaScript do Cognitive Services](https://github.com/MicrosoftAnomalyDetection/javascript-sample), ou transferir o ficheiro. zip e extraí-lo num diretório vazio.
+Clone o [Tutorial de Deteção de Anomalias de JavaScript dos Serviços Cognitivos](https://github.com/MicrosoftAnomalyDetection/javascript-sample) ou transfira o ficheiro. zip e extraia-o para um diretório vazio.
 
 <a name="Step2"></a>
 ### <a name="run-the-example"></a>Executar o exemplo
 
-Existem dois cenários, pode experimentar o exemplo.
-1. Colocar seus **chave de subscrição** no campo de chave de subscrição na função no anomalydetection.html de detetar.
-2. Colocar o ponto final de API de deteção de anomalias e certifique-se de que está a utilizar a região correta na região da subscrição.
-3. Abra o **anomalydetection.html** arquivo num navegador da Web.
+Existem dois cenários nos quais pode experimentar o exemplo.
+1. Coloque a sua **chave de subscrição** no campo Chave de Subscrição da função de deteção no ficheiro anomalydetection.html.
+2. Coloque o ponto final da API de Deteção de Anomalias e certifique-se de que está a utilizar a região correta na Região da Subscrição.
+3. Abra o ficheiro **anomalydetection.html** num browser.
 
-**Dados de séries de tempo semanais do cenário 1 detetar**
-1. No campo período, o período de entrada **7**. 
-2. Substituir os dados de exemplo com sua semanal tempo série pontos de dados (Json) no campo pontos ou usar diretamente os dados de exemplo.
-3. Clique no botão de deteção de anomalias e verificar o resultado na caixa de texto de resposta correta.
+**Cenário 1 Detetar dados de série de tempo semanais**
+1. No campo Período, introduza o período**7**. 
+2. Substitua os dados de exemplo pelos seus pontos de dados de série de tempo semanais (Json) no campo Pontos ou utilize diretamente os dados de exemplo.
+3. Clique no botão de Deteção de Anomalias e selecione o resultado na caixa de texto de Resposta correta.
 
-**Cenário 2 detetar os dados de séries de tempo sem um período**
-1. Deixe o período de vazio num período de campo, partem do princípio de que não sabe o período da série de tempo.
-2. Usando os mesmos dados de séries de tempo como o cenário 1.
-3. Clique no botão de deteção de anomalias e verifique se o campo período na caixa de texto de resposta correta.
+**Cenário 2 Detetar os dados de série de tempo sem um período**
+1. Deixe o campo Período vazio, partindo do princípio de que desconhece o período da série de tempo.
+2. Utilize os mesmos dados de série de tempo do cenário 1.
+3. Clique no botão de Deteção de Anomalias e selecione o campo Período na caixa de texto de Resposta correta.
 
 <a name="Step3"></a>
-### <a name="read-the-result"></a>O resultado de leitura
+### <a name="read-the-result"></a>Ler o resultado
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
 ### <a name="review-and-learn"></a>Rever e aprender
 
-Agora, obter um aplicativo em execução. Vamos rever como a aplicação de exemplo se integra com a tecnologia de serviços cognitivos. Este passo irá facilitar a continuar a criar nesta aplicação ou a desenvolver a sua própria aplicação com deteção de anomalias de Microsoft.
-Esta aplicação de exemplo usa a API Restful de deteção de anomalias ponto final.
-Rever como a API Restful, é utilizada no aplicativo de exemplo, vamos examinar um trecho de código do anomalydetection.html.
+Agora, tem uma aplicação em execução. Vamos rever como a aplicação de exemplo se integra com a tecnologia de Serviços Cognitivos. Este passo irá permitir que continue a compilar esta aplicação ou que desenvolva a sua própria aplicação através da Deteção de Anomalias da Microsoft.
+Esta aplicação de exemplo utiliza o ponto final da API Restful de Deteção de Anomalias.
+Ao analisamos a forma como a API Restful é utilizada na aplicação de exemplo, vamos examinar um fragmento de código do ficheiro anomalydetection.html.
 ```JavaScript
 function anomalyDetection(url, subscriptionKey, points, period) {
     var obj = new Object();
@@ -102,7 +103,7 @@ function anomalyDetection(url, subscriptionKey, points, period) {
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

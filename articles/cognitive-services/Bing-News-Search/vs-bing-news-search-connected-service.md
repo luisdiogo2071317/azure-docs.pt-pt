@@ -1,60 +1,60 @@
 ---
-title: Bing notícias pesquisa tutorial de c# | Documentos da Microsoft
-titleSuffix: Microsoft Cognitive Services
-description: Ligar-se para de pesquisa de notícias do Bing dos serviços cognitivos a partir de uma aplicação web ASP.NET Core.
+title: 'Tutorial: Pesquisa de Notícias do Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Ligue à Pesquisa de Notícias do Bing a partir de uma aplicação Web ASP.NET Core.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: MT
+ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095434"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804349"
 ---
-# <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Ligar à API de pesquisa de notícias do Bing com serviços ligados no Visual Studio
+# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Tutorial: ligar à API de Pesquisa de Notícias do Bing com Serviços Ligados do Visual Studio
 
-Ao utilizar a pesquisa de notícias do Bing, pode ativar a aplicações e serviços para tirar partido do poder de um motor de pesquisa sem anúncios de âmbito para a web. Pesquisa de notícias do Bing é um dos serviços de pesquisa disponíveis com os serviços cognitivos.
+Ao utilizar a Pesquisa de Notícias do Bing, pode ativar aplicações e serviços para tirar partido do poder de um motor de busca sem anúncios e direcionado para a Web. A Pesquisa de Notícias do Bing é um dos serviços de pesquisa disponíveis com os Serviços Cognitivos.
 
-Este artigo fornece detalhes para utilizar a funcionalidade de serviço ligado do Visual Studio para pesquisa de notícias do Bing. A capacidade está disponível no 15.7 de 2017 do Visual Studio, ou posterior, com a extensão de serviços cognitivos instalada.
+Este artigo fornece detalhes para utilizar a funcionalidade de Serviço Ligado do Visual Studio para a Pesquisa de Notícias do Bing. A função está disponível no Visual Studio 2017 15.7 e posterior, com a extensão dos Serviços Cognitivos instalada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versão 15.7, com a carga de trabalho de desenvolvimento para a Web instalada. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2017 versão 15.7, com a carga de trabalho de Desenvolvimento Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Adicionar suporte ao seu projeto para a API de pesquisa de notícias do Bing
+## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Adicionar suporte ao seu projeto para a API de Pesquisa de Notícias do Bing
 
-1. Crie um novo projeto de web do ASP.NET Core com o nome MyWebApplication. Utilize o **aplicação Web (Model-View-Controller)** modelo de projeto, com todas as predefinições. É importante nomear o projeto MyWebApplication, para que o espaço de nomes corresponde ao copiar o código no projeto. 
+1. Crie um novo projeto Web ASP.NET Core com o nome MyWebApplication. Utilize o modelo de projeto **Aplicação Web (Model-View-Controller)**, com todas as predefinições. É importante que atribua o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto. 
 
-1. Na **Explorador de soluções**, escolha **Add** > **serviço ligado**.
-   É apresentada a página de serviço ligado, com os serviços que pode adicionar ao seu projeto.
+1. No **Explorador de Soluções**, escolha **Adicionar** > **Serviço Ligado**.
+   É apresentada a página Serviço Ligado, com os serviços que pode adicionar ao seu projeto.
 
-   ![Item de menu de captura de ecrã de Adicionar serviço ligado](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Captura de ecrã do item de menu Adicionar Serviço Ligado](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. No menu de serviços disponíveis, escolha **traga inteligente pesquisa para seus aplicativos**.
+1. No menu de serviços disponíveis, escolha **Leve a Pesquisa Inteligente às suas Aplicações**.
 
    ![Captura de ecrã da lista de serviços ligados](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   Se já tem sessão iniciada no Visual Studio e uma subscrição do Azure associado à sua conta, é apresentada uma página com uma lista suspensa com as suas subscrições. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para a API de pesquisa de notícias do Bing. Também pode escolher **editar** para modificar o nome gerado automaticamente.
+   Se já tem sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, é apresentada uma página com uma lista pendente com as suas subscrições. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para a API de Pesquisa de Notícias do Bing. Também pode escolher **Editar** para modificar o nome gerado automaticamente.
 
-   ![Captura de ecrã da subscrição e o nome de campos](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
+   ![Captura de ecrã dos campos subscrição e nome](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
 1. Escolha o grupo de recursos e o escalão de preço.
 
-   ![Captura de ecrã do grupo de recursos e os campos de escalão de preço](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
+   ![Captura de ecrã dos campos grupo de recursos e escalão de preço](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
-   Se pretender obter mais detalhes sobre os escalões de preços, selecione **preços de revisão**.
+   Se pretender obter mais detalhes sobre os escalões de preço, selecione **Rever os preços**.
 
-1. Escolher **adicionar** para adicionar suporte para o serviço ligado.
-   Visual Studio modifica seu projeto para adicionar os pacotes NuGet, entradas de ficheiro de configuração e outras alterações para dar suporte a uma conexão com a API de pesquisa de notícias do Bing. A saída mostra o log de que está a acontecer ao seu projeto. Deverá ver algo semelhante ao seguinte:
+1. Escolha **Adicionar** para adicionar suporte para o Serviço Ligado.
+   O Visual Studio modifica o seu projeto para adicionar os pacotes NuGet, as entradas do ficheiro de configuração e outras alterações para suportar uma ligação à API de Pesquisa de Notícias do Bing. A janela de saída mostra o registo do que está a acontecer ao seu projeto. Deverá ver algo semelhante ao seguinte:
 
    ```output
    [5/4/2018 12:41:21.084 PM] Adding Intelligent Search to the project.
@@ -71,7 +71,7 @@ Este artigo fornece detalhes para utilizar a funcionalidade de serviço ligado d
    [5/4/2018 12:42:10.217 PM] Successfully added Intelligent Search to the project.
    ```
 
-   O ficheiro appSettings agora contém as seguintes definições novas:
+   O ficheiro appsettings.json contém agora as seguintes definições novas:
 
    ```json
    "CognitiveServices": {
@@ -83,11 +83,11 @@ Este artigo fornece detalhes para utilizar a funcionalidade de serviço ligado d
    }
    ```
  
-## <a name="use-the-bing-news-search-api-to-add-search-functionality-to-a-web-page"></a>Utilize a API de pesquisa de notícias do Bing para adicionar funcionalidade de pesquisa a uma página da web
+## <a name="use-the-bing-news-search-api-to-add-search-functionality-to-a-web-page"></a>Utilizar a API de Pesquisa de Notícias do Bing para adicionar funcionalidades de pesquisa a uma página Web
 
-Agora que adicionou suporte para a API de pesquisa de notícias do Bing ao seu projeto, eis como utilizar a API para adicionar a pesquisa inteligente para uma página da web.
+Agora que adicionou o suporte da API de Pesquisa de Notícias do Bing ao seu projeto, eis como utilizar a API para adicionar a pesquisa inteligente a uma página Web.
 
-1.  Na *Startup.cs*, na `ConfigureServices` método, adicione uma chamada para `IServiceCollection.AddSingleton`. Desta forma, o objeto de configuração que contém as definições de chaves disponíveis para o código no seu projeto.
+1.  Em *Startup.cs*, no método `ConfigureServices`, adicione uma chamada para `IServiceCollection.AddSingleton`. Desta forma, o objeto de configuração que contém as definições de chaves fica disponível para o código no seu projeto.
  
    ```csharp
         public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,7 @@ Agora que adicionou suporte para a API de pesquisa de notícias do Bing ao seu p
    ```
 
 
-1. Adicione um novo arquivo de classe sob o **modelos** pasta, chamada *BingNewsModel.cs*. Se chama o seu projeto de forma diferente, utilize o espaço de nomes do seu próprio projeto, em vez de MyWebApplication. Substitua os conteúdos com o código a seguir:
+1. Adicione um novo ficheiro de classe na pasta **Modelos**, com o nome *BingNewsModel.cs*. Se tiver atribuído um nome diferente ao projeto, utilize o espaço de nomes do seu projeto, em vez de MyWebApplication. Substitua os conteúdos pelo seguinte código:
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
@@ -117,9 +117,9 @@ Agora que adicionou suporte para a API de pesquisa de notícias do Bing ao seu p
     }
     ```
 
-   Este modelo é utilizado para armazenar os resultados de uma chamada para o serviço de pesquisa de notícias do Bing.
+   Este modelo é utilizado para armazenar os resultados de uma chamada ao serviço Pesquisa de Notícias do Bing.
  
-1. Na **controladores** pasta, adicione um novo arquivo de classe chamado *IntelligentSearchController.cs*. Substitua os conteúdos com o código a seguir:
+1. Na pasta **Controladores**, adicione um novo ficheiro de classe com o nome *IntelligentSearchController.cs*. Substitua os conteúdos pelo seguinte código:
 
    ```csharp
     using System.Net.Http;
@@ -177,9 +177,9 @@ Agora que adicionou suporte para a API de pesquisa de notícias do Bing ao seu p
     }
    ```
 
-   Nesse código, o construtor configura o objeto de configuração que contém as chaves. O método para o `Search` rota é apenas um redirecionamento para o `BingSearchResult` função. Isso chama o `GetNewsSearchClient` método para obter o `NewsSearchAPI` objeto cliente.  O `NewsSearchAPI` contém o objeto de cliente do `SearchAsync` método, que, na verdade, chama o serviço e retorna os resultados no `SearchResult` modelo que acabou de criar. 
+   Neste código, o construtor configura o objeto de configuração que contém as chaves. O método para a `Search` ser encaminhada é apenas um redirecionamento para a função `BingSearchResult`. Isto chama o método `GetNewsSearchClient` para obter o objeto de cliente da `NewsSearchAPI`.  O objeto de cliente da `NewsSearchAPI` contém o método `SearchAsync`, que efetivamente chama o serviço e devolve os resultados no modelo `SearchResult` que acabou de criar. 
 
-1. Adicionar uma classe, `MyHandler`, que foi referenciado no código anterior. Delega a chamada assíncrona para o serviço de pesquisa à sua classe base, `DelegatingHandler`.
+1. Adicione uma classe, `MyHandler`, que foi referenciada no código anterior. Isto delega a chamada assíncrona para o serviço de pesquisa à sua classe base, `DelegatingHandler`.
 
    ```csharp
     using System.Net.Http;
@@ -199,7 +199,7 @@ Agora que adicionou suporte para a API de pesquisa de notícias do Bing ao seu p
     }
    ```
 
-1. Para adicionar suporte para o envio de pesquisas e visualizando os resultados, na **vistas** pasta, criar uma nova pasta chamada **IntelligentSearch**. Nessa nova pasta, adicionar uma exibição *BingSearchResult.cshtml*. Copie o código a seguir:
+1. Para adicionar suporte para submeter pesquisas e visualizar os resultados, na pasta **Vistas**, crie uma nova pasta com o nome **IntelligentSearch**. Nesta nova pasta, adicione uma vista *BingSearchResult.cshtml*. Copie o seguinte código:
 
     ```cshtml
     @using System
@@ -254,18 +254,18 @@ Agora que adicionou suporte para a API de pesquisa de notícias do Bing ao seu p
     </div>
     ```
 
-1. Iniciar a aplicação web localmente, introduza o URL para a página que acabou de criar (/ IntelligentSearch/BingSearchResult) e publicar um pedido de pesquisa usando o botão de pesquisa.
+1. Inicie a aplicação Web localmente, introduza o URL da página que acabou de criar (/IntelligentSearch/BingSearchResult) e publique um pedido de pesquisa com o botão Pesquisar.
 
-   ![Resultados de captura de ecrã de pesquisa do Bing notícias](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
+   ![Captura de ecrã dos resultados de Pesquisa de Notícias do Bing](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não é necessário o grupo de recursos, pode eliminá-la. Esta ação elimina o serviço cognitivo e recursos relacionados. Para eliminar o grupo de recursos através do portal:
+Quando o grupo de recursos já não for necessário, pode eliminá-lo. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
-1. Introduza o nome do seu grupo de recursos na caixa de pesquisa na parte superior do portal. Selecione o grupo de recursos que pretende eliminar.
+1. O nome do grupo de recursos na caixa de pesquisa, na parte superior do portal. Selecione o grupo de recursos que pretende eliminar.
 2. Selecione **Eliminar grupo de recursos**.
-3. Na **escreva o nome do grupo de recursos** caixa, introduza o nome do grupo de recursos e selecione **eliminar**.
+3. Na caixa **Escreva o Nome do Grupo de Recursos**, introduza o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a API de pesquisa de notícias do Bing, veja [o que é a pesquisa de notícias do Bing?](index.yml).
+Para saber mais sobre a API de Pesquisa de Notícias do Bing, veja [O que é a Pesquisa de Notícias do Bing?](index.yml).

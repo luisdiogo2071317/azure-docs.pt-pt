@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042130"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831029"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: extrair dados relacionados contextualmente
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas. Para gerar uma ordem de trabalho, ambos os fragmentos de dados podem ser necessários e estão relacionados entre si.  
@@ -61,7 +61,7 @@ Para ver toda a expressão e marcar os subordinados hierárquicos, remova tempor
 
 2. Selecione **Entidades** no menu esquerdo.
 
-3. Selecione o botão de reticências (***…***) à direita da entidade de número na lista. Selecione **Eliminar**. 
+3. Selecione a caixa de verificação à esquerda da entidade de número na lista. Selecione **Eliminar**. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Adicionar expressões à intenção MoveEmployee
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3fb39558ff99c35786dedc133a9d1d1a450b5928
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f80488f555cfa3b7be6f35b9f23ea0a501a27fd9
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090127"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831602"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: criar uma zona DNS do Azure e registar com a CLI do Azure
 
@@ -46,9 +46,9 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>Criar um registo DNS
 
-Para criar um registo DNS, utilize o comando `az network dns record-set [record type] add-record`. Para obter ajuda, para um registo A, por exemplo, consulte `azure network dns record-set A add-record -h`.
+Para criar um registo DNS, utilize o comando `az network dns record-set [record type] add-record`. Para obter ajuda com os registos A, veja `azure network dns record-set A add-record -h`.
 
-O exemplo seguinte cria um registo com o nome relativo "www" na zona DNS "contoso.com", no grupo de recursos "MyResourceGroup". O nome totalmente qualificado do conjunto de registos é “www.contoso.com”. O tipo de registo é "A", com o endereço IP "1.2.3.4" e é utilizado um TTL predefinido de 3600 segundos (1 hora).
+O exemplo seguinte cria um registo com o nome relativo “www” na zona DNS “contoso.com”, no grupo de recursos “MyResourceGroup”. O nome totalmente qualificado do conjunto de registos é “www.contoso.com”. O tipo de registo é “A”, com o endereço IP “1.2.3.4” e é utilizado um TTL predefinido de 3600 segundos (1 hora).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
@@ -56,7 +56,7 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 ## <a name="view-records"></a>Ver registos
 
-Para listar os registos DNS na sua zona, utilize:
+Para listar os registos DNS na sua zona, execute:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -64,7 +64,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>Atualizar servidores de nomes
 
-Depois de ter a certeza que a sua zona DNS e os registos foram configurados corretamente, tem de configurar o seu nome de domínio para utilizar os servidores de nomes do DNS do Azure. Isto permite que outros utilizadores na Internet encontrem os seus registos DNS.
+Depois de ter a certeza que a sua zona DNS e os registos foram configurados corretamente, tem de configurar o seu nome de domínio para utilizar os servidores de nomes do DNS do Azure para permitir que os outros utilizadores da Internet encontrem os seus registos de DNS.
 
 Os servidores de nomes para a sua zona são indicados pelo comando `az network dns zone show`. Para ver os nomes dos servidores de nome, utilize a saída do JSON, conforme mostrado no exemplo seguinte.
 

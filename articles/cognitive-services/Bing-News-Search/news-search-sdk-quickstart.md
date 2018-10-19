@@ -1,56 +1,56 @@
 ---
-title: Pesquisa de notícias início rápido SDK c# | Microsoft Docs
-description: O programa de configuração para a pesquisa de notícias aplicação de consola do SDK.
-titleSuffix: Azure cognitive services News search SDK C# quickstart
+title: 'Início Rápido: SDK de Pesquisa de Notícias do Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Configure a aplicação de consola do SDK de Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: e803fd579c6b71b8b1754546446715795a12087a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355274"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802989"
 ---
-# <a name="news-search-sdk-c-quickstart"></a>Notícias pesquisa SDK c# início rápido
+# <a name="quickstart-bing-news-search-sdk-with-c"></a>Início Rápido: SDK de Pesquisa de Notícias do Bing com C#
 
-O SDK de pesquisa do Bing notícias contém as funcionalidades da API REST para consultas de notícias e os resultados da análise. 
+O SDK de Pesquisa de Notícias do Bing contém a funcionalidade da API REST para consultas de notícias e análise de resultados. 
 
-O [origem código para amostras de c# Bing notícias SDK Search](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) está disponível no Hub de Git.
+O [código fonte para os exemplos de SDK em C# da Pesquisa de Notícias do Bing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) está disponível no Git Hub.
 
 ## <a name="application-dependencies"></a>Dependências da aplicação
 
-Para configurar uma aplicação de consola utilizando o SDK de pesquisa do Bing notícias de última hora, navegue para o `Manage NuGet Packages` opção do Explorador de soluções no Visual Studio.  Adicionar o `Microsoft.Azure.CognitiveServices.Search.NewsSearch` pacote.
+Para configurar a aplicação de consola através do SDK de Pesquisa de Notícias do Bing, aceda à opção `Manage NuGet Packages` a partir do Explorador de Soluções no Visual Studio.  Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.NewsSearch`.
 
-Instalar o [pacote NuGet notícias pesquisa SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) também instala as dependências, incluindo:
+A instalação do [pacote do SDK de Pesquisa de Notícias do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) também instala as dependências, que incluem:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft
+* Newtonsoft.Json
 
-## <a name="news-search-client"></a>Cliente de pesquisa de notícias de última hora
-Para criar uma instância do `NewsSearchAPI` cliente, adicionar a diretiva a utilizar:
+## <a name="news-search-client"></a>Cliente de Pesquisa de Notícias
+Para criar uma instância do cliente `NewsSearchAPI`, adicione a seguinte diretiva:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
-Em seguida, instanciar o cliente:
+Em seguida, inicie o cliente:
 ```
 var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-Utilize o cliente para a pesquisa com um texto de consulta:
+Utilize o cliente para procurar com um texto de consulta:
 ```
 var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
 Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
 
 ```
-Analisar as notícias devolvidas nos resultados da consulta anterior:
+Analise os resultados devolvidos da consulta anterior:
 ```
 if (newsResults.Value.Count > 0)
 {
@@ -71,9 +71,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Aplicação de consola concluída
+## <a name="complete-console-application"></a>Concluir a aplicação de consola
 
-A aplicação de consola seguinte executa a consulta definida anteriormente e procura notícias de última hora de "Computação Quantum". O pedido inclui `market` e `count` parâmetros. O código verifica o número de resultados e imprime `totalEstimatedMatches`, `name`, `url`, `description`, `published time` e `name` de `provider` para o resultado de notícias primeiro.
+A aplicação de consola seguinte executa a consulta definida anteriormente e pesquisa notícias de “Quantum Computing” (computação quântica). O pedido inclui os parâmetros `market` e `count`. O código verifica o número de resultados e imprime `totalEstimatedMatches`, `name`, `url`, `description`, `published time` e `name` do `provider` para o primeiro resultado de notícias.
 
 ```
 using System;
@@ -136,8 +136,8 @@ namespace NewsSrchSDK
 }
 
 ```
-## <a name="recent-news-freshness-and-sortby-parameters"></a>Parâmetros de notícias, atualização e sortBy recentes
-O seguinte código procura notícias "Artificial Intelligence" com `freshness` e `sortBy` parâmetros. Verifica o número de resultados e imprime `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, e `name` do fornecedor do resultado da primeira notícias de última hora.
+## <a name="recent-news-freshness-and-sortby-parameters"></a>Parâmetros de notícias recentes, atualização e sortBy
+O código seguinte procura “Artificial Intelligence” nas notícias mais recentes, com os parâmetros `freshness` e `sortBy`. Verifica o número de resultados e imprime `totalEstimatedMatches`, `name`, `url`, `description`, `published time` e `name` do fornecedor do primeiro resultado de notícias.
 ```
         public static void NewsSearchWithFilters(NewsSearchAPI client)
         {
@@ -179,8 +179,8 @@ O seguinte código procura notícias "Artificial Intelligence" com `freshness` e
 
 ```
 
-## <a name="category-news-safe-search"></a>Categoria notícias de última hora, pesquisa segura
-O seguinte código procura notícias de categoria de filmes e entretenimento TV Search seguro.  Verifica o número de resultados e imprime `category`, `name`, `url`, `description`, `published time`, e `name` do fornecedor do resultado da primeira notícias de última hora.
+## <a name="category-news-safe-search"></a>Notícias por categoria, pesquisa segura
+O código seguinte procura notícias na categoria de filmes e programas televisivos com a pesquisa segura.  Verifica o número de resultados e imprime `category`, `name`, `url`, `description`, `published time` e `name` do fornecedor do primeiro resultado de notícias.
 ```
         public static void NewsCategory(NewsSearchAPI client)
         {
@@ -221,8 +221,8 @@ O seguinte código procura notícias de categoria de filmes e entretenimento TV 
         }
 
 ```
-## <a name="trending-topics"></a>Tópicos de tendências
-O seguinte código procura tópicos de tendências de notícias no Bing. Verifica o número de resultados e imprime `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, e `image.Url` do resultado da primeira notícias de última hora.
+## <a name="trending-topics"></a>Tópicos populares
+O código seguinte procura tópicos de notícias populares no Bing. Verifica o número de resultados e imprime `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, `image.Url` do primeiro resultado de notícias.
 ```
         public static void TrendingTopics(NewsSearchAPI client)
         {
@@ -263,6 +263,6 @@ O seguinte código procura tópicos de tendências de notícias no Bing. Verific
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Serviços cognitivos amostras de SDK do .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Exemplos de SDK .NET nos serviços cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

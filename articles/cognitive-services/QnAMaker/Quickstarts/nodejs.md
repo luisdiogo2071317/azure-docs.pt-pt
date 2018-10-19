@@ -1,47 +1,47 @@
 ---
-title: 'Início rápido: Node. js para o QnA Maker API (V4)'
+title: 'Início Rápido: Node.js para API do Criador de FAQ (V4)'
 titleSuffix: Azure Cognitive Services
-description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
+description: Obtenha informações e exemplos de códigos para o ajudar a começar a utilizar rapidamente a API de Texto do Microsoft Translator nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 05a15ddf8d7668896052c38afc549bc7b3cb056a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: MT
+ms.openlocfilehash: 1bdaa2cd67e6ee772085fd8c3b60c55a74a8df16
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434335"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884904"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Início rápido para API com node. js do Microsoft QnA Maker 
+# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Início Rápido para API do Criador de FAQ com Node.js 
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/overview.md) com node. js para fazer o seguinte.
+Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../Overview/overview.md) com Node.js para fazer o seguinte.
 
-- [Crie uma nova base de dados de conhecimento.](#Create)
-- [Atualize uma base de dados de conhecimento existente.](#Update)
-- [Obtenha o estado de um pedido para criar ou atualizar uma base de dados de conhecimento.](#Status)
-- [Publica uma base de dados de conhecimento existente.](#Publish)
-- [Substitua os conteúdos de uma base de dados de conhecimento existente.](#Replace)
-- [Transferir o conteúdo de uma base de dados de conhecimento.](#GetQnA)
-- [Obtenha respostas para uma pergunta com uma base de dados de conhecimento.](#GetAnswers)
-- [Obtenha informações sobre uma base de dados de conhecimento.](#GetKB)
-- [Obtenha informações sobre todas as bases de dados de conhecimento pertencentes ao utilizador especificado.](#GetKBsByUser)
-- [Elimine uma base de dados de conhecimento.](#Delete)
+- [Criar uma nova base de dados de conhecimento.](#Create)
+- [Atualizar uma base de dados de conhecimento existente.](#Update)
+- [Obter o estado de um pedido para criar ou atualizar uma base de dados de conhecimento.](#Status)
+- [Publicar uma base de dados de conhecimento existente.](#Publish)
+- [Substituir os conteúdos de uma base de dados de conhecimento existente.](#Replace)
+- [Descarregar o conteúdo de uma base de dados de conhecimento.](#GetQnA)
+- [Obter respostas para uma pergunta através de uma base de dados de conhecimento.](#GetAnswers)
+- [Obter informações sobre uma base de dados de conhecimento.](#GetKB)
+- [Obter informações sobre todas as bases de dados de conhecimento pertencentes ao utilizador especificado.](#GetKBsByUser)
+- [Eliminar uma base de dados de conhecimento.](#Delete)
 - [Obter as chaves de ponto final atual.](#GetKeys)
-- [A gerar as chaves de ponto final atual.](#PutKeys)
-- [Obtenha o conjunto atual de alterações do word.](#GetAlterations)
-- [Substitua o conjunto atual de alterações do word.](#PutAlterations)
+- [Voltar a gerar as chaves de ponto final atual.](#PutKeys)
+- [Obter o conjunto atual de alterações do Word.](#GetAlterations)
+- [Substituir o conjunto atual de alterações do Word.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [node. js 6](https://nodejs.org/en/download/) executar esse código.
+Irá necessitar de [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
 Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API do Criador de FAQ da Microsoft**. Necessita de uma chave de subscrição paga a partir do [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -208,7 +208,7 @@ create_kb (path, content, function (result) {
 });
 ```
 
-**Criar a resposta da base de dados de conhecimento**
+**Criar resposta da base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -408,7 +408,7 @@ update_kb (path, content, function (result) {
 });
 ```
 
-**Atualizar a resposta da base de dados de conhecimento**
+**Atualizar resposta da base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -444,7 +444,7 @@ Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/do
 
 <a name="Publish"></a>
 
-## <a name="publish-knowledge-base"></a>Publicar a base de dados de conhecimento
+## <a name="publish-knowledge-base"></a>Publicar base de dados de conhecimento
 
 O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
@@ -556,9 +556,9 @@ publish_kb (path, '', function (result) {
 
 <a name="Replace"></a>
 
-## <a name="replace-knowledge-base"></a>Substituir a base de dados de conhecimento
+## <a name="replace-knowledge-base"></a>Substituir base de dados de conhecimento
 
-O seguinte código substitui o conteúdo do conhecimento especificado base, utilizando o [substitua](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) método.
+O código seguinte substitui o conteúdo da base de dados de conhecimento especificada, através do método [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) (Substituir).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -675,7 +675,7 @@ replace_kb (path, content, function (result) {
 });
 ```
 
-**Substitua a resposta da base de dados de conhecimento**
+**Substituir resposta da base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -689,9 +689,9 @@ replace_kb (path, content, function (result) {
 
 <a name="GetQnA"></a>
 
-## <a name="download-the-contents-of-a-knowledge-base"></a>Transferir o conteúdo de uma base de dados de conhecimento
+## <a name="download-the-contents-of-a-knowledge-base"></a>Descarregar o conteúdo de uma base de dados de conhecimento
 
-O código seguinte transfere o conteúdo do conhecimento especificado base, utilizando o [transferir a base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) método.
+O código seguinte descarrega o conteúdo da base de dados de conhecimento especificada, através do método [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) (Descarregar base de dados de conhecimento).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -781,7 +781,7 @@ get_qna (path, function (result) {
 });
 ```
 
-**Transferir a resposta da base de dados de conhecimento**
+**Resposta da descarga da base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -820,15 +820,15 @@ get_qna (path, function (result) {
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Obtenha respostas para uma pergunta com uma base de dados de conhecimento
+## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Obter respostas para uma pergunta através de uma base de dados de conhecimento
 
-O código a seguir obtém respostas a uma pergunta usando a base de dados de conhecimento especificada, utilizando o **gerar respostas** método.
+O código seguinte obtém respostas a uma pergunta através da base de dados de conhecimento especificada, utilizando o método **Generate answers** (Gerar respostas).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 1. Adicione o código indicado abaixo.
-1. Substitua o `host` valor com o nome do Web site para a sua subscrição do QnA Maker. Para obter mais informações, consulte [criar um serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
-1. Substitua o `endpoint_key` valor com uma chave de ponto final válido para a sua subscrição. Tenha em atenção de que isso não é o mesmo que a chave de subscrição. Pode obter as chaves de ponto final com o [obter chaves de ponto final](#GetKeys) método.
-1. Substitua o `kb` valor com o ID da base de dados de conhecimento que pretende consultar para obter respostas. Tenha em atenção de que esta base de dados de conhecimento tem já foram publicada com o [publicar](#Publish) método.
+1. Substitua o valor `host` pelo nome do Web site da sua subscrição do Criador de FAQ. Para obter mais informações, consulte [Criar um serviço do Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md).
+1. Substitua o valor `endpoint_key` por uma chave de ponto final válida para a sua subscrição. Tenha em atenção que não se trata da sua chave de subscrição. Pode obter as chaves de ponto final através do método [Get endpoint keys](#GetKeys) (Obter chaves de ponto final).
+1. Substitua o valor `kb` pelo ID da base de dados de conhecimento que pretende consultar para obter respostas. Tenha em atenção que esta base de dados de conhecimento já deve ter sido publicada através do método [Publish](#Publish) (Publicar).
 1. Execute o programa.
 
 ```nodejs
@@ -953,7 +953,7 @@ get_answers (method, content, function (result) {
 
 ## <a name="get-information-about-a-knowledge-base"></a>Obter informações sobre uma base de dados de conhecimento
 
-O código seguinte obtém informações sobre o conhecimento especificado base, utilizando o [obter os detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) método.
+O código seguinte obtém informações sobre uma base de dados de conhecimento especificada, através do método [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) (Obter detalhes da base de dados de conhecimento).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -1068,7 +1068,7 @@ get_kb (path, function (result) {
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Obter todas as bases de dados de conhecimento de um utilizador
 
-O código seguinte obtém informações sobre todas as bases de dados de conhecimento de um utilizador especificado, utilizando o [obter bases de dados de conhecimento para o utilizador](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) método.
+O código seguinte obtém informações sobre todas bases de dados de conhecimento de um utilizador especificado, através do método [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) (Obter bases de dados de conhecimento do utilizador).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -1196,7 +1196,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Eliminar uma base de dados de conhecimento
 
-O código seguinte elimina os dados de conhecimento especificado base, utilizando o [eliminar base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) método.
+O código seguinte elimina a base de dados de conhecimento especificada, através do método [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) (Eliminar base de dados de conhecimento).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -1292,7 +1292,7 @@ delete_kb (path, '', function (result) {
 });
 ```
 
-**Eliminar resposta da base de dados de conhecimento**
+**Resposta a Eliminar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1306,9 +1306,9 @@ delete_kb (path, '', function (result) {
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>Obter chaves de ponto final
+## <a name="get-endpoint-keys"></a>Criar chaves de ponto final
 
-O código seguinte obtém as chaves de ponto final atual, utilizando o [obter chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) método.
+O código seguinte obtém as chaves de ponto final atuais, através do método[Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) (Obter chaves de ponto final).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -1392,7 +1392,7 @@ get_keys (path, function (result) {
 });
 ```
 
-**Obter resposta de chaves de ponto final**
+**Resposta de Obter chaves de ponto final**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1407,9 +1407,9 @@ get_keys (path, function (result) {
 
 <a name="PutKeys"></a>
 
-## <a name="refresh-endpoint-keys"></a>Atualizar as chaves de ponto final
+## <a name="refresh-endpoint-keys"></a>Atualizar chaves de ponto final
 
-O código a seguir Regenera as chaves de ponto final atual, utilizando o [atualizar as chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) método.
+O código seguinte regenera as chaves de ponto final atuais, através do método[Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) (Atualizar chaves de ponto final).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -1518,7 +1518,7 @@ refresh_keys (path, content, function (result) {
 });
 ```
 
-**Atualizar a resposta de chaves de ponto final**
+**Resposta de Atualizar chaves de ponto final**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1533,9 +1533,9 @@ refresh_keys (path, content, function (result) {
 
 <a name="GetAlterations"></a>
 
-## <a name="get-word-alterations"></a>Obter alterações de palavra
+## <a name="get-word-alterations"></a>Obter alterações do Word
 
-O código seguinte obtém as alterações de palavra atual, utilizando o [transferir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) método.
+O código seguinte obtém as alterações do Word atuais, utilizando o método [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) (Transferir alterações).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -1619,7 +1619,7 @@ get_alterations (path, function (result) {
 });
 ```
 
-**Obter resposta de alterações do word**
+**Resposta de Obter alterações do Word**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1640,9 +1640,9 @@ get_alterations (path, function (result) {
 
 <a name="PutAlterations"></a>
 
-## <a name="replace-word-alterations"></a>Substitua as alterações de palavra
+## <a name="replace-word-alterations"></a>Substituir alterações do Word
 
-O código a seguir substitui as alterações de palavra atual, utilizando o [substituir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) método.
+O código seguinte substitui as alterações do Word atuais, através do método [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (Substituir alterações).
 
 1. Crie um novo projeto de Node.js no seu IDE preferido.
 2. Adicione o código indicado abaixo.
@@ -1748,7 +1748,7 @@ put_alterations (path, content, function (result) {
 });
 ```
 
-**Substitua a resposta de alterações do word**
+**Resposta de Substituir alterações do Word**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1760,7 +1760,7 @@ put_alterations (path, content, function (result) {
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

@@ -1,79 +1,79 @@
 ---
-title: 'Início rápido: Criar um KB - QnA Maker'
+title: 'Início rápido: Criar uma BDC – Criador de FAQ'
 titleSuffix: Azure Cognitive Services
-description: Pode criar uma base de dados de conhecimento do QnA Maker (KB) a partir de seu próprio conteúdo, como a FAQs ou manuais de produto. O QnA Maker KB neste exemplo é criada a partir de uma página de FAQ Web se simples para responder perguntas sobre recuperação de chaves do BitLocker.
+description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. A Base de Dados de Conhecimento do Criador de FAQ neste exemplo é criada a partir de uma página Web de FAQ simples para responder a perguntas sobre recuperação de chaves do BitLocker.
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: f7af86687a8a61fb7aed028d2868752faaa8045a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030259"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886574"
 ---
-# <a name="create-train-and-publish-your-knowledge-base"></a>Criar, formar e publicar a sua base de dados de conhecimento
+# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Início Rápido: Criar, preparar e publicar a sua base de dados de conhecimento
 
-Pode criar uma base de dados de conhecimento do QnA Maker (KB) a partir de seu próprio conteúdo, como a FAQs ou manuais de produto. O QnA Maker KB neste exemplo é criada a partir de uma página de FAQ Web se simples para responder perguntas sobre recuperação de chaves do BitLocker.
+Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. A Base de Dados de Conhecimento do Criador de FAQ neste exemplo é criada a partir de uma página Web de FAQ simples para responder a perguntas sobre recuperação de chaves do BitLocker.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
 > [!div class="checklist"]
 > * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-qna-maker-knowledge-base"></a>Criar uma base de dados de conhecimento do QnA Maker
+## <a name="create-a-qna-maker-knowledge-base"></a>Criar uma Base de Dados de Conhecimento do Criador de FAQ
 
-1. Inicie sessão no QnAMaker.ai com as credenciais do Azure.
+1. Inicie sessão no QnAMaker.ai com as suas credenciais do Azure.
 
-2. No site do QnA Maker, selecione **criar uma base de dados de conhecimento**.
+2. No site do Criador de FAQ, selecione **Criar uma base de dados de conhecimento**.
 
-   ![Criar novo KB](../media/qna-maker-create-kb.png)
+   ![Criar uma Base de Dados de Conhecimento nova](../media/qna-maker-create-kb.png)
 
-3. Sobre o **Create** página, no passo 1, selecione **criar um serviço QnA**. Será direcionado para o [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar um serviço QnA Maker na sua subscrição. Se o portal do Azure exceder o tempo limite, selecione **volte a tentar** no site. Depois de ligar, é apresentado o dashboard do Azure.
+3. Na pagina **Criar**, no passo 1, selecione **Criar um serviço do Criador de FAQ**. Será direcionado para o [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar um serviço do Criador de FAQ na sua subscrição. Se o portal do Azure exceder o tempo limite, selecione **Tentar novamente** no site. Depois de estabelecer ligação, o dashboard do Azure é apresentado.
 
-4. Depois de criar com êxito um novo serviço QnA Maker no Azure, regresse ao qnamaker.ai/create. Selecione o seu serviço de QnA listas suspensas no passo 2. Se tiver criado um novo serviço do QnA, certifique-se de que Atualize a página.
+4. Depois de criar um novo serviço do Criador de FAQ no Azure com êxito, volte a qnamaker.ai/criar. Selecione o seu serviço de FAQ nas listas pendentes no passo 2. Se tiver criado um novo serviço de FAQ, certifique-se de que atualiza a página.
 
-   ![Selecione um serviço de QnA KB](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+   ![Selecione um serviço de Base de dados de conhecimento de FAQ](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-5. Passo 3, dê um nome sua BDC **KB de QnA do meu exemplo**.
+5. No passo 3, atribua **A Minha BDC do Criador de FAQ de exemplo** como nome da sua BDC.
 
-6. Para adicionar conteúdo à sua BDC, selecione os três tipos de origens de dados. No passo 4, em **preencher sua BDC**, adicione o [FAQ de recuperação do BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL no **URL** caixa.
+6. Para adicionar conteúdos à sua BDC, selecione três tipos de origens de dados. No passo 4, em **Preencher a sua BDC**, adicione o URL [FAQ de Recuperação do BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) à **caixa**.
 
-   ![Selecione um serviço de QnA KB](../media/qnamaker-quickstart-kb/add-datasources.png)
+   ![Selecione um serviço de Base de dados de conhecimento de FAQ](../media/qnamaker-quickstart-kb/add-datasources.png)
 
-7. Passo 5, selecione **criar a sua BDC**.
+7. No passo 5, selecione **Criar a sua BDC**.
 
-8. Embora o BDC está a ser criada, é apresentada uma janela de pop-up. O processo de extração demora alguns minutos para ler a página HTML e identificar as perguntas e respostas.
+8. Enquanto a BDC está a ser criada é apresentada uma janela de pop-up. O processo de extração demora alguns minutos a ler a página HTML e a identificar as perguntas e as respostas.
 
-9. Depois do KB é criado com êxito, o **base de dados de conhecimento** é aberta a página. Pode editar o conteúdo de KB nesta página.
+9. Depois de a BDC ter sido criada com êxito, a página **Base de dados de conhecimento** abre-se. Pode editar os conteúdos da BDC nesta página.
 
-10. No canto superior direito, selecione **par adicionar QnA** para adicionar uma nova linha na **Editorial** secção do KB. Sob **pergunta**, introduza **Olá.** Sob **resposta**, introduza **Hello. Pergunte-me perguntas do bitlocker.**
+10. No canto superior direito, selecione **Adicionar Criador de FAQ** para adicionar uma linha nova à secção **Editorial** da BDC. Em **Pergunta**, introduza **Olá.** Em **Resposta**, introduza **Hello. Faça-me perguntas do bitlocker.**
 
-   ![Adicione um par de QnA](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+   ![Adicione um par de FAQ](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
-11. No canto superior direito, selecione **guardar e treinar** para guardar as edições e preparar o modelo do QnA Maker. As edições não são mantidas, a menos que eles são salvos.
+11. No canto superior direito, selecione **Guardar e preparar** para guardar as edições e preparar o modelo do Criador de FAQ. As edições só são mantidas se tiverem sido guardadas.
 
-   ![Guardar e formação](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
+   ![Guardar e preparar](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
 
-12. No canto superior direito, selecione **testar** para testar a que as alterações que efetuou ocorreu em vigor. ENTER **Olá lá** na caixa e selecione Enter. Deverá ver a resposta que criou como resposta.
+12. No canto superior direito, selecione **Testar** para testar se as alterações que introduziu foram efetuadas. Escreva **Olá** na caixa e carregue na tecla Enter. Deverá ver a resposta que criou como resposta.
 
-13. Selecione **Inspect** para examinar a resposta mais detalhadamente. A janela de teste é utilizada para testar as alterações para o KB antes de que publicadas.
+13. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é utilizada para testar as alterações à BDC antes de estas serem publicadas.
 
-   ![Painel de teste](../media/qnamaker-quickstart-kb/inspect-panel.png)
+   ![Painel de Teste](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
-14. Selecione **teste** novamente para fechar a **teste** pop-up.
+14. Selecione **Testar** novamente para fechar a pop-up **Testar**.
 
-15. No menu junto a **edite**, selecione **Publish**. Em seguida, para confirmar, selecione **publicar** na página.
+15. No menu ao lado de **Editar**, selecione **Publicar**. Depois, para confirmar, selecione **Publicar** na página.
 
-16. O serviço QnA Maker agora é publicado com êxito. Pode utilizar o ponto final na sua aplicação ou código de bot.
+16. O serviço Criador de FAQ é agora publicado com êxito. Pode utilizar o ponto final na sua aplicação ou código de bot.
 
    ![Publicar](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma base de dados de conhecimento](../How-To/create-knowledge-base.md)

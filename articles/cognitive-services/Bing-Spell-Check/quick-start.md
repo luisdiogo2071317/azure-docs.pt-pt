@@ -1,34 +1,34 @@
 ---
-title: Início rápido a API de verificação ortográfica do Bing | Microsoft Docs
-description: Mostra como começar a utilizar a API de verificação ortográfica do Bing.
+title: 'Início Rápido: API de Verificação de Ortografia do Bing'
+titlesuffix: Azure Cognitive Services
+description: Mostra como começar a utilizar a API de Verificação de Ortografia do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: AF8EB1F0-386D-4555-9354-735611435F04
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: cae8353e5be6e70eca90e5995b29b6774fc7d6a9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351500"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804196"
 ---
-# <a name="your-first-spell-check-request"></a>Pedido de verificação ortográfica a primeiro
+# <a name="quickstart-your-first-spell-check-request"></a>Início Rápido: O seu primeiro pedido de verificação de ortografia
 
-Antes de poder tornar a sua primeira chamada, terá de obter uma chave de subscrição de serviços cognitivos. Para obter uma chave, consulte [tente serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
-Para verificar uma cadeia de texto para ortografia e erros de gramática, teria de enviar um pedido GET para o seguinte ponto final:  
+Para verificar se existem erros de ortografia e de gramática numa cadeia de texto, enviaria um pedido GET para o seguinte ponto final:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
 ```
 
 > [!NOTE]
-> Ponto final de pré-visualização de v7:
+> Ponto final da Pré-visualização V7:
 > 
 > ```
 > https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
@@ -36,22 +36,22 @@ https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
   
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos provenientes de um servidor. Distribuir a chave como parte de uma aplicação de cliente fornece mais oportunidade uma terceiros maliciosa para aceder ao mesmo. Além disso, efetuar chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-O pedido tem de especificar o [texto](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text) parâmetro de consulta, que contém a cadeia de texto a prova. Embora seja opcional, pedido deve também especificar o [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt) parâmetro de consulta, que identifica o mercado onde pretende que os resultados de. Para obter uma lista opcional de parâmetros de consulta como `mode`, consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta tem de ser codificado de URL.  
+O pedido tem de especificar o parâmetro de consulta [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text), que contém a cadeia de texto a verificar. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, como `mode`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.  
   
-O pedido tem de especificar o [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey) cabeçalho. Embora seja opcional, são encorajados a também especificar os cabeçalhos seguintes:  
+O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:  
   
--   [Agente de utilizador](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientid)  
--   [X-pesquisa-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientip)  
--   [Localização de pesquisa X](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#location)  
 
-Para obter uma lista de todos os cabeçalhos de pedido e resposta, consulte [cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#headers).
+Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#headers).
 
 ## <a name="the-request"></a>O pedido
 
-O seguinte mostra um pedido que inclui todos os parâmetros de consulta sugerida e nos cabeçalhos. Se for a primeira vez ao chamar qualquer uma das APIs do Bing, não incluem o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se anteriormente tiver chamar uma API do Bing e Bing devolveu um ID de cliente para o utilizador e a combinação de dispositivo. 
+A seguir, é-lhe mostrado um pedido que inclui todos os parâmetros de consulta e cabeçalhos sugeridos. Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para o utilizador e a combinação de dispositivo. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1  
@@ -64,7 +64,7 @@ Host: api.cognitive.microsoft.com
 ```  
 
 > [!NOTE]
-> Pedido de pré-visualização v7:
+> Pedido da Pré-visualização V7:
 
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
@@ -75,7 +75,7 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com  
 > ```  
 
-O seguinte mostra a resposta ao pedido de anterior. O exemplo mostra também os cabeçalhos de resposta do Bing específicos.
+O código a seguir mostra a resposta ao pedido anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -124,9 +124,9 @@ BingAPIs-Market: en-US
 ```  
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Experimente a API. Aceda a [ortográfica consola de teste de verificação API](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358). 
+Experimente a API. Aceda à [Consola de Teste da API de Verificação de Ortografia do Bing](https://dev.cognitive.microsoft.com/docs/services/56e73033cf5ff80c2008c679/operations/57855119bca1df1c647bc358). 
 
-Para obter detalhes sobre a consumir os objetos de resposta, consulte [cadeias de texto de verificação ortográfica](./proof-text.md).
+Para obter detalhes sobre o consumo dos objetos de resposta, veja [Verificar a ortografia de cadeias de texto](./proof-text.md).
 

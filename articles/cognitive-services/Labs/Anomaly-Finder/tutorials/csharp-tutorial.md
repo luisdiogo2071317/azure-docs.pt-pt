@@ -1,71 +1,72 @@
 ---
-title: Aplicação de deteção c# anomalias - serviços cognitivos da Microsoft | Documentos da Microsoft
-description: Explore uma aplicação de c# que utiliza a API de deteção de anomalias nos serviços cognitivos da Microsoft. Enviar pontos de dados original a API e obter o valor esperado e os pontos de anomalias.
+title: 'Tutorial: Deteção de Anomalias, C#'
+titlesuffix: Azure Cognitive Services
+description: Explore uma aplicação C# que utiliza a API de Deteção de Anomalias. Envie pontos de dados originais à API e obtenha o valor esperado e os pontos de anomalias.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: fb434bd668b065fbdbaac39f2926676bcc90e794
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247829"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887654"
 ---
-# <a name="anomaly-detection-c-application"></a>Aplicação de anomalias deteção c#
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Tutorial: Deteção de Anomalias com aplicação C#
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Explore uma aplicação básica do Windows que utiliza a API de deteção de anomalias para detetar anomalias da entrada. O exemplo envia os dados de séries de tempo para a API de deteção de anomalias com a sua chave de subscrição, em seguida, obtém todos os pontos de anomalias e valor esperado para cada ponto de dados a partir da API.
+Explore uma aplicação básica do Windows que utiliza a API de Deteção de Anomalias para detetar anomalias da entrada. O exemplo envia os dados de séries de tempo à API de Deteção de Anomalias com a sua chave de subscrição e obtém todos os pontos de anomalias e o valor esperado para cada ponto de dados da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-O exemplo foi desenvolvido para o .NET Framework usando [Visual Studio 2017, edição de Comunidade](https://www.visualstudio.com/products/visual-studio-community-vs). 
+O exemplo foi desenvolvido para o .NET Framework com o [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a deteção de anomalias e obter uma chave de subscrição 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a Deteção de Anomalias e obter uma chave de subscrição 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Obtenha e utilize o exemplo
+## <a name="get-and-use-the-example"></a>Obter e utilizar o exemplo
 
-Pode clonar a aplicação de exemplo de deteção de anomalias para o computador a partir [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+Pode clonar a aplicação de exemplo de Deteção de Anomalias para o computador a partir do [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>Instalar o exemplo
 
 No seu ambiente de trabalho do GitHub, abra Sample\AnomalyDetectionSample.sln.
 
 <a name="Step2"></a>
-### <a name="build-the-example"></a>Criar o exemplo
+### <a name="build-the-example"></a>Compilar o exemplo
 
-Prima Ctrl + Shift + B, ou clique em Build no menu da faixa de opções, em seguida, selecione compilar solução.
+Prima Ctrl+Shift+B ou clique em Compilar no menu do friso e, em seguida, selecione Compilar Solução.
 
 <a name="Step3"></a>
 ### <a name="run-the-example"></a>Executar o exemplo
 
-1. Depois de concluída a compilação, prima **F5** ou clique em **iniciar** no menu da faixa de opções para executar o exemplo.
-2. Localize a janela de interface de utilizador de deteção de anomalias com a caixa de edição de texto ler "{your_subscription_key}".
-3. Substitua o ficheiro de request.json, que contém os dados de exemplo, com os seus dados, em seguida, clique em "Enviar". Microsoft recebe os dados carregar e usá-los para detetar quaisquer pontos de anomalias entre, em seguida. Os dados que carregar não serão incluídos no servidor da Microsoft. Para detetar o ponto de anomalias novamente, precisa carregar os dados mais uma vez.
-4. Se os dados são boas, encontrará o resultado da deteção de anomalias no campo de "Resposta". Se ocorrer algum erro, as informações de erro serão exibidas no campo de resposta.
+1. Depois de a compilação estar concluída, prima **F5** ou clique em **Iniciar** no menu do friso para executar o exemplo.
+2. Localize a janela da interface de utilizador da Deteção de Anomalias com a caixa de edição de texto com o texto “{a_sua_chave_de_subscrição}”.
+3. Substitua o ficheiro request.json, que contém os dados de exemplo, pelos seus dados e, em seguida, clique no botão “Enviar”. A Microsoft recebe os dados que carregar e utiliza-os para detetar quaisquer pontos de anomalias entre eles. Os dados que carregar não permanecerão no servidor da Microsoft. Para detetar novamente o ponto de anomalia, precisa de carregar os dados mais uma vez.
+4. Se os dados estiverem corretos, encontrará o resultado da deteção de anomalias no campo “Resposta”. Se ocorrer algum erro, as informações de erro serão mostradas no campo Resposta.
 
 <a name="Review"></a>
-### <a name="read-the-result"></a>O resultado de leitura
+### <a name="read-the-result"></a>Ler o resultado
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
 ### <a name="review-and-learn"></a>Rever e aprender
 
-Agora que tem um aplicativo em execução, vamos rever como a aplicação de exemplo se integra com a tecnologia de serviços cognitivos. Este passo irá facilitar a continuar a criar para esta aplicação ou a desenvolver a sua própria aplicação com deteção de anomalias da Microsoft.
+Agora que tem uma aplicação em execução, vamos rever como a aplicação de exemplo se integra na tecnologia de Serviços Cognitivos. Este passo irá permitir que continue a compilar esta aplicação ou que desenvolva a sua própria aplicação através da Deteção de Anomalias da Microsoft.
 
-Esta aplicação de exemplo usa a API Restful de deteção de anomalias ponto final.
+Esta aplicação de exemplo utiliza o ponto final da API Restful de Deteção de Anomalias.
 
-Rever como a API Restful, é utilizada no aplicativo de exemplo, vamos examinar um trecho de código do **AnomalyDetectionClient.cs**. O ficheiro contém comentários sobre o código que indica "Chave de exemplo de código COMEÇA aqui" e "Chave de exemplo de código TERMINA aqui" para o ajudar a localizar o código reproduzidos de trechos de código abaixo.
+Ao analisamos a forma como a API Restful é utilizada na aplicação de exemplo, vamos examinar um fragmento de código de **AnomalyDetectionClient.cs**. O ficheiro contém comentários ao código que indicam “KEY SAMPLE CODE STARTS HERE” e “KEY SAMPLE CODE ENDS HERE” para ajudá-lo a localizar os fragmentos de código reproduzidos abaixo.
 
 ```csharp
             // ----------------------------------------------------------------------
@@ -80,7 +81,7 @@ Rever como a API Restful, é utilizada no aplicativo de exemplo, vamos examinar 
 
 ```
 ### <a name="request"></a>**Pedido**
-O trecho de código abaixo mostra como utilizar o HttpClient para submeter a sua subscrição chave e dados pontos para o ponto final da API de deteção de anomalias.
+O fragmento de código abaixo mostra como utilizar o HttpClient para submeter a sua chave de subscrição e os pontos de dados ao ponto final da API de Deteção de Anomalias.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)
@@ -126,7 +127,7 @@ O trecho de código abaixo mostra como utilizar o HttpClient para submeter a sua
     }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

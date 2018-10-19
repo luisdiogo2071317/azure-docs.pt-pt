@@ -1,39 +1,41 @@
 ---
-title: Guia de introdução do node.js para o URL do projeto de pré-visualização - serviços cognitivos Microsoft | Microsoft Docs
-description: Começar a utilizar a pré-visualização de URL no Microsoft serviços cognitivos no Azure.
+title: 'Início Rápido: Pré-visualização do URL do Projeto, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Comece a utilizar a Pré-visualização do URL nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 195033d2740b11873baae095cec028dc8d19ce49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354013"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883572"
 ---
-# <a name="url-preview-node-quickstart"></a>Guia de introdução do nó de pré-visualização do URL
+# <a name="quickstart-url-preview-with-nodejs"></a>Início Rápido: Pré-visualização do URL com o Node.js 
 
-O exemplo de nó seguinte cria uma pré-visualização de Url para o site SwiftKey Web: https://swiftkey.com/en.
+O exemplo de Node seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
 ## <a name="code-scenario"></a>Cenário de código 
 
-O código seguinte obtém dados de pré-visualização do URL.
-Está implementado nos passos seguintes:
-1. Declare as variáveis para especificar o ponto final por anfitrião e caminho.
-2. Especifique o URL de consulta para pré-visualizar e adicione o parâmetro de consulta.  
+O código seguinte obtém os dados da Pré-visualização do URL.
+É implementado nos passos seguintes:
+1. Declare variáveis para especificar o ponto final por anfitrião e por caminho.
+2. Especifique o URL de consulta da pré-visualização e adicione o parâmetro de consulta.  
 3. Crie uma função de processador para a resposta.
-4. Definir a função de pesquisa que cria o pedido e adiciona o *Ocp-Apim-Subscription-Key* cabeçalho.
-5. Execute a função de pesquisa. 
+4. Defina a função Pesquisa que cria o pedido e adiciona o cabeçalho *Ocp-Apim-Subscription-Key*.
+5. Execute a função Pesquisa. 
 
-O código de completado para esta demonstração segue:
+Segue-se o código completo para esta demonstração:
 
 ````
 'use strict';
@@ -83,8 +85,8 @@ Search();
 
 ````
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Código de exemplo do c#](csharp.md)
-- [Guia de introdução do Java](java-quickstart.md)
-- [Início rápido de JavaScript](javascript.md)
-- [Guia de introdução do Python](python-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Código de exemplo de C#](csharp.md)
+- [Início rápido do Java](java-quickstart.md)
+- [Início rápido do JavaScript](javascript.md)
+- [Início rápido do Python](python-quickstart.md)

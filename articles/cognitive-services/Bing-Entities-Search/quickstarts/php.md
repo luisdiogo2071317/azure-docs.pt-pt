@@ -1,39 +1,39 @@
 ---
-title: Guia de introdução do PHP para os serviços do Azure cognitivos, pesquisa de entidades do Bing API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de pesquisa do Bing entidade no Microsoft serviços cognitivos no Azure.
+title: 'Início Rápido: API de Pesquisa de Entidades do Bing, PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Pesquisa de Entidades do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 448064de764775c497de467b235837d66ef7093b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 30cfa98fc38f92d834e908b6d77306bed1d2b5cb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354842"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815533"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-php"></a>Início rápido para pesquisa de entidade Microsoft Bing API com o PHP 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-php"></a>Início Rápido da API de Pesquisa de Entidades do Bing com PHP
 
-Este artigo mostra como utilizar o [pesquisa do Bing entidade](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API com o PHP.
+Este artigo mostra-lhe como utilizar a API de [Pesquisa de Entidades do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) com PHP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Terá de [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
+Vai precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **API de pesquisa do Bing entidade**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para este início rápido. Tem a chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API de Pesquisa de Entidades do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
-## <a name="search-entities"></a>Entidades de pesquisa
+## <a name="search-entities"></a>Pesquisar entidades
 
-Para executar esta aplicação, siga estes passos.
+Para executar esta aplicação, siga os passos abaixo.
 
-1. Crie um novo projeto do PHP no seu IDE favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `key` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto PHP no seu IDE favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```php
@@ -82,7 +82,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 **Resposta**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -147,9 +147,9 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo segui
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de pesquisa do Bing entidade](../tutorial-bing-entities-search-single-page-app.md)
-> [descrição geral de pesquisa do Bing entidade](../search-the-web.md )
-> [referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Tutorial da Pesquisa de Entidades do Bing](../tutorial-bing-entities-search-single-page-app.md)
+> [Descrição geral da Pesquisa de Entidades do Bing](../search-the-web.md )
+> [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

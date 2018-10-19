@@ -1,56 +1,57 @@
 ---
-title: Deteção de anomalias aplicação de Java - serviços cognitivos da Microsoft | Documentos da Microsoft
-description: Explore uma aplicação de Java que utiliza a API de deteção de anomalias nos serviços cognitivos da Microsoft. Enviar pontos de dados original a API e obter o valor esperado e os pontos de anomalias.
+title: 'Tutorial: Deteção de Anomalias, Java'
+titlesuffix: Azure Cognitive Services
+description: Explore uma aplicação Java que utiliza a API de Deteção de Anomalias. Envie pontos de dados originais à API e obtenha o valor esperado e os pontos de anomalias.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: ac26e29f4a839f69b123489600c2c83fe395c48a
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247910"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887705"
 ---
-# <a name="anomaly-detection-java-application"></a>Aplicação de Java de deteção de anomalias
+# <a name="tutorial-anomaly-detection-with-java-application"></a>Tutorial: Deteção de Anomalias com aplicação Java
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Este artigo demonstra como utilizar uma aplicação Java simples para invocar a API de deteção de anomalias.  
-O exemplo envia os dados de séries de tempo para a API de deteção de anomalias com a sua chave de subscrição, em seguida, obtém todos os pontos de anomalias e valor esperado para cada ponto de dados a partir da API.
+Este artigo demonstra como utilizar uma aplicação Java simples para invocar a API de Deteção de Anomalias.  
+O exemplo envia os dados de séries de tempo à API de Deteção de Anomalias com a sua chave de subscrição e obtém todos os pontos de anomalias e o valor esperado para cada ponto de dados da API.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-Este tutorial foi desenvolvido usando [IntelliJ IDEA](https://www.jetbrains.com/idea). E também tem de instalar [Kit de desenvolvimento Java (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) versão 1.8 e posterior e um atualizado [Maven do Apache](http://maven.apache.org/) criar ferramenta.
+Este tutorial foi desenvolvido com [IntelliJ IDEA](https://www.jetbrains.com/idea). E também tem de instalar o [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) na versão 1.8 e posterior, e uma ferramenta de compilação [Maven do Apache](http://maven.apache.org/).
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a deteção de anomalias e obter uma chave de subscrição 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a Deteção de Anomalias e obter uma chave de subscrição 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
  
 
 ## <a name="download-the-tutorial-project"></a>Transferir o projeto de tutorial
 
-1. Vá para o MicrosoftAnomalyDetection [repositório de Java](https://github.com/MicrosoftAnomalyDetection/java-sample).
-2. Clique a clonar ou transferir o botão.
-3. Clique em transferir ZIP para transferir um ficheiro. zip do projeto de tutorial.
+1. Aceda ao [repositório de Java](https://github.com/MicrosoftAnomalyDetection/java-sample) MicrosoftAnomalyDetection.
+2. Clique no botão para Clonar ou transferir.
+3. Clique em Transferir ZIP para transferir um ficheiro .zip do projeto de tutorial.
 
 <a name="Step1"></a>
-### <a name="open-the-tutorial-project"></a>Abra o projeto de tutorial
+### <a name="open-the-tutorial-project"></a>Abrir o projeto de tutorial
 
-1. Extraia o ficheiro. zip do projeto de tutorial.
-2. No IntelliJ IDEA, clique em **ficheiro > abrir**, é apresentada a caixa de diálogo Abrir arquivo ou projeto.
+1. Extraia o ficheiro .zip do projeto de tutorial.
+2. No IntelliJ IDEA, clique em **Ficheiro > Abrir**, é apresentada a caixa de diálogo Abrir Ficheiro ou Projeto.
 3. Selecione o caminho da raiz do projeto extraído, em seguida, clique em OK.
-4. No painel de projetos, expanda **src > principal > java**.
-5. Faça duplo clique com.microsoft.cognitiveservice.anomalydetection.Main.java para carregar o ficheiro para o editor.
+4. No painel Projetos, expanda **src > principal > java**.
+5. Faça duplo clique em com.microsoft.cognitiveservice.anomalydetection.Main.java para carregar o ficheiro para o editor.
 
 <a name="Step2"></a>
-### <a name="replace-subscriptionkey-and-uri-region"></a>Substitua subscriptionKey e a região URI
+### <a name="replace-subscriptionkey-and-uri-region"></a>Substitua subscriptionKey e a região do URI
 
 ```
 // **********************************************
@@ -65,17 +66,17 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 ```
 
 <a name="Step3"></a>
-### <a name="build-and-run-the-tutorial-project"></a>Criar e executar o projeto de tutorial
+### <a name="build-and-run-the-tutorial-project"></a>Compilar e executar o projeto de tutorial
 
-1. Abra o menu clicando em qualquer lugar no guia de código de origem com.microsoft.cognitiveservice.anomalydetection.Main.java. 
-2. Selecione executar 'Main.main()'
-3. O resultado do pedido de exemplo será retornado e mostrado no terminal.
+1. Abra o menu, ao clicar com o botão direito do rato em qualquer lugar no separador de código fonte com.microsoft.cognitiveservice.anomalydetection.Main.java. 
+2. Selecione Executar “Main.main()”
+3. O resultado do pedido de exemplo será devolvido e mostrado no terminal.
 
 ### <a name="result-of-the-tutorial-project"></a>Resultado do projeto de tutorial
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

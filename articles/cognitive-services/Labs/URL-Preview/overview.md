@@ -1,25 +1,26 @@
 ---
-title: O que é o projeto de URL de pré-visualização? -Serviços cognitivos Microsoft | Microsoft Docs
-description: Introdução à pré-visualização do URL do projeto.
+title: O que é a Pré-visualização do URL do Projeto?
+titlesuffix: Azure Cognitive Services
+description: Introdução à Pré-visualização do URL do Projeto.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6b486e0ab4092bef4fe829a5f166311a572a2900
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353989"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869438"
 ---
-# <a name="what-is-project-url-preview"></a>O que é o projeto de URL de pré-visualização?
-O ponto final de pré-visualização do URL assume um parâmetro de consulta de URL e devolve uma resposta JSON com o nome do recurso de destino, uma breve descrição e uma ligação a uma imagem para apresentar uma versão de pré-visualização. A resposta inclui também a [isFamilyFriendly](url-preview-reference.md#query-parameters) sinalizador que indica se o URL contém conteúdo inválido para adultos, pirated ou outro. 
+# <a name="what-is-project-url-preview"></a>O que é a Pré-visualização do URL do Projeto?
+O ponto final de Pré-visualização do URL assume um parâmetro de consulta de URL e devolve uma resposta JSON com o nome do recurso de destino, uma breve descrição e uma ligação para uma imagem a apresentar numa pré-visualização. A resposta também inclui o sinalizador [isFamilyFriendly](url-preview-reference.md#query-parameters), que indica se o URL contém conteúdo para adultos, pirateado ou outro conteúdo ilícito. 
 
-Para obter resultados de pré-visualização de URL, submeta um pedido GET e incluir o *Ocp-Apim-Subscription-Key* cabeçalho com um token válido:  
+Para obter os resultados de pré-visualização do URL, submeta um pedido GET e inclua o cabeçalho *Ocp-Apim-Subscription-Key* com um token válido:  
 ```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftkey.com
 
@@ -46,22 +47,22 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
 ````
 ## <a name="scenarios"></a>Cenários 
 
-A API de pré-visualização do URL suporta breves descrições dos recursos de Web. Os programadores utilizá-la para criar as experiências de pré-visualização avançado.  Os utilizadores podem partilhar ou marcar páginas Web, notícias de última hora, blogues, fóruns, etc. Esta API também pode ser utilizada para conteúdo moderação de interrupção.    
+A API de Pré-visualização do URL suporta descrições breves de recursos da Web. Os programadores utilizam-na para criar experiências de pré-visualização avançadas.  Os utilizadores podem partilhar ou marcar páginas Web, notícias, blogues, fóruns, etc. Esta API também pode ser utilizada para moderação de conteúdos.    
 
-Aplicações utilizam pré-visualização do URL para enviar pedidos Web para o ponto final com uma consulta atribuída para o URL para pré-visualização.  A resposta JSON contém as informações de pré-visualização: nome, descrição do recurso, *familyFriendly* sinalizador e ligações que fornecem acesso a uma imagem de representativa e para o recurso completo online. 
+As aplicações utilizam a Pré-visualização do URL para enviar pedidos Web ao ponto final com uma consulta atribuída ao URL para visualização.  A resposta JSON contém as informações de pré-visualização: nome, descrição do recurso, sinalizador *familyFriendly* e ligações que concedem acesso a uma imagem representativa e ao recurso completo online. 
 
 ## <a name="terms-of-use"></a>Termos de utilização
-Utilize apenas os dados de pré-visualização do URL de projeto para apresentar fragmentos de pré-visualização e imagens em miniatura com hiperligação para os respetivos sites de origem, no URL iniciada pelo utilizador final de partilha no suporte de dados sociais, chat bot ou ofertas de semelhantes. D não cópia, armazenar, ou colocar em cache todos os dados recebidos da pré-visualização do URL de projeto. Honrar quaisquer pedidos para desativar previews que podem receber os proprietários de Web site ou o conteúdo.
+O Utilizador só deve utilizar os dados da Pré-visualização do URL do Projeto para apresentar fragmentos de pré-visualização e imagens em miniatura hiperligados aos sites de origem, na partilha de URL iniciada pelo utilizador final nas redes sociais, chatboxs ou ofertas semelhantes. O Utilizador não pode copiar, armazenar nem colocar em cache quaisquer dados que receber da Pré-visualização do URL do Projeto. O Utilizador deve respeitar todos os pedidos para desativar as pré-visualizações que possa receber dos proprietários de sites ou de conteúdos.
 
-Ou uma linha de terceiros em seu nome, poderá não utilizar, manter, armazenar, colocar em cache, partilha, ou distribuir quaisquer dados a partir da API de pré-visualização de URL para o teste, desenvolver, formação, distribuir ou disponibilizar-se de que qualquer serviço de terceiros ou funcionalidade. 
+O Utilizador ou terceiros em seu nome não poderão utilizar, reter, armazenar, colocar em cache, partilhar nem distribuir quaisquer dados da API de Pré-visualização de URL para testes, desenvolvimento, formação, distribuição ou disponibilização de qualquer serviço ou funcionalidade que não seja da Microsoft. 
 
 ## <a name="throttling-requests"></a>Limitar pedidos
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](csharp.md)
-- [Guia de introdução do Java](java-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido de C#](csharp.md)
+- [Início rápido de Java](java-quickstart.md)
 - [Início rápido de JavaScript](javascript.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+- [Início rápido de Node](node-quickstart.md)
+- [Início rápido de Python](python-quickstart.md)

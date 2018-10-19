@@ -1,40 +1,41 @@
 ---
-title: Guia de introdução do node.js para os serviços do Azure cognitivos, Bing notícias pesquisa API | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de pesquisa do Bing notícias nos serviços cognitivos Microsoft no Azure.
+title: 'Início Rápido: API de Pesquisa de Notícias do Bing, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Pesquisa de Notícias do Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 1c68e75319a34f4ac9726c047fc7d6d0269634ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 923566dc2764037164725f795e411beef939d92a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354859"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802075"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Início rápido para o Bing notícias pesquisa API com o Node.js
+# <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Início Rápido da API de Pesquisa de Notícias do Bing com Node.js
 
-Este artigo mostra como utilizar a API do Bing notícias pesquisa, parte dos serviços cognitivos da Microsoft no Azure. Embora este artigo utiliza o Node.js, a API é um serviço de RESTful Web compatível com qualquer linguagem de programação que pode efetuar pedidos HTTP e analisar JSON. 
+Este artigo mostra como utilizar a API de Pesquisa de Notícias do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize Node.js, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
 
-O exemplo é escrito em JavaScript e é executado em Node.js 6.
+O exemplo é escrito em JavaScript e é executado com Node.js 6.
 
-Consulte o [referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para detalhes técnicos sobre as APIs.
+Veja a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter um [conta da API de serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de pesquisa do Bing**. O [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Terá da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. Precisará da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
-## <a name="bing-news-search"></a>Pesquisa do Bing notícias de última hora
+## <a name="bing-news-search"></a>Pesquisa de Notícias do Bing
 
-O [API de pesquisa do Bing notícias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) devolve resultados de notícias de última hora a partir do Bing motor de busca.
+A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) devolve resultados de notícias do motor de busca do Bing.
 
-1. Crie um novo projeto de Node.js no seu IDE ou editor favorito.
-2. Adicione o código fornecido abaixo.
-3. Substitua o `subscriptionKey` valor com uma chave de acesso válida para a sua subscrição.
+1. Crie um novo projeto do Node.js no seu IDE ou editor favorito.
+2. Adicione o código indicado abaixo.
+3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
 
 ```javascript
@@ -97,7 +98,7 @@ bing_news_search(term);
 
 **Resposta**
 
-Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo seguinte: 
+É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
 ```json
 {
@@ -190,11 +191,11 @@ Uma resposta com êxito é devolvida em JSON, conforme mostrado no exemplo segui
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Notícias de paginação](paging-news.md)
-> [utilizando marcadores decoration para realçar texto](hit-highlighting.md)
-> [pesquisa na web notícias de última hora](search-the-web.md)  
+> [Paginação de notícias](paging-news.md)
+> [Utilizar marcadores decorativos para realçar texto](hit-highlighting.md)
+> [Pesquisar notícias na Web](search-the-web.md)  
 > [Experimente](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
 

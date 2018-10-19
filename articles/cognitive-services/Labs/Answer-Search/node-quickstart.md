@@ -1,41 +1,42 @@
 ---
-title: Guia de introdução do nó cognitivos nos serviços da Microsoft, pesquisa de resposta do projeto | Microsoft Docs
-description: Começar a utilizar a pesquisa de resposta de projeto, Microsoft serviços cognitivos no Azure.
+title: 'Início Rápido: Pesquisa de Respostas do Projeto, Node'
+description: Comece a utilizar a Pesquisa de Respostas do Projeto com Node.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 36b2709d39230aae7929164ba4c9306f57043b43
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 99dba482c9dec4448110301201c7c9e79a7a6380
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353972"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867430"
 ---
-# <a name="project-answer-search-node-quickstart"></a>Início rápido do nó de pesquisa de resposta de projeto
+# <a name="quickstart-project-answer-search-with-node"></a>Início Rápido: Pesquisa de Respostas do Projeto com Node
 
-O exemplo de nó seguinte cria uma consulta para obter informações sobre o Yosemite National Park.
+O exemplo de Node seguinte cria uma consulta para obter informações sobre o Yosemite National Park.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
-Este exemplo utiliza o nó v8.9.4
+Este exemplo utiliza o Node v8.9.4
 
 ## <a name="code-scenario"></a>Cenário de código 
 
-O código seguinte obtém as respostas.
-Está implementado nos passos seguintes:
-1. Declare as variáveis para especificar o ponto final por anfitrião e caminho.
-2. Especifique o URL de consulta para pré-visualizar e adicione o parâmetro de consulta.  
+O código a seguir obtém as respostas.
+É implementado nos passos seguintes:
+1. Declare variáveis para especificar o ponto final por anfitrião e por caminho.
+2. Especifique o URL de consulta da pré-visualização e adicione o parâmetro de consulta.  
 3. Crie uma função de processador para a resposta.
-4. Definir a função de pesquisa que cria o pedido e adiciona o *Ocp-Apim-Subscription-Key* cabeçalho.
-5. Execute a função de pesquisa. 
+4. Defina a função Pesquisa que cria o pedido e adiciona o cabeçalho *Ocp-Apim-Subscription-Key*.
+5. Execute a função Pesquisa. 
 
-O código de completado para esta demonstração segue:
+Segue-se o código completo para esta demonstração:
 
 ````
 'use strict';
@@ -86,7 +87,7 @@ Search();
 
 ````
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Código de exemplo do c#](c-sharp-quickstart.md)
-- [Guia de introdução do Java](java-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Código de exemplo de C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

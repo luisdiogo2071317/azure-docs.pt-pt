@@ -1,20 +1,19 @@
 ---
-title: Início rápido - Início rápido de criação de cluster Kubernetes no portal do Azure
-description: Aprenda rapidamente a criar um cluster do Kubernetes para contentores do Linux no AKS com o portal do Azure.
+title: Início Rápido – Criar um cluster do Azure Kubernetes Service no portal
+description: Saiba como utilizar o portal do Azure para criar rapidamente um cluster do Azure Kubernetes Service (AKS) e, em seguida, implementar e monitorizar uma aplicação.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aceddc2594065c9c36f8dbf63fce2ad03577a383
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d70f00294b1f08d2cc4cede6575efd3149599dd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443372"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067465"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
@@ -40,15 +39,13 @@ Para criar um cluster do AKS, execute os passos seguintes:
     - *TAMANHO*: selecione um tamanho de VM para os nós do AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
         - Selecione o número de nós a implementar no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
     
-    ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+    ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Selecione **Seguinte: Autenticação** quando terminar.
 
 1. **Autenticação**: configure as seguintes opções:
     - Crie um principal de serviço novo ou *configure* para utilizar um existente. Quando utilizar um SPN existente, terá de fornecer o ID de cliente de SPN e o segredo.
     - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos proporcionam um controlo mais detalhado sobre o acesso aos recursos do Kubernetes implementados no cluster do AKS.
-
-    ![Criar cluster do AKS - configure a autenticação](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
     Selecione **Seguinte: Redes** quando terminar.
 
@@ -59,7 +56,7 @@ Para criar um cluster do AKS, execute os passos seguintes:
     
     Selecione **Seguinte: Monitorização** quando terminar.
 
-1. Quando implementar um cluster de AKS, o Azure Container Insights pode ser configurado para monitorizar o estado de funcionamento do cluster de AKS e dos pods em execução no cluster. Para obter mais informações sobre a monitorização do estado de funcionamento dos contentores, veja [Monitorizar o estado de funcionamento do Azure Kubernetes Service][aks-monitor].
+1. Quando implementar um cluster do AKS, o Azure Monitor para contentores pode ser configurado para monitorizar o estado de funcionamento do cluster do AKS e dos pods em execução no cluster. Para obter mais informações sobre a monitorização do estado de funcionamento dos contentores, veja [Monitorizar o estado de funcionamento do Azure Kubernetes Service][aks-monitor].
 
     Selecione **Sim** para ativar a monitorização dos contentores e selecione uma área de trabalho existente do Log Analytics ou crie uma nova.
     
@@ -93,7 +90,7 @@ A saída de exemplo seguinte mostra o nó único criado nos passos anteriores.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
+aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
 ## <a name="run-the-application"></a>Executar a aplicação
@@ -117,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -145,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,13 +220,20 @@ Abra um browser no endereço IP externo do seu serviço para ver a Aplicação A
 
 Quando criou o cluster, foi ativada a monitorização de informações do contentor. Esta funcionalidade de monitorização proporciona métricas de estado de funcionamento para o cluster do AKS e para pods em execução no mesmo. Para obter mais informações sobre a monitorização do estado de funcionamento dos contentores, veja [Monitorizar o estado de funcionamento do Azure Kubernetes Service][aks-monitor].
 
-Pode demorar alguns minutos até que estes dados sejam povoados no portal do Azure. Para ver o estado atual, o tempo de atividade e a utilização de recursos relativamente aos pods do Azure Vote, regresse ao recurso do AKS no portal do Azure, como *myAKSCluster*. Escolha **Monitorizar o Estado de Funcionamento do Contentor** > selecione o espaço de nomes **predefinido** > e selecione **Contentores**.  São apresentados os contentores *azure-vote-back* e *azure-vote-front*:
+Pode demorar alguns minutos até que estes dados sejam povoados no portal do Azure. Para ver o estado atual, o tempo de atividade e a utilização de recursos relativamente aos pods do Azure Vote, regresse ao recurso do AKS no portal do Azure, como *myAKSCluster*. Em seguida, pode aceder ao estado de funcionamento da seguinte forma:
+
+1. Em **Monitorização** no lado esquerdo, escolha **Insights (pré-visualização)**
+1. Na parte superior, opte por **+ Adicionar Filtro**
+1. Selecione *Espaço de nomes* como a propriedade e, em seguida, escolha *\<Todas, exceto o sistema kube\>*
+1. Selecione para ver os **Contentores**.
+
+Os contentores *azure-vote-back* e *azure-vote-front* são apresentados, conforme mostrado no exemplo seguinte:
 
 ![Ver o estado de funcionamento dos contentores em execução no AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Para ver registos relativos ao pod `azure-vote-front`, seleciona a ligação **Ver Registos** no lado direito da lista de contentores. Esses registos incluem os fluxos *stdout* e *stderr* do contentor.
+Para ver os registos relativos ao pod `azure-vote-front`, selecione a ligação **Ver registos de contentor** no lado direito da lista de contentores. Esses registos incluem os fluxos *stdout* e *stderr* do contentor.
 
-![Ver os registos dos contentores no AKS](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![Ver os registos dos contentores no AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Eliminar o cluster
 
@@ -224,6 +242,9 @@ Quando o cluster já não for necessário, elimine o recurso do cluster, o que, 
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
+
+> [!NOTE]
+> Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter passos sobre como remover o principal de serviço, consulte [Considerações sobre e eliminação do principal de serviço AKS][sp-delete].
 
 ## <a name="get-the-code"></a>Obter o código
 
@@ -258,3 +279,4 @@ Para saber mais sobre o AKS e ver um exemplo completo de código para implementa
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

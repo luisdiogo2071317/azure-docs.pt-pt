@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/16/2017
+ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8645443e5f41fd36b3439a6a7d49407eb0ccf6f8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 9efa6dc8427c58c82702fd5b3449fcd4805bf9e3
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366578"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902098"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -36,9 +36,9 @@ O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas p
 | Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1 |
 | Java * | 8.0 |
 | PHP | 5.6, 7.0, 7.2 |
+| Python (Pré-visualização) | 3.7 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-| Ir | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
 Consulte [Criar uma aplicação Web Java no Serviço de Aplicações no Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) para mais detalhes.
@@ -91,15 +91,25 @@ Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Fer
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja as ligações seguintes para começar a utilizar o Serviço de Aplicações no Linux. Pode publicar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Os artigos seguintes ajudam-no a começar a utilizar o Serviço de Aplicações no Linux com aplicações Web escritas em várias linguagens:
 
-* [Como utilizar uma imagem personalizada do Docker para as Aplicações Web para Contentores](quickstart-docker-go.md)
-* [Utilizar o .NET Core no Serviço de Aplicações do Azure no Linux](quickstart-dotnetcore.md)
-* [Utilizar o Ruby no Serviço de Aplicações do Azure no Linux](quickstart-ruby.md)
-* [FAQ sobre a Aplicação Web do Serviço de Aplicações do Azure para Contentores](app-service-linux-faq.md)
-* [Suporte SSH para o Serviço de Aplicações do Azure no Linux](app-service-linux-ssh-support.md)
-* [Configurar ambientes de teste no Serviço de Aplicações do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implementação Contínua do Hub do Docker com a Aplicação Web para Contentores](./app-service-linux-ci-cd.md)
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-dotnetcore.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)
+* [Go](quickstart-docker-go.md)
+* [Aplicação com vários contentores](quickstart-multi-container.md)
+
+Veja também os artigos seguintes para obter mais detalhes sobre o Serviço de Aplicações no Linux:
+
+* [FAQ do Serviço de Aplicações para Linux](app-service-linux-faq.md)
+* [Suporte SSH para o Serviço de Aplicações no Linux](app-service-linux-ssh-support.md)
+* [Configurar ambientes de teste no Serviço de Aplicações](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Implementação contínua do Hub do Docker](app-service-linux-ci-cd.md)
+
+Pode publicar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

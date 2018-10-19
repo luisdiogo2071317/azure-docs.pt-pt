@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433468"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067522"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "47433468"
 > Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um Serviço de Aplicações no _Linux_, consulte [Criar uma aplicação Web Node.js no Serviço de Aplicações do Azure no Linux](./containers/quickstart-nodejs.md).
 >
 
-[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este início rápido mostra como implementar uma aplicação Node.js em aplicações Web do Azure. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o ZipDeploy para implementar o código Node.js de exemplo na aplicação Web.
+[As Aplicações Web do Azure](app-service-web-overview.md) fornecem um serviço de alojamento na Web altamente dimensionável e com correção automática.  Este guia de início rápido mostra como implementar uma aplicação Node.js em aplicações Web do Azure. Crie a aplicação Web com a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e utilize o ZipDeploy para implementar o código Node.js de exemplo na aplicação Web.
 
 ![Aplicação de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -38,7 +38,7 @@ Pode seguir os passos aqui indicados num computador Mac, Windows ou Linux. Depoi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido:
+Para concluir este guia de início rápido:
 
 * <a href="https://nodejs.org/" target="_blank">Instale o Node.js e o NPM</a>
 
@@ -46,10 +46,15 @@ Para concluir este início rápido:
 
 Transfira o projeto Node.js de exemplo de [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) e extraia o arquivo ZIP.
 
-Numa janela do terminal, navegue para o diretório de raiz do projeto Node.js de exemplo (o que contém _index.js_).
+Abra _index.js_ e localize a linha seguinte:
 
-> [!NOTE]
-> Não precisa de utilizar a nossa aplicação de exemplo. Pode utilizar o seu próprio código Node, se quiser. Lembre-se, no entanto, de que a PORTA da sua aplicação será definida no runtime pelo Azure e que estará disponível como `process.env.PORT`. Se estiver a utilizar o Express, certifique-se de que tem uma marca de verificação no arranque (`app.listen`) para `process.env.PORT || 3000`. Se não o fizer e a sua porta não corresponder ao que está definido no runtime pelo Azure, verá a mensagem `Service Unavailable`. 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+O Serviço de Aplicações injeta process.env.PORT na sua aplicação, para que o código utilize a variável de modo a saber que porta escutar. 
+
+Numa janela do terminal, navegue para o diretório de raiz do projeto Node.js de exemplo (o que contém _index.js_).
 
 ## <a name="run-the-app-locally"></a>Executar a aplicação localmente
 
@@ -68,7 +73,7 @@ Pode ver a mensagem **Hello World** da aplicação de exemplo apresentada na pá
 Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
 
 > [!NOTE]
-> No Serviço de Aplicações do Azure, a aplicação é executada no IIS usando [iisnode](https://github.com/tjanczuk/iisnode). Para ativar a aplicação a ser executada com o iisnode, o diretório da aplicação de raiz contém um arquivo web.config. O ficheiro é lido pelo IIS e as definições relacionadas com o iisnode são documentadas no [repositório do GitHub iisnode](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config).
+> No Serviço de Aplicações do Azure, a aplicação é executada no IIS usando [iisnode](https://github.com/Azure/iisnode). Para ativar a aplicação a ser executada com o iisnode, o diretório da aplicação de raiz contém um arquivo web.config. O ficheiro é lido pelo IIS e as definições relacionadas com o iisnode são documentadas no [repositório do GitHub iisnode](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
@@ -180,7 +185,7 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 ## <a name="video"></a>Vídeo
 
-Assista ao vídeo para ver este início rápido em ação e, em seguida, siga os passos para publicar a sua primeira aplicação Node.js no Azure.
+Assista ao vídeo para ver este guia de introdução em ação e, em seguida, siga os passos para publicar a sua primeira aplicação Node.js no Azure.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008831"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48873996"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
@@ -21,7 +21,11 @@ A WAN Virtual oferece conectividade site a site em grande escala e foi criada pa
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Que fornecedores de dispositivos (parceiros de WAN Virtual) são suportados na altura do lançamento? 
 
-De momento, a Citrix e a Riverbed suportam a experiência de WAN Virtual totalmente automatizada. Para obter mais informações, veja [Parceiros de WAN Virtual](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Atualmente, muitos parceiros suportam a experiência de WAN Virtual totalmente automatizada. Para obter mais informações, veja [Parceiros de WAN Virtual](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
+
+### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>Quais são os passos de automatização dos parceiros da WAN Virtual?
+
+Para obter os passos de automatização, veja [Automatização dos parceiros da WAN Virtual](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Sou obrigado a utilizar um dispositivo de parceiro preferencial?
 
@@ -41,7 +45,7 @@ Sim, a WAN Virtual apresenta novos recursos do Resource Manager. Para obter mais
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Quantos dispositivos VPN se podem ligar a um único Hub?
 
-Cada hub virtual suporta até 100 ligações. Cada ligação consiste de dois túneis que estão numa configuração ativo-ativo. Os túneis terminam num vpngateway de Hub Virtual do Azure.
+Cada hub virtual suporta até 1000 ligações. Cada ligação consiste de dois túneis que estão numa configuração ativo-ativo. Os túneis terminam num vpngateway de Hub Virtual do Azure.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>O dispositivo VPN no local pode ser ligado a vários Hubs?
 
@@ -66,7 +70,6 @@ Não. A VNet de NVA não pode ter um gateway de rede virtual se estiver ligada a
 ### <a name="is-there-support-for-bgp"></a>Existe suporte para BGP?
 
 Sim, o BGP é suportado. Para garantir que as rotas de uma VNet de NVA são anunciadas adequadamente, os spokes têm de desativar o BGP caso estejam ligados a uma VNet de NVA que, por sua vez, esteja ligada a um hub virtual. Além disso, ligue as VNets do spoke a um hub virtual para garantir que as rotas de VNet do spoke sejam propagadas a sistemas no local.
-Posso direcionar o tráfego com um UDR no hub virtual?
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Posso direcionar o tráfego com um UDR no hub virtual?
 
@@ -94,7 +97,7 @@ Sim.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Como é que a WAN Virtual é diferente do Gateway de Rede Virtual do Azure?
 
-O VPN de Gateway de Rede Virtual está limitado a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar até 100 ligações de ramo com 2 Gbps no hub. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Pode ter um hub por região, o que significa que se pode ligar a mais de 100 ramos entre os hubs.
+O VPN de Gateway de Rede Virtual está limitado a 30 túneis. Para as conexões, deve utilizar a WAN Virtual para uma VPN de grande escala. Pode ligar-se até 1000 ligações de ramo com 2 Gbps no hub em todas as regiões, exceto na região Centro-Oeste. Para a região Centro-Oeste, estão disponíveis 20 Gbps. Estarão disponíveis 20 Gbps para mais regiões no futuro. Uma ligação é um túnel ativo-ativo do dispositivo VPN no local para o hub virtual. Pode ter um hub por região, o que significa que se pode ligar a mais de 1000 ramos nos hubs.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Esta WAN Virtual precisa do ExpressRoute de cada site?
 
@@ -102,7 +105,7 @@ Não, a WAN Virtual não precisa do ExpressRoute de cada site. Utiliza a conecti
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Há algum limite de débito de rede ao utilizar a WAN Virtual do Azure?
 
-O número de ramificações está limitado a 100 ligações por hub/região e um total de 2 G no hub.
+O número de ramos está limitado a 1000 ligações por hub/região e um total de 2 Gbps no hub. A exceção é a região EUA Centro-Oeste, que tem um total de 20 Gbps. Vamos implementar 20 Gbps para outras regiões no futuro.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>A WAN Virtual permite que o dispositivo no local utilize vários ISP em paralelo ou trata-se sempre de um único túnel VPN?
 
@@ -110,7 +113,7 @@ Sim, pode ter túneis ativo-ativo (2 túneis = 1 ligação de WAN Virtual do Azu
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Como é que o tráfego é encaminhado no backbone do Azure?
 
-O tráfego segue o padrão: dispositivo de ramificação -> ISP -> Microsoft Edge -> Microsoft DC -> extremidade do Microsoft -> ISP -> dispositivo de ramificação.
+O tráfego segue o padrão: dispositivo de ramificação -> ISP -> Microsoft Edge -> Microsoft DC -> Microsoft Edge-> ISP -> dispositivo de ramificação
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Neste modelo, do que precisa em cada site? Apenas uma ligação à internet?
 

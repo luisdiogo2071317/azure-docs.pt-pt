@@ -1,53 +1,54 @@
 ---
-title: Instruções de exemplo do projeto Acoustics - serviços cognitivos
-description: Este passo a passo descreve a cena de exemplo do Unity para Acoustics de projeto, incluindo a implementação para a área de trabalho e VR.
+title: 'Exemplo: Projeto Acoustics'
+titlesuffix: Azure Cognitive Services
+description: Este tutorial descreve o cenário de exemplo de Unity para o Projeto Acoustics, incluindo a implementação no ambiente de trabalho e na VR.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: MT
+ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434097"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901163"
 ---
-# <a name="unity-sample-walkthrough"></a>Instruções de exemplo do Unity
-Este é um passo a passo do exemplo Acoustics do projeto. Para obter mais informações sobre quais Acoustics de projeto são, consulte a [introdução ao projeto Acoustics](what-is-acoustics.md). Para obter ajuda na adicionar o pacote de projeto Acoustics para um projeto Unity já existente, utilize o [guia de introdução](getting-started.md).
+# <a name="unity-sample-walkthrough"></a>Tutorial de exemplo de Unity
+Este é um tutorial do exemplo do Projeto Acoustics. Para obter mais informações sobre o que é o Projeto Acoustics, consulte a [Introdução ao Projeto Acoustics](what-is-acoustics.md). Para obter ajuda na adição do pacote do Projeto Acoustics a um projeto Unity já existente, utilize o [Guia de Introdução](getting-started.md).
 
 ## <a name="requirements-for-running-the-sample-project"></a>Requisitos para executar o projeto de exemplo
-* Unity 2018.2 +, usando a versão de tempo de execução de scripts de 4.x do .NET
+* Unity 2018.2 +, com a versão de runtime de scripting de .NET 4.x
 * Unity Editor para Windows de 64 bits
-* O exemplo suporta Windows desktop, UWP e destinos de Android, incluindo montado, head apresenta (HMDs)
-* Subscrição do Azure de lote necessária para criar processo
+* O exemplo suporta computadores com Windows, UWP e destinos de Android, incluindo ecrãs de capacete (HMD)
+* Subscrição do Azure Batch necessária para o processo de criação
 
-## <a name="sample-project-setup"></a>Definição do projeto de exemplo
-Transferir e importar os **MicrosoftAcoustics.Sample.unitypackage**. Ao importar, incluindo de definições do projeto **Spatializer** e **versão de tempo de execução de scripts** são atualizados para atender aos requisitos do plug-in. Quando for concluído, verá um erro na consola do Unity partir **AcousticsGeometry.cs** sobre como alterar a versão de tempo de execução de scripts para **.NET 4.x equivalente**. Esta alteração de definições é feita como parte da importação do pacote, mas requer um reinício do Unity para entrar em vigor. Reinicie agora Unity.
+## <a name="sample-project-setup"></a>Configuração do projeto de exemplo
+Transferir e importar **MicrosoftAcoustics.Sample.unitypackage**. Durante a importação, as definições do projeto, incluindo **Spatializer** e **Versão de Runtime de Scripting** são atualizadas para satisfazer os requisitos do plug-in. Quando estiver concluída, verá um erro na consola do Unity a partir de **AcousticsGeometry.cs** sobre alterar a Versão de Runtime de Scripting para um **Equivalente a .NET 4.x**. Esta alteração de definições é executada como parte da importação do pacote, mas requer um reinício do Unity para entrar em vigor. Reinicie agora o Unity.
 
 ## <a name="running-the-sample"></a>Executar o exemplo
-O exemplo inclui uma cena de demonstração **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Essa cena tem três origens de som. Por predefinição, apenas uma origem de som é jogar, e as outras duas estão em pausa. Eles estão localizados sob **origens de som** no **hierarquia**. Para ajudar a fazer um script de navegação genérico, a câmera principal é um filho do objeto CameraHolder. 
+O exemplo inclui um cenário de demonstração **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Este cenário possui três origens de som. Por predefinição, apenas uma origem de som está a ser reproduzida e as outras duas estão em pausa. Estão localizadas em **Origens de som** na **Hierarquia**. Para ajudar a elaborar um script de navegação genérico, a Câmara Principal é um elemento subordinado do objeto CameraHolder. 
 
-![Vista de hierarquia](media/SampleHierarchyView.png)
+![Vista de Hierarquia](media/SampleHierarchyView.png)
 
-A cena já foi integrada e tem um arquivo ACE associados com o **MicrosoftAcoustics** prefab no **hierarquia**. 
+O cenário já foi criado e possui um ficheiro ACE associado a prefab **MicrosoftAcoustics** na **Hierarquia**. 
 
-Ouça a forma como a cena parece clicando no botão de reprodução no editor do Unity. Na área de trabalho, utilize W, S, D e o mouse para mover-se. Para comparar a forma como a cena parece com e sem acoustics, prima a **R** botão até que o texto de sobreposição muda para vermelho e diz "Acoustics: desativado." Para ver os atalhos de teclado para obter mais controles, prima **F1**. Todos os controles são também pode ser utilizados com o botão direito clique para selecionar a ação a realizar, à esquerda, em seguida, clicar para executar a ação.
+Ouça o som do cenário com um clique no botão de reprodução no editor do Unity. No ambiente de trabalho, utilize W, A, S, D e o rato para se mover. Para comparar o som do cenário com e sem o Acoustics, prima o botão **R** até o texto de sobreposição mudar para vermelho e indicar "Acoustics: Desativado". Para ver os atalhos de teclado para obter mais controlos, prima **F1**. Todos os controlos podem ser igualmente utilizados através de um clique no botão direito do rato para selecionar a ação a executar e, em seguida, com um clique no botão esquerdo do rato para executar a ação.
 
-## <a name="targeting-other-platforms"></a>Filtragem de outras plataformas
-O exemplo contém definições para ser executado no ambiente de trabalho do Windows, UWP, realidade mista do Windows, Android e Oculus Go. Por predefinição, o projeto está configurado para o ambiente de trabalho do Windows. Para uma plataforma VR de destino, vá para as definições de leitor (**Editar > definições do projeto > Player**), localizar o **XR definições**e verificar o **suportado de realidade Virtual** caixa de verificação.
+## <a name="targeting-other-platforms"></a>Selecionar outras plataformas como destino
+O exemplo contém definições para serem executadas em computadores com Windows, UWP, Windows Mixed Reality, Android e Oculus Go. Por predefinição, o projeto está configurado para computadores com Windows. Para selecionar como destino uma plataforma de VR, vá para as definições de leitor (**Editar > Definições do Projeto > Leitor**), localize **Definições de XR**e selecione a caixa de verificação **Realidade Virtual Suportada**.
 
 ![Ativar VR](media/VRSupport.png)  
 
-Ligar um headset VR ao seu PC. Aceda a **ficheiro > definições de criação**e clique em **compilar e executar** para implementar o exemplo o headset VR. Navegue por meio da cena com os controladores de movimento para o headset ou tente utilizar W, A, S, D no teclado.    
-Para Android e Oculus Go de destino, escolha Android a partir da **definições de criação** menu. Clique em **mudar de destino**, em seguida, **compilar e executar**. Isto irá implementar a cena de exemplo no seu dispositivo Android ligado. Para obter informações sobre o desenvolvimento de Unity para Android, consulte [documentação do Unity](https://docs.unity3d.com/Manual/android-GettingStarted.html).
+Ligar um VR headset ao seu PC. Aceda a **Ficheiro > Definições de Compilação** e clique em **Compilar e Executar** para implementar o exemplo para o seu VR headset. Navegue pelo cenário com os comandos de movimento do headset ou tente utilizar W, A, S, D no teclado.    
+Para selecionar como destino o Android e o Oculus Go de destino, escolha Android a partir do menu **Definições de Compilação** menu. Clique em **Mudar destino** e, em seguida, em **Compilar e Executar**. Esta ação irá implementar o cenário de exemplo no seu dispositivo Android ligado. Para obter informações sobre o desenvolvimento de Unity para Android, consulte a [Documentação do Unity](https://docs.unity3d.com/Manual/android-GettingStarted.html).
 
 ![Android de destino](media/TargetAndroid.png)  
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Criar uma conta do Azure](create-azure-account.md) para seu próprio incorpora
-* Explorar o [criar processo](design-process.md)
+## <a name="next-steps"></a>Passos seguintes
+* [Criar uma conta do Azure](create-azure-account.md) para as suas próprias criações
+* Explorar o [processo de conceção](design-process.md)
 

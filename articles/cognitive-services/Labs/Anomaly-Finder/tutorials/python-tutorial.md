@@ -1,47 +1,48 @@
 ---
-title: Deteção de anomalias aplicação Python - serviços cognitivos da Microsoft | Documentos da Microsoft
-description: Explore um bloco de notas do Python que utiliza a API de deteção de anomalias nos serviços cognitivos da Microsoft. Enviar pontos de dados original a API e obter o valor esperado e os pontos de anomalias.
+title: 'Tutorial: Deteção de Anomalias, Python'
+titlesuffix: Azure Cognitive Services
+description: Explore um bloco de notas Python que utiliza a API de Deteção de Anomalias. Envie pontos de dados originais à API e obtenha o valor esperado e os pontos de anomalias.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 87cd9e976d231291ad13acecf188cfd668d692b6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248232"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887756"
 ---
-# <a name="anomaly-detection-python-application"></a>Aplicação de Python de deteção de anomalias
+# <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Deteção de Anomalias com aplicação Python
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-O tutorial mostra como utilizar a API de deteção de anomalias em Python e a visualizar os resultados usando bibliotecas populares. Com o Jupyter para executar o tutorial e testar os seus dados com a sua chave de subscrição. Para saber como começar com blocos de notas do Jupyter interativos, consulte [Jupyter documentação](http://jupyter.readthedocs.io/en/latest/index.html). 
+O tutorial mostra como utilizar a API de Deteção de Anomalias no Python e como utilizar bibliotecas populares para visualizar os resultados. Utilize o Jupyter para executar o tutorial e experimentar os seus dados com a sua chave de subscrição. Para saber como começar a utilizar os blocos de notas interativos do Jupyter, veja: [Documentação do Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a deteção de anomalias e obter uma chave de subscrição 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a Deteção de Anomalias e obter uma chave de subscrição 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="download-the-example-code"></a>Baixe o código de exemplo
+## <a name="download-the-example-code"></a>Transferir o código de exemplo
 
-1. Navegue para o [tutorial bloco de notas no Github](https://github.com/MicrosoftAnomalyDetection/python-sample).
+1. Navegue para o [bloco de notas de tutorial no GitHub](https://github.com/MicrosoftAnomalyDetection/python-sample).
 2. Clique no botão verde para clonar ou transferir o tutorial. 
 
-## <a name="opening-the-tutorial-notebook-in-jupyter"></a>Abrir o bloco de notas tutorial no Jupyter
+## <a name="opening-the-tutorial-notebook-in-jupyter"></a>Abrir o bloco de notas de tutorial no Jupyter
 
-1. Abra um prompt de comando e vá para o exemplo de python de pasta.
-2. Execute o bloco de notas do Jupyter do comando no prompt de comando, que iniciará o Jupyter.
-3. Na janela do Jupyter, clique em <em>Example.ipynb de API de deteção de anomalias</em> para abrir o bloco de notas do tutorial.   
+1. Abra uma linha de comandos e aceda à pasta python-sample.
+2. Execute o comando Jupyter notebook a partir da linha de comandos, que iniciará o Jupyter.
+3. Na janela do Jupyter, clique em <em>Anomaly Detection API Example.ipynb</em> para abrir o bloco de notas de tutorial.   
 
 ## <a name="running-the-tutorial"></a>Executar o tutorial
 
-Para utilizar este bloco de notas, terá uma chave de subscrição para a API de deteção de anomalias. Visite a página de subscrição para se inscrever. Na página de "Início de sessão", utilize a sua conta Microsoft para iniciar sessão e poderá inscrever-se e obtenha as suas chaves. Depois de concluir o processo de inscrição, cole a chave na secção de variáveis do bloco de notas (reproduzida abaixo). O principal ou a chave secundária funciona. Certifique-se de incluir a chave de aspas para que seja uma cadeia de caracteres.
+Para utilizar este bloco de notas, precisa de uma chave de subscrição para a API de Deteção de Anomalias. Visite a página Subscrição para se inscrever. Na página “Iniciar sessão”, utilize a sua conta Microsoft para iniciar sessão, e poderá subscrever e obter as chaves. Depois de concluir o processo de inscrição, cole a chave na secção de variáveis do bloco de notas (reproduzida abaixo). Tanto a chave primária como a secundária funcionam. Certifique-se de que coloca a chave entre aspas para que seja considerada uma cadeia.
 
 ```Python
 
@@ -51,7 +52,7 @@ Para utilizar este bloco de notas, terá uma chave de subscrição para a API de
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

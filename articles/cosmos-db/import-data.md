@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: af6faa6abcc54ef11e066d3a348dac28b23c7af4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698116"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079094"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilize a ferramenta de migração de dados para migrar os dados para o Azure Cosmos DB 
 
@@ -42,7 +42,9 @@ Antes de seguir as instruções deste artigo, certifique-se de que os seguintes 
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ou superior.
 
-* Débito aumentado: a duração da migração de dados depende da quantidade de débito que configurou para uma coleção individual ou um conjunto de coleções. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, veja os níveis de Desempenho e escalões de preço do Azure Cosmos DB.
+* **Aumentar débito:** a duração da migração de dados depende da quantidade de débito que configurou para uma coleção individual ou um conjunto de coleções. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, veja os níveis de Desempenho e escalões de preço do Azure Cosmos DB.
+
+* **Criar recursos do Azure Cosmos DB:** antes de começar a migração de dados, crie previamente todas as suas coleções no portal do Azure. Se estiver a migrar para uma conta do Azure Cosmos DB com débito ao nível da base de dados, confirme que proporciona uma chave de partição quando criar as coleções do Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Descrição Geral
 A ferramenta de Migração de Dados é uma solução open source que importa dados para o Azure Cosmos DB a partir de uma variedade de origens, incluindo:
@@ -56,7 +58,7 @@ A ferramenta de Migração de Dados é uma solução open source que importa dad
 * HBase
 * Coleções do Azure Cosmos DB
 
-Embora a ferramenta de importação inclua uma interface gráfica (dtui.exe), também pode ser controlada a partir da linha de comandos (dt.exe). De facto, está disponível uma opção para apresentar o comando associado depois de configurar uma importação através da IU. Os dados de origem tabulares (por ex., ficheiros do SQL Server ou CSV) podem ser transformados de modo a que as relações hierárquicas (subdocumentos) possam ser criadas durante a importação. Continue a ler para saber mais sobre as opções de origem, os comandos de exemplo para importar a partir de cada origem, as opções de destino e como visualizar os resultados da importação.
+Embora a ferramenta de importação inclua uma interface gráfica (dtui.exe), também pode ser controlada a partir da linha de comandos (dt.exe). De facto, está disponível uma opção para apresentar o comando associado depois de configurar uma importação através da IU. Os dados de origem tabulares (por ex., ficheiros do SQL Server ou CSV) podem ser transformados de modo a que as relações hierárquicas (subdocumentos) possam ser criados durante a importação. Continue a ler para saber mais sobre as opções de origem, os comandos de exemplo para importar a partir de cada origem, as opções de destino e como visualizar os resultados da importação.
 
 ## <a id="Install"></a>Instalação
 O código de origem da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente ou [transferir um binário previamente compilado](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip) e, em seguida, executar:
@@ -522,6 +524,14 @@ Opcionalmente, pode optar por embelezar o JSON resultante, o que irá aumentar o
       }
     ]
     }]
+
+Veja a seguir um exemplo da linha de comandos para exportar o ficheiro JSON para o Armazenamento de blobs do Azure:
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 No ecrã de configuração Avançada, especifique a localização do ficheiro de registo no qual gostaria de escrever quaisquer erros. As seguintes regras aplicam-se a esta página:

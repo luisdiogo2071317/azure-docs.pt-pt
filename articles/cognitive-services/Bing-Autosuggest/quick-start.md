@@ -1,34 +1,34 @@
 ---
-title: Sugestão automática do início rápido da API | Microsoft Docs
-description: Mostra como começar a utilizar a API de sugestão automática do Bing.
+title: 'Início Rápido: API de Sugestão Automática do Bing'
+titlesuffix: Azure Cognitive Services
+description: Mostra como começar a utilizar a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: a7b54a1fb0b7c76eb72097357a6b51aa02e6e2fd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354578"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830758"
 ---
-# <a name="making-your-first-autosuggest-query"></a>Tornar a sua primeira consulta Autosuggest
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Início Rápido: fazer a sua primeira consulta de Sugestão Automática
 
-Antes de poder tornar a sua primeira chamada, terá de obter uma chave de subscrição de serviços cognitivos. Para obter uma chave, consulte [tente serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
-Para obter os resultados da pesquisa Web, teria de enviar um pedido GET para o seguinte ponto final:
+Para obter os resultados da pesquisa Web, enviaria um pedido GET ao seguinte ponto final:
 
 ```http
 https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 ```
 
 > [!NOTE]
-> Ponto final de pré-visualização de v7:
+> Ponto final de Pré-visualização da V7:
 >
 > ```http
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
@@ -36,26 +36,26 @@ https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos provenientes de um servidor. Distribuir a chave como parte de uma aplicação de cliente fornece mais oportunidade uma terceiros maliciosa para aceder ao mesmo. Além disso, efetuar chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-O pedido tem de especificar o [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) parâmetro de consulta, que contém o termo de pesquisa parcial do utilizador. Embora seja opcional, pedido deve também especificar o [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) parâmetro de consulta, que identifica o mercado onde pretende que os resultados de. Para obter uma lista dos parâmetros de consulta opcionais, consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta tem de ser codificado de URL.
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), que contém o termo de pesquisa parcial do utilizador. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.
 
-O pedido tem de especificar o [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey) cabeçalho. Embora seja opcional, são encorajados a também especificar os cabeçalhos seguintes:
+O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:
 
-- [Agente de utilizador](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
 - [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
-- [X-pesquisa-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
-- [Localização de pesquisa X](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
+- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
+- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
 
-Os cabeçalhos IP e a localização do cliente são importantes para devolver o conteúdo com suporte para localização.
+Os cabeçalhos de IP e localização do cliente são importantes para devolver o conteúdo com reconhecimento de local.
 
-Para obter uma lista de todos os cabeçalhos de pedido e resposta, consulte [cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
+Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
 ## <a name="the-request"></a>O pedido
 
-O pedido deve incluir todos os parâmetros de consulta sugerida e nos cabeçalhos. Iria chamar esta API sempre que o utilizador escrever um caráter de novo na caixa de pesquisa. Devolve a amplitude do impacto da cadeia de consulta a importância da consulta sugerida termos que a API. Mais concluir a cadeia de consulta, o mais relevante que a lista de sugestões de consulta termos encontram-se. Por exemplo, as sugestões que pode devolver a API para *s* probabilidades de menos relevantes que as consultas devolve para *sailing dinghies*. 
+O pedido deve incluir todos os parâmetros e cabeçalhos de consulta sugeridos. Esta API será chamada sempre que o utilizador escrever um novo caráter na caixa de pesquisa. A exatidão da cadeia de consulta afeta a relevância dos termos de consulta sugeridos devolvidos pela API. Quanto mais completa for a cadeia de consulta, mais relevante será a lista de termos de consulta sugeridos. Por exemplo, as sugestões que a API pode devolver para *s* são provavelmente menos relevantes do que as consultas devolvidas para *sailing dinghies*. 
 
-O exemplo seguinte mostra um pedido que devolve as cadeias de consulta sugerida para *sail*.
+O seguinte exemplo mostra um pedido que devolve as cadeias de consulta sugeridas para *sail*.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v5.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
@@ -67,7 +67,7 @@ Host: api.cognitive.microsoft.com
 ```
 
 > [!NOTE]
-> Pedido de pré-visualização v7:
+> Pedido de Pré-visualização da V7:
 
 > ```http
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -78,13 +78,13 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com
 > ```
 
-Se for a primeira vez ao chamar qualquer uma das APIs do Bing, não incluem o cabeçalho de ID de cliente. Inclua apenas o cabeçalho de ID de cliente se anteriormente tiver chamar uma API do Bing e Bing devolveu um ID de cliente para o utilizador e a combinação de dispositivo.
+Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o cabeçalho do ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para a combinação de utilizador e dispositivo.
 
-O seguinte mostra a resposta ao pedido de anterior. A resposta inclui um grupo de sugestão da web que contém uma lista de sugestões de consulta de pesquisa. Cada sugestão inclui um `displayText`, `query`, e `url` campo.
+O seguinte mostra a resposta ao pedido anterior. A resposta inclui um grupo de sugestões da Web que contém uma lista de sugestões de consulta de pesquisa. Cada sugestão inclui um campo `displayText`, `query` e `url`.
 
-O `displayText` campo contém a consulta sugerida que pretende utilizar para preencher na lista pendente a caixa de pesquisa. Tem de apresentar todas as sugestões que a resposta inclui, e pela ordem indicada.  
+O campo `displayText` contém a consulta sugerida que utilizaria para preencher a lista pendente da sua caixa de pesquisa. Tem de apresentar todas as sugestões incluídas na resposta e pela ordem fornecida.  
 
-Se o utilizador seleciona uma consulta da lista pendente, pode utilizar a cadeia de consulta no `query` campo para chamar o [API de pesquisa do Bing](../bing-web-search/search-the-web.md) e apresentar os resultados por si. Em alternativa, pode utilizar o URL no `url` página de resultados de campo para enviar ao utilizador para a pesquisa do Bing.
+Se o utilizador selecionar uma consulta na lista pendente, pode utilizar a cadeia de consulta no campo `query` para chamar a [API de Pesquisa do Bing](../bing-web-search/search-the-web.md) e apresentar os resultados. Em alternativa, pode utilizar o URL no campo `url` para direcionar o utilizador para a página de resultados da pesquisa do Bing.
 
 ```  
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -150,8 +150,8 @@ BingAPIs-Market: en-US
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Experimente a API. Aceda a [consola de teste de API de sugestão automática](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2).
+Experimente a API. Aceda à [Consola de Testes da API de Sugestão Automática](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2).
 
-Para obter detalhes sobre a consumir os objetos de resposta, consulte [obter termos de pesquisa sugerida](./get-suggested-search-terms.md).
+Para obter detalhes sobre os objetos de resposta, veja [Obter Termos de Pesquisa Sugeridos](./get-suggested-search-terms.md).

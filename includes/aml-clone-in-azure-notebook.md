@@ -9,20 +9,25 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: dfde11c509ef25b0c0bae314c937fc43fa78aef4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 0ece66c176241b53e333071ccfb1882e7018df4c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47020783"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874149"
 ---
-* **Blocos de notas do Azure** -Jupyter gratuito com base em blocos de notas na cloud do Azure
-    1. [![Blocos de notas do Azure](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-    [Importar blocos de notas de exemplo para blocos de notas do Azure](https://aka.ms/aml-clone-azure-notebooks).
-    1.  Criar uma área de trabalho e seu arquivo de configuração (**config**) com as instruções na [como configurar um ambiente de desenvolvimento para o serviço Azure Machine Learning](https://aka.ms/aml-how-to-configure-environment).
-    1. Selecione `+New` na barra de ferramentas da bloco de notas do Azure para adicionar seu **config** ficheiro para a mesma pasta que o bloco de notas.
-    1. Abra o bloco de notas.
+### <a name="azure-notebooks---free-jupyter-based-notebooks-in-the-azure-cloud"></a>**Azure Notebooks** – blocos de notas gratuitos com base no Jupyter na cloud do Azure
+O SDK já está instalado e configurado para si no Azure Notebooks.
+  
+1. Conclua a [introdução ao início rápido](../articles/machine-learning/service/quickstart-get-started.md) para criar uma área de trabalho e iniciar o Azure Notebooks.
+1. Aceda a [Azure Notebooks](https://notebooks.azure.com/)
+1. Na Biblioteca `Getting Started` que criou durante o início rápido, aceda à pasta `tutorials`
+1. Abra o bloco de notas.
 
-* **O seu servidor de bloco de notas do Jupyter**
-
-    Clone [do repositório do GitHub](https://aka.ms/aml-notebooks) e siga o **Leiame** instruções para instalar o software para o seu servidor.
+### <a name="your-own-jupyter-notebook-server"></a>**O seu servidor de blocos de notas do Jupyter**
+1. Conclua a [introdução ao início rápido do SDK do Python](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) para instalar o SDK e criar uma área de trabalho.
+1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).
+1. Copie o diretório `aml_config` que criou durante o início rápido para o diretório clonado.
+1. Inicie o servidor de blocos de notas a partir do diretório clonado.
+1. Aceda à pasta `tutorials`.
+1. Abra o bloco de notas.

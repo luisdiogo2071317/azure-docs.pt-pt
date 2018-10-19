@@ -1,47 +1,47 @@
 ---
-title: 'Início rápido: C# para API (V4) do QnA Maker'
+title: 'Início Rápido: C# para a API do Criador de FAQ (V4)'
 titleSuffix: Azure Cognitive Services
-description: Exemplos de código e informações de GET para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
+description: Obtenha informações e exemplos de códigos para o ajudar a começar a utilizar rapidamente a API de Texto do Microsoft Translator nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: ec4cd4de2bf662b5ce45803d8b762d44ef243358
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040284"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887535"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Início rápido para API c# do Microsoft QnA Maker 
+# <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Início Rápido da API do Criador de FAQ da Microsoft com C# 
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/overview.md) com c# para fazer o seguinte.
+Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../Overview/overview.md) com C# para fazer o seguinte.
 
-- [Crie uma nova base de dados de conhecimento.](#Create)
-- [Atualize uma base de dados de conhecimento existente.](#Update)
-- [Obtenha o estado de um pedido para criar ou atualizar uma base de dados de conhecimento.](#Status)
-- [Publica uma base de dados de conhecimento existente.](#Publish)
-- [Substitua os conteúdos de uma base de dados de conhecimento existente.](#Replace)
+- [Criar uma nova base de dados de conhecimento.](#Create)
+- [Atualizar uma base de dados de conhecimento existente.](#Update)
+- [Obter o estado de um pedido para criar ou atualizar uma base de dados de conhecimento.](#Status)
+- [Publicar uma base de dados de conhecimento existente.](#Publish)
+- [Substituir o conteúdo de uma base de dados de conhecimento existente.](#Replace)
 - [Transferir o conteúdo de uma base de dados de conhecimento.](#GetQnA)
-- [Obtenha respostas para uma pergunta com uma base de dados de conhecimento.](#GetAnswers)
-- [Obtenha informações sobre uma base de dados de conhecimento.](#GetKB)
-- [Obtenha informações sobre todas as bases de dados de conhecimento pertencentes ao utilizador especificado.](#GetKBsByUser)
-- [Elimine uma base de dados de conhecimento.](#Delete)
+- [Obter respostas a uma pergunta através de uma base de dados de conhecimento.](#GetAnswers)
+- [Obter informações sobre uma base de dados de conhecimento.](#GetKB)
+- [Obter informações sobre todas as bases de dados de conhecimento pertencentes ao utilizador especificado.](#GetKBsByUser)
+- [Eliminar uma base de dados de conhecimento.](#Delete)
 - [Obter as chaves de ponto final atual.](#GetKeys)
-- [A gerar as chaves de ponto final atual.](#PutKeys)
-- [Obtenha o conjunto atual de alterações do word.](#GetAlterations)
-- [Substitua o conjunto atual de alterações do word.](#PutAlterations)
+- [Voltar a gerar as chaves de ponto final atual.](#PutKeys)
+- [Obter o conjunto atual de alterações de palavras.](#GetAlterations)
+- [Substituir o conjunto atual de alterações de palavras.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisará [Visual Studio 2017](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
+Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
 Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com a **API do Criador de FAQ da Microsoft**. Necessita de uma chave de subscrição paga a partir do [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -209,7 +209,7 @@ namespace QnAMaker
 
 ```
 
-**Criar a resposta da base de dados de conhecimento**
+**Resposta a Criar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -410,7 +410,7 @@ namespace QnAMaker
 
 ```
 
-**Atualizar a resposta da base de dados de conhecimento**
+**Resposta a Atualizar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -446,7 +446,7 @@ Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/do
 
 <a name="Publish"></a>
 
-## <a name="publish-knowledge-base"></a>Publicar a base de dados de conhecimento
+## <a name="publish-knowledge-base"></a>Publicar base de dados de conhecimento
 
 O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
@@ -527,7 +527,7 @@ namespace QnAMaker
 
 ```
 
-**Publicar resposta da base de dados de conhecimento**
+**Resposta a Publicar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -541,9 +541,9 @@ namespace QnAMaker
 
 <a name="Replace"></a>
 
-## <a name="replace-knowledge-base"></a>Substituir a base de dados de conhecimento
+## <a name="replace-knowledge-base"></a>Substituir base de dados de conhecimento
 
-O seguinte código substitui o conteúdo do conhecimento especificado base, utilizando o [substitua](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) método.
+O código seguinte substitui o conteúdo da base de dados de conhecimento especificada, através do método [Substituir](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -644,7 +644,7 @@ namespace QnAMaker
 
 ```
 
-**Substitua a resposta da base de dados de conhecimento**
+**Resposta a Substituir base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -660,7 +660,7 @@ namespace QnAMaker
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>Transferir o conteúdo de uma base de dados de conhecimento
 
-O código seguinte transfere o conteúdo do conhecimento especificado base, utilizando o [transferir a base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) método.
+O código seguinte transfere o conteúdo da base de dados de conhecimento especificada, através do método [Transferir base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -736,7 +736,7 @@ namespace QnAMaker
 
 ```
 
-**Transferir a resposta da base de dados de conhecimento**
+**Resposta a Transferir base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -775,15 +775,15 @@ namespace QnAMaker
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>Obtenha respostas a uma pergunta, utilizando uma base de dados de conhecimento
+## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>Obter respostas a uma pergunta através de uma base de dados de conhecimento
 
-O código a seguir obtém respostas a uma pergunta usando a base de dados de conhecimento especificada, utilizando o **gerar respostas** método.
+O código seguinte obtém respostas a uma pergunta através da base de dados de conhecimento especificada, através do método **Gerar respostas**.
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 1. Adicione o código indicado abaixo.
-1. Substitua o `host` valor com o nome do Web site para a sua subscrição do QnA Maker. Para obter mais informações, consulte [criar um serviço QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
-1. Substitua o `endpoint_key` valor com uma chave de ponto final válido para a sua subscrição. Tenha em atenção de que isso não é o mesmo que a chave de subscrição. Pode obter as chaves de ponto final com o [obter chaves de ponto final](#GetKeys) método.
-1. Substitua o `kb` valor com o ID da base de dados de conhecimento que pretende consultar para obter respostas. Tenha em atenção de que esta base de dados de conhecimento tem já foram publicada com o [publicar](#Publish) método.
+1. Substitua o valor `host` pelo nome do site da sua subscrição do Criador de FAQ. Para obter mais informações, veja [Criar um serviço do Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md).
+1. Substitua o valor `endpoint_key` por uma chave de ponto final válida para a sua subscrição. Tenha em atenção que não se trata da sua chave de subscrição. Pode obter as chaves de ponto final através do método [Obter chaves de ponto final](#GetKeys).
+1. Substitua o valor `kb` pelo ID da base de dados de conhecimento que pretende consultar para obter respostas. Tenha em atenção que esta base de dados de conhecimento já deve ter sido publicada através do método [Publicar](#Publish).
 1. Execute o programa.
 
 ```csharp
@@ -852,7 +852,7 @@ namespace QnAMaker
 }
 ```
 
-**Obter resposta de respostas**
+**Resposta a Obter respostas**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -880,7 +880,7 @@ namespace QnAMaker
 
 ## <a name="get-information-about-a-knowledge-base"></a>Obter informações sobre uma base de dados de conhecimento
 
-O código seguinte obtém informações sobre o conhecimento especificado base, utilizando o [obter os detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) método.
+O código seguinte obtém informações sobre uma base de dados de conhecimento especificada, através do método [Obter detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -952,7 +952,7 @@ namespace QnAMaker
 
 ```
 
-**Obter resposta de detalhes da base de dados de conhecimento**
+**Resposta a Obter de detalhes da base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -980,7 +980,7 @@ namespace QnAMaker
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Obter todas as bases de dados de conhecimento de um utilizador
 
-O código seguinte obtém informações sobre todas as bases de dados de conhecimento de um utilizador especificado, utilizando o [obter bases de dados de conhecimento para o utilizador](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) método.
+O código seguinte obtém informações sobre todas bases de dados de conhecimento de um utilizador especificado, através do método [Obter bases de dados de conhecimento do utilizador](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1049,7 +1049,7 @@ namespace QnAMaker
 
 ```
 
-**Obter bases de dados de conhecimento de resposta do utilizador**
+**Resposta a Obter bases de dados de conhecimento do utilizador**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1093,7 +1093,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Eliminar uma base de dados de conhecimento
 
-O código seguinte elimina os dados de conhecimento especificado base, utilizando o [eliminar base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) método.
+O código seguinte elimina a base de dados de conhecimento especificada, através do método [Eliminar base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1171,7 +1171,7 @@ namespace QnAMaker
 }
 ```
 
-**Eliminar resposta da base de dados de conhecimento**
+**Resposta a Eliminar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1187,7 +1187,7 @@ namespace QnAMaker
 
 ## <a name="get-endpoint-keys"></a>Obter chaves de ponto final
 
-O código seguinte obtém as chaves de ponto final atual, utilizando o [obter chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) método.
+O código seguinte obtém as chaves de ponto final atuais, através do método[Obter chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1255,7 +1255,7 @@ namespace QnAMaker
 }
 ```
 
-**Obter resposta de chaves de ponto final**
+**Resposta a Obter chaves de ponto final**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1270,9 +1270,9 @@ namespace QnAMaker
 
 <a name="PutKeys"></a>
 
-## <a name="refresh-endpoint-keys"></a>Atualizar as chaves de ponto final
+## <a name="refresh-endpoint-keys"></a>Atualizar chaves de ponto final
 
-O código a seguir Regenera as chaves de ponto final atual, utilizando o [atualizar as chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) método.
+O código seguinte regenera as chaves de ponto final atuais, através do método[Atualizar chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1343,7 +1343,7 @@ namespace QnAMaker
 }
 ```
 
-**Atualizar a resposta de chaves de ponto final**
+**Resposta a Atualizar chaves de ponto final**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1358,9 +1358,9 @@ namespace QnAMaker
 
 <a name="GetAlterations"></a>
 
-## <a name="get-word-alterations"></a>Obter alterações de palavra
+## <a name="get-word-alterations"></a>Obter alterações de palavras
 
-O código seguinte obtém as alterações de palavra atual, utilizando o [transferir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) método.
+O código seguinte obtém as alterações de palavras atuais, com o método [Transferir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1428,7 +1428,7 @@ namespace QnAMaker
 }
 ```
 
-**Obter resposta de alterações do word**
+**Resposta a Substituir alterações de palavras**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1449,9 +1449,9 @@ namespace QnAMaker
 
 <a name="PutAlterations"></a>
 
-## <a name="replace-word-alterations"></a>Substitua as alterações de palavra
+## <a name="replace-word-alterations"></a>Substituir alterações de palavras
 
-O código a seguir substitui as alterações de palavra atual, utilizando o [substituir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) método.
+O código seguinte substitui as alterações de palavras atuais, através do método [Substituir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1552,7 +1552,7 @@ namespace QnAMaker
 }
 ```
 
-**Substitua a resposta de alterações do word**
+**Resposta a Substituir alterações de palavras**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1564,7 +1564,7 @@ namespace QnAMaker
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

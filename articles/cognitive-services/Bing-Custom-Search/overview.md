@@ -1,63 +1,64 @@
 ---
-title: O que é a Pesquisa Personalizada do Bing? | Microsoft Docs
-description: Fornece uma visão geral de pesquisa personalizada do Bing
+title: O que é a Pesquisa Personalizada do Bing?
+titlesuffix: Azure Cognitive Services
+description: Fornece uma descrição geral de alto nível da Pesquisa Personalizada do Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 2483bf36bb18af21bc454e08f3321b33094c43c8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948082"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814309"
 ---
 # <a name="what-is-bing-custom-search"></a>O que é a Pesquisa Personalizada do Bing?
 
-Pesquisa personalizada do Bing permite-lhe criar experiências de pesquisa personalizadas para tópicos que mais lhe interessa. Por exemplo, se for proprietário de um site que fornece uma experiência de pesquisa, pode especificar os domínios, sites e páginas da Web que pesquisa do Bing. Resultados de pesquisa personalizados para o conteúdo que ele se preocupa em vez de ter os seus utilizadores verão a página através de resultados de pesquisa que possuem conteúdo irrelevante.
+Saiba como a Pesquisa Personalizada do Bing lhe permite criar experiências de pesquisa personalizada dos tópicos que mais lhe interessam. Por exemplo, se for proprietário de um site que proporciona uma experiência de pesquisa, pode especificar os domínios, sites e páginas Web que o Bing pesquisa. Os seus utilizadores veem resultados de pesquisa personalizados de acordo com os conteúdos que lhes interessam, em vez de terem de percorrer resultados de pesquisa que podem apresentar conteúdos irrelevantes.
 
-Para criar a sua vista personalizada da web, utilize a pesquisa personalizada do Bing [portal](https://customsearch.ai). O portal permite-lhe criar uma instância de pesquisa personalizada que especifica os domínios, sites e páginas da Web que pretende que o Bing para pesquisar e os sites que não quê-lo para pesquisar. Além de especificar os URLs do conteúdo que conhece, também pode utilizar o portal para encontrar o conteúdo relevante que pretende adicionar.
+Para criar a sua vista personalizada da Web, utilize a Pesquisa Personalizada do portal [Bing](https://customsearch.ai). O portal permite-lhe criar uma instância de pesquisa personalizada que especifica os domínios, sites e páginas Web nas quais pretende que o Bing pesquise, bem como os sites nos quais não pretende que pesquise. Além de especificar os URL dos conteúdos que conhece, também pode utilizar o portal para procurar conteúdos relevantes que pode querer adicionar.
 
-O portal também lhe permite afixar uma página Web específica na parte superior do resultado da pesquisa, se o usuário inserir um termo de pesquisa específico. 
+O portal permite-lhe ainda afixar uma página Web específica na parte superior do resultado da pesquisa, se o utilizador inserir um termo de pesquisa específico. 
 
-Depois de definir a sua instância, pode integrar a pesquisa personalizada no seu site, aplicação de ambiente de trabalho ou aplicação móvel, chamando a API de pesquisa personalizada. Se tiver um site baseado na web ou aplicação, pode permitir que a interface do Usuário alojada composição da interface de pesquisa para.
+Depois de definir a sua instância, pode integrar a pesquisa personalizada no seu site, aplicação de ambiente de trabalho ou aplicação móvel, chamando a API de Pesquisa Personalizada. Se tiver um site ou aplicação baseados na Web, pode permitir que a IU alojada componha a interface de pesquisa.
 
-A imagem seguinte mostra a simplicidade da integração de pesquisa personalizada.
+A imagem seguinte mostra a simplicidade da integração da pesquisa personalizada.
 
-![alt de imagem](./media/bcs-overview.png "funciona como a pesquisa personalizada do Bing.")
+![picture alt](./media/bcs-overview.png "Como Funciona a Pesquisa Personalizada do Bing.")
 
-## <a name="adding-custom-search-box-suggestions"></a>Adição de sugestões de caixa de pesquisa personalizada
+## <a name="adding-custom-search-box-suggestions"></a>Adicionar sugestões de caixa de pesquisa personalizada
 
-Pode enriquecer a sua experiência de pesquisa personalizada com sugestões de caixa de pesquisa personalizada. Esta funcionalidade permite-lhe fornecer sugestões de pesquisa personalizada relevantes para a sua experiência de pesquisa. Conforme o usuário digita na caixa de pesquisa, na lista suspensa contém cadeias de caracteres de consulta sugerida com base na cadeia de consulta parcial do utilizador. Pode especificar se pretende devolver apenas suas sugestões personalizadas ou também incluem sugestões do Bing. [Leia mais](define-custom-suggestions.md).
+Pode enriquecer a sua experiência de pesquisa personalizada com sugestões de caixa de pesquisa personalizada. Esta funcionalidade permite-lhe fornecer sugestões de pesquisa personalizada relevantes para a sua experiência de pesquisa. À medida que o utilizador vai escrevendo na caixa de pesquisa, a lista pendente contém cadeias de consulta sugeridas com base na cadeia de consulta parcial do utilizador. Pode especificar se pretende que sejam devolvidas apenas as suas sugestões personalizadas ou incluir também as sugestões do Bing. [Leia mais](define-custom-suggestions.md).
 
 ## <a name="adding-custom-image-search-experience"></a>Adicionar experiência de pesquisa de imagem personalizada
 
-Pode enriquecer a sua experiência de pesquisa personalizada com imagens. É semelhante aos resultados da web, suporta a pesquisa personalizada a procurar imagens na lista de sua instância dos Web sites. [Leia mais](get-images-from-instance.md).
+Pode enriquecer a sua experiência de pesquisa personalizada com imagens. À semelhança dos resultados da Web, a pesquisa personalizada suporta a pesquisa de imagens na lista de sites da sua instância. [Leia mais](get-images-from-instance.md).
 
-## <a name="adding-custom-video-search-experience"></a>Adicionar a experiência de pesquisa de vídeo personalizada
+## <a name="adding-custom-video-search-experience"></a>Adicionar experiência de pesquisa de vídeo personalizada
 
-Pode enriquecer a sua experiência de pesquisa personalizada com vídeos. Semelhante para os resultados da web, suporta a pesquisa personalizada a procurar vídeos na lista de sua instância dos Web sites. [Leia mais](get-videos-from-instance.md).
+Pode enriquecer a sua experiência de pesquisa personalizada com vídeos. À semelhança dos resultados da Web, a pesquisa personalizada suporta a pesquisa de vídeos na lista de sites da sua instância. [Leia mais](get-videos-from-instance.md).
 
-## <a name="sharing-your-custom-search-instance-with-others"></a>A instância de pesquisa personalizada de partilha com outras pessoas
+## <a name="sharing-your-custom-search-instance-with-others"></a>Partilhar a sua instância de pesquisa personalizada com outras pessoas
 
-Pode facilmente permitir colaboração, edição e teste da sua instância, partilhando-a com membros de sua equipe. [Leia mais](share-your-custom-search.md).
+Pode permitir facilmente edição e teste de colaboração da sua instância, partilhando-a com membros da sua equipa. [Leia mais](share-your-custom-search.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para começar rapidamente a utilizar, veja [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).
+Para começar rapidamente, consulte [Criar a primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 
-Para obter detalhes sobre como personalizar a sua instância de pesquisa, veja [definem uma instância de pesquisa personalizada](define-your-custom-view.md).
+Para obter detalhes sobre como personalizar a sua instância de pesquisa, consulte [Definir uma instância de pesquisa personalizada](define-your-custom-view.md).
 
-Familiarize-se com o conteúdo de referência para cada um dos pontos de extremidade de pesquisa personalizada. A referência contém os pontos de extremidade, cabeçalhos e os parâmetros de consulta que usaria para solicitar os resultados da pesquisa. Também inclui as definições dos objetos de resposta.
+Familiarize-se com o conteúdo de referência para cada um dos pontos finais da pesquisa personalizada. A referência contém a lista de pontos finais, cabeçalhos e parâmetros de consulta que teria de utilizar para pedir os resultados da pesquisa. Também inclui as definições dos objetos de resposta.
 
-- [API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
-- [API de imagem personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
-- [API de Vidoe personalizado](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
-- [API de sugestão automática personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+- [API de Pesquisa Personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [API de Imagem Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [API de Vídeo Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [API de Sugestão Automática Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
 
 Não se esqueça de ler o artigo [Requisitos de Utilização e Apresentação do Bing](./use-and-display-requirements.md) para que não infrinja nenhuma das regras relativas à utilização dos resultados da pesquisa.

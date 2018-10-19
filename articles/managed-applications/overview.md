@@ -8,30 +8,30 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990519"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800949"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
 As aplicações geridas do Azure permitem-lhe oferecer soluções na cloud que os consumidores podem implementar e operar facilmente. Tem de implementar a infraestrutura e disponibilizar suporte contínuo. Para disponibilizar uma aplicação gerida para todos os clientes, publique-a no Azure Marketplace. Para disponibilizá-la apenas aos utilizadores da sua organização, publique-a num catálogo interno. 
 
-As aplicações geridas são semelhantes aos modelos de soluções no Marketplace, com uma diferença essencial. Numa aplicação gerida, os recursos são aprovisionados num grupo de recursos que é gerido pelo editor da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. Como editor, tem de especificar o custo do suporte contínuo da solução.
+As aplicações geridas são semelhantes aos modelos de soluções no Marketplace, com uma diferença essencial. Numa aplicação gerida, os recursos são implementados num grupo de recursos que é gerido pelo editor da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. Como editor, tem de especificar o custo do suporte contínuo da solução.
 
 ## <a name="advantages-of-managed-applications"></a>Vantagens das aplicações geridas
 
-As aplicações geridas reduzem barreiras aos consumidores que utilizam as suas soluções. Aqueles não precisam de conhecimentos técnicos sobre a infraestrutura na cloud para utilizar a sua solução. Os consumidores têm acesso limitado aos recursos críticos. Não têm de se preocupar em cometer erros quando a gerem. 
+As aplicações geridas reduzem barreiras aos consumidores que utilizam as suas soluções. Aqueles não precisam de conhecimentos técnicos sobre a infraestrutura na cloud para utilizar a sua solução. Os consumidores têm acesso limitado aos recursos críticos, por isso, não se preocupe se cometer um erro quando os gerir. 
 
 As aplicações geridas permitem-lhe estabelecer uma relação contínua com os seus consumidores. Os termos para gerir a aplicação são definidos por si e todos os custos são processados através da faturação do Azure.
 
-Embora os clientes implementem essas aplicações geridas nas respetivas subscrições, não têm de manter, atualizar ou repará-las. Pode garantir que todos os clientes estão a utilizar versões aprovadas. Os clientes não têm de desenvolver conhecimentos no domínio de aplicações específicas para geri-las. Adquirem automaticamente as atualizações das aplicações sem terem de se preocupar com a resolução e o diagnóstico de problemas com aquelas. 
+Embora os clientes implementem essas aplicações geridas nas respetivas subscrições, não têm de manter, atualizar ou repará-las. Pode confirmar que todos os clientes estão a utilizar versões aprovadas. Os clientes não têm de desenvolver conhecimentos no domínio de aplicações específicas para geri-las. Adquirem automaticamente as atualizações das aplicações sem terem de se preocupar com a resolução e o diagnóstico de problemas com aquelas. 
 
-Para as equipas de TI, as aplicações geridas permitem-lhe oferecer soluções pré-aprovadas aos utilizadores da organização. Tem de garantir que essas soluções estão em conformidade com os padrões da organização.
+Para as equipas de TI, as aplicações geridas permitem-lhe oferecer soluções pré-aprovadas aos utilizadores da organização. Sabe que essas soluções estão em conformidade com os padrões da organização.
 
 ## <a name="types-of-managed-applications"></a>Tipos de aplicações geridas
 
@@ -41,7 +41,7 @@ Pode publicar a sua aplicação gerida externa ou internamente.
 
 ### <a name="service-catalog"></a>Catálogo de serviços
 
-O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Pode utilizar o catálogo para garantir a conformidade com determinados padrões da organização enquanto oferecem soluções à organização. Os funcionários utilizam o catálogo para descobrir facilmente aplicações que são recomendadas e aprovadas pelos respetivos departamentos de TI. Veem as aplicações geridas que as outras pessoas da organização partilham com eles.
+O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Utiliza o catálogo para cumprir as normas da organização, ao mesmo tempo que disponibiliza soluções para a organização. Os funcionários utilizam o catálogo para localizar facilmente aplicações que são recomendadas e aprovadas pelos departamentos de TI. Veem as aplicações geridas que as outras pessoas da organização partilham com eles.
 
 Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
 
@@ -55,7 +55,7 @@ Para obter informações sobre a publicação de aplicações geridas no Marketp
 
 Normalmente, os recursos das aplicações geridas residirem em dois grupos de recursos. O consumidor gere um grupo de recursos e o editor gere o outro. Ao definir a aplicação gerida, o editor especifica os níveis de acesso. A restrição do acesso das [operações de dados](../role-based-access-control/role-definitions.md) não é atualmente suportada para todos os fornecedores de dados no Azure.
 
-A imagem seguinte mostra um cenário em que o editor pede a função de proprietário para o grupo de recursos gerido. O editor aplicou um bloqueio de só de leitura neste grupo de recursos para o consumidor. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
+A imagem seguinte mostra um cenário em que o editor pede a função de proprietário para o grupo de recursos gerido. O editor aplicou um bloqueio de só de leitura neste grupo de recursos para o consumidor. As identidades do publicador que têm acesso ao grupo de recursos gerido estão isentas do bloqueio.
 
 ![Acesso ao grupo de recursos](./media/overview/access.png)
 
@@ -73,10 +73,11 @@ Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido tam
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Pode aplicar uma [Azure Policy](../azure-policy/azure-policy-introduction.md) à sua aplicação gerida. Aplique políticas para garantir que as instâncias implementadas da sua aplicação gerida estão em cumprimento com os requisitos de dados e segurança. Se a sua aplicação interage com dados sensíveis, certifique de que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com dados do Office 365, aplique uma política para garantir que a encriptação de dados está ativada.
+Pode aplicar uma [Azure Policy](../azure-policy/azure-policy-introduction.md) à sua aplicação gerida. Aplique políticas para garantir que as instâncias implementadas da sua aplicação gerida cumprem os requisitos de dados e segurança. Se a sua aplicação interagir com dados confidenciais, confirme que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com dados do Office 365, aplique uma política para garantir que a encriptação de dados está ativada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma introdução à definição e implementação de aplicações geridas, veja [Criar e implementar uma aplicação gerida do Azure com a CLI do Azure](managed-apps-quickstart-cli.md)
-* Para obter informações sobre a publicação de aplicações internas, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
-* Para obter informações sobre a publicação de aplicações geridas no Marketplace, veja [Criar aplicação do Marketplace](publish-marketplace-app.md).
+Neste artigo, aprendeu sobre os benefícios da utilização de aplicações geridas. Aceda ao artigo seguinte para criar uma definição da aplicação gerida.
+
+> [!div class="nextstepaction"]
+> [Início Rápido: Publicar uma definição de uma aplicação gerida do Azure](publish-managed-app-definition-quickstart.md)

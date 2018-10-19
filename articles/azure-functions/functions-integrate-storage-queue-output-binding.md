@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84783472adda9a4a74670f0579790aac69feb23d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094999"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854529"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
 
@@ -25,7 +25,7 @@ Nas Funções do Azure, os enlaces de entrada e saída proporcionam uma forma de
 
 ![Mensagem de fila apresentada no Explorador de Armazenamento](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
@@ -39,15 +39,19 @@ Nesta secção, utilize a IU do portal para adicionar um enlace de saída de arm
 
 1. No portal do Azure, abra a página da aplicação de função da aplicação de função que criou em [Criar a primeira função a partir do portal do Azure](functions-create-first-azure-function.md). Para tal, selecione **Todos os serviços > Aplicações de Funções** e, em seguida, selecione a aplicação de funções.
 
-2. Selecione a função que criou no início rápido anterior.
+1. Selecione a função que criou no início rápido anterior.
 
 1. Selecione **Integrar > Nova saída > Armazenamento de Filas do Azure**.
 
 1. Clique em **Selecionar**.
-    
+
     ![Adicione um enlace de saída do Armazenamento de filas a uma função no portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Em **Saída de Armazenamento de Filas do Azure**, utilize as definições conforme especificado na tabela que se segue nesta captura de ecrã: 
+1. Se receber uma mensagem **Extensões não instaladas**, escolha **Instalar** para instalar a extensão de enlaces do Armazenamento na aplicação de funções. Este processo poderá demorar um ou dois minutos.
+
+    ![Instalar a extensão de enlace do Armazenamento](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. Em **Saída de Armazenamento de Filas do Azure**, utilize as definições conforme especificado na tabela que se segue nesta captura de ecrã: 
 
     ![Adicione um enlace de saída do Armazenamento de filas a uma função no portal do Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,52 +61,58 @@ Nesta secção, utilize a IU do portal para adicionar um enlace de saída de arm
     | **Ligação da conta de armazenamento** | AzureWebJobsStorage | Pode utilizar a ligação da conta de armazenamento que já está a ser utilizada pela sua aplicação Function App ou criar uma nova.  |
     | **Nome da fila**   | outqueue    | O nome da fila à qual ligar na sua conta de Armazenamento. |
 
-4. Clique em **Guardar** para adicionar o enlace.
- 
+1. Clique em **Guardar** para adicionar o enlace.
+
 Agora que tem um enlace de saída definido, tem de atualizar o código para utilizar o enlace para adicionar mensagens a uma fila.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Adicione código que utiliza o enlace de saída
 
 Nesta secção, adicione código que escreve uma mensagem para a fila de saída. A mensagem inclui o valor que é transferido para o acionador HTTP na cadeia de consulta. Por exemplo, se a cadeia de consulta inclui `name=Azure`, a mensagem de fila será *Nome transmitido para a função: Azure*.
 
-1. Selecione a sua função para apresentar o código da mesma no editor. 
+1. Selecione a sua função para apresentar o código da mesma no editor.
 
-2. Para uma função de C#, adicione um parâmetro de método para o enlace e escreva código para utilizá-lo:
+1. Atualize o código de função consoante a linguagem da sua função:
 
-   Adicionar um parâmetro **outputQueueItem** à assinatura de método conforme mostrado no exemplo seguinte. O nome do parâmetro é o mesmo que introduziu para **Nome do parâmetro de mensagem** quando criou o enlace.
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Adicionar um parâmetro **outputQueueItem** à assinatura de método conforme mostrado no exemplo seguinte.
 
-   No corpo da função C#, imediatamente antes da declaração `return`, adicione código que utiliza o parâmetro para criar uma mensagem de fila.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    No corpo da função, imediatamente antes da declaração `return`, adicione o código que utiliza o parâmetro para criar uma mensagem de fila.
 
-3. Para uma função de JavaScript, adicione código que utiliza o enlace de saída no objeto `context.bindings` para criar uma mensagem de fila. Adicione este código antes da declaração `context.done`.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. Selecione **Guardar** para guardar as alterações.
- 
-## <a name="test-the-function"></a>Testar a função 
+    Adicione o código que utiliza o enlace de saída no objeto `context.bindings` para criar uma mensagem de fila. Adicione este código antes da declaração `context.done`.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Selecione **Guardar** para guardar as alterações.
+
+## <a name="test-the-function"></a>Testar a função
 
 1. Depois de as alterações ao código serem guardadas, clique em **Executar**. 
 
     ![Adicione um enlace de saída do Armazenamento de filas a uma função no portal do Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Tenha em atenção que o **Corpo do pedido** contém o valor `name` *Azure*. Este valor é apresentado na mensagem de fila que é criada quando a função é invocada.
-
-   Como alternativa à seleção de **Executar** aqui, pode chamar a função de introduzir um URL num browser e especificar o valor `name` na cadeia de consulta. O método de browser é apresentado no [início rápido anterior](functions-create-first-azure-function.md#test-the-function).
+    Tenha em atenção que o **Corpo do pedido** contém o valor `name` *Azure*. Este valor é apresentado na mensagem de fila que é criada quando a função é invocada.
+    
+    Como alternativa à seleção de **Executar** aqui, pode chamar a função de introduzir um URL num browser e especificar o valor `name` na cadeia de consulta. O método de browser é apresentado no [início rápido anterior](functions-create-first-azure-function.md#test-the-function).
 
 2. Verifique os registos para se certificar de que a função foi bem-sucedida. 
 

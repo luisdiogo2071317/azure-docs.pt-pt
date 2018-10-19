@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041545"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079111"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guia de Início Rápido: Explorar e analisar os custos com a Análise de custos
 
@@ -34,13 +34,21 @@ Neste início rápido, vai aprender a:
 
 A análise de custos está disponível para todos os clientes do [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos para ver os dados de custos.
 
-- Conta de faturação
-- Departamento
-- Conta de inscrição
-- Grupo de gestão
-- Subscrição
-- Grupo de recursos
+- O âmbito da *conta de faturação* é definido no https://ea.azure.com e requer o acesso de Administrador da Empresa. Não é necessária nenhuma definição de pré-requisitos de EA. As informações de faturação na análise de custos são consolidadas para todas as subscrições no contrato Enterprise. A conta de faturação é frequentemente referida como o *Contrato Enterprise* ou *Inscrição*.
 
+- O âmbito *departamento* é definido como https://ea.azure.com e requer acesso de Administrador do Departamento. A definição ativada **Ver custos de DA** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todas as subscrições que pertençam à conta de inscrição e estejam ligadas ao departamento.
+
+- O âmbito *conta de inscrição* é definido no https://ea.azure.com e requer o acesso de Proprietário da Conta. A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todas as subscrições que pertençam à conta de inscrição. A conta de inscrição é frequentemente referida como o *proprietário da conta*.
+
+- O âmbito *grupo de gestão* é definido no https://portal.azure.com e requer o acesso de Leitor de Gestão de Custos (ou Leitor). A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todas as subscrições no grupo de gestão.
+
+- O âmbito *subscrição* é definido no https://portal.azure.com e requer o acesso de Leitor de Gestão de Custos (ou Leitor). A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todos os recursos e grupos de recursos na subscrição.
+
+- O âmbito *grupo de recursos* é definido no https://portal.azure.com e requer o acesso de Leitor de Gestão de Custos (ou Leitor). A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todos os recursos no grupo de recursos.
+
+
+
+Para obter mais informações sobre como configurar as definições **Ver custos de DA** e **Ver custos de AO**, veja [Permitir o acesso aos custos](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -94,6 +102,11 @@ Os gráficos dinâmicos na vista Total principal mostram vistas de diferentes ca
 ![Dados completos da vista atual](./media/quick-acm-cost-analysis/full-data-set.png)
 
 A imagem anterior mostra os nomes dos grupos de recursos. As etiquetas de visualização de recursos não estão disponíveis em nenhum dos grupos, filtros ou vistas de análise de custos.
+
+Ao agrupar os custos por um atributo específico, os dez contribuidores principais são mostrados, do mais elevado para o menor. Se existirem mais de dez grupos, os nove contribuidores principais são mostrados, bem como um grupo **Outros**, que abrange todos os restantes grupos em conjunto.
+
+As máquinas virtuais, as redes e os recursos de armazenamento (Gestão do Serviço do Azure ou ASM) *Clássicos* não partilham dados detalhados de faturas. São unidos como **serviços Clássicos** ao agrupar os custos.
+
 
 ## <a name="download-cost-analysis-data"></a>Transferir dados da análise de custos
 

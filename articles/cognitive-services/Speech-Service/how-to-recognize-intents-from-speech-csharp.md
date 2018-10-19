@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063035"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884350"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer intenções de voz com o SDK de Voz para C#
 
@@ -52,7 +52,7 @@ O LUIS utiliza dois tipos de chaves:
 |Tipo de chave|Objetivo|
 |--------|-------|
 |criação|permite-lhe criar e modificar as aplicações LUIS programaticamente|
-|ponto final |autoriza o acesso a uma determinada aplicação LUIS|
+|endpoint |autoriza o acesso a uma determinada aplicação LUIS|
 
 A chave necessária para este tutorial é a chave de LUIS do ponto final. O tutorial utiliza a aplicação LUIS Home Automation de exemplo, que pode criar ao seguir [Utilizar a aplicação Home Automation pré-concebida](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Se tiver criado a sua própria aplicação LUIS, pode utilizá-la.
 
@@ -123,7 +123,7 @@ As secções seguintes incluem abordagens ao código.
 O primeiro passo para reconhecer intenções na voz é criar uma configuração de voz na chave do ponto final e na região do LUIS. As configurações de voz podem ser utilizadas para criar reconhecedores para as diversas capacidades do SDK Voz. A configuração de voz pode especificar a subscrição que pretende utilizar de várias formas. Aqui, utilizamos `FromSubscription`, que requer a chave e a região da subscrição.
 
 > [!NOTE]
-> Utilize a chave e a região da subscrição do LUIS, não da subscrição de Voz.
+> Utilize a chave e a região da subscrição do LUIS e não de uma subscrição do Serviço de Voz.
 
 Em seguida, crie um reconhecedor de intenções com `new IntentRecognizer(config)`. Uma vez que a configuração já sabe que subscrição utilizar, não é preciso especificar a chave e o ponto final da mesma novamente quando criar o reconhecedor.
 
@@ -166,7 +166,7 @@ A aplicação de tutorial não analisa o resultado JSON, só o apresenta na jane
 
 ## <a name="specify-recognition-language"></a>Especificar o idioma do reconhecimento
 
-Por predefinição, o LUIS reconhece intenções em inglês dos E.U.A. (`en-us`). Se atribuir um código de região à propriedade `SpeechRecognitionLanguage` da configuração da voz, poderá reconhecer intenções noutros idiomas. Por exemplo, adicione `config.SpeechRecognitionLanguage = "de-de";` à aplicação do tutorial, antes de criar o reconhecedor, para reconhecer intenções em alemão. Veja [Supported Languages](supported-languages.md#speech-to-text) (Idiomas Suportados).
+Por predefinição, o LUIS reconhece intenções em inglês dos E.U.A. (`en-us`). Se atribuir um código de região à propriedade `SpeechRecognitionLanguage` da configuração da voz, poderá reconhecer intenções noutros idiomas. Por exemplo, adicione `config.SpeechRecognitionLanguage = "de-de";` à aplicação do tutorial, antes de criar o reconhecedor, para reconhecer intenções em alemão. Veja [Supported Languages](language-support.md#speech-to-text) (Idiomas Suportados).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconhecimento contínuo a partir de um ficheiro
 

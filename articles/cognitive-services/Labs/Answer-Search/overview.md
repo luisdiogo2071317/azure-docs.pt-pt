@@ -1,31 +1,31 @@
 ---
 title: O que é a Pesquisa de Respostas do Projeto?
 titlesuffix: Azure Cognitive Services
-description: Introdução à pesquisa de resposta de projeto.
+description: Introdução à Pesquisa de Respostas do Projeto.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 87fe7b008e3e7c6cd8d1a9a870c0fb8ce2f6a7cd
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868260"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883725"
 ---
 # <a name="what-is-project-answer-search"></a>O que é a Pesquisa de Respostas do Projeto?
-API de pesquisa de resposta de projeto utiliza o ponto de extremidade do Bing v7 para obter respostas para consultas interrogative. Uma pergunta como "Qual é a circunferência da terra?" Devolve uma resposta com informações factuais.  Uma consulta de uma pessoa, local ou coisa retorna informações sobre a entidade identificada pela consulta. Estes cenários podem ser útil em aplicações, como bots conversacional, mensagens de aplicações, os leitores, etc.  
+A API de Pesquisa de Respostas do Projeto utiliza o ponto final do Bing v7 para obter respostas para consultas interrogativas. Uma pergunta como “Qual é a circunferência da terra?” devolve uma resposta com informações factuais.  Uma consulta de uma pessoa, local ou coisa devolve informações sobre a entidade identificada pela consulta. Estes cenários podem ser úteis em aplicações, como bots de conversação, aplicações de mensagens, leitores, etc.  
 
-As consultas retornam as respostas que dependem do cenário de consulta: páginas da Web são sempre retornado, enquanto [fatos](fact-queries.md) e/ou [entidades](entity-queries.md) são devolvidos se forem relevantes.
+As consultas devolvem as respostas que dependem do cenário de consulta: são sempre devolvidas páginas Web, enquanto os [factos](fact-queries.md) e/ou as [entidades](entity-queries.md) só são devolvidos se forem relevantes.
 
 ## <a name="endpoint"></a>Ponto Final
-Para obter respostas a uma pergunta ou informações sobre uma pessoa, local ou coisa, envie um pedido para o ponto final de API de pesquisa de resposta. Utilize os cabeçalhos e os parâmetros de URL para várias especificações.  Incluem *Ocp-Apim-Subscription-Key* cabeçalho com um token válido.  O parâmetro de mercado é necessário. Apenas `en-us` mercado é atualmente suportado.
+Para obter respostas a uma pergunta ou informações sobre uma pessoa, local ou coisa, envie um pedido para o ponto final da API de Pesquisa de Respostas. Utilize os cabeçalhos e os parâmetros de URL para várias especificações.  Inclua o cabeçalho *Ocp-Apim-Subscription-Key* com um token válido.  O parâmetro de mercado é obrigatório. Apenas o mercado de `en-us` é atualmente suportada.
 
-A seguinte consulta obtém respostas à pergunta: "Qual é a circunferência da terra?"
+A seguinte consulta obtém respostas à pergunta: “Qual é a circunferência da terra?”
 
 GET:
 ````
@@ -33,11 +33,11 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circ
 
 ````
 
-O parâmetro de URL `q=` é necessário especificar o objeto de pesquisa.
+O parâmetro de URL `q=` é necessário para especificar o objeto de pesquisa.
 
 ## <a name="response-object"></a>Objeto de resposta
 
-A resposta inclui HTTP cabeçalhos, páginas da Web, fatos e/ou entidades.
+A resposta inclui cabeçalhos HTTP, páginas Web, factos e/ou entidades.
 
 ````
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
@@ -239,9 +239,9 @@ JSON Response:
 ````
 
 ## <a name="terms-of-use"></a>Termos de utilização
-Pesquisa de resposta de projeto e tendências de vídeo do projeto estão sujeitos à [requisitos de apresentação e utilização de pesquisa do Bing](use-display-requirements.md).
+A Pesquisa de Respostas do Projeto e as Tendências de Vídeo do Projeto estão sujeitas aos [Requisitos de Utilização e Apresentação de Pesquisa do Bing](use-display-requirements.md).
 
-, Ou uma aplicação de terceiros em seu nome, poderá não utilizar, manter, armazenar, colocar em cache, partilhar, ou distribuir quaisquer dados da API de pré-visualização do URL para fins de teste, desenvolvimento, treinamento, distribuir ou ao disponibilizá-se de que qualquer serviço de terceiros ou de recursos. 
+O Utilizador ou terceiros em seu nome não poderão utilizar, reter, armazenar, colocar em cache, partilhar nem distribuir quaisquer dados da API de Pré-visualização de URL para fins de testes, desenvolvimento, formação, distribuição ou disponibilização de qualquer serviço ou funcionalidade que não seja da Microsoft. 
 
 ## <a name="throttling-requests"></a>Limitar pedidos
 
@@ -250,11 +250,11 @@ Pesquisa de resposta de projeto e tendências de vídeo do projeto estão sujeit
 
 ## <a name="data-attribution"></a>Atribuição de dados  
 
-As respostas de pesquisa de resposta de projeto contêm informações de propriedade de terceiros. É responsável para garantir a que sua utilização está apropriada, por exemplo cumprimento de qualquer licença creative commons que possam recorrer a sua experiência de utilizador.  
+As respostas da Pesquisa de Respostas do Projeto contêm informações pertencentes a terceiros. É da sua responsável garantir a respetiva utilização adequada, por exemplo, ao respeitar o cumprimento de qualquer licença Creative Commons na qual a sua experiência de utilizador se baseie.  
   
-Se uma resposta ou o resultado inclui os `contractualRules`, `attributions`, ou `provider` campos, tem de atributo os dados. Se a resposta não inclui qualquer um desses campos, sem atribuição é necessária. Se a resposta inclui a `contractualRules` campo e o `attributions` e/ou `provider` campos, tem de utilizar as regras contratuais para os dados de atributo.  
+Se uma resposta ou resultado incluir os campos `contractualRules`, `attributions`, ou `provider`, tem de atribuir os dados. Se a resposta não incluir nenhum desses campos, a atribuição não é necessária. Se a resposta incluir o campo `contractualRules` e os campos `attributions` e/ou `provider`, tem de utilizar as regras contratuais para atribuir os dados.  
   
-O exemplo seguinte mostra uma entidade que inclui uma regra de contratual MediaAttribution e uma imagem que inclua um `provider` campo. A regra de MediaAttribution identifica a imagem como o destino da regra, para que poderia ignorar a imagem `provider` campo em vez disso, a regra de MediaAttribution para fornecer a atribuição.  
+O exemplo seguinte mostra uma entidade que inclui uma regra contratual MediaAttribution e uma imagem que inclui um campo `provider`. A regra MediaAttribution identifica a imagem como o destino da regra, pelo que poderia ignorar o campo `provider` da imagem e utilizar, em alternativa, a regra MediaAttribution para fornecer a atribuição.  
   
 ```  
         "value" : [{
@@ -283,10 +283,10 @@ O exemplo seguinte mostra uma entidade que inclui uma regra de contratual MediaA
         }]
 ```  
   
-Se uma regra contratual inclui o `targetPropertyName` campo, a regra aplica-se apenas para o campo de destino. Caso contrário, a regra se aplica ao objeto pai que contém o `contractualRules` campo.  
+Se uma regra contratual incluir o campo `targetPropertyName`, a regra aplica-se apenas ao campo visado. Caso contrário, a regra aplica-se ao objeto principal que contém o campo `contractualRules`.  
   
   
-No exemplo a seguir, o `LinkAttribution` regra inclui o `targetPropertyName` campo, para que a regra aplica-se para o `description` campo. Para regras que se aplicam a campos específicos, tem de incluir uma linha imediatamente após os dados de destinados que contém uma hiperligação para o site do fornecedor. Por exemplo, para a descrição do atributo, inclua uma linha imediatamente após o texto de descrição que contém uma hiperligação para os dados no site do fornecedor, neste caso, criar uma ligação para en.wikipedia.org.  
+No exemplo seguinte, a regra `LinkAttribution` inclui o campo `targetPropertyName`, pelo que a regra aplica-se ao campo `description`. Para regras que se aplicam a campos específicos, tem de incluir uma linha imediatamente após os dados visados que contenha uma hiperligação para o site do fornecedor. Por exemplo, para atribuir a descrição, inclua uma linha imediatamente após o texto de descrição, que contenha uma hiperligação para os dados no site do fornecedor, neste caso, crie uma ligação para en.wikipedia.org.  
   
 ```  
 "entities" : {  
@@ -305,36 +305,36 @@ No exemplo a seguir, o `LinkAttribution` regra inclui o `targetPropertyName` cam
   
 ```  
 
-### <a name="license-attribution"></a>Atribuição de licença  
+### <a name="license-attribution"></a>Atribuição de Licença  
 
-Se a lista de regras contratuais inclui um [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) regra, tem de apresentar o aviso na linha imediatamente após o conteúdo que a licença se aplica a. O `LicenseAttribution` regra utiliza o `targetPropertyName` campo para identificar a propriedade que se aplica a licença.  
+Se a lista de regras contratuais incluir uma regra [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution), tem de apresentar o aviso na linha imediatamente após o conteúdo ao qual a licença se aplica. A regra `LicenseAttribution` utiliza o campo `targetPropertyName` para identificar a propriedade à qual a licença se aplica.  
   
-O seguinte mostra um exemplo que inclui um `LicenseAttribution` regra.  
+O seguinte mostra um exemplo que inclui uma regra `LicenseAttribution`.  
   
 ![Atribuição de licença](./media/licenseattribution.png)  
   
-O aviso de licença que exibir tem de incluir um hiperlink para o site que contenha informações sobre a licença. Normalmente, verifique o nome da licença de um hiperlink. Por exemplo, se for o aviso **texto sob a licença de CC por SA** e CC por SA é o nome da licença, que faria CC por SA um hiperlink.  
+O aviso de licença que apresentar tem de incluir uma hiperligação para o site que contenha informações sobre a licença. Normalmente, torna o nome da licença numa hiperligação. Por exemplo, se o aviso for **Texto ao abrigo da licença CC-BY-SA** e CC-BY-SA for o nome da licença, tornaria CC-BY-SA numa hiperligação.  
   
-### <a name="link-and-text-attribution"></a>Ligação e a atribuição de texto  
+### <a name="link-and-text-attribution"></a>Atribuição de Ligação e Texto  
 
-O [LinkAttribution](reference.md#linkattribution) e [TextAttribution](reference.md#textattribution) regras são normalmente utilizadas para identificar o fornecedor de dados. O `targetPropertyName` campo identifica o campo que se aplica a regra.  
+As regras [LinkAttribution](reference.md#linkattribution) e [TextAttribution](reference.md#textattribution) são normalmente utilizadas para identificar o fornecedor dos dados. O campo `targetPropertyName` identifica o campo ao qual a regra se aplica.  
   
-Para os fornecedores de atributo, inclua uma linha imediatamente após o conteúdo que se aplicam as atribuições para (por exemplo, o campo de destino). A linha deve ser claramente nome para indicar que os fornecedores são a origem dos dados. Por exemplo, "dados a partir de: en.wikipedia.org". Para `LinkAttribution` regras, tem de criar uma hiperligação para o site do fornecedor.  
+Para atribuir os fornecedores, inclua uma linha imediatamente após o conteúdo ao qual as atribuições se aplicam (por exemplo, o ficheiro visado). A linha deve estar claramente identificada para indicar que os fornecedores são a origem dos dados. Por exemplo, “Dados de: en.wikipedia.org”. Para as regras `LinkAttribution`, tem de criar uma hiperligação para o site do fornecedor.  
   
-O seguinte mostra um exemplo que inclui `LinkAttribution` e `TextAttribution` regras.  
+O seguinte mostra um exemplo que inclui as regras `LinkAttribution` e `TextAttribution`.  
   
-![Atribuição de texto do Link](./media/linktextattribution.png)  
+![Atribuição de texto de ligação](./media/linktextattribution.png)  
 
-### <a name="media-attribution"></a>Atribuição de suporte de dados  
+### <a name="media-attribution"></a>Atribuição de Suporte de Dados  
 
-Se a entidade inclui uma imagem e apresentá-lo, tem de fornecer um link clicável para o site do fornecedor. Se a entidade inclui um [MediaAttribution](reference.md#mediaattribution) de regra, utilize o URL da regra para criar a ligação clicável. Caso contrário, utilize o URL incluído na imagem do `provider` campo para criar a ligação clicável.  
+Se a entidade incluir uma imagem e a apresentar, tem de fornecer uma ligação clicável para o site do fornecedor. Se a entidade incluir uma regra [MediaAttribution](reference.md#mediaattribution), utilize o URL da regra para criar a ligação clicável. Caso contrário, utilize o URL incluído no campo `provider` da imagem para criar a ligação clicável.  
   
-O seguinte mostra um exemplo que inclui uma imagem `provider` campo e regras contratuais. Uma vez que o exemplo inclui a regra contratual, irá ignorar a imagem `provider` campo e aplicar o `MediaAttribution` regra.  
+O seguinte mostra um exemplo que inclui um campo `provider` e as regras contratuais da imagem. Uma vez que o exemplo inclui a regra contratual, irá ignorar o campo `provider` da imagem e aplicar a regra `MediaAttribution`.  
   
 ![Atribuição de suporte de dados](./media/mediaattribution.png)  
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido em C#](c-sharp-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido de C#](c-sharp-quickstart.md)
 - [Início rápido de Java](java-quickstart.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+- [Início rápido de Node](node-quickstart.md)
+- [Início rápido do Python](python-quickstart.md)

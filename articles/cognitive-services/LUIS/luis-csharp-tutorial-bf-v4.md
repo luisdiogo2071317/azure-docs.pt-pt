@@ -10,24 +10,24 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: f8350d46fecff726dd9f591fe3df0272f556b3e7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce5b704a7ac251621698352608ea3eefa4629aea
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168195"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886585"
 ---
 # <a name="tutorial-luis-bot-in-c"></a>Tutorial: bot de LUIS em C#
 Com C#, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este bot utiliza a aplicação HomeAutomation para implementar uma solução de bot. O bot é criado com o [bot de aplicação Web](https://docs.microsoft.com/azure/bot-service/) do Azure com a versão v4 do [Bot Framework](https://github.com/Microsoft/botbuilder-js).
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
-> * Criar um bot de aplicação Web. Este processo cria uma nova aplicação LUIS.
+> * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.
 > * Adicionar um domínio pré-criado ao novo modelo do LUIS
 > * Transferir o projeto criado pelo serviço de bot Web
 > * Iniciar o bot e o emulador localmente no seu computador
-> * Modificar o código de bot para as novas intenções do LUIS
+> * Modificar o código do bot para as novas intenções do LUIS
 > * Ver os resultados de expressão no bot
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,15 +42,15 @@ Com C#, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este
 
 2. Na caixa de pesquisa, procure e selecione **Bot de Aplicação Web**. Selecione **Criar**.
 
-3. Em **Serviço de Bot**, indique as informações necessárias:
+3. Em **Bot Service** (Serviço de Bot), indique as informações necessárias:
 
     |Definição|Objetivo|Definição sugerida|
     |--|--|--|
     |Nome do bot|Nome do recurso|`luis-csharp-bot-` + `<your-name>`, por exemplo, `luis-csharp-bot-johnsmith`|
     |Subscrição|Subscrição na qual vai criar o bot.|A sua subscrição principal.
-    |Grupo de recursos|Grupo lógico de recursos do Azure|Crie um novo grupo para armazenar todos os recursos utilizados com este bot, dê ao grupo o nome `luis-csharp-bot-resource-group`.|
+    |Grupo de recursos|Grupo lógico de recursos do Azure|Crie um grupo novo para armazenar todos os recursos utilizados com este bot e dê ao grupo o nome `luis-csharp-bot-resource-group`.|
     |Localização|Região do Azure - não tem de ser a mesma da região de criação ou publicação do LUIS.|`westus`|
-    |Escalão de preço|Utilizado para limites de pedido de serviço e faturação.|`F0` é o escalão gratuito.
+    |Escalão de preço|Utilizado para limites de pedidos de serviço e faturação.|`F0` é o escalão gratuito.
     |Nome da aplicação|O nome é utilizado como o subdomínio quando o bot é implementado na cloud (por exemplo, humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, por exemplo, `luis-csharp-bot-johnsmith`|
     |Modelo de bot|Definições do Bot Framework - veja a tabela seguinte|
     |Localização da Aplicação LUIS|Tem de ser a mesma da região de recursos do LUIS|`westus`|
@@ -67,27 +67,27 @@ Com C#, pode criar um chatbot integrado com compreensão de idiomas (LUIS). Este
 
     [ ![Criar bot de aplicação Web](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
-6. Deixe este separador do browser aberto. Para qualquer passo no portal do LUIS, abra um novo separador do browser. Avance para a secção seguinte quando o novo serviço de bot for implementado.
+6. Deixe este separador do browser aberto. Em qualquer passo no portal do LUIS, abra um novo separador do browser. Avance para a secção seguinte quando o novo serviço de bot for implementado.
 
 ## <a name="add-prebuilt-domain-to-model"></a>Adicionar um domínio pré-criado ao modelo
-Parte da implementação do serviço de bot cria uma nova aplicação LUIS com intenções e expressões de exemplo. O bot fornece o mapeamento das intenções à nova aplicação LUIS para as intenções seguintes: 
+Parte da implementação do serviço de bot cria uma aplicação LUIS nova com intenções e expressões de exemplo. O bot fornece o mapeamento das intenções à nova aplicação LUIS para as intenções seguintes: 
 
-|Intenções LUIS de bot básico|expressão de exemplo|
+|Intenções do LUIS de bot básico|expressão de exemplo|
 |--|--|
 |Cancelar|`stop`|
 |Saudação|`hello`|
 |Ajuda|`help`|
 |Nenhuma|Tudo o que estiver fora do domínio da aplicação.|
 
-Adicione a aplicação HomeAutomation pré-criada ao modelo, para lidar com expressões como: `Turn off the living room lights`
+Adicione a aplicação HomeAutomation pré-criada ao modelo para lidar com expressões como: `Turn off the living room lights`
 
 1. Aceda ao portal do [LUIS](https://www.luis.ai) e inicie sessão.
-2. Na página **As Minhas Aplicações**, selecione a coluna **Data de criação** para ordenar pela data de criação da aplicação. O Azure Bot Service criou uma nova aplicação na secção anterior. O respetivo nome é `luis-csharp-bot-` + `<your-name>` + 4 carateres aleatórios.
-3. Abra a aplicação e selecione a secção **Criar** no painel de navegação superior.
+2. Na página **As Minhas Aplicações**, selecione a coluna **Data de criação** para ordenar pela data de criação da aplicação. O Azure Bot Service criou uma aplicação nova na secção anterior. O nome é `luis-csharp-bot-` + `<your-name>` + quatro carateres aleatórios.
+3. Abra a aplicação e selecione a secção **Build** (Compilar), no painel de navegação superior.
 4. No painel de navegação esquerdo, selecione **Domínios Pré-criados**.
-5. Selecione o domínio**HomeAutomation**, ao selecionar **Adicionar domínio** no respetivo cartão.
-6. Selecione **Preparar** no menu superior direito.
-7. Selecione **Publicar** no menu superior direito. 
+5. Selecione **Add domain** (Adicionar domínio) no cartão do domínio **HomeAutomation** para o selecionar.
+6. Selecione **Train** (Preparar), no menu do canto superior direito.
+7. Selecione **Publish** (Publicar), no menu do canto superior direito. 
 
     A aplicação criada pelo Azure Bot Service tem agora novas intenções:
 
@@ -101,13 +101,13 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
 
 1. No portal do Azure, ainda no recurso de bot de aplicação Web, selecione as **Definições da Aplicação** e copie os valores de **botFilePath** e **botFileSecret**. Tem de adicioná-los a um ficheiro de ambiente mais tarde. 
 
-2. No portal do Azure, selecione **Compilar** na secção **Gestão de bot**. 
+2. No portal do Azure, selecione **Compilar**, na secção **Gestão de bot**. 
 
 3. Selecione **Transferir o código-fonte de Bot**. 
 
-    [![Transferir o código-fonte de bot de aplicação Web para um bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
+    [ ![Transferir o código de origem do bot de aplicação Web para um bot básico](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-4. Quando o código-fonte estiver zipado, uma mensagem fornecerá uma hiperligação para transferir o código. Selecione a hiperligação. 
+4. Quando o código de origem estiver zipado, é disponibilizada uma ligação numa mensagem para o transferir. Selecione a ligação. 
 
 5. Guarde o ficheiro zip no computador local e extraia os ficheiros. Abra o projeto. 
 
@@ -204,7 +204,7 @@ Antes de alterar qualquer código ou as definições, certifique-se de que o bot
 
 2. No emulador do bot, selecione o ficheiro *.bot na raiz do projeto. Este ficheiro `.bot` inclui o ponto final do URL do bot para mensagens:
 
-    [ ![Emulador de bot v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
+    [ ![Emulador do bot v4](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png) ](../../../includes/media/cognitive-services-luis/bfv4/bot-emulator-v4.png#lightbox)
 
 3. Introduza o segredo de bot que copiou das Definições da Aplicação do serviço de bot do Azure no Passo 1 da secção **[Transferir o bot de aplicação Web](#download-the-web-app-bot)**. Isto permite ao emulador aceder a quaisquer campos encriptados no ficheiro `.bot`.
 
@@ -212,13 +212,13 @@ Antes de alterar qualquer código ou as definições, certifique-se de que o bot
 
 4. No emulador do bot, introduza `Hello` e obtenha a resposta adequada para o bot básico.
 
-    [ ![Resposta ao bot básico no emulador](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
+    [ ![Resposta do bot básico no emulador](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png) ](../../../includes/media/cognitive-services-luis/bfv4/emulator-test.png#lightbox)
 
 ## <a name="modify-bot-code"></a>Modificar o código do bot 
 
 No ficheiro `BasicBot.cs`, adicione o código para processar as novas intenções. 
 
-1. Na parte superior do ficheiro, encontre a secção **Intenções de LUIS Suportadas** e adicione constantes para as intenções HomeAutomation:
+1. Na parte superior do ficheiro, encontre a secção **Supported LUIS Intents** (Intenções de LUIS Suportadas) e adicione constantes para as intenções HomeAutomation:
 
     ```csharp
     // Supported LUIS Intents
@@ -286,20 +286,20 @@ No ficheiro `BasicBot.cs`, adicione o código para processar as novas intençõe
 
     ```JSON
     TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    ```
+    ```    
 
-## Learn more about Bot Framework
-Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
+## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
+O serviço Azure Bot utiliza o Bot Framework SDK. Saiba mais sobre o SDK e o Bot Framework:
 
-* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 documentation
-* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples)
+* Documentação do [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples) (Exemplos do Bot Builder)
 * [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
-* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools):
+* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools) (Ferramentas do Bot Builder):
 
-## Next steps
+## <a name="next-steps"></a>Passos seguintes
 
-You created an Azure bot service, copied the bot secret and `.bot` file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the `.bot` file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
+Criou um serviço Azure Bot Service, copiou o segredo do bot e o caminho do ficheiro `.bot` e transferiu o ficheiro zip do código. Adicionou o domínio HomeAutomation pré-criado à aplicação LUIS criada como parte do serviço Azure Bot Service novo e, depois, preparou e publicou a aplicação novamente. Extraiu o projeto de código, criou um ficheiro de ambiente (`.env`) e definiu o segredo do bot e o caminho do ficheiro `.bot`. No ficheiro bot.js, adicionou código para processar as duas intenções novas. Depois, testou o bot no emulador de bot para ver a resposta do LUIS a uma expressão de uma das intenções novas. 
 
 
 > [!div class="nextstepaction"]
-> [Build a custom domain in LUIS](luis-quickstart-intents-only.md)
+> [Build a custom domain in LUIS](luis-quickstart-intents-only.md) (Criar um domínio personalizado no LUIS)

@@ -1,43 +1,44 @@
 ---
-title: As API de conhecimento académico para académicas Microsoft Graph | Microsoft Docs
-description: Utilize a API de conhecimento académico para interpretar consultas de utilizador e obter informações avançadas do gráfico académico nos serviços cognitivos da Microsoft.
+title: O que é a API de Conhecimento Académico?
+titlesuffix: Azure Cognitive Services
+description: Utilize a API de Conhecimento Académico para interpretar consultas de utilizador e obter informações detalhadas do Academic Graph.
 services: cognitive-services
 author: mvorvoreanu
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: overview
 ms.date: 03/27/2017
 ms.author: mivorvor
-ms.openlocfilehash: e241f9a87cd58b62eafd754bd3cb4283aa0a1e92
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352345"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901215"
 ---
 # <a name="academic-knowledge-api"></a>API de Conhecimento Académico
 
-Bem-vindo à API de conhecimento académico. Com este serviço, poderá interpretar as consultas do utilizador para fins académicos e obter informações importantes do Microsoft Academic Graph (MAG). A base de dados de conhecimento MAG é um gráfico de entidade heterogéneos web escala composto entidades scholarly atividades do modelo: campo prático, autor, instituição, documento, venue e eventos. 
+Bem-vindo à API de Conhecimento Académico. Com este serviço, poderá interpretar as consultas de utilizador para fins académicos e obter informações detalhadas do Microsoft Academic Graph (MAG). A base de dados de conhecimento MAG é um gráfico de entidade heterogénea de escala da Web composto de entidades que modelam as atividades académicas: campo de estudo, autor, instituição, documento, local e evento. 
 
-Os dados MAG é mined o índice de web Bing, bem como uma base de dados de conhecimento interna do Bing. Como resultado em curso Bing indexação, esta API irá conter informações novas da Web segue a deteção e indexação ao Bing. Com base neste conjunto de dados, as APIs de dados de conhecimento académico permite que a caixa de diálogo condicionada por dados de conhecimento, interativa que combina perfeitamente pesquisa reativa com sugestão proativa experiências, resultados de pesquisa de gráfico de documento de pesquisa avançada e distribuições de histograma do valores de atributo para um conjunto de papers e entidades relacionadas.
+Os dados MAG são extraídos do índice Web do Bing, bem como uma base de dados de conhecimento interna do Bing. Como resultado da indexação em curso do Bing, esta API irá conter informações novas da Web após deteção e indexação pelo Bing. Com base neste conjunto de dados, as API de Conhecimento Académico permitem um diálogo condicionado por conhecimentos e interativo que combina na perfeição a pesquisa reativa com experiências de sugestão proativa, resultados de pesquisa de gráfico de documento de pesquisa detalhada e distribuições de histograma dos valores de atributo para um conjunto de documentos e entidades relacionadas.
 
-Para obter mais informações sobre o Microsoft Graph académico, consulte [ http://aka.ms/academicgraph ](http://aka.ms/academicgraph).
+Para obter mais informações sobre o Microsoft Academic Graph, consulte [ http://aka.ms/academicgraph ](http://aka.ms/academicgraph).
 
-A API de conhecimento académico foi movido de pré-visualização de serviços cognitivos a cognitivos serviços laboratórios. Home page novo para o projeto é: [ https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge ](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). A chave de API existente irá continuar a trabalhar até 24th de Maio de 2018. Após esta data, volte a gerar uma nova chave de API. Tenha em atenção que pré-visualização paga deixará de estar disponível assim que a sua chave existente expira. Entre em contacto com a nossa equipa se o escalão gratuito da API não é suficiente para os fins pretendidos. 
+A API de Conhecimento Académico foi movida da Pré-visualização de Serviços Cognitivos para os Laboratórios dos Serviços Cognitivos. A nova Home Page do projeto é: [ https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge ](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). A sua chave de API existente irá continuar a funcionar até 24 de maio de 2018. Após esta data, gere uma nova chave de API. Tenha em atenção que a pré-visualização paga deixará de estar disponível quando a chave existente expirar. Entre em contato com a nossa equipa, se o escalão gratuito da API não for suficiente para os fins pretendidos. 
 
 ## <a name="features"></a>Funcionalidades
-A API de conhecimento académico consiste em quatro pontos finais de REST relacionados:  
-  1. **interpretar** – interpreta uma cadeia de consulta do utilizador de linguagem natural. Devolve interpretações anotadas para permitir experiências de conclusão automática de caixa de pesquisa que antecipam o que o utilizador está a escrever.  
-  2. **avaliar** – avalia uma expressão de consulta e devolve dados de conhecimento académico entidade resultados.  
-  3. **calchistogram** – calcula um histograma da distribuição de valores de atributo para as entidades académicas devolvidos por uma expressão de consulta, tais como a distribuição citações anualmente para um determinado autor.  
-  4. **pesquisa de gráfico** – procura um gráfico fornecido padrão e devolve os resultados de entidade correspondente.
+A API de Conhecimento Académico consiste em quatro pontos finais de REST relacionados:  
+  1. **interpret** – Interpreta uma cadeia de consulta de utilizador de linguagem natural. Devolve interpretações anotadas para permitir experiências de conclusão automática de caixa de pesquisa detalhada que antecipam o que o utilizador está a escrever.  
+  2. **evaluate** – Avalia uma expressão de consulta e devolve resultados da entidade de Conhecimento Académico.  
+  3. **calchistogram** – Calcula um histograma da distribuição de valores de atributo para entidades académicas devolvidas por uma expressão de consulta, como a distribuição de citações por ano de um determinado autor.  
+  4. **graph search** – Pesquisa um determinado padrão de gráfico e devolve os resultados de entidade correspondentes.
 
-Utilizado em conjunto, estes métodos API permitem criar uma experiência de pesquisa avançada de semântica. Fornecida uma cadeia de consulta do utilizador, o **interpretar** método disponibiliza uma versão de consulta e uma expressão de consulta estruturada, ao concluir a consulta do utilizador com base na semântica da académicas subjacente opcionalmente anotada dados. Por exemplo, se a cadeia de tipos de um utilizador *s latentes*, a **interpretar** método pode fornecer um conjunto de interpretações classificados, sugerindo que o utilizador poderá procurar o campo de prático  *análise de semântica latentes*, o documento *analysis estrutura latentes*, ou outras expressões de entidade a partir *s latentes*. Estas informações podem ser utilizadas para rapidamente Guia do utilizador para os resultados da pesquisa pretendido.
+Utilizados em conjunto, estes métodos de API permitem que crie uma experiência de pesquisa de semântica detalhada. Dada uma cadeia de consulta de utilizador, o método **interpret** (Interpretar) fornece uma versão anotada da consulta e uma expressão de consulta estruturada, ao mesmo tempo que conclui, opcionalmente, a consulta de utilizador com base na semântica dos dados académicos subjacentes. Por exemplo, se um utilizador escrever a cadeia *s latente*, o método **interpret** (Interpretar) pode fornecer um conjunto de interpretações classificadas, sugerindo que o utilizador pode estar a procurar o campo de estudo  *análise semântica latente*, o documento *análise de estrutura latente* ou outras expressões de entidade que contenham *s latente*. Estas informações podem ser utilizadas para orientar rapidamente o utilizador para os resultados de pesquisa pretendidos.
 
-O **avaliar** método pode ser utilizado para obter um conjunto de entidades de documento de base de dados de conhecimento académico e o **calchistogram** método pode ser utilizado para calcular a distribuição de valores de atributo para um conjunto de entidades de documento que pode ser utilizado para continuar a filtrar os resultados da pesquisa.        
+O método **evaluate** (Avaliar) pode ser utilizado para recuperar um conjunto de entidades de documento correspondentes da base de dados de conhecimento académica e o método **calchistogram** pode ser utilizado para calcular a distribuição dos valores de atributo para um conjunto de entidades de documento que pode ser utilizado para filtrar ainda mais os resultados da pesquisa.        
 
-O **pesquisa gráfico** método tem dois modos: *json* e *lambda*. O *json* modo pode efetuar a correspondência de acordo com os padrões de gráfico especificados por um objeto JSON de padrão de gráfico. O *lambda* modo pode efetuar cálculos do lado do servidor durante traversals de gráfico, de acordo com as expressões lambda de utilizador especificado.
+O método **graph search** (Pesquisa de gráfico) tem dois modos: *json* e *lambda*. O modo *json* pode efetuar a correspondência de padrões de gráfico, de acordo com os padrões de gráfico especificados por um objeto JSON. O modo *lambda* pode realizar cálculos do lado do servidor durante percursos em gráfico, de acordo com as expressões lambda especificadas pelo utilizador.
 
 ## <a name="getting-started"></a>Introdução 
-Consulte os subtópicos à esquerda para documentação detalhada.  Tenha em atenção que, para melhorar a legibilidade dos exemplos, as chamadas de REST API contém carateres (tais como espaços) que não foram codificados de URL.  O código irá precisar de aplicar as codificações de URL adequadas.
+Consulte os subtópicos do lado esquerdo para obter documentação detalhada.  Tenha em atenção que, para melhorar a legibilidade dos exemplos, as chamadas de REST API contêm carateres (por exemplo, espaços), que não possuem codificação URL.  O seu código terá de aplicar as codificações URL apropriadas.

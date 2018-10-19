@@ -1,24 +1,25 @@
 ---
-title: Obter resultados de sugestão automática através da API de sugestão automática do Bing (serviços cognitivos do Azure) | Microsoft Docs
-description: Código de origem para o tutorial que mostra como utilizar a API de sugestão automática do Bing numa aplicação Web de página única.
+title: 'Tutorial: Obter Resultados de Sugestão Automática através da API de Sugestão Automática do Bing'
+titlesuffix: Azure Cognitive Services
+description: Código fonte do tutorial que mostra como utilizar a API de Sugestão Automática do Bing numa aplicação Web de página única.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 687183acb209ba6faae37865aa6a05fded5c26dc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6124b831c11f0d72c8072c903d4d05f665448208
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354499"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831420"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação de Web de página única
+# <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
-Este é o código de origem completo abordado o [tutorial da aplicação de página única](autosuggest.md) para a API de sugestão automática do Bing. Para executar a aplicação, copie o código de origem para um editor de texto e guarde o ficheiro como `autosuggest.html`. Em seguida, abra o ficheiro guardado no seu browser.
+Este é o código fonte completo discutido no [tutorial da aplicação de página única](autosuggest.md) da API de Sugestão Automática do Bing. Para executar a aplicação, copie o código fonte para um editor de texto e guarde o ficheiro como `autosuggest.html`. Em seguida, abra o ficheiro guardado no browser.
 
 ```html
 <!DOCTYPE html>

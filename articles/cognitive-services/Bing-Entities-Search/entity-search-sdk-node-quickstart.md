@@ -1,38 +1,38 @@
 ---
-title: Pesquisa de entidade início rápido do nó de SDK | Microsoft Docs
-description: O programa de configuração para a pesquisa de entidade aplicação de consola do SDK.
-titleSuffix: Azure cognitive services
+title: 'Início Rápido: SDK de Pesquisa de Entidades do Bing, Node'
+titleSuffix: Azure Cognitive Services
+description: Configure a aplicação de consola do SDK de Pesquisa de Entidades com Node.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2904ecfed33334458f9b6a9ca2500cd0bfef13bc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355736"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814887"
 ---
-# <a name="entity-search-sdk-node-quickstart"></a>Início rápido do nó do SDK de pesquisa de entidade
+# <a name="quickstart-bing-entity-search-sdk-with-node"></a>Início Rápido: SDK de Pesquisa de Entidades do Bing com Node
 
-O SDK de pesquisa do Bing entidade contém as funcionalidades da API REST para consultas de entidade e os resultados da análise. 
+O SDK de Pesquisa de Entidades do Bing contém a funcionalidade da API REST para consultas de entidades e análise de resultados. 
 
-O [origem código para amostras de c# Bing entidade SDK Search](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) está disponível no Hub de Git.
+O [código fonte dos exemplos de SDK de Pesquisa de Entidades do Bing em C#](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) está disponível no GitHub.
 ## <a name="application-dependencies"></a>Dependências da aplicação
 
-Para configurar uma aplicação de consola utilizando o SDK de pesquisa do Bing entidade, execute `npm install azure-cognitiveservices-entitysearch` no seu ambiente de desenvolvimento.
+Para configurar uma aplicação de consola com o SDK de Pesquisa de Entidades do Bing, execute `npm install azure-cognitiveservices-entitysearch` no seu ambiente de desenvolvimento.
 
-## <a name="entity-search-client"></a>Cliente de pesquisa de entidade
-Obter um [chave de acesso de serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *pesquisa*. Criar uma instância do `CognitiveServicesCredentials`:
+## <a name="entity-search-client"></a>Cliente da Pesquisa de Entidades
+Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisa*. Crie uma instância do `CognitiveServicesCredentials`:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Em seguida, instanciar o cliente e para obter os resultados de pesquisa:
+Em seguida, instancie o cliente e procure resultados:
 ```
 const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
 
@@ -47,14 +47,14 @@ entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
 });
 
 ```
-O código imprime `result.value` itens para a consola sem qualquer texto de análise.  Os resultados, se qualquer por categoria, irão incluir:
-- escreva: 'Coisa'
-- escreva: 'ImageObject'
+O código imprime `result.value` itens na consola sem analisar o texto.  Os resultados, se existirem por categoria, incluirão:
+- _type: 'Thing'
+- _type: 'ImageObject'
 
 <!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
 -->
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Serviços cognitivos amostras de Node.js SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Exemplos de SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

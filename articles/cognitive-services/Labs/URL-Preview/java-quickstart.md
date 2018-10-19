@@ -1,31 +1,33 @@
 ---
-title: Início rápido de Java para o URL do projeto de pré-visualização - serviços cognitivos Microsoft | Microsoft Docs
-description: Script de exemplo para começar a utilizar a pré-visualização do URL de projeto, nos serviços cognitivos Microsoft no Azure.
+title: 'Início Rápido: Pré-visualização do URL do Projeto, Java'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de script para começar a utilizar a Pré-visualização do URL do Projeto com Java.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354031"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867121"
 ---
-# <a name="url-preview-java-quickstart"></a>Guia de introdução do Java de pré-visualização do URL
+# <a name="quickstart-url-preview-with-java"></a>Início Rápido: Pré-visualização do URL com Java
 
-O exemplo de Java seguinte cria uma pré-visualização de Url para o site SwiftKey Web: https://swiftkey.com/en.
+O exemplo de Java seguinte cria uma Pré-visualização do URL do site da SwiftKey: https://swiftkey.com/en.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a versão de avaliação gratuita [laboratórios de serviços cognitivos](https://aka.ms/answersearchsubscription)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
 
 ## <a name="request"></a>Pedir 
 
-O código seguinte cria um `WebRequest`, define o cabeçalho de chave de acesso e adiciona uma cadeia de consulta para "https://swiftkey.com/en".  Em seguida, envia o pedido e atribui a resposta a uma cadeia que contém o texto JSON.
+O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso e adiciona uma cadeia de consulta para “https://swiftkey.com/en”.  Em seguida, envia o pedido e atribui a resposta a uma cadeia para conter o texto JSON.
 
 ````
     // construct URL of search request (endpoint + query string)
@@ -47,13 +49,13 @@ O código seguinte cria um `WebRequest`, define o cabeçalho de chave de acesso 
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
 ````
 
-## <a name="complete-code"></a>Código de conclusão
+## <a name="complete-code"></a>Código completo
 
-A API de pesquisa do Bing resposta devolve resultados do motor de pesquisa do Bing.
-1. Transferir e instalar a biblioteca de gson.
+A API de Pesquisa de Respostas do Bing devolve resultados do motor de busca do Bing.
+1. Transfira ou instale a biblioteca gson.
 2. Crie um novo projeto de Java no seu IDE ou editor favorito.
-3. Adicione o código fornecido abaixo.
-4. Substitua o valor de subscriptionKey com uma chave de acesso válida para a sua subscrição.
+3. Adicione o código indicado abaixo.
+4. Substitua o valor subscriptionKey por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
 
 ````
@@ -165,8 +167,8 @@ class SearchResults{
 
 ````
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido c#](csharp.md)
-- [Início rápido de JavaScript](javascript.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do PYthon](python-quickstart.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início Rápido do C#](csharp.md)
+- [Início Rápido do JavaScript](javascript.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

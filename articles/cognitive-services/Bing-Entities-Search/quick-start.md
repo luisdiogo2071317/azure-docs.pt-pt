@@ -1,33 +1,32 @@
 ---
-title: Início rápido da API de pesquisa de entidades | Microsoft Docs
-description: Mostra como começar a utilizar a API de pesquisa de entidades do Bing.
+title: 'Início Rápido: explorar a API de Pesquisa de Entidades do Bing'
+description: Mostra como começar a utilizar a API de Pesquisa de Entidades do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351524"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813962"
 ---
-# <a name="making-your-first-entities-request"></a>Efetuar as primeira entidades do pedido
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Início Rápido: fazer o seu primeiro pedido de Pesquisa de Entidades do Bing
 
-A API de pesquisa de entidade envia uma consulta de pesquisa para o Bing e obtém os resultados que incluem entidades e locais. Resultados de local incluem restaurants, átrios ou outras empresas locais. Para locais, a consulta pode especificar o nome do negócio local ou pode pedir uma lista (por exemplo, restaurants quase-me). Incluem resultados de entidade pessoas, locais ou coisas. Local neste contexto é tourist attractions, Estados, países, etc. 
+A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotéis ou outras empresas locais. Nos locais, a consulta pode especificar o nome da empresa local ou pedir uma lista (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. Os locais neste contexto são atrações turísticas, estados, países, etc. 
 
-## <a name="first-steps"></a>Passos primeiro
+## <a name="first-steps"></a>Primeiros passos
 
-Antes de poder tornar a sua primeira chamada, terá de obter uma chave de subscrição de serviços cognitivos. Para obter uma chave, consulte [tente serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Se a API de pesquisa de entidades não estiver visível na parte superior, clique em de **pesquisa** separador e desloque para baixo até o vir.)
+Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Se a API de Pesquisa de Entidades não estiver visível na parte superior, clique no separador **Pesquisa** e desloque-se para baixo até vê-la.)
 
 ## <a name="the-endpoint"></a>O ponto final
 
-Para obter a entidade e colocar os resultados da pesquisa, envie um pedido GET para o seguinte ponto final:  
+Para obter os resultados da pesquisa de entidades e locais, envie um pedido GET ao seguinte ponto final:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
@@ -35,26 +34,26 @@ https://api.cognitive.microsoft.com/bing/v7.0/entities
 
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos provenientes de um servidor. Distribuir a chave como parte de uma aplicação de cliente fornece mais oportunidade para terceiros maliciosa para aceder ao mesmo. Além disso, efetuar chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.
 
-## <a name="specifying-query-parameters-and-headers"></a>Especificar os parâmetros de consulta e nos cabeçalhos
+## <a name="specifying-query-parameters-and-headers"></a>Especificar parâmetros e cabeçalhos de consulta
 
-O pedido tem de especificar o [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) parâmetro de consulta, que contém o termo de pesquisa do utilizador. O pedido tem de especificar também o [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) parâmetro de consulta, que identifica o mercado onde pretende que os resultados de. Para obter uma lista dos parâmetros de consulta opcionais, consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). URL codificar todos os parâmetros de consulta.  
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query), que contém o termo de pesquisa do utilizador. O pedido também tem especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). Codifique com URL todos os termos de consulta.  
   
-O pedido tem de especificar o [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) cabeçalho. Embora seja opcional, são encorajados a também especificar os cabeçalhos seguintes:  
+O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:  
   
--   [Agente de utilizador](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
 -   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
--   [Localização de pesquisa X](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
 
-Os cabeçalhos IP e a localização do cliente são importantes para devolver o conteúdo com suporte para localização.  
+Os cabeçalhos de IP e localização do cliente são importantes para devolver o conteúdo com reconhecimento de local.  
 
-Para obter uma lista de todos os cabeçalhos de pedido e resposta, consulte [cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
+Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
 
 ## <a name="the-request"></a>O pedido
 
-O seguinte mostra um pedido de entidades que inclui todos os parâmetros de consulta sugerida e nos cabeçalhos. 
+A seguir, é-lhe mostrado um pedido de entidades que inclui todos os parâmetros e cabeçalhos de consulta sugeridos. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/entities?q=mount+rainier&mkt=en-us HTTP/1.1  
@@ -66,11 +65,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Se for a primeira vez ao chamar qualquer uma das APIs do Bing, não incluem o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se anteriormente tiver chamar uma API do Bing e Bing devolveu um ID de cliente para o utilizador e a combinação de dispositivo.
+Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para o utilizador e a combinação de dispositivo.
 
 ## <a name="the-response"></a>A resposta
 
-O seguinte mostra a resposta ao pedido de anterior. O exemplo mostra também os cabeçalhos de resposta do Bing específicos. Para obter informações sobre o objeto de resposta, consulte [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
+O código a seguir mostra a resposta ao pedido anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing. Para obter informações sobre o objeto de resposta, veja [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -135,10 +134,10 @@ BingAPIs-Market: en-US
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Experimente a API. Aceda a [entidades de pesquisa API testar consola](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
+Experimente a API. Aceda a [Consola de Testes da API da Pesquisa de Entidades](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
 
-Para obter detalhes sobre a consumir os objetos de resposta, consulte [pesquisa na Web entidades e locais](./search-the-web.md).
+Para obter detalhes sobre os objetos de resposta, veja [Pesquisar entidades e locais na Web](./search-the-web.md).
 
-Não se esqueça de ler [utilizar do Bing e requisitos de apresentação](./use-display-requirements.md) , de modo não quebrar qualquer uma das regras sobre como utilizar os resultados da pesquisa.
+Não se esqueça de ler o artigo [Requisitos de Utilização e Apresentação do Bing](./use-display-requirements.md) para que não infrinja nenhuma das regras relativas à utilização dos resultados da pesquisa.

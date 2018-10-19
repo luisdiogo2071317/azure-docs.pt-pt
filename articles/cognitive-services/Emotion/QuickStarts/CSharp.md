@@ -1,41 +1,43 @@
 ---
-title: Emoções API c# introdução | Microsoft Docs
-description: Obter informações e um exemplo de código para o ajudar a começar rapidamente, utilizando a API de emoções com c# nos serviços cognitivos.
+title: 'Início Rápido: reconhecer emoções nos rostos numa imagem - API de Emoções, C#'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e um exemplo de código para o ajudar a começar a utilizar rapidamente a API de Emoções com C#.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016570"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239375"
 ---
-# <a name="emotion-api-c-quick-start"></a>Emoções API c# início rápido
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: compilar uma aplicação para reconhecer emoções nos rostos duma imagem.
 
 > [!IMPORTANT]
-> A Pré-visualização da API de Vídeo terminou a 30 de outubro de 2017. Para extrair facilmente insights vídeos, experimente a nova [pré-visualização do vídeo indexador API](https://azure.microsoft.com/services/cognitive-services/video-indexer/). Também pode utilizá-lo a melhorar as experiências de deteção de conteúdos, tais como resultados de pesquisa, através da deteção palavras ditas, faces, carateres e emotions. Para obter mais informações, consulte o [pré-visualização do vídeo indexador](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) descrição geral.
+> A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Este artigo fornece informações e um exemplo de código para o ajudar a rapidamente começar, utilizando o [emoções API reconhece o método](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com c#. Pode utilizá-lo para reconhecer os emotions expressados por um ou mais pessoas numa imagem. 
+Este artigo disponibiliza informações e um exemplo de código para o ajudar a começar a utilizar rapidamente o [método de Reconhecimento da API de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) com C#. Pode utilizá-lo para reconhecer as emoções expressas por uma ou mais pessoas numa imagem.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Obter os serviços cognitivos [emoções API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).
-* Obter o livre [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
+* Obtenha o [Windows SDK da API de Emoções](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/) dos Serviços Cognitivos.
+* Obtenha a sua [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/) gratuita.
 
-## <a name="emotion-recognition-c-example-request"></a>Exemplo de pedido de emoções reconhecimento c#
+## <a name="emotion-recognition-c-example-request"></a>Exemplo de pedido em C# de reconhecimento de emoções
 
-Criar uma nova solução de consola no Visual Studio e, em seguida, substitua Program.cs com o seguinte código. Alterar o `string uri` para utilizar a região onde obteve as chaves de subscrição. Substitua o **Ocp-Apim-Subscription-Key** valor com a sua chave de subscrição válido. Para localizar a chave de subscrição, aceda ao portal do Azure. No painel de navegação à esquerda, sob o **chaves** secção, navegue para o recurso de emoções API. Da mesma forma, pode obter o adequado ligar URI no **descrição geral** painel para o seu recurso listado na **Endpoint**.
+Crie uma nova solução de Consola no Visual Studio e, em seguida, substitua Program.cs pelo código seguinte. Altere o `string uri` para utilizar a região na qual obteve as suas chaves de subscrição. Substitua o valor de **Ocp-Apim-Subscription-Key** pela sua chave de subscrição válida. Para localizar a chave de subscrição, aceda ao portal do Azure. No painel de navegação à esquerda, na secção **Chaves**, navegue para o recurso da API de Emoções. Da mesma forma, pode obter o URI de ligação adequado no painel **Descrição Geral** para o seu recurso, listado em **Ponto Final**.
 
-![As chaves de recursos de API](../../media/emotion-api/keys.png)
+![As chaves de recurso da API](../../media/emotion-api/keys.png)
 
-Para processar a resposta do pedido, utilize uma biblioteca como `Newtonsoft.Json`. Desta forma pode processar uma cadeia JSON como uma série de objetos geríveis chamado Tokens. Para adicionar esta biblioteca ao seu pacote, clique no projeto no Explorador de soluções e selecione **gerir pacotes Nuget**. Em seguida, procure **Newtonsoft**. O resultado primeiro deve ser **newtonsoft**. Selecione **Instalar**. Agora, pode referenciar esta biblioteca na sua aplicação.
+Para processar a resposta do seu pedido, utilize uma biblioteca como `Newtonsoft.Json`. Desta forma, pode processar uma cadeia de caracteres JSON como uma série de objetos geríveis, chamados Tokens. Para adicionar esta biblioteca ao seu pacote, clique com o botão direito do rato no Explorador de Soluções e selecione **Gerir Pacotes Nuget**. Em seguida, procure **Newtonsoft**. O primeiro resultado deve ser **Newtonsoft.Json**. Selecione **Instalar**. Agora, pode referenciar esta biblioteca na sua aplicação.
 
-![Instalar newtonsoft](../../media/emotion-api/newtonsoft-nuget.png)
+![Instalar o Newtonsoft.Json](../../media/emotion-api/newtonsoft-nuget.png)
 
 ```csharp
 using System;
@@ -71,10 +73,10 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -120,14 +122,14 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Reconhecer a resposta de exemplo emotions
-Uma chamada com êxito devolve uma matriz de entradas de letra e os respetivos pontuações de emoções associado. Estes estão ordenadas pelo tamanho do retângulo de rostos em ordem descendente. Uma resposta vazia indica que não existem faces foram detetados. Uma entrada de emoções contém os seguintes campos:
+## <a name="recognize-emotions-sample-response"></a>Resposta de exemplo para reconhecer emoções
+Uma chamada bem-sucedida devolve uma matriz de entradas de rostos e as pontuações das respetivas emoções associadas. São ordenadas pelo tamanho dos retângulos de rostos em ordem descendente. Uma resposta vazia indica que não foram detetados rostos. Uma entrada de emoção contém os seguintes campos:
 
 * faceRectangle: localização do retângulo de rosto na imagem
-* pontuações: emoções pontuações para cada enfrentam reside na imagem 
+* pontuações: pontuações das emoções de cada rosto na imagem
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

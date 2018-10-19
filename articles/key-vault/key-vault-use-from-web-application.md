@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171328"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079468"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Tutorial: Utilizar o Azure Key Vault a partir de uma aplicação Web
 
@@ -40,10 +40,9 @@ Para concluir este tutorial, tem de ter os seguintes itens:
 * Um ID de Cliente e um Segredo do Cliente para uma aplicação Web registada no Azure Active Directory que tem acesso ao seu Key Vault
 * Uma aplicação Web. Este tutorial mostra os passos para uma aplicação MVC ASP.NET implementada no Azure como uma Aplicação Web.
 
-Execute os passos do artigo [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de Cliente, Segredo do Cliente, e registar a aplicação. A aplicação Web irá aceder ao cofre e tem de ser registada no Azure Active Directory. Também precisa de ter direitos de acesso ao Key Vault. Se não tiver, volte à secção Registar uma Aplicação no tutorial de Introdução e repita os passos apresentados. Para obter mais informações sobre a criação de Aplicações Web do Azure, veja [Descrição geral das Aplicações Web](../app-service/app-service-web-overview.md).
+Execute os passos do artigo [Introdução ao Azure Key Vault](key-vault-get-started.md) para obter o URI para um segredo, ID de Cliente, Segredo do Cliente, e registar a aplicação. A aplicação Web vai aceder ao cofre e tem de ser registada no Azure Active Directory. Também precisa de ter direitos de acesso ao Key Vault. Se não tiver, volte à secção Registar uma Aplicação no tutorial de Introdução e repita os passos apresentados. Para obter mais informações sobre a criação de Aplicações Web do Azure, veja [Descrição geral das Aplicações Web](../app-service/app-service-web-overview.md).
 
-Este exemplo depende do aprovisionamento manual de Identidades do Azure Active Directory. Como alternativa, deve utilizar a [Identidade de Serviço Gerida (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview). As MSIs podem aprovisionar automaticamente as Identidades do Azure AD. Para obter mais informações, veja o exemplo no [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o [tutorial MSI com o Serviço de Aplicações e Funções](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Também pode ver o [tutorial de MSI](tutorial-web-application-keyvault.md) específico do Key Vault
-
+Este exemplo depende do aprovisionamento manual de identidades do Azure Active Directory. No entanto, deve utilizar [Identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) em alternativa, que aprovisiona automaticamente identidades do Microsoft Azure AD. Para obter mais informações, veja o [exemplo no GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e o [Tutorial do Serviço de Aplicações e Funções](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). Também pode ver o [Tutorial para configurar uma aplicação Web do Azure para ler segredos do Key Vault](tutorial-web-application-keyvault.md).
 
 ## <a id="packages"></a>Adicionar pacotes NuGet
 
@@ -124,7 +123,7 @@ var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>Adicionar definições da aplicação no Portal do Azure
+## <a id="portalsettings"></a>Adicionar definições da aplicação no portal do Azure
 
 Na Aplicação Web do Azure, agora pode adicionar os valores reais para AppSettings no portal do Azure. Ao executar este passo, os valores reais não estarão no ficheiro web.config, mas estarão protegidos através do Portal onde tem capacidades de controlo de acesso separadas. Estes valores serão substituídos pelos valores que introduziu no ficheiro web.config. Certifique-se de que os nomes são os mesmos.
 
@@ -145,14 +144,19 @@ Agora que compreende a autenticação de uma aplicação do Azure AD com o ID de
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 Tome nota da data de fim e da palavra-passe para o .pfx (neste exemplo: 15 de maio de 2019 e MyPassword). Precisará destes dados para o script abaixo. 
@@ -172,7 +176,7 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint
@@ -246,7 +250,7 @@ Utils.GetCert();
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
-### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Adicionar um certificado à sua aplicação Web através do Portal do Azure
+### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Adicionar um certificado à aplicação Web através do portal do Azure
 
 A adição de um certificado à sua Aplicação Web é um processo de dois passos simples. Em primeiro lugar, aceda ao portal do Azure e navegue até à sua Aplicação Web. Nas Definições da sua Aplicação Web, clique na entrada relativa a **definições de SSL**. Quando abrir, carregue o Certificado que criou no exemplo anterior, KVWebApp.pfx. Certifique-se de que se lembra da palavra-passe para o pfx.
 

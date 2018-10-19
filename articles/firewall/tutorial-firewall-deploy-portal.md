@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221661"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801884"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -186,6 +186,10 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída padrão para passar
 10. Clique em **Sub-redes** e, em seguida, clique em **Associar**.
 11. Clique em **Rede virtual** e, em seguida, selecione **Test-FW-VN**.
 12. Em **Sub-rede**, clique em **Workload-SN**.
+
+    > [!IMPORTANT]
+    > Confirme que seleciona apenas a sub-rede **Workload-SN** para esta rota. Caso contrário, a firewall não funcionará corretamente.
+
 13. Clique em **OK**.
 14. Clique em **Rotas** e, em seguida, clique em **Adicionar**.
 15. Em **Nome da rota**, escreva **FW-DG**.
@@ -193,8 +197,8 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída padrão para passar
 17. Em **Tipo de salto seguinte**, selecione **Aplicação virtual**.
 
     O Azure Firewall é, de facto, um serviço gerido, mas a aplicação virtual funciona nesta situação.
-1. Em **Endereço do próximo salto**, escreva o endereço IP privado para a firewall, que anotou anteriormente.
-2. Clique em **OK**.
+18. Em **Endereço do próximo salto**, escreva o endereço IP privado para a firewall, que anotou anteriormente.
+19. Clique em **OK**.
 
 
 ## <a name="configure-application-rules"></a>Configurar regras de aplicação

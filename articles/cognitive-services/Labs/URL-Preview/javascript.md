@@ -1,34 +1,36 @@
 ---
-title: Início rápido de JavaScript para o URL do projeto de pré-visualização - serviços cognitivos da Microsoft | Documentos da Microsoft
-description: Exemplo de script para começar rapidamente com a API de pré-visualização do URL do Bing nos serviços cognitivos da Microsoft no Azure.
+title: 'Início Rápido: Pré-visualização de URL de Projeto, JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Exemplo de script para começar a utilizar rapidamente a API de Pré-visualização de URL com o JavaScript.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301357"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869470"
 ---
-# <a name="url-preview-in-javascript"></a>Pré-visualização de URL em JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Início Rápido: Pré-visualização de URL em JavaScript 
 
-A seguinte aplicação de página única utiliza JavaScript para criar uma visualização de URL para o site de SwiftKey: https://swiftkey.com/en. 
+A seguinte aplicação de página única utiliza JavaScript para criar uma Pré-visualização de URL para o site da SwiftKey: https://swiftkey.com/en. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a avaliação gratuita [laboratórios dos serviços cognitivos](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
+Obter uma chave de acesso para a avaliação gratuita [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Cenário de código
-O exemplo javascript a seguir inclui um objeto de entrada de caixa de texto em que o utilizador introduz o URL para a pré-visualização.  Quando o usuário clica o **pré-visualização** botão, as rotas de método onclick ao `getPreview` em que o código gera uma solicitação da Web para o **UrlPreview** ponto final.
+O exemplo seguinte em JavaScript inclui um objeto de entrada de caixa de texto, na qual o utilizador introduz o URL para pré-visualização.  Quando o utilizador clica no botão **Pré-visualização**, o método OnClick encaminha para `getPreview`, em que o código gera um pedido Web para o ponto final **UrlPreview**.
 
-O código cria um *XMLHttpRequest*, adiciona o *Ocp-Apim-Subscription-Key* cabeçalho e a chave e envia o pedido.  Ele adiciona um manipulador de eventos assíncronos para processar a resposta.
+O código cria um *XMLHttpRequest*, adiciona o cabeçalho e a chave *Ocp-Apim-Subscription-Key*, e envia o pedido.  Adiciona um processador de eventos assíncronos para processar a resposta.
 
-Se a resposta retorna com êxito, o manipulador atribui o texto JSON da resposta para o `demo` parágrafo na página. Outros elementos de resposta são definidos para os parágrafos seguintes para exibição.
+Se a resposta for devolvida com êxito, o processador atribui o texto JSON da resposta ao parágrafo `demo` na página. Outros elementos de resposta estão definidos para apresentação pelos parágrafos seguintes.
 
 **Resposta JSON não processada**
 
@@ -48,19 +50,19 @@ Se a resposta retorna com êxito, o manipulador atribui o texto JSON da resposta
 
 **A demonstração em execução**
 
-![Exemplo de pré-visualização de Url de JavaScript](./media/java-script-demo.png)
+![Exemplo de Pré-visualização de Url em JavaScript](./media/java-script-demo.png)
 
 ## <a name="running-the-application"></a>Executar a aplicação
 
 Para executar a aplicação:
 
-1. Substitua o `YOUR-SUBSCRIPTION-KEY` valor com uma chave de acesso válido para a sua subscrição.
-2. Guarde o HTML e script num ficheiro com extensão. HTML.
-3. Execute a página da Web num browser.
+1. Substitua o valor `YOUR-SUBSCRIPTION-KEY` por uma chave de acesso válida para a sua subscrição.
+2. Guarde o HTML e o script num ficheiro com a extensão .HTML.
+3. Execute a página Web num browser.
 4. Utilize o URL existente ou introduza outro na caixa de texto.
-5. Clique nas **pré-visualização** botão.
+5. Clique no botão **Pré-visualização**.
 
-**Código-fonte:**
+**Código fonte:**
 
 ```
 <!DOCTYPE html>
@@ -126,8 +128,8 @@ Para executar a aplicação:
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido em C#](csharp.md)
+## <a name="next-steps"></a>Passos seguintes
+- [Início rápido de C#](csharp.md)
 - [Início rápido de Java](java-quickstart.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+- [Início rápido de Node](node-quickstart.md)
+- [Início rápido de Python](python-quickstart.md)

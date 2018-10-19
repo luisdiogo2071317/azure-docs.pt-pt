@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154786"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069102"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -169,6 +169,19 @@ Para substituir as predefinições da política de replicação, clique em **Per
 
 > [!IMPORTANT]
   Se ativar a consistência multi-VM, as máquinas no grupo de replicação comunicam entre si pela porta 20004. Certifique-se de que não há nenhum dispositivo de firewall a bloquear a comunicação interna entre as VMs através da porta 20004. Se pretender que as VMs do Linux pertençam a um grupo de replicação, certifique-se de que o tráfego de saída na porta 20004 é aberto manualmente de acordo com as orientações da versão específica do Linux.
+
+### <a name="configure-encryption-settings"></a>Configurar as definições de encriptação
+
+Se a máquina virtual de origem tiver o Azure Disk Encryption (ADE) ativado, será apresentada a secção de definições de encriptação abaixo.
+
+- **Cofres de chaves da encriptação do disco**: por predefinição, o Azure Site Recovery cria um novo cofre de chaves na região de destino com o sufixo “asr” no nome, com base nas chaves de encriptação do disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, será reutilizado.
+- **Cofres de chaves da encriptação de chaves**: por predefinição, o Azure Site Recovery cria um novo cofre de chaves na região de destino com o sufixo “asr” no nome, com base nas chaves de encriptação da chave da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, será reutilizado.
+
+Clique em “Personalizar”, junto às definições de encriptação, para substituir as predefinições e selecionar os cofres de chaves personalizados.
+
+>[!NOTE]
+>Apenas as VMs do Azure com o SO Windows e [ativadas para a encriptação com a aplicação do Azure AD](https://aka.ms/ade-aad-app) são atualmente suportadas pelo Azure Site Recovery.
+>
 
 ### <a name="track-replication-status"></a>Controlar o estado de replicação
 
