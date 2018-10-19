@@ -1,27 +1,27 @@
 ---
-title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com .NET | Microsoft Docs
-description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, utilize a biblioteca de clientes de armazenamento para .NET, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
+title: 'Início Rápido: Utilizar o .NET para criar um blob no armazenamento de objetos – Armazenamento do Microsoft Azure'
+description: Neste início rápido, vai aprender a utilizar a biblioteca de cliente do Armazenamento do Microsoft Azure para .NET para criar um contentor e um blob no armazenamento de Blobs (objetos). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: d5a9c87246a175cc7455113c36caa59d59a79226
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399690"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734138"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Início Rápido: carregar, transferir e listar blobs através do .NET
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Início Rápido: Utilizar o .NET para criar um blob no armazenamento de objetos
 
-Neste início rápido, vai aprender a utilizar a biblioteca de cliente de .NET para o Armazenamento do Azure, para carregar, transferir e listar blobs de blocos num contentor.
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Neste início rápido, vai aprender a utilizar a biblioteca de cliente do Armazenamento do Microsoft Azure para .NET para criar um contentor e um blob no armazenamento de Blobs (objetos). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 Para concluir este início rápido, primeiro crie uma conta de armazenamento do Azure no [Portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 

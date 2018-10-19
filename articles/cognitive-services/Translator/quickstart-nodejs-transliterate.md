@@ -1,35 +1,35 @@
 ---
-title: Tradução de Texto converter o script de texto com Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode converter texto num idioma de um script para outro através da API de Texto do Microsoft Translator com Node.js nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, Node.js'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá converter texto de um idioma de um script noutro através da API de Texto do Microsoft Translator com Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: b16af911e5822deaa7cc7bcfe792245ae154eb26
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 53ebcd6c37141a783303dd71666d5c8d4805ca49
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770828"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127701"
 ---
-# <a name="quickstart-transliterate-text-with-nodejs"></a>Início Rápido: Transliterar texto com Node.js
+# <a name="quickstart-transliterate-text-with-nodejs"></a>Guia de Início Rápido: Transliterar texto com Node.js
 
-Neste início rápido, pode converter texto num idioma de um script para outro através da API de Texto do Microsoft Translator.
+Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai necessitar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
+Irá precisar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 
-Os passos seguintes convertem texto num idioma de um script para outro com o método de [Transliteração](./reference/v3-0-transliterate.md).
+Os passos seguintes convertem texto num idioma de um script para outro script com o método [Transliteração](./reference/v3-0-transliterate.md).
 
 1. Crie um novo projeto Node.js no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -103,7 +103,7 @@ Transliterate (content);
 
 ## <a name="transliterate-response"></a>Resposta de transliteração
 
-O JSON devolve uma resposta com êxito, tal como é apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
 ```json
 [
@@ -116,7 +116,7 @@ O JSON devolve uma resposta com êxito, tal como é apresentado no exemplo segui
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo para este início rápido e outros, incluindo a tradução e a identificação do idioma, assim como outros projetos de exemplo de Tradução de Texto no GitHub.
+Explore o código de exemplo para este guia de início rápido e outros, incluindo a tradução e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Explorar exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)

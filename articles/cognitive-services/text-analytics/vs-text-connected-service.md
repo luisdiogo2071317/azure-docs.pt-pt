@@ -1,60 +1,60 @@
 ---
-title: Tutorial de texto Analytics c# | Documentos da Microsoft
-titleSuffix: Microsoft Cognitive Services
-description: Ligar à análise de texto a partir de uma aplicação web ASP.NET Core.
+title: 'Tutorial: Análise de Texto com o C#'
+titleSuffix: Azure Cognitive Services
+description: Ligue à Análise de Texto a partir de uma aplicação Web ASP.NET Core.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: conceptual
-ms.date: 06/01/2018
+ms.topic: tutorial
+ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068493"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605237"
 ---
-# <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>Ligar para o serviço de análise de texto com os serviços ligados no Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Tutorial: ligar ao Serviço Cognitivo de Análise de Texto através dos Serviços Ligados no Visual Studio
 
-Ao utilizar o serviço de análise de texto, pode extrair informações importantes para categorizar e processar dados visuais e realizar moderação assistida por computador de imagens para ajudar a melhorar os seus serviços.
+Ao utilizar o Serviço de Análise de Texto, pode extrair informações detalhadas para categorizar e processar dados do elemento visual e para realizar moderação assistida por computador de imagens para ajudar a organizar os seus serviços.
 
-Este artigo e os respetivos artigos complementar fornecem detalhes para utilizar a funcionalidade de serviço ligado do Visual Studio para o serviço de análise de texto. A capacidade está disponível em ambos os 15.7 de 2017 Visual Studio ou posterior, com a extensão de serviços cognitivos instalada.
+Este artigo e os respetivos artigos complementares fornecem detalhes para utilizar a funcionalidade de Serviço Ligado do Visual Studio para o Serviço de Análise de Texto. A funcionalidade está disponível no Visual Studio 2017 15.7 e posterior, com a extensão de Serviços Cognitivos instalada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versão 15.7, com a carga de trabalho de desenvolvimento para a Web instalada. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2017 versão 15.7, com a carga de trabalho de Desenvolvimento Web instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Adicionar suporte ao seu projeto para o serviço de análise de texto
+## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Adicionar suporte ao seu projeto para o Serviço de Análise de Texto
 
-1. Crie um novo projeto de web do ASP.NET Core chamado TextAnalyticsDemo. Utilize o modelo de projeto de aplicativo Web (Model-View-Controller) com todas as predefinições. É importante nomear o projeto MyWebApplication, para que o espaço de nomes corresponde ao copiar o código no projeto.  O exemplo este artigo utiliza o MVC, mas pode utilizar o serviço de ligado de análise de texto com qualquer tipo de projeto do ASP.NET.
+1. Crie um novo projeto Web do ASP.NET Core chamado TextAnalyticsDemo. Utilize o modelo de projeto Aplicação Web (Model-View-Controller), com todas as predefinições. É importante atribuir o nome MyWebApplication ao projeto, para que o espaço de nomes corresponda ao copiar código para o projeto.  O exemplo nestes artigos utiliza o MVC, mas pode utilizar o Serviço Ligado de Análise de Texto com qualquer tipo de projeto do ASP.NET.
 
-1. Na **Explorador de soluções**, faça duplo clique no **serviço ligado** item.
-   É apresentada a página de serviço ligado, com os serviços que pode adicionar ao seu projeto.
+1. No **Explorador de Soluções**, faça duplo clique no item **Connected Service** (Serviço Ligado).
+   É apresentada a página Connected Service (Serviço Ligado), com os serviços que pode adicionar ao seu projeto.
 
-   ![Captura de ecrã do serviço ligado no Explorador de soluções](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
+   ![Captura de ecrã a mostrar o Connected Service (Serviço Ligado) no Explorador de Soluções](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
 
-1. No menu de serviços disponíveis, escolha **avaliar sentimentos com análise de texto**.
+1. No menu de serviços disponíveis, selecione **Avaliar Sentimentos com a Análise de Texto**.
 
-   ![Ecrã de captura de ecrã de serviços ligados](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
+   ![Captura do ecrã Connected Services (Serviços Ligados)](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
 
-   Se já tem sessão iniciada no Visual Studio e uma subscrição do Azure associado à sua conta, é apresentada uma página com uma lista suspensa com as suas subscrições.
+   Se já tiver sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, será apresentada uma página com uma lista pendente com as suas subscrições.
 
-   ![Ecrã de captura de ecrã de texto ligados serviço de análise](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
+   ![Captura do ecrã Connected Service (Serviço Ligado) da Análise de Texto](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
 
-1. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para o serviço de análise de texto ou escolha o **editar** ligação para modificar o nome gerado automaticamente, selecione o grupo de recursos e o escalão de preço.
+1. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para o Serviço de Análise de Texto ou escolha a ligação **Edit** (Edição) para modificar o nome gerado automaticamente, selecione o grupo de recursos e o Escalão de Preço.
 
-   ![Captura de ecrã do grupo de recursos e os campos de escalão de preço](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
+   ![Captura de ecrã a mostrar os campos de grupo de recursos e escalão de preço](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
 
    Siga a ligação para obter detalhes sobre os escalões de preço.
 
-1. Escolher **adicionar** para adicionar suporte para o serviço ligado.
-   Visual Studio modifica seu projeto para adicionar os pacotes NuGet, entradas de ficheiro de configuração e outras alterações para dar suporte a uma ligação para o serviço de análise de texto. O **janela de saída** mostra o registo das que está a acontecer ao seu projeto. Deverá ver algo semelhante ao seguinte:
+1. Selecione **Add** (Adicionar) para adicionar suporte para o Serviço Ligado.
+   O Visual Studio modifica o seu projeto para adicionar os pacotes NuGet, entradas de ficheiro de configuração e outras alterações para suportar uma ligação ao Serviço de Análise de Texto. A **Janela de Saída** mostra o registo do que está a acontecer ao seu projeto. Deverá ver algo semelhante ao seguinte:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -67,9 +67,9 @@ Este artigo e os respetivos artigos complementar fornecem detalhes para utilizar
     [6/1/2018 3:05:01.840 PM] Successfully added Text Analytics to the project.
     ```
  
-## <a name="use-the-text-analytics-service-to-detect-the-language-for-a-text-sample"></a>Utilize o serviço de análise de texto para detetar o idioma para obter um exemplo de texto.
+## <a name="use-the-text-analytics-service-to-detect-the-language-for-a-text-sample"></a>Utilize o Serviço de Análise de Texto para detetar o idioma para um exemplo de texto.
 
-1. Adicione as seguintes instruções "using" no Startup.cs.
+1. Adicione as seguintes instruções using a Startup.cs.
  
    ```csharp
    using System.IO;
@@ -79,7 +79,7 @@ Este artigo e os respetivos artigos complementar fornecem detalhes para utilizar
    using Microsoft.Extensions.Configuration;
    ```
  
-1. Adicione um campo de configuração e adicione um construtor que inicializa o campo de configuração na classe de inicialização para ativar a configuração em seu programa.
+1. Adicione um campo de configuração e um construtor que inicialize o campo de configuração na classe Startup para ativar a Configuração no seu programa.
 
    ```csharp
       private IConfiguration configuration;
@@ -90,7 +90,7 @@ Este artigo e os respetivos artigos complementar fornecem detalhes para utilizar
       }
    ```
 
-1. Adicione um arquivo de classe na pasta controladores chamada DemoTextAnalyzeController e substitua o respetivo conteúdo pelo seguinte código:
+1. Adicione um ficheiro de classe na pasta Controllers denominada DemoTextAnalyzeController e substitua os respetivos conteúdos pelo seguinte código:
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ Este artigo e os respetivos artigos complementar fornecem detalhes para utilizar
     }
     ```
     
-    O código inclui GetTextAnalyzeClient para instalar o cliente objeto que pode ser usado para chamar a API de análise de texto e um manipulador de solicitação que chama DetectLanguage num determinado texto.
+    O código inclui GetTextAnalyzeClient para obter o objeto de cliente que pode utilizar para chamar a API de Análise de Texto e um processador de pedidos que chama DetectLanguage num determinado texto.
 
 1. Adicione a classe de programa auxiliar de MyHandler que é utilizada pelo código anterior.
 
@@ -193,7 +193,7 @@ Este artigo e os respetivos artigos complementar fornecem detalhes para utilizar
     }
     ```
 
-1. Adicione uma vista para mostrar o texto analisado, o idioma de determinado e a pontuação que representa o nível de confiança na análise. Para fazer isso, faça duplo clique no **vistas** pasta, escolha **adicionar**, em seguida, **vista**. Na caixa de diálogo apresentada, forneça um nome _TextAnalyzeResult_, aceite as predefinições para adicionar um novo arquivo chamado _TextAnalyzeResult.cshtml_ no **vistas** pasta e Copie o seguinte conteúdo para o mesmo:
+1. Adicione uma Vista para mostrar o texto analisado, o idioma determinado e a pontuação que representa o nível de confiança na análise. Para tal, clique com o botão direito do rato na pasta **Views**, selecione **Add** (Adicionar) e, em seguida, **View** (Vista). Na caixa de diálogo apresentada, forneça um nome _TextAnalyzeResult_, aceite as predefinições para adicionar um novo ficheiro chamado _TextAnalyzeResult.cshtml_ na pasta **Views** e copie os seguintes conteúdos para a mesma:
     
     ```cshtml
     @using System
@@ -255,16 +255,16 @@ Este artigo e os respetivos artigos complementar fornecem detalhes para utilizar
     
     ```
  
-1. Crie e execute o exemplo localmente. Introduza algum texto e ver que idioma Deteta de análise de texto.
+1. Compile e execute o exemplo localmente. Introduza algum texto e veja que idioma é detetado pela análise de texto.
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e recursos relacionados. Para eliminar o grupo de recursos através do portal:
+Quando já não for necessário, elimine o grupo de recursos. Esta ação elimina o serviço cognitivo e os recursos relacionados. Para eliminar o grupo de recursos através do portal:
 
 1. O nome do grupo de recursos na caixa Pesquisar, na parte superior do portal. Quando vir o grupo de recursos utilizado neste tutorial nos resultados da pesquisa, selecione-o.
 2. Selecione **Eliminar grupo de recursos**.
 3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:**, escreva o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre o serviço de análise de texto com a leitura a [documentação do serviço de análise de texto](index.yml).
+Saiba mais sobre o Serviço de Análise de Texto com a leitura da [Documentação do Serviço de Análise de Texto](index.yml).

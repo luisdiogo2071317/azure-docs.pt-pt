@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339391"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605764"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Tutorial - Conceder acesso a uma API Web ASP.NET Core a partir de uma aplicação de página única com o Azure Active Directory B2C
 
@@ -46,9 +46,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrado
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Selecione **Azure AD B2C** na lista de serviços no portal do Azure.
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**. Já deve estar a utilizar o inquilino que criou no tutorial anterior.
 
-2. Nas definições do B2C, clique em **Aplicações** e, em seguida, clique em **Adicionar**.
+2. Selecione **Aplicações** e **Adicionar**.
 
     Para registar a aplicação Web de exemplo no inquilino, utilize as seguintes definições.
     
@@ -59,7 +59,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) como administrado
     | **Nome** | Hello Core API | Introduza um **Nome** que descreva a API Web aos programadores. |
     | **Incluir aplicação/API Web** | Sim | Selecione **Sim** para uma API Web. |
     | **Permitir fluxo implícito** | Sim | Selecione **Sim** se a aplicação utilizar o [Início de sessão OpenID Connect](active-directory-b2c-reference-oidc.md). |
-    | **URL de resposta** | `http://localhost:44332` | Os URLs de resposta são pontos finais para onde o Azure AD B2C devolve quaisquer tokens que a aplicação peça. Neste tutorial, a API Web de exemplo é executada localmente (localhost) e escuta na porta 5000. |
+    | **URL de resposta** | `http://localhost:5000` | Os URLs de resposta são pontos finais para onde o Azure AD B2C devolve quaisquer tokens que a aplicação peça. Neste tutorial, a API Web de exemplo é executada localmente (localhost) e escuta na porta 5000 (depois de configurada mais adiante neste tutorial). |
     | **URI do ID da Aplicação** | HelloCoreAPI | O URI identifica exclusivamente a API no inquilino. Isto permite-lhe registar várias APIs por inquilino. Os [âmbitos](../active-directory/develop/developer-glossary.md#scopes) regem o acesso ao recurso protegido da API e são definidos por URI de ID de Aplicação. |
     | **Cliente nativo** | Não | Uma vez que se trata de uma API Web e não de um cliente nativo, selecione Não. |
     
@@ -111,7 +111,7 @@ Para chamar uma API Web protegida a partir de uma aplicação, tem de conceder p
 
 5. Clique em **OK**.
 
-**A minha aplicação de página única de exemplo** está registada para chamar a **Hello Core API** protegida. Para utilizar a aplicação de ambiente de trabalho WPF, os utilizadores [autenticam-se](../active-directory/develop/developer-glossary.md#authentication) com o Azure AD B2C. A aplicação de ambiente de trabalho obtém uma [concessão de autorização](../active-directory/develop/developer-glossary.md#authorization-grant) do Azure AD B2C para aceder à API Web protegida.
+**A minha aplicação de página única de exemplo** está registada para chamar a **Hello Core API** protegida. Para utilizar uma aplicação de página única, os utilizadores [autenticam-se](../active-directory/develop/developer-glossary.md#authentication) com o Azure AD B2C. A aplicação de página única obtém uma [concessão de autorização](../active-directory/develop/developer-glossary.md#authorization-grant) do Azure AD B2C para aceder à API Web protegida.
 
 ## <a name="update-code"></a>Atualizar código
 
@@ -158,7 +158,7 @@ Para permitir que a aplicação de página única chame a API Web ASP.NET Core, 
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. Abra o ficheiro **launchSettings.json**, em **Propriedades**, localize a definição *applicationURL* e guarde o valor para utilizá-lo na secção seguinte.
+3. Abra o ficheiro **launchSettings.json** em **Properties** (Propriedades), localize a definição **iisSettings** *applicationURL* e defina o número da porta para o número registado para o URL de Resposta da API `http://localhost:5000`.
 
 ### <a name="configure-the-single-page-app"></a>Configurar a aplicação de página única
 
@@ -174,7 +174,7 @@ Para alterar as definições da aplicação:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 

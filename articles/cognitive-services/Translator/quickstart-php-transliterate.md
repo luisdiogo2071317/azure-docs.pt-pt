@@ -1,23 +1,23 @@
 ---
-title: Utilizar a Tradução de Texto para converter script de texto com PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido pode converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com PHP nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, PHP'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá converter texto de um idioma de um script noutro através da API de Texto do Microsoft Translator com o PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: aec4dfe9c99f95eb971148ace4a9e692a01998c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b2b1773bc6eeea3a19d197faae75039511e77cf9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771062"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123873"
 ---
-# <a name="quickstart-transliterate-text-with-php"></a>Início rápido: transliterar texto com PHP
+# <a name="quickstart-transliterate-text-with-php"></a>Guia de Início Rápido: Transliterar texto com PHP
 
 Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, irá converter texto de um idioma de um script para 
 
 Irá precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 

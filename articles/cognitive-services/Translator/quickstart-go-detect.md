@@ -1,31 +1,31 @@
 ---
-title: Utilizar a Tradução de Texto para identificar o idioma do texto com Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com Go nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Identificar o idioma do texto – Tradução de Texto, Go'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 29fac1a079455a65cc3d430c3030fed99f5cfce1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771286"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129714"
 ---
-# <a name="quickstart-identify-language-from-text-with-go"></a>Início Rápido: identificar o idioma do texto com Go
+# <a name="quickstart-identify-language-from-text-with-go"></a>Guia de Início Rápido: Identificar o idioma do texto com Go
 
-Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
+Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Terá de instalar a [distribuição do Go](https://golang.org/doc/install) para executar este código. O código de exemplo utiliza apenas bibliotecas **principais**, pelo que não há dependências externas.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="detect-request"></a>Pedido de deteção
 

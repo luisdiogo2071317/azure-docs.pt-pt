@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978357"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784642"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início Rápido: implementar o Azure Data Box com o portal do Azure
 
@@ -31,19 +31,20 @@ Para implementação passo-a-passo detalhada e instruções de controlo, aceda a
 
 Antes de começar:
 
-- Certifique-se de que a subscrição que utiliza para o serviço Data Box é um dos seguintes tipos:
-    - Contrato Enterprise (EA) da Microsoft. Leia mais sobre as [Subscrições EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [programa CSP do Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consumo - pay as you go. Obtenha mais informações sobre as [subscrições pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)do Azure.
+- Certifique-se de que a subscrição que utiliza para o serviço Data Box é de um dos tipos seguintes:
+    - Microsoft Enterprise Agreement (EA). Leia mais sobre as [Subscrições EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Fornecedor de Soluções Cloud (CSP). Saiba mais sobre o [Programa CSP do Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+    - Consumo – Pay as you go. Obtenha mais informações sobre as [Subscrições pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)do Azure.
+    - Microsoft Azure Sponsorship. Saiba mais sobre o [programa Azure Sponsorship](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
 
-- Certifique-se de que tem acesso de proprietário ou contribuinte à subscrição para criar uma encomenda do Data Box.
+- Certifique-se de que tem acesso de proprietário ou de contribuinte à subscrição para criar uma encomenda do Data Box.
 - Reveja as [diretrizes de segurança para o Data Box](data-box-safety.md).
-- Tem um computador anfitrião que inclui os dados que pretende copiar para o Data Box. O computador anfitrião tem de
+- Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
     - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, pode ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
-- Tem de ter acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
-- Ter obtido os cabos seguintes para ligar o Data Box ao computador anfitrião.
-    - Dois cabos de cobre SFP + Twinax de 10 GbE (utilizar com interfaces de rede DADOS 1, DADOS 2)
+- Tem acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
+- Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
+    - Dois cabos de cobre SFP + Twinax de 10 GbE (utilizar com interfaces de rede DATA 1, DATA 2)
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 

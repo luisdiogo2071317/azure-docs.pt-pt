@@ -1,44 +1,56 @@
 ---
-title: Início rápido de OCR da API de Imagem Digitalizada com Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá extrair texto impresso de uma imagem através da Imagem Digitalizada com Node.js nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Extrair texto impresso (OCR) – REST, Node.js – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 73fe11800d7141c9e6e7272a0d008d2bcdf6d6af
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: af22b17d52b654438ae52c1eb85e523dbaf638fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772005"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628918"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-nodejs"></a>Início Rápido: Extrair texto impresso (OCR) – REST, Node.js
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Guia de Início Rápido: Extrair texto impresso (OCR) com a API REST e o Node.js na Imagem Digitalizada
 
-Neste início rápido, irá extrair texto impresso, também denominado reconhecimento ótico de carateres (OCR), de uma imagem através da Imagem Digitalizada.
+Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
+- Tem de ter o [npm](https://www.npmjs.com/) instalado.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Pedido de OCR
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
+Para criar e executar o exemplo, siga os seguintes passos:
 
-Para executar o exemplo, siga os passos seguintes:
+1. Instale o pacote [`request`](https://www.npmjs.com/package/request) do npm.
+   1. Abra a janela da linha de comandos como administrador.
+   1. Execute o seguinte comando:
 
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uriBase` para a localização na qual obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere o valor `imageUrl` para a imagem que pretende analisar.
-1. Guarde o ficheiro com uma extensão `.js`.
-1. Abra a linha de comandos do Node.js e execute o ficheiro, por exemplo: `node myfile.js`.
+      ```console
+      npm install request
+      ```
 
-Este exemplo utiliza o pacote de [pedido](https://www.npmjs.com/package/request) npm.
+   1. Depois de o pacote ser instalado com êxito, feche a janela da linha de comandos.
+
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
+    1. Substitua o valor de `uriBase` pelo URL de ponto final do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `imageUrl` pelo URL de uma imagem diferente da qual pretende extrair texto impresso.
+1. Guarde o código como um ficheiro com uma extensão `.js`. Por exemplo, `get-printed-text.js`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `node` para executar o ficheiro. Por exemplo, `node get-printed-text.js`.
 
 ```nodejs
 'use strict';
@@ -84,9 +96,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="ocr-response"></a>Resposta de OCR
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Após a conclusão com êxito, os resultados do OCR devolvidos incluem texto, caixa delimitadora para regiões, linhas e palavras, por exemplo:
+O JSON devolve uma resposta de êxito. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -187,9 +199,22 @@ Após a conclusão com êxito, os resultados do OCR devolvidos incluem texto, ca
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o pacote `request` do npm. Para desinstalar o pacote, siga os seguintes passos:
+
+1. Abra a janela da linha de comandos como administrador.
+2. Execute o seguinte comando:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

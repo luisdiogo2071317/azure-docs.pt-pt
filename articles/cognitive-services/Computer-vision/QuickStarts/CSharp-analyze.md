@@ -1,52 +1,45 @@
 ---
-title: Início rápido de análise de uma imagem local da API de Imagem Digitalizada com C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai analisar uma imagem local através da Imagem Digitalizada com C# nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Analisar uma imagem local – REST, C# – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá analisar uma imagem local através da API de Imagem Digitalizada com o C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 8196787df9f7fadedda72d525aee440afe7b7d34
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 572d352b04debca0ab3afdea6d86a7383370050f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771977"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634120"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-c35"></a>Início Rápido: Analisar uma imagem local – REST, C&#35;
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c35-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem local com a API REST e o C# na Imagem Digitalizada
 
-Neste início rápido, vai analisar uma imagem local para extrair funcionalidades visuais através da Imagem Digitalizada.
+Neste guia de início rápido, irá analisar uma imagem armazenada localmente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) ou posterior.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Pedido de Análise de Imagem
+## <a name="create-and-run-the-sample-application"></a>Criar e executar a aplicação de exemplo
 
-Com o [método Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), pode extrair funcionalidades visuais com base no conteúdo da imagem. Pode carregar uma imagem ou especificar um URL da imagem e escolher as funcionalidades que deve devolver, incluindo:
+Para criar o exemplo no Visual Studio, siga os seguintes passos:
 
-* Uma lista detalhada das etiquetas relacionadas com o conteúdo da imagem.
-* Uma descrição do conteúdo da imagem numa frase completa.
-* As coordenadas, o sexo e a idade de qualquer rosto que a imagem contenha.
-* O ImageType (ClipArt ou um desenho de linha).
-* A cor dominante, a cor de destaque ou se uma imagem é a preto e branco.
-* A categoria definida nesta [taxonomia](../Category-Taxonomy.md).
-* A imagem contém conteúdo para adultos ou é sexualmente sugestiva?
-
-Para executar o exemplo, siga os passos seguintes:
-
-1. Crie uma nova Aplicação da Consola Visual C# no Visual Studio.
+1. Crie uma nova solução do Visual Studio no Visual Studio, com o modelo de Aplicação da Consola Visual C#.
 1. Instale o pacote NuGet Newtonsoft.Json.
     1. No menu, clique em **Ferramentas**, selecione **Gestor de Pacotes NuGet** e, em seguida, **Gerir Pacotes NuGet para Solução**.
     1. Clique no separador **Procurar** e, na caixa do tipo **Pesquisa** "Newtonsoft.Json".
     1. Selecione **Newtonsoft.Json** quando for apresentado e, em seguida, clique na caixa de verificação junto do nome do seu projeto, e em **Instalar**.
-1. Substitua `Program.cs` pelo código abaixo.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uriBase` para a localização onde obteve as suas chaves de subscrição, se necessário.
+1. Substitua o código em `Program.cs` pelo código seguinte e faça as seguintes alterações ao código onde for necessário:
+    1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
+    1. Substitua o valor de `uriBase` pelo URL de ponto final do método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem) da região do Azure onde obteve as chaves de subscrição, se necessário.
 1. Execute o programa.
 1. Na linha de comandos, introduza o caminho para uma imagem local.
 
@@ -65,12 +58,12 @@ namespace CSHttpClientSample
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to
-        // get your subscription keys. For example, if you got your
-        // subscription keys from westus, replace "westcentralus" in the URL
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -80,12 +73,13 @@ namespace CSHttpClientSample
         {
             // Get the path and filename to process from the user.
             Console.WriteLine("Analyze an image:");
-            Console.Write("Enter the path to the image you wish to analyze: ");
+            Console.Write(
+                "Enter the path to the image you wish to analyze: ");
             string imageFilePath = Console.ReadLine();
 
             if (File.Exists(imageFilePath))
             {
-                // Make the REST API call.
+                // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
                 MakeAnalysisRequest(imageFilePath).Wait();
             }
@@ -113,30 +107,40 @@ namespace CSHttpClientSample
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
                 // Request parameters. A third optional parameter is "details".
+                // The Analyze Image method returns information about the following
+                // visual features:
+                // Categories:  categorizes image content according to a
+                //              taxonomy defined in documentation.
+                // Description: describes the image content with a complete
+                //              sentence in supported languages.
+                // Color:       determines the accent color, dominant color, 
+                //              and whether an image is black & white.
                 string requestParameters =
                     "visualFeatures=Categories,Description,Color";
 
-                // Assemble the URI for the REST API Call.
+                // Assemble the URI for the REST API method.
                 string uri = uriBase + "?" + requestParameters;
 
                 HttpResponseMessage response;
 
-                // Request body. Posts a locally stored JPEG image.
+                // Read the contents of the specified local image
+                // into a byte array.
                 byte[] byteData = GetImageAsByteArray(imageFilePath);
 
+                // Add the byte array as an octet stream to the request body.
                 using (ByteArrayContent content = new ByteArrayContent(byteData))
                 {
-                    // This example uses content type "application/octet-stream".
+                    // This example uses the "application/octet-stream" content type.
                     // The other content types you can use are "application/json"
                     // and "multipart/form-data".
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // Make the REST API call.
+                    // Asynchronously call the REST API method.
                     response = await client.PostAsync(uri, content);
                 }
 
-                // Get the JSON response.
+                // Asynchronously get the JSON response.
                 string contentString = await response.Content.ReadAsStringAsync();
 
                 // Display the JSON response.
@@ -156,9 +160,11 @@ namespace CSHttpClientSample
         /// <returns>The byte array of the image data.</returns>
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
+            // Open a read-only file stream for the specified file.
             using (FileStream fileStream =
                 new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
             {
+                // Read the file's contents into a byte array.
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
@@ -167,83 +173,86 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="analyze-image-response"></a>Resposta de Análise de Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
 ```json
 {
-   "categories": [
-      {
-         "name": "abstract_",
-         "score": 0.00390625
-      },
-      {
-         "name": "others_",
-         "score": 0.0234375
-      },
-      {
-         "name": "outdoor_",
-         "score": 0.00390625
-      }
-   ],
-   "description": {
-      "tags": [
-         "road",
-         "building",
-         "outdoor",
-         "street",
-         "night",
-         "black",
-         "city",
-         "white",
-         "light",
-         "sitting",
-         "riding",
-         "man",
-         "side",
-         "empty",
-         "rain",
-         "corner",
-         "traffic",
-         "lit",
-         "hydrant",
-         "stop",
-         "board",
-         "parked",
-         "bus",
-         "tall"
-      ],
-      "captions": [
-         {
-            "text": "a close up of an empty city street at night",
-            "confidence": 0.7965622853462756
-         }
-      ]
-   },
-   "requestId": "dddf1ac9-7e66-4c47-bdef-222f3fe5aa23",
-   "metadata": {
-      "width": 3733,
-      "height": 1986,
-      "format": "Jpeg"
-   },
-   "color": {
-      "dominantColorForeground": "Black",
-      "dominantColorBackground": "Black",
-      "dominantColors": [
-         "Black",
-         "Grey"
-      ],
-      "accentColor": "666666",
-      "isBWImg": true
-   }
+    "categories": [
+        {
+            "name": "abstract_",
+            "score": 0.00390625
+        },
+        {
+            "name": "others_",
+            "score": 0.0234375
+        },
+        {
+            "name": "outdoor_",
+            "score": 0.00390625
+        }
+    ],
+    "description": {
+        "tags": [
+            "road",
+            "building",
+            "outdoor",
+            "street",
+            "night",
+            "black",
+            "city",
+            "white",
+            "light",
+            "sitting",
+            "riding",
+            "man",
+            "side",
+            "empty",
+            "rain",
+            "corner",
+            "traffic",
+            "lit",
+            "hydrant",
+            "stop",
+            "board",
+            "parked",
+            "bus",
+            "tall"
+        ],
+        "captions": [
+            {
+                "text": "a close up of an empty city street at night",
+                "confidence": 0.7965622853462756
+            }
+        ]
+    },
+    "requestId": "dddf1ac9-7e66-4c47-bdef-222f3fe5aa23",
+    "metadata": {
+        "width": 3733,
+        "height": 1986,
+        "format": "Jpeg"
+    },
+    "color": {
+        "dominantColorForeground": "Black",
+        "dominantColorBackground": "Black",
+        "dominantColors": [
+            "Black",
+            "Grey"
+        ],
+        "accentColor": "666666",
+        "isBWImg": true
+    }
 }
 ```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine a solução do Visual Studio. Para tal, abra o Explorador de Ficheiros, navegue para a pasta onde criou a solução do Visual Studio e elimine a pasta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação básica do Windows que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
-
 > [!div class="nextstepaction"]
-> [Utilizar a Imagem Digitalizada com C#](../Tutorials/CSharpTutorial.md)
+> [API de Imagem Digitalizada com C&#35; Tutorial](../Tutorials/CSharpTutorial.md)

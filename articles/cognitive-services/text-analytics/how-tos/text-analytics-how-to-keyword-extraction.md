@@ -1,36 +1,37 @@
 ---
-title: Extração de expressão de chave procedimentos na API de REST de análise de texto (cognitivos serviços da Microsoft no Azure) | Microsoft Docs
-description: Como extrair expressões chaves, utilizando a API de REST de análise de texto no Microsoft serviços cognitivos no Azure neste tutorial de instruções.
+title: 'Exemplo: como extrair expressões-chave na Análise de Texto'
+titleSuffix: Azure Cognitive Services
+description: Saiba como extrair expressões-chave com a API REST de Análise de Texto.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352232"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605492"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Como extrair a chaves expressões na análise de texto
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: como extrair expressões-chave na Análise de Texto
 
-O [API de extração de expressão de chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avalia o texto não estruturado e para cada documento JSON, devolve uma lista de expressões de chaves. 
+A [API de Extração de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avalia o texto não estruturado e, para cada documento JSON, devolve uma lista de expressões-chave. 
 
-Esta capacidade é útil se precisar de identificar rapidamente os pontos principais de uma coleção de documentos. Por exemplo, texto de entrada especificado "o prato foi delicious e ocorreram wonderful pessoal", o serviço devolve os pontos de talking principais: "prato" e "wonderful pessoal".
+Esta funcionalidade é útil se precisar de identificar rapidamente os pontos principais numa coleção de documentos. Por exemplo, para o texto de entrada "The food was delicious and there were wonderful staff", o serviço devolve os pontos de conversa principais: "food" e "wonderful staff".
 
-Atualmente, extração de expressão de chave de suporte inglês, alemão, espanhol e japonês. Outros idiomas estão na pré-visualização. Para obter mais informações, consulte [idiomas suportados](../text-analytics-supported-languages.md).
+Atualmente, a Extração de Expressões-Chave suporta inglês, alemão, espanhol e japonês. Os outros idiomas estão em pré-visualização. Para obter mais informações, veja [Idiomas suportados](../text-analytics-supported-languages.md).
 
 ## <a name="preparation"></a>Preparação
 
-Extração de expressão de chave funciona melhor quando atribui-lhe maiores segmentos de texto para trabalhar. Este é oposta da análise de dados de sentimento, que tem o melhor desempenho em blocos mais pequenos de texto. Para obter os melhores resultados de ambas as operações, considere reestruturar entradas em conformidade.
+A extração de expressões-chave funciona melhor quando fornece segmentos de texto maiores. O mesmo já não acontece com a análise de sentimentos, que tem um melhor desempenho com blocos de texto mais pequenos. Para obter os melhores resultados com as duas operações, pondere reestruturar as entradas em conformidade.
 
-Tem de ter documentos JSON neste formato: id, o texto, o idioma
+Tem de ter documentos JSON neste formato: id, texto, idioma
 
-Tamanho do documento tem de ser em 5000 carateres por documento e podem ter até 1000 itens (IDs) por coleção. A coleção é submetida no corpo do pedido. O exemplo seguinte é uma ilustração de conteúdo que pode submeter para extração de expressão de chave.
+Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O seguinte exemplo é uma ilustração de conteúdos que pode enviar para extração de expressões-chave.
 
 ```
     {
@@ -64,34 +65,34 @@ Tamanho do documento tem de ser em 5000 carateres por documento e podem ter até
     }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Passo 1: Estrutura de pedido
+## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
 
-Podem ser encontrados detalhes na definição de pedido no [como chamar a API de análise de texto](text-analytics-how-to-call-api.md). Os seguintes pontos são restated para sua comodidade:
+Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Criar um **POST** pedido. Reveja a documentação da API para este pedido: [chave de API de expressões](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Crie um pedido **POST**. Reveja a documentação sobre a API para este pedido: [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Defina o ponto final de HTTP para extração de expressão de chave. Tem de incluir o `/keyphrases` recursos: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Defina o ponto final HTTP para a extração de expressões-chave. Tem de incluir o recurso `/keyphrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
-+ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de análise de texto. Para obter mais informações, consulte [como encontrar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, veja [Como localizar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
 
-+ No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise
++ No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise.
 
 > [!Tip]
-> Utilize [Postman](text-analytics-how-to-call-api.md) ou abrir o **consola de teste de API** no [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) a estrutura de um pedido e PUBLICÁ-la para o serviço.
+> Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: Publicar o pedido
+## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
 
-Análise é executada após a receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
+A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
 
-Recuperar-se de que o serviço está sem monitorização de estado. Nenhum dado é armazenado na sua conta. Os resultados são devolvidos imediatamente na resposta.
+Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Passo 3: Ver resultados
+## <a name="step-3-view-results"></a>Passo 3: ver resultados
 
-Todos os pedidos POST devolverem um JSON formatado resposta com os IDs e detectadas propriedades.
+Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
 
-Resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado para um ficheiro no sistema local e, em seguida, importe-o para uma aplicação que permite-lhe ordenar, procurar e manipular os dados.
+O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
 
-Um exemplo da saída para extração de expressão de chave é apresentado seguinte:
+Um exemplo de resultado para extração de expressões-chave é mostrado a seguir:
 
 ```
     "documents": [
@@ -138,24 +139,24 @@ Um exemplo da saída para extração de expressão de chave é apresentado segui
         }
 ```
 
-Conforme indicado, o analisador de localiza rejeita não essencial palavras e mantém termos simples ou expressões que parecem ser o assunto ou o objeto de uma frase. 
+Como observado, o analisador localiza e descarta palavras não essenciais e mantém termos ou frases individuais que parecem ser o assunto ou o objeto de uma frase. 
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para extração de expressão de chave através da análise do texto nos serviços cognitivos. Em Resumo:
+Neste artigo, aprendeu conceitos e fluxos de trabalho relativos à extração de expressões-chave com recurso à Análise de Texto nos Serviços Cognitivos. Em resumo:
 
-+ [A chave de API de extração de expressão](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) está disponível para os idiomas selecionados.
-+ Documentos JSON no corpo do pedido incluem um código de id, o texto e o idioma.
-+ É pedido POST para um `/keyphrases` ponto final, utilizando um personalizado [aceder à chave e um ponto final](text-analytics-how-to-access-key.md) que é válido para a sua subscrição.
-+ Saída de resposta, composta por chave palavras e expressões diferentes para cada ID do documento, pode ser transmitida para qualquer aplicação que aceite JSON, incluindo o Excel e o Power BI, o nome algumas.
++ A [API de extração de expressões-chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) está disponível para alguns idiomas.
++ Os documentos JSON no corpo do pedido incluem um id, texto e código de idioma.
++ O pedido POST refere-se a um ponto final `/keyphrases` com recurso a uma [chave de acesso personalizada e um ponto final](text-analytics-how-to-access-key.md) válido para a sua subscrição.
++ O resultado da resposta, que consiste em palavras e expressões-chave para cada ID de documento, pode ser transmitido para qualquer aplicação que aceite JSON, incluindo, por exemplo, o Excel e o Power BI.
 
 ## <a name="see-also"></a>Consulte também 
 
- [Descrição geral da análise de texto](../overview.md)  
- [Perguntas mais frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Página de produto de análise de texto](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Descrição Geral da Análise de Texto](../overview.md)  
+ [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712) 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Análise de texto API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [API de Análise de Texto](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)

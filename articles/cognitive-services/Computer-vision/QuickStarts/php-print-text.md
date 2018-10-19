@@ -1,44 +1,56 @@
 ---
-title: Início rápido de OCR da API de Imagem Digitalizada com PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá extrair texto impresso de uma imagem através da Imagem Digitalizada com PHP nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Extrair texto impresso (OCR) – REST, PHP – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 85df021357c76330be21ceff77d79491edcc23b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 14c03f2079e695fcd3cac8535b2888d71f41c913
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771984"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633236"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-php"></a>Início Rápido: Extrair texto impresso (OCR) – REST, PHP
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Guia de Início Rápido: Extrair texto impresso (OCR) com a API REST e o PHP na Imagem Digitalizada
 
-Neste início rápido, irá extrair texto impresso, também conhecido como reconhecimento ótico de carateres (OCR), de uma imagem com a Imagem Digitalizada.
+Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [PHP](https://secure.php.net/downloads.php) instalado.
+- Tem de ter o [Pear](https://pear.php.net) instalado.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Pedido de OCR
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
+Para criar e executar o exemplo, siga os seguintes passos:
 
-Para executar o exemplo, siga os seguintes passos:
+1. Instale o pacote [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) do PHP5.
+   1. Abra a janela da linha de comandos como administrador.
+   1. Execute o seguinte comando:
 
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere `uriBase` para utilizar a localização onde obteve as suas chaves de subscrição, se assim for preciso.
-1. Opcionalmente, defina `imageUrl` para a imagem que pretende analisar.
-1. Guarde o ficheiro com uma extensão `.php`.
-1. Abra o ficheiro numa janela do browser com suporte do PHP.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-Este exemplo utiliza o pacote [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) do PHP5.
+   1. Depois de o pacote ser instalado com êxito, feche a janela da linha de comandos.
+
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
+    1. Substitua o valor de `uriBase` pelo URL de ponto final do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `imageUrl` pelo URL de uma imagem diferente da qual pretende extrair texto impresso.
+1. Guarde o código como um ficheiro com uma extensão `.php`. Por exemplo, `get-printed-text.php`.
+1. Abra uma janela do browser com suporte do PHP.
+1. Arraste e largue o ficheiro na janela do browser.
 
 ```php
 <?php
@@ -101,9 +113,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="ocr-response"></a>Resposta de OCR
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Após a conclusão bem-sucedida, os resultados do OCR devolvidos incluem texto, caixa delimitadora para regiões, linhas e palavras, por exemplo:
+O JSON devolve uma resposta de êxito. O site de exemplo analisa e apresenta uma resposta de êxito na janela do browser, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -204,9 +216,22 @@ Após a conclusão bem-sucedida, os resultados do OCR devolvidos incluem texto, 
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o pacote `HTTP_Request2` do PHP5. Para desinstalar o pacote, siga os seguintes passos:
+
+1. Abra a janela da linha de comandos como administrador.
+2. Execute o seguinte comando:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as APIs de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto manuscrito e impresso. Para experimentar rapidamente as APIs de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar APIs de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

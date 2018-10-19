@@ -1,35 +1,35 @@
 ---
-title: Tradução de Texto identificar o idioma do texto com Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com Node.js nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Identificar o idioma do texto – Tradução de Texto, Node.js'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com o Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 8e6fecf74d1291e9660076572d385bb234edc222
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: bb2118c9c05cff093bb5affe91a388986ba85a38
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770807"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126212"
 ---
-# <a name="quickstart-identify-language-from-text-with-nodejs"></a>Início rápido: Identificar o idioma do texto com Node.js
+# <a name="quickstart-identify-language-from-text-with-nodejs"></a>Guia de Início Rápido: Identificar o idioma do texto com Node.js
 
-Neste início rápido, vai identificar o idioma do texto de origem através da API de Texto do Microsoft Translator.
+Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai necessitar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
+Irá precisar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
-## <a name="detect-request"></a>Detetar o pedido
+## <a name="detect-request"></a>Pedido de deteção
 
-O código seguinte identifica o idioma do texto de origem através do método [Detetar](./reference/v3-0-detect.md).
+O código seguinte identifica o idioma do texto de origem com o método [Detetar](./reference/v3-0-detect.md).
 
 1. Crie um novo projeto Node.js no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -99,9 +99,9 @@ let content = JSON.stringify ([{'Text' : text}]);
 Detect (content);
 ```
 
-## <a name="detect-response"></a>Detetar a resposta
+## <a name="detect-response"></a>Resposta da deteção
 
-O JSON devolve uma resposta com êxito, tal como é apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
 ```json
 [
@@ -130,7 +130,7 @@ O JSON devolve uma resposta com êxito, tal como é apresentado no exemplo segui
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Explorar exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)

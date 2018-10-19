@@ -1,51 +1,49 @@
 ---
-title: Modelo de domínio de início rápido do Python de Imagem Digitalizada | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai utilizar modelos de domínio para identificar celebridades e marcos numa imagem através da Imagem Digitalizada com o Python nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Utilizar um modelo de domínio – REST, Python – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, vai utilizar modelos de domínio para identificar celebridades e marcos numa imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 357cab72c0a6c9a2254350c84cda91c366ac685a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 93027e2f9cd3a9b0e9c6ef261b8af876022632a4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771935"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632454"
 ---
-# <a name="quickstart-use-a-domain-model---rest-python"></a>Início rápido: Utilizar um modelo de domínio - REST, Python
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Guia de Início Rápido: Utilizar um modelo de domínio com a API REST e o Python na Imagem Digitalizada
 
-Neste início rápido, vai utilizar modelos de domínio para identificar celebridades e pontos de referência numa imagem através da Imagem Digitalizada.
+Neste guia de início rápido, vai utilizar um modelo de domínio para identificar marcos ou, opcionalmente, celebridades numa imagem armazenada remotamente através da API REST de Imagem Digitalizada. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Reconhecer Conteúdo Específico do Domínio), pode aplicar um modelo específico do domínio para reconhecer conteúdo dentro de uma imagem.
 
 Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="identify-celebrities-and-landmarks"></a>Identificar celebridades e marcos
+## <a name="create-and-run-the-landmarks-sample"></a>Criar e executar o exemplo de marcos
 
-Com o [método Reconhecer Conteúdo de Domínio Específico](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), pode identificar um conjunto específico de objetos numa imagem. Os dois modelos de domínios específicos que estão atualmente disponíveis são _celebridades_ e _marcos_.
+Para criar e executar o exemplo de marcos, siga os seguintes passos:
 
-Para executar o exemplo, siga os passos seguintes:
-
-1. Copie o código seguinte para um novo ficheiro de script do Python.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `vision_base_url` para a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere o valor `image_url` para outra imagem.
-1. Execute o script.
-
-O código seguinte utiliza a biblioteca `requests` do Python para chamar a API de Análise de Imagem de Imagem Digitalizada. Devolve os resultados como um objeto JSON. A chave de API é passada pelo dicionário `headers`. O modelo a utilizar é passado pelo dicionário `params`.
-
-## <a name="landmark-identification"></a>Identificação dos marcos
-
-### <a name="recognize-landmark-request"></a>Reconhecer pedido de Marco
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscription_key` pela chave de subscrição.
+    1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente na qual pretende detetar marcos.
+1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-landmarks.py`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-landmarks.py`.
 
 ```python
 import requests
@@ -95,9 +93,9 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-landmark-response"></a>Reconhecer resposta de Marco
+## <a name="examine-the-response-for-the-landmarks-sample"></a>Examinar a resposta para o exemplo de marcos
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -118,9 +116,18 @@ O JSON devolve uma resposta de êxito, por exemplo:
 }
 ```
 
-## <a name="celebrity-identification"></a>Identificação de celebridade
+## <a name="create-and-run-the-celebrities-sample"></a>Criar e executar o exemplo de celebridades
 
-### <a name="recognize-celebrity-request"></a>Reconhecer pedido de Celebridade
+Para criar e executar o exemplo de marcos, siga os seguintes passos:
+
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscription_key` pela chave de subscrição.
+    1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente na qual pretende detetar celebridades.
+1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-celebrities.py`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-celebrities.py`.
 
 ```python
 import requests
@@ -163,9 +170,10 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-celebrity-response"></a>Reconhecer resposta de Celebridade
+## <a name="examine-the-response-for-the-celebrities-sample"></a>Examinar a resposta para o exemplo de celebridades
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+
 
 ```json
 {
@@ -192,9 +200,13 @@ O JSON devolve uma resposta de êxito, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar dos ficheiros, elimine-os para ambos os exemplos.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python de API de Imagem Digitalizada](../Tutorials/PythonTutorial.md)

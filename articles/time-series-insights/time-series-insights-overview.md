@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630726"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365578"
 ---
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights?
 
@@ -33,6 +33,12 @@ O Time Series Insights tem quatro tarefas principais:
 Se estiver a criar uma aplicação, para consumo interno ou clientes externos a utilizarem, o Time Series Insights pode ser utilizado como back-end para indexação, armazenamento e agregação de dados de séries de tempo. Pode também criar uma experiência de utilizador e de visualização personalizada.  O Time Series Insights expõe as APIs de Consulta para permitir este cenário.  
 
 Se não tiver a certeza de que os dados são de séries de tempo, eis o que deve saber.  Os dados de séries de tempo representam a forma como um recurso ou processo muda ao longo do tempo.  São exclusivos na medida em que têm um carimbo de data/hora e o tempo é mais significativo como um eixo.  Os dados de séries de tempo, chegam normalmente por ordem cronológica e são tratados como uma inserção em vez de uma atualização à base de dados.  Uma vez que o Time Series Insights captura e armazena cada evento novo como uma linha, a alteração é medida ao longo do tempo, o que permite recuar e prever a alteração futura.  Em grandes volumes, armazenar, indexar, consultar, analisar e visualizar dados de séries de tempo pode ser um desafio.  
+
+## <a name="video"></a>Vídeo: 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>Neste vídeo, disponibilizamos uma visão geral do Time Series Insights, uma plataforma de análise de IoT com base na cloud.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>Cenários principais
 

@@ -1,41 +1,42 @@
 ---
-title: Criar um tutorial de Python de serviço de visão personalizada - serviços cognitivos do Azure | Documentos da Microsoft
-description: Explore uma aplicação Python básica que utiliza a API de imagem digitalizada personalizado nos serviços cognitivos da Microsoft. Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e fazer uma predição ao utilizar o ponto final predefinido.
+title: 'Tutorial: Criar um projeto de classificação de imagens – Serviço de Visão Personalizada, Python'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com um ponto final predefinido.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: df0bdc0bbd2768566336323851f366c9ae280a88
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301604"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363382"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Tutorial de Python de API de visão personalizada
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Tutorial: Criar um projeto de classificação de imagens com o Serviço de Visão Personalizada com Python
 
-Saiba como criar um projeto de classificação de imagem com o serviço de visão personalizada e um script de Python básico. Depois de criado, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição de padrão do projeto e utilizá-lo para uma imagem de teste por meio de programação. Utilize este exemplo de código-fonte aberto como um modelo para criar sua própria aplicação com a API de visão personalizada.
+Saiba como criar um projeto de classificação de imagens com o Serviço de Visão Personalizada e um script de Python básico. Depois de criar o projeto, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizá-lo para testar uma imagem de forma programática. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Python 2.7 + ou Python 3.5 +.
-- A ferramenta de pip.
+- Python 2.7 ou versões posteriores ou Python 3.5. ou versões posteriores
+- A ferramenta PIP.
 
-## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de formação e predição
+## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de preparação e de predição
 
-Para obter as chaves utilizadas neste exemplo, visite o [página da web de visão personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na __contas__ secção, copie os valores da __chave de treinamento__ e __predição chave__ campos.
+Para obter as chaves utilizadas neste exemplo, visite a [página Web da Visão Personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na secção __Accounts__ (Contas), copie os valores dos campos __Training Key__ (Chave de Preparação) e __Prediction Key__ (Chave de Predição).
 
-![Imagem das chaves da interface do Usuário](./media/python-tutorial/training-prediction-keys.png)
+![Imagem da IU de chaves](./media/python-tutorial/training-prediction-keys.png)
 
-## <a name="install-the-custom-vision-service-sdk"></a>Instalar o SDK do serviço de visão personalizada
+## <a name="install-the-custom-vision-service-sdk"></a>Instalar o SDK do Serviço de Visão Personalizada
 
-Para instalar o SDK de serviço de visão personalizada, utilize o seguinte comando:
+Para instalar o SDK do Serviço de Visão Personalizada, utilize o seguinte comando:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
@@ -43,16 +44,16 @@ pip install azure-cognitiveservices-vision-customvision
 
 ## <a name="get-example-images"></a>Obter imagens de exemplo
 
-Este exemplo utiliza as imagens a partir da `Samples/Images` diretório da [ https://github.com/Microsoft/Cognitive-CustomVision-Windows ](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) projeto. Clonar ou transferir e extrair o projeto para o ambiente de desenvolvimento.
+Este exemplo utiliza as imagens a partir do diretório `Samples/Images` do projeto [https://github.com/Microsoft/Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images). Clone ou transfira e extrai o projeto para o seu ambiente de desenvolvimento.
 
-## <a name="create-a-custom-vision-service-project"></a>Criar um projeto de serviço de visão personalizada
+## <a name="create-a-custom-vision-service-project"></a>Criar um projeto do Serviço de Visão Personalizada
 
-Para criar um novo projeto de serviço de visão personalizada, crie o novo ficheiro designado `sample.py`. Utilize o seguinte código como o conteúdo do ficheiro:
+Para criar um novo projeto do Serviço de Visão Personalizada, crie um novo ficheiro com o nome `sample.py`. Utilize o seguinte código como conteúdo do ficheiro:
 
 > [!IMPORTANT]
-> Definir o `training_key` para o valor da chave de treinamento que obteve anteriormente.
+> Defina a `training_key` para o valor da chave de preparação que obteve anteriormente.
 >
-> Definir o `prediction_key` para o valor da chave de predição obtido anteriormente.
+> Defina a `prediction_key` para o valor da chave de predição que obteve anteriormente.
 
 ```python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -71,7 +72,7 @@ project = trainer.create_project("My Project")
 
 ## <a name="add-tags-to-your-project"></a>Adicionar etiquetas ao seu projeto
 
-Para adicionar etiquetas ao seu projeto, adicione o seguinte código ao final do `sample.py` ficheiro:
+Para adicionar etiquetas ao seu projeto, adicione o seguinte código no fim do ficheiro `sample.py`:
 
 ```python
 # Make two tags in the new project
@@ -81,11 +82,11 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ## <a name="upload-images-to-the-project"></a>Carregar imagens para o projeto
 
-Para adicionar imagens de exemplo para o projeto, insira o seguinte código após a criação de marca. Esse código carrega a imagem com a marca correspondente:
+Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega a imagem com a etiqueta correspondente:
 
 > [!IMPORTANT]
 >
-> Altere o caminho para as imagens com base em onde transferiu o projeto de cognitivos-CustomVision-Windows anteriormente.
+> Altere o caminho para as imagens com base no local para onde transferiu o projeto Cognitive-CustomVision-Windows anteriormente.
 
 ```python
 base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
@@ -117,7 +118,7 @@ for image_num in range(1,10):
 
 ## <a name="train-the-project"></a>Preparar o projeto
 
-Para treinar o classificador, adicione o seguinte código ao final do `sample.py` ficheiro:
+Para preparar o classificador, adicione o seguinte código no fim do ficheiro `sample.py`:
 
 ```python
 import time
@@ -134,9 +135,9 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e utilizar o ponto final de predição de predefinido
+## <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e utilizar o ponto final de predição predefinido
 
-Para enviar uma imagem para o ponto final de predição e obter a previsão, adicione o seguinte código ao final do `sample.py` ficheiro:
+Para enviar uma imagem para o ponto final de predição e obter a predição, adicione o seguinte código no fim do ficheiro `sample.py`:
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -163,7 +164,7 @@ for prediction in results.predictions:
 
 ## <a name="run-the-example"></a>Executar o exemplo
 
-Execute a solução. Os resultados de predição são apresentados na consola.
+Execute a solução. Os resultados da predição aparecem na consola.
 
 ```
 python sample.py

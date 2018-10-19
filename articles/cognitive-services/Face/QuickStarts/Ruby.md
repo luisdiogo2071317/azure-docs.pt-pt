@@ -1,44 +1,44 @@
 ---
-title: Início rápido do Ruby da API Face | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá detetar rostos de uma imagem com a API Face com Ruby nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Detetar rostos numa imagem – API Face, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá detetar rostos de uma imagem através da API Face com Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
-ms.openlocfilehash: b7fc23259475b7d165171ce42f1d0dff90d1069c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a76be6d6afa198762448cea7125b5c49e7fc1009
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "43770553"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124801"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>Início rápido: Detetar rostos numa imagem com o Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>Guia de Início Rápido: Detetar rostos numa imagem com o Ruby
 
-Neste início rápido, irá detetar rostos humanos numa imagem com a API Face.
+Neste guia de início rápido, irá detetar rostos humanos numa imagem com a API Face.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Precisa de uma chave de subscrição para executar o exemplo. Pode obter chaves de subscrição de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 
-## <a name="face---detect-request"></a>Rosto - Detetar o pedido
+## <a name="face---detect-request"></a>Rosto – Pedido de deteção
 
-Utilize o método [Rosto - Detetar](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para detetar rostos numa imagem e devolver atributos, incluindo:
+Utilize o método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Rosto – Detetar) para detetar rostos numa imagem e devolver atributos, incluindo:
 
-* ID do Rosto: ID exclusivo utilizado em vários cenários da API Face.
-* Retângulo de Rostos: A esquerda, o topo, a largura e a altura indicam a localização do rosto na imagem.
-* Marcos: Uma matriz de marcos de rosto com 27 pontos apontam para as posições importantes dos componentes do rosto.
-* Atributos faciais, como a idade, o género, a intensidade do sorriso, a posição da cabeça e o pelo facial.
+* Face ID: ID exclusivo utilizado em vários cenários da API Face.
+* Retângulo de Rostos: a esquerda, o topo, a largura e a altura indicam a localização do rosto na imagem, a largura e a altura indicam a localização do rosto na imagem.
+* Marcos: uma matriz de marcos de rosto com 27 pontos aponta para as posições importantes dos componentes do rosto.
+* Atributos faciais, como a idade, o sexo, a intensidade do sorriso, a posição da cabeça e os pelos faciais.
 
 Para executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor.
 1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uri` para a localização onde obteve as suas chaves de subscrição, se assim for preciso.
+1. Altere o valor `uri` para a localização onde obteve as suas chaves de subscrição, se necessário.
 1. Opcionalmente, defina `imageUri` para a imagem que pretende analisar.
 1. Guarde o ficheiro com uma extensão `.rb`.
 1. Abra a Linha de Comandos do Ruby e execute o ficheiro, por exemplo: `ruby myfile.rb`.
@@ -75,9 +75,9 @@ end
 puts response.body
 ```
 
-## <a name="face---detect-response"></a>Rosto - Detetar a resposta
+## <a name="face---detect-response"></a>Rosto – Resposta da deteção
 
-Uma resposta bem-sucedida é devolvida no JSON, por exemplo:
+É devolvida uma resposta com êxito em JSON, por exemplo:
 
 ```json
 [
@@ -260,7 +260,7 @@ Uma resposta bem-sucedida é devolvida no JSON, por exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as APIs Face utilizadas para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos, como a idade e o género.
+Explore as API Face utilizadas para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos, como a idade e o sexo.
 
 > [!div class="nextstepaction"]
 > [APIs Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

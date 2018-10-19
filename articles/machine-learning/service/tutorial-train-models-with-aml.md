@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Preparar um modelo de classificação de imagens com o Azure Machine Learning'
+title: 'Tutorial: Preparar um modelo de classificação de imagens com o serviço do Azure Machine Learning'
 description: Este tutorial mostra como utilizar o serviço do Azure Machine Learning para preparar um modelo de classificação de imagens com scikit-learn num bloco de notas do Jupyter em Python. Este tutorial é a primeira parte de uma série composta por duas partes.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181403"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785143"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Tutorial n.º 1: Preparar um modelo de classificação de imagens com o Azure Machine Learning
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial 1: Preparar um modelo de classificação de imagens com o serviço do Azure Machine Learning
 
 Neste tutorial, vai preparar um modelo de machine learning, quer localmente, quer em recursos de computação remotos. Vai utilizar o fluxo de trabalho de preparação e implementação do serviço do Azure Machine Learning (pré-visualização) num bloco de notas do Jupyter em Python.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
 
-O tutorial utiliza o conjunto de dados [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) com o Azure Machine Learning para preparar uma regressão logística simples.  O MNIST é um conjunto de dados popular que consiste em 70 000 imagens em tons de cinzento. Cada imagem é um dígito escrito à mão de 28 x 28 pixéis e representam um número de 0 a 9. O objetivo é criar um classificador multiclasses para identificar o dígito que uma determinada imagem representa. 
+O tutorial utiliza o conjunto de dados [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) com o serviço do Azure Machine Learning para preparar uma regressão logística simples.  O MNIST é um conjunto de dados popular que consiste em 70 000 imagens em tons de cinzento. Cada imagem é um dígito escrito à mão de 28 x 28 pixéis e representam um número de 0 a 9. O objetivo é criar um classificador multiclasses para identificar o dígito que uma determinada imagem representa. 
 
 Aprenda a:
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como bloco de notas do Jupyter. Utilize um dos dois métodos abaixo para clonar o [repositório do GitHub Machine Learning Sample Notebooks](https://github.com/Azure/MachineLearningNotebooks) (Blocos de Notas de Exemplo de Machine Learning) e execute o bloco de notas `tutorials/01.train-models.ipynb`:
+Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Execute o bloco de notas `01.train-models.ipynb` no Azure Notebooks ou no seu próprio servidor Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial do Azure Machine Learning, utilizou Python para:
+Neste tutorial do serviço do Azure Machine Learning, utilizou o Python para:
 
 > [!div class="checklist"]
 > * Configurar o ambiente de desenvolvimento

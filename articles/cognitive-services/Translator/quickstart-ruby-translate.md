@@ -1,23 +1,23 @@
 ---
-title: Traduzir texto com a Tradução de Texto com o Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode traduzir texto de um idioma para o outro através da API de Texto do Microsoft Translator com o Ruby nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: traduzir texto – Tradução de Texto, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator com o Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: b4d2e04d67fea140148e626ee94b46fdfcd6bac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 38b4ee3a2122e0151490ef1a29ee02d498a06b7d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771202"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126552"
 ---
-# <a name="quickstart-translate-text-with-ruby"></a>Início rápido: traduzir texto com o Ruby
+# <a name="quickstart-translate-text-with-ruby"></a>Guia de Início Rápido: Traduzir texto com o Ruby
 
 Neste guia de introdução, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, irá traduzir texto de um idioma para outro através
 
 Irá precisar do [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="translate-request"></a>Pedido de tradução
 
-O seguinte código traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
+O código seguinte traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
 
 1. Crie um novo projeto do Ruby no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -106,7 +106,7 @@ puts json
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Ruby no GitHub](https://aka.ms/TranslatorGitHub?type=&language=ruby)

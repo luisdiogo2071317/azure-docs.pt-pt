@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 7d951a959da28187a5971ee218f2bd921d331727
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301803"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466035"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Tutorial: Aceder aos dados de pré-visualização do Armazenamento do Azure Data Lake Ger2 com Azure Databricks através do Spark
 
@@ -22,7 +22,6 @@ Neste tutorial, vai aprender a executar consultas de Spark num cluster do Azure 
 > [!div class="checklist"]
 > * Criar um cluster do Databricks
 > * Ingerir dados não estruturados numa conta de armazenamento
-> * Acionar uma Função do Azure para processar dados
 > * Executar a análise nos seus dados no armazenamento de Blobs
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,11 +35,8 @@ Este tutorial demonstra como consumir e consultar dados de voos, disponíveis a 
 
 Para começar, crie uma nova [conta de Armazenamento do Azure Data Lake Ger2](quickstart-create-account.md) e atribua-lhe um nome exclusivo. Em seguida, navegue para a conta de armazenamento para obter as definições de configuração.
 
-> [!IMPORTANT]
-> Durante a Pré-visualização, as Funções do Azure funcionam apenas com contas de Armazenamento do Azure Data Lake Ger2 criadas com um espaço de nomes simples.
-
 1. Em **Definições**, clique em **Chaves de acesso**.
-3. Clique no botão **Copiar** junto a **key1** para copiar o valor da chave.
+2. Clique no botão **Copiar** junto a **key1** para copiar o valor da chave.
 
 O nome e a chave da conta são necessários para passos posteriores neste tutorial. Abra um editor de texto e utilize o nome e a chave da conta para referência futura.
 
@@ -74,7 +70,7 @@ O passo seguinte consiste em criar um [Cluster do Databricks](https://docs.azure
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Copiar dados de origem para a conta de armazenamento
 
-A tarefa seguinte consiste em utilizar o AzCopy para copiar dados do ficheiro *.csv* para o armazenamento do Azure. Abra uma janela da linha de comandos e introduza os comandos seguintes. Certifique-se de que substitui os marcadores de posição `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` e `<ACCOUNT_KEY>` pelos valores correspondentes utilizados num passo anterior.
+A tarefa seguinte consiste em utilizar o AzCopy para copiar dados do ficheiro *.csv* para o armazenamento do Azure. Abra uma janela da linha de comandos e introduza os comandos seguintes. Certifique-se de que substitui os marcadores de posição `<DOWNLOAD_FILE_PATH>` e `<ACCOUNT_KEY>` pelos valores correspondentes utilizados num passo anterior.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -84,7 +80,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Utilize o Databricks Notebook para converter CSV em Parquet
 
-Volte a abrir o Databricks no seu browser e execute os passos seguintes:
+Volte a abrir o Databricks no seu browser e realize os passos seguintes:
 
 1. Selecione **Azure Databricks** na parte superior esquerda da barra de navegação.
 2. Selecione **Bloco de Notas** na secção **Novo** na parte inferior da página.
@@ -159,7 +155,7 @@ Para criar pacotes de dados para as origens de dados, execute o seguinte script:
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

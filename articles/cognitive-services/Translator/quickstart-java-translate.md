@@ -1,37 +1,37 @@
 ---
-title: Tradução de Texto traduzir texto com Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode traduzir texto de um idioma para o outro através da API de Texto do Microsoft Translator com Java nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Traduzir texto – Tradução de Texto, Java'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá traduzir texto de um idioma noutro através da API de Texto do Microsoft Translator com Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: c4c1774d2e02ffa17ee49cc7ff3a2c0d5bf29cb5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 806ab636827d873c5c23e4964492c144d1489a95
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43770727"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126195"
 ---
-# <a name="quickstart-translate-text-with-java"></a>Início rápido: Traduzir texto com Java
+# <a name="quickstart-translate-text-with-java"></a>Guia de Início Rápido: Traduzir texto com Java
 
-Neste início rápido, pode traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
+Neste guia de introdução, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Necessita de [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Pode utilizar um IDE Java, se tiver um favorito, mas um editor de texto também funciona.
+Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Pode utilizar um IDE Java, se tiver um favorito, mas um editor de texto também funciona.
 
-Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="translate-request"></a>Pedido de tradução
 
 O código seguinte traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
 
-1. Crie um novo projeto Java no seu editor de código favorito.
+1. Crie um novo projeto do Java no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -145,7 +145,7 @@ public class Translate {
 
 ## <a name="translate-response"></a>Resposta da tradução
 
-O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
 ```json
 [
@@ -170,7 +170,7 @@ O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo para este início rápido e outros, incluindo a transliteração e a identificação de idioma, assim como os projetos exemplo da Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Java no GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)

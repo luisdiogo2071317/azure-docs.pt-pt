@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104987"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269246"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -39,7 +39,7 @@ O Azure Analysis Services está disponível nos escalões **Programador**, **Bá
 
 ### <a name="developer-tier"></a>Escalão de programador
 
-Este escalão é recomendado para cenários de avaliação, desenvolvimento e teste. Um único plano inclui as mesmas funcionalidades do escalão standard, mas a capacidade de processamento, as QPUs e o tamanho da memória são limitados. O aumento horizontal de réplicas de consultas não está disponível para este escalão. Este escalão não oferece um SLA.
+Este escalão é recomendado para cenários de avaliação, desenvolvimento e teste. Um único plano inclui as mesmas funcionalidades do escalão standard, mas a capacidade de processamento, as QPUs e o tamanho da memória são limitados. O aumento horizontal de réplicas de consultas *não está disponível* para este escalão. Este escalão não oferece um SLA.
 
 |Planear  |QPUs  |Memória (GB)  |
 |---------|---------|---------|
@@ -102,6 +102,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 |Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Leste da Austrália     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |Leste do Japão  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |Oeste da Índia     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -128,7 +129,7 @@ O custo total depende de diversos fatores; por exemplo, a região escolhida, o e
 
 O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Partições, perspetivas, segurança ao nível da linhas, relações bidirecionais e traduções são todas suportadas*. Os modelos multidimensionais e o PowerPivot para o SharePoint *não são* suportados no Azure Analysis Services.
 
-Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte para principal de serviço do Azure, as operações de atualização automática com o PowerShell, TOM, TMSL e REST oferecem flexibilidade e garantem que o seu modelo de dados está sempre atualizado. 
+Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte do principal de serviço do Azure, as operações de atualização automática com o PowerShell, TOM, TMSL e REST oferecem flexibilidade e garantem que o seu modelo de dados está sempre atualizado. 
 
 O modo DirectQuery* tira partido da base de dados relacional de back-end para armazenamento e execução de consultas. Os conjuntos de dados extremamente grandes em origens de dados únicas do SQL Server, SQL Server Data Warehouse, Azure SQL Database, Azure SQL Data Warehouse, Oracle e Teradata são suportados. Os conjuntos de dados de back-end podem ultrapassar a memória dos recursos de servidores disponíveis. Não são necessários cenários complexos de atualização de modelos de dados. Também existem algumas restrições, como os tipos de origens de dados limitados, as limitações às fórmulas DAX e o facto de algumas funcionalidades avançadas de modelação de dados não serem suportadas. Antes de determinar o modo mais adequado para si, veja o [modo do Direct Query](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 

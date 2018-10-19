@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a47beb3e4299c62ec4b7959b4834d0440fee06f7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 17fba267e85c7b1421e632930c8bea2bfaf6ff5f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744590"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736500"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Criar e encaminhar eventos de armazenamento de Blobs com o portal do Azure e o Event Grid
 
@@ -37,7 +37,7 @@ Quando tiver terminado, verá que os dados do evento foram enviados para a aplic
 
    ![Selecionar armazenamento](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Para os eventos, tem de criar uma [conta de armazenamento de Blobs](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou uma [conta de armazenamento de Fins Gerais v2](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Para aplicações que requerem apenas armazenamento de blobs de blocos ou de blobs de acréscimo, recomendamos a utilização das contas de armazenamento de Blobs. Apresenta valores para uma conta do Blob ou StorageV2. Indique um nome único para a conta. Quando terminar de indicar os valores, selecione **Criar**.
+1. Para subscrever eventos, tem de criar uma conta de armazenamento de Blobs ou uma conta de armazenamento de fins gerais v2. Para obter mais informações, veja [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
    ![Passos de início](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

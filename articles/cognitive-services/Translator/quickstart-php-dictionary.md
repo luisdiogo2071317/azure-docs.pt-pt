@@ -1,23 +1,23 @@
 ---
-title: A Tradução de Texto localiza traduções alternativas com o PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com o PHP nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Localizar traduções alternativas – Tradução de Texto, PHP'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com o PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f3f98d42a327602352735db97ad1844061aa3a2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 85b19be02ed019a9834783c8f6c951593e0fd0d5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771090"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123101"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-php"></a>Início rápido: localizar traduções e utilizações alternativas com o PHP
+# <a name="quickstart-find-alternate-translations-and-usage-with-php"></a>Guia de Início Rápido: Localizar traduções e utilizações alternativas com o PHP
 
 Neste guia de introdução, pode encontrar detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, pode encontrar detalhes de possíveis traduções al
 
 Irá precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="dictionary-lookup-request"></a>Pedido de Pesquisa no Dicionário
 
@@ -169,7 +169,7 @@ echo $json;
 
 ## <a name="dictionary-examples-request"></a>Pedido de Exemplos do Dicionário
 
-Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo no dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
+Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo do dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
 
 1. Crie um novo projeto PHP no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -283,7 +283,7 @@ echo $json;
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de PHP no GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)

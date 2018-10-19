@@ -1,51 +1,46 @@
 ---
-title: Imagem de análise de início rápido do Ruby da API de Imagem Digitalizada | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai analisar uma imagem através da Imagem Digitalizada com o Ruby nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Analisar uma imagem remota – REST, Ruby – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá analisar uma imagem através da API de Imagem Digitalizada com o Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 3ce89bf29cc7f1f436e54d398e458f559b79a425
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bf17e8213ad2bbdc793f979471d9861578cac8e2
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771991"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628867"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-ruby"></a>Início rápido: Analisar uma imagem remota - REST, Ruby
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem remota com a API REST e o Ruby na Imagem Digitalizada
 
-Neste início rápido, vai analisar uma imagem para extrair funcionalidades visuais através da Imagem Digitalizada.
+Neste guia de início rápido, vai analisar uma imagem armazenada remotamente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x ou posterior instalado.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Pedido de Análise de Imagem
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), pode extrair funcionalidades visuais com base no conteúdo da imagem. Pode carregar uma imagem ou especificar um URL da imagem e escolher as funcionalidades que deve devolver, incluindo:
+Para criar e executar o exemplo, siga os seguintes passos:
 
-* Uma lista detalhada das etiquetas relacionadas com o conteúdo da imagem.
-* Uma descrição do conteúdo da imagem numa frase completa.
-* As coordenadas, o sexo e a idade de qualquer rosto que a imagem contenha.
-* O ImageType (ClipArt ou um desenho de linha).
-* A cor dominante, a cor de destaque ou se uma imagem é a preto e branco.
-* A categoria definida nesta [taxonomia](../Category-Taxonomy.md).
-* A imagem contém conteúdo para adultos ou é sexualmente sugestiva?
-
-Para executar o exemplo, siga os passos seguintes:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uri` para a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere o idioma de resposta (`'language' => 'en'`).
-1. Opcionalmente, altere a imagem (`{\"url\":\"...`) para analisar.
-1. Guarde o ficheiro com uma extensão `.rb`.
-1. Abra a Linha de Comandos do Ruby e execute o ficheiro, por exemplo: `ruby myfile.rb`.
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua `<Subscription Key>` pela sua chave de subscrição.
+    1. Substitua `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` pelo URL de ponto final do método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor do parâmetro de pedido `language` por um idioma diferente. 
+    1. Opcionalmente, substitua `http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\` pelo URL de uma imagem diferente que pretende analisar.
+1. Guarde o código como um ficheiro com uma extensão `.rb`. Por exemplo, `analyze-image.rb`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `ruby` para executar o exemplo. Por exemplo, `ruby analyze-image.rb`.
 
 ```ruby
 require 'net/http'
@@ -78,9 +73,9 @@ end
 puts response.body
 ```
 
-## <a name="analyze-image-response"></a>Resposta de Análise de Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -183,9 +178,13 @@ O JSON devolve uma resposta de êxito, por exemplo:
 
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar do ficheiro, elimine-o.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

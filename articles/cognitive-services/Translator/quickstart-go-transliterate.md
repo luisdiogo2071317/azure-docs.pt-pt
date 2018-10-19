@@ -1,21 +1,21 @@
 ---
-title: A Tradução de Texto converte o script de texto com Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste guia de introdução, pode converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com o Go nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, Go'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: f01fe38ef0605ad399edc03b52dc5b8ecc75275b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c4930e03f5d366eb3f21b44c5be90c20230065c3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771300"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126756"
 ---
 # <a name="quickstart-transliterate-text-with-go"></a>Guia de introdução: transliterar texto com o Go
 
@@ -25,7 +25,7 @@ Neste guia de introdução, irá converter texto de um idioma de um script para 
 
 Terá de instalar a [distribuição do Go](https://golang.org/doc/install) para executar este código. O código de exemplo utiliza apenas bibliotecas **principais**, pelo que não há dependências externas.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 

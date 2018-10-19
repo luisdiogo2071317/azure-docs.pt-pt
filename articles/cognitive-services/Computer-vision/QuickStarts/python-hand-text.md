@@ -1,49 +1,52 @@
 ---
-title: Início rápido de texto manuscrito através da Imagem Digitalizada com Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá extrair texto manuscrito de uma imagem através da Imagem Digitalizada com Python nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Extrair texto manuscrito – REST, Python – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 43b541daf8632af7fb8111886b53981c4c646772
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 91cff6205af70968b6397af9756a5385ddb0c989
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771963"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631366"
 ---
-# <a name="quickstart-extract-handwritten-text---rest-python"></a>Início rápido: Extrair texto manuscrito – REST, Python
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Guia de Início Rápido: Extrair texto manuscrito com a API REST e o Python na Imagem Digitalizada
 
-Neste início rápido, irá extrair texto manuscrito de uma imagem através da Imagem Digitalizada.
+Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API REST de Imagem Digitalizada. Com os métodos [Reconhecimento de Texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Obter Resultado da Operação de Reconhecimento de Texto), pode detetar texto manuscrito numa imagem e, em seguida, extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
+
+> [!IMPORTANT]
+> Ao contrário do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), o método [Reconhecimento de Texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) é executado de forma assíncrona. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em alternativa, o método Reconhecimento de Texto devolve um URI no valor do campo de cabeçalho de resposta `Operation-Content`. Em seguida, pode chamar este URI, que representa o método [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Obter Resultado da Operação de Reconhecimento de Texto), para verificar o estado e devolver os resultados da chamada do método Reconhecimento de Texto.
 
 Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="extract-handwritten-text"></a>Extrair texto manuscrito
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com os métodos de [Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e [Obter Resultado da Operação de Reconhecimento de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), pode detetar texto manuscrito numa imagem e extrair os carateres reconhecidos para um fluxo de carateres utilizável pelos computadores.
+Para criar e executar o exemplo, siga os seguintes passos:
 
-Para executar o exemplo, siga os passos seguintes:
-
-1. Copie o código seguinte para um novo ficheiro de script do Python.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `vision_base_url` para a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere o valor `image_url` para outra imagem.
-1. Execute o script.
-
-O código seguinte utiliza a biblioteca `requests` do Python para chamar a API de Análise de Imagem de Imagem Digitalizada. Devolve os resultados como um objeto JSON. A chave de API é passada pelo dicionário `headers`.
-
-## <a name="recognize-text-request"></a>Pedido de Reconhecimento de Texto
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscription_key` pela chave de subscrição.
+    1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente da qual pretende extrair texto manuscrito.
+1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `get-handwritten-text.py`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python get-handwritten-text.py`.
 
 ```python
 import requests
@@ -122,9 +125,9 @@ for polygon in polygons:
 _ = plt.axis("off")
 ```
 
-## <a name="recognize-text-response"></a>Resposta de Reconhecimento de Texto
+## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -402,9 +405,13 @@ O JSON devolve uma resposta de êxito, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar do ficheiro, elimine-o.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python de API de Imagem Digitalizada](../Tutorials/PythonTutorial.md)

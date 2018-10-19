@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f3f5b656b4c90c3b39fc317160eea7ce8fea25ff
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354398"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409735"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -3938,16 +3938,16 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.OperationsManagement/managementAssociations/delete | Eliminar a associação de gestão existente |
-> | Ação | Microsoft.OperationsManagement/managementAssociations/read | Obtenha a associação de gestão existente |
-> | Ação | Microsoft.OperationsManagement/managementAssociations/write | Criar uma nova associação de gestão |
-> | Ação | Microsoft.OperationsManagement/managementConfigurations/delete | Eliminar a configuração de gestão existente |
-> | Ação | Microsoft.OperationsManagement/managementConfigurations/read | Obter configuração de gestão existente |
-> | Ação | Microsoft.OperationsManagement/managementConfigurations/write | Criar uma nova configuração de gestão |
+> | Ação | Microsoft.OperationsManagement/managementAssociations/delete | Elimine a associação de gestão existente. |
+> | Ação | Microsoft.OperationsManagement/managementAssociations/read | Obtenha a associação de gestão existente. |
+> | Ação | Microsoft.OperationsManagement/managementAssociations/write | Crie uma nova associação de gestão. |
+> | Ação | Microsoft.OperationsManagement/managementConfigurations/delete | Elimine a configuração de gestão existente. |
+> | Ação | Microsoft.OperationsManagement/managementConfigurations/read | Obter configuração de gestão existente. |
+> | Ação | Microsoft.OperationsManagement/managementConfigurations/write | Crie uma nova configuração de gestão. |
 > | Ação | Microsoft.OperationsManagement/register/action | Registe uma subscrição de um fornecedor de recursos. |
-> | Ação | Microsoft.OperationsManagement/solutions/delete | Eliminar a solução de OMS existente |
-> | Ação | Microsoft.OperationsManagement/solutions/read | Obter a solução de OMS a sair |
-> | Ação | Microsoft.OperationsManagement/solutions/write | Criar nova solução OMS |
+> | Ação | Microsoft.OperationsManagement/solutions/delete | Elimine existente a solução de monitorização. |
+> | Ação | Microsoft.OperationsManagement/solutions/read | Obter a solução de monitorização a sair. |
+> | Ação | Microsoft.OperationsManagement/solutions/write | Crie nova solução de monitorização. |
 
 ## <a name="microsoftpolicyinsights"></a>Policyinsights
 

@@ -1,58 +1,53 @@
 ---
-title: Início rápido de análise de uma imagem local da API de Imagem Digitalizada com o cURL | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai analisar uma imagem local através da Imagem Digitalizada com o cURL nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Analisar uma imagem local – REST, cURL – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá analisar uma imagem local através da API de Imagem Digitalizada com o cURL.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 93ca3ea6eee3743dfd0c25c9514375ae63a531ee
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1952d0045550362a242ce1c105c58bd65c815ea6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772411"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631247"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-curl"></a>Início Rápido: Analisar uma imagem local – REST, cURL
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem local com a API REST e o cURL na Imagem Digitalizada
 
-Neste início rápido, vai analisar uma imagem local para extrair capacidades visuais através da Imagem Digitalizada. Para analisar uma imagem remota, veja [Analyze a remote image with cURL](curl-analyze.md) (Analisar uma imagem remota com o cURL).
+Neste guia de início rápido, irá analisar uma imagem armazenada localmente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obter Chaves de Subscrição).
+- Tem de ter o [cURL](https://curl.haxx.se/windows).
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-local-image"></a>Analisar uma imagem local
+## <a name="create-and-run-the-sample-command"></a>Criar e executar o comando de exemplo
 
-Este exemplo é semelhante a [Analyze a remote image with cURL](curl-analyze.md) (Analisar uma imagem remota com o cURL), exceto o facto de a imagem a analisar ser lida localmente a partir do disco. São necessárias três alterações:
+Para criar e executar o exemplo, siga os seguintes passos:
 
-- Altere o Content-Type para `"Content-Type: application/octet-stream"`.
-- Altere o parâmetro `-d` para `--data-binary`.
-- Especifique a imagem a analisar com a seguinte sintaxe: `@C:/Pictures/ImageToAnalyze.jpg`.
+1. Copie o comando seguinte para um editor de texto.
+1. Faça as alterações seguintes ao comando, se for necessário:
+    1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
+    1. Substitua o URL do pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) pelo URL de ponto final do método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Substitua o valor de `<localImage>` pelo nome do ficheiro e o caminho completo da imagem a ser analisada. Por exemplo, `@C:/Pictures/ImageToAnalyze.jpg`.
+    1. Opcionalmente, altere o parâmetro de idioma do URL do pedido (`language=en`) para utilizar um idioma suportado diferente.
+1. Abra uma janela da linha de comandos.
+1. Cole o comando a partir do editor de texto na janela da linha de comandos e, em seguida, execute o comando.
 
-Para executar o exemplo, siga os seguintes passos:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o URL do Pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) para utilizar a localização onde obteve as suas chaves de subscrição, se assim for preciso.
-1. Substitua `<Image To Analyze>` pela imagem local que pretende analisar.
-1. Opcionalmente, altere o idioma de resposta (`language=en`).
-1. Abra uma janela de comando num computador com o cURL instalado.
-1. Cole o código na janela e execute o comando.
-
->[!NOTE]
->Tem de utilizar na sua chamada REST a mesma localização que utilizou para obter as chaves de subscrição. Por exemplo, se tiver obtido as chaves de subscrição a partir de westus, substitua "westcentralus" no URL abaixo por "westus".
-
-```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary <Image To Analyze>
+```console
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
-## <a name="analyze-image-response"></a>Analisar a resposta da Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-É devolvida uma resposta com êxito em JSON, por exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -110,9 +105,13 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: applic
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, feche a janela da linha de comandos e o editor de texto.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as APIs de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e paisagens, criar uma miniatura e extrair texto manuscrito e impresso. Para experimentar rapidamente as APIs de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar APIs de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

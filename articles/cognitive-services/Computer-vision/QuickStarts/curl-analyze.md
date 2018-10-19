@@ -1,64 +1,53 @@
 ---
-title: Início rápido análise de uma imagem remota da API de Imagem Digitalizada com cURL | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai analisar uma imagem remota através da Imagem Digitalizada com cURL nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Analisar uma imagem remota – REST, cURL – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá analisar uma imagem remota através da API de Imagem Digitalizada com o cURL.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: c092432adbcba9cf7a131584131fd05991d1edef
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 51122da84e3845bba4919e4f2b2e46d513bbb3f4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772278"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633491"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-curl"></a>Início Rápido: Analisar uma imagem remota – REST, cURL
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem remota com a API REST e o cURL na Imagem Digitalizada
 
-Neste início rápido, vai analisar uma imagem remota para extrair funcionalidades visuais através da Imagem Digitalizada. Para analisar uma imagem local, consulte [Analisar uma imagem local com o cURL](curl-disk.md).
+Neste guia de início rápido, vai analisar uma imagem armazenada remotamente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [cURL](https://curl.haxx.se/windows).
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-remote-image"></a>Analisar uma imagem remota
+## <a name="create-and-run-the-sample-command"></a>Criar e executar o comando de exemplo
 
-Com o [método Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), pode extrair funcionalidades visuais com base no conteúdo da imagem. Pode carregar uma imagem ou especificar um URL da imagem e escolher as funcionalidades que deve devolver, incluindo:
+Para criar e executar o exemplo, siga os seguintes passos:
 
-* Uma lista detalhada das etiquetas relacionadas com o conteúdo da imagem.
-* Uma descrição do conteúdo da imagem numa frase completa.
-* As coordenadas, o sexo e a idade de qualquer rosto que a imagem contenha.
-* O ImageType (ClipArt ou um desenho de linha).
-* A cor dominante, a cor de destaque ou se uma imagem é a preto e branco.
-* A categoria definida nesta [taxonomia](../Category-Taxonomy.md).
-* A imagem contém conteúdo para adultos ou é sexualmente sugestiva?
+1. Copie o comando seguinte para um editor de texto.
+1. Faça as alterações seguintes ao comando, se for necessário:
+    1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
+    1. Substitua o URL do pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) pelo URL de ponto final do método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, altere o parâmetro de idioma do URL do pedido (`language=en`) para utilizar um idioma suportado diferente.
+    1. Opcionalmente, altere o URL da imagem no corpo do pedido (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) pelo URL de uma imagem diferente a ser analisada.
+1. Abra uma janela da linha de comandos.
+1. Cole o comando a partir do editor de texto na janela da linha de comandos e, em seguida, execute o comando.
 
-Para executar o exemplo, siga os passos seguintes:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o URL de Pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) para utilizar a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere a imagem (`{\"url\":\"...`) para analisar.
-1. Opcionalmente, altere o idioma de resposta (`language=en`).
-1. Abra uma janela de comando num computador com o cURL instalado.
-1. Cole o código na janela e execute o comando.
-
->[!NOTE]
->Tem de utilizar na sua chamada REST a mesma localização que utilizou para obter as chaves de subscrição. Por exemplo, se tiver obtido as chaves de subscrição a partir de westus, substitua "westcentralus" no URL abaixo por "westus".
-
-## <a name="analyze-image-request"></a>Pedido de Análise de Imagem
-
-```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+```console
+curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
 
-## <a name="analyze-image-response"></a>Resposta de Análise de Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -116,9 +105,13 @@ O JSON devolve uma resposta de êxito, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, feche a janela da linha de comandos e o editor de texto.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

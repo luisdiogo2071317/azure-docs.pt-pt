@@ -1,33 +1,31 @@
 ---
-title: Submeter um fluxo de trabalho com uma SAS em vez de uma chave de conta de armazenamento | Microsoft Docs
+title: Submeter um fluxo de trabalho com uma SAS em vez de uma chave de conta de armazenamento – Microsoft Genomics
 titleSuffix: Azure
 description: O início rápido pressupõe que tem o cliente msgen instalado e os dados de exemplo foram executados com êxito através do serviço.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177219"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733502"
 ---
-# <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>Submeter um fluxo de trabalho com uma SAS em vez de uma chave de conta de armazenamento
+# <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Submeter um fluxo de trabalho ao Microsoft Genomics com uma SAS em vez de uma chave de conta de armazenamento 
 
-Este início rápido demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics utilizando um ficheiro config.txt que contém [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), em vez de chaves da conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se tiver submetido um fluxo de trabalho com êxito com os dados de exemplo fornecidos, está pronto para continuar este início rápido. 
+Este início rápido demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics com um ficheiro config.txt que contém [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se tiver submetido um fluxo de trabalho com êxito com os dados de exemplo fornecidos, está pronto para continuar este início rápido. 
 
 ## <a name="what-is-a-sas"></a>O que é uma SAS?
 As [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) disponibilizam acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder acesso a recursos na sua conta de armazenamento sem partilhar as chaves da conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
 
-A SAS que for submetida ao Microsoft Genomics deve ser um [serviço SAS](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS) que delega o acesso apenas ao blob ou contentor onde estão armazenados os ficheiros de entrada e de saída. 
+A SAS que for submetida ao Microsoft Genomics deve ser uma [SAS de Serviço](https://docs.microsoft.com/rest/api/storageservices/Constructing-a-Service-SAS) que delega o acesso apenas ao blob ou contentor onde estão armazenados os ficheiros de entrada e de saída. 
 
-O URI de um token de assinatura de acesso partilhado (SAS) ao nível de serviço é constituído pelo URI do recurso para o qual a SAS irá delegar o acesso, seguido do token SAS. O token SAS é a cadeia de consulta que inclui todas as informações necessárias para autenticar a SAS, bem como especificar os recursos, as permissões disponíveis para acesso, o intervalo de tempo durante o qual a assinatura é válida, o endereço IP suportado ou o intervalo de endereços do qual os pedidos podem ter origem, o protocolo suportado com o qual pode ser feito um pedido, um identificador de política de acesso opcional associado ao pedido e a própria assinatura. 
+O URI de um token de assinatura de acesso partilhado (SAS) ao nível de serviço é constituído pelo URI do recurso para o qual a SAS irá delegar o acesso, seguido do token SAS. O token SAS é a cadeia de consulta que inclui todas as informações necessárias para autenticar a SAS, bem como para especificar os recursos, as permissões disponíveis para acesso, o intervalo de tempo durante o qual a assinatura é válida, o endereço IP suportado ou o intervalo de endereços a partir dos quais os pedidos podem ter origem, o protocolo suportado com o qual pode ser feito um pedido, um identificador de política de acesso opcional associado ao pedido e a própria assinatura. 
 
 ## <a name="sas-needed-for-submitting-a-workflow-to-the-microsoft-genomics-service"></a>SAS necessária para submeter um fluxo de trabalho para o serviço Microsoft Genomics
 São necessários dois ou mais tokens SAS para cada fluxo de trabalho que for submetido ao serviço Microsoft Genomics, um para cada ficheiro de entrada e outro para o contentor de saída.
@@ -60,7 +58,7 @@ A SAS para os ficheiros de entrada deve ser confinada ao ficheiro de entrada esp
 
 Para criar uma SAS com o SDK do Armazenamento do Azure, consulte a documentação existente em várias linguagens, incluindo [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage#work-with-shared-access-signatures). 
 
-Para criar uma SAS sem um SDK, a cadeia de consulta SAS pode ser construída diretamente, incluindo todas as informações necessárias para autenticar a SAS. Estas [instruções](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) descrevem mais pormenorizadamente os componentes da cadeia de consulta SAS e como construi-la. A assinatura SAS necessária é criada através da geração de um HMAC, utilizando as informações de autenticação de blob/contentor, conforme descrito nestas [instruções](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
+Para criar uma SAS sem um SDK, a cadeia de consulta SAS pode ser construída diretamente, incluindo todas as informações necessárias para autenticar a SAS. Estas [instruções](https://docs.microsoft.com/rest/api/storageservices/constructing-a-service-sas) descrevem mais pormenorizadamente os componentes da cadeia de consulta SAS e como construí-la. A assinatura SAS necessária é criada através da geração de um HMAC, utilizando as informações de autenticação de blob/contentor, conforme descrito nestas [instruções](https://docs.microsoft.com/rest/api/storageservices/service-sas-examples).
 
 
 ## <a name="add-the-sas-to-the-configtxt-file"></a>Adicionar a SAS ao ficheiro config.txt
@@ -68,7 +66,7 @@ Para executar um fluxo de trabalho através do serviço Microsoft Genomics com u
 
 ![Configuração da SAS do Genomics](./media/quickstart-input-sas/genomics-sas-config.png "Configuração da SAS do Genomics")
 
-Utilize o cliente Python da Microsoft Genomics para submeter o seu fluxo de trabalho com o comando seguinte, anexando a cadeia de consulta SAS correspondente a cada um dos nomes dos blobs de entrada:
+Utilize o cliente Python do Microsoft Genomics para submeter o seu fluxo de trabalho com o comando seguinte, anexando a cadeia de consulta SAS correspondente a cada um dos nomes dos blobs de entrada:
 
 ```python
 msgen submit -f [full path to your config file] -b1 [name of your first paired end read file, SAS query string appended] -b2 [name of your second paired end read file, SAS query string appended]

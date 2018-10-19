@@ -1,42 +1,45 @@
 ---
-title: Início rápido sobre o OCR da API de Imagem Digitalizada com o Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá extrair texto impresso de uma imagem através da Imagem Digitalizada com o Ruby nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Extrair texto impresso (OCR) – REST, Ruby – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 4f381444401718906bb352860aec525d73da1eb2
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d222615e3c6a884fa77f34dd1f87c3211f631c39
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772404"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629531"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-ruby"></a>Início rápido: extrair texto impresso (OCR) – REST, Ruby
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-ruby-in-computer-vision"></a>Guia de Início Rápido: Extrair texto impresso (OCR) com a API REST e o Ruby na Imagem Digitalizada
 
-Neste início rápido, irá extrair texto impresso, também conhecido como reconhecimento ótico de carateres (OCR), de uma imagem com a Imagem Digitalizada.
+Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obter Chaves de Subscrição).
+- Tem de ter o [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x ou posterior instalado.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Pedido de OCR
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
+Para criar e executar o exemplo, siga os seguintes passos:
 
-Para executar o exemplo, siga os seguintes passos:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uri` para a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere a imagem (`{\"url\":\"...`) a analisar.
-1. Guarde o ficheiro com uma extensão `.rb`.
-1. Abra a Linha de Comandos do Ruby e execute o ficheiro, por exemplo: `ruby myfile.rb`.
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua `<Subscription Key>` pela sua chave de subscrição.
+    1. Substitua `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr` pelo URL de ponto final do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua `https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\` pelo URL de uma imagem diferente da qual pretende extrair texto impresso.
+1. Guarde o código como um ficheiro com uma extensão `.rb`. Por exemplo, `get-printed-text.rb`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `ruby` para executar o exemplo. Por exemplo, `ruby get-printed-text.rb`.
 
 ```ruby
 require 'net/http'
@@ -69,9 +72,9 @@ end
 puts response.body
 ```
 
-## <a name="ocr-response"></a>Resposta de OCR
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Após a conclusão bem-sucedida, os resultados do OCR devolvidos incluem texto, uma caixa delimitadora para regiões, linhas e palavras, por exemplo:
+O JSON devolve uma resposta de êxito. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -139,9 +142,13 @@ Após a conclusão bem-sucedida, os resultados do OCR devolvidos incluem texto, 
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar do ficheiro, elimine-o.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as APIs de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e paisagens, criar uma miniatura e extrair texto manuscrito e impresso. Para experimentar rapidamente as APIs de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar APIs de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

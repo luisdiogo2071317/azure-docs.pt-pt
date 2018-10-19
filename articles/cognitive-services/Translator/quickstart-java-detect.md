@@ -1,37 +1,37 @@
 ---
-title: A Tradução de Texto identifica o idioma do texto com Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com Java nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Identificar o idioma do texto – Tradução de Texto, Java'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: bf7d10e447fa536a4ff4310bacc14729f3c6b3b1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 244ba0bb3836923536cd77fa697b4250f751668e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43770732"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129425"
 ---
-# <a name="quickstart-identify-language-from-text-with-java"></a>Início Rápido: identificar o idioma do texto com Java
+# <a name="quickstart-identify-language-from-text-with-java"></a>Guia de Início Rápido: Identificar o idioma do texto com Java
 
-Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
+Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Pode utilizar um IDE Java, se tiver um favorito, mas um editor de texto também funciona.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="detect-request"></a>Pedido de deteção
 
 O código seguinte identifica o idioma do texto de origem com o método [Detetar](./reference/v3-0-detect.md).
 
-1. Crie um novo projeto de Java no seu editor de código favorito.
+1. Crie um novo projeto do Java no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -171,7 +171,7 @@ public class Detect {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos de Java no GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+> [Explorar exemplos do Java no GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)

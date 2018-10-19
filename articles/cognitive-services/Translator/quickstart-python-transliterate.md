@@ -1,23 +1,23 @@
 ---
-title: Converter texto de script com a Tradução de Texto com o Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com o Python nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, Python'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá converter texto de um idioma de um script noutro através da API de Texto do Microsoft Translator com o Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 41fb0f72c5974a1ab034680a820dca6aa7bbdc6d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770887"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122116"
 ---
-# <a name="quickstart-transliterate-text-with-python"></a>Início Rápido: Transliterar texto com o Python
+# <a name="quickstart-transliterate-text-with-python"></a>Guia de Início Rápido: Transliterar texto com o Python
 
 Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
@@ -25,13 +25,13 @@ Neste guia de introdução, irá converter texto de um idioma de um script para 
 
 Irá precisar do [Python 3.X](https://www.python.org/downloads/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 
 Os passos seguintes convertem texto num idioma de um script para outro script com o método [Transliteração](./reference/v3-0-transliterate.md).
 
-1. Crie um novo projeto de Python no seu editor de código favorito.
+1. Crie um novo projeto do Python no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.

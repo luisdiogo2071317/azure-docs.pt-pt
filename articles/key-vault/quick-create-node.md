@@ -8,32 +8,32 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023225"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714399"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do Node 
 
-Este início rápido mostra-lhe como armazenar um segredo num cofre de chaves e como utilizar uma aplicação Web para obtê-lo. Para ver o valor secreto, teria de executar isto no Azure. O início rápido utiliza Node.js e identidades de serviço geridas (MSIs)
+Este início rápido mostra-lhe como armazenar um segredo num cofre de chaves e como utilizar uma aplicação Web para obtê-lo. Para ver o valor secreto, teria de executar isto no Azure. O início rápido utiliza o Node.js e identidades geridas para os recursos do Azure.
 
 > [!div class="checklist"]
 > * Criar um Key Vault.
 > * Armazene um segredo no Key Vault.
 > * Obter um segredo do Cofre de Chaves.
 > * Criar uma aplicação Web do Azure.
-> * [Ativar as identidades de serviço geridas](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview).
+> * Ative uma [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) para a aplicação Web.
 > * Conceda as permissões exigidas para a aplicação ler dados do Cofre de chaves.
 
 Antes de avançar, confirme que está familiarizado com os [conceitos básicos](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
-Para compreender o motivo do tutorial abaixo, precisamos de compreender alguns conceitos. O Key Vault é um repositório central para armazenar segredos de forma programática. Mas para tal, primeiro as aplicações/utilizadores têm de autenticar para o Key Vault, ou seja, apresentar um segredo. Para seguir as melhores práticas de segurança, este primeiro segredo também tem de ser trocado periodicamente. Mas com aplicações de [Identidade de Serviço Gerida](../active-directory/managed-service-identity/overview.md) executadas no Azure, é dada uma identidade que é gerida automaticamente pelo Azure. Isto ajuda a resolver o **Problema de Introdução do Segredo**, onde os utilizadores/aplicações podem seguir as melhores práticas e não precisa de se preocupar sobre trocar o primeiro segredo
+Para compreender o motivo do tutorial abaixo, precisamos de compreender alguns conceitos. O Key Vault é um repositório central para armazenar segredos de forma programática. Mas para tal, primeiro as aplicações/utilizadores têm de autenticar para o Key Vault, ou seja, apresentar um segredo. Para seguir as melhores práticas de segurança, este primeiro segredo também tem de ser trocado periodicamente. Mas com aplicações de [identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) executadas no Azure, é dada uma identidade que é gerida automaticamente pelo Azure. Isto ajuda a resolver o **Problema de Introdução do Segredo**, onde os utilizadores/aplicações podem seguir as melhores práticas e não precisa de se preocupar sobre trocar o primeiro segredo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -150,15 +150,15 @@ Os passos que temos de seguir estão abaixo
     O comando anterior também cria uma aplicação ativada para Git, o que lhe permite implementar no Azure a partir do seu git local. 
     O git local está configurado com o URL “https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git”
 
-- Criar um utilizador de implementação Após a conclusão do comando anterior, pode adicionar um Azure remoto ao seu repositório local do Git. Substitua <url> pelo URL do Git remoto que obteve em Ativar Git para a sua aplicação.
+- Crie um utilizador de implementação. Após a conclusão do comando anterior, pode adicionar um Azure remoto ao seu repositório de Git local. Substitua <url> pelo URL do Git remoto que obteve em Ativar Git para a sua aplicação.
 
     ```
     git remote add azure <url>
     ```
 
-## <a name="enable-managed-service-identity"></a>Ativar a Identidade de Serviço Gerida
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Ativar uma identidade gerida para a aplicação Web
 
-O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A Identidade de Serviço Gerida (MSI) simplifica a resolução deste problema ao dar aos serviços do Azure uma identidade gerida automaticamente no Azure Active Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
+O Azure Key Vault oferece uma forma de armazenar credenciais e outras chaves e segredos em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. A [descrição geral das identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) simplifica a resolução deste problema ao conferir aos serviços do Azure uma identidade gerida automaticamente no Microsoft Azure Active Directory (Microsoft Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.
 
 Execute o comando assign-identity para criar a identidade para esta aplicação:
 
@@ -166,7 +166,7 @@ Execute o comando assign-identity para criar a identidade para esta aplicação:
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-Este comando é o equivalente a ir para o portal e mudar a **Identidade do serviço gerido** para **Ativada** nas propriedades da aplicação Web.
+Este comando é o equivalente a aceder ao portal e mudar a definição **Identidade/Sistema atribuído** para **Ativado** nas propriedades da aplicação Web.
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Atribuir permissões à sua aplicação para ler segredos do Cofre de Chaves
 

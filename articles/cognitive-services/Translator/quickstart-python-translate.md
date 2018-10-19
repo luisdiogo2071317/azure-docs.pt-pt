@@ -1,37 +1,37 @@
 ---
-title: Tradução de Texto traduzir texto com o Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode traduzir texto de um idioma para o outro através da API de Texto do Microsoft Translator com Python nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Traduzir texto – Tradução de Texto, Python'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator com Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 8f70ffb77e21131990d6b77a1cb13c9d5c054d06
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: cd1941c0a815d959f3e2e98fdd809062f4e01014
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770860"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129204"
 ---
-# <a name="quickstart-translate-text-with-python"></a>Início rápido: Traduzir texto com Python
+# <a name="quickstart-translate-text-with-python"></a>Guia de Início Rápido: Traduzir texto com Python
 
-Neste início rápido, pode traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
+Neste guia de introdução, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Necessita do [Python 3.x](https://www.python.org/downloads/) para executar este código.
+Irá precisar do [Python 3.X](https://www.python.org/downloads/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="translate-request"></a>Pedido de tradução
 
 O código seguinte traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
 
-1. Crie um novo projeto do Python no seu editor de código preferido.
+1. Crie um novo projeto do Python no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -85,7 +85,7 @@ print (output)
 
 ## <a name="translate-response"></a>Resposta da tradução
 
-O JSON devolve uma resposta com êxito, tal como é apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
 ```json
 [
@@ -110,7 +110,7 @@ O JSON devolve uma resposta com êxito, tal como é apresentado no exemplo segui
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo para este início rápido e outros, incluindo a transliteração e a identificação de idioma, assim como os projetos exemplo da Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Python no GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)

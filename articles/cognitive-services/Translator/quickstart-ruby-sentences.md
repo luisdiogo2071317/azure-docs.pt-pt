@@ -1,23 +1,23 @@
 ---
-title: Utilizar a Tradução de Texto para calcular o comprimento de frases com o Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode calcular o comprimento de frases no texto através da API de Texto do Microsoft Translator com Ruby nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Obter o comprimento de frases – Tradução de Texto, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 3a4fc999961e06b084a0d7da42ed5576962e5722
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a39982555b281cfe0537a0033c9a67a7f5a1fe63
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771043"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122574"
 ---
-# <a name="quickstart-get-sentence-lengths-with-ruby"></a>Início rápido: obter o comprimento de frases com Ruby
+# <a name="quickstart-get-sentence-lengths-with-ruby"></a>Guia de Início Rápido: Obter o comprimento de frases com Ruby
 
 Neste guia de introdução, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, encontrará o comprimento de frases no texto atravé
 
 Irá precisar do [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>Pedido de BreakSentence
 
-O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md) (Separar Frase).
+O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md).
 
 1. Crie um novo projeto do Ruby no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -98,7 +98,7 @@ puts json
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Ruby no GitHub](https://aka.ms/TranslatorGitHub?type=&language=ruby)

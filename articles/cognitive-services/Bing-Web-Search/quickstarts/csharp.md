@@ -1,19 +1,21 @@
 ---
-title: 'Início rápido: Utilizar o C# para chamar a API de Pesquisa na Web do Bing'
+title: 'Guia de Início Rápido: Efetuar uma pesquisa com o C# – API de Pesquisa na Web do Bing'
+titleSuffix: Azure Cognitive Services
 description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do C# e receber uma resposta JSON.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 9db551f89a3b7834119fe85a22e4cdc8d0402252
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7f0555a9bb655109ff8786d3a0873d997d715477
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888513"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124767"
 ---
 # <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o C# para chamar a API de Pesquisa na Web do Bing  
 
@@ -23,7 +25,7 @@ Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão algumas coisas de que precisará antes de executar este início rápido:
+Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * Linux/macOS: [Mono](http://www.mono-project.com/)  

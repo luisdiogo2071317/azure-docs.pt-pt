@@ -1,44 +1,46 @@
 ---
-title: Início rápido de OCR da API de Imagem Digitalizada com Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, irá extrair texto impresso de uma imagem através da Imagem Digitalizada com Go nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Extrair texto impresso (OCR) – REST, Go – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: b0de66e31c3537198831dd0f31590dbaf3fda89b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 459b53dbde08e2729951249e984f075449943e31
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772194"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629581"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-go"></a>Início Rápido: Extrair texto impresso (OCR) – REST, Go
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Guia de Início Rápido: Extrair texto impresso (OCR) com a API REST e o Go na Imagem Digitalizada
 
-Neste início rápido, irá extrair texto impresso, também denominado reconhecimento ótico de carateres (OCR), de uma imagem através da Imagem Digitalizada.
+Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Go](https://golang.org/dl/) instalado.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Pedido de OCR
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
+Para criar e executar o exemplo, siga os seguintes passos:
 
-Para executar o exemplo, siga os passos seguintes:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uriBase` para a localização na qual obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere o valor `imageUrl` para a imagem que pretende analisar.
-1. Guarde o ficheiro com uma extensão `.go`.
-1. Abra uma linha de comandos num computador com o Go instalado.
-1. Crie o ficheiro, por exemplo: `go build get-printed-text.go`.
-1. Execute o ficheiro, por exemplo: `get-printed-text`.
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
+    1. Substitua o valor de `uriBase` pelo URL de ponto final do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `imageUrl` pelo URL de uma imagem diferente que pretende analisar.
+1. Guarde o código como um ficheiro com uma extensão `.go`. Por exemplo, `get-printed-text.go`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, execute o comando `go build` para compilar o pacote a partir do ficheiro. Por exemplo, `go build get-printed-text.go`.
+1. Na linha de comandos, execute o pacote compilado. Por exemplo, `get-printed-text`.
 
 ```go
 package main
@@ -53,12 +55,17 @@ import (
 )
 
 func main() {
-    // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+    // Replace <Subscription Key> with your valid subscription key.
     const subscriptionKey = "<Subscription Key>"
 
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
+    //
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
@@ -110,9 +117,9 @@ func main() {
 }
 ```
 
-## <a name="ocr-response"></a>Resposta de OCR
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Após a conclusão com êxito, os resultados do OCR devolvidos incluem texto, caixa delimitadora para regiões, linhas e palavras, por exemplo:
+O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -213,9 +220,13 @@ Após a conclusão com êxito, os resultados do OCR devolvidos incluem texto, ca
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o pacote compilado e o ficheiro a partir do qual o pacote foi compilado e, em seguida, feche a janela da linha de comandos e o editor de texto.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

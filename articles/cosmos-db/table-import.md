@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186835"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247514"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migre os dados para a conta da API de Tabela do Azure Cosmos DB
 
@@ -30,7 +30,9 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Débito aumentado: a duração da migração de dados depende da quantidade de débito que configurou para um contentor individual ou um conjunto de contentores. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, veja os níveis de Desempenho e escalões de preço do Azure Cosmos DB.
+* **Aumentar débito:** a duração da migração de dados depende da quantidade de débito que configurou para um contentor individual ou um conjunto de contentores. Aumente o débito para migrações de dados maiores. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito no portal do Azure, veja os níveis de Desempenho e escalões de preço do Azure Cosmos DB.
+
+* **Criar recursos do Azure Cosmos DB:** antes de começar a migração de dados, crie previamente todas as suas tabelas no portal do Azure. Se estiver a migrar para uma conta do Azure Cosmos DB com débito ao nível da base de dados, confirme que proporciona uma chave de partição quando criar as tabelas do Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Ferramenta de Migração de Dados
 

@@ -1,23 +1,23 @@
 ---
-title: Utilizar a Tradução de Texto para converter script de texto com Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido pode converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com Ruby nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com o Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 56872ed6b6d7168fb1bf2c45de8104a592af34e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771169"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121758"
 ---
-# <a name="quickstart-transliterate-text-with-ruby"></a>Início rápido: transliterar texto com Ruby
+# <a name="quickstart-transliterate-text-with-ruby"></a>Guia de Início Rápido: Transliterar texto com Ruby
 
 Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, irá converter texto de um idioma de um script para 
 
 Irá precisar do [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 

@@ -1,37 +1,39 @@
 ---
-title: Tradução de Texto identificar o idioma do texto com C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai identificar o idioma do texto de origem com a API de Tradução de Texto com C# nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Identificar o idioma do texto – API de Texto do Microsoft Translator, C#'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com o C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 381478f3125371fbcb5f6466af68f63e4e04bb3f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43770637"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368057"
 ---
-# <a name="quickstart-identify-language-from-text-with-c35"></a>Início rápido: Identificar o idioma do texto com C&#35;
+# <a name="quickstart-identify-language-from-text-with-c35"></a>Guia de Início Rápido: Identificar o idioma do texto com C&#35;
 
-Neste início rápido, vai identificar o idioma do texto de origem através da API de Texto do Microsoft Translator.
+Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
+
+O código fonte para este exemplo está disponível no [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Irá precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
-## <a name="detect-request"></a>Detetar o pedido
+## <a name="detect-request"></a>Pedido de deteção
 
-O código seguinte identifica o idioma do texto de origem através do método [Detetar](./reference/v3-0-detect.md).
+O código seguinte identifica o idioma do texto de origem com o método [Detetar](./reference/v3-0-detect.md).
 
-1. Crie um novo projeto em C# no seu IDE favorito.
+1. Crie um novo projeto do C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -88,9 +90,9 @@ namespace TranslatorTextQuickStart
 }
 ```
 
-## <a name="detect-response"></a>Detetar a resposta
+## <a name="detect-response"></a>Resposta da deteção
 
-O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
 ```json
 [
@@ -119,7 +121,7 @@ O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros projetos exemplo de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do C# no GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)

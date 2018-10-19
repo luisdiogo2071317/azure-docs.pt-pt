@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434743"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249371"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procedimento: Gerir os dispositivos obsoletos no Azure AD
 
@@ -101,7 +101,7 @@ Defina um período de tempo que funcione como indicador de dispositivo obsoleto.
 
 ### <a name="disable-devices"></a>Desativar dispositivos
 
-Não é aconselhável eliminar imediatamente um dispositivo que pareça estar obsoleto, porque não é possível anular a eliminação em caso de falsos positivos. Como melhor prática, desative os dispositivos durante um período de tolerância antes de os eliminar. Na sua política, defina um período de tempo durante o qual o dispositivo estará desativado, antes de o eliminar.
+Não é aconselhável eliminar imediatamente um dispositivo que pareça estar obsoleto, porque não é possível anular a eliminação em caso de falsos positivos. Como melhor prática, desative os dispositivos durante um período de tolerância antes de os eliminar. Na sua política, defina um período de tempo durante o qual um dispositivo estará desativado, antes de o eliminar.
 
 
 ### <a name="mdm-controlled-devices"></a>Dispositivos controlados por MDM
@@ -111,10 +111,10 @@ Se o seu dispositivo estiver a ser controlado pelo Intune ou por outra solução
 
 ### <a name="system-managed-devices"></a>Dispositivos geridos pelo sistema
 
-Não elimine dispositivos geridos pelo sistema. Geralmente, tratam-se de dispositivo como piloto automático. Depois de eliminados, não podem ser reaprovisionados. Por predefinição, o cmdlet Get-MmsolDevice novo exclui os dispositivos geridos pelo sistema. 
+Não elimine dispositivos geridos pelo sistema. Geralmente, tratam-se de dispositivo como piloto automático. Depois de eliminados, não podem ser reaprovisionados. Por predefinição, o cmdlet `get-msoldevice` novo exclui os dispositivos geridos pelo sistema. 
 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD híbrido
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos associados ao Azure AD
 
 Os seus dispositivos associados ao Azure AD híbrido devem seguir as suas políticas de gestão de dispositivos obsoletos no local. 
 
@@ -137,7 +137,7 @@ Desative ou elimine os dispositivos registados no Azure AD no Azure AD.
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Limpar dispositivos obsoletos no portal do Azure  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Limpar dispositivos obsoletos no portal do Azure  
 
 Embora possa limpar dispositivos obsoletos no portal do Azure, é mais eficiente lidar com esse processo com um script do PowerShell. Utilize o módulo do PowerShell V1 mais recente para utilizar o filtro de carimbo de data/hora e para filtrar os dispositivos geridos pelo sistema, como dispositivos de piloto automático. Neste momento, não se recomendado a utilização do PowerShell V2.
 
@@ -150,7 +150,9 @@ Uma rotina típica consiste nos seguintes passos:
 
 3. Desativar o dispositivo com o cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 
-4. Remover o dispositivo com o cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+4. Aguarde até ao fim do período de tolerância com o número de dias que escolher antes de eliminar o dispositivo.
+
+5. Remover o dispositivo com o cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Obter a lista de dispositivos
 

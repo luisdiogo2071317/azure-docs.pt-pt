@@ -1,34 +1,36 @@
 ---
-title: Início rápido do API PHP emoções | Microsoft Docs
-description: Exemplos de código e informações de GET para o ajudar a rapidamente começar a utilizar a API de emoções com o PHP nos serviços cognitivos.
+title: 'Início Rápido: Reconhecer emoções nos rostos numa imagem – API de Emoções, PHP'
+titlesuffix: Azure Cognitive Services
+description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Emoções com PHP.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 987d5a3eedaa17f1127be34e5f90ec2456fab99b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: c3dffa3c42df4a30b634417b551dd0e8af04145b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019402"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239511"
 ---
-# <a name="emotion-api-php-quick-start"></a>Início rápido do emoções PHP de API
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar uma aplicação para reconhecer emoções nos rostos numa imagem.
 
 > [!IMPORTANT]
-> Vídeo de API de pré-visualização vai terminar em 30th de Outubro de 2017. Experimentar o novo [pré-visualização do vídeo indexador API](https://azure.microsoft.com/services/cognitive-services/video-indexer/) para extrair facilmente insights de vídeos e a melhorar as experiências de deteção de conteúdos, tais como resultados de pesquisa, através da deteção palavras ditas, faces, carateres e emotions. [Saiba mais](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Este artigo fornece informações e exemplos de código para o ajudar a rapidamente começar a utilizar o PHP e o [emoções API reconhece o método](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) para reconhecer os emotions expressados por um ou mais pessoas numa imagem. 
+Este artigo disponibiliza informações e exemplos de código para o ajudar a começar a utilizar rapidamente o [método de Reconhecimento da API de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) e PHP para reconhecer emoções expressas por uma ou mais pessoas numa imagem.
 
 ## <a name="prerequisite"></a>Pré-requisito
-* Obter a chave de subscrição gratuita [aqui](https://azure.microsoft.com/try/cognitive-services/)
+* Obtenha a sua Chave de Subscrição gratuita [aqui](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="recognize-emotions-php-example-request"></a>Reconhece o pedido de exemplo do Emotions PHP
+## <a name="recognize-emotions-php-example-request"></a>Pedido de Exemplo em PHP de Reconhecimento de Emoções
 
-Altere o URL de REST para utilizar a localização onde obteve as chaves de subscrição, altere o corpo para um URL de uma imagem que pretende testar e substitua o valor de "Ocp-Apim-Subscription-Key" a sua chave de subscrição válido.
+Altere o URL REST para utilizar a localização onde obteve as chaves de subscrição, altere o corpo para o URL de uma imagem que quer testar e substitua o valor de “Ocp-Apim-Subscription-Key” pela sua chave de subscrição válida.
 
 ```php
 <?php
@@ -36,7 +38,7 @@ Altere o URL de REST para utilizar a localização onde obteve as chaves de subs
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
 //   URL below with "westcentralus".
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize');
 $url = $request->getUrl();
@@ -75,13 +77,13 @@ catch (HttpException $ex)
 ?>
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Reconhecer a resposta de amostra de Emotions
-Uma chamada com êxito devolve uma matriz de entradas de letra e os respetivos pontuações de emoções associados, ordenadas pelo tamanho do retângulo de rostos em ordem descendente. Uma resposta vazia indica que não existem faces foram detetados. Uma entrada de emoções contém os seguintes campos:
-* faceRectangle - localização do retângulo de rosto na imagem.
-* pontuações - pontuações de emoções para cada enfrentam reside na imagem. 
+## <a name="recognize-emotions-sample-response"></a>Resposta de Exemplo para Reconhecimento de Emoções
+Uma chamada bem-sucedida devolve uma matriz de entradas de rostos e as pontuações das emoções associadas, ordenadas pelo tamanho dos retângulos de rostos por ordem descendente. Uma resposta vazia indica que não foram detetados rostos. Uma entrada de emoção contém os seguintes campos:
+* faceRectangle – Localização do retângulo de rosto na imagem.
+* pontuações – Pontuações das emoções de cada rosto na imagem.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -102,4 +104,3 @@ application/json
     }
   }
 ]
-

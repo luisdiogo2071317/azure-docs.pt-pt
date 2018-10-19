@@ -1,47 +1,57 @@
 ---
-title: Início rápido de modelo de domínio da API de Imagem Digitalizada com PHP| Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai utilizar modelos de domínio para identificar marcos numa imagem através da Imagem Digitalizada com PHP nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Utilizar um modelo de domínio – REST, PHP – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, vai utilizar um modelo de domínio para identificar marcos numa imagem através da API de Imagem Digitalizada com o PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 335065b45781dd2712f5416fb03a2f8726182472
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 40a4fa90442a5771f6b221a25ddca46d3ebc4f5c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772257"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629496"
 ---
-# <a name="quickstart-use-a-domain-model---rest-php"></a>Início rápido: Utilizar um modelo de domínio – REST, PHP
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>Guia de Início Rápido: Utilizar um modelo de domínio com a API REST e o PHP na Imagem Digitalizada
 
-Neste início rápido, vai utilizar um modelo de domínio para identificar marcos ou celebridades numa imagem através da Imagem Digitalizada.
+Neste guia de início rápido, vai utilizar um modelo de domínio para identificar marcos ou, opcionalmente, celebridades numa imagem armazenada remotamente através da API REST de Imagem Digitalizada. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Reconhecer Conteúdo Específico do Domínio), pode aplicar um modelo específico do domínio para reconhecer conteúdo dentro de uma imagem.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [PHP](https://secure.php.net/downloads.php) instalado.
+- Tem de ter o [Pear](https://pear.php.net) instalado.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="recognize-landmark-request"></a>Reconhecer pedido de Marco
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método Reconhecer Conteúdo de Domínio Específico](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), pode identificar um conjunto específico de objetos numa imagem. Os dois modelos de domínios específicos que estão atualmente disponíveis são _celebridades_ e _marcos_.
+Para criar e executar o exemplo, siga os seguintes passos:
 
-Para executar o exemplo, siga os passos seguintes:
+1. Instale o pacote [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) do PHP5.
+   1. Abra a janela da linha de comandos como administrador.
+   1. Execute o seguinte comando:
 
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere `uriBase` para utilizar a localização na qual obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, defina `imageUrl` para a imagem que pretende analisar.
-1. Opcionalmente, defina `domain` para `celebrities` para usar o modelo de Celebridades.
-1. Guarde o ficheiro com uma extensão `.php`.
-1. Abra o ficheiro numa janela do browser com suporte do PHP.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-O exemplo seguinte identifica um marco numa imagem.
+   1. Depois de o pacote ser instalado com êxito, feche a janela da linha de comandos.
 
-Este exemplo utiliza o pacote [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) do PHP5.
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
+    1. Substitua o valor de `uriBase` pelo URL de ponto final do método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Reconhecer Conteúdo Específico do Domínio) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `imageUrl` pelo URL de uma imagem diferente que pretende analisar.
+    1. Opcionalmente, substitua o valor do parâmetro do pedido `domain` por `celebrites` se quiser utilizar o modelo de domínio `celebrities` em vez do modelo de domínio `landmarks`.
+1. Guarde o código como um ficheiro com uma extensão `.php`. Por exemplo, `use-domain-model.php`.
+1. Abra uma janela do browser com suporte do PHP.
+1. Arraste e largue o ficheiro na janela do browser.
 
 ```php
 <html>
@@ -105,9 +115,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="recognize-landmark-response"></a>Reconhecer resposta de Marco
+## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. O site de exemplo analisa e apresenta uma resposta de êxito na janela do browser, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -128,9 +138,22 @@ O JSON devolve uma resposta de êxito, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o pacote `HTTP_Request2` do PHP5. Para desinstalar o pacote, siga os seguintes passos:
+
+1. Abra a janela da linha de comandos como administrador.
+2. Execute o seguinte comando:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

@@ -1,33 +1,34 @@
 ---
-title: Emoções API Java para Android introdução | Microsoft Docs
-description: Obter informações e um exemplo de código para o ajudar a rapidamente começar a utilizar a API de emoções com o Java para Android em serviços cognitivos.
+title: 'Início Rápido: Reconhecer emoções nos rostos numa imagem – API de Emoções, Java'
+description: Obtenha informações e um exemplo de código para o ajudar a começar a utilizar rapidamente a API de Emoções com Java para Android.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018031"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237625"
 ---
-# <a name="emotion-api-java-for-android-quick-start"></a>Emoções API Java para Android início rápido
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Início Rápido: Criar uma aplicação para reconhecer emoções nos rostos numa imagem.
 
 > [!IMPORTANT]
-> Vídeo de API de pré-visualização vai terminar em 30th de Outubro de 2017. Experimentar o novo [pré-visualização do vídeo indexador API](https://azure.microsoft.com/services/cognitive-services/video-indexer/) para extrair facilmente insights de vídeos e a melhorar as experiências de deteção de conteúdos, tais como resultados de pesquisa, através da deteção palavras ditas, faces, carateres e emotions. [Saiba mais](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Este artigo fornece informações e um exemplo de código para o ajudar a rapidamente começar a utilizar o [emoções reconhece o método](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) na biblioteca de cliente emoções API Android. O exemplo demonstra como pode utilizar o Java para reconhecer os emotions expressados por pessoas. 
+Este artigo disponibiliza informações e um exemplo de código para o ajudar a começar a utilizar rapidamente o [método de Reconhecimento de Emoções](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) na biblioteca de cliente do Android da API de Emoções. O exemplo demonstra como pode utilizar Java para reconhecer as emoções expressas por pessoas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Obter o Java de API de emoções para Android SDK [aqui](https://github.com/Microsoft/Cognitive-emotion-android)
-* Obter a chave de subscrição gratuita [aqui](https://azure.microsoft.com/try/cognitive-services/)
+* Obtenha o SDK de Java para Android da API de Emoções [aqui](https://github.com/Microsoft/Cognitive-emotion-android)
+* Obtenha a sua chave de subscrição gratuita [aqui](https://azure.microsoft.com/try/cognitive-services/)
 
-## <a name="recognize-emotions-java-for-android-example-request"></a>Reconhecer Emotions Java para Android de exemplo de pedido
+## <a name="recognize-emotions-java-for-android-example-request"></a>Pedido de Exemplo em Java para Android para Reconhecer Emoções
 
 ```java
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
@@ -50,7 +51,7 @@ public class Main
         try
         {
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize");
 
@@ -81,13 +82,13 @@ public class Main
 }
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Reconhecer a resposta de amostra de Emotions
-Uma chamada com êxito devolve uma matriz de entradas de letra e os respetivos pontuações de emoções associados, ordenadas pelo tamanho do retângulo de rostos em ordem descendente. Uma resposta vazia indica que não existem faces foram detetados. Uma entrada de emoções contém os seguintes campos:
-* faceRectangle - localização do retângulo de rosto na imagem.
-* pontuações - pontuações de emoções para cada enfrentam reside na imagem. 
+## <a name="recognize-emotions-sample-response"></a>Resposta de Exemplo para Reconhecimento de Emoções
+Uma chamada bem-sucedida devolve uma matriz de entradas de rostos e as pontuações das emoções associadas, ordenadas pelo tamanho dos retângulos de rostos por ordem descendente. Uma resposta vazia indica que não foram detetados rostos. Uma entrada de emoção contém os seguintes campos:
+* faceRectangle – Localização do retângulo de rosto na imagem.
+* pontuações – Pontuações das emoções de cada rosto na imagem.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

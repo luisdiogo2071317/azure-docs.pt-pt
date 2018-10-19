@@ -1,51 +1,53 @@
 ---
-title: Criar um projeto de deteção de objeto no c# - serviço de visão personalizada - serviços cognitivos do Azure | Documentos da Microsoft
-description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada personalizado nos serviços cognitivos da Microsoft. Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e efetuar uma predição ao utilizar o ponto final predefinido.
+title: 'Tutorial: Criar um projeto de deteção de objetos em C# – Serviço de Visão Personalizada'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com o ponto final predefinido.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: MT
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301085"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366918"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Utilize a API de visão personalizada para criar um projeto de deteção de objeto no C&#35; 
-Saiba como utilizar uma aplicação básica do Windows que utiliza a API de imagem digitalizada para criar um projeto de deteção de objeto. Depois de criado, pode adicionar regiões marcados, carregar imagens, preparar o projeto, obter o URL de ponto final de predição de padrão do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo de código-fonte aberto como um modelo para criar sua própria aplicação para o Windows com a API de visão personalizada.
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Tutorial: Utilizar a API de Visão Personalizada para criar um projeto de deteção de objetos em C#
+
+Saiba como utilizar uma aplicação do Windows básica que utilize a API de Imagem Digitalizada para criar um projeto de deteção de objetos. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação para Windows com a API de Visão Personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="get-the-custom-vision-sdk-and-samples"></a>Obtenha o SDK de visão personalizada e exemplos
-Para criar este exemplo, terá dos pacotes de NuGet do SDK de visão personalizada:
+### <a name="get-the-custom-vision-sdk-and-samples"></a>Obter o SDK de Visão Personalizada e exemplos
+Para criar este exemplo, precisará de Pacotes NuGet do SDK de Visão Personalizada:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Pode baixar as imagens juntamente com o [amostras de c#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+Pode transferir as imagens com os [Exemplos de C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
-## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de formação e predição
+## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de preparação e de predição
 
-Para obter as chaves utilizadas neste exemplo, visite o [página da web de visão personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na __contas__ secção, copie os valores da __chave de treinamento__ e __predição chave__ campos.
+Para obter as chaves utilizadas neste exemplo, visite a [página Web da Visão Personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na secção __Accounts__ (Contas), copie os valores dos campos __Training Key__ (Chave de Preparação) e __Prediction Key__ (Chave de Predição).
 
-![Imagem das chaves da interface do Usuário](./media/csharp-tutorial/training-prediction-keys.png)
+![Imagem da IU de chaves](./media/csharp-tutorial/training-prediction-keys.png)
 
-## <a name="step-1-create-a-console-application"></a>Passo 1: Criar uma aplicação de consola
+## <a name="step-1-create-a-console-application"></a>Passo 1: criar uma aplicação de consola
 
-Neste passo, crie uma aplicação de consola e preparar a chave de treinamento e as imagens necessárias para o exemplo:
+Neste passo, tem de criar uma aplicação de consola e preparar a chave de preparação e as imagens necessárias para o exemplo:
 
-1. Inicie o Visual Studio 2015, edição de Comunidade. 
+1. Inicie o Visual Studio 2015, Community Edition. 
 2. Crie uma nova aplicação de consola.
-3. Adicione referências aos dois pacotes de nuget:
+3. Adicione referências aos dois pacotes NuGet:
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
 
-4. Substitua o conteúdo do **Program.cs** com o código a seguir.
+4. Substitua os conteúdos de **Program.cs** pelo código que se segue.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction;
@@ -73,9 +75,9 @@ namespace SampleObjectDetection
 }
 ```
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>Passo 2: Criar um projeto de serviço de visão personalizada
+## <a name="step-2-create-a-custom-vision-service-project"></a>Passo 2: criar um projeto do Serviço de Visão Personalizada
 
-Para criar um novo projeto de serviço de visão personalizada, adicione o seguinte código ao final do seu **main ()** método.
+Para criar um novo projeto do Serviço de Visão Personalizada, adicione o seguinte código ao final do método **Main()**.
 
 ```csharp
     // Find the object detection domain
@@ -87,7 +89,7 @@ Para criar um novo projeto de serviço de visão personalizada, adicione o segui
     var project = trainingApi.CreateProject("My New Project", null, objDetectionDomain.Id);
 ```
 
-## <a name="step-3-add-tags-to-your-project"></a>Passo 3: Adicionar etiquetas ao seu projeto
+## <a name="step-3-add-tags-to-your-project"></a>Passo 3: adicionar etiquetas ao seu projeto
 
 Para adicionar etiquetas ao seu projeto, insira o seguinte código após a chamada para **CreateProject()**:
 
@@ -97,9 +99,9 @@ Para adicionar etiquetas ao seu projeto, insira o seguinte código após a chama
     var scissorsTag = trainingApi.CreateTag(project.Id, "scissors");
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>Passo 4: Carregar imagens para o projeto
+## <a name="step-4-upload-images-to-the-project"></a>Passo 4: carregar imagens para o projeto
 
-Para projetos de deteção de objeto, é necessário identificar a região do objeto com coordenadas normalizadas e uma etiqueta. Para adicionar as imagens e regiões marcados, insira o seguinte código no final da **main ()** método:
+Para projetos de deteção de objetos, precisamos de identificar a região do objeto com coordenadas normalizadas e uma etiqueta. Para adicionar imagens e regiões etiquetadas, insira o seguinte código no final do método **Main()**:
 
 ```csharp
     Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
@@ -173,12 +175,12 @@ Para projetos de deteção de objeto, é necessário identificar a região do ob
     trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
 ```
 
-## <a name="step-5-train-the-project"></a>Passo 5: Preparar o projeto
+## <a name="step-5-train-the-project"></a>Passo 5: preparar o projeto
 
-Agora que adicionar etiquetas e imagens para o projeto, pode treiná-lo: 
+Agora que adicionou etiquetas e imagens ao projeto, pode prepará-lo: 
 
-1. Insira o seguinte código no final da **main ()**. Esta ação cria a primeira iteração no projeto.
-2. Marca esta iteração como a iteração de predefinição.
+1. Insira o seguinte código no final do método **Main()**. Esta ação cria a primeira iteração no projeto.
+2. Marque esta iteração como a iteração predefinida.
 
 ```csharp
     // Now there are images with tags start training the project
@@ -200,12 +202,12 @@ Agora que adicionar etiquetas e imagens para o projeto, pode treiná-lo:
     Console.WriteLine("Done!\n");
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Passo 6: Obter e utilizar o ponto final de predição de predefinido
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Passo 6: obter e utilizar o ponto final de predição predefinido
 
-Agora, está pronto para usar o modelo de predição: 
+Está pronto para utilizar o modelo de predição: 
 
-1. Obter o ponto final associado com a iteração de predefinição ao inserir o seguinte código no final da **main ()**. 
-2. Envie uma imagem de teste para o projeto com o ponto de extremidade.
+1. Obtenha o ponto final associado à iteração predefinida ao inserir o seguinte código no final do método **Main()**. 
+2. Envie uma imagem de teste para o projeto com esse ponto final.
 
 ```csharp
     // Now there is a trained endpoint, it can be used to make a prediction
@@ -232,6 +234,6 @@ Agora, está pronto para usar o modelo de predição:
     }
 ```
 
-## <a name="step-7-run-the-example"></a>Passo 7: Executar o exemplo
+## <a name="step-7-run-the-example"></a>Passo 7: executar o exemplo
 
-Crie e execute a solução. Os resultados de predição são apresentados na consola.
+Crie e execute a solução. Os resultados da predição aparecem na consola.

@@ -1,60 +1,61 @@
 ---
-title: Objeto de deteção com o Java e a API de visão personalizada - serviços cognitivos do Azure | Documentos da Microsoft
-description: Explore uma aplicação básica do Windows que utiliza a API de imagem digitalizada personalizado nos serviços cognitivos da Microsoft. Criar um projeto, adicionar etiquetas, carregar imagens, preparar seu projeto e fazer uma predição ao utilizar o ponto final predefinido.
+title: 'Tutorial: Criar um projeto de deteção de objetos – API de Visão Personalizada, Java'
+titlesuffix: Azure Cognitive Services
+description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com um ponto final predefinido.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 333447c6390b269d0665a2d00009307105d58996
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44305704"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365036"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-java"></a>Utilize a API de visão personalizada para criar um projeto de deteção de objeto com Java
+# <a name="tutorial-build-an-object-detection-project-with-java"></a>Tutorial: Criar um projeto de deteção de objetos com Java
 
-Explore uma aplicação Java básica que utiliza a API de imagem digitalizada para criar um projeto de deteção de objeto. Depois de criado, pode adicionar regiões marcados, carregar imagens, preparar o projeto, obter o URL de ponto final de predição de padrão do projeto e utilizar o ponto final para uma imagem de teste por meio de programação. Utilize este exemplo de código-fonte aberto como um modelo para criar sua própria aplicação com a API de visão personalizada.
+Explore uma aplicação Java básica que utilize a API de Imagem Digitalizada para criar um projeto de deteção de objetos. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar o tutorial, terá de fazer o seguinte:
+Para utilizar o tutorial, tem de fazer o seguinte:
 
 - Instale o JDK 7 ou 8.
 - Instale o Maven.
 
-## <a name="install-the-custom-vision-service-sdk"></a>Instalar o SDK do serviço de visão personalizada
+## <a name="install-the-custom-vision-service-sdk"></a>Instalar o SDK do Serviço de Visão Personalizada
 
-Pode instalar o SDK de visão personalizada do repositório central maven:
-* [SDK de treinamento](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-* [Previsão de SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+Pode instalar o SDK de Visão Personalizada a partir do repositório central maven:
+* [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
+* [SDK de Predição](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
-## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de formação e predição
+## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de preparação e de predição
 
-Para obter as chaves utilizadas neste exemplo, visite o [site de visão personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na __contas__ secção, copie os valores da __chave de treinamento__ e __predição chave__ campos.
+Para obter as chaves utilizadas neste exemplo, visite o [site da Visão Personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na secção __Accounts__ (Contas), copie os valores dos campos __Training Key__ (Chave de Preparação) e __Prediction Key__ (Chave de Predição).
 
-![Imagem das chaves da interface do Usuário](./media/python-tutorial/training-prediction-keys.png)
+![Imagem da IU de chaves](./media/python-tutorial/training-prediction-keys.png)
 
 ## <a name="understand-the-code"></a>Compreender o código
 
-O projeto completo, incluindo imagens, está disponível a partir da [exemplos do Azure de visão personalizada para o repositório de Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+O projeto completo, incluindo imagens, está disponível a partir do [repositório de exemplos de Visão Personalizada do Azure para Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
-Utilize o seu IDE favorito de Java para abrir o `Vision/CustomVision` projeto. 
+Utilize o seu IDE Java favorito para abrir o projeto `Vision/CustomVision`. 
 
-Esta aplicação utiliza a chave de treinamento que obteve anteriormente para criar um novo projeto chamado __projeto de OD de Java de exemplo__. Em seguida, carrega imagens para treinar e testar um detector de objeto. O detetor de objeto identifica regiões que contém um __fork__ ou um par de __scissors__.
+Esta aplicação utiliza a chave de preparação que obteve anteriormente para criar um novo projeto com o nome __Projeto OD Java de exemplo__. Em seguida, a aplicação carrega imagens para preparar e testar um detetor de objetos. O detetor de objetos identifica regiões que contêm um __garfo__ ou uma __tesoura__.
 
 Os seguintes fragmentos de código implementam a funcionalidade principal deste exemplo:
 
-## <a name="create-a-custom-vision-service-project"></a>Criar um projeto de serviço de visão personalizada
+## <a name="create-a-custom-vision-service-project"></a>Criar um projeto do Serviço de Visão Personalizada
 
-Tenha em atenção a diferença entre a criação de uma deteção de objetos e projeto de classificação de imagem é o domínio especificado para a chamada de createProject.
+Tenha em atenção que a diferença entre criar um projeto de classificação de imagens e um projeto de deteção de objetos é o domínio especificado para a chamada createProject.
 
 > [!IMPORTANT]
-> Definir o `trainingApiKey` para o valor da chave de treinamento que obteve anteriormente.
+> Defina a `trainingApiKey` para o valor da chave de preparação que obteve anteriormente.
 
 ```java
 final String trainingApiKey = "insert your training key here";
@@ -106,7 +107,7 @@ Tag scissorsTag = trainer.createTag()
 
 ## <a name="upload-images-to-the-project"></a>Carregar imagens para o projeto
 
-Para o projeto de deteção de objeto tem de carregar a imagem, regiões e marcas. A região é em coordenadas normalizadas e especifica a localização do objeto marcado.
+Para o projeto de deteção de objetos, tem de carregar uma imagem, regiões e etiquetas. A região encontra-se em coordenadas normalizadas e especifica a localização do objeto etiquetado.
 
 
 ```java
@@ -175,7 +176,7 @@ for (int i = 1; i <= 20; i++) {
 }
 ```
 
-Os trechos de código anterior faz uso de duas funções de programa auxiliar que obtêm as imagens como fluxos de recursos e carregá-los para o serviço.
+O código de fragmento anterior utiliza duas funções de programa auxiliar que obtêm as imagens como fluxos de recursos e carrega-as para o serviço.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)
@@ -220,7 +221,7 @@ private static byte[] GetImage(String folder, String fileName)
 
 ## <a name="train-the-project"></a>Preparar o projeto
 
-Esta ação cria a primeira iteração no projeto e marca essa iteração como a iteração de predefinição. 
+Esta ação cria a primeira iteração no projeto e marca esta iteração como a iteração predefinida. 
 
 ```java
 System.out.println("Training...");
@@ -235,10 +236,10 @@ System.out.println("Training Status: "+ iteration.status());
 trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e utilizar o ponto final de predição de predefinido
+## <a name="get-and-use-the-default-prediction-endpoint"></a>Obter e utilizar o ponto final de predição predefinido
 
 > [!IMPORTANT]
-> Definir o `predictionApiKey` para o valor da chave de predição obtido anteriormente.
+> Defina a `predictionApiKey` para o valor da chave de predição que obteve anteriormente.
 
 ```java
 final String predictionApiKey = "insert your prediction key here";
@@ -275,7 +276,7 @@ for (Prediction prediction: results.predictions())
 
 ## <a name="run-the-example"></a>Executar o exemplo
 
-Os resultados de predição são apresentados na consola, juntamente com alguns registo para mostrar o progresso.
+Os resultados de predição são apresentados na consola, juntamente com alguns registos para mostrar a evolução.
 
 Para compilar e executar a solução com o maven:
 

@@ -1,53 +1,57 @@
 ---
-title: Início rápido análise de imagem da API de Imagem Digitalizada com Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai analisar uma imagem através da Imagem Digitalizada com o Node.js nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Analisar uma imagem remota – REST, Node.js – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, vai analisar uma imagem através da API de Imagem Digitalizada com o Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: dab6547e08b1b01a9090a817d728c86359c680f2
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 76174a14720502a444fb86a337445caf1910ff78
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772166"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631588"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-nodejs"></a>Início rápido: Analisar uma imagem remota - REST, Node.js
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem remota com a API REST e o Node.js na Imagem Digitalizada
 
-Neste início rápido, vai analisar uma imagem para extrair funcionalidades visuais através da Imagem Digitalizada.
+Neste guia de início rápido, vai analisar uma imagem armazenada remotamente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, necessita de uma chave de subscrição; consulte [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
+- Tem de ter o [npm](https://www.npmjs.com/) instalado.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Pedido de Análise de Imagem
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Com o [método Análise de Imagem](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), pode extrair funcionalidades visuais com base no conteúdo da imagem. Pode carregar uma imagem ou especificar um URL da imagem e escolher as funcionalidades que deve devolver, incluindo:
+Para criar e executar o exemplo, siga os seguintes passos:
 
-* Uma lista detalhada das etiquetas relacionadas com o conteúdo da imagem.
-* Uma descrição do conteúdo da imagem numa frase completa.
-* As coordenadas, o sexo e a idade de qualquer rosto que a imagem contenha.
-* O ImageType (ClipArt ou um desenho de linha).
-* A cor dominante, a cor de destaque ou se uma imagem é a preto e branco.
-* A categoria definida nesta [taxonomia](../Category-Taxonomy.md).
-* A imagem contém conteúdo para adultos ou é sexualmente sugestiva?
+1. Instale o pacote [`request`](https://www.npmjs.com/package/request) do npm.
+   1. Abra a janela da linha de comandos como administrador.
+   1. Execute o seguinte comando:
 
-Para executar o exemplo, siga os passos seguintes:
+      ```console
+      npm install request
+      ```
 
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uriBase` para a localização na qual obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere o valor `imageUrl` para a imagem que pretende analisar.
-1. Opcionalmente, altere o idioma de resposta (`'language': 'en'`).
-1. Guarde o ficheiro com uma extensão `.js`.
-1. Abra a linha de comandos do Node.js e execute o ficheiro, por exemplo: `node myfile.js`.
+   1. Depois de o pacote ser instalado com êxito, feche a janela da linha de comandos.
 
-Este exemplo utiliza o pacote de [pedido](https://www.npmjs.com/package/request) npm.
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscriptionKey` pela chave de subscrição.
+    1. Substitua o valor de `uriBase` pelo URL de ponto final do método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem) da região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `imageUrl` pelo URL de uma imagem diferente que pretende analisar.
+    1. Opcionalmente, substitua o valor do parâmetro de pedido `language` por um idioma diferente.
+1. Guarde o código como um ficheiro com uma extensão `.js`. Por exemplo, `analyze-image.js`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `node` para executar o ficheiro. Por exemplo, `node analyze-image.js`.
 
 ```nodejs
 'use strict';
@@ -94,9 +98,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="analyze-image-response"></a>Resposta de Análise de Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito, por exemplo:
+O JSON devolve uma resposta de êxito. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -164,9 +168,22 @@ O JSON devolve uma resposta de êxito, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o pacote `request` do npm. Para desinstalar o pacote, siga os seguintes passos:
+
+1. Abra a janela da linha de comandos como administrador.
+2. Execute o seguinte comando:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente as API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore as API de Imagem Digitalizada utilizadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorar API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

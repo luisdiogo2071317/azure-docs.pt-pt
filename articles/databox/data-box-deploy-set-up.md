@@ -1,6 +1,6 @@
 ---
 title: Configurar o Azure Data Box| Microsoft Docs
-description: Saiba mais sobre o software e os requisitos de rede para o Azure Data Box
+description: Saiba como instalar os cabos e ligar o Azure Data Box
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952312"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785641"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligar ao Azure Data Box
 
@@ -36,17 +36,17 @@ Neste tutorial, ficará a saber como:
 Antes de começar, certifique-se de que:
 
 1. Concluiu o [Tutorial: Encomendar o Azure Data Box](data-box-deploy-ordered.md).
-2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. 
+2. Recebeu o seu Data Box e o estado da encomenda no portal é **Entregue**. Existe uma etiqueta de envio na bolsa transparente afixada ao dispositivo sob a etiqueta atual. Mantenha esta etiqueta segura, uma vez que a vai utilizar para o envio de devolução.
 3. Reviu as [diretrizes de segurança do Data Box](data-box-safety.md).
-4. Recebeu um cabo de alimentação ligado à terra para utilizar com o seu dispositivo de armazenamento de 100 TB.
+4. Recebeu um cabo de alimentação ligado à terra para utilizar com o seu dispositivo de armazenamento de 100 TB.
 5. Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
     - Executar um [sistema operativo suportado](data-box-system-requirements.md).
-    - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, pode ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
+    - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, poderá ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
 6. Tem acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
 7. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
-    - Dois cabos de cobre SFP + Twinax de 10 GbE (utilizar com interfaces de rede DATA 1, DATA 2)
-    - Um cabo de rede RJ-45 CAT 6 (utilizar com a interface de rede MGMT)
-    - Um cabo de rede RJ-45 CAT 6A OU um RJ-45 CAT 6 (utilizar com a interface de rede DATA 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
+    - Dois cabos de cobre SFP + Twinax de 10 GbE (utilizar com interfaces de rede DATA 1, DATA 2)
+    - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
+    - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 
 ## <a name="cable-your-device"></a>Instalação dos cabos do dispositivo
 
@@ -61,8 +61,8 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
     1. Ligue o cabo de alimentação à localização de entrada de alimentação identificada. A outra extremidade do cabo de alimentação deve ser ligada a uma unidade de distribuição de alimentação.
     2. Utilize o cabo RJ-45 CAT 6 para ligar a porta MGMT numa extremidade e um portátil na outra extremidade.            
     3. Utilize o cabo RJ-45 CAT 6A para ligar à porta DATA 3 numa extremidade. A porta DATA 3 está configurada como 10 GbE se ligar através do cabo RJ-45 CAT 6A e como 1 GbE se ligar através do cabo RJ-45 CAT 6.
-    4. Utilize os cabos de cobre SFP+ Twinax de 10 GbE para ligar às portas DATA 1 e DATA 2, respetivamente. 
-    5. As outras extremidades dos cabos das portas de dados estão ligadas ao computador anfitrião através de um comutador de 10 GbE.
+    4. Utilize os cabos de cobre SFP+ Twinax de 10GbE para ligar às portas DATA 1 e DATA 2, respetivamente. 
+    5. As outras extremidades dos cabos das portas de dados estão ligadas ao computador anfitrião através de um comutador de 10 GbE.
 
 4. Localize o botão para ligar/desligar no painel frontal operativo do dispositivo. Ligue o dispositivo.
 

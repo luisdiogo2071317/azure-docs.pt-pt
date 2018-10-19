@@ -1,52 +1,49 @@
 ---
-title: Início rápido de análise de uma imagem local da Imagem Digitalizada com Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai analisar uma imagem local através da Imagem Digitalizada com o Python nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Analisar uma imagem local – REST, Python – Imagem Digitalizada'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá analisar uma imagem local através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: a1f3fce5a547f143f7c4884c6642e78f53d160e9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 48a6602c9f3029cc008f3db7d4701499c14e7ce1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771914"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633865"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-python"></a>Início Rápido: Analisar uma imagem local – REST, Python
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem local com a API REST e o Python na Imagem Digitalizada
 
-Neste início rápido, vai analisar uma imagem local através da Imagem Digitalizada. Para analisar uma imagem remota, veja [Analisar uma imagem remota com o Python](python-analyze.md).
+Neste guia de início rápido, irá analisar uma imagem armazenada localmente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
 Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de começar.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar a Imagem Digitalizada, precisa de uma chave de subscrição; veja [A Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-local-image"></a>Analisar uma imagem local
+## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Este exemplo é semelhante a [Analisar uma imagem remota com o Python](python-analyze.md), exceto pelo facto de a imagem a analisar ser lida localmente a partir do disco. São precisas duas alterações:
+Para criar e executar o exemplo, siga os seguintes passos:
 
-- Adicione um cabeçalho `{"Content-Type": "application/octet-stream"}` ao pedido.
-- Adicione os dados de imagem (matriz de bytes) ao corpo do pedido.
-
-Para executar o exemplo, siga os seguintes passos:
-
-1. Copie o seguinte código para um novo ficheiro de script do Python.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `vision_base_url` para a localização onde obteve as suas chaves de subscrição, se assim for preciso.
-1. Altere o valor `image_path` para o caminho de uma imagem local.
-1. Execute o script.
-
-O código seguinte utiliza a biblioteca `requests` do Python para chamar a API de Imagem de Análise de Imagem Digitalizada. Devolve os resultados como um objeto JSON. A chave de API é passada pelo dicionário `headers`. Os tipos de funcionalidades para reconhecer são passadas pelo dicionário `params`. Os dados da imagem binária são passados pelo parâmetro `data` para `requests.post`.
-
-## <a name="analyze-image-request"></a>Pedido de Análise de Imagem
+1. Copie o código seguinte para um editor de texto.
+1. Faça as alterações seguintes ao código, onde for necessário:
+    1. Substitua o valor de `subscription_key` pela chave de subscrição.
+    1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
+    1. Opcionalmente, substitua o valor de `image_path` pelo nome de ficheiro e o caminho de uma imagem diferente que pretende analisar.
+1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `analyze-local-image.py`.
+1. Abra uma janela da linha de comandos.
+1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python analyze-local-image.py`.
 
 ```python
 import requests
@@ -96,9 +93,9 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## <a name="analyze-image-response"></a>Resposta de Análise de Imagem
+## <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida no JSON, por exemplo:
+O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -172,9 +169,13 @@ Uma resposta bem-sucedida é devolvida no JSON, por exemplo:
 }
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar do ficheiro, elimine-o.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do Python que utiliza a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente as APIs de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python de API de Imagem Digitalizada](../Tutorials/PythonTutorial.md)

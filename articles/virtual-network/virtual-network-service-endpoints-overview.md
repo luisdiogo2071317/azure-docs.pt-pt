@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410226"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239188"
 ---
 # <a name="virtual-network-service-endpoints"></a>Pontos Finais de Serviço de Rede Virtual
 
@@ -49,7 +49,7 @@ Para obter as notificações mais atualizadas, veja a página [Atualizações da
 
 Os pontos finais de serviço oferecem as seguintes vantagens:
 
-- **Segurança dos recursos de serviço do Azure melhorada**: com os pontos finais de serviço, pode proteger os recursos de serviço do Azure na rede virtual. A proteção dos recursos de serviço numa rede virtual oferece segurança melhorada ao remover totalmente o acesso de Internet público a estes recursos e ao permitir o tráfego apenas a partir da rede virtual.
+- **Segurança melhorada para os seus recursos de serviço do Azure**: o espaço de endereços privados da VNet pode estar sobreposto e, por isso, não pode ser utilizado para identificar de forma exclusiva o tráfego com origem na sua VNet. Os pontos finais de serviço permitem proteger os recursos de serviço do Azure para a sua rede virtual, ao expandir a identidade da VNet para o serviço. Depois de ativar os pontos finais de serviço na rede virtual, pode proteger os recursos de serviço do Azure para a rede virtual ao adicionar uma regra de rede virtual aos recursos. Beneficia assim de segurança melhorada ao remover totalmente o acesso de Internet público aos recursos e ao permitir o tráfego apenas a partir da sua rede virtual.
 - **Encaminhamento ideal para o tráfego do serviço do Azure a partir da rede virtual**: atualmente, quaisquer rotas na rede virtual que imponham o tráfego de Internet através de aplicações no local e/ou virtuais, operação designada como imposição de túnel, também forçam o tráfego de serviço do Azure a seguir a mesma rota que o tráfego de Internet. Os pontos finais de serviço fornecem encaminhamento ótimo para o tráfego do Azure. 
 
   Os pontos finais assumem sempre o tráfego de serviço diretamente a partir da rede virtual para o serviço na rede backbone do Microsoft Azure. Manter o tráfego na rede backbone do Azure permite-lhe continuar a auditar e a monitorizar o tráfego de Internet de saída das suas redes virtuais através da imposição de túnel e sem afetar o tráfego de serviço. Saiba mais sobre as [rotas definidas pelo utilizador e a imposição de túnel](virtual-networks-udr-overview.md).

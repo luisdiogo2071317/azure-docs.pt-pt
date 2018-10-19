@@ -1,31 +1,31 @@
 ---
-title: Utilizar a Tradução de Texto para identificar o idioma do texto com PHP | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com PHP nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Identificar o idioma do texto – Tradução de Texto, PHP'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com o PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 2888ea96ac31d56f6870b2f2ccbb04ff8328a1b8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cb643503f72f9cf21c83f35477ca6878d8938339
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771188"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125974"
 ---
-# <a name="quickstart-identify-language-from-text-with-php"></a>Início Rápido: identificar o idioma do texto com PHP
+# <a name="quickstart-identify-language-from-text-with-php"></a>Guia de Início Rápido: Identificar o idioma do texto com PHP
 
-Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
+Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Irá precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="detect-request"></a>Pedido de deteção
 
@@ -135,7 +135,7 @@ echo $json;
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de PHP no GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)

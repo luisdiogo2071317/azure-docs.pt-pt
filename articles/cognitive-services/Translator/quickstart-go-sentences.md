@@ -1,21 +1,21 @@
 ---
-title: A Tradução de Texto obtém o comprimento de frases com o Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste guia de introdução, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Go nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Obter o comprimento de frases – Tradução de Texto, Go'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 441f7c9ced91899896b63f4925f1ec204a9f52fb
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 34b30179d674a42f6c9c2c358c0feb6e083089f6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771309"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129459"
 ---
 # <a name="quickstart-get-sentence-lengths-with-go"></a>Guia de introdução: obter o comprimento de frases com o Go
 
@@ -25,11 +25,11 @@ Neste guia de introdução, encontrará o comprimento de frases no texto atravé
 
 Terá de instalar a [distribuição do Go](https://golang.org/doc/install) para executar este código. O código de exemplo utiliza apenas bibliotecas **principais**, pelo que não há dependências externas.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>Pedido de BreakSentence
 
-O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md) (Separar Frase).
+O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md).
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 2. Adicione o código indicado abaixo.

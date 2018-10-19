@@ -1,53 +1,54 @@
 ---
-title: Web de início rápido da API de pesquisa | Microsoft Docs
-description: Mostra como começar a utilizar a API de pesquisa do Bing Web.
+title: Guia de Início rápido da API de Pesquisa na Web
+titleSuffix: Azure Cognitive Services
+description: Mostra como começar a utilizar a API de Pesquisa na Web do Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0b8c4678a518985a4be3ee426a85b0a85dd2365d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351746"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126246"
 ---
-# <a name="your-first-bing-search-query"></a>A primeira consulta de pesquisa do Bing
+# <a name="your-first-bing-search-query"></a>A sua primeira consulta de pesquisa do Bing
 
-Antes de poder tornar a sua primeira chamada, terá de obter uma chave de subscrição de serviços cognitivos. Para obter uma chave, consulte [tente serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+Antes de poder fazer a primeira chamada, precisa de obter uma chave de subscrição dos Serviços Cognitivos. Para obter uma chave, veja [Experimentar os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
-Para obter os resultados da pesquisa Web, teria de enviar um pedido GET para o seguinte ponto final:  
-  
+Para obter os resultados da pesquisa na Web, enviaria um pedido GET ao seguinte ponto final:  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
 
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos provenientes de um servidor. Distribuir a chave como parte de uma aplicação de cliente fornece mais oportunidade uma terceiros maliciosa para aceder ao mesmo. Além disso, efetuar chamadas a partir de um servidor fornece um único ponto de atualização para versões futuras da API.  
-  
-O pedido tem de especificar o [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) parâmetro de consulta, que contém o termo de pesquisa do utilizador. Embora seja opcional, pedido deve também especificar o [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) parâmetro de consulta, que identifica o mercado onde pretende que os resultados de. Para obter uma lista opcional de parâmetros de consulta como `responseFilter` e `textDecorations`, consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta tem de ser codificado de URL.  
-  
-O pedido tem de especificar o [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) cabeçalho. Embora seja opcional, são encorajados a também especificar os cabeçalhos seguintes:  
-  
--   [Agente de utilizador](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Além disso, fazer chamadas a partir de um servidor fornece um único ponto de atualização para as futuras versões da API.  
+
+O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido também deve especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista de parâmetros de consulta opcionais, como `responseFilter` e `textDecorations`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.  
+
+O pedido tem de especificar o cabeçalho [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey). Embora seja opcional, recomenda-se que especifique também os seguintes cabeçalhos:  
+
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
--   [X-pesquisa-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
--   [Localização de pesquisa X](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
-Os cabeçalhos IP e a localização do cliente são importantes para devolver o conteúdo com suporte para localização. Por exemplo, se a consulta do utilizador é *sailing + lições*, interessa provavelmente lições localizadas utilizaria a respetiva localização. Se pretender que os resultados para conter lições que estão disponíveis quase a localização do utilizador, terá de incluir o cabeçalho de localização e, opcionalmente, o cabeçalho IP do cliente. É menos importante se o termo de consulta menciona explicitamente suportadas numa localização (por exemplo, lições sailing + + na florida + chaves). 
+Os cabeçalhos de IP e localização do cliente são importantes para devolver o conteúdo com reconhecimento de local. Por exemplo, se a consulta do utilizador for *sailing+lessons* (lições+de+vela), provavelmente está interessado em lições próximas da sua localização. Se pretender que os resultados contenham lições que estão disponíveis perto da localização do utilizador, terá de incluir o cabeçalho de localização e, opcionalmente, o cabeçalho IP do cliente. É menos importante, se o termo de consulta mencionar explicitamente uma localização (por exemplo, sailing+lessons+florida+keys).
 
-Para obter uma lista de todos os cabeçalhos de pedido e resposta, consulte [cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
+Para obter uma lista de todos os cabeçalhos de pedido e resposta, veja [Cabeçalhos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
 
 ## <a name="the-request"></a>O pedido
 
-O seguinte mostra um pedido de pesquisa que inclui todos os parâmetros de consulta sugerida e nos cabeçalhos. Se for a primeira vez ao chamar qualquer uma das APIs do Bing, não incluem o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se anteriormente tiver chamar uma API do Bing e Bing devolveu um ID de cliente para o utilizador e a combinação de dispositivo. 
-  
+A seguir, é-lhe mostrado um pedido de pesquisa que inclui todos os parâmetros de consulta e cabeçalhos sugeridos. Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para o utilizador e a combinação de dispositivo.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -57,7 +58,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-O seguinte mostra a resposta ao pedido de anterior. O exemplo mostra também os cabeçalhos de resposta do Bing específicos.
+O código a seguir mostra a resposta ao pedido anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -263,8 +264,8 @@ BingAPIs-Market: en-US
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Experimente a API. Aceda a [consola de teste de pesquisa API Web](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d). 
+Experimente a API. Aceda a [Consola de Testes da API de Pesquisa na Web](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d).
 
-Para obter detalhes sobre a consumir os objetos de resposta, consulte [pesquisar Web](./search-the-web.md).
+Para obter detalhes sobre os objetos de resposta, veja [Pesquisa na Web](./search-the-web.md).

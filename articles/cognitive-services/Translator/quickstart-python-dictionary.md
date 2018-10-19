@@ -1,37 +1,37 @@
 ---
-title: Tradução de Texto localizar traduções alternativas com Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com Python nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Localizar traduções alternativas – Tradução de Texto, Python'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com o Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 4f7c91bfa6fe82f19e84e13b4b7442b59b126cb9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 9035f718dda4cd1a8b34aa72272cfa376be99cac
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770876"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122727"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>Início rápido: Localizar traduções e utilizações alternativas com Python
+# <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>Guia de Início Rápido: Localizar traduções e utilizações alternativas com Python
 
-Neste início rápido, encontra detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
+Neste guia de introdução, pode encontrar detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Necessita do [Python 3.x](https://www.python.org/downloads/) para executar este código.
+Irá precisar do [Python 3.X](https://www.python.org/downloads/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="dictionary-lookup-request"></a>Pedido de Pesquisa no Dicionário
 
 Apresentamos uma situação onde obtém traduções alternativas para uma palavra através do método de [Pesquisa no Dicionário](./reference/v3-0-dictionary-lookup.md).
 
-1. Crie um novo projeto do Python no seu editor de código preferido.
+1. Crie um novo projeto do Python no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -82,9 +82,9 @@ output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
 print (output)
 ```
 
-## <a name="dictionary-lookup-response"></a>Resposta de Pesquisa no Dicionário
+## <a name="dictionary-lookup-response"></a>Resposta da Pesquisa no Dicionário
 
-O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
 ```json
 [
@@ -146,7 +146,7 @@ O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
 
 Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo do dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
 
-1. Crie um novo projeto do Python no seu editor de código preferido.
+1. Crie um novo projeto do Python no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -199,9 +199,9 @@ output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
 print (output)
 ```
 
-## <a name="dictionary-examples-response"></a>Resposta de Exemplos do Dicionário
+## <a name="dictionary-examples-response"></a>Resposta dos Exemplos do Dicionário
 
-O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
+É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
 
 ```json
 [
@@ -233,7 +233,7 @@ O JSON devolve uma resposta de êxito, tal apresentado no exemplo seguinte:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros projetos exemplo de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Python no GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)

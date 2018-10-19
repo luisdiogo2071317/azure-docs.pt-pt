@@ -1,23 +1,23 @@
 ---
-title: Utilizar a Tradução de Texto para encontrar traduções alternativas com Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com o Ruby nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Localizar traduções alternativas – Tradução de Texto, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 6462a48c2f15c8ac4a6b9bce49d23ea3d38dcbd5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cd34e3482df666de8b974380302ee6b4c592496
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771071"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122812"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-ruby"></a>Início Rápido: encontrar traduções e utilização alternativas com Ruby
+# <a name="quickstart-find-alternate-translations-and-usage-with-ruby"></a>Guia de Início Rápido: Encontrar traduções e utilização alternativas com Ruby
 
 Neste guia de introdução, pode encontrar detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, pode encontrar detalhes de possíveis traduções al
 
 Irá precisar do [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="dictionary-lookup-request"></a>Pedido de Pesquisa no Dicionário
 
@@ -140,7 +140,7 @@ puts json
 
 ## <a name="dictionary-examples-request"></a>Pedido de Exemplos do Dicionário
 
-Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo no dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
+Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo do dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
 
 1. Crie um novo projeto do Ruby no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -224,7 +224,7 @@ puts json
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Ruby no GitHub](https://aka.ms/TranslatorGitHub?type=&language=ruby)

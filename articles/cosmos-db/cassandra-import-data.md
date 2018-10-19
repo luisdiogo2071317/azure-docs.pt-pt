@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976181"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247855"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migre os dados para a conta da API do Cassandra do Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Depois de identificar os requisitos da carga de trabalho existente, deve criar u
 
 ## <a name="prerequisites-for-migration"></a>Pré-requisitos de migração
 
-* **Criar tabelas na conta da API para Cassandra do Azure Cosmos DB:** antes de começar a migração de dados, crie previamente todas as tabelas do portal do Azure ou do cqlsh.
+* **Criar tabelas na conta da API para Cassandra do Azure Cosmos DB:** antes de começar a migração de dados, crie previamente todas as tabelas do portal do Azure ou do cqlsh. Se estiver a migrar para uma conta do Azure Cosmos DB com débito ao nível da base de dados, confirme que proporciona uma chave de partição quando criar os contentores do Azure Cosmos DB.
 
 * **Aumentar o débito:** a duração da migração de dados depende da quantidade de débito que aprovisionou para as tabelas no Azure Cosmos DB. Aumente o débito durante o período de migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Após concluir a migração, reduza o débito para reduzir os custos. Para obter mais informações sobre como aumentar o débito, veja [configurar o débito](set-throughput.md) para contentores do Azure Cosmos DB. É também recomendado ter a conta do Azure Cosmos DB na mesma região da base de dados de origem. 
 

@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031242"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785346"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial n.º2:  Implementar um modelo de classificação de imagens no Azure Container Instance (ACI)
 
@@ -35,14 +35,14 @@ O ACI não é ideal para implementações de produção, mas é muito bom para t
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
-Para sua comodidade, este tutorial está disponível como bloco de notas do Jupyter. Utilize um destes métodos para executar o bloco de notas `tutorials/02.deploy-models.ipynb`:
+Para sua comodidade, este tutorial está disponível como [bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Execute o bloco de notas `02.deploy-models.ipynb` no Azure Notebooks ou no seu próprio servidor Jupyter Notebook.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua a preparação do modelo no bloco de notas [Tutorial #1: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Tutorial n.º1: Preparar um modelo de classificação de imagens com o Azure Machine Learning).  
+Conclua a preparação do modelo no bloco de notas [Tutorial 1: Preparar um modelo de classificação de imagens com o serviço do Azure Machine Learning](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial do Azure Machine Learning, utilizou Python para:
+Neste tutorial do serviço do Azure Machine Learning, utilizou o Python para:
 
 > [!div class="checklist"]
 > * Configurar o ambiente de teste
@@ -383,4 +383,4 @@ Neste tutorial do Azure Machine Learning, utilizou Python para:
 > * Implementar o modelo no ACI
 > * Testar o modelo implementado
  
-Também pode experimentar o tutorial [Automatic algorithm selection]() (Seleção de algoritmo automática) para ver como é que o Azure Machine Learning consegue selecionar automaticamente o melhor algoritmo para o seu modelo e criar o modelo por si.
+Também pode experimentar o tutorial [Seleção de algoritmos automática]() para ver como é que o serviço do Azure Machine Learning consegue selecionar automaticamente o melhor algoritmo para o seu modelo e criar o modelo por si.

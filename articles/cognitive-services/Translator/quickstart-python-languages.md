@@ -1,23 +1,23 @@
 ---
-title: Utilizar a Tradução de Texto para obter idiomas suportados com Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Neste início rápido, obtém uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário e exemplos que utilizam a API de Texto do Microsoft Translator com Java nos Serviços Cognitivos.
+title: 'Guia de Início Rápido: Obter idiomas suportados – Tradução de Texto, Python'
+titleSuffix: Azure Cognitive Services
+description: Neste guia de início rápido, irá obter uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário, e exemplos que utilizam a API de Texto do Microsoft Translator com Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 3ae3c6be814f79541e39eddd3be137b71cc1a494
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43771004"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121741"
 ---
-# <a name="quickstart-get-supported-languages-with-python"></a>Início rápido: obter os idiomas suportados com Python
+# <a name="quickstart-get-supported-languages-with-python"></a>Guia de Início Rápido: Obter os idiomas suportados com Python
 
 Neste guia de introdução, obtém uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário e exemplos que utilizam a API de Texto do Microsoft Translator.
 
@@ -25,13 +25,13 @@ Neste guia de introdução, obtém uma lista de idiomas com suporte para traduç
 
 Irá precisar do [Python 3.X](https://www.python.org/downloads/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="languages-request"></a>Pedido de idiomas
 
-O seguinte código obtém uma lista dos idiomas suportados para tradução, transliteração e pesquisa no dicionário e exemplos, utilizando o método [Idiomas](./reference/v3-0-languages.md).
+O código seguinte obtém uma lista dos idiomas suportados para tradução, transliteração e pesquisa no dicionário e exemplos, utilizando o método [Idiomas](./reference/v3-0-languages.md).
 
-1. Crie um novo projeto de Python no seu editor de código favorito.
+1. Crie um novo projeto do Python no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -164,7 +164,7 @@ f.close
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do Python no GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)
