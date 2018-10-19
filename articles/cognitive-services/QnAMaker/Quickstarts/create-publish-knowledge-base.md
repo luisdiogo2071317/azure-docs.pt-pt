@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886574"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389671"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Início Rápido: Criar, preparar e publicar a sua base de dados de conhecimento
 
@@ -41,7 +41,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
 5. No passo 3, atribua **A Minha BDC do Criador de FAQ de exemplo** como nome da sua BDC.
 
-6. Para adicionar conteúdos à sua BDC, selecione três tipos de origens de dados. No passo 4, em **Preencher a sua BDC**, adicione o URL [FAQ de Recuperação do BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) à **caixa**.
+6. Para adicionar conteúdos à sua BDC, selecione três tipos de origens de dados. No passo 4, em **Preencher a sua BDC**, adicione o URL [FAQ de Recuperação do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) à **caixa**.
 
    ![Selecione um serviço de Base de dados de conhecimento de FAQ](../media/qnamaker-quickstart-kb/add-datasources.png)
 

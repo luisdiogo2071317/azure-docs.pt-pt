@@ -3,19 +3,19 @@ title: 'Guia de Início Rápido: Analisar uma imagem remota – REST, cURL – I
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá analisar uma imagem remota através da API de Imagem Digitalizada com o cURL.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: 51122da84e3845bba4919e4f2b2e46d513bbb3f4
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 04ad5ff2e148a5f5469cd13ce6106e6466d645b3
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633491"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344035"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Guia de Início Rápido: Analisar uma imagem remota com a API REST e o cURL na Imagem Digitalizada
 

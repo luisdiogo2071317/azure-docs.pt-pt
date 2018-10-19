@@ -5,16 +5,16 @@ description: Saiba como reconhecer voz em Java no Android com o SDK de Voz dos S
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432801"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883878"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em Java no Android com o SDK de Voz
 
@@ -29,7 +29,7 @@ Atualmente, o SDK de Voz é compatível com dispositivos Android com processador
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição do serviço de Voz para concluir este Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o serviço de Voz gratuitamente](get-started.md) para obter detalhes.
+Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia de Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o serviço de Voz gratuitamente](get-started.md) para obter detalhes.
 
 ## <a name="create-and-configure-a-project"></a>Criar e configurar um projeto
 
@@ -112,7 +112,7 @@ O texto e a representação gráfica da sua IU devem agora ser semelhantes à fi
 
 ## <a name="add-sample-code"></a>Adicionar código de exemplo
 
-1. Abra o ficheiro de origem `MainActivity.java`. Substitua todo o código a seguir à instrução `package` pelo seguinte.
+1. Abra o ficheiro de origem `MainActivity.java`. Substitua todo o código neste ficheiro pelo seguinte.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
@@ -122,7 +122,7 @@ O texto e a representação gráfica da sua IU devem agora ser semelhantes à fi
 
 1. No mesmo ficheiro, substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
 
-1. Substitua também a cadeia de caracteres `YourServiceRegion` pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
+1. Substitua também a cadeia de carateres `YourServiceRegion`pela [região](regions.md) associada à subscrição (por exemplo, `westus` para a subscrição de avaliação gratuita).
 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 

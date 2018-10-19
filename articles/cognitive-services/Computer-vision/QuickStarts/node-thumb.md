@@ -3,19 +3,19 @@ title: 'Guia de Início Rápido: Gerar uma miniatura – REST, Node.js – Image
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura a partir de uma imagem através da API de Imagem Digitalizada com o Node.js.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9029806119f6ee308ba9f0a5c2d45bfce38b5b54
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 940d5f87e8e411d520c3d30f3e9f08e982162748
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633286"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338595"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-nodejs-in-computer-vision"></a>Guia de Início Rápido: Gerar uma miniatura com a API REST e o Node.js na Imagem Digitalizada
 

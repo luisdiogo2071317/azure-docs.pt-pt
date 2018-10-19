@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857929"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354111"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: Vincular um certificado SSL personalizado já existente às Aplicações Web do Azure
 
@@ -64,45 +64,7 @@ Para utilizar um certificado no Serviço de Aplicações, aquele tem de cumprir 
 > [!NOTE]
 > Os **certificados de criptografia de curva elíptica (ECC)** podem funcionar com o Serviço de Aplicações, mas não são abordados neste artigo. Trabalhe com a sua autoridade de certificados para saber quais são os passos exatos para criar certificados ECC.
 
-## <a name="prepare-your-web-app"></a>Preparar a sua aplicação Web
-
-Para vincular um certificado SSL personalizado à sua aplicação Web, o [plano do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) tem de estar no escalão **Básico**, **Standard**,**Premium** ou **Isolado**. Neste passo, vai confirmar que a aplicação Web está no escalão de preço suportado.
-
-### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-
-Abra o [Portal do Azure](https://portal.azure.com).
-
-### <a name="navigate-to-your-web-app"></a>Navegue até à sua aplicação Web
-
-No menu à esquerda, clique em **Serviços de Aplicações** e clique no nome da sua aplicação Web.
-
-![Selecionar a aplicação Web](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-Chegou à página de gestão da sua aplicação Web.  
-
-### <a name="check-the-pricing-tier"></a>Verificar o escalão de preço
-
-No painel de navegação esquerdo da página da aplicação Web, desloque-se para a secção **Definições** e selecione **Aumentar verticalmente (plano do Serviço de Aplicações)**.
-
-![Menu de aumento vertical](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Confirme que a aplicação Web não está no escalão **F1** ou **D1**. O escalão atual da aplicação é realçado com uma caixa azul-escura.
-
-![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-O SSL personalizado não é suportado nos escalões **F1** ou **D1**. Se precisar de aumentar verticalmente, siga os passos na secção seguinte. Caso contrário, feche a página **Aumentar verticalmente** e avance para [Carregar e vincular o certificado SSL](#upload).
-
-### <a name="scale-up-your-app-service-plan"></a>Aumentar verticalmente o seu plano do Serviço de Aplicações
-
-Selecione qualquer uma das camadas não gratuitas (**B1**, **B2**, **B3** ou qualquer camada na categoria **Produção**). Para obter opções adicionais, clique em **Ver opções adicionais**.
-
-Clique em **Aplicar**.
-
-![Escolher um escalão de preço](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-Quando vir a notificação seguinte, significa que a operação de dimensionamento está completa.
-
-![Notificação para “aumentar verticalmente”](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

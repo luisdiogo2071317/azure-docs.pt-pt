@@ -3,19 +3,19 @@ title: 'Guia de Início Rápido: Gerar uma miniatura – REST, Go – Imagem Dig
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API de Imagem Digitalizada com o Go.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: e49c664fc17750d427d33fbb49b3af9ea10002ad
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 9c2d460d3c8cfb4aac6e09eeb26ac23c98f82b24
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629548"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341621"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-go-in-computer-vision"></a>Guia de Início Rápido: Gerar uma miniatura com a API REST e o Go na Imagem Digitalizada
 

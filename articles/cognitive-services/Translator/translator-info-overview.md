@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124665"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385030"
 ---
 # <a name="what-is-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 
@@ -27,7 +27,7 @@ A API de Texto do Microsoft Translator faz parte da coleção de [APIs dos Servi
 
 O Microsoft Translator é um serviço de tradução automática com base na cloud. No núcleo deste serviço estão a API de Texto do Translator e a [API de Voz do Translator](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) que potencializam vários produtos e serviços da Microsoft e são utilizados por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, permitindo que o conteúdo alcance o público no mundo inteiro.
 
-A tradução de voz também está disponível através da [pré-visualização de Voz dos Serviços Cognitivos](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/), que combina a API de Voz do Translator existente, a API de Voz do Bing e o Serviço de Voz Personalizada (pré-visualização) num serviço unificado e totalmente personalizável.  
+A tradução de voz também está disponível através da [pré-visualização de Voz dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/speech-service/), que combina a API de Voz do Translator existente, a API de Voz do Bing e o Serviço de Voz Personalizada (pré-visualização) num serviço unificado e totalmente personalizável.  
 
 Saiba mais sobre o [serviço do Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
 
@@ -55,7 +55,7 @@ Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translato
 
 - [Inscrever-se](translator-text-how-to-signup.md) para obter uma chave de acesso.
 
-- O [Guia de Início Rápido](quickstarts/csharp.md) é uma descrição das chamadas à API REST escritas em C#. Aprenda a traduzir texto de um idioma para outro com pouco código.
+- O [Início Rápido](quickstarts/csharp.md) é uma descrição das chamadas à API REST escritas em C#. Aprenda a traduzir texto de um idioma para outro com pouco código.
 
 - A [documentação de referência de API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) oferece a documentação técnica para as APIs.
 

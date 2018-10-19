@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e449703dd8d012037af9540397ecd3b7bc0c7e7f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817012"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114645"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparar Flow, Logic Apps, Functions e WebJobs
 
@@ -84,7 +84,7 @@ As Funções do Azure são criadas no SDK do WebJobs, pelo que partilham muitos 
 
 |  | Funções | WebJobs com o SDK do WebJobs |
 | --- | --- | --- |
-|[Modelo de aplicação sem servidor](https://azure.microsoft.com/overview/serverless-computing/) com [dimensionamento automático](functions-scale.md#how-the-consumption-plan-works)|✔||
+|[Modelo de aplicação sem servidor](https://azure.microsoft.com/solutions/serverless/) com [dimensionamento automático](functions-scale.md#how-the-consumption-plan-works)|✔||
 |[Programação e testes no browser](functions-create-first-azure-function.md) |✔||
 |[Preços com pagamento por utilização](functions-scale.md#consumption-plan)|✔||
 |[Integração com Logic Apps](functions-twitter-email.md)|✔||

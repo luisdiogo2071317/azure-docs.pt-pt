@@ -3,23 +3,23 @@ title: 'Início Rápido: analisar uma imagem remota - REST, Python - Imagem Digi
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai analisar uma imagem remota através da API de Imagem Digitalizada com Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: pafarley
+ms.openlocfilehash: 8f8503277ec03bd6036431bcacd3719dac7378de
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883946"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338745"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: analisar uma imagem remota com a API REST e o Python em Imagem Digitalizada
 
-Neste início rápido, vai analisar uma imagem armazenada remotamente para extrair funcionalidades visuais com a API REST da Imagem Digitalizada. Com o método [Análise de Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), pode extrair funcionalidades visuais com base no conteúdo da imagem.
+Neste início rápido, vai analisar uma imagem armazenada remotamente para extrair funcionalidades visuais com a API REST da Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
 Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
@@ -30,18 +30,18 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição para Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Para criar e executar o exemplo, siga os passos seguintes:
+Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Copie o código seguinte para um editor de texto.
-1. Faça as alterações seguintes ao código, quando necessário:
+1. Faça as alterações seguintes ao código, onde for necessário:
     1. Substitua o valor de `subscription_key` pela chave de subscrição.
     1. Substitua o valor de `vision_base_url` pelo URL de ponto final do recurso Imagem Digitalizada na região do Azure onde obteve as chaves de subscrição, se necessário.
     1. Opcionalmente, substitua o valor de `image_url` pelo URL de uma imagem diferente que pretende analisar.
-1. Guarde o código como um ficheiro com a extensão `.py`. Por exemplo, `analyze-image.py`.
+1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `analyze-image.py`.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python analyze-image.py`.
 
@@ -175,7 +175,7 @@ Quando já não precisar do ficheiro, elimine-o.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) (Consola de teste de API aberta).
+Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutorial do Python de API de Imagem Digitalizada](../Tutorials/PythonTutorial.md)

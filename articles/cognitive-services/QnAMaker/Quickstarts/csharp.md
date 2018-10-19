@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: ec4cd4de2bf662b5ce45803d8b762d44ef243358
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 8c030971a2725612a836ef86806e39efafea65f7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887535"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387605"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Início Rápido da API do Criador de FAQ da Microsoft com C# 
 <a name="HOLTop"></a>
@@ -100,8 +100,8 @@ namespace QnAMaker
     }
   ],
   'urls': [
-    'https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs',
-    'https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq'
+    'https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs',
+    'https://docs.microsoft.com/bot-framework/resources-bot-framework-faq'
   ],
   'files': []
 }
@@ -295,7 +295,7 @@ namespace QnAMaker
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -760,7 +760,7 @@ namespace QnAMaker
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -783,7 +783,7 @@ O código seguinte obtém respostas a uma pergunta através da base de dados de 
 1. Adicione o código indicado abaixo.
 1. Substitua o valor `host` pelo nome do site da sua subscrição do Criador de FAQ. Para obter mais informações, veja [Criar um serviço do Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md).
 1. Substitua o valor `endpoint_key` por uma chave de ponto final válida para a sua subscrição. Tenha em atenção que não se trata da sua chave de subscrição. Pode obter as chaves de ponto final através do método [Obter chaves de ponto final](#GetKeys).
-1. Substitua o valor `kb` pelo ID da base de dados de conhecimento que pretende consultar para obter respostas. Tenha em atenção que esta base de dados de conhecimento já deve ter sido publicada através do método [Publicar](#Publish).
+1. Substitua o valor `kb` pelo ID da base de dados de conhecimento que quer consultar para obter respostas. Tenha em atenção que esta base de dados de conhecimento já deve ter sido publicada através do método [Publicar](#Publish).
 1. Execute o programa.
 
 ```csharp
@@ -866,7 +866,7 @@ namespace QnAMaker
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -965,8 +965,8 @@ namespace QnAMaker
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -1074,8 +1074,8 @@ namespace QnAMaker
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"

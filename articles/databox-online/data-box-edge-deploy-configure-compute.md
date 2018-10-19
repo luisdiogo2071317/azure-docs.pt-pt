@@ -1,27 +1,20 @@
 ---
 title: Transformar dados com o Azure Data Box Edge | Microsoft Docs
 description: Saiba como configurar a função de computação no Data Box Edge e utilizá-la para transformar dados antes de os enviar para o Azure.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: edge
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/08/2018
 ms.author: alkohli
-ms.custom: ''
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: fd04c906f57a9378879ef6357e2724695533d370
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 4729e08399132243543c6f4e1cadd537d185e9e3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48833106"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166258"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Tutorial: Transformar dados com o Azure Data Box Edge (Pré-visualização)
 
@@ -74,7 +67,7 @@ Para configurar a função de computação no dispositivo, siga os passos abaixo
 
     ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-2.png)
  
-2. Na lista pendente, selecione o **recurso do Hub IoT** que criou no passo anterior. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge. Clique em **Create** (Criar).
+2. Na lista pendente, selecione o **recurso do Hub IoT** que criou no passo anterior. Neste momento, apenas a plataforma Linux está disponível para o seu dispositivo IoT Edge. Clique em **Criar**.
 
     ![Configurar a função de computação](./media/data-box-edge-deploy-configure-compute/setup-compute-3.png)
  
@@ -107,7 +100,7 @@ Nesta secção, vai adicionar um módulo personalizado ao dispositivo IoT Edge.
 
 Este procedimento recorre a um exemplo no qual o módulo personalizado utilizado recebe ficheiros de uma partilha local no dispositivo edge e os move para uma partilha na cloud no dispositivo. Em seguida, a partilha na cloud envia os ficheiros para a conta de armazenamento associada à mesma. 
 
-1. O primeiro passo é adicionar uma partilha local no dispositivo edge. No seu recurso do Data Box Edge, aceda a **Shares** (Partilhas). Clique em **+ Add share** (+ Adicionar partilha). Indique o nome da partilha e selecione o tipo. Para criar uma partilha local, assinale a opção **Configure as Edge local share** (Configurar como partilha edge local). Selecione **Use existing** (Utilizador existente) ou **Create new** (Criar novo). Clique em **Create** (Criar).
+1. O primeiro passo é adicionar uma partilha local no dispositivo edge. No seu recurso do Data Box Edge, aceda a **Shares** (Partilhas). Clique em **+ Add share** (+ Adicionar partilha). Indique o nome da partilha e selecione o tipo. Para criar uma partilha local, assinale a opção **Configure as Edge local share** (Configurar como partilha edge local). Selecione **Use existing** (Utilizador existente) ou **Create new** (Criar novo). Clique em **Criar**.
 
     ![Adicionar módulo personalizado](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-1.png) 
 

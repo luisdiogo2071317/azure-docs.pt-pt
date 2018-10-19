@@ -1,25 +1,25 @@
 ---
 title: 'Guia de Início Rápido: Detetar rostos numa imagem – API Face, Node.js'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, irá detetar rostos de uma imagem com a API Face com Node.js nos Serviços Cognitivos.
+description: Neste início rápido, irá detetar rostos de uma imagem com a API Face com Node.js nos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/08/2018
-ms.author: nolachar
-ms.openlocfilehash: 53d5ed6c13c2f2822374134d8b403493079e1956
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 4ac68a2b0e843e69d3c902abf2feada985f23849
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124002"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338739"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-nodejs"></a>Guia de Início Rápido: Detetar rostos numa imagem com Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-nodejs"></a>Início rápido: Detetar rostos numa imagem com Node.js
 
-Neste guia de início rápido, irá detetar rostos humanos numa imagem com a API Face.
+Neste início rápido, irá detetar rostos humanos numa imagem com a API Face.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,7 +88,7 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Rosto – Resposta da deteção
+## <a name="face---detect-response"></a>Rosto – Detetar a resposta
 
 É devolvida uma resposta com êxito em JSON, por exemplo:
 

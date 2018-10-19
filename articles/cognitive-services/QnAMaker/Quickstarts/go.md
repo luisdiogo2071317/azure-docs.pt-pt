@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: b34574ed7d94873a9a01222c944e1b4033848f91
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 1628daa0ffef4c1fd9d8717abbdbdf7d0bbb65fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887511"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390130"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Início Rápido para API do Criador de FAQ com Go 
 <a name="HOLTop"></a>
@@ -26,16 +26,16 @@ Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../O
 - [Atualizar uma base de dados de conhecimento existente.](#Update)
 - [Obter o estado de um pedido para criar ou atualizar uma base de dados de conhecimento.](#Status)
 - [Publicar uma base de dados de conhecimento existente.](#Publish)
-- [Substituir os conteúdos de uma base de dados de conhecimento existente.](#Replace)
-- [Descarregar o conteúdo de uma base de dados de conhecimento.](#GetQnA)
-- [Obter respostas para uma pergunta através de uma base de dados de conhecimento.](#GetAnswers)
+- [Substituir o conteúdo de uma base de dados de conhecimento existente.](#Replace)
+- [Transferir o conteúdo de uma base de dados de conhecimento.](#GetQnA)
+- [Obter respostas a uma pergunta através de uma base de dados de conhecimento.](#GetAnswers)
 - [Obter informações sobre uma base de dados de conhecimento.](#GetKB)
 - [Obter informações sobre todas as bases de dados de conhecimento pertencentes ao utilizador especificado.](#GetKBsByUser)
 - [Eliminar uma base de dados de conhecimento.](#Delete)
 - [Obter as chaves de ponto final atual.](#GetKeys)
 - [Voltar a gerar as chaves de ponto final atual.](#PutKeys)
-- [Obter o conjunto atual de alterações do Word.](#GetAlterations)
-- [Substituir o conjunto atual de alterações do Word.](#PutAlterations)
+- [Obter o conjunto atual de alterações de palavras.](#GetAlterations)
+- [Substituir o conjunto atual de alterações de palavras.](#PutAlterations)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -141,8 +141,8 @@ var req string = `{
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }`;
@@ -188,7 +188,7 @@ func main() {
 }
 ```
 
-**Criar resposta da base de dados de conhecimento**
+**Resposta a Criar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -317,7 +317,7 @@ var req string = `{
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -371,7 +371,7 @@ func main() {
 }
 ```
 
-**Atualizar resposta da base de dados de conhecimento**
+**Resposta a Atualizar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -483,7 +483,7 @@ func main() {
 }
 ```
 
-**Publicar resposta da base de dados de conhecimento**
+**Resposta a Publicar base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -499,7 +499,7 @@ func main() {
 
 ## <a name="replace-knowledge-base"></a>Substituir base de dados de conhecimento
 
-O código seguinte substitui o conteúdo da base de dados de conhecimento especificada, através do método [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) (Substituir).
+O código seguinte substitui o conteúdo da base de dados de conhecimento especificada, através do método [Substituir](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -591,7 +591,7 @@ func main() {
 }
 ```
 
-**Substituir resposta da base de dados de conhecimento**
+**Resposta a Substituir base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -605,9 +605,9 @@ func main() {
 
 <a name="GetQnA"></a>
 
-## <a name="download-the-contents-of-a-knowledge-base"></a>Descarregar o conteúdo de uma base de dados de conhecimento
+## <a name="download-the-contents-of-a-knowledge-base"></a>Transferir o conteúdo de uma base de dados de conhecimento
 
-O código seguinte descarrega o conteúdo da base de dados de conhecimento especificada, através do método [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) (Descarregar base de dados de conhecimento).
+O código seguinte transfere o conteúdo da base de dados de conhecimento especificada, através do método [Transferir base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -675,7 +675,7 @@ func main() {
 }
 ```
 
-**Resposta da descarga da base de dados de conhecimento**
+**Resposta a Transferir base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -699,7 +699,7 @@ func main() {
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -716,13 +716,13 @@ func main() {
 
 ## <a name="get-answers-to-a-question-by-using-a-knowledge-base"></a>Obter respostas a uma pergunta através de uma base de dados de conhecimento
 
-O código seguinte obtém respostas a uma pergunta através da base de dados de conhecimento especificada, utilizando o método **Generate answers** (Gerar respostas).
+O código seguinte obtém respostas a uma pergunta através da base de dados de conhecimento especificada, através do método **Gerar respostas**.
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 1. Adicione o código indicado abaixo.
-1. Substitua o valor `host` pelo nome do Web site da sua subscrição do Criador de FAQ. Para obter mais informações, consulte [Criar um serviço do Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md).
-1. Substitua o valor `endpoint_key` por uma chave de ponto final válida para a sua subscrição. Tenha em atenção que não se trata da sua chave de subscrição. Pode obter as chaves de ponto final através do método [Get endpoint keys](#GetKeys) (Obter chaves de ponto final).
-1. Substitua o valor `kb` pelo ID da base de dados de conhecimento que pretende consultar para obter respostas. Tenha em atenção que esta base de dados de conhecimento já deve ter sido publicada através do método [Publish](#Publish) (Publicar).
+1. Substitua o valor `host` pelo nome do site da sua subscrição do Criador de FAQ. Para obter mais informações, veja [Criar um serviço do Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md).
+1. Substitua o valor `endpoint_key` por uma chave de ponto final válida para a sua subscrição. Tenha em atenção que não se trata da sua chave de subscrição. Pode obter as chaves de ponto final através do método [Obter chaves de ponto final](#GetKeys).
+1. Substitua o valor `kb` pelo ID da base de dados de conhecimento que quer consultar para obter respostas. Tenha em atenção que esta base de dados de conhecimento já deve ter sido publicada através do método [Publicar](#Publish).
 1. Execute o programa.
 
 ```go
@@ -789,7 +789,7 @@ func main() {
 }
 ```
 
-**Obter resposta de respostas**
+**Resposta a Obter respostas**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -803,7 +803,7 @@ func main() {
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -817,7 +817,7 @@ func main() {
 
 ## <a name="get-information-about-a-knowledge-base"></a>Obter informações sobre uma base de dados de conhecimento
 
-O código seguinte obtém informações sobre uma base de dados de conhecimento especificada, através do método [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) (Obter detalhes da base de dados de conhecimento).
+O código seguinte obtém informações sobre uma base de dados de conhecimento especificada, através do método [Obter detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -881,7 +881,7 @@ func main() {
 }
 ```
 
-**Obter resposta de detalhes da base de dados de conhecimento**
+**Resposta a Obter de detalhes da base de dados de conhecimento**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -894,8 +894,8 @@ func main() {
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -909,7 +909,7 @@ func main() {
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Obter todas as bases de dados de conhecimento de um utilizador
 
-O código seguinte obtém informações sobre todas bases de dados de conhecimento de um utilizador especificado, através do método [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) (Obter bases de dados de conhecimento do utilizador).
+O código seguinte obtém informações sobre todas bases de dados de conhecimento de um utilizador especificado, através do método [Obter bases de dados de conhecimento do utilizador](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -970,7 +970,7 @@ func main() {
 }
 ```
 
-**Obter bases de dados de conhecimento de resposta do utilizador**
+**Resposta a Obter bases de dados de conhecimento do utilizador**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -995,8 +995,8 @@ func main() {
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -1014,7 +1014,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Eliminar uma base de dados de conhecimento
 
-O código seguinte elimina a base de dados de conhecimento especificada, através do método [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) (Eliminar base de dados de conhecimento).
+O código seguinte elimina a base de dados de conhecimento especificada, através do método [Eliminar base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1098,9 +1098,9 @@ func main() {
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>Criar chaves de ponto final
+## <a name="get-endpoint-keys"></a>Obter chaves de ponto final
 
-O código seguinte obtém as chaves de ponto final atuais, através do método[Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) (Obter chaves de ponto final).
+O código seguinte obtém as chaves de ponto final atuais, através do método[Obter chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1161,7 +1161,7 @@ func main() {
 }
 ```
 
-**Resposta de Obter chaves de ponto final**
+**Resposta a Obter chaves de ponto final**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1178,7 +1178,7 @@ func main() {
 
 ## <a name="refresh-endpoint-keys"></a>Atualizar chaves de ponto final
 
-O código seguinte regenera as chaves de ponto final atuais, através do método[Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) (Atualizar chaves de ponto final).
+O código seguinte regenera as chaves de ponto final atuais, através do método[Atualizar chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1247,7 +1247,7 @@ func main() {
 }
 ```
 
-**Resposta de Atualizar chaves de ponto final**
+**Resposta a Atualizar chaves de ponto final**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1262,9 +1262,9 @@ func main() {
 
 <a name="GetAlterations"></a>
 
-## <a name="get-word-alterations"></a>Obter alterações do Word
+## <a name="get-word-alterations"></a>Obter alterações de palavras
 
-O código seguinte obtém as alterações do Word atuais, utilizando o método [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) (Transferir alterações).
+O código seguinte obtém as alterações de palavras atuais, com o método [Transferir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1325,7 +1325,7 @@ func main() {
 }
 ```
 
-**Resposta de Obter alterações do Word**
+**Resposta a Substituir alterações de palavras**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -1346,9 +1346,9 @@ func main() {
 
 <a name="PutAlterations"></a>
 
-## <a name="replace-word-alterations"></a>Substituir alterações do Word
+## <a name="replace-word-alterations"></a>Substituir alterações de palavras
 
-O código seguinte substitui as alterações do Word atuais, através do método [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (Substituir alterações).
+O código seguinte substitui as alterações de palavras atuais, através do método [Substituir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd).
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1429,7 +1429,7 @@ func main() {
 }
 ```
 
-**Resposta de Substituir alterações do Word**
+**Resposta a Substituir alterações de palavras**
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
