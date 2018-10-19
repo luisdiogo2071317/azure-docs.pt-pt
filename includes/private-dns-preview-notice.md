@@ -1,5 +1,0 @@
-> [!IMPORTANT]
-> A funcionalidade de zona privada do DNS do Azure está atualmente uma pré-visualização gerida e requer a inscrever-se para obter o módulo/SDK do Powershell de pré-visualização. Para se inscrever para esta pré-visualização, envie um e-mail [ AzureDNS-PrivateZone@microsoft.com ](mailto:AzureDNS-PrivateZone@microsoft.com) com os detalhes da sua subscrição. Os exemplos neste artigo partem do princípio de que já ter inscrito na pré-visualização e ter obtido o módulo/SDK do Powershell de pré-visualização. Com o módulo de Powershell pública atual não funciona para esta funcionalidade de pré-visualização.
-
-Esta pré-visualização é fornecida sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
-
