@@ -1,33 +1,33 @@
 ---
-title: O que é a Pesquisa de Entidades do Bing? | Microsoft Docs
-description: Saiba como utilizar a API de pesquisa de entidades do Bing para pesquisar a web para entidades e locais.
+title: O que é a Pesquisa de Entidades do Bing?
+titlesuffix: Azure Cognitive Services
+description: Saiba como utilizar a API de Pesquisa de Entidades do Bing para pesquisar entidades e locais na Web.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008115"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813605"
 ---
 # <a name="what-is-bing-entity-search"></a>O que é a Pesquisa de Entidades do Bing?
 
-A API de pesquisa de entidades do Bing envia uma consulta de pesquisa para o Bing e obtém resultados que incluem entidades e locais. Resultados de lugar incluem restaurantes, no hotel ou outros negócios locais. O Bing devolve lugares, se a consulta Especifica o nome da empresa local ou solicita um tipo de negócio (por exemplo, restaurantes perto de mim). O Bing devolve entidades, se a consulta Especifica bem conhecidas pessoas, lugares (tourist attractions, Estados, países, etc.) ou coisas.
+A API de Pesquisa de Entidades do Bing envia uma consulta de pesquisa ao Bing e obtém resultados que incluem entidades e locais. Os resultados de locais incluem restaurantes, hotéis ou outras empresas locais. O Bing devolve locais, se a consulta especificar o nome da empresa local ou pedir um tipo de negócio (por exemplo, restaurantes perto de mim). O Bing devolve entidades, se a consulta especificar pessoas, locais (atrações turísticas, estados, países, etc.) ou coisas bem conhecidos.
 
 ## <a name="suggesting--using-search-terms"></a>Sugerir e utilizar termos de pesquisa
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
-Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica o termo antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query). Por exemplo, se o usuário insere *Marcus Appel*, defina `q` para *Marcus + Appel* ou *Marcus % 20Appel*.
+Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica o termo antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query). Por exemplo, se o utilizador introduzir *Marcus Appel*, defina `q` para *Marcus+Appel* ou *Marcus%20Appel*.
 
-Se o termo de pesquisa contém um erro de ortografia, a resposta de pesquisa inclui um [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) objeto. O objeto mostra a ortografia original e a ortografia corrigida que Bing utilizado para a pesquisa.
+Se o termo de pesquisa tiver um erro de ortografia, a resposta da pesquisa inclui um objeto [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext). O objeto mostra a ortografia original e a ortografia corrigida que o Bing utilizou para a pesquisa.
 
 ```json
 "queryContext": {
@@ -40,19 +40,19 @@ Se o termo de pesquisa contém um erro de ortografia, a resposta de pesquisa inc
 
 ## <a name="requesting-entities"></a>Pedir entidades
 
-Para um exemplo de solicitação, consulte [fazendo o primeiro pedido](./quick-start.md).
+Para um exemplo de pedido, veja [Fazer o primeiro pedido](./quick-start.md).
 
 ## <a name="the-response"></a>A resposta
 
-A resposta contém um [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) objeto. Se o Bing encontrar uma entidade ou o que é relevante, o objeto inclui a `entities` campo, `places` campo, ou ambos. Caso contrário, o objeto de resposta não inclui qualquer um dos campos.
+A resposta contém um objeto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse). Se o Bing encontrar uma entidade ou local que seja relevante, o objeto inclui o campo `entities`, o campo `places`, ou ambos. Caso contrário, o objeto de resposta não inclui qualquer um dos campos.
 > [!NOTE]
-> Respostas de entidade suportam vários mercados, mas a resposta de lugares suporta apenas as localizações nos negócios. 
+> As respostas de Entidades suportam vários mercados, mas a resposta de Locais suporta apenas as localizações de Empresas nos E.U.A. 
 
-O `entities` campo é um [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) objeto que contém uma lista de [entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objetos (consulte a `value` campo). A lista pode conter uma única entidade dominante, vários de desambiguação de entidades ou ambas. 
+O campo `entities` é um objeto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) que contém uma lista de objetos de [Entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (veja o campo `value`). A lista pode conter uma única entidade dominante, várias entidades de desambiguação, ou dos dois tipos. 
 
-Uma entidade dominante é uma entidade que Bing acredita que é a única entidade que satisfaça a solicitação (não há ambiguidade em relação ao que a entidade satisfaça a solicitação). Se várias entidades podem satisfazer a solicitação, a lista contém mais de uma entidade de desambiguação. Por exemplo, se o pedido utiliza o título genérico de franquia um filme, a lista provavelmente contém entidades de desambiguação. No entanto, se o pedido especifica um título específico da franquia, a lista provavelmente contém uma única entidade dominante.
+Uma entidade dominante é uma entidade que o Bing acredita ser a única entidade que satisfaz o pedido (não há ambiguidade em relação à entidade que satisfaz o pedido). Se várias entidades puderem satisfazer o pedido, a lista contém mais do que uma entidade de desambiguação. Por exemplo, se o pedido utilizar o título genérico do franchise de um filme, a lista provavelmente contém entidades de desambiguação. No entanto, se o pedido especificar um título específico do franchise, a lista provavelmente contém uma única entidade dominante.
 
-As entidades incluem personalidades bem conhecidas como singers, atores, atletas Favoritos, modelos, etc.; locais e de pontos de referência, como montagem Rainier ou Lincoln Memorial; e coisas como um título banana, goldendoodle, livro ou filme. O [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) campo contém sugestões que identificam o tipo da entidade. Por exemplo, se se trata de uma pessoa, filmes, animal ou attraction. Para obter uma lista de tipos possíveis, consulte [tipos de entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+As entidades incluem figuras bem conhecidas como cantores, atores, atletas, modelos, etc.; locais e pontos de referência, como Mount Rainier ou Lincoln Memorial; e coisas como uma banana, um cão da raça goldendoodle, um livro ou um filme. O campo [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) contém sugestões que identificam o tipo da entidade. Por exemplo, se é uma pessoa, filme, animal ou atração turística. Para obter uma lista de tipos possíveis, veja [Tipos de Entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -62,7 +62,7 @@ As entidades incluem personalidades bem conhecidas como singers, atores, atletas
 }, ...
 ```
 
-O código a seguir mostra uma resposta que inclui uma entidade dominante e a desambiguação.
+O seguinte mostra uma resposta que inclui uma entidade dominante e de desambiguação.
 
 ```json
 {
@@ -148,7 +148,7 @@ O código a seguir mostra uma resposta que inclui uma entidade dominante e a des
 }
 ```
 
-A entidade inclui um `name`, `description`, e `image` campo. Quando visualiza estes campos na sua experiência de utilizador, tem de os atributos. O `contractualRules` campo contém uma lista de atribuições tem de aplicar. A regra contratual identifica o campo que a atribuição aplica-se a. Para obter informações sobre como aplicar atribuição, consulte [atribuição](#data-attribution).
+A entidade inclui um campo `name`, `description` e `image`. Quando apresenta estes campos na sua experiência de utilizador, tem de atribuí-los. O campo `contractualRules` contém uma lista de atribuições que tem de aplicar. A regra contratual identifica o campo ao qual a atribuição se aplica. Para obter informações sobre como aplicar a atribuição, veja [Atribuição](#data-attribution).
 
 ```json
 "contractualRules": [{
@@ -176,12 +176,12 @@ A entidade inclui um `name`, `description`, e `image` campo. Quando visualiza es
 }], ...
 ```
 
-Quando exibir as informações da entidade (nome, descrição e imagem), também tem de utilizar o URL no `webSearchUrl` página que contém a entidade de resultados de campo para ligar para a pesquisa do Bing.
+Quando apresentar as informações da entidade (nome, descrição e imagem), também tem de utilizar o URL do campo `webSearchUrl` para ligar à página de resultados da pesquisa do Bing que contém a entidade.
 
 
-O `places` campo é um [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) objeto que contém uma lista de [local](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) objetos (consulte a `value` campo). A lista contém um ou mais entidades locais que satisfazem o pedido.
+O campo `places` é um objeto de [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) que contém uma lista de objetos de [Local](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) (veja o campo `value`). A lista contém uma ou mais entidades locais que satisfazem o pedido.
 
-Locais incluem restaurante, hotéis ou negócios locais. O [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) campo contém sugestões que identificam o tipo da entidade local. A lista contém uma lista de sugestões, como local, LocalBusiness, restaurante. Cada sugestão sucessiva na matriz restringe o tipo da entidade. Para obter uma lista de tipos possíveis, consulte [tipos de entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
+Os locais incluem restaurantes, hotéis ou empresas locais. O campo [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) contém sugestões que identificam o tipo da entidade de local. A lista contém uma lista de sugestões, como Local, EmpresaLocal, Restaurante. Cada sugestão sucessiva na matriz restringe o tipo da entidade. Para obter uma lista de tipos possíveis, veja [Tipos de Entidade](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
 ```json
 "entityPresentationInfo": {
@@ -192,9 +192,9 @@ Locais incluem restaurante, hotéis ou negócios locais. O [entityPresentationIn
 }, ...
 ```
 > [!NOTE]
-> Respostas de entidade suportam vários mercados, mas a resposta de lugares suporta apenas as localizações nos negócios. 
+> As respostas de Entidades suportam vários mercados, mas a resposta de Locais suporta apenas as localizações de Empresas nos E.U.A. 
 
-Consultas de entidade com reconhecimento de local como *restaurante ao meu redor* requerem a localização do utilizador para fornecer resultados precisos. Os pedidos de devem sempre utilizar a localização de pesquisa de X e cabeçalhos X-MSEdge-ClientIP para especificar a localização do utilizador. Se achar que a Bing, a consulta beneficiariam com a localização do utilizador, ele define a `askUserForLocation` campo [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) para **verdadeiro**. 
+As consultas de entidade com reconhecimento de local como *restaurante perto de mim* requerem a localização do utilizador para fornecer resultados precisos. Os pedidos devem utilizar sempre os cabeçalhos X-Search-Location e X-MSEdge-ClientIP para especificar a localização do utilizador. Se o Bing concluir que a consulta poderia tirar partido da localização do utilizador, irá definir o campo `askUserForLocation` de [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) como **verdadeiro**. 
 
 ```json
 {
@@ -207,7 +207,7 @@ Consultas de entidade com reconhecimento de local como *restaurante ao meu redor
 }
 ```
 
-Um resultado de lugar inclui o local onde nome, endereço, número de telefone e URL para o site da entidade. Quando exibir as informações da entidade, também tem de utilizar o URL no `webSearchUrl` página que contém a entidade de resultados de campo para ligar para a pesquisa do Bing.
+Um resultado de local inclui o nome, endereço e o número de telefone do local, bem como o URL para o site da entidade. Quando apresentar as informações da entidade, também tem de utilizar o URL do campo `webSearchUrl` para ligar à página de resultados da pesquisa do Bing que contém a entidade.
 
 ```json
 "places": {
@@ -235,15 +235,15 @@ Um resultado de lugar inclui o local onde nome, endereço, número de telefone e
 ```
 
 > [!NOTE]
-> , Ou uma aplicação de terceiros em seu nome, poderá não utilizar, manter, armazenar, colocar em cache, partilhar, ou distribuir quaisquer dados da API de entidades para fins de teste, desenvolvimento, treinamento, distribuir ou ao disponibilizá-se de que qualquer serviço de terceiros ou de recursos.  
+> O Utilizador ou terceiros em seu nome não poderão utilizar, reter, armazenar, colocar em cache, partilhar nem distribuir quaisquer dados da API de Entidades para fins de testes, desenvolvimento, formação, distribuição ou disponibilização de qualquer serviço ou funcionalidade que não seja da Microsoft.  
 
 ## <a name="data-attribution"></a>Atribuição de dados
 
-Respostas de API entidades do Bing contêm informações de propriedade de terceiros. É responsável para garantir a que sua utilização está apropriada, por exemplo cumprimento de qualquer licença creative commons que possam recorrer a sua experiência de utilizador.
+A API de Entidades do Bing contém informações pertencentes a terceiros. É da sua responsável garantir a respetiva utilização adequada, por exemplo, ao respeitar o cumprimento de qualquer licença Creative Commons na qual a sua experiência de utilizador se baseie.
 
-Se uma resposta ou o resultado inclui os `contractualRules`, `attributions`, ou `provider` campos, tem de atributo os dados. Se a resposta não inclui qualquer um desses campos, sem atribuição é necessária. Se a resposta inclui a `contractualRules` campo e o `attributions` e/ou `provider` campos, tem de utilizar as regras contratuais para os dados de atributo.
+Se uma resposta ou resultado incluir os campos `contractualRules`, `attributions` ou `provider`, tem de atribuir os dados. Se a resposta não incluir nenhum desses campos, a atribuição não é necessária. Se a resposta incluir o campo `contractualRules` e os campos `attributions` e/ou `provider`, tem de utilizar as regras contratuais para atribuir os dados.
 
-O exemplo seguinte mostra uma entidade que inclui uma regra de contratual MediaAttribution e uma imagem que inclua um `provider` campo. A regra de MediaAttribution identifica a imagem como o destino da regra, para que poderia ignorar a imagem `provider` campo em vez disso, a regra de MediaAttribution para fornecer a atribuição.  
+O exemplo seguinte mostra uma entidade que inclui uma regra contratual MediaAttribution e uma imagem que inclui um campo `provider`. A regra MediaAttribution identifica a imagem como o destino da regra, pelo que poderia ignorar o campo `provider` da imagem e utilizar, em alternativa, a regra MediaAttribution para fornecer a atribuição.  
 
 ```json
 "value": [{
@@ -272,9 +272,9 @@ O exemplo seguinte mostra uma entidade que inclui uma regra de contratual MediaA
 }]
 ```
 
-Se uma regra contratual inclui o `targetPropertyName` campo, a regra aplica-se apenas para o campo de destino. Caso contrário, a regra se aplica ao objeto pai que contém o `contractualRules` campo.
+Se uma regra contratual incluir o campo `targetPropertyName`, a regra aplica-se apenas ao campo visado. Caso contrário, a regra aplica-se ao objeto principal que contém o campo `contractualRules`.
 
-No exemplo a seguir, o `LinkAttribution` regra inclui o `targetPropertyName` campo, para que a regra aplica-se para o `description` campo. Para regras que se aplicam a campos específicos, tem de incluir uma linha imediatamente após os dados de destinados que contém uma hiperligação para o site do fornecedor. Por exemplo, para a descrição do atributo, inclua uma linha imediatamente após o texto de descrição que contém uma hiperligação para os dados no site do fornecedor, neste caso, criar uma ligação para contoso.com.
+No exemplo seguinte, a regra `LinkAttribution` inclui o campo `targetPropertyName`, pelo que a regra aplica-se ao campo `description`. Para regras que se aplicam a campos específicos, tem de incluir uma linha imediatamente após os dados visados que contenha uma hiperligação para o site do fornecedor. Por exemplo, para atribuir a descrição, inclua uma linha imediatamente após o texto de descrição, que contenha uma hiperligação para os dados no site do fornecedor, neste caso, crie uma ligação para contoso.com.
 
 ```json
 "entities": {
@@ -295,52 +295,52 @@ No exemplo a seguir, o `LinkAttribution` regra inclui o `targetPropertyName` cam
 
 ### <a name="license-attribution"></a>Atribuição de licença
 
-Se a lista de regras contratuais inclui um [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) regra, tem de apresentar o aviso na linha imediatamente após o conteúdo que a licença se aplica a. O `LicenseAttribution` regra utiliza o `targetPropertyName` campo para identificar a propriedade que se aplica a licença.
+Se a lista de regras contratuais incluir uma regra [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution), tem de apresentar o aviso na linha imediatamente após o conteúdo ao qual a licença se aplica. A regra `LicenseAttribution` utiliza o campo `targetPropertyName` para identificar a propriedade à qual a licença se aplica.
 
-O seguinte mostra um exemplo que inclui um `LicenseAttribution` regra.
+O seguinte mostra um exemplo que inclui uma regra `LicenseAttribution`.
 
 ![Atribuição de licença](./media/cognitive-services-bing-entities-api/licenseattribution.png)
 
-O aviso de licença que exibir tem de incluir um hiperlink para o site que contenha informações sobre a licença. Normalmente, verifique o nome da licença de um hiperlink. Por exemplo, se for o aviso **texto sob a licença de CC por SA** e CC por SA é o nome da licença, que faria CC por SA um hiperlink.
+O aviso de licença que apresentar tem de incluir uma hiperligação para o site que contenha informações sobre a licença. Normalmente, o nome da licença é utilizado como hiperligação. Por exemplo, se o aviso for **Texto ao abrigo da licença CC-BY-SA** e CC-BY-SA for o nome da licença, CC-BY-SA seria utilizado como a hiperligação.
 
 ### <a name="link-and-text-attribution"></a>Atribuição de ligação e texto
 
-O [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) e [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) regras são normalmente utilizadas para identificar o fornecedor de dados. O `targetPropertyName` campo identifica o campo que se aplica a regra.
+As regras [LinkAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#linkattribution) e [TextAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#textattribution) são normalmente utilizadas para identificar o fornecedor dos dados. O campo `targetPropertyName` identifica o campo ao qual a regra se aplica.
 
-Para os fornecedores de atributo, inclua uma linha imediatamente após o conteúdo que se aplicam as atribuições para (por exemplo, o campo de destino). A linha deve ser claramente nome para indicar que os fornecedores são a origem dos dados. Por exemplo, "dados a partir de: contoso.com". Para `LinkAttribution` regras, tem de criar uma hiperligação para o site do fornecedor.
+Para atribuir os fornecedores, inclua uma linha imediatamente após o conteúdo ao qual as atribuições se aplicam (por exemplo, o ficheiro visado). A linha deve estar claramente identificada para indicar que os fornecedores são a origem dos dados. Por exemplo, “dados de: contoso.com”. Para as regras `LinkAttribution`, tem de criar uma hiperligação para o site do fornecedor.
 
-O seguinte mostra um exemplo que inclui `LinkAttribution` e `TextAttribution` regras.
+O seguinte mostra um exemplo que inclui as regras `LinkAttribution` e `TextAttribution`.
 
-![Atribuição de texto do Link](./media/cognitive-services-bing-entities-api/linktextattribution.png)
+![Atribuição de texto de ligação](./media/cognitive-services-bing-entities-api/linktextattribution.png)
 
 ### <a name="media-attribution"></a>Atribuição de suporte de dados
 
-Se a entidade inclui uma imagem e apresentá-lo, tem de fornecer um link clicável para o site do fornecedor. Se a entidade inclui um [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution) de regra, utilize o URL da regra para criar a ligação clicável. Caso contrário, utilize o URL incluído na imagem do `provider` campo para criar a ligação clicável.
+Se a entidade incluir uma imagem e a apresentar, tem de fornecer uma ligação clicável para o site do fornecedor. Se a entidade incluir uma regra [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution), utilize o URL da regra para criar a ligação clicável. Caso contrário, utilize o URL incluído no campo `provider` da imagem para criar a ligação clicável.
 
-O seguinte mostra um exemplo que inclui uma imagem `provider` campo e regras contratuais. Uma vez que o exemplo inclui a regra contratual, ignorar a imagem `provider` campo e aplicar o `MediaAttribution` regra.
+O seguinte mostra um exemplo que inclui um campo `provider` e as regras contratuais da imagem. Uma vez que o exemplo inclui a regra contratual, ignore o campo `provider` da imagem e aplique a regra `MediaAttribution`.
 
 ![Atribuição de suporte de dados](./media/cognitive-services-bing-entities-api/mediaattribution.png)
 
-### <a name="search-or-search-like-experience"></a>Pesquisa ou experiência de pesquisa semelhantes
+### <a name="search-or-search-like-experience"></a>Pesquisa ou experiência semelhante a pesquisa
 
-Tal como com a API de pesquisa Web Bing, a API de pesquisa de entidades do Bing só podem ser utilizada como resultado de uma consulta de utilizador direto ou a pesquisa, ou como resultado de uma ação num aplicativo ou a experiência que logicamente pode ser interpretada como a solicitação de pesquisa de um utilizador. Para efeitos de ilustração, seguem-se alguns exemplos de pesquisa aceitável ou experiências de pesquisa semelhantes.
+Tal como a API de Pesquisa na Web do Bing, a API de Pesquisa de Entidades do Bing só pode ser utilizada devido a uma consulta ou pesquisa direta de utilizador ou devido a uma ação numa aplicação ou uma experiência que possa ser logicamente interpretada como um pedido de pesquisa de um utilizador. Para efeitos de ilustração, seguem-se alguns exemplos de pesquisa aceitável ou experiências semelhantes a pesquisa.
 
-- Usuário insere uma consulta diretamente na caixa de pesquisa numa aplicação
-- Utilizador seleciona um texto específico ou imagem e pedidos "obter mais informações" ou "additional information"
-- Utilizador pede um bot de pesquisa sobre um tópico específico
-- Utilizador dwells num determinado objeto ou uma entidade num cenário do tipo de pesquisa visual
+- O utilizador introduz uma consulta diretamente na caixa de pesquisa da aplicação
+- O utilizador seleciona um texto ou imagem específica e pede “mais informações” ou “informações adicionais”
+- O utilizador pede um bot de pesquisa sobre um tópico específico
+- O utilizador insiste num determinado objeto ou entidade num cenário do tipo de pesquisa visual
 
-Se não tiver a certeza se a sua experiência pode ser considerada uma experiência de pesquisa semelhantes, recomenda-se que verifique com a Microsoft.
+Se não tiver a certeza se a sua experiência pode ser considerada uma experiência semelhante a pesquisa, recomenda-se que verifique junto da Microsoft.
 
 ## <a name="throttling-requests"></a>Limitar pedidos
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para começar rapidamente com o primeiro pedido, consulte [tornando sua primeira solicitação](./quick-start.md).
+Para começar a trabalhar rapidamente com o seu primeiro pedido, veja [Fazer o Primeiro Pedido](./quick-start.md).
 
-Familiarize-se com o [API de pesquisa de entidades do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) referência. A referência contém os cabeçalhos e os parâmetros de consulta que utiliza para solicitar os resultados da pesquisa. Também inclui as definições dos objetos de resposta. 
+Explore mais com a referência da [API de Pesquisa de Entidades do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference). A referência contém os cabeçalhos e parâmetros de consulta que utiliza para pedir os resultados da pesquisa. Também inclui as definições dos objetos de resposta. 
 
 Para melhorar a sua experiência de utilizador da caixa de pesquisa, veja o artigo [API de Sugestão Automática do Bing](../bing-autosuggest/get-suggested-search-terms.md). À medida que o utilizador introduz o termo de consulta, pode chamar esta API para obter os termos de consulta relevantes que foram utilizados por outras pessoas.
 

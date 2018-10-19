@@ -1,55 +1,57 @@
 ---
-title: Chamar a API de emoções para as vídeo | Microsoft Docs
-description: Saiba como chamar a API de emoções para as vídeo em serviços cognitivos.
+title: 'Exemplo: Chamar a API de Emoções para Vídeo'
+titlesuffix: Azure Cognitive Services
+description: Saiba como chamar a API de Emoções para Vídeo nos Serviços Cognitivos.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352447"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238612"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>Como chamar emoções API de vídeo
+# <a name="example-call-emotion-api-for-video"></a>Exemplo: Chamar a API de Emoções para Vídeo
 
 > [!IMPORTANT]
-> Vídeo de API de pré-visualização vai terminar em 30th de Outubro de 2017. Experimentar o novo [pré-visualização do vídeo indexador API](https://azure.microsoft.com/services/cognitive-services/video-indexer/) para extrair facilmente insights de vídeos e a melhorar as experiências de deteção de conteúdos, tais como resultados de pesquisa, através da deteção palavras ditas, faces, carateres e emotions. [Saiba mais](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> A API de Emoções vai ser preterida no dia 15 de fevereiro de 2019. A função de reconhecimento de emoções está agora geralmente disponível como parte da [API Face](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Este guia demonstra como chamar a API de emoções de vídeo. Os exemplos são escritos em c# utilizando a API de emoções da biblioteca de cliente de vídeo.
+Este guia demonstra como chamar a API de Emoções para Vídeo. Os exemplos são escritos em C# com a biblioteca de cliente da API de Emoções para Vídeo.
 
-### <a name="Prep">Preparação</a> 
-Para utilizar a API de emoções para as vídeo, é necessário um vídeo que inclui as pessoas, vídeos, de preferência, em que as pessoas estão a enfrentar a câmara.
+### <a name="Prep">Preparação</a>
+Para utilizar a API de Emoções para Vídeo, precisa de um vídeo que inclua pessoas, preferencialmente um vídeo onde as pessoas estejam viradas para a câmara.
 
-### <a name="Step1">Passo 1: Autorizar a chamada de API</a> 
-Cada chamada à API do emoções para as vídeo requer uma chave de subscrição. Esta chave tem de ser transmitidos através de um parâmetro de cadeia de consulta ou especificado no cabeçalho do pedido. Para passar a chave de subscrição através de uma cadeia de consulta, consulte o URL do pedido abaixo para a API de emoções de vídeo como exemplo:
+### <a name="Step1">Passo 1: Autorizar a chamada à API</a>
+Todas as chamadas à API de Emoções para Vídeo necessitam de uma chave de subscrição. Esta chave tem de ser transmitida através de um parâmetro de cadeia de consulta ou pode ser especificada no cabeçalho do pedido. Para transmitir a chave de subscrição através de uma cadeia de consulta, veja o URL do pedido abaixo da API de Emoções para Vídeo como exemplo:
 
 ```
 https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognizeInVideo&subscription-key=<Your subscription key>
 ```
 
-Como alternativa, a chave de subscrição pode ser também especificada no cabeçalho do pedido HTTP:
+Como alternativa, a chave de subscrição também pode ser especificada no cabeçalho do pedido HTTP:
 
 ```
 ocp-apim-subscription-key: <Your subscription key>
 ```
 
-Quando utilizar uma biblioteca de cliente, a chave de subscrição é transmitida através do construtor de classe VideoServiceClient. Por exemplo:
+Ao utilizar uma biblioteca de cliente, a chave de subscrição é transmitida através do construtor da classe VideoServiceClient. Por exemplo:
 
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Para obter uma chave de subscrição, consulte [subscrições] (https://azure.microsoft.com/try/cognitive-services/). 
+Para obter uma chave de subscrição, veja [Subscrições] (https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">Passo 2: Carregar um vídeo para o serviço e verificar o Estado</a>
-É a forma mais básica Efetue qualquer uma da API de emoções para chamadas de vídeo através do carregamento de um vídeo diretamente. Isto é feito ao enviar um pedido de "POST" com o tipo de conteúdo application/octet-stream juntamente com os dados de ler a partir de um ficheiro de vídeo. O tamanho máximo do vídeo é 100MB.
+### <a name="Step2">Passo 2: Carregar um vídeo para o serviço e verificar o estado</a>
+A forma mais básica de efetuar qualquer uma das chamadas à API de Emoções para Vídeo é ao carregar um vídeo diretamente. Isto é feito ao enviar um pedido "POST" com o tipo de conteúdo application/octet-stream, juntamente com os dados lidos num ficheiro de vídeo. O tamanho máximo do vídeo são 100 MB.
 
-Utilizar a biblioteca de clientes, é feita estabilização através do carregar mediante a transmissão num objecto stream. Consulte o exemplo abaixo:
+Com a biblioteca de cliente, a estabilização por meio de carregamento é feita ao transmitir um objeto de transmissão em fluxo. Veja o exemplo abaixo:
 
 ```
 Operation videoOperation;
@@ -59,10 +61,10 @@ using (var fs = new FileStream(@"C:\Videos\Sample.mp4", FileMode.Open))
 }
 ```
 
-Tenha em atenção que o método de CreateOperationAsync de VideoServiceClient é assíncrona. O método de chamada deverá ser marcado como async, bem como para utilizar a cláusula await.
-Se as vídeo já se encontra na web e tem um URL público, API de emoções para as vídeo podem ser acedido ao fornecer o URL. Neste exemplo, o corpo do pedido irá ser uma cadeia JSON que contém o URL.
+Tenha em atenção que o método CreateOperationAsync VideoServiceClient é assíncrono. O método de chamada deve ser marcado como async (assíncrono), para poder utilizar a cláusula wait (aguardar).
+Se o vídeo já estiver na Web e tiver um URL público, a API de Emoções para Vídeo pode ser acedida ao fornecer o URL. Neste exemplo, o corpo do pedido será uma cadeia JSON, que contém o URL.
 
-Utilizar a biblioteca de clientes, estabilização através de um URL pode facilmente ser executada utilizando outra sobrecarga do método CreateOperationAsync.
+Com a biblioteca de cliente, a estabilização por meio de um URL pode ser executada facilmente ao utilizar outra sobrecarga do método CreateOperationAsync.
 
 
 ```
@@ -71,18 +73,18 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-Este método de carregamento será a mesma para todas as API de emoções para chamadas de vídeo. 
+Este método de carregamento será o mesmo para todas as chamadas à API de Emoções para Vídeo.
 
-Assim que tenha carregado um vídeo, a próxima operação de que pretende executar é Verifique o respetivo estado. Porque os ficheiros de vídeo são normalmente maiores e mais diversificada que outros ficheiros, os utilizadores podem esperar algum tempo de processamento neste passo. O tempo depende do tamanho e o comprimento do ficheiro.
+Depois de carregar um vídeo, a operação seguinte que deverá executar é verificar o respetivo estado. Como os ficheiros de vídeo são normalmente maiores e mais diversos do que outros ficheiros, os utilizadores podem esperar um tempo de processamento longo neste passo. O tempo depende do tamanho do ficheiro.
 
-Utilizar a biblioteca de clientes, pode obter o estado da operação e os resultados utilizando o método GetOperationResultAsync.
+Com a biblioteca de cliente, pode obter o estado e o resultado da operação com o método GetOperationResultAsync.
 
 
 ```
 var operationResult = await videoServiceClient.GetOperationResultAsync(videoOperation);
 
 ```
-Normalmente, no lado do cliente deve obter periodicamente o estado da operação enquanto o estado é mostrado como "Com êxito" ou "Falhado".
+Normalmente, o lado do cliente deve obter periodicamente o estado da operação até o estado ser mostrado como "Succeeded" (Com êxito) ou "Failed" (Falhado).
 
 ```
 OperationResult operationResult;
@@ -99,48 +101,48 @@ while (true)
 
 ```
 
-Quando o estado de VideoOperationResult é apresentado como "Foi concluída com êxito" o resultado pode ser obtido pelo conversão VideoOperationResult para um VideoOperationInfoResult<VideoAggregateRecognitionResult> e o campo de ProcessingResult a aceder.
+Quando o estado de VideoOperationResult é mostrado como "Succeeded" (Com êxito), o resultado pode ser obtido ao converter VideoOperationResult em VideoOperationInfoResult<VideoAggregateRecognitionResult> e ao aceder ao campo ProcessingResult.
 
 ```
 var emotionRecognitionJsonString = ((VideoOperationInfoResult<VideoAggregateRecognitionResult>)operationResult).ProcessingResult;
 ```
 
-### <a name="Step3">Passo 3: Obter e compreender o reconhecimento de emoções e ao controlar a saída JSON</a>
+### <a name="Step3">Passo 3: Obter e compreender o reconhecimento de emoções e controlar a saída JSON</a>
 
-O resultado de saída contém os metadados do faces dentro do ficheiro especificado no formato JSON.
+O resultado de saída contém os metadados dos rostos no ficheiro especificado no formato JSON.
 
-Conforme explicado no passo 2, a saída JSON está disponível no campo ProcessingResult de OperationResult, quando o estado é apresentado como "Com êxito".
+Conforme explicado no Passo 2, a saída JSON está disponível no campo ProcessingResult de OperationResult, quando o estado é mostrado como "Succeeded" (Com êxito).
 
-A deteção de rostos em e controlo JSON inclui os seguintes atributos:
+O JSON de controlo e deteção de rostos inclui os seguintes atributos:
 
 Atributo | Descrição
 -------------|-------------
-Versão | Refere-se para a versão da API emoções para JSON de vídeo.
-Escala temporal | "Ticks" por segundo do vídeo.
-Desvio  |O desvio da hora para carimbos de hora. Na versão 1.0 do emoções API para vídeos, este será sempre 0. Cenários suportados futuras, pode alterar este valor.
-Framerate | Fotogramas por segundo do vídeo.
-Fragmentos   | Os metadados é cortar cópias de segurança em diferentes partes mais pequenas denominadas fragmentos. Cada fragmento contém um início, a duração, o número do intervalo e o evento (s).
-Iniciar   | A hora de início do primeiro evento, na ticks.
-Duração |  O comprimento do fragmento, no ticks.
-Intervalo |  O comprimento de cada evento dentro de fragmento, no ticks.
-Eventos  | Uma matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituído por 0 ou mais eventos que ocorreram neste ponto no tempo.
-windowFaceDistribution |    Percentagem enfrenta ter uma determinado emoções durante o evento.
-windowMeanScores |  Média pontuações das classificações para cada emoções de faces na imagem.
+Versão | Refere-se à versão do JSON da API de Emoções para Vídeo.
+Escala temporal | "Tiques" por segundo do vídeo.
+Desvio  |Desvio de tempo para carimbos de data/hora. Na versão 1.0 da API de Emoções para Vídeo, será sempre 0. Nos futuros cenários suportados, pode alterar este valor.
+Taxa de fotogramas | Fotogramas por segundo do vídeo.
+Fragmentos   | Os metadados são cortados em diferentes partes mais pequenas chamadas fragmentos. Cada fragmento contém um início, duração, número de intervalos e evento(s).
+Iniciar   | Hora de início do primeiro evento, em tiques.
+Duração |  Duração do fragmento, em tiques.
+Intervalo |  Duração de cada evento no fragmento, em tiques.
+Eventos  | Matriz de eventos. A matriz externa representa um intervalo de tempo. A matriz interna é constituída por 0 ou mais eventos que ocorreram nesse ponto no tempo.
+windowFaceDistribution |    Percentagem de rostos que terão uma determinada emoção durante o evento.
+windowMeanScores |  Pontuações médias para cada emoção dos rostos na imagem.
 
-O motivo para a formatação JSON desta forma consiste em configurar as APIs para cenários de futuros, onde vai ser importante obter metadados rapidamente e gerir um grande fluxo de resultados. Este formatação está a utilizar ambas as técnicas de fragmentação (permitindo-lhe dividir os metadados em partes baseados no tempo, onde pode transferir apenas o que precisa de) e a segmentação de (, permitindo-lhe dividir os eventos se demasiado grandes). Alguns cálculos simples podem ajudar a transformar os dados. Por exemplo, se um evento foi iniciado no 6300 (ticks), com uma escala temporal de 2997 (ticks/seg) e um framerate de 29.97 (fotogramas por segundo), em seguida:
+O motivo de formatar o JSON desta forma é configurar as APIs para cenários futuros, onde será importante recuperar metadados rapidamente e gerir um grande fluxo de resultados. Esta formatação está a utilizar ambas as técnicas de fragmentação (o que permite dividir os metadados em partes baseadas no tempo, em que pode transferir apenas o que precisa) e segmentação (o que permite dividir os eventos se ficarem demasiado grandes). Alguns cálculos simples podem ajudá-lo a transformar os dados. Por exemplo, se um evento iniciou em 6300 (tiques), com uma escala temporal de 2997 (tiques/segundo) e uma taxa de fotogramas de 29,97 (fotogramas/segundo):
 
-*   Iniciar/escala temporal = segundos 2.1
-*   Segundos x (Framerate/escala temporal) = 63 frames
+*   Início/Escala temporal = 2,1 segundos
+*   Segundos x (Taxa de fotogramas/Escala temporal) = 63 fotogramas
 
-Segue-se um exemplo simples para extrair o JSON para um por formato do pacote para a deteção de rostos em e controlo:
+Segue-se um exemplo simples de extração do JSON para um formato por fotograma para controlo e deteção de rostos:
 
 ```
 var emotionRecognitionTrackingResultJsonString = operationResult.ProcessingResult;
 var emotionRecognitionTracking = JsonConvert.DeserializeObject<EmotionRecognitionResult>(emotionRecognitionTrackingResultJsonString, settings);
 ```
-Porque emotions são smoothed ao longo do tempo, se alguma vez criar uma visualização de sobreposição os resultados na parte superior o vídeo original, subtrair 250 milissegundos dos carimbos fornecidos.
+Como as emoções são suavizadas ao longo do tempo, se alguma vez criar uma visualização para sobrepor os resultados no vídeo original, subtraia 250 milissegundos dos carimbos de data/hora fornecidos.
 
 ### <a name="Summary">Resumo</a>
-Neste guia aprendeu sobre as funcionalidades da API emoções para as vídeo: a forma como pode carregar um vídeo, verifique o respetivo estado, obter metadados de reconhecimento de emoções.
+Neste guia, ficou a conhecer as funcionalidades da API de Emoções para Vídeo: como pode carregar um vídeo, verificar o respetivo estado e obter os metadados de reconhecimento de emoções.
 
-Para obter mais informações sobre os detalhes de API, consulte o guia de referência de API "[emoções API para referência de vídeo](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)".
+Para obter mais informações sobre os detalhes da API, veja o guia de referência da API "[Referência da API de Emoções para Vídeo](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)".

@@ -1,132 +1,134 @@
 ---
-title: Machine Learning - serviços cognitivos do Azure | Microsoft Docs
-description: Um tutorial do machine learning no serviço de decisão de personalizada no Azure, uma API baseado na nuvem para a nível contextual das decision-making.
+title: 'Tutorial: Caracterização e especificação de características - Serviço de Decisão Personalizada'
+titlesuffix: Azure Cognitive Services
+description: Um tutorial relativo à caracterização e à especificação de características de machine learning no Serviço de Decisão Personalizada.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354596"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869596"
 ---
-# <a name="machine-learning"></a>Aprendizagem automática
+# <a name="tutorial-featurization-and-feature-specification"></a>Tutorial: caracterização e especificação de características
 
-Este tutorial aborda o avançadas do machine learning funcionalidades no serviço de decisão personalizada. O tutorial consiste em duas partes: [featurization](#featurization-concepts-and-implementation) e [funcionalidade especificação](#feature-specification-format-and-apis). Featurization refere-se que representa os dados como "funcionalidades" do machine learning. Especificação de funcionalidade abrange o formato JSON e as APIs auxiliar para especificar as funcionalidades.
+Este tutorial aborda a funcionalidade avançada de machine learning no Serviço de Decisão Personalizada. Consiste em duas partes: [caracterização](#featurization-concepts-and-implementation) e [especificação de características](#feature-specification-format-and-apis). A caracterização significa representar os seus dados como “características” para machine learning. A especificação de características abrange o formato JSON e as APIs de apoio para especificar essas características.
 
-Por predefinição, o machine learning no serviço de decisão personalizada é transparente para o cliente. Funcionalidades automaticamente são extraídas de conteúdo e é utilizado um algoritmo de aprendizagem reinforcement padrão. Vários outros serviços do Azure cognitivos tira partido da funcionalidade de extração: [entidade de ligação](../entitylinking/home.md), [análise de texto](../text-analytics/overview.md), [emoções](../emotion/home.md), e [computador visão](../computer-vision/home.md). Este tutorial pode ser ignorado se apenas a funcionalidade predefinido é utilizada.
+Por predefinição, o machine learning no Serviço de Decisão Personalizada é transparente do ponto de vista do cliente. As características são extraídas automaticamente dos seus conteúdos e é utilizado um algoritmo de aprendizagem de reforço padrão. A extração de características tira partido de vários outros serviços dos Serviços Cognitivos do Azure, como a [Associação de Entidades](../entitylinking/home.md), a [Análise de Texto](../text-analytics/overview.md), as [Emoções](../emotion/home.md) e a [Imagem Digitalizada](../computer-vision/home.md). Se só for utilizada a funcionalidade predefinida, este tutorial pode ser ignorado.
 
-## <a name="featurization-concepts-and-implementation"></a>Featurization: conceitos e implementação
+## <a name="featurization-concepts-and-implementation"></a>Caracterização: conceitos e implementação
 
-Serviço de decisão personalizado toma decisões de um de cada. Cada decisão envolve escolher entre vários alternativas, a.k.a., ações. Dependendo da aplicação, a decisão pode optar por uma única ação ou uma lista de ações classificados (abreviada).
+O Serviço de Decisão Personalizada toma as decisões uma a uma. Cada decisão envolve escolher de entre várias alternativas, o que também é denominado ações. Dependendo da aplicação, a decisão pode escolher uma ação individual ou uma lista ordenada (pequena) de ações.
 
-Por exemplo, personalizar a seleção dos artigos na página de front-de um Web site. Aqui, ações correspondem aos artigos, não sendo cada decisão que artigos para mostrar para um determinado utilizador.
+Por exemplo, personalizar a seleção de artigos na página inicial de um site. Neste caso, as ações correspondem aos artigos e cada decisão é que artigos mostrar a um determinado utilizador.
 
-Cada ação é representada por um vetor de propriedades, henceforth chamado *funcionalidades*. Pode especificar novas funcionalidades, para além das funcionalidades extraídas automaticamente. Pode ainda dar instruções ao serviço de decisão de personalizada a algumas funcionalidades de registo, mas ignorá-las para o machine learning.
+Cada ação é representada por um vetor de propriedades, doravante denominado *características*. Para além das características extraídas automaticamente, pode especificar outras novas. Também pode instruir o Serviço de Decisão Personalizada a registar algumas características, mas a ignorá-las no machine learning.
 
-### <a name="native-vs-internal-features"></a>Nativo vs funcionalidades internos
+### <a name="native-vs-internal-features"></a>Características nativas vs. internas
 
-Pode especificar funcionalidades num formato mais natural para a sua aplicação, -la de ser um número, uma cadeia ou uma matriz. Estas funcionalidades são denominadas "funcionalidades nativas". Serviço decisão personalizado traduz cada funcionalidade nativa para uma ou mais funcionalidades numérico, denominadas "funcionalidades internas".
+Pode especificar características no formato que seja mais natural para a sua aplicação, seja um número, uma cadeia ou uma matriz. Essas características são chamadas “características nativas”. O Serviço de Decisão Personalizada traduz cada característica nativa em uma ou mais características numéricas, denominadas “características internas”.
 
-A tradução para funcionalidades internas é o seguinte:
+A tradução em características internas é feita da seguinte forma:
 
-- funcionalidades numérico permanecem igual.
-- uma matriz numérico traduz-se várias funcionalidades numérico, um para cada elemento da matriz.
-- uma funcionalidade de valor de cadeia `"Name":"Value"` está por predefinição convertida uma funcionalidade com o nome `"NameValue"` e o valor de 1.
-- Opcionalmente, uma cadeia pode ser representada como [matriz de palavras](https://en.wikipedia.org/wiki/Bag-of-words_model). Em seguida, uma funcionalidade interna é criada para cada palavra na cadeia, cujo valor é o número de ocorrências desta palavra.
-- Valor de zero internas funcionalidades estão omitidas.
+- as características numéricas permanecem iguais.
+- uma matriz numérica traduz em várias características numéricas, uma para cada elemento da matriz.
+- por predefinição, uma característica `"Name":"Value"` com valor de cadeia é traduzida numa característica com o nome `"NameValue"` e o valor 1.
+- Opcionalmente, as cadeias podem ser representadas como um “[saco de palavras](https://en.wikipedia.org/wiki/Bag-of-words_model)”. Em seguida, é criada uma característica interna para cada palavra na cadeia, cujo valor é o número de ocorrências dessas palavras.
+- As características internas com valor de zero são omitidas.
 
-### <a name="shared-vs-action-dependent-features"></a>Partilhado vs funcionalidades dependentes da ação
+### <a name="shared-vs-action-dependent-features"></a>Características partilhadas vs. características dependentes da ação
 
-Algumas funcionalidades Consulte a decisão de toda e são os mesmos para todas as ações. Chamamos-los *funcionalidades partilhadas*. Algumas outras funcionalidades são específicas para uma ação específica. Chamamos-los *funcionalidades dependentes da ação* (ADFs).
+Algumas características referem-se a toda a decisão e são as mesmas para todas as ações. São chamadas *características partilhadas*. Outras características são específicas de uma determinada ação, a que se dão o nome de *características dependentes da ação* (ADFs).
 
-No exemplo em execução, funcionalidades partilhadas foi descrevem o utilizador e/ou o estado do mundo. Funcionalidades como geolocalização, idade e sexo do utilizador, e os eventos principais estavam a acontecer neste momento. Funcionalidades de ação dependentes foi descrevem as propriedades de um artigo especificado, tais como os tópicos abrangidos por este artigo.
+No exemplo utilizado, as características partilhadas podem descrever o utilizador e/ou o estado da palavra. Podem ser características como geolocalização, idade e género do utilizador e os principais eventos que estão a acontecer neste momento. As características dependentes da ação podem descrever as propriedades de um determinado artigo, como os temas abordados no mesmo.
 
-### <a name="interacting-features"></a>Funcionalidades de interação
+### <a name="interacting-features"></a>Interação entre características
 
-As funcionalidades, muitas vezes, "interagir": o efeito de um depende de outros utilizadores. Por exemplo, a funcionalidade X é se o utilizador é interessado no desporto. Funcionalidade Y é se um determinado artigo sobre desporto. Em seguida, o efeito da funcionalidade Y está altamente dependente de funcionalidade X.
+Muitas vezes, as características “interagem”, ou seja, o efeito de uma depende de outras. Por exemplo, a característica X define se o utilizador tem interesse em desporto. A Y define se um determinado artigo é sobre desporto. Assim, o efeito da característica Y está muito dependente da X.
 
-Para contemplar a interação entre funcionalidades X e Y, crie um *quadratic* funcionalidade cujo valor é X\*Y. (Iremos também diga, "cross" X e Y.) Pode escolher os pares de funcionalidades são ultrapassados.
+Para identificar a interação entre ambas as características, crie uma característica *quadrática*, cujo valor seja X\*Y (também dizemos “cruzar” X e Y). Pode escolher que pares de características vão ser cruzados.
 
 > [!TIP]
-> Uma funcionalidade partilhada deve ser ultrapassada com funcionalidades de ação dependentes para influenciar a respetiva classificação. Uma funcionalidade de ação dependentes deve ser ultrapassada com funcionalidades partilhadas para contribuir para a personalização.
+> As características partilhadas devem ser cruzadas com características dependentes da ação para influenciar a classificação destas. As características dependentes da ação devem ser cruzadas com características partilhadas para contribuir para a personalização.
 
-Por outras palavras, uma funcionalidade partilhada não ultrapassada com qualquer ADFs influencia cada ação da mesma forma. Um ADF não ultrapassado com qualquer funcionalidade partilhada influencia demasiado cada decisão. Estes tipos de funcionalidades podem reduzir a variância de reward estimativas.
+Por outras palavras, uma característica partilhada não cruzada com nenhuma ADF influencia cada ação da mesma forma. Também uma ADF não cruzada com nenhuma característica partilhada influencia cada decisão. Estes tipos de características podem reduzir a variação das estimativas de recompensa.
 
 ### <a name="implementation-via-namespaces"></a>Implementação através de espaços de nomes
 
-Pode implementar funcionalidades ultrapassadas (bem como outros conceitos featurization) através de "VW linha de comandos" no Portal. A sintaxe baseia-se no [Vowpal Wabbit](http://hunch.net/~vw/) linha de comandos.
+Pode implementar características cruzadas (bem como outros conceitos da caracterização) através da “linha de comandos VW” no Portal. A sintaxe tem por base a linha de comandos [Vowpal Wabbit](http://hunch.net/~vw/).
 
-Central para a implementação é o conceito de *espaço de nomes*: um subconjunto das funcionalidades com nome. Cada funcionalidade pertence a exatamente um espaço de nomes. O espaço de nomes pode ser especificado explicitamente quando o valor de funcionalidade é fornecido para o serviço de decisão personalizada. É a única forma de fazer referência a uma funcionalidade na linha de comandos VW.
+Fundamental para a implementação é o conceito de *espaço de nomes*, um subconjunto nomeado de características. Cada característica pertence a exatamente um espaço de nomes. O espaço de nomes pode ser especificado explicitamente quando o valor da característica é fornecido ao Serviço de Decisão Personalizada. Esta é a única forma de fazer referência a uma característica na linha de comandos VW.
 
-Um espaço de nomes é "partilhado" ou "dependentes da ação": o consiste apenas em funcionalidades partilhadas ou -consiste apenas em funcionalidades dependentes da ação da mesma ação.
+Os espaços de nomes são “partilhados” ou “dependentes da ação” - ou consistem apenas em características partilhadas ou em características dependentes da ação da mesma ação.
 
 > [!TIP]
-> É uma boa prática moldar funcionalidades em espaços de nomes especificados explicitamente. Funcionalidades relacionadas no mesmo espaço de nomes de grupo.
+> É boa prática encapsular as características em espaços de nomes especificados explicitamente. Agrupe as características relacionadas no mesmo espaço de nomes.
 
-Se o espaço de nomes não for fornecido, a funcionalidade é atribuída automaticamente ao espaço de nomes predefinido.
-
-> [!IMPORTANT]
-> Funcionalidades e espaços de nomes não é necessário estar consistente através de ações. Em particular, um espaço de nomes pode ter diferentes funcionalidades de ações diferentes. Além disso, um espaço de nomes especificado pode ser definido para algumas ações e não para outros.
-
-Várias funcionalidades internas veio do mesmo valor de cadeia nativo da funcionalidade são agrupadas no mesmo espaço de nomes. Duas funcionalidades nativas que se situam em diferentes espaços de nomes são tratadas como distintos, mesmo que tenha o mesmo nome da funcionalidade.
+Se o espaço de nomes não for indicado, a característica é atribuída automaticamente ao espaço de nomes predefinido.
 
 > [!IMPORTANT]
-> Enquanto os IDs de espaço de nomes de longa e descritivo são comuns, a linha de comandos VW não distinguir entre cujo id começa com a mesma letra de espaços de nomes. Em que modo, IDs de espaço de nomes são letras único, tal como `x` e `y`.
+> As características e os espaços de nomes não têm de ser consistentes entre as ações. Em particular, os espaços de nomes podem ter características diferentes para diferentes ações. Além disso, um determinado espaço de nomes pode ser definido para algumas ações e não para outras.
 
-Os detalhes de implementação são os seguintes:
+As múltiplas características internas provenientes da mesma característica nativa com valor de cadeia são agrupadas no mesmo espaço de nomes. Duas características nativas que estejam em espaços de nomes diferentes são tratadas como sendo diferentes, mesmo que tenham o mesmo nome.
 
-- Para espaços de nomes de se estender `x` e `y`, escrever `-q xy` ou `--quadratic xy`. Em seguida, cada funcionalidade do `x` é cruzado com cada funcionalidade no `y`. Utilize `-q x:` para cruzada `x` com cada espaço de nomes e `-q ::` para cruzada todos os pares de espaços de nomes.
+> [!IMPORTANT]
+> Embora os IDs de espaços de nomes compridos e descritivos sejam comuns, a linha de comandos VW não distingue os espaços cujos IDs comecem pela mesma letra. No exemplo abaixo, os IDs dos espaços de nomes são letras individuais, como `x` e `y`.
 
-- A ignorar todas as funcionalidades no espaço de nomes `x`, escrever `--ignore x`.
+Os detalhes da implementação são os seguintes:
 
-Estes comandos são aplicados em separado, para cada ação sempre que os espaços de nomes são definidos.
+- Para cruzar os espaços de nomes `x` e `y`, escreva `-q xy` ou `--quadratic xy`. Depois, cada característica em `x` é cruzada com cada característica em `y`. Utilize `-q x:` para cruzar `x` com todos os espaços de nomes e `-q ::` para cruzar todos os pares de espaços de nomes.
 
-### <a name="estimated-average-as-a-feature"></a>Médio estimado como uma funcionalidade
+- Para ignorar todas as características no espaço de nomes `x`, escreva `--ignore x`.
 
-Como uma experimentação profundamente, o que seria o reward médio de uma determinada ação se de que foram escolhido para todas as decisões? Essa reward médio podia ser utilizado como uma medida de "qualidade geral" desta ação. Não é conhecido exatamente sempre outras ações foi escolhidas em vez disso, em algumas decisões. No entanto, podem ser estimada através de reinforcement técnicas de aprendizagem. A qualidade desta estimativa normalmente melhora ao longo do tempo.
+Estes comandos são aplicados a cada ação separadamente, sempre que os espaços forem definidos.
 
-Pode optar por incluir "estimado reward média" como uma funcionalidade para uma determinada ação. Em seguida, serviço de decisão personalizada atualizará automaticamente esta estimativa como novos dados são recebidos. Esta funcionalidade é denominada a *funcionalidade marginal* desta ação. Funcionalidades marginais podem ser utilizadas para o machine learning e de auditoria.
+### <a name="estimated-average-as-a-feature"></a>Média estimada como característica
 
-Para adicionar funcionalidades marginais, escrever `--marginal <namespace>` na linha de comandos VW. Definir `<namespace>` no JSON da seguinte forma:
+Como experiência mental, qual seria a recompensa média de uma determinada ação se esta fosse escolhida para todas as decisões? Essa recompensa média poderia ser utilizada como medida da “qualidade geral” dessa ação. Não se sabe ao certo quando é que foram escolhidas outras ações em algumas decisões. No entanto, é possível estimar através de técnicas de aprendizagem de reforço. Geralmente, a qualidade dessa estimativa melhora ao longo do tempo.
+
+Pode optar por incluir esta “recompensa média estimada” como característica de uma determinada ação. Em seguida, o Serviço de Decisão Personalizada atualiza essa estimativa automaticamente quando forem recebidos dados novos. Esta característica é denominada *característica marginal* desta ação. As características marginais podem ser utilizadas para machine learning e para auditoria.
+
+Para adicionar características marginais, escreva `--marginal <namespace>` na linha de comandos VW. Defina `<namespace>` no JSON da seguinte forma:
 
 ```json
 {<namespace>: {"mf_name":1 "action_id":1}
 ```
 
-Este espaço de nomes, juntamente com outras funcionalidades dependentes da ação de uma determinada ação de inserção. Fornecer esta definição para cada decisão, com o mesmo `mf_name` e `action_id` para todas as decisões.
+Insira este espaço de nomes, juntamente com outras características dependentes da ação de uma determinada ação. Forneça esta definição para cada decisão, utilizando os mesmos `mf_name` e `action_id` para todas as decisões.
 
-A funcionalidade marginal é adicionada para cada ação com `<namespace>`. O `action_id` pode ser qualquer nome de funcionalidade que identifica exclusivamente a ação. O nome da funcionalidade está definido como `mf_name`. Em particular, marginal funcionalidades com diferentes `mf_name` são tratadas como funcionalidades diferentes — é aprendida uma ponderação diferente para cada `mf_name`.
+A característica marginal é adicionada a cada ação com `<namespace>`. `action_id` pode ser qualquer nome de característica que identifique exclusivamente a ação. O nome da característica é definido como `mf_name`. Em particular, as características marginais com `mf_name` diferente são tratadas como características distintas — é aprendida uma ponderação diferente para cada `mf_name`.
 
-A utilização de predefinida é que `mf_name` é igual para todas as ações. Em seguida, uma ponderação é aprendida para todas as funcionalidades marginais.
+A utilização predefinida pressupõe que `mf_name` é igual para todas as ações. Em seguida, é aprendida uma ponderação para todas as características marginais.
 
-Também pode especificar várias funcionalidades marginais para a mesma ação, com os mesmos valores mas nomes das funcionalidades diferentes.
+Também pode especificar várias características marginais para a mesma ação, com valores iguais, mas nomes de características diferentes.
 
 ```json
 {<namespace>: {"mf_name1":1 "action_id":1 "mf_name2":1 "action_id":1}}
 ```
 
-### <a name="1-hot-encoding"></a>codificação de acesso frequente 1
+### <a name="1-hot-encoding"></a>Codificação 1-hot
 
-Pode escolher representar algumas funcionalidades como vetores de bits, em que cada bit corresponde a um intervalo de valores possíveis. Este bit está definida como 1, se, e apenas se, a funcionalidade situam-se neste intervalo. Assim, existe um bit "ativos" está definido como 1 e outros estão definidos para 0. Este representação é geralmente conhecida como *acesso frequente 1 codificação*.
+Pode optar por representar algumas características como vetores de bits, em que cada bit corresponde a um intervalo de valores possíveis. Esse bit é definido como 1 se e apenas se a característica estiver nesse intervalo. Assim, um bit “hot” é definido como 1 e os outros como 0. Esta representação é, geralmente, denominada *codificação 1-hot*.
 
-A codificação de acesso frequente 1 é típica de funcionalidades categórico como "região geográfica" que não tenham uma representação numérica inerentemente significativa. Também é recomendado para funcionalidades numéricos cuja influência no reward é provável que seja não linear. Por exemplo, um artigo especificado pode ser relevantes para um determinado grupo de antiguidade e irrelevantes a qualquer pessoa younger ou anterior.
+A codificação 1-hot é comum em características de categorias, como, por exemplo, “região geográfica”, que não têm uma representação numérica inerentemente significativa. Também é aconselhável para características numéricas cuja influência sobre a recompensa seja, provavelmente, não linear. Por exemplo, um determinado artigo pode ser relevante para uma faixa etária específica e irrelevante para as outras pessoas mais velhas ou mais novas.
 
-Qualquer valor de cadeia de funcionalidade é frequente de 1 codificado por predefinição: é criada uma funcionalidade interna distinta para cada valor possível. Atualmente, o automática acesso frequente 1 codificação para funcionalidades numéricos e/ou com intervalos personalizados não são fornecidos.
+Todas as características com valor de cadeia são codificadas com 1-hot — é criada uma característica interna distinta para cada valor possível. Atualmente, a codificação 1-hot não é disponibilizada para características numéricas e/ou características com intervalos personalizados.
 
 > [!TIP]
-> Os algoritmos do machine learning tratar todos os valores possíveis de uma determinada funcionalidade interno de forma uniforme: através de um comuns "ponderação". A codificação de acesso frequente 1 permite uma "ponderação" separada para cada intervalo de valores. Efetuar os intervalos menores leva a melhor recompensas depois suficiente os dados são recolhidos, mas podem aumentar a quantidade de dados necessários para convergir a recompensas melhor.
+> Os algoritmos de machine learning tratam todos os valores possíveis de uma determinada característica interna de forma uniforme, através de uma “ponderação” comum. A codificação 1-hot permite uma “ponderação” separada para cada intervalo de valores. Diminuir o tamanho dos intervalos origina recompensas melhores assim que forem recolhidos dados suficientes, mas pode aumentar a quantidade de dados necessários para convergir em recompensas melhores.
 
-## <a name="feature-specification-format-and-apis"></a>Especificação de funcionalidade: formato e APIs
+## <a name="feature-specification-format-and-apis"></a>Especificação de características: formato e APIs
 
-Pode especificar funcionalidades através de várias APIs auxiliar. Todos os APIs utilizam um formato de JSON comum. Seguem-se as APIs e o formato num nível conceptual. A especificação é complemented por um esquema de Swagger.
+Pode utilizar várias APIs de apoio para especificar as características. Todas as APIs utilizam um formato JSON comum. Pode ver as APIs e o formato a um nível conceptual. A especificação é complementada com um esquema do Swagger.
 
-O modelo JSON básico para a especificação de funcionalidade é o seguinte:
+O modelo JSON básico para a especificação de características é o seguinte:
 
 ```json
 {
@@ -137,14 +139,14 @@ O modelo JSON básico para a especificação de funcionalidade é o seguinte:
 }
 ```
 
-Aqui `<name>` e `<value>` funcionar para o nome da funcionalidade e valor de funcionalidade, respetivamente. `<value>` pode ser uma cadeia, um número inteiro, flutuante, booleano ou uma matriz. Uma funcionalidade não encapsulada para um espaço de nomes é atribuída automaticamente no espaço de nomes predefinido.
+Aqui, `<name>` e `<value>` dizem respeito ao nome da característica e ao valor da característica, respetivamente. `<value>` pode ser uma cadeia, um número inteiro, um número fracionário, um booleano ou uma matriz. As características que não forem encapsuladas num espaço de nomes são atribuídas automaticamente ao espaço de nomes predefinido.
 
-Para representar uma cadeia como uma matriz de palavras, utilize uma sintaxe especial `"_text":"string"` em vez de `"<name>":<value>`. Efetivamente, é criada uma funcionalidade interna separada para cada palavra na cadeia de. O valor é o número de ocorrências desta palavra.
+Para representar uma cadeia como um “saco de palavras”, utilize a sintaxe especial `"_text":"string"`, em vez de `"<name>":<value>`. Na realidade, é criada uma característica interna separada para cada palavra na cadeia. O respetivo valor é o número de ocorrências dessas palavras.
 
-Se `<name>` começa com "_" (e não se encontra `"_text"`), em seguida, a funcionalidade é ignorada.
+Se `<name>` começar por "_" (e não for `"_text"`), a característica é ignorada.
 
 > [!TIP]
-> Por vezes, intercale as funcionalidades de várias origens JSON. Para sua comodidade, pode representá-los da seguinte forma:
+> Por vezes, são unidas características de várias origens JSON. Para conveniência, pode representá-las da seguinte forma:
 >
 > ```json
 > {
@@ -154,22 +156,22 @@ Se `<name>` começa com "_" (e não se encontra `"_text"`), em seguida, a funcio
 > }
 > ```
 
-Aqui `<features>` refere-se para a especificação de funcionalidade básica definida anteriormente. Níveis mais aprofundadas de "aninhamento" são permitidas demasiado. Serviço de decisão personalizado encontra automaticamente os objetos JSON "mais profundo existente", que podem ser interpretados como `<features>`.
+Aqui, `<features>` refere-se à especificação da característica básica que foi definida anteriormente. Também são permitidos níveis mais profundos de “aninhamento”. O Serviço de Decisão Personalizada localiza automaticamente os objetos JSON mais profundos que podem ser interpretados como `<features>`.
 
-#### <a name="feature-set-api"></a>API de conjunto de funcionalidades
+#### <a name="feature-set-api"></a>API Conjunto de Características
 
-A API de definir funcionalidade devolve uma lista das funcionalidades no formato JSON descrito anteriormente. Pode utilizar vários pontos finais da API de conjunto de funcionalidade. Cada ponto final é identificada pelo id do conjunto de funcionalidades e um URL. O mapeamento entre funcionalidade definido IDs e URLs está definido no Portal.
+A API Conjunto de Características devolve uma lista de características no formato JSON descrito anteriormente. Pode utilizar vários pontos finais da API Conjunto de Características. Cada ponto final é identificado por conjunto de características e por um URL. O mapeamento entre os IDs e os URLs dos conjuntos de características é definido no portal.
 
-Chame a API de definir funcionalidade através da inserção do id do conjunto de funcionalidades correspondente no local adequado no JSON. Para funcionalidades dependentes da ação, a chamada é automaticamente parametrizada por id de ação. Pode especificar vários IDs de definir a funcionalidade para a mesma ação.
+Para chamar a API Conjunto de Características, insira o ID do conjunto de características correspondente no sítio adequado no JSON. Relativamente às características dependentes da ação, a chamada é parametrizada automaticamente pelo ID da ação. Pode especificar vários IDs de conjunto de características para a mesma ação.
 
-#### <a name="action-set-api-json-version"></a>API definir ação (versão JSON)
+#### <a name="action-set-api-json-version"></a>API Conjunto de Ações (versão JSON)
 
-A API de definir ação tem uma versão na qual são especificadas ações e funcionalidades no JSON. Funcionalidades podem ser especificadas explicitamente e/ou através de APIs de conjunto de funcionalidade. Funcionalidades partilhadas podem ser especificadas uma vez para todas as ações.
+A API Conjunto de Ações tem uma versão na qual as ações e as características são especificadas em JSON. As características podem ser especificadas explicitamente e/ou através das APIs Conjunto de Características. As características partilhadas podem ser especificadas uma vez para todas as ações.
 
-#### <a name="ranking-api-http-post-call"></a>Classificação de API (chamada de HTTP POST)
+#### <a name="ranking-api-http-post-call"></a>API Classificação (chamada HTTP POST)
 
-Classificação API tem uma versão que utiliza a chamada de POST de HTTP. O corpo desta chamada Especifica ações e funcionalidades através de uma sintaxe JSON flexível.
+A API Classificação tem uma versão que utiliza a chamada HTTP POST. O corpo dessa chamada especifica as ações e as características através de uma sintaxe JSON flexível.
 
-Ações podem ser especificadas explicitamente e/ou através de ação Definir IDs. Sempre que um id do conjunto de ação é encontrado, é executada uma chamada para o ponto final de API de definir ação correspondente.
+As ações podem ser especificadas explicitamente e/ou através dos IDs de conjuntos de ações. Sempre que for encontrado um ID de conjunto de ações, é executada uma chamada ao ponto final da API Conjunto de Ações correspondente.
 
-Para a API definir ação, as funcionalidades podem ser especificadas explicitamente e/ou através de APIs de definir a funcionalidade. Funcionalidades partilhadas podem ser especificadas uma vez para todas as ações.
+Relativamente à API Conjunto de Ações, as características podem ser especificadas explicitamente e/ou através das APIs Conjunto de Características. As características partilhadas podem ser especificadas uma vez para todas as ações.
