@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 784213531c061912dded8e7776e79bea5adb217b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079143"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466057"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como: fornecer afirmações opcionais para a sua aplicação do Azure AD (pré-visualização pública)
 
@@ -215,7 +215,7 @@ Existem várias opções disponíveis para atualização das propriedades na con
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Depois de autenticado, escolha o seu inquilino do Azure AD ao selecioná-la a partir do canto superior direito da página.
-1. Selecione **extensão do Azure AD** no painel de navegação à esquerda e clique em **registos das aplicações**.
+1. Selecione **registos das aplicações** do lado esquerdo.
 1. Encontre a aplicação que pretende configurar afirmações opcionais na lista e clique no mesmo.
 1. A partir da página da aplicação, clique em **manifesto** para abrir o editor de manifesto inline. 
 1. Pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para o [entidade de aplicativo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)e o manifesto de uma vez guardado de formatos de automática. Serão adicionados novos elementos para o `OptionalClaims` propriedade.

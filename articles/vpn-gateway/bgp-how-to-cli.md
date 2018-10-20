@@ -3,24 +3,17 @@ title: 'Configurar o BGP num gateway de VPN do Azure: Resource Manager e a CLI |
 description: Este artigo orienta-o por meio de configurar o BGP com um gateway de VPN do Azure com o Azure Resource Manager e a CLI.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+author: yushwang
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: cherylmc
-ms.openlocfilehash: 657cad69fff66aaaeba9819569442981d229f644
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/25/2018
+ms.author: yushwang
+ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971132"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471361"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP num gateway de VPN do Azure com a CLI
 
@@ -55,7 +48,7 @@ Esta secção é necessária antes de efetuar qualquer uma das etapas em outras 
 
 ### <a name="before-you-begin"></a>Antes de começar
 
-Instale a versão mais recente dos comandos da CLI (2.0 ou posteriores). Para obter informações sobre como instalar os comandos da CLI, veja [instalar a CLI do Azure](/cli/azure/install-azure-cli) e [introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
+Instale a versão mais recente dos comandos da CLI (2.0 ou posteriores). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
 
 ### <a name="step-1-create-and-configure-testvnet1"></a>Passo 1: Criar e configurar a TestVNet1
 

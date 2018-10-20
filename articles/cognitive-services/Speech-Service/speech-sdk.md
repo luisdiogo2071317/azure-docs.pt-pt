@@ -1,24 +1,25 @@
 ---
-title: Informações sobre o SDK de voz dos serviços cognitivos
-description: Uma visão geral dos SDKs disponíveis para o serviço de voz.
+title: Sobre o SDK do serviço de voz
 titleSuffix: Azure Cognitive Services
+description: Uma visão geral dos SDKs disponíveis para o serviço de voz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4be6b1e8373b6e7a7db8d97f2c99137cb6aca9bf
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f071c15ea586f7b146b82a6201adf16dadc65add
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364647"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464816"
 ---
-# <a name="about-the-cognitive-services-speech-sdk"></a>Informações sobre o SDK de voz dos serviços cognitivos
+# <a name="about-the-speech-service-sdk"></a>Sobre o SDK do serviço de voz
 
-O Cognitive Services voz Software Development Kit (SDK) dá-seus aplicativos nativo acesso às funções do serviço de voz, tornando mais fácil desenvolver software. Atualmente, o SDK fornece acesso ao **conversão de voz em texto**, **tradução por voz**, e **reconhecimento da intenção**.
+A conversão de voz serviço Software Development Kit (SDK) dá-seus aplicativos nativo acesso para as funções do serviço de voz, tornando mais fácil desenvolver software. Atualmente, o SDK fornece acesso ao **conversão de voz em texto**, **tradução por voz**, e **reconhecimento da intenção**.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

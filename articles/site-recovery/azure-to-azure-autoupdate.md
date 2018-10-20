@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574408"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456495"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -61,6 +61,19 @@ Quando ativa a replicação para a máquina virtual a partir de qualquer [da vis
 
 > [!Note] 
 > Ambas as opções a notificá-lo a conta de automatização que é usada para gerenciar as atualizações. Se pretende ativar esta funcionalidade pela primeira vez num cofre, será criada uma nova conta de automatização. Todas as replicações de enable subsequentes no mesmo cofre usará o criado anteriormente.
+
+### <a name="manage-manually"></a>Gerir manualmente
+
+1. Se existem novas atualizações disponíveis para o serviço de mobilidade instalado em suas VMs do Azure, verá uma notificação que lê a "atualização do agente de replicação de recuperação do novo Site está disponível. Clique para instalar."
+
+     ![Janela de itens replicados](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Selecione a notificação para abrir a página de seleção de máquina virtual.
+4. Selecione as máquinas virtuais que pretende atualizar o serviço de mobilidade no e selecione **OK**.
+
+     ![Lista de VMS de itens de replicados](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+A tarefa de serviço de mobilidade de atualização é iniciada para cada uma das máquinas virtuais selecionadas.
+
 
 ## <a name="common-issues--troubleshooting"></a>Problemas comuns e resolução de problemas
 

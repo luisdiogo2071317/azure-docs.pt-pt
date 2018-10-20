@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353035"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469032"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Encriptação de dados transparente para a base de dados SQL e o armazém de dados
 
@@ -113,17 +113,17 @@ Para configurar a encriptação de dados transparente através da API REST, tem 
 
 | Comando | Descrição |
 | --- | --- |
-|[Criar ou atualizar o servidor](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Adiciona uma identidade do Azure Active Directory para uma instância do SQL Server (utilizada para conceder acesso ao Cofre de chaves)|
-|[Criar ou atualizar a chave do servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Adiciona uma chave de Cofre de chaves para uma instância do SQL Server|
-|[Eliminar chave de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Remove uma chave de Cofre de chaves a partir de uma instância do SQL Server|
-|[Obter chaves de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Obtém uma chave específica do Key Vault a partir de uma instância do SQL Server|
-|[Listar chaves de servidor por servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Obtém as chaves do Cofre de chaves para uma instância do SQL Server |
-|[Criar ou atualizar o Protetor de encriptação](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Define o protetor de encriptação de dados transparente para uma instância do SQL Server|
-|[Obter o Protetor de encriptação](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Obtém o protetor de encriptação de dados transparente para uma instância do SQL Server|
-|[Protetores de encriptação de lista pelo servidor](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Obtém os protetores de encriptação de dados transparente para uma instância do SQL Server |
-|[Criar ou atualizar a configuração da encriptação transparente de dados](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Ativa ou desativa a encriptação de dados transparente para uma base de dados|
-|[Obter configuração de encriptação de dados transparente](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Obtém a configuração de encriptação de dados transparente para uma base de dados|
-|[Resultados de configuração de encriptação de dados transparente de lista](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Obtém o resultado de encriptação para uma base de dados|
+|[Criar ou atualizar o servidor](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Adiciona uma identidade do Azure Active Directory para uma instância do SQL Server (utilizada para conceder acesso ao Cofre de chaves)|
+|[Criar ou atualizar a chave do servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Adiciona uma chave de Cofre de chaves para uma instância do SQL Server|
+|[Eliminar chave de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Remove uma chave de Cofre de chaves a partir de uma instância do SQL Server|
+|[Obter chaves de servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Obtém uma chave específica do Key Vault a partir de uma instância do SQL Server|
+|[Listar chaves de servidor por servidor](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Obtém as chaves do Cofre de chaves para uma instância do SQL Server |
+|[Criar ou atualizar o Protetor de encriptação](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Define o protetor de encriptação de dados transparente para uma instância do SQL Server|
+|[Obter o Protetor de encriptação](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Obtém o protetor de encriptação de dados transparente para uma instância do SQL Server|
+|[Protetores de encriptação de lista pelo servidor](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Obtém os protetores de encriptação de dados transparente para uma instância do SQL Server |
+|[Criar ou atualizar a configuração da encriptação transparente de dados](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Ativa ou desativa a encriptação de dados transparente para uma base de dados|
+|[Obter configuração de encriptação de dados transparente](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Obtém a configuração de encriptação de dados transparente para uma base de dados|
+|[Resultados de configuração de encriptação de dados transparente de lista](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtém o resultado de encriptação para uma base de dados|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

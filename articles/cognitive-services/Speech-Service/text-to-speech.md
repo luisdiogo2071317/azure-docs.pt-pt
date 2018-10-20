@@ -1,20 +1,21 @@
 ---
 title: Sobre o texto em fala - serviço de voz
 titleSuffix: Azure Cognitive Services
-description: O serviço Microsoft Text-to-Speech oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar tipos de voz padrão, só tem de especificar o nome de voz com alguns outros parâmetros ao chamar o serviço de voz.
+description: A API de voz oferece mais de 75 vozes em mais de 45 idiomas e localidades. Para utilizar tipos de voz padrão, só tem de especificar o nome de voz com alguns outros parâmetros ao chamar o serviço de voz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 2f79ecbb42ba6453c7fb615114c0b7e56402ada3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7f01fe5c71cdd6f4c70527fcf2553374aae9a5d8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363068"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469933"
 ---
 # <a name="about-the-text-to-speech-api"></a>Sobre o texto em voz, API
 

@@ -3,7 +3,7 @@ title: Gerir conjuntos de dimensionamento de máquinas virtuais com a CLI do Azu
 description: Capacidade do conjunto de comandos comuns da CLI do Azure para gerir conjuntos de dimensionamento de máquinas virtuais, tais como iniciar e parar uma instância ou alterar a escala.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 014e6ff2bc769675e47743cfdd4fbf7fc6234974
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: bbed197eb78e34c6e53802dfcfdcc192f780df33
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999839"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465664"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir um conjunto de dimensionamento com a CLI do Azure
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos da CLI do Azure comuns que permitem-lhe realizar estas tarefas.

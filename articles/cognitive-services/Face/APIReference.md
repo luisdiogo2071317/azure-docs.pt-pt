@@ -1,5 +1,3 @@
-<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
----
 Título: referência da API - Face API titleSuffix: descrição de serviços cognitivos do Azure: referência de API fornece informações sobre a gestão de pessoa, LargePersonGroup/PersonGroup gestão, gestão LargeFaceList/FaceList e APIs de algoritmos de rostos.
 serviços: autor de serviços cognitivos: SteveMSFT manager: cgronlun
 
@@ -18,3 +16,5 @@ APIs de rostos abrangem as seguintes categorias:
 - [APIs de gestão de LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): utilizado para gerir um LargeFaceList para [encontrar semelhante](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 - [APIs de gestão de pessoa PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): utilizado para gerir PersonGroup rostos de pessoas para [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 - [APIs de gestão de PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): utilizado para gerir um conjunto de dados de PersonGroup para [identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

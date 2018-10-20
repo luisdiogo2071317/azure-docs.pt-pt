@@ -3,7 +3,7 @@ title: Gerir conjuntos de dimensionamento de máquinas virtuais com o Azure Powe
 description: Capacidade do conjunto de cmdlets do Azure PowerShell comuns para gerir conjuntos de dimensionamento de máquinas virtuais, tais como iniciar e parar uma instância ou alterar a escala.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: a300e2f2febab8436f8d52b71955b3614bd10605
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zarhoads
+ms.openlocfilehash: 0aec3b2d70336e273772f8487b586d2ff23b0604
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707447"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466313"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Gerir um conjunto de dimensionamento com o Azure PowerShell
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos cmdlets Azure PowerShell comuns que permitem-lhe realizar estas tarefas.

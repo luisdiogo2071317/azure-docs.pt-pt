@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377868"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458127"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -82,11 +82,11 @@ O caminho para o diretório de raiz em que o *Host. JSON* função de ficheiros 
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Especifica o repositório ou o fornecedor a utilizar para armazenamento de chaves. Atualmente, os repositórios suportados são blob ("Blob") e o sistema de ficheiros ("desativado"). A predefinição é o sistema de ficheiros ("desativado").
+Especifica o repositório ou o fornecedor a utilizar para armazenamento de chaves. Atualmente, os repositórios suportados são o armazenamento de BLOBs ("Blob") e o sistema de arquivos local ("ficheiros"). A predefinição é o blob na versão 1 e o sistema de ficheiros na versão 2. Tenha em atenção que na versão 1 sistema de ficheiros só funciona para as funções em execução num plano do serviço de aplicações.
 
 |Chave|Valor da amostra|
 |---|------------|
-|AzureWebJobsSecretStorageType|desativado|
+|AzureWebJobsSecretStorageType|Ficheiros|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 

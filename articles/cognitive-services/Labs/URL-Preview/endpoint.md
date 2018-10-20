@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 0464ac80c451ada46561de78b5ba0860c59a9e34
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f75fc73bc1268db7b6f9f8a1f4fd602ee57281e8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868654"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464953"
 ---
 # <a name="project-url-preview-endpoint"></a>Ponto final de pré-visualização do URL do projeto
 
@@ -60,8 +60,8 @@ X-MSEdge-Ref: Ref A: 15AFE52A97AA422F960433A94803F6CE Ref B: PAOEDGE0418 Ref C: 
 ````
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido em C#](csharp.md)
-- [Início rápido de Java](java-quickstart.md)
-- [Guia de introdução do JavaScript](javascript.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+- [Início Rápido do C#](csharp.md)
+- [Início rápido do Java](java-quickstart.md)
+- [Início Rápido do JavaScript](javascript.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

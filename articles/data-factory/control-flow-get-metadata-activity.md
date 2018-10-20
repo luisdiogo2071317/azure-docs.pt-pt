@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859283"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457078"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Atividade obter metadados da fábrica de dados do Azure
 Atividade GetMetadata pode ser usada para recuperar **metadados** de quaisquer dados no Azure Data Factory. Esta atividade pode ser usada nos seguintes cenários:
@@ -43,7 +43,7 @@ A atividade GetMetadata usa um conjunto de dados como entrada necessária e apre
 
 **Armazenamento de ficheiros:**
 
-| Conector/metadados | itemName<br>(ficheiro/pasta) | itemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | existe<br>(ficheiro/pasta) |
+| Conector/metadados | itemName<br>(ficheiro/pasta) | ItemType<br>(ficheiro/pasta) | tamanho<br>(ficheiro) | criado<br>(ficheiro/pasta) | lastModified<br>(ficheiro/pasta) |childItems<br>(pasta) |contentMD5<br>(ficheiro) | estrutura<br/>(ficheiro) | columnCount<br>(ficheiro) | Existe<br>(ficheiro/pasta) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
 | Blob do Azure | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
@@ -58,9 +58,10 @@ A atividade GetMetadata usa um conjunto de dados como entrada necessária e apre
 
 **Base de dados relacional:**
 
-| Conector/metadados | estrutura | columnCount | existe |
+| Conector/metadados | estrutura | columnCount | Existe |
 |:--- |:--- |:--- |:--- |
 | Base de Dados SQL do Azure | √ | √ | √ |
+| Instância Gerida da Base de Dados SQL do Azure | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 
@@ -71,7 +72,7 @@ Os seguintes tipos de metadados podem ser especificados na lista de campos de at
 | Tipo de metadados | Descrição |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
-| itemType | Tipo de ficheiro ou pasta. Valor de saída é `File` ou `Folder`. |
+| ItemType | Tipo de ficheiro ou pasta. Valor de saída é `File` ou `Folder`. |
 | tamanho | Tamanho do ficheiro em bytes. Aplicável a apenas de ficheiros. |
 | criado | Datetime de criação do ficheiro ou pasta. |
 | lastModified | Última modificação datetime do ficheiro ou pasta. |
@@ -79,7 +80,7 @@ Os seguintes tipos de metadados podem ser especificados na lista de campos de at
 | contentMD5 | MD5 do ficheiro. Aplicável a apenas de ficheiros. |
 | estrutura | Estrutura de dados dentro do ficheiro ou uma tabela de base de dados relacional. Valor de saída é uma lista de nome de coluna e o tipo de coluna. |
 | columnCount | Número de colunas no interior do ficheiro ou uma tabela relacional. |
-| existe| Se um ficheiro/pasta/tabela já existe ou não. Tenha em atenção que "existe" seja especificado na lista de campos de GetaMetadata, a atividade não falha, mesmo quando o item (ficheiro/pasta/tabela) não existe; em vez disso, ele retorna `exists: false` na saída. |
+| Existe| Se um ficheiro/pasta/tabela já existe ou não. Tenha em atenção que "existe" seja especificado na lista de campos de GetaMetadata, a atividade não falha, mesmo quando o item (ficheiro/pasta/tabela) não existe; em vez disso, ele retorna `exists: false` na saída. |
 
 >[!TIP]
 >Quando deseja validar se um ficheiro/pasta/tabela existe ou não, especifique `exists` na lista de campos de atividade GetMetadata, em seguida, pode verificar o `exists: true/false` resultam da saída da atividade. Se `exists` não está configurado na lista de campos, GetMetadata atividade irão falhar quando o objeto não foi encontrado.
@@ -131,7 +132,7 @@ Atualmente, atividade GetMetadata pode obter os seguintes tipos de informações
 Propriedade | Descrição | Necessário
 -------- | ----------- | --------
 fieldList | Lista os tipos de informações de metadados necessárias. Ver detalhes nos [opções de metadados](#metadata-options) seção sobre metadados suportados. | Sim 
-conjunto de dados | O conjunto de dados de referência, é possível obter pela atividade GetMetadata cuja atividade de metadados. Ver [capacidades suportadas](#supported-capabilities) secção em conectores suportados e consulte o tópico do conector nos detalhes da sintaxe de conjunto de dados. | Sim
+Conjunto de dados | O conjunto de dados de referência, é possível obter pela atividade GetMetadata cuja atividade de metadados. Ver [capacidades suportadas](#supported-capabilities) secção em conectores suportados e consulte o tópico do conector nos detalhes da sintaxe de conjunto de dados. | Sim
 
 ## <a name="sample-output"></a>Resultado da amostra
 

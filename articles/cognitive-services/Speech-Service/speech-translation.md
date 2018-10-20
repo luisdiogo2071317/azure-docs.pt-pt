@@ -1,26 +1,27 @@
 ---
 title: Sobre tradução de voz
+titlesuffix: Azure Cognitive Services
 description: Uma descrição geral das capacidades de tradução por voz
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165442"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469148"
 ---
 # <a name="about-the-speech-translation-api"></a>Sobre a API de tradução de voz
 
-A API de voz da Microsoft permite-lhe adicionar ponto-a-ponto, em tempo real, vários idioma tradução de voz às suas aplicações, ferramentas e dispositivos. A mesma API pode ser utilizada para a tradução de voz para voz e conversão de voz em texto.
+A API de serviço de voz permite-lhe adicionar ponto-a-ponto, em tempo real, vários idioma tradução de voz às suas aplicações, ferramentas e dispositivos. A mesma API pode ser utilizada para a tradução de voz para voz e conversão de voz em texto.
 
-Com a API de voz do Microsoft Translator, aplicativos cliente transmitir áudio de voz para o serviço e recebem um fluxo de resultados de volta. Esses resultados incluem o texto reconhecido no idioma de origem e a tradução no idioma de destino. Traduções provisórias podem ser fornecidos até que uma expressão for concluída, nesse momento é fornecida uma tradução final.
+Com a API de voz do Translator, aplicativos cliente transmitir áudio de voz para o serviço e recebem um fluxo de resultados de volta. Esses resultados incluem o texto reconhecido no idioma de origem e a tradução no idioma de destino. Traduções provisórias podem ser fornecidos até que uma expressão for concluída, nesse momento é fornecida uma tradução final.
 
 Opcionalmente, uma versão de áudio sintetizada da tradução final poderá ser preparada, ativar a tradução de voz para voz verdadeira.
 

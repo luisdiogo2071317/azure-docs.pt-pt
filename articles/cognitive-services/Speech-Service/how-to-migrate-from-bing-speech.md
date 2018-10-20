@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Aprenda as diferenças entre a voz do Bing e o serviço de voz de um ponto de vista do desenvolvedor e migrar a sua aplicação para utilizar o serviço de voz.
 services: cognitive-services
 author: wsturman
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: e72cf547ac911b22a03cae6032351c8c0f22de8e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: baf9b9cd9b3f57c1d708dd404d59c036df6c169f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884854"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466652"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar de voz do Bing para o serviço de voz
 
@@ -22,13 +23,13 @@ Utilize este artigo para migrar as suas aplicações da API de voz do Bing para 
 
 Este artigo descreve as diferenças entre as APIs de voz do Bing e o serviço de voz e sugere estratégias para migrar seus aplicativos. A chave de subscrição de API de voz do Bing não aceite pelo serviço de voz; precisará de uma nova subscrição do serviço de voz.
 
-Uma única chave de subscrição do serviço de voz concede acesso para as seguintes funcionalidades. Cada um é medido em separado, portanto, é-lhe cobrado apenas para as funcionalidades que utiliza.
+Uma única chave de subscrição do Serviço de Voz concede acesso às seguintes funcionalidades. Cada uma é medida em separado, pelo que apenas lhe são cobradas as funcionalidades que utilizar.
 
 * [Conversão de voz em texto](speech-to-text.md)
-* [Personalizado de voz em texto](https://cris.ai)
-* [Voz](text-to-speech.md)
-* [Vozes personalizadas de texto para discurso](how-to-customize-voice-font.md)
-* [Tradução de voz](speech-translation.md) (não inclui [tradução de texto](../translator/translator-info-overview.md))
+* [Conversão de voz em texto personalizada](https://cris.ai)
+* [Conversão de texto em voz](text-to-speech.md)
+* [Vozes personalizadas para conversão de texto em voz](how-to-customize-voice-font.md)
+* [Tradução de Voz](speech-translation.md) (não inclui [Tradução de texto](../translator/translator-info-overview.md))
 
 O [SDK de voz](speech-sdk.md) é uma substituição funcional para as bibliotecas de cliente de voz do Bing, mas utiliza uma API diferente.
 
@@ -56,7 +57,7 @@ Protocolos de WebSockets | : heavy_check_mark: | : heavy_check_mark: | API de We
 Chamadas à API de serviços | : heavy_check_mark: | : heavy_minus_sign: | Fornecido em voz do Bing através da biblioteca de serviço c#. 
 SDK de código aberto | : heavy_check_mark: | : heavy_minus_sign: |
 
-O serviço de voz utiliza um modelo de preços baseados no tempo (em vez de um modelo baseado em transações). Ver [preços do serviço de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter detalhes.
+O serviço de voz utiliza um modelo de preços baseados no tempo (em vez de um modelo baseado em transações). Veja os [Preços do Serviço de Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) para obter detalhes.
 
 ## <a name="migration-strategies"></a>Estratégias de migração
 

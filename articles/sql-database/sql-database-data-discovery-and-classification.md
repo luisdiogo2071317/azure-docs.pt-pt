@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352973"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467046"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Dados de base de dados SQL do Azure deteção e classificação
 
@@ -140,10 +140,10 @@ Pode usar o T-SQL para adicionar ou remover as classificações de coluna, bem c
 
 Também pode utilizar as APIs REST para gerir programaticamente classificações. As APIs REST publicados suportam as seguintes operações:
 
-- [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) – cria ou atualiza a etiqueta de sensibilidade de uma determinada coluna
-- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) -elimina a etiqueta de sensibilidade de uma determinada coluna
-- [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) -obtém a etiqueta de sensibilidade de uma determinada coluna
-- [Lista por base de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) -obtém as etiquetas de sensibilidade de um determinado banco de dados
+- [Criar ou atualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – cria ou atualiza a etiqueta de sensibilidade de uma determinada coluna
+- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -elimina a etiqueta de sensibilidade de uma determinada coluna
+- [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -obtém a etiqueta de sensibilidade de uma determinada coluna
+- [Lista por base de dados](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -obtém as etiquetas de sensibilidade de um determinado banco de dados
 
 ## <a id="subheading-5"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
 title: 'Referência do Azure funções F # para programadores | Documentos da Microsoft'
-description: 'Aprenda a desenvolver as funções do Azure com o F #.'
+description: 'Aprenda a desenvolver as funções do Azure com o F # script.'
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,18 +10,21 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 772b2dae016e093f2c3833374378c0e884dbe835
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125260"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456954"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referência de F # para programadores do funções do Azure
 
-F # para as funções do Azure é uma solução para uma fácil execução pequenas partes de código, ou "funções", na cloud. Os dados fluem para sua função F # por meio de argumentos de função. Argumento nomes estão especificados na `function.json`, e existem nomes predefinidos para o acesso a coisas como os tokens de agente de log e cancelamento de função.
+F # para as funções do Azure é uma solução para uma fácil execução pequenas partes de código, ou "funções", na cloud. Os dados fluem para sua função F # por meio de argumentos de função. Argumento nomes estão especificados na `function.json`, e existem nomes predefinidos para o acesso a coisas como os tokens de agente de log e cancelamento de função. 
+
+>[!IMPORTANT]
+>F # script (.fsx) só é suportado pelo [versão 1.x](functions-versions.md#creating-1x-apps) do runtime das funções do Azure. Se quiser usar o F # com a versão 2.x do runtime, tem de utilizar um pré-compilados F # classe projeto de biblioteca (soubor). Criar, gerir e publicar um projeto F # classe biblioteca com o Visual Studio como faria com um [projeto de biblioteca C# classe](functions-dotnet-class-library.md). Para obter mais informações sobre as versões de funções, consulte [descrição geral de versões de runtime das funções do Azure](functions-versions.md).
 
 Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md).
 

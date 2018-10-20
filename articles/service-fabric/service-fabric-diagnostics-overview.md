@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/18/2018
 ms.author: srrengar
-ms.openlocfilehash: a607f560b5e74071f5ee15d03e615138f25a3aef
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5fc2674a145be99fb8867c5cf1b1f65ba860db80
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406811"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457838"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnóstico para o Azure Service Fabric
 
@@ -71,7 +71,7 @@ Além de ver relatórios de estado de funcionamento mais recente no SFX, cada re
 
 ## <a name="other-logging-solutions"></a>Outras soluções de registo
 
-Embora as duas soluções recomendamos, [do Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) e [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) criaram na integração com o Service Fabric, muitos eventos são escritos por meio de provedores do etw e são extensível com outras soluções de registo. Também deve examinar a [Elastic Stack](https://www.elastic.co/products) (especialmente se estiver a considerar a executar um cluster num ambiente offline), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/), ou qualquer outro plataforma de sua preferência. 
+Embora as duas soluções recomendamos, [do Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) e [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) criaram na integração com o Service Fabric, muitos eventos são escritos por meio de provedores do ETW e são extensível com outras soluções de registo. Também deve examinar a [Elastic Stack](https://www.elastic.co/products) (especialmente se estiver a considerar a executar um cluster num ambiente offline), [Dynatrace](https://www.dynatrace.com/), ou qualquer outra plataforma de sua preferência. Temos uma lista de parceiros integrados disponíveis [aqui](service-fabric-diagnostics-partners.md).
 
 Os principais pontos para qualquer plataforma que escolher devem incluir como confortável estiver com a interface do usuário e a consulta opções, a capacidade de visualizar dados e criar dashboards facilmente legíveis e as ferramentas adicionais fornecem para melhorar a monitorização, Por exemplo, alertas automáticos.
 
@@ -80,5 +80,7 @@ Os principais pontos para qualquer plataforma que escolher devem incluir como co
 * Para começar a trabalhar com instrumentar seus aplicativos, consulte [geração de eventos e de registo ao nível no aplicativo](service-fabric-diagnostics-event-generation-app.md).
 * Saiba mais sobre a monitorização da plataforma e os eventos que o Service Fabric fornece para na [geração de eventos e de registo ao nível no plataforma](service-fabric-diagnostics-event-generation-infra.md).
 * Avance para os passos para configurar a ia para a sua aplicação com [monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
-* Saiba como configurar o Azure Log Analytics para monitorizar contentores- [monitorização e diagnósticos para contentores do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Saiba como configurar o OMS Log Analytics para monitorizar contentores- [monitorização e diagnósticos para contentores do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Veja os problemas de diagnóstico de exemplo e soluções com o Service Fabric no [cenários comuns de diagnóstico](service-fabric-diagnostics-common-scenarios.md)
+* Check-out de outros produtos de diagnóstico que se integram com o Service Fabric no [parceiros de diagnóstico do Service Fabric](service-fabric-diagnostics-partners.md)
 * Saiba mais sobre as recomendações gerais da monitorização para recursos do Azure - [práticas recomendadas – a monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

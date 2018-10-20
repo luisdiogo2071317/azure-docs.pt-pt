@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 98972b0c52470e6a404090d993c21a47b11cd660
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427150"
+ms.locfileid: "49470069"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure Firewalls e redes virtuais
 O armazenamento do Azure fornece um modelo de segurança em camadas, permitindo-lhe proteger as contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede estiverem configuradas, apenas as aplicações de redes permitidas podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, o aplicações continuam a exigir a autorização adequada (uma chave de acesso válido ou um token SAS) para aceder à conta de armazenamento.
@@ -86,7 +86,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
 ```
 
-## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso a partir de uma rede virtual
+## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso a partir de uma rede Virtual
 Contas de armazenamento podem ser configuradas para permitir o acesso apenas a partir de redes virtuais do Azure específicas. 
 
 Ativando um [ponto final de serviço](/azure/virtual-network/virtual-network-service-endpoints-overview) armazenamento do Azure dentro da rede Virtual, o tráfego é certificar-se de uma rota ideal para o serviço de armazenamento do Azure. As identidades de rede virtual e sub-rede também são transmitidas com cada solicitação.  Os administradores podem, em seguida, configurar regras de rede para a conta de armazenamento que permitem que pedidos a serem recebidos de sub-redes específicas na rede Virtual.  Os clientes concedido o acesso através destas regras de rede têm de continuar para cumprir os requisitos de autorização da conta de armazenamento para acessar os dados.
@@ -190,11 +190,13 @@ Permitido de intervalos de endereços da internet podem ser fornecidos usando [n
 
 Regras de rede IP só são permitidas para **internet pública** endereços IP.  Reservado para redes privadas de intervalos de endereços de IP (conforme definido na [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos em regras de IP.  Redes privadas incluem endereços que comecem com *10.\** , *172.16.\**   -  *172.31.\**, e *192.168.\** .
 
-Tenha em atenção que as regras de rede IP não tem qualquer efeito nos pedidos com origem na mesma região do Azure que a conta de armazenamento.  Utilize regras de rede virtual para permitir pedidos da mesma região.
+> [!NOTE]
+> Regras de rede IP não tem qualquer efeito nos pedidos com origem na mesma região do Azure que a conta de armazenamento.  Uso [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir pedidos da mesma região.
+>
 
 Apenas endereços IPV4 são suportados neste momento.
 
-Cada conta de armazenamento pode suportar até 100 regras de rede IP que podem ser combinadas com [regras de rede Virtual](#grant-access-from-a-virtual-network)
+Cada conta de armazenamento pode suportar até 100 regras de rede IP que podem ser combinadas com [regras de rede Virtual](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurar o acesso a partir de redes no local
 Para conceder acesso a partir de suas redes no local para a sua conta de armazenamento com uma regra de rede IP, tem de identificar endereços IP utilizados pela sua rede de acesso à internet.  Contacte o administrador de rede para obter ajuda.

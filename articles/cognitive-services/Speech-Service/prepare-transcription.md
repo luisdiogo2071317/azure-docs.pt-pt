@@ -1,20 +1,21 @@
 ---
 title: Diretrizes de transcrição para o treinamento do serviço de voz
+titleSuffix: Azure Cognitive Services
 description: Saiba como preparar o texto para personalizar acústicos e modelos de linguagem e tipos de voz para o serviço de voz.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721825"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467740"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Diretrizes de transcrição para utilizar o serviço de voz
 
@@ -169,5 +170,5 @@ Eis alguns exemplos:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Preparar a sua subscrição de avaliação do serviço de voz](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)
+- [Obter a sua subscrição de avaliação do Serviço de Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)

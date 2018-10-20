@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902448"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470551"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração de datacenter do Azure Stack - identidade
 Pode implementar o Azure Stack com o Azure Active Directory (Azure AD) ou serviços de Federação do Active Directory (AD FS) como os fornecedores de identidade. Deve fazer a escolha antes de implementar o Azure Stack. Implementação com o AD FS é também referida como implementar o Azure Stack no modo desligado.
@@ -70,6 +70,17 @@ As seguintes informações são necessárias como entradas para os parâmetros d
 |---------|---------|---------|
 |CustomADGlobalCatalog|FQDN do destino de floresta do Active Directory<br>que pretende integrar com o|contoso.com|
 |CustomADAdminCredentials|Um utilizador com permissão de leitura de LDAP|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Configurar Sites do Active Directory
+
+Para implementações de Active Directory ter vários sites, configure o Site do Active Directory mais próximo à sua implementação do Azure Stack. A configuração evita ter o serviço do Azure Stack Graph resolver consultas com um servidor de Catálogo Global a partir de um site remoto.
+
+Adicionar o Azure Stack [rede VIP pública](azure-stack-network.md#public-vip-network) sub-rede para o Site do AD Azure mais próxima ao Azure Stack. Por exemplo, se o Active Directory tem dois sites de Seattle e Redmond com o Azure Stack, implementado no site de Seattle, seria adicionar a sub-rede da rede VIP público do Azure Stack para o site do Azure AD de Seattle.
+
+Para obter mais informações sobre locais do Active Directory, consulte [criando a topologia de site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> Se o Active Directory são compostas por um único Site pode ignorar este passo. No caso de ter uma sub-rede de catch-all configurada validar que a sub-rede da rede VIP público do Azure Stack não é parte do mesmo.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Criar conta de utilizador no Active Directory existente (opcional)
 

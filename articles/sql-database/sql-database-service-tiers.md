@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 3b2359564020eeeb209a7eb78d81782a675f125d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/19/2018
+ms.openlocfilehash: 9dc993b6ba9b90dfa61660df004ef7dae8b93fa7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379292"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470959"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
 
@@ -33,21 +33,21 @@ O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compra
 
 |**Modelo de compra**|**Descrição**|**Melhor para**|
 |---|---|---|
-|modelo baseado em DTU|Este modelo baseia-se numa medida integrados em recursos de computação, armazenamento e e/s. Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Ideal para clientes que desejam simples, pré-configurado opções de recursos.| 
+|modelo baseado em DTU|Este modelo baseia-se numa medida integrados em recursos de computação, armazenamento e e/s. Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [quais são DTUs e eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Ideal para clientes que desejam simples, pré-configurado opções de recursos.|
 |modelo baseado em vCore|Este modelo permite-lhe escolher independentemente a recursos de computação e armazenamento. Ele também permite-lhe utilizar o Azure Hybrid Benefit para o SQL Server para obter poupanças de custos.|Melhor para os clientes que o valor de flexibilidade, controlo e transparência.|
 ||||  
 
 ![modelo de preços](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore 
+## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
 Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore oferece a flexibilidade, o controle, a transparência de consumo de recursos individuais e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [crítico para a empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) escalões de serviço para ambos [bases de dados únicas](sql-database-single-database-scale.md), [ instâncias geridas](sql-database-managed-instance.md), e [conjuntos elásticos](sql-database-elastic-pool.md). Para bases de dados individuais, também pode escolher o [Hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md) escalão de serviço.
 
 O modelo de compra baseado em vCore permite que escolha os recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. No modelo de compra baseado em vCore, os clientes pagam pelo:
 
 - Computação (camada de serviços + número de vCores e a quantidade de memória + geração de hardware)
-- Tipo e a quantidade de armazenamento de dados e de registo 
-- Armazenamento de cópias de segurança (RA-GRS) 
+- Tipo e a quantidade de armazenamento de dados e de registo
+- Armazenamento de cópias de segurança (RA-GRS)
 
 > [!IMPORTANT]
 > Computação, IOs, dados e armazenamento de registo é cobrada por base de dados ou conjunto elástico. Armazenamento de cópias de segurança é cobrado por cada base de dados. Para obter detalhes de encargos de instância gerida, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
@@ -75,9 +75,7 @@ Para obter informações mais aprofundadas sobre o consumo de recursos (DTUS) da
 
 ### <a name="elastic-database-transaction-units-edtus"></a>Unidades de transação de base de dados elástica (eDTUs)
 
-Em vez disso, apenas fornecer um conjunto dedicado de recursos (DTUs) que pode não ser sempre necessária para uma base de dados do SQL que estará sempre disponível, pode colocar as bases de dados num [conjunto elástico](sql-database-elastic-pool.md) num servidor de base de dados SQL que partilham um conjunto de recursos entre essas bases de dados. Os recursos partilhados num conjunto elástico são avaliados por unidades de transação de base de dados de elásticas ou eDTUs. Os conjuntos elásticos fornecem uma solução rentável simples para gerir os objetivos de desempenho de várias bases de dados ter variáveis e padrões de utilização imprevisíveis. Um conjunto elástico garante recursos não podem ser consumidos por um banco de dados no agrupamento, enquanto garantir que cada base de dados no conjunto sempre tem uma quantidade mínima de recursos necessários disponíveis. 
-
-![Introdução à Base de Dados SQL: eDTUs por camada e nível](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+Em vez disso, apenas fornecer um conjunto dedicado de recursos (DTUs) que pode não ser sempre necessária para uma base de dados do SQL que estará sempre disponível, pode colocar as bases de dados num [conjunto elástico](sql-database-elastic-pool.md) num servidor de base de dados SQL que partilham um conjunto de recursos entre essas bases de dados. Os recursos partilhados num conjunto elástico são avaliados por unidades de transação de base de dados de elásticas ou eDTUs. Os conjuntos elásticos fornecem uma solução rentável simples para gerir os objetivos de desempenho de várias bases de dados ter variáveis e padrões de utilização imprevisíveis. Um conjunto elástico garante recursos não podem ser consumidos por um banco de dados no agrupamento, enquanto garantir que cada base de dados no conjunto sempre tem uma quantidade mínima de recursos necessários disponíveis.
 
 Um conjunto é atribuído um número definido de eDTUs por um preço definido. Dentro do conjunto elástico, é dada às bases de dados individuais a flexibilidade para se dimensionarem automaticamente dentro dos limites configurados. Uma base de dados numa carga mais pesada irá consumir mais eDTUs para responder à procura. Bases de dados sob cargas mais leves consumirá menos eDTUs. Bases de dados com qualquer carga não serão não consomem eDTUs. Aprovisionamento de recursos para o conjunto completo, vez por base de dados, tarefas de gestão são simplificadas, fornecendo um orçamento previsível para o conjunto.
 

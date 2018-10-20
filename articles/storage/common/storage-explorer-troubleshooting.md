@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521035"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470325"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de armazenamento do Azure
 
@@ -74,7 +74,7 @@ O macOS Keychain, às vezes, pode chegar a um Estado que provoca problemas para 
 7. Tente iniciar sessão.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Início de sessão resolução de problemas passos gerais
-* Se estiver no macOS e a janela de início de sessão nunca será exibido sobre a caixa de diálogo "A aguardar para autenticação...", em seguida, tente [estes passos](#Mac-Keychain-Errors)
+* Se estiver no macOS e a janela de início de sessão nunca será exibido sobre a caixa de diálogo "A aguardar para autenticação...", em seguida, tente [estes passos](#mac-keychain-errors)
 * Reinicie o Explorador de armazenamento
 * Se a janela de autenticação está em branco, aguarde, pelo menos, um minuto antes de fechar a caixa de diálogo de autenticação.
 * Certifique-se de que o proxy e as definições estão configuradas corretamente para o seu computador e o Explorador de armazenamento de certificado.

@@ -3,7 +3,7 @@ title: Implementar uma aplicação a um conjunto de dimensionamento de máquina 
 description: Saiba como implementar aplicações para Linux e Windows instâncias da máquina virtual num conjunto de dimensionamento
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 22e035be27f16e7b73e545d75eb9cd108a919114
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979448"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471208"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementar a sua aplicação em conjuntos de dimensionamento de máquina virtual
 Para executar aplicações em instâncias de máquina virtual (VM) num conjunto de dimensionamento, primeiro tem de instalar os componentes da aplicação e os ficheiros necessários. Este artigo apresenta as formas de criar uma imagem VM personalizada para as instâncias numa escala definido ou executar automaticamente scripts de instalação nas instâncias VM existentes. Também irá aprender a gerir aplicações ou atualizações de sistema operacional num conjunto de dimensionamento.

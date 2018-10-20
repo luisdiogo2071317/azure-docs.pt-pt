@@ -1,38 +1,39 @@
 ---
-title: Filtros de idioma na Azure Search | Microsoft Docs
-description: Filtre critérios pela identidade de segurança do utilizador, idioma, geolocalização ou valores numéricos para reduzir os resultados da pesquisa em consultas na Azure Search, um serviço de pesquisa em nuvem alojado no Microsoft Azure.
+title: Filtros de idioma no Azure Search | Documentos da Microsoft
+description: Filtre critérios pela identidade de segurança do utilizador, idioma, localização geográfica ou valores numéricos para reduzir os resultados da pesquisa em consultas no Azure Search, um serviço de pesquisa de nuvem alojada no Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.workload: search
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
-ms.openlocfilehash: 6d7fa7ab6db1fe9f8e2d1530c2917f4716a38079
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2bacffe64fed3e2ee0cc2eb983776b4ab7086e51
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790632"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466590"
 ---
-# <a name="how-to-filter-by-language-in-azure-search"></a>Como filtrar por idioma na Azure Search 
+# <a name="how-to-filter-by-language-in-azure-search"></a>Como filtrar pelo idioma no Azure Search 
 
-Um requisito-chave numa aplicação de pesquisa multilingue é a capacidade para procurar através de e obter resultados no idioma do utilizador. Na Azure Search, uma forma para cumprir os requisitos de idioma de uma aplicação multilingue é criar uma série de campos dedicado para armazenar cadeias num idioma específico e, em seguida, limitar as pesquisa em texto completo para apenas esses campos no momento da consulta.
+Um requisito fundamental num aplicativo de pesquisa multilíngüe é a capacidade de procurar em e obter resultados no idioma do utilizador. No Azure Search, uma forma para cumprir os requisitos de idioma de um aplicativo multilíngüe é criar uma série de campos dedicados ao armazenamento de cadeias de caracteres num idioma específico e, em seguida, restringir a pesquisa em texto completo para apenas os campos no momento da consulta.
 
-Parâmetros de consulta no pedido são utilizados para definir o âmbito da operação de pesquisa e, em seguida, limitar os resultados de quaisquer campos que não fornecem conteúdo compatível com a experiência de pesquisa que pretende fornecer.
+Parâmetros de consulta no pedido são utilizados para definir o âmbito da operação de pesquisa e, em seguida, corte os resultados de quaisquer campos que não fornecem conteúdo compatível com a experiência de pesquisa que deseja fornecer.
 
 | Parâmetros | Objetivo |
 |-----------|--------------|
-| **searchFields** | Os limites completa a pesquisa em texto à lista de campos com nome. |
-| **$select** | Corta a resposta para incluir apenas os campos que especificar. Por predefinição, são devolvidos todos os campos recuperável. O **$select** parâmetro permite-lhe escolher aqueles a devolver. |
+| **searchFields** | Limites completas de pesquisa de texto à lista de campos nomeados. |
+| **$select** | Corta a resposta para incluir apenas os campos que especificar. Por predefinição, são devolvidos todos os campos recuperáveis. O **$select** parâmetro permite-lhe escolher qual para retornar. |
 
-A taxa de êxito desta técnica hinges na integridade do conteúdo do campo. A pesquisa do Azure não traduzir as cadeias ou efetuar a deteção de idioma. Trata-se até que para se certificar de que os campos contêm as cadeias de que espera.
+O sucesso dessa técnica depende da integridade do conteúdo do campo. O Azure Search não traduzir as cadeias de caracteres ou executar a deteção de idioma. Cabe-lhe certificar-se de que os campos contêm as cadeias de caracteres esperado.
 
-## <a name="define-fields-for-content-in-different-languages"></a>Definir os campos para o conteúdo em idiomas diferentes
+## <a name="define-fields-for-content-in-different-languages"></a>Definir campos para o conteúdo em diferentes idiomas
 
-Na Azure Search, consultas de destino num índice único. Os programadores que pretendem fornecer específicas do idioma cadeias numa experiência de procura única, normalmente, definem campos dedicados para armazenar os valores: um campo para inglês cadeias, um para francês e assim sucessivamente. 
+No Azure Search, as consultas visam um único índice. Os desenvolvedores que desejam fornecer cadeias de caracteres específicas de idiomas numa experiência de pesquisa único normalmente definem campos dedicados para armazenar os valores: um campo para inglês cadeias de caracteres, um para o francês e assim por diante. 
 
-No nossos exemplos, incluindo o [disponível exemplo](search-get-started-portal.md) mostrado abaixo, poderá ter visto definições de campo semelhantes à seguinte captura de ecrã. Repare como este exemplo mostra o idioma atribuições de analisador para os campos neste índice. Os campos que contêm cadeias melhor efetuar na pesquisa de texto completo quando emparelhado com um analisador foi desenvolvido para processar as regras linguístico do idioma de destino.
+Em nossos exemplos, incluindo o [exemplo de imóveis](search-get-started-portal.md) mostrado abaixo, pode ver as definições de campo semelhantes à seguinte captura de ecrã. Observe como este exemplo mostra o idioma atribuições de analisador para os campos neste índice. Campos que contenham as cadeias de caracteres têm um desempenho melhor na pesquisa em texto completo quando combinado com um analisador projetado para lidar com as regras de idioma de destino.
 
   ![](./media/search-filters-language/lang-fields.png)
 
@@ -41,13 +42,13 @@ No nossos exemplos, incluindo o [disponível exemplo](search-get-started-portal.
 
 ## <a name="build-and-load-an-index"></a>Criar e carregar um índice
 
-Um passo intermédio (e talvez óbvios) é que tem de [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) antes formulating uma consulta. Iremos mencionar este passo aqui por questões de exaustividade. É uma forma de determinar se o índice está disponível ao verificar a lista de índices [portal](https://portal.azure.com).
+Um passo intermédio (e talvez óbvio) é que precisa [criar e preencher o índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) antes de formular uma consulta. Mencionamos este passo para ser completo. Uma forma de determinar se o índice está disponível é ao verificar a lista de índices [portal](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Restringir a consulta e limitar os resultados
 
-Parâmetros de consulta são utilizados para limitar a pesquisa a campos específicos e, em seguida, limitar os resultados de quaisquer campos não é útil para o seu cenário. Tendo em conta um objetivo de pesquisa restrições para os campos com cadeias francês, teria de utilizar **searchFields** como destino a consulta nos campos com cadeias nesse idioma. 
+Parâmetros da consulta são usados para limitar a pesquisa a campos específicos e, em seguida, corte os resultados de quaisquer campos não é útil para o seu cenário. Devido um objetivo de pesquisa omezující aos campos que contenham as cadeias de caracteres francês, usaria **searchFields** para direcionar a consulta em campos que contenham as cadeias de caracteres nesse idioma. 
 
-Por predefinição, uma pesquisa devolve todos os campos que estão marcados como recuperável. Como tal, pode querer excluir os campos que não está em conformidade com a experiência de pesquisa de específicas do idioma que pretende fornecer. Especificamente, se limitados procura a um campo com cadeias francês, provavelmente pretende excluir os campos com cadeias inglês os resultados. Utilizar o **$select** fornecem parâmetro controlar a ativação pós-falha os campos são devolvidos para a aplicação de chamada de consulta.
+Por predefinição, uma pesquisa devolve todos os campos que estão marcados como campo recuperável. Como tal, pode querer excluir campos que não estão em conformidade com a experiência de pesquisa de idioma específico que pretende fornecer. Especificamente, se limitado pesquisa a um campo com francês cadeias de caracteres, provavelmente desejará excluir campos com cadeias de caracteres em inglês de seus resultados. Utilizar o **$select** permite o parâmetro controle sobre quais os campos são retornados ao aplicativo de chamada de consulta.
 
 ```csharp
 parameters =
@@ -58,12 +59,12 @@ parameters =
     };
 ```
 > [!Note]
-> Embora o argumento de no $filter na consulta, este caso de utilização é vivamente afiliado conceitos de filtro, pelo que iremos apresentá-lo como um cenário de filtragem.
+> Embora haja no $filter argumento na consulta, este caso de utilização é vivamente afiliado com conceitos de filtro, pelo que iremos apresentá-los como um cenário de filtragem.
 
 ## <a name="see-also"></a>Consulte também
 
-+ [Filtros na pesquisa do Azure](search-filters.md)
++ [Filtros no Azure Search](search-filters.md)
 + [Analisadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)
-+ [Como completa a pesquisa em texto funciona na Azure Search](search-lucene-query-architecture.md)
-+ [API de REST de documentos de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents)
++ [Completa como funciona a pesquisa de texto no Azure Search](search-lucene-query-architecture.md)
++ [Procurar nos documentos de REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

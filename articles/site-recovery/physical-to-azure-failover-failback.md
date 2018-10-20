@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: raynew
-ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1a818d37efd370ce0b3e27bff73a153544763ebb
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391152"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456631"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Ativação pós-falha e reativação pós-falha de servidores físicos replicados no Azure
 
@@ -59,9 +59,9 @@ Verifique se as propriedades do servidor e certifique-se de que ele está em con
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
 
-Se pretender ligar a VMs do Azure com RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Se quiser ligar a VMs do Azure através de RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver problemas de qualquer conectividade problemas após a ativação pós-falha.
+Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 
 ## <a name="create-a-process-server-in-azure"></a>Criar um servidor de processos no Azure
 

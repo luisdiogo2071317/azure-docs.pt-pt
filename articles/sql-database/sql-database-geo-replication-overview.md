@@ -1,6 +1,6 @@
 ---
 title: Ativação pós-falha de grupos e a georreplicação ativa - base de dados SQL do Azure | Documentos da Microsoft
-description: Utilizar grupos de ativação pós-falha automática com a georreplicação ativa e ativar a ativação pós-falha de autoomatic em caso de interrupção.
+description: Utilizar grupos de ativação pós-falha automática com a georreplicação ativa e ativar a ativação pós-falha automática em caso de interrupção.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6e77d24c31401051d82501ca8064d02201bf218e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354279"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471480"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Descrição geral: Grupos de georreplicação e ativação pós-falha automática Active Directory
 
@@ -279,8 +279,8 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 
 | API | Descrição |
 | --- | --- |
-| [Criar ou atualizar banco de dados (createMode = restauro)](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Cria, atualiza ou restaura a base de dados secundário ou de um site primário. |
-| [Começar a criar ou atualizar o estado da base de dados](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Devolve o estado durante uma operação de criação. |
+| [Criar ou atualizar banco de dados (createMode = restauro)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura a base de dados secundário ou de um site primário. |
+| [Começar a criar ou atualizar o estado da base de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Devolve o estado durante uma operação de criação. |
 | [Definir a base de dados secundária como principal (ativação pós-falha planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Conjuntos de qual banco de dados de réplica é principal ao realizar a ativação pós-falha da base de dados de réplica primária atual. |
 | [Definir a base de dados secundária como principal (ativação pós-falha não planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Conjuntos de qual banco de dados de réplica é principal ao realizar a ativação pós-falha da base de dados de réplica primária atual. Esta operação poderá resultar em perda de dados. |
 | [Obter a ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Obtém uma ligação de replicação específicos para um determinado banco de dados do SQL numa parceria de replicação geográfica. Obtém as informações visíveis na vista de catálogo sys.geo_replication_links. |

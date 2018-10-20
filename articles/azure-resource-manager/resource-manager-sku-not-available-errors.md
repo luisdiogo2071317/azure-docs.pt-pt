@@ -1,6 +1,6 @@
 ---
-title: SKU do Azure não está disponíveis erros | Microsoft Docs
-description: Descreve como resolver o SKU não está disponível erro durante a implementação.
+title: SKU do Azure não está disponíveis erros | Documentos da Microsoft
+description: Descreve como resolver problemas relacionados com o SKU de erro não está disponível durante a implementação.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -11,22 +11,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358766"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468692"
 ---
-# <a name="resolve-errors-for-sku-not-available"></a>Resolver erros de SKU não está disponível
+# <a name="resolve-errors-for-sku-not-available"></a>Resolver erros de SKU não disponível
 
-Este artigo descreve como resolver o **SkuNotAvailable** erro.
+Este artigo descreve como resolver o **SkuNotAvailable** erro. Se não for possível encontrar um SKU adequado nessa região ou uma região alternativa que cumpra o seu negócio precisa, submeta um [pedido SKU](https://aka.ms/skurestriction) ao suporte do Azure.
+
 
 ## <a name="symptom"></a>Sintoma
 
-Quando implementar um recurso (normalmente, uma máquina virtual), receberá o seguinte código de erro e a mensagem de erro:
+Ao implementar um recurso (normalmente, uma máquina virtual), receberá o seguinte código de erro e a mensagem de erro:
 
 ```
 Code: SkuNotAvailable
@@ -36,62 +37,63 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>Causa
 
-Recebe este erro quando o recurso SKU que selecionou (por exemplo, o tamanho da VM) não está disponível para a localização que selecionou.
+Recebe este erro quando o SKU que selecionou (por exemplo, o tamanho da VM) do recurso não está disponível para a localização que selecionou.
 
 ## <a name="solution-1---powershell"></a>Solução 1 - PowerShell
 
-Para determinar qual SKUs estão disponíveis numa região, utilize o [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) comando. Filtre os resultados por localização. Tem de ter a versão mais recente do PowerShell para este comando.
+Para determinar qual SKUs estão disponíveis numa região, utilize o [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) comando. Filtre os resultados com base na localização. Tem de ter a versão mais recente do PowerShell para este comando.
 
-```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
+```azurepowershell-interactive
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Os resultados incluem uma lista de SKUs para a localização e as restrições para esse SKU.
+Os resultados incluem uma lista de SKUs para a localização e quaisquer restrições para esse SKU. Tenha em atenção que um SKU poderão ser listado como `NotAvailableForSubscription`.
 
 ```powershell
-ResourceType                Name      Locations Restriction                      Capability Value
-------------                ----      --------- -----------                      ---------- -----
-availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
-availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
-virtualMachines      Standard_A0 southcentralus
-virtualMachines      Standard_A1 southcentralus
-virtualMachines      Standard_A2 southcentralus
+ResourceType          Name        Locations   Restriction                      Capability           Value
+------------          ----        ---------   -----------                      ----------           -----
+virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
 ```
 
 ## <a name="solution-2---azure-cli"></a>Solução 2 - CLI do Azure
 
-Para determinar qual SKUs estão disponíveis numa região, utilize o `az vm list-skus` comando. Em seguida, pode utilizar `grep` ou um utilitário semelhante para filtrar os resultados.
+Para determinar qual SKUs estão disponíveis numa região, utilize o `az vm list-skus` comando. Utilize o `--location` parâmetro para filtrar a saída para a localização que estiver a utilizar. Utilize o `--size` parâmetro para procurar por um nome de tamanho parcial.
 
-```bash
-$ az vm list-skus --output table
-ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
-----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
-availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
-avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --output table
 ```
 
-## <a name="solution-3---azure-portal"></a>Solução 3 - portal do Azure
+O comando devolve resultados como:
 
-Para determinar qual SKUs estão disponíveis numa região, utilize o [portal](https://portal.azure.com). Inicie sessão no portal e adicione um recurso através da interface. Como definir os valores, consulte os SKUs disponíveis para esse recurso. Não é necessário concluir a implementação.
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  southcentralus  Standard_F1                ...             None
+virtualMachines  southcentralus  Standard_F2                ...             None
+virtualMachines  southcentralus  Standard_F4                ...             None
+...
+```
 
-![SKUs disponíveis](./media/resource-manager-sku-not-available-errors/view-sku.png)
+
+## <a name="solution-3---azure-portal"></a>Solução de 3 - portal do Azure
+
+Para determinar qual SKUs estão disponíveis numa região, utilize o [portal](https://portal.azure.com). Inicie sessão no portal e adicionar um recurso por meio da interface. À medida que define os valores, verá os SKUs disponíveis para esse recurso. Não precisa de concluir a implementação.
+
+Por exemplo, inicie o processo de criação de uma máquina virtual. Para ver outro tamanho disponível, selecione **alterar o tamanho**.
+
+![Criar VM](./media/resource-manager-sku-not-available-errors/create-vm.png)
+
+Pode filtrar e desloque-se por meio dos tamanhos disponíveis.
+
+![SKUs disponíveis](./media/resource-manager-sku-not-available-errors/available-sizes.png)
 
 ## <a name="solution-4---rest"></a>Solução 4 - REST
 
-Para determinar qual SKUs estão disponíveis numa região, utilize a API REST para máquinas virtuais. Envie o pedido seguinte:
+Para determinar qual SKUs estão disponíveis numa região, utilize o [Skus de recursos - lista](/rest/api/compute/resourceskus/list) operação.
 
-```HTTP 
-GET
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
-```
-
-Devolve e regiões de SKUs disponíveis no seguinte formato:
+Devolve a SKUs disponíveis e as regiões no seguinte formato:
 
 ```json
 {
@@ -121,4 +123,3 @@ Devolve e regiões de SKUs disponíveis no seguinte formato:
 }
 ```
 
-Se não conseguir encontrar um SKU adequado nessa região ou uma região alternativa que satisfaz a sua empresa, tem de submeter um [pedido SKU](https://aka.ms/skurestriction) para o suporte do Azure.

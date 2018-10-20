@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e4c5e6337c7fb222d18efada6ea9167e58aa024
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870813"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471412"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de v7 pré-visualização do URL do projeto
 
@@ -187,9 +187,9 @@ Seguem-se os valores de código de erro secundárias e de código de erro possí
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing devolve InsufficientAuthorization quando o chamador não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição foi desativada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de estado HTTP é 403.
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Início rápido em C#](csharp.md)
-- [Início rápido de Java](java-quickstart.md)
-- [Guia de introdução do JavaScript](javascript.md)
-- [Guia de introdução do nó](node-quickstart.md)
-- [Guia de introdução do Python](python-quickstart.md)
+- [Início Rápido do C#](csharp.md)
+- [Início rápido do Java](java-quickstart.md)
+- [Início Rápido do JavaScript](javascript.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)
 

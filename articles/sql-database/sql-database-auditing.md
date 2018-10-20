@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: b18f7efa09b33def2851967b5fc78bb1ddbc61e6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404924"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466686"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -222,17 +222,17 @@ Para obter um exemplo de script, consulte [configurar a deteção de ameaças e 
 
 **REST API - a auditoria de BLOBs**:
 
-- [Criar ou atualizar a política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_createorupdate)
-- [Criar ou atualizar a política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
-- [Obter política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_get)
-- [Obter política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
+- [Criar ou atualizar a política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Criar ou atualizar a política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obter política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Obter política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Obter política expandida com em que suporta a cláusula para filtragem adicionais:
 
-- [Criar ou atualizar a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_createorupdate)
-- [Criar ou atualizar o servidor *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
-- [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_get)
-- [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
+- [Criar ou atualizar a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Criar ou atualizar o servidor *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

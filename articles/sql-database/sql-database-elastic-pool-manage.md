@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351867"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466074"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -106,11 +106,11 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 |[Conjuntos elásticos - atualização](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Atualiza um conjunto elástico existente.|
 |[Atividades de conjunto elástico](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
 |[Conjunto elástico da base de dados de atividades](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
-|[Bases de dados - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
-|[Bases de dados - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Obtém uma base de dados.|
-|[Bases de dados - lista por conjunto elástico](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|
-|[Bases de dados - lista por servidor](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Devolve uma lista de bases de dados num servidor.|
-|[Bases de dados - atualização](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Atualiza a base de dados existente.|
+|[Bases de dados - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|
+|[Bases de dados - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtém uma base de dados.|
+|[Bases de dados - lista por conjunto elástico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devolve uma lista de bases de dados num conjunto elástico.|
+|[Bases de dados - lista por servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Devolve uma lista de bases de dados num servidor.|
+|[Bases de dados - atualização](https://docs.microsoft.com/rest/api/sql/databases/update)|Atualiza a base de dados existente.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

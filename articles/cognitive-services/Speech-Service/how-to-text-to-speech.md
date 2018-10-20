@@ -1,20 +1,21 @@
 ---
-title: Utilizar texto em voz com serviços de voz
+title: Utilizar texto em voz no serviço de voz
+titleSuffix: Azure Cognitive Services
 description: Saiba como utilizar o texto em voz no serviço de voz.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165050"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469922"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
@@ -97,5 +98,5 @@ Para obter mais informações sobre o texto a API de REST de voz, consulte [REST
 
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconhecer a conversão de voz em C++](quickstart-cpp-windows.md)
-- [Reconhecer a conversão de voz em c#](quickstart-csharp-dotnet-windows.md)
+- [Reconhecer voz em C#](quickstart-csharp-dotnet-windows.md)
 - [Reconhecer a conversão de voz em Java](quickstart-java-android.md)

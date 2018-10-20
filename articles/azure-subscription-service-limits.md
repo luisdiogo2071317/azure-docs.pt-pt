@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: byvinyal
-ms.openlocfilehash: 0b78c7c94f5dc6d7c427188ac4ffd807a06a867e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c22f3dbc06dd43a31bf43634437c7f377dac8813
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585497"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457311"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -108,7 +108,7 @@ Os limites abaixo, uma nova tabela foi adicionada para refletir as diferenças e
 #### <a name="subscription-limits---azure-resource-manager"></a>Limites de subscrição - Azure Resource Manager
 Os limites seguintes aplicam-se ao utilizar o Azure Resource Manager e os grupos de recursos do Azure. Limites de que não foram alterados com o Azure Resource Manager não estão listadas abaixo. Consulte a tabela anterior para esses limites.
 
-Para obter informações sobre como lidar com limites de pedidos do Resource Manager, consulte [Gestor de recursos de limitação de pedidos](resource-manager-request-limits.md).
+Para obter informações sobre a API do Resource Manager ler e escrever os limites, consulte [Gestor de recursos de limitação de pedidos](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 

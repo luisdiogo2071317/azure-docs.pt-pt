@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 591da67e6411d0e859076f0a3c3c38afc1ebe1f5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 03dc6d8bb95a952a77be31f79df36a2c1ddc8ffc
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38765946"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458644"
 ---
 Pode verificar se a ligação teve êxito com o cmdlet 'Get-AzureVNetConnection'.
 
 1. Utilize o seguinte exemplo de cmdlet, configurando os valores para corresponder aos seus. O nome da rede virtual tem de ser aspas se contiver espaços.
 
-  ```powershell
+  ```azurepowershell
   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
   ```
 2. Quando o cmdlet terminar, veja os valores. No exemplo abaixo, o estado de conectividade é apresentado como "Ligado" e pode ver bytes de entrada e saída.

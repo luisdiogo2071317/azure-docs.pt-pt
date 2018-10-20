@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166972"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466159"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rodar segredos no Azure Stack
 
@@ -81,15 +81,18 @@ Executar a rotação secreta com as instruções abaixo irá remediar estes aler
 
    > [!IMPORTANT]  
    > Certifique-se de rotação secreta ainda não foi executada com êxito no seu ambiente. Se já foi executada a rotação secreta, atualize o Azure Stack para a versão 1807 ou posterior antes de executar a rotação secreta. 
+
 1.  Operadores poderão reparar alertas abrir e fechar automaticamente durante a rotação de segredos do Azure Stack.  Este comportamento é esperado e os alertas podem ser ignorados.  Operadores podem verificar a validade destes alertas através da execução de teste AzureStack.  Para operadores usando o SCOM para monitorizar sistemas do Azure Stack, colocar um sistema no modo de manutenção impedirá que estes alertas de chegar aos seus sistemas ITSM, mas irão continuar para o alertar se o sistema do Azure Stack fique inacessível. 
 2. Notificar os utilizadores de quaisquer operações de manutenção. Agende janelas de manutenção normal, tanto quanto possíveis, durante o horário não comercial. Operações de manutenção podem afetar as cargas de trabalho de utilizador e de operações do portal.
     > [!note]  
     > Os passos seguintes aplicam-se apenas quando alternar segredos externos do Azure Stack.
-3. Prepare um novo conjunto de substituição de certificados externos. O novo conjunto corresponde as especificações do certificado descritas a [requisitos de certificado PKI do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-4.  Store uma cópia de segurança nos certificados utilizados para a rotação num local de cópia de segurança seguro. Se a rotação é executado e, em seguida, falha, substitua os certificados na partilha de ficheiros com as cópias de segurança antes de voltar a executar a rotação. Tenha em atenção, manter cópias de segurança na localização de cópia de segurança segura.
-5.  Crie uma partilha de ficheiros que pode aceder a partir de ERCS VMs. A partilha de ficheiros tem de ser legíveis e gravável para o **CloudAdmin** identidade.
-6.  Abra uma consola do ISE do PowerShell a partir de um computador em que tem acesso à partilha de ficheiros. Navegue para a partilha de ficheiros. 
-7.  Execute **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para os certificados externos.
+
+3. Execute **[teste AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** e confirme a todos os resultados de teste estão em bom Estados antes de efetuar a rotação de segredos.
+4. Prepare um novo conjunto de substituição de certificados externos. O novo conjunto corresponde as especificações do certificado descritas a [requisitos de certificado PKI do Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+5.  Store uma cópia de segurança nos certificados utilizados para a rotação num local de cópia de segurança seguro. Se a rotação é executado e, em seguida, falha, substitua os certificados na partilha de ficheiros com as cópias de segurança antes de voltar a executar a rotação. Tenha em atenção, manter cópias de segurança na localização de cópia de segurança segura.
+6.  Crie uma partilha de ficheiros que pode aceder a partir de ERCS VMs. A partilha de ficheiros tem de ser legíveis e gravável para o **CloudAdmin** identidade.
+7.  Abra uma consola do ISE do PowerShell a partir de um computador em que tem acesso à partilha de ficheiros. Navegue para a partilha de ficheiros. 
+8.  Execute **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** para criar os diretórios necessários para os certificados externos.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Girando segredos externos e internos
 

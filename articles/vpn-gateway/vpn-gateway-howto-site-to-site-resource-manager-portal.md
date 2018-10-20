@@ -2,25 +2,17 @@
 title: 'Ligar a rede no local a uma rede virtual do Azure: Rede de VPNs: Portal | Microsoft Docs'
 description: Passos para criar uma ligação IPsec da sua rede no local a uma rede virtual do Azure através da Internet pública. Estes passos ajudam-no a criar uma ligação de Gateway de Rede de VPNs em vários sites com o portal.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 827a4db7-7fa5-4eaf-b7e1-e1518c51c815
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 42aa80013edd7dcd0f78744e03e0f5da64bfeafc
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: dd29b4af85826e350e116b31fa53031aacaba067
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30914186"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457124"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Criar uma ligação Site a Site no portal do Azure
 
@@ -136,7 +128,7 @@ Pode adicionar mais ligações, desde que nenhum desses espaços de endereços s
 3. Se estiver a ligar através de Site a Site e ainda não tiver criado um gateway de rede local para o site ao qual se quer ligar, pode criar um novo.
 4. Especifique a chave partilhada que pretende utilizar e clique em **OK** para criar a ligação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter informações sobre o BGP, veja a [Descrição Geral do BGP](vpn-gateway-bgp-overview.md) e [Como configurar o BGP](vpn-gateway-bgp-resource-manager-ps.md).
 * Para obter informações sobre o túnel forçado, veja [About forced tunneling](vpn-gateway-forced-tunneling-rm.md) (Acerca do túnel forçado).

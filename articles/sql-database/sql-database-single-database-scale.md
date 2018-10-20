@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e00f043f99b9a57fad420c380a55789d73047e77
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 258f8fbe8d99923240db8d6d10c4cf812c939510
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352906"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466891"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Dimensionar recursos de base de dados na base de dados do Azure SQL
 
@@ -26,7 +26,7 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 ## <a name="vcore-based-purchasing-model-change-storage-size"></a>modelo de compra baseado em vCore: alterar o tamanho de armazenamento
 
 - Pode aprovisionar um armazenamento até ao limite de tamanho máximo com incrementos de 1 GB. O armazenamento de dados configurável mínimo é de 5 GB
-- Armazenamento para uma base de dados pode ser aprovisionado por aumentar ou diminuir o tamanho máximo, usando o [portal do Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [Da CLI do azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+- Armazenamento para uma base de dados pode ser aprovisionado por aumentar ou diminuir o tamanho máximo, usando o [portal do Azure](https://portal.azure.com), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [Da CLI do azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Base de dados SQL aloca automaticamente 30% de armazenamento adicional para os ficheiros de registo e 32GB por vCore para TempDB, mas não deve exceder 384GB. TempDB está localizado em SSD anexado em todos os escalões de serviço.
 - O preço de armazenamento para uma base de dados é a soma dos dados armazenamento e de registo de armazenamento quantidades multiplicado pelo preço de unidade de armazenamento da camada de serviços. O custo de TempDB está incluído no preço vCore. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
@@ -35,14 +35,14 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 
 ## <a name="vcore-based-purchasing-model-change-compute-resources"></a>modelo de compra baseado em vCore: recursos de computação de alteração
 
-Após escolher inicialmente o número de vCores, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real usando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou a [REST API](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+Após escolher inicialmente o número de vCores, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real usando o [portal do Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-server), [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou a [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Alterar o serviço de camada e/ou tamanho de uma base de dados cria uma réplica da base de dados original com o novo tamanho de computação e, em seguida, troca ligações para a réplica de computação. Não são perdidos dados durante este processo mas durante o breve momento em que trocamos para a réplica, as ligações à base de dados são desativadas, pelo que algumas transações em voo poderão ser revertidas. O período de tempo para o comutador-over varia, mas é, geralmente, menos de 4 segundos é inferior a 30 segundos 99% do tempo. Se houver grandes números de transações em voo nas ligações do momento em que estão desativados, o período de tempo para o comutador-over pode demorar mais.
 
 A duração de todo o processo de aumento vertical depende do tamanho e do escalão de serviço da base de dados antes e após a alteração. Por exemplo, uma base de dados de 250 GB que está a alterar para, a partir ou dentro de uma camada de serviços de fins gerais, deve ser concluído dentro de seis horas. Para uma base de dados do mesmo tamanho que está a alterar os tamanhos de computação dentro da camada de serviço crítico para a empresa, aumentar verticalmente deverá ser concluída no prazo de três horas.
 
 > [!TIP]
-> Para monitorizar operações em curso, consulte: [gerir as operações com a API de REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/operations_list), [gerir as operações com a CLI](/cli/azure/sql/db/op), [monitorizar as operações com o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois Comandos do PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+> Para monitorizar operações em curso, consulte: [gerir as operações com a API de REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gerir as operações com a CLI](/cli/azure/sql/db/op), [monitorizar as operações com o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois Comandos do PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 - Se estiver a atualizar para um escalão de serviço superior ou tamanho de computação, o tamanho máximo da base de dados não aumenta a menos que especifique explicitamente um tamanho maior (maxsize).
 - Para mudar a versão de uma base de dados, o espaço de base de dados utilizada tem de ser menor do que o máximo permitido de tamanho da camada de serviços de destino e o tamanho de computação.
@@ -53,7 +53,7 @@ A duração de todo o processo de aumento vertical depende do tamanho e do escal
 ## <a name="dtu-based-purchasing-model-change-storage-size"></a>Modelo de compra baseado em DTU: alterar o tamanho de armazenamento
 
 - O preço DTU para bases de dados única inclui uma certa quantidade de armazenamento sem custos adicionais. Pode ser aprovisionado armazenamento extra para além da quantidade incluída por um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB a 1 TB e, em seguida, em incrementos de 256 GB a partir de 1 TB. Para quantidades de armazenamento incluído e limites de tamanho máximo, consulte [base de dados: tamanhos de armazenamento e tamanhos de computação](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
-- Armazenamento extra para uma base de dados pode ser aprovisionado por seu tamanho máximo do portal do Azure, o aumento [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [da CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+- Armazenamento extra para uma base de dados pode ser aprovisionado por seu tamanho máximo do portal do Azure, o aumento [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [da CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 - O preço do armazenamento extra para uma base de dados é a quantidade de armazenamento extra multiplicada pelo preço de unidade de armazenamento extra da camada de serviços. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -61,7 +61,7 @@ A duração de todo o processo de aumento vertical depende do tamanho e do escal
 
 ## <a name="dtu-based-purchasing-model-change-compute-resources-dtus"></a>Modelo de compra baseado em DTU: recursos (DTUs) de computação de alteração
 
-Após escolher inicialmente um escalão de serviço, o tamanho de computação e a quantidade de armazenamento, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real com o portal do Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+Após escolher inicialmente um escalão de serviço, o tamanho de computação e a quantidade de armazenamento, pode dimensionar uma base de dados ou diminua verticalmente dinamicamente com base na experiência real com o portal do Azure, [Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#examples-1), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), o [CLI do Azure](/cli/azure/sql/db#az-sql-db-update), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Mostra o vídeo seguinte alterar dinamicamente o serviço de camada e tamanho de aumentar DTUs disponíveis para uma base de dados de computação.
 
@@ -73,7 +73,7 @@ Alterar o serviço de camada e/ou tamanho de uma base de dados cria uma réplica
 A duração de todo o processo de aumento vertical depende do tamanho e do escalão de serviço da base de dados antes e após a alteração. Por exemplo, uma base de dados de 250 GB que está a alterar para, a partir ou dentro de um escalão Standard, deve ser concluído dentro de seis horas. Para uma base de dados do mesmo tamanho que está a alterar os tamanhos de computação dentro da camada de serviço Premium, o aumento vertical deverá ser concluída no prazo de três horas.
 
 > [!TIP]
-> Para monitorizar operações em curso, consulte: [gerir as operações com a API de REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/operations_list), [gerir as operações com a CLI](/cli/azure/sql/db/op), [monitorizar as operações com o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois Comandos do PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
+> Para monitorizar operações em curso, consulte: [gerir as operações com a API de REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gerir as operações com a CLI](/cli/azure/sql/db/op), [monitorizar as operações com o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois Comandos do PowerShell: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 - Se estiver a atualizar para um escalão de serviço superior ou tamanho de computação, o tamanho máximo da base de dados não aumenta a menos que especifique explicitamente um tamanho maior (maxsize).
 - Para mudar a versão de uma base de dados, o espaço de base de dados utilizada tem de ser menor do que o máximo permitido de tamanho da camada de serviços de destino e o tamanho de computação.

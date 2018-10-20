@@ -1,24 +1,25 @@
 ---
 title: Sobre os dispositivos de voz SDK
-description: Obtenha uma introdução ao SDK de dispositivos de voz.
 titleSuffix: Azure Cognitive Services
+description: Obtenha uma introdução ao SDK de dispositivos de voz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: ba91d5fd556cdc189f6303ac216c8fdd9495c74b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: eac3542059f1bc5d32a91ef871e5185fad1d2798
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165425"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464102"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Sobre os dispositivos de voz SDK (pré-visualização)
 
-O [serviço do Microsoft Speech](overview.md) funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone. 
+O [serviço de voz](overview.md) funciona com uma ampla variedade de dispositivos e fontes de áudio. Agora, pode tirar seus aplicativos de fala para o próximo nível com correspondentes de hardware e software. O SDK de dispositivos de voz é uma biblioteca pretuned que se encontra emparelhada com finalidade específica, kits de desenvolvimento de matriz de microfone. 
 
 O SDK de dispositivos de voz pode ajudá-lo a:
 * Teste rapidamente a novos cenários de voz.

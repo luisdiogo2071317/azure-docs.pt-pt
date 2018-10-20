@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 99c31293168fd5ff3e6b95a70dc481e01e4ac8b4
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0b95441fd2805308c601509f1afc477f72bde321
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400124"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476347"
 ---
 Entrar para o [portal do Azure](https://portal.azure.com/) com as credenciais para a subscrição do Azure que utilizar. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) agora.
 
@@ -39,7 +39,7 @@ Na **área de trabalho do ML service** painel, configurar a sua área de trabalh
    Campo|Descrição
    ---|---
    Nome da área de trabalho |Introduza um nome exclusivo que identifica a sua área de trabalho. Aqui usamos ws do docs. Nomes têm de ser exclusivos entre o grupo de recursos. Utilize um nome que é fácil de lembrar e diferenciar de áreas de trabalho criadas por outras pessoas.  
-   Subscrição |Selecione a subscrição do Azure que pretende utilizar. Se tiver mais de uma subscrição, selecione a subscrição que é utilizada para faturação.
+   Subscrição |Selecione a subscrição do Azure que pretende utilizar.
    Grupo de recursos | Utilize um grupo de recursos existente na sua subscrição ou introduza um nome para criar um novo grupo de recursos. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Aqui usamos aml do docs. 
    Localização | Selecione a localização mais próxima dos seus utilizadores e os recursos de dados. Esta localização é onde a área de trabalho é criada.
 

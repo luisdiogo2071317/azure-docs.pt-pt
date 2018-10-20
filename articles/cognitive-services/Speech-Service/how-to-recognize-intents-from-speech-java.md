@@ -1,21 +1,21 @@
 ---
 title: Reconhecer intenções de voz com o SDK de voz para Java
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Aprenda a reconhecer intenções de voz de um arquivo ou um microfone, utilizando o SDK de voz para Java.
+titleSuffix: Azure Cognitive Services
+description: Aprenda a reconhecer intenções de voz de um arquivo ou um microfone, utilizando o SDK de voz para Java.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: cc83c05f4e4183fd7c945cec831d905781b92e6f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cb7e7095278eed51c7616dc1c19dcf5c9d84b856
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991832"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469899"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-java"></a>Reconhecer intenções de voz com o SDK de voz para Java
 
@@ -44,5 +44,5 @@ Procure o código que é utilizado neste artigo na pasta de exemplos/java/jre/co
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como reconhecer a conversão de voz](how-to-recognize-speech-java.md)
+- [How to recognize speech](how-to-recognize-speech-java.md) (Como reconhecer voz)
 - [Como a conversão de voz](how-to-translate-speech-java.md)

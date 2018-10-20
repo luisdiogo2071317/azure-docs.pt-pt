@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161711"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458196"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
@@ -345,15 +345,15 @@ Os dispositivos simulados irão utilizar as chaves de dispositivo derivada com c
 
 
 
-## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparar um ambiente de desenvolvimento do SDK de C do Azure IoT
+## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Preparar um ambiente de programação para o SDK C do Azure IoT
 
-Nesta secção, irá preparar um ambiente de desenvolvimento usado para criar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c). O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo tentará aprovisionamento durante a seqüência de inicialização do dispositivo.
+Nesta secção, irá preparar um ambiente de programação utilizado para criar o [SDK C do Azure IoT](https://github.com/Azure/azure-iot-sdk-c). O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo simulado irá tentar fazer o aprovisionamento durante a respetiva sequência de arranque.
 
 Esta secção é orientada em relação uma estação de trabalho baseados em Windows. Para obter um exemplo de Linux, consulte a configuração das VMs no [como aprovisionar para arquitetura "multitenancy"](how-to-provision-multitenant.md).
 
 
 
-1. Baixe a versão 3.11.4 dos [sistema de compilação CMake](https://cmake.org/download/). Verifique o binário transferido com o valor de hash criptográfico correspondente. O exemplo seguinte utilizou o Windows PowerShell para verificar o hash criptográfico para a versão 3.11.4 da distribuição de MSI x64:
+1. Transfira a versão 3.11.4 do [sistema de compilação CMake](https://cmake.org/download/). Verifique o binário transferido com o valor de hash criptográfico correspondente. O exemplo seguinte utilizou o Windows PowerShell para verificar o hash criptográfico para a versão 3.11.4 da distribuição de MSI x64:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -361,7 +361,7 @@ Esta secção é orientada em relação uma estação de trabalho baseados em Wi
     True
     ```
     
-    Os seguintes valores de hash para a versão 3.11.4 foram listados no site de CMake no momento da redação deste artigo:
+    Os seguintes valores hash para a versão 3.11.4 foram listados no site do CMake no momento da redação deste artigo:
 
     ```
     6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
@@ -371,7 +371,7 @@ Esta secção é orientada em relação uma estação de trabalho baseados em Wi
 
     É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho "Desenvolvimento do ambiente de trabalho em C++") estejam instalados no computador, **antes** de iniciar a instalação de `CMake`. Depois de os pré-requisitos estarem assegurados e a transferência verificada, instale o sistema de compilação CMake.
 
-2. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o repositório do GitHub do SDK de C do Azure IoT:
+2. Abra uma linha de comandos ou a shell do Git Bash. Execute o seguinte comando para clonar o SDK C do Azure IoT no repositório do GitHub:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -387,10 +387,10 @@ Esta secção é orientada em relação uma estação de trabalho baseados em Wi
     cd cmake
     ```
 
-4. Execute o seguinte comando, que cria uma versão do SDK específica da sua plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`. 
+4. Execute o seguinte comando para compilar uma versão do SDK específica da plataforma de cliente de desenvolvimento. Será gerada uma solução do Visual Studio para o dispositivo simulado no diretório `cmake`. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Se `cmake` não encontrar o compilador de C++, poderá obter erros de compilação ao executar o comando acima. Se isto acontecer, tente executar o comando seguinte na [linha de comandos do Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Esta secção é orientada em relação uma estação de trabalho baseados em Wi
     Assim que a compilação for concluída com êxito, as últimas linhas de saída terão um aspeto semelhante ao seguinte:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -424,7 +424,7 @@ Este código de exemplo simula uma sequência de arranque de dispositivo que env
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. No Visual Studio, abra a **azure_iot_sdks.sln** arquivo da solução que foi gerado por executar o CMake anterior. O arquivo da solução deve estar no seguinte local:
+2. No Visual Studio, abra a **azure_iot_sdks.sln** arquivo da solução que foi gerado por executar o CMake anterior. O ficheiro de solução deve estar na seguinte localização:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -438,7 +438,7 @@ Este código de exemplo simula uma sequência de arranque de dispositivo que env
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Localize a definição da função `main()` no mesmo ficheiro. Certifique-se de que o `hsm_type` variável é definida como `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` conforme mostrado abaixo:
+5. Localize a definição da função `main()` no mesmo ficheiro. Certifique-se de que a variável `hsm_type` está definida como `SECURE_DEVICE_TYPE_SYMMETRIC_KEY`, conforme mostrado abaixo:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -451,9 +451,9 @@ Este código de exemplo simula uma sequência de arranque de dispositivo que env
 
 #### <a name="simulate-the-contoso-toaster-device"></a>Simular o dispositivo de torradeira Contoso
 
-1. No Visual Studio *Explorador de soluções* janela, navegue para o **hsm\_segurança\_cliente** do projeto e expandi-lo. Expanda **ficheiros de origem**e abra **hsm\_cliente\_key.c**. 
+1. Na janela *Solution Explorer* (Explorador de Soluções) do Visual Studio, navegue até ao projeto **hsm\_security\_client** e expanda-o. Expanda **Source Files** (Ficheiros de Origem) e abra o **hsm\_client\_key.c**. 
 
-    Encontrar a declaração do `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE` constantes. Faça as alterações seguintes ao ficheiro e guarde o ficheiro.
+    Procure a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações seguintes ao ficheiro e guarde-o.
 
     Atualize o valor do `REGISTRATION_NAME` constante com o ID de registo para o dispositivo de torradeira **breakroom499-contoso-tstrsd-007**.
     
@@ -485,9 +485,9 @@ Este código de exemplo simula uma sequência de arranque de dispositivo que env
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Simular o dispositivo de calor bomba de Contoso
 
-1. No Visual Studio *Explorador de soluções* janela, navegue para o **hsm\_segurança\_cliente** do projeto e expandi-lo. Expanda **ficheiros de origem**e abra **hsm\_cliente\_key.c**. 
+1. No Visual Studio *Explorador de soluções* janela, navegue para o **hsm\_segurança\_cliente** do projeto e expandi-lo. Expanda **Source Files** (Ficheiros de Origem) e abra o **hsm\_client\_key.c**. 
 
-    Encontrar a declaração do `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE` constantes. Faça as alterações seguintes ao ficheiro e guarde o ficheiro.
+    Procure a declaração das constantes `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Faça as alterações seguintes ao ficheiro e guarde-o.
 
     Atualize o valor do `REGISTRATION_NAME` constante com o ID de registo para o dispositivo de calor bomba **mainbuilding167-contoso-hpsd-088**.
     

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: f48e9656aa2f562a1475bc5e0f6e81fdcbfda66a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 10/19/2018
+ms.openlocfilehash: 053dbc27908b14e70fa2c7502ec7c4e3ae652bf5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361691"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469763"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importar um ficheiro BACPAC para uma nova base de dados do Azure SQL
 
@@ -49,7 +49,7 @@ Para verificar a base de dados está em direto no servidor, clique em **bases de
 
 ## <a name="import-from-a-bacpac-file-using-sqlpackage"></a>Importar a partir de um ficheiro BACPAC com SQLPackage
 
-Para importar uma base de dados SQL com o [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) utilitário de linha de comandos, veja [importar parâmetros e as propriedades](https://docs.microsoft.com/sql/tools/sqlpackage#-import-parameters-and-properties). O utilitário SQLPackage exe é fornecido com as versões mais recentes [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), ou pode baixar a versão mais recente do [SqlPackage ](https://www.microsoft.com/download/details.aspx?id=53876) diretamente a partir do Centro de transferências da Microsoft.
+Para importar uma base de dados SQL com o [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) utilitário de linha de comandos, veja [importar parâmetros e as propriedades](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). O utilitário SQLPackage exe é fornecido com as versões mais recentes [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) e [SQL Server Data Tools para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), ou pode baixar a versão mais recente do [SqlPackage ](https://www.microsoft.com/download/details.aspx?id=53876) diretamente a partir do Centro de transferências da Microsoft.
 
 Recomendamos a utilização do utilitário SQLPackage exe para dimensionamento e desempenho na maioria dos ambientes de produção. Para saber mais sobre a migração com ficheiros BACPAC num blogue da Equipa de Aconselhamento ao Cliente do SQL Server, consulte [Migrating from SQL Server to Azure SQL Database using BACPAC Files (Migrar a partir do SQL Server para a Base de Dados SQL do Azure com Ficheiros BACPAC)](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 

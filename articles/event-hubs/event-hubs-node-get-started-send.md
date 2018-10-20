@@ -7,35 +7,33 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: bb5a7b477b2d19c74cc645a15cc3d891c76f28c5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 14ea98b9d31bee08b962e8b3801ed507472ba692
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427200"
+ms.locfileid: "49455798"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Enviar eventos para Hubs de eventos do Azure com node. js
 
-Os Hubs de eventos do Azure é um sistema de gerenciamento de eventos altamente escalável que pode lidar com milhões de eventos por segundo, permitindo que os aplicativos processar e analisar enormes quantidades de dados produzidos pelos dispositivos ligados e outros sistemas. Depois de recolhidos para um hub de eventos, pode receber e lidar com eventos usando manipuladores de dentro do processo ou através do reencaminhamento para outros sistemas de análise.
+Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma visão geral detalhada dos Hubs de eventos, consulte [descrição geral dos Hubs de eventos](event-hubs-about.md) e [funcionalidades dos Hubs de eventos](event-hubs-features.md).
 
-Para saber mais sobre os Hubs de eventos, consulte a [descrição geral dos Hubs de eventos](event-hubs-about.md).
+Este tutorial descreve como enviar eventos para um hub de eventos de um aplicativo escrito em node. js.
 
-Este tutorial descreve como enviar eventos para um hub de eventos de um aplicativo escrito em node. js. Para receber eventos com o pacote de anfitrião do processador de eventos de node. js, veja [o artigo correspondente na receção](event-hubs-node-get-started-receive.md).
-
-Código para este início rápido está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client). 
+> [!NOTE]
+> Pode transferir este guia de introdução como uma amostra a partir do [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), substitua `EventHubConnectionString` e `EventHubName` cadeias de caracteres com os seus valores de hub de eventos, e executá-lo. Em alternativa, pode seguir os passos neste tutorial para criar o seu próprio.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 - Versão node. js 8.x e superiores. Transferir a versão mais recente do LTS partir [ https://nodejs.org ](https://nodejs.org).
-- Uma conta ativa do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita][] antes de começar.
 - Visual Studio Code (recomendado) ou qualquer outro IDE
 
-## <a name="create-a-namespace-and-event-hub"></a>Criar um hub de eventos e de espaço de nomes
-O primeiro passo consiste em utilizar o portal do Azure para criar um espaço de nomes de Hubs de eventos com um hub de eventos. Se não tiver um já existente, pode criar estas entidades, seguindo as instruções em [criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](event-hubs-create.md).
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
+O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md), em seguida, continuar com os seguintes passos neste tutorial.
 
 ## <a name="clone-the-sample-git-repository"></a>Clonar o repositório de Git de exemplo
 Clonar o repositório de Git de exemplo da [Github](https://github.com/Azure/azure-event-hubs-node) no seu computador. 
@@ -105,12 +103,6 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
+Neste início rápido, enviou mensagens para um hub de eventos com node. js. Para saber como receber eventos de um hub de eventos com node. js, veja [receber eventos do hub de eventos - node. js](event-hubs-node-get-started-receive.md)
 
-Consulte os seguintes artigos para saber mais sobre os Hubs de eventos:
-
-* [Receber eventos com o node. js](event-hubs-node-get-started-receive.md)
-* [Exemplos no GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/)
-* [FAQ dos Hubs de Eventos](event-hubs-faq.md)
-
-<!-- Links -->
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+Verifique outras amostras de node. js para os Hubs de eventos no [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/).

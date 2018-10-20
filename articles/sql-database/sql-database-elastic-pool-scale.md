@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: b659a7b49eadee59f2eee09320a35a0cf3fab225
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 707304e6901002a58fe24a4b3a88be3f82ad320e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353073"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469253"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar recursos de conjunto elástico na base de dados do Azure SQL
 
@@ -37,7 +37,7 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>modelo de compra baseado em vCore: recursos (vCores) de computação do conjunto elástico de alteração
 
-Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - Quando ao redimensionar o vCores num conjunto elástico, ligações de base de dados rapidamente são ignoradas. Este comportamento é o mesmo comportamento que ocorre quando ao redimensionar o DTUs para uma base de dados. Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [(DTUs) de recursos de computação de alteração](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - A duração a redimensionar vCores de agrupamento pode depender da quantidade total de espaço de armazenamento utilizado por todas as bases de dados no conjunto. Em geral, a latência ao redimensionar calcula a média 90 minutos ou menos por 100 GB. Por exemplo, se o total de espaço utilizado por todas as bases de dados no conjunto é 200 GB, em seguida, a latência esperada ao redimensionar o conjunto é de 3 horas ou menos. Em alguns casos no escalão Standard ou Basic, a latência ao redimensionar pode ser menos de cinco minutos, independentemente da quantidade de espaço utilizado.
@@ -47,7 +47,7 @@ Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra baseado em DTU: alterar o tamanho de armazenamento do conjunto elástico
 
 - O preço de eDTU de um conjunto elástico inclui uma certa quantidade de armazenamento sem custos adicionais. Pode ser aprovisionado armazenamento extra para além da quantidade incluída por um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB a 1 TB e, em seguida, em incrementos de 256 GB a partir de 1 TB. Para quantidades de armazenamento incluído e limites de tamanho máximo, consulte [conjunto elástico: tamanhos de armazenamento e tamanhos de computação](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Pode aprovisionar um armazenamento extra para um conjunto elástico aumente o seu tamanho máximo utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [REST API ](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+- Pode aprovisionar um armazenamento extra para um conjunto elástico aumente o seu tamanho máximo utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [REST API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 - O preço do armazenamento extra para um conjunto elástico é a quantidade de armazenamento extra multiplicada pelo preço de unidade de armazenamento extra da camada de serviços. Para obter detalhes sobre o preço do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -55,7 +55,7 @@ Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com 
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra baseado em DTU: recursos (eDTUs) de computação do conjunto elástico de alteração
 
-Pode aumentar ou diminuir os recursos disponíveis para um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+Pode aumentar ou diminuir os recursos disponíveis para um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - Quando ao redimensionar o conjunto de eDTUs, ligações de base de dados rapidamente são ignoradas. Este comportamento é o mesmo comportamento que ocorre quando ao redimensionar o DTUs para uma base de dados. Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [(DTUs) de recursos de computação de alteração](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - A duração a redimensionar eDTUs do conjunto pode confiar na quantidade total de espaço de armazenamento utilizado por todas as bases de dados no conjunto. Em geral, a latência ao redimensionar calcula a média 90 minutos ou menos por 100 GB. Por exemplo, se o total de espaço utilizado por todas as bases de dados no conjunto é 200 GB, em seguida, a latência esperada ao redimensionar o conjunto é de 3 horas ou menos. Em alguns casos no escalão Standard ou Basic, a latência ao redimensionar pode ser menos de cinco minutos, independentemente da quantidade de espaço utilizado.

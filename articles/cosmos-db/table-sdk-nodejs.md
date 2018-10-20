@@ -1,6 +1,6 @@
 ---
-title: API de tabela Cosmos BD do Azure para Node.js | Microsoft Docs
-description: Saiba tudo sobre API do Azure Cosmos DB tabela, incluindo as datas de versão, as datas de extinção e as alterações efetuadas entre cada versão.
+title: API de tabela do Azure Cosmos DB para node. js | Documentos da Microsoft
+description: Saiba tudo sobre a API tabela do Azure Cosmos DB incluindo as datas de lançamento, datas de extinção e as alterações feitas entre cada versão.
 services: cosmos-db
 author: yarong
 manager: kfile
@@ -12,16 +12,17 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: yaronyg
 ms.custom: ''
-ms.openlocfilehash: 6cb784ea774127f3dab0240a52e551b2c8b6e34e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4bdcb7c587ef05ced3c163136c52c81433a98cf4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797962"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468709"
 ---
-# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de tabela do Cosmos BD do Azure para Node.js: notas de versão e recursos
+# <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>API de tabela do Cosmos DB do Azure para node. js: notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [.NET Standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
@@ -29,8 +30,8 @@ ms.locfileid: "34797962"
 
 |   |   |
 |---|---|
-|**Transferência do SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**Documentação da API**|[Documentação de referência de API node.js](http://azure.github.io/azure-storage-node/)|
+|**Transferência de SDK**|[NPM](https://www.npmjs.com/package/azure-storage)|
+|**Documentação da API**|[Documentação de referência de API node. js](http://azure.github.io/azure-storage-node/)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]
@@ -43,11 +44,11 @@ ms.locfileid: "34797962"
 * Versão de disponibilidade geral
 
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e de extinção
-A Microsoft vai fornecer pelo menos notificação **12 meses** previamente extinguir um SDK para smooth a transição para uma versão mais recente/suportado.
+A Microsoft irá fornecer, pelo menos, notificação **12 meses** antecedência extinguir um SDK para facilitar a transição para uma versão mais recente/suportadas.
 
-Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas ao SDK atual, como tal, recomenda-se que atualize sempre para a versão mais recente SDK como antecipadamente quanto possível. 
+Novos recursos e funcionalidade e otimizações, apenas são adicionadas ao SDK atual, como tal, é recomendável que sempre atualiza para a versão mais recente SDK mais cedo possível. 
 
-| Versão | Data da versão | Data de retirada |
+| Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de Novembro de 2017 |--- |
 
@@ -55,5 +56,5 @@ Novas funcionalidades e a funcionalidade e otimizações apenas são adicionadas
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre a base de dados do Cosmos, consulte [base de dados do Microsoft Azure Cosmos](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
+Para saber mais sobre o Cosmos DB, veja [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) página do serviço. 
 

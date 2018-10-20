@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902710"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457668"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -211,6 +211,7 @@ Nível de registo `None` é explicado na próxima seção.
 
 O *Host. JSON* ficheiro configura o Registro em log uma aplicação de funções envia para o Application Insights. Para cada categoria, indica o nível de registo mínimo para enviar. Segue-se um exemplo:
 
+#### <a name="functions-version-1"></a>As funções de versão 1 
 ```json
 {
   "logger": {
@@ -226,6 +227,22 @@ O *Host. JSON* ficheiro configura o Registro em log uma aplicação de funções
 }
 ```
 
+#### <a name="functions-version-2"></a>As funções versão 2 
+As funções v2 agora utiliza a [hierarquia de filtro de registo do .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 Este exemplo configura as seguintes regras:
 
 1. Para os registos com a categoria "Host.Results" ou "Function" de mensagens em fila, enviar apenas `Error` nível e superior para o Application Insights. Nos registos `Warning` nível e abaixo são ignorados.
@@ -236,6 +253,7 @@ O valor de categoria na *Host. JSON* controla o registo para todas as categorias
 
 Se *Host. JSON* inclui várias categorias que começam com a mesma cadeia de caracteres, mais aqueles são correspondidas pela primeira vez. Por exemplo, suponha que queira tudo, desde o tempo de execução, exceto "Host.Aggregator" para iniciar sessão no `Error` nível, mas deseja "Host.Aggregator" para iniciar sessão no `Information` nível:
 
+#### <a name="functions-version-1"></a>As funções de versão 1 
 ```json
 {
   "logger": {
@@ -246,6 +264,21 @@ Se *Host. JSON* inclui várias categorias que começam com a mesma cadeia de car
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### <a name="functions-version-2"></a>As funções versão 2 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }

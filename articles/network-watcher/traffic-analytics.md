@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 83f90de11077731ac6532733fb30e610b40e4b2e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409701"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457413"
 ---
 # <a name="traffic-analytics"></a>Análise de tráfego
 
@@ -53,7 +53,9 @@ Análise de tráfego examina os registos de fluxo NSG não processados e captura
 
 ## <a name="supported-regions"></a>Regiões suportadas
 
-Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes regiões: e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, e.u.a. Centro-Norte, Centro-Sul, E.U.A. Central, E.U.A. oeste, E.U.A. oeste 2, Europa Ocidental, Europa do Norte, do Reino Unido oeste, Reino Unido Sul, leste da Austrália, Sudeste da Austrália, e Sudeste asiático. A área de trabalho do log analytics tem de existir a e.u.a. centro-oeste, E.U.A. leste, Europa Ocidental, Reino Unido Sul, Sudeste da Austrália ou a região do Sudeste asiático.
+Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes regiões: e.u.a. centro-oeste, E.U.A. leste, E.U.A. Leste 2, e.u.a. Centro-Norte, Centro-Sul, E.U.A. Central, E.U.A. oeste, E.U.A. oeste 2, Canadá Central, Europa Ocidental, Europa do Norte, oeste do Reino Unido, sul do Reino Unido, leste do Japão, Índia Central , Leste da Austrália, Sudeste da Austrália e Sudeste asiático. 
+
+A área de trabalho do log analytics tem de existir a e.u.a. centro-oeste, E.U.A. leste, Europa Ocidental, Reino Unido Sul, Canadá Central, leste do Japão, Sudeste da Austrália Central da Índia ou a região do Sudeste asiático.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

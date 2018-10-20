@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86e2f328968cb5e45b9aec71aac8e8ac9e6d656b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403905"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457023"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infra-estrutura de chave pública do Azure Stack
 
@@ -40,8 +40,9 @@ A lista seguinte descreve os requisitos de certificados que são necessários pa
 - Quando efetuar a rotação de certificados, os certificados devem estar que seja emitido a mesma autoridade de certificação interna utilizado para assinar certificados fornecidos na implantação ou qualquer autoridade de certificação pública acima
 - A utilização de certificados autoassinados não são suportados
 - Para a implementação e a rotação, pode usam um único certificado que abrange todos os espaços de nomes em campos de nome do requerente e o nome alternativo do requerente (SAN) do certificado ou pode utilizar o indivíduo certificados, para cada espaço de nomes abaixo disso, o Azure Stack exigem a serviços que pretende utilizar. Ambas as abordagens requerem a utilização de carateres universais para pontos finais, onde são necessários, tal como **KeyVault** e **KeyVaultInternal**. 
-- O algoritmo de assinatura de certificado tem de ser 3DES. O algoritmo não pode ser SHA1, como tem de ser mais forte. 
+- O algoritmo de assinatura não pode ser SHA1, como tem de ser mais forte. 
 - O formato de certificado tem de estar PFX, que as chaves públicas e privadas são necessárias para a instalação do Azure Stack. 
+- A encriptação de PFX tem de ser 3DES (isto é padrão ao exportar a partir de um cliente do Windows 10 ou o arquivo de certificados do Windows Server 2016).
 - Os ficheiros pfx do certificado tem de ter um valor de "Assinatura Digital" e "KeyEncipherment" no seu campo de "Utilização de chave".
 - Os ficheiros pfx do certificado tem de ter os valores "Autenticação de servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Utilização de chave avançada".
 - O certificado "emitido para:" campo não tem de ser igual a "emitido por:" campo.
@@ -63,7 +64,7 @@ Certificados com os nomes DNS apropriados para cada ponto de extremidade de infr
 Para a sua implementação, o [Região] e [externalfqdn] valores têm de corresponder a região e nomes de domínio externo que escolheu para o seu sistema do Azure Stack. Por exemplo, se o nome da região foi *Redmond* e o nome de domínio externo *contoso.com*, os nomes DNS teria o formato *&lt;prefixo >. redmond.contoso.com*. O  *&lt;prefixo >* valores são predesignated pela Microsoft para descrever o ponto final protegido pelo certificado. Além disso, o  *&lt;prefixo >* valores dos pontos finais externos infraestrutura dependem do serviço do Azure Stack que utiliza o ponto de extremidade específico. 
 
 > [!note]  
-> Os certificados podem ser fornecidos como um certificado único caráter universal, que abrange todos os espaços de nomes nos campos assunto e o nome alternativo do requerente (SAN) para todos os diretórios ou como certificados individuais para cada ponto de extremidade copiados para o diretório correspondente. Lembre-se de que ambas as opções requerem a utilização de certificados de caráter universal para pontos finais, tal como **acs** e o Key Vault onde são necessários. 
+> Para os ambientes de produção, recomendamos que certificados individuais são gerados para cada ponto de extremidade e copiados para o diretório correspondente. Para ambientes de desenvolvimento, os certificados podem ser fornecidos como um certificado único caráter universal, que abrange todos os espaços de nomes nos campos assunto e o nome alternativo do requerente (SAN) para todos os diretórios. Um único certificado abrangendo todos os pontos de extremidade e serviços é uma postura insegura, por conseguinte, apenas de desenvolvimento. Lembre-se de que ambas as opções requerem a utilização de certificados de caráter universal para pontos finais, tal como **acs** e o Key Vault onde são necessários. 
 
 | Pasta de implementação | Assunto do certificado necessário e os nomes alternativos do requerente (SAN) | Âmbito (por região) | Espaço de nomes do subdomínio |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|

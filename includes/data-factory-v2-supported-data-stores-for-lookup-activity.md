@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/07/2018
+ms.date: 10/19/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: e344e018aaa6179d2f7cb9fbc503dc808e9607b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3862570426c6cf2ca7e5b54e001a7dacd02a67d9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44169042"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476371"
 ---
 | Categoria | Arquivo de dados |
 |:--- |:--- |
@@ -24,6 +24,7 @@ ms.locfileid: "44169042"
 | &nbsp; |[Base de Dados do Azure para PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Ficheiros do Azure](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Base de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |
+| &nbsp; |[Instância gerida da base de dados SQL do Azure](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Armazenamento de tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |
 | **Base de Dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |

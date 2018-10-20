@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Competitions FAQ | Microsoft Docs
-description: Perguntas mais frequentes sobre o Microsoft Cortana Intelligence Competitions.
+title: FAQ de competições do Cortana Intelligence | Documentos da Microsoft
+description: Perguntas mais frequentes sobre competições do Microsoft Cortana Intelligence.
 services: machine-learning
 documentationcenter: ''
 author: hning86
@@ -15,104 +15,104 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833333"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465632"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Competitions FAQ (FAQ dos Concursos do Microsoft Cortana Intelligence)
-**O que é o Cortana Intelligence Competitions?**
+**O que é o Cortana Intelligence competições?**
 
-O Competitions do Microsoft Cortana Intelligence unites uma Comunidade de enthusiasts dados global por coletivamente resolver alguns dos problemas de ciência de dados mais complexos o mundo. Cortana Intelligence Competitions permitir enthusiasts de dados por todo o mundo competem ter e criar modelos de ciência de dados de elevada disponibilidade exata e inteligente. Estes competitions alojadas baseiam-se no exclusivos conjuntos de dados que foram disponibilizados para publicamente pela primeira vez. Participantes podem win recompensas ou obter reconhecimento através de leaderboard pública 10 principais. Pode aceder a home page do Competitions em [aka.ms/CIComp](http://aka.ms/CIComp).
+As competições do Microsoft Cortana Intelligence une uma Comunidade global de entusiastas de dados por coletivamente resolver alguns dos problemas de ciência de dados mais complexos do mundo. Competições do Cortana Intelligence permite apaixonados dos dados de em todo o mundo competem e criar modelos de ciência de dados altamente precisos e inteligente. Estes competições alojadas baseiam-se a conjuntos de dados exclusivos que foram disponibilizados para publicamente pela primeira vez. Os participantes podem ganhar recompensas ou ser reconhecido por meio do placar pública 10. Pode acessar a home page de competições no [aka.ms/CIComp](http://aka.ms/CIComp).
 
-**Frequência da Microsoft irá versão competitions novo?**
+**Com que frequência é que a Microsoft vai lançar novas competições?**
 
-Iremos irá iniciar competitions partir do dia 1 terceiros, pertencentes à Microsoft regularmente, aproximadamente cada 8-12 semanas. 
+Podemos pretende iniciar competições de terceiros do dia 1, pertencentes à Microsoft de forma regular, aproximadamente a cada semanas de 8 a 12. 
 
-**Onde pode colocar perguntas gerais sobre o ciência de dados?**
+**Onde posso colocar perguntas gerais sobre a ciência de dados?**
 
 Para perguntas gerais, pode utilizar o [fórum do Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
-**Como posso introduza uma concorrência?**
+**Como posso participar numa competição?**
 
-Acesso a [Competitions](https://gallery.cortanaintelligence.com/competitions) página inicial no [galeria do Azure AI](https://gallery.cortanaintelligence.com/), ou vá para [ http://aka.ms/CIComp ](http://aka.ms/CIComp). A home page apresenta uma lista de todos os competitions atualmente em execução. Cada concorrência em pormenor instruções e regras de participação, prizes e a duração na sua página de inscrição.
+Acesso a [competições](https://gallery.cortanaintelligence.com/competitions) home page no [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/), ou aceda a [ http://aka.ms/CIComp ](http://aka.ms/CIComp). A home page apresenta uma lista de todas as competições atualmente em execução. Cada competição detalhou instruções e regras de participação, prémios e a duração na sua página de inscrição.
 
-1. Localize as leis de concorrência que pretende participar, leia todas as instruções e veja o vídeo tutorial. Em seguida, clique o **introduza concorrência** botão e copie a experimentação de arranque para a sua área de trabalho existente do Azure Machine Learning. Se ainda não tiver acesso a uma área de trabalho, tem de criar um previamente. Execute a experimentação de arranque, observar a métrica de desempenho, em seguida utilize o creativity para melhorar o desempenho do modelo. Provavelmente irá gastam a maioria do seu tempo neste passo.   
+1. Encontre a competição em que pretende participar, leia todas as instruções e ver o vídeo do tutorial. Em seguida, clique nas **introduzir concorrência** botão e copie a experimentação Starter para a área de trabalho existente do Azure Machine Learning. Se ainda não tiver acesso a uma área de trabalho, tem de criar uma com antecedência. Execute a experimentação Starter, observar a métrica de desempenho e depois usar sua criatividade para melhorar o desempenho do modelo. Provavelmente, passará a maior parte do tempo neste passo.   
 
-2. Crie uma experimentação Preditiva com o modelo treinado fora da sua experimentação de arranque. Em seguida, cuidadosamente ajustar a entrada e saída do esquema do serviço web para garantir que estão em conformidade com os requisitos especificados na documentação de concorrência. O documento tutorial geralmente tem instruções detalhadas para este. Também pode ver o vídeo tutorial, se estiver disponível.   
+2. Crie uma experimentação Preditiva com o modelo treinado fora de sua experiência de Starter. Em seguida, cuidadosamente ajustar a entrada e saída o esquema do serviço web para garantir que estão em conformidade com os requisitos especificados na documentação de competição. O documento tutorial geralmente possua instruções detalhadas para isso. Também pode ver o vídeo do tutorial, se disponível.   
 
-3. Implemente um serviço web fora da sua experimentação preditiva. Testar o seu serviço web utilizando o **teste** botão ou o modelo de Excel criado automaticamente para se certificar de que está a funcionar corretamente.   
+3. Implemente um serviço da web para fora da sua experimentação preditiva. Testar o seu serviço web com o **teste** botão ou o modelo do Excel criado automaticamente por si para se certificar de que está a funcionar corretamente.   
 
-4. Submeter o seu serviço web, como a entrada de concorrência e ver o modelo de pontuação público na página de concorrência da Galeria de AI do Azure. E celebrate se efetuar para a leaderboard!  
+4. Submeter o seu serviço web da entrada de concorrência e ver a sua pontuação pública na página de competições de Galeria de IA do Azure. E celebrar se torna-se para a classificação!  
 
-Depois de submeter uma entrada com êxito, pode regressar à sua experimentação de arranque copiado. Em seguida, iterar e atualizar a sua experimentação preditiva, atualize o serviço web e submeter uma nova entrada.   
+Depois de submeter uma entrada com êxito, pode voltar à sua experimentação Starter copiado. Em seguida, iterar e atualizar a sua experimentação preditiva, atualizar o serviço web e submeter uma nova entrada.   
 
-**Pode utilizar ferramentas open source para participação nestes competitions?**
+**Pode utilizar ferramentas open source para participar nestes competições?**
 
-Os participantes de concorrência utilizam o Azure Machine Learning Studio, um serviço baseado na nuvem dentro do Cortana Intelligence Suite, para o desenvolvimento dos modelos de ciência de dados e a criação de entradas de concorrência para submissão. O Machine Learning Studio fornece não apenas uma interface de GUI para construir experimentações do machine learning, também permite-lhe trazer os seus próprios scripts de R e/ou Python para execução nativa. Os tempos de execução do R e Python no Studio vêm com um conjunto avançado de pacotes de R/Python open source. Pode importar os seus próprios pacotes como parte da, bem como a experimentação. Studio tem também um serviço incorporado do bloco de notas do Jupyter para que a fim de libertar a exploração de dados de estilo. Obviamente, pode sempre transferir os conjuntos de dados utilizados a concorrência e explorá-lo na sua ferramenta favorita fora do Machine Learning Studio. 
+Os participantes de competição utilizam o Azure Machine Learning Studio, um serviço baseado na nuvem no Cortana Intelligence Suite, para o desenvolvimento dos modelos de ciência de dados e para criar entradas de concorrência para envio. Machine Learning Studio fornece uma interface GUI para a criação de experiências de machine learning, ele também permite-lhe reunir seus próprios scripts R e/ou Python para execução nativa. Os tempos de execução do R e Python no Studio vem com um conjunto avançado de pacotes de R/Python de código-fonte aberto. Pode importar os seus próprios pacotes como parte da experimentação também. Studio também tem um serviço Jupyter Notebook incorporado para que possa fazer gratuitos e exploração de dados de estilo. É claro, pode sempre transferir os conjuntos de dados utilizados da competição e explore-o na sua ferramenta favorita fora do Machine Learning Studio. 
 
-**É necessário ser um scientist dados introduzir?**
+**É necessário ser um cientista de dados para introduzir?**
 
-Não. Na verdade, incentivamos enthusiasts de dados, qualquer pessoa com curiosidade sobre ciência de dados e outras aspiring cientistas de dados para introduzir o nosso contest. Podemos ter concebido documentos suporte para permitir que todos competem ter. O público-alvo é:
+Não. Na verdade, nós o encorajamos apaixonados dos dados, qualquer pessoa curioso sobre ciência de dados e outros a cientistas de dados para o nosso concurso. Criámos os documentos de suporte para permitir que todos os utilizadores concorrer. O público-alvo é:
 
-* **Os programadores de dados**, **cientistas de dados**, **BI** e **profissionais de análise**: os utilizadores que são responsáveis por produzir dados e análise de conteúdo outras pessoas para consumir
-* **Dados Stewards**: os utilizadores que têm o conhecimento sobre os dados, o que significa e como este tem se destina a ser utilizado e para que fim
-* **Os estudantes que estejam** & **investigadores:** aqueles que são de aprendizagem e obtenha dados relacionados com as competências através de programas académicas no universities ou participantes na Courses Online aberto em grande escala (MOOCs)
+* **Os desenvolvedores de dados**, **cientistas de dados**, **BI** e **Analytics profissionais**: quem é responsável por produzir conteúdo de dados e análise para outros o possam consumir
+* **Dados Stewards**: os utilizadores que têm o conhecimento sobre os dados, o que significa que e como ele tem se destina a ser utilizado e para que fim
+* **Os estudantes** e **pesquisadores:** aqueles que estão a aprender e a obtenção de dados relacionados com habilidades através de programas academic em universidades, ou os participantes em cursos abertos Massivos Online (MOOCs)
 
-**Pode introduzo com os meus colegas como uma equipa?**
+**Posso participar com meus colegas de equipa?**
 
-A plataforma de concorrência atualmente não suporta a participação da equipa. Cada entrada de concorrência está associada a uma identidade de utilizador único. 
+A plataforma de competição atualmente não suporta a participação de equipe. Cada entrada de competição está associada a uma identidade de utilizador único. 
 
-**É necessário pagar participar numa concorrência?**
+**Preciso de pagar a participar numa competição?**
 
-Competitions são livres de participar no. No entanto, precisam de ter acesso a uma área de trabalho do Azure Machine Learning participar. Pode criar uma área de trabalho gratuita sem um cartão de crédito, basta iniciar sessão com uma conta Microsoft válida ou uma conta do Office 365. Se já for um cliente do Azure ou do Cortana Intelligence Suite, pode criar e utilizar uma área de trabalho Standard na mesma subscrição do Azure. Se gostaria de comprar uma subscrição do Azure, vá para o [preços do Azure](https://azure.microsoft.com/pricing) página. Tenha em atenção que a taxas padrão será aplicada ao utilizar uma área de trabalho padrão para construir experimentações. Para obter mais informações, consulte [obter informações sobre preços do Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Competições são livres para participar. No entanto, precisa de ter acesso a uma área de trabalho do Azure Machine Learning para participar. Pode criar uma área de trabalho gratuita, sem cartão de crédito, basta iniciar sessão com uma conta Microsoft válida ou uma conta do Office 365. Se já for um cliente do Azure ou do Cortana Intelligence Suite, pode criar e utilizar uma área de trabalho Standard na mesma subscrição do Azure. Se quiser comprar uma subscrição do Azure, vá para o [os preços do Azure](https://azure.microsoft.com/pricing) página. Tenha em atenção que as taxas padrão serão aplicada ao utilizar uma área de trabalho padrão para construir experimentações. Para obter mais informações, consulte [obter informações sobre preços do Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 **Quais são as pontuações públicas e privadas?**
 
-Na maioria dos competitions, irá notar que irá receber uma pontuação pública para cada submissão que efetuar, geralmente, dentro de 10 a 20 minutos. Mas após termina a concorrência, receberá uma pontuação privada que é utilizada para classificação final. 
+Na maioria das competições, poderá ver que receberá uma pontuação pública para cada submissão que fizer, geralmente dentro de 10 a 20 minutos. Mas, após a competição termina, receberá uma pontuação privada que é utilizada para a classificação final. 
 
 Eis o que acontece:
 
-* O conjunto de dados completo utilizado de concorrência aleatoriamente é dividido com stratification para formação e os dados de teste (restante). A divisão aleatória é stratified para garantir que as distribuições de etiquetas de formação e testar dados são consistentes.
-* Os dados de formação são carregados e fornecidos para o utilizador como parte da experimentação na configuração do módulo de importar dados de arranque.
-* Dados de teste ainda mais são divididos em dados de teste públicos e privados, utilizando o mesmo stratification.
-* Os dados de teste públicos são utilizados para o round inicial de classificação. O resultado é referido como a classificação pública. É o que vê no seu histórico de submissão ao submeter a entrada. Este modelo de pontuação é calculado para cada entrada que submeter. Este modelo de pontuação público é utilizado para classificar que-na leaderboard público.
-* Os dados de teste privados são utilizados para o final round de classificação após termina a concorrência. Isto é referido como pontuação privada. 
-* Para cada participante, um número fixo de entradas com as pontuações públicas mais altos é automaticamente selecionado para introduzir o round classificação privada (este número pode variar consoante a concorrência). A entrada com a classificação mais elevada de privada, em seguida, é selecionada para introduzir a classificação final, que, fundamentalmente, determina os winners prize.  
+* O conjunto de dados inteiro usado da competição é dividir aleatoriamente com stratification treinamento e dados de teste (dos restantes). A divisão aleatória é stratified para garantir que as distribuições de rótulos no treinamento e dados de teste são consistentes.
+* Os dados de treinamento são carregados e dadas a como parte da experimentação Starter na configuração do módulo de importação de dados.
+* Dados de teste adicional são divididos em dados testes públicos e privados, com o mesmo stratification.
+* Dados de teste públicos são utilizados para a rodada inicial de classificação. O resultado é referido como a pontuação pública. É o que vê no seu histórico de envio quando enviar sua participação. Esta pontuação é calculada para cada entrada de que submeter. Esta pontuação pública é utilizada para classificar sobre a classificação pública.
+* Dados de teste privados são utilizados para a final rodada de classificação, após a competição termina. Isso é chamado de pontuação privada. 
+* Para cada participante, um número fixo de entradas com as classificações de públicas mais altos é automaticamente selecionado para introduzir a privada rodada de classificação (este número pode variar, dependendo da concorrência). A entrada com a pontuação mais alta privada, em seguida, é selecionada para introduzir a classificação final, que basicamente determina os vencedores de prémio.  
 
-**Os clientes podem alojar uma concorrência na nossa plataforma?**
+**Os clientes podem alojar uma competição na nossa plataforma?**
 
-Apreciamos às organizações 3rd terceiros nosso parceiro e competitions públicas e privadas na nossa plataforma do anfitrião. Temos uma equipa de integração de concorrência que será gosto em debater o processo de integração para essas competitions.  Obtenha entre em contacto com-nos [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) para obter mais detalhes. 
+Queremos organizações 3rd party para nosso parceiro e alojar competições públicas e privadas na nossa plataforma. Temos uma equipa de integração de concorrência que ficarão contente no processo de integração para tais competição.  Contactem-nos [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) para obter mais detalhes. 
 
-**Quais são as limitações submissões?**
+**Quais são as limitações para envios?**
 
-Pode escolher uma concorrência típica limitar o número de entradas que pode submeter dentro de um intervalo de 24 horas (UTC tempo 00:00:00 para 23:59:59) e o número total de entradas que pode submeter durante a duração de concorrência. Irá receber mensagens de erro apropriada quando uma limitação é excedida. 
+Uma competição típica pode optar por limitar o número de entradas, que pode submeter dentro de um intervalo de 24 horas (UTC tempo 00:00:00, para 23:59:59) e o número total de entradas, que pode enviar ao longo da duração da concorrência. Receberá mensagens de erro apropriado quando uma limitação é excedida. 
 
-**O que acontece se posso win uma concorrência?**
+**O que acontece se eu ganho uma competição?**
 
-A Microsoft irá verificar os resultados do leaderboard privada e, em seguida, iremos irá contactá-lo. Certifique-se que o seu endereço de e-mail no seu perfil de utilizador está atualizado.
+A Microsoft irá verificar os resultados da classificação privada e, em seguida, Entraremos em contato com. Certifique-se de que o seu endereço de e-mail no seu perfil de utilizador está atualizado.
 
-**Como posso obterá o dinheiro prize se posso win uma concorrência?**
+**Como receberei o dinheiro prémio se eu ganho uma competição?**
 
-Se for um winner concorrência, terá de iniciar sessão uma declaração de elegibilidade, licenciamento e a versão do. Este formulário reiterates as regras de concorrência. Tem de preencher um formulário de nos impostos W-9 ou um formulário W-8BEN se não forem taxpayers E.U.A. winners. Podemos irá contactar winners todas as como parte do processo de disbursement recompensas utilizando o respetivo e-mail de registo. Consulte a nossa [termos e condições](http://aka.ms/comptermsandconditions) para obter detalhes adicionais.
+Se for um vencedor do concurso, terá de iniciar sessão uma declaração de elegibilidade e versão de licença. Este formulário reitera as regras da competição. Vencedores tem de preencher um formulário de imposto nos W-9 ou um formulário W-8BEN se não forem taxpayers dos EUA. Entraremos em contacto todos os vencedores como parte do processo de extensão de remunerações, utilizando o respetivo e-mail de registo. Consulte a nossa [termos e condições](http://aka.ms/comptermsandconditions) para obter mais detalhes.
 
-**E se mais do que uma entrada recebe a mesma classificação?**
+**E se mais de uma entrada recebe a mesma classificação?**
 
-O tempo de submissão é empate-separador de palavras. A entrada submetida anteriormente outranks a entrada submetida mais tarde.
+O tempo de envio é a desempate. A entrada submetida anteriormente outranks a entrada submetida mais tarde.
 
-**Posso participar com área de trabalho de convidado?**
+**Posso participar com área de trabalho do convidado?**
 
-Não. Tem de utilizar um gratuito ou uma área de trabalho padrão participar. Pode abrir a experimentação de arranque de concorrência dentro de uma área de trabalho de convidado, mas não poderá criar uma entrada válida para submissão a partir da área de trabalho. 
+Não. Tem de utilizar um gratuito ou uma área de trabalho padrão para participar. É possível abrir a experimentação de iniciante da competição numa área de trabalho convidada, mas não poderá criar uma entrada válida para a submissão a partir dessa área de trabalho. 
 
-**Posso participar através de uma área de trabalho em qualquer região do Azure?**
+**Posso participar com uma área de trabalho em qualquer região do Azure?**
 
-Atualmente, a plataforma de concorrência suporta apenas a entradas submetidas a partir de uma área de trabalho a **Sul Central nos** região do Azure. Todas as áreas de trabalho gratuitas residirem no Sul Central-na, pelo que pode submeter uma entrada de qualquer área de trabalho gratuita. Se optar por utilizar uma área de trabalho padrão, apenas Certifique-se de que residem na Sul Central-na região do Azure, caso contrário submissão não será concluída com êxito. 
+Atualmente, a plataforma de competição suporta apenas a entradas enviadas a partir de uma área de trabalho do **Centro-Sul** região do Azure. Todas as áreas de trabalho gratuitas residem no Sul E.u.a., para que pode enviar uma entrada de qualquer área de trabalho gratuita. Se optar por utilizar uma área de trabalho padrão, apenas Certifique-se de que ele reside na região Central-do Azure do Sul, caso contrário, a sua submissão não ter êxito. 
 
-**Iremos tenha soluções competitions e entradas de utilizadores?**
+**Podemos tenha soluções competições e entradas de usuários?**
 
-Entradas do utilizador são mantidas apenas para fins de avaliação identificar as soluções winning. Consulte a nossa [termos e condições](http://aka.ms/comptermsandconditions) para informações específicas.
+Entradas de utilizador são mantidas apenas para fins de avaliação identificar as soluções vencedoras. Consulte a nossa [termos e condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
 

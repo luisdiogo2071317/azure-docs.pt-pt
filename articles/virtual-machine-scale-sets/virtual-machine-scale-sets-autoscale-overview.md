@@ -3,7 +3,7 @@ title: Descrição geral do dimensionamento automático com conjuntos de dimensi
 description: Saiba mais sobre as diferentes formas que pode dimensionar automaticamente um conjunto com base no desempenho ou numa agenda fixa de dimensionamento de máquina virtual do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e6a897ed0606d8844f66e318b93449d7790e2be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c50e78fc7f4f5b6f779b696a3d16520d3ffccd5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963439"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465326"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Define a descrição geral do dimensionamento automático com o dimensionamento de máquina virtual do Azure
 Um conjunto de dimensionamento de máquina virtual do Azure automaticamente pode aumentar ou diminuir o número de instâncias VM que execute a sua aplicação. Este comportamento automatizado e elástico reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Criar regras que definem o desempenho aceitável para uma experiência de cliente positivo. Quando esses limites definidos são cumpridos, regras de dimensionamento automático tomar medidas para ajustar a capacidade do seu conjunto de dimensionamento. Também pode agendar eventos automaticamente aumentar ou diminuir a capacidade do seu conjunto de dimensionamento em fixo de vezes. Este artigo fornece uma descrição geral do desempenho de que as métricas estão disponíveis e pode efetuar o dimensionamento automático de ações.

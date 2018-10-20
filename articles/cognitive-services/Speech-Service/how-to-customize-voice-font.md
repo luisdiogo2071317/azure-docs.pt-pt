@@ -1,22 +1,25 @@
 ---
-title: O que é de voz personalizada? -Serviços cognitivos as do azure
-description: Este artigo é uma descrição geral da personalização de voz de Microsoft texto em voz, que lhe permite criar uma voz de marca reconhecível, um do-única.
+title: Como criar um tipo de voz personalizada
+titlesuffix: Azure Cognitive Services
+description: Este artigo é uma descrição geral da personalização de voz de texto em voz, que lhe permite criar uma voz de marca reconhecível, um do-única.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113925"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467723"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar tipos de voz personalizada
 
-Personalização de voz de Microsoft voz (TTS) permite-lhe criar uma voz reconhecível, um do-única para sua marca: um *tipo de voz.* 
+Personalização de voz de voz (TTS) permite-lhe criar uma voz reconhecível, um do-única para sua marca: um *tipo de voz.* 
 
 Para criar o seu tipo de voz, fazer uma gravação de studio e carregar os scripts associados como os dados de treinamento. O serviço, em seguida, cria um modelo de voz única ajustado para a gravação. Pode utilizar este tipo de voz para sintetizar voz. 
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902030"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466721"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar afirmações emitidas no token SAML para aplicações empresariais
 
@@ -49,21 +49,38 @@ Também pode remover declarações (que não seja NameIdentifier) utilizando o m
 ![Editar atributo de utilizador][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>Editar a afirmação NameIdentifier
-Para resolver o problema em que o aplicativo tiver sido implementado com um nome de utilizador diferente, clique nas **identificador de utilizador** menu pendente **atributos de utilizador** secção. Esta ação fornece uma caixa de diálogo com várias opções diferentes:
+
+Para resolver o problema em que o aplicativo tiver sido implementado com um nome de utilizador diferente, selecione o **identificador de utilizador** menu pendente **atributos de utilizador** secção. Esta ação fornece uma caixa de diálogo com várias opções diferentes:
 
 ![Editar atributo de utilizador][4]
 
-Na lista pendente, selecione **user.mail** para definir a afirmação NameIdentifier para ser o endereço de e-mail do utilizador no diretório. Em alternativa, selecione **user.onpremisessamaccountname** para definido como o utilizador do nome da conta SAM que tenha sido sincronizado a partir do Azure AD no local.
+### <a name="attributes"></a>Atributos
 
-Também pode utilizar o especial **ExtractMailPrefix()** para remover o sufixo de domínio do endereço de e-mail, nome de conta SAM ou o nome principal de utilizador. Extrai apenas a primeira parte do nome de utilizador que está sendo passada por meio de (por exemplo, "joe_smith" em vez de joe_smith@contoso.com).
+Selecione a origem pretendida para o `NameIdentifier` (ou NameID) de afirmação. Pode selecionar entre as seguintes opções.
 
-![Editar atributo de utilizador][5]
+| Nome | Descrição |
+|------|-------------|
+| Email | O endereço de e-mail do utilizador |
+| userprincipalName | O nome principal de utilizador (UPN) do utilizador |
+| onpremisessamaccount | Nome da conta SAM que tenha sido sincronizado a partir do Azure AD no local |
+| ObjectID | O objectID do utilizador no Azure AD |
+| employeeID | O campo IDdeEmpregado do utilizador |
+| Extensões de diretórios | Extensões de diretório [sincronizados a partir do Active Directory no local com o Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Atributos de extensão 1-15 | Atributos de extensão usados para estender o esquema do Azure AD no local |
 
-Agora também adicionámos a **join()** função para aderir ao domínio verificado com o valor do identificador de utilizador. ao selecionar a função de join() no **identificador de utilizador** selecione primeiro o identificador de utilizador, como o nome do principal utilizador ou endereço de e-mail e, em seguida, na segunda lista pendente, selecione o domínio verificado. Se selecionar o endereço de e-mail com o domínio verificado, do Azure AD extrai o nome de utilizador a partir do primeiro joe_smith de valor de joe_smith@contoso.com e o acrescenta com contoso.onmicrosoft.com. Veja o seguinte exemplo:
+### <a name="transformations"></a>Transformações
 
-![Editar atributo de utilizador][6]
+Também pode utilizar as funções de transformações de afirmações especial.
+
+| Função | Descrição |
+|----------|-------------|
+| **ExtractMailPrefix()** | Remove o sufixo de domínio do endereço de e-mail, nome de conta SAM ou o nome principal de utilizador. Extrai apenas a primeira parte do nome de utilizador que está sendo passada por meio de (por exemplo, "joe_smith" em vez de joe_smith@contoso.com). |
+| **JOIN()** | Associa um atributo com um domínio verificado. Se o valor do identificador de utilizador selecionado tem um domínio, ele irá extrair o nome de utilizador para acrescentar o domínio verificado selecionado. Por exemplo, se selecionar a mensagem de e-mail (joe_smith@contoso.com) como o valor do identificador de utilizador e selecione contoso.onmicrosoft.com como o domínio verificado, tal resultará em joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Converte os caracteres do atributo selecionado em carateres em minúsculas. |
+| **ToUpper()** | Converte os caracteres do atributo selecionado em carateres maiúsculos. |
 
 ## <a name="adding-claims"></a>Adicionar afirmações
+
 Quando adicionar uma afirmação, pode especificar o nome de atributo (o que não seja estritamente necessário seguem um padrão URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de utilizador que é armazenado no diretório.
 
 ![Adicionar o atributo de utilizador][7]
@@ -132,8 +149,8 @@ Existem alguns restritas afirmações no SAML. Se adicionar essas declarações,
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Gestão de aplicações no Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Resolução de problemas com base em SAML início de sessão único](howto-v1-debug-saml-sso-issues.md)
+* [Configurar início de sessão único em aplicações que não estão na Galeria de aplicações do Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Resolver problemas com base em SAML início de sessão único](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png
