@@ -15,8 +15,9 @@
 | Tempo limite máximo de pedidos |24 horas | |
 | Número de sites |20 |1 por Serviço de Escuta HTTP |
 | Mapas de URL por serviço de escuta |1 | |
+| Ligações de WebSocket em simultâneo |5000| |
 |Comprimento máximo do URL|8000|
 | Tamanho máximo do ficheiro de carregamento padrão |2 GB | |
-| WAF de tamanho de carregamento de ficheiro máximo |100 MB| |
+| WAF de tamanho de carregamento de ficheiro máximo |Gateways do WAF médio - 100 MB<br>Gateways do WAF grandes - 500 MB| |
 |Limite de tamanho do corpo de WAF (sem ficheiros)|128 KB|
 

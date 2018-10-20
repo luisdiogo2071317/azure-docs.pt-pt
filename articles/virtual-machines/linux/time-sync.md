@@ -3,7 +3,7 @@ title: Tempo de sincronização para VMs do Linux no Azure | Documentos da Micro
 description: Sincronização de hora para máquinas virtuais do Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: cynthn
-ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: zarhoads
+ms.openlocfilehash: aec36b8ea0f342b133e6844e5a96314c6348289b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116716"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465477"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Sincronização de hora para VMs do Linux no Azure
 

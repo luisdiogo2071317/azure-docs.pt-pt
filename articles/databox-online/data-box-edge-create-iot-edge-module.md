@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: caef76059219826da94d4cdafc98f1887ea5a185
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431635"
+ms.locfileid: "49465895"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Desenvolver um módulo de c# IoT Edge para mover ficheiros do Edge de caixa de dados (pré-visualização)
 
@@ -28,7 +28,7 @@ Neste artigo, vai aprender a:
 > * Crie um módulo do IoT Edge para implementar no seu dispositivo Edge de caixa de dados.
 
 > [!IMPORTANT]
-> Edge de caixa de dados está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
+> O Data Box Edge está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
 
 ## <a name="about-the-iot-edge-module"></a>Sobre o módulo do IoT Edge
 
@@ -144,6 +144,9 @@ Crie um modelo de solução C# que pode personalizar com o seu próprio código.
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
     ````
+
+    > [!IMPORTANT]
+    > Anote o `InputFolderPath` e o `OutputFolderPath`. Terá de fornecer estes caminhos, ao implementar este módulo.
 
 4. Adicionar a **MessageBody** classe à classe Program. Estas classes definem o esquema esperado para o corpo das mensagens a receber.
 
