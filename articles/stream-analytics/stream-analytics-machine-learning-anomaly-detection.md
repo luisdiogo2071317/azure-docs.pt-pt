@@ -31,7 +31,7 @@ O operador de AnomalyDetection Deteta três tipos de anomalias:
 
 * **Lento tendência negativo**: uma diminuição lenta a tendência ao longo do tempo.  
 
-Ao utilizar o operador de AnomalyDetection, tem de especificar o **Limit Duration** cláusula. Essa cláusula Especifica que o intervalo de tempo (até que ponto voltar no histórico do evento atual) deve ser considerado quando detetar anomalias. Este operador, opcionalmente, pode ser limitado a apenas os eventos que correspondem a uma determinada propriedade ou condição, utilizando o **quando** cláusula. Este operador opcionalmente, também pode processar dos grupos de eventos separadamente com base na chave especificada no **particionar por** cláusula. Formação e predição independentemente ocorrerem para cada partição. 
+Ao utilizar o operador de AnomalyDetection, tem de especificar o **Limit Duration** cláusula. Essa cláusula Especifica que o intervalo de tempo (até que ponto voltar no histórico do evento atual) deve ser considerado quando detetar anomalias. Este operador, opcionalmente, pode ser limitado a apenas os eventos que correspondem a uma determinada propriedade ou condição, utilizando o  **quando**  cláusula. Este operador opcionalmente, também pode processar dos grupos de eventos separadamente com base na chave especificada no **particionar por** cláusula. Formação e predição independentemente ocorrerem para cada partição. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Sintaxe para o operador de AnomalyDetection
 
