@@ -1,6 +1,6 @@
 ---
-title: Monitorizar um teste com a validação do Azure Stack como serviço | Documentos da Microsoft
-description: Monitorize um teste com a validação do Azure Stack como um serviço.
+title: Monitorizar e gerir os testes no portal do Azure Stack VaaS | Documentos da Microsoft
+description: Monitorizar e gerir os testes no portal do Azure Stack VaaS.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,124 +10,140 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 2dc4d3f2855864ff80648b5b9635ff28c0dacbb7
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b9500176cd3779c46886e6ed8bc8c989bea20a8c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163334"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647516"
 ---
-# <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>Monitorizar um teste com a validação do Azure Stack como serviço
+# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorizar e gerir os testes no portal do VaaS
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-A execução de um teste pode ser monitorizada, visualizando o **operações** página para conjuntos de testes que estão em curso ou foi concluída. Esta página apresenta o estado das suas operações e o teste.
+Depois de agendar os testes em sua solução do Azure Stack, validação como um serviço (VaaS) começará a comunicar o estado de execução de teste. Essas informações estão disponíveis no portal do VaaS juntamente com as ações, como o valor do reagendamento e o cancelamento de testes.
 
-## <a name="monitor-a-test"></a>Monitorizar um teste
+## <a name="navigate-to-the-workflow-tests-summary-page"></a>Navegue para a página de resumo de testes de fluxo de trabalho
 
-1. Selecione uma solução.
+1. No dashboard de soluções, selecione uma solução existente que tem, pelo menos, um fluxo de trabalho.
 
-2. Selecione **gerir** em qualquer mosaico de fluxo de trabalho.
+    ![Mosaicos de fluxo de trabalho](media/tile_all-workflows.png)
 
-3. Clique num fluxo de trabalho para abrir a página de resumo de teste.
+1. Selecione **gerir** no mosaico do fluxo de trabalho. A página seguinte lista os fluxos de trabalho criados da solução selecionada.
 
-4. Expanda o menu de contexto **[...]**  para qualquer instância de conjunto de teste.
+1. Selecione o nome do fluxo de trabalho para abrir o seu resumo de teste.
 
-5. Selecione **ver operações**
+## <a name="change-workflow-parameters"></a>Parâmetros de fluxo de trabalho de alteração
 
-![Texto alternativo](media\image4.png)
+Cada tipo de fluxo de trabalho permite-lhe editar a [testar parâmetros](azure-stack-vaas-parameters.md#test-parameters) especificado durante a criação de fluxo de trabalho.
 
-Para testes que tem concluído a execução, registos podem ser transferidos a partir da página de resumo de teste ao clicar em **transferir registos** no menu de contexto de um teste **[...]** . Parceiros do Azure Stack podem utilizar estes registos para depuração dos problemas de testes com falhas.
+1. Na página de resumo de testes, selecione o **editar** botão.
 
-## <a name="open-the-test-pass-summary"></a>Abra o resumo de passagem de teste
+1. Fornecer novos valores de acordo com a [parâmetros comuns do fluxo de trabalho para a validação de pilha do Azure como um serviço](azure-stack-vaas-parameters.md).
 
-1. Abra o portal. 
-2. Selecione o nome de uma solução existente que anteriormente contém testes de execução ou agendadas.
+1. Selecione **submeter** para guardar os valores.
 
-    ![Gerir as fases de teste](media/managetestpasses.png)
+> [!NOTE]
+> Na **aprovação de teste** fluxo de trabalho, será necessário concluir a seleção de teste e vá para a página de revisão para poder guardar os novos valores de parâmetro.
 
-3. Selecione **Manage** no **Passes de teste** painel.
-4. Selecione a aprovação de teste para abrir o resumo de passagem de teste. Pode rever o nome de teste, data de criação, executar, quanto tempo levou o teste e o resultado (com êxito ou falhadas).
-5. Selecione [ **...  .** ].
+### <a name="add-tests-test-pass-only"></a>Adicionar testes (apenas para aprovação de teste)
 
-### <a name="test-pass-summary"></a>Resumo de passagem de teste
+Na **aprovação de teste** fluxos de trabalho, ambas as a **adicione testes** e **editar** botões permitem-lhe agendar novos testes no fluxo de trabalho.
+
+> [!TIP]
+> Selecione **adicionar testes** se só deseja programar novos testes e não é necessário editar parâmetros para um **aprovação de teste** fluxo de trabalho.
+
+## <a name="managing-test-instances"></a>Gestão das instâncias de teste
+
+Para não oficiais execuções (ou seja, o **aprovação de teste** fluxo de trabalho), a página de resumo de testes lista os testes agendados na solução do Azure Stack.
+
+Para execuções de oficiais (ou seja, o **validação** fluxos de trabalho), a página de resumo de testes lista os testes necessários para concluir a validação da solução do Azure Stack. Testes de validação estão agendados a partir desta página.
+
+Cada instância de teste agendada mostra as seguintes informações:
 
 | Coluna | Descrição |
 | --- | --- |
-| Nome do teste | O nome do teste. Referencia o número de validação. |
-| Criado | Hora de que criação de aprovação de teste. |
-| Iniciado | Tempo de que execução de teste nos últimos. |
-| Duração | Período de tempo o tempo que demorou a aprovação de teste para ser executado. |
-| Estado | O resultado (com êxito ou falha) para a passagem de rest. |
-| Nome do Agente | O nome de domínio completamente qualificado do agente. |
-| Total de operações | O número total de operações de tentativa de aprovação de teste. |
-| Operações com êxito | O número de operações que passado a aprovação de teste. |
-|  Operações com falhas | O número de operações que falharam. |
+| Nome do teste | O nome e versão do teste. |
+| Categoria | O objetivo do teste. |
+| Criado | A hora em que o teste foi agendado. |
+| Iniciado | A hora em que o teste iniciou a execução. |
+| Duração | O período de tempo que o teste foi executado. |
+| Estado | O estado ou o resultado do teste. Estados de pré-execução ou em curso são: `Pending`, `Running`. Estados de terminal são: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Nome do agente | O nome do agente que executou o teste. |
+| Total de operações | O número total de operações tentada durante o teste. |
+| Operações com êxito | O número de operações que foi concluída com êxito durante o teste. |
+|  Operações com falhas | O número de operações que falharam durante o teste. |
 
-### <a name="group-columns-in-the-test-pass-summary"></a>Colunas de grupo no teste passam resumidas
+### <a name="actions"></a>Ações
 
-Pode selecionar e arrastar uma coluna para o cabeçalho para criar um grupo no valor de coluna.
+Cada instância de teste apresenta uma lista de ações disponíveis que pode tomar ao clicar no menu de contexto **[...]**  na tabela de instâncias de teste.
 
-## <a name="reschedule-a-test"></a>Reagendar um teste
+#### <a name="view-information-about-the-test-definition"></a>Ver informações sobre a definição de teste
 
-1. [Abra o resumo de passagem de teste](#open-the-test-pass-summary).
-2. Selecione **reagendar** para reagendar a aprovação de teste.
-3. Introduza a palavra-passe de administrador da nuvem para a sua instância do Azure Stack.
-4. Introduza a cadeia de ligação de armazenamento de diagnóstico que definiu quando configurar a sua conta.
-5. Reagende o teste.
+Selecione **ver informações** no menu de contexto para ver informações gerais sobre a definição de teste. Isso é compartilhado por cada instância de teste com o mesmo nome e versão.
 
-## <a name="cancel-a-test"></a>Cancelar um teste
-
-1. [Abra o resumo de passagem de teste](#open-the-test-pass-summary).
-2. Selecione **Cancelar**.
-
-## <a name="get-test-information"></a>Obtenha informações de teste
-
-1. [Abra o resumo de passagem de teste](#open-the-test-pass-summary).
-2. Selecione **ver informações** para reagendar a aprovação de teste.
-
-**Informações de teste**
-
-| Nome | Descrição |
+| Propriedade de teste | Descrição |
 | -- | -- |
-| Nome do teste | O nome do teste, por exemplo, OEM atualização na validação do Azure Stack 1806 RC. |
-| Versão de teste | A versão de teste, por exemplo, 5.1.4.0. |
-| Publicador | O publicador de teste, como o Microsoft. |
-| Categoria | A categoria de teste, tal como **funcional** ou **confiabilidade**. |
-| Serviços de destino | Os serviços que está sendo testados, tais como VirtualMachines |
+| Nome do teste | O nome do teste. |
+| Versão de teste | A versão do teste. |
+| Publicador | O publicador do teste. |
+| Categoria |  O objetivo do teste. |
+| Serviços de destino | O Azure Stack serviços que está sendo testado. |
 | Descrição | A descrição do teste. |
-| Duração estimada (minutos) | O período de tempo em minutos, que o teste demorou a execução. |
-| Ligações | Uma ligação para o controlador de problemas do GitHub. |
+| Duração estimada (minutos) | O tempo de execução esperado do teste. |
+| Ligações | Quaisquer informações relevantes sobre a pontos de contacto ou de teste. |
 
-## <a name="get-test-parameters"></a>Obter parâmetros de teste
+#### <a name="view-test-instance-parameters"></a>Parâmetros de instância de teste do Vista
 
-1. [Abra o resumo de passagem de teste](#open-the-test-pass-summary).
-2. Selecione **ver parâmetros** para reagendar a aprovação de teste.
+Selecione **ver parâmetros** no menu de contexto para ver os parâmetros fornecidos para a instância de teste no momento do agendamento. Cadeias de caracteres confidenciais como palavras-passe não são apresentadas. Esta ação só está disponível para testes que tiverem sido agendadas.
 
-**Parâmetros**
+Esta janela inclui os seguintes metadados para todas as instâncias de teste:
 
-| Nome | Descrição |
+| Propriedade de instância de teste | Descrição |
 | -- | -- |
-| Nome do teste | O nome do teste, por exemplo, oemupdate1806test. |
-| Versão de teste | A versão do resto, por exemplo, 5.1.4.0. |
-| ID de instância de teste | Um GUID a identificar a instância específica do teste, por exemplo, 20b20645-b400-4f0d-bf6f-1264d866ada9. |
-| cloudAdminUser | O nome da conta utilizada como o administrador da nuvem, por exemplo, **cloudadmin**. |
-| DiagnosticsContainerName | O ID do contentor diagnóstico, por exemplo, 04dd3815-5f35-4158-92ea-698027693080. |
+| Nome do teste | O nome do teste. |
+| Versão de teste | A versão do teste. |
+| ID de instância de teste | Um GUID a identificar a instância específica do teste. |
 
-## <a name="get-test-operations"></a>Obter operações de teste
+#### <a name="view-test-instance-operations"></a>Operações de instância de teste do Vista
 
-1. [Abra o resumo de passagem de teste](#open-the-test-pass-summary).
-2. Selecione **ver operações** para reagendar a aprovação de teste. É aberto o painel de resumo de operações.
+Selecione **ver operações** do contexto do menu para ver um estado detalhado das operações executadas durante o teste. Esta ação só está disponível para testes que tiverem sido agendadas.
 
-## <a name="get-test-logs"></a>Obter registos de teste
+![ver as operações](media/manage-test_context-menu-operations.png)
 
-1. [Abra o resumo de passagem de teste](#open-the-test-pass-summary).
-2. Selecione **transferir registos** para reagendar a aprovação de teste.  
-    Um ficheiro zip com o nome ReleaseYYYY-MM-DD.zip, que contém os downloads de registos.
+#### <a name="download-logs-for-a-completed-test-instance"></a>Transferir registos para uma instância de teste concluído
+
+Selecione **transferir registos** no menu de contexto para transferir um `.zip` ficheiro de saída de registos durante a execução de teste. Esta ação só está disponível para testes que foram concluídos, ou seja, um teste com um status de `Cancelled`, `Failed`, `Aborted`, ou `Succeeded`.
+
+#### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Reagendar uma instância de teste ou agendar um teste
+
+Agendamento de testes a partir da página Gestão depende do tipo de fluxo de trabalho, que o teste é executado sob.
+
+##### <a name="test-pass-workflow"></a>Fluxo de trabalho de aprovação de teste
+
+O fluxo de trabalho de aprovação de teste, **reagendamento** uma instância de teste reutiliza o mesmo conjunto de parâmetros que a instância original do teste e *substitui* o resultado original, incluindo os respetivos registos. Terá de reintroduzir as cadeias de caracteres confidenciais como palavras-passe quando reagendar.
+
+1. Selecione **reagendar** no menu de contexto para abrir uma linha de comandos para o valor do reagendamento a instância de teste.
+
+1. Introduza quaisquer parâmetros aplicável.
+
+1. Selecione **submeter** reagendar a instância de teste e substituir a instância existente.
+
+##### <a name="validation-workflows"></a>Fluxos de trabalho de validação
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+#### <a name="cancel-a-test-instance"></a>Cancelar uma instância de teste
+
+Um teste agendado poderá ser cancelado se o respetivo estado é `Pending` ou `Running`.  
+
+1. Selecione **Cancelar** no menu de contexto para abrir um prompt para cancelar a instância de teste.
+
+1. Selecione **submeter** para cancelar a instância de teste.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre [validação de Azure Stack como um serviço](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Resolver problemas de validação como um serviço](azure-stack-vaas-troubleshoot.md)

@@ -10,93 +10,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1e908a8cf5576ce3bc3d58d1ef6f29d596ebc58b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 777609b89bc08cd61489d2c3a3669ec07ccbc372
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158182"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647019"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Validar uma nova solução do Azure Stack
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Saiba como pode utilizar o fluxo de trabalho de validação de solução de certificação novas soluções do Azure Stack.
+Saiba como utilizar o **validação de solução** fluxo de trabalho para certificar novas soluções do Azure Stack.
 
-Uma solução do Azure Stack é uma lista de hardware de materiais (LM) que tem sido em conjunto, faz um acordo com a Microsoft e tiver passado o logótipo do Windows Server com os requisitos de certificação. Também pode utilizar o fluxo de trabalho de validação de solução quando tiver ocorrido uma alteração para o BoM que faria com que uma solução para ser classificado como de hardware *novo*. Se existirem questões sobre o que dispararia uma **novos** ou **recertification** de uma solução em contato pelo [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+Uma solução do Azure Stack é uma lista de hardware de materiais (LM) que tem sido em conjunto, faz um acordo entre a Microsoft e o parceiro depois de cumprir os requisitos de certificação de logótipo do Windows Server. Uma solução tem de ser recertified quando tiver ocorrido uma alteração ao hardware BoM. Para fazer outras perguntas sobre quando voltar a certificar o soluções, contacte a equipa em [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
 
-Para certificar a sua solução, execute o fluxo de trabalho duas vezes. Executá-lo uma vez para o *minimamente* suportado de configuração. Executar numa segunda vez para o *máximo* configuração. Microsoft certifica-se que a solução se ambas as configurações de passar em todos os testes.
+Para certificar a sua solução, executada duas vezes o fluxo de trabalho de validação de solução. Executá-lo uma vez para o *minimamente* suportado de configuração. Executá-lo uma segunda vez para o *maximally* suportado de configuração. Microsoft certifica-se que a solução se ambas as configurações de passar em todos os testes.
 
-Este início rápido permite-lhe acontecendo o processo de adicionar a solução e a execução de testes.
-
-## <a name="add-a-new-solution"></a>Adicionar uma nova solução
-
-1. Inicie sessão para o [portal de validação](https://azurestackvalidation.com).
-2. Selecione **nova solução**.
-3. Introduza um nome para a solução e selecione **guardar**.
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
 ## <a name="create-a-solution-validation-workflow"></a>Criar um fluxo de trabalho de validação de solução
 
-1. Selecione o nome da solução.
-2. Selecione **gerir** sobre o **validações de solução** mosaico.
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
+2. Selecione **começar** sobre o **validações de solução** mosaico.
 
-    ![Solução validações](media/image2.png)
+    ![Mosaico de fluxo de trabalho de validações de solução](media/tile_validation-solution.png)
 
-## <a name="create-a-solution-workflow"></a>Criar um fluxo de trabalho da solução
+3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+4. Selecione o **configuração da solução**.
+    - **Mínimo**: a solução está configurada com o número mínimo suportado de nós.
+    - **Máximo**: a solução está configurada com o número máximo suportado de nós.
+5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
-1. Selecione **validação de solução nova**.
-2. Escreva o nome da validação.
-3. Selecione **mínimo** ou **máximo**.  
-    - **Mínimo**  
-    A solução está configurada com o número mínimo suportado de nós.  
-    - **Máximo**  
-    A solução está configurada com o número máximo suportado de nós.
-4. Selecione **carregar** e, em seguida, adicione o ficheiro de configuração de implementação. Este é um passo opcional. Também pode adicionar os parâmetros de teste ao seguir os passos na secção seguinte.
+    ![Informações de validação de solução](media/workflow_validation-solution_info.png)
 
-    > [!note]  
-    > Pode criar o ficheiro de configuração adicionando os parâmetros nos parâmetros do ambientais um secções de parâmetros comuns do teste na interface. Pode recuperar o arquivo gerado pelo serviço da implementação do Azure Stack que está a ser validado. Para obter instruções, consulte [parâmetros comuns do fluxo de trabalho para a validação do Azure Stack como um serviço](azure-stack-vaas-parameters.md).
+6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
-5. Adicione os parâmetros ambientais. Para obter mais informações, consulte [adicionar parâmetros ambientais](#add-environmental-parameters).
-6. Adicione os parâmetros comuns de teste. Para obter mais informações, consulte [adicionar parâmetros comuns de teste](#add-common-test-parameters).
+    > [!NOTE]
+    > Parâmetros do ambiente não podem ser modificados depois de criar um fluxo de trabalho.
 
-    Consoante a definição de teste, o teste poderá exigir que introduza um valor independentemente dos parâmetros comuns, ou poderá permitir-lhe substituir o valor do parâmetro comum.
+7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+    Será redirecionado para a página de resumo de testes.
 
-7. Clique em **submeter** para agendar o teste.
+## <a name="execute-solution-validation-tests"></a>Executar testes de validação de solução
 
-## <a name="add-environmental-parameters"></a>Adicionar parâmetros ambientais
+Na **resumo de testes de validação de solução** página, verá uma lista de testes necessários para concluir a validação.
 
-Adicione os seguintes parâmetros ambientais:
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
 
-| Informações de aprovação de teste | Necessário | Descrição |
-| --- | --- | --- | --- |
-| Compilação de pilha do Azure | Necessário | Compilação de pilha do Azure que valor numérico (por exemplo 20170501.1) tem de ser um Azure Stack válido criar número ou uma versão, por exemplo, 1.0.170330.9 |
-| ID do inquilino | Necessário | ID do inquilino do Active Directory. Tem de ser um GUID (por exemplo ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
-| Região | Necessário | Região de implementação do Azure Stack |
-| Ponto final do Gestor de recursos de inquilino | Necessário | Ponto final para operações de inquilino do Azure Resource Manager (por exemplo https://management.loc-ext.domain.com) |
-| Ponto final do Gestor de recursos de administração | Não necessário | Ponto final para operações de inquilino do Azure Resource Manager (por exemplo https://management.loc-ext.domain.com) |
-| FQDN externo | Não necessário | Externo utilizado como o sufixo para pontos finais de nome de domínio completamente qualificado. (por exemplo local.azurestack.external ou redmond.contoso.com) |
-| Número de nós | Necessário | O número de nós na sua solução. |
-
-## <a name="add-common-test-parameters"></a>Adicionar parâmetros comuns de teste
-
-Adicione os seguintes parâmetros comuns de teste:
-
-| Informações de aprovação de teste | Necessário | Descrição |
-| --- | --- | --- |
-| Nome de utilizador do inquilino | Necessário | Nome de utilizador do inquilino (por exemplo tenant@contoso.onmicrosoft.com) |
-| Palavra-passe do inquilino | Necessário | A palavra-passe para o inquilino. |
-| Nome de utilizador do administrador de serviços | Não necessário | Nome de utilizador do inquilino (por exemplo tenant@contoso.onmicrosoft.com) |
-| Palavra-passe de administrador de serviços | Não necessário | Nome de utilizador do administrador de serviços (por exemplo serviceadmin@contoso.onmicrosoft.com) |
-| Nome de utilizador do administrador da nuvem | Não necessário | Conta de administrador do Azure domínio de pilha (por exemplo, contoso\cloudadmin) |
-| Palavra-passe de administrador da nuvem | Não necessário | |
-|  Cadeia de ligação de diagnóstico | Não necessário | URI de SAS para uma conta de armazenamento do Azure para que o diagnóstico registos serão copiados durante a execução de teste. Ver [criar um blob de armazenamento do Azure para armazenar registos](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs). <br><br>O valor do **cadeia de ligação de diagnóstico** parâmetro comum de será armazenado pelo serviço e indicado no momento de agendamento para todos os testes no fluxo de trabalho que utilize este parâmetro. Quando o URL de SAS é dentro de 30 dias de expiração, será solicitado para um URL de SAS novo na página de parâmetros comuns. |
-| Etiqueta - nome | Não necessário |  Marcas descritivas podem ser introduzidas para etiquetar o fluxo de trabalho. Este é o nome da etiqueta. |
-| Etiqueta - valor | Não necessário | Marcas descritivas podem ser introduzidas para etiquetar o fluxo de trabalho. Este é o valor da etiqueta. |
+![Teste de validação de solução de agendamento](media/workflow_validation-solution_schedule-test.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Reagendar ou cancelar um teste](azure-stack-vaas-monitor-test.md#reschedule-a-test)
-- Para saber mais sobre [validação de Azure Stack como um serviço](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitorizar e gerir os testes no portal do VaaS](azure-stack-vaas-monitor-test.md)

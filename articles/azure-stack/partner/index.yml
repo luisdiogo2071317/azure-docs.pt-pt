@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 749dc6c2d329ae7055ee0a6adc429c378de51871
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 26c0353bddb9455b1bda8961f3c05e0f6c7cc176
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235466"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647719"
 documentType: LandingData
 title: Documentação de parceiro do Azure Stack
 metadata:
@@ -22,19 +22,19 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: John.Haskin
 abstract:
-  description: Pode usar a validação como um serviço para verificar o seu hardware para utilização com o Azure Stack. O serviço é um serviço do Azure nativo concebido para ser utilizado por parceiros de solução que são de engenharia conjuntas ofertas do Azure Stack com a Microsoft.
+  description: Pode utilizar validação como um serviço para verificar se o seu hardware para utilização com o Azure Stack. O serviço é um serviço do Azure nativo concebido para ser utilizado por parceiros de solução que são de engenharia conjuntas ofertas do Azure Stack com a Microsoft.
 sections:
-- title: Início rápido de 5 minutos
+- title: Início Rápido de 5 Minutos
   items:
   - type: paragraph
-    text: Saiba como integrar as suas VMs e computadores no Centro de Segurança e ligar as suas soluções de segurança.
+    text: Saiba como utilizar a validação como um portal de serviço para agendar os testes no seu hardware.
   - type: list
     style: icon48
     items:
     - image:
         src: media/i_account-management.svg
       text: Utilize a validação como um portal de serviço para agendar o seu primeiro teste
-      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass
 - title: Tutoriais passo-a-passo
   items:
   - type: paragraph
@@ -42,16 +42,6 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">Implementar as máquinas de virtuais locais do agente e teste</a>
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">Automatizar a validação do Azure Stack com o PowerShell</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Validar uma nova solução do Azure Stack</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">Validar pacotes do OEM</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Validar as atualizações de software da Microsoft</a>
-- title: Referência
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Validação como um serviço
-      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Ficheiro de configuração de validação</a>

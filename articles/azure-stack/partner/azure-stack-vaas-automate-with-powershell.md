@@ -1,6 +1,6 @@
 ---
-title: Automatizar a validação do Azure Stack com o PowerShell | Documentos da Microsoft
-description: Pode automatizar a validação do Azure Stack com o PowerShell.
+title: Automatizar a validação de pilha do Azure com o PowerShell | Documentos da Microsoft
+description: Pode automatizar a validação de pilha do Azure com o PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,30 +10,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1cb4b1a7cfd72ea302676244a53af58e77215aa9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235455"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650048"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>Automatizar a validação do Azure Stack com o PowerShell 
+# <a name="automate-azure-stack-validation-with-powershell"></a>Automatizar a validação de pilha do Azure com o PowerShell
 
 Validação como um serviço (VaaS) fornece a capacidade de automatizar a inicialização do testes usando o **LaunchVaaSTests.ps1** script.
 
 Pode utilizar o PowerShell para o fluxo de trabalho seguinte:
 
-- Fluxo de trabalho de aprovação de teste
+- Aprovação de teste
 
-Este script abrange os quatro elementos de um fluxo de trabalho:
+Neste tutorial, irá aprender a criar um script que:
 
-- Instala os pré-requisitos.
-- Instala e iniciar o agente local.
-- Inicia uma categoria de testes, como integração, funcional, confiabilidade.
-- Geração de ficheiros de relatórios de cada teste passar o resultado para a monitorização e relatórios.
+Este script executa as seguintes ações:
+
+> [!div class="checklist"]
+> * Instala os pré-requisitos
+> * Instala e inicia o agente local
+> * Inicia uma categoria de testes, como integração, funcional, confiabilidade
+> * Resultados do teste de relatórios
 
 ## <a name="launch-the-test-pass-workflow"></a>Iniciar o fluxo de trabalho de aprovação de teste
 
@@ -41,43 +44,53 @@ Este script abrange os quatro elementos de um fluxo de trabalho:
 
 2. Execute o seguinte script para transferir o script de automação:
 
-    ````PowerShell  
+    ```PowerShell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
-    Invoke-WebRequest -Uri https://vaastestpacksprodeastus.blob.core.windows.net/packages/Microsoft.VaaS.Scripts.3.0.0.nupkg -OutFile "LaunchVaaS.zip"
+    Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
     Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
-    ````
+    ```
 
-3. Execute o seguinte script com os seus valores:
+3. Execute o seguinte script com os valores de parâmetro adequado:
 
-    ````PowerShell  
-    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>"  -AsPlainText -Force)
-    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<ServiceAdminUser>", (ConvertTo-SecureString "<ServiceAdminPassword>" -AsPlainText -Force)
-    $TenantAdminCreds = New-Object System.Management.Automation.PSCredential "<TenantAdminUser>", (ConvertTo-SecureString "<TenantAdminPassword>" -AsPlainText -Force)
+    ```PowerShell
+    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
     .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
-        -VaaSAccountTenantId <VaaSAccountTenantId> `
-        -VaaSSolutionName <VaaSSolutionName> `
-        -VaaSTestPassName <VaaSTestPassName> `
-        -VaaSTestCategories Integration,Functional `
-        -MaxScriptWaitTimeInHours 12 `
-        -ServiceAdminCreds $ServiceAdminCreds `
-    ````
+                          -VaaSAccountTenantId <VaaSAccountTenantId> `
+                          -VaaSSolutionName <VaaSSolutionName> `
+                          -VaaSTestPassName <VaaSTestPassName> `
+                          -VaaSTestCategories Integration,Functional `
+                          -MaxScriptWaitTimeInHours 12 `
+                          -ServiceAdminUserName <AzSServiceAdminUser> `
+                          -ServiceAdminUserPassword <AzSServiceAdminPassword> `
+                          -TenantAdminUserName <AzSTenantAdminUser> `
+                          -TenantAdminUserPassword <AzSTenantAdminPassword> `
+                          -CloudAdminUserName <AzSCloudAdminUser> `
+                          -CloudAdminUserPassword <AzSCloudAdminPassword>
+    ```
 
     **Parâmetros**
 
     | Parâmetro | Descrição |
     | --- | --- |
-    | VaaSUserld | O ID de utilizador VaaS. | 
+    | VaaSUserld | O ID de utilizador VaaS. |
     | VaaSUserPassword | A palavra-passe VaaS. |
-    | ServiceAdminUser | Sua conta de administrador de serviço do Azure Stack.  |
+    | VaaSAccountTenantId | O inquilino VaaS GUID. |
+    | VaaSSolutionName | O nome da solução VaaS sob a qual o teste passar será executado. |
+    | VaaSTestPassName | O nome do teste VaaS transmitir o fluxo de trabalho para criar. |
+    | VaaSTestCategories | `Integration`, `Functional`, ou. `Reliability`. Se utilizar vários valores, separe cada valor por uma vírgula.  |
+    | ServiceAdminUserName | Sua conta de administrador de serviço do Azure Stack.  |
     | ServiceAdminPassword | A palavra-passe de serviço de Azure Stack.  |
-    | TenantAdminUser | O administrador para o inquilino principal.  |
+    | TenantAdminUserName | O administrador para o inquilino principal.  |
     | TenantAdminPassword | A palavra-passe para o inquilino principal.  |
-    | FunctionalCategory| Integração, funcional, ou. Fiabilidade. Se utilizar vários valores, separe cada valor por uma vírgula.  |
+    | CloudAdminUserName | O nome de utilizador do administrador de nuvem.  |
+    | CloudAdminPassword | A palavra-passe para o administrador da nuvem.  |
 
-4. Reveja os resultados de seu teste. Para obter informações sobre como ler os resultados do teste, consulte [Monitorizar testes](azure-stack-vaas-monitor-test.md).
+4. Reveja os resultados de seu teste. Para outras opções, consulte [Monitor e gerenciem testes no portal do VaaS](azure-stack-vaas-monitor-test.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
- - Para saber mais sobre [validação de Azure Stack como um serviço](https://docs.microsoft.com/azure/azure-stack/partner).
- - Para saber mais sobre o PowerShell no Azure Stack, veja a [módulo do Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) referência.
+Para saber mais sobre o PowerShell no Azure Stack, reveja os módulos de disponibilidade mais recente.
+
+> [!div class="nextstepaction"]
+> [Módulo do Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)
