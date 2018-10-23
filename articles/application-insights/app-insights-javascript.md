@@ -121,7 +121,7 @@ Abra o painel Browser para mostrar dados de desempenho agregados dos browsers do
 
 ![Em portal.azure.com, abra o recurso da sua aplicação e clique em Definições, Browser](./media/app-insights-javascript/03.png)
 
-Ainda não existem dados? Clique em **Atualizar no início da página. Ainda nada? Veja [Resolução de Problemas](app-insights-troubleshoot-faq.md).
+Ainda não existem dados? Clique em **Atualizar** no início da página. Ainda nada? Veja [Resolução de Problemas](app-insights-troubleshoot-faq.md).
 
 O painel Browser é um [painel do Explorador de Métricas](app-insights-metrics-explorer.md) que predefine filtros e seleções de gráficos. Se quiser, pode editar o intervalo de tempo, os filtros e a configuração de gráficos e guardar o resultado como um favorito. Clique em **Restaurar predefinições** para voltar à configuração de painel original.
 

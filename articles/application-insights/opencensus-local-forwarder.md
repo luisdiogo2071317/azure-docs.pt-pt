@@ -35,7 +35,7 @@ Reencaminhador local é uma [projeto de código-fonte aberto no GitHub](https://
 É a maneira mais fácil das reencaminhador local a ser executado Windows instalando-o como um serviço do Windows. A versão fornecida com um executável de serviço do Windows (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*) que podem ser facilmente registado com o sistema operativo.
 
 > [!NOTE]
-> O serviço do reencaminhador local requer um mínimo de .NET Framework 4.7. Se não tiver .NET Framework 4.7 o serviço de instalação, mas não iniciará. Para acessar a versão de disponibilidade mais recente do .NET Framework ** [visite a página de download do .NET Framework](
+> O serviço do reencaminhador local requer um mínimo de .NET Framework 4.7. Se não tiver .NET Framework 4.7 o serviço de instalação, mas não iniciará. Para acessar a versão de disponibilidade mais recente do .NET Framework **[visite a página de download do .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
 
 1. Baixe o LF. WindowsServiceHost.zip ficheiro a partir da [página de versão do reencaminhador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) no GitHub.

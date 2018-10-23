@@ -143,7 +143,7 @@ Se a função de trabalho falha a ficar online, mas a função da web for conclu
    ```
 
 * Certifique-se de que o nome do servidor não começa com **https://**.
-* Certifique-se de que o servidor de BD SQL do Azure permite que os serviços do Azure ligar ao mesmo. Para tal, abra a sua base de dados no portal e certifique-se de que o **permitir acesso aos serviços do Azure** definição está definida como * * no ***.
+* Certifique-se de que o servidor de BD SQL do Azure permite que os serviços do Azure ligar ao mesmo. Para tal, abra a sua base de dados no portal e certifique-se de que o **permitir acesso aos serviços do Azure** definição está definida como **no****.
 
 ## <a name="test-the-service-deployment"></a>Testar a implementação do serviço
 ### <a name="connect-with-a-web-browser"></a>Conecte-se um navegador da web

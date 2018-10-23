@@ -47,7 +47,7 @@ Para criar uma nova VM do Linux:
 
      ![Tamanho da máquina virtual Telegraph descrição geral do agente](./media/metrics-store-custom-linux-telegraf/vm-size.png)
 
-1. Sobre o **página de definições**, na **rede** > **grupo de segurança de rede**   >  ** Selecione as portas de entrada públicas**, selecione *HTTP* e *SSH (22)*. Deixe o resto dos padrões e selecione **OK**. 
+1. Sobre o **página de definições**, na **rede** > **grupo de segurança de rede**   > **Selecione as portas de entrada públicas**, selecione *HTTP* e *SSH (22)*. Deixe o resto dos padrões e selecione **OK**. 
 
 1. Na página Resumo, selecione criar para iniciar a implementação de VM. 
 

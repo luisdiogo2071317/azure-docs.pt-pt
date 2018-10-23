@@ -58,7 +58,7 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 ### <a name="plan-the-names"></a>Planear os nomes
 
 Os passos desta secção, fornecer uma *usuário* valor que é utilizado para garantir que os nomes de recursos são globalmente exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implementação da aplicação. Para uma pessoa com o nome *Ann Finley*, sugerimos:
-- *Utilizador:* **af1***(seus iniciais, além de um dígito. Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
+- *Utilizador:* **af1**  *(seus iniciais, além de um dígito. Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
 - *Grupo de recursos:* **wingtip-mt-af1** *(wingtip mt indica esta é a aplicação multi-inquilino em partição horizontal. Acrescentar o af1 de nome de utilizador relacionada com o nome do grupo de recursos com os nomes de recursos que contém.)*
 
 Escolha os nomes de agora e anotá-las. 

@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: a785a18ac4aec3006397b6d681c476f8acf982a7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205678"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311393"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Tutorial: Saber mais acerca da governação de máquinas virtuais do Windows com o Azure PowerShell
 
@@ -55,24 +55,19 @@ Para gerir soluções de máquina virtual, existem três funções de recursos e
 * [Contribuidor de Rede](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Contribuidor de Conta de Armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
+Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil utilizar um grupo do Azure Active Directory que tem utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Neste artigo, utilize um grupo existente para gerir a máquina virtual ou utilize o portal para [criar um grupo do Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-O exemplo seguinte cria um grupo do Azure Active Directory com o nome *VMDemoContributors* com a alcunha de correio *vmDemoGroup*. A alcunha de correio serve como um alias para o grupo.
-
-```azurepowershell-interactive
-$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
-  -MailNickName vmDemoGroup `
-  -MailEnabled $false `
-  -SecurityEnabled $true
-```
-
-Depois de a linha de comandos ser devolvida, vai levar alguns instantes até que o grupo seja propagado pelo Azure Active Directory. Depois de aguardar 20 ou 30 segundos, utilize o comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir o novo grupo do Azure Active Directory à função Contribuidor de Máquina Virtual do grupo de recursos.  Se executar o seguinte comando antes da propagação, receberá um erro a indicar que o **Principal <guid> não existe no diretório**. Tente executar o comando novamente.
+Depois de criar um grupo novo ou encontrar um existente, utilize o comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) para atribuir o grupo do Azure Active Directory à função Contribuidor de Máquina Virtual do grupo de recursos.  
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+$adgroup = Get-AzureRmADGroup -DisplayName <your-group-name>
+
+New-AzureRmRoleAssignment -ObjectId $adgroup.id `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
+
+Se receber um erro a indicar que o **Principal<guid> não existe no diretório**, o novo grupo ainda não foi propagado pelo Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, pode repetir o processo para o *Contribuidor de Rede* e o *Contribuidor de Conta de Armazenamento* para confirmar que os utilizadores estão atribuídos para gerir os recursos implementados. Neste artigo, pode ignorar esses passos.
 
@@ -168,7 +163,7 @@ Para testar os bloqueios, tente executar o seguinte comando:
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-Verá um erro a indicar que a operação de eliminação não pode ser realizada devido a um bloqueio. O grupo de recursos só poderá ser eliminado se remover especificamente os bloqueios. Este passo é apresentado em [Limpar recursos](#clean-up-resources).
+Verá um erro a indicar que a operação de eliminação não pode ser concluída devido a um bloqueio. O grupo de recursos só poderá ser eliminado se remover especificamente os bloqueios. Este passo é apresentado em [Limpar recursos](#clean-up-resources).
 
 ## <a name="tag-resources"></a>Etiquetar recursos
 

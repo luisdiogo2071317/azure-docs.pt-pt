@@ -1269,7 +1269,7 @@ Para adicionar uma porta de sonda:
   }
   ```
 
-  Depois de colocar o **SAP <*SID* >**  online a função de cluster, certifique-se de que **ProbePort** está definido para o novo valor.
+  Depois de colocar o **SAP <*SID*>** online a função de cluster, certifique-se de que **ProbePort** está definido para o novo valor.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>
