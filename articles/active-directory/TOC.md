@@ -244,7 +244,6 @@
 
 #### Acesso Condicional
 ##### [O cliente não cumpriu os pré-requisitos do Registo de Dispositivos](active-directory-conditional-access.md)
-##### [O inquilino está bloqueados devido à definição incorreta das políticas de Acesso Condicional](active-directory-conditional-access-device-remediation.md)
 ##### [Como e quando as regras da rede empresarial entram em vigor?](https://aka.ms/calocation)
 ##### [Como aumentar o número de dispositivos que esse utilizador tem permissão para registar no Azure AD?](active-directory-azureadjoin-setup.md)
 ##### [Como configurar o Acesso Condicional para o Exchange Online?](https://aka.ms/csforexchange)
