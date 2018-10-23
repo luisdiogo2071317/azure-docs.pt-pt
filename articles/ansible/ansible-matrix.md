@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: f574203f31a21f945115296693f04cff649614c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165641"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649946"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matriz de módulo e a versão do Ansible
 
@@ -128,7 +128,7 @@ Este artigo lista os módulos do Ansible para o Azure que pode aprovisionar os r
 | azure_rm_autoscale_facts            | -            | -                         | -          | Sim          | Sim                                 | 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introdução à função do playbook do Azure
-O [função de playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) é a função mais completa e inclui todos os módulos do Azure mais recente. As atualizações e correções de erros são feitas no modo mais oportuno que a versão oficial do Ansible. Se utilizar o Ansible para fins de aprovisionamento de recursos do Azure, está cancelá-lo para instalar a função de azure_preview_module.
+O [função de playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) é a função mais completa e inclui todos os módulos do Azure mais recente. As atualizações e correções de erros são feitas no modo mais oportuno que a versão oficial do Ansible. Se utilizar o Ansible para fins de aprovisionamento de recursos do Azure, está cancelá-lo para instalar a função de playbook azure_preview_module.
 
 A função de playbook azure_preview_module é liberada a cada três semanas.
 

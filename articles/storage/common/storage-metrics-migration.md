@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: fc11e29b03df617c4b5bb6f4fbb43cd478001d42
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521426"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649300"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migração de métricas de armazenamento do Azure
 
@@ -25,7 +25,7 @@ Este artigo mostra como migrar de métricas de antigas para a nova métrica.
 
 O armazenamento do Azure recolhe os valores de métrica antigos e agrega e armazena-os nas tabelas de $Metric dentro da mesma conta de armazenamento. Pode utilizar o portal do Azure para configurar um gráfico de monitorização. Também pode utilizar os SDKs de armazenamento do Azure para ler os dados das tabelas de $Metric que baseiam-se no esquema. Para obter mais informações, consulte [a análise de armazenamento](./storage-analytics.md).
 
-Métricas antigas fornecem métricas de capacidade apenas no armazenamento de Blobs do Azure. Métricas antigas fornecem métricas de transação no armazenamento de BLOBs, armazenamento de tabelas, ficheiros do Azure e o armazenamento de filas. 
+Métricas antigas fornecem métricas de capacidade apenas no armazenamento de Blobs do Azure. Métricas antigas fornecem métricas de transação no armazenamento de BLOBs, armazenamento de tabelas, ficheiros do Azure e o armazenamento de filas.
 
 Métricas antigas destinam-se de um esquema simples. Os resultados de design em zero valor métrico quando não tem os padrões de tráfego acionar a métrica. Por exemplo, o **ServerTimeoutError** valor está definido como 0 nas tabelas de $Metric até mesmo quando não receber quaisquer erros de tempo limite do servidor do tráfego em direto para uma conta de armazenamento.
 
@@ -65,14 +65,14 @@ As métricas seguintes são novas ofertas que não suportam as métricas antigas
 
 | Métrica antiga | Nova métrica |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
-| **AnonymousClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** |
-| **AnonymousClientTimeoutError** | Transações com a dimensão **ResponseType** igual a **ClientTimeoutError** |
-| **AnonymousNetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
-| **AnonymousServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
-| **AnonymousServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** |
-| **AnonymousSuccess** | Transações com a dimensão **ResponseType** igual a **sucesso** |
-| **AnonymousThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** |
+| **AnonymousAuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** e dimensão **autenticação** igual a **anónimo** |
+| **AnonymousClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** e dimensão **autenticação** igual a **anónimo** |
+| **AnonymousClientTimeoutError** | Transações com a dimensão **ResponseType** igual a **ClientTimeoutError** e dimensão **autenticação** igual a **anónimo** |
+| **AnonymousNetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** e dimensão **autenticação** igual a **anónimo** |
+| **AnonymousServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** e dimensão **autenticação** igual a **anónimo** |
+| **AnonymousServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** e dimensão **autenticação** igual a **anónimo** |
+| **AnonymousSuccess** | Transações com a dimensão **ResponseType** igual a **êxito** e dimensão **autenticação** igual a **anónimo** |
+| **AnonymousThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** e dimensão **autenticação** igual a **anónimo** |
 | **AuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
 | **Disponibilidade** | **Disponibilidade** |
 | **Apresentam uma AverageE2ELatency** | **SuccessE2ELatency** |
@@ -87,14 +87,14 @@ As métricas seguintes são novas ofertas que não suportam as métricas antigas
 | **PercentSuccess** | Transações com a dimensão **ResponseType** igual a **sucesso** |
 | **PercentThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** |
 | **PercentTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** ou **ResponseType** igual a **ClientTimeoutError** |
-| **SASAuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** |
-| **SASClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** |
-| **SASClientTimeoutError** | Transações com a dimensão **ResponseType** igual a **ClientTimeoutError** |
-| **SASNetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** |
-| **SASServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
-| **SASServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** |
-| **SASSuccess** | Transações com a dimensão **ResponseType** igual a **sucesso** |
-| **SASThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** |
+| **SASAuthorizationError** | Transações com a dimensão **ResponseType** igual a **AuthorizationError** e dimensão **autenticação** igual a **SAS** |
+| **SASClientOtherError** | Transações com a dimensão **ResponseType** igual a **ClientOtherError** e dimensão **autenticação** igual a **SAS** |
+| **SASClientTimeoutError** | Transações com a dimensão **ResponseType** igual a **ClientTimeoutError** e dimensão **autenticação** igual a **SAS** |
+| **SASNetworkError** | Transações com a dimensão **ResponseType** igual a **NetworkError** e dimensão **autenticação** igual a **SAS** |
+| **SASServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** e dimensão **autenticação** igual a **SAS** |
+| **SASServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** e dimensão **autenticação** igual a **SAS** |
+| **SASSuccess** | Transações com a dimensão **ResponseType** igual a **êxito** e dimensão **autenticação** igual a **SAS** |
+| **SASThrottlingError** | Transações com a dimensão **ResponseType** igual a **ClientThrottlingError** ou **ServerBusyError** e dimensão **autenticação** igual a **SAS** |
 | **ServerOtherError** | Transações com a dimensão **ResponseType** igual a **ServerOtherError** |
 | **ServerTimeoutError** | Transações com a dimensão **ResponseType** igual a **ServerTimeoutError** |
 | **Êxito** | Transações com a dimensão **ResponseType** igual a **sucesso** |

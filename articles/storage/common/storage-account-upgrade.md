@@ -5,20 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 6e77c4836531a7efd0b52b9a411ac40ff6a613fa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224499"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637606"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Atualizar para uma conta de armazenamento para fins gerais v2
 
 Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de armazenamento do Azure mais recente e incorporam toda a funcionalidade de fins gerais v1 e contas de armazenamento de Blobs. Contas para fins gerais v2 são recomendadas para a maioria dos cenários de armazenamento. Contas para fins gerais v2 fornecem o mais baixo por gigabyte os preços de capacidade do armazenamento do Azure, bem como competitiva em termos da indústria para transações.
 
-Atualizar para uma conta de armazenamento para fins gerais v2 de sua para fins gerais v1 ou contas de armazenamento de BLOBs é simples. Pode atualizar com o portal do Azure, PowerShell ou da CLI do Azure. Atualizar uma conta não pode ser invertido e poderá resultar em despesas de faturação.
+Atualizar para uma conta de armazenamento para fins gerais v2 de sua para fins gerais v1 ou contas de armazenamento de BLOBs é simples. Pode atualizar com o portal do Azure, PowerShell ou da CLI do Azure. 
+
+> [!NOTE]
+> A alteração da camada de armazenamento poderá resultar em encargos adicionais. Para obter mais informações, veja a secção [Preços e faturação](#pricing-and-billing).
 
 ## <a name="upgrade-using-the-azure-portal"></a>Atualizar com o portal do Azure
 
@@ -53,14 +56,33 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 As contas de fins gerais v2 suportam todos os serviços de armazenamento do Azure e objetos de dados, mas o escalão de acesso está disponível apenas para blobs de blocos no armazenamento de Blobs. Quando atualizar para uma conta de armazenamento para fins gerais v2, pode especificar um escalão de acesso para os seus dados de Blobs. 
 
-Escalões de acesso permitem-lhe escolher o armazenamento mais económico com base nos seus padrões de utilização antecipada. Os blobs de blocos podem ser armazenados num acesso frequente, esporádico ou arquivo escalão. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
+Escalões de acesso permitem-lhe escolher o armazenamento mais económico com base nos seus padrões de utilização antecipada. Os blobs de blocos podem ser armazenados numa camada de acesso frequente, esporádico ou arquivo. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: frequente, esporádico e camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
 
 Por predefinição, é criada uma nova conta de armazenamento no escalão acesso frequente e uma conta de armazenamento para fins gerais v1 é atualizada para o escalão de acesso frequente. Se está a explorar a camada de acesso a utilizar para a sua pós-atualização de dados, considere o seu cenário. Existem dois cenários de usuário comum para a migração para uma conta para fins gerais v2:
 
 * Tem uma conta de armazenamento para fins gerais v1 existente e pretende avaliar uma alteração para uma conta de armazenamento para fins gerais v2, com a camada de armazenamento correta para dados de Blobs.
-* Decidiu utilizar uma conta de armazenamento para fins gerais v2 ou já tiver uma e pretende avaliar se deve utilizar a camada de armazenamento frequente ou esporádico para dados de Blobs.
+* Decidiu utilizar uma conta de armazenamento para fins gerais v2 ou já tiver uma e pretende avaliar se deve utilizar a camada de armazenamento de acesso frequente ou esporádico para dados de Blobs.
 
 Em ambos os casos, a primeira prioridade é estimar os custos de armazenamento, acesso e a funcionar nos seus dados armazenados numa conta de armazenamento para fins gerais v2 e compará-los com seus custos atuais.
+
+
+## <a name="pricing-and-billing"></a>Preços e faturação
+Todas as contas de armazenamento utilizam um modelo de preços para o armazenamento de blobs com base na camada de cada blob. Ao utilizar uma conta de armazenamento, aplicam-se as seguintes considerações de faturação:
+
+* **Custos de armazenamento**: para além da quantidade de dados armazenados, o custo do armazenamento de dados varia consoante a camada de armazenamento. O custo por gigabyte diminui conforme a camada se torna mais esporádica.
+
+* **Custos de acesso a dados**: os custos de acesso a dados aumenta conforme a camada se torna mais esporádica. Para os dados na camada frequente e de armazenamento de arquivo, é cobrada uma taxa de acesso a dados por gigabyte pelas operações de leitura.
+
+* **Custos de transação**: há um encargo por transação para todas as camadas que aumenta cada vez que a camada é mais esporádica.
+
+* **Custos de transferência de dados de georreplicação**: este custo aplica-se apenas às contas que têm a georreplicação configurada, incluindo GRS e RA-GRS. A transferência de dados de georreplicação está sujeita a uma taxa por gigabyte.
+
+* **Custos de transferência de dados de saída**: as transferências de dados de saída (dados que são transferidos para fora de uma região do Azure) estão sujeitas a uma cobrança pela utilização de largura de banda por gigabyte, tal como as contas do Storage para fins gerais.
+
+* **Alteração da camada de armazenamento**: a alteração da camada de armazenamento de conta esporádica para armazenamento frequente está sujeita à cobrança de uma taxa igual à leitura de todos os dados existentes na conta do armazenamento. No entanto, a alteração da camada de armazenamento de conta de frequente para esporádica incorre um encargo igual à escrita de todos os dados na camada esporádica (contas GPv2 apenas).
+
+> [!NOTE]
+> Para obter mais informações sobre o modelo de preços das contas de armazenamento, veja a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais informações sobre as taxas aplicáveis às transferências de dados de saída, veja a página [Detalhes de Preços das Transferências de Dados](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 ### <a name="estimate-costs-for-your-current-usage-patterns"></a>Estimar os custos para os padrões de utilização atual
 
@@ -73,15 +95,66 @@ Para estimar os custos de armazenar e aceder aos dados de BLOBs numa conta de ar
     - A quantidade de dados está a ser lida da e escrita para a conta de armazenamento? 
     - Quantas operações de leitura versus escrever operações ocorrem nos dados na conta de armazenamento?
 
-Para decidir qual a camada de acesso melhor às suas necessidades, pode ser útil para determinar quanta capacidade seus dados de Blobs está atualmente a utilizar e como esses dados está a ser utilizados. 
+Para decidir qual a camada de acesso melhor às suas necessidades, pode ser útil para determinar a capacidade de dados de BLOBs e como esses dados está a ser utilizados. Isso pode ser melhor feito ao observar as métricas de monitorização para a sua conta.
 
-Para recolher dados de utilização para a sua conta de armazenamento antes da migração, pode monitorizar a conta de armazenamento através de [do Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). O Azure Monitor efetua o registo e fornece dados de métricas para os serviços do Azure, incluindo o armazenamento do Azure. 
+### <a name="monitoring-existing-storage-accounts"></a>Monitorizar contas de armazenamento existentes
 
-Para monitorizar os dados de consumo para os blobs na sua conta de armazenamento, ative métricas de capacidade no Azure Monitor. Métricas de capacidade gravam dados sobre a quantidade de armazenamento os blobs na sua conta estiver a utilizar numa base diária. Métricas de capacidade podem ser utilizadas para calcular o custo do armazenamento de dados na conta de armazenamento. Para saber como é o preço da capacidade de armazenamento de BLOBs para cada tipo de conta, veja [preços do blob de bloco](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Para monitorizar as suas contas de armazenamento existentes e recolher estes dados, pode utilizar a Análise do Armazenamento do Azure, que efetua o registo e fornece dados de métricas para uma conta de armazenamento. A Análise de Armazenamento pode armazenar métricas que incluem estatísticas agregadas de transações e dados de capacidade sobre pedidos enviados para o serviço de armazenamento relativamente aos tipos de contas de Armazenamento de blobs, GPv1 e GPv2. Estes dados são armazenados em tabelas bem conhecidas na mesma conta de armazenamento.
 
-Para monitorizar os padrões de acesso de dados para armazenamento de BLOBs, ative métricas de transação no Azure Monitor. Pode filtrar diferentes operações de armazenamento do Azure para estimar a frequência com que cada um é chamado. Para saber como diferentes tipos de transações têm um preço para o bloco e de acréscimo para cada tipo de conta, consulte [preços do blob de bloco](https://azure.microsoft.com/pricing/details/storage/blobs/).  
+Para obter mais informações, veja [About Storage Analytics Metrics (Sobre Métricas da Análise de Armazenamento)](https://msdn.microsoft.com/library/azure/hh343258.aspx) e [Storage Analytics Metrics Table Schema (Esquema da Tabela de Métricas da Análise de Armazenamento)](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
-Para obter mais informações sobre a coleta de métricas do Azure Monitor, consulte [métricas de armazenamento do Azure no Azure Monitor](storage-metrics-in-azure-monitor.md).
+> [!NOTE]
+> As contas de Armazenamento de blobs expõem o ponto final do serviço Tabela apenas para armazenar e aceder aos dados de métricas relativos a essa conta. 
+
+Para monitorizar o consumo de armazenamento do Armazenamento de blobs, tem de ativar as métricas de capacidade.
+Com esta opção ativada, os dados de capacidade são registados diariamente para um serviço Blob de uma conta de armazenamento e registados como uma entrada que é escrita na tabela *$MetricsCapacityBlob* dentro da mesma conta de armazenamento.
+
+Para monitorizar os padrões de acesso a dados do Armazenamento de blobs, tem de ativar as métricas de transação horária a partir da API. Com as métricas de transação horária ativadas, as transações por API são agregadas ao fim de cada hora e registadas como uma entrada que é escrita na tabela *$MetricsHourPrimaryTransactionsBlob* dentro da mesma conta de armazenamento. A tabela *$MetricsHourSecondaryTransactionsBlob* regista as transações para o ponto final secundário quando são utilizadas contas de armazenamento RA-GRS.
+
+> [!NOTE]
+> Se tiver uma conta de armazenamento de fins gerais na qual armazenou blobs de páginas e discos de máquinas virtuais ou filas, ficheiros ou tabelas, juntamente com dados de blobs de blocos e de acréscimo, este processo de estimativa não é aplicável. Os dados de capacidade não distinguem os blobs de blocos dos outros tipos e não disponibilizam dados de capacidade para outros tipos de dados. Se utilizar estes tipos, uma metodologia alternativa é ver as quantidades na sua fatura mais recente.
+
+Para obter uma boa aproximação do seu consumo de dados e padrão de acesso, recomendamos que escolha um período de retenção para as métricas que seja representativo da sua utilização normal e o utilize para tirar conclusões. Uma opção é manter os dados das métricas durante sete dias e recolher os dados todas as semanas, para análise no fim do mês. Outra opção é manter os dados das métricas para os últimos 30 dias e recolher e analisar os dados no final desse período de 30 dias.
+
+Para obter detalhes sobre como ativar, recolher e ver dados de métricas, veja [Enabling Azure Storage metrics and viewing metrics data)](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) (Ativar as métricas do Armazenamento do Azure e visualizar os dados das mesmas).
+
+> [!NOTE]
+> O armazenamento, o acesso e a transferência de dados de análise são cobrados também como dados normais do utilizador.
+
+### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Utilizar métricas de utilização para estimar os custos
+
+#### <a name="capacity-costs"></a>Custos de capacidade
+
+A entrada mais recente na tabela de métricas de capacidade *$MetricsCapacityBlob* com a chave de linha *'data'* mostra a capacidade de armazenamento consumida pelos dados do utilizador. A entrada mais recente na tabela de métricas de capacidade *$MetricsCapacityBlob* com a chave de linha *'analytics'* mostra a capacidade de armazenamento consumida pelos registos de análise.
+
+Esta capacidade total consumida pelos dados de utilizador e pelos registos de análise (se ativados) pode depois ser utilizada para estimar o custo do armazenamento dos dados na conta de armazenamento. O mesmo método também pode ser utilizado para estimar os custos de armazenamento nas contas GPv1.
+
+#### <a name="transaction-costs"></a>Custos de transação
+
+A soma dos *'TotalBillableRequests'*, em todas as entradas de uma API na tabela de métricas de transação indica o número total de transações para essa API específica. *Por exemplo,*, o número total de transações *'GetBlob'* num determinado período pode ser calculado pela soma do total de pedidos faturáveis para todas as entradas com a chave de linha *'user;GetBlob'*.
+
+Para que possa estimar os custos de transação para as contas do Armazenamento de blobs, tem de dividir as transações em três grupos, uma vez que têm um preço diferente.
+
+* Transações de escrita como *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* e *'CopyBlob'*.
+* Transações de eliminação como *'DeleteBlob'* e *'DeleteContainer'*.
+* Todas as outras transações.
+
+Para estimar os custos de transação nas contas de armazenamento GPv1, tem de agregar todas as transações, independentemente da operação/API.
+
+#### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Custos de acesso a dados e custos de transferência de dados de georreplicação
+
+Embora a análise de armazenamento não forneça a quantidade de dados lidos e escritos numa conta de armazenamento, esta pode ser aproximadamente estimada ao consultar a tabela de métricas de transação. A soma de *'TotalIngress'* de todas as entradas de uma API na tabela de métricas de transação indica a quantidade total de dados de entrada em bytes para essa API específica. Do mesmo modo, a soma de *'TotalEgress'* indica a quantidade total de dados de saída, em bytes.
+
+Para que possa estimar os custos de acesso a dados para as contas do Armazenamento de blobs, precisa de dividir as transações em dois grupos.
+
+* A quantidade de dados obtidos a partir da conta de armazenamento pode ser estimada ao ver a soma de *'TotalEgress'* para, principalmente, as operações *'GetBlob'* e *'CopyBlob'*.
+
+* A quantidade de dados escritos na conta de armazenamento pode ser estimada ao ver a soma de *'TotalIngress'* para, principalmente, as operações *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* e *'AppendBlock'*.
+
+Também pode ser calculado o custo de transferência de dados de georreplicação para contas do Armazenamento de blobs mediante a utilização da estimativa da quantidade de dados escritos se for utilizada uma conta de armazenamento GRS ou RA-GRS.
+
+> [!NOTE]
+> Para obter um exemplo mais detalhado sobre o cálculo dos custos de utilização da camada de armazenamento frequente ou esporádico, veja as perguntas mais frequentes com o nome *“O que são as camadas de acesso Frequente e Esporádico e como posso determinar qual delas utilizar?”* na [Página de Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

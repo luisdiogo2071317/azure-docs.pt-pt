@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067773"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649317"
 ---
 # <a name="language-understanding-faq"></a>FAQ de compreensão de idiomas
 
@@ -157,11 +157,9 @@ Se estiver a utilizar o início de sessão para análise de previsão, não capt
 * Pode eliminar expressões com na lista de expressões de utilizador que LUIS sugere no **rever expressões de ponto final** página. A eliminar expressões com desta lista evita que sejam sendo sugerida, mas não a eliminá-los a partir de registos.
 * Se eliminar uma conta, todas as aplicações são eliminadas, juntamente com os seus registos e as expressões de exemplo. Os dados são mantidos nos servidores durante 60 dias antes de ser eliminado permanentemente.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft aceder aos meus dados de aplicação do LUIS para suas próprias finalidades, por exemplo, para melhorar o LUIS ou a Microsoft em geral?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Como a Microsoft gere dados de que envio para o LUIS?
 
-Não. Modelo de dados da aplicação LUIS não é utilizado pelo LUIS para melhorar o LUIS como uma plataforma ou utilizado pela Microsoft de qualquer forma. Dados de cada aplicação são separada e pertencentes à empresa apenas pelo utilizador e colaboradores.
-
-Saiba mais sobre [privacidade do utilizador](luis-user-privacy.md), [conformidade de segurança adicional](luis-concept-security.md#security-compliance), e [armazenamento de dados](luis-concept-data-storage.md).
+O [Centro de fidedignidade](https://www.microsoft.com/trustcenter) explica nossos compromissos e as opções de gestão de dados e de acesso nos serviços do Azure.
 
 ## <a name="language-and-translation-support"></a>Suporte de idioma e de tradução
 

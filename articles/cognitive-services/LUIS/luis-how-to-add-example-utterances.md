@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888293"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645564"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Adicionar expressões de exemplo e a etiqueta com entidades
 
@@ -159,6 +159,36 @@ Na expressão `Book 2 tickets from Seattle to Cairo`, Seattle é a localização
     >Os nomes de entidades de subordinado tem de ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinadas com o mesmo nome. 
 
     Ver [extração de dados](luis-concept-data-extraction.md#hierarchical-entity-data) para saber mais sobre a extrair a entidade hierárquica do ponto de extremidade de resposta da consulta JSON. Experimente a entidade hierárquica [guia de introdução](luis-quickstart-intent-and-hier-entity.md) para saber mais sobre como utilizar uma entidade hierárquica.
+
+## <a name="entity-status-predictions"></a>Previsões de estado de entidade
+
+Ao introduzir uma expressão de novo no portal do LUIS, a expressão pode ter erros de predição de entidade. O erro de predição é uma diferença entre como assinalada como uma entidade em comparação com como LUIS fez uma previsão a entidade. 
+
+Essa diferença visualmente é representada no portal do LUIS com um sublinhado em vermelho na expressão. O sublinhado em vermelho poderão aparecer entre parênteses Retos de entidade ou fora de parênteses Retos. 
+
+![Discrepância de predição de estado de captura de ecrã da entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Selecione as palavras que são sublinhadas em vermelho na expressão. 
+
+Apresenta a caixa de entidade a **estado de entidade** com uma marca de exclamação vermelha se existe uma discrepância de predição. Para ver o estado de entidade com informações sobre a diferença entre entidades com nome e previstas, selecione **estado de entidade** , em seguida, selecione o item para a direita.
+
+![Discrepância de predição de estado de captura de ecrã da entidade](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+A linha de vermelho pode aparecer em qualquer um dos seguintes horas:
+
+    * Quando uma expressão é introduzido, mas antes da entidade tem o nome
+    * Quando é aplicada a etiqueta de entidade
+    * Quando a etiqueta de entidade é removida
+    * Quando mais do que uma etiqueta de entidade é prevista para esse texto 
+
+As seguintes soluções de ajudar a resolver as discrepâncias de predição de entidade:
+
+|Entidade|Indicador visual|predição|Solução|
+|--|--|--|--|
+|Expressão introduzido, entidade não é rotulado como ainda.|sublinhado em vermelho|Predição está correta.|A entidade com o valor previsto da etiqueta.|
+|Texto sem etiqueta|sublinhado em vermelho|Previsão incorreta|As expressões atuais através desta entidade incorreta tem de ser revisto em todas as intenções. As expressões atuais tem mistaught LUIS que este texto é a entidade prevista.
+|Corretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão incorreta|Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. As expressões atuais são não é suficiente para ensinar LUIS que se trata a entidade é ou aparecem as entidades semelhantes no mesmo contexto. Entidade semelhante deve ser combinada numa única entidade então LUIS não é confuso. Outra solução é adicionar uma lista de frase para aumentar a significância das palavras. |
+|Incorretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão correta| Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>Remover etiquetas de entidade de expressões

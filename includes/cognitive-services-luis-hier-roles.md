@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: dd99218765c873120c4117a3ec1712fe0a605e66
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d7723f356274bbd18b1ea08e34046da82a1057c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637591"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646358"
 ---
 **Pergunta**: deve usar uma entidade hierárquica ou um padrão com uma entidade com funções? 
 
@@ -27,4 +27,4 @@ Se as expressões não tem um padrão não encriptado, utilize entidades hierár
 |--|--|
 |tem de ter expressões de exemplo com entidades subordinadas rotulado em objetivos|tem de ter expressões de exemplo, **funções não podem ser rotulada como em intenções**|
 |Pode utilizar em padrões|**tem** utilizar em padrões|
-|poderá ter **mais** expressões de exemplo na intenção|poderá ter * * menos expressões de exemplo na intenção|
+|poderá ter **mais** expressões de exemplo na intenção|poderá ter **menos** expressões de exemplo na intenção|

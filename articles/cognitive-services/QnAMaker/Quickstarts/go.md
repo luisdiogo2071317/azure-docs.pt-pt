@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: Go para API do Criador de FAQ (V4)'
+title: REST API (V4) - ir - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de códigos para o ajudar a começar a utilizar rapidamente a API de Texto do Microsoft Translator nos Serviços Cognitivos da Microsoft no Azure.
+description: Obtenha informações baseadas em REST e amostras de código para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 1628daa0ffef4c1fd9d8717abbdbdf7d0bbb65fd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 1b4f4c50c8c3fbdc2cc556705bdd446cb360ef2c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390130"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650235"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Início Rápido para API do Criador de FAQ com Go 
+# <a name="qna-maker-rest-api-with-go"></a>API de REST do QnA Maker com Go 
 <a name="HOLTop"></a>
 
 Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../Overview/overview.md) com Go para fazer o seguinte.
@@ -1441,7 +1441,7 @@ func main() {
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

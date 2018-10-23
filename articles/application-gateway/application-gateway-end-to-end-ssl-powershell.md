@@ -1,6 +1,6 @@
 ---
-title: Configurar o SSL de ponto a ponto com o Gateway de aplicação do Azure
-description: Este artigo descreve como configurar o SSL de ponto a ponto com Gateway de aplicação do Azure utilizando o PowerShell
+title: Configurar SSL ponto a ponto com o Gateway de aplicação do Azure
+description: Este artigo descreve como configurar o SSL ponto a ponto com o Gateway de aplicação do Azure com o PowerShell
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -10,53 +10,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 10/23/2018
 ms.author: victorh
-ms.openlocfilehash: 7e259936dce433683dd135171ee1c5626bf23739
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5b63c7448a502d681bbafb0ac80237a8e2c63c6
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154199"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650099"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar o SSL de ponto a ponto ao utilizar o Gateway de aplicação com o PowerShell
+# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar SSL ponto a ponto com o Gateway de aplicação com o PowerShell
 
 ## <a name="overview"></a>Descrição geral
 
-Gateway de aplicação do Azure suporta a encriptação de ponto a ponto do tráfego. Gateway de aplicação termina a ligação SSL no gateway de aplicação. O gateway, em seguida, aplica as regras de encaminhamento para o tráfego, reencripta o pacote e reencaminha o pacote para o servidor de back-end adequado com base nas regras de encaminhamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
+O Gateway de aplicação do Azure suporta a encriptação de ponto-a-ponto de tráfego. Gateway de aplicação termina a ligação SSL no gateway de aplicação. O gateway, em seguida, aplica-se as regras de encaminhamento para o tráfego, reencripta o pacote e reencaminha o pacote para o servidor de back-end apropriado com base em regras de encaminhamento definidas. Qualquer resposta do servidor Web atravessa o mesmo processo para o utilizador final.
 
-Gateway de aplicação suporta definir opções personalizadas de SSL. Também suporta desativar as seguintes versões de protocolo: **TLSv1.0**, **TLSv1.1**, e **TLSv1.2**, bem a definir os conjuntos de cifras a utilizar e a ordem de preferência . Para saber mais acerca das opções configuráveis SSL, consulte o [descrição geral da política SSL](application-gateway-SSL-policy-overview.md).
+Gateway de aplicação suporta a definir as opções de SSL personalizadas. Ele também oferece suporte a desativar as seguintes versões de protocolo: **TLSv1.0**, **TLSv1.1**, e **TLSv1.2**, bem a definir quais conjuntos de cifras para utilizar e a ordem de preferência . Para saber mais sobre as opções de SSL configuráveis, consulte a [descrição geral da política SSL](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
-> SSL 2.0 e o SSL 3.0 estão desativados por predefinição e não podem ser ativada. Estes são considerados não seguros e não podem ser utilizados com o Gateway de aplicação.
+> SSL 2.0 e o SSL 3.0 estão desativados por predefinição e não podem ser ativada. Eles são considerados não seguros e não podem ser utilizados com o Gateway de aplicação.
 
 ![imagem do cenário][scenario]
 
 ## <a name="scenario"></a>Cenário
 
-Neste cenário, irá aprender a criar um gateway de aplicação, utilizando SSL de ponto a ponto com o PowerShell.
+Neste cenário, irá aprender a criar um gateway de aplicação utilizando o SSL ponto a ponto com o PowerShell.
 
 Neste cenário irão:
 
-* Crie um grupo de recursos denominado **appgw-rg**.
+* Crie um grupo de recursos chamado **appgw-rg**.
 * Criar uma rede virtual denominada **appgwvnet** com um espaço de endereços de **10.0.0.0/16**.
 * Criar duas sub-redes chamadas **appgwsubnet** e **appsubnet**.
-* Crie uma encriptação de SSL de ponto-a-ponto suporte para aplicações pequeno gateway que as versões de protocolo SSL de limites e os conjuntos de cifras.
+* Crie uma pequena aplicação gateway suporte ponto a ponto a encriptação SSL que versões de protocolo SSL de limites e a conjuntos de cifras.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para configurar o SSL de ponto a ponto com um gateway de aplicação, um certificado é necessário para o gateway e os certificados são necessários para os servidores de back-end. O certificado de gateway é utilizado para encriptar e desencriptar o tráfego enviado para o mesmo através de SSL. O certificado do gateway tem de estar no formato de Personal Information (Exchange PFX). Este formato de ficheiro permite-lhe exportar a chave privada que é necessário para o gateway de aplicação para efetuar a encriptação e desencriptação de tráfego.
+Para configurar o SSL ponto a ponto com um gateway de aplicação, é necessário para o gateway de um certificado e certificados são necessários para os servidores de back-end. O certificado de gateway é utilizado para encriptar e desencriptar o tráfego enviado para o mesmo através de SSL. O certificado de gateway tem de estar no formato Personal Information Exchange (PFX). Esse formato de arquivo permite-lhe exportar a chave privada que é necessário pelo gateway de aplicação para efetuar a encriptação e desencriptação de tráfego.
 
-Para a encriptação de SSL de ponto a ponto, o back-end tem de ser na lista de permissões com o gateway de aplicação. Terá de carregar o certificado público de servidores de back-end para o gateway de aplicação. Adicionar o certificado assegura que o gateway de aplicação comunica apenas com instâncias de back-end conhecidas. Isto ainda mais além de proteger a comunicação de ponto a ponto.
+Para encriptação SSL de ponto-a-ponto, o back-end tem de estar na lista de permissões com o gateway de aplicação. Terá de carregar o certificado público dos servidores de back-end para o gateway de aplicação. A adicionar o certificado garante que o gateway de aplicação comunica apenas com instâncias de back-end conhecidas. Isso protege ainda mais a comunicação de ponto-a-ponto.
 
-O processo de configuração é descrito nas secções seguintes.
+O processo de configuração é descrito nas seções a seguir.
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
 Esta secção explica como criar um grupo de recursos que contém o gateway de aplicação.
 
 
-   1. Inicie sessão sua conta do Azure.
+   1. Inicie sessão na sua conta do Azure.
 
    ```powershell
    Connect-AzureRmAccount
@@ -78,7 +78,7 @@ Esta secção explica como criar um grupo de recursos que contém o gateway de a
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Criar uma rede virtual e uma sub-rede para o gateway de aplicação
 
-O exemplo seguinte cria uma rede virtual e duas sub-redes. Uma sub-rede é utilizada para conter o gateway de aplicação. A outra sub-rede é utilizada para os back-ends que alojam a aplicação web.
+O exemplo seguinte cria uma rede virtual e duas sub-redes. Uma sub-rede é utilizada para armazenar o gateway de aplicação. A outra sub-rede é utilizada para os back-ends que alojam a aplicação web.
 
 
    1. Atribua um intervalo de endereços da sub-rede a utilizar para o gateway de aplicação.
@@ -88,11 +88,11 @@ O exemplo seguinte cria uma rede virtual e duas sub-redes. Uma sub-rede é utili
    ```
 
    > [!NOTE]
-   > Sub-redes configuradas para um gateway de aplicação devem ser corretamente dimensionados. Um gateway de aplicação pode ser configurado para até 10 instâncias. Cada instância tem um endereço IP da sub-rede. Demasiado pequeno de uma sub-rede pode afetar negativamente ampliar um gateway de aplicação.
+   > Sub-redes configuradas para um gateway de aplicação devem ser redimensionados adequadamente. Um gateway de aplicação pode ser configurado para até 10 instâncias. Cada instância terá um endereço IP da sub-rede. Muito pequeno de uma sub-rede pode afetar negativamente aumentar horizontalmente um gateway de aplicação.
    > 
    > 
 
-   2. Atribua um intervalo de endereços a ser utilizada para o conjunto de endereços de back-end.
+   2. Atribua um intervalo de endereços a ser utilizado para o conjunto de endereços de back-end.
 
    ```powershell
    $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
@@ -104,7 +104,7 @@ O exemplo seguinte cria uma rede virtual e duas sub-redes. Uma sub-rede é utili
    $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
    ```
 
-   4. Obter o recurso de rede virtual e recursos de sub-rede para ser utilizada nos passos que se seguem.
+   4. Obter o recurso de rede virtual e os recursos de sub-rede a utilizar nos passos que se seguem.
 
    ```powershell
    $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
@@ -121,26 +121,26 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 ```
 
 > [!IMPORTANT]
-> Gateway de aplicação não suporta a utilização de um endereço IP público criado com uma etiqueta de domínio definido. Apenas um endereço IP público com uma etiqueta de domínio criada dinamicamente é suportado. Se necessitar de um nome amigável de DNS para o gateway de aplicação, recomendamos que utilize um registo CNAME com um alias.
+> Gateway de aplicação não suporta a utilização de um endereço IP público criado com uma etiqueta de domínio definido. É suportado apenas um endereço IP público com uma etiqueta de domínio criada dinamicamente. Se necessitar de um nome amigável do DNS para o gateway de aplicação, recomendamos que utilize um registo CNAME com um alias.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway de aplicação
 
-Todos os itens de configuração estão definidos antes de criar o gateway de aplicação. Com os seguintes passos, irá criar os itens de configuração necessários para um recurso do gateway de aplicação.
+Todos os itens de configuração são definidos antes de criar o gateway de aplicação. Com os seguintes passos, irá criar os itens de configuração necessários para um recurso do gateway de aplicação.
 
-   1. Crie uma configuração de IP do gateway de aplicação. Esta definição configura que as sub-redes que se utiliza o gateway de aplicação. Quando é iniciado o gateway de aplicação, um endereço IP da sub-rede configurado, escolherá e rotas de rede de tráfego para os endereços IP no conjunto de IP back-end. Note que cada instância terá um endereço IP.
+1. Crie uma configuração de IP do gateway de aplicação. Esta definição configura o que, das sub-redes, utiliza o gateway de aplicação. Quando o gateway de aplicação é iniciado, ele escolhe um endereço IP da sub-rede configurada e rotas de tráfego de rede para os endereços IP no conjunto de IP de back-end. Note que cada instância terá um endereço IP.
 
    ```powershell
    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
 
-   2. Crie uma configuração de IP Front-end. Esta definição mapeia um endereço IP privado ou público para o front-end do gateway de aplicação. O passo seguinte associa o endereço IP público no passo anterior com a configuração de IP Front-end.
+2. Crie uma configuração de IP Front-end. Esta definição é mapeada um endereço IP privado ou público para o front-end do gateway de aplicação. O passo seguinte associa o endereço IP público no passo anterior com a configuração de IP Front-end.
 
    ```powershell
    $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
-   3. Configure o conjunto de endereços IP back-end com os endereços IP dos servidores web de back-end. Estes endereços são os endereços IP que recebem o tráfego de rede que vem do ponto final do IP do front-end. Substitua os endereços IP na amostra os seus pontos finais endereço de IP de aplicação.
+3. Configure o conjunto de endereços IP de back-end com os endereços IP dos servidores web de back-end. Estes endereços são os endereços IP que recebem o tráfego de rede que vem do ponto final do IP do front-end. Substitua os endereços IP no exemplo pelos seus próprios pontos de extremidade do endereço IP do aplicativo.
 
    ```powershell
    $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
@@ -150,13 +150,13 @@ Todos os itens de configuração estão definidos antes de criar o gateway de ap
    > Um nome de domínio completamente qualificado (FQDN) também é um valor válido para utilizar em vez de um endereço IP para os servidores de back-end. Ativá-la utilizando o **- BackendFqdns** mudar. 
 
 
-   4. Configure a porta IP de front-end para o ponto final IP público. Esta porta é a porta que os utilizadores finais à.
+4. Configure a porta IP de front-end para o ponto de final IP público. Esta porta é a porta que os utilizadores finais que se ligam a.
 
    ```powershell
    $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
-   5. Configure o certificado para o gateway de aplicação. Este certificado é utilizado para desencriptar e reencrypt o tráfego no gateway de aplicação.
+5. Configure o certificado para o gateway de aplicação. Este certificado é utilizado para desencriptar e reencriptar o tráfego no gateway de aplicação.
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
@@ -164,57 +164,70 @@ Todos os itens de configuração estão definidos antes de criar o gateway de ap
    ```
 
    > [!NOTE]
-   > Este exemplo configura o certificado utilizado para a ligação SSL. O certificado tem de estar no formato. pfx e a palavra-passe tem de ser 4 e 12 carateres.
+   > Este exemplo configura o certificado utilizado para a ligação SSL. O certificado tem de estar no formato. pfx e a palavra-passe deve ter entre 4 e 12 carateres.
 
-   6. Crie o serviço de escuta HTTP para o gateway de aplicação. Atribua a configuração de IP Front-end, a porta e o certificado SSL a utilizar.
+6. Crie o serviço de escuta HTTP para o gateway de aplicação. Atribua a configuração de IP Front-end, porta e certificado SSL para usar.
 
    ```powershell
    $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-   7. Carregue o certificado a ser utilizada nos recursos SSL ativado o conjunto de back-end.
+7. Carregue o certificado a ser utilizado nos recursos do conjunto de back-end habilitado por SSL.
 
    > [!NOTE]
-   > A sonda predefinida obtém a chave pública a partir de *predefinido* enlace de SSL no endereço IP e compara o valor da chave público receber para o valor da chave público fornecer aqui o back-end. 
+   > A sonda predefinida obtém a chave pública do *predefinição* enlace de SSL de endereço IP e compara o valor da chave público que recebe o valor de chave pública fornecer aqui o back-end. 
    
-   > Se estiver a utilizar cabeçalhos de anfitrião e a indicação de nome de servidor (SNI) no back-end, a chave pública obtida poderá não ser site pretendido para os fluxos de tráfego. Se estiver em dúvida, visite https://127.0.0.1/ nos servidores de back-end para confirmar o certificado é utilizado para o *predefinido* enlace SSL. Utilize a chave pública esse pedido nesta secção. Se estiver a utilizar cabeçalhos de anfitrião e SNI nos enlaces de HTTPS e não receberá uma resposta e o certificado de um pedido de manual browser para https://127.0.0.1/ em servidores back-end, tem de configurar um enlace de SSL predefinido nos mesmos. Se o fizer, sondas falharem e o back-end não está na lista de permissões.
+   > Se estiver a utilizar os cabeçalhos de anfitrião e indicação de nome de servidor (SNI) no back-end, a chave pública obtida pode não ser o site pretendido para os fluxos de tráfego. Se estiver em dúvida, visite https://127.0.0.1/ nos servidores de back-end para confirmar a qual o certificado é utilizado para o *predefinição* enlace SSL. Utilize a chave pública do que a solicitação nesta secção. Se estiver a utilizar cabeçalhos de host e SNI com ligações de HTTPS e não receber uma resposta e o certificado de uma solicitação de navegador manual para https://127.0.0.1/ nos servidores de back-end, tem de configurar um enlace de SSL padrão neles. Se fizer isso, as pesquisas falharem e o back-end não está na lista de permissões.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
    ```
 
    > [!NOTE]
-   > O certificado fornecido neste passo, deve ser a chave pública do certificado. pfx presente no back-end. Exportar o certificado (não o certificado de raiz) instalado no servidor de back-end no formato de afirmação, provas e Reasoning (CER) e utilizá-lo neste passo. Este passo whitelists back-end com o gateway de aplicação.
+   > O certificado fornecido neste passo deve ser a chave pública do certificado. pfx presente no back-end. Exportar o certificado (não o certificado de raiz) instalado no servidor de back-end no formato de afirmação, evidência e Raciocinando (CER) e utilizá-lo neste passo. Este passo coloca o back-end com o gateway de aplicação.
 
-   8. Configure as definições de HTTP para o application gateway back-end. Atribua o certificado carregado no passo anterior para as definições de HTTP.
+   Se estiver a utilizar o SKU do Gateway de aplicação v2, em seguida, crie um certificado de raiz fidedigna em vez de um certificado de autenticação. Para obter mais informações, consulte [descrição geral do SSL ponto a ponto com o Gateway de aplicação](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+
+   ```powershell
+   $trustedRootCert01 = New-AzureRmApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
+   ```
+
+8. Configure as definições de HTTP para o application gateway back-end. Atribua o certificado que carregou no passo anterior para as definições de HTTP.
 
    ```powershell
    $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
-   9. Crie uma regra de encaminhamento do Balanceador de carga que configura o comportamento do Balanceador de carga. Neste exemplo, é criada uma regra round-robin básica.
+
+   Para o SKU do Gateway de aplicação v2, utilize o seguinte comando:
+
+   ```powershell
+   $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+   ```
+
+9. Crie uma regra de encaminhamento do Balanceador de carga que configura o comportamento do Balanceador de carga. Neste exemplo, é criada uma regra básica de round robin.
 
    ```powershell
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-   10. Configure o tamanho da instância do gateway de aplicação. Os tamanhos disponíveis são **padrão\_pequeno**, **padrão\_média**, e **padrão\_grande**.  A capacidade, os valores disponíveis são **1** através de **10**.
+10. Configure o tamanho da instância do gateway de aplicação. Os tamanhos disponíveis são **padrão\_pequenas**, **padrão\_média**, e **padrão\_grande**.  Para a capacidade, os valores disponíveis são **1** através de **10**.
 
-   ```powershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-   ```
+    ```powershell
+    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+    ```
 
-   > [!NOTE]
-   > Uma contagem de instâncias de 1 pode ser escolhida para fins de teste. É importante saber que quaisquer instâncias em duas instâncias não é abrangida pelo SLA e, por conseguinte, não é recomendada. Gateways pequenos estão a ser utilizado para teste de desenvolvimento e não para fins de produção.
+    > [!NOTE]
+    > Uma contagem de instâncias de 1 pode ser escolhida para fins de teste. É importante saber que qualquer número de instâncias em duas instâncias não é abrangido pelo SLA e, portanto, não é recomendado. Gateways pequenos estão a ser utilizados para teste de desenvolvimento e não para fins de produção.
 
-   11. Configure a política SSL para ser utilizado no gateway de aplicação. Gateway de aplicação suporta a capacidade de definir a versão mínima para as versões de protocolo SSL.
+11. Configure a política SSL para ser utilizado no gateway de aplicação. Gateway de aplicação suporta a capacidade de definir uma versão mínima para versões de protocolo SSL.
 
-   Os valores seguintes são uma lista das versões de protocolo que pode ser definida:
+   Os seguintes valores são uma lista das versões de protocolo que podem ser definidos:
 
     - **TLSV1_0**
     - **TLSV1_1**
     - **TLSV1_2**
     
-   O exemplo seguinte define a versão do protocolo mínimo para **TLSv1_2** e permite **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** apenas.
+   O exemplo seguinte define a versão do protocolo mínimo **TLSv1_2** e permite **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** apenas.
 
    ```powershell
    $SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
@@ -222,7 +235,7 @@ Todos os itens de configuração estão definidos antes de criar o gateway de ap
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicação
 
-Utilize os passos anteriores para criar o gateway de aplicação. A criação do gateway é um processo que demora muito tempo a executar.
+Com todos os passos anteriores, crie o gateway de aplicação. A criação do gateway é um processo que demora muito tempo para ser executado.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
@@ -230,7 +243,7 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limitar as versões de protocolo SSL num gateway de aplicação existente
 
-Os passos anteriores demorou criar uma aplicação com ponto-a-ponto SSL e desativar determinadas versões de protocolo SSL. O exemplo a seguir desativa determinadas políticas SSL num gateway de aplicação existente.
+Os passos anteriores demorou a criar uma aplicação com SSL de ponta a ponta e determinadas versões de protocolo SSL a desativar. O exemplo seguinte desativa determinadas políticas SSL num gateway de aplicação existente.
 
    1. Obter o gateway de aplicação para atualizar.
 
@@ -238,24 +251,24 @@ Os passos anteriores demorou criar uma aplicação com ponto-a-ponto SSL e desat
    $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-   2. Defina uma política SSL. No exemplo seguinte, **TLSv1.0** e **TLSv1.1** são desativadas e os conjuntos de cifras **TLS\_ECDHE\_ECDSA\_WITH\_ AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** são os únicos aqueles permitido.
+   2. Defina uma política SSL. No exemplo a seguir **TLSv1.0** e **TLSv1.1** são desativadas e os conjuntos de cifras **TLS\_ECDHE\_ECDSA\_WITH\_ AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384**, e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** são o único são permitidos.
 
    ```powershell
    Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-   3. Por fim, atualize o gateway. Tenha em atenção que neste último passo é uma tarefa de longa execução. Quando terminar, ponto-a-ponto SSL está configurado no gateway de aplicação.
+   3. Por fim, atualize o gateway. Tenha em atenção que esta última etapa é uma tarefa de execução longa. Quando tiver terminado, o SSL ponto a ponto está configurada no gateway de aplicação.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway
    ```
 
-## <a name="get-an-application-gateway-dns-name"></a>Obter um nome de DNS do gateway de aplicação
+## <a name="get-an-application-gateway-dns-name"></a>Obter um nome de DNS de gateway de aplicação
 
-Depois de criado o gateway, o próximo passo é configurar o front-end para comunicação. Gateway de aplicação requer um nome DNS dinamicamente atribuído ao utilizar um IP público, que não é amigável. Para garantir que os utilizadores finais podem aceder o gateway de aplicação, pode utilizar um registo CNAME para apontar para o ponto final público do gateway de aplicação. Para obter mais informações, consulte [configurar um nome de domínio personalizado para no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+Depois do gateway ser criado, a próxima etapa é configurar o front-end para a comunicação. Gateway de aplicação requer um nome DNS dinamicamente atribuído quando utilizar um IP público, que não é amigável. Para garantir que os utilizadores finais alcançam o gateway de aplicação, pode utilizar um registo CNAME para apontar para o ponto final público do gateway de aplicação. Para obter mais informações, consulte [configurar um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-Para configurar um alias, obter detalhes sobre o gateway de aplicação e o seu nome IP/DNS associado utilizando o **PublicIPAddress** elemento ligado ao gateway de aplicação. Utilize o nome DNS do gateway de aplicação para criar um registo CNAME que aponta de aplicações dois web para este nome DNS. Iremos não recomendamos a utilização de registos de um, porque o VIP pode ser alterado de reiniciar o gateway de aplicação.
+Para configurar um alias, obter os detalhes de gateway de aplicação e o respetivo nome IP/DNS associado ao utilizar o **PublicIPAddress** elemento ligado ao gateway de aplicação. Utilize o nome DNS do gateway de aplicação para criar um registo CNAME que aponta as duas aplicações web para este nome DNS. Nós não recomendamos a utilização de registos, porque o VIP pode alterar no reinício do gateway de aplicação.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -285,6 +298,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a segurança das suas aplicações web com Firewall de aplicações Web através do Gateway de aplicação de proteção, consulte o [descrição geral de firewall de aplicações Web](application-gateway-webapplicationfirewall-overview.md).
+Para obter mais informações sobre a segurança das suas aplicações web com Firewall de aplicações Web através do Gateway de aplicação de proteção, consulte a [descrição geral de firewall de aplicações Web](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

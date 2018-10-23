@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Python para a API do Criador de FAQ (V4)'
+title: API de REST (V4) - Python - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de códigos para o ajudar a começar a utilizar rapidamente a API de Texto do Microsoft Translator nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: ac871aebd1b78750a5a3712d40486d4f7d3c3de7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 595eee6a10192d877aa77f4849bac494dff05808
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388080"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650014"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Início Rápido da API do Criador de FAQ da Microsoft com Python 
+# <a name="qna-maker-rest-api-with-python"></a>API de REST do QnA Maker com Python
 <a name="HOLTop"></a>
 
 Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../Overview/overview.md) com Python para fazer o seguinte.
@@ -1148,7 +1148,7 @@ print (pretty_print(result))
 
 [Voltar ao início](#HOLTop)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e42601646474ba986e75632af41d500e18b64021
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393903"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648775"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
-Como o desenvolvimento de aplicativos foi movido para uma abordagem baseada em contidos, a necessidade de orquestrar e gerir os recursos ligados entre torna-se importantes. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer um agendamento fiável de cargas de trabalho de aplicação tolerante a falhas. O Azure Kubernetes Service (AKS) é um oferta que simplifica ainda mais a implementação de aplicações baseadas em contentores e gestão de Kubernetes gerido.
+Como o desenvolvimento de aplicativos foi movido para uma abordagem baseada em contentor, a necessidade de orquestrar e gerir os recursos ligados entre torna-se importantes. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer um agendamento fiável de cargas de trabalho de aplicação tolerante a falhas. O Azure Kubernetes Service (AKS) é um oferta que simplifica ainda mais a implementação de aplicações baseadas em contentores e gestão de Kubernetes gerido.
 
 Este artigo apresenta os componentes de infraestrutura do Kubernetes principal como a *principal do cluster*, *nós*, e *conjuntos de nós*. Recursos de carga de trabalho, como *pods*, *implementações*, e *define* também são apresentadas, juntamente com como do grupo de recursos em *espaços de nomes*.
 

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063661"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646308"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Melhores práticas para a Sincronização de Dados SQL 
 
@@ -70,6 +70,10 @@ Não tem de incluir todas as tabelas que estão num banco de dados num grupo de 
 Cada tabela num grupo de sincronização tem de ter uma chave primária. O serviço de sincronização de dados SQL não é possível sincronizar uma tabela que não tem uma chave primária.
 
 Antes de utilizar a sincronização de dados SQL em produção, teste o desempenho da sincronização iniciais e contínuas.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>Esvaziar tabelas fornecem o melhor desempenho
+
+Esvaziar tabelas fornecem o melhor desempenho no momento da inicialização. Se a tabela de destino estiver vazia, a sincronização de dados utiliza inserção em massa para carregar os dados. Caso contrário, a sincronização de dados faz uma comparação de linha por linha e a inserção para verificar a existência de conflitos. No entanto, se o desempenho não for uma preocupação, pode definir a sincronização entre as tabelas que já conter dados.
 
 ### <a name="provisioning-destination-databases"></a> Aprovisionamento de bases de dados de destino
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432890"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638431"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -25,9 +25,9 @@ Para saber como criar uma conta de armazenamento do Azure, veja [criar uma conta
 
 Armazenamento do Azure oferece três tipos de contas de armazenamento. Cada tipo oferece suporte a recursos diferentes e tem o seu próprio modelo de preços. Considere estas diferenças antes de criar uma conta de armazenamento para determinar o tipo de conta que é melhor para as suas aplicações. Os tipos de contas de armazenamento são:
 
-* **Para fins gerais v2** contas (recomendadas para a maioria dos cenários)
-* **Para fins gerais v1** contas
-* Contas de **armazenamento de blobs**
+* **[Contas para fins gerais v2](#general-purpose-v2-accounts)**  (recomendado para a maioria dos cenários)
+* **[Contas de fins gerais v1](#general-purpose-v1-accounts)**
+* **[Contas de armazenamento de BLOBs](#blob-storage-accounts)** 
 
 A tabela seguinte descreve os tipos de contas de armazenamento e as respetivas funcionalidades:
 
@@ -41,7 +41,7 @@ A tabela seguinte descreve os tipos de contas de armazenamento e as respetivas f
 
 <sup>2</sup>todas as contas de armazenamento são encriptadas utilizando encriptação de serviço de armazenamento (SSE) para dados inativos. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](storage-service-encryption.md).
 
-<sup>3</sup>a camada de arquivo está disponível no nível de um blob individual só, não ao nível da conta de armazenamento. Apenas blobs de blocos e de acréscimo blobs podem ser arquivados. Para obter mais informações, consulte [armazenamento de Blobs do Azure: frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
+<sup>3</sup>camada o arquivo está disponível no nível de um blob individual só, não ao nível da conta de armazenamento. Apenas blobs de blocos e de acréscimo blobs podem ser arquivados. Para obter mais informações, consulte [armazenamento de Blobs do Azure: frequente, esporádico e camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
 
 <sup>4</sup>armazenamentoredundância de zona (ZRS) só está disponível para contas de armazenamento standard para fins gerais v2. Para obter mais informações sobre ZRS, veja [armazenamentoredundância de zona (ZRS): aplicações de armazenamento do Azure de elevada disponibilidade](storage-redundancy-zrs.md). Para obter mais informações sobre outras opções de replicação, consulte [replicação de armazenamento do Azure](storage-redundancy.md).
 
@@ -49,13 +49,16 @@ A tabela seguinte descreve os tipos de contas de armazenamento e as respetivas f
 
 Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de armazenamento do Azure mais recente e incorporam toda a funcionalidade de fins gerais v1 e contas de armazenamento de Blobs. Contas para fins gerais v2 fornecem o mais baixo por gigabyte os preços de capacidade do armazenamento do Azure, bem como competitiva em termos da indústria para transações. Contas de armazenamento para fins gerais v2 suportam estes serviços de armazenamento do Azure:
 
-- BLOBs (todos os tipos)
+- BLOBs (todos os tipos: página de bloco, acrescentar)
 - Ficheiros
 - Discos
 - Filas
 - Tabelas
 
-A Microsoft recomenda utilizar uma conta de armazenamento para fins gerais v2 na maioria dos cenários. Pode facilmente atualizar uma para fins gerais v1 ou a conta de armazenamento de BLOBs para uma conta para fins gerais v2, sem reescritas de tempo de inatividade ou aplicativo e sem a necessidade de copiar dados. Para obter mais informações sobre como atualizar para uma conta para fins gerais v2, consulte [atualizar para uma conta de armazenamento para fins gerais v2](storage-account-upgrade.md). 
+> [!NOTE]
+> A Microsoft recomenda utilizar uma conta de armazenamento para fins gerais v2 na maioria dos cenários. Pode facilmente atualizar uma para fins gerais v1 ou a conta de armazenamento de BLOBs para uma conta para fins gerais v2, sem períodos de indisponibilidade e sem a necessidade de copiar dados.
+>
+> Para obter mais informações sobre como atualizar para uma conta para fins gerais v2, consulte [atualizar para uma conta de armazenamento para fins gerais v2](storage-account-upgrade.md). 
 
 Contas de armazenamento para fins gerais v2 oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
 
@@ -103,19 +106,20 @@ Armazenamento do Azure oferece opções diferentes para aceder aos dados de blob
 
 Os escalões de acesso disponíveis são:
 
-* O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são um pouco mais. Novas contas de armazenamento são criadas no escalão de acesso frequente, por predefinição.
-* O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser um pouco mais dispendioso do que a aceder aos dados na camada frequente.
-* O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados nos escalões de acesso frequentes ou esporádico. 
-
 > [!NOTE]
 > O [escalão de acesso de Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponível em pré-visualização limitada, como uma conta de armazenamento localmente redundante (LRS) nas regiões Europa do Norte, E.u.a. Leste 2, E.u.a. Central e E.u.a. oeste. Para saber como se registar na pré-visualização, veja [introdução ao armazenamento de Blobs do Azure Premium](http://aka.ms/premiumblob).
 
-Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estas camadas de acesso em qualquer altura. 
+* O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são um pouco mais. Novas contas de armazenamento são criadas de acesso frequente escalão por predefinição.
+* O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser um pouco mais dispendioso do que a aceder aos dados na camada frequente.
+* O **arquivo** escalão, o que está disponível apenas para blobs de blocos individuais. A camada de arquivo é otimizada para dados que podem tolerar várias horas de latência de obtenção e irão permanecer na camada de arquivo por, pelo menos, 180 dias. A camada de arquivo é a opção mais económica para armazenar dados, mas o acesso aos dados é mais caro que acedem aos dados na escalões de acesso esporádicas ou frequente. 
+
+
+Se houver uma alteração no padrão de utilização dos seus dados, pode alternar entre estas camadas de acesso em qualquer altura. Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: Premium (pré-visualização), frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
-> A alteração da camada de acesso para uma conta de armazenamento existente ou um blob poderá resultar em encargos adicionais.
+> A alteração da camada de acesso para uma conta de armazenamento existente ou um blob poderá resultar em encargos adicionais. Para obter mais informações, consulte a [conta de armazenamento de faturação secção](#storage-account-billing).
 
-Para obter mais informações sobre as camadas de acesso, consulte [armazenamento de Blobs do Azure: Premium (pré-visualização), frequente, esporádico e de camadas de armazenamento de arquivo](../blobs/storage-blob-storage-tiers.md).
+
 
 ## <a name="replication"></a>Replicação
 

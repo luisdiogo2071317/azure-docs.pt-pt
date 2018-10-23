@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: ad9ef7aa56cde9dd2ae644b97570b3bcfb727516
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 49ef31996cb9c55ed244202a85e123faf52fbd2a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355561"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649787"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Recuperação acelerada de base de dados (pré-visualização)
 
@@ -108,7 +108,7 @@ Os quatro componentes principais de regras de implementação automática são:
   sLog é um fluxo de registos de dentro da memória secundário que criar arquivos de registos para operações sem versões (por exemplo, invalidação de cache de metadados, aquisições de bloqueios e assim por diante). O sLog é:
 
   - Volume baixo e dentro da memória
-  - Persistido no disco pela foi serializado durante o processo de ponto de verificação
+  - Persistido no disco, pelo que está a ser serializado durante o processo de ponto de verificação
   - Truncados periodicamente como consolidação de transações
   - Acelera Refazer e anular ao processar apenas as operações sem versões  
   - Permite o truncamento do log de transação agressiva, preservando apenas os registros de log necessárias
@@ -127,4 +127,4 @@ Os seguintes tipos de clientes devem considerar a ativação de ADR:
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Para ativar a ADR durante este período de pré-visualização
 
-Durante o período de pré-visualização para esta funcionalidade, envie um e-mail para [ mailto:adr@microsoft.com ](mailto:adr@microsoft.com) para saber mais e experimentar o recuperação de base de dados acelerada (ADR). No e-mail, inclua o nome do seu servidor lógico (para conjuntos elásticos, bases de dados individuais e o armazém de dados do Azure). Como essa é uma funcionalidade de pré-visualização, o seu servidor de teste deve ser um servidor de não produção.
+Durante o período de pré-visualização para esta funcionalidade, envie um e-mail para [ adr@microsoft.com ](mailto:adr@microsoft.com) para saber mais e experimentar o recuperação de base de dados acelerada (ADR). No e-mail, inclua o nome do seu servidor lógico (para conjuntos elásticos, bases de dados individuais e o armazém de dados do Azure). Como essa é uma funcionalidade de pré-visualização, o seu servidor de teste deve ser um servidor de não produção.

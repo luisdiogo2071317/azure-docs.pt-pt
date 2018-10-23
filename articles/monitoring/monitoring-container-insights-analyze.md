@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956680"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638004"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Compreender o desempenho de cluster do AKS com o Azure Monitor para contentores
 Clusters de visualizar o desempenho do seu Azure Kubernetes Service (AKS) podem ser observados de duas perspetivas com o Azure Monitor para contentores, diretamente a partir de um cluster do AKS ou ver todos os clusters do AKS numa subscrição do Azure Monitor. 
 
 Este artigo ajuda-o a compreender a experiência de entre as duas perspetivas e como avaliar rapidamente, investigar e resolver problemas detetados.
@@ -109,6 +109,10 @@ Mude para o **nós** separador e a hierarquia de linha segue o modelo de objeto 
 
 ![Hierarquia de nós do Kubernetes de exemplo na vista de desempenho](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+A partir de um nó expandido, pode desagregar do pod ou contentor em execução no nó para o controlador para ver os dados de desempenho filtrados para esse controlador. Clique no valor sob a **controlador** coluna para o nó específico.   
+
+![Desagregação de exemplo, a partir do nó para o controlador na vista de desempenho](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 Pode selecionar os controladores ou contentores na parte superior da página e reveja a utilização de estado e de recursos para esses objetos.  Se em vez disso, pretende rever a utilização da memória, na **métrica** na lista pendente, selecione **memória RSS** ou **conjunto de trabalho de memória**. **Memória RSS** só é suportada para Kubernetes versão 1.8 e posterior. Caso contrário, exibir os valores para **Min&nbsp; %**  como *NaN&nbsp;%*, que é um valor de tipo de dados numéricos que representa um indefinido ou valor não representável. 
 
 ![Vista de desempenho de nós de contentor](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Aqui pode ver o estado de funcionamento do desempenho dos seus controladores.
 
 ![Vista de desempenho de controladores do < nome >](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-A hierarquia de linha começa com um controlador e expande o controlador. Ver um ou mais contentores. Expanda um pod e a última linha apresenta o contentor agrupado para o pod.  
+A hierarquia de linha começa com um controlador e quando expande um controlador, exibir os pods de um ou mais.  Expanda o pod, e a última linha apresenta o contentor agrupado para o pod. De um controlador de expandido, pode desagregar para o nó que ele é executado em para ver os dados de desempenho filtrados para esse nó. Clique no valor sob a **nó** coluna para o controlador específico.   
+
+![Desagregação de exemplo, a partir do nó para o controlador na vista de desempenho](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 As informações que são apresentadas ao ver controladores são descritas na tabela a seguir:
 
@@ -178,6 +184,10 @@ No Seletor de, selecione **contentores**.
 Aqui pode ver o estado de funcionamento do desempenho de seus contentores do Kubernetes do Azure.  
 
 ![Vista de desempenho de controladores do < nome >](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+De um contentor, pode desagregar para um pod ou o nó para ver os dados de desempenho filtrados para esse objeto. Clique no valor sob a **Pod** ou **nó** coluna para o contentor específico.   
+
+![Desagregação de exemplo, a partir do nó para o controlador na vista de desempenho](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 As informações que são apresentadas quando exibir contêineres são descritas na tabela a seguir:
 

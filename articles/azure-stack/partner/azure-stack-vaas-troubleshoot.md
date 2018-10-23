@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ed070ac4fdf9ccca1b1b4b99b8031bc3fd035779
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 60cfc4a2b20d3c443562a1f66e9c205244d0beef
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160154"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645597"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Resolver problemas de validação como um serviço
 
@@ -26,27 +26,31 @@ ms.locfileid: "44160154"
 
 Seguem-se problemas comuns não relacionado com versões de software e as respectivas soluções.
 
-## <a name="the-portal-shows-local-agent-in-debug-mode"></a>O portal mostra agente local no modo de depuração
+## <a name="local-agent"></a>Agente local
+
+### <a name="the-portal-shows-local-agent-in-debug-mode"></a>O portal mostra agente local no modo de depuração
 
 O que é provável que uma vez que o agente não consegue enviar heartbeats para o serviço devido a uma ligação de rede instável. Um heartbeat é enviado a cada cinco minutos. Se o serviço não receber um heartbeat durante 15 minutos, em seguida, o serviço considera o agente inativo e testes já não serão agendados no mesmo. Verifique a mensagem de erro na *Agenthost.log* arquivo localizado no diretório onde o agente foi iniciado.
 
-> [!Note] 
+> [!Note]
 > Qualquer teste já em execução no agente irá continuar a executar, mas se o heartbeat não é restaurada antes de terminar o teste, em seguida, o agente irá falhar atualizar o estado de teste ou carregar registos. O teste será sempre apresentado como **em execução** e terão de ser cancelada.
 
-## <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>Processo de agente na máquina foi encerrado durante a execução de teste. O que esperar?
+### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>Processo de agente na máquina foi encerrado durante a execução de teste. O que esperar?
 
-Se o processo de agente é encerrado maneira brusca por exemplo, máquina reiniciada, processo terminado (CTRL + C na janela de agente é considerado desligamento não), em seguida, o teste que estava a ser executado no mesmo irá continuar a ser apresentado como **em execução**. Se o agente é reiniciado, então o agente irá atualizar o estado do teste para **cancelada**. Se o agente não for reiniciado, o teste é apresentado como **em execução** e têm de cancelar manualmente o teste
+Se o processo de agente é encerrado maneira brusca por exemplo, máquina reiniciada, processo terminado (CTRL + C na janela de agente é considerado desligamento não), em seguida, o teste que estava a ser executado no mesmo irá continuar a ser apresentado como **em execução**. Se o agente é reiniciado, então o agente irá atualizar o estado do teste para **cancelada**. Se o agente não for reiniciado, o teste é apresentado como **em execução** e têm de cancelar manualmente o teste.
 
-> [!Note] 
+> [!Note]
 > Testes de dentro de um fluxo de trabalho estão programados para são executados sequencialmente. **Pendente** testes não serão executados até que os testes no **em execução** Estado no mesmo fluxo de trabalho completo.
 
-## <a name="handle-slow-network-connectivity"></a>Lidar com a conectividade de rede lenta
+## <a name="vm-images"></a>Imagens de VM
+
+### <a name="handle-slow-network-connectivity"></a>Lidar com a conectividade de rede lenta
 
 Pode transferir a imagem do PIR para uma partilha no seu datacenter local. E, em seguida, pode verificar a imagem.
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Transferir a imagem do PIR para partilha local, em caso de tráfego de rede lenta
+#### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Transferir a imagem do PIR para partilha local, em caso de tráfego de rede lenta
 
 1. Baixe o AzCopy de: [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
 
@@ -65,7 +69,7 @@ Pode transferir a imagem do PIR para uma partilha no seu datacenter local. E, em
 > [!Note]  
 > LocalFileShare é o caminho de partilha ou o caminho local.
 
-### <a name="verifying-pir-image-file-hash-value"></a>Verificar o valor de hash de ficheiro de imagem do PIR
+#### <a name="verifying-pir-image-file-hash-value"></a>Verificar o valor de hash de ficheiro de imagem do PIR
 
 Pode usar **Get-HashFile** cmdlet para obter o valor de hash para o repositório de imagens públicas transferidos ficheiros de imagem para verificar a integridade das imagens.
 
@@ -77,6 +81,44 @@ Pode usar **Get-HashFile** cmdlet para obter o valor de hash para o repositório
 | Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
 | Ubuntu1604 20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Ocorre uma falha ao carregar a imagem de VM no `VaaSPreReq` script
+
+Em primeiro lugar, verifique que o ambiente está em bom estado:
+
+1. Partir do DVM / saltar caixa, verifique o que é conseguido iniciar sessão para o portal de administração com as credenciais de administrador.
+1. Confirme que não há alertas ou avisos.
+
+Se o ambiente está em bom estado, carrega manualmente as imagens de VM 5 necessárias para execuções de testes de VaaS:
+
+1. Inicie sessão como o administrador de serviço para o portal de administração. Pode encontrar o portal de administração do URL da loja ECE ou o ficheiro de informações do carimbo. Para obter instruções, consulte [parâmetros do ambiente](azure-stack-vaas-parameters.md#environment-parameters).
+1. Selecione **mais serviços** > **fornecedores de recursos** > **computação** > **imagens de VM**.
+1. Selecione o **+ adicionar** botão na parte superior a **imagens de VM** painel.
+1. Modificar ou verificar os valores dos campos seguintes para a primeira imagem VM:
+    > [!IMPORTANT]
+    > Nem todas as predefinições estiverem corretas para o Item do Marketplace existente.
+
+    | Campo  | Valor  |
+    |---------|---------|
+    | Publicador | MicrosoftWindowsServer |
+    | Oferta | WindowsServer |
+    | Tipo de SO | Windows |
+    | SKU | 2012-R2-Datacenter |
+    | Versão | 1.0.0 |
+    | URI de Blob de disco do SO | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+
+1. Selecione o botão **Criar**.
+1. Repita para as imagens VM restantes.
+
+As propriedades de todas as imagens VM 5 são os seguintes:
+
+| Publicador  | Oferta  | Tipo de SO | SKU | Versão | URI de Blob de disco do SO |
+|---------|---------|---------|---------|---------|---------|
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016 Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Canónico | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| Canónico | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre [validação de Azure Stack como um serviço](https://docs.microsoft.com/azure/azure-stack/partner).
+- Revisão [notas de versão para a validação como um serviço](azure-stack-vaas-release-notes.md) para alterações em versões mais recentes.

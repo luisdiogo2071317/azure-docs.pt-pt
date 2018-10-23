@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 47ea4fadba50fdbbd6d83531bd4eb40fc581d2ad
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950204"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638380"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é distribuída rastreio?
 
@@ -45,7 +45,7 @@ Os SDKs do Application Insights para .NET, .NET Core, Java, node. js e JavaScrip
 
 Com o adequada Application Insights SDK instalado e configurado, os informações de rastreamento são automaticamente recolhidas para estruturas populares, bibliotecas e as tecnologias pelo SDK automático-recoletores de dependência. A lista completa de tecnologias suportadas está disponível no [a documentação de coleção automática de dependência](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
- Além disso, qualquer tecnologia pode ser controlada manualmente com uma chamada para [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) sobre o [TeleletryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Além disso, qualquer tecnologia pode ser controlada manualmente com uma chamada para [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) sobre o [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
 
 ## <a name="enable-via-opencensus"></a>Ativar via OpenCensus
 

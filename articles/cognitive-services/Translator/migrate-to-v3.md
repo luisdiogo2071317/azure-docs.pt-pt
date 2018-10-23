@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429512"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645239"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
 
@@ -54,7 +54,7 @@ A seguinte lista de métodos V2 e V3 identifica as APIs que irá fornecer a func
 
 ## <a name="move-to-json-format"></a>Mover para o formato JSON
 
-V2 de tradução de texto do Microsoft Translator aceites e devolveu dados em formato XML. Na V3 todos os dados enviados e recebidos através da API está no formato JSON. XML já não serão aceites ou devolvido na V3. 
+V2 de tradução de texto do Microsoft Translator aceites e devolveu dados em formato XML. Na V3 todos os dados enviados e recebidos através da API está no formato JSON. XML já não serão aceites ou devolvido na V3.
 
 Esta alteração irá afetar vários aspectos de um aplicativo escrito para a API de tradução de texto do V2. Por exemplo: A API de idiomas devolve as informações de idioma para tradução de texto, Transliteração e os métodos de dicionário de dois. Pode pedir a todas as informações de idioma para todos os métodos numa chamada ou pedi-los individualmente.
 

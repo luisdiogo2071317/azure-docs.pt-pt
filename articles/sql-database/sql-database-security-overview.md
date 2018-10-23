@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: 7cabf1f0020e2f72dae138c7b7b79e69ce2fc677
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/22/2018
+ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456988"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646512"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -34,7 +34,7 @@ A Base de Dados SQL protege os seus dados ao oferecer encriptação para dados e
 > [!IMPORTANT]
 > Base de dados SQL do Azure impõe a encriptação (SSL/TLS) em todos os momentos para todas as ligações, que garante que todos os dados são encriptados "em trânsito" entre a base de dados e o cliente. Este processo ocorre independentemente da definição de **Encrypt** ou **TrustServerCertificate** na cadeia de ligação.
 >
-> Se o na cadeia de ligação da sua aplicação fizer **não** especificar uma ligação encriptada e, a *não* confiar no certificado de servidor (controlador de para o ADO.NET é **Encrypt = True**e **TrustServerCertificate = False**), seu aplicativo pode estar suscetível a um man o ataque intermediária, devido ao aplicativo não verificar o servidor ou a impor a encriptação. Se obter a cadeia de ligação do portal do Azure que pode ter as definições corretas
+> Na cadeia de ligação da sua aplicação, certifique-se de que especifica uma ligação encriptada e *não* confiar no certificado de servidor (controlador de para o ADO.NET é **Encrypt = True** e  **TrustServerCertificate = False**). Isto ajuda a impedir que a aplicação a partir de um homem no meio ataque, forçando o aplicativo para verificar se o servidor e impor encriptação. Se obter a cadeia de ligação do portal do Azure, terá as definições corretas.
 >
 > Para obter informações sobre TLS e conectividade, consulte [considerações de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -48,7 +48,7 @@ Para outras formas de encriptar os seus dados, considere:
 Deteção de dados e classificação (atualmente em pré-visualização) fornece capacidades avançadas incorporadas na base de dados SQL do Azure para detetar, classificação, etiquetagem e proteger os dados confidenciais em seus bancos de dados. A detetar e classificar os dados confidenciais extrema (empresas financeiras, cuidados de saúde, PII, etc.) pode desempenham um papel essencial na sua organização escritor de proteção de informações. Que possa servir como a infraestrutura para:
 
 - Vários cenários de segurança, como monitorização (auditoria) e os alertas no anómalo acesso a dados confidenciais.
-- Controlar o acesso ao e o sistema de proteção de segurança, bases de dados conter os dados altamente confidenciais.
+- Controlar o acesso ao e o sistema de proteção de segurança, bases de dados que contêm dados altamente confidenciais.
 - Ajudar a atender a requisitos de conformidade a normas e de normas de privacidade de dados.
 
 Para obter mais informações, consulte [introdução à deteção de dados do SQL DB e classificação](sql-database-data-discovery-and-classification.md).
@@ -82,7 +82,7 @@ A autorização diz respeito ao que um utilizador pode fazer dentro de uma Base 
 
 ### <a name="row-level-security"></a>Segurança ao Nível da Linha
 
-A Segurança ao Nível da Linha permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, associação a um grupo ou contexto de execução). Para obter mais informações, veja [Segurança ao Nível da Linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
+Segurança ao nível da linha permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que executa uma consulta (por exemplo, grupo associação ou contexto de execução). Para obter mais informações, veja [Segurança ao Nível da Linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
 
 ### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
 
@@ -94,11 +94,11 @@ A Base de Dados SQL protege os seus dados, fornecendo capacidades de auditoria e
 
 ### <a name="auditing"></a>Auditoria
 
-A Auditoria da Base de Dados SQL controla as atividades de base de dados e ajuda a manter a conformidade regulamentar, ao registar eventos de base de dados num registo de auditoria na conta de Armazenamento do Azure. A Auditoria permite-lhe compreender as atividades de base de dados em curso, bem como analisar e investigar atividade do histórico para identificar potenciais ameaças ou suspeita de abuso e violações de segurança. Para obter informações adicionais, veja [Introdução à Auditoria da Base de Dados SQL](sql-database-auditing.md).  
+A Auditoria da Base de Dados SQL controla as atividades de base de dados e ajuda a manter a conformidade regulamentar, ao registar eventos de base de dados num registo de auditoria na conta de Armazenamento do Azure. A Auditoria permite-lhe compreender as atividades de base de dados em curso, bem como analisar e investigar atividade do histórico para identificar potenciais ameaças ou suspeita de abuso e violações de segurança. Para obter mais informações, veja [Get started with SQL Database Auditing (Introdução à Auditoria da Base de Dados SQL)](sql-database-auditing.md).  
 
 ### <a name="threat-detection"></a>Deteção de ameaças
 
-Deteção de ameaças complementa a auditoria, fornecendo uma camada adicional de inteligência de segurança incorporada no serviço de base de dados do Azure SQL que Deteta tentativas invulgares e potencialmente prejudiciais de aceder ou explorar bases de dados. São alertados sobre atividades suspeitas, potenciais vulnerabilidades e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças podem ser visualizadas [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) e fornecer detalhes de atividade suspeita e a ação sobre como investigar e mitigar a ameaça recomendada. Deteção de ameaças custa us $15/servidor/mês. É gratuito durante os primeiros 60 dias. Para obter mais informações, veja [Get started with SQL Database Threat Detection (Introdução à Deteção de Ameaças da Base de Dados SQL)](sql-database-threat-detection.md).
+Deteção de ameaças complementa a auditoria, fornecendo uma camada adicional de inteligência de segurança incorporada no serviço de base de dados do Azure SQL que Deteta tentativas invulgares e potencialmente prejudiciais de aceder ou explorar bases de dados. É alertado sobre atividades suspeitas, potenciais vulnerabilidades, e ataques de injeção de SQL, bem como os padrões de acesso de base de dados anómalas. Alertas de deteção de ameaças podem ser visualizadas [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/) e fornecer detalhes de atividade suspeita e a ação sobre como investigar e mitigar a ameaça recomendada. Deteção de ameaças custa us $15/servidor/mês. É gratuito durante os primeiros 60 dias. Para obter mais informações, veja [Get started with SQL Database Threat Detection (Introdução à Deteção de Ameaças da Base de Dados SQL)](sql-database-threat-detection.md).
 
 ## <a name="compliance"></a>Conformidade
 
@@ -108,7 +108,7 @@ Além das funcionalidades acima e que podem ajudar a sua aplicação a cumprir d
 
 Base de dados SQL ajuda-o a gerir a segurança de dados ao fornecer análises de base de dados e um dashboard de segurança centralizada através de [avaliação de vulnerabilidades do SQL](sql-vulnerability-assessment.md).
 
-**Avaliação de vulnerabilidades**: [avaliação de vulnerabilidades do SQL](sql-vulnerability-assessment.md) (atualmente em pré-visualização) é uma fácil de configurar a ferramenta incorporada na base de dados do SQL do Azure que pode ajudá-lo a detetar, controlar e remediar potencial da base de dados vulnerabilidades. A avaliação executa uma análise de vulnerabilidade na base de dados e gera um relatório que permite-lhe ver o estado da segurança, incluindo passos acionáveis para resolver problemas de segurança e melhorar a segurança da base de dados. Os relatórios das avaliações podem ser personalizados para o seu ambiente, definindo uma linha de base aceitável para configurações de permissão, configurações de funcionalidades e definições de base de dados. Isso pode ajudá-lo a:
+**[Avaliação de vulnerabilidades do SQL](sql-vulnerability-assessment.md)**  é fácil configurar a ferramenta incorporada na base de dados do SQL do Azure que pode ajudá-lo a detetar, controlar e remediar potenciais vulnerabilidades das bases de dados. A avaliação executa uma análise de vulnerabilidade na base de dados e gera um relatório que permite-lhe ver o estado da segurança, incluindo passos acionáveis para resolver problemas de segurança e melhorar a segurança da base de dados. Os relatórios das avaliações podem ser personalizados para o seu ambiente, definindo uma linha de base aceitável para configurações de permissão, configurações de funcionalidades e definições de base de dados. Isso pode ajudá-lo a:
 
 - Cumprir os requisitos de conformidade que exigem os relatórios de análise de dados.
 - Cumpre as normas de privacidade de dados.

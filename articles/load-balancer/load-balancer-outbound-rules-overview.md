@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/8/2018
+ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883963"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637567"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Balanceador de carga
 
@@ -84,7 +84,7 @@ Utilize o parâmetro seguinte para alocar SNAT 10.000 portas por VM (configuraç
 
           "allocatedOutboundPorts": 10000
 
-Cada endereço IP público de front-ends todos de uma regra de saída contribui até 64.000 portas efêmeras para nós como portas SNAT.  Balanceador de carga aloca SNAT portas em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar o SNAT mais portas que estão disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se alocar portas de 10 000 por VM e 7 VMs num back-end conjunto compartilhariam um endereço IP público único, a configuração é rejeitadas (7 x 10,0000 SNAT portas > 64.000 SNAT portas).  Pode adicionar endereços IP públicos mais para o front-end da regra de saída para ativar o cenário.
+Cada endereço IP público de front-ends todos de uma regra de saída contribui até 64.000 portas efêmeras para utilização como portas SNAT.  Balanceador de carga aloca SNAT portas em múltiplos de 8. Se fornecer um valor não divisível por 8, a operação de configuração é rejeitada.  Se tentar alocar o SNAT mais portas que estão disponíveis com base no número de endereços IP públicos, a operação de configuração é rejeitada.  Por exemplo, se alocar portas de 10 000 por VM e 7 VMs num back-end conjunto compartilhariam um endereço IP público único, a configuração é rejeitadas (7 x 10,0000 SNAT portas > 64.000 SNAT portas).  Pode adicionar endereços IP públicos mais para o front-end da regra de saída para ativar o cenário.
 
 Pode reverter para [a alocação de porta SNAT automática com base no tamanho do conjunto de back-end](load-balancer-outbound-connections.md#preallocatedports) especificando 0 para o número de portas.
 

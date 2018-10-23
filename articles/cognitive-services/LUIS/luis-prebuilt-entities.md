@@ -8,99 +8,52 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041562"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647600"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entidades previamente concebidas para reconhecer os tipos de dados comuns
 
-LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento de tipos comuns de informações, como datas, horas, números, medidas e moeda. Suporte de entidade pré-criados varia consoante a cultura da sua aplicação LUIS. Para obter uma lista completa das entidades pré-criados que suporte o LUIS, incluindo o suporte por cultura, consulte a [referência de entidade pré-criados](./luis-reference-prebuilt-entities.md).
-
-> [!NOTE]
-> **Builtin.DateTime** foi preterido. Ele é substituído por [ **builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), que fornece o reconhecimento de data e intervalos de tempo, bem como reconhecimento aperfeiçoado de ambíguas datas e horas.
+LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento de tipos comuns de informações, como datas, horas, números, medidas e moeda. 
 
 ## <a name="add-a-prebuilt-entity"></a>Adicionar uma entidade pré-criados
 
 1. Abra a sua aplicação ao clicar em seu nome na **as minhas aplicações** página e, em seguida, clique em **entidades** no lado esquerdo. 
-2. Sobre o **entidades** página, clique em **gerir entidades pré-concebidas**.
 
-3. Na **adicionar entidades pré-concebidas** caixa de diálogo, clique na entidade pré-criados que pretende adicionar (por exemplo, "datetimeV2"). Em seguida, clique em **Guardar**.
+1. Sobre o **entidades** página, clique em **gerir entidades pré-concebidas**.
+
+1. Na **adicionar entidades pré-concebidas** diálogo caixa, selecione o datetimeV2 entidade pré-criados. 
 
     ![Adicionar a caixa de diálogo de entidade predefinidos](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)
 
-## <a name="use-a-prebuilt-number-entity"></a>Utilizar uma entidade de número pré-criados
-Quando uma entidade pré-criados é incluída na sua aplicação, respetivas previsões são incluídos em seu aplicativo publicado. O comportamento das entidades pré-concebidas é com formação prévia e **não é possível** ser modificado. Siga estes passos para ver como funciona uma entidade predefinida:
+1. Selecione **Done** (Concluído).
 
-1. Adicionar uma **número** entidade à sua aplicação, em seguida, [Train](luis-interactive-test.md) e [publicar](luis-how-to-publish-app.md) a aplicação.
-2. Clique no URL do ponto final no **publicar aplicação** página para abrir o ponto de extremidade do LUIS num navegador da web. 
-3. Acrescente uma expressão para o URL que contém uma expressão numérica. Por exemplo, pode digitar `buy two plane ticktets`e vê que identifica o LUIS `two` como um `builtin.number` entidade e identifica `2` ao respetivo valo no `resolution` campo. O `resolution` campo ajuda-o a resolver números e datas para um formato canónico, que é mais fácil para a sua aplicação de cliente utilizar. 
+## <a name="publish-the-app"></a>Publicar a aplicação
 
-    ![expressão no browser que contém uma entidade de número](./media/luis-use-prebuilt-entity/browser-query.png)
+A maneira mais fácil para ver o valor de uma entidade pré-criados é a consulta do ponto de extremidade publicado. 
 
-LUIS inteligentemente pode reconhecer números que não estão no formulário não padrão. Experimente diferentes expressões numéricas em seus discursos e ver o que retorna o LUIS.
+1. Na barra de ferramentas superior, selecione **publicar**. Publicar no **produção**. 
 
-O exemplo seguinte mostra uma resposta JSON do LUIS, que inclui a resolução do valor 24, para a expressão "duas dezenas".
+1. Quando a notificação de êxito verde é apresentada, selecione o **consulte a lista de pontos de extremidade** ligação para ver os pontos de extremidade.
 
-```json
-{
-  "query": "order two dozen tickets for group travel",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.905443209
-  },
-  "entities": [
-    {
-      "entity": "two dozen",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 14,
-      "resolution": {
-        "value": "24"
-      }
-    }
-  ]
-}
-```
-## <a name="use-a-prebuilt-datetimev2-entity"></a>Utilizar uma entidade de datetimeV2 pré-criados
-O **datetimeV2** entidade pré-criados reconhece as datas, horas, intervalos de datas e horas de duração. Siga estes passos para ver como o `datetimeV2` pré-criados de entidade funciona:
+1. Selecione um ponto de extremidade. É aberto um novo separador do browser para esse ponto final. Mantenha o separador do browser aberta e avance para o **teste** secção.
 
-1. Adicionar uma **datetimeV2** entidade à sua aplicação, em seguida, [Train](luis-interactive-test.md) e [publicar](luis-how-to-publish-app.md) a aplicação.
-2. Clique no URL do ponto final no **publicar aplicação** página para abrir o ponto de extremidade do LUIS num navegador da web. 
-3. Acrescente uma expressão para o URL que contém um intervalo de datas. Por exemplo, pode digitar `book a flight tomorrow`e vê que identifica o LUIS `tomorrow` como um `builtin.datetimeV2.date` entidade e identifica a data de amanhã ao respetivo valo no `resolution` campo. 
+## <a name="test"></a>Teste
+Depois da entidade é adicionada, não é necessário preparar a aplicação. 
 
-O exemplo seguinte mostra a resposta JSON do LUIS possível aparência se a data de hoje foram 31 de Outubro de 2017.
+Teste a intenção de novo no ponto final adicionado por um valor para o **p** parâmetro. Utilize a seguinte tabela para expressões sugeridas para **p**:
 
-```json
-{
-  "query": "book a flight tomorrow",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9063408
-  },
-  "entities": [
-    {
-      "entity": "tomorrow",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 14,
-      "endIndex": 21,
-      "resolution": {
-        "values": [
-          {
-            "timex": "2017-11-01",
-            "type": "date",
-            "value": "2017-11-01"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
+|Expressão de teste|Valor de entidade|
+|--|:--|
+|Programar um vôo de amanhã|2018-10-19|
+|Cancelar a marcação de 3 de Março|LUIS devolveu o mais recente 3 de Março no passado (2018-03-03) e 3 de Março no futuro (2019-03-03) porque a expressão não especificou um ano.|
+|Agendar uma reunião em 10 am|10:00:00|
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]

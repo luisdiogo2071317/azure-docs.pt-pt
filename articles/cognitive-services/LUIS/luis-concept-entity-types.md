@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: e6bb0735de94d0baaac3a8504ec1811cfbfff27f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353922"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650116"
 ---
 # <a name="entities-in-luis"></a>Entidades de LUIS
 
@@ -60,6 +60,10 @@ Na expressão "reservar quarto-me um pedido para Paris", "Paris" é uma entidade
 
 ## <a name="assign-entities-in-none-intent"></a>Atribuir entidades na intenção None
 Todos os objetivos, incluindo o **None** intenção, deve ter entidades com o nome. Isto ajuda a saber mais sobre em que as entidades são nas expressões e quais são palavras em torno das entidades de LUIS. 
+
+## <a name="entity-status-for-predictions"></a>Estado de entidade para predições
+
+Ver [previsões de estado de entidade](luis-how-to-add-example-utterances.md#entity-status-predictions) para obter mais informações. 
 
 ## <a name="types-of-entities"></a>Tipos de entidades
 LUIS oferece muitos tipos de entidades; entidades previamente concebidas, máquina personalizada aprendeu entidades e entidades de lista.

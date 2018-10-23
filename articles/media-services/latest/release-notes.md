@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 4001d0e21e7a0c8977d785463fb54aa4de45786c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 10bd2101839e1b6d1dbdc1e53c31693ab0be98fd
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378742"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647770"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure 
 
@@ -38,7 +38,7 @@ O [versão de disponibilidade geral do REST v3](https://github.com/Azure/azure-r
 
 #### <a name="azure-cli-20"></a>CLI 2.0 do Azure
  
-O módulo de CLI 2.0 do Azure para todas as funcionalidades, incluindo em direto, diretivas de chave de conteúdo, filtros de conta/ativo, políticas de transmissão em fluxo.
+O módulo de CLI 2.0 do Azure inclui atualmente operações para políticas de transmissão em fluxo em direto, diretivas de chave de conteúdo. Para obter mais informações, consulte [planos para alterações](#plans-for-changes).
 
 #### <a name="azure-resource-management"></a>Gestão de Recursos do Azure 
 
@@ -95,7 +95,7 @@ Versão de disponibilidade geral do indexador vídeo foi anunciado em Agosto. Pa
 
 ### <a name="plans-for-changes"></a>Planos para que as alterações
 
-A versão da CLI do Azure estará disponível em 10/23/2018.
+A versão da CLI do Azure estará disponível em 11/06/2018.
 
 ### <a name="known-issues"></a>Problemas conhecidos
 

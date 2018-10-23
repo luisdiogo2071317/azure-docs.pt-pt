@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39cfddc42ea0e03f6b0f6c8d1c0160839742518
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 98edf224ebbd15f6acafdfeb28769eecb4edff40
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393915"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638125"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
@@ -50,7 +50,7 @@ As funções são:
 
 - Administrador global ou de gravador de empresa
 
-- Administrador de Serviço Intune
+- Administrador de Serviços do Intune
 
 - Administrador de Conta de Utilizador
 
@@ -131,7 +131,7 @@ Para obter mais informações sobre como utilizar propriedades de extensão pers
 **Categoria de serviço:** acesso condicional  
 **Capacidade de produto:** proteção e segurança de identidade
 
-As seguintes aplicações estão na lista de [aplicações de cliente aprovadas](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement):
+As seguintes aplicações estão na lista de [aplicações de cliente aprovadas](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
 
 - Microsoft To-Do
 
@@ -351,7 +351,7 @@ Esta é uma participação ativa pré-visualização pública. Para obter mais i
 
 ## <a name="july-2018"></a>Julho de 2018
 
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Melhorias às notificações de e-mail do Azure Active Directory
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Notificações por e-mail melhorias ao Azure Active Directory
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** outros  
@@ -375,7 +375,7 @@ Para obter um exemplo de alguns dos novos designs de email e obter mais informa�
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Os Registos de Atividade do Azure AD estão agora disponíveis através do Azure Monitor
+### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Registos de atividade do Azure AD estão agora disponíveis através do Azure Monitor
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** relatórios  
@@ -413,7 +413,7 @@ Com a introdução do **aplicação de cliente** registos de campo da atividade 
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Novas Aplicações Federadas disponíveis na galeria de aplicações do Azure AD - Julho de 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Novas aplicações federadas disponíveis na Galeria de aplicações do Azure AD - Julho de 2018
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aplicações empresariais  
@@ -427,7 +427,7 @@ Para obter mais informações sobre as aplicações, consulte [integração de a
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Novas integrações de aplicações SaaS para aprovisionamento de utilizadores - Julho de 2018
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Novo utilizador aprovisionamento integrações de aplicação SaaS - Julho de 2018
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** aprovisionamento de aplicações  
@@ -445,7 +445,7 @@ Para obter uma lista de todas as aplicações que suportam o aprovisionamento de
 
 ---
 
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health para Sincronização - Uma forma mais fácil de corrigir os erros de sincronização de atributos duplicados e órfãos
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health para sincronização - uma maneira mais fácil para corrigir erros de sincronização do atributo órfãos e duplicados
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** AD Connect  
@@ -463,7 +463,7 @@ Para obter mais informações, consulte [diagnosticar e resolver erros de sincro
 
 ---
 
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Atualizações visuais às experiências de início de sessão do Azure AD e MSA
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Elemento visual atualiza para o Azure AD e experiências de MSA início de sessão
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** do Azure AD  
@@ -473,7 +473,7 @@ Atualizámos a interface do Usuário para a experiência da Microsoft online ser
 
 ---
 
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nova versão do Azure AD Connect - Julho de 2018
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nova versão do Azure AD Connect – Julho de 2018
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** aprovisionamento de aplicações  
@@ -491,7 +491,7 @@ Para obter mais informações sobre esta atualização, consulte [do Azure AD Co
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Atualizações à IU de utilizador final dos Termos de Utilização (TdU)
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Atualizações para o utilizador final de termos de utilização (ToU) da interface do Usuário
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** termos de utilização  
@@ -539,7 +539,7 @@ Esta é uma participação ativa pré-visualização pública. Os administradore
 
 ---
  
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Utilize a aplicação Microsoft Authenticator para verificar a sua identidade ao repor a palavra-passe
+### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Utilizar a aplicação Microsoft Authenticator para verificar a sua identidade ao repor a palavra-passe
 
 **Tipo:** funcionalidade foi alterado  
 **Categoria de serviço:** SSPR  

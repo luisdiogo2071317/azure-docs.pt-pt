@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 4ce7b3a6b455384180184aa3b9be34fb88da266b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314042"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637719"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>População do AD UserPrincipalName do Azure
 
@@ -112,7 +112,7 @@ Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - email: us2@contoso.com
-- userPrincipalName: us3@contoso.com
+- UserPrincipalName: us3@contoso.com
 
 Sincronizar atualizações no atributo de mailNickName no local para o inquilino do Azure AD
 - Atualize o atributo MailNickName do Azure AD com o atributo mailNickName no local.
@@ -130,7 +130,7 @@ Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - email: us2@contoso.com
-- userPrincipalName: us5@contoso.com
+- UserPrincipalName: us5@contoso.com
 
 Sincronizar atualizações no atributo de userPrincipalName no local para o inquilino do Azure AD
 - Atualização no atributo de userPrincipalName no local aciona o recálculo do atributo MOERA e UserPrincipalName do Azure AD.
@@ -149,7 +149,7 @@ Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - email: us7@contoso.com
-- userPrincipalName: us5@contoso.com
+- UserPrincipalName: us5@contoso.com
 
 Sincronizar a atualização no atributo de correio no local e o endereço SMTP principal para o inquilino do Azure AD
 - Após a sincronização inicial de objeto do usuário, de atualizações para o atributo de correio no local e o endereço SMTP principal não afetarão o MailNickName do AD do Azure ou o atributo UserPrincipalName.
@@ -166,7 +166,7 @@ Objeto de utilizador no local:
 - mailNickName      : us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - email: us7@contoso.com
-- serPrincipalName  : us5@verified.contoso.com
+- UserPrincipalName: us5@verified.contoso.com
 
 Sincronizar atualizações no atributo de userPrincipalName no local para o inquilino do Azure AD
 - Atualização no local userPrincipalName atributo acionadores recálculo de atributo UserPrincipalName do Azure AD.

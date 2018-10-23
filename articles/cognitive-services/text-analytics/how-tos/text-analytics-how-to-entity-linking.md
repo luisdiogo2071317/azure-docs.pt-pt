@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248079"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645802"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto (pré-visualização)
 
@@ -26,14 +26,14 @@ O [a API de reconhecimento de entidades](https://westus.dev.cognitive.microsoft.
 Análise de texto `entities` supprts ponto final com o nome de reconhecimento de entidades (NER) e ligação de entidades.
 
 ### <a name="entity-linking"></a>Ligar à Entidade
-Entidade de ligação é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada no texto (por exemplo, determinar se o "Mars" está a ser utilizado como o planeta ou como o Deus Roman da war). Este processo requer a presença de um conhecimento base para a qual reconhecido entidades são vinculadas - Wikipedia é utilizada como a base de dados de conhecimento para o `entities` ponto final de análise de texto.
+Ligação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada no texto (por exemplo, que determina se o "Mars" está a ser utilizado como o planeta ou como o Deus Roman da war). Este processo requer a presença de um conhecimento base para a qual reconhecido entidades são vinculadas - Wikipedia é utilizada como a base de dados de conhecimento para o `entities` ponto final de análise de texto.
 
-Na análise de texto [versão 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), apenas a ligação de entidades está disponível.
+Na análise de texto [versão 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), apenas a ligação de entidades está disponível.
 
 ### <a name="named-entity-recognition-ner"></a>O reconhecimento de entidades (NER)
 Com o nome de entidades (NER) é a capacidade de identificar as diferentes entidades em texto e categorize-as em classes predefinidas. As classes de entidades de suportados estão listadas abaixo.
 
-Na pré-visualização de análise de texto versão 2.1 (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), ligação de entidades e o reconhecimento de entidades (NER) estão disponíveis.
+Na análise de texto [versão 2.1-Preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), ligação de entidades e o reconhecimento de entidades (NER) estão disponíveis.
 
 ### <a name="language-support"></a>Suporte de idiomas
 
@@ -70,11 +70,11 @@ Através do entity linking em várias linguagens requer a utilização de uma ba
 
 ## <a name="preparation"></a>Preparação
 
-Tem de ter documentos JSON no seguinte formato: id, o texto, o idioma
+Tem de ter documentos JSON neste formato: id, texto, idioma
 
 Para idiomas atualmente suportados, consulte [esta lista](../text-analytics-supported-languages.md).
 
-Tamanho do documento tem de ter menos de 5000 carateres por documento e pode ter até 1.000 itens (IDs) por coleção. A coleção for submetida no corpo do pedido. O exemplo seguinte é uma ilustração de conteúdo que pode enviar para o final de ligação de entidade.
+Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O exemplo seguinte é uma ilustração de conteúdo que pode enviar para o final de ligação de entidade.
 
 ```
 {"documents": [{"id": "1",
@@ -89,32 +89,32 @@ Tamanho do documento tem de ter menos de 5000 carateres por documento e pode ter
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Passo 1: Estruturar o pedido
+## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
 
-Obter detalhes sobre a definição de pedido podem ser encontrados na [como chamar a API de análise de texto](text-analytics-how-to-call-api.md). Os pontos seguintes são expressas novamente para sua comodidade:
+Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
-+ Criar uma **POST** pedido. Reveja a documentação da API para este pedido: [API do Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Crie um pedido **POST**. Reveja a documentação da API para este pedido: [API do Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Defina o ponto de final HTTP para extração de expressões-chave. Tem de incluir o `/entities` recursos: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Defina o ponto final HTTP para a extração de expressões-chave. Tem de incluir o recurso `/entities`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
-+ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de análise de texto. Para obter mais informações, consulte [como encontrar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, veja [Como localizar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
 
-+ No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise
++ No corpo do pedido, forneça a coleção de documentos JSON que preparou para esta análise.
 
 > [!Tip]
-> Uso [Postman](text-analytics-how-to-call-api.md) ou abrir o **consola de teste de API** no [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) para estruturar uma solicitação e POSTÁ-lo para o serviço.
+> Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: Publicar o pedido
+## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
 
-Análise é executada após a receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
+A análise é realizada aquando da receção do pedido. O serviço aceita até 100 pedidos por minuto. Cada pedido pode ter um máximo de 1 MB.
 
-Lembre-se de que o serviço está sem monitoração de estado. Nenhum dado é armazenado na sua conta. Os resultados são retornados imediatamente na resposta.
+Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Passo 3: Ver resultados
+## <a name="step-3-view-results"></a>Passo 3: ver resultados
 
-Todos os pedidos POST devolvem um JSON formatado de resposta com os IDs e detetado propriedades.
+Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
 
-Saída é retornada imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou salvar a saída num arquivo no sistema local e, em seguida, importá-lo num aplicativo que permite-lhe ordenar, procure e manipular os dados.
+O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
 
 Um exemplo da saída para a entidade de ligação é mostrado a seguir:
 
@@ -277,20 +277,20 @@ Um exemplo da saída para a entidade de ligação é mostrado a seguir:
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, aprendeu conceitos e fluxo de trabalho para a ligação de entidades com a análise de texto nos serviços cognitivos. Em Resumo:
+Neste artigo, aprendeu conceitos e fluxo de trabalho para a ligação de entidades com a análise de texto nos serviços cognitivos. Em resumo:
 
 + [Entidades API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) está disponível para os idiomas selecionados.
-+ Documentos JSON no corpo do pedido incluem um código de id, texto e idiomas.
-+ É uma solicitação POST para um `/entities` ponto de extremidade, usando um personalizadas [aceder a chave e um ponto de extremidade](text-analytics-how-to-access-key.md) que é válido para a sua subscrição.
++ Os documentos JSON no corpo do pedido incluem um id, texto e código de idioma.
++ O pedido POST refere-se a um ponto final `/entities` com recurso a uma [chave de acesso personalizada e um ponto final](text-analytics-how-to-access-key.md) válido para a sua subscrição.
 + Saída de resposta, que consiste em entidades associadas (incluindo confiança pontuações, deslocamentos e ligações web, para cada ID de documento) pode ser utilizada em qualquer aplicação
 
 ## <a name="see-also"></a>Consulte também 
 
  [Descrição Geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Página de produto de análise de texto](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [API de análise de texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [API de Análise de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

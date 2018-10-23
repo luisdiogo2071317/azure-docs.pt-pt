@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: cbb19ab831e242a48532bedef37157455c9fb583
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8cfa6493a565a8ed3b059e1da752da5115d0731d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431314"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649861"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Melhorar o desempenho de cargas de trabalho do Apache Spark com o Azure HDInsight e/s de Cache (pré-visualização)
 
-Cache de e/s é um serviço de colocação em cache de dados para o Azure HDInsight, que melhora o desempenho das tarefas do Apache Spark. E/s de Cache utiliza um componente de colocação em cache de código-fonte aberto chamado RubiX. RubiX é uma cache de disco local para utilização com motores de análise de macrodados que aceder a dados de sistemas de armazenamento na cloud. RubiX é exclusivo entre sistemas, a colocação em cache, porque utiliza Solid-State unidades (SSDs) em vez de reserva de memória operacionais para fins de colocação em cache. O serviço de Cache de e/s inicia e gere RubiX metadados servidores em cada nó de trabalho do cluster. Ele também configura todos os serviços do cluster para utilização transparente de RubiX cache.
+Cache de e/s é um serviço de colocação em cache de dados para o Azure HDInsight, que melhora o desempenho das tarefas do Apache Spark. Cache de e/s também funciona com e ao Hive no Tez cargas de trabalho, que podem ser executadas em clusters do Spark. E/s de Cache utiliza um componente de colocação em cache de código-fonte aberto chamado RubiX. RubiX é uma cache de disco local para utilização com motores de análise de macrodados que aceder a dados de sistemas de armazenamento na cloud. RubiX é exclusivo entre sistemas, a colocação em cache, porque utiliza Solid-State unidades (SSDs) em vez de reserva de memória operacionais para fins de colocação em cache. O serviço de Cache de e/s inicia e gere RubiX metadados servidores em cada nó de trabalho do cluster. Ele também configura todos os serviços do cluster para utilização transparente de RubiX cache.
 
 A maioria dos SSDs fornecem mais do que 1 GByte por segundo de largura de banda. Essa largura de banda, complementada pela cache de ficheiros de dentro da memória do sistema operativo, fornece a largura de banda suficiente para carregar os motores de processamento de computação de grandes volumes de dados, como o Apache Spark. A memória operacional fica disponível para o Apache Spark processar tarefas de bastante dependente de memória, como shuffles. Ter uso exclusivo de operar memória permite o Apache Spark alcançar a utilização de recursos ideal.  
 
@@ -25,7 +25,7 @@ A maioria dos SSDs fornecem mais do que 1 GByte por segundo de largura de banda.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Benefícios da Cache de e/s do Azure HDInsight
 
-Colocação em cache proporciona um aumento de desempenho para as tarefas de leitura de dados do armazenamento na cloud remota.
+Utilizar a Cache de e/s fornece um aumento de desempenho para as tarefas de leitura de dados do armazenamento de Blobs do Azure.
 
 Não é preciso fazer alterações às suas tarefas do Spark para aumentos de desempenho ao utilizar a Cache de e/s. Quando o Cache de e/s é desativado, esse código do Spark poderia ler os dados remotamente do armazenamento de Blobs do Azure: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. Quando o Cache de e/s é ativado, a mesma linha de código faz com que uma leitura em cache por meio do Cache de e/s. No seguintes leituras, os dados são lidos localmente de SSD. Nós de trabalho no cluster do HDInsight estão equipados com unidades SSD ligadas localmente e dedicadas. Cache de e/s de HDInsight utiliza estas SSDs locais para colocar em cache, que fornece o nível mais baixo da latência e maximiza a largura de banda.
 
@@ -46,7 +46,7 @@ A Cache de e/s do Azure HDInsight é desativada por predefinição em pré-visua
 1. Confirme o reinício de todos os serviços afetados no cluster.
 
 >[!NOTE] 
-> Mesmo que a barra de progresso mostra ativada, Cache de e/s, na verdade, não está ativada enquanto não reiniciar o serviço.
+> Mesmo que a barra de progresso mostra ativada, o Cache de e/s, na verdade, não está ativado enquanto não reiniciar os serviços afetados.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
   
@@ -75,3 +75,7 @@ Poderá receber erros de espaço em disco com o Spark tarefas depois de ativar a
 1. Selecione **confirmar reinício todos os**.
 
 Se isto não resultar, desative o Cache de e/s.
+
+## <a name="next-steps"></a>Próximos Passos
+
+- Saiba mais sobre a Cache de e/s, incluindo testes de desempenho nesta mensagem de blogue: [tarefas do Apache Spark ganhar até 9 x seja mais rápido com a Cache de e/s do HDInsight](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

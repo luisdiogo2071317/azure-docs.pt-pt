@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351307"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638023"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Ligar e autenticar para APIs
 
@@ -46,6 +46,7 @@ Para começar a trabalhar com as APIs de duplos Digital, pode utilizar o cliente
 1. Navegue para https://www.getpostman.com/ para transferir a aplicação
 1. Siga os passos [aqui](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure Active Directory (ou pode optar por utilizar um registo existente novamente). 
 1. Em permissões necessárias, adicione "Duplos Digital do Azure" e selecione permissões delegadas. Não se esqueça de clicar em conceder permissões para finalizar.
+1. Abra o manifesto do aplicativo e defina oauth2AllowImplicitFlow como verdadeiro
 1. Configurar um url de resposta para [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
 1. Selecione o **separador de autorização**, clique em **OAuth 2.0**e selecione **obter novo Token de acesso**.
 

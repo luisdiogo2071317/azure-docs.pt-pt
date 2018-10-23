@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6c41890922e2235190d8844a573522846b42c779
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434505"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637736"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,7 +50,7 @@ O **ClaimType** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Nome a Apresentar | 0:1 | O título apresentado aos utilizadores nos vários ecrãs. O valor pode ser [localizada](localization.md). |
+| displayName | 0:1 | O título apresentado aos utilizadores nos vários ecrãs. O valor pode ser [localizada](localization.md). |
 | Tipo de dados | 0:1 | O tipo de afirmação. Os tipos de dados de boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection pode ser utilizado. |
 | DefaultPartnerClaimTypes | 0:1 | A predefinição de parceiro de afirmação tipos a utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado na **InputClaim** ou **OutputClaim** elementos. Utilize este elemento para especificar o nome predefinido para um protocolo.  |
 | Máscara | 0:1 | Uma cadeia de caracteres opcional de máscara de caracteres que podem ser aplicadas ao exibir a afirmação. Por exemplo, o 324-232-4343 número telefone pode ser mascarado como XXX-XXX-4343. |
@@ -88,7 +88,7 @@ No exemplo seguinte, quando o Framework de experiência de identidade interage c
 </ClaimType>
 ```
 
-Como resultado, o token JWT emitido pelo Azure AD B2C, omite a `family_name` em vez do nome de ClaimType **Apelido**.
+Como resultado, o token JWT emitido pelo Azure AD B2C, emite a `family_name` em vez do nome de ClaimType **Apelido**.
  
 ```JSON
 {
