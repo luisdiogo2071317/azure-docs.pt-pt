@@ -1,5 +1,5 @@
 ---
-title: Validar as atualizações de software da Microsoft na validação do Azure Stack como serviço | Documentos da Microsoft
+title: Validar as atualizações de software da Microsoft no Azure Stack validação como um serviço | Documentos da Microsoft
 description: Aprenda a validar as atualizações de software da Microsoft com a validação como um serviço.
 services: azure-stack
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 6ef8c0486a694ac44c53375b24893812b10343e4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7fcc7d5a1d87fe93d32772dbbb84f1d3c91d5631
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158488"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648790"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Validar as atualizações de software da Microsoft
 
@@ -26,38 +26,22 @@ ms.locfileid: "44158488"
 
 A Microsoft lançará periodicamente atualizações para o software do Azure Stack. Estas atualizações são fornecidas para parceiros de engenharia conjuntas do Azure Stack antecedência a ser disponibilizadas publicamente para que eles possam validar as atualizações em suas soluções e fornecer comentários à Microsoft.
 
-## <a name="test-an-existing-solution"></a>Testar uma solução existente
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-1. Inicie sessão para o [portal de validação](https://azurestackvalidation.com).
+## <a name="apply-monthly-update"></a>Aplicar atualização mensal
 
-2. Selecione uma solução existente em que a atualização da Microsoft foi implementada e selecione **começar** sobre o **validação do pacote** mosaico.
+[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
 
-    ![Validação do pacote](media/image3.png)
+## <a name="create-a-workflow"></a>Criar um fluxo de trabalho
 
-3. Introduza o nome de validação.
+Utilizam o mesmo fluxo de trabalho como validações de atualização **validação do pacote**. Siga as instruções em [criar um fluxo de trabalho de validação do pacote](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
 
-4. Introduza o URL para o pacote de OEM que foi instalado na solução no momento da implementação. Utilize o URL para o pacote armazenado no serviço de Blobs do Azure. Para obter mais informações, consulte [criar um blob de armazenamento do Azure para armazenar registos](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
+## <a name="run-tests"></a>Executar testes
 
-5. Selecione **carregar** ao adicionar o ficheiro de configuração de implementação. Consulte a [validação de uma nova solução de pilha do Azure](azure-stack-vaas-validate-solution-new.md) para obter informações sobre a carregar o ficheiro de configuração de implementação.
+Utilizam o mesmo fluxo de trabalho como validações de atualização **validação do pacote**. Siga as instruções em [testes de validação do pacote executar](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
 
-6. O ficheiro de configuração de implementação, em seguida, tem de ser personalizados com o ficheiro de parâmetros de ambiente correto, consulte [parâmetros do ambiente](azure-stack-vaas-parameters.md#environment-parameters) para obter mais detalhes.
-
-    > [!Note]   
-    > O ficheiro de configuração de implementação pode ser personalizado ao adicionar parâmetros comuns de teste. Para obter mais informações, consulte [parâmetros comuns do fluxo de trabalho para a validação do Azure Stack como serviço](azure-stack-vaas-parameters.md)
-
-7. O nome de utilizador e palavra-passe para o utilizador do inquilino, o administrador de serviço e o administrador da nuvem tem de ser introduzidos manualmente.
-
-8. Forneça o URL para o blob de armazenamento do Azure para armazenar os registos de diagnóstico. Para obter mais informações, consulte [criar um blob de armazenamento do Azure para armazenar registos](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
-
-    > [!Note]  
-    > Marcas descritivas podem ser introduzidas para etiquetar o fluxo de trabalho.
-
-10. Selecione **submeter** para guardar o fluxo de trabalho.
-
-O fluxo de trabalho de solução é executada durante cerca de 24 horas. Adicione uma ligação para ou a instrução no agendamento os testes. Clear na ferramenta.
-
-Encontrar mais informações sobre como monitorizar o progresso de uma validação executar, veja [monitorar um teste ](azure-stack-vaas-monitor-test.md).
+Não é necessário pedir para validações de atualização de assinatura do pacote.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre [validação de Azure Stack como um serviço](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitorizar e gerir os testes no portal do VaaS](azure-stack-vaas-monitor-test.md)
