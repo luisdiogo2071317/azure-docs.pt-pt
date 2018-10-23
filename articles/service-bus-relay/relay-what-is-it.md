@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888134"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319341"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
 O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma ligação de firewall ou efetuar alterações intrusivas à infraestrutura de rede empresarial. 
@@ -81,10 +81,9 @@ O diagrama seguinte mostra como os pedidos de reencaminhamento recebidos são pr
 4. O gateway que recebe o pedido procura o reencaminhamento no arquivo de gateway. 
 5. O gateway encaminha o pedido de ligação para o gateway correto mencionado no arquivo de gateway. 
 6. O gateway envia um pedido para o cliente de escuta para este criar um canal temporário para o nó de gateway que está mais próximo do cliente de envio. 
-7. Agora, o cliente de escuta cria um canal temporário e envia uma mensagem de resposta para o gateway que está mais próximo do cliente de envio.
-8. O gateway encaminha a mensagem de resposta para o cliente de envio. 
-
-Quando a ligação de reencaminhamento é estabelecida, os clientes podem trocar mensagens através do nó de gateway utilizado para o encontro.
+7. O cliente de escuta cria um canal temporário para o gateway que está mais próximo do cliente de envio. Agora que a ligação é estabelecida entre os clientes através de um gateway, os clientes podem trocar mensagens entre si. 
+8. O gateway encaminha qualquer outra forma de mensagens do cliente de escuta para o cliente de envio. 
+9. O gateway encaminha qualquer outra forma de mensagens do cliente de envio para o cliente de escuta.  
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução aos Websockets de .NET](relay-hybrid-connections-dotnet-get-started.md)

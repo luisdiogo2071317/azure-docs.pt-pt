@@ -1,6 +1,6 @@
 ---
-title: Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com a Identidade de Serviço Gerida
-description: Utilize a imagem do Marketplace para criar a máquina virtual Terraform Linux com a Identidade de Serviço Gerida e Gestão de Estado Remota para implementar facilmente recursos no Azure.
+title: Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com uma identidade gerida
+description: Utilize a imagem do Marketplace para criar a máquina virtual Terraform Linux com uma identidade gerida e Gestão de Estado Remota para implementar facilmente recursos no Azure.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, máquina virtual, estado remoto, azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669392"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343831"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com a Identidade de Serviço Gerida
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com identidades geridas para recursos do Azure
 
-Este artigo mostra-lhe como utilizar uma [imagem Terraform do Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) para criar uma VM do Linux Ubuntu (16.04 LTS) com a versão mais recente do [Terraform](https://www.terraform.io/intro/index.html) instalada e configurada com [Identidade de Serviço Gerida (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Esta imagem também configura um back-end remoto para permitir a gestão de [estado remoto](https://www.terraform.io/docs/state/remote.html) através do Terraform. 
+Este artigo mostra-lhe como utilizar uma [imagem Terraform do Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) para criar uma VM do Linux Ubuntu (16.04 LTS) com a versão mais recente do [Terraform](https://www.terraform.io/intro/index.html) instalada e configurada com [identidades geridas para os recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Esta imagem também configura um back-end remoto para permitir a gestão de [estado remoto](https://www.terraform.io/docs/state/remote.html) através do Terraform. 
 
 A imagem Terraform do Marketplace facilita começar a utilizar o Terraform no Azure sem ter de instalar e configurar o Terraform manualmente. 
 
@@ -79,13 +79,13 @@ A imagem da VM do Terraform efetua os seguintes passos:
 
 Após criar a VM, pode iniciar sessão com SSH. Utilize as credenciais da conta que criou na secção "Noções básicas" do passo 3 para a interface de shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH, como o [Putty](http://www.putty.org/).
 
-Após utilizar o SSH para ligar à máquina virtual, tem de dar permissões de contribuidor para toda a subscrição à Identidade de Serviço Gerida na máquina virtual. 
+Após utilizar o SSH para ligar à máquina virtual, tem de dar permissões de contribuidor para toda a subscrição a identidades geridas para recursos do Azure na máquina virtual. 
 
 A permissão de contribuidor ajuda o MSI na VM a utilizar o Terraform de forma a criar recursos fora do grupo de recursos da VM. Pode facilmente conseguir isto ao executar um script uma vez. Utilize o seguinte comando:
 
 `. ~/tfEnv.sh`
 
-O script anterior utiliza o mecanismo de [início de sessão interativo do AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) para autenticar com o Azure e atribuir a permissão de contribuidor de Identidade de Serviço Gerida em máquinas virtuais em toda a subscrição. 
+O script anterior utiliza o mecanismo de [início de sessão interativo do AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) para autenticar com o Azure e atribuir a permissão de contribuidor de Identidade Gerida em máquinas virtuais em toda a subscrição. 
 
  A VM tem um back-end de estado remoto do Terraform. Para o ativar na sua implementação do Terraform, copie o ficheiro remoteState.tf do diretório tfTemplate para a raiz dos scripts do Terraform.  
 

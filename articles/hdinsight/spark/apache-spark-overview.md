@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 9e4cb497a2dc81b9503b03fd2db27ff2538d424a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039687"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378722"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
 
-*Apache Spark* uma estrutura de processamento paralelo de código aberto que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. O Apache Spark no Azure HDInsight é a implementação da Microsoft do Apache Hadoop na cloud. O HDInsight permite criar e configurar clusters do Spark mais facilmente na cloud. Os clusters do Spark no HDInsight são compatíveis com o Armazenamento do Azure e com o Azure Data Lake Store. Por isso, pode utilizá-los para processar os dados armazenados no Azure. Para obter informações sobre os componentes e informações das versões, veja [Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md) (Componentes e versões do Hadoop no Azure HDInsight).
+*Apache Spark* uma estrutura de processamento paralelo de código aberto que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. O Apache Spark no Azure HDInsight é a implementação da Microsoft do Apache Spark na cloud. O HDInsight permite criar e configurar clusters do Spark mais facilmente na cloud. Os clusters do Spark no HDInsight são compatíveis com o Armazenamento do Azure e com o Azure Data Lake Store. Por isso, pode utilizá-los para processar os dados armazenados no Azure. Para obter informações sobre os componentes e informações das versões, veja [Hadoop components and versions in Azure HDInsight](../hdinsight-component-versioning.md) (Componentes e versões do Hadoop no Azure HDInsight).
 
 ![Spark: uma arquitetura unificada](./media/apache-spark-overview/hdinsight-spark-overview.png)
 

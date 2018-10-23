@@ -10,30 +10,31 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b10072e01391da3845567c16fa7cc312ed23ceb2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b9a5dbdc1e7950400597c76359b8eee4268af6d0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368057"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320378"
 ---
-# <a name="quickstart-identify-language-from-text-with-c35"></a>Guia de Início Rápido: Identificar o idioma do texto com C&#35;
+# <a name="quickstart-identify-language-from-text-with-c35"></a>Início rápido: Identificar o idioma do texto com C&#35;
 
-Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
-
-O código fonte para este exemplo está disponível no [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Irá precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.)
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="detect-request"></a>Pedido de deteção
 
+> [!TIP]
+> Obtenha o código mais recente do [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+
 O código seguinte identifica o idioma do texto de origem com o método [Detetar](./reference/v3-0-detect.md).
 
-1. Crie um novo projeto do C# no seu IDE favorito.
+1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -121,7 +122,7 @@ namespace TranslatorTextQuickStart
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos do C# no GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)

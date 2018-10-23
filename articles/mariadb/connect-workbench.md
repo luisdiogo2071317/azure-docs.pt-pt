@@ -1,6 +1,6 @@
 ---
 title: Ligar à Azure Database for MariaDB a partir de MySQL Workbench
-description: Este Início Rápido indica os passos para utilizar o MySQL Workbench para se ligar e consultar dados da Azure Database for MariaDB.
+description: Este início rápido indica os passos para utilizar o MySQL Workbench para se ligar e consultar dados do Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
@@ -9,69 +9,77 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b3a4d00381361b5299e86b959d9775318ae81e88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45c1207ab6ab2a7a649efcd355bcab06ea79e149
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998251"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49317607"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: Utilizar MySQL Workbench para se ligar e consultar dados
-Este início rápido demonstra como se pode ligar a uma Azure Database for MariaDB através da aplicação MySQL Workbench. 
+
+Este início rápido demonstra como ligar a uma instância do Azure Database for MariaDB através do MySQL Workbench. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este guia de início rápido utiliza os recursos criados em qualquer um destes guias como ponto de partida:
-- [Criar uma Azure Database for MariaDB Server através do portal do Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
-- [Criar uma Azure Database for MariaDB Server através da CLI do Azure](./quickstart-create-mariadb-server-database-using-azure-cli.md)
+
+Este início rápido utiliza os recursos criados em qualquer um dos guias seguintes como ponto de partida:
+
+- [Criar um servidor do Azure Database for MariaDB com o portal do Azure](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [Criar um servidor do Azure Database for MariaDB com a CLI do Azure](./quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 ## <a name="install-mysql-workbench"></a>Instalar MySQL Workbench
-Transfira e instale o MySQL Workbench no seu computador a partir do [site do MySQL](https://dev.mysql.com/downloads/workbench/).
+
+[Transfira o MySQL Workbench](https://dev.mysql.com/downloads/workbench/) e instale-o no seu computador.
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
-Obtenha as informações de ligação necessárias para se ligar à Azure Database for MariaDB. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Obtenha as informações de ligação necessárias para ligar à instância do Azure Database for MariaDB. Necessita do nome de servidor completamente qualificado e das credenciais de início de sessão.
 
-2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-3. Clique no nome do servidor.
+2. No menu esquerdo no portal do Azure, selecione **Todos os recursos**. Procure o servidor que criou (como **mydemoserver**).
 
-4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
- ![Nome da Azure Database for MariaDB server](./media/connect-workbench/1_server-overview-name-login.png)
+3. Selecione o nome do servidor.
 
-## <a name="connect-to-server-using-mysql-workbench"></a>Ligar ao servidor através de MySQL Workbench 
-Para se ligar a Azure Database for MariaDB Server através de MySQL Workbench, utilize o formato seguinte:
+4. Na página **Descrição geral** do servidor, tome nota dos valores de **Nome do servidor** e **Nome de início de sessão de administrador do servidor**. Caso se esqueça da palavra-passe, também pode repô-la nesta página.
 
-1.  Inicie a aplicação MySQL Workbench no computador. 
+ ![Nome do servidor e nome de início de sessão de administrador do servidor do Azure Database for MariaDB](./media/connect-workbench/1_server-overview-name-login.png)
 
-2.  Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Ligar ao servidor com o MySQL Workbench
 
-    ![configurar ligação nova](./media/connect-workbench/2-setup-new-connection.png)
+Para ligar a um servidor do Azure Database for MariaDB com o MySQL Workbench:
 
-    | **Definição** | **Valor sugerido** | **Descrição do campo** |
+1.  Abra o MySQL Workbench no seu computador. 
+
+2.  Na caixa de diálogo **Configurar Ligação Nova**, no separador **Parâmetros**, introduza as informações seguintes:
+
+    | Definição | Valor sugerido | Descrição do campo |
     |---|---|---|
-    |   Nome da Ligação | Ligação de Demonstração | Especifique uma etiqueta para esta ligação. |
-    | Método de Ligação | Standard (TCP/IP) | Standard (TCP/IP) é suficiente. |
-    | Nome de anfitrião | *server name* | Especifique o valor de nome de servidor que foi utilizado quando criou a Azure Database for MariaDB anteriormente. O nosso servidor de exemplo é mydemoserver.mariadb.database.azure.com. Utilize o nome de domínio completamente qualificado (\*.mariadb.database.azure.com), conforme mostrado no exemplo. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome do servidor.  |
-    | Porta | 3306 | Utilize sempre a porta 3306 para se ligar à Azure Database for MariaDB. |
-    | Nome de utilizador |  *nome de início de sessão de administrador do servidor* | Introduza o nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Azure Database for MariaDB anteriormente. O nosso nome de utilizador de exemplo é myadmin@mydemoserver. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome de utilizador. O formato é *username@servername*.
-    | Palavra-passe | a sua palavra-passe | Clique no botão **Armazenar no Cofre...** para guardar a palavra-passe. |
+    |   Nome da Ligação | **Ligação de demonstração** | Especifique uma etiqueta para esta ligação. |
+    | Método de Ligação | **Standard (TCP/IP)** | Standard (TCP/IP) é suficiente. |
+    | Nome de anfitrião | *server name* | Especifique o valor do nome do servidor que utilizou para criar a instância do Azure Database for MariaDB. O nosso servidor de exemplo é **mydemoserver.mariadb.database.azure.com**. Utilize o nome de domínio completamente qualificado (\*.mariadb.database.azure.com), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, conclua os passos na secção anterior para obter as informações da ligação.  |
+    | Porta | **3306** | Utilize sempre a porta 3306 para ligar ao Azure Database for MariaDB. |
+    | Nome de utilizador |  *nome de início de sessão de administrador do servidor* | Introduza o nome de utilizador de início de sessão de administrador do servidor que utilizou para criar a instância do Azure Database for MariaDB. O nosso nome de utilizador de exemplo é **myadmin@mydemoserver**. Se não se lembrar do nome de utilizador de início de sessão de administrador do servidor, conclua os passos na secção anterior para obter as informações de ligação. O formato é *username@servername*.
+    | Palavra-passe | *a sua palavra-passe* | Para guardar a palavra-passe, selecione **Store in Vault** (Armazenar no Cofre). |
 
-3.   Clique em **Testar Ligação** para testar se todos os parâmetros estão configurados corretamente. 
+    ![Configurar uma ligação nova](./media/connect-workbench/2-setup-new-connection.png)
 
-4.   Clique em **OK** para guardar a ligação. 
+3.   Para verificar se todos os parâmetros estão configurados corretamente, selecione **Test Connection** (Testar Ligação). 
 
-5.   Na listagem das **Ligações do MySQL**, clique no mosaico correspondente ao seu servidor e, em seguida, aguarde que a ligação seja estabelecida.
+4.   Selecione **OK** para guardar a ligação. 
 
-        É aberto um novo separador do SQL com um editor em branco, onde pode escrever as suas consultas.
+5.   Em **MySQL Connections**, selecione o mosaico que corresponde ao seu servidor. Aguarde que a ligação seja estabelecida.
+
+    É aberto um novo separador do SQL com um editor em branco, onde pode escrever as suas consultas.
     
-        > [!NOTE]
-        > Por predefinição, a segurança da ligação SSL é necessária e imposta na Azure Database for MariaDB server. Apesar de, normalmente, não ser precisa nenhuma configuração adicional com certificados SSL para o MySQL Workbench ligar ao seu servidor, recomendamos vincular a certificação AC SSL com o MySQL Workbench. Se precisar de desativar o SSL, visite o portal do Azure e clique na página de segurança da Ligação para desativar o botão para ativar/desativar Impor ligação SLL.
+    > [!NOTE]
+    > Por predefinição, a segurança da ligação SSL é necessária e imposta no servidor do Azure Database for MariaDB. Apesar de, normalmente, não ser precisa nenhuma configuração adicional com certificados SSL para o MySQL Workbench ligar ao seu servidor, recomendamos vincular a certificação AC SSL ao MySQL Workbench. Se tiver de desativar o SSL, na página de descrição geral do servidor no portal do Azure, selecione **Segurança da ligação** no menu. Em **Enforce SSL connection** (Impor ligação SSL), selecione **Disabled** (Desativado).
 
-## <a name="create-table-insert-read-update-and-delete-data"></a>Criar tabela, inserir, ler, atualizar e eliminar dados
-1. Copie e cole o código de SQL de exemplo num separador de SQL em branco para ilustrar alguns dados de exemplo.
+## <a name="create-table-and-insert-read-update-and-delete-data"></a>Criar tabela e inserir, ler, atualizar e eliminar dados
 
-    Este código cria uma base de dados vazia com o nome quickstartdb e, em seguida, cria uma tabela de exemplo com o nome de inventário. Insere algumas linhas e, em seguida, lê as mesmas. Altera os dados com uma instrução de atualização e lê as linhas novamente. Por fim, elimina uma linha e, em seguida, lê as linhas novamente.
+1. Copie e cole o código SQL de exemplo seguinte na página de um separador SQL em branco para ilustrar alguns dados de exemplo.
+
+    Este código cria uma base de dados vazia com o nome **quickstartdb**. Em seguida, cria uma tabela de exemplo com o nome **inventory**. O código insere algumas linhas e, em seguida, lê as mesmas. Altera os dados com uma instrução de atualização e, em seguida, lê as linhas novamente. Por fim, o código elimina uma linha e, em seguida, lê as linhas novamente.
     
     ```sql
     -- Create a database
@@ -98,15 +106,15 @@ Para se ligar a Azure Database for MariaDB Server através de MySQL Workbench, u
     SELECT * FROM inventory;
     ```
 
-    A captura de ecrã mostra um exemplo do código de SQL no SQL Workbench e o resultado após ter sido executado.
+    A captura de ecrã mostra um exemplo do código SQL no MySQL Workbench e o resultado após ter sido executado:
     
-    ![Separador do SQL MySQL Workbench para executar o código do SQL de exemplo](media/connect-workbench/3-workbench-sql-tab.png)
+    ![Selecione o separador SQL do MySQL Workbench para executar o código SQL de exemplo](media/connect-workbench/3-workbench-sql-tab.png)
 
-2. Para executar o código do SQL de exemplo, clique no ícone de relâmpago na barra de ferramentas do separador **Ficheiro SQL**.
+2. Para executar o código SQL de exemplo, no separador **Ficheiro SQL**, selecione o ícone de relâmpago na barra de ferramentas.
 3. Repare nos três resultados em separadores na secção **Grelha de Resultado** no meio da página. 
 4. Repare na lista de **Resultados** na parte inferior da página. É apresentado o estado de cada comando. 
 
-Agora, ligou-se à Azure Database for MariaDB com o MySQL Workbench e consultou dados com linguagem SQL.
+Neste início rápido, ligou-se ao Azure Database for MariaDB com o MySQL Workbench e consultou dados com a linguagem SQL.
 
 <!--
 ## Next steps

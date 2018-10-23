@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498526"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167261"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
@@ -116,7 +116,8 @@ Em **Lógica de alerta**, para **Limiar**, introduza **1**. Quando tiver termina
 
 #### <a name="runbook-alert"></a>Alerta de runbook
 
-Para as implementações falhadas, é necessário um alerta sobre a falha do runbook mestre no portal do Azure. Vá a **Monitor** e, em seguida, selecione **Criar alerta**.
+Para implementações com falha deve alertar em caso de falha do runbook principal.
+No portal do Azure, navegue até **Monitorizar** e, em seguida, selecione **Criar Alerta**.
 
 Em **1. Definir condição do alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Contas de Automatização**. Selecione a sua Conta de Automatização e, em seguida, selecione **Concluído**.
 
@@ -196,7 +197,7 @@ Volta ao dashboard de estado. Selecione **Implementações de atualização agen
 
 ## <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 
-Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualização** em **Gestão de atualizações**. O estado será **Em curso**, se a implementação estiver em execução. Quando a implementação concluir, se for bem-sucedida, o estado muda para **Com êxito**. Quando existirem falhas numa ou mais atualizações na implementação, o estado é **Falha parcial**.
+Após o início da implementação agendada, pode ver o estado dessa implementação no separador **Implementações de atualização** em **Gestão de atualizações**. O estado será **Em curso**, se a implementação estiver em execução. Quando a implementação concluir, se for bem sucedida, o estado muda para **Com êxito**. Quando existirem falhas numa ou mais atualizações na implementação, o estado é **Falha parcial**.
 
 Selecione a implementação da atualização concluída para ver o dashboard relativo a essa implementação de atualização.
 

@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393593"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379149"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Tutorial: Monitorizar e otimizar a Base de Dados do Azure para PostgreSQL
 
@@ -28,7 +28,7 @@ A Base de Dados do Azure para PostgreSQL possui recursos que o ajudam a compreen
 Precisa de um servidor da Base de Dados do Azure para PostgreSQL com a versão 9.6 ou 10 do PostgreSQL. Pode seguir os passos no [Tutorial de criação](tutorial-design-database-using-azure-portal.md) para criar um servidor.
 
 > [!IMPORTANT]
-> O **Arquivo de Consultas**, o **Query Performance Insight** e as **Recomendações de Desempenho** estão em Pré-visualização Pública num número limitado de regiões.
+> O **Arquivo de Consultas**, o **Query Performance Insight** e as **Recomendações de Desempenho** estão em Pré-visualização Pública.
 
 ## <a name="enabling-data-collection"></a>Ativar a recolha de dados
 O [Arquivo de Consultas](concepts-query-store.md) captura um histórico das consultas e das estatísticas de espera no seu servidor e armazena-o na base de dados **azure_sys** do servidor. É uma funcionalidade opcional. Para a ativar:

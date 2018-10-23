@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038294"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309465"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista de operador do Azure IoT Central
 
@@ -56,7 +56,7 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Página do dashboard do modelo do dispositivo](media/tutorial-customize-operator/dashboard.png)
 
-4. Para adicionar um mosaico de KPI ao dashboard, escolha **KPI**:
+4. Para adicionar um mosaico do Indicador Chave de Desempenho (KPI) ao dashboard, escolha **KPI**:
 
     ![Adicionar KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
 ## <a name="configure-your-settings-layout"></a>Configurar o seu esquema de definições
 
-Também pode configurar a vista do operador das definições do dispositivo como construtor. Um operador utiliza a página de definições do dispositivo para configurar um dispositivo. Por exemplo, um operador utiliza a página de definições para definir a temperatura de destino para o refrigerador.
+Também pode configurar a vista do operador das definições do dispositivo como construtor. Um operador utiliza a página de definições do dispositivo para configurar um dispositivo. Por exemplo, um operador utiliza a página de definições para definir a temperatura de destino para o ar condicionado ligado.
 
 1. Para editar o esquema de definições do ar condicionado ligado, escolha **Definições** e selecione **Editar Modelo**:
 
@@ -117,7 +117,7 @@ Para além do dashboard e das definições, também pode configurar a vista do o
 
 No modo **Editar Modelo**, pode personalizar as páginas do dashboard, das definições e da propriedades de um operador. Se não estiver no modo **Editar Modelo**, poderá ver a aplicação como um operador.
 
-1. Para ver o dispositivo de ar condicionado ligado como um operador, tem de clicar em **Concluído** para parar a edição do modelo. Esta operação irá fazê-lo regressar à vista de operador do dispositivo.
+1. Para ver o dispositivo de ar condicionado ligado como um operador, clique em **Concluído** para parar a edição do modelo e voltar à vista do operador do dispositivo.
 
 2. Para atualizar a Localização deste dispositivo, edite o valor no mosaico Localização e escolha **Guardar**:
 

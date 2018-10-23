@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803720"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394480"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização pública)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização privada)
 
 Saiba como utilizar o [Gestor de Implementações do Azure](./deployment-manager-overview.md) para implementar as suas aplicações em várias regiões. Para utilizar o Gestor de Implementações, tem de criar dois modelos:
 
@@ -48,7 +48,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 Para concluir este artigo, precisa de:
 
 * Alguma experiência no desenvolvimento dos [modelos do Azure Resource Manager](./resource-group-overview.md).
-* O Gestor de Implementação do Azure está em pré-visualização pública. Para se inscrever com o Gestor de Implementações do Azure, preencha a [ficha de inscrição](https://aka.ms/admsignup). 
+* O Gestor de Implementação do Azure está em pré-visualização privada. Para se inscrever com o Gestor de Implementações do Azure, preencha a [ficha de inscrição](https://aka.ms/admsignup). 
 * Azure PowerShell. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Cmdlets do Gestor de Implementações. Para instalar estes cmdlets de pré-lançamento, precisa da versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Installing PowerShellGet](/powershell/gallery/installing-psget) (Instalar o PowerShellGet). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma janela nova do PowerShell e utilize o comando seguinte:
 
@@ -135,7 +135,7 @@ Os artefactos do modelo são utilizados pelo modelo de topologia de serviço e o
     1. No Explorador de Armazenamento do Azure, navegue para o contentor de blobs.
     2. Clique com o botão direito do rato no contentor de blobs, no painel do lado esquerdo, e selecione **Get Shared Access Signature** (Obter Assinatura de Acesso Partilhado).
     3. Configure **Start time** (Hora de início) e **Expiry time** (Hora de fim).
-    4. Selecione **Create** (Criar).
+    4. Selecione **Criar**.
     5. Faça uma cópia do URL. Este URL é necessário para preencher um campo nos dois ficheiros de parâmetros, os ficheiros [parâmetros da topologia](#topology-parameters-file) e [parâmetros do lançamento](#rollout-parameters-file).
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Criar a identidade gerida atribuída pelo utilizador

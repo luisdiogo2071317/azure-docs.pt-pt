@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022771"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320157"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurar o Serviço Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure
 
@@ -40,12 +40,12 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     * **Subscrição**: escolha a subscrição que quer utilizar para criar a instância do serviço Aprovisionamento de Dispositivos.
     * **Grupo de recursos**: este campo permite criar um novo grupo de recursos ou selecionar um já existente para conter a nova instância. Selecione o mesmo grupo de recursos que contém o hub Iot que criou acima, por exemplo, **TestResources**. Ao colocar todos os recursos relacionados num grupo, pode geri-los em conjunto. Por exemplo, eliminar o grupo de recursos elimina todos os recursos que se encontram nesse grupo. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
     * **Localização**: selecione a localização mais próxima dos seus dispositivos.
-    * **Afixar ao dashboard**: selecione esta opção para facilitar a localização da instância afixada ao dashboard.
 
     ![Introduza as informações básicas da instância do serviço Aprovisionamento de Dispositivos no painel do portal](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. Após o serviço ter sido implementado com êxito, o painel de resumo do mesmo abre-se automaticamente.
+4. Clique no botão de notificação para monitorizar a criação da instância do recurso. Assim que o serviço é implementado com êxito, clique em **Afixar ao dashboard** e, em seguida **Ir para recurso**.
 
+    ![Notificação Monitorizar a implementação](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>Ligar o hub IoT e o seu Serviço Aprovisionamento de Dispositivos
 

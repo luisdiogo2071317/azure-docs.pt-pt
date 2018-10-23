@@ -2,24 +2,18 @@
 title: Configurar o Azure Data Box| Microsoft Docs
 description: Saiba como instalar os cabos e ligar o Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785641"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393835"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligar ao Azure Data Box
 
@@ -91,6 +85,8 @@ Execute os passos seguintes para configurar o dispositivo com a IU da Web local 
     - Se o DHCP não estiver ativado, aceda a **Definir interfaces de rede** e atribua IPs estáticos, se for necessário.
 
     ![Dashboard do dispositivo](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+
+Assim que as interfaces de rede de dados estiverem configuradas, também pode utilizar o endereço IP de qualquer uma das interfaces de DADOS 1 - DADOS 3, para aceder à IU da Web local em `https://<IP address of a data network interface>`. 
 
 Quando a configuração do dispositivo estiver concluída, pode ligar às partilhas do dispositivo e copiar os dados do seu computador para o dispositivo. 
 

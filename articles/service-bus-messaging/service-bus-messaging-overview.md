@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 08295ceeb2ebe94a96eaade0a6443f0f59212d60
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394034"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342212"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -95,9 +95,9 @@ A [eliminação automática em inatividade](/dotnet/api/microsoft.servicebus.mes
 
 Se houver um erro que faça com que o cliente tenha dúvidas sobre o resultado de uma operação de envio, a [deteção de duplicados](duplicate-detection.md) esclarecerá estas situações ao permitir que o remetente reenvie a mesma mensagem e a fila ou tópico elimine quaisquer cópias duplicadas.
 
-### <a name="sas-rbac-and-msi"></a>SAS, RBAC e MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC e Identidades geridas para os recursos do Azure
 
-O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Partilhado](service-bus-sas.md) (SAS), [Controlo de Acesso Baseado em Funções](service-bus-role-based-access-control.md) (RBAC) e [Identidade de Serviço Gerida](service-bus-managed-service-identity.md) (MSI).
+O Service Bus suporta protocolos de segurança como [Assinaturas de Acesso Partilhado](service-bus-sas.md) (SAS), [Controlo de Acesso Baseado em Funções](service-bus-role-based-access-control.md) (RBAC) e [Identidades geridas para os recursos do Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 

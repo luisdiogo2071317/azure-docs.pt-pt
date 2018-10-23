@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.openlocfilehash: cca35d031e860e014c8fd84b0daf6b4d60d18046
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985852"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340261"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Tutorial: Java da API de Imagem Digitalizada
 
@@ -45,7 +45,9 @@ Este tutorial foi elaborado recorrendo ao IDE NetBeans. Mais especificamente, a 
 
 Antes de criar o exemplo, tem de subscrever a API de Imagem Digitalizada que faz parte dos Serviços Cognitivos do Azure. Para obter os detalhes da subscrição e da gestão de chaves, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Ambas as chaves primárias e secundárias são válidas para utilizar neste tutorial. 
 
-## <a name="download-the-tutorial-project"></a>Transferir o projeto de tutorial
+## <a name="acquire-the-incomplete-tutorial-project"></a>Adquirir o projeto de tutorial incompleto
+
+### <a name="download-the-tutorial-project"></a>Transferir o projeto de tutorial
 
 1. Aceda ao repositório do [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) (Tutorial da Imagem Digitalizada de Java dos Serviços Cognitivos).
 1. Clique no botão para **Clone or download** (Clonar ou transferir).
@@ -53,7 +55,7 @@ Antes de criar o exemplo, tem de subscrever a API de Imagem Digitalizada que faz
 
 Não é necessário extrair o conteúdo do ficheiro .zip porque o NetBeans importa o projeto a partir do ficheiro .zip.
 
-## <a name="import-the-tutorial-project"></a>Importar o projeto de tutorial
+### <a name="import-the-tutorial-project"></a>Importar o projeto de tutorial
 
 Importe o ficheiro **cognitive-services-java-computer-vision-tutorial-master.zip** para o NetBeans.
 
@@ -65,29 +67,27 @@ Importe o ficheiro **cognitive-services-java-computer-vision-tutorial-master.zip
 1. Faça duplo clique em **MainFrame.java** para carregar o ficheiro para o editor do NetBeans. O separador **Design** (Estrutura) do ficheiro **MainFrame.java** é apresentado.
 1. Clique no separador **Source** (Fonte) para ver o código fonte Java.
 
-## <a name="build-and-run-the-tutorial-project"></a>Criar e executar o projeto de tutorial
+### <a name="build-and-run-the-tutorial-project"></a>Criar e executar o projeto de tutorial
 
 1. Prima **F6** para criar e executar a aplicação de tutorial.
 
     Na aplicação de tutorial, clique num separador para abrir o painel para essa funcionalidade. Os botões têm métodos vazios e, por isso, não fazem nada.
 
-    Na parte inferior da janela estão os campos **Subscription Key** (Chave de Subscrição) e **Subscription Region** (Região de Subscrição). Estes campos têm de ser preenchidos com uma chave de subscrição válida e a região correta para essa chave de subscrição. Para obter uma chave de subscrição, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Se tiver adquirido a sua chave de subscrição a partir da avaliação gratuita nessa ligação, a predefinição **westcentralus** é a região correta para as chaves de subscrição.
+    Na parte inferior da janela estão os campos **Subscription Key** (Chave de Subscrição) e **Subscription Region** (Região de Subscrição). Estes campos têm de ser preenchidos com uma chave de subscrição válida e a região correta para essa chave de subscrição. Para obter uma chave de subscrição, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Se tiver adquirido a sua chave de subscrição a partir da avaliação gratuita nessa ligação, a região predefinida **westcentralus** é a região correta para as chaves de subscrição.
 
 1. Saia da aplicação de tutorial.
 
-## <a name="add-the-tutorial-code"></a>Adicionar o código do tutorial
+## <a name="add-the-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
 
-A aplicação Java Swing é configurada com seis separadores. Cada separador demonstra uma função diferente de Imagem Digitalizada (analisar, OCR, etc). As seis secções do tutorial não têm interdependências, pelo que pode adicionar uma secção, as seis secções ou apenas uma secção ou duas. Também pode adicionar as secções em qualquer ordem.
+A aplicação Java Swing é configurada com seis separadores. Cada separador demonstra uma função diferente de Imagem Digitalizada (analisar, OCR, e assim por diante). As seis secções do tutorial não têm interdependências, pelo que pode adicionar uma secção, as seis secções ou qualquer subconjunto. Pode adicionar as secções em qualquer ordem.
 
-Vamos começar.
+### <a name="analyze-an-image"></a>Analisar uma imagem
 
-## <a name="analyze-an-image"></a>Analisar uma imagem
-
-A funcionalidade Analyze (Analisar) da Imagem Digitalizada analisa uma imagem em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando a análise estiver concluída, a funcionalidade Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e mais.
+A funcionalidade Analisar da Imagem Digitalizada analisa uma imagem em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando a análise estiver concluída, a funcionalidade Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e mais.
 
 Para concluir a funcionalidade Analyze (Analisar) da aplicação de tutorial, realize os seguintes passos:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analyze (Analisar) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 O método **analyzeImageButtonActionPerformed** do processador de eventos limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama o método **AnalyzeImage** para analisar a imagem. Quando **AnalyzeImage** é devolvido, o método apresenta a resposta JSON formatada na área de texto **Response** (Resposta), extrai a primeira legenda do **JSONObject** e apresenta a legenda e o nível de confiança de que a legenda está correta.
 
@@ -140,7 +140,7 @@ Copie e cole o código seguinte no método **analyzeImageButtonActionPerformed**
     }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analyze (Analisar) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **AnalyzeImage** encapsula a chamada à API REST para analisar uma imagem. O método devolve um **JSONObject** que descreve a imagem ou **nulo**, se tiver ocorrido um erro.
 
@@ -201,17 +201,17 @@ Copie e cole o método **AnalyzeImage** imediatamente abaixo do método **analyz
     }
  ```
 
-### <a name="analyze-step-3-run-the-application"></a>Analyze (Analisar) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Prima **F6** para executar a aplicação. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="recognize-a-landmark"></a>Reconhecer um marco
+### <a name="recognize-a-landmark"></a>Reconhecer um marco
 
 A funcionalidade Landmark (Marco) da Imagem Digitalizada analisa uma imagem relativamente a marcos naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, a funcionalidade Landmark (Marco) devolve um objeto JSON que identifica os marcos encontrados na imagem.
 
 Para concluir a funcionalidade Landmark (Marco) da aplicação de tutorial, realize os seguintes passos:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Landmark (Marco) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 O método **landmarkImageButtonActionPerformed** do processador de eventos limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama o método **LandmarkImage** para analisar a imagem. Quando **LandmarkImage** é devolvido, o método apresenta a resposta JSON formatada na área de texto **Response** (Resposta) e, em seguida, extrai o primeiro nome de marco do **JSONObject** e apresenta-o na janela juntamente com o nível de confiança de que o marco foi identificado corretamente.
 
@@ -264,7 +264,7 @@ Copie e cole o código seguinte no método **landmarkImageButtonActionPerformed*
     }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Landmark (Marco) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **LandmarkImage** encapsula a chamada à API REST para analisar uma imagem. O método devolve um **JSONObject** que descreve os marcos encontrados na imagem ou **null** (nulo), se tiver ocorrido um erro.
 
@@ -325,17 +325,17 @@ Copie e cole o método **LandmarkImage** imediatamente abaixo do método **landm
     }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Landmark (Marco) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Prima **F6** para executar a aplicação. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Clique no separador **Landmark** (Marco), introduza um URL para uma imagem de um marco e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="recognize-celebrities"></a>Reconhecer celebridades
+### <a name="recognize-celebrities"></a>Reconhecer celebridades
 
 A funcionalidade Celebrities (Celebridades) da Imagem Digitalizada analisa uma imagem relativamente a pessoas famosas. Quando a análise estiver concluída, a funcionalidade Celebrities (Celebridades) devolve um objeto JSON que identifica as celebridades encontradas na imagem.
 
 Para concluir a funcionalidade Celebrities (Celebridades) da aplicação de tutorial, realize os seguintes passos:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Celebrities (Celebridades) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 O método **celebritiesImageButtonActionPerformed** do processador de eventos limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama o método **CelebritiesImage** para analisar a imagem. Quando **CelebritiesImage** é devolvido, o método apresenta a resposta JSON formatada na área de texto **Response** (Resposta) e, em seguida, extrai o primeiro nome de celebridade do **JSONObject** e apresenta-o na janela juntamente com o nível de confiança de que a celebridade foi identificada corretamente.
 
@@ -388,7 +388,7 @@ Copie e cole o código seguinte no método **celebritiesImageButtonActionPerform
     }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Celebrities (Celebridades) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **CelebritiesImage** encapsula a chamada à API REST para analisar uma imagem. O método devolve um **JSONObject** que descreve as celebridades encontradas na imagem ou **nulo**, se tiver ocorrido um erro.
 
@@ -449,17 +449,17 @@ Copie e cole o método **CelebritiesImage** imediatamente abaixo do método **ce
     }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Celebrities (Celebridades) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Prima **F6** para executar a aplicação. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Clique no separador **Celebrities** (Celebridades), introduza um URL para uma imagem de uma celebridade e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de forma inteligente
+### <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de forma inteligente
 
 A funcionalidade Thumbnail (Miniatura) da Imagem Digitalizada gera uma miniatura a partir de uma imagem. Ao utilizar a funcionalidade **Smart Crop** (Recorte Inteligente), a funcionalidade Thumbnail (Miniatura) identificará a área de interesse numa imagem e centrará a miniatura nessa área, para gerar imagens em miniatura mais agradáveis esteticamente.
 
 Para concluir a funcionalidade Thumbnail (Miniatura) da aplicação de tutorial, realize os seguintes passos:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Thumbnail (Miniatura) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 O método **thumbnailImageButtonActionPerformed** do processador de eventos limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama o método **getThumbnailImage** para criar a miniatura. Quando **getThumbnailImage** é devolvido, o método apresenta a miniatura gerada.
 
@@ -505,7 +505,7 @@ Copie e cole o código seguinte no método **thumbnailImageButtonActionPerformed
     }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Thumbnail (Miniatura) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **getThumbnailImage** encapsula a chamada à API REST para analisar uma imagem. O método devolve uma **BufferedImage** que contém a miniatura ou **null** (nulo), se tiver ocorrido um erro. A mensagem de erro será devolvida no primeiro elemento da matriz de cadeia de carateres **jsonError**.
 
@@ -572,17 +572,17 @@ Copie e cole o seguinte método **getThumbnailImage** imediatamente abaixo do m�
     }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Thumbnail (Miniatura) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Prima **F6** para executar a aplicação. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Clique no separador **Thumbnail** (Miniatura), introduza um URL para uma imagem e, em seguida, clique no botão **Generate Thumbnail** (Gerar Miniatura) para analisar uma imagem e ver o resultado.
 
-## <a name="read-printed-text-ocr"></a>Ler texto impresso (OCR)
+### <a name="read-printed-text-ocr"></a>Ler texto impresso (OCR)
 
 A funcionalidade Optical Character Recognition (Reconhecimento Ótico de Carateres – OCR) da Imagem Digitalizada analisa uma imagem de texto impresso. Quando a análise estiver concluída, a funcionalidade OCR devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
 Para concluir a funcionalidade OCR da aplicação de tutorial, realize os seguintes passos:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 O método **ocrImageButtonActionPerformed** do processador de eventos limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama o método **OcrImage** para analisar a imagem. Quando **OcrImage** é devolvido, o método apresenta o texto detetado como JSON formatado na área de texto **Response** (Resposta).
 
@@ -622,7 +622,7 @@ Copie e cole o código seguinte no método **ocrImageButtonActionPerformed**.
     }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **OcrImage** encapsula a chamada à API REST para analisar uma imagem. O método devolve um **JSONObject** dos dados JSON devolvidos da chamada ou **null** (nulo), se tiver ocorrido um erro.
 
@@ -683,17 +683,17 @@ Copie e cole o seguinte método **OcrImage** imediatamente abaixo do método **o
     }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Prima **F6** para executar a aplicação. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Clique no separador **OCR**, introduza um URL para uma imagem de texto impresso e, em seguida, clique no botão **Read Image** (Ler Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito (reconhecimento de escrita manual)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito (reconhecimento de escrita manual)
 
 A funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da Imagem Digitalizada analisa uma imagem de texto manuscrito. Quando a análise estiver concluída, a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
 Para concluir a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da aplicação de tutorial, realize os seguintes passos:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 O método **handwritingImageButtonActionPerformed** do processador de eventos limpa o formulário, apresenta a imagem especificada no URL e, em seguida, chama o método **HandwritingImage** para analisar a imagem. Quando **HandwritingImage** é devolvido, o método apresenta o texto detetado como JSON formatado na área de texto **Response** (Resposta).
 
@@ -733,7 +733,7 @@ Copie e cole o código seguinte no método **handwritingImageButtonActionPerform
     }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 O método **HandwritingImage** encapsula as duas chamadas à API REST, necessárias para analisar uma imagem. Como o reconhecimento de escrita manual é um processo demorado, é utilizado um processo em duas etapas. A primeira chamada submete a imagem para processamento e a segunda chamada obtém o texto detetado quando o processamento for concluído.
 
@@ -841,7 +841,7 @@ Copie e cole o seguinte método **HandwritingImage** imediatamente abaixo do mé
     }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Para executar a aplicação, prima **F6**. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Clique no separador **Read Handwritten Text** (Ler Texto Manuscrito), introduza um URL para uma imagem de texto manuscrito e, em seguida clique no botão **Read Image** (Ler Imagem) para analisar uma imagem e ver o resultado.
 

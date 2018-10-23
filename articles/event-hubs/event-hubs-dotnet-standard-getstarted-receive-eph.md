@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41917995"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166292"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Começar a receber mensagens com o Anfitrião do Processador de Eventos em .NET Standard
 
@@ -43,13 +43,18 @@ O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.c
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure  
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
-2. No painel de navegação à esquerda do portal, clique em **Criar um recurso**, **Armazenamento** e em **Conta de Armazenamento**.  
-3. Preencha os campos na janela da conta de armazenamento e, em seguida, clique em **Criar**.
+2. No painel de navegação esquerdo do portal, selecione **Criar um recurso**, selecione **Armazenamento** nas categorias e, em seguida, selecione **Conta de armazenamento - blob, ficheiro, tabela, fila**.  
+3. Preencha os campos na janela **Criar conta de armazenamento** e, em seguida, selecione **Rever + criar**. 
 
     ![Criar conta de armazenamento][1]
 
-4. Depois de confirmar a mensagem de **Implementações bem-sucedidas**, clique no nome da nova conta de armazenamento. Na janela **Informações Básicas**, clique em **Blobs**. Quando a caixa de diálogo **serviço Blob** se abre, clique em **+ Contentor** na parte superior. Atribua um nome ao contentor e, em seguida, feche o **serviço Blob**.  
-5. Clique em **Chaves de acesso** na janela da esquerda e copie o nome do contentor de armazenamento, a conta de armazenamento e o valor da **chave1**. Guarde estes valores no Bloco de Notas ou noutra localização temporária.  
+4. Na página **Rever + criar**, selecione **Criar** depois de rever os valores para os campos. 
+5. Depois de confirmar a mensagem de **Implementações Bem-sucedidas**, selecione o nome da nova conta de armazenamento. 
+6. Na janela **Informações Básicas**, selecione **Blobs**. 
+7. Selecione **+ Contentor** na parte superior. Dê um nome ao contentor.  
+8. Selecione **Chaves de acesso** na janela da esquerda e copie o nome do contentor de armazenamento, a conta de armazenamento e o valor da **chave1**. 
+
+    Guarde estes valores no Bloco de Notas ou noutra localização temporária.
 
 ## <a name="create-a-console-application"></a>Criar uma aplicação de consola
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 76545c9953cff944c515e887a6a4214b9c76c501
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fdeb58d72e15f563fd70ae94804de0773dd603c7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038532"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387355"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Introdução à API do Azure Cosmos DB: API de SQL
 
@@ -67,14 +67,10 @@ O Azure Cosmos DB expõe recursos através de APIs REST que podem ser chamadas p
 
 | Transferência | Documentação |
 | --- | --- |
-| [SDK do .NET](http://go.microsoft.com/fwlink/?LinkID=402989) |[Biblioteca de .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Biblioteca Node.js](https://github.com/Azure/azure-cosmosdb-node) |
-| [SDK Java](http://go.microsoft.com/fwlink/?LinkID=402380) |[Biblioteca Java](/java/api/com.microsoft.azure.documentdb) |
-| [SDK JavaScript](https://github.com/Azure/azure-cosmos-js) |[Biblioteca JavaScript](https://github.com/Azure/azure-cosmos-js) |
-| n/d |[SDK JavaScript do lado do servidor](https://github.com/Azure/azure-cosmosdb-js-server) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Biblioteca Python](https://github.com/Azure/azure-cosmos-python) |
-| n/d | [API para MongoDB](mongodb-introduction.md)
-
+| [SDK do .NET](http://go.microsoft.com/fwlink/?LinkID=402989) |[Documentos de referência .NET](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [SDK Java](http://go.microsoft.com/fwlink/?LinkID=402380) |[Documentos de referência Java](/java/api/com.microsoft.azure.documentdb) |
+| [SDK JavaScript](https://www.npmjs.com/package/@azure/cosmos) |[Documentos de referência JavaScript](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Documentos de referência de Python](https://github.com/Azure/azure-cosmos-python) |
 
 Ao utilizar o [Emulador do Azure Cosmos DB](local-emulator.md), pode programar e testar a sua aplicação localmente com a API do SQL, sem criar uma subscrição do Azure ou incorrer em custos. Quando estiver satisfeito com o funcionamento da sua aplicação no emulador, pode mudar e começar a utilizar uma conta do Azure Cosmos DB na cloud.
 

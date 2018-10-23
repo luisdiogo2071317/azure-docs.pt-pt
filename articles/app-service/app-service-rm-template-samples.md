@@ -4,23 +4,21 @@ description: Exemplos de modelo do Azure Resource Manager para a funcionalidade 
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
-editor: ggailey777
 tags: azure-service-management
 ms.service: app-service
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 02/26/2018
+ms.date: 10/15/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 155b47fc4c664701ec0f21bdc5ae34f3d7f666ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 627480fab7a28794a215642fda8e57280f19f19b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29933073"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345072"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Modelos do Azure Resource Manager para Aplicações Web
 
@@ -29,15 +27,17 @@ A tabela seguinte inclui ligações para modelos do Azure Resource Manager para 
 | | |
 |-|-|
 |**Dimensionar uma Aplicação Web**||
+| [Plano do Serviço de Aplicações e aplicação Web básica do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Implementa uma aplicação Web do Azure que está configurada para Linux. |
+| [Plano do Serviço de Aplicações e aplicação Web básica do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Implementa uma aplicação Web do Azure que está configurada para Windows. |
 | [Aplicação Web ligada a um repositório do GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Implementa uma aplicação Web do Azure que solicita código a partir do GitHub. |
 | [Aplicação Web com blocos de implementação personalizados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Implementa uma aplicação Web do Azure com ambientes/blocos de implementação personalizada. |
 |**Configurar uma aplicação Web**||
 | [Certificado de aplicação Web do Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Implementa um certificado de aplicação Web do Azure a partir de um segredo do Azure Key Vault e utiliza-o para o enlace SSL. |
 | [Aplicação Web com um domínio personalizado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Implementa uma aplicação Web do Azure com um nome de anfitrião personalizado. |
 | [Aplicação Web com um domínio personalizado e SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Implementa uma aplicação Web do Azure com um nome de anfitrião personalizado e obtém um certificado de aplicação Web do Key Vault para o enlace SSL. |
-| [Aplicação Web com uma extensão GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Implementa uma aplicação Web do Azure com a extensão de site GoLang. Em seguida, pode executar as aplicações Web desenvolvidas no GoLang no Azure. |
+| [Aplicação Web com uma extensão GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Implementa uma aplicação Web do Azure com a extensão de site Golang. Em seguida, pode executar as aplicações Web desenvolvidas no Golang no Azure. |
 | [Aplicação Web com Java 8 e Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Implementa uma aplicação Web do Azure com Java 8 e Tomcat 8 ativados. Em seguida, pode executar aplicações Java no Azure. |
-|**Aplicação Web no Linux**||
+|**Aplicação Web Linux com recursos ligados**||
 | [Aplicação Web no Linux com MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Implementa uma aplicação Web do Azure no Linux com a Base de Dados do Azure para MySQL. |
 | [Aplicação Web no Linux com PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Implementa uma aplicação Web do Azure no Linux com a Base de Dados do Azure para PostgreSQL. |
 |**Aplicação Web com recursos ligados**||

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055378"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165986"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Tutorial: dimensionar uma aplicação em execução no Service Fabric Mesh
 
-Este tutorial é a segunda parte de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de uma aplicação que foi [anteriormente implementada no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  Quando tiver terminado, terá .
+Este tutorial é a segunda parte de uma série. Saiba como dimensionar manualmente o número de instâncias de serviço de uma aplicação que foi [anteriormente implementada no Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Quando tiver terminado, terá um serviço de front-end a executar três instâncias e um serviço de dados a executar duas instâncias.
 
 Na segunda parte da série, saiba como:
 

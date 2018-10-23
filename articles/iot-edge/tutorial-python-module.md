@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 1316dcaf32b709dbc7c07f7d82388082d8d6e6a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423566"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319647"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implementar um módulo do IoT Edge do Python no seu dispositivo simulado
 
@@ -41,7 +41,7 @@ Um dispositivo Azure IoT Edge:
 
 Recursos da cloud:
 
-* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito no Azure. 
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure. 
 
 Recursos de desenvolvimento:
 
@@ -82,7 +82,7 @@ Utilize o pacote do Python **cookiecutter** para criar um modelo de solução do
     pip install --upgrade --user cookiecutter
     ```
    >[!Note]
-   >Certifique-se de que o diretório onde o cookiecutter será instalado está no `Path` do seu ambiente, para que possa invocá-lo a partir de uma linha de comandos.
+   >Certifique-se de que o diretório onde o cookiecutter será instalado está no `Path` do seu ambiente, para que possa invocá-lo a partir de uma linha de comandos. Normalmente, no Windows, adicione `%APPDATA%\Python\PythonVersion\Scripts`, onde tem a sua versão do Python, em vez de PythonVersion.
 
 3. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
 
@@ -236,6 +236,16 @@ No artigo de início rápido que utilizou para configurar o seu dispositivo IoT 
 6. Clique no botão Atualizar. Deverá ver o novo **PythonModule** em execução, juntamente com o módulo **TempSensor**, bem como **$edgeAgent** e **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
+
+Depois de aplicar o manifesto de implementação no seu dispositivo IoT Edge, o runtime do IoT Edge no dispositivo recolhe as novas informações de implementação e começa a ser executado no mesmo. Quaisquer módulos em execução no dispositivo que não estão incluídos no manifesto de implementação são parados. Quaisquer módulos em falta do dispositivo são iniciados. 
+
+Pode ver o estado do seu dispositivo do IoT Edge com a secção **Dispositivos do Hub IoT do Azure** do explorador do Visual Studio Code. Expanda os detalhes do seu dispositivo para ver uma lista de módulos implementados e em execução. 
+
+No próprio dispositivo IoT Edge, pode ver o estado dos seus módulos de implementação com o comando `iotedge list`. Deverá ver quatro módulos: os dois módulos de runtime do IoT Edge, o tempSensor e o módulo personalizado que criou neste tutorial. Pode demorar alguns minutos para que todos os módulos comecem, por isso, execute novamente o comando se não os vir todos inicialmente. 
+
+Para ver as mensagens que são geradas por qualquer módulo, utilize o comando `iotedge logs <module name>`. 
+
+Pode ver as mensagens conforme chegam ao seu hub IoT através do Visual Studio Code. 
 
 1. Para monitorizar os dados que são recebidos pelo hub IoT, selecione as reticências (**...** ) e, em seguida, selecione **Iniciar Monitorização de Mensagens D2C**.
 2. Para monitorizar a mensagem D2C para um dispositivo específico, clique com o botão direito do rato na lista e selecione **Iniciar Monitorização de Mensagens D2C**.

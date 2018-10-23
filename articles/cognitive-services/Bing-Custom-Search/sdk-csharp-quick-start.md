@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6dc10bc2dedfe99573b5ad646461e66827c6df9e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816774"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320174"
 ---
 # <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Início Rápido: Utilizar o SDK de Pesquisa Personalizada do Bing com C#
 
@@ -25,7 +25,7 @@ O SDK de Pesquisa Personalizada do Bing fornece um modelo de programação mais 
 
 Para concluir este guia de início rápido, necessita de:
 
-- Uma instância de pesquisa personalizada pronta a utilizar. Consulte [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).  
+- Uma instância de pesquisa personalizada e pronta a utilizar. Consulte [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).  
   
 - Uma chave de subscrição. Pode obter uma chave de subscrição quando ativa a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga do dashboard do Azure (consulte [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
   
@@ -42,6 +42,9 @@ Quando instala o pacote de Pesquisa Personalizada do NuGet também instala as as
 
 
 ## <a name="run-the-code"></a>Executar o código
+
+> [!TIP]
+> Obter o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 Para executar este exemplo, siga estes passos:
 
@@ -175,7 +178,7 @@ Veja exemplos do SDK. Cada exemplo inclui um arquivo Leia-me com detalhes sobre 
 * Introdução aos [exemplos de NodeJS](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * Consulte também [bibliotecas NodeJS](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/customSearch) para definições e dependências.
 * Introdução aos [exemplos de Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * Consulte também [bibliotecas Java](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch) para definições e dependências.
+    * Veja também [bibliotecas Java](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch) para obter as definições e as dependências.
 * Introdução aos [exemplos de Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * Consulte também [bibliotecas Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch) para definições e dependências.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235486"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310629"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Utilizar o Azure IoT Central para monitorizar os seus dispositivos
 
@@ -61,7 +61,7 @@ O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Também
 
 Para alterar a temperatura ideal do dispositivo, utilize a página **Definições**:
 
-1. Escolha **Definições**. Altere **Definir Temperatura** para 100. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. Quando o dispositivo reconhecer a alteração das definições, o estado do valor de definição muda para **sincronizado**:
+1. Escolha **Definições**. Altere **Definir Temperatura** para 75. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. Quando o dispositivo reconhecer a alteração das definições, o estado do valor de definição muda para **sincronizado**:
 
     ![Atualizar definições](media/tutorial-monitor-devices/change_settings.png)
 

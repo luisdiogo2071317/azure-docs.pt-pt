@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668330"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353055"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Instalar e utilizar a extensão do Azure Terraform no Visual Studio Code
 
@@ -76,7 +76,7 @@ Para utilizar a função de visualização do Terraform, precisa de [instalar o 
 
     ![Procurar extensões do Visual Studio Code no Marketplace](media/terraform-vscode-extension/tf-search-extensions.png)
 
-1. Selecione **Install** (Instalar).
+1. Selecione **Instalar**.
 
     >[!NOTE]
     >Quando selecionar **Install** (Instalar) para a extensão Azure Terraform, o Visual Studio Code irá automaticamente instalar a extensão de Conta do Azure. A Conta do Azure é um ficheiro de dependência para a extensão do Azure Terraform, que utiliza para executar autenticações de subscrição do Azure e extensões de código relacionadas com o Azure.
@@ -103,7 +103,9 @@ Neste exercício, irá criar e executar um ficheiro de configuração básico do
 
 1. No Visual Studio Code, selecione **File > New File** (Ficheiro > Novo Ficheiro) na barra de menus.
 
-1. Navegue para [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) e copie o bloco de código **Example Usage** (Utilização de Exemplo):
+1. No seu browser, navegue para a [página Terraform azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) e copie o código no bloco de código **Utilização de Exemplo**:
+
+    ![Utilização de Exemplo](media/terraform-vscode-extension/tf-azurerm-resource-group-example-usage.png)
 
 1. Cole o código copiado no novo ficheiro que criou no Visual Studio Code.
 
@@ -125,7 +127,7 @@ Neste exercício, irá criar e executar um ficheiro de configuração básico do
 
     ![Guardar como main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 - Na barra de menus, selecione **File > Open Folder** (Ficheiro > Abrir Pasta). Navegue para e selecione a nova pasta que criou.
 
 ### <a name="run-terraform-init-command"></a>Executar o comando *init* do Terraform

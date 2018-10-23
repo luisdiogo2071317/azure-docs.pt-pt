@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: criar um modelo acústico - Serviço de Voz Personalizada'
-titlesuffix: Azure Cognitive Services
-description: Neste tutorial, vai aprender a criar um modelo acústico com o Serviço de Voz Personalizada.
+title: Tutorial para criar um modelo acústico com o Serviço de Voz Personalizada - Serviços Cognitivos da Microsoft | Microsoft Docs
+description: Neste tutorial, vai aprender a criar um modelo acústico com o Serviço de Voz Personalizada nos Serviços Cognitivos da Microsoft.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220236"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344579"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutorial: Criar um modelo acústico personalizado
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Neste tutorial, vai criar um modelo acústico personalizado para os dados de voz que espera que a sua aplicação reconheça. A criação de um modelo acústico personalizado é útil se a sua aplicação for concebida para ser utilizada num ambiente específico, como uma fábrica barulhenta, bem como por uma população de utilizadores em particular.
 
@@ -140,4 +140,4 @@ Verá agora uma nova entrada na tabela de modelos acústicos correspondente a es
 Neste tutorial, desenvolveu um modelo acústico personalizado para utilizar com ficheiros de áudio e transcrições. Para criar um ficheiro de idioma personalizado para utilizar com ficheiros de texto, avance para o tutorial sobre como criar um modelo de linguagem personalizado.
 
 > [!div class="nextstepaction"]
-> [Criar um modelo acústico personalizado](cognitive-services-custom-speech-create-language-model.md)
+> [Criar um modelo de linguagem personalizado](cognitive-services-custom-speech-create-language-model.md)

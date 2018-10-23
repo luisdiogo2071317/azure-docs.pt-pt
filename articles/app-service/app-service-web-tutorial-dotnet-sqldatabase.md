@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: b438ac221483fec7ea90847ec27a105a3f21ab78
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42117368"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353821"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL
 
@@ -423,4 +423,4 @@ Neste tutorial, ficou a saber como:
 Avance para o tutorial seguinte para saber como melhorar facilmente a segurança da sua ligação à Base de Dados SQL do Azure.
 
 > [!div class="nextstepaction"]
-> [Aceder à Base de Dados SQL em segurança com uma identidade de serviço gerida](app-service-web-tutorial-connect-msi.md)
+> [Aceder à Base de Dados SQL em segurança com identidades geridas dos recursos do Azure](app-service-web-tutorial-connect-msi.md)

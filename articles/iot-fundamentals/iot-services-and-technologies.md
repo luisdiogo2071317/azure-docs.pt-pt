@@ -7,18 +7,20 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067339"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365361"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Tecnologias e soluções de IoT do Azure: PaaS e SaaS
 
 A Microsoft criou um portefólio que suporta as necessidades de todos os clientes ao permitir que todos tenham acesso aos benefícios da transformação digital. O portefólio de produtos IoT do Azure é uma descrição geral das tecnologias e das soluções de PaaS/SaaS disponíveis. Apresenta as duas formas disponíveis para criar a sua própria solução:
 
-- Plataforma como Serviço (PaaS): crie a sua própria aplicação ao utilizar [Aceleradores de soluções Azure IoT](https://www.azureiotsolutions.com/), uma coleção de soluções pré-configuradas de nível empresarial que permitem acelerar o desenvolvimento de soluções de IoT personalizadas.
+- Plataforma como Serviço (PaaS): crie a sua aplicação com qualquer um dos seguintes serviços.
+    - [Os aceleradores de soluções do Azure IoT](https://www.azureiotsolutions.com/) são uma coleção de soluções pré-configuradas de nível empresarial, que lhe permitem acelerar o desenvolvimento de soluções IoT personalizadas ou 
+    - o serviço [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/), que lhe permite modelar o ambiente físico para criar soluções de IoT com reconhecimento de contexto através de modelos de grafo de inteligência espacial e de objeto de domínio específico.
 
 - Software como Serviço (SaaS): comece rapidamente a trabalhar com o [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), a nova solução de SaaS para desenvolver aplicações de IoT sem a complexidade da solução de IoT. Se a sua organização não possuir os recursos para criar a sua própria solução de IoT, o Azure IoT Central é uma solução de IoT sem código que permite criar modelos de dispositivos, dashboards e regras em minutos.
 
@@ -95,7 +97,10 @@ Ligue todos os seus dispositivos ao Azure IoT através dos [SDKs de dispositivo]
 O [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) é um serviço totalmente gerido que permite comunicações bidirecionais fiáveis e seguras entre milhões de dispositivos IoT e o back-end de uma solução. O Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure é um serviço auxiliar para o Hub IoT que permite o aprovisionamento sem toque e just-in-time no hub IoT certo sem que seja necessária intervenção humana, permitindo aos clientes aprovisionar milhares de dispositivos de forma segura e dimensionável.
 
 ### <a name="edge"></a>Edge
-O [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) é um serviço da Internet das Coisas (IoT). Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou seja, "na periferia". Ao mover partes da sua carga de trabalho para a periferia, irá usufruir de uma latência reduzida e dispor da opção para cenários offline.
+[O Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) é um serviço de IoT. Este serviço destina-se a clientes que querem analisar dados em dispositivos, ou seja, "na periferia". Ao mover partes da sua carga de trabalho para a periferia, irá usufruir de uma latência reduzida e dispor da opção para cenários offline.
+
+### <a name="spatial-intelligence"></a>Inteligência espacial
+[O Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) é um serviço de IoT que lhe permite criar um modelo de um ambiente físico. Ele dispõe de um grafo de inteligência espacial para modelar as relações entre as pessoas, espaços e dispositivos. Ao correlacionar os dados no mundo digital e físico, pode criar soluções com consciência contextual.  
 
 ### <a name="data-and-analytics"></a>Dados e análises
 Tire partido de uma variedade de ofertas de PaaS para dados e análises do Azure na sua solução de IoT, desde a maximização da eficiência da cloud, com o Azure Machine Learning, ao armazenamento de dados de dispositivos IoT de uma forma económica, com o Azure Data Lake, passando pela visualização de grandes quantidades de dados de dispositivos IoT, com o [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).

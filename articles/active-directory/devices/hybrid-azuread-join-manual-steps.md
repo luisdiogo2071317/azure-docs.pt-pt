@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049942"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352808"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente. 
 
@@ -54,9 +54,9 @@ Este tutorial parte do princípio de que está familiarizado com:
     
 -  [Introduction to device management in Azure Active Directory](../device-management-introduction.md) (Introdução à gestão de dispositivos no Azure Active Directory)
     
--  [How to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md) (Como planear a implementação da associação híbrida ao Azure Active Directory)
+-  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
 
--  [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md) (Como controlar a associação híbrida ao Azure AD dos seus dispositivos)
+-  [Como controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
 
 
 Antes de começar a permitir dispositivos híbridos associados ao Azure AD na sua organização, tem de confirmar que:
@@ -92,6 +92,8 @@ Se a sua organização estiver a considerar utilizar o SSO integrado, os seguint
 Se a organização utilizar a configuração gerida (não federada) com o Azure AD no local e não utilizar o AD FS para federar com o Azure AD, a associação híbrida ao Azure AD no Windows 10 utiliza os objetos do computador no AD para se sincronizar com o Azure AD. Certifique-se de que as Unidades Organizacionais (UOs) que contêm os objetos de computador que têm de ser associados de forma híbrida ao Azure AD estão ativadas para sincronização na configuração de sincronização do Azure AD Connect.
 
 Relativamente aos dispositivos Windows 10 na versão 1703 ou anterior, caso a organização precise de acesso à Internet através de um proxy de saída, tem de implementar o Web Proxy Auto-Discovery (WPAD) para permitir que os computadores Windows 10 se registem no Azure AD. 
+
+A partir do Windows 10 1803, mesmo que uma tentativa de associação híbrida do Azure AD por um dispositivo num domínio federado com o AD FS falhe, se o Azure AD Connect estiver configurado para sincronizar os objetos do computador/dispositivo com o Azure AD, então o dispositivo irá tentar concluir a associação híbrida do Azure AD através do computador/dispositivo sincronizado.
 
 ## <a name="configuration-steps"></a>Passos de configuração
 
@@ -534,7 +536,7 @@ No AD FS, tem de adicionar uma regra de transformação de emissão que seja tra
 2. Clique com o botão direito do rato no objeto de confiança da entidade confiadora da Plataforma de Identidade do Microsoft Office 365 e selecione **Edit Claim Rules** (Editar Regras de Emissão).
 3. No separador **Issuance Transform Rules** (Regras de Transformação de Emissão), selecione **Add Rule** (Adicionar Regra).
 4. Na lista de modelos **Claim rule** (Regra de afirmação), selecione **Send Claims Using a Custom Rule** (Enviar Afirmações com uma Regra Personalizada).
-5. Selecione **Next** (Seguinte).
+5. Selecione **Seguinte**.
 6. Na caixa **Claim rule name** (Nome da regra de afirmação), escreva **Auth Method Claim Rule** (Regra de Afirmação de Método de Autenticação).
 7. Na caixa **Claim rule** (Regra de afirmação), escreva a seguinte regra:
 
@@ -561,7 +563,7 @@ A saída deste cmdlet mostra os dispositivos que estão registados e associados 
 
 ## <a name="troubleshoot-your-implementation"></a>Resolver problemas relacionados com a implementação
 
-Se se deparar com problemas na conclusão da associação híbrida ao Azure AD de dispositivos Windows associados a um domínio, veja:
+Se estiver a ter problemas a completar a associação ao Azure AD híbrido dos dispositivos Windows de domínio associado, veja:
 
 - [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows atuais)
 - [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows de nível inferior)

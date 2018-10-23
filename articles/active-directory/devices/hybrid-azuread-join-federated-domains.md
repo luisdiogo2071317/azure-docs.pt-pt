@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855188"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352665"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
 
@@ -124,7 +124,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
 
     a. Selecione a floresta.
 
-    b. Selecione o serviço de autenticação. Tem de selecionar o servidor AD FS, a menos que a sua organização tenha exclusivamente clientes do Windows 10.
+    b. Selecione o serviço de autenticação. Tem de selecionar o servidor do AD FS, a menos que a sua organização tenha exclusivamente clientes do Windows 10 e tiver configurado a sincronização do computador/dispositivo ou a sua organização esteja a utilizar SeamlessSSO.
 
     c. Clique em **Adicionar** para introduzir as credenciais de administrador da empresa.
 
@@ -194,7 +194,7 @@ Ao utilizar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 - Tem de existir um objeto com um **id de dispositivo** que corresponda ao ID do cliente Windows.
 - O valor de **DeviceTrustType** tem de ser **Associados a um domínio**. Isto é equivalente ao estado **Associado ao Azure AD híbrido** na página Dispositivos no portal do Azure AD.
-- O valor de **Ativado** tem de ser **Verdadeiro** para dispositivos que são utilizados no acesso condicional. 
+- O valor de **Ativado** tem de ser **Verdadeiro** e **DeviceTrustLevel** para ser **Gerido** para dispositivos que são utilizados no acesso condicional. 
 
 
 **Para verificar os detalhes do serviço:**

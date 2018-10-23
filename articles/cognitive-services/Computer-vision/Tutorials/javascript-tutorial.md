@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984929"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341315"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Tutorial: JavaScript de API de Imagem Digitalizada
 
 Este tutorial mostra as funcionalidades da API REST de Imagem Digitalizada dos Serviços Cognitivos do Azure.
 
-Explore uma aplicação JavaScript que utilize a API REST de Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR), criar miniaturas com recorte inteligente, além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Este exemplo permite enviar um URL de imagem para análise ou processamento. Pode utilizar este exemplo de open source aberto como um modelo para criar a sua própria aplicação em JavaScript para utilizar a API REST de Imagem Digitalizada.
+Explore uma aplicação JavaScript que utilize a API REST de Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR), criar miniaturas com recorte inteligente, além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Este exemplo permite enviar um URL de imagem para análise ou processamento. Pode utilizar este exemplo de open source aberto como um modelo para criar a sua própria aplicação JavaScript para utilizar a API REST de Imagem Digitalizada.
 
 A aplicação de formulário JavaScript já foi escrita, mas não tem a funcionalidade de Imagem Digitalizada. Neste tutorial, vai adicionar o código específico para a API REST de Imagem Digitalizada para concluir a funcionalidade da aplicação.
 
@@ -35,25 +35,27 @@ Este tutorial foi elaborado com um editor de texto simples.
 
 Antes de criar o exemplo, tem de subscrever a API de Imagem Digitalizada que faz parte dos Serviços Cognitivos do Azure. Para obter os detalhes da subscrição e da gestão de chaves, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/). Ambas as chaves primárias e secundárias são válidas para utilizar neste tutorial. 
 
-## <a name="download-the-tutorial-project"></a>Transferir o projeto de tutorial
+## <a name="acquire-the-incomplete-tutorial-project"></a>Adquirir o projeto de tutorial incompleto
+
+### <a name="download-the-tutorial-project"></a>Transferir o projeto de tutorial
 
 Clone o [Cognitive Services JavaScript Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) (Tutorial de Imagem Digitalizada de JavaScript dos Serviços Cognitivos) ou transfira o ficheiro. zip e extraia-o para um diretório vazio.
 
 Se preferir utilizar o tutorial concluído com todos os códigos do tutorial adicionados, pode utilizar os ficheiros na pasta **Completed**.
 
-## <a name="add-the-tutorial-code"></a>Adicionar o código do tutorial
+## <a name="add-the-tutorial-code-to-the-project"></a>Adicione o código do tutorial ao projeto
 
 A aplicação JavaScript está configurada com seis ficheiros .html, um para cada funcionalidade. Cada ficheiro demonstra uma função diferente de Imagem Digitalizada (analisar, OCR, etc.). As seis secções do tutorial não têm interdependências, pelo que pode adicionar o código do tutorial a um ficheiro, a todos os ficheiros ou apenas a alguns dos ficheiros. Também pode adicionar o código do tutorial aos ficheiros em qualquer ordem.
 
 Vamos começar.
 
-## <a name="analyze-an-image"></a>Analisar uma imagem
+### <a name="analyze-an-image"></a>Analisar uma imagem
 
-A funcionalidade Analyze (Analisar) da Imagem Digitalizada analisa uma imagem em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando a análise estiver concluída, a função Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e muito mais.
+A funcionalidade Analisar da Imagem Digitalizada analisa uma imagem em mais de 2000 objetos reconhecíveis, seres vivos, paisagens e ações. Quando a análise estiver concluída, a função Analyze (Analisar) devolve um objeto JSON que descreve a imagem com etiquetas descritivas, análise de cores, legendas e muito mais.
 
 Para concluir a funcionalidade Analyze (Analisar) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analyze (Analisar) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 Abra o ficheiro **analyze.html** num editor de texto e localize a função **analyzeButtonClick** junto à parte inferior do ficheiro.
 
@@ -77,7 +79,7 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analyze (Analisar) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 A função **AnalyzeImage** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, a análise JSON formatada será apresentada na área de texto especificada e a legenda será apresentada no intervalo especificado.
 
@@ -151,17 +153,17 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="analyze-step-3-run-the-application"></a>Analyze (Analisar) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Guarde o ficheiro **analyze.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="recognize-a-landmark"></a>Reconhecer um marco
+### <a name="recognize-a-landmark"></a>Reconhecer um marco
 
 A funcionalidade Landmark (Marco) da Imagem Digitalizada analisa uma imagem relativamente a marcos naturais e artificiais, como montanhas ou edifícios famosos. Quando a análise estiver concluída, o Marco devolve um objeto JSON que identifica os marcos encontrados na imagem.
 
 Para concluir a funcionalidade Landmark (Marco) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Landmark (Marco) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 Abra o ficheiro **landmark.html** num editor de texto e localize a função **landmarkButtonClick** junto à parte inferior do ficheiro.
 
@@ -185,7 +187,7 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Landmark (Marco) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 A função **IdentifyLandmarks** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, a análise JSON formatada será apresentada na área de texto especificada e a legenda será apresentada no intervalo especificado.
 
@@ -258,17 +260,17 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Landmark (Marco) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Guarde o ficheiro **landmark.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="recognize-celebrities"></a>Reconhecer celebridades
+### <a name="recognize-celebrities"></a>Reconhecer celebridades
 
 A funcionalidade Celebrities (Celebridades) da Imagem Digitalizada analisa uma imagem para pessoas famosas. Quando a análise estiver concluída, a função Celebrities (Celebridades) devolve um objeto JSON que identifica as celebridades encontradas na imagem.
 
 Para concluir a funcionalidade Celebrities (Celebridades) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Celebrities (Celebridades) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 Abra o ficheiro **celebrities.html** num editor de texto e localize a função **celebritiesButtonClick** junto à parte inferior do ficheiro.
 
@@ -292,7 +294,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Celebrities (Celebridades) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -361,17 +363,17 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Celebrities (Celebridades) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Guarde o ficheiro **celebrities.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Analyze Image** (Analisar Imagem) para analisar uma imagem e ver o resultado.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de forma inteligente
+### <a name="intelligently-generate-a-thumbnail"></a>Gerar uma miniatura de forma inteligente
 
 A funcionalidade Thumbnail (Miniatura) da Imagem Digitalizada gera uma miniatura a partir de uma imagem. Ao utilizar a funcionalidade **Smart Crop** (Recorte Inteligente), a funcionalidade Thumbnail (Miniatura) identificará a área de interesse numa imagem e centrará a miniatura nessa área, para gerar imagens em miniatura mais agradáveis esteticamente.
 
 Para concluir a funcionalidade Thumbnail (Miniatura) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Thumbnail (Miniatura) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 Abra o ficheiro **thumbnail.html** num editor de texto e localize a função **thumbnailButtonClick** junto à parte inferior do ficheiro.
 
@@ -403,7 +405,7 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Thumbnail (Miniatura) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 A função **getThumbnail** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, a miniatura será apresentada no elemento da imagem especificado.
 
@@ -482,11 +484,11 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Thumbnail (Miniatura) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Guarde o ficheiro **thumbnail.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem a analisar e, em seguida, clique no botão **Generate Thumbnails** (Gerar Miniaturas) para analisar uma imagem e ver o resultado.
 
-## <a name="read-printed-text-ocr"></a>Ler texto impresso (OCR)
+### <a name="read-printed-text-ocr"></a>Ler texto impresso (OCR)
 
 A funcionalidade Optical Character Recognition (Reconhecimento Ótico de Carateres – OCR) da Imagem Digitalizada analisa uma imagem de texto impresso. Quando a análise estiver concluída, a funcionalidade OCR devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
@@ -516,7 +518,7 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 A função **ReadOcrImage** encapsula a chamada à API REST num wrapper para analisar uma imagem. Após uma devolução com êxito, o JSON formatado que descreve o texto e a localização do texto serão apresentados na área de texto especificada.
 
@@ -577,17 +579,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Guarde o ficheiro **ocr.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem de texto a ler e, em seguida, clique no botão **Read Imagem** (Ler Imagem) para analisar a imagem e ver o resultado.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito – Handwriting Recognition (Reconhecimento de Escrita Manual)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Ler texto manuscrito – Handwriting Recognition (Reconhecimento de Escrita Manual)
 
 A funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da Imagem Digitalizada analisa uma imagem de texto manuscrito. Quando a análise estiver concluída, a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) devolve um objeto JSON que contém o texto e a localização do texto na imagem.
 
 Para concluir a funcionalidade Handwriting Recognition (Reconhecimento de Escrita Manual) da aplicação de tutorial, execute os seguintes passos:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 1: adicionar o código do processador de eventos para o botão de formulário
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Adicionar o código do processador de eventos para o botão de formulário
 
 Abra o ficheiro **handwriting.html** num editor de texto e localize a função **handwritingButtonClick** junto à parte inferior do ficheiro.
 
@@ -610,7 +612,7 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 2: adicionar o wrapper para a chamada à API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Adicionar o wrapper para a chamada à API REST
 
 A função **ReadHandwrittenImage** encapsula as duas chamadas à API REST necessárias num wrapper para analisar uma imagem. Como o Handwriting Recognition (Reconhecimento de Escrita Manual) é um processo demorado, é utilizado um processo em duas etapas. A primeira chamada submete a imagem para processamento; a segunda chamada obtém o texto detetado quando o processamento está concluído.
 
@@ -736,7 +738,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Handwriting Recognition (Reconhecimento de Escrita Manual) – passo 3: executar a aplicação
+#### <a name="run-the-application"></a>Executar a aplicação
 
 Guarde o ficheiro **handwriting.html** e abra-o num browser. Coloque a sua chave de subscrição no campo **Subscription Key** (Chave de Subscrição) e verifique se está a utilizar a região correta na **Subscription Region** (Região de Subscrição). Introduza um URL para uma imagem de texto a ler e, em seguida, clique no botão **Read Imagem** (Ler Imagem) para analisar a imagem e ver o resultado.
 
