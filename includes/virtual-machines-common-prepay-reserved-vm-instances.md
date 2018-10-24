@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 4b51631e8b7d3f53edd1afdba76de3031b112254
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454585"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805024"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure
 
@@ -35,7 +35,7 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
   - Tamanhos de vCPU restrita
   - Série VM: Série A, série Av2 ou série G
   - As VMs em pré-visualização: qualquer série de VM ou o tamanho que está em pré-visualização
-- Nuvens: Não reservas estão disponíveis para compra nas regiões do Azure US Government, Alemanha e China.
+- Nuvens: Não reservas estão disponíveis para compra em regiões da Alemanha ou China.
 - Quota insuficiente: uma reserva de que tem um âmbito a uma subscrição individual tem de ter a quota de vCPU disponível na subscrição para a nova RI. Por exemplo, se a subscrição de destino tem um limite de quota de 10 vCPUs para a série D, em seguida, é possível comprar uma reserva para 11 Standard_D1 instâncias. A verificação de quota para as reservas inclui VMs já implementadas na subscrição. Por exemplo, se a subscrição tem uma quota de 10 vCPUs para a série D e tem duas instâncias de standard_D1 implementadas, em seguida, pode comprar uma reserva para 10 instâncias standard_D1 nesta subscrição. 
 - Restrições de capacidade: limites em raras circunstâncias, a compra de reservas de novo para o subconjunto de tamanhos VM, devido à baixa capacidade numa região do Azure.
 
@@ -67,9 +67,9 @@ Instâncias de VM reservadas estão disponíveis para a maioria dos tamanhos de 
 
 ## <a name="cancellations-and-exchanges"></a>Cancelamentos e trocas
 
-Se precisar de cancelar a sua reserva, pode haver uma taxa de rescisão antecipada de 12%. Reembolsos baseiam-se sobre o preço mais baixo do seu preço de compra ou o preço atual da reserva. Reembolsos estão limitados a 50 000 por ano. O reembolso que receber é o restante saldo pro-rata subtraindo a taxa de rescisão antecipada de 12%. Para pedir um cancelamento, vá para a reserva no portal do Azure e selecione **reembolsar** para criar um pedido de suporte.
+Se precisar de cancelar a sua reserva, pode ser cobrada uma taxa de cessação antecipada de 12%. Os reembolsos baseiam-se no preço mais baixo do preço de compra ou do preço atual da reserva. Os reembolsos estão limitados a 50 000 $ por ano. O reembolso que receber corresponde ao saldo rateado restante menos a taxa de cessação antecipada de 12%. Para pedir um cancelamento, vá para a reserva no portal do Azure e selecione **reembolsar** para criar um pedido de suporte.
 
-Se precisar de alterar a sua reserva de instâncias de VM reservadas para outra região, um grupo de tamanho VM ou um termo, podem trocá-lo para outro reserva do valor igual ou superior. A data de início do prazo para a nova reserva não passa da reserva trocada. Começa a partir ao criar a nova reserva de 1 ou o termo de 3 anos. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
+Se precisar de alterar a sua reserva de Instâncias de VM Reservadas para outra região, grupo de tamanho de VM ou período, pode trocá-la por outra reserva de valor igual ou superior. A data de início do período da nova reserva não transita da reserva trocada. O período de 1 ou 3 anos começa a partir do momento em que cria a nova reserva. Para pedir uma troca, vá para a reserva no portal do Azure e selecione **Exchange** para criar um pedido de suporte.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

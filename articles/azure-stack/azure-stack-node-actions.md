@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055789"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944941"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de dimensionamento no Azure Stack
 
@@ -31,7 +31,7 @@ Este artigo descreve como visualizar o estado de uma unidade de escala e de seus
 > Todas as ações de nó descritas neste artigo devem apenas destino um nó por vez.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Ver o estado de uma unidade de escala e respetivos nós
+## <a name="view-the-node-status"></a>Ver o estado do nó
 
 No portal do administrador, pode ver facilmente o estado de uma unidade de escala e de seus nós associados.
 
@@ -47,15 +47,15 @@ Aqui, pode ver as seguintes informações:
 - tipo de sistema
 - total de núcleos de lógica
 - total de memória
-- a lista de nós individuais e o respetivo estado; qualquer um dos **em execução** ou **parado**.
+- A lista de nós individuais e o respetivo estado; qualquer um dos **em execução** ou **parado**
 
 ![Mosaico de unidade de escala que mostra o estado de execução para cada nó](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>Ver informações sobre um nó de unidade de escala
+## <a name="view-node-information"></a>Ver informações de nó
 
 Se selecionar um nó individual, pode ver as seguintes informações:
 
-- nome da região
+- Nome da região
 - modelo de servidor
 - Endereço IP do controlador de gestão da placa base (BMC)
 - Estado operacional

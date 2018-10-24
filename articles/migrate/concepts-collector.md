@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434437"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945421"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -170,7 +170,7 @@ Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA novament
 Existem dois métodos que a aplicação Recoletora pode usar para deteção, a deteção única ou a deteção contínua.
 
 
-### <a name="one-time-discovery"></a>Deteção de uso individual
+### <a name="one-time-discovery"></a>Deteção única
 
 O Recoletor comunica de forma única com o vCenter Server para recolher os metadados sobre as VMs. Através deste método:
 
@@ -179,17 +179,23 @@ O Recoletor comunica de forma única com o vCenter Server para recolher os metad
 - Para este método de deteção, terá de configurar as definições de estatísticas no vCenter Server para o nível de três.
 - Depois de definir o nível a três, demoram até um dia para gerar os contadores de desempenho. Como tal, recomendamos que execute a deteção depois de um dia.
 - Aquando da recolha de dados de desempenho para uma VM, a aplicação da conta com os dados de desempenho do histórico armazenados no vCenter Server. Recolhe o histórico de desempenho para o último mês.
-- O Azure Migrate recolhe um contador médio (em vez de um contador de pico) para cada uma.
+- O Azure Migrate recolhe contadores médios (em vez de contador de pico) para cada métrica que pode resultar em dimensionamento insuficientemente.
 
 ### <a name="continuous-discovery"></a>Deteção contínua
 
-A aplicação Recoletora fica continuamente conectada ao projeto do Azure Migrate.
+A aplicação Recoletora fica continuamente conectada ao projeto do Azure Migrate e continuamente recolhe dados de desempenho de VMs.
 
 - O Recoletor perfis continuamente o ambiente no local para recolher dados de utilização em tempo real a cada 20 segundos.
 - Este modelo não depende das definições de estatísticas do vCenter Server para recolher dados de desempenho.
 - A aplicação agrega os exemplos de 20 segundos e cria um único ponto de dados a cada 15 minutos.
 - Para criar os dados ponto a aplicação da seleciona o valor de pico de exemplos de 20 segundos e envia-os para o Azure.
 - Pode parar contínua de criação de perfis em qualquer altura do Recoletor.
+
+Tenha em atenção que a aplicação só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal do:
+
+1. Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+
+2. Eliminação das VMs: a forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isso ocorre porque os dados a partir de deteções subsequentes são anexados ao deteções mais antigas e não substituídos. Neste caso, pode simplesmente ignorar a VM no portal, removê-lo a partir do seu grupo de e para recalcular a avaliação.
 
 > [!NOTE]
 > A funcionalidade de deteção contínua está em pré-visualização. Se as definições de estatísticas do vCenter Server não está definida como nível 3, recomendamos que utilize este método.
@@ -241,8 +247,8 @@ virtualDisk.read.average | 2 | 2 | Calcula o tamanho do disco, o custo de armaze
 virtualDisk.write.average | 2 | 2  | Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcula o tamanho do disco, o custo de armazenamento, o tamanho da VM
-NET.Received.Average | 2 | 3 |  Calcula o custo de tamanho e a rede VM                        |
-net.transmitted.average | 2 | 3 | Calcula o custo de tamanho e a rede VM    
+NET.Received.Average | 2 | 3 |  Calcula o tamanho da VM                          |
+net.transmitted.average | 2 | 3 | Calcula o tamanho da VM     
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,23 +1,23 @@
 ---
-title: Personalizar uma interface do Usuário com as políticas personalizadas no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba mais sobre como personalizar uma interface de utilizador (IU) ao utilizar políticas personalizadas no Azure AD B2C.
+title: Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C | Documentos da Microsoft
+description: Saiba mais sobre como personalizar uma interface do usuário com uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446168"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945065"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>O Azure Active Directory B2C: Configurar a personalização da interface do Usuário numa política personalizada
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizar a interface de utilizador da sua aplicação utilizando uma política personalizada no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,13 +25,13 @@ Depois de concluir este artigo, terá uma política personalizada de inscrição
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, conclua [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Deve ter uma política personalizada do trabalho para inscrição e início de sessão com contas locais.
+Conclua os passos na [introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md). Deve ter uma política personalizada do trabalho para inscrição e início de sessão com contas locais.
 
 ## <a name="page-ui-customization"></a>Personalização da IU da página
 
-Ao utilizar a funcionalidade de personalização da interface do Usuário de página, pode personalizar o aspeto e funcionalidade de qualquer política personalizada. Também pode manter a marca e a consistência visual entre a aplicação e do Azure AD B2C.
+Ao utilizar a funcionalidade de personalização da interface do Usuário de página, pode personalizar o aspeto e funcionalidade de qualquer política personalizada. Também pode manter a consistência visual e de marca entre a sua aplicação e o Azure AD B2C.
 
-Eis como funciona: Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Em primeiro lugar, especifique um URL a política personalizada com conteúdo HTML personalizado. O Azure AD B2C mescla os elementos de interface do Usuário com o conteúdo HTML que são carregados a partir do URL e, em seguida, apresenta a página para o cliente.
+Eis como funciona: Azure AD B2C executa o código no browser do seu cliente e utiliza uma abordagem moderna chamada [Cross-Origin Resource Sharing (CORS)](http://www.w3.org/TR/cors/). Em primeiro lugar, especifique um URL a política personalizada com conteúdo HTML personalizado. O Azure AD B2C une os elementos de IU com o conteúdo HTML que é carregado a partir do URL e, em seguida, apresenta a página ao cliente.
 
 ## <a name="create-your-html5-content"></a>Criar o HTML5 conteúdo
 
@@ -119,27 +119,44 @@ Valide a que está pronto, fazendo o seguinte:
 2. Clique em **enviar pedido**.  
     Se receber um erro, certifique-se de que sua [definições de CORS](#configure-cors) estão corretos. Também poderá ter de limpar a cache do browser ou abra uma sessão de navegação privada ao premir Ctrl + Shift + P.
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modificar a política de inscrição ou início de sessão personalizada
+## <a name="modify-the-extensions-file"></a>Modificar o arquivo de extensões
 
-Sob o nível superior *\<TrustFrameworkPolicy\>* marcar, deve encontrar *\<BuildingBlocks\>* marca. Dentro do *\<BuildingBlocks\>* adicionar etiquetas, uma *\<ContentDefinitions\>* marca ao copiar o exemplo seguinte. Substitua *your_storage_account* com o nome da conta de armazenamento.
+Para configurar a personalização da interface do Usuário, copie os **ContentDefinition** e os respetivos elementos filho do ficheiro de base para o arquivo de extensões.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. Abra o ficheiro de base da sua política. Por exemplo, *TrustFrameworkBase.xml*.
+2. Procure e copie todo o conteúdo do **ContentDefinitions** elemento.
+3. Abra o ficheiro de extensão. Por exemplo, *TrustFrameworkExtensions.xml*. Procure o **BuildingBlocks** elemento. Se o elemento não existir, adicioná-lo.
+4. Cole o conteúdo inteiro dos **ContentDefinitions** elemento que copiou como subordinado da **BuildingBlocks** elemento. 
+5. Procure o **ContentDefinition** elemento que contém `Id="api.signuporsignin"` no XML que copiou.
+6. Alterar o valor de **LoadUri** para o URL do arquivo HTML que carregou para o armazenamento. Por exemplo, "https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    A diretiva personalizada deve ter um aspeto semelhante ao seguinte:
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. Guarde o ficheiro de extensões.
 
 ## <a name="upload-your-updated-custom-policy"></a>Carregar a política personalizada atualizada
 
-1. Na [portal do Azure](https://portal.azure.com), [mudar para o contexto do inquilino do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md)e, em seguida, abra a **do Azure AD B2C** painel.
+1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
+3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
+4. Selecione **arquitetura de experiências de identidade**.
 2. Clique em **todas as políticas**.
 3. Clique em **carregar política**.
-4. Carregue `SignUpOrSignin.xml` com o *\<ContentDefinitions\>* etiqueta que adicionou anteriormente.
+4. Carregue o ficheiro de extensões que alterou anteriormente.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Testar a política personalizada com **executar agora**
 

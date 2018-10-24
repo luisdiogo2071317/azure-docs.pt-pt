@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007166"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945200"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Secção de recursos de modelos Azure Resource Manager
 
@@ -83,7 +83,7 @@ Define os recursos com a seguinte estrutura:
 
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
-| condição | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implantação. Quando `false`, o recurso é ignorado para esta implementação. |
+| condition | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. |
 | apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. |
 | tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). |
 | nome |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. |
@@ -100,7 +100,9 @@ Define os recursos com a seguinte estrutura:
 
 ## <a name="condition"></a>Condição
 
-Quando tem de decidir durante a implementação se deve ou não criar um recurso, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso será criado. Quando o valor for FALSO, o recurso não será criado. Normalmente, utiliza este valor quando pretender criar um novo recurso ou utilize um já existente. Por exemplo, para especificar se é implementada uma nova conta de armazenamento ou uma conta de armazenamento existente, utilize:
+Quando tem de decidir durante a implementação se deve ou não criar um recurso, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso é criado. Quando o valor for FALSO, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+
+Normalmente, utiliza este valor quando pretender criar um novo recurso ou utilize um já existente. Por exemplo, para especificar se é implementada uma nova conta de armazenamento ou uma conta de armazenamento existente, utilize:
 
 ```json
 {
@@ -156,7 +158,7 @@ Ao definir o nome, pode manualmente criar um nome exclusivo ou utilizar o [uniqu
 ```
 
 ### <a name="resource-names-for-identification"></a>Nomes de recursos para fins de identificação
-Alguns tipos de recursos, que pode querer nome, mas seus nomes não têm de ser exclusivo. Para estes tipos de recursos, pode fornecer um nome que identifica o contexto de recursos e o tipo de recurso.
+Alguns tipos de recursos, que pode querer nome, mas seus nomes não tem de ser exclusivo. Para estes tipos de recursos, pode fornecer um nome que identifica o contexto de recursos e o tipo de recurso.
 
 ```json
 "parameters": {

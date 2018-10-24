@@ -4,23 +4,23 @@ description: Este tópico mostra como utilizar a CLI do Azure para criar uma apl
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: fcd0ea10bd39f9e7252e114e8d6401a4fe0ecadb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 33d3454e50cb6eeb0e48b52f01923c8a344620eb
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096553"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944129"
 ---
-# <a name="use-azure-cli-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Utilizar a CLI do Azure para criar uma aplicação do AAD e configurá-lo para aceder à API de serviços de multimédia do Azure
+# <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-azure-media-services-api"></a>Utilizar a CLI do Azure para criar uma aplicação do Azure AD e configurá-lo para aceder à API de serviços de multimédia do Azure
 
 Este tópico mostra-lhe como utilizar a CLI do Azure para criar uma aplicação do Azure Active Directory (Azure AD) e o principal de serviço para aceder aos recursos de serviços de multimédia do Azure. 
 

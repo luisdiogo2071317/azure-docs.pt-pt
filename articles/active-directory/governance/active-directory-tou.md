@@ -12,19 +12,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
-ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393988"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944148"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
-Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar a utilizar os Termos de utilização do Azure AD.
+Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## <a name="overview-videos"></a>Vídeos de descrição geral
+
+O vídeo seguinte apresenta uma rápida visão geral dos termos de utilização.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+Para ver vídeos adicionais, consulte:
+- [Como implementar os termos de utilização no Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Como implementar termos de utilização no Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>O que posso fazer com os Termos de utilização?
 Os Termos de utilização do Azure AD permitem-lhe fazer o seguinte:
@@ -33,8 +43,9 @@ Os Termos de utilização do Azure AD permitem-lhe fazer o seguinte:
 - Apresentar Termos de utilização específicos baseados nos atributos de um utilizador (por exemplo, médicos por oposição a enfermeiros ou colaboradores nacionais por oposição a colaboradores internacionais, uma distinção feita através da utilização de [grupos dinâmicos](../users-groups-roles/groups-dynamic-membership.md)).
 - Apresentar Termos de utilização específicos ao aceder a aplicações de elevado impacto empresarial, como o Salesforce.
 - Apresentar Termos de utilização em idiomas diferentes.
+- Ajudar a cumprir os regulamentos de privacidade.
 - Listar os utilizadores que aceitaram ou não os seus Termos de utilização.
-- Apresentar um registo de auditoria da atividade dos Termos de utilização.
+- Exiba um log de termos de utilização atividade de conformidade e auditoria.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para utilizar e configurar os Termos de utilização Azure AD, tem de ter:
