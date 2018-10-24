@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: b9500176cd3779c46886e6ed8bc8c989bea20a8c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 03efe32e7a9a29318e4f97ce5636616fad443284
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647516"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956668"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorizar e gerir os testes no portal do VaaS
 
@@ -28,7 +28,7 @@ Depois de agendar os testes em sua solução do Azure Stack, validação como um
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Navegue para a página de resumo de testes de fluxo de trabalho
 
-1. No dashboard de soluções, selecione uma solução existente que tem, pelo menos, um fluxo de trabalho.
+1. No dashboard de soluções, selecione uma solução existente que tenha, pelo menos, um fluxo de trabalho.
 
     ![Mosaicos de fluxo de trabalho](media/tile_all-workflows.png)
 

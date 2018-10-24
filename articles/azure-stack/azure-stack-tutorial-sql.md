@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386388"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954917"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Tutorial: Oferecem elevada disponibilidade bases de dados do SQL
 
@@ -63,30 +63,28 @@ Utilize os passos nesta secção para implementar o grupo de Disponibilidade Alw
 - Uma VM (Windows Server 2016) configurada como testemunho de partilha de ficheiros para o cluster
 - Um conjunto que contém o testemunho de partilha ficheiros e SQL VMs de disponibilidade  
 
-1. Inicie sessão no portal de administração do:
-    - Para uma implementação do sistema integrado, o endereço de portal variam com base na região e o nome de domínio externo de sua solução. É no formato https://adminportal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-    - Se estiver a utilizar o Azure Stack Development Kit (ASDK), o endereço de portal de utilizador é [ https://adminportal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **personalizado**e, em seguida, **implementação do modelo**.
 
-   ![Implementação de modelo personalizado](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Implementação de modelo personalizado](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. Sobre o **implementação personalizada** painel, selecione **Editar modelo** > **modelo de início rápido** e, em seguida, utilize a lista de lista pendente de disponíveis modelos personalizados para Selecione o **alwayson de sql 2016** modelo, clique em **OK**e, em seguida **guardar**.
 
-   ![Selecione o modelo de início rápido](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Selecione o modelo de início rápido")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. Sobre o **implementação personalizada** painel, selecione **Editar parâmetros** e reveja os valores predefinidos. Modifique os valores conforme necessário para fornecer todas as informações de parâmetro necessário e, em seguida, clique em **OK**.<br><br> No mínimo:
 
     - Fornece palavras-passe complexas para os parâmetros ADMINPASSWORD SQLSERVERSERVICEACCOUNTPASSWORD e SQLAUTHPASSWORD.
     - Introduza o sufixo DNS de pesquisa inversa em todas as letras minúsculas para o parâmetro DNSSUFFIX (**azurestack.external** para instalações de ASDK).
     
-    ![Parâmetros de implementação personalizada](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Editar parâmetros de implementação personalizada")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. Sobre o **implementação personalizada** painel, selecione a subscrição para utilizar e criar um novo grupo de recursos ou selecione um grupo de recursos existente para a implementação personalizada.<br><br> Em seguida, selecione a localização do grupo de recursos (**local** para instalações de ASDK) e, em seguida, clique em **criar**. As definições de implementação personalizadas serão validadas e, em seguida, irá iniciar a implementação.
 
-    ![Parâmetros de implementação personalizada](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Criar implementação personalizada")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. No portal de administração, selecione **grupos de recursos** e, em seguida, o nome do grupo de recursos que criou para a implementação personalizada (**grupo de recursos** para este exemplo). Ver o estado da implementação para garantir que todas as implementações foram concluídas com êxito.<br><br>Em seguida, reveja os itens do grupo de recursos e selecione o **SQLPIPsql\<nome do grupo de recursos\>**  item de endereço IP público. Registe o endereço IP público e o FQDN completo do IP público do Balanceador de carga. Precisará fornecer isso a um operador de pilha do Azure, para que podem criar um servidor de alojamento de SQL tirar partido deste grupo de disponibilidade SQL AlwaysOn.
@@ -94,16 +92,16 @@ Utilize os passos nesta secção para implementar o grupo de Disponibilidade Alw
    > [!NOTE]
    > A implementação do modelo irá demorar várias horas a concluir.
 
-   ![Parâmetros de implementação personalizada](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Conclusão da implantação personalizada](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Ativar o seeding automático
 Depois que o modelo com êxito é implementado e configurado o grupo de disponibilidade SQL AlwaysON, tem de ativar [seeding automático](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) em cada instância do SQL Server no grupo de disponibilidade. 
 
 Quando cria um grupo de disponibilidade com o seeding automático, do SQL Server cria automaticamente as réplicas secundárias para cada base de dados no grupo de sem intervenção manual necessário para garantir a elevada disponibilidade de bases de dados do AlwaysOn.
 
-Utilize estes comandos SQL para configurar o seeding automático para o grupo de Disponibilidade AlwaysOn.
+Utilize estes comandos SQL para configurar o seeding automático para o grupo de Disponibilidade AlwaysOn. Substitua \<InstanceName\> com o principal de instância nome do SQL Server e < availability_group_name > com o nome do grupo de Disponibilidade AlwaysOn conforme necessário. 
 
-Na instância do SQL principal (substitua <InstanceName> com o nome do SQL Server de instância primária):
+Na instância do SQL principal:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ Na instância do SQL principal (substitua <InstanceName> com o nome do SQL Serve
 
 >  ![Script de instância SQL primária](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-Em instâncias SQL secundárias (substituir < availability_group_name > pelo nome do grupo de Disponibilidade AlwaysOn):
+Em instâncias SQL secundárias:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ Depois do SQL AlwaysOn grupo de disponibilidade foi criado, configurado e adicio
 > [!NOTE]
 > Execute estes passos a partir do portal de utilizador do Azure Stack como um utilizador do inquilino com uma assinatura do fornecimento de capacidades do SQL Server (Microsoft.SQLAdapter serviço).
 
-1. Inicie sessão no portal de utilizador:
-    - Para uma implementação do sistema integrado, o endereço de portal variam com base na região e o nome de domínio externo de sua solução. É no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-    - Se estiver a utilizar o Azure Stack Development Kit (ASDK), o endereço de portal de utilizador é [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **dados \+ armazenamento**e, em seguida, **base de dados SQL**.<br><br>Forneça as informações de propriedade da base de dados necessários, incluindo o nome, agrupamento, tamanho máximo e a subscrição, grupo de recursos e localização para utilizar na implementação. 
 

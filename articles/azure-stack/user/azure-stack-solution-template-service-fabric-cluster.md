@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804434"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946118"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementar um cluster do Service Fabric no Azure Stack
 
@@ -48,7 +48,7 @@ O seguinte é necessário para implementar o cluster do Service Fabric:
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Adicionar um segredo ao Key Vault
-Para implementar um cluster do Service Fabric, tem de especificar o KeyVault correto *identificador de segredo* ou o URL para o cluster do Service Fabric. O modelo Azure Resource Manager usa um cofre de chaves como entrada e, em seguida, obtém o certificado de Cluster durante a instalação do cluster do Service Fabric. 
+Para implementar um cluster do Service Fabric, tem de especificar o KeyVault correto *identificador de segredo* ou o URL para o cluster do Service Fabric. O modelo Azure Resource Manager usa um cofre de chaves, como entrada. Em seguida, o modelo obtém o certificado de Cluster, ao instalar o cluster do Service Fabric.
 
 > [!IMPORTANT]  
 > Tem de utilizar o PowerShell para adicionar um segredo ao Cofre de chaves para uso com o Service Fabric. Não utilize o portal.  
@@ -139,7 +139,7 @@ Para obter mais informações, consulte [gerir o Cofre de chaves no Azure Stack 
    - Cofre de chaves de origem: Especificar toda *id de Cofre de chaves* cadeia de caracteres dos resultados do script. 
    - URL de certificado de cluster: Especifique o URL completo do *Id de segredo* dos resultados do script. 
    - Thumbprint do certificado de cluster: Especifique a *Thumbprint do certificado de Cluster* dos resultados do script.
-   - Thumbprints de certificado de cliente administrativo: Especifique a *Thumbprint do certificado de cliente de administrador* que criou nos pré-requisitos. 
+   - Thumbprints de certificado de cliente administrativo: Especifique a *Thumbprint do certificado de cliente de administrador* criados nos pré-requisitos. 
 
    ![Saída do script](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -184,7 +184,7 @@ Pode acessar o cluster do Service Fabric com o Service Fabric Explorer ou o Powe
 1. No seu browser, aceda a https://*FQDN*: 19080. Substitua *FQDN* com o FQDN do cluster do Service Fabric do passo 2.   
    Se já usou um certificado autoassinado, obterá um aviso de que a ligação não é segura. Para continuar para o web site, selecione **mais informações**e, em seguida **avance para a página Web**. 
 
-1. Para autenticar para o site tem de selecionar um certificado a utilizar. Selecione **mais escolhas**, escolha o certificado apropriado e, em seguida, clique em **OK** para ligar ao Service Fabric Explorer. 
+1. Para autenticar para o site, tem de selecionar um certificado a utilizar. Selecione **mais escolhas**, escolha o certificado apropriado e, em seguida, clique em **OK** para ligar ao Service Fabric Explorer. 
 
    ![Autenticar](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
