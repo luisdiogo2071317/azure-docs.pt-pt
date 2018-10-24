@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816621"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958164"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -50,7 +50,7 @@ Para criar ou atualizar uma conta Run As, tem de ter privilégios específicos e
 |Criar ou remover uma ligação da automatização|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contribuinte no grupo de recursos |
 
 * Uma conta de utilizador do AD com permissões equivalentes à função de Contribuidor para recursos de Microsoft conforme descrito no artigo [controlo de acesso baseado em funções na automatização do Azure](automation-role-based-access-control.md#contributor).  
-* Os utilizadores não administradores no seu inquilino do Azure AD podem [registar aplicações AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os utilizadores podem registar aplicações** do inquilino do Azure AD na página **Definições de utilizadores** está definida como **Sim**. Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
+* Os utilizadores não administradores no seu inquilino do Azure AD podem [registar aplicações AD](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os utilizadores podem registar aplicações** do inquilino do Azure AD na página **Definições de utilizadores** está definida como **Sim**. Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
 
 Se não é um membro de instância do Active Directory da subscrição antes de serão adicionados para a global/coadministrador função de administrador da subscrição, é adicionado como convidado. Nesta situação, recebe uma `You do not have permissions to create…` aviso sobre a **adicionar conta de automatização** página. Os utilizadores que foram adicionados primeiro à função de administrador global/coadministrador podem ser removidos da instância do Active Directory da subscrição e adicionados novamente, para que se tornem em Utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
 

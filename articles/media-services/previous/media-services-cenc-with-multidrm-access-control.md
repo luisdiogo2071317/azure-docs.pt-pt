@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: ffd8a82fb03c23a661223e16e75d2964249d2b96
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965828"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958426"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com o controlo de acesso através dos serviços de multimédia do Azure
 
@@ -200,7 +200,7 @@ Implementação inclui os seguintes passos:
 
 6. Crie algumas contas de utilizador e grupos no seu inquilino do Azure AD. Crie, pelo menos, um grupo de "Usuário intitulado" e adicionar um utilizador a este grupo. Os utilizadores neste grupo passaram a verificação de elegibilidade de aquisição de licença. Utilizadores neste grupo não passaram a verificação de autenticação e não é possível adquirir uma licença. A associação neste grupo de "Usuário intitulado" é uma afirmação de grupos necessários no JWT emitido pelo Azure AD. Especifique este requisito de afirmação no passo quando configurar serviços de entrega de licença de multi-DRM.
 
-7. Crie uma aplicação ASP.NET MVC para alojar o seu leitor de vídeo. Esta aplicação ASP.NET está protegida com autenticação de utilizador no inquilino do Azure AD. Afirmações adequadas estão incluídas nos tokens de acesso, obtidos após a autenticação de utilizador. Recomendamos que a API de ligação OpenID para este passo. Instale os seguintes pacotes de NuGet:
+7. Crie uma aplicação ASP.NET MVC para alojar o seu leitor de vídeo. Esta aplicação ASP.NET está protegida com autenticação de utilizador no inquilino do Azure AD. Afirmações adequadas estão incluídas nos tokens de acesso, obtidos após a autenticação de utilizador. Recomendamos que a API de ligação OpenID para este passo. Instale os seguintes pacotes NuGet:
 
    * Microsoft.Azure.ActiveDirectory.GraphClient Install-Package
    * Microsoft.Owin.Security.OpenIdConnect Install-Package
@@ -225,7 +225,7 @@ Para obter mais informações, consulte [autenticação de token JWT em serviço
 
 Para informações sobre o Azure AD:
 
-* Pode encontrar informações de desenvolvedor no [Guia do programador do Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
+* Pode encontrar informações de desenvolvedor no [Guia do programador do Azure Active Directory](../../active-directory/develop/v1-overview.md).
 * Pode encontrar as informações de administrador no [administrar o diretório de inquilino do Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Alguns problemas na implementação

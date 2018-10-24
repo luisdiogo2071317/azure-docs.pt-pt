@@ -11,24 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c9252380581e77049e9464316ca77cc135f784b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377605"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955388"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copiar dados do Office 365 no Azure com o Azure Data Factory (pré-visualização) 
 
 O Azure Data Factory permite-lhe reunir a avançada dados organizacionais no seu Office 365 de inquilino para o Azure de uma forma escalável e criem aplicações de análise e extrair informações com base nestes ativos de dados valiosos. Integração com o Privileged Access Management fornece controlo de acesso protegido para os valiosos dados organizados no Office 365.  Para obter mais informações sobre os dados do Microsoft Graph ligar, veja [esta ligação](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do Office 365. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
-
-Para obter uma introdução de nove minutos e demonstração sobre como ligar a fábrica de dados para dados do Office 365, veja o vídeo seguinte:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -45,10 +41,10 @@ Por agora, dentro de uma atividade de cópia única só é possível **copiar da
 Para copiar dados do Office 365 no Azure, tem de concluir os passos de pré-requisitos seguintes:
 
 - O administrador do inquilino do Office 365 tem de concluir as ações de integração conforme descrito [aqui](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
-- Criar e configurar uma aplicação web do Azure AD no Azure Active Directory.  Para obter instruções, consulte [criar uma aplicação do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Criar e configurar uma aplicação web do Azure AD no Azure Active Directory.  Para obter instruções, consulte [criar uma aplicação do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Tome nota dos seguintes valores, que irá utilizar para definir o serviço ligado para o Office 365:
-    - ID do inquilino.  Para obter instruções, consulte [obter ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-    - Chave de ID da aplicação e a aplicação.  Para obter instruções, consulte [chave de ID e a autenticação da aplicação Get](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - ID do inquilino.  Para obter instruções, consulte [obter ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Chave de ID da aplicação e a aplicação.  Para obter instruções, consulte [chave de ID e a autenticação da aplicação Get](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Adicionar a identidade do utilizador que está a definir o pedido de acesso de dados como o proprietário do aplicativo web do Azure AD (do Azure AD da aplicação web > Definições > proprietários > Adicionar proprietário).
 
 ## <a name="approving-new-data-access-requests"></a>Aos novos pedidos de acesso de dados

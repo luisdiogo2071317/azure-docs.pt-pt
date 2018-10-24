@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9d9f5b053537b3d6881763bcb39d7894ba78869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79b8cfa061bafb43cbcf2ec8a43638fd14c2fcd0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969514"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954042"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Permitido autoridades de certificação para ativar o HTTPS personalizado na CDN do Azure
 
@@ -70,27 +70,6 @@ As CAs seguintes são permitidas quando cria seu próprio certificado:
 - AC de raiz de GlobalSign
 - Aceda a autoridade de certificação de raiz Daddy - G2
 - Aceda a autoridade de certificação segura de Daddy - G2
-- Autoridade de raiz de Authenticode(tm) da Microsoft
-- Serviços do Microsoft Exchange 2015 de AC
-- Microsoft de raiz empresarial interna
-- A TI da Microsoft ITO SSL AC 1
-- SHA1 SSL de TI da Microsoft
-- A TI da Microsoft SSL SHA2
-- A TI da Microsoft TLS AC 1
-- A TI da Microsoft TLS AC 2
-- A TI da Microsoft TLS AC 4
-- A TI da Microsoft TLS AC 5
-- Autoridade de raiz da Microsoft
-- Autoridade de certificação de raiz da Microsoft
-- Autoridade de certificação de raiz Microsoft 2010
-- Autoridade de certificação de raiz Microsoft 2011
-- Servidor seguro da Microsoft 2011 de AC
-- Raiz de parceiro de serviços da Microsoft
-- Raiz do serviço de carimbo de data / hora da Microsoft
-- Compatibilidade de Hardware do Windows da Microsoft
-- MSIT Z2 DE AC
-- AC empresarial do MSIT 1
-- AC empresarial do MSIT 3
 - RapidSSL RSA 2018 de AC
 - Agência de raiz
 - AC de SSL do Symantec classe 3 EV - G3
@@ -102,12 +81,11 @@ As CAs seguintes são permitidas quando cria seu próprio certificado:
 - Thawte RSA 2018 de AC
 - Carimbo de Thawte AC
 - TrustAsia TLS RSA AC
-- Objeto de USERFirst UTN
 - AC de SSL de validação estendida 3 classe VeriSign
 - Classe de VeriSign 3 validação estendida SSL SGC AC
 - Autoridade de certificação primária pública classe 3 da VeriSign - G5
 - Servidor internacional da VeriSign AC - classe 3
 - Raiz do serviço de carimbo de data / hora da VeriSign
 - Autoridade de certificação de raiz de VeriSign Universal
-- WMSvc-SHA2-DALEDGE1008
+
 

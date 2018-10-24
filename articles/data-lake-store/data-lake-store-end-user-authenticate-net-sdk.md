@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 65672d5dc42ae1e584a36bcc72c16911f6c1f6e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122830"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955713"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o .NET SDK
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Neste artigo, saiba como utilizar o SDK de .NET para fazer a autenticação de u
 ## <a name="end-user-authentication"></a>Autenticação de utilizador final
 Adicione este trecho de código na sua aplicação de cliente .NET. Substitua os valores de marcador de posição pelos valores obtidos a partir de uma aplicação nativa do Azure AD (listada como pré-requisito). Este fragmento permite-lhe autenticar a sua aplicação **interativamente** com Gen1 de armazenamento do Data Lake, que significa que lhe for pedido para introduzir as suas credenciais do Azure.
 
-Facilidade de utilização, o fragmento seguinte utiliza valores predefinidos para o ID de cliente e URI de redirecionamento que são válidos para qualquer subscrição do Azure. No trecho a seguir, só precisa fornecer o valor para o ID de inquilino. Pode obter o ID de inquilino ao seguir as instruções fornecidas no [obter o ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+Facilidade de utilização, o fragmento seguinte utiliza valores predefinidos para o ID de cliente e URI de redirecionamento que são válidos para qualquer subscrição do Azure. No trecho a seguir, só precisa fornecer o valor para o ID de inquilino. Pode obter o ID de inquilino ao seguir as instruções fornecidas no [obter o ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     
 - Substitua a função Main () com o código a seguir:
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b96417140bea581aeb106e45c3c93a19858dfe7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7acfb71dd3edd798095472b8f863a658dccaa51b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310886"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955191"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar um peering de um circuito do ExpressRoute
 
@@ -156,6 +156,11 @@ Pode selecionar a linha para peering e modificar as propriedades do peering.
 ### <a name="deleteprivate"></a>Para eliminar um peering privado do Azure
 
 Pode remover a configuração do peering selecionando o ícone Eliminar, conforme mostrado na imagem seguinte:
+
+> [!WARNING]
+> Tem de se certificar de que todas as ligações de alcance Global do ExpressRoute e de redes virtuais são removidas antes de executar este exemplo. 
+> 
+> 
 
 ![eliminar um peering privado](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
 

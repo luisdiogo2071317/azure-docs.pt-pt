@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 1b96cb0531778b03ddf6adf15988755359e19562
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c19e5dbcba334a100198708237cc814258a20053
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649782"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957699"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Monitorização da Base de Dados SQL do Azure utilizando vistas de gestão dinâmica
 
@@ -50,7 +50,7 @@ Se o consumo de CPU for superior a 80% por longos períodos de tempo, considere 
 
 Se o problema está ocorrendo neste momento, existem dois cenários possíveis:
 
-#### <a name="there-are-many-queries-that-individually-run-quickly-but-cumulatively-consume-high-cpu"></a>Existem muitas consultas que individualmente executam rapidamente, mas cumulativamente e consumam CPU elevada
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Muitas consultas individuais que cumulativamente e consumam CPU elevada
 
 Utilize a seguinte consulta para identificar os hashes de consulta principais:
 
@@ -65,7 +65,7 @@ FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### <a name="some-long-running-queries-that-consume-cpu-are-still-running"></a>Algumas consultas de execução demorada que consumam CPU ainda estão em execução
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Consultas de execução demorada que consumam CPU ainda estão em execução
 
 Utilize a seguinte consulta para identificar estas consultas:
 
@@ -117,7 +117,9 @@ Ao identificar problemas de desempenho de e/s, os tipos de espera principais ass
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Se o problema de e/s está a ocorrer neste momento
 
-Utilize o [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [os_waiting_tasks](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver o `wait_type` e `wait_time`.
+Utilize o [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver o `wait_type` e `wait_time`.
+
+#### <a name="identify-data-and-log-io-usage"></a>Identificar os dados e a utilização de e/s de registo
 
 Utilize a seguinte consulta para identificar os dados e registar a utilização de e/s. Se a e/s de dados ou de registo for superior a 80%, significa que os utilizadores têm usado a e/s disponível para a camada de serviços de BD SQL.
 
@@ -132,9 +134,11 @@ Se tiver sido atingido o limite de e/s, tem duas opções:
 - Opção 1: Atualizar o tamanho de computação ou a camada de serviço
 - Opção 2: Identificar e ajustar as consultas a maioria das e/s de consumo.
 
-Opção 2, pode utilizar a seguinte consulta em relação a Store de consulta para relacionados com a memória intermédia de e/s (examina as últimas duas horas de atividade controlada):
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Ver relacionados com a memória intermédia e/s usando o Store de consulta
 
-```SQL
+Opção 2, pode utilizar a seguinte consulta em relação a Store de consulta para relacionados com a memória intermédia de e/s para ver as últimas duas horas de atividade controlada:
+
+```sql
 -- top queries that waited on buffer
 -- note these are finished queries
 WITH Aggregated AS (SELECT q.query_hash, SUM(total_query_wait_time_ms) total_wait_time_ms, SUM(total_query_wait_time_ms / avg_query_wait_time_ms) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text, MIN(wait_category_desc) AS wait_category_desc
@@ -153,6 +157,85 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
+#### <a name="view-total-log-io-for-writelog-waits"></a>Ver registo total e/s para WRITELOG aguarda
+
+Se o tipo de espera é `WRITELOG`, utilize a seguinte consulta para ver e/s de registo total pela instrução:
+
+```sql
+-- Top transaction log consumers
+-- Adjust the time window by changing
+-- rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+WITH AggregatedLogUsed
+AS (SELECT q.query_hash,
+           SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec,
+           SUM(count_executions * avg_cpu_time / 1000.0) / SUM(count_executions) AS avg_cpu_millisec,
+           SUM(count_executions * avg_log_bytes_used) AS total_log_bytes_used,
+           MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec,
+           MAX(max_logical_io_reads) max_logical_reads,
+           COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans,
+           COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Aborted' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Aborted_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Regular' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Regular_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Exception' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Exception_Execution_Count,
+           SUM(count_executions) AS total_executions,
+           MIN(qt.query_sql_text) AS sampled_query_text
+    FROM sys.query_store_query_text AS qt
+        JOIN sys.query_store_query AS q
+            ON qt.query_text_id = q.query_text_id
+        JOIN sys.query_store_plan AS p
+            ON q.query_id = p.query_id
+        JOIN sys.query_store_runtime_stats AS rs
+            ON rs.plan_id = p.plan_id
+        JOIN sys.query_store_runtime_stats_interval AS rsi
+            ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+    WHERE rs.execution_type_desc IN ( 'Regular', 'Aborted', 'Exception' )
+          AND rsi.start_time >= DATEADD(HOUR, -2, GETUTCDATE())
+    GROUP BY q.query_hash),
+     OrderedLogUsed
+AS (SELECT query_hash,
+           total_log_bytes_used,
+           number_of_distinct_plans,
+           number_of_distinct_query_ids,
+           total_executions,
+           Aborted_Execution_Count,
+           Regular_Execution_Count,
+           Exception_Execution_Count,
+           sampled_query_text,
+           ROW_NUMBER() OVER (ORDER BY total_log_bytes_used DESC, query_hash ASC) AS RN
+    FROM AggregatedLogUsed)
+SELECT OD.total_log_bytes_used,
+       OD.number_of_distinct_plans,
+       OD.number_of_distinct_query_ids,
+       OD.total_executions,
+       OD.Aborted_Execution_Count,
+       OD.Regular_Execution_Count,
+       OD.Exception_Execution_Count,
+       OD.sampled_query_text,
+       OD.RN
+FROM OrderedLogUsed AS OD
+WHERE OD.RN <= 15
+ORDER BY total_log_bytes_used DESC;
+GO
+```
+
 ## <a name="identify-tempdb-performance-issues"></a>Identificar `tempdb` problemas de desempenho
 
 Ao identificar problemas de desempenho de e/s, a parte superior aguardar tipos associados `tempdb` problemas é `PAGELATCH_*` (não `PAGEIOLATCH_*`). No entanto, `PAGELATCH_*` esperas não sempre significa que tenha `tempdb` contenção.  Este espera também poderá significar que tenha de contenção de página de dados de objeto de utilizador devido a pedidos simultâneos, visando a mesma página de dados. Para obter mais confirmar `tempdb` contenção, utilize [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para confirmar que o valor de wait_resource começa com `2:x:y` em que é 2 `tempdb` é o id de base de dados, `x` é o id de ficheiro e o `y` é o id de página.  
@@ -164,6 +247,8 @@ Para a contenção do tempdb, um método comum é reduzir ou volte a escrever c�
 - Parâmetros de valor de tabela
 - Utilização da versão de loja (especificamente associado com transações de longa execução)
 - Consultas com planos de consulta que usam tipos, junções de hash e spools
+
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Principais consultas que usam as variáveis de tabela e tabelas temporárias
 
 Utilize a seguinte consulta para identificar as consultas principais que utilizam as variáveis de tabela e tabelas temporárias:
 
@@ -187,6 +272,8 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
      WHERE [table] LIKE '%@%' OR [table] LIKE '%#%') AS t
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
+
+### <a name="identify-long-running-transactions"></a>Identificar as transações de execução longa
 
 Utilize a seguinte consulta para identificar longo executar transações. Transações de longa execução impedir que a limpeza de arquivo da versão.
 
@@ -454,7 +541,7 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-size"></a>Calcular o tamanho de base de dados
+## <a name="calculating-database-and-objects-sizes"></a>Calcular os tamanhos de base de dados e objetos
 
 A seguinte consulta devolve o tamanho da base de dados (em megabytes):
 

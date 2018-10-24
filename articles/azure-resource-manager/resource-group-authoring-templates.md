@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1b982bddc951e710ba3bfa5fe8621d6595b95a52
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405349"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945880"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos do Azure Resource Manager
 Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para obter um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="quickstarts-and-tutorials"></a>Inícios rápidos e tutoriais
 
-Utilize as seguintes inícios rápidos e tutoriais para saber como desenvolver modelos do resource manager:
+Utilize as seguintes inícios rápidos e tutoriais para saber como desenvolver modelos do Resource Manager:
 
 - Inícios rápidos
 
@@ -304,7 +304,7 @@ A seção de recursos, vai definir os recursos que são implementados ou atualiz
 ],
 ```
 
-Para obter mais informações, consulte [seção de recursos de modelos Azure Resource Manager](resource-manager-templates-resources.md).
+Para condicionalmente incluir ou excluir um recurso durante a implementação, utilize o [elemento Condition](resource-manager-templates-resources.md#condition). Para obter mais informações sobre a seção de recursos, consulte [seção de recursos de modelos Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Saídas
 Na secção de saídas, especifique os valores que são devolvidos da implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.

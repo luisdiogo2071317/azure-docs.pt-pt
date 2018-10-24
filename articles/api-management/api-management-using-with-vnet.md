@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870881"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959048"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure começam com as informações aqui: [descrição geral de rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -106,16 +106,17 @@ Segue-se uma lista dos problemas de configurações incorretas comuns que podem 
 
 Quando uma instância de serviço de gestão de API está alojada numa VNET, as portas na tabela seguinte são utilizadas.
 
-| Origem / porta de destino (s) | Direção          | Protocolo de transporte | Origem / destino                  | Finalidade (*)                                                 | Tipo de rede virtual |
+| Origem / porta de destino (s) | Direção          | Protocolo de transporte |   [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags) <br> Origem / destino   | Finalidade (*)                                                 | Tipo de rede virtual |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Entrada            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicação do cliente para gestão de API                      | Externo             |
-| * / 3443                     | Entrada            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Ponto final de gestão para o portal do Azure e Powershell         | Externo e interno  |
+| * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Ponto final de gestão para o portal do Azure e Powershell         | Externo e interno  |
 | * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / armazenamento             | **Dependência do armazenamento do Azure**                             | Externo e interno  |
-| * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | O Azure Active Directory (quando aplicável)                   | Externo e interno  |
+| * / 80, 443                  | Saída           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | O Azure Active Directory (quando aplicável)                   | Externo e interno  |
 | * / 1433                     | Saída           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acesso a pontos finais do SQL do Azure**                           | Externo e interno  |
 | * / 5672                     | Saída           | TCP                | VIRTUAL_NETWORK / EventHub            | Dependência para o registo de política do Hub de eventos e o agente de monitorização | Externo e interno  |
 | * / 445                      | Saída           | TCP                | VIRTUAL_NETWORK / armazenamento             | Dependência na partilha de ficheiros do Azure para o GIT                      | Externo e interno  |
 | * / 1886                     | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Necessário para publicar o estado de funcionamento para Estado de funcionamento do recurso          | Externo e interno  |
+| * / 443                     | Saída           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar o diagnóstico de registos e métricas                        | Externo e interno  |
 | * / 25                       | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
 | * / 587                      | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |
 | * / 25028                    | Saída           | TCP                | VIRTUAL_NETWORK / INTERNET            | Ligar para o reencaminhamento de SMTP para enviar emails                    | Externo e interno  |

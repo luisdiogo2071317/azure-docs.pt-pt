@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ae1fdb6239b7d04dc366d023a26d1307cbae68f3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123730"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956619"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Este artigo fala sobre como criar uma **aplicação web do Azure AD para autenti
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Passo 1: Criar uma aplicação web do Active Directory
 
-Criar e configurar uma aplicação web do Azure AD para a autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory. Para obter instruções, consulte [criar uma aplicação do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Criar e configurar uma aplicação web do Azure AD para a autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory. Para obter instruções, consulte [criar uma aplicação do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Ao seguir as instruções na ligação anterior, certifique-se de que seleciona **aplicação Web / API** de tipo de aplicação, conforme mostrado na captura de ecrã seguinte:
 
@@ -48,9 +48,9 @@ Ao seguir as instruções na ligação anterior, certifique-se de que seleciona 
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Passo 2: Obter o ID da aplicação, a chave de autenticação e o ID do inquilino
 Quando iniciar sessão programaticamente, precisa do ID para a sua aplicação. Se o aplicativo for executado sob suas próprias credenciais, também precisa de uma chave de autenticação.
 
-* Para obter instruções sobre como obter a chave de autenticação e o ID de aplicação (também denominada o segredo do cliente) para a sua aplicação, consulte [chave de ID e a autenticação da aplicação Get](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Para obter instruções sobre como obter a chave de autenticação e o ID de aplicação (também denominada o segredo do cliente) para a sua aplicação, consulte [chave de ID e a autenticação da aplicação Get](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
-* Para obter instruções sobre como obter o ID de inquilino, consulte [obter ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Para obter instruções sobre como obter o ID de inquilino, consulte [obter ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Passo 3: Atribuir a aplicação do Azure AD para a pasta ou ficheiro de conta de geração 1 de armazenamento do Azure Data Lake
 

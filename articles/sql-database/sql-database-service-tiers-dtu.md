@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831318"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955265"
 ---
 # <a name="dtu-based-service-tiers"></a>Escalões de serviço baseado em DTU
 
@@ -25,7 +25,6 @@ Escalões de serviço baseado em DTU são diferenciadas por uma variedade de tam
 
 > [!IMPORTANT]
 > Instância de gerida de base de dados de SQL, atualmente em pré-visualização pública não suporta um modelo de compra baseado em DTU. Para obter mais informações, consulte [instância gerida da base de dados SQL do Azure](sql-database-managed-instance.md).
-
 > [!NOTE]
 > Para obter informações sobre escalões de serviço baseado em vCore, consulte [escalões de serviço baseado em vCore](sql-database-service-tiers-vcore.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-service-tiers.md).
 
@@ -33,7 +32,7 @@ Escalões de serviço baseado em DTU são diferenciadas por uma variedade de tam
 
 Escolher uma camada de serviço depende principalmente continuidade do negócio, armazenamento e requisitos de desempenho.
 ||Básica|Standard|Premium|
-| :-- | --: |--:| --:| --:| 
+| :-- | --: |--:| --:| --:|
 |Carga de trabalho de destino|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção||
 |SLA de Tempo de Atividade|99,99%|99,99%|99,99%|N/d enquanto está em pré-visualização|
 |Retenção da cópia de segurança|7 dias|35 dias|35 dias|
@@ -44,13 +43,16 @@ Escolher uma camada de serviço depende principalmente continuidade do negócio,
 |OLTP dentro da memória|N/A|N/A|Suportadas|
 |||||
 
+> [!NOTE]
+> Pode obter uma base de dados SQL do Azure gratuita na camada de serviço básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [criar uma base de dados gerida na cloud com a sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
+
 ## <a name="single-database-dtu-and-storage-limits"></a>Base de dados DTUS e limites de armazenamento
 
 Computação tamanhos são expressos em termos de unidades de transação de base de dados (DTUs) para bases de dados únicas e unidades de transação da base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [modelo de compra baseado em DTU](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Básica|Standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  | 
+| Tamanho máximo de armazenamento | 2 GB | 1 TB | 4 TB  |
 | Limite máximo de DTUs | 5 | 3000 | 4000 | |
 ||||||
 
@@ -59,18 +61,17 @@ Computação tamanhos são expressos em termos de unidades de transação de bas
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU do conjunto elástico, armazenamento e limites de bases de dados agrupadas
 
-| | **Básica** | **Standard** | **Premium** | 
+| | **Básica** | **Standard** | **Premium** |
 | :-- | --: | --: | --: | --: |
-| Tamanho de armazenamento máximo por base de dados  | 2 GB | 1 TB | 1 TB | 
-| Tamanho de armazenamento máximo por conjunto | 156 GB | 4 TB | 4 TB | 
-| Máximo eDTUs por base de dados | 5 | 3000 | 4000 | 
-| Máximo eDTUs por conjunto | 1600 | 3000 | 4000 | 
-| Número máximo de bases de dados por conjunto | 500  | 500 | 100 | 
+| Tamanho de armazenamento máximo por base de dados  | 2 GB | 1 TB | 1 TB |
+| Tamanho de armazenamento máximo por conjunto | 156 GB | 4 TB | 4 TB |
+| Máximo eDTUs por base de dados | 5 | 3000 | 4000 |
+| Máximo eDTUs por conjunto | 1600 | 3000 | 4000 |
+| Número máximo de bases de dados por conjunto | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto as seguintes: e.u.a. centro-oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, USGov Iowa, Nordeste da Alemanha, Norte da China. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 

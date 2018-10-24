@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297847"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955172"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua nos serviços de DevOps do Azure com projetos de implantação do grupo de recursos do Azure
 Para implementar um modelo do Azure, executar tarefas em vários estágios: cópia de compilação, teste, para o Azure (também denominado "Teste") e para implementar o modelo. Existem duas formas diferentes de implementar modelos de serviços de DevOps do Azure. Ambos os métodos fornece os mesmos resultados, pelo que deve escolher aquele que melhor se adequa a seu fluxo de trabalho.
@@ -92,7 +92,7 @@ Os procedimentos seguintes explicam as etapas necessárias para configurar a imp
       Para a CLI do Azure, utilize:
       
       `azure account show`
-   8. Para obter um ID de Principal de serviço, a chave de Principal de serviço e o ID de inquilino, siga o procedimento num [aplicação criar do Active Directory e o principal de serviço com o portal](resource-group-create-service-principal-portal.md) ou [autenticar um principal de serviço com o Azure Gestor de recursos](resource-group-authenticate-service-principal.md).
+   8. Para obter um ID de Principal de serviço, a chave de Principal de serviço e o ID de inquilino, siga o procedimento num [aplicação criar do Active Directory e o principal de serviço com o portal](active-directory/develop/howto-create-service-principal-portal.md) ou [autenticar um principal de serviço com o Azure Gestor de recursos](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Adicione os valores de ID de Principal de serviço, a chave de Principal de serviço e o ID de inquilino para o **adicionar subscrição do Azure** caixa de diálogo caixa e, em seguida, escolha a **OK** botão.
       
       Agora tem um Principal de serviço válido a utilizar para executar o script do PowerShell do Azure.

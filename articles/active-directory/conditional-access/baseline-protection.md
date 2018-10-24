@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 6ee89aa901c9553d22470a0481909e9cd62d60cf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345135"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958555"
 ---
 # <a name="what-is-baseline-protection-preview"></a>O que é a proteção de linha de base (pré-visualização)?  
 
@@ -86,7 +86,7 @@ Embora a gestão de políticas de acesso condicional personalizada requer uma li
 
 As funções de diretório que estão incluídas na política de linha de base são as funções do Azure AD com mais privilégios. 
 
-Se o ter privilegiado contas que são utilizadas nos seus scripts, deve substitui-los com [geridos identidades para recursos do Azure](../managed-identities-azure-resources/overview.md) ou [principais com certificados de serviço](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Como solução temporária, pode excluir contas de usuários específicos da política de linha de base. 
+Se o ter privilegiado contas que são utilizadas nos seus scripts, deve substitui-los com [geridos identidades para recursos do Azure](../managed-identities-azure-resources/overview.md) ou [principais com certificados de serviço](../develop/howto-authenticate-service-principal-powershell.md). Como solução temporária, pode excluir contas de usuários específicos da política de linha de base. 
 
 Aplicam políticas de linha de base para fluxos de autenticação legada como POP, IMAP, cliente de ambiente de trabalho do Office mais antiga. 
 

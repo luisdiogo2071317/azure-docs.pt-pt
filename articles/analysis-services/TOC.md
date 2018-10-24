@@ -38,8 +38,8 @@
 ### [Gerir um servidor](analysis-services-manage.md)
 ### [Monitorizar as métricas do servidor](analysis-services-monitor.md)
 ### [Configurar registo de diagnósticos](analysis-services-logging.md)
-### [Criar o principal de serviço - Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Criar principal de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Criar o principal de serviço - Portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Adicionar um principal de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md)
 
 ## Modelo

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 581e9d052738b8e1976a766ea6e3525ecf76d741
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426435"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958810"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -37,7 +37,7 @@ Com essas contas criadas por si, pode começar rapidamente a criar e implementar
 Para criar ou atualizar uma conta de automatização e concluir as tarefas descritas neste artigo, tem de ter os privilégios e permissões seguintes:
 
 * Para criar uma conta de automatização, sua conta de utilizador do Azure AD tem de ser adicionada a uma função com permissões equivalentes à função de proprietário para **Microsoft. Automatização** recursos. Para obter mais informações, consulte [controlo de acesso baseado em funções na automatização do Azure](automation-role-based-access-control.md).
-* No portal do Azure, em **do Azure Active Directory** > **GERIR** > **registos das aplicações**, se **registos das aplicações**  está definido como **Sim**, os utilizadores de não-administrador no inquilino do Azure AD podem [registar aplicações do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Se **registos de aplicações** está definida como **não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
+* No portal do Azure, em **do Azure Active Directory** > **GERIR** > **registos das aplicações**, se **registos das aplicações**  está definido como **Sim**, os utilizadores de não-administrador no inquilino do Azure AD podem [registar aplicações do Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se **registos de aplicações** está definida como **não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
 
 Se não é um membro de instância do Active Directory da subscrição antes de ser adicionado à função de administrador global/coadministrador da subscrição, é adicionado ao Active Directory como convidado. Neste cenário, verá esta mensagem sobre a **adicionar conta de automatização** página: "Não tem permissões para criar."
 

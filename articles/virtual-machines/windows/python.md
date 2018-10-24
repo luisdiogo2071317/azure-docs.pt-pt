@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: zarhoads
-ms.openlocfilehash: c1fc12bfe57edf34701d8f1f93ca18298be29160
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b15b3b07768d531b748944529cc7e8e6df6d9808
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470273"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958878"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Criar e gerir VMs do Windows no Azure com Python
 
@@ -53,7 +53,7 @@ Deverá ver nas janelas de saída que os pacotes do azure foram instalados com �
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de começar este passo, certifique-se de que tem um [principal de serviço do Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Também deve gravar o ID da aplicação, a chave de autenticação e o ID de inquilino que precisa num passo posterior.
+Antes de começar este passo, certifique-se de que tem um [principal de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Também deve gravar o ID da aplicação, a chave de autenticação e o ID de inquilino que precisa num passo posterior.
 
 1. Open *myPythonProject.py* ficheiro que foi criado e, em seguida, adicione este código para ativar a sua aplicação para ser executada:
 

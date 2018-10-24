@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: zarhoads
-ms.openlocfilehash: 7281b2bfc8137e4f60c3309c9a57ccabf0fdb4cb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 297eb95d435f1098a40c140b6ac451312bdb9d9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471429"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956719"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs do Windows no Azure com c# #
 
@@ -56,7 +56,7 @@ Os pacotes de NuGet são a forma mais fácil de instalar as bibliotecas de que p
 
 ## <a name="create-credentials"></a>Criar credenciais
 
-Antes de começar este passo, certifique-se de que tem acesso a uma [principal de serviço do Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Também deve gravar o ID da aplicação, a chave de autenticação e o ID de inquilino que precisa num passo posterior.
+Antes de começar este passo, certifique-se de que tem acesso a uma [principal de serviço do Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Também deve gravar o ID da aplicação, a chave de autenticação e o ID de inquilino que precisa num passo posterior.
 
 ### <a name="create-the-authorization-file"></a>Criar o ficheiro de autorização
 

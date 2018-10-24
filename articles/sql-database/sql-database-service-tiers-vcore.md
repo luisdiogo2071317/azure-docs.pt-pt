@@ -11,22 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 52f49e0b590219c34750501ae85ccc0def572f44
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.date: 10/22/2018
+ms.openlocfilehash: c74d71f0ca8faec587cb36a789ed0328f9b24711
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352859"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954702"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>escalões de serviço de vCore, o Azure Hybrid Use Benefit e migração
+# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
 
 O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. Ele também permite-lhe escolher a geração de hardware:
 
 - Gen 4 - até 24 CPUs lógicas com base na Intel E5-2673 v3 (Haswell) 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
 - Geração 5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB por núcleo, o rápido eNVM SSD
 
-modelo de vCore também permite que use [Azure Hybrid Use Benefit para o SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos.
+modelo de vCore também permite que use [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos.
 
 > [!NOTE]
 > Para obter informações sobre escalões de serviço baseado em DTU, consulte [escalões de serviço baseado em DTU](sql-database-service-tiers-dtu.md). Para obter informações sobre a diferenciar os escalões de serviço baseado em vCore e de escalões de serviço baseado em DTU, consulte [modelos de compra do Azure SQL Database](sql-database-service-tiers.md).
@@ -49,6 +49,9 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalõe
 |Dentro da memória|Não suportado|Suportadas|Não suportado|
 |||
 
+> [!NOTE]
+> Pode obter uma base de dados SQL do Azure gratuita na camada de serviço básico em conjunto com uma conta gratuita do Azure para explorar o Azure. Para obter informações, consulte [criar uma base de dados gerida na cloud com a sua conta gratuita do Azure](https://azure.microsoft.com/free/services/sql-database/).
+
 - Para obter mais informações, consulte [limites de recursos de vCore na base de dados única](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos de vCore na instância gerida](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Para obter mais informações sobre os escalões de serviço para fins gerais e crítico para a empresa, consulte [escalões de serviço para fins gerais e crítico para a empresa](sql-database-service-tiers-general-purpose-business-critical.md).
 - Para obter detalhes sobre a camada de serviços de Hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md).  
@@ -58,9 +61,9 @@ A tabela seguinte ajuda-o a compreender as diferenças entre estes dois escalõe
 
 Ver [FAQ da base de dados de SQL](sql-database-faq.md) para obter respostas a perguntas mais frequentes.
 
-## <a name="azure-hybrid-use-benefit"></a>Benefício Híbrido do Azure
+## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-No modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
+No modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [benefício híbrido do SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 

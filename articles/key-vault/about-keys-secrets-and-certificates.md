@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311359"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958658"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -101,7 +101,7 @@ Key Vault suporta chaves RSA e criptografia de curva elíptica.
 -   **RSA**: chave RSA "Soft".
 -   **RSA HSM**: chave RSA "Fixas".
 
-Key Vault suporta chaves RSA de 2048, 3072 e 4096 de tamanhos. Key Vault oferece suporte a criptografia de curva elíptica chave tipos p-256, p-384, p-521 e P - 256 K.
+Key Vault suporta chaves RSA de 2048, 3072 e 4096 de tamanhos. Key Vault oferece suporte a criptografia de curva elíptica chave tipos p-256, p-384, p-521 e P-256_K (SECP256K1).
 
 ### <a name="cryptographic-protection"></a>Proteção criptográfica
 
@@ -110,12 +110,19 @@ Os módulos criptográficos que utiliza o Cofre de chaves, se o HSM ou software,
 ###  <a name="ec-algorithms"></a>Algoritmos EC
  Os identificadores de algoritmo seguintes são suportados com chaves EC e EC HSM no Cofre de chaves. 
 
+#### <a name="curve-types"></a>Tipos de curva
+
+-   **P-256** -a curva do NIST p-256, definida no [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-256_K** -a curva de seg o SECP256K1, definida no [seg 2: recomendado parâmetros de domínio de curva elíptica](http://www.secg.org/sec2-v2.pdf).
+-   **P-384** -a curva do NIST p-384, definida no [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-521** -a curva do NIST p-521, definida no [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+
 #### <a name="signverify"></a>VERIFICAR/INÍCIO DE SESSÃO
 
--   **ES256** - digests ECDSA para SHA-256 e chaves criadas com a curva p-256. Esse algoritmo é descrito em [RFC7518].
+-   **ES256** - digests ECDSA para SHA-256 e chaves criadas com a curva p-256. Esse algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** - digests ECDSA para SHA-256 e chaves criadas com curva P-256_K. Esse algoritmo está pendente de padronização.
--   **ES384** - digests ECDSA para SHA-384 e chaves criadas com a curva p-384. Esse algoritmo é descrito em [RFC7518].
--   **ES512** - digests ECDSA para SHA-512 e chaves criadas com a curva p-521. Esse algoritmo é descrito em [RFC7518].
+-   **ES384** - digests ECDSA para SHA-384 e chaves criadas com a curva p-384. Esse algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** - digests ECDSA para SHA-512 e chaves criadas com a curva p-521. Esse algoritmo é descrito em [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>Algoritmos RSA  
  Os identificadores de algoritmo seguintes são suportados com chaves RSA e RSA HSM no Cofre de chaves.  

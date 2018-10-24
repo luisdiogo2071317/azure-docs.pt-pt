@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433502"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945523"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -40,6 +40,14 @@ Para ativar a recolha de dados de desempenho de disco e rede, altere o nível de
 Pode ir para o **Essentials** secção a **descrição geral** página do projeto para identificar o local exato onde os metadados são armazenados. A localização é selecionada aleatoriamente na geografia pelo Azure Migrate e não é possível modificá-lo. Se pretender criar um projeto em apenas uma região específica, pode utilizar as APIs REST para criar o projeto de migração e passar para a região desejada.
 
    ![Localização do projeto](./media/troubleshooting-general/geography-location.png)
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Estou usando a deteção contínua OVA, mas as VMs que são eliminadas no meu ambiente no local ainda estão a ser mostrada no portal.
+
+A aplicação para a aplicação de deteção contínua só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal do:
+
+1. Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+
+2. Eliminação das VMs: a forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isso ocorre porque os dados a partir de deteções subsequentes são anexados ao deteções mais antigas e não substituídos. Neste caso, pode simplesmente ignorar a VM no portal, removê-lo a partir do seu grupo de e para recalcular a avaliação.
 
 ## <a name="collector-errors"></a>Erros do recoletor
 
@@ -100,7 +108,7 @@ Este problema pode ocorrer devido a um problema com a instalação do VMware Pow
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
-Não é possível ligar ao vCenter Server "Servername.com:9443" devido ao erro: não ocorreu nenhum ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
+Não consegue ligar ao vCenter Server "Servername.com:9443" devido ao erro: não existia um ponto final à escuta em https://Servername.com:9443/sdk que pudesse aceitar a mensagem.
 
 Verifique se estiver a executar a versão mais recente da aplicação recoletora, caso contrário, atualizar a aplicação para o [versão mais recente](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092549"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958453"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecimento de acesso de aplicações ao Azure Stack
 
@@ -40,7 +40,7 @@ Dependendo de como tiver implementado o Azure Stack, comece por criar um serviç
 
 ## <a name="create-service-principal-for-azure-ad"></a>Criar principal de serviço para o Azure AD
 
-Se implementar o Azure Stack com o Azure AD como o repositório de identidades, pode criar principais de serviço, tal como fazer para o Azure. Esta secção mostra como efetuar os passos no portal. Verifique se tem o [do Azure AD permissões obrigatórias](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar.
+Se implementar o Azure Stack com o Azure AD como o repositório de identidades, pode criar principais de serviço, tal como fazer para o Azure. Esta secção mostra como efetuar os passos no portal. Verifique se tem o [do Azure AD permissões obrigatórias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar.
 
 ### <a name="create-service-principal"></a>Criar um principal de serviço
 Nesta secção, vai criar uma aplicação (principal de serviço) no Azure AD que representa a sua aplicação.

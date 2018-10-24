@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406537"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955451"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparação entre o ponto final da v2.0 do Azure AD com o ponto final de v1.0
 
@@ -133,7 +133,7 @@ Aqui está uma recomendação simplificada para desenvolvedores no momento:
 
 * Caso seja necessário suportar contas Microsoft pessoais em seu aplicativo, utilize a versão 2.0. Mas antes de o fazer, certifique-se de que compreende as limitações discutidas neste artigo.
 
-* Se seu aplicativo só precisa de suporte profissional da Microsoft contas escolares ou profissionais, não utilize a versão 2.0. Em vez disso, consulte a [v1.0 guia](azure-ad-developers-guide.md).
+* Se seu aplicativo só precisa de suporte profissional da Microsoft contas escolares ou profissionais, não utilize a versão 2.0. Em vez disso, consulte a [v1.0 guia](v1-overview.md).
 
 O ponto final v2.0 irá evoluir para eliminar as restrições listadas aqui, para que apenas terá de utilizar o ponto final v2.0. Entretanto, utilize este artigo para determinar se o ponto final v2.0 é adequado para si. Vamos continuar a atualizar este artigo para refletir o estado atual do ponto final v2.0. Verifique novamente para reavaliar os requisitos de recursos da versão 2.0.
 

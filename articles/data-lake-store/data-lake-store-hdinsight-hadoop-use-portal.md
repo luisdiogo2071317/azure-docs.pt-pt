@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 28bed3578c653c8081868b3d950ab6332879784a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124331"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955835"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Criar clusters do HDInsight com Gen1 de armazenamento do Azure Data Lake com o portal do Azure
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Antes de começar este tutorial, certifique-se de que cumpriu os seguintes requi
 * **Um principal de serviço do Azure Active Directory**. Este tutorial fornece instruções sobre como criar um serviço principal no Azure Active Directory (Azure AD). No entanto, para criar um principal de serviço, tem de ser um administrador do Azure AD. Se for um administrador, pode ignorar este pré-requisito e continuar o tutorial.
 
     >[!NOTE]
-    >Pode criar um principal de serviço somente se for administrador do Azure AD. Administrador do Azure AD tem de criar um serviço principal antes de poder criar um cluster do HDInsight com a geração 1 de armazenamento do Data Lake. Além disso, o principal de serviço tem de ser criado com um certificado, conforme descrito em [criar um principal de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+    >Pode criar um principal de serviço somente se for administrador do Azure AD. Administrador do Azure AD tem de criar um serviço principal antes de poder criar um cluster do HDInsight com a geração 1 de armazenamento do Data Lake. Além disso, o principal de serviço tem de ser criado com um certificado, conforme descrito em [criar um principal de serviço com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
     >
 
 ## <a name="create-an-hdinsight-cluster"></a>Criar um cluster do HDInsight
@@ -55,7 +55,7 @@ Nesta secção, vai criar um cluster do HDInsight com contas de geração 1 de a
 
     ![Adicionar principal de serviço para o cluster do HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "principal de serviço de adicionar ao cluster do HDInsight")
 
-    - **Conta de selecionar Data Lake Store**: selecione uma conta de geração 1 do Data Lake armazenamento existente. É necessária uma conta de geração 1 de armazenamento do Data Lake existente.  Ver [pré-requisitos](#prerequisites).
+    - **Conta de selecionar Data Lake Store**: selecione uma conta de geração 1 do Data Lake armazenamento existente. É necessária uma conta de geração 1 de armazenamento do Data Lake existente.  Veja [Pré-requisitos](#prerequisites).
     - **Caminho da raiz**: introduza um caminho em que os arquivos específicos do cluster devem ser armazenados. Na captura de ecrã, é __/clusters/myhdiadlcluster/__, na qual o __/clusters__ pasta tem de existir e o Portal cria *myhdicluster* pasta.  O *myhdicluster* é o nome do cluster.
     - **Acesso do Data Lake Store**: configurar o acesso entre a conta de geração 1 do Data Lake Storage e o cluster do HDInsight. Para obter instruções, consulte [configurar Gen1 de armazenamento do Data Lake acesso](#configure-data-lake-store-access).
     - **Contas de armazenamento adicionais**: adicionar as contas de armazenamento como contas de armazenamento adicional para o cluster. Para adicionar mais contas de geração 1 de armazenamento do Data Lake é feito ao dar as permissões de cluster nos dados de mais contas de geração 1 de armazenamento do Data Lake ao configurar uma conta de geração 1 de armazenamento do Data Lake como o tipo de armazenamento primário. Ver [configurar Gen1 de armazenamento do Data Lake acesso](#configure-data-lake-store-access).

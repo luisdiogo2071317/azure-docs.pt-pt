@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078771"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958946"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acesso do Azure Active Directory
 
@@ -136,7 +136,7 @@ As identidades da Microsoft podem autenticar numa variedade de formas, que podem
 | Valor | Descrição |
 |-----|-------------|
 | `pwd` | Autenticação de palavra-passe, a palavra-passe da Microsoft de um utilizador ou o segredo do cliente de uma aplicação. |
-| `rsa` | Autenticação tiveram como base a prova de uma chave RSA, por exemplo com o [pp de Microsoft Authenticator](https://aka.ms/AA2kvvu). Isto inclui se a autenticação foi realizada por um JWT autoassinado com um serviço pertencentes à empresa X509 certificado. |
+| `rsa` | Autenticação tiveram como base a prova de uma chave RSA, por exemplo com o [aplicação Microsoft Authenticator](https://aka.ms/AA2kvvu). Isto inclui se a autenticação foi realizada por um JWT autoassinado com um serviço pertencentes à empresa X509 certificado. |
 | `otp` | O código de acesso através de uma mensagem de e-mail ou uma mensagem de texto único. |
 | `fed` | Foi utilizada uma asserção de autenticação federada (como JWT ou SAML). |
 | `wia` | Autenticação Integrada do Windows |
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Experimente este URL num browser!
+> Experimente isto [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) num navegador!
 
 Este documento de metadados:
 
@@ -187,7 +187,7 @@ Este documento de metadados:
 * Inclui um `jwks_uri`, que dá a localização do conjunto de chaves públicas usadas para assinar os tokens. O documento JSON localizado no `jwks_uri` contém todas as informações de chave públicas utilizada no momento específico. A aplicação pode utilizar o `kid` no cabeçalho do JWT para selecionar qual a chave pública neste documento foi utilizada para assinar um determinado token de afirmação. Em seguida, ele pode executar a validação de assinatura usando a chave pública correta e o algoritmo indicado.
 
 > [!NOTE]
-> O ponto de extremidade v1.0 devolve ambos os `x5t` e `kid` afirmações. O `x5t` afirmação está em falta na versão 2.0 tokens. O ponto final v2.0 responde com o `kid` de afirmação. Daqui em diante, recomendamos que utilize o `kid` validar o token de afirmação.
+> O ponto de extremidade v1.0 devolve ambos os `x5t` e `kid` afirmações, enquanto o ponto final v2.0 responde com apenas o `kid` de afirmação. Daqui em diante, recomendamos que utilize o `kid` validar o token de afirmação.
 
 Realizar validação de assinatura está fora do escopo deste documento: há muitas bibliotecas de código aberto disponíveis para ajudá-lo a fazê-lo se necessário.
 
@@ -202,7 +202,7 @@ Lógica de negócios da sua aplicação vai ditar neste passo, alguns métodos d
 * Verifique se o `tid` corresponde a um inquilino que está autorizado a chamar a API.
 * Utilize o `acr` de afirmação verificar se o utilizador realizou MFA. Tenha em atenção que este deve ser imposta por meio [acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Se pediu a `roles` ou `groups` afirmações no token de acesso, certifique-se de que o utilizador está no grupo de permissão para efetuar esta ação.
-  * Para os tokens obtidos com o fluxo implícito, provavelmente terá de consultar o [Graph](https://developer.microsoft.com/graph/) para estes dados, como ele costuma ser demasiado grande para caber no token. 
+  * Para os tokens obtidos com o fluxo implícito, provavelmente terá de consultar o [Microsoft Graph](https://developer.microsoft.com/graph/) para estes dados, como ele costuma ser demasiado grande para caber no token. 
 
 ## <a name="user-and-application-tokens"></a>Tokens de utilizador e da aplicação
 

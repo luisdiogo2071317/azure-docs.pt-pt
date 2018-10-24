@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: b5e235221d34434b908d605c9077ae2fede2fe94
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d0be0cbd9ff16acc1ecb209997a0c87cd4e43b36
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365624"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955109"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução Cofre de Chaves do Azure
 Este artigo ajuda-o a começar a utilizar o Azure Key Vault com o PowerShell e orienta-o ao longo das atividades seguintes:
@@ -204,7 +204,7 @@ Para ver o valor contido no segredo como texto simples:
 Agora, o Cofre de chaves e chave ou segredo estão prontos para aplicações para utilizar. Agora autoriza as aplicações a utilizá-los.  
 
 ## <a id="register"></a>Registar uma aplicação com o Azure Active Directory
-Geralmente, este passo deve ser realizado por um programador, num computador à parte. Não é específico do Azure Key Vault. Para obter passos detalhados sobre o registo de aplicações no Azure Active Directory, consulte o artigo intitulado [integrar aplicações com o Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [utilize o portal para criar um Azure Active Directory principal de serviço que pode aceder aos recursos e aplicações](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+Geralmente, este passo deve ser realizado por um programador, num computador à parte. Não é específico do Azure Key Vault. Para obter passos detalhados sobre o registo de aplicações no Azure Active Directory, consulte o artigo intitulado [integrar aplicações com o Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [utilize o portal para criar um Azure Active Directory principal de serviço que pode aceder aos recursos e aplicações](../active-directory/develop/howto-create-service-principal-portal.md)
 
 > [!IMPORTANT]
 > Para concluir o tutorial, a sua conta, o cofre e a aplicação que irá registar neste passo devem todos estar no mesmo diretório do Azure.

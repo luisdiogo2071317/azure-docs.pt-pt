@@ -4,14 +4,14 @@ description: Descreve como avaliar um grande número de máquinas no local com o
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6809c0e56fe55c7962ae273db0b5ac4335089df1
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325027"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945863"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -31,7 +31,7 @@ O Azure Migrate necessita de acesso aos servidores VMware para detetar automatic
 - Tipo de utilizador: pelo menos um utilizador só de leitura
 - Permissões: Objeto Data Center –> Propagar ao Objeto Subordinado, função=Só de Leitura
 - Detalhes: utilizador atribuído ao nível do datacenter, com acesso a todos os objetos no datacenter.
-- Para restringir o acesso, atribua a função sem acesso com propagar ao objeto subordinado, aos objetos subordinados (anfitriões vSphere, arquivos de dados, VMs e redes).
+- Para restringir o acesso, atribua a função Sem acesso com Propagar para o objeto subordinado aos objetos subordinados (anfitriões vSphere, arquivos de dados, VMs e redes).
 
 Se estiver a implementar num ambiente de inquilino, eis uma forma de configurar estas definições:
 
@@ -120,11 +120,11 @@ O Azure Migrate cria uma VM no local, conhecida como aplicação recoletora. Est
 Se tiver vários projetos, terá de transferir a aplicação recoletora apenas uma vez ao vCenter Server. Depois de transferir e configurar a aplicação, executá-lo para cada projeto e especifique o ID exclusivo do projeto e a chave.
 
 1. No projeto do Azure Migrate, clique em **Começar** > **Detetar e Avaliar** > **Detetar Máquinas**.
-2. Na **detetar máquinas**, há duas opções disponíveis para a aplicação, clique em **transferir** para transferir a aplicação adequada com base na sua preferência.
+2. Em **Detetar máquinas**, há duas opções disponíveis para a aplicação, clique em **Transferir** para transferir a aplicação adequada com base na sua preferência.
 
-    a. **Deteção única:** a aplicação para este modelo, se comunica com o vCenter Server para recolher os metadados sobre as VMs. Para a recolha de dados de desempenho das VMs, ele conta com os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Nesse modelo, o Azure Migrate recolhe média de contador (vs. o contador de pico) para cada uma, [Saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Uma vez que é uma deteção única, alterações no ambiente no local não são refletidas assim que a deteção esteja concluída. Se pretender que as alterações para refletir, que precisa fazer uma redeteção do mesmo ambiente para o mesmo projeto.
+    a. **Deteção única:** a aplicação para este modelo comunica com o vCenter Server para recolher os metadados acerca das VMs. Para a recolha de dados de desempenho das VMs, a aplicação utiliza os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Neste modelo, o Azure Migrate recolhe o contador da média (versus o contador de pico) para cada métrica, [saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Uma vez que é uma deteção única, alterações no ambiente no local não são refletidas assim que a deteção esteja concluída. Se quiser que as alterações sejam refletidas, precisará fazer uma redeteção do mesmo ambiente para o mesmo projeto.
 
-    b. **Deteção contínua:** a aplicação para este modelo, perfis continuamente o ambiente no local para recolher dados de utilização em tempo real para cada VM. Nesse modelo, os contadores de pico são recolhidos para cada métrica (utilização da CPU, utilização da memória etc.). Este modelo não depende das definições de estatísticas do vCenter Server para a recolha de dados de desempenho. Pode parar a contínua criação de perfis em qualquer altura da aplicação.
+    b. **Deteção contínua:** a aplicação para este modelo, analisa continuamente o ambiente no local para recolher dados de utilização em tempo real para cada VM. Neste modelo, os contadores de pico são recolhidos para cada métrica (utilização da CPU, utilização da memória, etc.). Este modelo não utiliza as definições de estatísticas do vCenter Server para a recolha de dados de desempenho. Pode parar a criação contínua de perfis em qualquer altura da aplicação.
 
     > [!NOTE]
     > A funcionalidade de deteção contínua está em pré-visualização.
@@ -146,9 +146,19 @@ Verifique que o ficheiro OVA é seguro antes de a implementar:
 
 3. Certifique-se de que o hash gerado corresponde às seguintes definições.
 
-#### <a name="one-time-discovery"></a>Deteção de uso individual
+#### <a name="one-time-discovery"></a>Deteção única
 
-Para a versão ova 1.0.9.14
+<<<<<<< HEAD para a versão 1.0.9.15 (lançamento 10/23/2018)
+
+ <a name="algorithm--hash-value"></a>**Algoritmo** | **valor de Hash**
+=======
+Para a versão ova 1.0.9.15
+
+**Algoritmo** | **valor de Hash**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37--| ---MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< HEAD para a versão 1.0.9.14 (lançamento 8/24/2018) === para a versão 1.0.9.14
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Algoritmo** | **Valor de hash**
 --- | ---
@@ -182,7 +192,7 @@ SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
 #### <a name="continuous-discovery"></a>Deteção contínua
 
-Para a versão ova 1.0.10.4
+Para a versão OVA 1.0.10.4
 
 **Algoritmo** | **Valor de hash**
 --- | ---
@@ -275,11 +285,11 @@ Para cada deteção tiver de realizar, execute o recoletor para detetar VMs no �
 
 #### <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
 
-Para deteção única, o tempo de deteção depende de quantas VMs está a detetar. Normalmente, para 100 VMs, após a conclusão do coletor de executá-lo demora cerca de uma hora para a recolha de dados de configuração e desempenho concluir. Pode criar avaliações (baseado no desempenho e como avaliações no local) imediatamente após a deteção é efetuada.
+Para a deteção única, o tempo de deteção depende do número de VMs que está a detetar. Normalmente, para 100 VMs, após a conclusão do coletor de executá-lo demora cerca de uma hora para a recolha de dados de configuração e desempenho concluir. Pode criar avaliações (quer baseadas no desempenho quer no local) imediatamente após a deteção ser efetuada.
 
-Para a deteção contínua (em pré-visualização), o recoletor irá de perfil continuamente o ambiente no local e irá enviar os dados de desempenho num intervalo de hora. Pode rever as máquinas no portal do fim de uma hora de iniciar a deteção. É vivamente recomendado aguardar pelo menos um dia antes de criar qualquer avaliações baseado no desempenho para as VMs.
+Para a deteção contínua (em pré-visualização), o recoletor vai analisar continuamente o ambiente no local e enviar os dados de desempenho com intervalos de uma hora. Pode consultar as máquinas no portal uma hora após o início da deteção. É vivamente recomendado aguardar pelo menos um dia antes de criar qualquer avaliação das VMs baseada no desempenho.
 
-1. No projeto de migração, clique em **Manage** > **máquinas**.
+1. No projeto de migração, clique em **Gerir** > **Máquinas**.
 2. Verifique se as VMs que quer detetar aparecem no portal.
 
 

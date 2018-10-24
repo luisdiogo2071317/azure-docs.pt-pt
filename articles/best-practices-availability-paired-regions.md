@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801918"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954819"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): regiões emparelhadas do Azure
 
@@ -33,6 +33,7 @@ Figura 1 – pares regionais do Azure
 | Brasil |Sul do Brasil 2 |EUA Centro-Sul |
 | Canadá |Canadá Central |Leste do Canadá |
 | China |China Norte |Leste da China|
+| China |Norte da China 2 |Leste da China 2|
 | Europa |Europa do Norte |Europa Ocidental |
 | França |França Central|Sul de França|
 | Alemanha |Alemanha Central |Alemanha Nordeste |

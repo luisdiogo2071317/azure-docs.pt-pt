@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: shlo
-ms.openlocfilehash: 71ed5988b4a529d38a47f6cf04afcaa937121135
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645995"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957960"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -85,17 +85,15 @@ Pode criar um repositório de Git de repositórios do Azure no inquilino do Azur
 
 Para utilizar uma conta Microsoft pessoal para integração de Git, pode ligar o seu repositório Azure pessoais ao Active Directory da sua organização.
 
-1. Adicione a sua conta Microsoft pessoal ao Active Directory da sua organização como convidado. Para obter mais informações, veja os artigos seguintes:
-
-    - [Ligar a sua organização de DevOps do Azure ao Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)
-
-    - [Adicionar utilizadores de colaboração do Azure Active Directory B2B no portal do Azure](../active-directory/b2b/add-users-administrator.md)
+1. Adicione a sua conta Microsoft pessoal ao Active Directory da sua organização como convidado. Para mais informações, veja [utilizadores de colaboração de adicionar Azure Active Directory B2B no portal do Azure](../active-directory/b2b/add-users-administrator.md).
 
 2. Inicie sessão no Portal do Azure com a sua conta Microsoft pessoal. Em seguida, mude para o Active Directory da sua organização.
 
 3. Vá para a secção de DevOps do Azure, onde agora ver seu repositório de pessoal. Selecione o repositório e ligue-se com o Active Directory.
 
 Após estes passos de configuração, seu repositório pessoal está disponível quando configurar a integração de Git na IU do Data Factory.
+
+Para obter mais informações sobre a ligação de repositórios do Azure para o Active Directory da sua organização, consulte [ligar a sua organização de DevOps do Azure ao Azure Active Directory](/azure/devops/organizations/accounts/connect-organization-to-azure-ad).
 
 ## <a name="switch-to-a-different-git-repo"></a>Mude para um repositório de Git diferente
 

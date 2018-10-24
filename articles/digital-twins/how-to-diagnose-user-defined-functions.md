@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: stefanmsft
-ms.openlocfilehash: faf4df8085c4a4f014caf1c6e276800dcf480ebf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651509"
+ms.locfileid: "49946101"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Como depurar problemas com as funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -198,3 +198,7 @@ Se ativar as definições de diagnóstico, pode encontrar essas exceções comun
 1. **Dados não encontrados**: se a sua função definida pelo utilizador tenta aceder aos metadados que não existem, a operação falhará.
 
 1. **Não autorizado**: se a sua função definida pelo utilizador não tiver uma atribuição de função definido ou não tem permissões suficientes para aceder a determinadas metadados da topologia de, a operação falhará.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Aprenda a ativar [registos e monitorização](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) no duplos Digital do Azure.

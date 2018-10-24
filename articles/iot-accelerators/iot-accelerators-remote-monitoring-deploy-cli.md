@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721624"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956702"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota com a CLI
 
@@ -70,7 +70,7 @@ Criar uma solução básica de resultará nos seguintes serviços do Azure a ser
 | 1     | [Máquina Virtual do Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Alojamento de microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – escalão Standard | Gestão de dispositivos e a comunicação |
 | 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração, regras, alarmes e outro armazenamento amovível |  
-| 1     | [Conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e os pontos de verificação de transmissão em fluxo |
+| 1     | [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento de VM e os pontos de verificação de transmissão em fluxo |
 | 1     | [Aplicação Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Aplicativo web de front-end de hospedagem |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gerenciamento de identidades de utilizador e segurança |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Localizações de recurso de visualização |
@@ -81,14 +81,14 @@ Criar uma solução básica de resultará nos seguintes serviços do Azure a ser
 
 
 ### <a name="standard"></a>Standard
-A implementação padrão é uma implementação de prontos para produção, um desenvolvedor pode personalizar e expandir para satisfazer as suas necessidades. Para fiabilidade e dimensionamento, os microsserviços de aplicação são criados como contentores do Docker e implementados com um orquestrador ([Kubernetes](https://kubernetes.io/) por predefinição). O orquestrador é responsável pela implementação, dimensionamento e gestão da aplicação.
+A implementação padrão é uma implementação de prontos para produção, um desenvolvedor pode personalizar e expandir para satisfazer as suas necessidades. A opção de implementação padrão deve ser utilizada quando estiver pronto para personalizar uma arquitetura de prontos para produção, criada para dimensionamento e extensibilidade. Microsserviços de aplicação são criados como contentores do Docker e implementados com o Azure Kubernetes Service (AKS). O orquestrador é responsável pela implementação, dimensionamento e gestão da aplicação.
+
 
 Criação de uma solução padrão resultará nos seguintes serviços do Azure a ser aprovisionados na sua subscrição do Azure sem custo:
 
 | Contagem | Recurso                                     | SKU / tamanho      | Utilizado para |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Máquinas Virtuais do Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | mestre de 1 e 3 agentes para o alojamento de microsserviços com redundância |
-| 1     | [Serviço de contentor do Azure](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
+| 1     | [Serviço Kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service)| Utilizar um serviço totalmente gerido Kubernetes contentor orquestração, a predefinição é 3 agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – escalão Standard | Gestão de dispositivos, comando e controlo |
 | 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e a telemetria do dispositivo, como regras, alarmes e mensagens |
 | 5     | [Contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento de VM e 1 para os pontos de verificação de transmissão em fluxo |

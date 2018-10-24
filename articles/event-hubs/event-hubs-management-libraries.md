@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 79cddcac4d469753bc39107e6db2d8ce901111d1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: d9685d5c5a673b0ec27e973bbbfd327547c63652
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746421"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955359"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliotecas de gestão dos Hubs de Eventos
 
@@ -30,8 +30,8 @@ Pode usar as bibliotecas de gestão de Event Hubs do Azure para aprovisionar din
 
 Para começar a utilizar as bibliotecas de gestão de Hubs de eventos, tem de autenticar com o Azure Active Directory (AAD). AAD requer que se autenticar como um principal de serviço, que fornece acesso aos recursos do Azure. Para obter informações sobre a criação de um serviço principal, consulte um dos seguintes artigos:  
 
-* [Utilizar o portal do Azure para criar um principal de serviço que pode aceder aos recursos e de aplicação do Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-* [Utilizar o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* [Utilizar o portal do Azure para criar um principal de serviço que pode aceder aos recursos e de aplicação do Active Directory](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Utilizar o Azure PowerShell para criar um principal de serviço para aceder aos recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Utilizar a CLI do Azure para criar um principal de serviço para aceder aos recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
 Estes tutoriais fornecem uma `AppId` (ID de cliente), `TenantId`, e `ClientSecret` (chave de autenticação), as quais são utilizadas para autenticação, as bibliotecas de gestão. Tem de ter **proprietário** permissões para o grupo de recursos no qual pretende executar.

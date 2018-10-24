@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2f0638b2449bfd582cb68e26d2043b7bc85342b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125957"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954787"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Este artigo fala sobre como criar uma **aplicação nativa do Azure AD para aute
   
     ![Obter o domínio do AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* O ID de inquilino do Azure. Para obter instruções sobre como obter o ID de inquilino, consulte [obter o ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* O ID de inquilino do Azure. Para obter instruções sobre como obter o ID de inquilino, consulte [obter o ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="end-user-authentication"></a>Autenticação de utilizador final
 Esse mecanismo de autenticação é a abordagem recomendada se pretender que um utilizador final para iniciar sessão na sua aplicação através do Azure AD. Seu aplicativo, em seguida, é possível aceder a recursos do Azure com o mesmo nível de acesso que o usuário final que iniciou sessão. O utilizador final tem de fornecer as credenciais periodicamente por ordem para a sua aplicação manter o acesso.
@@ -74,7 +74,7 @@ A aplicação diretamente pode fornecer as credenciais de utilizador para o Azur
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>Passo 1: Criar uma aplicação nativa do Active Directory
 
-Criar e configurar uma aplicação nativa do Azure AD para a autenticação do utilizador final com geração 1 de armazenamento do Data Lake com o Azure Active Directory. Para obter instruções, consulte [criar uma aplicação do Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Criar e configurar uma aplicação nativa do Azure AD para a autenticação do utilizador final com geração 1 de armazenamento do Data Lake com o Azure Active Directory. Para obter instruções, consulte [criar uma aplicação do Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Ao seguir as instruções na ligação, certifique-se de que seleciona **nativo** de tipo de aplicação, conforme mostrado na captura de ecrã seguinte:
 
@@ -82,7 +82,7 @@ Ao seguir as instruções na ligação, certifique-se de que seleciona **nativo*
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Passo 2: Obter o ID da aplicação e URI de redirecionamento
 
-Ver [obter o ID da aplicação](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) para obter o ID da aplicação.
+Ver [obter o ID da aplicação](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) para obter o ID da aplicação.
 
 Para obter o URI de redirecionamento, siga os passos abaixo.
 

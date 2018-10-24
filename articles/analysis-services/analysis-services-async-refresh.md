@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e30f02fb7f250b32cb3c7bb5205f58ca658a8f2a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426755"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958674"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 Ao utilizar qualquer linguagem de programação que suporte chamadas REST, pode efetuar operações de atualização de dados assíncrona em seus modelos em tabela do Azure Analysis Services. Isto inclui a sincronização de réplicas só de leitura para aumentar horizontalmente a consulta. 
@@ -236,7 +236,7 @@ Essa forma de autenticação requer uma aplicação do Azure ser criada com as p
 
 #### <a name="service-principal"></a>Principal de serviço
 
-Ver [criar principal de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [adicionar um principal de serviço para a função de administrador de servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um principal de serviço e atribuir as permissões necessárias nas do Azure . Depois de concluir os passos, conclua os seguintes passos adicionais:
+Ver [criar principal de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [adicionar um principal de serviço para a função de administrador de servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um principal de serviço e atribuir as permissões necessárias nas do Azure . Depois de concluir os passos, conclua os seguintes passos adicionais:
 
 1.  No exemplo de código, encontrar **autoridade de cadeias de caracteres =...** , substitua **comuns** com da sua organização inquilino ID.
 2.  Comentário/anule os comentários para que a classe de ClientCredential é usada para instanciar o objeto de cred. Certifique-se a \<ID da aplicação > e \<chave da aplicação > valores são acessados de maneira segura ou utiliza a autenticação baseada em certificados para principais de serviço.

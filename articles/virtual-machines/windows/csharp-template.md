@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: zarhoads
-ms.openlocfilehash: a91d8452d7b85d3e7ff21dc523429be42d34336b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468896"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953693"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implementar a Máquina Virtual do Azure com c# e um modelo do Resource Manager
 Este artigo mostra-lhe como implementar um modelo do Azure Resource Manager com c#. O modelo criado por si implementa uma única máquina virtual com o Windows Server numa rede virtual nova com uma única sub-rede.
@@ -185,7 +185,7 @@ Para especificar valores para os parâmetros de recursos que estão definidos no
 
 ### <a name="create-the-authorization-file"></a>Criar o ficheiro de autorização
 
-Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [principal de serviço do Active Directory](../../resource-group-authenticate-service-principal.md). Do principal de serviço, adquirir um token para autenticar pedidos para o Azure Resource Manager. Também deve gravar o ID da aplicação, a chave de autenticação e o ID de inquilino que necessita no ficheiro de autorização.
+Antes de poder implementar um modelo, certifique-se de que tem acesso a uma [principal de serviço do Active Directory](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Do principal de serviço, adquirir um token para autenticar pedidos para o Azure Resource Manager. Também deve gravar o ID da aplicação, a chave de autenticação e o ID de inquilino que necessita no ficheiro de autorização.
 
 1. No Solution Explorer, clique com botão direito *myDotnetProject* > **Add** > **Novo Item**e, em seguida, selecione **o arquivo de texto** no *Visual C# itens*. Nomeie o arquivo *azureauth.properties*e, em seguida, clique em **Add**.
 2. Adicione estas propriedades de autorização:

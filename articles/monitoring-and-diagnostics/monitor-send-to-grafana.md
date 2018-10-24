@@ -1,6 +1,6 @@
 ---
 title: Monitorizar os serviços e aplicações do Azure com o Grafana
-description: Dados de rota Azure Monitor e o Application Insights para que possa vê-los Grafana.
+description: Dados de rota do Azure Monitor e o Application Insights para que pode vê-los numa Grafana.
 services: azure-monitor
 keywords: ''
 author: rboucher
@@ -9,24 +9,24 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263087"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957383"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorizar os serviços do Azure no Grafana
-Pode agora também é monitorizar serviços do Azure e aplicações de [Grafana](https://grafana.com/) utilizando o [Plug-in da origem de dados de monitorização do Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in recolhe dados de desempenho de aplicações recolhidos pelo Application Insights SDK, bem como os dados de infraestrutura fornecidos pelo Monitor do Azure. Em seguida, pode apresentar estes dados no seu dashboard Grafana.
+Agora também pode monitorizar os serviços do Azure e aplicações a partir [Grafana](https://grafana.com/) utilizando o [Plug-in de origem de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho do aplicativo recolhidos pelo Application Insights SDK, bem como os dados de infraestrutura fornecidos pelo Azure Monitor. Em seguida, pode exibir esses dados no seu dashboard da Grafana.
 
 O plug-in está atualmente em pré-visualização.
 
-Utilize os seguintes passos para configurar um servidor de Grafana do Azure Marketplace e criar dashboards com base nas métricas do Monitor do Azure e o Application Insights.
+Utilize os seguintes passos para configurar um servidor o Grafana do Azure Marketplace e criar dashboards para métricas do Azure Monitor e o Application Insights.
 
-## <a name="set-up-a-grafana-instance"></a>Configure uma instância de Grafana
-1. Vá para o Azure Marketplace e escolha Grafana pelo Grafana Labs.
+## <a name="set-up-a-grafana-instance"></a>Configure uma instância do Grafana
+1. Ir para o Azure Marketplace e escolha o Grafana por laboratórios da Grafana.
 
-2. Preencha os nomes e os detalhes. Crie um novo grupo de recursos. Manter o registo dos valores que escolher para a VM nomedeutilizador, palavra-passe VM e palavra-passe de administrador de servidor Grafana.  
+2. Preencha os nomes e os detalhes. Crie um novo grupo de recursos. Mantenha um registo de valores que escolher para o nome de utilizador VM, a palavra-passe VM e a palavra-passe de administrador de servidor o Grafana.  
 
 3. Escolha o tamanho da VM e uma conta de armazenamento.
 
@@ -34,98 +34,98 @@ Utilize os seguintes passos para configurar um servidor de Grafana do Azure Mark
 
 5. Ver o resumo e selecione **criar** depois de aceitar os termos de utilização.
 
-## <a name="log-in-to-grafana"></a>Inicie sessão no Grafana
-1. Depois de concluída a implementação, selecione **aceda ao grupo de recursos**. Pode ver uma lista de recursos criados de novo.
+## <a name="log-in-to-grafana"></a>Inicie sessão para o Grafana
+1. Depois de concluída a implementação, selecione **vá para o grupo de recursos**. É apresentada uma lista de recursos criados recentemente.
 
-    ![Objetos de grupo de recursos de Grafana](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Objetos de grupo de recursos o Grafana](.\media\monitor-how-to-grafana\grafana1.png)
 
-    Se selecionar o grupo de segurança de rede (*grafana nsg* neste caso), pode ver que a porta 3000 é utilizada para aceder ao servidor Grafana.
+    Se selecionar o grupo de segurança de rede (*grafana-nsg* neste caso), pode ver que a porta 3000 é utilizada para aceder ao servidor da Grafana.
 
-2. Regresse à lista de recursos e selecione **endereço IP público**. Utilizando os valores encontrados neste ecrã, digite *http://<IP address>: 3000* ou  *<DNSName>: 3000* no seu browser. Deverá ver uma página de início de sessão para o servidor de Grafana que apenas incorporada.
+2. Volte à lista de recursos e selecione **endereço IP público**. Utilizando os valores encontrados neste ecrã, escreva *http://<IP address>: 3000* ou a  *<DNSName>: 3000* no seu browser. Deverá ver uma página de início de sessão do servidor o Grafana que acabou de criar.
 
-    ![Ecrã de início de sessão Grafana](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Ecrã de início de sessão o Grafana](.\media\monitor-how-to-grafana\grafana2.png)
 
-3. Iniciar sessão com o nome de utilizador como *admin* e a Grafana servidor admin palavra-passe que criou anteriormente.
+3. Inicie sessão com o nome de utilizador como *administrador* e a senha de administrador de servidor Grafana que criou anteriormente.
 
 ## <a name="configure-data-source-plugin"></a>Configurar o plug-in de origem de dados
 
-Depois de iniciado sessão com êxito, deverá ver que o plug-in do Monitor de Azure dados origem já está incluído.
+Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de dados do Azure Monitor já está incluído.
 
-![Grafana mostra Plug-in do Monitor do Azure](.\media\monitor-how-to-grafana\grafana3.png)
+![O Grafana mostra o plug-in do Azure Monitor](.\media\monitor-how-to-grafana\grafana3.png)
 
-1. Selecione **Adicionar origem de dados** para configurar a monitorização do Azure e o Application Insights.
+1. Selecione **Adicionar origem de dados** para configurar o Azure Monitor e o Application Insights.
 
-2. Escolha um nome para a origem de dados e selecione **Azure Monitor** como origem de dados na lista pendente.
+2. Escolha um nome para a origem de dados e selecione **do Azure Monitor** como a origem de dados na lista pendente.
 
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Grafana utiliza um principal de serviço do Azure Active Directory para ligar ao Azure Monitor APIs e recolher dados de métricas. Tem de criar um serviço principal para gerir o acesso aos seus recursos do Azure.
+O Grafana utiliza um principal de serviço do Azure Active Directory para ligar a APIs do Azure Monitor e recolher dados de métricas. Deve criar um principal de serviço para gerir o acesso aos recursos do Azure.
 
-1. Consulte [estas instruções](../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar um principal de serviço. Copie e guarde o seu inquilino ID, ID de cliente e um segredo do cliente.
+1. Ver [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md) para criar um principal de serviço. Copie e guarde o seu inquilino ID, ID de cliente e um segredo do cliente.
 
-2. Consulte [atribuir a aplicação a função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para atribuir a função de leitor para a aplicação do Azure Active Directory.     
+2. Ver [atribua a aplicação à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para atribuir a função de leitor para a aplicação do Azure Active Directory.     
 
-3. Se utilizar o Application Insights, também pode incluir a API do Application Insights e o ID da aplicação para recolher métricas do Application Insights com base. Para obter mais informações, consulte [obter a chave de API e o ID da aplicação](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
+3. Se utilizar o Application Insights, também pode incluir o API do Application Insights e o ID de aplicação para recolher métricas do Application Insights com base. Para obter mais informações, consulte [obter a sua chave de API e o ID da aplicação](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
-4. Após introduzir todas estas informações, selecione **guardar** e Grafana testa a API. Deverá ver uma mensagem semelhante ao seguinte.  
+4. Após introduzir todas estas informações, selecione **guardar** e o Grafana testa a API. Deverá ver uma mensagem semelhante ao seguinte.  
 
-    ![Grafana mostra Plug-in do Monitor do Azure](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![O Grafana mostra o plug-in do Azure Monitor](.\media\monitor-how-to-grafana\grafana4-1.png)
 
 > [!NOTE]
-> Ao configurar o plug-in pode indicar que nuvem do Azure (público, Azure US Government, Datacenters do Azure ou do Azure China) que pretende que o plug-in configurado contra.
+> Ao configurar o plug-in, pode indicar que Cloud do Azure (público, do Azure US Government, Azure Alemanha ou Azure China) gostaria de ter o plug-in para ser configurado em relação.
 >
 >
 
-## <a name="build-a-grafana-dashboard"></a>Criar um dashboard Grafana
+## <a name="build-a-grafana-dashboard"></a>Criar um dashboard da Grafana
 
-1. Aceda à home page e selecione **novo Dashboard**.
+1. Aceda à página principal e selecione **novo Dashboard**.
 
-2. No dashboard do novo, selecione o **gráfico**. Pode experimentar outras opções charting mas este artigo utiliza *gráfico* como exemplo.
+2. No novo dashboard, selecione o **Graph**. Pode experimentar outras opções de criação de gráficos, mas este artigo usa *Graph* como exemplo.
 
-    ![Grafana novo Dashboard](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Novo Dashboard da Grafana](.\media\monitor-how-to-grafana\grafana5.png)
 
-3. Um gráfico em branco aparece no dashboard.
+3. Um gráfico em branco aparece no seu dashboard.
 
-4. Clique no título do painel e selecione **editar** introduza os detalhes dos dados que pretende desenhar neste gráfico de gráfico.
+4. Clique com o título do painel e selecione **editar** para introduzir os detalhes dos dados que quer representar neste gráfico de gráfico.
 
-5. Assim que tiver selecionado a todas as VMs à direita, pode começar a ver as métricas no dashboard.
+5. Assim que tiver selecionado a todas as VMs corretas, pode começar a ver as métricas no dashboard.
 
-Segue-se um dashboard simple com dois gráficos. No lado esquerdo mostra a percentagem de CPU de duas VMs. O gráfico à direita mostra as transações numa conta de armazenamento do Azure, discriminada segundo o tipo de transação de API.
+Segue-se um dashboard simple com dois gráficos. Um no lado esquerdo mostra a percentagem de CPU de duas VMs. O gráfico à direita mostra as transações numa conta de armazenamento do Azure, dividida por tipo de transação de API.
 
-![Exemplo de gráficos Grafana dois](.\media\monitor-how-to-grafana\grafana6.png)
+![O Grafana dois gráficos exemplo](.\media\monitor-how-to-grafana\grafana6.png)
 
 
 ## <a name="optional-create-dashboard-playlists"></a>Opcional: Criar listas de reprodução do dashboard
 
-Uma das várias funcionalidades de Grafana é a lista de reprodução do dashboard. Pode criar dashboards vários e adicioná-las para configurar um intervalo para cada dashboard apresentar uma lista de reprodução. Selecione **reproduzir** para ver os dashboards percorra. Poderá querer as pode apresentar um monitor de lateral grandes para fornecer uma "placa de estado" para o seu grupo.
+Uma das várias funcionalidades da Grafana é a lista de reprodução do dashboard. Pode criar vários dashboards e adicioná-los para configurar um intervalo para cada dashboard mostrar uma lista de reprodução. Selecione **reproduzir** para ver os dashboards percorrer. Poderá exibi-los num monitor de parede grande para fornecer um quadro"Estado" para o seu grupo.
 
-![Exemplo de listas de reprodução de Grafana](.\media\monitor-how-to-grafana\grafana7.png)
+![Exemplo de lista de reprodução o Grafana](.\media\monitor-how-to-grafana\grafana7.png)
 
 
-## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: Monitorizar as métricas personalizadas no mesmo servidor Grafana
+## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: Monitorizar as métricas personalizadas no mesmo servidor o Grafana
 
-Também pode instalar Telegraf e InfluxDB para recolher e desenhar métricas personalizadas e baseada no agente na mesma instância Grafana. Existem muitos dados origem plug-ins que pode utilizar para reunir estas métricas num dashboard.
+Também pode instalar Telegraf e InfluxDB para recolher e métricas personalizadas e baseado em agente na mesma instância de Grafana de desenho. Existem muitos plugins de origem de dados que pode utilizar para reunir estas métricas num dashboard.
 
-Também pode reutilizar esta configurado para incluir as métricas do seu servidor Prometheus. Utilize o plug-in da origem de dados de Prometheus na Galeria de plug-in do Grafana.
+Também pode reutilizar esta configuração para incluir as métricas do seu servidor Prometheus. Utilize o plug-in da origem de dados do Prometheus na Galeria de plug-in da Grafana.
 
-Seguem-se artigos boa referência sobre como utilizar Telegraf, InfluxDB, Prometheus e Docker
- - [Como monitorizar as métricas de sistema com a pilha de marcas de escala no Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
+Seguem-se artigos de boa referência sobre como utilizar Telegraf, InfluxDB, Prometheus e Docker
+ - [Como monitorizar as métricas do sistema com a pilha de escala no Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
 
- - [Monitorizar as métricas de recurso do Docker com Grafana, InfluxDB e Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
+ - [Monitorizar as métricas de recurso do Docker com o Grafana, InfluxDB e Telegraf](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
- - [Uma solução de monitorização para os anfitriões de Docker, contentores e de serviços](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
+ - [Uma solução de monitorização para anfitriões do Docker, contentores e serviços em contentores](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
-Eis uma imagem de um dashboard Grafana completo que tenha as métricas de Monitor do Azure e o Application Insights.
-![Exemplo de Grafana métricas](.\media\monitor-how-to-grafana\grafana8.png)
+Aqui está uma imagem de um dashboard da Grafana completa que tem as métricas do Azure Monitor e o Application Insights.
+![Métricas de exemplo o Grafana](.\media\monitor-how-to-grafana\grafana8.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-São-lhe cobrados quando as VMs estão em execução se estiver a utilizá-los ou não. Para evitar incorrer em custos adicionais, limpe o grupo de recursos criado neste artigo.
+É cobrado quando as VMs estão em execução quer esteja a utilizá-los ou não. Para evitar incorrer em custos adicionais, limpe o grupo de recursos criado neste artigo.
 
-1. No menu da esquerda no portal do Azure, clique em **grupos de recursos** e, em seguida, clique em **Grafana**.
-2. Na sua página de grupo de recursos, clique em **eliminar**, tipo **Grafana** na caixa de texto e, em seguida, clique em **eliminar**.
+1. No menu esquerdo no portal do Azure, clique em **grupos de recursos** e, em seguida, clique em **Grafana**.
+2. Na página do grupo de recursos, clique em **elimine**, tipo **Grafana** na caixa de texto e, em seguida, clique **eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Descrição geral das métricas de Monitor do Azure](monitoring-overview-metrics.md)

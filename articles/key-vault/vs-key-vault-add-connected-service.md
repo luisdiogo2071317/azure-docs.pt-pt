@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465797"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958521"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar o Key Vault à sua aplicação web com o Visual Studio ligado Services
 
@@ -27,19 +27,19 @@ Para obter detalhes sobre as alterações que serviços ligados feitas em seu pr
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Uma subscrição do Azure**. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2017 versão 15.7** com o **desenvolvimento Web** instalada da carga de trabalho. [Baixe agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2017 versão 15.7** com a carga de trabalho de **Desenvolvimento Web** instalada. [Transfira-a agora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - Para o ASP.NET (e não núcleos), terá das ferramentas de desenvolvimento do .NET Framework 4.7.1, que não são instalados por predefinição. Para instalá-las, iniciar a instalação do Visual Studio, escolha **Modify**e, em seguida, escolha **componentes individuais**, em seguida, no lado direito, expanda **desenvolvimento na web e ASP.NET**e escolha **ferramentas de desenvolvimento do .NET Framework 4.7.1**.
 - Um ASP.NET 4.7.1 ou projeto da web do ASP.NET Core 2.0 aberto.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Adicionar suporte do Key Vault ao seu projeto
 
-1. Na **Explorador de soluções**, escolha **Add** > **serviço ligado**.
-   Será exibida a página de serviço ligado com os serviços que pode adicionar ao seu projeto.
+1. No **Solution Explorer** (Explorador de Soluções), selecione **Add** (Adicionar)  > **Connected Service** (Serviço Ligado).
+   É apresentada a página de Connected Service (Serviço Ligado) com os serviços que pode adicionar ao seu projeto.
 1. No menu de serviços disponíveis, escolha **proteger segredos com o Azure Key Vault**.
 
    ![Escolha "Segredos seguros com o Cofre de chaves do Azure"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Se já tem sessão iniciada no Visual Studio e uma subscrição do Azure associado à sua conta, é apresentada uma página com uma lista suspensa com as suas subscrições. Certifique-se de que tem sessão iniciada para o Visual Studio, e que a conta que iniciou sessão com a mesma conta que utiliza para a sua subscrição do Azure.
+   Se já tiver sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, será apresentada uma página com uma lista pendente com as suas subscrições. Certifique-se de que tem sessão iniciada para o Visual Studio, e que a conta que iniciou sessão com a mesma conta que utiliza para a sua subscrição do Azure.
 
 1. Selecione a subscrição que pretende utilizar e, em seguida, selecione um cofre de chaves novo ou existente, ou escolha a ligação de edição para modificar o nome gerado automaticamente.
 
@@ -138,7 +138,29 @@ Para aceder aos seus segredos:
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Parabéns, agora tiver confirmado que a aplicação web pode utilizar o Key Vault para aceder aos segredos armazenados em segurança.
+1. Execute a aplicação localmente ao verificar o que pode ler o valor secreto inseridas no portal do Azure, não um valor fictício de seu arquivo de configuração.
+
+Em seguida, publique a sua aplicação para o Azure.
+
+## <a name="publish-to-azure-app-service"></a>Publicar no serviço de aplicações do Azure
+
+1. Com o botão direito no nó do projeto e escolha **publicar**. É apresentado um ecrã que diz **escolher um destino publicar**. No lado esquerdo, selecione **serviço de aplicações**e, em seguida **criar nova**.
+
+   ![Publicar no Serviço de Aplicações](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. Sobre o **criar serviço de aplicações** ecrã, certifique-se de que a subscrição e grupo de recursos são iguais às que criou o Cofre de chaves no e escolham **criar**.
+
+   ![Criar Serviço de Aplicações](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. Depois de criar seu aplicativo web, o **publicar** ecrã é apresentado. Anote o URL para a sua aplicação web publicada, alojado no Azure. Se vir **None** junto a **Key Vault**, ainda terá de informar ao serviço de aplicações que o Key Vault para ligar a. Escolha o **adicione o Key Vault** associar e escolha o Cofre de chaves que criou.
+
+   ![Adicionar o Cofre de chaves](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   Se vir **gerir o Key Vault**, pode clicar nele para ver as definições atuais, permissões de edição, ou efetuar alterações ao segredo no Portal do Azure.
+
+1. Agora, selecione a ligação de URL do Site para visitar a sua aplicação web no browser. Certifique-se de que consegue ver o valor correto a partir do Key Vault.
+
+Parabéns, tiver confirmado que a aplicação web pode utilizar o Key Vault para aceder aos segredos armazenados em segurança quando executado no Azure.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

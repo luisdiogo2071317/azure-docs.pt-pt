@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524435"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957468"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar os modelos do Azure Machine Learning, utilizando a atividade de recursos de atualização
 Este artigo complementa o principal do Azure Data Factory - artigo de integração do Azure Machine Learning: [crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ainda não o fez, consulte o artigo principal antes de ler este artigo. 
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 Pode obter os valores para espaços reservados no URL ao consultar o serviço web no [Portal do Azure Machine Learning Web Services](https://services.azureml.net/). 
 
-O novo tipo de ponto final de recurso de atualização requer autenticação do principal de serviço. Para utilizar a autenticação do principal de serviço, registe-se uma entidade de aplicação no Azure Active Directory (Azure AD) e conceda-o **contribuinte** ou **proprietário** onde de grupo de função da subscrição ou o recurso o serviço web pertence. O, veja [como criar principal de serviço e atribuir permissões para gerir recursos do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
+O novo tipo de ponto final de recurso de atualização requer autenticação do principal de serviço. Para utilizar a autenticação do principal de serviço, registe-se uma entidade de aplicação no Azure Active Directory (Azure AD) e conceda-o **contribuinte** ou **proprietário** onde de grupo de função da subscrição ou o recurso o serviço web pertence. O, veja [como criar principal de serviço e atribuir permissões para gerir recursos do Azure](../active-directory/develop/howto-create-service-principal-portal.md). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
 
 - ID da aplicação
 - Chave da aplicação 

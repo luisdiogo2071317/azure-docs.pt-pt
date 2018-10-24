@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 0ea1b69b788255b1d8d24e17fcc1409d35a4fd36
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814326"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958691"
 ---
 # <a name="virtual-wan-partners"></a>Parceiros WAN virtual
 
@@ -46,7 +46,7 @@ Um dispositivo de ramificação (um dispositivo VPN no local de cliente ou SDWAN
 
 ###  <a name="access"></a>Controlo de acesso
 
-Os clientes tem de ser capazes de configurar o controlo de acesso apropriados para o Virtual WAN na IU do dispositivo. Isto é recomendado utilizar um Principal de serviço do Azure. O acesso de baseada em principais de serviço fornece a autenticação adequada de controlador de dispositivo para carregar as informações do ramo. Para obter mais informações, consulte [criar principal de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Enquanto esta funcionalidade está fora da oferta de WAN Virtual do Azure, listados abaixo as etapas típicas direcionadas para configurar o acesso no Azure após o qual os detalhes relevantes são introduzidos para o dashboard de gestão de dispositivos
+Os clientes tem de ser capazes de configurar o controlo de acesso apropriados para o Virtual WAN na IU do dispositivo. Isto é recomendado utilizar um Principal de serviço do Azure. O acesso de baseada em principais de serviço fornece a autenticação adequada de controlador de dispositivo para carregar as informações do ramo. Para obter mais informações, consulte [criar principal de serviço](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Enquanto esta funcionalidade está fora da oferta de WAN Virtual do Azure, listados abaixo as etapas típicas direcionadas para configurar o acesso no Azure após o qual os detalhes relevantes são introduzidos para o dashboard de gestão de dispositivos
 
 * Crie uma aplicação do Azure Active Directory para seu controlador de dispositivo no local.
 * Obter a chave de ID e a autenticação da aplicação

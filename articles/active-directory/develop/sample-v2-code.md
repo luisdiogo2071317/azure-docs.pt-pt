@@ -17,12 +17,12 @@ ms.date: 10/17/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 73edb518a7e0c89b3ef510c6e528b6fa76f8dca5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7323f532787fa767d875e13262cce9f1ceaa79d8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393426"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955529"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Exemplos de código do Azure Active Directory (ponto final V2)
 
@@ -108,7 +108,7 @@ Para saber mais sobre [amostras](https://github.com/microsoftgraph/msgraph-commu
 
 ## <a name="see-also"></a>Consulte também
 
-[Guia para programadores do Azure Active Directory](azure-ad-developers-guide.md)
+[Guia para programadores do Azure Active Directory](v1-overview.md)
 
 [Azure AD Graph API conceitual e de referência](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 

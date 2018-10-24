@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d6d276895534b3fcfb7f58f8fa51620c65c600a3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d89e79548d62634e4b2b47fb310c4f8d7279f17f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427659"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957263"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Adicionar um principal de serviço para a função de administrador do servidor 
 
@@ -22,8 +22,8 @@ ms.locfileid: "49427659"
 ## <a name="before-you-begin"></a>Antes de começar
 Antes de concluir esta tarefa, tem de ter um principal de serviço registado no Azure Active Directory.
 
-[Criar principal de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Criar principal de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Criar principal de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 Para concluir essa tarefa, tem de ter [administrador do servidor](analysis-services-server-admins.md) permissões ao servidor do Azure. 

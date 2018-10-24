@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dd0059f8d4714603568577d0a3c977ce7b27d44c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364307"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945846"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço Azure Backup
 Este artigo responde a perguntas comuns sobre os componentes de cópia de segurança do Azure. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Pode fazer perguntas sobre o Azure Backup ao clicar em **Comentários** (à direita). Os comentários aparecem na parte inferior do artigo. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -82,6 +82,9 @@ Sim. No entanto, para utilizar o Azure Backup com o System Center Data Protectio
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode utilizar o DPM para efetuar cópias de segurança de aplicações no Azure Stack?
 Não. Apesar de poder utilizar o Azure Backup para proteger o Azure Stack, Microsoft Azure Backup não suporta atualmente com o DPM para efetuar cópias de segurança de aplicações no Azure Stack.
+
+### <a name="can-i-do-an-ilr-item-level-restore-for-vms-backed-up-to-the-online-vault-azure"></a>Pode fazer uma ILR (Restaurar de nível de Item) para VMs de uma cópia de segurança para o Cofre Online (Azure)?
+Não, o restauro de nível de Item (ILR) não está disponível para máquinas virtuais de uma cópia de segurança para o Cofre dos serviços de recuperação de Site.
 
 ## <a name="how-azure-backup-works"></a>Como funciona o Azure Backup
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se cancelar uma tarefa de cópia de segurança depois de ser iniciada, os dados de cópia de segurança transferidos são eliminados? <br/>

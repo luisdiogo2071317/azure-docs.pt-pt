@@ -6,7 +6,7 @@ items:
 - name: v1.0
   items:
   - name: Descrição geral
-    href: azure-ad-developers-guide.md
+    href: v1-overview.md
   - name: Inícios rápidos
     items:
     - name: Configurar um ambiente de desenvolvimento
@@ -161,6 +161,12 @@ items:
       items:
       - name: Converter uma aplicação de inquilino único numa aplicação multi-inquilino
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: Criar um principal de serviço
+        items:
+        - name: Utilizar o Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: Com o Portal do Azure
+          href: howto-create-service-principal-portal.md
       - name: Restringir a aplicação a um conjunto de utilizadores
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: Adicionar funções de aplicação à sua aplicação
@@ -342,12 +348,16 @@ items:
         href: active-directory-optional-claims.md
       - name: Configurar durações de token (Pré-visualização)
         href: active-directory-configurable-token-lifetimes.md
-      - name: Autenticar com o Azure AD e obter um token JWT com o OAuth 2.0
-        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Configuração da aplicação
       items:
       - name: Converter uma aplicação de inquilino único numa aplicação multi-inquilino
         href: howto-convert-app-to-be-multi-tenant.md
+      - name: Criar um principal de serviço
+        items:
+        - name: Utilizar o Azure PowerShell
+          href: howto-authenticate-service-principal-powershell.md
+        - name: Com o Portal do Azure
+          href: howto-create-service-principal-portal.md
       - name: Restringir a aplicação a um conjunto de utilizadores
         href: howto-restrict-your-app-to-a-set-of-users.md
       - name: Adicionar funções de aplicação à sua aplicação
@@ -398,9 +408,9 @@ items:
     href: developer-support-help-options.md
   - name: Identidades geridas para os recursos do Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 76a1124c196cf693f15e02513ca186567e3ef088
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 01775498610b76b9110f26e3f45e41d0baadd486
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466108"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957424"

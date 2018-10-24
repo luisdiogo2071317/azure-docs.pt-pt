@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341893"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959116"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>O Azure Disk Encryption pré-requisitos (versão anterior)
 
@@ -242,12 +242,12 @@ Pode gerenciar seus principais de serviço com a CLI do Azure com o [az ad sp](/
 3.  O appId devolveu o ID de cliente do Azure AD é utilizada nos outros comandos. Também é o SPN que irá utilizar para o conjunto de keyvault de az-policy. A palavra-passe é o segredo do cliente que deve usar mais tarde para ativar a encriptação de disco do Azure. Proteger adequadamente o segredo do cliente do Azure AD.
  
 ### <a name="bkmk_ADappRM"></a> Configurar uma aplicação do Azure AD e o serviço principal através do portal do Azure
-Utilize os passos a [utilize o portal para criar um Azure Active Directory principal de aplicações e serviço que pode aceder a recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) artigo para criar uma aplicação do Azure AD. Cada passo listado abaixo leva-o diretamente para a secção do artigo para concluir. 
+Utilize os passos a [utilize o portal para criar um Azure Active Directory principal de aplicações e serviço que pode aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md) artigo para criar uma aplicação do Azure AD. Cada passo listado abaixo leva-o diretamente para a secção do artigo para concluir. 
 
-1. [Verifique se as permissões necessárias](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)
-2. [Criar uma aplicação do Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [Verifique se as permissões necessárias](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+2. [Criar uma aplicação do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Pode utilizar qualquer nome e início de sessão no URL que desejar ao criar a aplicação.
-3. [Obtenha o ID da aplicação e a chave de autenticação](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key). 
+3. [Obtenha o ID da aplicação e a chave de autenticação](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
      - A chave de autenticação é o segredo do cliente e é utilizada como o AadClientSecret para Set-AzureRmVMDiskEncryptionExtension. 
         - A chave de autenticação é utilizada pela aplicação como uma credencial para iniciar sessão Azure AD. No portal do Azure, este segredo é chamado de chaves, mas tem sem relação aos cofres de chaves. Proteja Este segredo adequadamente. 
      - O ID da aplicação irá ser utilizado mais tarde como AadClientId para Set-AzureRmVMDiskEncryptionExtension e como ServicePrincipalName para Set-AzureRmKeyVaultAccessPolicy. 

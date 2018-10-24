@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 2a70893c3e879b2cecb4d39d538b0df44b1ced15
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b258d115e7d9962ecab4b93dbcd98d13f5977c7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651572"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956685"
 ---
 # <a name="understand-the-agent-check-results-in-update-management"></a>Compreender os resultados da verificação de agente no gerenciamento de atualizações
 
@@ -70,7 +70,7 @@ Esta verificação, determina se estiver a utilizar TLS 1.2 para encriptar as co
 
 Esta verificação determina se o agente corretamente pode comunicar com o serviço de agente.
 
-Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida comunicar com o ponto de final do registo. Para obter uma lista de endereços e portas para abrir, consulte [planear funções de trabalho híbridas de rede](../automation-hybrid-runbook-worker.md#network-planning)
+Configurações de proxy e de firewall têm de permitir o agente de trabalho de Runbook híbrida comunicar com o ponto final do registo. Para obter uma lista de endereços e portas para abrir, consulte [planear funções de trabalho híbridas de rede](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### <a name="operations-endpoint"></a>Ponto final de operações
 

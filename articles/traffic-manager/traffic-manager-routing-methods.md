@@ -4,7 +4,6 @@ description: Artigos de ajuda a que compreender os métodos de encaminhamento de
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785414"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955223"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
@@ -129,8 +128,11 @@ Conforme explicado [como funciona o Gestor de tráfego](traffic-manager-how-it-w
 O **Multivalue** o método de encaminhamento de tráfego permite-lhe obter vários pontos de extremidade de bom estado de funcionamento numa única resposta de consulta DNS. Isto permite ao chamador para fazer o lado do cliente é repetida com outros pontos finais em caso de um ponto de extremidade retornado a ser não responde. Este padrão pode aumentar a disponibilidade de um serviço e reduzir a latência associada uma nova consulta DNS para obter um bom ponto de extremidade. Método de encaminhamento de valores múltiplos só funciona se todos os pontos finais do tipo 'Externo' e são especificados como IPv4 ou IPv6 endereços. Quando uma consulta é recebida para este perfil, todos os pontos finais de bom estado de funcionamento são devolvidos e estão sujeitos a uma contagem de retorna máxima configurável.
 
 ## <a name = "subnet"></a>Método de encaminhamento de tráfego de sub-rede
-O **sub-rede** o método de encaminhamento de tráfego permite-lhe mapear um conjunto de intervalos de endereços IP do utilizador final para os pontos finais num perfil. Depois disso, se o Gestor de tráfego recebe uma consulta DNS para o perfil, ele irá inspecionar a origem de endereço IP dessa solicitação (na maioria dos casos será o endereço IP de saída do resolvedor DNS utilizado pelo chamador), determinar qual ponto de extremidade, ele é mapeado para e retornará t ponto final de Hat na resposta da consulta. O endereço IP a ser mapeado para um ponto de extremidade pode ser especificado como intervalos CIDR (por exemplo, 1.2.3.0/24) ou como um intervalo de endereços (por exemplo, 1.2.3.4-5.6.7.8). Os intervalos IP associados a um ponto final tem de ser exclusivo dentro desse perfil e não podem ter uma sobreposição com o conjunto de endereços IP de um ponto de extremidade diferente no mesmo perfil.
-Se não existirem não existem pontos finais para que esse endereço IP pode ser mapeado, o Gestor de tráfego irá enviar uma resposta NODATA. Por conseguinte, recomendamos que garantir que todos os intervalos IP possíveis são especificados nos seus pontos finais.
+O **sub-rede** o método de encaminhamento de tráfego permite-lhe mapear um conjunto de intervalos de endereços IP do utilizador final para os pontos finais num perfil. Depois disso, se o Gestor de tráfego recebe uma consulta DNS para o perfil, ele irá inspecionar a origem de endereço IP dessa solicitação (na maioria dos casos será o endereço IP de saída do resolvedor DNS utilizado pelo chamador), determinar qual ponto de extremidade, ele é mapeado para e retornará t ponto final de Hat na resposta da consulta. 
+
+O endereço IP a ser mapeado para um ponto de extremidade pode ser especificado como intervalos CIDR (por exemplo, 1.2.3.0/24) ou como um intervalo de endereços (por exemplo, 1.2.3.4-5.6.7.8). Os intervalos IP associados a um ponto final tem de ser exclusivo dentro desse perfil e não podem ter uma sobreposição com o conjunto de endereços IP de um ponto de extremidade diferente no mesmo perfil.
+Se definir um ponto de extremidade com nenhum intervalo de endereços, que funciona como um tráfego de contingência e take de quaisquer sub-redes restantes. Se nenhum ponto de final de contingência está incluído, o Gestor de tráfego envia uma resposta NODATA para quaisquer intervalos indefinidos. Portanto, recomendamos que o define um ponto de final de contingência, caso contrário, certifique-se de que todos os intervalos IP possíveis são especificados nos seus pontos finais.
+
 Encaminhamento de sub-rede pode ser utilizado para proporcionar uma experiência diferente para os utilizadores a ligar a partir de um espaço IP específico. Por exemplo, usando o roteamento de sub-rede, um cliente pode tornar todos os pedidos de seu escritório Corporativo ser encaminhado para um ponto de extremidade diferente em que eles podem testar uma única versão interna da sua aplicação. Outro cenário é se pretende fornecer uma experiência diferente aos utilizadores ligar a partir de um ISP específico (por exemplo, impedir que os utilizadores de um determinado ISP).
 
 ## <a name="next-steps"></a>Passos Seguintes

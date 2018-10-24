@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628958"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958319"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicações para recursos do Azure Stack através da criação de principais de serviço
 
@@ -57,7 +57,7 @@ Os passos para atribuir um principal de serviço a uma função o mesmo para o A
 Se a sua pilha do Azure utiliza o Azure AD como o repositório de identidades, pode criar um serviço principal com os mesmos passos como no Azure, através do portal do Azure.
 
 >[!NOTE]
-Verifique que tem o [do Azure AD permissões obrigatórias](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) antes de começar a criar um principal de serviço.
+Verifique que tem o [do Azure AD permissões obrigatórias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar a criar um principal de serviço.
 
 ### <a name="create-service-principal"></a>Criar um principal de serviço
 

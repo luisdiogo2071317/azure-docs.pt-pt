@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829774"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954611"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Criar zonas DNS e conjuntos de registos com o SDK .NET
 
@@ -28,7 +28,7 @@ ms.locfileid: "48829774"
 
 Normalmente, o acesso programático a recursos do Azure é concedido através de uma conta dedicada, em vez de suas próprias credenciais de utilizador. Estas contas dedicadas são chamadas de contas de "principal de serviço". Para utilizar o projeto de exemplo do SDK do DNS do Azure, tem primeiro de criar uma conta do principal de serviço e atribua-lhe as permissões corretas.
 
-1. Siga [estas instruções](../azure-resource-manager/resource-group-authenticate-service-principal.md) para criar uma conta de principal de serviço (o projeto de exemplo do SDK do DNS do Azure assume que a autenticação baseada em palavra-passe.)
+1. Siga [estas instruções](../active-directory/develop/howto-authenticate-service-principal-powershell.md) para criar uma conta de principal de serviço (o projeto de exemplo do SDK do DNS do Azure assume que a autenticação baseada em palavra-passe.)
 2. Criar um grupo de recursos ([aqui está como](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Utilizar o Azure RBAC para conceder permissões de "Contribuinte de zona DNS" para o grupo de recursos da conta do principal de serviço ([aqui está como](../role-based-access-control/role-assignments-portal.md).)
 4. Se utilizar o projeto de exemplo do SDK do DNS do Azure, edite o ficheiro de "program.cs" da seguinte forma:

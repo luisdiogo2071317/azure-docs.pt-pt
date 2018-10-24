@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42062088"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945608"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorizar atualizações no Azure Stack, utilizando o ponto final com privilégios
 
 *Aplica-se a: sistemas integrados do Azure Stack*
 
-Pode utilizar o ponto final com privilégios para monitorizar o progresso de uma execução de atualização do Azure Stack e retomar uma atualização falhada, execute a partir da última etapa bem-sucedida deve o Azure Stack portal fique indisponível.  Com o portal do Azure Stack é o método recomendado para gerir atualizações no Azure Stack.
+Pode utilizar o [ponto final com privilégios](azure-stack-privileged-endpoint.md) execução da atualização para monitorizar o progresso de uma pilha do Azure e retomar uma atualização falhada, execute a partir do último passo com êxito no portal do Azure Stack de tornar indisponível.  Com o portal do Azure Stack é o método recomendado para gerir atualizações no Azure Stack.
 
 Os seguintes novos cmdlets de PowerShell para gestão de atualizações são incluídos na atualização 1710 para sistemas integrados do Azure Stack.
 

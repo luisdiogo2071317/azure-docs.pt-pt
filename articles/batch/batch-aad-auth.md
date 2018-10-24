@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816972"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955801"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
 
@@ -374,7 +374,7 @@ Utilize as credenciais do principal de serviço para abrir um **BatchServiceClie
 
 * Para saber mais sobre o Azure AD, veja a [do Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory/). Exemplos detalhados que mostram como utilizar a ADAL estão disponíveis no [exemplos de código do Azure](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteca.
 
-* Para obter mais informações sobre principais de serviço, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Para criar um principal de serviço com o portal do Azure, veja [utilize o portal para criar o principal de aplicações e serviço que pode aceder aos recursos do Active Directory](../resource-group-create-service-principal-portal.md). Também pode criar um principal de serviço com o PowerShell ou da CLI do Azure.
+* Para obter mais informações sobre principais de serviço, consulte [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Para criar um principal de serviço com o portal do Azure, veja [utilize o portal para criar o principal de aplicações e serviço que pode aceder aos recursos do Active Directory](../active-directory/develop/howto-create-service-principal-portal.md). Também pode criar um principal de serviço com o PowerShell ou da CLI do Azure.
 
 * Para autenticar aplicações de gestão do Batch com o Azure AD, consulte [soluções de gestão de Batch de autenticar com o Active Directory](batch-aad-auth-management.md).
 

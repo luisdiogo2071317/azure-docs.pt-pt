@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f85726f7058c783b6e369126532e40ceecc3c846
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313559"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945999"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>O Azure AD Connect: Conceitos de Design
 O objetivo deste documento é descrever áreas que devem ser consideradas por meio de durante o design de implementação do Azure AD Connect. Este documento é uma descrição profunda sobre determinadas áreas e esses conceitos uma breve descrição também outros documentos.
@@ -102,7 +102,7 @@ Ao instalar o Azure AD Connect com o modo do Express, o Assistente do Azure AD C
 * Em primeiro lugar, o Assistente do Azure AD Connect consulta o seu inquilino do Azure AD para recuperar o atributo de AD utilizado como o atributo sourceAnchor na instalação do Azure AD Connect anterior (se houver). Se esta informação estiver disponível, o Azure AD Connect utiliza o mesmo atributo de AD.
 
   >[!NOTE]
-  > Apenas as versões mais recentes do Azure AD Connect (1.1.524.0 e o depois) informações de arquivos no seu inquilino do Azure AD sobre o atributo sourceAnchor usados durante a instalação. As versões mais antigas do Azure AD Connect não o fizer.
+  > Apenas as versões mais recentes do Azure AD Connect (1.1.524.0 e o depois) informações de arquivo no seu inquilino do Azure AD sobre o atributo sourceAnchor usados durante a instalação. As versões mais antigas do Azure AD Connect não o fizer.
 
 * Se a informações sobre o atributo sourceAnchor utilizado não estiver disponíveis, o assistente verifica o estado do atributo ms-DS-ConsistencyGuid no Active Directory no local. Se o atributo não está configurado em qualquer objeto no diretório, o assistente utiliza o ms-DS-ConsistencyGuid como o atributo sourceAnchor. Se o atributo é configurado num ou mais objetos no diretório, o assistente conclui o atributo está a ser utilizado por outros aplicativos e não é adequado, como o atributo sourceAnchor...
 

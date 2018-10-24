@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815873"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957994"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -96,7 +96,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 Para usar uma autenticação de token de aplicação de serviço baseada em principais do Azure AD, siga estes passos:
 
-1. **[Criar uma aplicação do Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
+1. **[Criar uma aplicação do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**  do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
 
     - ID da aplicação
     - Chave da aplicação
@@ -582,15 +582,15 @@ Quando copia dados de ou para a base de dados do Azure SQL, os seguintes mapeame
 | binário |Byte[] |
 | bit |Booleano |
 | char |Cadeia de caracteres, Char [] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | decimal |decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| Flutuante |Valor de duplo |
+| número de vírgula flutuante |Valor de duplo |
 | image |Byte[] |
-| Int |Int32 |
+| int |Int32 |
 | dinheiro |decimal |
 | nchar |Cadeia de caracteres, Char [] |
 | ntext |Cadeia de caracteres, Char [] |

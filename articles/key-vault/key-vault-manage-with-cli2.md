@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220572"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954351"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Key Vault com a CLI do Azure 
 
@@ -199,7 +199,7 @@ As aplicações que utilizam um cofre de chaves devem ser autenticadas através 
 
 Para obter um token, a aplicação deve apresentar ambos os valores ao Azure Active Directory. Como um aplicativo está configurado para obter um token irá depender do aplicativo. Na [aplicação de exemplo do Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), o proprietário da aplicação define estes valores no ficheiro app.config.
 
-Para obter passos detalhados no registo de aplicações no Azure Active Directory deve rever os artigos intitulados [integrar aplicações com o Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [utilize o portal para criar um Azure Active Principal de serviço que pode aceder aos recursos e aplicações do](../azure-resource-manager/resource-group-create-service-principal-portal.md), e [criar um Azure principal de serviço com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
+Para obter passos detalhados no registo de aplicações no Azure Active Directory deve rever os artigos intitulados [integrar aplicações com o Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [utilize o portal para criar um Azure Active Principal de serviço que pode aceder aos recursos e aplicações do](../active-directory/develop/howto-create-service-principal-portal.md), e [criar um Azure principal de serviço com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Registar uma aplicação no Azure Active Directory:
 

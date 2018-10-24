@@ -1,6 +1,6 @@
 ---
-title: Migrar aplicações no local do AD FS para o Azure. | Microsoft Docs
-description: Este artigo destina-se a ajudar as organizações a compreender como migrar as aplicações no local para o Azure AD, com especial destaque para as aplicações SaaS federadas.
+title: Mova as aplicações do AD FS para o Azure AD. | Microsoft Docs
+description: Este artigo destina-se para ajudar as organizações a compreender como migrar aplicativos para o Azure AD, com foco em aplicações SaaS federadas.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903033"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959065"
 ---
-# <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicações no local do AD FS para o Azure 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicações do AD FS para o Azure AD 
 
-Este artigo ajuda-o a saber como migrar aplicações no local para o Azure Active Directory (Azure AD). Aborda em especial as aplicações SaaS federadas. 
+Este artigo ajuda-o a compreender como mover aplicativos do AD FS para o Azure Active Directory (Azure AD). Aborda em especial as aplicações SaaS federadas. 
 
 Este artigo não é uma orientação passo a passo. Disponibiliza orientações conceptuais para o ajudar a concretizar a migração ao explicar de que forma é que as configurações no local se traduzem no Azure AD. Também aborda cenários comuns.
 
@@ -31,7 +31,7 @@ Se tiver um diretório no local que contenha as contas de utilizador, é prováv
 
 E se a sua organização for igual à maioria, o mais provável é que já esteja a meio caminho para adotar as aplicações e identidades na cloud. Se calhar, está a utilizar o Office 365 e o Azure AD Connect. Talvez tenha configurado aplicações SaaS baseadas na cloud para algumas cargas de trabalho importantes, mas não para todas.  
 
-Muitas organizações têm aplicações SaaS ou de linha de negócio (LOB) personalizadas federadas diretamente num serviço de início de sessão no local, como o Active Directory Federation Service (AD FS), juntamente com aplicações baseadas no Office 365 e no Azure AD. Este guia de migração descreve como e porquê migrar aplicações no local para o Azure AD.
+Muitas organizações têm aplicações SaaS ou de linha de negócio (LOB) personalizadas federadas diretamente num serviço de início de sessão no local, como o Active Directory Federation Service (AD FS), juntamente com aplicações baseadas no Office 365 e no Azure AD. Este guia descreve por que e como mover seus aplicativos para o Azure AD.
 
 >[!NOTE]
 >Este guia disponibiliza informações detalhadas sobre a configuração e migração de aplicações SaaS, com informações de alto nível relativamente a aplicações LOB personalizadas. Está prevista a disponibilização de mais orientações detalhadas para aplicações LOB no futuro.
@@ -40,9 +40,9 @@ Muitas organizações têm aplicações SaaS ou de linha de negócio (LOB) perso
 
 ![Aplicações federadas através do Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-migrating-apps-to-azure-ad"></a>Motivos para migrar aplicações para o Azure AD
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>Motivos para mover aplicações para o Azure AD
 
-Para as organizações que já utilizam o AD FS, o Ping ou outro fornecedor de autenticação no local, a migração das aplicações para o Azure AD oferece as vantagens seguintes:
+Para uma organização que já utiliza o AD FS, Ping ou outro fornecedor de autenticação no local, a mover aplicações para o Azure AD permite as seguintes vantagens:
 
 **Acesso mais seguro**
 - Configurar controlos de acesso granulares por aplicação, incluindo o Azure Multi-Factor Authentication, mediante a utilização do [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md). Estas políticas podem ser aplicadas a aplicações SaaS e personalizadas tal e qual como faz atualmente para o Office 365
@@ -61,7 +61,7 @@ Para as organizações que já utilizam o AD FS, o Ping ou outro fornecedor de a
 - Enquanto estiver a obter as vantagens do Azure AD, pode continuar a utilizar a sua solução no local para a autenticação. Dessa forma, as vantagens como as soluções de Multi-Factor Authentication, registo e auditoria no local continuam implementadas. 
 
 **Ajudar a extinguir o fornecedor de identidade no local**
-- Para as organizações que pretendem extinguir o produto de autenticação no local, a migração das aplicações para o Azure AD permite uma transição mais fácil, ao remover parte do trabalho. 
+- Para organizações que pretendem extinguir o produto de autenticação no local, mover aplicações para o Azure AD permite uma transição mais fácil ao remover parte do trabalho fora do caminho. 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>Mapear tipos de aplicações no local para tipos de aplicações no Azure AD
 A maioria das aplicações pertence a uma de algumas categorias com base no tipo de início de sessão que utilizam. Estas categorias determinam a forma como a aplicação é representada no Azure AD.
@@ -126,8 +126,8 @@ A tabela seguinte descreve os principais elementos de configuração do IdP para
 |Identificador/</br>“emissor”|O identificador do IdP na perspetiva da aplicação (por vezes, denominado “emissor” ou “ID do emissor”).</br></br>No token SAML, o valor aparece como o elemento **Emissor**.|Geralmente, o identificador no AD FS é o identificador do serviço de federação na Gestão do AD FS, em **Serviço** >  **Editar Propriedades do Serviço de Federação**. Por exemplo: http&#58;//fs.contoso.com/adfs/services/trust|O valor correspondente para o Azure AD segue o padrão em que o valor de {tenant-id} é substituído pelo ID do inquilino. Este está disponível no portal do Azure em **Azure Active Directory** > **Propriedades** como **ID do Diretório**: https&#58;//sts.windows.net/{tenant-id}/|
 |Metadados </br>de federação </br>do IdP|A localização dos metadados de federação publicamente disponíveis do IdP. (Algumas aplicações utilizam os metadados de federação como alternativa à configuração individual, por parte do administrador, de URLs, do identificador e do certificado de assinatura de tokens.)|O URL dos metadados de federação estão disponíveis na Gestão do AD FS em **Serviço** > **Pontos Finais** > **Metadados** > **Tipo: Metadados de Federação**. Por exmplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente para o Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor de {TenantDomainName} pelo nome do seu inquilino, no formato “contoso.onmicrosoft.com.” </br></br>Para obter mais informações, veja [Federation metadata](../develop/azure-ad-federation-metadata.md) (Metadados da federação).
 
-## <a name="migrating-saas-apps"></a>Migrar aplicações SaaS
-Atualmente, a migração de aplicações SaaS do AD FS ou de outros fornecedores de identidade para o Azure AD é um processo manual. Para obter orientações para aplicações específicas, veja a [lista de tutoriais relativos à integração de aplicações SaaS disponíveis no Marketplace](../saas-apps/tutorial-list.md).
+## <a name="moving-saas-apps"></a>Mover aplicações SaaS
+Mover aplicações SaaS do AD FS ou de outro fornecedor de identidade para o Azure AD é um processo manual de hoje. Para obter orientações para aplicações específicas, veja a [lista de tutoriais relativos à integração de aplicações SaaS disponíveis no Marketplace](../saas-apps/tutorial-list.md).
 
 Os tutoriais de integração partem do princípio de que está a fazer uma integração “green field”. À medida que planeia, avalia, configura e faz a transição das aplicações, existem alguns conceitos importantes específicos da migração que deverá conhecer:  
 - Algumas aplicações podem ser migradas facilmente. As aplicações que tenham requisitos mais complexos, como afirmações personalizadas, podem exigir configuração adicional no Azure AD e/ou no Azure AD Connect.
@@ -135,7 +135,7 @@ Os tutoriais de integração partem do princípio de que está a fazer uma integ
 - Após determinar que são necessárias afirmações adicionais, confirme que estão disponíveis no Azure AD. Verifique a configuração da sincronização do Azure AD Connect para garantir que um atributo necessário, como, por exemplo, **samAccountName**, está a ser sincronizado com o Azure AD.
 - Quando os atributos estiverem disponíveis no Azure AD, pode adicionar regras de emissão de afirmações ao Azure AD para incluir esses atributos como afirmações nos tokens emitidos. Estas regras são adicionadas nas propriedades **Início de sessão único** da aplicação no Azure AD.
 
-### <a name="assess-what-can-be-migrated"></a>Avaliar o que pode ser migrado
+### <a name="assess-what-can-be-moved"></a>Avaliar o que podem ser movido
 As aplicações SAML 2.0 podem ser integradas no Azure AD através da galeria de aplicações do Azure AD no Marketplace ou como aplicações externas a este.  
 
 Algumas configurações exigem passos adicionais para configuração no Azure AD e algumas que não são atualmente suportadas. Para determinar o que pode ser movido, observe a configuração atual de cada uma das suas aplicações. Mais concretamente, procure:
@@ -144,8 +144,8 @@ Algumas configurações exigem passos adicionais para configuração no Azure AD
 - As versões do token SAML emitidas.
 - Outras configurações, como regras de autorização de emissão ou políticas de controlo de acesso e regras de Multi-Factor Authentication (autenticação adicional).
 
-#### <a name="what-can-be-migrated-today"></a>O que pode ser migrado atualmente
-As aplicações que pode migrar facilmente hoje incluem aplicações SAML 2.0 que utilizam o conjunto padrão de elementos e afirmações de configuração. Estas aplicações podem consistir em:
+#### <a name="what-can-be-moved-today"></a>O que pode ser movido hoje mesmo
+As aplicações que pode mover facilmente hoje incluem aplicações SAML 2.0 que utilizam o conjunto padrão de elementos de configuração e afirmações. Estas aplicações podem consistir em:
 - Nome principal de utilizador.
 - Endereço de e-mail.
 - Nome próprio.

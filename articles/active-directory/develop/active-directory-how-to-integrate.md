@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cde2706db255746293ddc29c6d5bdd31d970e535
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901554"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954713"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com o Azure Active Directory
 
@@ -82,7 +82,7 @@ Integração com o Azure AD é fornecido com os benefícios que não necessitam 
 **O Azure AD é implementado em datacenters em todo o mundo e é gerido e monitorizado ininterruptamente.**  Azure AD é o sistema de gestão de identidade do Microsoft Azure e do Office 365 e é implementado em 28 datacenters em todo o mundo. Dados do diretório são garantidos a ser replicados para os datacenters, pelo menos, três. Balanceadores de carga global Certifique-se os utilizadores acedam a cópia mais próxima do Azure AD que contém os seus dados e automaticamente novamente encaminham os pedidos para noutros datacenters se for detetado um problema.
 
 ## <a name="next-steps"></a>Próximos Passos
-[Começar a escrever código](azure-ad-developers-guide.md#get-started).
+[Começar a escrever código](v1-overview.md#get-started).
 
 [Iniciar sessão dos utilizadores em utilizar o Azure AD](authentication-scenarios.md)
 

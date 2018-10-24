@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: d3de6afff1c417b28be04ef8b04024756c378e20
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/22/2018
+ms.openlocfilehash: 8c5274db69831aaaeaaed2b81627bbb4aeb8cd75
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465768"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954946"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU
 
@@ -80,8 +80,8 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 | Sessões simultâneas máx. | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-> [!IMPORTANT]
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto as seguintes: e.u.a. centro-oeste, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, Nordeste da Alemanha, Norte da USGovIowa, China. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> [!IMPORTANT] 
+> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões seguintes, exceto as seguintes leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, norte do Reino Unido, sul do Reino Unido, US DOD Central, US DOD East, Goverment E.u. a centro- e e.u.a. Centro-Oeste: na Estas regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Base de dados: alterar o tamanho de armazenamento
 
@@ -116,7 +116,7 @@ A duração de todo o processo de aumento vertical depende do tamanho e do escal
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Base de dados: limitações de P11 e P15 quando o número máximo de tamanho superior a 1 TB
 
-Um tamanho máximo superior a 1 TB para P11 e P15 base de dados é suportada nas seguintes regiões: Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, leste do Canadá, centro dos E.U.A., Centro de França, Alemanha Central, leste do Japão, oeste do Japão, Coreia Central Centro-Norte, Europa do Norte, EUA Centro-Sul, Sudeste asiático, sul do Reino Unido, oeste do Reino Unido, E.U.A. Leste-2, E.U.A. oeste, US Gov Virginia e Europa Ocidental. As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um maior que 1 TB de tamanho máximo:
+As seguintes considerações e limitações aplicam-se às bases de dados P11 e P15 com um maior que 1 TB de tamanho máximo:
 
 - Se escolher um tamanho máximo superior a 1 TB durante a criação de uma base de dados (com um valor de 4 TB ou 4096 GB), o comando create falha com um erro se a base de dados é aprovisionada numa região não suportada.
 - Para P11 e P15 bases de dados existentes localizados em uma das regiões suportadas, pode aumentar o armazenamento máximo para além de 1 TB em incrementos de 256 GB até 4 TB. Para ver se um tamanho maior é suportado na sua região, utilize o [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) funcionar ou inspecionar o tamanho da base de dados no portal do Azure. Atualizando uma existente P11 ou P15 base de dados só pode ser executada por um início de sessão principal ao nível do servidor ou por membros da função de base de dados dbmanager.

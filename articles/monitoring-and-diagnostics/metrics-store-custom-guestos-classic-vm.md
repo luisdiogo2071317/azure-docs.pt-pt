@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: cb803450f7765ae62292ff3afb7f32209b437f78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235eda231dfb0f936bf55c7c8d93a8f709fdf9bc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978935"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954860"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas de SO de convidado para o arquivo de dados do Azure Monitor para um Windows Virtual Machine (clássico)
 
@@ -39,9 +39,9 @@ O processo descrito neste artigo só funciona com o sistema operativo do Windows
 
 1. No portal do Azure, navegue para o painel de recursos da conta de armazenamento e escolha o **chaves** e anote o nome da conta de armazenamento e a chave da conta de armazenamento. Precisa essas chaves em passos posteriores ![chaves de acesso de armazenamento](./media/metrics-store-custom-guestos-classic-vm/storage-access-keys.png)
 
-## <a name="create-a-service-principal"></a>Criar um Principal de serviço
+## <a name="create-a-service-principal"></a>Criar um Principal de Serviço
 
-Criar um principal de serviço no seu inquilino do Azure Active Directory com as instruções em [criar um principal de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md). Tenha em atenção o seguinte ao percorrer este processo: 
+Criar um principal de serviço no seu inquilino do Azure Active Directory com as instruções em [criar um principal de serviço](../active-directory/develop/howto-create-service-principal-portal.md). Tenha em atenção o seguinte ao percorrer este processo: 
 - Criar novo segredo do cliente para esta aplicação  
 - Guarde a chave e o id de cliente para uso em passos posteriores.
 

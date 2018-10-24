@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1c5bcca2571ffee9e1c20f0b7d2608b62c962177
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815346"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956627"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gerir scripts do anteriores e post (pré-visualização)
 
-Scripts de pré e post permitem executar runbooks do PowerShell na sua conta de automatização antes (pré-tarefa) e depois da implantação (pós-tarefa) uma atualização. Scripts de pré e post são executados no contexto do Azure e não localmente. Executam scripts de pré beginnin da implantação da atualização. Scripts de publicação são executados no final da implementação e depois de quaisquer reinícios que estão configurados.
+Scripts de pré e post permitem executar runbooks do PowerShell na sua conta de automatização antes (pré-tarefa) e depois da implantação (pós-tarefa) uma atualização. Scripts de pré e post são executados no contexto do Azure e não localmente. Scripts de pré são executados no início da implantação da atualização. Scripts de publicação são executados no final da implementação e depois de quaisquer reinícios que estão configurados.
 
 ## <a name="runbook-requirements"></a>Requisitos do Runbook
 

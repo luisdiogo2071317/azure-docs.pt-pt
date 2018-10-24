@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 10/23/2018
 ms.author: dstefan
-ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: db6778bdea2e3e133535bf28b3c2297cdb65599d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298307"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958912"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -150,7 +150,7 @@ Obter uma estimativa de tempo para concluir: 60 minutos
 | Partilhar o tutorial para todos os atores de Documentation da Microsoft  | [Tutorial: Integração do Azure Active Directory com ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Defina uma reunião de trabalho e siga os passos de tutoriais com cada ator. | [Tutorial: Integração do Azure Active Directory com ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Atribua a aplicação para o grupo identificado nos pré-requisitos. Se a prova de conceito tiver acesso condicional no âmbito, pode rever que mais tarde e adicionar a MFA e semelhantes. <br/>Tenha em atenção de que isto irá iniciar o processo de aprovisionamento (se configurada) |  [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Criar um grupo e adicionar membros no Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Utilizar no Portal do Azure AD management para adicionar a aplicação de ServiceNow da Galeria| [Gestão do AD Azure Portal: aplicações empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[O que há de novo no gerenciamento de aplicativo empresarial no Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
+| Utilizar no Portal do Azure AD management para adicionar a aplicação de ServiceNow da Galeria| [Gestão do AD Azure Portal: aplicações empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Tutorial: Integração do Azure Active Directory com ServiceNow](saas-apps/servicenow-tutorial.md) |
 | No painel de "Início de sessão único" da aplicação do ServiceNow ativar "baseado em SAML Sign-on" |  |
 | Preencha os campos de "Início de sessão no URL" e "Identificador" com o URL do ServiceNow<br/>Selecione a caixa para "Ativar o novo certificado"<br/>e guardar as definições |  |
 | Abra o painel de "Configurar ServiceNow" na parte inferior do painel para ver instruções personalizadas para configurar o ServiceNow |  |
@@ -163,8 +163,7 @@ Obter uma estimativa de tempo para concluir: 60 minutos
 
 ### <a name="considerations"></a>Considerações
 
-1. Acima [Tutorial](saas-apps/servicenow-tutorial.md) refere-se para o Azure antigo experiência de gestão do AD. Mas prova de conceito baseia-se no [guia de introdução](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) experiência.
-2. Se o aplicativo de destino não está presente na galeria, em seguida, pode utilizar "Traga a sua própria aplicação". Saiba mais: [quais são as novidades na gestão de aplicação empresarial no Azure Active Directory: adicionar aplicações personalizadas num único local](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+1. Se o aplicativo de destino não está presente na galeria, em seguida, pode utilizar "Traga a sua própria aplicação". Saiba mais: [configurar as aplicações que não estão na Galeria de aplicações do Azure AD](manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 ## <a name="saas-password-sso-configuration"></a>Configuração de SSO de palavra-passe de SaaS
 
@@ -184,7 +183,7 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 | Passo | Recursos |
 | --- | --- |
 | Instalar a extensão de browser | [Extensão do painel de acesso para o IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do painel de acesso para o Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do painel de acesso para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurar a aplicação da Galeria | [O que há de novo no gerenciamento de aplicativo empresarial no Azure Active Directory: A Galeria de aplicações de novas e melhoradas](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Configurar a aplicação da Galeria | [Tutorial: Configurar baseado em SAML início de sessão único](manage-apps/configure-single-sign-on-portal.md) |
 | Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe no](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Atribuir a aplicação para o grupo identificado nos pré-requisitos | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Inicie sessão no https://myapps.microsoft.com/ como um utilizador de teste que tem acesso |  |
@@ -195,10 +194,10 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 
 ### <a name="considerations"></a>Considerações
 
-Se o aplicativo de destino não está presente na galeria, em seguida, pode utilizar "Traga a sua própria aplicação". Saiba mais: [quais são as novidades na gestão de aplicação empresarial no Azure Active Directory: adicionar aplicações personalizadas num único local](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Se o aplicativo de destino não está presente na galeria, em seguida, pode utilizar "Traga a sua própria aplicação". Saiba mais: [configurar as aplicações que não estão na Galeria de aplicações do Azure AD](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Tenha em atenção os seguintes requisitos:
-   * Aplicação deve ter um URL de início de sessão conhecidos
+   * Aplicação deve ter um URL de início de sessão conhecidos.
    * A página de início de sessão deve conter um formulário HTML com um mais campos de texto que as extensões do navegador podem automaticamente-preencher. No mínimo, esta deve conter o nome de utilizador e palavra-passe.
 
 ## <a name="saas-shared-accounts-configuration"></a>Configuração de contas compartilhadas de SaaS
@@ -219,7 +218,7 @@ Obter uma estimativa de tempo para concluir: 30 minutos
 | Passo | Recursos |
 | --- | --- |
 | Instalar a extensão de browser | [Extensão do painel de acesso para o IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do painel de acesso para o Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do painel de acesso para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Configurar a aplicação da Galeria | [O que há de novo no gerenciamento de aplicativo empresarial no Azure Active Directory: A Galeria de aplicações de novas e melhoradas](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Configurar a aplicação da Galeria | [Tutorial: Configurar baseado em SAML início de sessão único para uma aplicação](manage-apps/configure-single-sign-on-portal.md) |
 | Configurar o SSO de palavra-passe | [Gerir o início de sessão único para aplicações empresariais no novo portal do Azure: início de sessão baseado em palavra-passe no](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Atribuir a aplicação para o grupo identificado nos pré-requisitos ao atribuir-lhes credenciais | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Iniciar sessão, como diferentes usuários, essa aplicação de acesso, como o **mesmo partilhado conta.**  |  |
@@ -228,7 +227,7 @@ Obter uma estimativa de tempo para concluir: 30 minutos
 
 ### <a name="considerations"></a>Considerações
 
-Se o aplicativo de destino não está presente na galeria, em seguida, pode utilizar "Traga a sua própria aplicação". Saiba mais: [quais são as novidades na gestão de aplicação empresarial no Azure Active Directory: adicionar aplicações personalizadas num único local](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Se o aplicativo de destino não está presente na galeria, em seguida, pode utilizar "Traga a sua própria aplicação". Saiba mais: [configurar início de sessão único para aplicações que não estão na Galeria de aplicações do Azure AD](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Tenha em atenção os seguintes requisitos:
    * Aplicação deve ter um URL de início de sessão conhecidos
@@ -364,7 +363,7 @@ Obter uma estimativa de tempo para concluir: 10 minutos
 | Passo | Recursos |
 | --- | --- |
 | Aceda ao painel de aplicações empresariais no Portal de gestão do Azure AD | [Portal de gestão do Azure AD: Aplicações empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
-| Configurar a aplicação de pré-requisitos com self-service | [O que há de novo no gerenciamento de aplicativo empresarial no Azure Active Directory: configurar o acesso de aplicações self-service](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
+| Configurar a aplicação de pré-requisitos com self-service | [Configurar o acesso de aplicações self-service](manage-apps/manage-self-service-access.md) |
 | Inicie sessão como o operador de informações para meu portal de aplicações | http://myapps.microsoft.com |
 | Tenha em atenção "+ Adicionar aplicação" botão no op da página. Utilize-o para obter acesso à aplicação |  |
 
@@ -480,7 +479,7 @@ Obter uma estimativa de tempo para concluir: 15 minutos
 | Início de sessão para https://portal.azure.com como um administrador global (GA) e o painel PIM de arranque. O Administrador Global, que executa este passo é implantado como o administrador de segurança.  Vamos chamar esta GA1 de ator | [Utilizar o Assistente de segurança no Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
 | Identifique o administrador global e movê-los de permanente para elegíveis. Deve ser um administrador separada da utilizada no passo 1 para efeitos de clareza. Vamos chamar esta GA2 de ator | [O Azure AD Privileged Identity Management: Como adicionar ou remover uma função de utilizador](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[O que é o Azure AD Privileged Identity Management?: configurar as definições de ativação de função](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Agora, inicie sessão como GA2 para https://portal.azure.com e tente alterar o "User Settings". Observe que algumas opções são bloqueadas. | |
-| Num novo separador e na mesma sessão como o passo 3, navegue agora até https://portal.azure.com e adicionar o painel PIM ao dashboard. | [Começar a utilizar o PIM](privileged-identity-management/pim-getting-started.md) |
+| Num novo separador e na mesma sessão como o passo 3, navegue agora até https://portal.azure.com e adicionar o painel PIM ao dashboard. | [Comece a utilizar o PIM](privileged-identity-management/pim-getting-started.md) |
 | Pedir ativação à função de Administrador Global | [Como ativar ou desativar funções no Azure AD Privileged Identity Management: ativar uma função](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Tenha em atenção que se GA2 nunca tiver inscrito para a MFA, registo do MFA do Azure será necessário |  |
 | Regresse ao separador original no passo 3 e clique no botão Atualizar no browser. Tenha em atenção que agora tem acesso para alterar o "User settings" | |

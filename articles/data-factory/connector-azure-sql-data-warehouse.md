@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d7a7b87f0d7915692b5a4a8c2233f543bb4c9e1d
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d3cddc729e40b5591922fc7b5c7d3d6a258219a7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389331"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955818"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -102,7 +102,7 @@ Para tipos de autenticação diferentes, consulte as secções seguintes em pré
 
 Para utilizar a autenticação de token de aplicação de serviço baseada em principais do Azure AD, siga estes passos:
 
-1. **[Criar uma aplicação do Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
+1. **[Criar uma aplicação do Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**  do portal do Azure. Tome nota do nome da aplicação e os valores seguintes que definem o serviço ligado:
 
     - ID da aplicação
     - Chave da aplicação

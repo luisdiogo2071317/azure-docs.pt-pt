@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 724603fdb80e6fce7d5b8756655d23a6c32d5558
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4305afff1e35e9e05f1b2314f8fb9d5a96383e9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405468"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955648"
 ---
 # <a name="azure-operational-security-overview"></a>Descrição geral da segurança operacionais do Azure
 [Segurança operacional Azure](https://docs.microsoft.com/azure/security/azure-operational-security) refere-se a serviços, controles e recursos disponíveis aos utilizadores para proteger seus dados, aplicações e outros ativos no Microsoft Azure. É uma estrutura que incorpore os dados recolhidos através de uma variedade de funcionalidades que são exclusivos da Microsoft. Esses recursos incluem o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e profundo entendimento do cenário de ameaças de cibersegurança.
@@ -30,7 +30,7 @@ Uma equipe de operações de TI é responsável por gerenciar a infraestrutura d
 [Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma solução baseada na cloud IT management que ajuda a gerenciar e proteger no local e a infraestrutura na cloud. Funcionalidade central é fornecida pelos serviços seguintes que são executadas no Azure. Azure inclui vários serviços que ajudam a gerenciar e proteger no local e a infraestrutura na cloud. Cada serviço fornece uma função de gestão específico. Pode combinar serviços para alcançar cenários de gestão diferentes. 
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[O Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) recolhe dados de sourcesa gerenciado em arquivos de dados central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos através da API. Depois dos dados são recolhidos, está disponível para alertas, análises e exportação. 
+[O Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) recolhe dados de sourcesa gerenciado em arquivos de dados central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos através da API. Depois dos dados são recolhidos, está disponível para alertas, análises e exportação. 
 
 Pode consolidar dados de várias origens e combinar dados dos seus serviços do Azure com o seu ambiente no local existente. O log Analytics separa também claramente a recolha dos dados das ações tomadas nesses dados, para que todas as ações estejam disponíveis para todos os tipos de dados.
 
@@ -158,5 +158,5 @@ Profissionais de DevOps maduros adotam várias das seguintes práticas. Essas pr
 Para saber mais sobre a solução de segurança e auditoria, veja os artigos seguintes:
 
 - [Segurança e conformidade](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Centro de Segurança do Azure](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
-- [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+- [Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)

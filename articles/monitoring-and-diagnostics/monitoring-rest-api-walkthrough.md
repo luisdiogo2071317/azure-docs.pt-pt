@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390559"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955309"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções de API do REST de monitorização do Azure
 Este artigo mostra como efetuar a autenticação para que seu código pode utilizar o [referência da API do REST do Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -25,7 +25,7 @@ Além de trabalhar com vários pontos de dados de métrica, a API de Monitor tam
 ## <a name="authenticating-azure-monitor-requests"></a>Pedidos de autenticação do Azure Monitor
 A primeira etapa é autenticar o pedido.
 
-Todas as tarefas executadas em relação a API de Monitor do Azure, utilize o modelo de autenticação do Azure Resource Manager. Por conseguinte, todos os pedidos têm de ser autenticados com o Azure Active Directory (Azure AD). Uma abordagem para autenticar a aplicação de cliente é criar um Azure AD principal de serviço e obter o token de autenticação (JWT). O script de exemplo seguinte demonstra a criação de um serviço do Azure AD principal através do PowerShell. Para obter instruções mais detalhadas, consulte a documentação sobre [com o Azure PowerShell para criar um principal de serviço para aceder aos recursos](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Também é possível [criar um principal de serviço através do portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Todas as tarefas executadas em relação a API de Monitor do Azure, utilize o modelo de autenticação do Azure Resource Manager. Por conseguinte, todos os pedidos têm de ser autenticados com o Azure Active Directory (Azure AD). Uma abordagem para autenticar a aplicação de cliente é criar um Azure AD principal de serviço e obter o token de autenticação (JWT). O script de exemplo seguinte demonstra a criação de um serviço do Azure AD principal através do PowerShell. Para obter instruções mais detalhadas, consulte a documentação sobre [com o Azure PowerShell para criar um principal de serviço para aceder aos recursos](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Também é possível [criar um principal de serviço através do portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"

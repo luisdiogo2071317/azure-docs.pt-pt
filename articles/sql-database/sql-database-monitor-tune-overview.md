@@ -11,15 +11,15 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 60f60b9ef055ea38a2036c4f9c5b6aa2c1f6526d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.date: 10/23/2018
+ms.openlocfilehash: 0d728d81a29c5520938c8553c026727c0f94cc43
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648059"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957008"
 ---
-# <a name="monitoring-and-performance-tuning"></a>Monitorização e otimização de desempenho
+# <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
 Base de dados SQL do Azure é gerida automaticamente e serviço de dados flexível, onde pode facilmente monitorizar a utilização, adicionar ou remover recursos (CPU, memória, e/s), localizar recomendações que podem melhorar o desempenho da base de dados ou permitir que a base de dados se adaptar a sua carga de trabalho e automaticamente a otimizar o desempenho.
 
@@ -34,7 +34,7 @@ Tem as seguintes opções de monitorização e resolução de problemas de desem
 - Uso [Assistente de base de dados SQL](sql-database-advisor-portal.md) para ver as recomendações para criar e remover índices, parametrização consultas e corrigir problemas de esquema.
 - Uso [informações inteligentes do SQL Azure](sql-database-intelligent-insights.md) para a monitorização automática de desempenho da sua base de dados. Depois de um problema de desempenho é detetado, é gerado um registo de diagnóstico com detalhes e análise de causa raiz (RCA) do problema. Recomendação de melhoria do desempenho é fornecida sempre que possível.
 - [Ativar o ajuste automático](sql-database-automatic-tuning-enable.md) e permita que o SQL do Azure, base de dados automaticamente problemas de desempenho de correção identificada.
-- Uso [vistas de gestão dinâmica (DMVs)](sql-database-monitoring-with-dmvs.md), [eventos expandidos](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-xevent-db-diff-from-svr)e o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para obter mais dos problemas de desempenho de resolução de problemas.
+- Uso [vistas de gestão dinâmica (DMVs)](sql-database-monitoring-with-dmvs.md), [eventos expandidos](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr)e o [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para obter mais dos problemas de desempenho de resolução de problemas.
 
 > [!TIP]
 > Ver [orientação de desempenho](sql-database-performance-guidance.md) para descobrir técnicas que pode utilizar para melhorar o desempenho da base de dados do Azure SQL depois de identificar o problema de desempenho com um ou mais dos métodos acima.

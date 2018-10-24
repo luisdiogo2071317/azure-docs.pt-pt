@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419309"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958433"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -246,7 +246,7 @@ Pode atualizar a largura de banda do circuito ExpressRoute com a REST API ou o c
 ExpressRoute premium é uma coleção das seguintes funcionalidades:
 
 * Aumentou o encaminhamento de tabela de limite, de 4000 rotas a 10.000 rotas para peering privado.
-* Aumento no número de VNets que podem ser ligadas ao circuito do ExpressRoute (a predefinição é 10). Para obter mais informações, consulte a [limites do ExpressRoute](#limits) tabela.
+* Aumento no número de ligações de VNets e alcance Global do ExpressRoute que pode ser ativada num circuito do ExpressRoute (a predefinição é 10). Para obter mais informações, consulte a [limites do ExpressRoute](#limits) tabela.
 * Conectividade para o Office 365 e Dynamics 365.
 * Conectividade global através da rede de principal da Microsoft. Agora pode ligar uma VNet na região geopolítica com um circuito do ExpressRoute noutra região.<br>
     **Exemplos:**
@@ -255,9 +255,9 @@ ExpressRoute premium é uma coleção das seguintes funcionalidades:
     *  No peering da Microsoft, os prefixos de outras regiões geopolíticas são anunciados, de modo a que se possa ligar, para, por exemplo, SQL Azure na Europa Ocidental, de um circuito no vale do silício.
 
 
-### <a name="limits"></a>O número de VNets pode posso ligar a um circuito de ExpressRoute se eu habilitei o ExpressRoute premium?
+### <a name="limits"></a>Quantas ligações de VNets e alcance Global do ExpressRoute posso habilitar num circuito de ExpressRoute se eu habilitei o ExpressRoute premium?
 
-As tabelas seguintes mostram os limites do ExpressRoute e o número de VNets por circuito do ExpressRoute:
+As tabelas seguintes mostram os limites do ExpressRoute e o número de ligações de VNets e alcance Global do ExpressRoute por circuito do ExpressRoute:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

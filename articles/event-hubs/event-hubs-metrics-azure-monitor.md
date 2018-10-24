@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02336d9f4d041d4c8d5ba973cf8802692ddad914
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979969"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946016"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métricas de Hubs de eventos do Azure no Azure Monitor (pré-visualização)
 
@@ -66,7 +66,6 @@ Conta o número de pedidos de operações de gestão e de dados.
 | Pedidos com êxito (pré-visualização)   | O número de pedidos com êxito efetuados para o serviço de Event Hubs do Azure num determinado período. <br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 | Erros de servidor (pré-visualização) | O número de pedidos não processadas devido a um erro no serviço de Event Hubs do Azure num determinado período. <br/><br/>Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 |Erros de utilizador (pré-visualização)|O número de pedidos não processadas devido a erros de utilizador num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Pedidos limitados (pré-visualização)|O número de pedidos que foram limitado porque a utilização de unidades de débito foi excedida.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Quota excedida erros (pré-visualização)|O número de pedidos excedeu a quota disponível. Ver [este artigo](event-hubs-quotas.md) para obter mais informações sobre as quotas de Hubs de eventos.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="throughput-metrics"></a>Métricas de débito

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 626db07a81c6482a689329b8cddc9f40b464bb7e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649079"
+ms.locfileid: "49945506"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Descrição geral do SSL ponto a ponto com o Gateway de Aplicação
 
@@ -47,7 +47,7 @@ Certificados de autenticação foram preteridos e substituídos por certificados
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Após a aprendizagem sobre SSL de ponto a ponto, aceda a [Configurar um gateway de aplicação através da terminação de SSL com o portal do Azure](create-ssl-portal.md), para criar um gateway de aplicação com SSL de ponto a ponto.
+Após a aprendizagem sobre SSL ponto a ponto, aceda a [configurar SSL ponto a ponto com o Gateway de aplicação com o PowerShell](application-gateway-end-to-end-ssl-powershell.md) para criar um gateway de aplicação com SSL de ponto a ponto.
 
 <!--Image references-->
 

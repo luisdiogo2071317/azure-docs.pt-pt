@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli1
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/29/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 7331b1c99425500b58d186cedab1e83dd20e3684
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389824"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946050"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 Criar cópias de segurança um farm do SharePoint para o Microsoft Azure com o System Center Data Protection Manager (DPM) no quase da mesma forma que efetue cópias de segurança de outras origens de dados. O Azure Backup fornece flexibilidade na programação de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. O DPM fornece a capacidade para armazenar cópias de disco local para rápida objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para retenção económica de longo prazo.
@@ -29,7 +29,7 @@ Cópia de segurança do Azure para o DPM suporta os seguintes cenários:
 Existem algumas coisas que precisa para confirmar antes de cópia de segurança um farm do SharePoint para o Azure.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-Antes de continuar, certifique-se de que cumpriu todos os [pré-requisitos para utilizar o Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites) para proteger cargas de trabalho. Incluem algumas tarefas de pré-requisitos: criar um cofre de cópia de segurança, transferir as credenciais do cofre, instalar o agente de cópia de segurança do Azure e registar o servidor de cópia de segurança do DPM/do Azure com o cofre.
+Antes de continuar, certifique-se de que cumpriu todos os [pré-requisitos para utilizar o Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para proteger cargas de trabalho. Incluem algumas tarefas de pré-requisitos: criar um cofre de cópia de segurança, transferir as credenciais do cofre, instalar o agente de cópia de segurança do Azure e registar o servidor de cópia de segurança do DPM/do Azure com o cofre.
 
 ### <a name="dpm-agent"></a>Agente do DPM
 O agente do DPM tem de ser instalado no servidor que está a executar o SharePoint, os servidores que estejam a executar o SQL Server e todos os outros servidores que fazem parte do farm do SharePoint. Para obter mais informações sobre como configurar o agente de proteção, consulte [configuração do agente de proteção](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  A única exceção é que instale o agente apenas no servidor web único front-end (WFE). O DPM precisa do agente num servidor WFE, apenas para servir de ponto de entrada para proteção.

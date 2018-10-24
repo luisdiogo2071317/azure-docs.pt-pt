@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423600"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956447"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -162,7 +162,7 @@ O Azure fornece várias formas de utilizar contentores em seus aplicativos.
 
     >**Quando utilizar**: quando deseja fornecer uma experiência SSO, trabalhar com dados de gráfico ou autenticar utilizadores com base em domínio.
 
-    >**Começar a utilizar**: para obter mais informações, consulte a [guia para programadores do Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
+    >**Começar a utilizar**: para obter mais informações, consulte a [guia para programadores do Azure Active Directory](../../active-directory/develop/v1-overview.md).
 
 -   **Autenticação do serviço de aplicações**: ao escolher o serviço de aplicações para alojar a sua aplicação, obtém também suporte interno a autenticação para o Azure AD, juntamente com os fornecedores de identidade social — incluindo o Facebook, Google, Microsoft e Twitter.
 
@@ -237,7 +237,7 @@ Para além das REST APIs, muitos serviços do Azure também permitem-lhe gerir p
 -   [Node.js](https://docs.microsoft.com/javascript/azure)
 -   [Java](https://docs.microsoft.com/java/azure)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](https://docs.microsoft.com/python/azure)
+-   [python](https://docs.microsoft.com/python/azure)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 -   [Go](https://docs.microsoft.com/go/azure)
 
@@ -289,7 +289,7 @@ Ao permitir o acesso aos recursos do Azure, é sempre melhor prática para forne
 
 -   **Objetos de principal de serviço**: Além de fornecer acesso a entidades de utilizador e grupos, pode conceder o mesmo acesso a um principal de serviço.
 
-    > **Quando utilizar**: quando por meio de programação gerir recursos do Azure ou conceder acesso para aplicações. Para obter mais informações, consulte [principal de serviço e de aplicação do Active Directory criar](../../resource-group-create-service-principal-portal.md).
+    > **Quando utilizar**: quando por meio de programação gerir recursos do Azure ou conceder acesso para aplicações. Para obter mais informações, consulte [principal de serviço e de aplicação do Active Directory criar](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Etiquetas
 

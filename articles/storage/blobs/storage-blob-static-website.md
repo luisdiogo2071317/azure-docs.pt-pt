@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7dff6f7438c3bb9fc09803bbaa58895f89f88d71
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649827"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955631"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure
-Contas de armazenamento do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
+Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
 
 Ao contrário da hospedagem de Web site estático, locais dinâmicos que dependem de código do lado do servidor são melhor alojados com [aplicações Web do Azure](/azure/app-service/app-service-web-overview).
 
@@ -62,7 +62,7 @@ Alojamento de Web site estático é fornecido sem custos adicionais. Para obter 
 ## <a name="quickstart"></a>Início Rápido
 
 ### <a name="azure-portal"></a>Portal do Azure
-Comece por abrir o portal do Azure em https://portal.azure.com e execute os seguintes passos:
+Comece por abrir o portal do Azure em https://portal.azure.com e execute os seguintes passos na sua conta de armazenamento GPv2:
 
 1. Clique em **definições**
 2. Clique em **Web site estático**
@@ -71,7 +71,7 @@ Comece por abrir o portal do Azure em https://portal.azure.com e execute os segu
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Em seguida, carregar seus recursos para o *$web* contentor no portal do Azure ou com o [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) a carregar diretórios de todos. Certifique-se de incluir um ficheiro que corresponda a *nome do documento de índice* que selecionou quando ativar a funcionalidade.
+Em seguida, carregar seus recursos para o *$web* contentor através do portal do Azure ou com o [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) a carregar diretórios de todos. Certifique-se de incluir um ficheiro que corresponda a *nome do documento de índice* que selecionou quando ativar a funcionalidade.
 
 Por fim, navegue para o ponto final de web para testar o seu Web site.
 
@@ -80,6 +80,11 @@ Instale a extensão de pré-visualização de armazenamento:
 
 ```azurecli-interactive
 az extension add --name storage-preview
+```
+No caso de várias subscrições, defina o CLI para a subscrição da conta de armazenamento GPv2 que pretende ativar:
+
+```azurecli-interactive
+az account set --subscription <SUBSCRIPTION_ID>
 ```
 Ative a funcionalidade. Certifique-se substituir todos os valores de marcador de posição, incluindo os parênteses, com seus próprios valores:
 
@@ -92,10 +97,10 @@ Consulta para o URL de ponto final web:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Carregar objetos para o *$web* contentor:
+Carregar objetos para o *$web* contentor a partir de um diretório de origem:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Implementação
@@ -115,7 +120,7 @@ Para ativar as métricas nas páginas da Web site estático, clique em **configu
 
 Dados de métricas são gerados por conexão com métricas diferentes APIs. O portal apresenta apenas os membros da API utilizados num determinado período de tempo para manter o foco somente em membros que retornam dados. Para se certificar de que pode selecionar o membro da API necessário, a primeira etapa é expandir o intervalo de tempo.
 
-Clique no botão de período de tempo e selecione **últimas 24 horas** e, em seguida, clique em **aplicar** para garantir que a interface do Usuário é permite-lhe aceder à API do desejado.
+Clique no botão de período de tempo e selecione **últimas 24 horas** e, em seguida, clique em **aplicar** 
 
 ![Intervalo de tempo de métricas de Web sites estáticos de armazenamento do Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

@@ -17,12 +17,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b9ae7cf9d6fd383c7cdfa3957b5d9b94c7207d50
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c560218bebd5399c85b9cebe11c7342e8d15a59
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900660"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945693"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Como o Azure AD utiliza o protocolo SAML
 
@@ -32,7 +32,7 @@ Protocolo SAML requer o fornecedor de identidade (Azure AD) e o fornecedor de se
 
 Quando um aplicativo está registrado com o Azure AD, o programador da aplicação regista informações relacionadas com a Federação com o Azure AD. Estas informações incluem o **URI de redirecionamento** e **URI de metadados** do aplicativo.
 
-Azure AD utiliza o serviço em nuvem **URI de metadados** para obter a chave de assinatura e a fim de sessão URI. Se a aplicação não suportar uma URI de metadados, o desenvolvedor tem de contactar o suporte da Microsoft para fornecer a fim de sessão URI e chave de assinatura.
+Azure AD utiliza o serviço em nuvem **URI de metadados** para obter a chave de assinatura e a fim de sessão URI. Cliente pode abrir a aplicação no **do Azure AD -> registo de aplicações** e, em seguida, no **definições -> propriedades**, podem atualizar o URL de fim de sessão. Desta forma do Azure AD pode enviar a resposta para o URL correto. 
 
 O Azure Active Directory expõe comuns e específico de inquilino (inquilino independente) únicos início de sessão únicos fim de sessão pontos de extremidade e. Estes URLs representam os locais endereçáveis--não são apenas identificadores, para que pode ir para o ponto final para ler os metadados.
 

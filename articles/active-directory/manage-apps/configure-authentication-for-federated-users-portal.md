@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494062"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957943"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o início de sessão do Azure Active Directory no comportamento de uma aplicação com uma política de deteção de Realm Inicial
 
 O documento seguinte fornece uma introdução à configuração de comportamento de autenticação do Azure Active Directory para utilizadores federados.   Ela abrange a configuração de autenticação e automático-acelerado restrições para os utilizadores nos domínios federados.
 
-## <a name="home-realm-discovery"></a>Deteção de Realm Inicial
+## <a name="home-realm-discovery"></a>Deteção de Território Doméstica
 Deteção de Realm Inicial (HRD) é o processo que permite que o Azure Active Directory (Azure AD) para determinar em que um utilizador tem de autenticar em tempo de início de sessão.  Quando um utilizador inicia sessão a um inquilino do Azure AD para aceder a um recurso ou para a página de início de sessão comuns do Azure AD, eles escreva um nome de utilizador (UPN). O Azure AD utiliza para descobrir onde o utilizador tem de iniciar sessão. 
 
 O utilizador poderá ter de ser direcionado para uma das seguintes localizações para ser autenticado:
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Passos Seguintes
 - Para obter mais informações sobre como funciona a autenticação no Azure AD, consulte [cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).
 - Para obter mais informações sobre o utilizador início de sessão único, consulte [acesso a aplicações e início de sessão único com o Azure Active Directory](configure-single-sign-on-portal.md).
-- Visite o [Guia do programador do Active Directory](../develop/azure-ad-developers-guide.md) para uma descrição geral de todos os conteúdos relacionados ao desenvolvedor.
+- Visite o [Guia do programador do Active Directory](../develop/v1-overview.md) para uma descrição geral de todos os conteúdos relacionados ao desenvolvedor.

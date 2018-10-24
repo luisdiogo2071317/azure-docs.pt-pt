@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e0971b6b9b8460447d383d238843d4bdddc912f7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352398"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958982"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Sempre encriptado: Proteger dados confidenciais e armazenar chaves de encriptação no Azure Key Vault
 
@@ -48,7 +48,7 @@ Para este tutorial, terá de:
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>Ativar a aplicação de cliente aceder ao serviço de base de dados SQL
 Tem de ativar a aplicação de cliente aceder ao serviço de base de dados SQL ao configurar uma aplicação do Azure Active Directory (AAD) e ao copiar o *ID da aplicação* e *chave* que será necessário autenticar a sua aplicação.
 
-Para obter o *ID da aplicação* e *chave*, siga os passos [criar um Azure Active Directory principal de aplicações e serviço que pode aceder a recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Para obter o *ID da aplicação* e *chave*, siga os passos [criar um Azure Active Directory principal de aplicações e serviço que pode aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Criar um cofre de chaves para armazenar as suas chaves
 Agora que a aplicação de cliente está configurada e se tiver o ID da sua aplicação, é hora de criar um cofre de chaves e configurar a sua política de acesso para e a sua aplicação podem aceder aos segredos do cofre (as chaves Always Encrypted). O *crie*, *obter*, *lista*, *início de sessão*, *verificar*, *wrapKey*, e *unwrapKey* permissões são necessárias para criar uma nova chave mestra de coluna e para configurar a encriptação com o SQL Server Management Studio.

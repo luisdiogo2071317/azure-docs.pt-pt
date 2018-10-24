@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055359"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945744"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
@@ -158,8 +158,8 @@ Para replicação do Site Recovery para o trabalho, a conectividade de saída pa
 
 - **Resolução**
    - Se estiver a utilizar o proxy de firewall para controlar a conectividade de rede de saída na VM, certifique-se de que os URLs de pré-requisito ou intervalos IP do datacenter estão na lista de permissões. Para obter informações, consulte [documentação de orientação do proxy de firewall](https://aka.ms/a2a-firewall-proxy-guidance).
-   - Se estiver a utilizar as regras do NSG para controlar a conectividade de rede de saída na VM, certifique-se de que os intervalos IP do datacenter pré-requisitos estão na lista de permissões. Para obter informações, consulte [orientação do grupo de segurança de rede](https://aka.ms/a2a-nsg-guidance).
-   - A lista branca [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou o [necessário intervalos de IP](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga os passos no [documento de orientação para funcionamento em rede](site-recovery-azure-to-azure-networking-guidance.md).
+   - Se estiver a utilizar as regras do NSG para controlar a conectividade de rede de saída na VM, certifique-se de que os intervalos IP do datacenter pré-requisitos estão na lista de permissões. Para obter informações, consulte [orientação do grupo de segurança de rede](azure-to-azure-about-networking.md).
+   - A lista branca [os URLs necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou o [necessário intervalos de IP](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga os passos no [documento de orientação para funcionamento em rede](azure-to-azure-about-networking.md).
 
 ### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Problema 2: Configuração do Site Recovery falhou (151072)
 - **Causa possível** </br>

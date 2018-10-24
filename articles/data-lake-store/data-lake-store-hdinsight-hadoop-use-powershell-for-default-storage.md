@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 345741a027317ed0ec347bc15334daeb11a9828c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6100a77d3c0bd1ac5e012651f1e7d359c4c67443
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123985"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954458"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Criar clusters do HDInsight com Gen1 de armazenamento do Azure Data Lake como armazenamento predefinido com o PowerShell
 
@@ -47,7 +47,7 @@ Antes de começar este tutorial, certifique-se de que cumpre os seguintes requis
 * **Principal de serviço do Azure Active Directory**: Este tutorial descreve como criar um principal de serviço no Azure Active Directory (Azure AD). No entanto, para criar um principal de serviço, tem de ser um administrador do Azure AD. Se for um administrador, pode ignorar este pré-requisito e continuar o tutorial.
 
     >[!NOTE]
-    >Pode criar um principal de serviço somente se for administrador do Azure AD. Administrador do Azure AD tem de criar um serviço principal antes de poder criar um cluster do HDInsight com a geração 1 de armazenamento do Data Lake. O principal de serviço tem de ser criado com um certificado, conforme descrito em [criar um principal de serviço com certificado](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
+    >Pode criar um principal de serviço somente se for administrador do Azure AD. Administrador do Azure AD tem de criar um serviço principal antes de poder criar um cluster do HDInsight com a geração 1 de armazenamento do Data Lake. O principal de serviço tem de ser criado com um certificado, conforme descrito em [criar um principal de serviço com certificado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta de geração 1 de armazenamento do Data Lake

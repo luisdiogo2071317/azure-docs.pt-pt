@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979470"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960236"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Criar cópias de segurança do Azure discos VM não geridos com instantâneos incrementais
 ## <a name="overview"></a>Descrição geral
@@ -66,7 +66,7 @@ Quando tem uma estratégia de cópia de segurança personalizada, utilizando ins
 Pode implementar a cópia do instantâneo incremental ao fazer o seguinte,
 
 * Tirar um instantâneo da base blob usando [Blob de instantâneo](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copiar o instantâneo para o através da conta de armazenamento de cópia de segurança do destino [Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Este é o blob de página de cópia de segurança. Tirar um instantâneo de blob de página de cópia de segurança e armazene-o na conta de cópia de segurança.
+* Copiar o instantâneo para a conta de armazenamento de cópia de segurança de destino na mesma subscrição ou qualquer outra região do Azure, utilizando [Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Este é o blob de página de cópia de segurança. Tirar um instantâneo de blob de página de cópia de segurança e armazene-o na conta de cópia de segurança.
 * Tire instantâneo outro do blob base com o Blob de instantâneo.
 * Obter a diferença entre os instantâneos de primeiros e segunda da base blob usando [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Utilize o parâmetro novo **prevsnapshot**, para especificar o valor de DateTime do instantâneo que pretende obter a diferença com. Quando este parâmetro está presente, a resposta REST inclui somente as páginas que foram alteradas entre o instantâneo de destino e o instantâneo anterior, incluindo páginas claras.
 * Uso [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) para aplicar estas alterações para o blob de página de cópia de segurança.

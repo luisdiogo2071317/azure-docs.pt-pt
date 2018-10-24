@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: b9ef650b772a160f7ddf8932f646f8081cb9e551
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a0aa63291a7fb3f069663d40687f81c3a3265712
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407134"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945948"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar cargas de trabalho no local para migração para o Azure
 
@@ -232,7 +232,7 @@ A avaliação de Contoso utiliza o mapeamento da dependência. Mapeamento de dep
 
 ### <a name="set-statistics-settings"></a>Configurar as definições das estatísticas
 
-Antes de Contoso começa a implementação, ele tem de definir as definições de estatísticas para o vCenter Server para o nível 3. 
+Antes de Contoso começa a implementação, ele tem de definir as definições de estatísticas para o vCenter Server para o nível 3.
 
 > [!NOTE]
 > - Depois de definir o nível, Contoso têm de aguardar pelo menos um dia antes da execução da avaliação. Caso contrário, a avaliação poderá não funcionar conforme esperado.
@@ -258,7 +258,7 @@ Para detetar VMs, a Contoso cria um projeto do Azure Migrate. Contoso transfere 
 ### <a name="create-a-project"></a>Criar um projeto
 
 1. Na [portal do Azure](https://portal.azure.com), Contoso procura **Azure Migrate**. Em seguida, a Contoso cria um projeto.
-2. Contoso Especifica um nome de projeto (**ContosoMigration**) e a subscrição do Azure. É criado um novo grupo de recursos do Azure (**ContosoFailoverRG**). 
+2. Contoso Especifica um nome de projeto (**ContosoMigration**) e a subscrição do Azure. É criado um novo grupo de recursos do Azure (**ContosoFailoverRG**).
     > [!NOTE]
     > - Pode criar um projeto do Azure Migrate só no e.u.a. Centro-Oeste ou região E.U.A. Leste.
     > - Pode planear uma migração para qualquer localização de destino.
@@ -283,17 +283,25 @@ Antes de implementar a VM, a Contoso verifica que o ficheiro OVA é seguro:
 2. Contoso é executado o seguinte comando para gerar o hash para o ficheiro OVA:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    **Exemplo** 
-    
-    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. O hash gerado deve corresponder a estas definições (versão 1.0.9.14):
 
+    **Exemplo**
+
+    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. O hash gerado deve corresponder a estas definições (versão 1.0.9.15):
+
+<<<<<<< HEAD
     **Algoritmo** | **Valor de hash**
     --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+=======
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 ### <a name="create-the-collector-appliance"></a>Criar a aplicação recoletora
 

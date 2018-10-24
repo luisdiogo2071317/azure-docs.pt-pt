@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 938b3776f320b7556394fff9aa070eee0c44ee88
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a5d01ed1b3d60ce138fe5c4c5a60812961d9dfd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047091"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953734"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gerir o Azure Data Lake Analytics com uma aplicação Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -24,7 +24,7 @@ Este artigo descreve como gerir contas do Azure Data Lake Analytics, origens de 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Kit de desenvolvimento Java (JDK) 8** (usando a versão 1.8 do Java).
 * **IntelliJ** ou outro ambiente de desenvolvimento Java adequado. As instruções neste documento utilizam o IntelliJ.
-* Criar uma aplicação do Azure Active Directory (AAD) e obtenha o **ID de Cliente**, o **ID do Inquilino** e a **Chave**. Para mais informações sobre as aplicações do AAD e instruções sobre como obter um ID de cliente, consulte [Criar aplicação e serviço principal do Active Directory utilizando o portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). O URI de resposta e a chave está disponível no portal assim que tiver a aplicação criada e a chave gerada.
+* Criar uma aplicação do Azure Active Directory (AAD) e obtenha o **ID de Cliente**, o **ID do Inquilino** e a **Chave**. Para mais informações sobre as aplicações do AAD e instruções sobre como obter um ID de cliente, consulte [Criar aplicação e serviço principal do Active Directory utilizando o portal](../active-directory/develop/howto-create-service-principal-portal.md). O URI de resposta e a chave está disponível no portal assim que tiver a aplicação criada e a chave gerada.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Autenticação com o Azure Active Directory
 

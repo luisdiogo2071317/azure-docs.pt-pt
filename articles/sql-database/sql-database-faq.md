@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378640"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954148"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Base de dados SQL perguntas mais frequentes (FAQ)
 
@@ -35,7 +35,7 @@ Não. O impacto da aplicação de patches não é normalmente noticable se [empr
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>O que é o novo vCore com base no modelo de compra para a base de dados do Azure SQL
 
-O novo modelo de compra é um acréscimo ao modelo existente baseado na DTU. O modelo baseado em vCore desenvolvido para fornecer flexibilidade aos clientes, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Ela também permite aos clientes dimensionar os seus recursos de computação e armazenamento com base nas suas necessidades de carga de trabalho. Base de dados e opções do conjunto elástico com o modelo de vCore também são elegíveis para a economia de 30 por cento com o [benefício híbrido do SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Ver [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para obter mais informações.
+O novo modelo de compra é um acréscimo ao modelo existente baseado na DTU. O modelo baseado em vCore desenvolvido para fornecer flexibilidade aos clientes, controlo, transparência e uma forma direta de traduzir locais requisitos de carga de trabalho para a cloud. Ela também permite aos clientes dimensionar os seus recursos de computação e armazenamento com base nas suas necessidades de carga de trabalho. Base de dados e opções do conjunto elástico com o modelo de vCore também são elegíveis para a economia de 30 por cento com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Ver [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) para obter mais informações.
 
 ## <a name="what-is-a-vcore"></a>O que é um vCore
 
