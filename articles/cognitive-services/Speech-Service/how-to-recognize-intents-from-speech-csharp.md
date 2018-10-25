@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: Reconhecer intenções de voz com o SDK de Voz para C#'
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Neste tutorial, vai aprender a reconhecer intenção de voz com o SDK Voz para C#.
+titleSuffix: Azure Cognitive Services
+description: Neste tutorial, vai aprender a reconhecer intenção de voz com o SDK Voz para C#.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 64fa194225c7e9fa4c272ca8a9e95b44282ec1df
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884350"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466482"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconhecer intenções de voz com o SDK de Voz para C#
 

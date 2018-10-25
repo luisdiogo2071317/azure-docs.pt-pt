@@ -3,7 +3,7 @@ title: Tutorial – Criar um pipeline de desenvolvimento no Azure com o Jenkins 
 description: Tutorial – Neste tutorial, vai aprender a criar uma máquina virtual do Jenkins no Azure que solicita dados do GitHub em cada consolidação de código e cria um novo contentor do Docker para executar a aplicação.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: d1d760c2642e0c986e50570630d31dda11d17478
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a29d58ca96793c44878a6755cc74edeab6a7c4b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964743"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470851"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
 

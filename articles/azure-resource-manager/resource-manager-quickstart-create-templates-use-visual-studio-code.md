@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378694"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458144"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Início Rápido: Criar modelos do Azure Resource Manager com o Visual Studio Code
 
@@ -57,12 +57,7 @@ O modelo utilizado neste início rápido chama-se [Criar uma conta de armazename
 
 Para saber como editar um modelo com o Visual Studio Code, adicione mais um elemento para a secção `outputs`.
 
-1. No Visual Studio Code, verifique o valor de **tipo**. Se o valor for **Armazenamento**, atualize o valor para **StorageV2**.
-
-    ```json
-    "kind": "StorageV2",
-    ```
-2. Adicione mais um resultado ao modelo exportado:
+1. Adicione mais um resultado ao modelo exportado:
 
     ```json
     "storageUri": {
@@ -90,7 +85,7 @@ Para saber como editar um modelo com o Visual Studio Code, adicione mais um elem
 
     ![Intellisense Visual Studio Code de modelo do Resource Manager](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-3. Selecione **Ficheiro**>**Guardar** para guardar o ficheiro.
+2. Selecione **Ficheiro**>**Guardar** para guardar o ficheiro.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -128,7 +123,7 @@ Existem muitos métodos para implementar modelos.  Neste início rápido, vai ut
 7. No Cloud Shell, execute os seguintes comandos. Selecione o separador para mostrar o código do PowerShell ou o código da CLI.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the name for this deployment:" &&
@@ -141,7 +136,7 @@ Existem muitos métodos para implementar modelos.  Neste início rápido, vai ut
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -171,7 +166,7 @@ Existem muitos métodos para implementar modelos.  Neste início rápido, vai ut
 7. Execute o seguinte comando do PowerShell ou da CLI para listar a conta de armazenamento acabada de criar:
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the Storage Account name:" &&
@@ -181,7 +176,7 @@ Existem muitos métodos para implementar modelos.  Neste início rápido, vai ut
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
     Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName

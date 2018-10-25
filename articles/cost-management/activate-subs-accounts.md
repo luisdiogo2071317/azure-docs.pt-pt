@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a53ff5fdb256a46f42e7461bb46b6847d17ed230
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423073"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958752"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Ativar subscrições e contas do Azure com o Cloudyn
 
@@ -64,7 +64,7 @@ Ao adicionar uma conta ou atualizar uma subscrição, concede ao Cloudyn acesso 
     2. No portal do Azure, selecione **Azure Active Directory**.
     3. Para obter o ID de inquilino, selecione as **Propriedades** do seu inquilino do Azure AD.
     4. Copie o GUID do ID do Diretório. Este valor é o ID do inquilino.
-    Para obter mais informações, veja [Obter o ID de inquilino](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+    Para obter mais informações, veja [Obter o ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 3. Se for necessário, selecione o ID de Taxa. Se não souber o ID de Taxa, siga os passos abaixo para o encontrar:
     1. No canto superior direito do portal do Azure, clique nas suas informações de utilizador e em **Ver a minha fatura**.
     2. Em **Conta de Faturação**, clique em **Subscrições**.

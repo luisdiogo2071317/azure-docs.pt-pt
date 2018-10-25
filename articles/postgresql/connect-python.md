@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687324"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987686"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de Dados do Azure para PostgreSQL: utilizar o Python para se ligar e consultar dados
 Este guia de início rápido mostra como utilizar o [Python](https://python.org) para se ligar a uma Base de Dados do Azure para PostgreSQL. Mostra também como utilizar declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas macOS, Ubuntu Linux e Windows. Os passos neste artigo pressupõem que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
@@ -31,7 +31,7 @@ Também tem de ter:
 - Pacote [pip](https://pip.pypa.io/en/stable/installing/) instalado (o pip já está instalado se estiver a utilizar o Python 2 > = 2.7.9 ou Python 3 > = binários 3.4 transferidos a partir de [python.org](https://python.org).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>Instalar as bibliotecas de ligação ao Python para PostgreSQL
-Instale o pacote [psycopg2](http://initd.org/psycopg/docs/install.html), que lhe permite ligar e consultar a base de dados. psycopg2 está [disponível no PyPI](https://pypi.python.org/pypi/psycopg2/) sob a forma de pacotes de [roda](http://pythonwheels.com/) para as plataformas mais comuns (Linux, OSX, Windows). Utilize a instalação do pip para obter a versão binária do módulo, incluindo todas as dependências.
+Instale o pacote [psycopg2](http://initd.org/psycopg/docs/install.html), que lhe permite ligar e consultar a base de dados. psycopg2 está [disponível no PyPI](https://pypi.python.org/pypi/psycopg2/) sob a forma de pacotes de [roda](https://pythonwheels.com/) para as plataformas mais comuns (Linux, OSX, Windows). Utilize a instalação do pip para obter a versão binária do módulo, incluindo todas as dependências.
 
 1. No seu computador, inicie uma interface de linha de comandos:
     - No Linux, inicie a shell do Bash.

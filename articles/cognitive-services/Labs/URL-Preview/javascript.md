@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f36609448819ed197cb92c0bc4d9cc0237fe6df8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869470"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466941"
 ---
 # <a name="quickstart-url-preview-in-javascript"></a>Início Rápido: Pré-visualização de URL em JavaScript 
 
@@ -23,7 +23,7 @@ A seguinte aplicação de página única utiliza JavaScript para criar uma Pré-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obter uma chave de acesso para a avaliação gratuita [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
+Obter uma chave de acesso da avaliação gratuita dos [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Cenário de código
 O exemplo seguinte em JavaScript inclui um objeto de entrada de caixa de texto, na qual o utilizador introduz o URL para pré-visualização.  Quando o utilizador clica no botão **Pré-visualização**, o método OnClick encaminha para `getPreview`, em que o código gera um pedido Web para o ponto final **UrlPreview**.
@@ -129,7 +129,7 @@ Para executar a aplicação:
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início rápido de C#](csharp.md)
-- [Início rápido de Java](java-quickstart.md)
+- [Início Rápido do C#](csharp.md)
+- [Início Rápido do Java](java-quickstart.md)
 - [Início rápido de Node](node-quickstart.md)
-- [Início rápido de Python](python-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

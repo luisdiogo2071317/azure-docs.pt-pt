@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049747"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650759"
 ---
 1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
 
 2. Selecione **Aplicação de Função do Azure**, escolha **Criar Nova**  e selecione **Publicar**.
 
-    ![Escolher um destino de publicação](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![Escolher um destino de publicação](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     Quando ativa **Executar a partir do Zip**, a sua aplicação de funções no Azure é executada diretamente a partir do pacote de implementação. Para mais informações, veja [Executar as suas Funções do Azure a partir de um ficheiro de pacote](../articles/azure-functions/run-functions-from-deployment-package.md).
 
@@ -27,7 +27,7 @@ ms.locfileid: "43049747"
 
 4. Na caixa de diálogo **Criar Serviço de Aplicações**, utilize as definições de **Anfitrião**, conforme especificadas na tabela abaixo da imagem:
 
-    ![Caixa de diálogo Criar App Service](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Caixa de diálogo Criar App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Definição      | Valor sugerido  | Descrição                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -41,4 +41,4 @@ ms.locfileid: "43049747"
 
 6. Quando a implementação estiver concluída, aponte o valor **URL do Site**, que é o endereço da sua aplicação de função no Azure.
 
-    ![Mensagem de publicação bem-sucedida](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Mensagem de publicação bem-sucedida](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

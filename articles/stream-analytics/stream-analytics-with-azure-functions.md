@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697820"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985816"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar Funções do Azure a partir de tarefas do Azure Stream Analytics 
 
@@ -40,11 +40,11 @@ Esta secção demonstra como configurar uma tarefa do Stream Analytics para exec
 ![O diagrama mostra as relações entre os serviços do Azure](./media/stream-analytics-with-azure-functions/image1.png)
 
 Os seguintes passos são precisos para realizar esta tarefa:
-* [Criar uma tarefa do Stream Analytics com os Hubs de Eventos como entrada](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Criar uma instância da Cache de Redis do Azure](#create-an-azure-redis-cache)  
-* [Criar uma função nas Funções do Azure que pode escrever dados na Cache de Redis do Azure](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Atualizar a tarefa do Stream Analytics com a função como saída](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Verifique a Cache de Redis do Azure para obter resultados](#check-redis-cache-for-results)  
+* [Criar uma tarefa do Stream Analytics com os Hubs de Eventos como entrada](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* [Criar uma instância da Cache de Redis do Azure](#create-an-azure-redis-cache-instance)  
+* [Criar uma função nas Funções do Azure que pode escrever dados na Cache de Redis do Azure](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Atualizar a tarefa do Stream Analytics com a função como saída](#update-the-stream-analytics-job-with-the-function-as-output)  
+* [Verifique a Cache de Redis do Azure para obter resultados](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Criar uma tarefa do Stream Analytics com os Hubs de Eventos como entrada
 
@@ -203,7 +203,7 @@ No portal do Azure, quando tenta repor o Tamanho Máx. de Lote/Contagem Máx. de
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este guia de introdução ao utilizar os seguintes passos:
+Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
 
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou.  
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.

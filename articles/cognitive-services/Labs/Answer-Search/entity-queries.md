@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 09af064a1c072996171e6afa4f043e84f18612b4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883606"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467417"
 ---
 # <a name="quickstart-query-for-entities"></a>Início Rápido: Consulta de Entidades
 
@@ -221,7 +221,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início rápido de C#](c-sharp-quickstart.md)
-- [Início rápido de Java](java-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
 - [Início rápido de Node](node-quickstart.md)
-- [Início rápido de Python](python-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

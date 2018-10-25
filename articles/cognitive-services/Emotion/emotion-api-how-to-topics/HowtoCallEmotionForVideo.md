@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238612"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026267"
 ---
 # <a name="example-call-emotion-api-for-video"></a>Exemplo: Chamar a API de Emoções para Vídeo
 
@@ -46,7 +46,7 @@ Ao utilizar uma biblioteca de cliente, a chave de subscrição é transmitida at
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Para obter uma chave de subscrição, veja [Subscrições] (https://azure.microsoft.com/try/cognitive-services/).
+Para obter uma chave de subscrição, veja [Subscrições](https://azure.microsoft.com/try/cognitive-services/).
 
 ### <a name="Step2">Passo 2: Carregar um vídeo para o serviço e verificar o estado</a>
 A forma mais básica de efetuar qualquer uma das chamadas à API de Emoções para Vídeo é ao carregar um vídeo diretamente. Isto é feito ao enviar um pedido "POST" com o tipo de conteúdo application/octet-stream, juntamente com os dados lidos num ficheiro de vídeo. O tamanho máximo do vídeo são 100 MB.

@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785346"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427353"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Tutorial n.º2:  Implementar um modelo de classificação de imagens no Azure Container Instance (ACI)
 
@@ -383,4 +383,4 @@ Neste tutorial do serviço do Azure Machine Learning, utilizou o Python para:
 > * Implementar o modelo no ACI
 > * Testar o modelo implementado
  
-Também pode experimentar o tutorial [Seleção de algoritmos automática]() para ver como é que o serviço do Azure Machine Learning consegue selecionar automaticamente o melhor algoritmo para o seu modelo e criar o modelo por si.
+Também pode experimentar o tutorial [Seleção de algoritmos automática](tutorial-auto-train-models.md) para ver como é que o serviço do Azure Machine Learning consegue selecionar automaticamente o melhor algoritmo para o seu modelo e criar o modelo por si.

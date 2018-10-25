@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 47589b8cb8aa6e8d1cacaa028948242431f02c44
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 0f2fa2bb8e20ce4cc187fe6f061d2d8c251c4673
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604795"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945217"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Tutorial: Ativar a autenticação de aplicações de página única com contas através do Azure Active Directory B2C
 
@@ -201,4 +201,4 @@ Pode utilizar o diretório do Azure AD B2C se planeia experimentar outros tutori
 Neste tutorial, aprendeu a criar um diretório do Azure AD B2C, criar políticas e atualizar a aplicação de página única de exemplo para utilizar o diretório do Azure AD B2C. Avance para o próximo tutorial para aprender a registar, configurar e chamar uma API Web protegida a partir de uma aplicação de ambiente de trabalho.
 
 > [!div class="nextstepaction"]
-> 
+> [Exemplos de código do Azure AD B2C](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

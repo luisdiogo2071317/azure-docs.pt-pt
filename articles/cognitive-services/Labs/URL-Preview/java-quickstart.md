@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cdbed473af04b7a0ba0fd2bba56219d43bf72537
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867121"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465717"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Início Rápido: Pré-visualização do URL com Java
 
@@ -53,7 +53,7 @@ O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso 
 
 A API de Pesquisa de Respostas do Bing devolve resultados do motor de busca do Bing.
 1. Transfira ou instale a biblioteca gson.
-2. Crie um novo projeto de Java no seu IDE ou editor favorito.
+2. Crie um novo projeto Java no seu IDE ou editor favorito.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor subscriptionKey por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.

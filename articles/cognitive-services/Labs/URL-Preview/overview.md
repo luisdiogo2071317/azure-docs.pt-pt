@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869438"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465819"
 ---
 # <a name="what-is-project-url-preview"></a>O que é a Pré-visualização do URL do Projeto?
 O ponto final de Pré-visualização do URL assume um parâmetro de consulta de URL e devolve uma resposta JSON com o nome do recurso de destino, uma breve descrição e uma ligação para uma imagem a apresentar numa pré-visualização. A resposta também inclui o sinalizador [isFamilyFriendly](url-preview-reference.md#query-parameters), que indica se o URL contém conteúdo para adultos, pirateado ou outro conteúdo ilícito. 
@@ -61,8 +61,8 @@ O Utilizador ou terceiros em seu nome não poderão utilizar, reter, armazenar, 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início rápido de C#](csharp.md)
-- [Início rápido de Java](java-quickstart.md)
-- [Início rápido de JavaScript](javascript.md)
-- [Início rápido de Node](node-quickstart.md)
-- [Início rápido de Python](python-quickstart.md)
+- [Início Rápido do C#](csharp.md)
+- [Início rápido do Java](java-quickstart.md)
+- [Início Rápido do JavaScript](javascript.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)
