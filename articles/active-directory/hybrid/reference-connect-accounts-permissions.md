@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352924"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024975"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>O Azure AD Connect: Contas e permissões
 
@@ -82,7 +82,7 @@ O [conta de conector do AD DS](#active-directory-account) é criado para leitura
 
 ![Instalação rápida](./media/reference-connect-accounts-permissions/express.png)
 
-Segue-se um resumo das páginas de assistente express installlation, as credenciais de recolhidos, e o que são utilizadas.
+Segue-se um resumo das páginas de Assistente de instalação rápida, as credenciais de recolhidos, e o que são utilizadas.
 
 | Página do Assistente | Credenciais recolhidas | Permissões necessárias | Utilizado para |
 | --- | --- | --- | --- |
@@ -97,7 +97,7 @@ Com a instalação de definições personalizadas, o assistente oferece mais op�
 
 ### <a name="custom-installation-wizard-summary"></a>Resumo do Assistente de instalação personalizada
 
-Segue-se um resumo das páginas de assistente installlation personalizado, as credenciais de recolhidos, e o que são utilizadas.
+Segue-se um resumo das páginas de Assistente de instalação personalizada, as credenciais de recolhidos, e o que são utilizadas.
 
 ![Instalação rápida](./media/reference-connect-accounts-permissions/customize.png)
 
@@ -187,7 +187,7 @@ Legenda:
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Personalizado | SQL remoto</br>Personalizado |
 | --- | --- | --- | --- |
 | **máquina autónomo/grupo de trabalho** | Não suportado | **VSA**</br>Conta local (2008)</br>Conta local |  Não suportado |
-| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta do domínio</br>sMSA, gMSA | **gMSA**</br>Conta do domínio |
+| **máquina associados a um domínio** | **VSA**</br>Conta local (2008) | **VSA**</br>Conta local (2008)</br>Conta local</br>Conta de domínio</br>sMSA, gMSA | **gMSA**</br>Conta de domínio |
 | **Controlador de domínio** | **Conta de domínio** | *gMSA*</br>**Conta de domínio**</br>sMSA| *gMSA*</br>**Conta de domínio**|
 
 #### <a name="virtual-service-account"></a>Conta de serviço virtual

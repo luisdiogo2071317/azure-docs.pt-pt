@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: bc4116bdb251ef6f3228b7394e5c8e0cdff67447
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470171"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987006"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Dimensionar automaticamente unidades de débito dos Hubs de eventos do Azure
 
@@ -59,7 +59,7 @@ Também pode ativar a ampliação automática com o **dimensionamento** opção 
 
 
 > [!NOTE]
-> Quando aplica a configuração para aumentar as unidades de débito de ampliação automática, o serviço de Hubs de eventos emite os registos de diagnóstico que dão-lhe informações sobre por que e quando o débito aumentado. Para ativar o registo de diagnósticos para um hub de eventos, selecione **das definições de diagnóstico** no menu à esquerda na página do Hub de eventos no portal do Azure. 
+> Quando aplica a configuração para aumentar as unidades de débito de ampliação automática, o serviço de Hubs de eventos emite os registos de diagnóstico que dão-lhe informações sobre por que e quando o débito aumentado. Para ativar o registo de diagnósticos para um hub de eventos, selecione **das definições de diagnóstico** no menu à esquerda na página do Hub de eventos no portal do Azure. Para obter mais informações, consulte [configurar registos de diagnóstico para um hub de eventos do Azure](event-hubs-diagnostic-logs.md). 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Ativar a ampliação automática através de um modelo Azure Resource Manager
 

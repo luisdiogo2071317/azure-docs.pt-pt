@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 460cd3a5b05680563661e2f6519eaa3506eee03b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e43188459bf495748a054b0f24936c9141bd218c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392090"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025721"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Compreender a forma como o desconto de reserva do Azure é aplicado às máquinas virtuais
 
@@ -51,15 +51,15 @@ Para compreender e ver a aplicação das reservas de Azure no relatórios de uti
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Aplicação de desconto de reserva para VMs do Windows
 
-Quando estiver a executar instâncias de VM do Windows, a reserva se aplica para cobrir os custos de infraestrutura. A aplicação da reserva para os custos de infraestrutura VM para VMs do Windows é o mesmo para VMs não Windows. É-lhe cobrado separadamente para o software do Windows numa base por vCPU. Ver [os custos de software do Windows com as reservas](https://go.microsoft.com/fwlink/?linkid=862756). O Windows, os custos com [Azure híbrido benefício para o Windows Server] de licenciamento para cobrir (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Quando estiver a executar instâncias de VM do Windows, a reserva se aplica para cobrir os custos de infraestrutura. A aplicação da reserva para os custos de infraestrutura VM para VMs do Windows é o mesmo para VMs não Windows. É-lhe cobrado separadamente para o software do Windows numa base por vCPU. Ver [os custos de software do Windows com as reservas](https://go.microsoft.com/fwlink/?linkid=862756). O Windows, os custos com de licenciamento para cobrir [Azure híbrido benefício para o Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre as reservas do Azure, veja os artigos seguintes:
 
 - [Quais são as reservas do Azure?](billing-save-compute-costs-reservations.md)
-- [Efetue o pré-pagamento de máquinas virtuais com instâncias de VM reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Efetue o pré-pagamento do recursos de computação de base de dados SQL com capacidade de base de dados do SQL Azure reservados](../sql-database/sql-database-reserved-capacity.md)
+- [Efetuar o pré-pagamento de Máquinas Virtuais com o Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Efetuar o pré-pagamento de recursos de computação da Base de Dados SQL com a capacidade reservada da Base de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Compreender a utilização de reserva para a sua subscrição pay as you go](billing-understand-reserved-instance-usage.md)
 - [Compreender a utilização de reserva para inscrição da sua empresa](billing-understand-reserved-instance-usage-ea.md)

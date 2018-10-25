@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c5a18a2e8d58553e49797da418f76fc3f251e003
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259335"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026046"
 ---
 # <a name="azure-redis-cache-faq"></a>FAQ da Cache de Redis do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas para a Cache de Redis do Azure.
@@ -136,10 +136,10 @@ Esta tabela, preste as seguintes conclusões:
 | Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB | Tamanho do valor de 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS) não SSL** |**Pedidos por segundo (RPS) SSL** |
-| C0 |250 MB |Partilhado |100 / 12.5 |15,000 |7.500 |
+| C0 |250 MB |Partilhado |100 / 12.5 |15 000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -392,7 +392,7 @@ Como configurar esta definição:
   > O valor especificado neste elemento de configuração é um *por núcleo* definição. Por exemplo, se tem uma máquina 4 core e quer sua definição minIOThreads esteja 200 em tempo de execução, usaria `<processModel minIoThreads="50"/>`.
   >
 
-* Fora do ASP.NET e global. asax de Web sites do Azure, utilize o [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Fora do ASP.NET e global. asax de Web sites do Azure, utilize o [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
 
   > [!NOTE]
   > O valor especificado por esta API é uma configuração global, afetar todo o AppDomain. Se tiver uma máquina 4 core e defina o minWorkerThreads e minIOThreads para 50 por CPU durante o tempo de execução, usaria ThreadPool.SetMinThreads (200, 200).

@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 755b94b71fdaefb261741f4d4e756b90d8148280
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: cae0b6a316839f10636ff3d81b9e18729d03298e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116900"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987873"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -65,7 +65,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de serviços do Dynamics 365 / administrador de serviço CRM](#dynamics-365-service-administrator)**: os utilizadores com esta função possuem permissões globais no Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [utilizar a função de administrador de serviço para gerir o seu inquilino](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
-* **[Administrador de serviços do Exchange](#exchange-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Exchange Online, quando o serviço está presente. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador de serviços do Exchange](#exchange-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft Exchange Online, quando o serviço está presente. bem como a capacidade de criar e gerir todos os grupos do Office 365, gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **[Administrador global / administrador da empresa](#company-administrator)**: os utilizadores com esta função têm acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços que utilizam identidades do Azure Active Directory, como o Exchange Online, SharePoint Online e Skype para empresas Online. A pessoa que se inscreve no inquilino do Azure Active Directory torna-se um administrador global. Apenas os administradores globais podem atribuir outras funções de administrador. Podem existir mais do que um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e a todos os outros administradores.
 
@@ -94,6 +94,14 @@ As seguintes funções de administrador estão disponíveis:
   * Administrador de Suporte Técnico
   * Leitor do Centro de Mensagens
   * Leitor de Relatórios
+  
+  <b>Importante</b>: os utilizadores com esta função podem alterar palavras-passe para as pessoas que podem ter acesso a informações confidenciais ou privadas ou críticos de configuração dentro e fora do Azure Active Directory. Alterar a palavra-passe de um utilizador pode significar que a capacidade de assumir a identidade e permissões do usuário. Por exemplo:
+  * Registo de aplicação e aplicação empresarial proprietários, que podem gerir as credenciais de aplicações que possuem. Esses aplicativos podem ter privilegiado permissões no Azure AD e noutro local não é concedido a administradores de suporte técnico. Através deste caminho um administrador de suporte técnico poderá assumir a identidade de um proprietário da aplicação e, em seguida, mais assumir a identidade de um aplicativo com privilégios ao atualizar as credenciais para a aplicação.
+  * Proprietários de subscrições do Azure, que poderão ter acesso a informações confidenciais ou privadas ou críticos de configuração no Azure.
+  * Grupo de segurança e de grupo do Office 365 proprietários, que podem gerir a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou críticos de configuração no Azure AD e em outros locais.
+  * Os administradores em outros serviços fora do Azure AD, como sistemas de Exchange Online, segurança do Office e Centro de conformidade e de recursos humanos.
+  * Os não administradores como executivos, assessores jurídicos e funcionários de recursos humanos que podem ter acesso a informações confidenciais ou privadas.
+
   
   > [!NOTE]
   > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "Administrador de suporte técnico". É "Administrador de palavras-passe" na [portal do Azure](https://portal.azure.com/).
@@ -125,7 +133,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[O administrador de suporte do serviço](#service-support-administrator)**: os utilizadores com esta função podem abrir pedidos de suporte com a Microsoft para serviços do Azure e do Office 365 e vistas do dashboard de serviço e a mensagem center no portal do Azure e o portal de administração do Office 365. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Administrador de serviços do SharePoint](#sharepoint-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft SharePoint Online, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador de serviços do SharePoint](#sharepoint-service-administrator)**: os utilizadores com esta função possuem permissões globais dentro do Microsoft SharePoint Online, quando o serviço está presente, bem como a capacidade de criar e gerir todos os grupos do Office 365, gerir o suporte pedidos de suporte e monitorizar estado de funcionamento do serviço. Mais informações em [funções de administrador sobre o Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **[Skype para empresas / administrador do serviço Lync](#lync-service-administrator)**: os utilizadores com esta função têm permissões globais no Microsoft Skype para empresas, quando o serviço está presente, bem como gerir os atributos de utilizador do Skype específico no Azure Active Diretório. Além disso, esta função concede a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço e para acessar as Equipes e o Skype para empresas do Centro de administração. A conta também têm de estar licenciada para equipas ou não é possível executar cmdlets do PowerShell de Equipes. Mais informações em [sobre o Skype para a função de administrador de negócios](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) e as equipas de informações de licenciamento em [Skype para empresas e o Microsoft Teams suplemento licenciamento](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing)
 
@@ -140,7 +148,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[As equipes especialistas de suporte de comunicações](#teams-communications-support-specialist)**: os utilizadores nesta função podem resolver problemas de comunicação dentro do Microsoft Teams e o Skype para empresas com o usuário chamam ferramentas de solução de problemas no Microsoft Teams & Skype para Centro de administração de negócios. Os utilizadores nesta função apenas podem ver os detalhes de utilizador na chamada para o usuário específico que tem procurado.
 
-* **[As equipes de administrador de serviços](#teams-service-administrator)**: os utilizadores nesta função podem gerir todos os aspetos da carga de trabalho Microsoft Teams através do Skype e Microsoft Teams para o Centro de administração de negócios e os respectivos módulos do PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionados com a telefonia, mensagens, reuniões e as equipes propriamente ditas. Esta função também concede a capacidade para gerir grupos do Office 365.
+* **[As equipes de administrador de serviços](#teams-service-administrator)**: os utilizadores nesta função podem gerir todos os aspetos da carga de trabalho Microsoft Teams através do Skype e Microsoft Teams para o Centro de administração de negócios e os respectivos módulos do PowerShell. Isto inclui, entre outras áreas, todas as ferramentas de gestão relacionados com a telefonia, mensagens, reuniões e as equipes propriamente ditas. Esta função concede, além disso, a capacidade de criar e gerir todos os grupos do Office 365, gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço.
 
 * **[Administrador de conta de utilizador](#user-account-administrator)**: os utilizadores com esta função podem criar utilizadores e gerir todos os aspetos de utilizadores com algumas restrições (ver abaixo). Além disso, os utilizadores com esta função podem criar e gerir todos os grupos. Esta função também inclui a capacidade de criar e gerir vistas de utilizador, gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço.
 
@@ -149,6 +157,13 @@ As seguintes funções de administrador estão disponíveis:
   |Permissões gerais|<p>Criar utilizadores e grupos</p><p>Criar e gerir vistas de utilizador</p><p>Gerir pedidos de suporte do Office|
   |<p>Em todos os utilizadores, incluindo todos os administradores</p>|<p>Gerir licenças</p><p>Gerir todas as propriedades de utilizador, exceto o nome Principal de utilizador</p>
   |Apenas em utilizadores que são não-administradores ou em qualquer um dos seguintes limitada funções de administrador:<ul><li>Leitores de Diretório<li>Utilizador Que Convida Convidados<li>Administrador de Suporte Técnico<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de Conta de Utilizador|<p>Eliminar e restauro</p><p>Desativar e ativar</p><p>Invalidar Tokens de atualização</p><p>Gerir todas as propriedades de utilizador, incluindo o nome Principal de utilizador</p><p>Repor palavra-passe</p><p>Atualizar as chaves de dispositivo (FIDO)</p>
+  
+  <b>Importante</b>: os utilizadores com esta função podem alterar palavras-passe para as pessoas que podem ter acesso a informações confidenciais ou privadas ou críticos de configuração dentro e fora do Azure Active Directory. Alterar a palavra-passe de um utilizador pode significar que a capacidade de assumir a identidade e permissões do usuário. Por exemplo:
+  * Registo de aplicação e aplicação empresarial proprietários, que podem gerir as credenciais de aplicações que possuem. Esses aplicativos podem ter privilegiado permissões no Azure AD e noutro local não é concedido a administradores de utilizador. Através deste caminho um administrador do utilizador poderá assumir a identidade de um proprietário da aplicação e, em seguida, mais assumir a identidade de um aplicativo com privilégios ao atualizar as credenciais para a aplicação.
+  * Proprietários de subscrições do Azure, que poderão ter acesso a informações confidenciais ou privadas ou críticos de configuração no Azure.
+  * Grupo de segurança e de grupo do Office 365 proprietários, que podem gerir a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou críticos de configuração no Azure AD e em outros locais.
+  * Os administradores em outros serviços fora do Azure AD, como sistemas de Exchange Online, segurança do Office e Centro de conformidade e de recursos humanos.
+  * Os não administradores como executivos, assessores jurídicos e funcionários de recursos humanos que podem ter acesso a informações confidenciais ou privadas.
 
 As tabelas seguintes descrevem as permissões específicas no Azure Active Directory tendo em conta a cada função. Algumas funções podem ter permissões adicionais nos serviços da Microsoft fora do Azure Active Directory.
 
@@ -220,7 +235,7 @@ Pode executar tarefas de faturação comuns, como atualizar as informações de 
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -232,6 +247,28 @@ Pode executar tarefas de faturação comuns, como atualizar as informações de 
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Gerir todos os aspetos da faturação do Office 365. |
+| Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+| Microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
+
+### <a name="desktop-analytics-administrator"></a>Administrador de análise de ambiente de trabalho
+Pode aceder e gerir às Ferramentas e serviços de gestão de Ambiente de Trabalho incluindo o Intune.
+
+  > [!NOTE]
+  > Esta função herda permissões adicionais da função leitores de diretório.
+  >
+  >
+
+  > [!NOTE]
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
+| Microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerir todos os aspetos da análise de ambiente de trabalho. |
 | Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | Microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
@@ -304,7 +341,7 @@ Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam iden
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -349,6 +386,8 @@ Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam iden
 | Microsoft.office365.complianceManager/allEntities/allTasks | Gerir todos os aspectos do Gestor de conformidade do Office 365 |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerir todos os aspetos do Exchange Online. |
 | Microsoft.office365.lockbox/allEntities/allTasks | Gerir todos os aspectos do Cofre de cliente do Office 365 |
+| Microsoft.office365.messageCenter/messages/Read | Ler mensagens na microsoft.office365.messageCenter. |
+| Microsoft.office365.messageCenter/securityMessages/Read | Leia securityMessages no microsoft.office365.messageCenter. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gerir todos os aspetos do Power BI. |
 | Microsoft.office365.protectionCenter/allEntities/allTasks | Gerir todos os aspetos do Centro de proteção do Office 365. |
 | Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
@@ -366,7 +405,7 @@ Pode ler e gerir a configuração de conformidade e os relatórios no Azure AD e
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -409,7 +448,7 @@ Pode gerir todos os aspetos do produto Dynamics 365.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -431,7 +470,7 @@ Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizaciona
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -587,7 +626,7 @@ Pode gerir todos os aspetos do produto Exchange.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -596,6 +635,11 @@ Pode gerir todos os aspetos do produto Exchange.
 | microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
+| Microsoft.aad.Directory/Groups/Unified/Create | Crie grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/DELETE | Elimine grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/Basic/Update | Atualize as propriedades básicas dos grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/members/Update | Atualize associação de grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/Owners/Update | Atualize a propriedade de grupos do Office 365. |
 | Microsoft.office365.Exchange/allEntities/allTasks | Gerir todos os aspetos do Exchange Online. |
 | Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | Microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
@@ -650,7 +694,7 @@ Pode gerir todos os aspetos do produto Azure Information Protection.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -671,7 +715,7 @@ Pode gerir todos os aspetos do produto Intune.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -727,7 +771,7 @@ Pode gerir todos os aspetos do produto Skype para Empresas.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -749,14 +793,14 @@ Pode ler as mensagens e atualizações para a sua organização apenas no Centro
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.accessmessagecenter/allEntities/allTasks | Criar e eliminar todos os recursos, ler e atualizar as propriedades standard no Centro de Mensagens. |
 | microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
+| Microsoft.office365.messageCenter/messages/Read | Ler mensagens na microsoft.office365.messageCenter. |
 
 ### <a name="partner-tier1-support"></a>Parceiro de Suporte de Escalão 1
 Não utilize – não se destina a utilização geral.
@@ -767,7 +811,7 @@ Não utilize – não se destina a utilização geral.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -804,7 +848,7 @@ Não utilize – não se destina a utilização geral.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -844,7 +888,7 @@ Pode gerir todos os aspetos do produto Power BI.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -866,7 +910,7 @@ Pode gerir atribuições de funções no Azure AD e todos os aspetos do Privileg
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -884,7 +928,7 @@ Pode ler relatórios de auditoria e inícios de sessão.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -904,7 +948,7 @@ Pode ler as informações de segurança e de relatórios e gerir a configuraçã
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -934,7 +978,7 @@ Pode ler as informações de segurança e os relatórios no Azure AD e no Office
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -956,7 +1000,7 @@ Consegue ler as informações do Service Health e gerir pedidos de suporte.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -977,7 +1021,7 @@ Pode gerir todos os aspetos do serviço do SharePoint.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -986,6 +1030,10 @@ Pode gerir todos os aspetos do serviço do SharePoint.
 | microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
+| Microsoft.aad.Directory/Groups/Unified/DELETE | Elimine grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/Basic/Update | Atualize as propriedades básicas dos grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/members/Update | Atualize associação de grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/Owners/Update | Atualize a propriedade de grupos do Office 365. |
 | Microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | Microsoft.office365.SharePoint/allEntities/allTasks | Crie e elimine todos os recursos e leia e atualize propriedades padrão no microsoft.office365.sharepoint. |
 | Microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
@@ -999,7 +1047,7 @@ Pode gerir a chamar e os recursos de reuniões do serviço do Microsoft Teams.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1022,7 +1070,7 @@ Pode resolver problemas de comunicação entre as Equipes com ferramentas avanç
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1042,7 +1090,7 @@ Pode resolver problemas de comunicação entre as Equipes com as ferramentas bá
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1062,7 +1110,7 @@ Pode gerir o serviço do Microsoft Teams.
   >
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1070,6 +1118,10 @@ Pode gerir o serviço do Microsoft Teams.
 | --- | --- |
 | microsoft.aad.directory/groups/hiddenMembers/read | Leia a propriedade groups.hiddenMembers no Azure Active Directory. |
 | Microsoft.aad.Directory/Policies/Basic/Read | Ler as propriedades básicas nas políticas no Azure Active Directory. |
+| Microsoft.aad.Directory/Groups/Unified/DELETE | Elimine grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/Basic/Update | Atualize as propriedades básicas dos grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/members/Update | Atualize associação de grupos do Office 365. |
+| Microsoft.aad.Directory/Groups/Unified/Owners/Update | Atualize a propriedade de grupos do Office 365. |
 | microsoft.azure.accessService/allEntities/allTasks | Gerir todos os aspetos do serviço de acesso do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |

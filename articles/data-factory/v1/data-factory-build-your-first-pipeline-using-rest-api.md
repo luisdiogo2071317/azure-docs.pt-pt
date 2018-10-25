@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 91a85505eda34e11f0db9c5f3c46e33aad992ffe
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: caea4296bc0573141865aca27b04f9d9ee049e94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736704"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955591"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar a primeira fábrica de dados do Azure com a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
 ## <a name="prerequisites"></a>Pré-requisitos
 * Leia o artigo [Descrição Geral do Tutorial](data-factory-build-your-first-pipeline.md) e conclua os passos de **pré-requisitos**.
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) no seu computador. Utilize a ferramenta CURL com comandos REST para criar uma fábrica de dados.
-* Siga as instruções [neste artigo](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para:
+* Siga as instruções [neste artigo](../../active-directory/develop/howto-create-service-principal-portal.md) para:
   1. Criar uma aplicação Web com o nome **ADFGetStartedApp** no Azure Active Directory.
   2. Obter o **ID de cliente** e a **chave secreta**.
   3. Obter o **ID de inquilino**.

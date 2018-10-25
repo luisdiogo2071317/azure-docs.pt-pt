@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 5e29dcde80da75fa70fe6dcbf35d7f319a5ca3cb
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311156"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024720"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>O Azure IoT-device SDK para C
 
@@ -33,7 +33,7 @@ Este artigo apresenta a arquitetura do Azure IoT device SDK para C. Ele demonstr
 
 ## <a name="sdk-architecture"></a>Arquitetura do SDK
 
-Pode encontrar os [ **Azure IoT device SDK para C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub repositório e exibir detalhes da API no [referência da API de C](https://azure.github.io/azure-iot-sdk-c/index.html).
+Pode encontrar os [ **Azure IoT device SDK para C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub repositório e exibir detalhes da API no [referência da API de C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 A versão mais recente das bibliotecas que pode ser encontrada no **mestre** ramo do repositório:
 

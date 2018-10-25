@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: b450d2ca2af0c0f7598d74e2f07c0acc81b811f3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 45aa954d2f85267b2c7c9aa2a7ba04e436765433
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116458"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023933"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pipelines e do Azure Machine Learning
 
@@ -63,7 +63,7 @@ Através de dependências de dados declarativa, pode otimizar as suas tarefas. O
 
 Pipelines podem ser salvas como modelos e podem ser implementados para um ponto final REST, para que pode agendar as tarefas de classificação de lote ou reparametrização.
 
-Veja a [documentos de referência do Python SDK para pipelines](http://aka.ms/aml-sdk) e o bloco de notas na secção seguinte para saber como criar suas próprias.
+Veja a [documentos de referência do Python SDK para pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) e o bloco de notas na secção seguinte para saber como criar suas próprias.
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
  

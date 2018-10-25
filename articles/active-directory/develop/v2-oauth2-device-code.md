@@ -17,14 +17,16 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e05bf723507ba12b577605d44ddb3aaef3b19efe
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079648"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987737"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>O Azure Active Directory v 2.0 e o fluxo de código de dispositivo do OAuth 2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 O Azure AD suporta o [concessão do código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), que permite aos utilizadores iniciar sessão dispositivos de restrição de entrada, como uma smart TV, o dispositivo de IoT ou impressora.  Para ativar este fluxo, o dispositivo tem a visita de utilizador uma página Web no browser noutro dispositivo para iniciar sessão.  Assim que o utilizador inicia sessão, o dispositivo é capaz de obter os tokens de acesso e tokens de atualização, conforme necessário.  
 

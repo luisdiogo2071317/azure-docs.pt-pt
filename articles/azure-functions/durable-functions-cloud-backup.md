@@ -2,20 +2,20 @@
 title: Cenários de fan-out/fan-in em funções duráveis - Azure
 description: Saiba como implementar um cenário de fan-out-fan-in na extensão de funções duráveis para as funções do Azure.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: eec75ad9cf0f568e674b2a4f12d962982f84294f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092670"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987544"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-in em funções duráveis - exemplo de cópia de segurança da Cloud
 
@@ -109,7 +109,7 @@ A implementação do c# também é bastante simples. Isso acontece usar alguns r
 
 ### <a name="javascript-functions-v2-only"></a>JavaScript (apenas para v2 de funções)
 
-A implementação de JavaScript não tem acesso para o `Binder` funcionalidade das funções do Azure, pelo que a [SDK de armazenamento do Azure para o nó](https://github.com/Azure/azure-storage-node) tomou seu lugar. Tenha em atenção que o SDK requer um `AZURE_STORAGE_CONNECTION_STRING` definição de aplicação.
+A implementação de JavaScript não tem acesso para o `Binder` funcionalidade das funções do Azure, pelo que a [SDK de armazenamento do Azure para o nó](https://github.com/Azure/azure-storage-node) tomou seu lugar.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 

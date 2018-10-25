@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: ea289abff7a40b0528f4cb88402594879ba6c437
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649658"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025674"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -147,11 +147,48 @@ Através da duração de consulta e perspectivas de esperas de consulta, pode co
 
 ![Consultas de análise SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="pricing"></a>Preços
+## <a name="permissions"></a>Permissões
 
-Embora a solução é gratuita, consumo de telemetria de diagnóstico acima as unidades gratuitas de ingestão de dados alocados a cada mês aplica-se, consulte [preços do Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). As unidades gratuitas de ingestão de dados fornecido ativar gratuita monitorização de vários bancos de dados por mês. Tenha em atenção que as bases de dados mais ativos com cargas de trabalho mais pesadas serão ingestão de dados mais versus bases de dados inativos. Pode monitorizar facilmente o seu consumo de ingestão de dados na solução, selecione a área de trabalho do OMS no menu de navegação de análise de SQL do Azure e, em seguida, selecionar a utilização e custos estimados.
+Utilizar a análise de SQL do Azure, os utilizadores serão no mínimo necessário para ser concedida a função de leitor no Azure. Esta função no entanto não irá permitir que os utilizadores ver o texto da consulta ou executar quaisquer ações de otimização de automática. As funções mais liberal no Azure que lhe permite utilizar a solução até ao limite máximo são proprietário, Contribuidor, contribuinte da BD SQL ou contribuinte do SQL Server. Também poderá querer considerar a criação de uma função personalizada no portal com permissões específicas necessárias apenas para utilizar a análise de SQL do Azure e sem acesso à gestão de outros recursos.
 
-### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
+### <a name="creating-a-custom-role-in-portal"></a>Criar uma função personalizada no portal
+
+RECONHECENDO que algumas organizações impõem controlos de permissão strict no Azure, veja o seguinte script do PowerShell, permitindo a criação de uma função personalizada "SQL Analytics operador de monitorização" no portal do Azure com o mínimo de leitura e permissões de escrita necessário para utilizar a análise de SQL do Azure para sua extensão mais completa.
+
+Substitua o "{SubscriptionId}" no script com o seu ID de subscrição do Azure, abaixo e execute o script de logon como uma função de proprietário ou Contribuidor no Azure.
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+Depois de criar a nova função, atribua esta função para cada utilizador que tem de conceder permissões personalizadas para utilizar a análise de SQL do Azure.
+
+## <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
+
+Análise de dados na análise de SQL do Azure baseia-se no [linguagem do Log Analytics](./query-language/get-started-queries.md) para seus relatórios e consultas personalizadas. Veja a descrição dos dados disponíveis recolhidos a partir de recursos de base de dados para consultas personalizadas no [métricas e registos disponíveis](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+
+Alertas automatizados na solução se baseia em escrever uma consulta do Log Analytics que aciona um alerta numa condição cumprida. Veja abaixo vários exemplos em consultas do Log Analytics após a qual tipo de alerta pode ser a configuração na solução.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criar alertas para a base de dados do Azure SQL
 
@@ -245,6 +282,10 @@ AzureDiagnostics
 > [!NOTE]
 > - Pré-requisito de configurar este alerta é que a instância gerida monitorizado tem a transmissão em fluxo do registo de ResourceUsageStats ativado para a solução de.
 > - Esta consulta requer uma regra de alerta para ser configurado para acionar um alerta quando existem resultados (> 0 resultados) da consulta, que indica que a condição existe na instância gerida. O resultado é o consumo de percentagem de armazenamento na instância gerida.
+
+### <a name="pricing"></a>Preços
+
+Embora a solução é gratuita, consumo de telemetria de diagnóstico acima as unidades gratuitas de ingestão de dados alocados a cada mês aplica-se, consulte [preços do Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). As unidades gratuitas de ingestão de dados fornecido ativar gratuita monitorização de vários bancos de dados por mês. Tenha em atenção que as bases de dados mais ativos com cargas de trabalho mais pesadas serão ingestão de dados mais versus bases de dados inativos. Pode monitorizar facilmente o seu consumo de ingestão de dados na solução, selecione a área de trabalho do OMS no menu de navegação de análise de SQL do Azure e, em seguida, selecionar a utilização e custos estimados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

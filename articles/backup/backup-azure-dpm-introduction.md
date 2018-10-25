@@ -1,5 +1,5 @@
 ---
-title: Prepeare o servidor do DPM para efetuar cópias de segurança de cargas de trabalho para o Azure
+title: Preparar o servidor do DPM para efetuar cópias de segurança de cargas de trabalho para o Azure
 description: Uma introdução à cópia de segurança de dados do DPM para um cofre dos serviços de recuperação do Azure.
 services: backup
 author: adigan
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 3efe2f02666c69ff648eaab39fbc1dfe9dc5e3e7
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945438"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024482"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar a cópia de segurança de cargas de trabalho no Azure com o System Center DPM
 
@@ -39,7 +39,7 @@ O artigo fornece:
 Os benefícios de negócios cópias de segurança dos servidores do DPM para o Azure incluem:
 
 * Para o DPM no local, o Azure Backup fornece uma alternativa à implementação de longa duração em banda.
-* Para o DPM em execução numa VM do Azure, o Azure Backup permite-lhe descarregar o armazenamento do disco do Azure. Armazenamento de dados mais antigos num cofre de Cofre de cópia de segurança permite-lhe aumentar verticalmente o seu negócio ao armazenar novos dados no disco.
+* Para o DPM em execução numa VM do Azure, o Azure Backup permite-lhe descarregar o armazenamento do disco do Azure. Armazenamento de dados mais antigos num cofre de cópia de segurança permite-lhe aumentar verticalmente o seu negócio ao armazenar novos dados no disco.
 
 ## <a name="prerequisites-and-limitations"></a>Pré-requisitos e limitações
 
@@ -54,7 +54,7 @@ Aplicações suportadas | [Saiba](https://docs.microsoft.com/system-center/dpm/d
 Tipos de ficheiro suportados | Estes tipos de ficheiro podem ser uma cópia de segurança com o Azure Backup: encriptado (cópias de segurança completas só); Comprimidos (cópias de segurança incrementais suportadas); Dispersos (cópias de segurança incrementais suportadas); Comprimidos e dispersos (tratados como dispersos).
 Tipos de ficheiro não suportado | Servidores em sistemas de ficheiros sensíveis a maiúsculas; ligações diretas (ignoradas); (ignorados); de pontos de reanálise encriptados e comprimidos (ignorados); encriptados e dispersos (ignorados); Fluxo comprimido; analisar o fluxo.
 Armazenamento local | Cada máquina que pretende criar cópias de segurança tem de ter armazenamento local livre é de, pelo menos, 5% do tamanho dos dados que estão a cópia de segurança.  Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização de rascunho.
-Armazenamento do Cofre | Não há limite para a quantidade de dados, que pode criar uma cópia de segurança uma cópia de segurança do Azure do cofre, mas o tamanho de uma origem de dados (por exemplo uma máquina virtual ou a base de dados) não deve exceder os 54400 GB.
+Armazenamento do Cofre | Não há limite para a quantidade de dados, que pode criar cópias de segurança para um cofre de cópia de segurança do Azure, mas o tamanho de uma origem de dados (por exemplo uma máquina virtual ou a base de dados) não deve exceder os 54400 GB.
 Agente do Backup do Azure | Se o DPM está em execução no System Center 2012 SP1, instale o Rollup 2 ou posterior para o DPM SP1. Isto é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implementar a versão mais recente do agente de cópia de segurança do Azure, também conhecido como o agente do serviço de recuperação do Azure (MARS) da Microsoft. Se tiver uma versão anterior implementada, atualize para a versão mais recente para se certificar que cópia de segurança funciona conforme esperado. 
 
 
@@ -160,7 +160,7 @@ Todas as máquinas que é uma cópia de segurança pelo Azure Backup tem de ter 
 
     - O Azure Backup utiliza esta localização como uma área de armazenamento temporário para dados recuperados.
     - Após a recuperação de dados terminar, cópia de segurança do Azure irá limpar os dados nesta área.
-    - A localização tem de ter espaço suficiente para reter os itens que antecipa recuperar em paralle.
+    - A localização tem de ter espaço suficiente para reter os itens que antecipa recuperar em paralelo.
 
     ![Definição da pasta de recuperação](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 

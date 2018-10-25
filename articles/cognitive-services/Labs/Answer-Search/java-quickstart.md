@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867041"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469100"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>Início Rápido: Consulta da Pesquisa de Respostas do Projeto em Java
 Este artigo utiliza Java para demonstrar a API de Pesquisa de Respostas do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. A API é um serviço Web REST compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON.
@@ -52,7 +52,7 @@ O código seguinte cria um `WebRequest`, define o cabeçalho da chave de acesso 
 
 A API de Pesquisa de Respostas do Bing devolve resultados do motor de busca do Bing.
 1. Transfira ou instale a biblioteca gson.
-2. Crie um novo projeto de Java no seu IDE ou editor favorito.
+2. Crie um novo projeto Java no seu IDE ou editor favorito.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor subscriptionKey por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
@@ -151,6 +151,6 @@ public class KnowledgeSrch {
 ````
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início rápido do Node](node-quickstart.md)

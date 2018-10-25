@@ -2,20 +2,20 @@
 title: Instalar a extensão Durable Functions e os exemplos - Azure
 description: Saiba como instalar a extensão de funções duráveis para as funções do Azure, para o desenvolvimento de portais ou de desenvolvimento do Visual Studio.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6bbf232fc17b9acfd4e8cd84a0cb1346ab8ea9b5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585310"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986826"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalar a extensão Durable Functions e os exemplos (funções do Azure)
 
@@ -45,7 +45,7 @@ O Visual Studio fornece, atualmente, a melhor experiência para o desenvolviment
 Siga as indicações mesmo como para iniciar com o exemplo, mas faça o seguinte em vez de transferirem o *. zip* ficheiro:
 
 1. Crie um projeto de aplicação de funções.
-2. Procure o seguinte NuGet pacote referência usando *gerir pacotes NuGet* e adicioná-lo ao projeto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
+2. Procure o seguinte NuGet pacote referência usando *gerir pacotes NuGet* e adicioná-lo ao projeto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -75,12 +75,12 @@ Código do Visual Studio fornece uma experiência de desenvolvimento local que a
 3. Instalar a extensão de durável de funções do Azure ao executar o seguinte num comando janela de terminal / linha de comandos:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. Instalar a extensão de Twilio de funções do Azure ao executar o seguinte num comando janela de terminal / linha de comandos:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. Executar o emulador de armazenamento do Azure ou atualizar o *Settings* ficheiro com a cadeia de ligação real do armazenamento do Azure.
 6. Abra o projeto no Visual Studio Code. 
@@ -96,14 +96,14 @@ Código do Visual Studio fornece uma experiência de desenvolvimento local que a
 2. Navegue no seu computador para o [pasta de exemplos de JavaScript](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
 3. Instalar a extensão de durável de funções do Azure ao executar o seguinte num comando janela de terminal / linha de comandos
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > Isto requer que o [.NET Core SDK](https://www.microsoft.com/net/download) para ser instalado na máquina
 4. Restaurar os pacotes de npm, executando o seguinte num comando janela de terminal / linha de comandos:
     
-    ```
+    ```bash
     npm install
     ``` 
 5. Atualização do *Settings* ficheiro com uma cadeia de ligação a partir de uma conta de armazenamento do Azure para `AzureWebJobsStorage`.  Esta conta de armazenamento será utilizada para o estado de função durável.
@@ -119,13 +119,13 @@ Código do Visual Studio fornece uma experiência de desenvolvimento local que a
 1. No comando terminal / linha de comandos, navegue para a pasta que irá alojar a sua aplicação de funções.
 3. Crie um projeto de aplicação de funções, executando o seguinte comando:
 
-    ```
+    ```bash
     func init
     ``` 
 4. Executar o emulador de armazenamento do Azure (apenas Windows) ou atualizar o *Settings* ficheiro pela cadeia de ligação de armazenamento do Azure real do `AzureWebJobsStorage`.
 5. Em seguida, crie uma nova função ao executar o seguinte comando e siga os passos do assistente:
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

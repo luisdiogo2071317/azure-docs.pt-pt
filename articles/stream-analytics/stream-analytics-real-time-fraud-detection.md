@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901719"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986037"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Começar a utilizar o Azure Stream Analytics: deteção de fraudes em tempo real
 
@@ -39,7 +39,7 @@ Neste tutorial, irá simular dados das chamadas telefónicas utilizando uma apli
 Antes de começar, certifique-se de que tem o seguinte:
 
 * Uma conta do Azure.
-* A aplicação de gerador de evento de chamada [Telcogenerator](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), que pode ser transferido a partir do Microsoft Download Center. Deszipe o pacote para uma pasta no seu computador. Se quiser ver a origem de código e executar a aplicação num depurador, pode obter o código de origem da aplicação [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* A aplicação de gerador de evento de chamada [Telcogenerator](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), que pode ser transferido a partir do Microsoft Download Center. Deszipe o pacote para uma pasta no seu computador. Se quiser ver a origem de código e executar a aplicação num depurador, pode obter o código de origem da aplicação [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows poderão bloquear o ficheiro. zip transferido. Se não é possível descomprimi-lo, o ficheiro com o botão direito e selecione **propriedades**. Se vir a mensagem "este arquivo veio de outro computador e poderá ser bloqueado para ajudar a proteger este computador", selecione o **desbloquear** opção e, em seguida, clique em **aplicar**.
@@ -138,7 +138,7 @@ Antes de iniciar a aplicação TelcoGenerator, deve configurá-lo para que ele i
     Os parâmetros são: 
 
     * Número de CDRs por hora. 
-    * Probabilidade de fraude de cartão SIM: Frequência, como uma percentagem de todas as chamadas, que a aplicação deve simular uma chamada fraudulenta. O valor de 0,2 significa que cerca de 20% dos registos de chamada será a aparência fraudulentos.
+    * Probabilidade de fraude de cartão SIM: Frequência, como uma percentagem de todas as chamadas, que a aplicação deve simular uma chamada fraudulenta. O valor 0.2 significa que cerca de 20% dos registos de chamada parecerão fraudulentos.
     * Duração em horas. O número de horas que a aplicação deve ser executada. Também pode parar a aplicação qualquer altura ao premir Ctrl + C na linha de comandos.
 
     Após alguns segundos, a aplicação começa a apresentar registos de chamadas telefónicas no ecrã, à medida que os envia para o hub de eventos.
@@ -159,7 +159,7 @@ Alguns dos campos de chave, que irá utilizar neste aplicativo de deteção de f
 
 Agora que tem um fluxo de eventos de chamada, pode configurar uma tarefa do Stream Analytics. A tarefa será ler dados do hub de eventos que configurou. 
 
-### <a name="create-the-job"></a>Criar a tarefa 
+### <a name="create-the-job"></a>Criar o trabalho 
 
 1. No portal do Azure, clique em **criar um recurso** > **Internet das coisas** > **tarefa do Stream Analytics**.
 
@@ -186,7 +186,7 @@ Agora que tem um fluxo de eventos de chamada, pode configurar uma tarefa do Stre
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Introduza um nome para identificar a entrada da tarefa.   |
    |Subscrição   |  \<A sua subscrição\> |  Selecione a subscrição do Azure com o Hub de eventos que criou.   |
-   |Espaço de nomes do Hub de Eventos  |  asa-,-ns-demo |  Introduza o nome do espaço de nomes do Hub de eventos.   |
+   |Espaço de nomes do hub de eventos  |  asa-,-ns-demo |  Introduza o nome do espaço de nomes do Hub de eventos.   |
    |O nome do hub de eventos  | asa-,-frauddetection-demo | Selecione o nome do seu Hub de eventos.   |
    |Nome da política do Hub de Eventos  | asa-política-gerir-demo | Selecione a política de acesso que criou anteriormente.   |
     </br>

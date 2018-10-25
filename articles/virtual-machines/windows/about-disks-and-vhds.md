@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 8f5c33a63fd932bedd7f1de3d3ae47306b3ea3e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954488"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023562"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre o armazenamento de discos para VMs do Windows do Azure
 
@@ -34,7 +34,7 @@ Cada máquina virtual possui um disco de sistema de operativo anexado. É regist
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de paginação ou de troca. Dados do disco temporário podem ser perdidos durante uma [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando [Reimplementar uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante uma reinicialização bem sucedida padrão da VM, irão manter os dados na unidade temporária. 
+Cada VM contém um disco temporário. O disco temporário fornece armazenamento de curto prazo para aplicações e processos e destina-se para armazenar apenas os dados, tais como ficheiros de paginação ou de troca. Dados do disco temporário podem ser perdidos durante uma [evento de manutenção](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou quando [Reimplementar uma VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante uma reinicialização bem sucedida padrão da VM, devem manter os dados na unidade temporária. No entanto, há casos em que os dados podem não persistir, por exemplo, transferindo para um novo anfitrião. Da mesma forma, todos os dados na unidade temporária não devem ser dados que é essenciais para o sistema.
 
 O disco temporário é identificado como a unidade d: por predefinição e ele utilizado para armazenar Pagefile. sys. Para remapear este disco para uma letra de unidade diferente, veja [alterar a letra de unidade do disco temporário Windows](change-drive-letter.md). O tamanho do disco temporário varia, com base no tamanho da máquina virtual. Para obter mais informações, consulte [máquinas de virtuais de tamanhos para Windows](sizes.md).
 

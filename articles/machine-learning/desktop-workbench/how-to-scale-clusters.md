@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 718f351ad4ce325f3585ebcbe7adfc4b5905e734
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9688b9ba305a2eb59b80b02c0b41a7f4855dd051
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998615"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024567"
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Dimensionar o cluster para gerir o débito de serviço da web
 
@@ -65,7 +65,7 @@ Este processo irá demorar alguns minutos a concluir. Para obter mais informaç�
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Dimensionar o número de réplicas de pod de Kubernetes num cluster
  
-Pode dimensionar o número de réplicas de pod atribuído ao cluster com a CLI do Azure Machine Learning ou [dashboard do Kubernetes] (https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
+Pode dimensionar o número de réplicas de pod atribuído ao cluster com a CLI do Azure Machine Learning ou o [dashboard do Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 Para obter mais informações sobre o Kubernetes pods de réplica, consulte a [Pods do Kubernetes](https://kubernetes.io/docs/concepts/workloads/pods/pod/) documentação.
 

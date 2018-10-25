@@ -1,5 +1,5 @@
 ---
-title: Teste débito de rede de VM do Azure | Microsoft Docs
+title: Teste débito de rede de VM do Azure | Documentos da Microsoft
 description: Saiba como testar o débito de rede de máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
@@ -14,107 +14,106 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: d65b86cc63a4fd39824a6421afd5ce9abb7fd270
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200984"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023832"
 ---
-# <a name="bandwidththroughput-testing-ntttcp"></a>Largura de banda/débito (NTTTCP) de teste
+# <a name="bandwidththroughput-testing-ntttcp"></a>Largura de banda/débito testes (NTTTCP)
 
-Quando testar o desempenho de débito de rede no Azure, é melhor utilizar uma ferramenta que destina-se a rede para fins de teste e minimiza a utilização de outros recursos que pode afetar o desempenho. Recomenda-se NTTTCP.
+Ao testar o desempenho de taxa de transferência de rede no Azure, é melhor usar uma ferramenta destina-se a rede para fins de teste e minimiza o uso de outros recursos que podem afetar o desempenho. Recomenda-se NTTTCP.
 
-Copie a ferramenta para duas VMs do Azure o mesmo tamanho. Uma VM funciona como remetente e o outro RECETOR.
+Copie a ferramenta para duas VMs do Azure do mesmo tamanho. Uma VM funciona como remetente e o outro como receptor.
 
-#### <a name="deploying-vms-for-testing"></a>Implementar as VMs para fins de teste
-Para efeitos deste teste, as duas VMs devem ter o mesmo serviço de nuvem ou o mesmo conjunto de disponibilidade, de modo que pode utilizar os IPs interno e excluir os balanceadores de carga de teste. É possível testar com o VIP, mas este tipo de teste está fora do âmbito deste documento.
- 
-Tome nota do endereço IP do RECETOR. Vamos chamar esse IP "a.b.c.r"
+#### <a name="deploying-vms-for-testing"></a>Implementação de VMs para teste
+Para efeitos deste teste, as duas VMs devem ser no mesmo serviço Cloud ou no mesmo conjunto de disponibilidade, de modo que podemos usar dos respetivos IPs interno e excluir os balanceadores de carga do teste. É possível testar com o VIP, mas esse tipo de teste está fora do escopo deste documento.
+ 
+Tome nota do endereço IP do receptor. Vamos chamar esse IP "a.b.c.r"
 
-Anote o número de núcleos na VM. Vamos chamar isto "\#núm\_núcleos"
- 
-Execute o teste NTTTCP de 300 segundos (ou 5 minutos) na VM do remetente e o recetor VM.
+Anote o número de núcleos na VM. Vamos chamá-lo "\#núm\_núcleos"  
+Execute o teste NTTTCP para 300 segundos (ou 5 minutos) na VM do remetente e receptor de VM.
 
-Sugestão: Ao configurar este teste pela primeira vez, pode experimentar um período de teste mais curto para obter mais cedo comentários. Depois da ferramenta está a funcionar conforme esperado, prolonga o período de teste a 300 segundos para os resultados mais exatos.
+Sugestão: Ao configurar este teste pela primeira vez, poderia tentar um período de teste mais curto para obter comentários mais cedo. Quando a ferramenta está a funcionar conforme esperado, alargar o período de teste a 300 segundos para os resultados mais precisos.
 
 > [!NOTE]
 > O remetente **e** recetor tem de especificar **o mesmo** testar o parâmetro de duração (-t).
 
-Para um único fluxo TCP de teste para 10 segundos:
+Para testar um único fluxo TCP para 10 segundos:
 
-Parâmetros de recetor: ntttcp - r -t 10 - P 1
+Parâmetros do receptor: ntttcp - r -t 10 - P 1
 
 Parâmetros de remetente: ntttcp-s10.27.33.7 -t 10 - n 1 -P 1
 
 > [!NOTE]
-> O exemplo anterior só deve ser utilizado para confirmar a sua configuração. Válido exemplos de teste descritos mais tarde neste documento.
+> O exemplo anterior só deve ser utilizado para confirmar a sua configuração. Exemplos válidos de teste serão abordados mais adiante neste documento.
 
-## <a name="testing-vms-running-windows"></a>VMs de teste com o WINDOWS:
+## <a name="testing-vms-running-windows"></a>Teste de VMs que executam o WINDOWS:
 
-#### <a name="get-ntttcp-onto-the-vms"></a>Obter NTTTCP para as VMs.
+#### <a name="get-ntttcp-onto-the-vms"></a>Obtenha NTTTCP para as VMs.
 
-Transferir a versão mais recente: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
+Baixe a versão mais recente: <https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-Ou procure-lo se movido: <https://www.bing.com/search?q=ntttcp+download> \< – deve ser atingido pela primeira vez
+Ou procure-se movido: <https://www.bing.com/search?q=ntttcp+download> \< – deve ser atingido pela primeira vez
 
 Considere colocar NTTTCP na pasta separada, como c:\\ferramentas
 
 #### <a name="allow-ntttcp-through-the-windows-firewall"></a>Permitir NTTTCP através da firewall do Windows
-No RECETOR, crie uma regra de permissão na Firewall do Windows para permitir o tráfego NTTTCP a chegada. É mais fácil permitir que o programa NTTTCP todo pelo nome em vez de permitir portas TCP específicas de entrada.
+No receptor, crie uma regra de permissão na Firewall do Windows para permitir o tráfego NTTTCP a chegada. É mais fácil permitir que o programa NTTTCP inteiro por nome em vez de permitir que portas específicas do TCP de entrada.
 
-Permitir ntttcp através da Firewall do Windows como esta:
+Permitir ntttcp através da Firewall do Windows como este:
 
-netsh advfirewall firewall adicionar programa de regra =\<caminho\>\\ntttcp.exe nome = "ntttcp" protocolo = quaisquer dir = na ação = permitir enable = yes perfil = ANY
+netsh advfirewall firewall adicionar programa da regra =\<caminho\>\\ntttcp.exe nome = "ntttcp" protocolo = qualquer dir = em ação = permitir enable = yes profile = ANY
 
-Por exemplo, se tiver copiado ntttcp.exe para o "c:\\ferramentas" pasta, isto seria o comando: 
+Por exemplo, se copiou ntttcp.exe para o "c:\\ferramentas" pasta, isso seria o comando: 
 
-netsh advfirewall firewall adicionar programa de regra = c:\\ferramentas\\ntttcp.exe nome = "ntttcp" protocolo = quaisquer dir = na ação = permitir enable = yes perfil = ANY
+netsh advfirewall firewall adicionar programa da regra = c:\\ferramentas\\ntttcp.exe nome = "ntttcp" protocolo = qualquer dir = em ação = permitir enable = yes profile = ANY
 
 #### <a name="running-ntttcp-tests"></a>Testes NTTTCP em execução
 
-Iniciar o NTTTCP o RECETOR (**executar a partir de CMD**, não a partir do PowerShell):
+Iniciar NTTTCP no receptor (**execute a partir de CMD**, não a partir do PowerShell):
 
-ntttcp - r-m [2\*\#núm\_núcleos],\*, a.b.c.r -t 300
+ntttcp - r – m [2\*\#núm\_núcleos],\*, a.b.c.r -t 300
 
-Se a VM tem quatro núcleos e um endereço IP de 10.0.0.4, deverá ter o seguinte aspeto:
+Se a VM tem quatro núcleos e um endereço IP de 10.0.0.4, ficaria assim:
 
 ntttcp - r – m 8,\*, 10.0.0.4 -t 300
 
 
-Iniciar o NTTTCP o remetente (**executar a partir de CMD**, não a partir do PowerShell):
+Iniciar NTTTCP no remetente (**execute a partir de CMD**, não a partir do PowerShell):
 
-ntttcp -s – m 8,\*, 10.0.0.4 -t 300 
+ntttcp -s – m 8,\*, 10.0.0.4 -t 300 
 
 Aguarde que os resultados.
 
 
-## <a name="testing-vms-running-linux"></a>Testar as VMs com LINUX:
+## <a name="testing-vms-running-linux"></a>Teste de VMs em execução no LINUX:
 
-Utilize nttcp para linux. Está disponível no <https://github.com/Microsoft/ntttcp-for-linux>
+Utilizar o nttcp para linux. Está disponível a partir de <https://github.com/Microsoft/ntttcp-for-linux>
 
-Nas VMs Linux (remetente e RECETOR), execute estes comandos para preparar ntttcp para linux nas suas VMs:
+Em VMs do Linux (remetente e destinatário), execute estes comandos para preparar ntttcp-para-linux nas suas VMs:
 
-CentOS - instalação Git:
+CentOS - Install Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
-Ubuntu - instalação Git:
+Ubuntu - Install Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-Certifique- e instalar em ambas:
+Faça e instalar em ambos:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
-Como no exemplo Windows, partimos do que IP do RECETOR de Linux está 10.0.0.4
+Como no exemplo do Windows, partimos do princípio de que IP do RECETOR de Linux está 10.0.0.4
 
-Inicie o RECETOR NTTTCP para Linux:
+Inicie NTTTCP-para-Linux no receptor:
 
 ``` bash
 ntttcp -r -t 300
@@ -125,14 +124,14 @@ E no remetente, execute:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
-Teste comprimento assume a predefinição de 60 segundos se nenhum parâmetro de hora é dado
+ 
+Recebe o teste comprimento assume a predefinição de 60 segundos, se nenhum parâmetro de tempo
 
-## <a name="testing-between-vms-running-windows-and-linux"></a>Teste entre as VMs que executam o Windows e LINUX:
+## <a name="testing-between-vms-running-windows-and-linux"></a>Teste de entre as VMs que executam o Windows e LINUX:
 
-Nos cenários deste iremos deve ativar o modo de sem sincronização pelo que pode executar o teste. Isto é feito utilizando o **sinalizador -N** para Linux e **sinalizador -ns** para Windows.
+Sobre este cenários devemos habilitar o modo sem sincronização para que pode executar o teste. Isso é feito utilizando o **sinalizador -N** para o Linux, e **sinalizador -ns** para Windows.
 
-#### <a name="from-linux-to-windows"></a>Do Linux para o Windows:
+#### <a name="from-linux-to-windows"></a>Do Linux ao Windows:
 
 Recetor <Windows>:
 
@@ -146,7 +145,7 @@ Remetente <Linux> :
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 ```
 
-#### <a name="from-windows-to-linux"></a>A partir do Windows para Linux:
+#### <a name="from-windows-to-linux"></a>Do Windows para Linux:
 
 Recetor <Linux>:
 
@@ -159,8 +158,8 @@ Remetente <Windows>:
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 ```
-## <a name="testing-cloud-service-instances"></a>Testar as instâncias de serviço de Cloud:
-Tem de adicionar a seguinte secção no seu servicedefinition. Csdef
+## <a name="testing-cloud-service-instances"></a>Teste as instâncias de serviço Cloud:
+Precisa adicionar o seguinte secção em sua servicedefinition. Csdef
 ```xml
 <Endpoints>
   <InternalEndpoint name="Endpoint3" protocol="any" />
@@ -168,6 +167,6 @@ Tem de adicionar a seguinte secção no seu servicedefinition. Csdef
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Consoante os resultados, poderá haver espaço para [otimizar máquinas de débito de rede](virtual-network-optimize-network-bandwidth.md) para o seu cenário.
-* Leia sobre como [largura de banda atribuída às máquinas virtuais] (virtual-machine-rede-throughput.md)
-* Saiba mais com [Azure Virtual Network perguntas mais frequentes sobre (FAQ)](virtual-networks-faq.md)
+* Consoante os resultados, pode haver espaço para [otimizar máquinas de débito de rede](virtual-network-optimize-network-bandwidth.md) para o seu cenário.
+* Saiba mais sobre como [largura de banda atribuída às máquinas virtuais](virtual-machine-network-throughput.md)
+* Saiba mais com [rede Virtual do Azure, perguntas freqüentes (FAQ sobre)](virtual-networks-faq.md)

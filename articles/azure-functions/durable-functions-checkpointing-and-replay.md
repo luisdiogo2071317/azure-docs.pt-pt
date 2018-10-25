@@ -2,20 +2,20 @@
 title: Pontos de verificação e repetição nas funções duráveis - Azure
 description: Saiba como pontos de verificação e resposta funciona na extensão de funções duráveis para as funções do Azure.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0e8ce37e39e536383b77a7dc98d88a18e58182c6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 5336c0a510f0be7d548d1d549b5b763c12e700b2
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239436"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987720"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Pontos de verificação e repetição nas funções durável (funções do Azure)
 
@@ -52,9 +52,9 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const output = [];
-    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
-    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
-    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+    output.push(yield context.df.callActivity("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivity("E1_SayHello", "London"));
 
     return output;
 });
@@ -77,7 +77,7 @@ Quando o ponto de verificação estiver concluído, a função de orquestrador �
 
 Após a conclusão, o histórico da função mostrado anteriormente um aspeto semelhante ao seguinte no armazenamento de tabelas do Azure (abreviado para fins de ilustração):
 
-| PartitionKey (InstanceId)                     | EventType             | Carimbo de data/hora               | Input | Nome             | Resultado                                                    | Estado | 
+| PartitionKey (InstanceId)                     | eventType             | Carimbo de data/hora               | Input | Nome             | Resultado                                                    | Estado | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Nulo  | E1_HelloSequence |                                                           |                     | 

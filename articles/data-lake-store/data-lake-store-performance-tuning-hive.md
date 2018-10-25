@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e9d0ad0398dfc238d48060247cdb6f29b0f34a60
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123339"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024295"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guia para o Hive no HDInsight e Azure Data Lake Storage Gen1 de sintonização de desempenho
 
@@ -28,7 +28,7 @@ As predefinições foram definidas para proporcionar um bom desempenho em muitos
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster de HDInsight do Azure** com acesso a uma conta de geração 1 de armazenamento do Data Lake. Ver [criar um cluster do HDInsight com Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativar o ambiente de trabalho remoto para o cluster.
-* **Em execução do Hive no HDInsight**.  Para saber mais sobre a execução de tarefas do Hive no HDInsight, veja [utilizar o Hive no HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Em execução do Hive no HDInsight**.  Para saber mais sobre a execução de tarefas do Hive no HDInsight, veja [utilizar o Hive no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Diretrizes sobre a geração 1 de armazenamento do Data Lake de ajuste de desempenho**.  Para os conceitos gerais de desempenho, consulte [Data Lake Storage Gen1 ajuste de orientação de desempenho](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parâmetros

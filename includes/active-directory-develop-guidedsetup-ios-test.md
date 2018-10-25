@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 97e032af71947340c7e3b0af3b9d0701c972144e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d8d7d5649ca1dc215f85f928d111ff1367c60bb5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843009"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988293"
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Testar a consultar o Microsoft Graph API a partir da sua aplicação iOS
 
@@ -30,6 +30,7 @@ Para executar o código no simulador, prima **comando** + **R**.
 Quando estiver pronto para testar, selecione **chamar o Microsoft Graph API**. Quando lhe for pedido, introduza o seu nome de utilizador e palavra-passe.
 
 ### <a name="provide-consent-for-application-access"></a>Forneça o consentimento para acesso à aplicação
+
 A primeira vez que iniciar sessão na sua aplicação, lhe for pedido para fornecer o seu consentimento para permitir que a aplicação para aceder ao seu perfil e para o início de sessão:
 
 ![Forneça o seu consentimento para acesso à aplicação](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
@@ -42,7 +43,7 @@ Depois de iniciar sessão, deverá ver as informações do perfil de utilizador 
 
 O Microsoft Graph API requer a **user.read** âmbito para ler um perfil de utilizador. Este âmbito é adicionado automaticamente por predefinição em todos os aplicativos que está registado no portal de registo. Outras APIs para o Microsoft Graph, bem como APIs personalizadas para o seu servidor de back-end, pode necessitar de âmbitos adicionais. O Microsoft Graph API requer a **Calendars.Read** âmbito para listar calendários do utilizador.
 
-Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione a **Calendars.Read** delegado permissão para as informações de registo de aplicação. Em seguida, adicione a **Calendars.Read** definir o âmbito para o **acquireTokenSilent** chamar. 
+Para aceder aos calendários do utilizador no contexto de uma aplicação, adicione a **Calendars.Read** delegado permissão para as informações de registo de aplicação. Em seguida, adicione a **Calendars.Read** definir o âmbito para o **acquireTokenSilent** chamar.
 
 >[!NOTE]
 >O utilizador pode ser pedido para consentimentos adicionais à medida que aumenta o número de âmbitos.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627530"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025010"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para gestão de palavras-passe do Azure AD
 
@@ -23,7 +23,7 @@ Após a implementação, muitas organizações querem saber como realmente está
 
 ![Relatórios][Reporting]
 
-As perguntas seguintes podem ser respondidas pelos relatórios que existem no [portal do Azure] (https://portal.azure.com/):
+As perguntas seguintes podem ser respondidas pelos relatórios que existem nos [portal do Azure](https://portal.azure.com/):
 
 > [!NOTE]
 > Tem de ser [um administrador global](../users-groups-roles/directory-assign-admin-roles.md), e deve optar ativamente por estes dados para ser reunidas em nome da sua organização. Para optar, tem de visitar o **relatórios** separador ou a auditoria de registos, pelo menos, uma vez. Até lá, os dados não são recolhidos para a sua organização.

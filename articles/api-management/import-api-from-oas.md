@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: edef88694cc335a63ce279e96a204ed4b8fe7376
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307284"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469508"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
@@ -65,11 +65,11 @@ Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do 
 
 As operações podem ser chamadas diretamente a partir do Portal do Azure, que fornece um meio cómodo para ver e testar as operações de uma API.
 
+![Testar a API](./media/api-management-get-started/01-import-first-api-01.png)
+
 1. Selecione a API que criou no passo anterior.
 2. Prima o separador **Teste**.
-
-    ![Testar a API](./media/api-management-get-started/test-api.png)
-1. Clique em **GetSpeakers**.
+3. Clique em **GetSpeakers**.
 
     A página apresenta os campos para os parâmetros de consulta; contudo, neste caso, não temos nenhum. A página também apresenta os campos para os cabeçalhos. Um dos cabeçalhos é “Ocp-Apim-Subscription-Key”, para a chave de subscrição do produto que está associado a esta API. Se tiver criado a instância de APIM, já é um administrador, pelo que a chave é preenchida automaticamente.
 4. Prima **Enviar**.

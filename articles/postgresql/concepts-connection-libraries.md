@@ -1,6 +1,6 @@
 ---
 title: Bibliotecas de ligação para base de dados do Azure para PostgreSQL
-description: Este artigo descreve bibliotecas vários controladores de que os programadores podem utilizar quando programação de aplicações para ligar e consultar a base de dados do Azure para PostgreSQL e.
+description: Este artigo descreve várias bibliotecas e controladores que os desenvolvedores podem usar quando codificar aplicativos para se ligar e consultar a base de dados do Azure para PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,33 +9,33 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 7f0dd217a124f530ba009c9a5588691f604827e5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: edbd3b36e1c40cda3b39c85f3deb4c9e8540fd1b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687011"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984966"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Bibliotecas de ligação para base de dados do Azure para PostgreSQL
-Este artigo apresenta uma lista de bibliotecas e controladores que os programadores podem utilizar para desenvolver aplicações para ligar e consultar a base de dados do Azure para PostgreSQL.
+Este artigo apresenta uma lista de bibliotecas e controladores que os desenvolvedores podem usar para desenvolver aplicativos para ligar e consultar a base de dados do Azure para PostgreSQL.
 
 ## <a name="client-interfaces"></a>Interfaces de cliente
-A maioria das bibliotecas de cliente de idioma utilizadas para ligar ao servidor PostgreSQL são projetos externos e são distribuídas de forma independente. As bibliotecas listadas são suportadas nas plataformas Windows, Linux e Mac, para ligar à base de dados do Azure para PostgreSQL. Vários exemplos de início rápido estão listados na secção passos seguinte.
+A maioria das bibliotecas de cliente de linguagem utilizada para ligar ao servidor PostgreSQL são projetos de externos e são distribuídos de forma independente. As bibliotecas listadas são suportadas nas plataformas Windows, Linux e Mac, para ligar à base de dados do Azure para PostgreSQL. Vários exemplos de início rápido estão listados na secção passos seguintes.
 
 | **Language** (Idioma) | **Interface do cliente** | **Informações adicionais** | **Transferência** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
-| Python | [psycopg](http://initd.org/psycopg/) | API de BD em conformidade 2.0 | [Transferência](http://initd.org/psycopg/download/) |
-| PHP | [php-pgsql](https://php.net/manual/en/book.pgsql.php) | Extensão de base de dados | [Instalar](https://secure.php.net/manual/en/pgsql.installation.php) |
-| Node.js | [Pacote de npm do grupo de proteção](https://www.npmjs.com/package/pg) | Puro JavaScript não bloquear cliente | [Instalar](https://www.npmjs.com/package/pg) |
-| Java | [JDBC](http://jdbc.postgresql.org/) | Controlador JDBC de tipo 4 | [Transferência](https://jdbc.postgresql.org/download.html)  |
-| Ruby | [Gem de grupo de proteção](https://deveiate.org/code/pg/) | Ruby Interface | [Transferência](https://rubygems.org/downloads/pg-0.20.0.gem) |
-| Ir | [Pacote pq](https://godoc.org/github.com/lib/pq) | Controlador de postgres aceda puro | [Instalar](https://github.com/lib/pq/blob/master/README.md) |
-| C\#/ .NET | [Npgsql](http://www.npgsql.org/) | Fornecedor de dados do ADO.NET | [Transferência](https://www.microsoft.com/net/) |
-| ODBC | [psqlODBC](https://odbc.postgresql.org/) | Controlador ODBC | [Transferência](http://www.postgresql.org/ftp/odbc/versions/) |
-| C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Interface de linguagem C primária | Incluída |
-| C++ | [libpqxx](http://pqxx.org/) | Interface do novo estilo C++ | [Transferência](http://pqxx.org/download/software/) |
+| Python | [psycopg](http://initd.org/psycopg/) | API de DB 2.0 compatível | [Transferência](http://initd.org/psycopg/download/) |
+| PHP | [php-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | Extensão de base de dados | [Instalar](https://secure.php.net/manual/en/pgsql.installation.php) |
+| Node.js | [Pacote de npm do PG](https://www.npmjs.com/package/pg) | Cliente de sem bloqueio de JavaScript pura | [Instalar](https://www.npmjs.com/package/pg) |
+| Java | [JDBC](https://jdbc.postgresql.org/) | Driver JDBC de tipo 4 | [Transferência](https://jdbc.postgresql.org/download.html)  |
+| Ruby | [PG gem](https://deveiate.org/code/pg/) | Interface de Ruby | [Transferência](https://rubygems.org/downloads/pg-0.20.0.gem) |
+| Ir | [Pacote pq](https://godoc.org/github.com/lib/pq) | Pura Go postgres driver | [Instalar](https://github.com/lib/pq/blob/master/README.md) |
+| C\#/ .NET | [Npgsql](https://www.npgsql.org/) | Fornecedor de dados ADO.NET | [Transferência](https://www.microsoft.com/net/) |
+| ODBC | [psqlODBC](https://odbc.postgresql.org/) | Controlador ODBC | [Transferência](https://www.postgresql.org/ftp/odbc/versions/) |
+| C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | Interface de idioma primário do C | Incluída |
+| C++ | [libpqxx](http://pqxx.org/) | Interface de C++ novo estilo | [Transferência](http://pqxx.org/download/software/) |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Estes inícios rápidos sobre como ligar e consultar base de dados do Azure para PostgreSQL utilizando o seu idioma à escolha de leitura:
+Leia estes guias de introdução sobre como ligar e consultar a base de dados do Azure para PostgreSQL, utilizando a linguagem de sua escolha:
 
-[Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (c#)](./connect-csharp.md) | [aceda](./connect-go.md)
+[Python](./connect-python.md) | [node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (C#)](./connect-csharp.md) | [ir](./connect-go.md)

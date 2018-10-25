@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: fb521fc9d4927a953cdd66948101969dfc102de4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b26b88d0e089217fa9915bdbdcb8f913731bcc67
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843108"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988213"
 ---
 ## <a name="register-your-application"></a>Registar a sua aplicação
+
 Pode registrar seu aplicativo em qualquer uma das duas formas.
 
 ### <a name="option-1-express-mode"></a>Opção 1: Modo de Express
+
 Pode registar a sua aplicação rapidamente ao fazer o seguinte:
 1. Aceda ao [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure).
 
@@ -37,12 +39,13 @@ Pode registar a sua aplicação rapidamente ao fazer o seguinte:
 5. Siga as instruções para obter o ID da aplicação e colá-lo no seu código.
 
 ### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
+
 Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
 1. Se ainda não registou a aplicação, vá para o [Portal de registo de aplicação do Microsoft](https://apps.dev.microsoft.com/portal/register-app).
 
 2. Selecione **adicionar uma aplicação**.
 
-3. Na caixa **Nome da Aplicação**, introduza um nome para a sua aplicação. 
+3. Na caixa **Nome da Aplicação**, introduza um nome para a sua aplicação.
 
 4. Certifique-se de que a caixa de verificação **Configuração Assistida** está desmarcada e, em seguida, selecione **Criar**.
 

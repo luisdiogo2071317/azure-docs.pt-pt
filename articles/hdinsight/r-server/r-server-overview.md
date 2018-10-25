@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343746"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985493"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introdução aos serviços de ML e capacidades de R de código-fonte aberto no HDInsight
 
@@ -102,7 +102,7 @@ Se escolher esta opção, tem de converter os objetos de modelo de ScaleR para o
 
 ### <a name="score-on-premises"></a>Pontuação no local
 
-Para classificar no local depois de criar o seu modelo, pode serializar o modelo de R, transferi-lo, anular a serialização e, em seguida, utilizá-lo para novos dados de classificação. Pode classificar dados novos ao utilizar a abordagem descrita anteriormente no [de classificação no HDInsight](#scoring-in-hdinsight) ou utilizando [serviços web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Para classificar no local depois de criar o seu modelo, pode serializar o modelo de R, transferi-lo, anular a serialização e, em seguida, utilizá-lo para novos dados de classificação. Pode classificar dados novos ao utilizar a abordagem descrita anteriormente no [pontuação no HDInsight](#score-in-hdinsight) ou utilizando [serviços web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Manter o cluster
 

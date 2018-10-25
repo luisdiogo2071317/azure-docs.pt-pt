@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2018
+ms.date: 10/24/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: c4c9f520b4f9e265a26cc8d7264367512062e605
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: fdb8c1c49e1791e3dafa006928bf244e05d00909
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393359"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025978"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>Criar um pedido de suporte para o Cloudyn
 
@@ -42,6 +42,8 @@ Quando o pedido de suporte é criado, é adicionado à fila de suporte. Tempo de
 Se pretender criar um pedido de suporte de faturação para a gestão de custos, em **tipo de problema**, selecione **Azure Cost Management**.
 
 Para verificar o estado de um incidente que submeteu, veja [todos os pedidos de suporte](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests).
+
+Se for um usuário herdado do Cloudyn sem uma conta do Azure, pode abrir um pedido de suporte em http://support.microsoft.com/oas/default.aspx?prid=16451.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

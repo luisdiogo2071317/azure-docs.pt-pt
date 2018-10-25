@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 19e3141bf7d28c7f781be21aedf14222e35bfd6c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810630"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025264"
 ---
 <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
 =================================
@@ -190,7 +190,7 @@ Certifique-se de que concatenar as cadeias de caracteres de parâmetro/variável
 
 Por exemplo, a maioria dos nomes de recursos não podem começar com um dígito, mas a função de cadeia de caracteres exclusivo pode retornar uma cadeia de caracteres, que começa com um dígito. Então, se utilizar a saída de cadeia de caracteres bruta exclusivo, as implementações irão falhar. 
 
-Pode encontrar informações adicionais sobre as restrições e regras de nomenclatura de recursos [neste artigo] (https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+Pode encontrar informações adicionais sobre as regras de nomenclatura de recursos e restrições nas [este artigo](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
 ### <a name="deployment-location"></a>Localização de implementação
 
@@ -306,7 +306,7 @@ A secção seguinte para preencher é que oferecem os detalhes sobre a sua vers�
 
 ![Informações detalhadas de Test-Drive](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Descrição -** *necessário* é onde escrever a descrição principal sobre o que há em sua versão de teste. O cliente virá aqui para ler quais cenários sua versão de teste irá abordar sobre seu produto. 
+**Descrição -** *necessário* é onde escrever a descrição principal sobre o que há em sua versão de teste. O cliente virá aqui para ler quais cenários sua versão de teste irá abordar sobre seu produto. 
 
 **Manual do usuário -** *necessário* este é o passo a passo detalhada de sua experiência de versão de teste. O cliente abrirá isso e pode percorrer exatamente o que deseja fazer em toda a unidade de teste. É importante que este conteúdo é fácil de compreender e siga! (Tem de ser um ficheiro. pdf)
 

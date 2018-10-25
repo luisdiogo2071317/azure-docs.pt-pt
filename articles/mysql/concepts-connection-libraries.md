@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 3f49065d4f66f55ed728626764d9cac2aa5c3c69
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 14515aefe9635160cf99a630b0742d23352532cf
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054542"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985969"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliotecas de ligação para base de dados do Azure para MySQL
 Este artigo lista cada driver ou biblioteca que os programas de cliente podem utilizar ao ligar à base de dados do Azure para MySQL.
@@ -24,7 +24,7 @@ MySQL oferece a conectividade de driver de base de dados standard para utilizar 
 
 | **Language** (Idioma) | **Plataforma** | **Recursos adicionais** | **Transferência** |
 | :----------- | :------------| :-----------------------| :------------|
-| PHP | Windows, Linux | [Controlador nativo do MySQL para PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Transferência](http://php.net/downloads.php) |
+| PHP | Windows, Linux | [Controlador nativo do MySQL para PHP - mysqlnd](https://dev.mysql.com/downloads/connector/php-mysqlnd/) | [Transferência](https://secure.php.net/downloads.php) |
 | ODBC | Plataformas Windows, Linux, Mac OS X e Unix | [Guia do programador do MySQL Connector/ODBC](https://dev.mysql.com/doc/connector-odbc/en/) | [Transferência](https://dev.mysql.com/downloads/connector/odbc/) |
 | ADO.NET | Windows | [Guia do programador do MySQL Connector/Net](https://dev.mysql.com/doc/connector-net/en/) | [Transferência](https://dev.mysql.com/downloads/connector/net/) |
 | JDBC | Independente de plataforma | [Guia do programador do MySQL Connector/J 5.1](https://dev.mysql.com/doc/connector-j/5.1/en/) | [Transferência](https://dev.mysql.com/downloads/connector/j/) |

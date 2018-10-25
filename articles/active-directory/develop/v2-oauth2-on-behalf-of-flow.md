@@ -17,20 +17,22 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ad7bb3c3a7bd50521b968b7c1a4e21027fbe18f2
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320310"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986057"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v 2.0 e o fluxo do OAuth 2.0 On-Behalf-Of
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 O On-Behalf-Of 2.0 OAuth fluxo serve o caso de utilização em que um aplicativo invoca um serviço/API web, que por sua vez precisa chamar outro serviço/API web. A idéia é propagar a identidade de utilizador delegado e permissões através da cadeia de pedido. Para o serviço de camada intermediária fazer pedidos autenticados para o serviço downstream, ele precisa de proteger um token de acesso do Azure Active Directory (Azure AD), em nome do utilizador.
 
 > [!NOTE]
 > O ponto final v2.0 não suporta todos os cenários do Azure Active Directory e funcionalidades. Para determinar se deve utilizar o ponto final v2.0, leia sobre [v2.0 limitações](active-directory-v2-limitations.md).
 >
-
 
 > [!IMPORTANT]
 > A partir de Maio de 2018, um `id_token` não pode ser utilizado para o fluxo em-nome-de - SPAs tem de passar um **acesso** fluxos de um cliente confidencial para efetuar OBO token para uma camada intermediária. Ver [limitações](#client-limitations) para obter mais detalhes no qual os clientes podem executar em-nome-de chamadas.
@@ -67,12 +69,12 @@ Ao usar um segredo partilhado, um pedido de token de acesso de serviço para ser
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |obrigatório | O tipo de pedido de token. Para um pedido usando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| client_id |obrigatório | ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuído à sua aplicação. |
-| client_secret |obrigatório | O segredo de aplicação que gerou para a sua aplicação no Portal de registo de aplicação. |
-| asserção |obrigatório | O valor do token utilizado no pedido. |
-| scope |obrigatório | Lista de âmbitos para o pedido de token separados por um espaço. Para obter mais informações, consulte [âmbitos](v2-permissions-and-consent.md).|
-| requested_token_use |obrigatório | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
+| grant_type |Necessário | O tipo de pedido de token. Para um pedido usando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
+| client_id |Necessário | ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuído à sua aplicação. |
+| client_secret |Necessário | O segredo de aplicação que gerou para a sua aplicação no Portal de registo de aplicação. |
+| asserção |Necessário | O valor do token utilizado no pedido. |
+| scope |Necessário | Lista de âmbitos para o pedido de token separados por um espaço. Para obter mais informações, consulte [âmbitos](v2-permissions-and-consent.md).|
+| requested_token_use |Necessário | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
 
 #### <a name="example"></a>Exemplo
 A seguinte mensagem de HTTP solicita um token de acesso e o token de atualização com `user.read` definir o âmbito para o https://graph.microsoft.com web API.
@@ -97,13 +99,13 @@ Um pedido de token de acesso de serviço para serviço com um certificado conté
 
 | Parâmetro |  | Descrição |
 | --- | --- | --- |
-| grant_type |obrigatório | O tipo de pedido de token. Para um pedido usando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
-| client_id |obrigatório | ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuído à sua aplicação. |
-| client_assertion_type |obrigatório |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |obrigatório | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registar o seu certificado e o formato da asserção.|
-| asserção |obrigatório | O valor do token utilizado no pedido. |
-| requested_token_use |obrigatório | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
-| scope |obrigatório | Lista de âmbitos para o pedido de token separados por um espaço. Para obter mais informações, consulte [âmbitos](v2-permissions-and-consent.md).|
+| grant_type |Necessário | O tipo de pedido de token. Para um pedido usando um JWT, o valor tem de ser **urn: ietf:params:oauth:grant-tipo: jwt-portador**. |
+| client_id |Necessário | ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuído à sua aplicação. |
+| client_assertion_type |Necessário |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Necessário | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registar o seu certificado e o formato da asserção.|
+| asserção |Necessário | O valor do token utilizado no pedido. |
+| requested_token_use |Necessário | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
+| scope |Necessário | Lista de âmbitos para o pedido de token separados por um espaço. Para obter mais informações, consulte [âmbitos](v2-permissions-and-consent.md).|
 
 Tenha em atenção que os parâmetros são quase os mesmos que no caso do pedido de segredo partilhado, exceto que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.
 

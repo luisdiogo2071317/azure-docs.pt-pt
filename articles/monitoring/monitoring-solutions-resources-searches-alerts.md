@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409072"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024782"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -297,11 +297,11 @@ As propriedades de recursos de ação do Webhook são descritas nas tabelas segu
 
 ## <a name="sample"></a>Sample
 
-Segue-se um exemplo de uma solução que inclua o que inclui os seguintes recursos:
+Segue-se um exemplo de uma solução que inclui os seguintes recursos:
 
 - Pesquisa guardada
 - Agenda
-- Grupo de ação
+- grupo de ação
 
 O exemplo usa [parâmetros de solução padrão]( monitoring-solutions-solution-file.md#parameters) variáveis que normalmente seriam usadas numa solução em vez de embutir valores nas definições de recursos.
 

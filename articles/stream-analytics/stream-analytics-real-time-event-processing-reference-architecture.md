@@ -1,6 +1,6 @@
 ---
-title: Processamento de eventos em tempo real, utilizando o processamento de eventos do Azure Stream Analytics
-description: Este artigo descreve a arquitetura de referência para alcançar o processamento de eventos em tempo real e o analytics com o Azure Stream Analytics.
+title: Processamento de eventos em tempo real utilizando o processamento de eventos do Azure Stream Analytics
+description: Este artigo descreve a arquitetura de referência para alcançar o processamento de eventos em tempo real e análises com o Azure Stream Analytics.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,25 +9,25 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 8a5d426d67916e010c7fff048eebdc77b93c5c38
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 08ad2d853ab909ea859ffd1230dd651aa6661500
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902587"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987635"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Arquitetura de referência: processamento com o Microsoft Azure Stream Analytics de eventos em tempo real
-A arquitetura de referência para o Azure Stream Analytics de processamento de eventos em tempo real destina-se para fornecer um blueprint genérico para a implementação de uma plataforma em tempo real como uma solução de processamento de fluxo de serviço (PaaS) com o Microsoft Azure.
+Destina-se a arquitetura de referência para o Azure Stream Analytics de processamento de eventos em tempo real para fornecer um plano gráfico genérico para implementar uma plataforma em tempo real como uma solução de processamento de fluxo de serviço (PaaS) com o Microsoft Azure.
 
 ## <a name="summary"></a>Resumo
-Tradicionalmente, as soluções de análise foi com base nas capacidades, como ETL (extração, transformação, carregamento) e armazenamento de dados, onde os dados são armazenados antes da análise. Os requisitos de alteração, incluindo os dados mais rapidamente atrasados, são enviar este modelo existente para o limite. A capacidade de analisar os dados dentro de mover fluxos antes de armazenamento é uma solução e, embora não seja uma nova capacidade, a abordagem não foram amplamente ADOTOU em todos os verticals da indústria. 
+Tradicionalmente, soluções de análise tem sido com base em recursos, como ETL (extração, transformação e carga) e o armazenamento de dados, onde os dados são armazenados antes da análise. Necessidades em constante mudança, incluindo o mais rapidamente que são recebidos dados, estão a ser usada nesse modelo existente para o limite. A capacidade de analisar os dados dentro de mover fluxos antes de armazenamento é uma solução e, embora não seja uma nova funcionalidade, a abordagem possui não foi amplamente adotada em todos os mercados de setor. 
 
-Microsoft Azure fornece um catálogo um vasto conjunto de tecnologias de análise que são capazes de oferecer suporte a uma matriz de requisitos e cenários de solução diferente. Selecionar os serviços do Azure para implementar uma solução ponto-a-ponto, pode ser um desafio dado o leque de ofertas. Este documento foi concebido para descrever as capacidades e interoperacionalidade de vários serviços do Azure que suporta uma solução de transmissão em fluxo de eventos. Também explica alguns dos cenários em que os clientes podem beneficiar deste tipo abordagem.
+O Microsoft Azure fornece um catálogo extenso de tecnologias de análise que são capazes de suportar uma matriz de requisitos e cenários de solução diferente. Selecionar os serviços do Azure para implementar uma solução ponto a ponto pode ser um desafio por conta da diversidade de ofertas. Este documento foi concebido para descrever as capacidades e a interoperação de vários serviços do Azure que suportam uma solução de transmissão de eventos. Também explica alguns dos cenários em que os clientes podem se beneficiar deste tipo de abordagem.
 
 ## <a name="contents"></a>Conteúdos
 * Resumo Executivo
 * Introdução à análise em tempo real
-* Proposta de valor dos dados em tempo real no Azure
+* Proposta de valor de dados em tempo real no Azure
 * Cenários comuns para análise em tempo real
 * Arquitetura e componentes
   * Origens de Dados
@@ -37,16 +37,16 @@ Microsoft Azure fornece um catálogo um vasto conjunto de tecnologias de anális
   * Apresentação / consumo de camada
 * Conclusão
 
-**Autor:** Charles Feddersen, Arquiteto de solução, de centro de dados das informações de Excellence, a Microsoft Corporation
+**Autor:** Charles Feddersen, Arquiteto de soluções, Centro de informações de dados de excelência, Microsoft Corporation
 
-**Publicar:** Janeiro de 2015
+**Publicado:** Janeiro de 2015
 
 **Revisão:** 1.0
 
-**Transferir:** [processamento Microsoft Azure Stream Analytics de eventos em tempo real](http://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+**Transferências:** [eventos em tempo real de processamento com o Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Obter ajuda
-Para mais assistência, tente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
+Para obter assistência, tente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)

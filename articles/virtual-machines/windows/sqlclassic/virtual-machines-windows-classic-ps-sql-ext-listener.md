@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 58ec400faee04f8624822bbcb5325fca7006c578
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698639"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023190"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Configurar um serviço de escuta externo para grupos de Disponibilidade AlwaysOn no Azure
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Este tópico mostra-lhe como configurar um serviço de escuta para um grupo de D
 O grupo de disponibilidade pode conter as réplicas que estão no local apenas, apenas, Azure ou abrangem no local e o Azure para configurações híbridas. As réplicas do Azure podem residir na mesma região ou em várias regiões com várias redes virtuais (VNets). Os passos abaixo partem do princípio de que já [configurado um grupo de disponibilidade](../classic/portal-sql-alwayson-availability-groups.md) , mas não tiver configurado um serviço de escuta.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>Diretrizes e limitações para as escutas externas
-Quando estiver a implementar com o endereço de VIP públicas do cloud service, tenha em atenção as seguintes diretrizes sobre o serviço de escuta do grupo de disponibilidade no Azure:
+Quando estiver a implementar com o endereço de VIP público do cloud service, tenha em atenção as seguintes diretrizes sobre o serviço de escuta do grupo de disponibilidade no Azure:
 
 * O serviço de escuta do grupo de disponibilidade é suportado no Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2.
 * A aplicação cliente tem de residir num serviço cloud diferente daquela que contém o grupo de disponibilidade de VMs. Azure não suporta a devolução direta do servidor com o cliente e servidor no mesmo serviço cloud.

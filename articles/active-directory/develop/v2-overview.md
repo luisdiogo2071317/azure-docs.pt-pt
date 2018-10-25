@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: adcb1b15ed52e6954846ea09be0a87a118222c10
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989589"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956436"
 ---
 # <a name="about-v20"></a>Sobre o v2.0
 
@@ -62,6 +62,6 @@ Explore informações aprofundadas sobre o v2.0:
 * [A Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]
-> Se apenas tiver de iniciar sessão nas contas profissionais e escolares do Azure Active Directory, comece com o [Guia do programador do Azure AD](azure-ad-developers-guide.md). O ponto final do v2.0 destina-se a programadores que precisam explicitamente de iniciar sessão em contas pessoais da Microsoft.
+> Se apenas tiver de iniciar sessão nas contas profissionais e escolares do Azure Active Directory, comece com o [Guia do programador do Azure AD](v1-overview.md). O ponto final do v2.0 destina-se a programadores que precisam explicitamente de iniciar sessão em contas pessoais da Microsoft.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

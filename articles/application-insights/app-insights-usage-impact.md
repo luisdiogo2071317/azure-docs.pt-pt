@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/25/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 85547bd8528c4d5d4a627750bb5334f05ed231b1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091486"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024320"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com o Application Insights
 
@@ -68,7 +68,7 @@ Neste caso, os resultados já não se encaixa num modelo de eixo x contínuo que
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Como a ferramenta de impacto calcular estas taxas de conversão?
 
-Nos bastidores, a ferramenta de impacto se baseia em [coeficiente de correlação Pearson] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Os resultados são calculados entre -1 e 1 por -1, representando zero correlação e 1 que representa uma correlação positiva.
+Nos bastidores, a ferramenta de impacto depende da [coeficiente de correlação Pearson](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Os resultados são calculados entre -1 e 1 por -1, representando zero correlação e 1 que representa uma correlação positiva.
 
 A estrutura básica de como funciona a análise de impacto é o seguinte:
 

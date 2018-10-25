@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843296"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988438"
 ---
 ## <a name="test-your-code"></a>Testar o seu código
 
 ### <a name="test-with-node"></a>Testar com o nó
+
 Se não estiver a utilizar o Visual Studio, certifique-se de que o seu servidor web é iniciado.
+
 1. Configurar o servidor para escutar numa porta TCP que baseia-se na localização dos seus **Index** ficheiro. Para o nó, inicie o servidor web para escutar a porta ao executar os seguintes comandos numa linha de comandos a partir da pasta de aplicação:
 
     ```bash
@@ -36,15 +38,14 @@ Se não estiver a utilizar o Visual Studio, certifique-se de que o seu servidor 
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Testar com o Visual Studio
-Se estiver a utilizar o Visual Studio, certifique-se selecionar a solução de projeto e prima **F5** para executar o seu projeto. O browser é aberto o http://<span></span>localhost: localização {porta} e ver o **sessão** botão.
 
+Se estiver a utilizar o Visual Studio, certifique-se selecionar a solução de projeto e prima **F5** para executar o seu projeto. O browser é aberto o http://<span></span>localhost: localização {porta} e ver o **sessão** botão.
 
 ## <a name="test-your-application"></a>Testar a sua aplicação
 
 Depois do navegador carrega o ficheiro Index. HTML, clique em **sessão**. Será solicitado a iniciar sessão com o ponto de final de v2.0 do Microsoft Azure Active Directory (Azure AD):
 
 ![Inicie sessão na sua conta do SPA do JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Forneça o consentimento para acesso à aplicação
 
@@ -53,6 +54,7 @@ A primeira vez que iniciar sessão na sua aplicação, lhe for pedido para forne
 ![Forneça o seu consentimento para acesso à aplicação](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Ver resultados da aplicação
+
 Depois de iniciar sessão, deverá ver as informações do perfil de utilizador devolvidas na resposta apresentada na página do Microsoft Graph API.
 
 ![Resultados esperados da chamada de API do Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

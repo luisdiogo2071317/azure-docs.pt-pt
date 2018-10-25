@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585480"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023514"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período de retenção padrão? Ou processá-los de alguma forma especializada? A exportação contínua é ideal para isso. Os eventos de que ver no portal do Application Insights podem ser exportados para o armazenamento no Microsoft Azure no formato JSON. A partir daí pode transferir os seus dados e escrever qualquer código que precisa para processá-lo.  
@@ -39,7 +39,7 @@ Após a exportação contínua copia os seus dados para o armazenamento (em que 
 
 2. Escolha a telemetria de tipos de dados que pretende exportar.
 
-3. Crie ou selecione uma [conta de armazenamento do Azure] (... / storage/common/storage-introduction.md) onde pretende armazenar os dados. Para obter mais informações sobre as opções de preços de armazenamento, visite o [oficial de página de preços](https://azure.microsoft.com/pricing/details/storage/).
+3. Crie ou selecione um [conta de armazenamento do Azure](../storage/common/storage-introduction.md) onde pretende armazenar os dados. Para obter mais informações sobre as opções de preços de armazenamento, visite o [oficial de página de preços](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Por predefinição, a localização de armazenamento será definida para a mesma região geográfica que seu recurso do Application Insights. Se armazenar numa região diferente, poderá incorrer em custos de transferência.

@@ -2,20 +2,20 @@
 title: Enlaces de funções duráveis - Azure
 description: Como utilizar acionadores e enlaces para a extensão de Functons durável para as funções do Azure.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29cc7982dbe9991e6b0e3363cd636ac88881fc7b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f9bf42e5e20a7d9e861d0c3354040e981bf3ef21
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237286"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987754"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -112,7 +112,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivityAsync("SayHello", name);
+    const result = yield context.df.callActivity("SayHello", name);
     return result;
 });
 ```
@@ -123,7 +123,7 @@ O acionador de atividade permite-lhe criar funções que são chamados por funç
 
 Se estiver a utilizar o Visual Studio, o acionador de atividade é configurado com o [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) atributo .NET. 
 
-Se estiver a utilizar o portal do Azure para desenvolvimento, o acionador de atividade é definido pelo seguinte objeto JSON no `bindings` matriz de *Function*:
+Se estiver a utilizar o VS Code ou o portal do Azure para desenvolvimento, o acionador de atividade é definido pelo seguinte objeto JSON no `bindings` matriz de *Function*:
 
 ```json
 {
@@ -249,7 +249,7 @@ A ligação do cliente de orquestração permite-lhe escrever funções que inte
 
 Se estiver a utilizar o Visual Studio, pode ligar para o cliente de orquestração, utilizando o [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) atributo .NET.
 
-Se estiver usando linguagens de script (por exemplo, *. csx* arquivos) para o desenvolvimento, o acionador de orquestração é definido pelo seguinte objeto JSON no `bindings` matriz de *Function*:
+Se estiver usando linguagens de script (por exemplo, *. csx* ou *. js* arquivos) para o desenvolvimento, o acionador de orquestração é definido pelo seguinte objeto JSON no `bindings` matriz de  *Function*:
 
 ```json
 {

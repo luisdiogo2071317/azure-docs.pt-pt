@@ -4,9 +4,6 @@ description: Este artigo fornece respostas para perguntas freqüentes sobre o Ge
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 07efbf132eec5c6769395f58e8120c77dcd14aef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649886"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987244"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 11/20/2017
 ms.author: sngun
 ms.custom: ''
-ms.openlocfilehash: 9d11e40ab21f1bb7fe15cb1e00ef12dfc47edec7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d079b30657d3e8f770ea8ed6a7c419e7619ce99c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464068"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024142"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Azure Cosmos DB tabela API SDK para Python: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "49464068"
 |**Documentação da API**|[Documentação de referência da Python API](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do Python SDK](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
 |**Contribuir para o SDK**|[GitHub](https://github.com/Azure/azure-cosmosdb-python/tree/master/azure-cosmosdb-table)|
-|**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.3, 3.4, 3.5 ou 3.6] (https://www.python.org/downloads/)|
+|**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) ou [Python 3.3, 3.4, 3.5 ou 3.6](https://www.python.org/downloads/)|
 
 > [!IMPORTANT]
 > Se tiver criado uma conta de API de Tabela durante a pré-visualização, crie uma [nova conta de API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs de API de Tabela disponíveis geralmente.

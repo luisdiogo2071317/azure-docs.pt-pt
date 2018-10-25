@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/26/2018
+ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 518384776f777c3ea7cbd636dd2a48d919952f28
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fabc72e6dc31bb7f244cda9634af3b2556ba23a9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409121"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023798"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Adicionar itens do marketplace com a ferramenta de publicação
 
@@ -28,7 +28,7 @@ Adicionar o seu conteúdo para o [do Azure Stack Marketplace](azure-stack-market
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- - Tem de executar o Kit de ferramentas no anfitrião do Azure Stack ou ter [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) conectividade a partir da máquina em que a ferramenta é executada.
+ - Tem de executar o Kit de ferramentas no anfitrião do Azure Stack ou ter [VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn) conectividade para o anfitrião ASDK da máquina em que a ferramenta é executada.
 
  - Transfira o [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) e extrair.
 
@@ -80,7 +80,7 @@ Nesta seção, publicar o item do marketplace para sua pilha do Azure Marketplac
     |-----|-----|
     | Nome de administrador de serviço | Conta de administrador de serviço.  Exemplo: ServiceAdmin@mydomain.onmicrosoft.com |
     | Palavra-passe | Palavra-passe da conta de administrador de serviço. |
-    | Ponto final de API | Ponto final do Azure Stack Azure Resource Manager. Exemplo: management.local.azurestack.external |
+    | Ponto Final de API | Ponto final do Azure Stack Azure Resource Manager. Exemplo: management.local.azurestack.external |
 2.  Clique em **publicar** e o registo de publicação é apresentado.
 3.  Agora é possível implementar o seu item publicado através do portal do Azure Stack.
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 77400453e455ff2ebf20f59f888a3e3d641bcf07
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e42c678f3c6d030be13e40197a06e73b62581902
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843553"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988422"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Utilizar o Microsoft Authentication Library (MSAL) para iniciar a sessão do utilizador
 
@@ -127,24 +127,26 @@ else {
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais Informações
 
-Depois de um usuário clica o *iniciar sessão* botão pela primeira vez, `signIn` chamadas de método `loginPopup` para iniciar a sessão do utilizador. Este método resulta em abrir uma janela de pop-up com a *ponto final do Microsoft Azure Active Directory v2* para solicitar e validar as credenciais do utilizador. Como resultado de um sessão com êxito-, o utilizador é redirecionado para o original *Index. HTML* página e um token é recebida, processados pelo `msal.js` e as informações contidas no token é colocado em cache. Este token é conhecido como o *token de ID* e contém informações básicas sobre o usuário, como o nome de exibição do usuário. Se planeia utilizar todos os dados fornecidos por este token para fins, terá de certificar-se de que este token é validado pelo seu servidor de back-end para garantir que o token foi emitido para um utilizador válido para a sua aplicação.
+Depois de um usuário clica o **iniciar sessão** botão pela primeira vez, o `signIn` chamadas de método `loginPopup` para iniciar a sessão do utilizador. Este método resulta em abrir uma janela de pop-up com a *ponto final de v2.0 do Microsoft Azure Active Directory* para solicitar e validar as credenciais do utilizador. Como resultado de um sessão com êxito-, o utilizador é redirecionado para o original *Index. HTML* página e um token é recebida, processados pelo `msal.js` e as informações contidas no token é colocado em cache. Este token é conhecido como o *token de ID* e contém informações básicas sobre o usuário, como o nome de exibição do usuário. Se planeia utilizar todos os dados fornecidos por este token para fins, terá de certificar-se de que este token é validado pelo seu servidor de back-end para garantir que o token foi emitido para um utilizador válido para a sua aplicação.
 
 O SPA gerado por este guia de chamadas `acquireTokenSilent` e/ou `acquireTokenPopup` adquirir um *token de acesso* usado para consultar a Graph API da Microsoft para informações de perfil do usuário. Se precisar de uma amostra que valida o token de ID, dê uma olhada [isso](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github de exemplo active-directory-javascript-singlepageapp-dotnet-webapi-v2") aplicativo de exemplo no GitHub – o exemplo usa um ASP .NET API da web para validação do token.
 
 #### <a name="getting-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Depois do inicial início de sessão, que não pretende peça aos utilizadores para autenticar toda vez que precisam para solicitar um token para aceder a um recurso – então *acquireTokenSilent* deve ser utilizada a maior parte do tempo para adquirir tokens. Há contudo situações que precisa forçar os utilizadores interajam com o ponto de final do Azure Active Directory v2 – alguns exemplos incluem:
+Depois do inicial início de sessão, que não pretende peça aos utilizadores para autenticar toda vez que precisam para solicitar um token para aceder a um recurso – então *acquireTokenSilent* deve ser utilizada a maior parte do tempo para adquirir tokens. Há contudo situações que precisa forçar os utilizadores interajam com o ponto final v2.0 do Azure Active Directory – alguns exemplos incluem:
+
 - Os utilizadores podem ter de reintroduzir as respetivas credenciais pela palavra-passe ter expirado
 - A aplicação está a pedir acesso a um recurso para o qual o utilizador tem de dar consentimento
 - É precisa a autenticação de dois fatores
 
-Chamar o *acquireTokenPopup(scope)* resulta numa janela de pop-up (ou *acquireTokenRedirect(scope)* resulta em redirecionar utilizadores para o ponto de final do Azure Active Directory v2) em que os utilizadores precisam de interagir por confirmar as respetivas credenciais, a dar o consentimento para o recurso necessário ou concluir a autenticação de dois fatores.
+Chamar o *acquireTokenPopup(scope)* resulta numa janela de pop-up (ou *acquireTokenRedirect(scope)* resulta em redirecionar utilizadores para o ponto de final de v2.0 do Azure Active Directory) em que os utilizadores precisam de interagir por confirmar as respetivas credenciais, a dar o consentimento para o recurso necessário ou concluir a autenticação de dois fatores.
 
 #### <a name="getting-a-user-token-silently"></a>Obter um token de utilizador automaticamente
+
 O ` acquireTokenSilent` método processa a aquisições de token e a renovação sem qualquer interação do utilizador. Após `loginPopup` (ou `loginRedirect`) é executado pela primeira vez, `acquireTokenSilent` é o método normalmente usado para obter os tokens utilizados para aceder a recursos protegidos por chamadas subsequentes - como chamadas para pedir ou renovar os tokens são feitas automaticamente.
 `acquireTokenSilent` pode falhar em alguns casos – por exemplo, a senha do usuário expirou. Seu aplicativo pode manipular essa exceção de duas formas:
 
-1.  Fazer uma chamada para `acquireTokenPopup` imediatamente, o que resulta em pedir ao utilizador para iniciar sessão. Este padrão é muito usado em aplicativos online onde não há nenhum conteúdo não autenticado no aplicativo disponível para o utilizador. O exemplo gerado por esta configuração assistida usa esse padrão.
+1. Fazer uma chamada para `acquireTokenPopup` imediatamente, o que resulta em pedir ao utilizador para iniciar sessão. Este padrão é muito usado em aplicativos online onde não há nenhum conteúdo não autenticado no aplicativo disponível para o utilizador. O exemplo gerado por esta configuração assistida usa esse padrão.
 
 2. Aplicativos também podem tornar uma indicação visual para o usuário que um interativo início de sessão é necessário, para que o usuário pode selecionar o momento certo para iniciar sessão ou a aplicação pode repetir `acquireTokenSilent` num momento posterior. Isto é normalmente utilizado quando o utilizador pode utilizar outras funcionalidades da aplicação sem a ser interrompida – por exemplo, não existe conteúdo não autenticado no aplicativo. Neste caso, o usuário pode decidir quando pretende iniciar sessão para aceder ao recurso protegido ou para atualizar as informações Desatualizadas.
 

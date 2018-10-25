@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: b4e2971b5bb4ed5add2e68c1aabbc82443a61160
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 720b8584c201826e55099ad31667478b6aa57b27
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363388"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024523"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões de máquina virtual e funcionalidades para Linux
 
@@ -54,7 +54,8 @@ Para fornecer a melhor experiência possível, existem versões mínimas do agen
 
 #### <a name="supported-oses"></a>Sistemas operacionais suportados
 
-O agente do Linux é executado em vários sos, no entanto, a estrutura de extensões tem um limite para os sistemas operacionais que extensões. Para obter mais informações, veja [Este artigo] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+O agente do Linux é executado em vários sos, no entanto, a estrutura de extensões tem um limite para os sistemas operacionais que extensões. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Algumas extensões não são suportadas em todos os sos e pode emitir *51 de código de erro, o "SO não suportada"*. Consulte a documentação de extensão individuais para a capacidade de suporte.
 
@@ -65,7 +66,7 @@ Pacotes de extensão são transferidos a partir do repositório de extensão do 
 > [!IMPORTANT]
 > Se bloqueou o acesso a *168.63.129.1* utilizando a firewall de convidado, em seguida, extensões falharem independentemente acima.
 
-Agentes só podem ser utilizados para transferir pacotes de extensão e comunicar o estado. Por exemplo, se uma instalação da extensão tem de transferir um script a partir do GitHub (Script personalizado) ou tem de aceder ao armazenamento do Azure (Azure Backup), em seguida, adicionais/rede de firewall segurança portas de grupo tem de ser aberto. Extensões diferentes têm requisitos diferentes, uma vez que são aplicativos por si mesmos. Para extensões que necessitam de acesso ao armazenamento do Azure, pode permitir acesso utilizando as etiquetas de serviço do Azure NSG para [armazenamento](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agentes só podem ser utilizados para transferir pacotes de extensão e comunicar o estado. Por exemplo, se uma instalação da extensão tem de transferir um script a partir do GitHub (Script personalizado) ou tem de aceder ao armazenamento do Azure (Azure Backup), em seguida, adicionais/rede de firewall segurança portas de grupo tem de ser aberto. Extensões diferentes têm requisitos diferentes, uma vez que são aplicativos por si mesmos. Para extensões que necessitam de acesso ao armazenamento do Azure, pode permitir acesso utilizando as etiquetas de serviço do Azure NSG para [armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Para redirecionar os pedidos de tráfego do agente, o agente do Linux tem suporte de servidor proxy. No entanto, esse suporte de servidor proxy não é aplicável a extensões. Tem de configurar cada extensão individual para trabalhar com um proxy.
 
@@ -259,7 +260,7 @@ Na saída do exemplo anterior, é o principal ou o 'pacote implementado versão'
 
 O "agente de estado do objetivo" é a versão de atualização automática.
 
-É altamente recomendável que tenha sempre para o agente, a atualização automática [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Não ter isso significa ativada que necessita para manter a atualizar manualmente o agente e não obter correções de bugs e de segurança.
+É altamente recomendável que tenha sempre para o agente, a atualização automática [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Não ter isso significa ativada que necessita para manter a atualizar manualmente o agente e não obter correções de bugs e de segurança.
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 

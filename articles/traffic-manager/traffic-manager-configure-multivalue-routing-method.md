@@ -3,8 +3,7 @@ title: Configurar o método de encaminhamento de tráfego de valores múltiplos 
 description: Este artigo explica como configurar o Gestor de tráfego para encaminhar o tráfego para pontos finais de A/AAAA.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: jeconnoc
+author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 1fae1147c941ed28d23a478a0e809b2dffba7a35
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131365"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986770"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurar o método de encaminhamento de valores múltiplos no Gestor de tráfego
 
@@ -42,7 +41,7 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizadores, e
 2. Na **Gestor de tráfego criar perfil**, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **criar**:
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Nome                   | Este nome tem de ser exclusivo dentro da zona trafficmanager.net e os resultados no nome do DNS, trafficmanager.net, que é utilizado para aceder ao seu perfil do Gestor de tráfego.                                   |
+    | Nome                   | Este nome tem de ser exclusivo na zona trafficmanager.net e dá origem ao nome DNS, trafficmanager.net, que é utilizado para aceder ao perfil do seu Gestor de Tráfego.                                   |
     | Método de encaminhamento          | Selecione o **Multivalue** método de encaminhamento.                                       |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione *myResourceGroupTM1*. |
@@ -73,9 +72,9 @@ Adicione dois endereços IP como pontos finais externos para o perfil do Gestor 
  
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [ponderada de método de encaminhamento de tráfego](traffic-manager-configure-weighted-routing-method.md).
-- Saiba mais sobre [método de encaminhamento prioritário](traffic-manager-configure-priority-routing-method.md).
+- Saiba mais sobre o [método de encaminhamento de tráfego ponderado](traffic-manager-configure-weighted-routing-method.md).
+- Saiba mais sobre o [método de encaminhamento prioritário](traffic-manager-configure-priority-routing-method.md).
 - Saiba mais sobre [método de encaminhamento de desempenho](traffic-manager-configure-performance-routing-method.md)
-- Saiba mais sobre [método de encaminhamento geográfico](traffic-manager-configure-geographic-routing-method.md).
+- Saiba mais sobre o [método de encaminhamento geográfico](traffic-manager-configure-geographic-routing-method.md).
 
 

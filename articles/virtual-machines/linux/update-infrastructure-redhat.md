@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: 4a8bc45b253def1130e5a02dfcd6d359f0e74506
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: ad28e30f7f31ec61332faac3ab3ee3c3e2fd67ca
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057041"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024159"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização do Red Hat a pedido Red Hat Enterprise para VMs do Linux no Azure
  [Infraestrutura de atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de cloud, como o Azure, para espelhar o conteúdo do repositório alojado no Red Hat, criar repositórios personalizados com específica do Azure, conteúdo e disponibilizá-lo para VMs do utilizador final.
@@ -76,7 +76,7 @@ Se tiver problemas a ligar ao Azure RHUI da sua VM do Azure RHEL PAYG, siga este
 
     b. Se ele aponta para uma localização com o seguinte padrão, `mirrorlist.*cds[1-4].cloudapp.net`, é necessária uma atualização de configuração. Estiver a utilizar o antigo instantâneo VM e terá de atualizá-lo para apontar para o novo RHUI do Azure.
 
-1. O acesso a RHUI alojado no Azure é limitado a VMs dentro dos [intervalos IP do datacenter do Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
+1. Acesso a RHUI alojado no Azure está limitado a VMs dentro de [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
  
 1. Se estiver a utilizar a nova configuração, ter verificado que a VM liga-se de que o intervalo de IP do Azure e ainda não é possível ligar ao Azure RHUI, o ficheiro de um incidente de suporte com a Microsoft ou do Red Hat.
 

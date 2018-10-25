@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ac8e678d8ca006fc5b0ab52f007590ac4e334bf7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842903"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988540"
 ---
 ## <a name="set-up-your-project"></a>Configurar seu projeto
 
-Esta secção mostra os passos para instalar e configurar o pipeline de autenticação por meio de middleware da OWIN num projeto do ASP.NET através do OpenID Connect. 
+Esta secção mostra os passos para instalar e configurar o pipeline de autenticação por meio de middleware da OWIN num projeto do ASP.NET através do OpenID Connect.
 
 > Prefere transferir o projeto do Visual Studio este exemplo em vez disso? [Transfira um projeto](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) e avance para o [passo de configuração](#register-your-application) para configurar o exemplo de código antes de executar.
 
@@ -47,7 +47,7 @@ Esta secção mostra os passos para instalar e configurar o pipeline de autentic
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Sobre essas bibliotecas
->As bibliotecas acima ativam o início de sessão único (SSO) com o OpenID Connect através da autenticação baseada em cookies. Depois de a autenticação estar concluída e o token que representa o utilizador ser enviado para a sua aplicação, o middleware OWIN cria um cookie de sessão. O browser, em seguida, utiliza esse cookie em solicitações subsequentes para que o usuário não precise escrever novamente a palavra-passe, e nenhuma verificação adicional é necessária.
+> As bibliotecas acima ativam o início de sessão único (SSO) com o OpenID Connect através da autenticação baseada em cookies. Depois de a autenticação estar concluída e o token que representa o utilizador ser enviado para a sua aplicação, o middleware OWIN cria um cookie de sessão. O browser, em seguida, utiliza esse cookie em solicitações subsequentes para que o usuário não precise escrever novamente a palavra-passe, e nenhuma verificação adicional é necessária.
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Configurar o pipeline de autenticação
@@ -87,7 +87,7 @@ Os passos abaixo são utilizados para criar uma classe de inicialização para c
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed by Azure Active Directory v2.0 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -145,4 +145,3 @@ Os passos abaixo são utilizados para criar uma classe de inicialização para c
 > ### <a name="more-information"></a>Mais Informações
 > Os parâmetros que fornecer em *OpenIDConnectAuthenticationOptions* servem de coordenadas para a aplicação comunicar com o Azure AD. Uma vez que o middleware de OpenID Connect utiliza cookies em segundo plano, terá também de configurar a autenticação de cookie, como o código acima mostra. O valor *ValidateIssuer* diz ao OpenIdConnect para não restringir o acesso a uma organização específica.
 <!--end-collapse-->
-

@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: d22eb6c6b56e24c2699bed8ac0a71a8192f0804e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4532b920fe1d4b20eb34f09fac4cb3b30ad36e6a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265042"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985398"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Base de Dados do Azure para MySQL: utilizar o Java para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação Java e o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que está familiarizado com a programação com Java e que nunca trabalhou com a Base de Dados do Azure para MySQL.
@@ -31,8 +31,8 @@ Há muitos outros exemplos, além de código exemplo, na [página de exemplos do
 2. Confirmar que a segurança de ligação da sua Base de Dados do Azure para MySQL é configurada com a firewall aberta e as definições de SSL ajustadas para que a sua aplicação seja iniciada com sucesso.
 
 3. Obtenha o conector MySQL Connector/J através de uma das seguintes formas:
-   - Utilizar o pacote Maven [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) para incluir a [dependência mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) no ficheiro POM do seu projeto.
-   - Transferir o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e incluir o ficheiro .jar do JDBC (por exemplo, mysql-connector-java-5.1.42-bin.jar) no caminho da sua classe de aplicações. Se tiver problemas com caminhos de classe, consulte a documentação do seu ambiente relativamente às especificações de caminho da classe, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Utilizar o pacote Maven [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) para incluir a [dependência mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) no ficheiro POM do seu projeto.
+   - Transferir o controlador JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e incluir o ficheiro .jar do JDBC (por exemplo, mysql-connector-java-5.1.42-bin.jar) no caminho da sua classe de aplicações. Se tiver problemas com caminhos de classe, consulte a documentação do seu ambiente relativamente às especificações de caminho da classe, como [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) ou [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Obter informações da ligação
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
@@ -233,7 +233,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Atualizar dados
-Utilize o código seguinte para alterar os dados com a instrução SQL **UPDATE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é utilizado para se ligar ao MySQL. Os métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são utilizados para preparar e executar a instrução update. 
+Utilize o código seguinte para alterar os dados com a instrução SQL **UPDATE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é utilizado para se ligar ao MySQL. Os métodos [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são utilizados para preparar e executar a instrução update. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
 
@@ -314,7 +314,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Eliminar dados
-Utilize o código seguinte para remover os dados com a instrução SQL **DELETE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é utilizado para se ligar ao MySQL.  Os métodos [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são utilizados para preparar e executar a instrução update. 
+Utilize o código seguinte para remover os dados com a instrução SQL **DELETE**. O método [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) é utilizado para se ligar ao MySQL.  Os métodos [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) e executeUpdate() são utilizados para preparar e executar a instrução update. 
 
 Substitua os parâmetros do sistema anfitrião, da base de dados, do utilizador e da palavra-passe pelos valores que especificou ao criar o seu próprio servidor e base de dados.
 

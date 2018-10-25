@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 59743df45cf2c7810404d9e6c636790c2855cf74
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785262"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023122"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Como: adicionar o seu nome de domínio personalizado com o portal do Azure Active Directory
 Cada novo Azure inquilino AD vem com um nome de domínio inicial *domainname*. onmicrosoft.com. Não é possível alterar ou eliminar o nome de domínio inicial, mas pode adicionar nomes da sua organização para a lista. Adicionar nomes de domínio personalizados ajuda-o a criar nomes de utilizador que estão familiarizados para seus usuários, como *alain@contoso.com*.
@@ -28,7 +28,7 @@ Antes de poder adicionar um nome de domínio personalizado, tem de criar o seu n
 ## <a name="create-your-directory-in-azure-ad"></a>Criar o seu diretório no Azure AD
 Depois de obter o seu nome de domínio, é possível criar o primeiro diretório do Azure AD.
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) usando um proprietário da subscrição da conta para o diretório e, em seguida, selecione **Azure Active Directory**.
+1. Entrar para o [portal do Azure](https://portal.azure.com/) para o seu diretório, com uma conta com o **proprietário** função para a subscrição e, em seguida, selecione **Azure Active Directory**. Para obter mais informações sobre as funções de subscrição, veja [funções de administrador de subscrição clássico, funções RBAC do Azure e funções de administrador do Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
     ![Ecrã do portal do Azure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
@@ -72,7 +72,7 @@ Depois de adicionar o seu nome de domínio personalizado para o Azure AD, tem de
 Depois de registar o seu nome de domínio personalizado, terá de certificar-se de que é válido no Azure AD. A propagação da sua entidade de registo do domínio para o Azure AD pode ser imediata ou podem demorar alguns dias, dependendo da sua entidade de registo do domínio.
 
 ### <a name="to-verify-your-custom-domain-name"></a>Para verificar o seu nome de domínio personalizado
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) com uma conta de Administrador Global do diretório.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
 2. Selecione **do Azure Active Directory**e, em seguida, selecione **nomes de domínio personalizado**.
 

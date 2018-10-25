@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465814"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986428"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorizar grupos de recursos com o Azure Monitor (pré-visualização)
 
@@ -100,7 +100,7 @@ Isso revela a consulta do Log Analytics subjacente que está a orientar a visual
 
 É possível modificar a consulta diretamente. Ou pode usá-la como uma referência e emprestam ao conceber a sua própria pasta de trabalho parametrizada personalizada.
 
-### <a name="investigate-performance"></a>Investigar o desempenho
+### <a name="investigate-performance"></a>Investigue o desempenho
 
 Desempenho oferece sua própria Galeria de pastas de trabalho. Serviço de aplicações, a pasta de trabalho de desempenho de aplicações pré-criadas oferece a vista seguinte:
 
@@ -113,7 +113,12 @@ Neste caso, se selecionar edição verá que este conjunto de visualizações ut
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="enabling-access-to-alerts"></a>Permitir o acesso aos alertas
-O Azure Monitor para grupos de recursos tem determinadas permissões para acessar o estado do alerta dos recursos no seu grupo de recursos. Se vir uma mensagem de erro ao carregar os alertas, não tem permissões suficientes. Peça ao seu administrador para lhe conceder o **proprietário** ou **contribuinte** função para a subscrição que contém o grupo de recursos.
+
+Para ver os alertas no Azure Monitor para grupos de recursos, alguém com uma função de proprietário ou contribuinte para esta subscrição tem de abrir o Azure Monitor para grupos de recursos para qualquer grupo de recursos na subscrição. Isso permitirá que qualquer pessoa com acesso de leitura para ver alertas no Azure Monitor para grupos de recursos para todos os grupos de recursos na subscrição. Se tiver uma função de proprietário ou contribuinte, atualize esta página dentro de alguns minutos.
+
+O Azure Monitor para grupos de recursos se baseia no sistema de gestão de alertas do Azure Monitor para obter o estado do alerta. Gestão de alertas não está configurado para cada grupo de recursos e subscrição por predefinição e só pode ser ativada por alguém com uma função de proprietário ou contribuinte. Pode ser ativado por:
+* Abrir o Monitor do Azure para grupos de recursos para qualquer grupo de recursos na subscrição.
+* Ou ao aceder à subscrição, ao clicar **fornecedores de recursos**, em seguida, clicar em **se registrar para Alerts.Management**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

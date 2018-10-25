@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883725"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465921"
 ---
 # <a name="what-is-project-answer-search"></a>O que é a Pesquisa de Respostas do Projeto?
 A API de Pesquisa de Respostas do Projeto utiliza o ponto final do Bing v7 para obter respostas para consultas interrogativas. Uma pergunta como “Qual é a circunferência da terra?” devolve uma resposta com informações factuais.  Uma consulta de uma pessoa, local ou coisa devolve informações sobre a entidade identificada pela consulta. Estes cenários podem ser úteis em aplicações, como bots de conversação, aplicações de mensagens, leitores, etc.  
@@ -252,7 +252,7 @@ O Utilizador ou terceiros em seu nome não poderão utilizar, reter, armazenar, 
 
 As respostas da Pesquisa de Respostas do Projeto contêm informações pertencentes a terceiros. É da sua responsável garantir a respetiva utilização adequada, por exemplo, ao respeitar o cumprimento de qualquer licença Creative Commons na qual a sua experiência de utilizador se baseie.  
   
-Se uma resposta ou resultado incluir os campos `contractualRules`, `attributions`, ou `provider`, tem de atribuir os dados. Se a resposta não incluir nenhum desses campos, a atribuição não é necessária. Se a resposta incluir o campo `contractualRules` e os campos `attributions` e/ou `provider`, tem de utilizar as regras contratuais para atribuir os dados.  
+Se uma resposta ou resultado incluir os campos `contractualRules`, `attributions` ou `provider`, tem de atribuir os dados. Se a resposta não incluir nenhum desses campos, a atribuição não é necessária. Se a resposta incluir o campo `contractualRules` e os campos `attributions` e/ou `provider`, tem de utilizar as regras contratuais para atribuir os dados.  
   
 O exemplo seguinte mostra uma entidade que inclui uma regra contratual MediaAttribution e uma imagem que inclui um campo `provider`. A regra MediaAttribution identifica a imagem como o destino da regra, pelo que poderia ignorar o campo `provider` da imagem e utilizar, em alternativa, a regra MediaAttribution para fornecer a atribuição.  
   
@@ -313,7 +313,7 @@ O seguinte mostra um exemplo que inclui uma regra `LicenseAttribution`.
   
 ![Atribuição de licença](./media/licenseattribution.png)  
   
-O aviso de licença que apresentar tem de incluir uma hiperligação para o site que contenha informações sobre a licença. Normalmente, torna o nome da licença numa hiperligação. Por exemplo, se o aviso for **Texto ao abrigo da licença CC-BY-SA** e CC-BY-SA for o nome da licença, tornaria CC-BY-SA numa hiperligação.  
+O aviso de licença que apresentar tem de incluir uma hiperligação para o site que contenha informações sobre a licença. Normalmente, o nome da licença é utilizado como hiperligação. Por exemplo, se o aviso for **Texto ao abrigo da licença CC-BY-SA** e CC-BY-SA for o nome da licença, tornaria CC-BY-SA numa hiperligação.  
   
 ### <a name="link-and-text-attribution"></a>Atribuição de Ligação e Texto  
 
@@ -334,7 +334,7 @@ O seguinte mostra um exemplo que inclui um campo `provider` e as regras contratu
 ![Atribuição de suporte de dados](./media/mediaattribution.png)  
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Início rápido de C#](c-sharp-quickstart.md)
-- [Início rápido de Java](java-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do Java](java-quickstart.md)
 - [Início rápido de Node](node-quickstart.md)
-- [Início rápido do Python](python-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

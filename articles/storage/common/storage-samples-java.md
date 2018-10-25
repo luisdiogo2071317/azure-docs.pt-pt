@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: bdc25a7aeff88d058eaf3fddf6cec023edff3b9e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531478"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984269"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure com Java
 
@@ -25,11 +25,11 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Ponto Final</th><th style="font-size:110%">Cenário</th><th style="font-size:110%">Código de Exemplo</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Blob de acréscimo</td> 
+<td>Acrescentar Blob</td> 
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Introdução ao serviço de Blobs do Azure em Java</a></td> 
 </tr> 
 <tr> 
-<td>Blob de blocos</td>
+<td>Blob de Blocos</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Introdução ao serviço de Blobs do Azure em Java</a></td>
 </tr> 
 <tr> 
@@ -73,7 +73,7 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Introdução ao serviço de Blobs do Azure em Java</a></td>
 </tr> 
 <tr> 
-<td>BLOBs de páginas</td>
+<td>Blob de Página</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Introdução ao serviço de Blobs do Azure em Java</a></td>
 </tr>
 <tr> 
@@ -161,31 +161,31 @@ A tabela seguinte fornece uma visão geral do nosso repositório de exemplos e o
 <tr> 
 <td rowspan="7"><b>Tabela</b></td>
 <td>Criar tabela</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
 </tr> 
 <tr> 
 <td>Eliminar entidade/tabela</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
 </tr> 
 <tr> 
 <td>Entidade de inserção/intercalação/substituir</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Exemplos de biblioteca de cliente de Java de armazenamento</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
 </tr> 
 <tr> 
 <td>Consultar entidades</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
 </tr> 
 <tr> 
 <td>Tabelas de consulta</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
 </tr> 
 <tr> 
 <td>ACL/propriedades da tabela</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableAdvanced.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
 </tr> 
 <tr> 
 <td>Atualizar a entidade</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Exemplos de biblioteca de cliente de Java de armazenamento</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a> (Introdução ao Serviço Tabela do Azure em Java)</td> 
 </tr> 
 </tbody> 
 </table>

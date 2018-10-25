@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426816"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026012"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
@@ -60,7 +60,7 @@ Ao escolher um balanceador de carga global entre o Gestor de tráfego e a porta 
 | --------------- | ------------------------ |
 |**Qualquer protocolo:** porque o Gestor de tráfego funciona na camada DNS, pode encaminhar qualquer tipo de tráfego de rede: HTTP, TCP, UDP, etc. | **Aceleração de HTTP:** porta da frente com o tráfego é transmitidas por proxy na rede do Edge da Microsoft.  Por este motivo, os pedidos de HTTP (S) veja melhorias de latência e débito, reduzindo a latência para negociação de SSL e usando conexões de acesso frequente do AFD para seu aplicativo.|
 |**Encaminhamento no local:** com o encaminhamento numa camada DNS, o tráfego passa sempre de ponto a ponto.  Encaminhamento da sua sucursal para o seu datacenter no local, pode demorar um caminho direto; mesmo em sua própria rede utilizando o Gestor de tráfego. | **Escalabilidade independente:** porta da frente porque funciona com o pedido HTTP, pedidos para os caminhos de URL diferentes podem ser encaminhados para o back-end diferente / serviço regional conjuntos (microsserviços) com base em regras e o estado de funcionamento de cada microsserviço de aplicação.|
-|**Formato de faturação:** faturação baseada no DNS dimensiona com os seus utilizadores e serviços com mais usuários, plateaus para reduzir o custo de uma utilização superior. |**Segurança de inline:** desde início ativa regras, como a limitação de velocidade e a ACL, ing IP para permitem-lhe proteger o seu back-ends antes do tráfego chega a sua aplicação. 
+|**Formato de faturação:** faturação baseada no DNS dimensiona com os seus utilizadores e serviços com mais usuários, plateaus para reduzir custos, em utilização superior. |**Segurança de inline:** desde início ativa regras, como a limitação de velocidade e a ACL, ing IP para permitem-lhe proteger o seu back-ends antes do tráfego chega a sua aplicação. 
 
 </br>Por causa do desempenho, capacidade de operação e benefícios de segurança para cargas de trabalho HTTP com a porta da frente, recomendamos que os clientes utilizam a porta de entrada para as cargas de trabalho HTTP.    Gestor de tráfego e a porta de entrada podem ser utilizada em paralelo para servir de todo o tráfego para a sua aplicação. 
 

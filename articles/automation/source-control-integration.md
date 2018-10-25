@@ -9,26 +9,26 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785329"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023752"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
-Controlo de origem permite-lhe manter os runbooks na sua automação de conta são atualizados com seus scripts no seu repositório de controle de origem GitHub ou operações de programação do Azure. Controlo de origem permite-lhe facilmente colaborar com sua equipe, controlar as alterações e reverta para versões anteriores dos seus runbooks. Por exemplo, o controlo de origem permite-lhe sincronizar ramificações diferentes no controle de origem para as contas de automatização de desenvolvimento, teste ou produção. Isto torna mais fácil promover o código que foi testado em seu ambiente de desenvolvimento para a sua conta de automatização de produção.
+Controlo de origem permite-lhe manter os runbooks na sua automação de conta são atualizados com seus scripts no seu repositório de controle de origem GitHub ou do Azure DevOps. Controlo de origem permite-lhe facilmente colaborar com sua equipe, controlar as alterações e reverta para versões anteriores dos seus runbooks. Por exemplo, o controlo de origem permite-lhe sincronizar ramificações diferentes no controle de origem para as contas de automatização de desenvolvimento, teste ou produção. Isto torna mais fácil promover o código que foi testado em seu ambiente de desenvolvimento para a sua conta de automatização de produção.
 
 A automatização do Azure suporta 3 tipos de controle de origem:
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (TFVC)
+* DevOps do Azure (Git)
+* DevOps do Azure (TFVC)
 
 ## <a name="pre-requisites"></a>Pré-requisitos
 
-* Um repositório de controle de origem (GitHub ou o Visual Studio Team Services)
+* Um repositório de controle de origem (GitHub ou do Azure DevOps)
 * O correto [permissões](#personal-access-token-permissions) para o repositório de controle de origem
 * A [Run-As contas e de conexão](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 |Propriedade  |Descrição  |
 |---------|---------|
 |Nome do controlo de origem     | Um nome amigável para o controle de origem        |
-|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Tipo de controlo de origem     | O tipo de origem do controle de origem. As opções disponíveis são:</br> Github</br>DevOps do Azure (Git)</br> DevOps do Azure (TFVC)        |
 |Repositório     | O nome do repositório ou projeto. Este valor é extraído do repositório de controle de origem. Exemplo: $/ ContosoFinanceTFVCExample         |
 |Ramo     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks para sincronizar. Exemplo: /Runbooks         |

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 48dcc558d4855874df02ad5c631211f16fd8c29e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431819"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024992"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução numa função de trabalho de Runbook híbrida
 
@@ -89,7 +89,7 @@ Para utilizar uma identidade gerida para recursos do Azure numa função de trab
 1. Criar uma VM do Azure
 2. [Configurar identidades geridas para recursos do Azure na sua VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [Conceder o acesso à sua VM a um grupo de recursos no Resource Manager](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
-4. [Obter um token de acesso com a identidade gerida de atribuído de sistema da VM] (.. / active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+4. [Obter um token de acesso com a identidade gerida de atribuído de sistema da VM](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
 5. [Instalar a função de trabalho de Runbook do Windows híbrida](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) na máquina virtual.
 
 Depois dos passos anteriores estiverem concluídos, pode usar `Connect-AzureRmAccount -Identity` no runbook para se autenticarem nos recursos do Azure. Isso reduz a necessidade de tirar partido de uma conta Run As e gerir o certificado para a conta Run As.

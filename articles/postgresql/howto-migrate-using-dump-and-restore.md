@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409614"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984677"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a sua base de dados do PostgreSQL com a captura e restauro
 Pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados do PostgreSQL para um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados do PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.
@@ -85,4 +85,4 @@ Lembre-se de testar e validar estes comandos num ambiente de teste antes de usá
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Para migrar uma base de dados do PostgreSQL com exportar e importar, consulte [migrar a sua base de dados do PostgreSQL com exportar e importar](howto-migrate-using-export-and-import.md).
-- Para obter mais informações sobre como migrar bases de dados para a base de dados do Azure para PostgreSQL, veja a [guia de migração de bases de dados](http://aka.ms/datamigration).
+- Para obter mais informações sobre como migrar bases de dados para a base de dados do Azure para PostgreSQL, veja a [guia de migração de bases de dados](https://aka.ms/datamigration).

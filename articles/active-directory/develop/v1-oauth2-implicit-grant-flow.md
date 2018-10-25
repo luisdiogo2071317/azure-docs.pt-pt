@@ -17,14 +17,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: acdc3417643484fa98b16c4be1b83a44a8b73fc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963004"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985731"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure Active Directory (AD)
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 A concessão implícita OAuth2 é famosa por ser a concessão com a mais longa lista de preocupações com a segurança na especificação do OAuth2. E ainda, que é a abordagem implementada pelo JS da ADAL e o que recomendamos ao escrever aplicativos SPA. O que acontece? É todos os uma questão de vantagens e desvantagens: e acontece que, a concessão implícita é a melhor abordagem, pode buscar para aplicações que consomem uma API Web por meio de JavaScript a partir de um browser.
 

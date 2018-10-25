@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: 8c5274db69831aaaeaaed2b81627bbb4aeb8cd75
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 10/23/2018
+ms.openlocfilehash: 0a514cced50a2a05008c03dfb438cceefb332d17
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954946"
+ms.locfileid: "49987329"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de recursos para bases de dados individuais com o modelo de compra baseado em DTU
 
@@ -80,8 +80,8 @@ Para bases de dados individuais, as tabelas seguintes mostram os recursos dispon
 | Sessões simultâneas máx. | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-> [!IMPORTANT] 
-> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões seguintes, exceto as seguintes leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, norte do Reino Unido, sul do Reino Unido, US DOD Central, US DOD East, Goverment E.u. a centro- e e.u.a. Centro-Oeste: na Estas regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> [!IMPORTANT]
+> Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto o seguinte: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, norte do Reino Unido, sul do Reino Unido, US DOD Central, US DOD East, Goverment E.u. a centro- e e.u.a. Centro-Oeste.  Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Base de dados: alterar o tamanho de armazenamento
 

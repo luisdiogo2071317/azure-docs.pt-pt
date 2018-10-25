@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cd529b63a4683f866a8a94379b6da12bee7eb775
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c221093caebca66f6d0b79951cb1a45b8933c5e9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088434"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954425"
 ---
 # <a name="create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Criar uma fábrica de dados e um pipeline do Azure com a API REST
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 * **Conta de Armazenamento do Azure**. Utilize o armazenamento de blobs como arquivo de dados de **origem** e de **sink**. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
 * Crie um **contentor de blobs** no Armazenamento de Blobs, crie uma **pasta** de entrada no contentor e carregue alguns ficheiros para a pasta. Pode utilizar ferramentas como o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ligar ao Armazenamento de Blobs do Azure, criar contentores de blobs, carregar o ficheiro de entrada e verificar o ficheiro de saída.
 * Instale o **Azure PowerShell**. Siga as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps). Este início rápido utiliza o PowerShell para invocar chamadas à API REST.
-* **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota dos seguintes valores que vai utilizar em passos posteriores: **ID da aplicação**, **chave de autenticação** e **ID de inquilino**. Atribua a aplicação à função "**Contribuidor**".
+* **Crie uma aplicação no Azure Active Directory** ao seguir [estas instruções](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Tome nota dos seguintes valores que vai utilizar em passos posteriores: **ID da aplicação**, **chave de autenticação** e **ID de inquilino**. Atribua a aplicação à função "**Contribuidor**".
 
 ## <a name="set-global-variables"></a>Definir variáveis globais
 

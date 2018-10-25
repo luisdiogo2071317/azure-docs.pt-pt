@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498237"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985255"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -127,7 +127,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 
 - **Nome**: introduza um nome exclusivo para identificar a implementação de atualização.
 - **Sistema operativo**: selecione **Windows** ou **Linux**.
-- **Grupos de atualização (pré-visualização)**: definir uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)
+- **Grupos a atualizar (pré-visualização)**: defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management.md#using-dynamic-groups)
 - **Computadores a atualizar**: selecione uma pesquisa guardada, grupo importada, ou selecione máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
@@ -142,7 +142,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
   - Ferramentas
   - Atualizações
 
-- **Atualizações para incluir/excluir** -esta ação abre o **incluir/excluir** página. As atualizações serem incluídos ou excluídos estão nos separadores separados. Para obter informações adicionais sobre como a inclusão é processada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior)
+- **Atualizações a incluir/excluir**: esta opção abre a página **Incluir/Excluir**. As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter informações adicionais sobre como é processada a inclusão, veja [comportamento de inclusão](automation-update-management.md#inclusion-behavior).
 
 - **Definições da agenda**: pode aceitar a data e hora predefinidas, que é 30 minutos após a hora atual. Também pode especificar uma hora diferente.
 
@@ -150,7 +150,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 
    ![Caixa de diálogo Definições de Agendamento](./media/manage-update-multi/update-set-schedule.png)
 
-- **Pré- scripts de + pós-scripts de**: selecione os scripts sejam executados antes e após a sua implementação. Para obter mais informações, consulte [scripts do anteriores de gerir e Post](pre-post-scripts.md).
+- **Scripts prévios + Scripts posteriores**: selecione os scripts para executar antes e após a sua implementação. Para saber mais, veja [Gerir Scripts prévios e posteriores](pre-post-scripts.md).
 - **Janela de manutenção (minutos)**: Especifique o período de tempo que pretende que a implementação da atualização ocorra. Esta definição ajuda a garantir que as alterações são realizadas nos seus períodos de administração definidos.
 
 - **Controlo de reinício** -esta definição determina a forma como os reinícios são processados para a implementação da atualização.
@@ -163,6 +163,9 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
    |Reiniciar apenas - não irá instalar atualizações|Esta opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
 
 Quando tiver terminado de configurar a agenda, selecione o **criar** botão para regressar ao dashboard de estado. O **agendada** tabela mostra o agendamento da implementação que criou.
+
+> [!NOTE]
+> Gestão de atualizações suporta a implementação de atualizações de terceiros primeiro e previamente baixar patches. Isso requer alterações nos sistemas que está a ser corrigidos, consulte [primeira parte e pré transferir suporte](automation-update-management.md#firstparty-predownload) para aprender a configurar estas definições em seus sistemas.
 
 ## <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 3a141bcde75872f2384aedf982ffef5cba9666a3
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842962"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988531"
 ---
 ## <a name="test-your-code"></a>Testar o seu código
 
@@ -32,12 +32,15 @@ Quando estiver pronto para executar o teste, utilize uma conta do Microsoft Azur
 ![Inicie sessão na sua conta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Ver resultados da aplicação
+
 Depois de iniciar sessão, o utilizador é redirecionado para a home page do seu Web site. A home page é o URL de HTTPS, que é especificado nas suas informações de registo de aplicação no Portal de registo de aplicação do Microsoft. A página inicial inclui uma mensagem de boas-vindas *"Hello \<utilizador >,"* uma ligação para terminar sessão e uma ligação para ver as afirmações do utilizador. A ligação para afirmações do utilizador navega para o *afirmações* controlador que criou anteriormente.
 
 ### <a name="browse-to-see-the-users-claims"></a>Procurar para ver as afirmações do utilizador
+
 Para ver as afirmações do utilizador, selecione a ligação para navegar para a vista de controlador que está disponível apenas para utilizadores autenticados.
 
 #### <a name="view-the-claims-results"></a>Ver os resultados de afirmações
+
 Depois que navega para a vista de controlador, deverá ver uma tabela que contém as propriedades básicas para o utilizador:
 
 |Propriedade |Valor |Descrição |
@@ -49,13 +52,15 @@ Depois que navega para a vista de controlador, deverá ver uma tabela que conté
 
 Além disso, deverá ver uma tabela de todas as afirmações que estão no pedido de autenticação. Para obter mais informações, consulte a [lista de declarações que estão num Token de ID do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
 ### <a name="test-access-to-a-method-that-has-an-authorize-attribute-optional"></a>Testar o acesso a um método que tem um atributo Authorize (opcional)
+
 Para testar o acesso como um usuário anônimo para um controlador protegido com o `Authorize` atributo, siga estes passos:
+
 1. Selecione a ligação para iniciar o utilizador e concluir o processo de fim de sessão.
 2. No seu browser, escreva http://<span></span>localhost: {porta} / afirmações aceder ao seu controlador que está protegido com o `Authorize` atributo.
 
 #### <a name="expected-results-after-access-to-a-protected-controller"></a>Resultados esperados depois de acesso a um controlador protegido
+
 Lhe for pedido para autenticar para utilizar a vista de controlador protegido.
 
 ## <a name="advanced-options"></a>Opções avançadas
@@ -70,6 +75,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Restringir quem pode iniciar sessão sua aplicação
+
 Por predefinição quando cria a aplicação criada por este guia, a aplicação irá aceitar inícios de sessão de contas pessoais (incluindo o outlook.com, live.com e outros), bem como o trabalho contas escolares ou profissionais de qualquer empresa ou organização que está integrado nas O Azure Active Directory. Esta é uma opção recomendada para aplicações SaaS.
 
 Para restringir o início de sessão acesso de utilizador para a sua aplicação, várias opções estão disponíveis:
@@ -88,6 +94,7 @@ Pode restringir o acesso de início de sessão para contas de utilizador única 
 2. Defina o valor do `ValidIssuers` parâmetro à lista de permitidos organizações.
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opção 3: Utilizar um método personalizado para validar os emissores
+
 Pode implementar um método personalizado para validar os emissores utilizando o **IssuerValidator** parâmetro. Para obter mais informações sobre como utilizar este parâmetro, leia sobre o [TokenValidationParameters classe](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) no MSDN.
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]
