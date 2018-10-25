@@ -336,7 +336,7 @@ Terá dos seguintes detalhes para proteger uma máquina virtual detetada:
 
 * O item protegível a serem replicados.
 * A conta de armazenamento para replicar a máquina virtual. Além disso, um armazenamento de registo é necessário para proteger máquinas virtuais para uma conta de armazenamento premium.
-* O servidor de processo a ser utilizada para replicação. A lista de servidores de processos disponíveis foi recuperada e guardada na ***$ProcessServers [0]****(aumento horizontal-ProcessServer)* e ***$ProcessServers [1]*** *(ConfigurationServer)* variáveis.  
+* O servidor de processo a ser utilizada para replicação. A lista de servidores de processos disponíveis foi recuperada e guardada na ***$ProcessServers [0]***  *(aumento horizontal-ProcessServer)* e ***$ProcessServers [1]*** *(ConfigurationServer)* variáveis.
 * A conta a utilizar para o software do serviço de mobilidade em funcionamento nos computadores de instalação de emissão. A lista de contas disponíveis foi recuperada e armazenada no ***$AccountHandles*** variável.
 * O mapeamento de contentor de proteção para a política de replicação para ser utilizada para replicação.
 * O grupo de recursos em que as máquinas virtuais tem de ser criadas na ativação pós-falha.
