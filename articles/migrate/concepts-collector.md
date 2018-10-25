@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945421"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986785"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -198,7 +198,7 @@ Tenha em atenção que a aplicação só recolhe dados de desempenho continuamen
 2. Eliminação das VMs: a forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isso ocorre porque os dados a partir de deteções subsequentes são anexados ao deteções mais antigas e não substituídos. Neste caso, pode simplesmente ignorar a VM no portal, removê-lo a partir do seu grupo de e para recalcular a avaliação.
 
 > [!NOTE]
-> A funcionalidade de deteção contínua está em pré-visualização. Se as definições de estatísticas do vCenter Server não está definida como nível 3, recomendamos que utilize este método.
+> A funcionalidade de deteção contínua está em pré-visualização. Recomendamos que utilize este método como esse método recolhe dados de desempenho granular e resulta em redimensionamento preciso.
 
 
 ## <a name="discovery-process"></a>Processo de deteção

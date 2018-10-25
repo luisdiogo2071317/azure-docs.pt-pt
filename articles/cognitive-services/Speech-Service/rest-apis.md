@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: 0cc278cdb59bfbb53578eae0f51c9b54204d7d12
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466278"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025842"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -22,7 +22,7 @@ As APIs REST do serviço de voz dos serviços cognitivos do Azure são semelhant
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela seguinte. Utilize um que corresponde à sua região de subscrição. 
+Os pontos finais para a conversão de voz em texto REST API são mostrados na tabela seguinte. Utilize um que corresponde à sua região de subscrição.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -42,7 +42,7 @@ Os seguintes parâmetros podem ser incluídos na cadeia de consulta da solicita�
 |`format`|Opcional<br>predefinição: `simple`|Formato de resultado `simple` ou `detailed`. Os resultados da simples incluem `RecognitionStatus`, `DisplayText`, `Offset`e a duração. Resultados detalhados incluem vários candidatos com valores de confiança e quatro diferentes representações.|
 |`profanity`|Opcional<br>predefinição: `masked`|Como lidar com linguagem inapropriada nos resultados de reconhecimento. Pode ser `masked` (substitui linguagem inapropriada por asteriscos), `removed` (Remove todos os profanidades), ou `raw` (inclui a linguagem inapropriada).
 
-### <a name="request-headers"></a>Cabeçalhos do pedido
+### <a name="request-headers"></a>Cabeçalhos de pedido
 
 Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 
@@ -57,13 +57,13 @@ Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 
 ### <a name="audio-format"></a>Formato de áudio
 
-O áudio é enviado no corpo do HTTP `PUT` pedido. Deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz da formatos/codificação seguinte.
+O áudio é enviado no corpo do HTTP `POST` pedido. Deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz da formatos/codificação seguinte.
 
 * Formato WAV com PCM codec
 * Formato de OGG com OPUS codec
 
 >[!NOTE]
->Os formatos acima são suportados através da REST API e WebSocket no serviço de voz. O [SDK de voz](/index.yml) atualmente apenas suporta o WAV formatar com o codec PCM. 
+>Os formatos acima são suportados através da REST API e WebSocket no serviço de voz. O [SDK de voz](/index.yml) atualmente apenas suporta o WAV formatar com o codec PCM.
 
 ### <a name="chunked-transfer"></a>Transferência em partes
 
@@ -145,7 +145,7 @@ O `RecognitionStatus` campo pode conter os seguintes valores.
 | `Error` | O serviço de reconhecimento de obteve um erro interno e não foi possível continuar. Tente novamente se possível. |
 
 > [!NOTE]
-> Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz. 
+> Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz.
 
 
 O `detailed` formato inclui os mesmos campos que o `simple` formatar, juntamente com um `NBest` campo. O `NBest` campo é uma lista de alternativas interpretações sobre a mesma conversão de voz, classificados do maior probabilidade de, pelo menos, provavelmente. A primeira entrada é o mesmo, como o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
@@ -207,12 +207,12 @@ O serviço de voz oferece suporte a saída de áudio de 24 KHz, além da saída 
 
 Região | Idioma   | Género | Mapeamento de nome de serviço
 -------|------------|--------|------------
-pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)" 
+pt-PT  | Inglês dos Estados Unidos | Feminino | "Microsoft Server voz texto para voz de voz (en-US, Jessa24kRUS)"
 pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto para voz de voz (en-US, Guy24kRUS)"
 
 Uma lista completa de vozes disponíveis está disponível no [idiomas suportados](language-support.md#text-to-speech).
 
-### <a name="request-headers"></a>Cabeçalhos do pedido
+### <a name="request-headers"></a>Cabeçalhos de pedido
 
 Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 
@@ -235,7 +235,7 @@ Formatos de saída de áudio disponível (`X-Microsoft-OutputFormat`) incorporar
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, não suportam vozes de 24khz `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída. 
+> Se sua voz selecionado e o formato de saída tiverem taxas de bits diferentes, o áudio é resampled conforme necessário. No entanto, não suportam vozes de 24khz `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren` formatos de saída.
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -254,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -267,11 +267,11 @@ O estado HTTP de resposta indica o êxito ou condições de erro comuns.
 Código de HTTP|Significado|Razão possível
 -|-|-|
 200|OK|O pedido foi concluída com êxito; o corpo da resposta é um arquivo de áudio.
-400 |Pedido Inválido |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
+400 |Pedido incorreto |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
 401|Não autorizado |O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto.
 413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
-429|Demasiados Pedidos|Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição.
-502|Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
+429|Demasiados pedidos|Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição.
+502|Gateway inválido | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
 Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que ele tem transferidos ou guardada para um ficheiro para posterior reprodução ou outro uso ou memória intermédia.
 
@@ -328,10 +328,10 @@ cURL é uma ferramenta da linha de comandos disponível no Linux (e no subsistem
 > O comando é mostrado em várias linhas para facilitar a leitura, mas introduzi-lo numa única linha no prompt do shell.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -411,7 +411,7 @@ Como antes, certifique-se de que o `FetchTokenUri` valor corresponde à sua regi
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -486,4 +486,3 @@ public class Authentication
 - [Obter a subscrição de avaliação de Voz](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)
-

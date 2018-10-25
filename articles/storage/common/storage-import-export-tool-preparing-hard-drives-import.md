@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 7fc3e68e9d714ca95a28a28b470b1e1fdbff2c47
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870898"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025629"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparar as unidades de disco rígidas para uma tarefa de importação
 
@@ -309,7 +309,7 @@ Se o tamanho dos dados é maior do que o tamanho do disco, a ferramenta de WAImp
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Onde posso encontrar uma versão anterior da ferramenta de WAImportExport?
 
-Ferramenta de WAImportExport tem todas as funcionalidades que tinha de ferramenta WAImportExport V1. Ferramenta de WAImportExport permite aos utilizadores especificar várias origens e gravar em várias unidades. Além disso, um pode gerir facilmente várias localizações de origem a partir do qual os dados têm de ser copiados num único ficheiro CSV. No entanto, caso tem suporte SAS ou se quiser copiar a única origem para o disco único, pode [baixar WAImportExport V1 ferramenta] (http://go.microsoft.com/fwlink/?LinkID=301900&amp; clcid = 0x409) e veja [WAImportExport V1 referência](storage-import-export-tool-how-to-v1.md) para obter ajuda com WAImportExport V1 utilização.
+Ferramenta de WAImportExport tem todas as funcionalidades que tinha de ferramenta WAImportExport V1. Ferramenta de WAImportExport permite aos utilizadores especificar várias origens e gravar em várias unidades. Além disso, um pode gerir facilmente várias localizações de origem a partir do qual os dados têm de ser copiados num único ficheiro CSV. No entanto, caso seja necessário suporte SAS ou se quiser copiar origem única para o disco único, pode [transferir a ferramenta de V1 WAImportExport](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) e consulte [WAImportExport V1 referência](storage-import-export-tool-how-to-v1.md) para obter ajuda com a utilização de WAImportExport V1 .
 
 #### <a name="what-is-a-session-id"></a>O que é um ID de sessão?
 
@@ -407,7 +407,7 @@ Ferramenta de WAImportExport lê e escreve ficheiros batch pelo batch, um lote c
 * [Configurar a ferramenta de importação/exportação do Azure](storage-import-export-tool-setup.md)
 * [Definir propriedades e metadados durante o processo de importação](storage-import-export-tool-setting-properties-metadata-import.md)
 * [Fluxo de trabalho de amostra para preparar unidades de disco rígido para uma tarefa de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [Referência rápida para comandos utilizados com frequência](storage-import-export-tool-quick-reference.md) 
+* [Referência rápida para comandos utilizados com frequência](storage-import-export-tool-quick-reference.md) 
 * [Revisão do estado da tarefa com ficheiros de registo de cópia](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Reparação de uma tarefa de importação](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparação de uma tarefa de exportação](storage-import-export-tool-repairing-an-export-job-v1.md)

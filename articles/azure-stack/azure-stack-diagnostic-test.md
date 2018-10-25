@@ -2,7 +2,7 @@
 title: Executar um teste de validação no Azure Stack | Documentos da Microsoft
 description: Como recolher ficheiros de registo para obter um diagnóstico no Azure Stack.
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: mabrigg
-ms.reviewer: hectorl
-ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/24/2018
+ms.author: jeffgilb
+ms.reviewer: adshar
+ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340856"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024624"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
@@ -39,7 +39,7 @@ Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsof
     3. Abra o PowerShell como um Administrador.
     4. Execute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
-4. Se qualquer teste de relatório falhar, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet reúne os registos de teste AzureStack. Para obter mais informações sobre os registos de diagnóstico, consulte [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md).
+4. Se qualquer teste de relatório falhar, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet reúne os registos de teste AzureStack. Para obter mais informações sobre os registos de diagnóstico, consulte [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Não deve recolher registos ou contacte o suporte de serviços ao cliente da Microsoft (CSS) se o aviso de relatório de testes.
 5. Enviar a **SeedRing** registos ao suporte ao cliente de serviços da Microsoft. Suporte ao cliente de serviços da Microsoft trabalha para resolver o problema.
 
 ## <a name="reference-for-test-azurestack"></a>Referência para o teste AzureStack

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 08/13/2018
-ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166508"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025383"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server 
 
@@ -103,7 +103,7 @@ Ver [Criar certificado](https://docs.microsoft.com/sql/t-sql/statements/create-c
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -333,21 +333,22 @@ Para obter informações sobre instruções de restauro, veja [restaurar instru�
  - `remote proc trans` 
 - `sp_execute_external_scripts` Não é suportada. Ver [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` Não é suportada. Ver [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` não são suportadas, incluindo `sp_addextendedproc` e `sp_dropextendedproc`. Consulte [procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `Extended stored procedures` não são suportadas, incluindo `sp_addextendedproc`  e `sp_dropextendedproc`. Consulte [procedimentos armazenados expandidos](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, e `sp_detach_db` não são suportadas. Ver [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` Não é suportada. Ver [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Definições do agente do SQL são só de leitura. Procedimento `sp_set_agent_properties` não é suportado na instância gerida.  
-- Tarefas - passos da tarefa de T-SQL são atualmente suportadas
-- Outros tipos de tarefa passos não são atualmente suportados (passo mais tipos serão adicionados durante a pré-visualização pública).
-  - Tarefas de replicação não suportadas incluindo:
+- Tarefas
+ - Passos da tarefa de T-SQL são suportados.
+ - São suportadas as seguintes tarefas de replicação:
     - Leitor de log de transações.  
     - Instantâneo.
-    - Distribuidor.  
-    - Intercalação.  
-  - SSIS ainda não é suportado. 
+    - Distribuidor.
+ - SSIS é suportado. 
+- Outros tipos de passos da tarefa não são atualmente suportados, incluindo:
+  - Passo de tarefa de replicação de intercalação não é suportado.  
   - Leitor de fila não é suportada.  
   - Shell de comandos ainda não é suportada. 
   - Instância gerida não é possível aceder a recursos externos (por exemplo, compartilhamentos de rede através do robocopy).  
@@ -411,7 +412,7 @@ Neste exemplo bases de dados existentes continuarão a funcionar e cresça sem q
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Restaurar a configuração incorreta da chave SAS durante a base de dados
 
 `RESTORE DATABASE` ele lê o ficheiro. bak poderá ser constantemente Repetir para ler o ficheiro. bak e o erro devolvido após o longo período de tempo se assinatura de acesso partilhado no `CREDENTIAL` está incorreto. Execute RESTORE HEADERONLY antes de restaurar uma base de dados não se esqueça de que a chave SAS está correta.
-Certifique-se de que remova líderes `?` da chave de SAS gerado através do portal do Azure.
+Certifique-se de que remove o líder `?` da chave de SAS gerado com o portal do Azure.
 
 ### <a name="tooling"></a>Ferramentas
 

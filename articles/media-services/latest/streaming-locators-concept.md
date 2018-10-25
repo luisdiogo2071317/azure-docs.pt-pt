@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 1757ca84e7390f1ecd2d6d1e90a085372d3e4c57
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381186"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986902"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -28,18 +28,18 @@ A tabela seguinte mostra as propriedades do StreamingLocator e fornece as respet
 
 |Nome|Tipo|Descrição|
 |---|---|---|
-|ID |cadeia|ID de recurso completamente qualificado para o recurso.|
-|nome   |cadeia|O nome do recurso.|
-|properties.alternativeMediaId  |cadeia|ID de suporte de dados alternativa deste localizador de transmissão em fluxo.|
-|properties.assetName   |cadeia|Nome do elemento|
+|ID |string|ID de recurso completamente qualificado para o recurso.|
+|nome   |string|O nome do recurso.|
+|properties.alternativeMediaId  |string|ID de suporte de dados alternativa deste localizador de transmissão em fluxo.|
+|properties.assetName   |string|Nome do elemento|
 |properties.contentKeys |StreamingLocatorContentKey []|O ContentKeys utilizado por este localizador de transmissão em fluxo.|
-|Properties.created |cadeia|Hora de criação do localizador de transmissão em fluxo.|
-|properties.defaultContentKeyPolicyName |cadeia|Nome da predefinida ContentKeyPolicy utilizado por este localizador de transmissão em fluxo.|
-|properties.endTime |cadeia|A hora de fim do localizador de transmissão em fluxo.|
-|properties.startTime   |cadeia|A hora de início do localizador de transmissão em fluxo.|
-|properties.streamingLocatorId  |cadeia|O StreamingLocatorId do localizador de transmissão em fluxo.|
-|properties.streamingPolicyName |cadeia|Nome da política de transmissão em fluxo utilizada por este localizador de transmissão em fluxo. Especifique o nome da política de transmissão em fluxo que criou ou utilizar uma das políticas predefinidas de transmissão em fluxo. As políticas de transmissão em fluxo predefinido disponíveis são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e ' Predefined_ MultiDrmStreaming'|
-|tipo   |cadeia|O tipo de recurso.|
+|Properties.created |string|Hora de criação do localizador de transmissão em fluxo.|
+|properties.defaultContentKeyPolicyName |string|Nome da predefinida ContentKeyPolicy utilizado por este localizador de transmissão em fluxo.|
+|properties.endTime |string|A hora de fim do localizador de transmissão em fluxo.|
+|properties.startTime   |string|A hora de início do localizador de transmissão em fluxo.|
+|properties.streamingLocatorId  |string|O StreamingLocatorId do localizador de transmissão em fluxo.|
+|properties.streamingPolicyName |string|Nome da política de transmissão em fluxo utilizada por este localizador de transmissão em fluxo. Especifique o nome da política de transmissão em fluxo que criou ou utilizar uma das políticas predefinidas de transmissão em fluxo. As políticas de transmissão em fluxo predefinido disponíveis são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e ' Predefined_ MultiDrmStreaming'|
+|tipo   |string|O tipo de recurso.|
 
 A definição completa, consulte [localizadores de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators).
 
@@ -103,7 +103,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Para obter exemplos REST, consulte [localizadores de transmissão em fluxo - lista](https://docs.microsoft.com/rest/api/media/streaminglocators/streaminglocators_list)
+Para obter exemplos REST, consulte [localizadores de transmissão em fluxo - lista](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 10/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3c1c681e2c7ccd6b5fd3eaa3639853d99cb1e0b7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 397aa000da7ea70c12883622b60c0e3e6dded811
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005216"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025314"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de início de sessão com o Azure AD Identity Protection
 Com o Azure Active Directory Identity Protection, pode:
@@ -57,13 +57,18 @@ Os administradores podem definir uma política que requer que os utilizadores co
 
 1. No primeiro passo, o utilizador recebe uma notificação sobre o requisito para definir a conta para multi-factor authentication. 
    
-    ![Remediação](./media/flows/140.png "remediação")
+    ![Remediação](./media/flows/301.png "remediação")
+
 2. Para configurar a autenticação multifator, terá de permitir que o sistema sabe como pretende ser contactado.
    
-    ![Remediação](./media/flows/141.png "remediação")
-3. O sistema envia um desafio para e precisa responder.
-   
-    ![Remediação](./media/flows/142.png "remediação")
+    ![Remediação](./media/flows/302.png "remediação")
+
+3. Forneça o sistema com o seu número de telefone número e a forma como pretende ser contactado.
+
+    ![Remediação](./media/flows/303.png "remediação")
+
+Para concluir o registo, precisa responder a uma chamada telefónica ou introduza um código. 
+
 
 ## <a name="risky-sign-in-recovery"></a>Recuperação de início de sessão arriscada
 Quando um administrador tiver configurado uma política para os riscos de início de sessão, os utilizadores afetados são notificados quando o utilizador tentar iniciar sessão. 

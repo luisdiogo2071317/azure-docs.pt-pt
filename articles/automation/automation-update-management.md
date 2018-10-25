@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2bd1d52db88ca280b811898c173f66b2deee1649
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638158"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024499"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -56,7 +56,7 @@ A implementação agendada define que computadores de destino recebem as atualiz
 
 As atualizações são instaladas por runbooks na Automatização do Azure. Não é possível ver estes runbooks e os runbooks não requerem nenhuma configuração. Quando é criada uma implementação de atualização, a implementação da atualização cria uma agenda que inicia um runbook de atualização principal num momento especificado nos computadores incluídos. O runbook principal inicia um runbook subordinado em cada agente para instalar as atualizações necessárias.
 
-A data e hora especificada na implementação de atualização, os computadores de destino executar a implantação em paralelo. Antes da instalação, uma análise é executada para verificar se as atualizações são ainda necessárias. Para computadores de cliente do WSUS, se as atualizações não aprovadas no WSUS, a implementação de atualização falha.
+A data e hora especificada na implementação de atualização, os computadores de destino executar a implantação em paralelo. Antes da instalação, executar uma análise para verificar se as atualizações são ainda necessárias. Para computadores de cliente do WSUS, se as atualizações não aprovadas no WSUS, a implementação de atualização falha.
 
 Ter uma máquina registados para gestão de atualizações em mais do que um Log Analytics áreas de trabalho (multi-homing) não é suportada.
 
@@ -264,7 +264,34 @@ sudo yum -q --security check-update
 
 Atualmente, não existe nenhum método de método suportado para ativar a disponibilidade de dados de classificação nativos no CentOS. Neste momento, apenas de melhor esforço suporte é fornecido aos clientes que poderão ter ativada isso por conta própria.
 
-##<a name="ports"></a>Planeamento de rede
+## <a name="firstparty-predownload"></a>Aplicação de patches de terceiros em primeiro lugar e pré-transferir
+
+Gestão de atualizações que se baseia no Windows Update para transferir e instalar atualizações do Windows. Como resultado, respeitamos muitos das definições utilizadas pelo Windows Update. Se utilizar as definições para ativar as atualizações de não-Windows, gestão de atualizações irão gerir as atualizações também. Se pretender ativar a transferir atualizações antes de ocorre uma implementação de atualização, implementações de atualizações podem ir mais rápido e ser menos provável de exceder a janela de manutenção.
+
+### <a name="pre-download-updates"></a>Atualizações de transferências de pré
+
+Para configurar automaticamente a transferir atualizações na diretiva de grupo, pode definir o [definição configurar atualizações automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) ao **3**. Transfere as atualizações necessárias em segundo plano, mas não instala-los. Isso mantém o gerenciamento de atualizações no controlo de agendas, mas permitir atualizações transferir fora da janela de manutenção de gestão de atualizações. Isso pode impedir **janela de manutenção excedida** erros na gestão de atualizações.
+
+Também pode definir isso com o PowerShell, execute o PowerShell seguinte num sistema que pretende transferir automaticamente as atualizações.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### <a name="enable-updates-for-other-microsoft-products"></a>Ativar as atualizações para outros produtos da Microsoft
+
+Por predefinição, o Windows Update fornece apenas atualizações para Windows. Se habilitar **dar-me de atualizações para outros produtos Microsoft se eu atualizar o Windows**, são fornecidos com as atualizações para outros produtos, incluindo patches de segurança essas coisas para SQL Server ou outro software de terceiros primeiro. Esta opção não pode ser configurada pela diretiva de grupo. Execute o PowerShell seguinte nos sistemas que deseja ativar outros primeiro patches de terceiros em e gestão de atualizações irão honrar esta definição.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>Planeamento de rede
 
 Os seguintes endereços são obrigatórios especificamente para a gestão de atualizações. Comunicação para estes endereços ocorre através da porta 443.
 
@@ -286,7 +313,7 @@ Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas 
 Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página: [documentação de procurar API do Log Analytics](
 https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Amostras de consultas
+### <a name="sample-queries"></a>Consultas de exemplo
 
 As secções seguintes fornecem consultas de registo de exemplo para registos de atualizações que são recolhidos por esta solução:
 

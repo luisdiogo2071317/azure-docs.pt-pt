@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: dstefan
-ms.openlocfilehash: db6778bdea2e3e133535bf28b3c2297cdb65599d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7aa0f80b8a0b53d4c53cf633938765e820c641cf
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958912"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025341"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>O Azure Active Directory prova do playbook do conceito: blocos modulares
 
@@ -209,7 +209,7 @@ Obter uma estimativa de tempo para concluir: 30 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | A lista de aplicações de destino e os URLS exatos início de sessão antes do tempo. Por exemplo, pode utilizar o Twitter. | [Twitter no Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Inscrever-se no Twitter](https://twitter.com/signup?lang=en) |
-| Partilhado credenciais para esta aplicação SaaS. | [Partilhar contas com o Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD automatizada de palavra-passe rollover para Facebook, Twitter e LinkedIn agora em pré-visualização! -Blogue Enterprise Mobility and Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
+| Partilhado credenciais para esta aplicação SaaS. | [Partilhar contas com o Azure AD](active-directory-sharing-accounts.md)<br/>[O Azure AD automatizada de palavra-passe rollover para Facebook, Twitter e LinkedIn agora em pré-visualização! -Blogue Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Credenciais para, pelo menos, dois membros de equipe que vão aceder a mesma conta. Têm de ser parte de um grupo de segurança. | [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Acesso de administrador local para um computador para implementar a extensão do painel de acesso para o Internet Explorer, Chrome ou Firefox | [Extensão do painel de acesso para o IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do painel de acesso para o Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do painel de acesso para Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 

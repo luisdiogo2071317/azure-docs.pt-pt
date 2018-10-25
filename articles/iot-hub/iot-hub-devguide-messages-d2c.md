@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: abc32b726eea55f08a052f29a12f1eb237d4f5d6
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8424fa721d87467de70b4365578d196b3145b4b0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311325"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024278"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilizar o encaminhamento de mensagens para enviar mensagens do dispositivo para a cloud para diferentes pontos de extremidade
 
@@ -27,7 +27,7 @@ Roteamento de mensagens permite-lhe enviar mensagens a partir dos seus dispositi
 
 IoT Hub precisa de acesso de escrita para estes pontos finais de serviço para encaminhamento de mensagens funcione. Se configurar os pontos finais através do portal do Azure, são adicionadas as permissões necessárias para. Certifique-se de que configura seus serviços para suportar o débito esperado. Ao configurar a sua solução de IoT em primeiro lugar, terá de monitorizar os pontos finais adicionais e faça qualquer ajuste necessário para a carga real.
 
-O IoT Hub define um [formato comum](iot-hub-devguide-messages-construct.md) para todos os dispositivos-para-cloud messaging para interoperatbility entre protocolos. Se uma mensagem corresponde a várias rotas que apontam para o mesmo ponto final, IoT Hub entregar mensagens para esse ponto final apenas uma vez. Portanto, não precisa de configurar a eliminação de duplicados no tópico ou fila do Service Bus. Em filas particionadas, a afinidade de partição garante a ordenação de mensagens. Utilize este tutorial para saber como [configurar o encaminhamento de mensagens] (tutorial-routing.md).
+O IoT Hub define um [formato comum](iot-hub-devguide-messages-construct.md) para todos os dispositivos-para-cloud messaging para interoperatbility entre protocolos. Se uma mensagem corresponde a várias rotas que apontam para o mesmo ponto final, IoT Hub entregar mensagens para esse ponto final apenas uma vez. Portanto, não precisa de configurar a eliminação de duplicados no tópico ou fila do Service Bus. Em filas particionadas, a afinidade de partição garante a ordenação de mensagens. Utilize este tutorial para saber como [configurar o encaminhamento de mensagens](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Pontos finais de encaminhamento
 

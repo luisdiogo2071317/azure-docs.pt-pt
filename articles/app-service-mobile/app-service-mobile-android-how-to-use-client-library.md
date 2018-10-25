@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 1ab7aa9ecdd51809f6e1d82958f21b78b16e7e63
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a39ae42ba2344cb39318809e2f120e01a75344d7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859562"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025791"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como utilizar o SDK de aplicações móveis do Azure para Android
 
@@ -144,7 +144,7 @@ public class AzureServiceAdapter {
 
 Pode chamar `AzureServiceAdapter.Initialize(this);` no `onCreate()` método de sua atividade principal.  Outros métodos de que precisam de acesso para a utilização do cliente `AzureServiceAdapter.getInstance();` para obter uma referência para o adaptador de serviço.
 
-## <a name="data-operations"></a>Operações de Dados
+## <a name="data-operations"></a>Operações de dados
 
 É o núcleo do SDK de aplicações móveis do Azure fornecer acesso aos dados armazenados no SQL Azure no back-end da aplicação móvel.  Pode acessar esses dados usando as classes com rigidez de tipos (preferidas) ou sem tipos de consultas (não recomendadas).  A maior parte desta secção lida com o uso de classes com rigidez de tipos.
 
@@ -154,7 +154,7 @@ Para acessar dados de tabelas do SQL Azure, defina as classes de dados de client
 
 * ID
 * texto
-* concluir
+* Concluir
 
 O objeto de lado do cliente com tipos correspondente reside num arquivo chamado **MyDataTable.java**:
 
@@ -1220,7 +1220,7 @@ private class ProgressFilter implements ServiceFilter {
             public void onSuccess(ServiceFilterResponse response) {
                 runOnUiThread(new Runnable() {
                     @Override
-                    pubic void run() {
+                    public void run() {
                         if (mProgressBar != null)
                             mProgressBar.setVisibility(ProgressBar.GONE);
                     }

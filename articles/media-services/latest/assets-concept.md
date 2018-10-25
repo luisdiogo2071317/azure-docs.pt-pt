@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: fcb4500a1e4503d90b00528544ae98fa93e16191
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379225"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985238"
 ---
 # <a name="assets"></a>Elementos
 
@@ -36,17 +36,17 @@ A tabela seguinte mostra as propriedades do recurso e fornece as respetivas defi
 
 |Nome|Tipo|Descrição|
 |---|---|---|
-|ID|cadeia|ID de recurso completamente qualificado para o recurso.|
-|nome|cadeia|O nome do recurso.|
-|properties.alternateId |cadeia|O ID alternativo do ativo.|
-|properties.assetId |cadeia|O ID de recurso.|
-|Properties.Container |cadeia|O nome do contentor de BLOBs de recurso.|
-|Properties.created |cadeia|A data de criação do recurso.|
-|Properties.Description |cadeia|A descrição do recurso.|
-|properties.lastModified |cadeia|A data última modificação do recurso.|
-|properties.storageAccountName |cadeia|O nome da conta de armazenamento.|
+|ID|string|ID de recurso completamente qualificado para o recurso.|
+|nome|string|O nome do recurso.|
+|properties.alternateId |string|O ID alternativo do ativo.|
+|properties.assetId |string|O ID de recurso.|
+|Properties.Container |string|O nome do contentor de BLOBs de recurso.|
+|Properties.created |string|A data de criação do recurso.|
+|Properties.Description |string|A descrição do recurso.|
+|properties.lastModified |string|A data última modificação do recurso.|
+|properties.storageAccountName |string|O nome da conta de armazenamento.|
 |properties.storageEncryptionFormat |AssetStorageEncryptionFormat |O formato de encriptação ativo. Um dos None ou MediaStorageEncryption.|
-|tipo|cadeia|O tipo de recurso.|
+|tipo|string|O tipo de recurso.|
 
 A definição completa, consulte [ativos](https://docs.microsoft.com/rest/api/media/assets).
 
@@ -116,8 +116,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Para obter exemplos REST, consulte [ativos - lista](https://docs.microsoft.com/rest/api/media/assets/assets_list)
-
+Para obter exemplos REST, consulte [ativos - lista](https://docs.microsoft.com/rest/api/media/assets/list)
 
 ## <a name="storage-side-encryption"></a>Encriptação do lado do armazenamento
 

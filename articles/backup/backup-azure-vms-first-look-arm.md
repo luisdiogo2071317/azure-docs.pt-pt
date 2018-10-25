@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: cópias de segurança; cópia de segurança de VM
-ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717918"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985895"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Fazer cópias de segurança de máquinas virtuais do Azure para cofre dos serviços de recuperação
 
@@ -96,11 +96,11 @@ Utilize os seguintes passos para configurar a tarefa de cópia de segurança no 
 
   Enquanto a cópia de segurança inicial não for concluída, o **Estado da última cópia de segurança** é apresentado como **Aviso (cópia de segurança inicial pendente)**. Para ver quando a próxima tarefa de cópia de segurança agendada ocorre, em **resumo** clique no nome da política. O menu de política de cópia de segurança abre-se e mostra o tempo da cópia de segurança agendada.
 
-10. Para proteger a máquina virtual, clique em **agora a cópia de segurança**. 
+10. Para proteger a máquina virtual, clique em **agora a cópia de segurança**.
 
   ![Clique em Criar Cópia de Segurança Agora para executar a cópia de segurança inicial](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  É aberto o menu Backup Now. 
+  É aberto o menu Backup Now.
 
   ![mostra o painel Criar Cópia de segurança Agora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Para editar a definição de replicação de armazenamento:
   ![Ver a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. No menu de gestão do novo cofre, utilize o diapositivo vertical para deslocar para baixo para a secção Gerir e clique em **infraestrutura de cópia de segurança** para abrir o menu de infraestrutura de cópia de segurança.
- 
+
    ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. No menu da infraestrutura de cópia de segurança, clique em **configuração de cópia de segurança** para abrir o **configuração de cópia de segurança** menu.
@@ -291,6 +291,11 @@ Para executar a tarefa de cópia de segurança inicial:
   ![definir o último dia em que o ponto de recuperação de Criar Cópia de Segurança Agora é mantido](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   As notificações de implementação permitem-lhe saber se a tarefa de cópia de segurança foi acionada e que pode acompanhar o progresso da tarefa na página Tarefas de cópias de segurança. Dependendo do tamanho da sua VM, a criação da cópia de segurança inicial poderá demorar algum tempo.
+
+  > [!NOTE]
+  > Todos os dados a cópia de segurança pelo Azure Backup são encriptados em descanso através da [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. Para ver ou acompanhar o estado da cópia de segurança inicial, no dashboard do cofre, no mosaico **Tarefas de Cópia de Segurança**, clique **Em curso**.
 

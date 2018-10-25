@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354347"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024426"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -41,7 +41,7 @@ Para obter a documentação da consola de série para VMs do Linux [clique aqui]
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * A conta a utilizar a consola de série tem de ter [função de contribuinte](../../role-based-access-control/built-in-roles.md) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento. 
-* A máquina virtual para o qual é a consola de série acessing também tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funcionalidade de extensão de acesso da VM - veja a captura de ecrã abaixo.
+* A máquina virtual para a qual estiver a aceder à consola de série também tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funcionalidade de extensão de acesso da VM - veja a captura de ecrã abaixo.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
@@ -52,7 +52,6 @@ Consola de série para máquinas virtuais só é acessível via [portal do Azure
   2. No menu da esquerda, selecione as máquinas virtuais.
   3. Clique na VM na lista. Abre a página de descrição geral para a VM.
   4. Desloque para baixo para o suporte + resolução de problemas de seção e clique na opção "Consola de série". Um novo painel com a consola de série abrirá e iniciar a ligação.
-
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Ativar a consola de série em imagens personalizadas ou mais antigas
 Imagens do Windows Server mais recente no Azure terá [consola administrativa especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) ativada por predefinição. SAC é suportada em versões de servidor do Windows, mas não está disponível nas versões de cliente (por exemplo, Windows 10, Windows 8 ou Windows 7). Para ativar a consola de série para máquinas de virtuais do Windows criada antes de Fevereiro de 2018, utilize os seguintes passos: 
@@ -74,7 +73,7 @@ Se for necessário, o SAC pode ser ativadas offline também:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Como posso saber se SAC está ativado?
 
-Se [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não está ativada a consola de série não serão apresentados na linha de comandos da SAC. Em alguns casos, serão apresentadas informações de estado de funcionamento da VM e, em outros casos estará em branco. Se estiver a utilizar uma imagem do Windows Server criada antes de Fevereiro de 2018, SAC provavelmente não será ativado.
+Se [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) não está ativada a consola de série não serão apresentados na linha de comandos da SAC. Em alguns casos, serão apresentadas informações de estado de funcionamento da VM e, em outros casos estará em branco. Se estiver a utilizar uma imagem do Windows Server criada antes de Fevereiro de 2018, SAC provavelmente não será ativado.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Habilitar o Menu de arranque do Windows na consola de série 
 
@@ -99,6 +98,21 @@ A consola de série pode ser utilizada para enviar um NMI para uma máquina virt
 
 Para obter informações sobre como configurar o Windows para criar um despejo de falha quando recebe um NMI, consulte: [como gerar um arquivo de despejo de falha completa ou de um arquivo de despejo de falhas de kernel ao utilizar um NMI num sistema baseado em Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>Abra o CMD ou Powershell na consola de série
+
+1. Ligar à consola de série. Se ligar com êxito à consola de série, verá **SAC >** como a seguinte captura de ecrã mostra:
+
+    ![Ligar ao SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Tipo de `cmd` para criar um canal que tem uma instância CMD. 
+4.  Tipo de `ch -si 1` para mudar para o canal que está executando a instância CMD. 
+5.  Prima Enter e, em seguida, introduza as credenciais de início de sessão que têm permissões administrativas.
+6.  Depois de introduzir credenciais válidas, abre-se a instância CMD.
+7.  Para iniciar uma instância do PowerShell, escreva `PowerShell` no CMD de instância e, em seguida, prima Enter. 
+
+    ![Abra a instância do PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>Desativar a consola de série
 Por predefinição, todas as subscrições têm acesso de consola de série ativado para todas as VMs. Pode desativar a consola de série no nível de assinatura ou o nível VM.
 
@@ -110,7 +124,7 @@ Consola de série pode ser desabilitada para uma subscrição completa por atrav
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Em alternativa, pode utilizar o conjunto de comandos abaixo no Cloud Shell (comandos de bash mostrados) para desativar, ativar e ver o estado disbled da consola de série para uma subscrição. 
+Em alternativa, pode utilizar o conjunto de comandos abaixo no Cloud Shell (comandos de bash mostrados) para desativar, ativar e ver o estado desativado da consola de série para uma subscrição. 
 
 * Para obter o estado desativado da consola de série de uma subscrição:
     ```azurecli-interactive

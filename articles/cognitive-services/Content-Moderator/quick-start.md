@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Content Moderator
+title: 'Início rápido: Introdução ao Content Moderator'
 titlesuffix: Azure Cognitive Services
 description: Como começar com o Content Moderator.
 services: cognitive-services
@@ -8,82 +8,66 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: c2ac0ccd89b5f1436a151e3d69c5d7423090f244
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225299"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023445"
 ---
-# <a name="get-started-with-content-moderator"></a>Introdução ao Content Moderator
+# <a name="quickstart-get-familiar-with-content-moderator"></a>Início rápido: Se familiarizar com o Content Moderator
 
-Introdução ao Content moderator das seguintes formas:
+Neste início rápido, irá utilizar a ferramenta de revisão do moderador conteúdo online para testar a funcionalidade básica do Content Moderator sem ter de escrever qualquer código. Se pretender integrar este serviço na sua aplicação mais rapidamente, consulte os outros guias de introdução a [próximos passos](#next-steps) secção.
 
-- [Começar com a ferramenta de revisão](#start-with-the-review-tool) para obter a chave de API e criar uma equipa de revisão. A vantagem é que pode utilizar a chave de API para chamar as APIs de moderação de conteúdo e as APIs de revisão de verificação para gerar as revisões, sem passos adicionais.
-- [Subscrever o Content Moderator](#start-with-the-apis) no Azure para obter a chave de API. Veja a [referência da API](api-reference.md) e o [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Ainda tem de inscrever-se online para criar uma equipa de revisão.
-- [Utilizar o conector de fluxo e os modelos](https://flow.microsoft.com/connectors/shared_cognitiveservicescontentmoderator/content-moderator/) verificar uma vasta gama de integrações com um designer de fácil de usar.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Independentemente da opção que escolher, consulte a [gerir credenciais](review-tool-user-guide/credentials.md) artigo para encontrar as credenciais da API.
+- Um navegador da web
 
-## <a name="start-with-the-review-tool"></a>Começar com a ferramenta de revisão
-[Inscreva-se](http://contentmoderator.cognitive.microsoft.com/) no site de web para ferramenta de revisão do Content Moderator.
+## <a name="set-up-the-review-tool"></a>Configurar a ferramenta de revisão
+A ferramenta de revisão de moderador conteúdo é uma ferramenta baseada na web que permite que os revisores humanos auxiliar o serviço cognitivo na tomada de decisões. Neste guia, irá percorrer o processo de curto de configurar a ferramenta de revisão para que pode ver como funciona o serviço do Content Moderator. Vá para o [ferramenta de revisão do conteúdo moderador](http://contentmoderator.cognitive.microsoft.com/) do site e inscreva-se.
 
 ![Página inicial do moderador de conteúdo](images/homepage.PNG)
 
-### <a name="create-a-review-team"></a>Criar uma equipa de revisão
-Dê um nome à sua equipa. Se quiser Convide os seus colegas, pode fazê-lo ao introduzir os respetivos endereços de e-mail.
+## <a name="create-a-review-team"></a>Criar uma equipa de revisão
+
+Em seguida, crie uma equipa de revisão. Num cenário de trabalho, este será o grupo de pessoas que analisará manualmente as decisões de moderação do serviço. Por enquanto, basta criar um nome de equipa. Se desejar convidar colegas para a equipe, pode fazê-lo ao introduzir aqui os respetivos endereços de e-mail.
 
 ![Convidar Membro da Equipe](images/QuickStart-2-small.png)
 
-### <a name="upload-images-or-enter-text"></a>Carregar imagens ou introduza o texto
-Clique em **tente > imagem** ou **tente > texto**. Carregar até cinco imagens de exemplo ou introduza o texto de exemplo para moderação.
+## <a name="upload-sample-content"></a>Carregar conteúdo de exemplo
+
+Agora, está pronto para carregar o conteúdo de exemplo. Selecione **tente > imagem**, **tente > texto**, ou **tente > vídeo**.
 
 ![Experimente o imagem ou de moderação de texto](images/tryimagesortext.png)
 
-### <a name="submit-for-automated-moderation"></a>Submeter para moderação automática
-Submeta o seu conteúdo para moderação automática. A ferramenta de revisão chama internamente, as APIs para analisar o conteúdo de moderação. Quando a análise estiver concluída, verá uma mensagem a informar sobre os resultados a aguardar para revisão.
+Submeta o seu conteúdo para moderação. Internamente, a ferramenta de revisão irá chamar as APIs para analisar o conteúdo de moderação. Quando a análise estiver concluída, verá uma mensagem a informar que há resultados aguardar sua revisão.
 
 ![Ficheiros moderados](images/submitted.png)
 
-### <a name="review-and-confirm-results"></a>Rever e confirmar os resultados
-Reveja as etiquetas de auto-moderado, altere se necessário e submeter utilizando o **seguinte** botão. Como seu aplicativo de negócios chamadas das APIs de moderador, iniciada a conteúdo marcada enfileirado, está preparado para ser examinados pelas equipes de revisão humana. Analisar rapidamente grandes volumes de conteúdo usando essa abordagem.
+## <a name="review-moderation-tags"></a>Etiquetas de moderação de revisão
 
-![Resultados da revisão](images/reviewresults.png)
+Reveja as etiquetas aplicadas moderação. Pode ver as etiquetas foram aplicadas ao seu conteúdo e o que estava a classificação em cada categoria.
 
-Saiba como utilizar todos os [revisar recursos da ferramenta](Review-Tool-User-Guide/human-in-the-loop.md) ou continuar com a secção seguinte para saber mais sobre as APIs. Ignore o passo de inscrição, porque tem a chave de API provisionada para na ferramenta de revisão, como mostra a [gerir credenciais](review-tool-user-guide/credentials.md) artigo.
+![Resultados da revisão](images/reviewresults_text.png)
 
-### <a name="use-the-apis"></a>Utilizar as APIs
+Num projeto, ou sua equipa de revisão pode alterar essas marcas ou adicionar mais etiquetas conforme necessário. Vai enviar essas alterações com o **seguinte** botão. Como seu aplicativo de negócios chamadas a APIs de moderador, o conteúdo marcado irá enfileirar aqui, está preparado para ser examinados pelas equipes de revisão humana. Pode analisar rapidamente grandes volumes de conteúdo usando essa abordagem.
 
-Saiba como integrar o Content Moderator com seus aplicativos de negócios. Veja a [referência da API](api-reference.md) e o [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net).
+Neste momento, utilizou a ferramenta de revisão de moderador conteúdo para ver exemplos do que o serviço do Content Moderator pode fazer. Em seguida, pode optar por saber mais sobre a ferramenta de revisão e como integrá-lo num projeto de software usando as APIs de revisão ou, pode avançar para o [próximos passos](#next-steps) secção para saber como utilizar as APIs de moderação próprios na sua aplicação.
 
-## <a name="subscribe-in-the-azure-portal"></a>Subscrever no portal do Azure
+## <a name="learn-more-about-the-review-tool"></a>Saiba mais sobre a ferramenta de revisão
 
-[Subscrever o Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) no portal do Azure. Começar com uma das seguintes APIs:
-
-### <a name="image-moderation"></a>Moderação de imagens
-
-Começar com o [consola de API](try-image-api.md) ou utilizar o [guia de introdução do .NET](image-moderation-quickstart-dotnet.md) para analisar imagens e detetar potenciais conteúdos para adultos com etiquetas, as pontuações de confiança e outras extraiu informações.
-
-### <a name="text-moderation"></a>Moderação de texto
-
-Começar com o [consola de API](try-text-api.md) ou utilizar o [guia de introdução do .NET](text-moderation-quickstart-dotnet.md) para analisar o conteúdo de texto para potencial linguagem inapropriada, classificação de texto indesejado assistida (pré-visualização) e de identificação pessoal informações (PII). 
-
-
-### <a name="video-moderation"></a>Moderação de vídeos
-
-Começar com o [guia de introdução do .NET](video-moderation-api.md) para analisar vídeos e detetar potenciais conteúdos para adultos. 
-
-
-### <a name="review-apis"></a>APIs de revisão
-
-Comece por aqui ao selecionar a tarefa, revisão e APIs de fluxo de trabalho.
-
+Para saber mais sobre como utilizar a ferramenta de revisão de moderador conteúdo, veja a [humanos no loop](Review-Tool-User-Guide/human-in-the-loop.md) orientar e veja as APIs de ferramenta de revisão para aprender a otimizar a experiência de revisão humana:
 - O [API de tarefa](try-review-api-job.md) analisa o conteúdo ao utilizar as APIs de moderação e gera as revisões na ferramenta de revisão. 
 - O [revisão de API](try-review-api-review.md) cria diretamente as revisões de vídeo, texto ou imagem de moderadores humanos sem primeiro a analisar o conteúdo. 
 - O [API do fluxo de trabalho](try-review-api-workflow.md) cria, atualiza e obtém os detalhes sobre os fluxos de trabalho personalizados que cria a sua equipa.
 
+Em alternativa, continue com os passos seguintes para começar a utilizar as APIs de moderação em seu código.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja a [referência da API](api-reference.md) e o [SDKs](sdk-and-samples.md#sdks-for-python-java-nodejs-and-net). Impulsione a sua integração com o [amostras do SDK de .NET](sdk-and-samples.md#net-sdk-samples), [exemplos de REST API em c#](https://github.com/sanjeev3/azure-docs-pr/blob/master/articles/cognitive-services/Content-Moderator/sdk-and-samples.md#rest-api-samples-in-c) e [tutoriais](sdk-and-samples.md#tutorials).
+Saiba como utilizar as APIs de moderação próprios na sua aplicação.
+- Implementar a moderação de imagens. Utilize o [consola de API](try-image-api.md) ou o [ C# início rápido](image-moderation-quickstart-dotnet.md) para procurar imagens e detetar potenciais conteúdos para adultos com etiquetas, as pontuações de confiança e outras extraiu informações.
+- Implementar a moderação de texto. Utilizar o [consola de API](try-text-api.md) ou utilizar o [ C# início rápido](text-moderation-quickstart-dotnet.md) para analisar o conteúdo de texto para potencial linguagem inapropriada, classificação de texto indesejado assistida (pré-visualização) e de identificação pessoal informações (PII). 
+- Implementar a moderação de vídeo. Utilize o [ C# início rápido](video-moderation-api.md) para procurar vídeos e detetar potenciais conteúdos para adultos. 

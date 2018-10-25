@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: 410ef936da7cf464dbef1698cf7019643cc1fb42
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249320"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024871"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>O Azure IoT device SDK para C – mais informações sobre o serializador
 
@@ -27,7 +27,7 @@ Por fim, o artigo revisits alguns tópicos abordados em artigos anteriores, como
 
 Tudo descrito neste artigo se baseia no **serializador** amostras do SDK. Se quiser acompanhar, consulte a **simplesample\_amqp** e **simplesample\_http** aplicações incluídas no Azure IoT device SDK para C.
 
-Pode encontrar os [ **Azure IoT device SDK para C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub repositório e exibir detalhes da API no [referência da API de C](https://azure.github.io/azure-iot-sdk-c/index.html).
+Pode encontrar os [ **Azure IoT device SDK para C** ](https://github.com/Azure/azure-iot-sdk-c) GitHub repositório e exibir detalhes da API no [referência da API de C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>A linguagem de modelagem
 
@@ -67,9 +67,9 @@ São suportados os seguintes tipos de dados na criação de modelos criadas com 
 | Tipo | Descrição |
 | --- | --- |
 | double |Double precisão número de vírgula flutuante |
-| Int |número inteiro de 32 bits |
-| flutuante |número de ponto flutuante de precisão única |
-| longitude |número inteiro longo |
+| int |número inteiro de 32 bits |
+| float |número de ponto flutuante de precisão única |
+| longa |número inteiro longo |
 | int8\_t |número inteiro de 8 bits |
 | int16\_t |número inteiro de 16 bits |
 | int32\_t |número inteiro de 32 bits |

@@ -1,6 +1,6 @@
 ---
-title: Roda credenciais de início de sessão nas tarefas do Azure Stream Analytics
-description: Este artigo descreve como atualizar as credenciais de entradas e saída sinks no Azure Stream Analytics tarefas.
+title: Alternar credenciais de início de sessão nas tarefas do Azure Stream Analytics
+description: Este artigo descreve como atualizar as credenciais de entradas e Coletores de saída no Azure Stream Analytics tarefas.
 services: stream-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -9,76 +9,76 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30907284"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025774"
 ---
-# <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Roda credenciais de início de sessão para entradas e saídas da tarefa do Stream Analytics
+# <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Alternar credenciais de início de sessão para entradas e saídas de uma tarefa do Stream Analytics
 
-Sempre que voltar a gerar as credenciais para uma entrada ou saída de uma tarefa de Stream Analytics, deve atualizar a tarefa com novas credenciais. Tem de parar a tarefa antes de atualizar as credenciais, não é possível substituir as credenciais enquanto a tarefa está em execução. Para reduzir o atraso entre a parar e reiniciar a tarefa, o Stream Analytics suporta retomar uma tarefa a partir do respetivo resultado último. Este tópico descreve o processo de rodar as credenciais de início de sessão e reiniciar a tarefa com novas credenciais.
+Sempre que voltar a gerar as credenciais de uma entrada ou saída de uma tarefa do Stream Analytics, deve atualizar a tarefa com novas credenciais. Tem de parar a tarefa antes de atualizar as credenciais, não pode substituir as credenciais, enquanto a tarefa está em execução. Para reduzir o atraso entre interromper e reiniciar a tarefa, o Stream Analytics oferece suporte a retomar um trabalho de sua última saída. Este tópico descreve o processo de efetuar a rotação das credenciais de início de sessão e reiniciar a tarefa com novas credenciais.
 
-## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>Voltar a gerar novas credenciais e atualizar a tarefa com as novas credenciais 
+## <a name="regenerate-new-credentials-and-update-your-job-with-the-new-credentials"></a>Voltar a gerar novas credenciais e atualize o seu trabalho com as novas credenciais 
 
-Nesta secção, iremos irá guiá-lo através de regenerar as credenciais para o armazenamento de BLOBs, os Event Hubs, base de dados SQL e o Table Storage. 
+Nesta secção, iremos irá guiá-lo através de credenciais de regeneração para armazenamento de BLOBs, os Hubs de eventos, base de dados SQL e armazenamento de tabelas. 
 
-### <a name="blob-storagetable-storage"></a>Armazenamento de/tabela de armazenamento de BLOBs
-1. Inicie sessão no portal do Azure > procurar a conta de armazenamento que é utilizado como entrada/saída para a tarefa de Stream Analytics.    
-2. A partir da secção de definições, abra o **chaves de acesso**. Entre as chaves de predefinidos (chave1, key2), escolha a que não é utilizado pelo seu trabalho e voltar a gerá-lo:  
-   ![Voltar a gerar chaves de conta de armazenamento](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
-3. Copie a chave recentemente criada.    
-4. No portal do Azure, navegue até a tarefa de Stream Analytics > selecione **parar** e aguarde que a tarefa parar.    
-5. Localizar o Blob/tabela de entrada/saída de armazenamento para o qual pretende atualizar as credenciais.    
-6. Localizar o **chave da conta de armazenamento** campo e cole a chave recentemente criada > clique **guardar**.    
-7. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, pode vê-la a partir do separador notificações. Existem duas notificações para um corresponde ao guardar a atualização e outros corresponde a testar a ligação:  
+### <a name="blob-storagetable-storage"></a>Armazenamento de tabela do armazenamento de BLOBs
+1. Inicie sessão no portal do Azure > procurar a conta de armazenamento que é utilizada como entrada/saída para a tarefa do Stream Analytics.    
+2. A partir da secção definições, abra **chaves de acesso**. Entre as chaves de duas predefinidas (chave1, chave2), escolher aquele que não é utilizado pelo seu trabalho e gerá-lo novamente:  
+   ![Regenerar chaves de conta de armazenamento](media/stream-analytics-login-credentials-inputs-outputs/image1.png)
+3. Copie a chave recentemente gerada.    
+4. No portal do Azure, procurar a tarefa de Stream Analytics > selecione **parar** e espere até que a tarefa parar.    
+5. Localize o Blob/tabela entrada/saída de armazenamento para o qual pretende atualizar as credenciais.    
+6. Encontrar o **chave de conta de armazenamento** campo e cole a sua chave gerada recentemente > clique em **guardar**.    
+7. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, pode vê-lo a partir do separador notificações. Existem dois notificações-corresponde ao guardar a atualização e outros corresponde ao teste de ligação:  
    ![Notificações depois de editar a chave](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. Avance para [iniciar a tarefa a partir da última vez parada]  (#start-your-job-from-the-last-stopped-time) secção.
+8. Avance para [iniciar a tarefa da última hora de paragem](#start-your-job-from-the-last-stopped-time) secção.
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 
-1. Inicie sessão no portal do Azure > procurar o Hub de eventos que utilizou como entrada/saída para a tarefa de Stream Analytics.    
-2. A partir da secção de definições, abra o **políticas de acesso partilhado** e selecione a política de acesso necessária. Entre o **chave primária** e **chave secundária**, escolha a que não é utilizado pelo seu trabalho e voltar a gerá-lo:  
+1. Inicie sessão no portal do Azure > procurar o Hub de eventos que utilizou como entrada/saída para a tarefa do Stream Analytics.    
+2. A partir da secção definições, abra **políticas de acesso partilhado** e selecione a política de acesso necessária. Entre as **chave primária** e **chave secundária**, escolher aquele que não é utilizado pelo seu trabalho e gerá-lo novamente:  
    ![Voltar a gerar chaves para o Hub de eventos](media/stream-analytics-login-credentials-inputs-outputs/image2.png)
-3. Copie a chave recentemente criada.    
-4. No portal do Azure, navegue até a tarefa de Stream Analytics > selecione **parar** e aguarde que a tarefa parar.    
-5. Localize o evento de hubs de entradam/saídam para os quais pretende atualizar as credenciais.    
-6. Localizar o **chave de política de Hub de eventos** campo e cole a chave recentemente criada > clique **guardar**.    
-7. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, certifique-se de que tem passou com êxito.    
-8. Avance para [iniciar a tarefa a partir da última vez parada](#start-your-job-from-the-last-stopped-time) secção.
+3. Copie a chave recentemente gerada.    
+4. No portal do Azure, procurar a tarefa de Stream Analytics > selecione **parar** e espere até que a tarefa parar.    
+5. Localize o evento de hubs de entradam/saídam para o qual pretende atualizar as credenciais.    
+6. Encontrar o **chave de política do Hub de eventos** campo e cole a sua chave gerada recentemente > clique em **guardar**.    
+7. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, certifique-se de que tem passados com êxito.    
+8. Avance para [iniciar a tarefa da última hora de paragem](#start-your-job-from-the-last-stopped-time) secção.
 
 ### <a name="sql-database"></a>SQL Database
 
-Terá de ligar à base de dados do SQL Server para atualizar as credenciais de início de sessão de um utilizador existente. Pode atualizar as credenciais utilizando o portal do Azure ou uma ferramenta do lado do cliente como o SQL Server Management Studio. Esta secção demonstra o processo de atualização de credenciais utilizando o portal do Azure.
+Tem de se ligar à base de dados SQL para atualizar as credenciais de início de sessão de um utilizador existente. Pode atualizar as credenciais com o portal do Azure ou uma ferramenta de lado do cliente como o SQL Server Management Studio. Esta secção demonstra o processo de atualização de credenciais com o portal do Azure.
 
-1. Inicie sessão no portal do Azure > Procurar na base de dados do SQL Server que utilizou como saída para a tarefa de Stream Analytics.    
-2. De **Explorador de dados**, início de sessão/ligar à base de dados > selecione o tipo de autorização como **autenticação do SQL Server** > Escreva no seu **início de sessão** e  **Palavra-passe** detalhes > selecione **Ok**.  
+1. Inicie sessão no portal do Azure > procurar a base de dados do SQL que utilizou como saída para a tarefa do Stream Analytics.    
+2. Da **Explorador de dados**, início de sessão/ligar a sua base de dados > selecione o tipo de autorização como **autenticação do SQL server** > escreva seu **início de sessão** e  **Palavra-passe** detalhes > selecione **Ok**.  
    ![Voltar a gerar as credenciais para a base de dados SQL](media/stream-analytics-login-credentials-inputs-outputs/image3.png)
 
-3. No separador de consulta, alterar a palavra-passe para um dos seus utilizadores, executando a seguinte consulta (Certifique-se de que substitui `<user_name>` com o nome de utilizador e `<new_password>` com a sua nova palavra-passe):  
+3. No separador de consulta, alterar a palavra-passe para um dos seus utilizadores ao executar a consulta seguinte (não se esqueça de substituir `<user_name>` com o seu nome de utilizador e `<new_password>` com sua nova palavra-passe):  
 
    ```SQL
    Alter user `<user_name>` WITH PASSWORD = '<new_password>'
    Alter role db_owner Add member `<user_name>`
    ```
 
-4. Anote a nova palavra-passe.    
-5. No portal do Azure, navegue até a tarefa de Stream Analytics > selecione **parar** e aguarde que a tarefa parar.    
-6. Localize a saída de base de dados SQL para os quais pretende rodar credenciais. Atualize a palavra-passe e guardar as alterações.    
-7. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, certifique-se de que tem passou com êxito.    
-8. Avance para [iniciar a tarefa a partir da última vez parada](#start-your-job-from-the-last-stopped-time) secção.
+4. Aponte a palavra-passe nova.    
+5. No portal do Azure, procurar a tarefa de Stream Analytics > selecione **parar** e espere até que a tarefa parar.    
+6. Localize a saída de base de dados SQL para o qual pretende rodar credenciais. Atualize a palavra-passe e guardar as alterações.    
+7. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, certifique-se de que tem passados com êxito.    
+8. Avance para [iniciar a tarefa da última hora de paragem](#start-your-job-from-the-last-stopped-time) secção.
 
 ### <a name="power-bi"></a>Power BI
-1. Inicie sessão no portal do Azure > procurar a tarefa de Stream Analytics > selecione **parar** e aguarde que a tarefa parar.    
-2. Localize a saída do Power BI para o qual pretende renovar credenciais > clique o **renovar autorização** (deverá ver uma mensagem de êxito) > **guardar** as alterações.    
-3. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, certifique-se de passou com êxito.    
-4. Avance para [iniciar a tarefa a partir da última vez parada](#start-your-job-from-the-last-stopped-time) secção.
+1. Inicie sessão no portal do Azure > procurar a tarefa de Stream Analytics > selecione **parar** e espere até que a tarefa parar.    
+2. Localize a saída do Power BI para o qual pretende renovar credenciais > Clique a **renovar a autorização** (deverá ver uma mensagem de êxito) > **guardar** as alterações.    
+3. Um teste de ligação irá iniciar automaticamente quando guardar as alterações, certifique-se de que passou com êxito.    
+4. Avance para [iniciar a tarefa da última hora de paragem](#start-your-job-from-the-last-stopped-time) secção.
 
-## <a name="start-your-job-from-the-last-stopped-time"></a>Iniciar a tarefa a partir da última vez parada
+## <a name="start-your-job-from-the-last-stopped-time"></a>Iniciar a tarefa da última hora de paragem
 
 1. Navegue para a tarefa **descrição geral** painel > selecione **iniciar** para iniciar a tarefa.    
-2. Selecione **quando a última paragem** > clique **iniciar**. Tenha em atenção que a opção "quando a última paragem" só é apresentada se anteriormente executou a tarefa e tinha algumas saídas de gerado. A tarefa for reiniciada com base na hora da última resultado do valor.
+2. Selecione **quando foi a última paragem** > clique em **iniciar**. Tenha em atenção que a opção "quando foi a última paragem" só é apresentada se anteriormente foi executada a tarefa e tinha algumas saídas gerado. A tarefa for reiniciada com base na hora da última saída do valor.
    ![Iniciar a tarefa](media/stream-analytics-login-credentials-inputs-outputs/image5.png)
 
 ## <a name="next-steps"></a>Passos Seguintes

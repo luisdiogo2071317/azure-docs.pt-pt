@@ -9,20 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 36c30e11e8b7bd8b3e8ae3e424649998dcfff5bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381078"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987618"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisar ficheiros de áudio e vídeos
 
-Serviços de multimédia do Azure v3 permite-lhe extrair informações a partir dos seus ficheiros de áudio e vídeos com o indexador de vídeo através de configurações predefinidas do analisador de v3 de AMS (descritos neste artigo). Se pretender que as informações mais detalhadas, diretamente a utilizar o Video Indexer. Para saber quando gostaria de utilizar em vez do Video Indexer. Predefinições do analisador de serviços de multimédia, veja a [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Serviços de multimédia do Azure v3 permite-lhe extrair informações a partir dos seus ficheiros de áudio e vídeos com o indexador de vídeo através de configurações predefinidas do analisador de v3 de AMS (descritos neste artigo). Se quiser informações mais detalhadas, utilize diretamente o Video Indexer. Para saber como gostaria de utilizar o Video Indexer em relação a predefinições do analisador dos Serviços de Multimédia, consulte o [documento de comparação](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 Para analisar seu conteúdo com configurações predefinidas do serviços de multimédia v3, crie uma **transformar** e submeter um **tarefa** que usa um destas predefinições: **AudioAnalyzerPreset** ou **VideoAnalyzerPreset**. O seguinte artigo demonstra como usar **VideoAnalyzerPreset**: [Tutorial: analisar vídeos com os serviços de multimédia do Azure](analyze-videos-tutorial-with-api.md).
+
+> [!NOTE]
+> Quando utilizar um configurações predefinidas de vídeo ou áudio Analyzer, utilize o portal do Azure para definir a sua conta ter 10 unidades reservadas de multimédia S3. Para obter mais informações, consulte [Dimensionar processamento de multimédia](../previous/media-services-scale-media-processing-overview.md).
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 

@@ -2,26 +2,25 @@
 title: 'Cópia de segurança do Azure: Preparar para fazer uma cópia de segurança de máquinas virtuais'
 description: Certifique-se de que o seu ambiente está preparado para fazer backup de máquinas virtuais no Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: cópias de segurança; cópias de segurança;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884938"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025944"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar o seu ambiente para fazer cópias de segurança de máquinas virtuais implementadas com o Resource Manager
+# <a name="prepare-to-back-up-azure-vms"></a>Preparar a cópia de segurança de VMs do Azure
 
-Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementadas no Azure Resource Manager. Os passos apresentados nos procedimentos de utilizam o portal do Azure. Quando cria cópias de segurança de uma máquina virtual, os dados de cópia de segurança ou os pontos de recuperação, são armazenados num cofre dos serviços de recuperação. Os cofres dos serviços de recuperação armazenam cópias de segurança para máquinas virtuais clássicas e implementadas no Resource Manager.
+Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementadas no Azure Resource Manager. Os passos apresentados nos procedimentos de utilizam o portal do Azure. Quando cria cópias de segurança de uma máquina virtual, os dados de cópia de segurança ou os pontos de recuperação, são armazenados num cofre de cópia de segurança do Recovery Services. 
 
-> [!NOTE]
-> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Antes de proteger (ou criar cópias de segurança) uma máquina de virtual implementadas no Resource Manager, certifique-se estes pré-requisitos existem:
 
@@ -47,7 +46,6 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
 Antes de preparar o seu ambiente, certifique-se de que compreender estas limitações:
 
 * Cópias de máquinas virtuais com mais do que 32 discos de dados não é suportada.
-* Cópias de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido não é suportada.
 * Não é suportada para o backup das VMs de Linux encriptado através da encriptação de Linux Unified chave configuração (LUKS).
 * Não recomendamos que o backup das VMs que contêm a configuração de Volumes de partilhado de Cluster (CSV) ou o servidor de ficheiros de escalamento horizontal. Se feito, espera-se a falha de escritores CSV. Eles exigem envolvendo todas as VMs incluídas na configuração do cluster durante uma tarefa de instantâneo. O Azure Backup não suporta a consistência de várias VMS.
 * Dados de cópia de segurança não incluem unidades de rede montado anexadas a uma VM.

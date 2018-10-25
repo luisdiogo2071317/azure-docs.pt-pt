@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.component: common
-ms.openlocfilehash: 9c36347db2d1678e79e5ad80cda491f77850c4a6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 91eb9c12a8913c0a96ee7c3133dc5f982c42cad7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525244"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025315"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerir a Simultaneidade no Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
@@ -50,29 +50,29 @@ O c# trecho a seguir (usando a biblioteca de armazenamento do cliente 4.2.0) mos
 ```csharp
 // Retrieve the ETag from the newly created blob
 // Etag is already populated as UploadText should cause a PUT Blob call
-// to storage blob service which returns the etag in response.
-string orignalETag = blockBlob.Properties.ETag;
+// to storage blob service which returns the ETag in response.
+string originalETag = blockBlob.Properties.ETag;
 
 // This code simulates an update by a third party.
 string helloText = "Blob updated by a third party.";
 
-// No etag, provided so orignal blob is overwritten (thus generating a new etag)
+// No ETag provided so original blob is overwritten (thus generating a new ETag)
 blockBlob.UploadText(helloText);
 Console.WriteLine("Blob updated. Updated ETag = {0}",
 blockBlob.Properties.ETag);
 
-// Now try to update the blob using the orignal ETag provided when the blob was created
+// Now try to update the blob using the original ETag provided when the blob was created
 try
 {
-    Console.WriteLine("Trying to update blob using orignal etag to generate if-match access condition");
+    Console.WriteLine("Trying to update blob using original ETag to generate if-match access condition");
     blockBlob.UploadText(helloText,accessCondition:
-    AccessCondition.GenerateIfMatchCondition(orignalETag));
+    AccessCondition.GenerateIfMatchCondition(originalETag));
 }
 catch (StorageException ex)
 {
     if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
     {
-        Console.WriteLine("Precondition failure as expected. Blob's orignal etag no longer matches");
+        Console.WriteLine("Precondition failure as expected. Blob's original ETag no longer matches");
         // TODO: client can decide on how it wants to handle the 3rd party updated content.
     }
     else
@@ -106,7 +106,7 @@ A tabela seguinte resume as operações de BLOBs, tal como a cabeçalhos condici
 | Obter o Blob |Sim |Sim |
 | Obter as propriedades do Blob |Sim |Sim |
 | Definir as propriedades do Blob |Sim |Sim |
-| Obter Metadados do Blob |Sim |Sim |
+| Obter metadados do Blob |Sim |Sim |
 | Definir metadados do Blob |Sim |Sim |
 | Blob de concessão (*) |Sim |Sim |
 | Blob de instantâneo |Sim |Sim |
@@ -163,7 +163,7 @@ As seguintes operações de BLOBs podem utilizar as concessões para gerir a sim
 * Obter o Blob
 * Obter as propriedades do Blob
 * Definir as propriedades do Blob
-* Obter Metadados do Blob
+* Obter metadados do Blob
 * Definir metadados do Blob
 * Eliminar Blob
 * Colocar o bloco
@@ -238,12 +238,12 @@ A tabela seguinte resume como as operações de entidade de tabela utilizam valo
 | Operação | Devolve o valor de ETag | Requer o cabeçalho de pedido de If-Match |
 |:--- |:--- |:--- |
 | Consultar entidades |Sim |Não |
-| Inserir Entidade |Sim |Não |
+| Inserir a entidade |Sim |Não |
 | Atualizar a entidade |Sim |Sim |
-| Intercalar Entidade |Sim |Sim |
-| Eliminar Entidade |Não |Sim |
-| Inserir ou Substituir Entidade |Sim |Não |
-| Inserir ou Intercalar Entidade |Sim |Não |
+| Entidade de intercalação |Sim |Sim |
+| Eliminar entidade |Não |Sim |
+| Inserir ou substituir a entidade |Sim |Não |
+| Inserir ou intercalar a entidade |Sim |Não |
 
 Tenha em atenção que o **Insert ou entidade de substituir** e **Insert ou intercalar entidade** fazer operações *não* efetuar qualquer verificação de simultaneidade, porque eles não enviar um valor de ETag para a tabela serviço.  
 
