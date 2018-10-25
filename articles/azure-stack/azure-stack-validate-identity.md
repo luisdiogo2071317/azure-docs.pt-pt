@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a9600d37f76ff56cff26ec7b740a6970e44e7018
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954560"
+ms.locfileid: "49984201"
 ---
 # <a name="validate-azure-identity"></a>Validar a identidade do Azure 
 Utilize a ferramenta de Verificador de preparação do Azure Stack (AzsReadinessChecker) para validar que o Azure Active Directory (Azure AD) está pronto para utilizar com o Azure Stack. Valide a sua solução de identidade do Azure antes de iniciar uma implementação do Azure Stack.  
@@ -162,7 +162,7 @@ Invoke-AzsAzureIdentityValidation Completed
 
 O Azure Stack requer que o nome de domínio é o nome de domínio primário.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 [Validar o registo do Azure](azure-stack-validate-registration.md)  
 [Ver o relatório de preparação](azure-stack-validation-report.md)  
 [Considerações sobre a integração geral do Azure Stack](azure-stack-datacenter-integration.md)  

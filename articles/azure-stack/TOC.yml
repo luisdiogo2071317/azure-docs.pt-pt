@@ -36,7 +36,7 @@ items:
     href: azure-stack-ethereum.md
 - name: Conceitos
   items:
-  - name: Planeamento da Capacidade
+  - name: Planeamento de Capacidade
     href: capacity-planning.md
     items:
     - name: Planeamento da capacidade de computação
@@ -128,8 +128,6 @@ items:
       href: azure-stack-region-management.md
     - name: Utilizar o portal de administrador
       href: azure-stack-manage-portals.md
-    - name: Ligar ao Azure Stack
-      href: azure-stack-connect-azure-stack.md
     - name: Ligar ao Azure
       items:
       - name: Ligar através da VPN
@@ -238,7 +236,7 @@ items:
       href: azure-stack-redhat-create-upload-vhd.md
     - name: Oferecer um Cluster do Kubernetes
       href: azure-stack-solution-template-kubernetes-cluster-add.md
-  - name: Oferta de serviços
+  - name: Serviços da oferta
     href: azure-stack-offer-services-overview.md
   - name: Oferecer SQL como PaaS
     href: azure-stack-sql-resource-provider.md
@@ -356,7 +354,7 @@ items:
       href: azure-stack-backup-best-practices.md
     - name: Referência de cópia de segurança
       href: azure-stack-backup-reference.md
-  - name: Resolução de problemas
+  - name: Resolver Problemas
     items:
     - name: Problemas conhecidos
       href: azure-stack-troubleshooting.md
@@ -384,13 +382,13 @@ items:
     href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
   - name: Informações de preços
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
-  - name: Stack Overflow
+  - name: Capacidade de Pilha Excedida
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formação e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 07db25425bf9ef753c1561803dd1cdf838ef3457
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7034026f1a78c34cfd57750dcfdc4a65491ce75b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944964"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023989"

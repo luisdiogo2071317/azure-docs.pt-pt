@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376810"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986460"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Tutorial: Oferecem elevada disponibilidade bases de dados MySQL
 
@@ -65,16 +65,15 @@ Utilize os passos nesta secção para implementar o servidor MySQL do cluster ut
 - Um endereço IP público (para o cluster MySQL primário VM)
 - Três VMs do Linux para alojar o cluster de MySQL
 
-1. Inicie sessão no portal de administração do:
-    - Para uma implementação do sistema integrado, o endereço de portal variam com base na região e o nome de domínio externo de sua solução. É no formato https://adminportal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-    - Se estiver a utilizar o Azure Stack Development Kit (ASDK), o endereço de portal é [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **computação**e, em seguida, **MySQL com a replicação**.
 
-   ![Implementação de modelo personalizado](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Implementação de modelo personalizado](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Fornecer informações de implementação básica sobre o **Noções básicas** página. Reveja os valores predefinidos e altere conforme necessário e clique em **OK**.<br><br>No mínimo, forneça o seguinte:
-   - Nome da implementação (a predefinição é mysql)
+   - Nome da implementação (a predefinição é mymysql)
    - Palavra-passe de raiz de aplicação. Forneça uma senha de alfanuméricos 12 carateres com **sem carateres especiais**
    - Nome da base de dados de aplicação (a predefinição é bitnami)
    - Número de VMs para criar de réplica de base de dados do MySQL (a predefinição é 2)
@@ -82,22 +81,22 @@ Utilize os passos nesta secção para implementar o servidor MySQL do cluster ut
    - Selecione o grupo de recursos para utilizar ou crie um novo
    - Selecione a localização (a predefinição é o local para ASDK)
 
-   ![Noções básicas da implantação](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Noções básicas da implantação")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Sobre o **configuração do ambiente** página, forneça as seguintes informações e, em seguida, clique em **OK**: 
    - Palavra-passe ou SSH chave pública a utilizar para autenticação de secure shell (SSH). Se utilizar uma palavra-passe, tem de conter letras, números e **pode** conter carateres especiais
    - Tamanho da VM (a predefinição é padrão D1 v2 VMs)
    - Tamanho em GB clique do disco de dados **OK**
 
-   ![Configuração do ambiente](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Configuração do ambiente")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Reveja a implantação **resumo**. Opcionalmente, pode transferir o modelo personalizado e os parâmetros e, em seguida, clique em **OK**.
 
-   ![Resumo](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Resumo")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Clique em **Create** sobre o **comprar** página para iniciar a implementação.
 
-   ![Comprar](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Comprar](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > A implementação irá demorar cerca de uma hora. Certifique-se de que a implementação estiver concluída e o cluster MySQL tiver sido completamente configurado antes de continuar. 
@@ -110,11 +109,11 @@ Por predefinição, nenhum acesso público está configurado para MySQL para o a
 
 1. No portal do administrador, navegue para o grupo de recursos criado quando implementar o cluster MySQL e selecione o grupo de segurança de rede (**predefinição-sub-rede-sg**):
 
-   ![abre](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![abrir](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Selecione **regras de segurança de entrada** e, em seguida, clique em **Add**.<br><br>Introduza **3306** no **intervalo de portas de destino** e, opcionalmente, forneça uma descrição no **nome** e **Descrição** campos. Clique em Adicionar para fechar a caixa de diálogo de regra de segurança de entrada.
 
-   ![abre](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![abrir](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Configurar o acesso externo ao MySQL cluster
 Antes do cluster MySQL pode ser adicionado como um anfitrião do servidor MySQL do Azure Stack, o acesso externo tem de estar ativado.
@@ -167,9 +166,8 @@ Depois do cluster MySQL foi criado, configurado e adicionado como um servidor de
 > [!NOTE]
 > Execute estes passos a partir do portal de utilizador do Azure Stack como um utilizador de inquilino com uma subscrição fornecer funcionalidades de servidor MySQL (Microsoft.MySQLAdapter serviço).
 
-1. Inicie sessão no portal de utilizador:
-    - Para uma implementação do sistema integrado, o endereço de portal variam com base na região e o nome de domínio externo de sua solução. É no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
-    - Se estiver a utilizar o Azure Stack Development Kit (ASDK), o endereço de portal de utilizador é [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selecione **\+** **criar um recurso** > **dados \+ armazenamento**e, em seguida, **base de dados MySQL** .<br><br>Forneça as informações de propriedade da base de dados necessários, incluindo o nome, agrupamento, a subscrição que pretende utilizar e a localização para utilizar na implementação. 
 
