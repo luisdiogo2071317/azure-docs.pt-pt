@@ -89,7 +89,7 @@ Método HTTP
 
 *Request URL* (URL do pedido)
 
-**https://login.microsoftonline.com/*{tenantId}*  /oauth2/token**
+**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
 
 *Parâmetro URI*
 
@@ -225,7 +225,7 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -290,7 +290,7 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -356,7 +356,7 @@ A ação de eliminação no ponto de extremidade subscribe permite que um utiliz
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -407,7 +407,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -477,7 +477,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
