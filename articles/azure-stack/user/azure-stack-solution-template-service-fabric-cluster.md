@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946118"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087289"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementar um cluster do Service Fabric no Azure Stack
 
 Utilize o **Cluster do Service Fabric** item no Azure Marketplace para implementar um cluster do Service Fabric seguro no Azure Stack. 
 
 Para obter mais informações sobre como trabalhar com o Service Fabric, veja [descrição geral do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) e [cenários de segurança de cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), na documentação do Azure.
+
+O cluster do Service Fabric no Azure Stack não está a utilizar o fornecedor de recursos Microsoft.ServiceFabric. Em vez disso, no Azure Stack, o cluster do Service Fabric é um conjunto de dimensionamento com o software de pré instalado definido com a Desired State Configuration (DSC).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
