@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801935"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086952"
 ---
 # <a name="how-to-configure-password-writeback"></a>Como: Configurar a repetição de escrita de palavra-passe
 
@@ -72,13 +72,14 @@ Para configurar as permissões adequadas para a repetição de escrita de palavr
 3. No painel esquerdo, clique no objeto que representa a raiz do domínio e selecione **propriedades** > **segurança** > **avançadas**.
 4. Partir do **permissões** separador, selecione **Add**.
 5. Escolha a conta que as permissões estão a ser aplicadas a (a partir do programa de configuração do Azure AD Connect).
-6. Na **aplica-se ao** na lista pendente, selecione **utilizadores descendentes** objetos.
+6. Na **aplica-se ao** na lista pendente, selecione **objetos de utilizador de descendente**.
 7. Sob **permissões**, selecione as caixas para as seguintes opções:
-    * **Repor palavra-passe**
     * **Alterar palavra-passe**
+    * **Repor palavra-passe**
+8. Sob **propriedades**, selecione as caixas para as seguintes opções:
     * **Escrever lockoutTime**
     * **Escrever pwdLastSet**
-8. Selecione **aplicar/OK** para aplicar as alterações e sair quaisquer caixas de diálogo de abertura.
+9. Selecione **aplicar/OK** para aplicar as alterações e sair quaisquer caixas de diálogo de abertura.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

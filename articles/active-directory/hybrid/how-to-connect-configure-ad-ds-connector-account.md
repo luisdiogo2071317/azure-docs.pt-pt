@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b6fef23b3624703305a13b205b588c83dd135764
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389960"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094743"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
@@ -28,7 +28,7 @@ Os seguintes cmdlets PowerShell pode ser utilizado para configurar permissões d
 
 Para a instalação do Azure AD Connect Express, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada no Active Directory com todas as permissões necessárias, para que não é necessário utilizar este módulo ADSyncConfig, exceto se o ter bloqueado permissões herança em unidades organizacionais ou em objetos específicos do Active Directory que pretende sincronizar com o Azure AD. 
  
-### <a name="permissions-summary"></a>Resumidas de permissões 
+### <a name="permissions-summary"></a>Resumo das permissões 
 A tabela seguinte fornece um resumo das permissões necessárias em objetos do AD: 
 
 | Funcionalidade | Permissões |
@@ -269,10 +269,10 @@ Este script do PowerShell irá restringir permissões para a conta de conector A
 - Desativar a herança do objeto especificado 
 - Remova todas as ACEs de objeto específico, exceto ACEs específicos para o próprio que queremos manter as permissões predefinidas intactos quando se trata-se para o próprio. 
  
- O parâmetro - ObjectDN é a conta do AD tem de ser fortalecida cujas permissões. Isso normalmente é a conta de domínio de MSOL_nnnnnnnnnnnn que está configurada no conector AD DS (consulte determinar sua conta de conector do AD DS). -Credential parâmetro é necessário especificar a conta de administrador que tem os privilégios necessários para restringir as permissões do Active Directory no objeto de destino AD. Isto é, normalmente, o Enterprise ou o administrador de domínio.  
+ O parâmetro - ADConnectorAccountDN é a conta do AD tem de ser fortalecida cujas permissões. Isso normalmente é a conta de domínio de MSOL_nnnnnnnnnnnn que está configurada no conector AD DS (consulte determinar sua conta de conector do AD DS). -Credential parâmetro é necessário especificar a conta de administrador que tem os privilégios necessários para restringir as permissões do Active Directory no objeto de destino AD. Isto é, normalmente, o Enterprise ou o administrador de domínio.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 Por exemplo: 

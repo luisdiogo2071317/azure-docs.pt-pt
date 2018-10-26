@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259216"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094818"
 ---
-# <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com orçamentos do Azure
+# <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 
 Controle de custos é um componente crítico para maximizar o valor do seu investimento na cloud. Existem vários cenários em que a visibilidade de custo, relatórios e orquestração com base no custo são críticos às operações de fazer negócios conosco. [APIs de gestão de custos do Azure](https://docs.microsoft.com/rest/api/consumption/) fornecem um conjunto de APIs para oferecer suporte a cada um destes cenários. As APIs fornecem detalhes de utilização, permitindo-lhe ver os custos de nível de instância granular.
 
@@ -139,7 +139,7 @@ Todas as aplicações lógicas têm de iniciar com um acionador, que é desencad
 4.  Procure "analisar JSON" na **estruturador de aplicações lógicas** caixa de pesquisa para localizar e selecionar o **Data Operations - Parse JSON** [ação](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts). 
     
     ![Adicionar Azure - aplicação lógica - analisar a ação de JSON](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  Introduza "Payload" como o **conteúdo** nome para o payload de Parse JSON.
+5.  Introduza "Payload" como o **conteúdo** nome para o payload de Parse JSON ou utilize a etiqueta de "Corpo" de conteúdo dinâmico.
 6.  Selecione o **utilizar payload de amostra para gerar esquema** opção a **Parse JSON** caixa.
     
     ![Dados JSON de exemplo de utilização do Azure - aplicação lógica - para gerar esquema](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 

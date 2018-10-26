@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: eb5d1ee88fc95f7d02842ea089f65c6d17a6d69d
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067593"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091746"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceder ao dashboard de web do Kubernetes no Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Para obter mais informações sobre o dashboard do Kubernetes, consulte [Dashboa
 
 Os passos detalhados neste documento partem do princípio de que já criou um cluster do AKS e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de criar um cluster do AKS, consulte a [início rápido do AKS][aks-quickstart].
 
-Também precisa da versão 2.0.46 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
+Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Iniciar o dashboard do Kubernetes
 
@@ -33,6 +33,9 @@ Para iniciar o dashboard do Kubernetes, utilize o [procurar az aks] [ az-aks-bro
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!NOTE]
+> Se estiver a executar este comando o Azure Cloud Shell, terá de adicionar o `--enable-cloud-console-aks-browse` parâmetro seja capaz de abrir o dashboard.
 
 Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kubernetes e abre um browser para o dashboard do Kubernetes. Se um navegador da web não abrir ao dashboard do Kubernetes, copie e cole o endereço de URL indicado na CLI do Azure, normalmente *http://127.0.0.1:8001*.
 

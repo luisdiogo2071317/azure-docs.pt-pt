@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237981"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093637"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Conceitos e arquitetura: como serviço Azure Machine Learning funciona? 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: conceitos e arquitetura
 
 Este documento descreve a arquitetura e conceitos para o serviço Azure Machine Learning. O diagrama seguinte mostra os principais componentes do serviço e ilustra o fluxo de trabalho geral ao utilizar o serviço: 
 
@@ -156,6 +156,13 @@ Uma experimentação é um agrupamento de várias execuções de um determinado 
 
 Para obter um exemplo da utilização de uma experimentação, consulte a [início rápido: introdução ao serviço Azure Machine Learning](quickstart-get-started.md) documento.
 
+
+## <a name="pipelines"></a>Pipelines
+
+Pipelines são utilizados para criar e gerir os fluxos de trabalho que fases de aprendizagem automática em conjunto inserir manualmente (ML), como a preparação de dados, preparação de modelos, implementação do modelo e inferência. Cada fase pode incluir vários passos, cada um dos quais pode ser executado automaticamente em vários destinos de computação.
+
+Para obter mais informações sobre o machine learning pipelines com este serviço, consulte o artigo [Pipelines e o Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>Destino de computação
 
 Um destino de computação é o recurso de computação utilizado para executar o script de treinamento ou alojar a sua implementação do serviço web. Os destinos de computação suportados são: 
@@ -210,6 +217,6 @@ Atividades podem fornecer notificações através da SDK ou a IU da Web, pelo qu
 
 Utilize as seguintes ligações para começar a utilizar o Azure Machine Learning:
 
-* [O que é o serviço Azure Machine Learning](overview-what-is-azure-ml.md)
-* [Início rápido: Criar uma área de trabalho com Python](quickstart-get-started.md)
-* [Tutorial: Preparar um modelo](tutorial-train-models-with-aml.md)
+* [O que é o serviço Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [Guia de Início Rápido: criar uma área de trabalho com Python](quickstart-get-started.md)
+* [Tutorial: preparar um modelo](tutorial-train-models-with-aml.md)

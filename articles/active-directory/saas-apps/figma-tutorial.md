@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 10/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 4094de1a1c17e844d96ac789bb4bc1655fdc1546
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b57fdb3f039a9395133854f8b4d4f2095e3a4f9b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669248"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integração do Azure Active Directory com Figma
 
@@ -61,19 +61,19 @@ Para configurar a integração do Figma com o Azure AD, terá de adicionar Figma
 
 **Para adicionar Figma a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![Active Directory][1]
 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
-    ![O painel de aplicações empresariais][2]
+    ![Aplicações][2]
 
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicativo][3]
+    ![Aplicações][3]
 
-4. Na caixa de pesquisa, escreva **Figma**, selecione **Figma** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, escreva **Figma**. Selecione **Figma** no painel de resultados e, em seguida, clique o **Add** botão para adicionar a aplicação.
 
     ![Figma na lista de resultados](./media/figma-tutorial/tutorial_figma_addfromgallery.png)
 
@@ -84,13 +84,13 @@ Nesta secção, configure e teste do Azure AD início de sessão único com Figm
 Para o início de sessão único funcione, o Azure AD precisa estar ligado ao Figma.  Para configurar e testar o Azure AD início de sessão único com Figma, conclua os seguintes passos:
 
 1. [**Contacte a equipa de suporte de Figma** ](mailto:support@figma.com?subject=SAML+Config) para iniciar uma configuração de SAML para a sua organização e obter um ORG_SAML_CONFIG_ID.
-2. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar um utilizador de teste Figma](#create-a-figma-test-user)**  - para ter um equivalente da Eduarda Almeida na Figma que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+3. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Criar um utilizador de teste Figma](#creating-a-figma-test-user)**  - para ter um equivalente da Eduarda Almeida na Figma que está ligado à representação de utilizador do Azure AD.
+5. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+6. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
 
 Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Figma.
 
@@ -98,13 +98,21 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. No portal do Azure, sobre o **Figma** página de integração de aplicação, clique em **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar o início de sessão único][4]
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, clique em **selecione** para **SAML** modo para ativar o início de sessão único.
 
-    ![Caixa de diálogo de início de sessão único](./media/figma-tutorial/tutorial_figma_samlbase.png)
+    ![Configurar o início de sessão único](./media/figma-tutorial/tutorial_general_301.png)
 
-3. Sobre o **Figma domínio e URLs** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
+3. Se precisar de alterar para **SAML** modo de qualquer outro modo, clique em **alterar único início de sessão em modo** na parte superior do ecrã.
+
+    ![Configurar o início de sessão único](./media/figma-tutorial/tutorial_general_300.png)
+
+4. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+
+    ![Configurar o início de sessão único](./media/figma-tutorial/tutorial_general_302.png)
+
+5. Sobre o **configuração básica de SAML** secção, execute os seguintes passos, se desejar configurar a aplicação no **IDP** iniciada pelo modo:
 
     ![Figma domínio e URLs únicas início de sessão em informações](./media/figma-tutorial/tutorial_figma_url1.png)
 
@@ -112,7 +120,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
 
-4. Verifique **Mostrar definições de URL avançadas** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+6. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     ![Figma domínio e URLs únicas início de sessão em informações](./media/figma-tutorial/tutorial_figma_url2.png)
 
@@ -121,88 +129,105 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador de real, a URL de resposta e o URL de início de sessão. Contacte [equipa de suporte de Figma](mailto:support@figma.com?subject=SAML+Config) obter esses valores.
 
-5. Sobre o **certificado de assinatura SAML** secção, clique no botão de cópia para copiar **Url de metadados de Federação de aplicação** e cole-o no bloco de notas.
+7. Aplicação de Figma espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+
+    ![Secção de atributo](./media/figma-tutorial/edit_attribute.png)
+
+8. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+
+    | Nome | Atributo de origem|
+    | ---------------| --------- |
+    | `externalId` | `user.mailnickname` |
+    | `displayName` | `user.displayname` |
+    | `title` | `user.jobtitle` |
+    | `emailaddress` | `user.mail` |
+    | `familyName` | `user.surname` |
+    | `givenName` | `givenName` |
+    | `userName` | `user.userprincipalname` |
+
+    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+
+    ![Novo atributo](./media/figma-tutorial/new_save_attribute.png)
+
+    ![Adicionar Atributo](./media/figma-tutorial/new_attribute_details.png)
+
+    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+
+    c. Deixe o **espaço de nomes** em branco.
+
+    d. Selecione a origem de dado **atributo**.
+
+    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+
+    f. Clique em **Ok**
+
+    g. Clique em **Guardar**.
+
+9. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
 
     ![O link de download de certificado](./media/figma-tutorial/tutorial_figma_certificate.png)
 
-6. Clique em **guardar** botão.
+10. Para configurar o início de sessão único no lado de Figma, preencha este formulário: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Ele vai aceitar sua **Url de metadados de Federação de aplicação** do passo n. º 9.
 
-    ![Configurar o botão único início de sessão em Guardar](./media/figma-tutorial/tutorial_general_400.png)
-
-7. Para configurar o início de sessão único no lado de Figma, preencha este formulário: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Ele vai aceitar sua **Url de metadados de Federação de aplicação** do passo n. º 5.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    ![Criar utilizador do Azure AD][100]
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/figma-tutorial/create_aaduser_01.png)
+    ![Criar um utilizador de teste do Azure AD](./media/figma-tutorial/create_aaduser_01.png) 
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/figma-tutorial/create_aaduser_02.png)
+    ![Criar um utilizador de teste do Azure AD](./media/figma-tutorial/create_aaduser_02.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** , insira **BrittaSimon**.
+  
+    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/figma-tutorial/create_aaduser_03.png)
+    c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
+    d. Selecione **Criar**.
 
-    ![A caixa de diálogo de utilizador](./media/figma-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
-
-    d. Clique em **Criar**.
-
-### <a name="create-a-figma-test-user"></a>Criar um utilizador de teste Figma
+### <a name="creating-a-figma-test-user"></a>Criar um utilizador de teste Figma
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Figma. Figma suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder Figma se não existir ainda.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Figma.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para HubSpot SAML.
 
-![Atribuir a função de utilizador][200]
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**.
 
-**Para atribuir a Eduarda Almeida a Figma, execute os seguintes passos:**
+    ![Atribuir utilizador][201]
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **HubSpot SAML**.
 
-    ![Atribuir utilizador][201] 
-
-2. Na lista de aplicações, selecione **Figma**.
-
-    ![A ligação de Figma na lista de aplicações](./media/figma-tutorial/tutorial_figma_app.png)  
+    ![Configurar o início de sessão único](./media/figma-tutorial/tutorial_figma_app.png) 
 
 3. No menu à esquerda, clique em **utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![Atribuir utilizador][202]
 
 4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar atribuição][203]
+    ![Atribuir utilizador][203]
 
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+6. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
 
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="testing-single-sign-on"></a>Teste de início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico Figma no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Figma.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

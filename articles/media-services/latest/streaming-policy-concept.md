@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984303"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085500"
 ---
 # <a name="streaming-policies"></a>Políticas de Transmissão em Fluxo
 
@@ -29,17 +29,17 @@ Serviços de multimédia do Azure v3, políticas de transmissão em fluxo para p
 
 A tabela seguinte mostra as propriedades do StreamingPolicy e fornece as respetivas definições.
 
-|Nome|Tipo|Descrição|
-|---|---|---|
-|ID|cadeia|ID de recurso completamente qualificado para o recurso.|
-|nome|cadeia|O nome do recurso.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|Configuração de CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|Configuração de CommonEncryptionCenc|
-|Properties.created |cadeia|Hora de criação da política de transmissão em fluxo|
-|properties.defaultContentKeyPolicyName |cadeia|ContentKey predefinido utilizado pela política de transmissão em fluxo atual|
-|properties.envelopeEncryption  |EnvelopeEncryption|Configuração de EnvelopeEncryption|
-|properties.noEncryption|NoEncryption|Configurações de NoEncryption|
-|tipo|cadeia|O tipo de recurso.|
+|Nome|Descrição|
+|---|---|
+|ID|ID de recurso completamente qualificado para o recurso.|
+|nome|O nome do recurso.|
+|properties.commonEncryptionCbcs|Configuração de CommonEncryptionCbcs|
+|properties.commonEncryptionCenc|Configuração de CommonEncryptionCenc|
+|Properties.created |Hora de criação da política de transmissão em fluxo|
+|properties.defaultContentKeyPolicyName |ContentKey predefinido utilizado pela política de transmissão em fluxo atual|
+|properties.envelopeEncryption  |Configuração de EnvelopeEncryption|
+|properties.noEncryption|Configurações de NoEncryption|
+|tipo|O tipo de recurso.|
 
 A definição completa, consulte [políticas de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 

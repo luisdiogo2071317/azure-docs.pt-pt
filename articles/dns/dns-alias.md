@@ -7,55 +7,62 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 05a6a1700de2b8b334b40d9efd9b8d79e9e7241f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52b42e964e7abe207064aff49f7f8f27f8476ef4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957577"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092847"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
-Registos de alias DNS do Azure são a qualificação por um conjunto de registos DNS que permite que faça referência a outros recursos do Azure a partir de sua zona DNS. Por exemplo, pode criar um conjunto de registros de alias que faz referência a um endereço IP público do Azure em vez disso, um registo. Uma vez que o seu conjunto de registros de alias aponta para uma instância de serviço de endereço IP público do Azure dinamicamente, o conjunto de registos de alias atualiza automaticamente sem problemas durante a resolução de DNS.
+Registos de alias de DNS do Azure são qualificações num conjunto de registos de DNS. Eles podem fazer referência a outros recursos do Azure a partir de sua zona DNS. Por exemplo, pode criar um conjunto de registos de alias que faz referência a um endereço IP público do Azure em vez de um registo. Os pontos do conjunto de registos alias para um IP público do Azure endereços dinamicamente a instância de serviço. Como resultado, o conjunto de registos de alias perfeitamente atualiza automaticamente durante a resolução de DNS.
 
-Um conjunto de registos de alias é suportado para os seguintes tipos de registos numa zona de DNS do Azure: A, AAAA e CNAME. 
+Um conjunto de registos de alias é suportado para os seguintes tipos de registos numa zona de DNS do Azure: 
+
+- A 
+- AAAA 
+- CNAME 
 
 > [!NOTE]
-> Registos de alias para os A ou AAAA tipos de registos para o Gestor de tráfego só são suportados para tipos de ponto final externo. Tem de fornecer o endereço IPv4 ou IPv6 (IPs estáticos Idealmente) conforme apropriado para pontos finais externos no Gestor de tráfego.
+> Registos de alias para os A ou AAAA tipos de registos para o Gestor de tráfego do Azure são suportados apenas para tipos de ponto final externo. Tem de fornecer o endereço IPv4 ou IPv6, conforme apropriado, para os pontos finais externos no Gestor de tráfego. O ideal é que utilizam IPs estáticos para o endereço.
 
 ## <a name="capabilities"></a>Capacidades
 
-- **Apontar para um recurso de IP público a partir de um conjunto de registos de A/AAAA de DNS**. Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso de IP público.
-- **Aponte para um perfil do Gestor de tráfego de um conjunto de registos DNS A/AAAA/CNAME**. Além de poder apontar para o CNAME de um perfil do Gestor de tráfego (por exemplo: contoso.trafficmanager.net) de um conjunto de registros DNS CNAME, agora também pode apontar para um perfil de Gestor de tráfego que tem pontos finais externos, a partir de um conjunto de registros A ou AAAA no DNS zona.
+- **Ponto para um recurso IP público a partir de um conjunto de registos de A/AAAA de DNS.** Pode criar um conjunto de registos A/AAAA e torná-lo um conjunto de registos de alias para apontar para um recurso IP público.
+
+- **Ponto para um perfil do Gestor de tráfego a partir de um conjunto de registos DNS A/AAAA/CNAME.** Pode apontar para o CNAME de um perfil do Gestor de tráfego de um conjunto de registos CNAME no DNS. Um exemplo é contoso.trafficmanager.net. Agora, também pode apontar para um perfil de Gestor de tráfego que tem pontos finais externos a partir de um conjunto na sua zona DNS de registos A ou AAAA.
+
    > [!NOTE]
-   > Registos de alias para os A ou AAAA tipos de registos para o Gestor de tráfego só são suportados para tipos de ponto final externo. Tem de fornecer o endereço IPv4 ou IPv6 (IPs estáticos Idealmente) conforme apropriado para pontos finais externos no Gestor de tráfego.
-- **Aponte para outro conjunto de registos de DNS na zona mesmo**. Registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, pode ter um conjunto de registros de DNS CNAME ser um alias para outro conjunto de registros CNAME do mesmo tipo. Isto é útil se quiser ter alguns conjuntos de registros ser aliases e alguns como não aliases em termos de comportamento.
+   > Registos de alias para os A ou AAAA tipos de registos para o Gestor de tráfego são suportados apenas para tipos de ponto final externo. Tem de fornecer o endereço IPv4 ou IPv6, conforme apropriado, para os pontos finais externos no Gestor de tráfego. O ideal é que utilizam IPs estáticos para o endereço.
+   
+- **Aponte para outro conjunto de registos de DNS na mesma zona.** Os registos de alias podem fazer referência a outros conjuntos de registos do mesmo tipo. Por exemplo, um conjunto de registos CNAME de DNS pode ser um alias para outro conjunto de registos CNAME do mesmo tipo. Essa disposição é útil se desejar alguns conjuntos de registos para ser aliases e alguns não aliases.
 
 ## <a name="scenarios"></a>Cenários
-Existem alguns cenários comuns para os registos de Alias:
+Existem alguns cenários comuns para os registos de Alias.
 
 ### <a name="prevent-dangling-dns-records"></a>Impedir dangling registos DNS
-De dentro de zonas de DNS do Azure, os registos de alias podem ser utilizados para perto controlar o ciclo de vida de recursos do Azure como um perfil de IP público e o Gestor de tráfego. Um dos problemas comuns com registos DNS tradicionais é "registos dangling", especialmente com A/AAAA ou CNAME tipos de registos. 
+ Dentro de zonas de DNS do Azure, os registos de alias podem ser utilizados para perto controlar o ciclo de vida dos recursos do Azure. Os recursos incluem um IP público ou um perfil do Gestor de tráfego. Um problema comum com registos DNS tradicionais é dangling registos. Este problema ocorre especialmente com A/AAAA ou CNAME tipos de registos. 
 
-Com um registo de zona DNS tradicional, se o IP de destino ou CNAME já não existir, o registo de zona DNS não tem conhecimento do fato e tem de ser atualizado manualmente. Em algumas organizações, esta atualização manual não pode ocorrer no tempo ou pode ser problemática devido a separação de funções e níveis de permissão associada.
+Com um registo de zona DNS tradicional, se o IP de destino ou CNAME já não existir, o registo de zona DNS não sabe. Como resultado, o registo tem de ser atualizado manualmente. Em algumas organizações, esta atualização manual não poderá ocorrer no tempo. Também pode ser problemático devido a separação de funções e níveis de permissão associada.
 
-Por exemplo, a função que tem autoridade para eliminar um CNAME ou endereço IP que pertençam a um aplicativo pode não ter autoridade suficiente para atualizar o registo DNS que aponta para esses destinos. Como resultado, poderá ocorrer um atraso de tempo entre quando o IP ou o CNAME é eliminado e o registo DNS que aponta para ela for removido, o que poderia potencialmente causar uma falha para os utilizadores finais.
+Por exemplo, uma função pode ter a autoridade para eliminar um CNAME ou endereço IP que pertence a uma aplicação. Mas não tem autoridade suficiente para atualizar o registo DNS que aponta para esses destinos. Ocorre um atraso de tempo entre quando o IP ou o CNAME é eliminado e o registo DNS que aponta para o mesmo é removido. Este atraso de tempo potencialmente causar uma falha para os utilizadores.
 
-Registos de alias remova a complexidade associada este cenário e ajudar a impedir que tais referências dangling. Quando um registo DNS é qualificado como um registo de alias para apontar para um IP público ou um perfil do Gestor de tráfego, e se esses recursos subjacentes são eliminados, o registo de alias DNS também é removido ao mesmo tempo. Isto garante que os usuários finais nunca sofrer um período de indisponibilidade.
+Registos de alias remover a complexidade associada este cenário. Eles ajudam a impedir dangling referências. Veja, por exemplo, um registo DNS que é qualificado como um registo de alias para apontar para um IP público ou um perfil do Gestor de tráfego. Se esses recursos subjacentes forem excluídos, o registo de alias DNS é removido ao mesmo tempo. Este processo torna-se de que os utilizadores nunca sofrem um período de indisponibilidade.
 
 ### <a name="update-dns-zones-automatically-when-application-ips-change"></a>Atualizar as zonas DNS automaticamente quando o aplicativo IPs alterar
 
-Semelhante ao cenário anterior, se um aplicativo for movido, ou se a máquina virtual subjacente for reiniciada, um registo de alias é atualizado automaticamente quando o endereço IP é alterado para o recurso de IP público subjacente. Se os utilizadores finais são direcionados para outro aplicativo que tem o endereço IP antigo, pode evitar potenciais riscos de segurança.
+Este cenário é semelhante ao anterior. Talvez um aplicativo é movido, ou a máquina virtual subjacente é reiniciada. Um registo de alias, em seguida, atualiza automaticamente quando o endereço IP é alterado para o recurso IP público subjacente. Para evitar potenciais riscos de segurança, os usuários diretos de outro aplicativo que tem o endereço IP antigo.
 
-### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Alojar as aplicações com balanceamento de carga no vértice da zona
+### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Alojar aplicações com balanceamento de carga no vértice da zona
 
-O protocolo DNS impede a atribuição de nada além de um registo A ou AAAA no vértice da zona (por exemplo: contoso.com). Isso apresenta um problema para os proprietários de aplicativos que têm de carga com balanceamento de aplicativos por trás de um Gestor de tráfego, como não foi possível apontar para o perfil do Gestor de tráfego do registo de apex de zona. Como resultado, os proprietários dos aplicativos eram forçados a usar uma solução alternativa. Por exemplo, um redirecionamento na camada da aplicação para redirecionar do vértice da zona para outro domínio (a partir do contoso.com para www.contoso.com). Isso apresenta um ponto único de falha em termos da funcionalidade de redirecionamento.
+O protocolo DNS impede a atribuição de nada além de um registo A ou AAAA no vértice da zona. Um exemplo é contoso.com. Esta restrição apresenta um problema para os proprietários da aplicação que tenham aplicações com balanceamento de carga por trás do Gestor de tráfego. Não é possível apontar para o perfil do Gestor de tráfego do registo de apex de zona. Como resultado, os proprietários da aplicação tem de utilizar uma solução alternativa. Um redirecionamento na camada da aplicação tem de redirecionar do vértice da zona para outro domínio. Um exemplo é um redirecionamento de contoso.com para www.contoso.com. Essa organização apresenta um ponto único de falha para a função de redirecionamento.
 
-Com os registros de alias, esse problema deixou de existir. Os proprietários da aplicação podem direcionar respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Com esta capacidade, os proprietários de aplicativos podem apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS. Por exemplo, contoso.com e www.contoso.com podem ambos apontar para o mesmo perfil de Gestor de tráfego, desde que o perfil do Gestor de tráfego tem apenas pontos finais externos configurados.
+Com os registros de alias, esse problema deixou de existir. Agora os proprietários de aplicativos podem apontar o respetivo registo de apex de zona para um perfil de Gestor de tráfego que tem pontos finais externos. Os proprietários de aplicativos podem apontar para o mesmo perfil de Gestor de tráfego, que é utilizado para qualquer outro domínio na sua zona DNS. Por exemplo, contoso.com e www.contoso.com podem apontar para o mesmo perfil de Gestor de tráfego. Esse é o caso, desde que o perfil do Gestor de tráfego tem apenas pontos finais externos configurados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para Saiba mais sobre os registos de alias, veja os artigos de follwing:
+Para saber mais sobre os registos de alias, veja os artigos seguintes:
 
 - [Tutorial: Configurar um registo de alias para fazer referência a um endereço IP público do Azure](tutorial-alias-pip.md)
 - [Tutorial: Configurar um registo de alias para oferecer suporte a nomes de domínio com o Gestor de tráfego do vértice](tutorial-alias-tm.md)

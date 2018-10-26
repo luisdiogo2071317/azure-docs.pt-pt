@@ -1,3 +1,16 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: 9fb462b83eccde3d2b486d491517973fe6bac4f1
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133349"
+---
 As funções do Azure [acionadores e enlaces](..\articles\azure-functions\functions-triggers-bindings.md) comunicar com vários serviços do Azure. Ao integrar-se com estes serviços, pode ter os erros levantados provenientes as APIs dos serviços do Azure subjacentes. Também podem ocorrer erros quando tenta comunicar com outros serviços a partir do código de função utilizando as bibliotecas de cliente ou REST. Para evitar perda de dados e garantir o bom comportamento das suas funções, é importante processar erros da origem.
 
 Os acionadores seguintes têm suporte de repetição incorporado:

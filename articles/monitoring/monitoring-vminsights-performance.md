@@ -1,5 +1,5 @@
 ---
-title: Como gráfico de desempenho com o Azure Monitor para VMs | Documentos da Microsoft
+title: Como gráfico de desempenho com o Azure Monitor para VMs (pré-visualização) | Documentos da Microsoft
 description: O desempenho é uma funcionalidade do Monitor para VMs do Azure que Deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre serviços automaticamente. Este artigo fornece detalhes sobre como usá-lo numa variedade de cenários.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a63a9d22638231aa076cc4ced9030a378d0c36e4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 776a8901696bd69eeee6fd4b3622c8992bfc25a3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429495"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094317"
 ---
-# <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Como desempenho gráfico com o Azure Monitor para VMs
+# <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como desempenho gráfico com o Azure Monitor para VMs (pré-visualização)
 Monitor do Azure para VMs inclui um conjunto de gráficos de desempenho que visam vários indicadores chave de desempenho (KPIs) para ajudar a determinar a forma como uma máquina virtual está a efetuar. Os gráficos mostram a utilização de recursos durante um período de tempo para que possa identificar estrangulamentos de anomalias, ou mudar para um ponto de vista listagem cada máquina para ver a utilização de recursos com base na métrica selecionada. Embora haja vários elementos a serem considerados ao lidar com desempenho, Monitor do Azure para VMs se concentra no sistema operativo, conforme apresentado através do processador, memória, placas de rede e discos. Complementa a funcionalidade de monitorização de estado de funcionamento de desempenho e ajuda a expor problemas que indiquem uma falha de componente do sistema possíveis, ajuste de suporte e a otimização para alcançar a eficiência ou suportar o planeamento de capacidade.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Ponto de vista de várias VMS do Azure Monitor

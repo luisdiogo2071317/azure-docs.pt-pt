@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ef8fc2ea8b006d49dd54d638183a58bf78a5797
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312997"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integração do Azure Active Directory com o Zscaler três
 
@@ -119,10 +119,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    Na caixa de texto URL de resposta, introduza o URL: `https://login.zscalerthree.net/sfc_sso`
-
-    > [!NOTE]
-    > Terá de atualizar este valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente de três Zscaler](https://www.zscaler.com/company/contact) obter esses valores.
+    No início de sessão na caixa de texto do URL, introduza o URL: `https://login.zscalerthree.net/sfc_sso`
 
 6. Sobre o **certificado de assinatura SAML** secção, clique em **transferir** para transferir **Certificate(Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
 

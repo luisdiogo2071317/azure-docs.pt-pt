@@ -4,28 +4,28 @@ description: Descreve como funciona a linguagem de consulta para o gráfico de r
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 09bcedc5250755f06ba23b84a0ae90b4d43a23db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236455"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086170"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do gráfico de recursos do Azure
 
 A linguagem de consulta para o gráfico de recursos do Azure suporta um número de operadores e funções. Cada trabalho e operasse com base em [Explorador de dados do Azure](../../../data-explorer/data-explorer-overview.md).
 
-A melhor forma de saber mais sobre a linguagem de consulta usada pelo gráfico de recursos é começar com a documentação para o Azure Data Explorer [linguagem de consulta](/azure/kusto/query/index). Isto proporciona uma compreensão sobre como o idioma é estruturado e como os vários suportados os operadores e funções funcionam em conjunto.
+A melhor forma de saber mais sobre a linguagem de consulta usada pelo gráfico de recursos é começar com a documentação para o Azure Data Explorer [linguagem de consulta](/azure/kusto/query/index). Ele fornece uma compreensão sobre como o idioma é estruturado e como os vários suportados os operadores e funções funcionam em conjunto.
 
 ## <a name="supported-tabular-operators"></a>Operadores de tabela suportados
 
 Eis a lista de operadores tabulares suportados no gráfico de recursos:
 
-- [Contagem](/azure/kusto/query/countoperator)
+- [count](/azure/kusto/query/countoperator)
 - [Distintos](/azure/kusto/query/distinctoperator)
 - [Expandir](/azure/kusto/query/extendoperator)
 - [Limite](/azure/kusto/query/limitoperator)
@@ -56,4 +56,4 @@ Eis a lista de funções no gráfico de recursos:
 
 - Consulte o idioma utilizado na [consultas Starter](../samples/starter.md)
 - Consulte avançada usa no [avançadas consultas](../samples/advanced.md)
-- Aprenda a [explore os recursos](explore-resources.md)
+- Aprender a [explorar recursos](explore-resources.md)

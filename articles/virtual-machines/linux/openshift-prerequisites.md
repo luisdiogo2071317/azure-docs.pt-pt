@@ -3,8 +3,8 @@ title: OpenShift em pré-requisitos do Azure | Documentos da Microsoft
 description: Pré-requisitos para implementar o OpenShift no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 36271116d697e5ee6c6ed08d5fdc6063a511e820
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984345"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085880"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implementar o OpenShift no Azure
 
-Este artigo descreve os pré-requisitos comuns para implementar o OpenShift Origin ou OpenShift Container Platform no Azure.
+Este artigo descreve os pré-requisitos comuns para implementar o OpenShift Container Platform ou OKD no Azure.
 
 A instalação do OpenShift utiliza playbooks do Ansible. Ansible utiliza Secure Shell (SSH) para ligar a todos os anfitriões de cluster para concluir os passos de instalação.
 
-Quando iniciar a ligação de SSH para hosts remotos, não é possível introduzir uma palavra-passe. Por esse motivo, a chave privada não pode ter uma palavra-passe associada a ele ou falha de implementação.
+Quando o ansible inicia a ligação de SSH para hosts remotos, ele não é possível introduzir uma palavra-passe. Por esse motivo, a chave privada não pode ter uma palavra-passe (frase de acesso) associada a ele ou falha de implementação.
 
 Uma vez que as máquinas virtuais (VMs) implementar através de modelos Azure Resource Manager, a mesma chave pública é utilizada para acesso a todas as VMs. Tem de inserir a chave privada correspondente na VM que executa todos os playbooks também. Para fazer isso de forma segura, use um cofre de chave do Azure para passar a chave privada para a VM.
 
-Se for necessário para armazenamento persistente para contentores, volumes persistentes são necessários. OpenShift suporta discos rígidos virtuais (VHDs) do Azure para esta capacidade, mas tem de ser configurado primeiro Azure como o fornecedor de cloud. 
+Se for necessário para armazenamento persistente para contentores, volumes persistentes são necessários. OpenShift suporta discos rígidos virtuais (VHDs) do Azure para esta capacidade, mas tem de ser configurado primeiro Azure como o fornecedor de cloud.
 
 Nesse modelo, o OpenShift:
 
-- Cria um objeto VHD numa conta de armazenamento do Azure.
-- Monta o VHD para uma VM e o formato do volume.
+- Cria um objeto VHD numa conta de armazenamento do Azure ou um disco gerido.
+- Monta o VHD para uma VM e formata o volume.
 - Monta o volume para o pod.
 
-Para esta configuração funcione, OpenShift necessita de permissões para executar as tarefas anteriores no Azure. Conseguir isto com um principal de serviço. O principal de serviço é uma conta de segurança no Azure Active Directory que são concedidas permissões para recursos.
+Para esta configuração funcione, OpenShift necessita de permissões para executar essas tarefas no Azure. Conseguir isto com um principal de serviço. O principal de serviço é uma conta de segurança no Azure Active Directory que são concedidas permissões para recursos.
 
 O principal de serviço tem de ter acesso às contas de armazenamento e as VMs que compõem o cluster. Se todos os recursos de cluster do OpenShift implementar um grupo de recursos, o principal de serviço pode ser concedido permissões para esse grupo de recursos.
 
@@ -48,7 +48,7 @@ Este guia descreve como criar os artefactos associados com os pré-requisitos.
 
 > [!div class="checklist"]
 > * Crie um cofre de chaves para gerir as chaves SSH para o cluster do OpenShift.
-> * Crie um principal de serviço para utilização pelo fornecedor de soluções de Cloud do Azure.
+> * Crie um principal de serviço para utilização pelo fornecedor de nuvem do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -60,7 +60,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Utilize um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo é separado do grupo de recursos no qual implementar os recursos do cluster OpenShift. 
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Recomenda-se para utilizar um grupo de recursos dedicado para alojar o Cofre de chaves. Este grupo é separado do grupo de recursos no qual implementar os recursos do cluster OpenShift.
 
 O exemplo seguinte cria um grupo de recursos chamado *keyvaultrg* no *eastus* localização:
 
@@ -80,16 +80,16 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>Criar uma chave SSH 
-Uma chave SSH, é necessário para proteger o acesso ao cluster OpenShift Origin. Criar um par de chaves SSH com o `ssh-keygen` comando (no Linux ou macOS):
+Uma chave SSH, é necessário para proteger o acesso ao OpenShift cluster. Criar um par de chaves SSH com o `ssh-keygen` comando (no Linux ou macOS):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> O par de chaves de SSH não pode ter uma palavra-passe.
+> O par de chaves de SSH não pode ter uma palavra-passe / frase de acesso.
 
-Para obter mais informações sobre chaves SSH no Windows, consulte [chaves de como criar SSH no Windows](/azure/virtual-machines/linux/ssh-from-windows).
+Para obter mais informações sobre chaves SSH no Windows, consulte [chaves de como criar SSH no Windows](/azure/virtual-machines/linux/ssh-from-windows). Certifique-se de que exportar a chave privada no formato OpenSSH.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>Store a chave privada SSH no Azure Key Vault
 A implementação do OpenShift utiliza a chave SSH criado para proteger o acesso ao mestre de OpenShift. Para ativar a implementação obter a chave SSH de forma segura, armazene a chave no Cofre de chaves utilizando o seguinte comando:
@@ -103,18 +103,29 @@ OpenShift comunica com o Azure através de um nome de utilizador e palavra-passe
 
 Criar um serviço principal com [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e as credenciais que precisa de OpenShift de saída.
 
-O exemplo seguinte cria um serviço principal e o atribui permissões de contribuinte a um grupo de recursos com o nome myResourceGroup. Se estiver a utilizar o Windows, execute ```az group show --name myResourceGroup --query id``` em separado e usar o resultado para alimentar a opção-- âmbitos.
+O exemplo seguinte cria um serviço principal e o atribui permissões de contribuinte a um grupo de recursos com o nome openshiftrg.
+em separado e usar o resultado para alimentar a opção-- âmbitos.
+
+Primeiro, crie o grupo de recursos com o nome openshiftrg:
 
 ```azurecli
-az ad sp create-for-rbac --name openshiftsp \
-          --role Contributor --password {Strong Password} \
-          --scopes $(az group show --name myResourceGroup --query id)
+az group create -l eastus -n openshiftrg
 ```
+
+Crie principal de serviço:
+
+```azurecli
+scope=`az group show --name openshiftrg --query id`
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --password {Strong Password} \
+      --scopes $scope
+```
+Se estiver a utilizar o Windows, execute ```az group show --name openshiftrg --query id``` e usar o resultado em vez de $scope.
 
 Tome nota da propriedade appId devolvida do comando:
 ```json
 {
-  "appId": "11111111-abcd-1234-efgh-111111111111",            
+  "appId": "11111111-abcd-1234-efgh-111111111111",
   "displayName": "openshiftsp",
   "name": "http://openshiftsp",
   "password": {Strong Password},
@@ -135,6 +146,5 @@ Este artigo abordou os seguintes tópicos:
 
 Em seguida, implemente um cluster do OpenShift:
 
-- [Implementar o OpenShift Origin](./openshift-origin.md)
 - [Implementar o OpenShift Container Platform](./openshift-container-platform.md)
-
+- [Implementar OKD](./openshift-okd.md)

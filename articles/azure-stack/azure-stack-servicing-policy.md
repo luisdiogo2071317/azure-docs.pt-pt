@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 523be365e8b66c157546470a70ddec73d3e1e5d1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630686"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086969"
 ---
 # <a name="azure-stack-servicing-policy"></a>O Azure Stack a política de manutenção
 Este artigo descreve a política de manutenção para sistemas integrados do Azure Stack e o que deve fazer para manter seu sistema num estado suportado. 
@@ -37,11 +37,12 @@ Existem dois tipos de pacotes de atualização para os sistemas integrados:
 ## <a name="update-package-release-cadence"></a>Cadência de lançamento do pacote de atualização
 A Microsoft espera libertar os pacotes de atualização de software a uma cadência mensal. No entanto, é possível ter várias ou nenhuma versões de atualização num mês. Fornecedores de hardware de OEM da versão suas atualizações de forma conforme necessário. 
 
-Encontrar documentação sobre como planear e gerir atualizações e como determinar sua versão atual na [descrição geral de atualizações de gerir](azure-stack-updates.md). Para obter informações sobre uma atualização específica, incluindo como transferi-lo, consulte as notas de versão para que atualizar: 
+Encontrar documentação sobre como planear e gerir atualizações e como determinar sua versão atual na [descrição geral de atualizações de gerir](azure-stack-updates.md). 
+
+Para obter informações sobre uma atualização específica, incluindo como transferi-lo, consulte as notas de versão para que atualizar: 
+- [Atualização de 1809 de pilha do Azure](azure-stack-update-1809.md)
 - [Atualização de 1808 de pilha do Azure](azure-stack-update-1808.md)
 - [Atualização de 1807 de pilha do Azure](azure-stack-update-1807.md)
-- [Atualização de 1805 de pilha do Azure](azure-stack-update-1805.md)
-
 
 ## <a name="hotfixes"></a>Correções
 Ocasionalmente, a Microsoft fornece correções para o Azure Stack esse endereço de um problema específico que é muitas vezes preventiva ou sensíveis ao tempo.  Cada correção é fornecida com um artigo correspondente na Base de dados de conhecimento da Microsoft que explica em detalhe o problema, a causa e a resolução. 

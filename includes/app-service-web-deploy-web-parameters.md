@@ -1,19 +1,32 @@
-Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma secção denominada parâmetros que contém todos os valores de parâmetros.
-Deve definir um parâmetro para esses valores que irão variar com base no projeto que está a implementar ou com base no ambiente que esteja a implementar. Não defina parâmetros para valores que irão sempre permaneça igual. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados. 
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: 5bde217601d27129e044b64d90184727ea717950
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134018"
+---
+Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada parâmetros, que contém todos os valores de parâmetro.
+Deve definir um parâmetro para esses valores que variam com base no projeto que está a implementar ou com base no ambiente que esteja a implementar. Não defina parâmetros para valores que sempre continuará o mesmo. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados. 
 
-Quando definir parâmetros, utilize o **allowedValues** campo para especificar que os valores de um utilizador pode fornecer durante a implementação. Utilize o **defaultValue** campo para atribuir um valor para o parâmetro se não for fornecido nenhum valor durante a implementação.
+Ao definir parâmetros, utilize o **allowedValues** campo para especificar quais valores de um utilizador pode fornecer durante a implementação. Utilize o **defaultValue** campo para atribuir um valor para o parâmetro, se não for fornecido nenhum valor durante a implementação.
 
-Iremos descrevem cada um dos parâmetros no modelo.
+Descreveremos cada um dos parâmetros no modelo.
 
 ### <a name="sitename"></a>SiteName
-O nome da aplicação web que pretende criar.
+O nome da aplicação web que deseja criar.
 
     "siteName":{
       "type":"string"
     }
 
 ### <a name="hostingplanname"></a>hostingPlanName
-O nome do plano do App Service para utilizar para alojar a aplicação web.
+O nome do plano do serviço de aplicações a utilizar para alojar a aplicação web.
 
     "hostingPlanName":{
       "type":"string"
@@ -44,10 +57,10 @@ O escalão de preço para o plano de alojamento.
       }
     }
 
-O modelo define os valores que são permitidos para este parâmetro e atribui um valor predefinido (S1), se for especificado nenhum valor.
+O modelo define os valores que são permitidos para este parâmetro e atribui um valor predefinido (S1) se for especificado nenhum valor.
 
 ### <a name="workersize"></a>workerSize
-O tamanho da instância do plano de alojamento (pequeno, médio ou grande).
+O tamanho da instância de plano de alojamento de (pequeno, médio ou grande).
 
     "workerSize":{
       "type":"string",
@@ -59,5 +72,5 @@ O tamanho da instância do plano de alojamento (pequeno, médio ou grande).
       "defaultValue":"0"
     }
 
-O modelo define os valores que são permitidos para este parâmetro (0, 1 ou 2) e atribui um valor predefinido (0) se for especificado nenhum valor. Os valores correspondem às pequena, média e grande.
+O modelo define os valores que são permitidos para este parâmetro (0, 1 ou 2) e atribui um valor predefinido (0) se for especificado nenhum valor. Os valores correspondem para pequenas, médias e grandes.
 

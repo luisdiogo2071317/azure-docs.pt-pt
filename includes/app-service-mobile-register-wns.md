@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 75bcb9d27ee6f66a1d9c15093d9f933a3ad25881
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133758"
+---
 1. No Explorador de soluções do Visual Studio, clique com botão direito do projeto de aplicação da Windows Store. Em seguida, selecione **Store** > **associar aplicação a Store**.
 
     ![Associar aplicação a Windows Store](./media/app-service-mobile-register-wns/notification-hub-associate-win8-app.png)

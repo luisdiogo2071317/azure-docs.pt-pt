@@ -3,24 +3,22 @@ title: Registar a sua aplicação para utilizar o Azure Active Directory | Docum
 description: Escrito para profissionais de TI, este artigo fornece diretrizes para a integração de aplicações do Azure com o Active Directory.
 services: active-directory
 documentationcenter: ''
-author: kgremban
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
-ms.author: kgremban
+ms.author: barbkess
 ms.custom: seohack1
-ms.openlocfilehash: 57f4fa0179668bccc39098a1eb9816403d00db57
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4d1ef99426ab5b44b69ba4abc5dc7398d43cfc24
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716575"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087344"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicações de linha de negócio para o Azure Active Directory
 Este guia fornece uma descrição geral do desenvolvimento de linha de negócio (LoB) aplicativos para o Azure Active Directory (AD). O público-alvo é que os administradores globais do Active Directory/Office 365.

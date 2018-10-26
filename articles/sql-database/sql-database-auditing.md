@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466686"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092956"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
-Auditoria de base de dados SQL do Azure controla os eventos de base de dados e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure. Auditoria também:
+Auditoria do Azure [base de dados SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) faixas de base de dados eventos e escreve-os para uma auditoria registo na sua conta de armazenamento do Azure, a área de trabalho do OMS ou a Hubs de eventos. Auditoria também:
 
 - Ajuda-o a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que podem indicar preocupações empresariais ou suspeitas de violações de segurança.
 
 - Ativa e facilita o cumprimento das normas de conformidade, embora ele não garante a conformidade. Para obter mais informações sobre o Azure programas de conformidade de padrões esse suporte, consulte a [Centro de fidedignidade do Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+
 
 ## <a id="subheading-1"></a>Base de dados do SQL do Azure a auditoria de descrição geral
 
@@ -51,7 +56,7 @@ Pode ser definida uma política de auditoria para uma base de dados específica 
 
 - Se *auditoria de Blobs do servidor estiver ativada*, ele *sempre aplica-se à base de dados*. A base de dados vai ser auditada, independentemente das definições de auditoria da base de dados.
 
-- Ativar a auditoria de BLOBs na base de dados, além de ativá-la no servidor, faz *não* substituir ou alterar quaisquer das definições de auditoria de BLOBs de servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, a base de dados é auditada duas vezes em paralelo; vez pela política de servidor e uma vez pela política de base de dados.
+- Ativar a auditoria de BLOBs no armazém de dados ou base de dados, além de ativá-la no servidor, faz *não* substituir ou alterar quaisquer das definições de auditoria de BLOBs de servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, a base de dados é auditada duas vezes em paralelo; vez pela política de servidor e uma vez pela política de base de dados.
 
    > [!NOTE]
    > Deve evitar a ativar a auditoria de Blobs do servidor e a base de dados blob auditoria em conjunto, a menos que:
@@ -98,6 +103,11 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 9. Clique em **Guardar**.
 10. Se pretender personalizar os eventos auditados, pode fazê-lo via [cmdlets do PowerShell](#subheading-7) ou o [REST API](#subheading-9).
 11. Depois de configurar as definições de auditorias, pode ativar a nova funcionalidade de deteção de ameaças e configurar os e-mails para receber alertas de segurança. Ao utilizar a deteção de ameaças, recebe alertas pró-ativos relativamente a atividades anómalas da base de dados que podem indicar a potenciais ameaças de segurança. Para obter mais informações, consulte [introdução à deteção de ameaças](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>Ativação da auditoria num Azure SQL Data Warehouse, ou num servidor que tenha um Azure SQL Data Warehouse, **irá resultar no armazém de dados que está sendo continuado**, mesmo no caso em que ele foi anteriormente colocada em pausa. **Certifique-se de colocar em pausa o armazém de dados novamente depois de ativar a auditoria**. "
+
 
 ## <a id="subheading-3"></a>Analisar registos de auditoria e relatórios
 
@@ -206,6 +216,9 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     Pode configurar a auditoria para diferentes tipos de ações e grupos de ação com o PowerShell, conforme descrito no [auditoria de base de dados de SQL gerir com o Azure PowerShell](#subheading-7) secção.
+
+- Quando utilizar a autenticação do AAD, falha será de registos de inícios de sessão *não* aparecem no registo de auditoria de SQL. Para ver registos de auditoria de início de sessão, tem de visitar o [portal do Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que regista os detalhes desses eventos.
+
 
 ## <a id="subheading-7"></a>Gerir a auditoria de base de dados SQL com o Azure PowerShell
 

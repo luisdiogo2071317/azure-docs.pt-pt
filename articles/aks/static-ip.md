@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b51da8c5e5e113cdb7e449206f7137386b278be4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b64727f6a77bb1151a4f9016b6179a7ee22e3a5c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025927"
+ms.locfileid: "50085483"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilizar um endereço IP público estático com o Balanceador de carga do Azure Kubernetes Service (AKS)
 
@@ -55,9 +55,9 @@ O endereço IP é apresentado, conforme mostrado no seguinte exemplo condensado:
     "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
-    [..]
+    [...]
   }
-````
+```
 
 Pode obter mais tarde utilizando endereços IP públicos a [lista de public-ip de rede de az] [ az-network-public-ip-list] comando. Especifique o nome do grupo de recursos de nó e endereço IP público que criou e consulta para o *ipAddress* conforme mostrado no exemplo a seguir:
 
@@ -89,6 +89,28 @@ Criar o serviço e a implantação com o `kubectl apply` comando.
 
 ```console
 kubectl apply -f load-balancer-service.yaml
+```
+
+## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Utilizar um endereço IP estático fora do grupo de recursos de nó
+
+Com o Kubernetes 1.10 ou posterior, pode utilizar um endereço IP estático, que é criado fora do grupo de recursos de nó. O principal de serviço utilizado pelo cluster do AKS tem de ter delegado permissões para o grupo de recursos.
+
+Para utilizar um endereço IP fora do grupo de recursos de nó, adicione uma anotação a definição do serviço. O exemplo seguinte define a anotação ao grupo de recursos com o nome *myResourceGroup*. Fornece seu próprio nome de grupo de recursos:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: myResourceGroup
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
 ```
 
 ## <a name="troubleshoot"></a>Resolução de problemas

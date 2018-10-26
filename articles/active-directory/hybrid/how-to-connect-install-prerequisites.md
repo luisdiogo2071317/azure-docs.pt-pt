@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321636"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092796"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -63,7 +63,7 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilizada pelo Azure AD Connect
 * O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express). SQL Server Express tem um limite de tamanho de 10GB que permite-lhe gerir aproximadamente 100 000 objetos. Se precisar de gerir um volume maior de objetos de diretório, tem de apontar o Assistente de instalação para uma instalação diferente do SQL Server.
 * Se utilizar um servidor SQL separado, em seguida, estes requisitos aplicam-se:
-  * O Azure AD Connect suporta todas as versões do Microsoft SQL Server do SQL Server 2008 (com Service Pack mais recente) para o SQL Server 2016 SP1. Base de dados do Microsoft Azure SQL **nepodporuje** como uma base de dados.
+  * O Azure AD Connect suporta todas as versões do Microsoft SQL Server do SQL Server 2008 (com Service Pack mais recente) para o SQL Server 2017. Base de dados do Microsoft Azure SQL **nepodporuje** como uma base de dados.
   * Tem de utilizar um agrupamento do SQL maiúsculas de minúsculas. Esses agrupamentos são identificados com um \_CI_ no respetivo nome. É **nepodporuje** para utilizar um agrupamento de maiúsculas e minúsculas, identificado por \_CS_ no respetivo nome.
   * Só pode ter um motor de sincronização por instância de SQL. É **nepodporuje** para partilhar uma instância do SQL com a sincronização do FIM/MIM, o DirSync ou o Azure AD Sync.
 

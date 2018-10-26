@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 9df0e4674bde0722bf79d16882f21a9cc4dfe2c2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026318"
+ms.locfileid: "50095533"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -88,7 +88,7 @@ Sim.
 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode utilizar o DPM para efetuar cópias de segurança de aplicações no Azure Stack?
-Não. Pode utilizar o Azure Backup para proteger o Azure Stack, Microsoft Azure Backup não suporta o suporte ao utilizar o DPM para efetuar cópias de segurança de aplicações no Azure Stack.
+Não. Pode utilizar o Azure Backup para proteger o Azure Stack, Azure Backup não suporta a utilização do DPM na cópia de segurança de aplicações no Azure Stack.
 
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se tiver instalado o agente de cópia de segurança do Azure para proteger os meus ficheiros e pastas, posso instalar o System Center DPM para efetuar cópias de segurança de cargas de trabalho no local para o Azure?

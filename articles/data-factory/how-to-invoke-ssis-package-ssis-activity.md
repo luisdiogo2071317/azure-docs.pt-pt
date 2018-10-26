@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960163"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092462"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade para executar o pacote de SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote do SSIS num pipeline do Azure Data Factory com uma atividade de executar o pacote do SSIS. 
@@ -91,9 +91,11 @@ Neste passo, vai utilizar a IU do Data Factory para criar um pipeline. Adicionar
 
 ### <a name="optionally-parameterize-the-activity"></a>Opcionalmente, parametrizar a atividade
 
-Opcionalmente, atribuir valores, expressões ou funções, o que podem referenciar variáveis de sistema do Data Factory, para os parâmetros do projeto ou o pacote no formato JSON utilizando o **vista de código-fonte** botão na parte inferior do SSIS a executar Caixa de atividade do pacote, ou o **código** botão no canto superior direito da área do pipeline. Por exemplo, pode atribuir parâmetros do pipeline de fábrica de dados ao seu projeto do SSIS ou parâmetros de pacote, conforme mostrado nas capturas de ecrã seguintes:
+Opcionalmente, atribuir valores, expressões ou funções, o que podem referenciar variáveis de sistema do Data Factory, a seu projeto ou pacote de parâmetros no formato JSON através do botão "Ver código-fonte" na parte inferior da sua caixa de atividade de executar o pacote do SSIS ou o "código" botão no canto superior direito da sua área de pipeline. Por exemplo, pode atribuir parâmetros do pipeline de fábrica de dados ao seu projeto do SSIS ou parâmetros de pacote, conforme mostrado nas capturas de ecrã seguintes:
 
 ![Editar script JSON para a atividade de executar o pacote do SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Adicionar parâmetros para a atividade de executar o pacote do SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![Adicionar parâmetros para a atividade de executar o pacote do SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSI
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSI
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

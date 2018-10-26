@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 5f7cbdd98d25855e9b8bb102413bd71148193318
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133002"
+---
 ### <a name="server-auth"></a>Como: autenticar com um fornecedor (Fluxo de Servidor)
 Para que as Aplicações Móveis giram o processo de autenticação na sua aplicação, tem de registar a aplicação com o seu fornecedor de identidade. Em seguida, no seu Serviço de Aplicações do Azure, tem de configurar o ID da aplicação e o segredo fornecidos pelo seu fornecedor.
 Para obter mais informações, consulte o tutorial [Add authentication to your app (Adicionar autenticação à sua aplicação)](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).

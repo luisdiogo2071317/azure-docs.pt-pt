@@ -14,21 +14,23 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: af59795309dc347bd5fe1263f7546d4aebdd16d1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b3ced6bbd69b38e187b3ed4fa1f2b22e5dd05ce4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843615"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50098067"
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Adicionar informações de registo da aplicação à sua aplicação
 
 Neste passo, terá de adicionar o ID da aplicação ao seu projeto:
 
-1.  Na `ViewController.swift`, substitua a linha que começa com "`let kClientID`' com:
+1. Na `ViewController.swift`, substitua a linha que começa com "`let kClientID`' com:
+
 ```swift
 let kClientID = "[Enter the application Id here]"
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

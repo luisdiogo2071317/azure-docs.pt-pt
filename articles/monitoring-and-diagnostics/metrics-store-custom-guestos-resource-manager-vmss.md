@@ -1,6 +1,6 @@
 ---
-title: Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam utilizando um modelo do Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
-description: Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam utilizando um modelo do Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
+title: Enviar métricas de SO convidado para o arquivo de métrica de Monitor do Azure com um modelo Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
+description: Enviar métricas de SO convidado para o arquivo de métrica de Monitor do Azure com um modelo do Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,65 +8,65 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0e6580bfea181d28d884356d6c51ff5f9336c3db
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343731"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093876"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam utilizando um modelo do Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO convidado para o arquivo de métrica de Monitor do Azure com um modelo Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 
-O Azure Monitor [extensão de diagnóstico do Windows Azure](azure-diagnostics.md) (WAD) permite-lhe recolher métricas e registos da execução de sistema de operativo convidado (SO convidado) como parte de um cluster do Service Fabric, serviço Cloud ou Máquina Virtual.  A extensão pode enviar telemetria para vários locais diferentes listados no artigo ligado anteriormente.  
+Ao utilizar o Azure Monitor [extensão do Windows Azure Diagnostics (WAD)](azure-diagnostics.md), pode coletar métricas e registos do sistema operativo convidado (SO convidado) que é executado como parte de uma máquina virtual, um serviço em nuvem ou um cluster do Azure Service Fabric. A extensão pode enviar telemetria para vários locais diferentes listados no artigo ligado anteriormente.  
 
-Este artigo descreve o processo de envio métricas de desempenho do SO de convidado para um dimensionamento de máquinas virtuais do Windows definido para o arquivo de dados do Azure Monitor. Começando com WAD versão 1.11, pode escrever métricas diretamente com o armazenamento de métricas do Azure Monitor, onde as métricas de plataforma padrão já são recolhidas. Armazená-los nesta localização permite que acesse as mesmas ações disponíveis para as métricas de plataforma.  Ações incluem quase em tempo real de alerta, criação de gráficos, encaminhamento, aceder a partir da REST API e muito mais.  No passado, a extensão WAD escreveu para o armazenamento do Azure, mas não o arquivo de dados do Azure Monitor.  
+Este artigo descreve o processo de envio métricas de desempenho do SO de convidado para um dimensionamento de máquinas virtuais do Windows definido para o arquivo de dados do Azure Monitor. A partir do Windows Azure Diagnostics versão 1.11, pode escrever armazenam métricas diretamente para as métricas do Azure Monitor, onde as métricas de plataforma padrão já são recolhidas. Armazenando-os nesta localização, pode acessar as mesmas ações que estão disponíveis para as métricas de plataforma. As ações incluem perto de alertas em tempo real, criação de gráficos, encaminhamento, aceder a partir da API REST e muito mais. No passado, a extensão de diagnóstico do Windows Azure escreveu para o armazenamento do Azure, mas não o arquivo de dados do Azure Monitor.  
 
-Se estiver familiarizado com modelos do Resource Manager, saiba mais sobre [implementações de modelo](../azure-resource-manager/resource-group-overview.md)e sua estrutura e a sintaxe.  
+Se estiver familiarizado com modelos do Resource Manager, saiba mais sobre [implementações de modelo](../azure-resource-manager/resource-group-overview.md) e sua estrutura e a sintaxe.  
 
-## <a name="pre-requisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-- A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
+- A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- Tem de ter [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) instalado, ou pode utilizar [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
+- Tem de ter [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) instalado, ou pode utilizar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um sink de dados 
-A extensão de diagnóstico do Azure utiliza um recurso chamado "Coletores de dados" para a métrica das rotas e registos para localizações diferentes.  Os passos seguintes mostram como utilizar um modelo do Resource Manager e o PowerShell para implementar uma VM com o novo sink de dados de "Do Azure Monitor". 
+A extensão de diagnóstico do Azure utiliza um recurso chamado **sinks de dados** rota métricas e registos para localizações diferentes. Os passos seguintes mostram como utilizar um modelo do Resource Manager e o PowerShell para implementar uma VM com o novo sink de dados do Azure Monitor. 
 
-## <a name="author-resource-manager-template"></a>Modelo de Gestor de recursos do autor 
-Neste exemplo, pode utilizar um modelo de exemplo disponíveis publicamente. Os modelos de início são em https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale  
+## <a name="author-a-resource-manager-template"></a>Criar um modelo do Resource Manager 
+Neste exemplo, pode usar um disponíveis publicamente [modelo de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-autoscale):  
 
-- **Azuredeploy. JSON** é um modelo do Resource Manager previamente configurada para a implementação de um conjunto de dimensionamento de máquinas virtuais
+- **Azuredeploy. JSON** é um modelo do Resource Manager pré-configurada para a implementação de um conjunto de dimensionamento de máquina virtual.
 
 - **Azuredeploy** é um ficheiro de parâmetros que armazena informações como o nome de utilizador e palavra-passe que pretende definir para a sua VM. Durante a implementação, o modelo do Resource Manager utiliza os parâmetros definidos neste ficheiro. 
 
 Transfira e guarde ambos os ficheiros localmente. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>Modificar azuredeploy
-Abra o *azuredeploy* ficheiro 
-
-- Fornecer um **vmSKU** gostaria de implementar (Recomendamos Standard_D2_v3) 
-- Especifique um **windowsOSVersion** desejar para o conjunto de dimensionamento de máquina virtual (Recomendamos 2016 Datacenter) 
-- Nome do dimensionamento da máquina virtual definido recursos a serem implantados com uma **vmssName** propriedade. Por exemplo, *VMSS-WAD-teste*.    
-- Especifique o número de VMs que gostaria de estar em execução no conjunto de dimensionamento com o **instanceCount** propriedade
-- Introduza os valores para **adminUsername** e **adminPassword** para o dimensionamento de máquinas virtuais definido. Esses parâmetros são usados para acesso remoto para as VMs no conjunto de dimensionamento. Esses parâmetros são usados para acesso remoto à VM. Não utilize os neste modelo para evitar que a sua VM hijacked. A internet para nomes de utilizador e palavras-passe em repositórios de Github públicos de análise de bots. É provável que realizar testes VMs com esses padrões. 
+Abra o **azuredeploy** ficheiro:  
+ 
+- Fornecer um **vmSKU** que pretende implementar. Recomendamos que Standard_D2_v3. 
+- Especifique um **windowsOSVersion** pretende para o conjunto de dimensionamento de máquina virtual. Recomendamos que 2016 Datacenter. 
+- Nome do dimensionamento da máquina virtual definido recurso a ser implantado usando um **vmssName** propriedade. Um exemplo é **VMSS-WAD-teste**.    
+- Especifique o número de VMs que pretende executar no conjunto de dimensionamento ao utilizar o **instanceCount** propriedade.
+- Introduza os valores para **adminUsername** e **adminPassword** para o dimensionamento de máquinas virtuais definido. Esses parâmetros são usados para acesso remoto para as VMs no conjunto de dimensionamento. Para evitar que a sua VM seqüestrada, **não** utilizar a este modelo. A internet para nomes de utilizador e palavras-passe em repositórios de GitHub públicos de análise de bots. Eles provavelmente testar VMs com esses padrões. 
 
 
 ###  <a name="modify-azuredeployjson"></a>Modificar azuredeploy. JSON
-Abra o *azuredeploy. JSON* ficheiro 
+Abra o **azuredeploy. JSON** ficheiro. 
 
-Adicione uma variável para conter as informações de conta de armazenamento no modelo do Resource Manager. Ainda tem de fornecer uma conta de armazenamento como parte da instalação da extensão do diagnóstico. Todos os registos e/ou contadores de desempenho especificados no ficheiro de configuração de diagnóstico são escritos para a conta de armazenamento especificada, além de que está a ser enviados para o arquivo de métrica do Azure Monitor. 
+Adicione uma variável para conter as informações de conta de armazenamento no modelo do Resource Manager. Quaisquer contadores de desempenho especificados no ficheiro de configuração de diagnóstico ou de registos são escritos para o armazenamento de métrico do Azure Monitor e a conta de armazenamento que especificar aqui: 
 
 ```json
 "variables": { 
 //add this line       
 "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]", 
- ```
+```
  
-Localize a definição do conjunto de dimensionamento de Máquina Virtual na seção recursos e adicione a secção "identity" para a configuração. Isto garante que o Azure atribui-lhe uma identidade de sistema. Este passo garante que as VMs no conjunto de dimensionamento podem emitir as métricas de convidado sobre si para o Azure Monitor.  
+Localize a definição do conjunto de dimensionamento da máquina virtual na seção de recursos e adicione a **identidade** secção na configuração. Esta adição garante que o Azure atribui-lo uma identidade de sistema. Este passo também garante que as VMs no conjunto de dimensionamento podem emitir as métricas de convidado sobre si para o Azure Monitor:  
 
 ```json
-  { 
+    { 
       "type": "Microsoft.Compute/virtualMachineScaleSets", 
       "name": "[variables('namingInfix')]", 
       "location": "[resourceGroup().location]", 
@@ -76,14 +76,14 @@ Localize a definição do conjunto de dimensionamento de Máquina Virtual na se�
            "type": "systemAssigned" 
        }, 
        //end of lines to add
- ```
+```
 
 Na máquina virtual recurso de conjunto de dimensionamento, localize a **virtualMachineProfile** secção. Adicionar um novo perfil chamado **extensionsProfile** para gerir extensões.  
 
 
-Na **extensionProfile**, adicionar uma nova extensão para o modelo, conforme exibido a **secção VMSS-WAD-extension**.  Esta secção é de identidades geridas para a extensão de recursos do Azure que garante que as métricas que está a ser emitidas são aceites pelo Azure Monitor. O **nome** campo pode conter qualquer nome. 
+Na **extensionProfile**, adicione uma nova extensão para o modelo, conforme mostrado na **VMSS-WAD-extension** secção.  Esta secção é de identidades geridas para a extensão de recursos do Azure que garante que as métricas que está a ser emitidas são aceites pelo Azure Monitor. O **nome** campo pode conter qualquer nome. 
 
-O código por baixo do que a extensão MSI também adiciona a extensão de diagnóstico e a configuração como um recurso de extensão para o recurso de conjunto de dimensionamento de máquina virtual. Fique à vontade Adicionar/remover contadores de desempenho, conforme necessário. 
+O código a seguir a partir da extensão do MSI também adiciona a extensão de diagnóstico e a configuração como um recurso de extensão para o recurso de conjunto de dimensionamento de máquina virtual. Fique à vontade adicionar ou remover contadores de desempenho, conforme necessário: 
 
 ```json
           "extensionProfile": { 
@@ -195,30 +195,32 @@ O código por baixo do que a extensão MSI também adiciona a extensão de diagn
 ```
 
 
-Adicione um dependsOn para a conta de armazenamento garantir que ele é criado na ordem correta. 
+Adicionar uma **dependsOn** para a conta de armazenamento garantir que ele é criado na ordem correta: 
+
 ```json
 "dependsOn": [ 
 "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]", 
 "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]" 
 //add this line below
 "[concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]" 
- ```
+```
 
-Crie uma conta de armazenamento, se uma já não é criada no modelo.  
+Crie uma conta de armazenamento, se uma já não está a ser criada no modelo: 
+
 ```json
 "resources": [
-  // add this code    
-  {
-     "type": "Microsoft.Storage/storageAccounts",
-     "name": "[variables('storageAccountName')]",
-     "apiVersion": "2015-05-01-preview",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "accountType": "Standard_LRS"
-      }
-  },
-  // end added code
-  { 
+// add this code    
+{
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2015-05-01-preview",
+    "location": "[resourceGroup().location]",
+    "properties": {
+    "accountType": "Standard_LRS"
+    }
+},
+// end added code
+{ 
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[variables('virtualNetworkName')]",
 ```
@@ -227,62 +229,63 @@ Guarde e feche ambos os ficheiros.
 
 ## <a name="deploy-the-resource-manager-template"></a>Implementar o modelo do Resource Manager 
 
-> [!NOTE]
-> Tem de executar a versão 1.5 da extensão de diagnóstico do Azure ou superior e tem "autoUpgradeMinorVersion": propriedade definida como *true* no modelo do Resource Manager.  Azure, em seguida, carrega a extensão correta quando iniciar a VM. Se não tiver estas definições no seu modelo, alterá-los e Reimplementar o modelo. 
+> [!NOTE]  
+> Tem de executar a versão da extensão de diagnóstico do Azure versão 1.5 ou superior **e** tem o **autoUpgradeMinorVersion:** propriedade definida como **verdadeiro** no seu Gerenciador de recursos modelo. Azure, em seguida, carrega a extensão correta quando iniciar a VM. Se não tiver estas definições no seu modelo, alterá-los e Reimplementar o modelo. 
 
 
-Para implementar o modelo do Resource Manager, iremos tirar partido do Azure PowerShell.  
+Para implementar o modelo do Resource Manager, utilize o Azure PowerShell:  
 
-1. Iniciar o PowerShell 
-1. Inicie sessão no Azure com `Login-AzureRmAccount`
-1. Obter a lista de subscrições através de `Get-AzureRmSubscription`
-1. Definir a subscrição que irá que criar/atualizar a máquina virtual numa 
+1. Inicie o PowerShell. 
+1. Inicie sessão no Azure com `Login-AzureRmAccount`.
+1. Obter a lista de subscrições com `Get-AzureRmSubscription`.
+1. Defina a subscrição irá criar ou atualizar a máquina virtual: 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Criar um novo grupo de recursos para a VM que está a ser implementada, execute o comando abaixo 
+1. Crie um novo grupo de recursos para a VM que está sendo implementada. Execute o seguinte comando: 
 
    ```PowerShell
     New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
-   > Lembre-se utilizar uma região do Azure que está ativada para métricas personalizadas. Ver 
+   > Lembre-se utilizar uma região do Azure que está ativada para métricas personalizadas. Não se esqueça de utilizar um [região do Azure que está ativada para métricas personalizadas](https://github.com/MicrosoftDocs/azure-docs-pr/pull/metrics-custom-overview.md#supported-regions).
  
-1. Execute os seguintes comandos para implementar a VM com o  
-   > [!NOTE] 
-   > Se quiser atualizar um conjunto de dimensionamento existente, basta adicionar *-modo Incremental* ao final do comando seguinte. 
+1. Execute os seguintes comandos para implementar a VM:  
+
+   > [!NOTE]  
+   > Se quiser atualizar um conjunto de dimensionamento existente, adicione **-modo Incremental** ao final do comando. 
  
    ```PowerShell
    New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
-1. Assim que for concluída com êxito a implementação deve ser capaz de encontrar o conjunto de dimensionamento no portal do Azure e deve ser a emitir métricas para o Azure Monitor. 
+1. Depois de sua implementação com êxito, deve encontrar o conjunto de dimensionamento no portal do Azure. Ele deve emitir métricas para o Azure Monitor. 
 
-   > [!NOTE] 
-   > Poderão ocorrer erros em todo o vmSkuSize selecionado. Se isto acontecer, regresse ao seu ficheiro azuredeploy JSON e atualize o valor predefinido do parâmetro vmSkuSize. Neste caso, é recomendável tentar "Standard_DS1_v2"). 
+   > [!NOTE]  
+   > Podem ocorrer erros em todo o selecionado **vmSkuSize**. Nesse caso, voltar para sua **azuredeploy. JSON** de ficheiros e atualizar o valor predefinido da **vmSkuSize** parâmetro. Recomendamos que tente **Standard_DS1_v2**. 
 
 
 ## <a name="chart-your-metrics"></a>As suas métricas do gráfico 
 
-1. Iniciar sessão no portal do Azure 
+1. Inicie sessão no Portal do Azure. 
 
-1. No menu da esquerda, clique em **Monitor** 
+1. No menu da esquerda, selecione **Monitor**. 
 
-1. Na página do Monitor, clique em **métricas**. 
+1. Sobre o **Monitor** página, selecione **métricas**. 
 
-   ![Página de métricas](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![Monitor de-página de métricas](./media/metrics-store-custom-rest-api/metrics.png) 
 
 1. Alterar o período de agregação para **últimos 30 minutos**.  
 
-1. No recurso da lista pendente, selecione o conjunto de dimensionamento de máquina virtual que acabou de criar.  
+1. No menu de lista pendente de recursos, selecione o conjunto de dimensionamento de máquina virtual que criou.  
 
-1. Nos espaços de nome pendente, selecione **azure.vm.windows.guest** 
+1. No menu de lista pendente de espaços de nomes, selecione **azure.vm.windows.guest**. 
 
-1. As métricas de lista pendente, selecione **memória\%Bytes dedicados em utilização**.  
+1. No menu de lista pendente de métricas, selecione **memória\%Bytes dedicados em utilização**.  
 
-Em seguida, também é possível usar as dimensões nesta métrica para esta métrica de gráfico para uma VM específica no conjunto de dimensionamento ou a representar cada VM no conjunto de dimensionamento. 
+Em seguida, também é possível usar as dimensões nesta métrica num gráfico-lo para uma VM específica ou para desenhar cada VM no conjunto de dimensionamento. 
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Carregar Monitor do Azure para VMs | Documentos da Microsoft
+title: Carregar Monitor do Azure para VMs (pré-visualização) | Documentos da Microsoft
 description: Este artigo descreve como sua integração e configure o Azure Monitor para as VMs para que possa começar a entender sobre a execução da sua aplicação distribuída e quais problemas de estado de funcionamento foram identificados.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390249"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092779"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Como para integrar o Azure Monitor para VMs 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como carregar para o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento do sistema operativo de máquinas virtuais do Azure e detetar e mapear as dependências de aplicativo que podem ser hospedadas nos mesmos.  
 
 Ativar o Azure Monitor para VMs é realizada através de um dos seguintes métodos e detalhes sobre como utilizar cada método são fornecidas posteriormente neste artigo.  
@@ -31,7 +31,7 @@ Ativar o Azure Monitor para VMs é realizada através de um dos seguintes métod
 * Os conjuntos de dimensionamento de VMs do Azure ou numa máquina virtual múltiplas entre uma subscrição especificada ou o grupo de recursos com o PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, certifique-se de que tem o seguinte, conforme descrito nas subsecções abaixo.
+Antes de começar, certifique-se de que compreende o seguinte, conforme descrito nas subsecções abaixo.
 
 ### <a name="log-analytics"></a>Log Analytics 
 

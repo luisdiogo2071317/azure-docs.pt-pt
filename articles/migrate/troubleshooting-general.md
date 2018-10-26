@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a32b1b73a12242a6c6b1c29fbf116aff73515b46
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945523"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086748"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -51,9 +51,16 @@ A aplicação para a aplicação de deteção contínua só recolhe dados de des
 
 ## <a name="collector-errors"></a>Erros do recoletor
 
-### <a name="deployment-of-collector-ova-failed"></a>Implementação do recoletor OVA falhou
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Implementação do Recoletor do Azure Migrate falhou com o erro: O ficheiro de manifesto fornecido é inválido: entrada do manifesto OVF inválido.
 
-Isto pode acontecer se o OVA parcialmente é transferido ou devido ao browser se estiver a utilizar o cliente de web do vSphere para implementar o OVA. Certifique-se de que a transferência estiver concluída e tente implementar o OVA com um browser diferente.
+1. Certifique-se de que se a ficheiros do Azure Migrate Recoletor OVA é transferido corretamente ao verificar o seu valor de hash. Consulte a [artigo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) para verificar o valor de hash. Se o valor de hash não corresponde, transfira o ficheiro OVA novamente e repetir a implementação.
+2. Se ele ainda falhar, e se estiver a utilizar o VMware vSphere Client para implementar o OVF, tente implantá-lo por meio do vSphere cliente Web. Se continuar a falhar, tente utilizar outro navegador da web.
+3. Se estiver a utilizar o cliente de web do vSphere e tentar implantá-lo no vCenter Server 6.5, tentar implementar o OVA diretamente no anfitrião ESXi ao seguir os passos abaixo:
+  - Ligar ao anfitrião ESXi diretamente (em vez do vCenter Server) com o cliente web (https:// <*endereço IP do anfitrião*>/UI)
+  - Aceda à página inicial > inventário
+  - Clique em ficheiro > modelo implementar OVF > navegue para o OVA e concluir a implementação
+4. Se a implementação ainda falhar, contacte o suporte do Azure Migrate.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Recoletor não é possível estabelecer ligação à internet
 

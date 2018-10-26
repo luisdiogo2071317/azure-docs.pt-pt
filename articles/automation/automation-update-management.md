@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024499"
+ms.locfileid: "50093838"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -73,7 +73,7 @@ A tabela seguinte mostra uma lista dos sistemas operativos suportados:
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes do Linux têm de ter acesso a um repositório de atualização. Com base na classificação de aplicação de patches requer "yum" para devolver dados de segurança que não têm a CentOS prontos a utilizar.         |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes do Linux têm de ter acesso a um repositório de atualização.        |
-|Ubuntu 14.04 LTS e 16.04 LTS (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
+|Ubuntu 14.04 LTS e 16.04 LTS e 18.04 (x86/x64)      |Os agentes do Linux têm de ter acesso a um repositório de atualização.         |
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
@@ -174,7 +174,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
-É feita uma análise duas vezes por dia em cada computador Windows gerido. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização determinar se o estado foi alterado. Se o estado mudou, é iniciada uma análise de conformidade. 
+É feita uma análise duas vezes por dia em cada computador Windows gerido. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização determinar se o estado foi alterado. Se o estado mudou, é iniciada uma análise de conformidade.
 
 Uma análise é executada em três horas para cada computador Linux gerido.
 
@@ -313,7 +313,7 @@ Além dos detalhes que são fornecidos no portal do Azure, pode fazer pesquisas 
 Também pode saber como personalizar as consultas ou utilizá-los a partir de diferentes clientes e mais, visite a página: [documentação de procurar API do Log Analytics](
 https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Consultas de exemplo
+### <a name="sample-queries"></a>Amostras de consultas
 
 As secções seguintes fornecem consultas de registo de exemplo para registos de atualizações que são recolhidos por esta solução:
 

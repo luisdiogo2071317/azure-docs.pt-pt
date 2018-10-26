@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713747"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086510"
 ---
 # <a name="use-the-azure-stack-portal"></a>Utilizar o portal do Azure Stack
 
@@ -32,12 +32,13 @@ O operador do Azure Stack (um fornecedor de serviços ou um administrador na sua
 
 - Para um sistema integrado, o URL varia com base na região e o nome de domínio externo de sua operador e estará no formato https://portal.&lt; *região*&gt;.&lt; *FQDN*&gt;.
 - Se estiver usando o Kit de desenvolvimento do Azure Stack, o endereço de portal é https://portal.local.azurestack.external.
-
-![Captura de ecrã do portal de utilizador do Azure Stack](media/azure-stack-use-portal/UserPortal.png)
+- O fuso horário predefinido para todas as implementações do Azure Stack está definido para Hora Universal Coordenada (UTC). Pode selecionar um fuso horário ao instalar o Azure Stack, no entanto, ele é automaticamente revertida para UTC como predefinição durante a instalação.
 
 ## <a name="customize-the-dashboard"></a>Personalizar o dashboard
 
 O dashboard contém um conjunto predefinido de mosaicos. Pode selecionar **editar dashboard** para modificar o dashboard predefinido ou selecione **novo dashboard** para criar um dashboard personalizado. Pode personalizar facilmente um dashboard ao adicionar ou remover mosaicos. Por exemplo, para adicionar um mosaico de computação, selecione **+ criar um recurso**. Com o botão direito **computação**e, em seguida, selecione **afixar ao dashboard**.
+
+![Captura de ecrã do portal de utilizador do Azure Stack](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Criar a subscrição e a procurar recursos disponíveis
 

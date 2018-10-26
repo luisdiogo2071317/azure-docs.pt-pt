@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986902"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086850"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -26,20 +26,20 @@ Para fornecer a seus clientes com um URL que eles podem usar para reproduzir com
 
 A tabela seguinte mostra as propriedades do StreamingLocator e fornece as respetivas definições.
 
-|Nome|Tipo|Descrição|
-|---|---|---|
-|ID |string|ID de recurso completamente qualificado para o recurso.|
-|nome   |string|O nome do recurso.|
-|properties.alternativeMediaId  |string|ID de suporte de dados alternativa deste localizador de transmissão em fluxo.|
-|properties.assetName   |string|Nome do elemento|
-|properties.contentKeys |StreamingLocatorContentKey []|O ContentKeys utilizado por este localizador de transmissão em fluxo.|
-|Properties.created |string|Hora de criação do localizador de transmissão em fluxo.|
-|properties.defaultContentKeyPolicyName |string|Nome da predefinida ContentKeyPolicy utilizado por este localizador de transmissão em fluxo.|
-|properties.endTime |string|A hora de fim do localizador de transmissão em fluxo.|
-|properties.startTime   |string|A hora de início do localizador de transmissão em fluxo.|
-|properties.streamingLocatorId  |string|O StreamingLocatorId do localizador de transmissão em fluxo.|
-|properties.streamingPolicyName |string|Nome da política de transmissão em fluxo utilizada por este localizador de transmissão em fluxo. Especifique o nome da política de transmissão em fluxo que criou ou utilizar uma das políticas predefinidas de transmissão em fluxo. As políticas de transmissão em fluxo predefinido disponíveis são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e ' Predefined_ MultiDrmStreaming'|
-|tipo   |string|O tipo de recurso.|
+|Nome|Descrição|
+|---|---|
+|ID |ID de recurso completamente qualificado para o recurso.|
+|nome   |O nome do recurso.|
+|properties.alternativeMediaId|ID de suporte de dados alternativa deste localizador de transmissão em fluxo.|
+|properties.assetName   |Nome do elemento|
+|properties.contentKeys |O ContentKeys utilizado por este localizador de transmissão em fluxo.|
+|Properties.created |Hora de criação do localizador de transmissão em fluxo.|
+|properties.defaultContentKeyPolicyName|Nome da predefinida ContentKeyPolicy utilizado por este localizador de transmissão em fluxo.|
+|properties.endTime |A hora de fim do localizador de transmissão em fluxo.|
+|properties.startTime|A hora de início do localizador de transmissão em fluxo.|
+|properties.streamingLocatorId|O StreamingLocatorId do localizador de transmissão em fluxo.|
+|properties.streamingPolicyName |Nome da política de transmissão em fluxo utilizada por este localizador de transmissão em fluxo. Especifique o nome da política de transmissão em fluxo que criou ou utilizar uma das políticas predefinidas de transmissão em fluxo. As políticas de transmissão em fluxo predefinido disponíveis são: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' e ' Predefined_ MultiDrmStreaming'|
+|tipo|O tipo de recurso.|
 
 A definição completa, consulte [localizadores de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators).
 

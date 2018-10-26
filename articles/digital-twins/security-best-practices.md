@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364347"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092190"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -26,15 +26,16 @@ Este artigo resume as principais práticas recomendadas a seguir.
 > [!IMPORTANT]
 > Reveja os recursos de segurança adicionais (incluindo os fornecedores de dispositivos) para garantir a segurança máximo para o seu espaço de IoT.
 
-## <a name="iot-security-best-practices"></a>Melhores práticas de segurança de IoT
+## <a name="iot-security-best-practices"></a>Melhores práticas da segurança de IoT
 
 Algumas das principais práticas para proteger os seus dispositivos IoT com segurança incluem:
 
 > [!div class="checklist"]
 > * Proteja a cada dispositivo que está ligado ao seu espaço de IoT de uma forma de prova de adulteração.
 > * Limite a função de cada pessoa dentro do seu espaço de IoT, sensores e dispositivos. Se comprometido, o impacto seja minimizado.
-> * Potencial utilização de filtragem de endereço IP do dispositivo.
+> * Restrição de filtragem e a porta de endereços de potencial uso de IP do dispositivo.
 > * Limitar largura de banda de e/s e dispositivo para melhorar o desempenho. Limitação de velocidade pode aumentar a segurança, impedindo ataques denial-of-service.
+> * Mantenha o firmware do dispositivo atualizadas.
 
 Algumas chaves práticas para proteger a um espaço de IoT com segurança incluem:
 
@@ -55,7 +56,7 @@ Duplos Digital do Azure utiliza o Azure Active Directory para autenticar os util
 
 > [!div class="checklist"]
 > * Store, tais como chaves e segredos de aplicações do Azure Active Directory num local seguro [Key Vault](https://azure.microsoft.com/services/key-vault/).
-> * Utilizar um certificado emitido por uma confiança [autoridades de certificação](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) em vez de segredos de aplicação para autenticar.
+> * Utilizar um certificado emitido por uma confiança [autoridade de certificação](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) em vez de segredos de aplicação para autenticar.
 > * Limitar o âmbito de OAuth 2.0 de acesso de um token.
 > * Verifique se o período de tempo, que um token é válido e se um token permanece válido.
 > * Definir apropriados períodos de tempo que tokens são válidos para.

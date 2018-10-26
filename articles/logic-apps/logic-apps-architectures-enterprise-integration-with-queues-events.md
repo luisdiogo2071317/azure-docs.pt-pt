@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855379"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093671"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Arquitetura de integração empresarial com filas e eventos
 
@@ -26,7 +26,7 @@ Esta série descreve os componentes reutilizáveis que podem ser aplicadas para 
 
 ## <a name="architecture-components"></a>Componentes de arquitetura
 
-Esta arquitetura baseia-se a arquitetura descrita no artigo [referência de arquitetura: integração empresarial simples](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Essa arquitetura [recomendações](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) também se aplicam aqui, mas para fins de brevidade, este artigo omite essas recomendações da [recomendações](#recommendations) secção. Esta arquitetura de integração do enterprise inclui estes componentes:
+Esta arquitetura baseia-se a arquitetura descrita no artigo [referência de arquitetura: integração empresarial simples](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). Essa arquitetura [recomendações](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) também se aplicam aqui, mas para fins de brevidade, este artigo omite essas recomendações da [recomendações](#recommendations) secção. Esta arquitetura de integração do enterprise inclui estes componentes:
 
 - **Grupo de recursos**: A [grupo de recursos](../azure-resource-manager/resource-group-overview.md) é um contentor lógico de recursos do Azure.
 
@@ -143,4 +143,4 @@ O serviço do Event Grid protege a entrega de eventos por meio de um código de 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [integração empresarial simples](logic-apps-architectures-simple-enterprise-integration.md)
+* Saiba mais sobre [integração empresarial simples](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)

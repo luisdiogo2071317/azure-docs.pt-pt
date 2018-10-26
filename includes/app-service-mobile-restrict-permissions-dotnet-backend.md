@@ -1,20 +1,32 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133656"
+---
+Por predefinição, as APIs num back-end de aplicações móveis podem ser invocadas anonimamente. Em seguida, precisa restringir o acesso a apenas os clientes autenticados.  
 
-Por predefinição, APIs de um back-end de Mobile Apps pode ser invocadas anonimamente. Em seguida, precisa de restringir o acesso apenas a clientes autenticado.  
+* **NODE. js volta terminar (através do portal do Azure)** :  
 
-* **NODE.js novamente end (através do portal do Azure)** :  
+    Nas suas definições de aplicações móveis, clique em **tabelas simples** e selecione a sua tabela. Clique em **alterar permissões**, selecione **apenas acesso autenticado** todas as permissões, e clique em **guardar**.
+* **.NET back-end (C#)**:  
 
-    Nas suas definições de Mobile Apps, clique em **tabelas fácil** e selecione a tabela. Clique em **alterar permissões**, selecione **apenas o acesso autenticado** para todas as permissões e, em seguida, clique em **guardar**.
-* **.NET back-end (c#)**:  
-
-    No projeto de servidor, navegue para **controladores** > **TodoItemController.cs**. Adicionar o `[Authorize]` atributo para o **TodoItemController** classe, da seguinte forma. Para restringir o acesso apenas aos métodos específicos, também pode aplicar este atributo apenas para os métodos em vez da classe. Voltar a publicar o projeto de servidor.
+    No projeto de servidor, navegue até **controladores** > **TodoItemController.cs**. Adicionar a `[Authorize]` atributo para o **TodoItemController** classe, da seguinte forma. Para restringir o acesso apenas aos métodos específicos, também pode aplicar esse atributo apenas para esses métodos em vez da classe. Voltar a publicar o projeto de servidor.
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
 
-* **Back-end node.js (através de código Node.js)** :  
+* **Back-end de node. js (por meio de código node. js)** :  
 
-    Para exigir autenticação para acesso de tabela, adicione a seguinte linha para o script do Node.js:
+    Para exigir autenticação para acesso a tabelas, adicione a seguinte linha no script de servidor node. js:
 
         table.access = 'authenticated';
 
-    Para obter mais detalhes, consulte [como: exigir autenticação para aceder a tabelas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Para saber como transferir o projeto de código de início rápido do seu site, consulte [como: Transferir o projeto de código do início rápido do Node.js back-end utilizando o Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).
+    Para obter mais detalhes, consulte [como: exigir autenticação para o acesso às tabelas](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Para saber como transferir o projeto de código de início rápido do seu site, veja [como: Transfira o projeto de código do guia de introdução do node. js back-end com o Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).

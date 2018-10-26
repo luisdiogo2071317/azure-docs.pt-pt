@@ -9,20 +9,20 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d031965a812cd218fbb4e78dfbf90ee01c26f5bb
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352451"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085982"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
 A automatização do Azure fornece soluções para gerenciar atualizações de segurança do sistema operativo, controlar as alterações e inventário o que é instalado nos seus computadores. Existem várias formas de carregar máquinas, pode integrar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), [a partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md), de sua conta de automatização ou por [runbook](automation-onboard-solutions.md). Este artigo abrange a inclusão destas soluções a partir da sua conta de automatização.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie a sessão no Azure em https://portal.azure.com
+Inicie sessão no Azure a https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Ativar soluções
 
@@ -46,17 +46,17 @@ Selecione **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**. A ár
 
 Cada solução utiliza uma configuração de âmbito dentro da área de trabalho para os computadores que obtém a solução de destino. A configuração de âmbito é um grupo de um ou mais pesquisas guardadas que é utilizado para limitar o âmbito da solução para computadores específicos. Para acessar as configurações de âmbito, na sua conta de automatização sob **recursos relacionados**, selecione **área de trabalho**. Em seguida, na área de trabalho sob **ORIGENS de dados de área de trabalho**, selecione **configurações de âmbito**.
 
-Se a área de trabalho selecionada não tem as soluções de gestão de atualizações ou controlo de alterações, ainda, são criadas as seguintes configurações de escopo:
+Se a área de trabalho selecionada ainda não tiver as soluções de gestão de atualizações ou controlo de alterações, são criadas as seguintes configurações de escopo:
 
 * **MicrosoftDefaultScopeConfig ChangeTracking**
 
 * **Atualizações de MicrosoftDefaultScopeConfig**
 
-Se a área de trabalho selecionada já tem a solução. A solução não está implementada novamente e a configuração de âmbito não é adicionada a ele.
+Se a área de trabalho selecionada já tem a solução, a solução não é novamente implementada e a configuração de âmbito não for adicionada a ele.
 
 ## <a name="saved-searches"></a>Pesquisas guardadas
 
-Quando é adicionado um computador para o gerenciamento de atualizações ou as soluções de controlo de alterações e inventário, eles são adicionados a uma das duas pesquisas guardadas na sua área de trabalho. Estas pesquisas guardadas são consultas que contêm os computadores que são visados por estas soluções.
+Quando é adicionado um computador para o gerenciamento de atualizações ou as soluções de controlo de alterações e inventário, estes serão adicionados a uma das duas pesquisas guardadas na sua área de trabalho. Estas pesquisas guardadas são consultas que contêm os computadores que são visados por estas soluções.
 
 Navegue para a sua conta de automatização e selecione **pesquisas guardadas** sob **geral**. As duas pesquisas guardadas utilizadas por estas soluções podem ser vistas na tabela a seguir:
 
@@ -81,13 +81,13 @@ Clique em **+ adicionar VMs do Azure**, selecione uma ou mais VMs a partir da li
 
 As máquinas não no Azure tem de ser adicionados manualmente. Da sua automação de conta Selecione **inventário** ou **controlo de alterações** sob **o GERENCIAMENTO de configuração**, ou **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**.
 
-Clique em **máquina não pertencente ao Azure de adicionar**. Isso abrirá uma nova janela do browser com o [obter instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador](../log-analytics/log-analytics-concept-hybrid.md) para que a máquina pode começar a geração de relatórios para a solução. Se estiver a integrar uma máquina que atualmente geridos pelo System Center Operations Manager, um novo agente não é necessário, as informações da área de trabalho são inseridas no agente existente.
+Clique em **máquina não pertencente ao Azure de adicionar**. Esta ação abre uma nova janela do browser com o [obter instruções sobre como instalar e configurar o Microsoft Monitoring Agent no computador](../log-analytics/log-analytics-concept-hybrid.md) para que a máquina pode começar a geração de relatórios para a solução. Se estiver a inclusão de uma máquina que atualmente geridos pelo System Center Operations Manager, um novo agente não é necessário, as informações da área de trabalho são inseridas no agente existente.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Carregar máquinas na área de trabalho
 
-Instalado manualmente computadores ou máquinas que já relatam à sua necessidade de área de trabalho a ser adicionado à automatização do Azure para a solução seja ativado. Da sua automação de conta Selecione **inventário** ou **controlo de alterações** sob **o GERENCIAMENTO de configuração**, ou **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**.
+Instalado manualmente máquinas ou máquinas já relatam à sua área de trabalho deve ser adicionada a automatização do Azure para a solução seja ativado. Da sua automação de conta Selecione **inventário** ou **controlo de alterações** sob **o GERENCIAMENTO de configuração**, ou **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**.
 
-Selecione **gerir máquinas**. Esta ação abre o **gerir máquinas** página. Esta página permite-lhe ativar a solução num conjunto selecionado de máquinas, todas as máquinas disponíveis, ou ativar a solução para todos os computadores atuais e ativá-lo em todas as máquinas futuras.
+Selecione **gerir máquinas**. Esta ação abre o **gerir máquinas** página. Esta página permite-lhe ativar a solução num conjunto selecionado de máquinas, todas as máquinas disponíveis, ou ativar a solução para todos os computadores atuais e ativá-lo em todas as máquinas futuras. O **gerir máquinas** botão poderá estar a cinzento se escolheu anteriormente a opção **ativar em todas as máquinas disponíveis e futuras**.
 
 ![Pesquisas guardadas](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
@@ -97,7 +97,7 @@ Para ativar a solução para todas as máquinas disponíveis, selecione **ativar
 
 ### <a name="all-available-and-future-machines"></a>Todas as máquinas disponíveis e futuras
 
-Para ativar a solução para todas as máquinas disponíveis e todas as máquinas futuras, selecione **ativar em todas as máquinas disponíveis e futuras**. Esta opção elimina as pesquisas guardadas e configurações de âmbito da área de trabalho. Esta ação abre a solução para todos os do Azure e máquinas não Azure que estão a enviar relatórios para a área de trabalho. Quando selecionado, esta ação desativa a **gerir máquinas** botão.
+Para ativar a solução para todas as máquinas disponíveis e máquinas futuras, selecione **ativar em todas as máquinas disponíveis e futuras**. Esta opção elimina as pesquisas guardadas e configurações de âmbito da área de trabalho. Esta ação abre a solução para todos os do Azure e máquinas não Azure que estão a enviar relatórios para a área de trabalho. Quando selecionado, esta ação desativa a **gerir máquinas** botão permanentemente porque não existe nenhuma configuração de âmbito à esquerda.
 
 ### <a name="selected-machines"></a>Máquinas selecionadas
 
@@ -111,20 +111,20 @@ As seguintes soluções são dependentes de uma área de trabalho do Log Analyti
 * [Monitorização de Alterações](automation-change-tracking.md)
 * [Iniciar/parar VMs fora do horário comercial](automation-solution-vm-management.md)
 
-Se decidir que já não pretende integrar a sua conta de automatização com o Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure.  Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
+Se decidir que já não pretende integrar a sua conta de automatização com o Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure.  Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica, que importar para compreender os passos necessários para removê-lo.
 
-Depois de remover estas soluções, pode executar os seguintes passos para desassociar a conta de automatização.
+Depois de remover estas soluções, pode concluir os passos seguintes para desassociar a conta de automatização.
 
 > [!NOTE]
 > Algumas soluções, incluindo versões anteriores da solução de monitorização de SQL do Azure podem ter criado os recursos de automatização e também poderão ter de ser removida antes de desassociar a área de trabalho.
 
-1. A partir do portal do Azure, abra sua conta de automatização e na Automação de conta de página select **ligado área de trabalho** na secção **recursos relacionados** à esquerda.
+1. A partir do portal do Azure, abra sua conta de automatização e na Automação de conta de página select **ligado área de trabalho** sob a seção rotulada **recursos relacionados** à esquerda.
 
 2. Na página de área de trabalho de desassociar, clique em **desassociar área de trabalho**.
 
    ![Desassociar a página de área de trabalho](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
-   Irá receber um pedido de confirmação de que pretende continuar.
+   Receberá um aviso a confirmar que pretende continuar.
 
 3. Enquanto a automatização do Azure tenta desassociar a conta de sua área de trabalho do Log Analytics, pode acompanhar o progresso em **notificações** no menu.
 
@@ -134,7 +134,7 @@ Se utilizou a solução de gestão de atualizações, opcionalmente, pode querer
 
 * Grupos de trabalho híbrida criados para a solução - cada um terá o nome da mesma forma para 9-4051-b6b3-227600d715c8 de machine1.contoso.com_9ceb8108 - 26 c).
 
-Se utilizou a iniciar/parar VMs durante a solução de horário comercial, opcionalmente, pode querer remover os seguintes itens que já não são necessários depois de remover a solução.
+Se utilizou a iniciar e parar VMs durante a solução de horário comercial, opcionalmente, pode querer remover os seguintes itens que já não são necessários depois de remover a solução.
 
 * Iniciar e parar agendas de runbook VM
 * Iniciar e parar runbooks VM

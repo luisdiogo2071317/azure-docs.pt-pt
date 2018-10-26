@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394419"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093835"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -28,8 +28,10 @@ Quando mover os recursos, o grupo de origem e o grupo de destino estão bloquead
 Não é possível alterar a localização do recurso. Mover um recurso apenas move-o para um novo grupo de recursos. Novo grupo de recursos pode ter uma localização diferente, mas que não altera a localização do recurso.
 
 > [!NOTE]
-> Este artigo descreve como mover a oferta de contas de recursos dentro do Azure. Se quiser alterar a sua conta do Azure da oferta (por exemplo, atualizar do pay as you go para pré-pagamento) enquanto continua a trabalhar com os recursos existentes, consulte [mudar a sua subscrição do Azure para outra oferta](../billing/billing-how-to-switch-azure-offer.md).
->
+> Este artigo descreve como mover a oferta de contas de recursos dentro do Azure. Se pretender alterar a sua conta do Azure da oferta (por exemplo, a atualização de gratuita para pay as you go), na verdade, terá de converter a sua subscrição. 
+> * Para atualizar uma versão de avaliação gratuita, consulte [atualizar a sua subscrição de avaliação gratuita ou o Microsoft Imagine Azure para pay as you go](..//billing/billing-upgrade-azure-subscription.md).
+> * Para alterar uma conta pay as you go, consulte [alterar a sua subscrição pay as you go do Azure para outra oferta](../billing/billing-how-to-switch-azure-offer.md).
+> * Se não é possível converter a subscrição [criar um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
 >
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
@@ -269,7 +271,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 
 Discos geridos são suportados para migração a partir de 24 de Setembro de 2018. 
 
-1. Terá de se registar para ativar esta funcionalidade.
+1. A subscrição de origem, registe esta funcionalidade.
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

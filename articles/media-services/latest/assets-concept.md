@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985238"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085819"
 ---
 # <a name="assets"></a>Elementos
 
@@ -34,19 +34,19 @@ Além disso, leia sobre [contas de armazenamento nos serviços de multimédia](s
 
 A tabela seguinte mostra as propriedades do recurso e fornece as respetivas definições.
 
-|Nome|Tipo|Descrição|
-|---|---|---|
-|ID|string|ID de recurso completamente qualificado para o recurso.|
-|nome|string|O nome do recurso.|
-|properties.alternateId |string|O ID alternativo do ativo.|
-|properties.assetId |string|O ID de recurso.|
-|Properties.Container |string|O nome do contentor de BLOBs de recurso.|
-|Properties.created |string|A data de criação do recurso.|
-|Properties.Description |string|A descrição do recurso.|
-|properties.lastModified |string|A data última modificação do recurso.|
-|properties.storageAccountName |string|O nome da conta de armazenamento.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |O formato de encriptação ativo. Um dos None ou MediaStorageEncryption.|
-|tipo|string|O tipo de recurso.|
+|Nome|Descrição|
+|---|---|
+|ID|ID de recurso completamente qualificado para o recurso.|
+|nome|O nome do recurso.|
+|properties.alternateId |O ID alternativo do ativo.|
+|properties.assetId |O ID de recurso.|
+|Properties.Container |O nome do contentor de BLOBs de recurso.|
+|Properties.created |A data de criação do recurso.|
+|Properties.Description|A descrição do recurso.|
+|properties.lastModified |A data última modificação do recurso.|
+|properties.storageAccountName |O nome da conta de armazenamento.|
+|properties.storageEncryptionFormat |O formato de encriptação ativo. Um dos None ou MediaStorageEncryption.|
+|tipo|O tipo de recurso.|
 
 A definição completa, consulte [ativos](https://docs.microsoft.com/rest/api/media/assets).
 

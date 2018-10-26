@@ -1,6 +1,6 @@
 ---
-title: Utilizar bases de dados MySQL como PaaS na pilha do Azure | Microsoft Docs
-description: Saiba como pode implementar o fornecedor de recursos de MySQL e fornecer bases de dados MySQL como um serviço na pilha do Azure.
+title: Utilizar bases de dados MySQL como PaaS no Azure Stack | Documentos da Microsoft
+description: Saiba como pode implementar o fornecedor de recursos do MySQL e oferecem bases de dados MySQL como serviço no Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,48 +11,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 24ba595413cde07c420a94de234d7926e0eb0e7f
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: quying
+ms.openlocfilehash: 635948c28ffe5d5eaece372976e58d26e17214e3
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309842"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084235"
 ---
-# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados MySQL na pilha do Microsoft Azure
+# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizar bases de dados MySQL no Microsoft Azure Stack
 
-Pode implementar o fornecedor de recursos de MySQL API para utilizar bases de dados MySQL implementados na pilha do Azure. Para obter mais informações sobre a API do fornecedor de recursos, consulte [Windows Azure Pack MySQL recursos fornecedor referência da API REST](https://msdn.microsoft.com/library/dn528442.aspx).
-
-Bases de dados MySQL são comuns em Web sites e suportam várias plataformas de Web site. Por exemplo, pode criar sites WordPress com a plataforma de aplicações Web como um suplemento de serviço (PaaS).
+Bases de dados MySQL são comuns em Web sites e suportam várias plataformas de Web site. Por exemplo, pode criar Web site WordPress através da plataforma de aplicações Web como um suplemento de serviço (PaaS).
 
 Depois de implementar o fornecedor de recursos, pode:
 
-* Crie servidores MySQL e bases de dados utilizando modelos de implementação Azure Resource Manager.
-* Fornece bases de dados MySQL como um serviço.  
+* Crie servidores MySQL e bases de dados com modelos de implementação Azure Resource Manager.
+* Oferecem bases de dados MySQL como serviço.  
 
-## <a name="mysql-resource-provider-adapter-architecture"></a>Arquitetura do adaptador de fornecedor de recursos de MySQL
+## <a name="mysql-resource-provider-adapter-architecture"></a>Arquitetura de adaptador do fornecedor de recursos do MySQL
 
 O fornecedor de recursos tem os seguintes componentes:
 
-* **MySQL recursos fornecedor adaptador máquina virtual (VM)**, que é uma VM do Windows Server que está a executar os serviços do fornecedor.
-* **O fornecedor de recursos**, que processa os pedidos de acessos base de dados e recursos.
-* **Servidores que alojam o servidor de MySQL**, que fornecem a capacidade para bases de dados que são denominados servidores de alojamento. Pode criar instâncias do MySQL por si ou fornecer acesso a instâncias de MySQL externas. O [Galeria de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) tem um modelo de exemplo que pode utilizar para:
+* **Máquina de virtual o adaptador de fornecedor de recursos MySQL (VM)**, que é uma VM do Windows Server que está a executar os serviços do fornecedor.
+* **O fornecedor de recursos**, que processa os pedidos e recursos da base de dados de acessos.
+* **Servidores que alojam o servidor MySQL**, que proporcionam a capacidade para bases de dados que são chamados de servidores de alojamento. Pode criar instâncias de MySQL por conta própria ou fornecer acesso a instâncias externas do MySQL. O [Galeria de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) tem um modelo de exemplo que pode utilizar para:
 
-  * Crie um servidor de MySQL para si.
-  * Transferir e implementar um servidor de MySQL no Azure Marketplace.
+  * Crie um servidor MySQL para.
+  * Transferir e implementar um servidor MySQL no Azure Marketplace.
 
 > [!NOTE]
-> Alojamento de servidores que estejam instalados na pilha do Azure integrados sistemas tem de ser criados de uma subscrição de inquilino. Estes não podem ser criados da subscrição de fornecedor predefinido. Deve ser criadas no portal de inquilinos ou de uma sessão do PowerShell com um adequado início de sessão. Todos os servidores de alojamento são VMs sujeito a faturação e tem de ter as licenças. O administrador de serviço pode ser o proprietário da subscrição de inquilino.
+> Alojar servidores que estão instalados no Azure Stack sistemas integrados tem de ser criados de uma subscrição de inquilino. Eles não não possível criar a partir da subscrição do fornecedor predefinido. Eles devem ser criados no portal inquilino ou a partir de uma sessão do PowerShell com um início de sessão-in adequado. Todos os servidores de alojamento são VMs cobrar e tem de ter licenças. O administrador de serviços pode ser o proprietário da subscrição do inquilino.
 
 ### <a name="required-privileges"></a>Privilégios necessários
 
 A conta do sistema tem de ter os seguintes privilégios:
 
 * **Base de dados:** criar, remover
-* **Início de sessão:** criar, definir, remover, conceder, revogar  
+* **Início de sessão:** criar, configurar, remover, conceder, revogar  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Implementar o fornecedor de recursos de MySQL](azure-stack-mysql-resource-provider-deploy.md)
+[Implementar o fornecedor de recursos do MySQL](azure-stack-mysql-resource-provider-deploy.md)

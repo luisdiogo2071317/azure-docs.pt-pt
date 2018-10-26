@@ -11,17 +11,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 10/24/2018
 ms.author: raiye
-ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 989627388e9ad1c99daa31bd9c8af884ab16b421
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377519"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087785"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+## <a name="october-2018-guest-os"></a>SO de convidado de Outubro de 2018
+>[!NOTE]
+>O sistema operacional convidado de Outubro está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO de convidado de Outubro. Esta lista está sujeita a alterações.
+
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 18-10 | [4462917] | Segurança do Windows 10 | 5.24 | 9 de outubro de 2018 |
+| Rel 18-10 | [4464330] | Segurança do Windows 10 | 6.01 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462915] | Segurança do Windows | 2.79 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462931] | Segurança do Windows | 3.66 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462941] | Segurança do Windows | 4.59 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24, 6.01 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 de outubro de 2018 |
+| N/A | [4339284] | Atualização de fuso horário | 2.79, 3.66, 4.59 | 24 de julho de 2018 |
+| N/A | [4457144] | Rollup de Setembro sem segurança | 2.79 | 11 de Setembro de 2018 |
+| N/A | [4457044] | Rollup de Setembro sem segurança .NET 3.5 | 2.79 | 11 de Setembro de 2018 |
+| N/A | [4457038] | Rollup de Setembro sem segurança .NET 4.5.2 | 2.79 | 11 de Setembro de 2018 |
+| N/A | [4457135] | Rollup de Setembro sem segurança | 3.66 | 11 de Setembro de 2018 |
+| N/A | [4457042] | Rollup de Setembro sem segurança .NET 3.5 | 3.66 | 11 de Setembro de 2018 |
+| N/A | [4457037] | Rollup de Setembro sem segurança .NET 4.5.2 | 3.66 | 11 de Setembro de 2018 |
+| N/A | [4457129] | Rollup de Setembro sem segurança | 4.59 | 11 de Setembro de 2018 |
+| N/A | [4457045] | Rollup de Setembro sem segurança .NET 3.5 | 4.59 | 11 de Setembro de 2018 |
+| N/A | [4457036] | Rollup de Setembro sem segurança .NET 4.5.2 | 4.59 | 11 de Setembro de 2018 |
+
+[4462917]: http://support.microsoft.com/kb/4462917
+[4464330]: http://support.microsoft.com/kb/4464330
+[4462915]: http://support.microsoft.com/kb/4462915
+[4462931]: http://support.microsoft.com/kb/4462931
+[4462941]: http://support.microsoft.com/kb/4462941
+[4462930]: http://support.microsoft.com/kb/4462930
+[4462949]: http://support.microsoft.com/kb/4462949
+[4339284]: http://support.microsoft.com/kb/4339284
+[4457144]: http://support.microsoft.com/kb/4457144
+[4457044]: http://support.microsoft.com/kb/4457044
+[4457038]: http://support.microsoft.com/kb/4457038
+[4457135]: http://support.microsoft.com/kb/4457135
+[4457042]: http://support.microsoft.com/kb/4457042
+[4457037]: http://support.microsoft.com/kb/4457037
+[4457129]: http://support.microsoft.com/kb/4457129
+[4457045]: http://support.microsoft.com/kb/4457045
+[4457036]: http://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>SO de convidado de Setembro de 2018
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |

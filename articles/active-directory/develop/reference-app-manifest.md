@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115115"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086782"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
-Aplicações que se integram com o Azure Active Directory (Azure AD) tem de ser registadas com um inquilino do Azure AD. Pode configurar a aplicação no [portal do Azure](https://portal.azure.com) ao selecionar **registos das aplicações** sob **Azure Active Directory**, selecionar a aplicação que pretende configurar e, em seguida, selecionando **manifesto**.
+O manifesto do aplicativo contém uma definição de todos os atributos de um objeto de aplicativo na plataforma de identidades da Microsoft. Ele também serve como um mecanismo para atualizar o objeto de aplicativo. Para obter mais informações sobre a entidade Aplicação e respetivo esquema, veja a documentação [Entidade de Aplicação da Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+Pode configurar atributos de uma aplicação através do portal do Azure ou programaticamente usando o Microsoft Graph. No entanto, existem alguns cenários em que terá de editar o manifesto da aplicação para configurar o atributo de uma aplicação. Os cenários incluem:
+
+* Se registou a aplicação como contas da Microsoft pessoais e de multi-inquilinos do Azure AD, não é possível alterar as contas Microsoft suportadas na IU. Em vez disso, tem de utilizar o editor de manifesto de aplicativo para alterar o tipo de conta suportado.
+* Se tiver de definir as permissões e funções que oferece suporte a sua aplicação, tem de modificar o manifesto do aplicativo.
+
+## <a name="configure-the-app-manifest"></a>Configurar o manifesto da aplicação
+
+Para configurar o manifesto do aplicativo:
+
+1. Iniciar sessão a [portal do Azure](https://portal.azure.com).
+1. Selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações** ou **registos de aplicações (pré-visualização)**.
+1. Selecione a aplicação que pretende configurar.
+1. A partir da aplicação **descrição geral** página, selecione a **manifesto** secção. É aberta um editor de manifesto baseada na web, permitindo-lhe editar o manifesto no portal. Opcionalmente, pode selecionar **baixe** para editar o manifesto localmente e, em seguida, utilizar **carregar** para voltar a aplicar à sua aplicação.
 
 ## <a name="manifest-reference"></a>Referência do manifesto
 
@@ -63,7 +77,7 @@ Aplicações que se integram com o Azure Active Directory (Azure AD) tem de ser 
 | `requiredResourceAccess` | Tipo de matriz | Com o consentimento dinâmico, `requiredResourceAccess` unidades a experiência de consentimento de administrador e a experiência de consentimento do utilizador para os utilizadores que estão a utilizar o consentimento estático. No entanto, isso não orientar a experiência de consentimento do usuário para o caso geral.<br>`resourceAppId` é o identificador exclusivo para o recurso que a aplicação necessita de acesso a. Este valor deve ser igual ao appId declarado na aplicação de recurso de destino.<br>`resourceAccess` é uma matriz que lista as funções de aplicação que a aplicação necessita do recurso especificado e os âmbitos de permissão de OAuth2.0. Contém os `id` e `type` valores dos recursos especificados. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
 | `samlMetadataUrl` | cadeia | O URL para os metadados SAML para a aplicação. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | cadeia | Especifica o URL para a home page da aplicação. | `https://MyRegisteredApp` |
-| `signInAudience` | cadeia | Especifica as contas da microsoft são suportadas para o aplicativo atual. Os valores suportados são:<ul><li>**AzureADMyOrg** -os utilizadores com um Microsoft trabalhar conta profissional ou escolar no inquilino do Azure AD da minha organização (ou seja, o único inquilino)</li><li>**AzureADMultipleOrgs** -os utilizadores com um Microsoft trabalhar conta profissional ou escolar no inquilino do Azure AD de qualquer organização (ou seja, o multi-inquilino)</li> <li>**AzureADandPersonalMicrosoftAccount** -os utilizadores com uma conta Microsoft pessoal, ou uma conta profissional ou escolar no inquilino do Azure AD de qualquer organização</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | cadeia | Especifica as contas da Microsoft são suportadas para o aplicativo atual. Os valores suportados são:<ul><li>**AzureADMyOrg** -os utilizadores com um Microsoft trabalhar conta profissional ou escolar no inquilino do Azure AD da minha organização (ou seja, o único inquilino)</li><li>**AzureADMultipleOrgs** -os utilizadores com um Microsoft trabalhar conta profissional ou escolar no inquilino do Azure AD de qualquer organização (ou seja, o multi-inquilino)</li> <li>**AzureADandPersonalMicrosoftAccount** -os utilizadores com uma conta Microsoft pessoal, ou uma conta profissional ou escolar no inquilino do Azure AD de qualquer organização</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | Matriz de cadeia de caracteres | Personalizado cadeias de caracteres que podem ser utilizadas para categorizar e identificar o aplicativo. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985299"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085837"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Com o portal de administrador no Azure Stack
 
@@ -40,6 +40,8 @@ Para aceder ao portal de administrador, navegue para o URL do portal e a de iní
 | | |
 
  ![O portal de administrador](media/azure-stack-manage-portals/admin-portal.png)
+
+Tenha em atenção que o fuso horário predefinido para todas as implementações do Azure Stack está definido para Hora Universal Coordenada (UTC). Pode selecionar um fuso horário ao instalar o Azure Stack, no entanto, ele é automaticamente revertida para UTC como predefinição durante a instalação.
 
 No portal do administrador, pode fazer coisas como:
 

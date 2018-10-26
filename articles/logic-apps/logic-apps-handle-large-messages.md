@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041650"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085808"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Processar mensagens grandes com a segmentação no Azure Logic Apps
 
 Quando o tratamento de mensagens, o Logic Apps limita conteúdo da mensagem para um tamanho máximo. Este limite ajuda a reduzir a sobrecarga criada ao armazenar e processar mensagens grandes. Para lidar com mensagens maiores do que este limite, o Logic Apps podem *segmentos* uma mensagem grande em mensagens menores. Dessa forma, pode ainda transferir ficheiros grandes utilizando o Logic Apps em condições específicas. Ao se comunicar com outros serviços através de conectores ou HTTP, o Logic Apps podem consumir mensagens grandes, mas *apenas* em blocos. Esta condição significa conectores também tem de suportar segmentação ou a troca de mensagens HTTP subjacente entre estes serviços e aplicações lógicas têm de utilizar o agrupamento.
 
-Este artigo mostra como pode configurar o suporte para as mensagens que são maiores do que o limite de segmentação.
+Este artigo mostra como pode configurar a segmentação para manipulação de mensagens que são maiores do que o limite de ações. Acionadores da aplicação lógica não suportam a segmentação devido a maior sobrecarga de troca de várias mensagens. 
 
 ## <a name="what-makes-messages-large"></a>O que torna as mensagens "grandes"?
 

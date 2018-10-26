@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 38a972d39b845dca39bcc4dcf921c603301af582
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869657"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094249"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ligar ao Azure Cosmos DB Cassandra API a partir do Spark
 
@@ -29,7 +29,7 @@ Este artigo é uma dentre uma série de artigos sobre a integração de API de C
 ## <a name="dependencies-for-connectivity"></a>Dependências de conectividade
 * **Conector do spark para o Cassandra:** conector do Spark é utilizada para ligar à API de Cassandra do Azure Cosmos DB.  Identificar e utilizar a versão do conector localizado em [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) que é compatível com as versões do Spark e Scala do seu ambiente do Spark.
 
-* **Biblioteca de auxiliar do Azure Cosmos DB para a API de Cassandra:** além do conector do Spark, terá de outra biblioteca chamada [azure-cosmos-cassandra-spark-auxiliar]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) do Azure Cosmos DB. Esta biblioteca contém um classes de política de repetição personalizada e uma fábrica de ligação.
+* **Biblioteca de auxiliar do Azure Cosmos DB para a API de Cassandra:** além do conector do Spark, terá de outra biblioteca chamada [azure-cosmos-cassandra-spark-auxiliar]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) do Azure Cosmos DB. Esta biblioteca contém classes da diretiva de conexão personalizada factory e tente novamente.
 
   A política de repetição no Azure Cosmos DB está configurada para manipular HTTP status código 429 ("grande de taxa de pedido") exceções. A API de Cassandra do Azure Cosmos DB traduz essas exceções em erros sobrecarregados no protocolo nativo Cassandra e, pode voltar a tentar com back e desvantagens. Como o Azure Cosmos DB utiliza o modelo de débito aprovisionado, exceções de limitação de taxa de pedido ocorrerem quando a entrada/saída taxas de aumento. A política de repetição protege as suas tarefas do spark em relação a picos de dados que excedem momentaneamente a taxa de transferência alocada para a sua coleção.
 

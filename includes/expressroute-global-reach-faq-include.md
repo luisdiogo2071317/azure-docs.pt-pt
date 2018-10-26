@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874046"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035403"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>O que é o alcance Global do ExpressRoute?
 
@@ -21,7 +21,7 @@ Alcance Global do ExpressRoute é um serviço do Azure que estabelece ligação 
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Como ativar ou desativar o alcance Global do ExpressRoute?
 
-Ativar o alcance Global do ExpressRoute conectando seus circuitos do ExpressRoute. Desativar a funcionalidade ao desligar o circuitos. Ver a configuração.
+Ativar o alcance Global do ExpressRoute conectando seus circuitos do ExpressRoute. Desativar a funcionalidade ao desligar o circuitos. Consulte a [configuração](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>É necessário ExpressRoute Premium para alcance Global do ExpressRoute?
 
@@ -36,6 +36,7 @@ O ExpressRoute permite-conectividade da rede no local para serviços cloud da Mi
 Alcance Global do ExpressRoute é suportado nos seguintes países. Os circuitos ExpressRoute têm de ser criados nas localizações peering nestes países.
 
 * Austrália
+* França
 * RAE de Hong Kong
 * Irlanda
 * Japão
@@ -58,3 +59,11 @@ Não. Para ativar a conectividade entre quaisquer dois das suas redes no local, 
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>O que é o débito de rede que pode esperar entre meu redes no local, depois, posso ativar o alcance Global do ExpressRoute?
 
 O débito de rede entre as redes no local, ativada por ExpressRoute alcance Global, é colocado por mais pequeno de dois circuitos do ExpressRoute.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Com o ExpressRoute alcance Global, quais são os limites no número de rotas, pode anunciar e o número de rotas que irá receber?
+
+O número de rotas que pode anunciar à Microsoft no peering privado do Azure permanece em 4000 num circuito Standard ou 10000 num circuito Premium. O número de rotas que receberá da Microsoft no peering privado do Azure será a soma das rotas de redes virtuais do Azure e as rotas de suas outras redes no local ligada através do alcance Global do ExpressRoute. Certifique-se de que definir um limite máximo de prefixo adequado do router no local. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>O que é o SLA para alcance Global do ExpressRoute?
+
+Alcance Global do ExpressRoute fornecerá o mesmo [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) como o serviço de ExpressRoute regular.

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406777"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092309"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quais são os controles de acesso no acesso condicional do Azure Active Directory? 
 
@@ -166,8 +166,14 @@ Os controlos de sessão proporcionam uma experiência limitada dentro de uma apl
 
 ### <a name="use-app-enforced-restrictions"></a>Utilizar as restrições da aplicação imposta
 
-Pode utilizar este controlo para exigir o Azure AD para passar as informações de dispositivo para a aplicação na cloud. Isto ajuda a aplicação na cloud saber se o utilizador for proveniente de um dispositivo em conformidade ou um dispositivo associado a um domínio. Esse controle é atualmente apenas suportado com o SharePoint como a aplicação na cloud. Para fornecer aos utilizadores uma experiência completa ou limitada, dependendo do Estado do dispositivo, o SharePoint usa as informações do dispositivo.
-Para saber mais sobre como requerer acesso limitado com o SharePoint, consulte [controlar o acesso de dispositivos não geridos](https://aka.ms/spolimitedaccessdocs).
+Pode utilizar este controlo para exigir o Azure AD para passar as informações do dispositivo para as aplicações na cloud selecionada. As informações de dispositivo permite que as aplicações na cloud saber se uma conexão é iniciada a partir de um dispositivo associado a um domínio ou em conformidade. Este controlo só suporta a aplicações na cloud selecionada de Exchange Online e SharePoint Online. Quando selecionada, a aplicação de cloud utiliza as informações do dispositivo para fornecer aos usuários, dependendo do Estado do dispositivo, com uma experiência completa ou limitada.
+
+Para saber mais, consulte:
+
+- [Ativar o acesso limitado com o SharePoint Online](https://aka.ms/spolimitedaccessdocs) 
+
+- [Ativar o acesso limitado com o Exchange Online](https://aka.ms/owalimitedaccess)
+
 
 
 

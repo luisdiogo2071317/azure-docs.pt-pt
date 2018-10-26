@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 94a02a06335b35a36c35d4b69776b1eb630b402d
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638091"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086029"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Funções de entidade em padrões são subtipos contextuais
 As funções são subtipos contextuais, com o nome de uma entidade utilizada apenas num [padrões](luis-concept-patterns.md).
@@ -42,13 +42,8 @@ Na expressão de modelo de um padrão, as funções são usadas dentro da expres
 ## <a name="role-syntax-in-patterns"></a>Sintaxe de função em padrões
 A entidade e a função estão entre parênteses, `{}`. A entidade e a função são separados por vírgula. 
 
-## <a name="roles-versus-hierarchical-entities"></a>Funções versus entidades hierárquicas
-Entidades hierárquicas fornecem as mesmas informações contextuais, como funções, mas apenas para expressões com na **intenções**. Da mesma forma, as funções fornecem as mesmas informações contextuais entidades hierárquicas mas apenas numa **padrões**.
 
-|Contextual learning|Utilizado no|
-|--|--|
-|entidades hierárquicas|Objetivos|
-|funções|Padrões de|
+[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>Funções com entidades previamente concebidas
 

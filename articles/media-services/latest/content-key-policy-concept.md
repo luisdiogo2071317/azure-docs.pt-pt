@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985867"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085962"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
@@ -28,16 +28,16 @@ Em serviços de multimédia do Azure v3, políticas de chaves de conteúdo permi
 
 A tabela seguinte mostra as propriedades do ContentKeyPolicy e fornece as respetivas definições.
 
-|Nome|Tipo|Descrição|
-|---|---|---|
-|ID|cadeia|ID de recurso completamente qualificado para o recurso.|
-|nome|cadeia|O nome do recurso.|
-|Properties.created |cadeia|A data de criação da política|
-|Properties.Description |cadeia|Uma descrição para a política.|
-|properties.lastModified    |cadeia|Data da última modificação da política|
-|Properties.Options |ContentKeyPolicyOption []|As opções de política de chave.|
-|properties.policyId    |cadeia|O ID de política de legado.|
-|tipo   |cadeia|O tipo de recurso.|
+|Nome|Descrição|
+|---|---|
+|ID|ID de recurso completamente qualificado para o recurso.|
+|nome|O nome do recurso.|
+|Properties.created |A data de criação da política|
+|Properties.Description |Uma descrição para a política.|
+|properties.lastModified|Data da última modificação da política|
+|Properties.Options |As opções de política de chave.|
+|properties.policyId    |O ID de política de legado.|
+|tipo   |O tipo de recurso.|
 
 A definição completa, consulte [diretivas de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 

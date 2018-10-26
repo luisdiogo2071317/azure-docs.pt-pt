@@ -4,24 +4,28 @@ description: Saiba mais sobre o ciclo de vida que atravessa um plano gráfico e 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c09fb26d8375e08281241aaed3f6f6e30acc755b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955457"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094583"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreender a sequência de implementação no Azure esquemas
 
-O Azure utiliza esquemas uma **ordem de sequenciamento** para determinar a ordem de criação de recursos ao processar a atribuição de um plano gráfico. Este artigo explica a ordem de sequenciamento do padrão que é utilizada, como personalizar a ordem e como a ordem de personalizados é processada.
+O Azure utiliza esquemas uma **ordem de sequenciamento** para determinar a ordem de criação de recursos ao processar a atribuição de um plano gráfico. Este artigo explica os seguintes conceitos:
+
+- A ordem de sequenciamento do padrão que é utilizada
+- Como personalizar a ordem
+- Como a ordem de personalizados é processada
 
 Existem variáveis nos exemplos JSON que é necessário substituir com seus próprios valores:
 
-- `{YourMG}` -Substituir pelo nome do seu grupo de gestão
+- `{YourMG}` - substituir pelo nome do seu grupo de gestão
 
 ## <a name="default-sequencing-order"></a>Ordem de sequenciamento do padrão
 
@@ -32,7 +36,7 @@ Se o plano gráfico não contém nenhuma diretiva para a ordem implementar artef
 - Nível de assinatura **modelo Azure Resource Manager** ordenados pelo nome do artefacto de artefactos
 - **Grupo de recursos** artefatos (incluindo os artefactos de subordinados), ordenados pelo nome do marcador de posição
 
-Dentro de cada **grupo de recursos** artefato que é processado, a ordem de sequência seguinte é utilizado para artefactos a ser criada dentro do grupo de recursos:
+Dentro de cada **grupo de recursos** artefacto, pela seguinte ordem sequência é utilizado para artefactos a ser criada dentro do grupo de recursos:
 
 - Subordinado do grupo de recursos **atribuição de função** ordenados pelo nome do artefacto de artefactos
 - Subordinado do grupo de recursos **atribuição de política** ordenados pelo nome do artefacto de artefactos
@@ -40,14 +44,13 @@ Dentro de cada **grupo de recursos** artefato que é processado, a ordem de sequ
 
 ## <a name="customizing-the-sequencing-order"></a>Personalizar a sequência de sequenciamento
 
-Ao redigir planos gráficos grandes, poderá ser necessário para um recurso a ser criada por uma ordem específica em relação a outro recurso. O padrão de uso mais comum disso é quando um plano gráfico inclui vários modelos do Azure Resource Manager. Planos gráficos lida com isso, permitindo que a ordem de sequenciamento ser definido.
+Ao redigir planos gráficos grandes, poderá ser necessário para os recursos a ser criada por uma ordem específica. O padrão de uso mais comum deste cenário é quando um plano gráfico inclui diversos modelos do Azure Resource Manager. Planos gráficos lida com esse padrão, permitindo que a ordem de sequenciamento ser definido.
 
-Isso é feito definindo um `dependsOn` propriedade no JSON. Apenas o esquema (para grupos de recursos) e os objetos de artefacto suportam esta propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefacto o artefacto específico tem de ser criada antes de ser criado.
+A ordenação é realizada definindo um `dependsOn` propriedade no JSON. Apenas o esquema (para grupos de recursos) e os objetos de artefacto suportam esta propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefacto o artefacto específico tem de ser criada antes de ser criado.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Exemplo - esquema com o grupo de recursos ordenada
 
-Este é uma esquema de exemplo com um grupo de recursos que definiu uma ordem de sequenciamento personalizado ao declarar um valor para `dependsOn`, juntamente com um grupo de recursos padrão. Neste caso, o nome do artefacto **assignPolicyTags** serão processados antes do **ordenadas-rg** grupo de recursos.
-**Standard-rg** serão processados por ordem de sequenciamento padrão.
+Este esquema de exemplo tem um grupo de recursos que definiu uma ordem de sequenciamento personalizado ao declarar um valor para `dependsOn`, juntamente com um grupo de recursos padrão. Neste caso, o nome do artefacto **assignPolicyTags** serão processados antes do **ordenadas-rg** grupo de recursos. **Standard-rg** serão processados por ordem de sequenciamento padrão.
 
 ```json
 {
@@ -78,7 +81,7 @@ Este é uma esquema de exemplo com um grupo de recursos que definiu uma ordem de
 
 ### <a name="example---artifact-with-custom-order"></a>Exemplo - artefacto com ordem personalizado
 
-Este é um artefacto de política de exemplo que depende de um modelo Azure Resource Manager. Por predefinição ordenação, um artefacto de política seria possível criar antes do modelo Azure Resource Manager. Isso permite que o artefacto de política aguardar que o modelo Azure Resource Manager a ser criada.
+Neste exemplo é um artefacto de política que depende de um modelo Azure Resource Manager. Por predefinição ordenação, um artefacto de política seria possível criar antes do modelo Azure Resource Manager. Esta ordem, permite que o artefacto de política aguardar que o modelo Azure Resource Manager a ser criada.
 
 ```json
 {
@@ -99,14 +102,14 @@ Este é um artefacto de política de exemplo que depende de um modelo Azure Reso
 
 ## <a name="processing-the-customized-sequence"></a>A sequência personalizada de processamento
 
-Durante o processo de criação, um tipo topológica é utilizado para criar o gráfico de dependência do esquema e os artefactos. Isto garante que os vários níveis de dependência entre grupos de recursos e os artefactos podem ser suportados.
+Durante o processo de criação, um tipo topológica é utilizado para criar o gráfico de dependência dos artefactos de esquema. A verificação torna-se de que cada nível de dependência entre grupos de recursos e artefatos é suportado.
 
-Se uma dependência for declarada no plano gráfico ou um artefato que não alterar a ordem predefinida, em seguida, nenhuma alteração é feita para a ordem de sequenciamento. Exemplos disso são um grupo de recursos que depende de uma atribuição de política de subordinado de nível política ou recurso grupo "standard-rg" de subscrição que depende de atribuição de função do grupo de recursos "standard-rg" filho. Em ambos os casos, o `dependsOn` não tiver alterado o padrão ordem de sequenciamento e sem alterações seriam feitas.
+Se uma dependência de artefacto é declarada que não alterar a ordem padrão, nenhuma alteração é feita. Um exemplo é um grupo de recursos que depende de uma política de nível de subscrição. Outro exemplo é uma atribuição de política do recurso grupo standard-rg filho que depende de atribuição de função do grupo de recursos "standard-rg" filho. Em ambos os casos, o `dependsOn` não tiver alterado o padrão ordem de sequenciamento e sem alterações seriam feitas.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre o [ciclo de vida de esquema](lifecycle.md)
+- Saber mais sobre o [ciclo de vida do esquema](lifecycle.md)
 - Compreender como utilizar [parâmetros estáticos e dinâmicos](parameters.md)
-- Descubra como tornar a utilização de [plano gráfico de bloqueio do recurso](resource-locking.md)
-- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](../troubleshoot/general.md)
+- Saber como utilizar o [bloqueio de recursos de esquema](resource-locking.md)
+- Saber como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md)
+- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](../troubleshoot/general.md)

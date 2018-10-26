@@ -1,3 +1,16 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: 6e22f42598c727b74668ada9372b63a300fa0225
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134338"
+---
 Estas são informações de referência para programadores das funções do Azure. Se estiver familiarizado com as funções do Azure, comece com os seguintes recursos:
 
 * [Criar a sua primeira função](../articles/azure-functions/functions-create-first-azure-function.md)

@@ -1,7 +1,16 @@
 ---
-Ásia Oriental | `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` autor: MS. Service de wolfma61: MS. topic de serviços cognitivos: incluem MS. Date: 05/07/2018 MS. Author: wolfma
+author: wolfma61
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 05/07/2018
+ms.author: wolfma
+ms.openlocfilehash: c6f6aac89cea1192a8d4d690ac99be0b498324eb
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133569"
 ---
-
 Região| Conversão de voz em ponto final de texto
 -|-
 EUA Oeste| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`

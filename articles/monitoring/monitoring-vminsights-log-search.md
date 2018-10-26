@@ -1,5 +1,5 @@
 ---
-title: Como consultar os registos de Monitor do Azure para VMs | Documentos da Microsoft
+title: Como consultar os registos de Monitor do Azure para VMs (pré-visualização) | Documentos da Microsoft
 description: Monitor do Azure para a solução de VMs reencaminha as métricas e dados de registo para o Log Analytics e este artigo descreve os registos e incluem exemplos de consultas.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269399"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095427"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar os registos do Azure Monitor para VMs
+# <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Azure Monitor para VMs (pré-visualização)
 O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-searches.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
 
 ## <a name="map-records"></a>Registos de mapa
