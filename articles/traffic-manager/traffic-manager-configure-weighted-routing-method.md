@@ -4,9 +4,6 @@ description: Este artigo explica como balancear carga de tráfego através de um
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432448"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154930"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurar o método de encaminhamento de tráfego de ponderado no Gestor de tráfego
 
-É um padrão comum para o tráfego encaminhamento método fornecer um conjunto de pontos finais idênticos, que incluem os serviços cloud e Web sites, e enviar o tráfego para cada um de uma forma round robin. Os passos seguintes descrevem como configurar este tipo de método de encaminhamento de tráfego.
+É um padrão comum para o tráfego encaminhamento método fornecer um conjunto de pontos finais idênticos, que incluem os serviços cloud e Web sites, e enviar o tráfego a cada igualmente. Os passos seguintes descrevem como configurar este tipo de método de encaminhamento de tráfego.
 
 > [!NOTE]
-> Aplicação Web do Azure já fornece a funcionalidade para Web sites dentro de uma região do Azure (contém vários centros de dados) de balanceamento de carga round robin. O Gestor de tráfego permite-lhe especificar o método de encaminhamento de tráfego round robin para sites em datacenters diferentes.
+> Aplicação Web do Azure já fornece a funcionalidade para Web sites dentro de uma região do Azure (que pode compõem a vários centros de dados) de balanceamento de carga round robin. O Gestor de tráfego permite-lhe distribuir o tráfego por Web sites em datacenters diferentes.
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Para configurar o método de encaminhamento de tráfego ponderada
 
@@ -51,7 +48,7 @@ ms.locfileid: "47432448"
 
 - Saiba mais sobre [método de encaminhamento de tráfego de prioridade](traffic-manager-configure-priority-routing-method.md).
 - Saiba mais sobre [método de encaminhamento de tráfego de desempenho](traffic-manager-configure-performance-routing-method.md).
-- Saiba mais sobre [método de encaminhamento geográfico](traffic-manager-configure-geographic-routing-method.md).
+- Saiba mais sobre o [método de encaminhamento geográfico](traffic-manager-configure-geographic-routing-method.md).
 - Saiba como [testar as definições do Gestor de tráfego](traffic-manager-testing-settings.md).
 
 <!--Image references-->

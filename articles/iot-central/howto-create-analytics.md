@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368091"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156328"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Como utilizar a análise para analisar os dados de dispositivo
 
 
-*Este artigo aplica-se para operadores, criadores e administradores.*
+*Este artigo aplica-se a operadores, construtores e administradores.*
 
 
-Microsoft Azure IoT Central fornece capacidades de análise avançada de fazer sentido de grandes quantidades de dados dos seus dispositivos. Para começar, visite **Analytics** no menu de navegação esquerdo. 
+O Azure IoT Central fornece capacidades de análises avançadas que fazem sentido de grandes quantidades de dados dos seus dispositivos. Para começar, visite **Analytics** no menu de navegação esquerdo. 
 
   ![Navegação de IoT Central para análise](media\howto-create-analytics\analytics-navigation.png)
 
@@ -40,7 +40,7 @@ to-do: do we need to explain how fiters work?
 * **Filtros:** opcionalmente, pode adicionar filtros a sua pesquisa para alcançar seus dados. Pode adicionar até 10 filtros ao mesmo tempo. Por exemplo, dentro de todos os refrigeradores no Oakland, encontre as que tenha tido a temperatura passar de 60 graus. 
 * **Período de tempo:** por predefinição, irá obter dados de após 10 minutos. Pode alterar este valor para um dos intervalos de tempo predefinido ou selecione um período de tempo personalizado. 
 
- ![Consulta de Análise](media\howto-create-analytics\analytics-query.png)
+ ![Consulta do Analytics](media\howto-create-analytics\analytics-query.png)
 
 ## <a name="visualizing-your-data"></a>Visualizar seus dados
 
@@ -60,12 +60,12 @@ to-do: confirm if 10 is the max number of measurements
 
 Existem várias formas em que pode alterar ainda mais os resultados de consulta para atender às suas necessidades de visualização. Pode se alternam entre uma vista de gráfico e uma exibição de grade, entrada/saída de zoom, atualize o seu conjunto de dados e alterar a forma como as linhas são mostradas.
 
-* **Mostrar grelha:** os resultados vão estar disponíveis no formato de tabela para que lhe permite ver o valor específico para cada ponto de dados. Esta vista também cumpre os padrões de acessibilidade. 
+* **Mostrar grelha:** os resultados vão estar disponíveis num formato de tabela, permitindo-lhe ver o valor específico para cada ponto de dados. Esta vista também cumpre os padrões de acessibilidade. 
 * **Mostrar gráfico:** seus resultados serão apresentados num formato de linha para facilmente pontos ascendente/descendente tendências e anomalias. 
 
  ![Mostrando a exibição de grade para análise](media\howto-create-analytics\analytics-showgrid.png)
 
-Zoom permite-lhe alcançar seus dados. Se encontrar um período de tempo que gostaria de se concentrar em dentro do seu conjunto de resultados, ao utilizar o cursor da área que pretende ampliar e usar os controles disponíveis para executar uma das seguintes ações:
+Zoom permite-lhe alcançar seus dados. Se encontrar um período de tempo, gostaria de se concentrar em dentro do seu conjunto de resultados, utilize o cursor para capturar a área que pretende ampliar e usar os controles disponíveis para executar uma das seguintes ações:
 * **Ampliar:** depois de selecionar um período de tempo, zoom será ativada e permitem-lhe ampliar aos seus dados.
 * **Reduzir:** esse controle permite-lhe um nível de zoom da sua última zoom. Por exemplo, se tiver ampliar aos seus dados três vezes, zoom horizontalmente levará fazer uma cópia de uma etapa por vez.
 * **Reposição de zoom:** assim que já realizou vários níveis de zoom, pode utilizar o controle de reposição do zoom para retornar ao seu conjunto de resultados original. 

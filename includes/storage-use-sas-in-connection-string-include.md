@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165147"
+---
 Se possui um URL de assinatura (SAS) de acesso partilhado que concede acesso a recursos numa conta de armazenamento, pode utilizar a SAS numa cadeia de ligação. Uma vez que a SAS contém as informações necessárias para autenticar o pedido, uma cadeia de ligação com uma SAS permite o protocolo, o ponto final de serviço e as credenciais necessárias para aceder ao recurso.
 
 Para criar uma cadeia de ligação que inclui uma assinatura de acesso partilhado, especifique a cadeia de caracteres no seguinte formato:

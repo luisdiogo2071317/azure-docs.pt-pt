@@ -4,9 +4,6 @@ description: Este artigo pode ajudá-lo a compreender como o Gestor de tráfego 
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221099"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138145"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -140,7 +137,7 @@ Quando um ponto de extremidade tem o estado Degraded, já não é devolvido em r
 * **Desempenho**. O ponto final mais próximo do utilizador final é devolvido. Se esse ponto final não estiver disponível, o Gestor de tráfego move o tráfego para os pontos de extremidade na região do Azure mais próxima seguinte. Pode configurar planos de ativação pós-falha alternativo para o encaminhamento de tráfego de desempenho, utilizando [aninhada de perfis do Gestor de tráfego](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geográfica**. O ponto final mapeado para servir a localização geográfica baseada no pedido de consulta IP é devolvido. Se esse ponto final não estiver disponível, outro ponto final não será selecionado para ativação pós-falha, uma vez que uma localização geográfica pode ser mapeada apenas para um ponto final num perfil (mais detalhes estão no [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Como melhor prática, quando utiliza o encaminhamento geográfico, recomendamos que os clientes para utilizar perfis do Gestor de tráfego aninhados com mais de um ponto de extremidade como os pontos finais do perfil.
 * **MultiValue** pontos finais de múltiplas mapeados para endereços IPv4/IPv6 são devolvidos. Quando uma consulta é recebida para este perfil, os pontos finais de bom estado de funcionamento são devolvidos com base no **contagem de registos de máximo em resposta** valor que especificou. O número predefinido de respostas é dois pontos de extremidade.
-* **Sub-rede** é devolvido o ponto final mapeado para um conjunto de intervalos de endereços IP. Quando é recebido um pedido desse endereço IP, o ponto final devolveu é a que é mapeada para esse endereço IP. 
+* **Sub-rede** é devolvido o ponto final mapeado para um conjunto de intervalos de endereços IP. Quando é recebido um pedido desse endereço IP, o ponto final devolveu é a que é mapeada para esse endereço IP. 
 
 Para obter mais informações, consulte [métodos de encaminhamento de tráfego do Gestor de tráfego](traffic-manager-routing-methods.md).
 

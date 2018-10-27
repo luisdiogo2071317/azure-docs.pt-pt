@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060965"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138664"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicação virtual de rede no Azure
 
@@ -77,14 +77,14 @@ Utilizar o PowerShell
 **Verifique se o tráfego pode ser encaminhado para a NVA**
 
 1. No [portal do Azure](https://portal.azure.com), abra **observador de rede**, selecione **próximo salto**.
-2. Especifique uma VM que pretende que seja a NVA o salto seguinte e um endereço IP de destino no qual pretende ver o próximo salto. 
+2. Especifique uma VM que está configurada para redirecionar o tráfego para a NVA e um endereço IP de destino no qual pretende ver o próximo salto. 
 3. Se a NVA não estiver listada como o **próximo salto**, verificar e atualizar as tabelas de rota do Azure.
 
 **Verifique se o tráfego pode chegar a NVA**
 
 1.  Na [portal do Azure](https://portal.azure.com), abra **observador de rede**e, em seguida, selecione **IP fluxo verificar**. 
-2.  Especifique uma VM e o endereço IP da NVA e, em seguida, verifique se o tráfego é bloqueado por quaisquer grupos de segurança de rede (NSG).
-3.  Se houver uma regra NSG que bloqueia o tráfego, localize o NSG pela **segurança efetivas** regras e, em seguida, atualizá-la para permitir o tráfego para passar. Em seguida, execute **IP fluxo verificar** novamente e usar **verificação de conectividade** para testar as comunicações de TCP de VM para o seu endereço IP interno ou externo.
+2.  Especifique a VM e o endereço IP da NVA e, em seguida, verifique se o tráfego é bloqueado por quaisquer grupos de segurança de rede (NSG).
+3.  Se houver uma regra NSG que bloqueia o tráfego, localize o NSG pela **segurança efetivas** regras e, em seguida, atualizá-la para permitir o tráfego para passar. Em seguida, execute **IP fluxo verificar** novamente e usar **resolver problemas de ligação** para testar as comunicações de TCP de VM para o seu endereço IP interno ou externo.
 
 **Verifique se NVA e as VMs estão à escuta para o tráfego esperado**
 

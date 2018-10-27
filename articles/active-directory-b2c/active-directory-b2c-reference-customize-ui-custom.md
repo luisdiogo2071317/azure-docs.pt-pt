@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442360"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139514"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizar a interface do Usuário de um percurso do utilizador com as políticas personalizadas
 
@@ -41,7 +41,7 @@ Em comparação com a maneira tradicional antiga, onde as páginas de modelo sã
 Pode fornecer a quantas páginas de conteúdo quanto desejar criar arquivos de HTML5/CSS, conforme apropriado.
 
 > [!NOTE]
-> Por motivos de segurança, o uso de JavaScript está bloqueado para personalização. Para desbloquear o JavaScript, é necessário o uso de um nome de domínio personalizado para o seu inquilino do Azure AD B2C.
+> Por motivos de segurança, o uso de JavaScript está bloqueado para personalização. 
 
 Em cada um dos seus modelos de HTML5/CSS, fornece um *âncora* elemento, que corresponde ao necessários `<div id=”api”>` elemento no HTML ou a página de conteúdo como ilustrar daqui em diante. O Azure AD B2C requer que todas as páginas de conteúdo têm esta div que específico.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506207"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Tutorial: Integração do Azure Active Directory com 4me
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com 4me, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um 4me logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do 4me com o Azure AD, terá de adicionar 4me a p
 
 **Para adicionar 4me a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -177,7 +177,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     c. Sob **SAML** na secção a **URL de SSO SAML** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
 
-    d. Na **impressão digital de certificado** caixa de texto, colar a **THUMBPRINT** valor separada por dois pontos na ordem de duplets (AA:BB:CC:DD:EE:FF:GG:HH:II), que copiou do portal do Azure.
+    d. Na **impressão digital de certificado** caixa de texto, colar a **THUMBPRINT** valor separado por vírgula em ordem de duplets (AA:BB:CC:DD:EE:FF:GG:HH:II), que copiou do portal do Azure.
 
     e. Clique em **Guardar**.
 
@@ -218,7 +218,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no 4me. 4me suporta o aprovisionamento de just-in-time, que está por predefinição, ativada. Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder 4me se não existir ainda.
 
 >[!Note]
->Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de 4me](mailto:support@4me.com).
+>Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de 4me](mailto:support@4me.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -250,7 +250,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

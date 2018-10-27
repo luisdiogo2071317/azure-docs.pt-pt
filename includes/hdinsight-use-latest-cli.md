@@ -1,3 +1,16 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+ms.openlocfilehash: b8fb383a7b88038e73e723fa58d30fab058aeffe
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166263"
+---
 > [!IMPORTANT]
 > O suporte da CLI do Azure para gerir recursos do HDInsight com o Azure Service Manager (ASM) foi **preterido** e foi removido a 1 de janeiro de 2017. Os passos neste documento utilizam os novos comandos da CLI do Azure que funcionam com o Azure Resource Manager.
 

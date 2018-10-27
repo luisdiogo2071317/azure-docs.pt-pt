@@ -3,17 +3,17 @@ title: Ligar uma aplicação de cliente genérica do node. js para o Azure IoT C
 description: Como um desenvolvedor de dispositivo, como ligar um dispositivo genérico do node. js à sua aplicação do Azure IoT Central.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4702b0eb53897f173311c40469c912cf41751f24
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733469"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155155"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -34,16 +34,16 @@ Na aplicação do Azure IoT Central, terá de um modelo de dispositivo com as se
 
 Adicione a seguinte telemetria no **medidas** página:
 
-| Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas decimais |
+| Nome a Apresentar | Nome do Campo  | Unidades | Mín. | Máx. | Casas Decimais |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Temperatura  | temperatura | F     | 60  | 110 | 0              |
 | Humidade     | humidade    | %     | 0   | 100 | 0              |
 | Pressão     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  O tipo de dados da medição de telemetria é duplo.
+  O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
 
-Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não forem iguais, não é possível apresentar a telemetria da aplicação.
+Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, a telemetria não é possível apresentar na aplicação.
 
 ### <a name="state-measurements"></a>Medidas de estado
 
@@ -56,7 +56,7 @@ Adicione o seguinte estado no **medidas** página:
 > [!NOTE]
   O tipo de dados da medição de estado é a cadeia de caracteres.
 
-Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não forem iguais, não é possível apresentar o estado do aplicativo.
+Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, o estado não é possível apresentar na aplicação.
 
 ### <a name="event-measurements"></a>Medições de eventos
 
@@ -78,7 +78,7 @@ Adicione as seguintes propriedades do dispositivo na **página de propriedades**
 | Número de série       | serialNumber      | texto      |
 | Fabricante do dispositivo | fabricante      | texto      |
 
-Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não forem iguais, o aplicativo não é possível mostrar o valor da propriedade.
+Introduza os nomes de campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, o aplicativo não é possível mostrar o valor de propriedade do dispositivo.
 
 ### <a name="settings"></a>Definições
 
@@ -89,15 +89,15 @@ Adicione as seguintes **número** definições no **página de definições**:
 | Ventoinha velocidade       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Definir Temperatura | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não forem iguais, o dispositivo não pode receber o valor de definição.
+Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, o dispositivo não pode receber o valor de definição.
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-Na aplicação do Azure IoT Central, adicione um dispositivo real a partir do modelo de dispositivo, criar e tome nota da cadeia de ligação do dispositivo. Para obter mais informações, consulte [adicionar um dispositivo real à sua aplicação do Azure IoT Central](tutorial-add-device.md)
+Na aplicação do Azure IoT Central, adicione um dispositivo real a partir do modelo de dispositivo, criar e tome nota da cadeia de ligação do dispositivo. Para obter instruções passo a passo sobre como ligar uma aplicação node. js ao IoT Central, consulte [gerar cadeia de ligação para o dispositivo real do aplicativo](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) e [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicione um dispositivo.
 
 ### <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 
-Os passos seguintes mostram como criar uma aplicação de cliente que implementa o dispositivo real adicionados à aplicação.
+Os passos seguintes mostram como criar uma aplicação de cliente que implementa o dispositivo real adicionados à aplicação. Aqui, a aplicação node. js representa o dispositivo físico real. 
 
 1. Crie uma pasta denominada `connected-air-conditioner-adv` no computador. Navegue para essa pasta no seu ambiente de linha de comandos.
 
@@ -130,10 +130,10 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     ```
 
   > [!NOTE]
-   > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estes instrustions para [obter a cadeia de ligação do dispositivo](concepts-connectivity.md#getting-device-connection-string) e continuar com o resto do tutorial.
+  > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estes instrustions para [obter a cadeia de ligação do dispositivo](concepts-connectivity.md#getting-device-connection-string) e continuar com o resto do tutorial. Para obter mais ajuda, também pode encontrar um conjunto detalhado de instruções em [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
 
 
-    Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
+  Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
 
 1. Para enviar medições de telemetria, o estado e o evento para a aplicação Azure IoT Central, adicione a seguinte função para o ficheiro:
 
@@ -157,7 +157,7 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     }
     ```
 
-    1. Para enviar as propriedades dos dispositivos à sua aplicação do Azure IoT Central, adicione a seguinte função para o ficheiro:
+1. Para enviar as propriedades dos dispositivos à sua aplicação do Azure IoT Central, adicione a seguinte função para o ficheiro:
 
     ```javascript
     // Send device properties.
@@ -269,11 +269,11 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 
     ![Ver telemetria](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página.
+* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. Os mosaicos de propriedades do dispositivo serão atualizados se a ligação for bem-sucedida. 
 
     ![Ver as propriedades do dispositivo](media/howto-connect-nodejs/viewproperties.png)
 
-* Definir a temperatura de velocidade e o destino de fã do **definições** página.
+* Definir a temperatura de velocidade e o destino de fã do **definições** página. Os valores de definições irão sincronizar se a ligação for bem-sucedida. 
 
     ![Velocidade de fã de conjunto](media/howto-connect-nodejs/setfanspeed.png)
 

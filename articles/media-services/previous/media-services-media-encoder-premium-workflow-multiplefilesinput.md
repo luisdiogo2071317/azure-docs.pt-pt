@@ -1,6 +1,6 @@
 ---
-title: Vários ficheiros de entrada e propriedades do componente com o codificador Premium - Azure | Microsoft Docs
-description: Este tópico explica como utilizar setRuntimeProperties para utilizar vários ficheiros de entrada e passar dados personalizados para o processador de multimédia de fluxo de trabalho do suporte de dados codificador Premium.
+title: Vários ficheiros de entrada e propriedades do componente com o codificador Premium - Azure | Documentos da Microsoft
+description: Este tópico explica como utilizar setRuntimeProperties para utilizar vários ficheiros de entrada e passar dados personalizados para o processador de multimédia do Media Encoder Premium Workflow.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 66aec76e5af399e1909446b8ddf7a79aa1384d52
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62892b8a82b05872edfb539092eebac5b4bcc05b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788901"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157688"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilizar vários ficheiros de entrada e propriedades do componente com o codificador Premium
 ## <a name="overview"></a>Descrição geral
-Existem cenários em que poderá ser necessário personalizar propriedades do componente, especifique o XML de lista de Clip conteúdo, ou enviar vários ficheiros de entrada quando submete uma tarefa com o **o fluxo de trabalho do suporte de dados codificador Premium** processador de multimédia. Alguns exemplos incluem:
+Existem cenários em que poderá ter de personalizar as propriedades de componente, especifique o conteúdo do Clip lista XML, ou envie vários ficheiros de entrada ao submeter uma tarefa com o **Media Encoder Premium Workflow** processador de multimédia. Alguns exemplos incluem:
 
-* Sobrepor texto em vídeo e definindo o valor de texto (por exemplo, a data atual) em tempo de execução para cada vídeo de entrada.
-* Personalizar o XML de lista Clip (para especificar um ou vários ficheiros de origem, com ou sem corte, etc.).
-* Sobrepor uma imagem de logótipo no vídeo de entrada enquanto o vídeo está codificado.
-* Vários a codificação de idioma de áudio.
+* Sobrepor o texto em vídeo e definindo o valor de texto (por exemplo, a data atual) em tempo de execução para cada vídeo de entrada.
+* Personalizando o XML de lista de Clip (para especificar um ou vários ficheiros de origem, com ou sem limitação, etc.).
+* Sobreposição de uma imagem de logótipo no vídeo de entrada enquanto o vídeo está codificado.
+* Vários idiomas de áudio codificação.
 
-Para permitir que o **o fluxo de trabalho do suporte de dados codificador Premium** saber que estiver a alterar algumas propriedades no fluxo de trabalho ao criar a tarefa ou enviar vários ficheiros de entrada, tem de utilizar uma cadeia de configuração que contenha **setRuntimeProperties** e/ou **transcodeSource**. Este tópico explica como utilizá-los.
+Para permitir que o **Media Encoder Premium Workflow** sabe que está a alterar algumas propriedades no fluxo de trabalho ao criar a tarefa ou enviar vários ficheiros de entrada, precisa usar uma cadeia de configuração que contém  **setRuntimeProperties** e/ou **transcodeSource**. Este tópico explica como usá-los.
 
 ## <a name="configuration-string-syntax"></a>Sintaxe da cadeia de configuração
-A cadeia de configuração para definir a tarefa de codificação utiliza um documento XML que tem este aspeto:
+A cadeia de configuração para definir a tarefa de codificação usa um documento XML que é semelhante a este:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,7 +46,7 @@ A cadeia de configuração para definir a tarefa de codificação utiliza um doc
 </transcodeRequest>
 ```
 
-O código de c# que lê a configuração XML a partir de um ficheiro, atualizá-lo com o nome de ficheiro de vídeo à direita e passa-a para a tarefa de uma tarefa é o seguinte:
+Segue-se a C# código que lê a configuração XML de um arquivo, atualize-o com o nome de ficheiro de vídeo à direita e o transmite para a tarefa numa tarefa:
 
 ```csharp
 string premiumConfiguration = ReadAllText(@"D:\home\site\wwwroot\Presets\SetRuntime.xml").Replace("VideoFileName", myVideoFileName);
@@ -75,10 +75,10 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 ```
 
 ## <a name="customizing-component-properties"></a>Personalizar propriedades do componente
-### <a name="property-with-a-simple-value"></a>Propriedade com um valor simple
-Em alguns casos, isto é útil personalizar uma propriedade do componente, juntamente com o ficheiro de fluxo de trabalho que vai ser executado por fluxo de trabalho do suporte de dados codificador Premium.
+### <a name="property-with-a-simple-value"></a>Propriedade com um valor simples
+Em alguns casos, é útil personalizar uma propriedade de componente, juntamente com o ficheiro de fluxo de trabalho que vai ser executado por Media Encoder Premium Workflow.
 
-Suponha concebido um fluxo de trabalho que texto sobrepõe nos seus vídeos e o texto (por exemplo, a data atual) deve ser definido durante a execução. Pode fazê-lo ao enviar o texto a ser definida como o novo valor para a propriedade de texto do componente de sobreposição entre a tarefa de codificação. Pode utilizar este mecanismo para alterar as outras propriedades de um componente no fluxo de trabalho (tais como a posição ou cor da sobreposição, a velocidade de transmissão do codificador AVC, etc.).
+Suponha que criado um fluxo de trabalho esse texto sobreposições em seus vídeos e o texto (por exemplo, a data atual) deve ser definido em tempo de execução. Pode fazê-lo ao enviar o texto a ser definido como o novo valor para a propriedade text do componente de sobreposição entre a tarefa de codificação. Pode usar esse mecanismo para alterar outras propriedades de um componente no fluxo de trabalho (por exemplo, a posição ou cor de sobreposição, a velocidade de transmissão do codificador de AVC, etc.).
 
 **setRuntimeProperties** é utilizada para substituir uma propriedade nos componentes do fluxo de trabalho.
 
@@ -130,47 +130,47 @@ Exemplo:
 ```
 
 > [!NOTE]
-> Certifique-se de não colocar em espera um avanço retorno apenas após `<![CDATA[`.
+> Lembre-se de que não colocar um carro retorno imediatamente após `<![CDATA[`.
 
 ### <a name="propertypath-value"></a>valor de propertyPath
-Nos exemplos anteriores, o propertyPath foi "/ ficheiro do suporte de dados de entrada/filename" ou "/ inactiveTimeout" ou "clipListXml".
-Isto é, em geral, o nome do componente, em seguida, o nome da propriedade. O caminho pode ter mais ou menos níveis, como "/ primarySourceFile" (porque a propriedade na raiz do fluxo de trabalho) ou "/ vídeo sobreposição/opacidade de processamento/gráfico" (porque a sobreposição está num grupo).    
+Nos exemplos anteriores, foi o propertyPath "/ ficheiro do suporte de dados de entrada/nome de ficheiro" ou "/ inactiveTimeout" ou "clipListXml".
+Isto é, em geral, o nome do componente, em seguida, o nome da propriedade. O caminho pode ter mais ou menos níveis, como "/ primarySourceFile" (porque a propriedade está na raiz do fluxo de trabalho) ou "/ vídeo sobreposição/opacidade de processamento/gráfico" (porque é a sobreposição de um grupo).    
 
-Para verificar o nome de caminho e propriedade, utilize o botão de ação que é imediatamente, ao lado de cada propriedade. Pode clicar neste botão de ação e selecione **editar**. Isto irá mostrar o nome real da propriedade e, imediatamente acima, o espaço de nomes.
+Para verificar o nome de caminho e a propriedade, utilize o botão de ação que é imediatamente ao lado de cada propriedade. Pode clicar neste botão de ação e selecione **editar**. Isto irá mostrar-lhe o nome real da propriedade e, imediatamente acima dela, o espaço de nomes.
 
 ![Ação/editar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture6_actionedit.png)
 
 ![Propriedade](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture7_viewproperty.png)
 
 ## <a name="multiple-input-files"></a>Vários ficheiros de entrada
-Cada tarefa que submeter para o **o fluxo de trabalho do suporte de dados codificador Premium** requer dois elementos:
+Cada tarefa que tenha enviado para o **Media Encoder Premium Workflow** requer dois recursos:
 
-* A primeira é um *elemento de fluxo de trabalho* que contém um ficheiro de fluxo de trabalho. Pode estruturar ficheiros de fluxo de trabalho utilizando o [estruturador de fluxo de trabalho](media-services-workflow-designer.md).
-* Segunda é um *recurso de multimédia* que contém os ficheiros de suporte de dados que pretende codificar.
+* A primeira é uma *Asset de fluxo de trabalho* que contém um ficheiro de fluxo de trabalho. Pode criar arquivos de fluxo de trabalho utilizando o [Designer de fluxo de trabalho](media-services-workflow-designer.md).
+* A segunda é um *elemento multimédia* que contém os ficheiros de suporte de dados que pretende codificar.
 
-Quando está a enviar vários ficheiros de suporte de dados para o **o fluxo de trabalho do suporte de dados codificador Premium** aplicam do codificador, as seguintes restrições:
+Quando estiver enviando vários arquivos de suporte de dados para o **Media Encoder Premium Workflow** aplicam do codificador, as seguintes restrições:
 
-* Todos os ficheiros de suporte de dados têm de estar no mesmo *recurso de multimédia*. Não é suportada a utilização de vários recursos de suporte de dados.
-* Tem de definir o ficheiro primário neste recurso de multimédia (Idealmente, este é o ficheiro de vídeo principal que o codificador é-lhe pedido para processar).
-* É necessário transmitir dados de configuração que inclui o **setRuntimeProperties** e/ou **transcodeSource** elemento para que o processador.
-  * **setRuntimeProperties** é utilizada para substituir a propriedade de nome de ficheiro ou de outra propriedade nos componentes do fluxo de trabalho.
-  * **transcodeSource** é utilizado para especificar o conteúdo XML de lista Clip.
+* Todos os ficheiros de suporte de dados tem de estar na mesma *elemento multimédia*. Usar vários recursos de suporte de dados não é suportada.
+* Tem de definir o ficheiro principal deste elemento de multimédia (Idealmente, este é o principal arquivo de vídeo que o codificador é-lhe pedido para processar).
+* É necessário passar dados de configuração que incluem a **setRuntimeProperties** e/ou **transcodeSource** elemento para o processador.
+  * **setRuntimeProperties** é utilizada para substituir a propriedade de nome de ficheiro ou outra propriedade nos componentes do fluxo de trabalho.
+  * **transcodeSource** é utilizado para especificar o conteúdo XML da lista de Clip.
 
 Ligações no fluxo de trabalho:
 
-* Se utilizar um ou vários componentes de entrada de ficheiro do suporte de dados e se planeia utilizar **setRuntimeProperties** para especificar o nome de ficheiro, em seguida, não ligar o pin de componente de ficheiro primário aos mesmos. Certifique-se de que não há nenhuma ligação entre o objeto de ficheiro primário e o Input(s) de ficheiro do suporte de dados.
-* Se preferir utilizar Clip lista XML e um componente de origem de suporte de dados, em seguida, pode ligar ambos em conjunto.
+* Se utilizar um ou vários componentes de entrada de arquivo de mídia e planeja usar **setRuntimeProperties** para especificar o nome de ficheiro, em seguida, não ligar o pin de componente do ficheiro primário aos mesmos. Certifique-se de que não existe nenhuma ligação entre o objeto de ficheiro primário e o Input(s) de ficheiro do suporte de dados.
+* Se preferir usar o XML de lista de Clip e um componente de origem de mídia, em seguida, pode ligar os dois em conjunto.
 
-![Nenhuma ligação a partir do ficheiro de origem principal para entrada de ficheiro do suporte de dados](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
+![Nenhuma ligação a partir do ficheiro de origem principal à entrada de ficheiro do suporte de dados](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture0_nopin.png)
 
-*Não há nenhuma ligação no ficheiro principal para componentes de entrada de ficheiro do suporte de dados se utilizarem setRuntimeProperties para definir a propriedade de nome de ficheiro.*
+*Não existe nenhuma ligação do arquivo primário para componentes de entrada de ficheiro do suporte de dados, se usar setRuntimeProperties para definir a propriedade de nome de ficheiro.*
 
-![Ligação da lista de Clip XML para recortar origem da lista](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
+![Ligação a partir da lista de Clip XML para recortar a origem da lista](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture1_pincliplist.png)
 
-*Pode ligar Clip lista XML à origem de suporte de dados e utilizar transcodeSource.*
+*Pode ligar o XML de lista de Clip à origem de suporte de dados e utilizar transcodeSource.*
 
-### <a name="clip-list-xml-customization"></a>Recortar personalização do XML de lista
-Pode especificar o XML de lista Clip no fluxo de trabalho em tempo de execução utilizando **transcodeSource** na configuração da cadeia XML. Isto requer que o pin do XML de lista Clip estar ligados ao componente de origem de suporte de dados no fluxo de trabalho.
+### <a name="clip-list-xml-customization"></a>Clip-personalização XML da lista
+Pode especificar o XML de lista do Clip no fluxo de trabalho em tempo de execução usando **transcodeSource** na configuração do XML de cadeias de caracteres. Isto requer que o pin de XML de lista de Clip para ser ligado para o componente de origem de mídia no fluxo de trabalho.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -198,7 +198,7 @@ Pode especificar o XML de lista Clip no fluxo de trabalho em tempo de execução
   </transcodeRequest>
 ```
 
-Se pretender especificar /primarySourceFile para utilizar esta propriedade para o nome de ficheiros de saída através de 'Expressões', em seguida, é recomendado passar o XML de lista Clip como uma propriedade *depois* propriedade /primarySourceFile, para evitar que a lista de Clip ser substituído pela definição /primarySourceFile.
+Se pretender especificar /primarySourceFile para utilizar esta propriedade para nomear os ficheiros de saída usando 'Expressões', em seguida, recomendamos que passando o XML de lista do Clip como uma propriedade *depois de* a propriedade /primarySourceFile, para evitar que o Clip Lista de ser substituído pela definição da /primarySourceFile.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -229,7 +229,7 @@ Se pretender especificar /primarySourceFile para utilizar esta propriedade para 
   </transcodeRequest>
 ```
 
-Com o corte de moldura exata adicional:
+Com remoção de quadro precisos adicional:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -268,14 +268,14 @@ Com o corte de moldura exata adicional:
   </transcodeRequest>
 ```
 
-## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemplo 1: Sobreposição uma imagem por cima a vídeo
+## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Exemplo 1: Sobrepor uma imagem com base no vídeo
 
 ### <a name="presentation"></a>Apresentação
-Considere um exemplo em que pretende para a sobreposição de uma imagem de logótipo na vídeo de entrada enquanto o vídeo está codificado. Neste exemplo, o vídeo de entrada é denominado "Microsoft_HoloLens_Possibilities_816p24.mp4" e o logótipo com o nome "logo.png". Deve executar os seguintes passos:
+Considere um exemplo no qual pretende sobrepor uma imagem de logótipo no vídeo de entrada enquanto o vídeo está codificado. Neste exemplo, o vídeo de entrada com o nome "Microsoft_HoloLens_Possibilities_816p24.mp4" e o logótipo com o nome "logo.png". Deve executar os seguintes passos:
 
-* Criar um elemento de fluxo de trabalho com o ficheiro de fluxo de trabalho (consulte o exemplo seguinte).
-* Criar um recurso de suporte de dados, que contém dois ficheiros: MyInputVideo.mp4 como o ficheiro primário e MyLogo.png.
-* Enviar uma tarefa para o processador de suporte de dados de fluxo de trabalho do suporte de dados codificador Premium com os recursos de entrada acima e especificar a seguinte cadeia de configuração.
+* Criar um recurso do fluxo de trabalho com o ficheiro de fluxo de trabalho (consulte o exemplo a seguir).
+* Criar um elemento de multimédia, que contém dois arquivos: MyInputVideo.mp4 como o ficheiro primário e MyLogo.png.
+* Enviar uma tarefa para o processador de multimédia do Media Encoder Premium Workflow com os ativos de entrada acima e especificar a seguinte cadeia de configuração.
 
 Configuração:
 
@@ -290,29 +290,29 @@ Configuração:
   </transcodeRequest>
 ```
 
-No exemplo acima, o nome do ficheiro de vídeo é enviado para o componente de entrada de ficheiro do suporte de dados e a propriedade primarySourceFile. O nome do ficheiro de logótipo é enviado para outra entrada do ficheiro de suporte de dados que está ligada ao componente de sobreposição de gráfico.
+No exemplo acima, o nome do ficheiro de vídeo é enviado para o componente de entrada de ficheiro do suporte de dados e a propriedade primarySourceFile. O nome do ficheiro do logótipo é enviado para outra entrada de arquivo de suporte de dados que está ligada ao componente de sobreposição de gráfico.
 
 > [!NOTE]
-> O nome de ficheiro de vídeo é enviado para a propriedade primarySourceFile. O motivo para isto é para utilizar esta propriedade no fluxo de trabalho para criar o nome de ficheiro de saída correto utilizando expressões, por exemplo.
+> O nome de ficheiro de vídeo é enviado para a propriedade primarySourceFile. O motivo para isso é para utilizar esta propriedade no fluxo de trabalho para criar o nome de ficheiro de saída corretos usando expressões, por exemplo.
 
 ### <a name="step-by-step-workflow-creation"></a>Criação de fluxo de trabalho passo a passo
-Eis os passos para criar um fluxo de trabalho que demora dois ficheiros como entrada: um vídeo e uma imagem. Este será sobreposição a imagem por cima a vídeo.
+Eis os passos para criar um fluxo de trabalho que usa dois ficheiros como entrada: um vídeo e uma imagem. Ele será sobrepor a imagem com base no vídeo.
 
-Abra **estruturador de fluxo de trabalho** e selecione **ficheiro** > **nova área de trabalho** > **transcodificar Blueprint**.
+Open **Designer de fluxo de trabalho** e selecione **ficheiro** > **nova área de trabalho** > **transcodificar esquema**.
 
 O novo fluxo de trabalho mostra três elementos:
 
 * Ficheiro de origem principal
 * Lista de clip XML
-* Ficheiro/elemento de saída  
+* Ficheiro/recurso de saída  
 
 ![Novo fluxo de trabalho de codificação](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture9_empty.png)
 
 *Novo fluxo de trabalho de codificação*
 
-Para aceitar o ficheiro de suporte de dados de entrada, comece por adicionar um componente de entrada de ficheiro do suporte de dados. Para adicionar um componente para o fluxo de trabalho, procure na caixa de pesquisa de repositório e arraste a entrada pretendida para o painel do estruturador.
+Para aceitar o ficheiro de multimédia de entrada, comece por adicionar um componente de entrada de ficheiro do suporte de dados. Para adicionar um componente para o fluxo de trabalho, procurá-lo na caixa de pesquisa de repositório e arraste a entrada pretendida para o painel de designer.
 
-Em seguida, adicione o ficheiro de vídeo a ser utilizado para estruturar o fluxo de trabalho. Para tal, clique no painel de fundo no estruturador de fluxo de trabalho e procure a propriedade de ficheiro de origem principal no painel da direita de propriedade. Clique no ícone de pastas e selecione o ficheiro de vídeo adequado.
+Em seguida, adicione o ficheiro de vídeo a ser utilizado para conceber o seu fluxo de trabalho. Para tal, clique no painel em segundo plano no Designer de fluxo de trabalho e procure a propriedade de ficheiro de origem principal no painel do lado direito de propriedade. Clique no ícone de pasta e selecione o ficheiro de vídeo adequado.
 
 ![Origem de ficheiro primário](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture10_primaryfile.png)
 
@@ -320,50 +320,50 @@ Em seguida, adicione o ficheiro de vídeo a ser utilizado para estruturar o flux
 
 Em seguida, especifique o ficheiro de vídeo no componente de entrada de ficheiro do suporte de dados.   
 
-![Origem de entrada do ficheiro de multimédia](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
+![Origem de entrada de ficheiro de multimédia](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture11_mediafileinput.png)
 
-*Origem de entrada do ficheiro de multimédia*
+*Origem de entrada de ficheiro de multimédia*
 
-Assim que este procedimento é efetuado, o componente de entrada de ficheiro do suporte de dados irá inspecionar o ficheiro e preencher os pins de saída para refletir o ficheiro que-inspecionado.
+Assim que isso é feito, o componente de entrada de ficheiro do suporte de dados irá inspecionar o arquivo e preencher seus pins de saída para refletir o arquivo que ele inspecioná-lo.
 
-O passo seguinte consiste em Adicionar um "vídeo dados tipo Atualizador" para especificar o espaço de cor para Rec.709. Adicionar um "vídeo formato conversor" que está definido como tipo de dados. o esquema/esquema = Planar configurável. Isto irá converter o fluxo de vídeo num formato que pode ser executada como uma origem do componente de sobreposição.
+A próxima etapa é adicionar um "vídeo dados tipo Atualizador" para especificar o espaço de cor para Rec.709. Adicionar um "vídeo formato conversor" que está definido como tipo de dados. o Layout/Layout = configuráveis planas. Isto irá converter o fluxo de vídeo num formato que pode ser considerado uma origem do componente de sobreposição.
 
-![vídeo Atualizador do tipo de dados e conversor de formato](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
+![Atualizador de tipo de dados e o conversor de formato de vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
-*vídeo Atualizador do tipo de dados e conversor de formato*
+*Atualizador de tipo de dados de vídeo e o conversor de formato*
 
-![Tipo de esquema = configuráveis Planar](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
+![Tipo de layout = configuráveis planas](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
-*Tipo de esquema é configurável Planar*
+*Tipo de layout é configurável planas*
 
-Em seguida, adicione um componente de sobreposição de vídeo e ligar o pin de vídeo (descomprimido) para o pin de vídeo (descomprimido) da entrada de ficheiro do suporte de dados.
+Em seguida, adicione um componente de sobreposição de vídeo e ligar o pin de vídeo (não compactado) para o pin de vídeo (não compactado) da entrada de ficheiro do suporte de dados.
 
-Adicionar a entrada do ficheiro de suporte de dados de outro (para carregar o ficheiro de logótipo), clique neste componente e alterá-lo para "Logótipo de entrada do ficheiro de suporte de dados" e selecione uma imagem (um ficheiro PNG por exemplo) na propriedade de ficheiro. Ligar o pin não comprimida da imagem para o pin não comprimida da imagem de sobreposição.
+Adicionar entrada de ficheiro de suporte de dados a outro (ao carregar o ficheiro de logótipo), clique neste componente e renomeá-lo para "Logótipo de entrada do ficheiro de suporte de dados" e selecione uma imagem (um arquivo. png por exemplo) na propriedade de ficheiro. Ligue-se o pin não comprimida da imagem para o pin não comprimida da imagem de sobreposição.
 
-![Origem de ficheiros de componentes e a imagem de sobreposição](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
+![Origem de ficheiro de componente e de imagem de sobreposição](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture13_overlay.png)
 
-*Origem de ficheiros de componentes e a imagem de sobreposição*
+*Origem de ficheiro de componente e de imagem de sobreposição*
 
-Se pretender modificar a posição de logótipo no vídeo (por exemplo, pode querer posicioná-la em 10 por cento retire canto superior esquerdo do vídeo), desmarque a caixa de verificação "Manual de entrada". Pode fazê-lo porque estão a utilizar uma entrada de ficheiro do suporte de dados para fornecer o ficheiro de logótipo para o componente de sobreposição.
+Se pretender modificar a posição do logotipo do vídeo (por exemplo, pode querer posicioná-lo em 10 por cento do canto superior esquerdo do vídeo), desmarque a caixa de verificação "Entrada Manual". Pode fazê-lo porque está a utilizar uma entrada de ficheiro do suporte de dados para fornecer o ficheiro do logótipo para o componente de sobreposição.
 
 ![Posição de sobreposição](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture14_overlay_position.png)
 
 *Posição de sobreposição*
 
-Codificar o fluxo de vídeo para 264, adicione os componentes de codificador codificador vídeo AVC e AAC para a superfície do designer. Ligar os pins.
-Configurar o codificador AAC e selecione o formato de áudio conversão/predefinição: 2.0 (L, R).
+Para codificar o fluxo de vídeo para H.264, adicione os componentes de codificador de codificador de vídeo AVC e AAC para a superfície de desenho. Ligue-se os pins.
+Configurar o codificador AAC e selecione a conversão de formato de áudio, configuração predefinida: 2.0 (L, R).
 
 ![Codificadores de áudio e vídeos](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture15_encoders.png)
 
 *Codificadores de áudio e vídeos*
 
-Agora adicione o **ISO Mpeg-4 Multiplexer** e **ficheiro de saída** componentes e ligue os pins, conforme mostrado.
+Agora, adicione a **ISO Mpeg-4 Multiplexador** e **ficheiro de saída** componentes e ligue os pins, conforme mostrado.
 
-![MP4 multiplexer e de saída do ficheiro](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
+![MP4 Multiplexador e de saída do ficheiro](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture16_mp4output.png)
 
-*MP4 multiplexer e de saída do ficheiro*
+*MP4 Multiplexador e de saída do ficheiro*
 
-Tem de definir o nome para o ficheiro de saída. Clique em de **ficheiro de saída** componente e editar a expressão para o ficheiro:
+Tem de definir o nome para o ficheiro de saída. Clique nas **saída de arquivo** componente e editar a expressão para o ficheiro:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
 
@@ -371,33 +371,33 @@ Tem de definir o nome para o ficheiro de saída. Clique em de **ficheiro de saí
 
 *Nome do ficheiro de saída*
 
-Pode executar o fluxo de trabalho localmente Verifique se está a funcionar corretamente.
+Pode executar o fluxo de trabalho localmente para verificar que está a ser executado corretamente.
 
-Depois de concluído, pode executá-lo no Media Services do Azure.
+Depois de concluído, pode executá-lo nos serviços de multimédia do Azure.
 
-Em primeiro lugar, prepare um recurso de Media Services do Azure com dois ficheiros: o ficheiro de vídeo e o logótipo. Pode fazê-lo utilizando o .NET ou a REST API. Também pode fazer isto, utilizando o portal do Azure ou [Explorador de serviços de suporte de dados do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
+Em primeiro lugar, preparar um recurso, nos serviços de multimédia do Azure, com dois arquivos: o ficheiro de vídeo e o logótipo. Pode fazê-lo com o .NET ou a REST API. Também pode fazer isso com o portal do Azure ou [Explorador de serviços de multimédia do Azure](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE).
 
-Este tutorial mostra como gerir recursos com AMSE. Existem duas formas de adicionar ficheiros a um recurso:
+Este tutorial mostra-lhe como gerir recursos com AMSE. Existem duas formas de adicionar ficheiros a um recurso:
 
-* Crie uma pasta local, copie os dois ficheiros na mesma e arrastar e largar a pasta para o **Asset** separador.
-* Carregar o ficheiro de vídeo como um recurso, apresenta as informações de recurso, aceda ao separador ficheiros e carregar um ficheiro adicional (logótipo).
+* Crie uma pasta local, copie os dois ficheiros na mesma e arraste e solte a pasta para o **Asset** separador.
+* Carregar o ficheiro de vídeo como um recurso, exibir as informações do asset, vá para o separador de ficheiros e carregar um arquivo adicional (logótipo).
 
 > [!NOTE]
-> Certifique-se definir um ficheiro primário no elemento (vídeo ficheiro principal).
+> Certifique-se definir um ficheiro primário no ativo (o principal arquivo de vídeo).
 
-![Ficheiros de recurso na AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
+![Ficheiros de elemento no AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
-*Ficheiros de recurso na AMSE*
+*Ficheiros de elemento no AMSE*
 
-Selecione o elemento e optar por codificá-lo com o codificador Premium. Carregar o fluxo de trabalho e selecione-o.
+Selecione o elemento e optar por codificá-lo com o codificador Premium. Carregar o fluxo de trabalho e selecioná-lo.
 
-Clique no botão para transmitir dados para o processador e adicione o seguinte XML para definir as propriedades do tempo de execução:
+Clique no botão para passar dados para o processador e adicione o seguinte XML para definir as propriedades de tempo de execução:
 
 ![Codificador Premium no AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture19_amsepremium.png)
 
 *Codificador Premium no AMSE*
 
-Em seguida, cole os seguintes dados XML. Tem de especificar o nome do ficheiro de vídeo de entrada de ficheiro do suporte de dados e primarySourceFile. Especifique o nome do nome do ficheiro para o logótipo demasiado.
+Em seguida, cole os seguintes dados XML. Tem de especificar o nome do ficheiro de vídeo para a entrada de ficheiro do suporte de dados e a primarySourceFile. Especifique o nome do nome do ficheiro para o logótipo demasiado.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -414,37 +414,37 @@ Em seguida, cole os seguintes dados XML. Tem de especificar o nome do ficheiro d
 
 *setRuntimeProperties*
 
-Se utilizar o SDK .NET para criar e executar a tarefa, estes dados XML tem de ser transmitida como a cadeia de configuração.
+Se utilizar o SDK do .NET para criar e executar a tarefa, esses dados XML devem ser passado como a cadeia de configuração.
 
 ```csharp
 public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string configuration, TaskOptions options);
 ```
 
-Depois da tarefa estiver concluída, o ficheiro MP4 no elemento de saída apresenta sobreposição!
+Depois da tarefa estiver concluída, o ficheiro MP4 no recurso de saída apresenta a sobreposição!
 
-![Sobreposição no vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
+![Sobreposição do vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture21_resultoverlay.png)
 
-*Sobreposição no vídeo*
+*Sobreposição do vídeo*
 
-Pode transferir o fluxo de trabalho de exemplo do [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
+Pode baixar o fluxo de trabalho de exemplo da [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exemplo 2: Vários idiomas áudio codificação
+## <a name="example-2--multiple-audio-language-encoding"></a>Exemplo 2: Vários idiomas de áudio codificação
 
-Um exemplo de vários idiomas áudio workfkow codificação está disponível no [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Um exemplo de vários idiomas de áudio workfkow codificação está disponível no [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
-Esta pasta contém um fluxo de trabalho de exemplo que pode ser utilizado para codificar um ficheiro MXF a um recurso de ficheiros MP4 de várias com vários controla áudio.
+Esta pasta contém um fluxo de trabalho de exemplo que pode ser utilizado para codificar um arquivo de ficheiros do MXF a um recurso de ficheiros MP4 com várias com várias faixas de áudio.
 
-Este fluxo de trabalho parte do princípio de que o ficheiro MXF contém um controlar áudio; a atividade de áudio adicionais deve ser transmitida como ficheiros de áudio separados (WAV ou MP4...).
+Este fluxo de trabalho parte do princípio de que o arquivo de ficheiros do MXF contém uma faixa de áudio; as faixas de áudio adicionais devem ser passadas como arquivos de áudio separados (WAV ou... MP4).
 
-Codificar, siga estes passos:
+Para codificar, siga estes passos:
 
-* Crie um recurso dos Media Services com o ficheiro MXF e os ficheiros de áudio (ficheiros de áudio 0 para 18).
-* Certifique-se de que o ficheiro MXF está definido como um ficheiro primário.
-* Crie uma tarefa e uma tarefa com o processador de codificador de fluxo de trabalho Premium. Utilize o fluxo de trabalho fornecido (MultiMP4-1080p-19audio-v1.workflow).
-* Transmitir os dados de setruntime.xml à tarefa (se utilizar o Explorador de serviços de suporte de dados do Azure, utilize o botão "transferir dados de xml para o fluxo de trabalho").
-  * Atualize os dados XML para especificar as etiquetas de idiomas e nomes de ficheiro corretos.
-  * O fluxo de trabalho tem áudio componentes com o nome de áudio 1 para 18 áudio.
-  * RFC5646 é suportada para a tag de idioma.
+* Crie um recurso de serviços de multimédia com o arquivo de ficheiros do MXF e os arquivos de áudio (arquivos de áudio de 0 para 18).
+* Certifique-se de que o arquivo de ficheiros do MXF está definido como um ficheiro primário.
+* Crie um trabalho e uma tarefa usando o processador de codificador de fluxo de trabalho Premium. Utilize o fluxo de trabalho fornecido (MultiMP4-1080p-19audio-v1.workflow).
+* Passar os dados de setruntime.xml para a tarefa (se utilizar o Explorador de serviços de multimédia do Azure, utilize o botão "passar dados xml para o fluxo de trabalho").
+  * Atualize os dados XML para especificar as etiquetas de idiomas e nomes de ficheiro correto.
+  * O fluxo de trabalho tem áudio componentes denominados 1 áudio para 18 de áudio.
+  * RFC5646 é suportada para a etiqueta de idioma.
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>
@@ -463,15 +463,15 @@ Codificar, siga estes passos:
 </transcodeRequest>
 ```
 
-* O elemento codificado irá conter controla de áudio de idioma de várias e estes controla deve ser selecionável no leitor de multimédia do Azure.
+* O elemento codificado irá conter várias faixas de áudio de idioma e essas faixas devem ser selecionadas no leitor de multimédia do Azure.
 
 ## <a name="see-also"></a>Consulte também
-* [Introdução às Premium codificação, no suporte de dados do Azure, os serviços](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Como utilizar a Premium codificação de mensagens em fila nos serviços de suporte de dados do Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [A codificação de conteúdo a pedido com Media Services do Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
-* [Formatos de fluxo de trabalho do suporte de dados codificador Premium e codecs](media-services-premium-workflow-encoder-formats.md)
+* [Apresentando o Encoding de multimédia do Azure, serviços Premium](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [Como utilizar o Premium Encoding nos serviços de multimédia do Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Codificação de conteúdo a pedido com os serviços de multimédia do Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Media Encoder Premium Workflow formatos e codecs do](media-services-premium-workflow-encoder-formats.md)
 * [Ficheiros de fluxo de trabalho de exemplo](https://github.com/Azure/azure-media-services-samples)
-* [Ferramenta de Explorador de serviços de suporte de dados do Azure](http://aka.ms/amse)
+* [Ferramenta do Explorador dos serviços de multimédia do Azure](http://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

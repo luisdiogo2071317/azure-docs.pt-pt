@@ -3,7 +3,7 @@ title: Comparar a associação do Azure AD e o Azure Active Directory Domain Ser
 description: Decidir entre a associação do Azure AD e serviços de domínio do Azure AD
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
-ms.author: maheshu
-ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 275f537511f721ea3f01c22a962462bab458129c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504119"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156584"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Escolha entre a associação do Azure Active Directory e Azure Active Directory Domain Services
 Este artigo descreve as diferenças entre a associação do Azure Active Directory (AD) e o Azure AD Domain Services e o ajuda a que escolher, com base nos seus casos de uso.
@@ -73,7 +73,7 @@ Num computador associado a um domínio, autenticação de utilizador ocorre atra
 * [Compreender como o Azure AD Domain Services sincroniza com o seu diretório do Azure AD](active-directory-ds-synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Saiba mais sobre a associação do Azure AD
-* [Introdução à gestão de dispositivos no Azure Active Directory](../active-directory/device-management-introduction.md)
+* [Introduction to device management in Azure Active Directory](../active-directory/device-management-introduction.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Introdução ao Azure AD Domain Services
 * [Ativar os serviços de domínio do Azure AD no portal do Azure](active-directory-ds-getting-started.md)

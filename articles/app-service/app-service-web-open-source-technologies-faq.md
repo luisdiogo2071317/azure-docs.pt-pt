@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4185cbad6358f6b2e48513c0d79c0a357eb6235a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42623319"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156481"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Tecnologias de open source FAQs para aplicações Web no Azure
 
@@ -43,9 +43,9 @@ Para ativar o registo do PHP:
 9. Selecione **Guardar**.
 10. Selecione o ícone de lápis junto a **wp-config.php**.
 11. Altere o texto para o código a seguir:
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. No portal do Azure, no menu da aplicação web, reinicie a aplicação web.
 
@@ -70,7 +70,7 @@ Para alterar a versão da aplicação node. js, pode usar uma das seguintes opç
 *   Modificar o ficheiro iisnode. Alterar a versão do node. js no ficheiro iisnode apenas define o ambiente de runtime que o iisnode utiliza. Sua cmd Kudu e outros continuar a utilizar a versão do node. js que está definida no **as definições da aplicação** no portal do Azure.
 
     Para definir o iisnode manualmente, crie um ficheiro iisnode na sua pasta de raiz da aplicação. No ficheiro, incluem a seguinte linha:
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -80,7 +80,7 @@ Para alterar a versão da aplicação node. js, pode usar uma das seguintes opç
     2. Cria um script de implementação do padrão, se não existir um (cmd,. Deployment ficheiros) na pasta de raiz de aplicação web.
     3. Executa um script de implementação em que cria um ficheiro iisnode se mencionou que a versão do node. js no ficheiro Package. JSON > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. O ficheiro iisnode tem a seguinte linha de código:
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -146,7 +146,7 @@ Para resolver o erro:
 2. Se estiver a utilizar o servidor de web personalizado do Tomcat ou o Azure Marketplace Tomcat, copie este ficheiro. JAR para a pasta lib do Tomcat.
 3. Se pretende ativar a Java do portal do Azure (selecione **Java 1.8** > **servidor Tomcat**), copie o ficheiro. jar sqljdbc.* na pasta que seja paralela a sua aplicação. Em seguida, adicione a seguinte definição de caminho da classe para o ficheiro Web. config:
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

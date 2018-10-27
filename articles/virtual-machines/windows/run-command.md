@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267958"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138230"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell na sua VM do Windows com o comando de execução
 
@@ -37,6 +37,9 @@ As seguintes restrições aplicam-se ao utilizar o comando executar:
 * Não é possível cancelar um script em execução
 * O tempo máximo que pode executar um script é 90 minutos, após o qual será o tempo limite
 * Conectividade de saída da VM é necessário para devolver os resultados do script.
+
+> [!NOTE]
+> Para funcionar corretamente, o comando Executar necessita de conectividade (porta 443) para os endereços IP públicos do Azure. Se a extensão não tiver acesso a estes pontos finais, os scripts podem ser executada com êxito mas não devolver os resultados. Se estiver a bloquear o tráfego na máquina virtual, pode utilizar [etiquetas de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para os endereços IP públicos do Azure utilizando o `AzureCloud` marca.
 
 ## <a name="run-a-command"></a>Executar um comando
 

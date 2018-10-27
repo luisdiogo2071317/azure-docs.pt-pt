@@ -4,22 +4,21 @@ description: Este tópico é uma visão geral do dimensionamento processamento d
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 780ef5c2-3bd6-4261-8540-6dee77041387
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/25/2018
 ms.author: juliako
-ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1d626a22802a1de19bcc5647179d76d44e826cfd
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033078"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159048"
 ---
 # <a name="scaling-media-processing-overview"></a>Descrição geral de processamento de multimédia do dimensionamento
 Esta página fornece uma descrição geral de como e porquê dimensionar o processamento de multimédia. 
@@ -32,11 +31,11 @@ Além de especificar o tipo de unidade reservada, pode especificar para o aprovi
 ## <a name="choosing-between-different-reserved-unit-types"></a>Escolher entre tipos diferentes de unidade reservada
 A tabela seguinte ajuda-o a tomar uma decisão, ao escolher entre diferentes velocidades de codificação. Ele também fornece alguns casos de benchmark em [um vídeo que pode baixar](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) para executar seus próprios testes:
 
-| Cenários | **S1** | **S2** | **S3** |
-| --- | --- | --- | --- |
-| Caso de utilização prevista |Codificação de velocidade de transmissão única. <br/>Ficheiros em SD ou abaixo de resoluções, não um prazo confidenciais, baixo custo. |Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Utilização normal para a codificação SD e HD. |Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Vídeos de resolução do HD e 4K completos. Tempo de codificação de face àquilo confidencial, mais rápido. |
-| Parâmetro de comparação para vídeo de 7 minutos |Codificação para uma velocidade de transmissão única ficheiro MP4, a mesma resolução, demora cerca de 5 minutos. |Com "H264 taxa de bits única 720p" predefinição de codificação demora cerca de 8 minutos.<br/><br/>Codificação com "h264 taxa de bits múltiplas 720p" configuração predefinida demora, aproximadamente 16.8 minutos. |Com "H264 taxa de bits única 1080p" predefinição de codificação demora cerca de 4 minutos.<br/><br/>Codificação com "H264 Multiple Bitrate 1080p" configuração predefinida demora, aproximadamente 8 minutos. |
-
+|Tipo do RU|Cenário|Resultados de exemplo para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
+|---|---|---|
+| **S1**|Codificação de velocidade de transmissão única. <br/>Ficheiros em SD ou abaixo de resoluções, não um prazo confidenciais, baixo custo.|Codificação para uma velocidade de transmissão única ficheiro MP4, a mesma resolução, demora cerca de 5 minutos.|
+| **S2**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Utilização normal para a codificação SD e HD.|Com "H264 taxa de bits única 720p" predefinição de codificação demora cerca de 8 minutos.<br/><br/>Codificação com "h264 taxa de bits múltiplas 720p" configuração predefinida demora, aproximadamente 16.8 minutos.|
+| **S3**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Vídeos de resolução do HD e 4K completos. Tempo de codificação de face àquilo confidencial, mais rápido.|Com "H264 taxa de bits única 1080p" predefinição de codificação demora cerca de 4 minutos.<br/><br/>Codificação com "H264 Multiple Bitrate 1080p" configuração predefinida demora, aproximadamente 8 minutos.|
 
 ## <a name="considerations"></a>Considerações
 > [!IMPORTANT]

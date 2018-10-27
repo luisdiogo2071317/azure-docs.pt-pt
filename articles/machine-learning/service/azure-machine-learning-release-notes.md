@@ -8,13 +8,13 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
-ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/24/2018
+ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389926"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158691"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -24,19 +24,19 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine Learning SDK for Python v0.1.68
 
-#### <a name="new-features"></a>Novos recursos
- * Suporte para inquilino vários ao criar nova área de trabalho.
++ **Novos recursos**
+  * Suporte para inquilino vários ao criar nova área de trabalho.
 
-#### <a name="breaking-changes"></a>Alterações interruptivas
- * **Na próxima versão futura** *Workspace.compute_targets, arquivos de dados, experiências, imagens, modelos* e *webservices* irá tornar-se propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
++ **Alterações recentes**
+  * **Na próxima versão futura** *Workspace.compute_targets, arquivos de dados, experiências, imagens, modelos* e *webservices* irá tornar-se propriedades em vez de métodos. Por exemplo, substitua *Workspace.compute_targets()* com *Workspace.compute_targets*.
 
-#### <a name="bugs-fixed"></a>Erros corrigidos
- * A versão da biblioteca de pynacl já não tem de ser afixado ao implementar o serviço web.
++ **Erros corrigidos**
+  * A versão da biblioteca de pynacl já não tem de ser afixado ao implementar o serviço web.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>SDK v0.3.0 de preparação de dados do Azure Machine Learning
 
-#### <a name="new-features"></a>Novos recursos:
-* Adicionado o método transform_partition_with_file(script_path), que permite que os utilizadores passem o caminho de um ficheiro de Python para executar
++ **Novos recursos**
+  * Adicionado o método transform_partition_with_file(script_path), que permite que os utilizadores passem o caminho de um ficheiro de Python para executar
 
 ## <a name="2018-10-01"></a>2018-10-01
 
@@ -45,56 +45,55 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
 
-#### <a name="breaking-changes"></a>Alterações interruptivas
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, dicionário de retorno Workspace.web_services, anteriormente devolvido lista. Ver [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) documentação da API.
++ **Alterações recentes**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, dicionário de retorno Workspace.web_services, anteriormente devolvido lista. Ver [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) documentação da API.
 
- * Aprendizagem automática removido normalizado média quadrática erro as métricas principais.
+  * Aprendizagem automática removido normalizado média quadrática erro as métricas principais.
 
++ **HyperDrive**
+  * Várias correções de erros de HyperDrive para Bayesianos, melhorias de desempenho para receber chamadas de métricas. 
+  * Atualização do Tensorflow 1.10 de 1,9 
+  * Otimização de imagem de docker para o arranque a frio. 
+  * Tarefa 's agora comunicar o estado correto, mesmo que eles sair com o erro de código que 0. 
+  * Validação do atributo de RunConfig no SDK. 
+  * Objeto de HyperDrive executar suporta Cancelar semelhante a uma execução regular: há necessidade de passar todos os parâmetros. 
+  * Melhorias de widget para manter o estado de valores de lista pendente para execuções distribuídas e HyperDrive execuções. 
+  * TensorBoard e outro ficheiros de suporte de registo fixo para o servidor de parâmetros. 
+  * Suporte a MPI Intel (r) no lado do serviço. 
+  * Bugfix para otimização de parâmetro para distribuído correção execução durante a validação no BatchAI. 
+  * Gestor de contexto agora identifica a instância primária. 
 
-#### <a name="hyperdrive"></a>HyperDrive
- * Várias correções de erros de HyperDrive para Bayesianos, melhorias de desempenho para receber chamadas de métricas. 
- * Atualização do Tensorflow 1.10 de 1,9 
- * Otimização de imagem de docker para o arranque a frio. 
- * Tarefa 's agora comunicar o estado correto, mesmo que eles sair com o erro de código que 0. 
- * Validação do atributo de RunConfig no SDK. 
- * Objeto de HyperDrive executar suporta Cancelar semelhante a uma execução regular: há necessidade de passar todos os parâmetros. 
- * Melhorias de widget para manter o estado de valores de lista pendente para execuções distribuídas e HyperDrive execuções. 
- * TensorBoard e outro ficheiros de suporte de registo fixo para o servidor de parâmetros. 
- * Suporte a MPI Intel (r) no lado do serviço. 
- * Bugfix para otimização de parâmetro para distribuído correção execução durante a validação no BatchAI. 
- * Gestor de contexto agora identifica a instância primária. 
++ **Experiência do portal do Azure**
+  * log_table() e log_row() são suportadas nos detalhes de execução. 
+  * Crie automaticamente os gráficos para tabelas e linhas com 1,2 ou 3 colunas numéricas e uma coluna de categórica opcional.
 
-#### <a name="azure-portal-experience"></a>Experiência do portal do Azure
- * log_table() e log_row() são suportadas nos detalhes de execução. 
- * Crie automaticamente os gráficos para tabelas e linhas com 1,2 ou 3 colunas numéricas e uma coluna de categórica opcional.
++ **Aprendizagem automática**
+  * Documentação e melhorado processamento de erros 
+  * Corrigido problemas de desempenho de obtenção de propriedade de execução. 
+  * Foi corrigido problema de execução de continuar. 
+  * Foram corrigidos ensembling erros de iteração.
+  * Treinamento fixo pendurado bug no MAC OS.
+  * Downsampling macro média PR/curva cor MULTICLASSE no cenário de validação personalizada.
+  * Remover a lógica de índice extra.
+  * Remover o filtro de get_output API.
 
-#### <a name="automated-machine-learning"></a>Aprendizagem automática
- * Documentação e melhorado processamento de erros 
- * Corrigido problemas de desempenho de obtenção de propriedade de execução. 
- * Foi corrigido problema de execução de continuar. 
- * Foram corrigidos ensembling erros de iteração.
- * Treinamento fixo pendurado bug no MAC OS.
- * Downsampling macro média PR/curva cor MULTICLASSE no cenário de validação personalizada.
- * Remover a lógica de índice extra.
- * Remover o filtro de get_output API.
++ **Pipelines**
+  * Adicionar um método Pipeline.publish() para publicar um pipeline diretamente, sem a necessidade de uma execução de executar primeira.   
+  * Adicionar um método PipelineRun.get_pipeline_runs() para buscar o pipeline é executado que foram gerado a partir de um pipeline publicado.
 
-#### <a name="pipelines"></a>Pipelines
- * Adicionar um método Pipeline.publish() para publicar um pipeline diretamente, sem a necessidade de uma execução de executar primeira.   
- * Adicionar um método PipelineRun.get_pipeline_runs() para buscar o pipeline é executado que foram gerado a partir de um pipeline publicado.
-
-#### <a name="project-brainwave"></a>Project Brainwave
- * Suporte atualizado para novos modelos de IA, disponíveis no FPGAs.
++ **Project Brainwave**
+  * Suporte atualizado para novos modelos de IA, disponíveis no FPGAs.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>SDK v0.2.0 de preparação de dados do Azure Machine Learning
 [Versão 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclui seguintes funcionalidades e bugfixes:
 
-**Novos recursos:** 
- * Suporte para acesso frequente uma codificação
- * Suporte para a transformação de quantile
++ **Novos recursos**
+  * Suporte para acesso frequente uma codificação
+  * Suporte para a transformação de quantile
    
-**Erro corrigido:**
- * Funciona com qualquer versão de Tornado, sem a necessidade de mudar a sua versão de Tornado
- * Contagens de valores para todos os valores, não apenas o três de principais
++ **Erro corrigido:**
+  * Funciona com qualquer versão de Tornado, sem a necessidade de mudar a sua versão de Tornado
+  * Contagens de valores para todos os valores, não apenas o três de principais
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (atualização da pré-visualização pública)
 

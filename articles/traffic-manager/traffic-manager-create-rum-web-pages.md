@@ -1,13 +1,9 @@
 ---
-title: Medidas de utilizador reais para Traffic Manager do Azure com páginas web | Microsoft Docs
-description: Configurar as suas páginas web para enviar medidas de utilizador reais para o Gestor de tráfego
+title: Medidas de utilizadores reais do Azure o Gestor de tráfego com páginas da web | Documentos da Microsoft
+description: Configurar suas páginas da web para enviar medições de utilizador reais para o Gestor de tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,60 +12,60 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 71661d8640dbe14082292cb9637964adac9fa803
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30180627"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138182"
 ---
-# <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar medidas de utilizador reais para Traffic Manager do Azure utilizando as páginas web
+# <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Como enviar medições de utilizador reais para o Azure Traffic Manager usando páginas da web
 
-Pode configurar as suas páginas web para enviar para o Gestor de tráfego de medidas de utilizador reais por obter uma chave de medidas de utilizador reais (RUM) e ao incorporar o código gerado para a página web.
+Pode configurar suas páginas da web para enviar medições de utilizador reais para o Gestor de tráfego ao obter uma chave de medições de utilizador Real (RUM) e incorporar o código gerado para a página da web.
 
-## <a name="obtain-a-real-user-measurements-key"></a>Obter uma chave de medidas de utilizador reais
+## <a name="obtain-a-real-user-measurements-key"></a>Obter uma chave de medições de utilizador reais
 
-Os valores demorar e enviar para o Gestor de tráfego a partir da sua aplicação de cliente são identificados pelo serviço através de uma cadeia exclusiva, denominada o **chave medidas de utilizador reais (RUM)**. Pode obter uma chave RUM no portal do Azure, uma API REST, ou utilizando o PowerShell ou a CLI do Azure.
+As medidas a tomar e enviar para o Gestor de tráfego a partir da sua aplicação de cliente são identificadas pelo serviço usando uma cadeia de caracteres exclusiva, chamada de **chave de medições de utilizador Real (RUM)**. Pode obter uma chave de executar com o portal do Azure, uma API REST, ou utilizando o PowerShell ou a CLI do Azure.
 
-Para obter a chave de RUM através do portal do Azure:
+Para obter a chave de rum do através do portal do Azure:
 1. Num browser, inicie sessão no portal do Azure. Se ainda não tiver uma conta, pode inscrever-se numa avaliação gratuita de um mês.
-2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego que pretende modificar e, em seguida, clique no perfil de Gestor de tráfego nos resultados de que o apresentados.
-3. No painel de perfil do Traffic Manager, clique em **medidas de utilizador reais** em **definições**.
-4. Clique em **gerar chave** para criar uma nova chave de RUM.
+2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de tráfego nos resultados que apresentados.
+3. No painel de perfil do Gestor de tráfego, clique em **medidas de utilizadores reais** sob **definições**.
+4. Clique em **gerar chave** para criar uma nova chave de rum do.
  
-  ![Gerar a chave de medidas de utilizador reais](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+  ![Gerar chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Geração de chaves de medidas de utilizador reais**
+   **Figura 1: Geração de chave de medições de utilizador Real**
 
-5. O painel apresenta agora gerar a chave de RUM e um fragmento de código JavaScript que tem de ser incorporado na sua página HTML.
+5. O painel apresenta agora gerar a chave de rum do e um trecho de código JavaScript que tem de ser incorporados em sua página HTML.
  
-    ![No código JavaScript para a chave de medidas de utilizador reais](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
+    ![Código de JavaScript para a chave de medições de utilizador reais](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Figura 2: Utilizador Real medidas chave e medida JavaScript**
+    **Figura 2: Chave de medições de utilizador Real e JavaScript de medida**
  
-6.  Clique em de **cópia** botão para copiar o código JavaScript. 
+6.  Clique nas **cópia** botão para copiar o código JavaScript. 
 
 >[!IMPORTANT]
-> Utilize o JavaScript gerado para a funcionalidade de medidas de utilizador reais para funcionar corretamente. Quaisquer alterações a este script ou os scripts utilizados por valores reais de utilizador podem levar a um comportamento imprevisível.
+> Utilize o JavaScript gerado para a funcionalidade de medições de utilizador reais para funcionar corretamente. Quaisquer alterações a este script ou os scripts utilizados por medidas de utilizadores reais podem levar a um comportamento imprevisível.
 
-## <a name="embed-the-code-to-an-html-web-page"></a>Incorporar o código para uma página web HTML
+## <a name="embed-the-code-to-an-html-web-page"></a>Incorporar o código para uma página da web HTML
 
-Após obter a chave RUM, o passo seguinte é incorporar esta JavaScript copiado para uma página HTML que os utilizadores finais visitar. Edição de HTML pode ser feito de várias maneiras e utilizando ferramentas diferentes e fluxos de trabalho. Este exemplo mostra como atualizar uma página HTML para adicionar este script. Pode utilizar esta orientação para adaptá-lo para o fluxo de trabalho de gestão de origem HTML.
+Após obter a chave de executar, a próxima etapa é incorporar esse JavaScript copiado numa página HTML que os utilizadores finais visitar. Edição de HTML pode ser feito de várias maneiras e usando diferentes ferramentas e fluxos de trabalho. Este exemplo mostra como atualizar uma página HTML para adicionar este script. Pode usar essa orientação para adaptá-lo para seu fluxo de trabalho de gestão de origem HTML.
 
 1.  Abra a página HTML num editor de texto
-2.  Cole o código JavaScript tinha copiou no passo anterior para a secção de corpo de HTML (o código de copiados é linha 8 & 9, consulte a figura 3).
+2.  Cole o código de JavaScript que tinha copiou no passo anterior para a seção de corpo do HTML (o código copiado está na linha 8 e 9, veja a figura 3).
  
-    ![Incorporar o código Javascript na página web para Real medidas de utilizador](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
+    ![Incorporar o código Javascript na página da web para medidas de utilizadores reais](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
-    **Figura 3: HTML Simple com incorporados JavaScript de medidas de utilizador reais**
+    **Figura 3: HTML Simple com o embedded JavaScript de medições de utilizador Real**
 
-3.  Guarde o ficheiro HTML e o anfitrião-lo num webserver ligado à internet. 
-4. Próxima vez que esta página é composta no web browser, o JavaScript referenciado é transferido e o script será executado a medição e elaboração de relatórios de operações.
+3.  Salve o arquivo HTML e o host-lo num servidor Web conectado à internet. 
+4. Próxima vez que esta página é renderizada no navegador da web, o JavaScript referenciado é transferido e o script será executado a medição e operações de relatórios.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [Real medidas de utilizador](traffic-manager-rum-overview.md)
+- Saiba mais sobre [medidas de utilizadores reais](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gestor de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre o [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) suportada pelo Gestor de tráfego
-- Saiba como [criar um perfil de Gestor de tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil do Gestor de tráfego](traffic-manager-create-profile.md)
 

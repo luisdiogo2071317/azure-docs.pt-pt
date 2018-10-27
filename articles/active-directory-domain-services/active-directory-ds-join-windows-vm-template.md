@@ -3,7 +3,7 @@ title: Junte-se a uma VM do Windows Server para o Azure Active Directory Domain 
 description: Junte-se uma máquina virtual do Windows Server a um domínio gerido utilizando modelos Azure Resource Manager.
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 40eb0e8133626e77a1f61ddfc5df69ecf1b958f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: ergreenl
+ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950799"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157263"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Junte-se a uma máquina virtual do Windows Server a um domínio gerido com um modelo do Resource Manager
 Este artigo mostra-lhe como associar uma máquina virtual do Windows Server a um domínio gerido do Azure AD Domain Services com modelos do Resource Manager.

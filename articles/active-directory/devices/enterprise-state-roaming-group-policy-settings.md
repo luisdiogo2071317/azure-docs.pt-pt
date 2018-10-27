@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: a08fbb90d1148396dbcf3960536568d61e5f04b0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: b5f5fa74dca664d31c19055fadd9b66f84627b67
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098184"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157110"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Definições de política de grupo e MDM
 Use esses diretiva de grupo e definições de gestão (MDM) de dispositivos móveis apenas em dispositivos pertencentes à empresa uma vez que estas políticas são aplicadas para o dispositivo do utilizador inteiro. Aplicar uma política MDM para desativar a sincronização de definições para um pessoal, dispositivos pertencentes ao utilizador irão afetar negativamente a utilização desse dispositivo. Além disso, outras contas de utilizador no dispositivo também serão afetadas pela política.
@@ -37,8 +37,10 @@ Aplicam as definições de política MDM para Windows 10 e Windows 10 Mobile.  E
 | Permitir a ligação de conta Microsoft |Permite que os usuários se autentiquem com uma conta Microsoft no dispositivo |
 | Permitir Sincronização de minhas configurações |Permite que os usuários sejam acedidas remotamente as definições do Windows e dados de aplicação. A desativar esta política irá desativar a sincronização, bem como as cópias de segurança em dispositivos móveis |
 
-## <a name="group-policy-settings"></a>Definições de política de grupo
+## <a name="group-policy-settings"></a>Definições da política de grupo
 Aplicam as definições de política de grupo para dispositivos Windows 10 que estão associados a um domínio do Active Directory. A tabela também inclui herdadas definições que pode parecer que gerir definições de sincronização, mas isso não funciona para o Enterprise Estado Roaming para Windows 10, que são indicadas com "Não utilize" na descrição.
+
+Estas definições estão localizadas em: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
 | Nome | Descrição |
 | --- | --- |

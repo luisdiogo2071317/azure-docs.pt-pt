@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430025"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140811"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Otimizar hiperparâmetros para o modelo
 
@@ -238,16 +238,18 @@ Neste exemplo, é aplicada a política de cessação antecipada em cada interval
 
 ### <a name="no-termination-policy"></a>Nenhuma política de terminação
 
-Se quiser que todas as execuções de preparação para conclusão, utilize NoTerminationPolicy. Isso terá o efeito de não aplicar qualquer política de cessação antecipada.
+Se quiser que todas as execuções de preparação para conclusão, defina a política como None. Isso terá o efeito de não aplicar qualquer política de cessação antecipada.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Política predefinida
 
-Não se for especificada nenhuma política, o serviço de otimização de hiper-parâmetros irão utilizar uma política com a parar de mediana `evaluation_interval` 1 e `delay_evaluation` 5 por predefinição. Estas são definições conservadoras, que podem fornecer aproximadamente 25% - 35% de poupanças sem perda em métrica primária (com base nos nossos dados de avaliação).
+Não se for especificada nenhuma política, o serviço de otimização de hiper-parâmetros permitirá que todas as execuções de preparação realizada até à conclusão.
+
+>[!NOTE] 
+>Se estiver procurando por uma política conservador que proporciona poupanças sem terminar tarefas promissoras, pode utilizar uma política de parar de mediana com `evaluation_interval` 1 e `delay_evaluation` 5. Estas são definições conservadoras, que podem fornecer aproximadamente 25% - 35% de poupanças sem perda em métrica primária (com base nos nossos dados de avaliação).
 
 ## <a name="allocate-resources"></a>Alocar recursos
 

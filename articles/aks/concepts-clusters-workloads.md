@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648775"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155988"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
@@ -71,6 +71,27 @@ O tamanho de VM do Azure para os nós define o número de CPUs, quantidade de me
 No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente no Ubuntu Linux. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar.
 
 Se precisar de utilizar um sistema operacional, tempo de execução do contentor, de outro anfitrião ou incluir pacotes personalizados, pode implementar seu próprio cluster do Kubernetes com [motor de acs][acs-engine]. O montante `acs-engine` libera recursos e fornecer opções de configuração antes de eles são suportados oficialmente em clusters do AKS. Por exemplo, se pretender utilizar contentores do Windows ou um tempo de execução do contentor que não seja o Docker, pode utilizar `acs-engine` para configurar e implementar um cluster do Kubernetes que atenda às suas necessidades atuais.
+
+### <a name="resource-reservations"></a>Reservas de recursos
+
+Não precisa de gerir os componentes principais do Kubernetes em cada nó, como o *kubelet*, *kube proxy*, e *kube dns*, mas que consomem alguns dos disponíveis recursos de computação. Para manter o desempenho de nó e a funcionalidade, os seguintes recursos de computação são reservados em cada nó:
+
+- **CPU** – seja, 60 MS
+- **Memória** -20% até 4 GiB
+
+Estas reservas significam que a quantidade de CPU e memória para as suas aplicações disponíveis poderá apresentar um menor do que o próprio nó contém. Se existirem restrições de recursos devido ao número de aplicações executadas, estas reservas Certifique-se da CPU e memória permanece disponível para os principais componentes do Kubernetes. Não não possível alterar as reservas de recursos.
+
+Por exemplo:
+
+- **Standard DS2 v2** tamanho do nó contém 7 de GiB de memória e 2 vCPU
+    - 20% de memória do 7 GiB = 1,4 GiB
+    - Um total de *(7-1.4) = 5.6 GiB* memória está disponível para o nó
+    
+- **Standard v3 de E4s** tamanho do nó contém 32 de GiB de memória e 4 vCPU
+    - 20% de memória do 32 GiB = 6.4 GiB, mas o AKS reserva apenas um máximo de 4 GiB
+    - Um total de *(32-4) = 28 GiB* está disponível para o nó
+    
+O nó subjacente SO também requer alguma quantidade de recursos de CPU e memória para concluir as suas próprias funções principais.
 
 ### <a name="node-pools"></a>Conjuntos de nós
 

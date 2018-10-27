@@ -2,18 +2,18 @@
 title: Encriptação do lado do cliente com .NET para o armazenamento do Microsoft Azure | Documentos da Microsoft
 description: A biblioteca de cliente de armazenamento do Azure para .NET suporta a encriptação do lado do cliente e a integração com o Azure Key Vault para segurança máxima para as suas aplicações de armazenamento do Azure.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4d94096c82f56254c1cd40a2192b4309ce0c9f30
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 857ab3ad9870407b91b0fdc9c552a89fd1f4ccd4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521735"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140524"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]

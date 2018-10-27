@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ceafee3ac3453590d1687f662c7f3c9a8d8b4e0c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987737"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156634"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>O Azure Active Directory v 2.0 e o fluxo de código de dispositivo do OAuth 2.0
 
@@ -131,7 +131,7 @@ Uma resposta com êxito de token terá o seguinte aspeto:
 | Parâmetro | Formato | Descrição |
 | --------- | ------ | ----------- |
 |`token_type` | Cadeia| Sempre "Bearer. |
-|`scope` | Cadeias de caracteres do espaço separada | Se foi devolvido um token de acesso, lista os âmbitos que o token de acesso é válido para. |
+|`scope` | Cadeias de caracteres de espaço separado | Se foi devolvido um token de acesso, lista os âmbitos que o token de acesso é válido para. |
 |`expires_in`| int | É válido para o número de segundos antes do token de acesso incluído. |
 |`access_token`| Cadeia opaca | Emitido para o [âmbitos](v2-permissions-and-consent.md) que foram solicitados.  |
 |`id_token`   | JWT | If emitido original `scope` parâmetro incluído o `openid` âmbito.  |

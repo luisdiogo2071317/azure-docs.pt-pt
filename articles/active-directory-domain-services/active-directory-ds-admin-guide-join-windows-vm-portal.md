@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Junte-se a uma VM do Windows Ser
 description: Junte-se a uma máquina virtual do Windows Server para o Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
-ms.author: maheshu
-ms.openlocfilehash: f9ee68fda3bb5e0f5302c8d5c96da0515c05ce1d
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503405"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158337"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Windows Server a um domínio gerido
 Este artigo mostra como implementar uma máquina virtual do Windows Server com o portal do Azure. Em seguida, mostra como associar a máquina virtual a um domínio gerido do Azure Active Directory Domain Services (Azure AD DS).

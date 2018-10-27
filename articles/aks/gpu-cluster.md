@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 69c682fc51f826a7e7ffd0eb8bcb1a7921aa9d13
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: db9d42cca4bc327d216229f45f5fa1742f70fb9a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095393"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138814"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilizar GPUs para cargas de trabalho intensivas de computação no Azure Kubernetes Service (AKS)
 
@@ -57,7 +57,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="confirm-that-gpus-are-schedulable"></a>Confirme que as GPUs são pode ser agendadas
 
-Com o seu cluster do AKS criado, certifique-se que as GPUs são pode ser agendadas no Kubernetes. Em primeiro lugar, liste os nós do cluster utilizando o comando [kubectl get] de [kubectl get nós]:
+Com o seu cluster do AKS criado, certifique-se que as GPUs são pode ser agendadas no Kubernetes. Em primeiro lugar, liste os nós no cluster com o [kubectl obter nós] [ kubectl-get] comando:
 
 ```
 $ kubectl get nodes

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: d3a810523807a46ca3f410c7cb5e11884f2b06b7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164720"
+---
 <!--author=alkohli last changed: 08/04/17-->
 
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Para instalar uma atualização a partir do portal do Azure
@@ -6,17 +19,17 @@
 
     ![Selecione o dispositivo](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. Navegue para **definições do dispositivo** > **atualizações ao dispositivo**.
+2. Navegue para **definições do dispositivo** > **atualizações do dispositivo**.
 
-    ![Clique em atualizações ao dispositivo](./media/storsimple-8000-install-update5-via-portal/update2.png)
+    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
-2. É apresentada uma notificação se estiverem disponíveis novas atualizações. Em alternativa, no **atualizações ao dispositivo** painel, clique em **procurar atualizações**. É criada uma tarefa para procurar as atualizações disponíveis. É notificado quando a tarefa for concluída com êxito.
+2. É apresentada uma notificação se estiverem disponíveis novas atualizações. Em alternativa, no **atualizações do dispositivo** painel, clique em **procurar atualizações**. É criada uma tarefa para procurar as atualizações disponíveis. É notificado quando a tarefa for concluída com êxito.
 
-    ![Clique em atualizações ao dispositivo](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
-3. Recomendamos que reveja as notas de versão antes de aplicar uma atualização ao seu dispositivo. Para aplicar atualizações, clique em **instalar atualizações**. No **confirmar atualizações regulares** painel, reveja os pré-requisitos para concluir antes de aplicar as atualizações. Selecione a caixa de verificação para indicar que está pronto para atualizar o dispositivo e, em seguida, clique em **instalar**.
+3. Recomendamos que reveja as notas de versão antes de aplicar uma atualização ao seu dispositivo. Para aplicar atualizações, clique em **instalar atualizações**. Na **confirmar atualizações regulares** painel, reveja os pré-requisitos para concluir antes de aplicar atualizações. Selecione a caixa de verificação para indicar que está pronto para atualizar o dispositivo e, em seguida, clique em **instalar**.
 
-    ![Clique em atualizações ao dispositivo](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. Um conjunto de verificações de pré-requisitos é iniciado. Estas verificações incluem:
    
@@ -24,9 +37,9 @@
    * **Verificações do estado de funcionamento do componente de hardware** para verificar se todos os componentes de hardware do seu dispositivo StorSimple estão em bom estado de funcionamento.
    * **Verificações de DATA 0** para verificar se DATA 0 está ativado no seu dispositivo. Se esta interface não estiver ativada, terá de ativá-la e, em seguida, tentar novamente.
 
-    A atualização é transferida e instalada apenas se a todas as verificações forem concluídas com êxito. Será notificado quando as verificações estiverem em curso. Se o prechecks falharem, em seguida, irá ser fornecido com os motivos da falha. Resolva os problemas e, em seguida, repita a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
+    A atualização é transferida e instalada apenas se todas as verificações forem concluídas com êxito. Será notificado quando as verificações estiverem em curso. Se o prechecks falharem, em seguida, será fornecido com os motivos da falha. Resolver esses problemas e, em seguida, repita a operação. Poderá ter de contactar o Suporte da Microsoft se não conseguir resolver estes problemas.
 
-7. Depois dos prechecks forem concluídos com êxito, é criada uma tarefa de atualização. Será notificado quando a tarefa de atualização for criada com êxito.
+7. Depois dos prechecks forem concluídas com êxito, é criada uma tarefa de atualização. Será notificado quando a tarefa de atualização for criada com êxito.
    
     ![Criação de tarefa de atualização](./media/storsimple-8000-install-update5-via-portal/update6.png)
    
@@ -36,9 +49,9 @@
 
     ![Criação de tarefa de atualização](./media/storsimple-8000-install-update5-via-portal/update8.png)
 
-     Também pode monitorizar o progresso da tarefa de atualização de **definições do dispositivo > tarefas**. No **tarefas** painel, pode ver o progresso da atualização.
+     Também pode monitorizar o progresso da tarefa de atualização **definições do dispositivo > tarefas**. Sobre o **tarefas** painel, pode ver o progresso da atualização.
 
      ![Criação de tarefa de atualização](./media/storsimple-8000-install-update5-via-portal/update7.png)
 
-10. Depois da tarefa estiver concluída, navegue para o **definições do dispositivo > atualizações ao dispositivo**. A versão do software agora deve ser atualizada.
+10. Depois da tarefa estiver concluída, navegue para o **definições do dispositivo > atualizações do dispositivo**. Agora deve ser atualizada a versão do software.
 

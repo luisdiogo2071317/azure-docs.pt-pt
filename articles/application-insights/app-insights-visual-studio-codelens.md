@@ -3,7 +3,7 @@ title: Telemetria do Application Insights no Visual Studio CodeLens | Microsoft 
 description: Aceda rapidamente ao seu pedido do Application Insights e telemetria de exceção com o CodeLens no Visual Studio.
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2017
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 7df49258895aa0dfa5c8cc592914ba6998a97cb8
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 70b0f66fcbcd54b5eb2f3dc938b005090a08c62f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442115"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137264"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Telemetria do Application Insights no Visual Studio CodeLens
 Os métodos no código da sua aplicação Web podem ser anotados com telemetria sobre exceções de tempo de execução e tempos de resposta do pedido. Se instalar o [Azure Application Insights](app-insights-overview.md) na sua aplicação, a telemetria é apresentada no Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - as notas na parte superior de cada função onde está habituado a ver informações úteis, como o número de locais onde a função é referida ou a última pessoa que a editou.

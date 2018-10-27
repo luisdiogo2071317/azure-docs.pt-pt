@@ -3,7 +3,7 @@ title: 'Serviços de domínio do Azure AD: Comparar o Azure AD Domain Services p
 description: Comparar o Azure Active Directory Domain Services para controladores de domínio faça mesmo
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: maheshu
-ms.openlocfilehash: acb125ef807193e79e45bca7e217efe3ffb31698
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505955"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155802"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Como decidir se dos serviços de domínio do Azure AD é a certo para seu caso de utilização
 Com o Azure AD Domain Services pode implementar cargas de trabalho nos serviços de infraestrutura do Azure, sem ter de se preocupar sobre como manter a infraestrutura de identidade no Azure. Este serviço gerido é diferente de uma implementação típica do Windows Server Active Directory que implementar e administrar por conta própria. O serviço é fácil implementar e oferece monitorização de estado de funcionamento automatizado e remediação. Estamos constantemente a desenvolver o serviço para adicionar suporte para cenários comuns de implantação.

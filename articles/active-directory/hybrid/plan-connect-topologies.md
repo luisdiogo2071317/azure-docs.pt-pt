@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068705"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158861"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
 Este artigo descreve vários locais e topologias do Azure Active Directory (Azure AD) que utilizam o Azure AD Connect sync como a solução de integração principais. Este artigo inclui configurações suportadas e não suportadas.
@@ -87,7 +87,7 @@ Ter mais de um servidor de sincronização do Azure AD Connect ligado a um únic
 ### <a name="multiple-forests-separate-topologies"></a>Várias florestas, topologias separadas
 ![Opção para representar os utilizadores apenas uma vez em todos os diretórios](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Representação de várias florestas e topologias separadas](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Representação de várias florestas e topologias separadas](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 Neste ambiente, todas as florestas no local são tratadas como entidades separadas. Nenhum utilizador está presente em qualquer outra floresta. Cada floresta tem sua própria organização do Exchange e não há nenhum GALSync entre as florestas. Esta topologia poderá ser a situação após uma fusão/aquisição ou numa organização em que cada unidade de negócios funciona de forma independente. Estas florestas estão na mesma organização no Azure AD e aparecem com uma GAL unificada. Na imagem anterior, cada objeto em cada floresta é representado uma vez no metaverso e agregado no inquilino de destino do Azure AD.
 

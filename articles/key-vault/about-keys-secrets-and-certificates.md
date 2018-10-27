@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958658"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139002"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -245,7 +245,7 @@ Além dos dados secretos, podem ser especificados os seguintes atributos:
 
 - *EXP*: a predefinição de IntDate, opcional, é **para sempre**. O *exp* atributo (hora de expiração) identifica a hora de expiração em ou depois que os dados secretos devem não ser recuperados, exceto nas [situações específicas](#date-time-controlled-operations). Este campo é para **informativa** fins apenas que ela informa aos usuários do serviço do Cofre de chaves que não pode ser utilizado um segredo específico. O valor tem de ser um número que contém um valor de IntDate.   
 - *NBF*: a predefinição de IntDate, opcional, é **agora**. O *nbf* (não antes) atributo identifica o tempo antes do qual os dados secretos não devem ser obtidos, exceto nas [situações específicas](#date-time-controlled-operations). Este campo é para **informativa** apenas a fins. O valor tem de ser um número que contém um valor de IntDate. 
-- *ativada*: booleana, opcional, a predefinição é **true**. Esse atributo Especifica se é possível obter os dados secretos. O atributo habilitado é utilizado em conjunto com e *exp* quando uma operação ocorre entre e exp, será apenas ser permitida se ativada é definido como **verdadeiro**. Operações de fora a *nbf* e *exp* janela são automaticamente não permitido, exceto na [situações específicas](#date-time-controlled-operations).  
+- *ativada*: booleana, opcional, a predefinição é **true**. Esse atributo Especifica se é possível obter os dados secretos. O atributo habilitado é utilizado em conjunto com *nbf* e *exp* quando uma operação ocorre entre *nbf* e *exp*, ele só será permitido se ativada é definido como **true**. Operações de fora a *nbf* e *exp* janela são automaticamente não permitido, exceto na [situações específicas](#date-time-controlled-operations).  
 
 Existem atributos adicionais de só de leitura que estão incluídos em qualquer resposta que inclui atributos secretos:  
 

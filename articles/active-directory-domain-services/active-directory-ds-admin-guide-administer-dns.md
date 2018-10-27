@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administrar o DNS nos domínios 
 description: Administrar DNS nos domínios geridos do Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: f20b2859f72087e208e8963fb18b297c7c670f4f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f2eea139209a03950217a855b5c8af7bc9a17372
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504289"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155308"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Administrar DNS num domínio gerido do Azure AD Domain Services
 Os serviços de domínio do Active Directory do Azure inclui um servidor DNS (resolução de nomes de domínio) que fornece resolução de DNS para o domínio gerido. Ocasionalmente, terá de configurar o DNS no domínio gerido. Se pretender criar registos DNS para as máquinas que não estão associados ao domínio, configure os endereços IP virtuais para balanceadores de carga ou programa de configuração de reencaminhadores DNS externos. Por esse motivo, os utilizadores que pertencem ao grupo "Administradores do AAD DC" são concedidos privilégios de administração do DNS no domínio gerido.

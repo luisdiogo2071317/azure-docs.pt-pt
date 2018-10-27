@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365630"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157943"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -44,7 +44,7 @@ Muitas soluções de parceiros são implementadas na subscrição de um cliente,
 
 Para adicionar um identificador exclusivo global (GUID), certifique-se um única modificações no arquivo de modelo principal:
 
-1. [Criar um GUID](#create-guids) (por exemplo, eb7927c8-dd66-43e1-b0cf-c346a422063) e [registar o GUID](#register-guids-and-offers).
+1. [Criar um GUID](#create-guids) usando o método sugerido e [registar o GUID](#register-guids-and-offers).
 
 1. Abra o modelo do Resource Manager.
 
@@ -58,9 +58,26 @@ Para adicionar um identificador exclusivo global (GUID), certifique-se um única
 
 1. [Verificar o êxito do GUID da implementação de modelo](#verify-the-guid-deployment).
 
-### <a name="sample-template-code"></a>Código de modelo de exemplo
+### <a name="sample-resource-manager-template-code"></a>Código de modelo do Gestor de recursos de exemplo
+Certifique-se modificar o abaixo o código de exemplo com suas próprias entradas quando adicioná-lo para o ficheiro de modelo principal.
+O recurso tem de ser adicionados à **maintemplate. JSON** ou **azuredeploy. JSON** ficheiro apenas e não em qualquer aninhadas ou ligado modelos.
+```
+// Make sure to modify this sample code with your own inputs where applicable
 
-![Código de modelo de exemplo](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
+{ // add this resource to the mainTemplate.json (do not add the entire file)
+    "apiVersion": "2018-02-01",
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": []
+        }
+    }
+} // remove all comments from the file when complete
+```
 
 ## <a name="use-the-resource-manager-apis"></a>Utilizar as APIs do Resource Manager
 
@@ -77,7 +94,7 @@ Para essa abordagem de controlo, ao projetar suas chamadas de API, incluem um GU
 > [!Note]
 > O formato da cadeia de caracteres é importante. Se o **pid -** prefixo não está incluído, não é possível consultar os dados. SDKs diferentes controlam de forma diferente. Para implementar esse método, reveja o suporte e a abordagem de controlo para o Azure SDK preferencial. 
 
-### <a name="example-the-python-sdk"></a>Exemplo: O SDK Python
+#### <a name="example-the-python-sdk"></a>Exemplo: O SDK Python
 
 Para o Python, utilize o **config** atributo. Só pode adicionar o atributo para um UserAgent. Segue-se um exemplo:
 
@@ -104,7 +121,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## <a name="create-guids"></a>Criar GUIDs
 
-Um GUID é um número de referência exclusivo que tem 32 dígitos hexadecimais. Para criar os GUIDs para acompanhamento, deve utilizar um gerador GUID. É recomendável que aproveitar [formulário de gerador GUID do armazenamento do Azure](https://aka.ms/StoragePartners). No entanto, se preferir não usar o gerador GUID do armazenamento do Azure, existem várias [geradores GUID online](https://www.bing.com/search?q=guid%20generator) que pode utilizar.
+Um GUID é um número de referência exclusivo que tem 32 dígitos hexadecimais. Para criar os GUIDs para acompanhamento, deve utilizar um gerador GUID. A equipe de armazenamento do Azure criou um [formulário de gerador GUID](https://aka.ms/StoragePartners) que será enviada uma mensagem é um GUID no formato correto e pode ser reutilizado entre os sistemas de controle diferentes. 
 
 > [!Note]
 > É altamente recomendável que use [formulário de gerador GUID do armazenamento do Azure](https://aka.ms/StoragePartners) para criar o GUID. Para obter mais informações, consulte nosso [FAQ](#faq).

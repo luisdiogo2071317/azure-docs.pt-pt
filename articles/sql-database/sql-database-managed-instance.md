@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: aaffdb2f0d21dbb7a5baf029a90e452658c5bd31
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.date: 10/17/2018
+ms.openlocfilehash: 716277e7ef4fa239c82562176c75bb20568a12af
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353641"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140930"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Utilizar a instância gerida do SQL da base de dados com as redes virtuais e quase 100% de compatibilidade
 
@@ -30,7 +30,7 @@ O diagrama seguinte descreve as principais funcionalidades de instância gerida:
 
 ![principais recursos](./media/sql-database-managed-instance/key-features.png)
 
-Instância de gerida de base de dados de SQL do Azure foi concebida para os clientes que pretendem para migrar um grande número de aplicações de IaaS, personalizada criada, ou no local ou ISV fornecido ambiente para o ambiente de nuvem de PaaS totalmente gerido, com como esforço de migração de baixa possível. Utilizar totalmente automatizada [serviço de migração de dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) no Azure, os clientes podem lift- and -shift seu SQL Server no local para uma instância gerida, que oferece compatibilidade com SQL Server no local e completo isolamento de instâncias de cliente com suporte nativo a VNet.  Com o Software Assurance, pode trocar suas licenças existentes para tarifas com desconto numa instância gerida do SQL da base de dados utilizando o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instância gerida do SQL da base de dados é o melhor destino de migração na cloud para instâncias do SQL Server que requerem segurança elevada e uma superfície de programação avançado.
+Instância de gerida de base de dados de SQL do Azure foi concebida para os clientes que pretendem para migrar um grande número de aplicações de IaaS, personalizada criada, ou no local ou ISV fornecido ambiente para o ambiente de nuvem de PaaS totalmente gerido, com como esforço de migração de baixa possível. Utilizar totalmente automatizada [serviço de migração de dados (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) no Azure, os clientes podem lift- and -shift seu SQL Server no local para uma instância gerida, que oferece compatibilidade com SQL Server no local e completo isolamento de instâncias de cliente com suporte nativo a VNet.  Com o Software Assurance, pode trocar suas licenças existentes para tarifas com desconto numa instância gerida do SQL da base de dados utilizando o [benefício híbrido do SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Instância gerida do SQL da base de dados é o melhor destino de migração na cloud para instâncias do SQL Server que requerem segurança elevada e uma superfície de programação avançado.
 
 Ao disponibilidade geral, a instância gerida tem como objetivo fornecer próximo de compatibilidade de área de superfície de 100% com a última versão de SQL Server no local através de um plano de versão em etapas.
 
@@ -70,7 +70,7 @@ Os principais recursos de instância gerida são mostrados na tabela a seguir:
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
-O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na instância gerida dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe alterar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [Azure Hybrid Use Benefit para o SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) na instância gerida dá-lhe flexibilidade, controlo, transparência e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe alterar a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. O modelo de vCore também é elegível para a economia de 30 por cento com o [benefício híbrido do SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 No modelo de vCore, pode escolher entre gerações de hardware.
 
@@ -218,7 +218,7 @@ Gerido benefícios de instância de ser sempre up-até à data na nuvem, o que s
 
 ### <a name="managed-instance-administration-features"></a>Funcionalidades de administração de instância geridas
 
-Geridos pelo administrador de sistema de ativação de instância para se focar no que é importante ao máximo para empresas. Muitas atividades de administrador/DBA do sistema não são necessárias, ou eles são simples. Por exemplo, o sistema operacional / instalação RDBMS e aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, [replicação de base de dados](replication-with-sql-database-managed-instance.md) (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração do Estado de funcionamento e fluxos de dados de monitorização do desempenho.
+Geridos pelo administrador de sistema de ativação de instância para se focar no que é importante ao máximo para empresas. Muitas atividades de administrador/DBA do sistema não são necessárias, ou eles são simples. Por exemplo, o sistema operacional / instalação RDBMS e aplicação de patches, dinâmica instância redimensionamento e configuração, as cópias de segurança, [replicação de base de dados](replication-with-sql-database-managed-instance.md) (incluindo bases de dados do sistema), configuração de elevada disponibilidade e configuração do Estado de funcionamento e [monitorização do desempenho](../log-analytics/log-analytics-azure-sql.md) fluxos de dados.
 
 > [!IMPORTANT]
 > Para obter uma lista dos recursos suportados, parcialmente suportadas e não suportados, consulte [funcionalidades de base de dados SQL](sql-database-features.md). Para obter uma lista de diferenças do T-SQL em instâncias geridas em comparação com o SQL Server, consulte [diferenças de T-SQL de instância gerida do SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -241,4 +241,5 @@ A tabela seguinte mostra várias propriedades, acessíveis através de Transact 
 - Para obter mais informações sobre a configuração da VNet, veja [Configuração de VNet de Instância Gerida](sql-database-managed-instance-vnet-configuration.md).
 - Para um início rápido que cria uma instância gerida e restaura uma base de dados a partir de um ficheiro de cópia de segurança, consulte [criar uma instância gerida](sql-database-managed-instance-get-started.md).
 - Para obter um tutorial, utilizando o Azure Database Migration Service (DMS) para migração, veja [Migração de Instância Gerida com o DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- Para avançadas de monitorização de desempenho da base de dados de instância gerida com inteligência incorporada de resolução de problemas, consulte [SQL Database do Azure Monitor, através da análise de SQL do Azure ](../log-analytics/log-analytics-azure-sql.md) 
 - Para obter informações sobre preços, consulte [preços da SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

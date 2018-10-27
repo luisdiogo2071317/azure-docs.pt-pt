@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 80bb07d850628f07ebc37a39da1294399804d8f5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166462"
+---
 O agente de sincronização de ficheiros do Azure é atualizado regularmente para adicionar novas funcionalidades e para resolver problemas. Recomendamos que configure o Microsoft Update para obter atualizações para o agente de sincronização de ficheiros do Azure, como eles estão disponíveis.
 
 #### <a name="major-vs-minor-agent-versions"></a>Principais vs. as versões do agente secundárias

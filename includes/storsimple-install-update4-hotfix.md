@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 6b37f4bac4bfcc6001171ed27899b71cdac7a312
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164891"
+---
 <!--author=alkohli last changed: 01/23/18-->
 
 #### <a name="to-download-hotfixes"></a>Para transferir correções
@@ -15,13 +28,13 @@ Execute os seguintes passos para transferir a atualização de software a partir
    
     ![Catálogo de pesquisa](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
 
-4. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique em ficheiros para transferir para a pasta e a localização especificada. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
-5. Procure as correções adicionais listados na tabela acima (**4011841**) e transfira os ficheiros correspondentes para as pastas específicas, tal como indicado na tabela anterior.
+4. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique em ficheiros para transferir para a localização especificada e a pasta. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
+5. Procure as correções adicionais listadas na tabela acima (**4011841**) e transferir os ficheiros de correspondentes para as pastas específicas, conforme listado na tabela anterior.
 
 > [!NOTE]
-> As correções devem ser acessíveis a ambos os controladores para detetar as mensagens de erro potencial do controlador de ponto a ponto.
+> As correções têm de estar acessíveis a partir de ambos os controladores para detetar potenciais mensagens de erro do controlador de ponto a ponto.
 >
-> As correções têm de ser copiadas em três pastas separadas. Por exemplo, a atualização de agente Cis/software/MDS do dispositivo pode ser copiada no _FirstOrderUpdate_ pasta, todas as outras atualizações não acontece foi serem copiadas o _SecondOrderUpdate_ pasta, e as atualizações de modo de manutenção copiadas no _ThirdOrderUpdate_ pasta.
+> As correções têm de ser copiadas em três pastas separadas. Por exemplo, a atualização do agente de software/Cis/MDS de dispositivo pode ser copiada no _FirstOrderUpdate_ pasta, todas as outras atualizações não disruptivas poderiam ser copiadas no _SecondOrderUpdate_ pasta, e atualizações de modo de manutenção copiadas na _ThirdOrderUpdate_ pasta.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Para instalar e verificar correções do modo normal
 
@@ -39,7 +52,7 @@ Execute os seguintes passos para instalar e verificar correções do modo normal
    
     Forneça a palavra-passe quando lhe for pedida.
    
-    É apresentada abaixo uma saída de exemplo para instalar as primeiras atualizações de pedido. Para a primeira atualização de ordem, tem de apontar para o ficheiro específico.
+    É apresentada abaixo uma saída de exemplo para instalar as primeiras atualizações de pedido. Para a primeira atualização de ordem, tem de apontar para o arquivo específico.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -93,10 +106,10 @@ Execute os seguintes passos para instalar e verificar correções do modo normal
     Se o número da versão não se alterar depois de aplicar a atualização, indica que a correção não foi aplicada. Se tal acontecer, entre em contacto com o [Suporte da Microsoft](../articles/storsimple/storsimple-contact-microsoft-support.md) para obter assistência.
      
     > [!IMPORTANT]
-    > Tem de reiniciar o controlador de Active Directory através do `Restart-HcsController` cmdlet antes de aplicar a atualização seguinte.
+    > Tem de reiniciar o controlador ativo através do `Restart-HcsController` cmdlet antes de aplicar a atualização seguinte.
      
-7. Repita os passos 3 a 5 para instalar o agente de Cis/MDS transferido para o _FirstOrderUpdate_ pasta. 
-8. Repita os passos 3 a 5 para instalar as atualizações de segunda ordem. **Para atualizações de ordem segundo, várias atualizações podem ser instaladas através da execução apenas o `Start-HcsHotfix cmdlet` e apontar para a pasta onde estão localizadas segundo as atualizações de ordem. O cmdlet irá executar todas as atualizações disponíveis na pasta.** Se já estiver instalado uma atualização, a lógica de atualização irá detetar e não irá aplicar essa atualização. 
+7. Repita os passos 3 a 5 para instalar o agente de itens de configuração/MDS transferido para o seu _FirstOrderUpdate_ pasta. 
+8. Repita os passos 3 a 5 para instalar as atualizações de segunda ordem. **Para atualizações de segunda ordem, várias atualizações podem ser instaladas ao executar apenas o `Start-HcsHotfix cmdlet` e apontando para a pasta onde as atualizações de segunda ordem estão localizadas. O cmdlet irá executar todas as atualizações disponíveis na pasta.** Se já estiver instalado uma atualização, a lógica de atualização irá detetar e não irá aplicar essa atualização. 
 
 Depois de instalar todas as correções, utilize o cmdlet `Get-HcsSystem`. As versões devem ser:
 

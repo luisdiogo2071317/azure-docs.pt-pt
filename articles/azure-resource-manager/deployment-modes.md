@@ -9,18 +9,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 10/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 4d1b27c9b1694f987ea7461c16899f3e5ecb84d2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054564"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140998"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
-Quando a implementação de recursos, especifica que a implementação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Resource Manager processa os recursos existentes no grupo de recursos que não estão no modelo.
-O modo predefinido é incremental.
+Quando a implementação de recursos, especifica que a implementação é uma atualização incremental ou uma atualização completa.  A principal diferença entre esses dois modos é como o Resource Manager processa os recursos existentes no grupo de recursos que não estão no modelo. O modo predefinido é incremental.
 
 ## <a name="incremental-and-complete-deployments"></a>Implementações de incrementais e completas
 Durante a implantação de recursos:
@@ -28,19 +27,21 @@ Durante a implantação de recursos:
 * No modo de conclusão, Gestor de recursos **elimina** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. 
 * No modo de incremental, Gestor de recursos **deixa inalterado** recursos de que existem no grupo de recursos, mas não estão especificados no modelo.
 
-Em ambos os modos, o Resource Manager tenta aprovisionar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e as respetivas definições são iguais, a operação resulta numa nenhuma alteração. Se alterar as definições para um recurso, o recurso é aprovisionado com essas novas definições. Se tentar atualizar a localização ou o tipo de um recurso existente, a implementação falhar com um erro. Em vez disso, implementar um novo recurso com a localização ou escreva o que precisa.
+Em ambos os modos, Gestor de recursos tenta criar todos os recursos especificados no modelo. Se o recurso já existe no grupo de recursos e as respetivas definições são iguais, a operação resulta numa nenhuma alteração. Se alterar os valores de propriedade para um recurso, o recurso é atualizado com os novos valores. Se tentar atualizar a localização ou o tipo de um recurso existente, a implementação falhar com um erro. Em vez disso, implementar um novo recurso com a localização ou escreva o que precisa.
+
+Quando voltar a implementar um recurso no modo de incremental, especifique todos os valores de propriedade para o recurso, não apenas aqueles que estiver a atualizar. Se não especificar determinadas propriedades, o Resource Manager interpreta a atualização como substituir esses valores.
 
 ## <a name="example-result"></a>Resultado de exemplo
 
 Para ilustrar a diferença entre os modos de incrementais e completas, considere o seguinte cenário.
 
-**Grupo de recursos existente** contém:
+**Grupo de recursos** contém:
 
 * Recurso A
 * Recurso B
 * Recurso C
 
-**Modelo** define:
+**Modelo** contém:
 
 * Recurso A
 * Recurso B

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eefbfcf741db3d0949910bc5da8494e087c39ec7
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003488"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139157"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e Microsoft Graph
 Microsoft Graph é o Microsoft unified ponto final de API e a casa dos [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. A primeira API **identityRiskEvents**, permite-lhe consultar o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações de associados. Este artigo permite-lhe começar a consultar esta API. Para uma introdução aprofundada, a documentação completa e acesso para a API do Graph, consulte a [site do Microsoft Graph](https://graph.microsoft.io/).
@@ -37,8 +37,11 @@ Existem quatro passos para aceder aos dados de proteção de identidade através
 
 Antes de começar, terá de:
 
-* Privilégios de administrador para criar a aplicação no Azure AD
-* O nome de domínio do seu inquilino (por exemplo, contoso.onmicrosoft.com)
+- Um inquilino do Azure AD P2
+
+- Privilégios de administrador para criar a aplicação no Azure AD
+
+- O nome de domínio do seu inquilino (por exemplo, contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Obter o seu nome de domínio 
@@ -49,12 +52,14 @@ Antes de começar, terá de:
    
     ![Criar uma aplicação](./media/graph-get-started/41.png)
 
+3. Clique em **nomes de domínio personalizado**.
 
-3. Na **Manage** secção, clique em **propriedades**.
+    ![Nomes de domínio personalizados](./media/graph-get-started/71.png)
 
-    ![Criar uma aplicação](./media/graph-get-started/42.png)
+4. Na lista de nomes de domínio, copie o nome de domínio que é sinalizado como primário.
 
-4. Copie o seu nome de domínio.
+    ![Nomes de domínio personalizados](./media/graph-get-started/72.png)
+
 
 
 ## <a name="create-a-new-app-registration"></a>Criar um novo registo de aplicação
@@ -74,7 +79,7 @@ Antes de começar, terá de:
 
     a. Na **nome** caixa de texto, escreva um nome para a sua aplicação (por exemplo: aplicação de API de eventos de risco AADIP).
    
-    b. Como **tipo**, selecione **aplicação Web e / ou Web API**.
+    b. Como **tipo de aplicação**, selecione **aplicação Web e / ou Web API**.
    
     c. Na **URL de início de sessão** caixa de texto, tipo `http://localhost`.
 
@@ -224,7 +229,7 @@ Para obter informações relacionadas, consulte:
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
-- [Descrição geral do Microsoft Graph](https://graph.microsoft.io/docs)
+- [Descrição Geral do Microsoft Graph](https://graph.microsoft.io/docs)
 
 - [Raiz de serviço do Azure AD Identity Protection](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 

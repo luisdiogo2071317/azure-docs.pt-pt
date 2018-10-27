@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958555"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158708"
 ---
 # <a name="what-is-baseline-protection-preview"></a>O que é a proteção de linha de base (pré-visualização)?  
 
@@ -51,7 +51,7 @@ Os utilizadores com acesso a contas com privilégios têm acesso irrestrito ao s
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Esta política de linha de base fornece-lhe a opção para excluir os utilizadores e grupos. Pode querer excluir uma *[conta de administrador de acesso de emergência](../users-groups-roles/directory-emergency-access.md)* para garantir que não é bloqueado ao inquilino.
+Esta política de linha de base fornece-lhe a opção para excluir usuários. Pode querer excluir uma *[conta de administrador de acesso de emergência](../users-groups-roles/directory-emergency-access.md)* para garantir que não é bloqueado ao inquilino.
 
 
 ## <a name="enable-a-baseline-policy"></a>Ativar uma política de linha de base 

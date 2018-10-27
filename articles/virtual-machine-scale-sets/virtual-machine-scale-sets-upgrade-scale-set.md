@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d065f9765ca279f14b9de45e2412b75c94ef3dd8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322078"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139038"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 Em todo o ciclo de vida das suas aplicações, terá de modificar ou atualizar o conjunto de dimensionamento de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de dimensionamento, ou alterar a configuração da aplicação. Este artigo descreve como modificar um existente conjunto de dimensionamento com as REST APIs, o Azure PowerShell ou a CLI do Azure.
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Estas propriedades descrevem a configuração de instância de VM, não a configuração da escala definida como um todo. Por exemplo, o modelo de conjunto de dimensionamento tem `overprovision` como uma propriedade, enquanto o modelo para uma instância de VM num conjunto de dimensionamento não existir. Essa diferença é como aprovisionar em excesso é uma propriedade para o conjunto como um todo, não individuais instâncias VM no conjunto de dimensionamento de dimensionamento (para obter mais informações sobre como aprovisionar em excesso, consulte [considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Estas propriedades descrevem a configuração de uma instância VM dentro de um conjunto de dimensionamento, não a configuração da escala definida como um todo. Por exemplo, o modelo de conjunto de dimensionamento tem `overprovision` como uma propriedade, enquanto o modelo para uma instância VM dentro de um conjunto de dimensionamento não existir. Essa diferença é como aprovisionar em excesso é uma propriedade para o conjunto como um todo, não individuais instâncias VM no conjunto de dimensionamento de dimensionamento (para obter mais informações sobre como aprovisionar em excesso, consulte [considerações de Design para conjuntos de dimensionamento](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>O conjunto de dimensionamento vista de instância VM
-Semelhante à forma como um conjunto de dimensionamento tem uma vista de instância, cada instância de VM no conjunto de dimensionamento tem sua própria vista de instância. Para consultar a vista de instância para uma determinada instância VM num conjunto de dimensionamento, pode utilizar:
+Semelhante à forma como um conjunto de dimensionamento tem uma vista de instância, cada instância de VM no conjunto de dimensionamento tem sua própria vista de instância. Para consultar a vista de instância para uma determinada instância VM dentro de um conjunto de dimensionamento, pode utilizar:
 
 - API de REST com [computação/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) da seguinte forma:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Estas propriedades descrevem o estado atual do tempo de execução da instância VM, que inclui quaisquer extensões aplicadas ao conjunto de dimensionamento.
+Estas propriedades descrevem o estado atual do tempo de execução de uma instância VM dentro de um conjunto de dimensionamento, que inclui quaisquer extensões aplicadas ao conjunto de dimensionamento.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Como atualizar a escala global, definir propriedades

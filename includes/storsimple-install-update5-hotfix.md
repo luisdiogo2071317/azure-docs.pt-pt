@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 1bf6803ee3dc40e2e9f8c371f75933cbf2f77715
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165157"
+---
 <!--author=alkohli last changed: 08/21/17-->
 
 #### <a name="to-download-hotfixes"></a>Para transferir correções
@@ -9,23 +22,23 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
     ![Instalar o catálogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
 
-3. Na caixa de pesquisa do catálogo Microsoft Update, introduza o número de Base de dados de conhecimento (KB) de correção que pretende transferir, por exemplo **4037264**e, em seguida, clique em **pesquisa**.
+3. Na caixa de pesquisa do catálogo Microsoft Update, introduza o número de Base de dados de conhecimento (BDC) de correção que pretende transferir, por exemplo **4037264**e, em seguida, clique em **pesquisa**.
    
-    A listagem de correção é apresentado, por exemplo, **cumulativa 5.0 atualização do pacote de Software para a série de 8000 do StorSimple**.
+    A lista de correções é apresentada, por exemplo, **cumulativa Software pacote de atualização 5.0 para StorSimple série 8000**.
    
     ![Catálogo de pesquisa](./media/storsimple-install-update5-hotfix/update-catalog-search.png)
 
-4. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique em ficheiros para transferir para a pasta e a localização especificada. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
-5. Procure as correções adicionais listados na tabela acima (**4037266**) e transfira os ficheiros correspondentes para as pastas específicas, tal como indicado na tabela anterior.
+4. Clique em **Transferir**. Especifique ou **Pesquise** uma localização local onde pretende que as transferências apareçam. Clique em ficheiros para transferir para a localização especificada e a pasta. A pasta também pode ser copiada para uma partilha de rede que é acessível a partir do dispositivo.
+5. Procure as correções adicionais listadas na tabela acima (**4037266**) e transferir os ficheiros de correspondentes para as pastas específicas, conforme listado na tabela anterior.
 
 > [!NOTE]
-> As correções devem ser acessíveis a ambos os controladores para detetar as mensagens de erro potencial do controlador de ponto a ponto.
+> As correções têm de estar acessíveis a partir de ambos os controladores para detetar potenciais mensagens de erro do controlador de ponto a ponto.
 >
-> As correções têm de ser copiadas em três pastas separadas. Por exemplo, a atualização de agente Cis/software/MDS do dispositivo pode ser copiada no _FirstOrderUpdate_ pasta, todas as outras atualizações não acontece foi serem copiadas o _SecondOrderUpdate_ pasta, e as atualizações de modo de manutenção copiadas no _ThirdOrderUpdate_ pasta.
+> As correções têm de ser copiadas em três pastas separadas. Por exemplo, a atualização do agente de software/Cis/MDS de dispositivo pode ser copiada no _FirstOrderUpdate_ pasta, todas as outras atualizações não disruptivas poderiam ser copiadas no _SecondOrderUpdate_ pasta, e atualizações de modo de manutenção copiadas na _ThirdOrderUpdate_ pasta.
 
 #### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Para instalar e verificar correções do modo normal
 
-Execute os seguintes passos para instalar e verificar correções do modo normal. Se já instalou-las no portal do Azure, avançar diretamente para [instalar e certifique-se correções do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
+Execute os seguintes passos para instalar e verificar correções do modo normal. Se já as instalou através do portal do Azure, avance para [instalar e verificar correções do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Para instalar as correções, aceda à interface do Windows PowerShell na consola de série do dispositivo StorSimple. Siga as instruções detalhadas em [Utilizar o PuTTY para ligar à consola de série](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Na linha de comandos, prima **Enter**.
 2. Selecione a opção 1, **iniciar sessão com acesso total**. Recomendamos que primeiro instale a correção no controlador passivo.
@@ -37,10 +50,10 @@ Execute os seguintes passos para instalar e verificar correções do modo normal
    
     Recomendamos que utilize o parâmetro da credencial para aceder a partilhas. Mesmo as partilhas abertas para "todos" não são normalmente abertas para utilizadores não autenticados.
    
-4. Forneça a palavra-passe quando lhe for pedida. É apresentada abaixo uma saída de exemplo para instalar as primeiras atualizações de pedido. Para a primeira atualização de ordem, tem de apontar para o ficheiro específico.
+4. Forneça a palavra-passe quando lhe for pedida. É apresentada abaixo uma saída de exemplo para instalar as primeiras atualizações de pedido. Para a primeira atualização de ordem, tem de apontar para o arquivo específico.
 
     >[!NOTE] 
-    > Deve instalar o _HcsSoftwareUpdate.exe_ primeiro. Depois de concluir esta instalação, em seguida, instale _CisMdsAgentUpdate.exe_.
+    > Deve instalar o _HcsSoftwareUpdate.exe_ primeiro. Depois de concluída a instalação, em seguida, instale _CisMdsAgentUpdate.exe_.
    
         ````
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -94,13 +107,13 @@ Execute os seguintes passos para instalar e verificar correções do modo normal
     Se o número da versão não se alterar depois de aplicar a atualização, indica que a correção não foi aplicada. Se tal acontecer, entre em contacto com o [Suporte da Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) para obter assistência.
      
     > [!IMPORTANT]
-    > Tem de reiniciar o controlador de Active Directory através do `Restart-HcsController` cmdlet antes de aplicar a atualização seguinte.
+    > Tem de reiniciar o controlador ativo através do `Restart-HcsController` cmdlet antes de aplicar a atualização seguinte.
      
-8. Repita os passos 3 a 6 para instalar o _CisMDSAgentupdate.exe_ agente transferido para o _FirstOrderUpdate_ pasta.
-8. Repita os passos 3 a 6 para instalar as atualizações de ordem segundo. 
+8. Repita os passos 3 a 6 para instalar o _CisMDSAgentupdate.exe_ agente transferido para sua _FirstOrderUpdate_ pasta.
+8. Repita os passos 3 a 6 para instalar as atualizações de segunda ordem. 
 
     > [!NOTE] 
-    > Para atualizações de ordem segundo, várias atualizações podem ser instaladas através da execução apenas o `Start-HcsHotfix cmdlet` e apontar para a pasta onde estão localizadas segundo as atualizações de ordem. O cmdlet irá executar todas as atualizações disponíveis na pasta. Se já estiver instalado uma atualização, a lógica de atualização irá detetar e não irá aplicar essa atualização.
+    > Para atualizações de segunda ordem, várias atualizações podem ser instaladas ao executar apenas o `Start-HcsHotfix cmdlet` e apontando para a pasta onde as atualizações de segunda ordem estão localizadas. O cmdlet irá executar todas as atualizações disponíveis na pasta. Se já estiver instalado uma atualização, a lógica de atualização irá detetar e não irá aplicar essa atualização.
 
     Depois de instalar todas as correções, utilize o cmdlet `Get-HcsSystem`. As versões devem ser:
     
@@ -114,14 +127,14 @@ Execute os seguintes passos para instalar e verificar correções do modo normal
 Utilize KB4037263 para instalar atualizações de firmware do disco. Estas são atualizações disruptivas e demoram cerca de 30 minutos a serem concluídas. Pode optar por instalá-las numa janela de manutenção planeada ao estabelecer uma ligação à consola de série do dispositivo.
 
 > [!NOTE] 
-> Se o firmware do disco já se encontra atualizado, não terá de instalar estas atualizações. Execute o cmdlet `Get-HcsUpdateAvailability` a partir da consola de série do dispositivo para verificar se as atualizações estão disponíveis e se as atualizações são disruptivas (modo de manutenção) ou não disruptivas (modo normal).
+> Se o firmware do disco já estiver atualizado, não terá de instalar estas atualizações. Execute o cmdlet `Get-HcsUpdateAvailability` a partir da consola de série do dispositivo para verificar se as atualizações estão disponíveis e se as atualizações são disruptivas (modo de manutenção) ou não disruptivas (modo normal).
 
 Para instalar as atualizações de firmware do disco, siga as instruções abaixo.
 
 1. Coloque o dispositivo no modo de manutenção. 
 
     > [!NOTE] 
-    > Não utilize a comunicação remota do Windows PowerShell ao ligar a um dispositivo em modo de manutenção. Em vez disso, execute este cmdlet no controlador de dispositivo quando estiver ligado através da consola de série do dispositivo.
+    > Não utilize a comunicação remota do Windows PowerShell, ao ligar a um dispositivo no modo de manutenção. Em vez disso, execute este cmdlet no controlador de dispositivo quando estiver ligado através da consola de série do dispositivo.
 
     Para colocar o controlador em modo de manutenção, escreva:
    
@@ -259,5 +272,5 @@ Para instalar as atualizações de firmware do disco, siga as instruções abaix
    
    `Exit-HcsMaintenanceMode`
 
-5. Os controladores reiniciam quando sair do modo de manutenção. Após o firmware do disco atualizações são aplicadas com êxito e o dispositivo saiu do modo de manutenção, volte ao portal do Azure. Tenha em atenção que o portal pode não mostrar que instalou as atualizações do modo de manutenção durante 24 horas.
+5. Os controladores reiniciam quando sair do modo de manutenção. Após o firmware do disco atualizações são aplicadas com êxito e o dispositivo tiver saído do modo de manutenção, regresse ao portal do Azure. Tenha em atenção que o portal pode não mostrar que instalou as atualizações do modo de manutenção durante 24 horas.
 

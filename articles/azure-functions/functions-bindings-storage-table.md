@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 0a6939ae32945c4efc22cbcaece402180a183c10
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: a16b71bf6c3f40d0595e1db136dd5631b029ed48
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087326"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139179"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de tabelas do Azure para as funções do Azure
 
@@ -437,7 +437,7 @@ public int run(
  
 Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize os seguintes atributos para configurar um enlace de entrada de tabela:
 
-* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs)
+* [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)
 
   Construtor do atributo utiliza o nome da tabela, a chave de partição e a chave de linha. Ele pode ser usado num parâmetro de saída ou no valor de retorno da função, conforme mostrado no exemplo a seguir:
 
@@ -723,7 +723,7 @@ module.exports = function (context) {
 
 ## <a name="output---attributes"></a>Saída - atributos
 
-Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs).
+Na [bibliotecas de classes do c#](functions-dotnet-class-library.md), utilize o [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
 Construtor do atributo leva o nome da tabela. Pode ser utilizado num `out` parâmetro ou o valor de retorno da função, conforme mostrado no exemplo a seguir:
 

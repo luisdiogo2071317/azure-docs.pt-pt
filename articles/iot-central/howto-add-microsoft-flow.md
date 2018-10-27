@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 7a52ee11e52367755d2a241a0bea2cfc053cff3d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc54a3a375fa2780e289a20b699df5d65aaf08cc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039943"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155580"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Criar fluxos de trabalho com o conector do Centro de IoT no Microsoft Flow
 
@@ -96,6 +96,8 @@ Esta secção mostra-lhe como atualizar as definições e propriedades no Centro
     ![ID de dispositivo do Explorador de dispositivo do IoT Central](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. Pode atualizar o nome do dispositivo. Para atualizar qualquer uma das propriedades e definições do dispositivo, tem de selecionar o modelo de dispositivo do dispositivo que pretende atualizar o **modelo de dispositivo** lista pendente. O mosaico de ação expande para mostrar todas as propriedades e definições que pode atualizar.
+
+    ![Fluxo de trabalho de dispositivos de atualização de fluxo](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. Selecione cada uma das propriedades e definições que pretende atualizar. A partir do painel de conteúdo dinâmico, escolha a entrada correspondente a partir do acionador. Neste exemplo, o valor de localização é propagado para baixo para atualizar a propriedade de localização do dispositivo.
 

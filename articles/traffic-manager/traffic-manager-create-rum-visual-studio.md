@@ -1,13 +1,9 @@
 ---
-title: Medidas de utilizador reais para Traffic Manager do Azure com o Visual Studio Mobile Center | Microsoft Docs
-description: Configurar a sua aplicação móvel desenvolvida utilizando o Visual Studio Mobile Center enviar medidas de utilizador reais para o Gestor de tráfego
+title: Medições de utilizador reais para Traffic Manager do Azure com o Visual Studio Mobile Center | Documentos da Microsoft
+description: Configurar a sua aplicação móvel desenvolvida com o Visual Studio Mobile Center para enviar medições de utilizador reais para o Gestor de tráfego
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,55 +12,55 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30181015"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138417"
 ---
-# <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medidas de utilizador reais para o Gestor de tráfego com o Visual Studio Mobile Center
+# <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medições de utilizador reais para o Gestor de tráfego com o Visual Studio Mobile Center
 
-Pode configurar a sua aplicação móvel desenvolvida utilizando o Visual Studio Mobile Center para enviar para o Gestor de tráfego de medidas de utilizador reais, seguindo os passos:
+Pode definir a sua aplicação móvel desenvolvida com o Visual Studio Mobile Center para enviar medições de utilizador reais para o Gestor de tráfego ao seguir os passos:
 
 >[!NOTE]
-> Atualmente, o envio de medidas de utilizador reais para o Gestor de tráfego só é suportada para Android.
+> Atualmente, o envio de medições de utilizador reais para o Gestor de tráfego apenas é suportada para Android.
 
-Para configurar os valores reais do utilizador, terá de obter uma chave e instrumente a sua aplicação com o pacote RUM.
+Para configurar as medições de utilizador reais, terá de obter uma chave e instrumente a sua aplicação com o pacote de executar.
 
 ## <a name="step-1-obtain-a-key"></a>Passo 1: Obter uma chave
     
-Os valores demorar e enviados para o Gestor de tráfego a partir da sua aplicação de cliente são identificados pelo serviço através de uma cadeia exclusiva, denominada a chave de medidas de utilizador reais (RUM). Pode obter uma chave RUM no portal do Azure, uma API REST ou utilizando o PowerShell / CLI das interfaces.
+As medidas a tomar e enviados para o Gestor de tráfego a partir da sua aplicação de cliente são identificadas pelo serviço usando uma cadeia de caracteres exclusiva, chamada a chave de medições de utilizador Real (RUM). Pode obter uma chave de executar com o portal do Azure, uma API REST ou através do PowerShell / CLI interfaces.
 
-Para obter a chave de RUM através do portal do Azure utilizando o seguinte procedimento:
+Para obter a chave de rum do através do portal do Azure utilizando o seguinte procedimento:
    1. Num browser, inicie sessão no portal do Azure. Se ainda não tiver uma conta, pode inscrever-se numa avaliação gratuita de um mês.
-   2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego que pretende modificar e, em seguida, clique no perfil de Gestor de tráfego nos resultados de que o apresentados.
-   3. Na página de perfil do Traffic Manager, clique em **medidas de utilizador reais** em **definições**.
-   4. Clique em **gerar chave** para criar uma nova chave de RUM.
+   2. Na barra de pesquisa do portal, procure o nome de perfil do Gestor de tráfego que pretende modificar e, em seguida, clique no perfil do Gestor de tráfego nos resultados que apresentados.
+   3. Na página de perfil do Traffic Manager, clique em **medidas de utilizadores reais** sob **definições**.
+   4. Clique em **gerar chave** para criar uma nova chave de rum do.
         
-   ![Gerar a chave de medidas de utilizador reais](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Gerar chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Geração de chaves de medidas de utilizador reais**
+   **Figura 1: Geração de chave de medições de utilizador reais**
 
-   5.   A página apresenta a chave de RUM que é gerado e um fragmento de código JavaScript que tem de ser incorporado na sua página HTML.
+   5.   A página apresenta a chave de rum do que é gerado e um trecho de código JavaScript que tem de ser incorporados em sua página HTML.
  
-   ![No código JavaScript para a chave de medidas de utilizador reais](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
+   ![Código de JavaScript para a chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-   **Figura 2: Utilizador Real medidas chave e medida JavaScript**
+   **Figura 2: Chave de medições de utilizador Real e JavaScript de medida**
  
-   6. Clique em de **cópia** botão para copiar a chave de RUM. 
+   6. Clique nas **cópia** botão para copiar a chave de rum do. 
 
-## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Passo 2: Instrumente a sua aplicação com o pacote do SDK do System Center Mobile RUM
+## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Passo 2: Instrumente a sua aplicação com o pacote executar do SDK do Mobile Center
 
-Se estiver familiarizado com o Visual Studio Mobile Center, visite o [Web site](https://mobile.azure.com). Para obter instruções detalhadas sobre a integração do SDK, consulte [introdução ao Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
+Se estiver familiarizado com o Visual Studio Mobile Center, visite seu [Web site](https://mobile.azure.com). Para obter instruções detalhadas sobre a integração do SDK, consulte [introdução ao Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
 
-Para utilizar medidas de utilizador reais, execute o seguinte procedimento:
+Para utilizar medidas de utilizadores reais, execute o seguinte procedimento:
 
-1.  Adicionar o SDK ao projeto
+1.  Adicione o SDK ao projeto
 
-    Durante a pré-visualização do SDK de RUM ATM, tem de referenciar explicitamente o repositório de pacote.
+    Durante a pré-visualização do ATM rum do SDK, precisa referenciar explicitamente o repositório do pacote.
 
-    No seu **app/build.gradle** ficheiro, adicione as seguintes linhas:
+    No seu **gradle** ficheiro, adicione as seguintes linhas:
 
     ```groovy
     repositories {
@@ -73,7 +69,7 @@ Para utilizar medidas de utilizador reais, execute o seguinte procedimento:
         }
     }
     ```
-    No seu **app/build.gradle** ficheiro, adicione as seguintes linhas:
+    No seu **gradle** ficheiro, adicione as seguintes linhas:
 
     ```groovy
     dependencies {   
@@ -92,7 +88,7 @@ Para utilizar medidas de utilizador reais, execute o seguinte procedimento:
     import com.microsoft.azure.mobile.rum.RealUserMeasurements;
     ```
 
-    Procure o `onCreate` chamada de retorno no mesmo ficheiro e adicione o seguinte código:
+    Procure o `onCreate` retorno de chamada no mesmo ficheiro e adicione o seguinte código:
 
     ```java
     RealUserMeasurements.setRumKey("<Your RUM Key>");
@@ -100,10 +96,10 @@ Para utilizar medidas de utilizador reais, execute o seguinte procedimento:
     ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [Real medidas de utilizador](traffic-manager-rum-overview.md)
+- Saiba mais sobre [medidas de utilizadores reais](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gestor de tráfego](traffic-manager-overview.md)
 - Saiba mais sobre [Mobile Center](https://docs.microsoft.com/mobile-center/)
-- [Inscrever-se](https://mobile.azure.com) para Mobile Center
+- [Inscreva-se](https://mobile.azure.com) para Mobile Center
 - Saiba mais sobre o [métodos de encaminhamento de tráfego](traffic-manager-routing-methods.md) suportada pelo Gestor de tráfego
-- Saiba como [criar um perfil de Gestor de tráfego](traffic-manager-create-profile.md)
+- Saiba como [criar um perfil do Gestor de tráfego](traffic-manager-create-profile.md)
 

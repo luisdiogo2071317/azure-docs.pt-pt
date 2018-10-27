@@ -3,7 +3,7 @@ title: 'Serviços de Domínio do Azure AD: Ativar a sincronização de palavras-
 description: Introdução aos Serviços de Domínio do Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: maheshu
-ms.openlocfilehash: 33cbc65ec5971f8bfe0133e5dca181194cd0bbdd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: ergreenl
+ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294004"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155954"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de palavras-passe para o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de credenciais necessários para a autenticação NTLM (NT LAN Manager) e Kerberos para sincronizar com os Serviços de Domínio do Azure AD. Assim que a sincronização de credenciais estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.

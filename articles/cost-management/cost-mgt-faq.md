@@ -5,41 +5,41 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/26/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ba6d8250d70320b33822d73c9213e9005128633f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221983"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157212"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas mais frequentes sobre Cloudyn
 
-Este artigo aborda algumas perguntas comuns sobre o Cloudyn. Se tiver dúvidas sobre o Cloudyn, pode pedi-los quando [FAQs sobre a Cloudyn](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+Este artigo aborda algumas perguntas comuns sobre o Cloudyn. Se tiver dúvidas sobre o Cloudyn, pode pedi-los quando [FAQs sobre a Cloudyn](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Como posso resolver problemas comuns de configuração indireta enterprise?
 
-Quando utiliza o portal do Cloudyn pela primeira vez, poderá ver as seguintes mensagens se for um utilizador do contrato Enterprise ou o fornecedor de soluções Cloud (CSP):
+Ao utilizar o portal do Cloudyn pela primeira vez, poderão ser apresentadas as seguintes mensagens se for utilizador do Contrato Enterprise ou Fornecedor de Soluções Cloud (CSP):
 
 - "A chave de API especificada não é uma chave de inscrição de nível superior" apresentada na **definido no Cloudyn** assistente.
 - "Inscrição direta – não" apresentado no portal do contrato Enterprise.
 - "Não existem dados de utilização foi encontrados nos últimos 30 dias. Entre em contato com o distribuidor para se certificar de que a marcação foi ativada para a sua conta do Azure"apresentada no portal do Cloudyn.
 
-As mensagens anteriores indicam que adquiriu um Contrato Enterprise do Azure através de um revendedor ou CSP. Seu revendedor ou o CSP tem de ativar _marcação_ para o Azure da conta para que pode ver os seus dados no Cloudyn.
+As mensagens anteriores indicam que adquiriu um Contrato Enterprise do Azure através de um revendedor ou CSP. O seu revendedor ou CSP tem de ativar a _marcação_ para a sua conta do Azure, para que possa ver os dados no Cloudyn.
 
 Eis como resolver os problemas:
 
 1. O seu revendedor tem de ativar a _marcação_ para a sua conta. Para obter instruções, consulte o [Guia de Introdução do Cliente Indireto](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. Gerar a chave de contrato Enterprise do Azure para utilização no Cloudyn. Para obter instruções, consulte [adicionando Your Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) ou [como localizar sua ID de inscrição EA e a chave de API](https://youtu.be/u_phLs_udig).
+2. A chave do Contrato Enterprise do Azure para utilizar com o Cloudyn é gerida por si. Para obter instruções, consulte [adicionando Your Azure EA](quick-register-ea.md#register-with-cloudyn) ou [como localizar sua ID de inscrição EA e a chave de API](https://youtu.be/u_phLs_udig).
 
-Apenas um administrador de serviço do Azure pode ativar o Cloudyn. As permissões de coadministrador são insuficientes.
+Apenas um administrador de serviços do Azure pode ativar o Cloudyn. As permissões de coadministrador são insuficientes.
 
-Pode gerar a chave de API de contrato Enterprise do Azure para configurar o Cloudyn, tem de ativar a API de faturação do Azure ao seguir as instruções em:
+Para poder gerar a chave de API do Contrato Enterprise do Azure, para configurar o Cloudyn, tem de ativar a API de Faturação do Azure ao seguir as instruções em:
 
 - [Descrição geral de APIs de Relatórios para clientes Enterprise](../billing/billing-enterprise-api.md)
 - [API de Relatórios do portal empresarial do Microsoft Azure](https://ea.azure.com/helpdocs/reportingAPI) em **Ativar o acesso a dados para a API**
@@ -100,7 +100,7 @@ Evite utilizar o URL direto do Cloudyn https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Como posso ativar contas não ativadas com credenciais do Azure?
 
-Assim que suas contas do Azure são detetadas pela Cloudyn, dados de custo imediatamente são fornecidos em relatórios com base no custo. No entanto, para o Cloudyn fornecer dados de utilização e desempenho, terá de registar as suas credenciais do Azure para as contas. Para obter instruções, consulte [adicionar o Azure Resource Manager](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager).
+Assim que suas contas do Azure são detetadas pela Cloudyn, dados de custo imediatamente são fornecidos em relatórios com base no custo. No entanto, para o Cloudyn fornecer dados de utilização e desempenho, terá de registar as suas credenciais do Azure para as contas. Para obter instruções, consulte [adicionar uma conta ou atualizar uma assinatura](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
 
 Para adicionar as credenciais do Azure para uma conta, no portal do Cloudyn, selecione o símbolo de edição à direita do nome da conta, não a subscrição.
 
@@ -108,10 +108,7 @@ Até que as credenciais do Azure são adicionadas ao Cloudyn, a conta é apresen
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>Como adicionar várias contas e entidades a uma subscrição existente?
 
-Entidades adicionais são utilizadas para adicionar contratos de empresa adicionais a uma subscrição do Cloudyn. As hiperligações seguintes descrevem como adicionar entidades adicionais:
-
-- [Adicionar uma entidade](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) artigo
-- [Definir a sua hierarquia com entidades de custo](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) vídeo
+Entidades adicionais são utilizadas para adicionar contratos de empresa adicionais a uma subscrição do Cloudyn. Para obter mais informações, consulte [criar e gerir entidades](tutorial-user-access.md#create-and-manage-entities).
 
 Para os CSPs:
 

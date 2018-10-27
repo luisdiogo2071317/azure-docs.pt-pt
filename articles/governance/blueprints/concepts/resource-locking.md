@@ -8,12 +8,12 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c071c8f422e0cb3a4e0d5e528989dd2987a6796f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094852"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139447"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o recurso de bloqueio em esquemas do Azure
 
@@ -42,7 +42,7 @@ Se for necessário eliminar os recursos criados por uma atribuição, é a forma
 Uma função RBAC `denyAssignments` é aplicada a recursos de artefacto durante a atribuição de um plano gráfico se a atribuição selecionado da **bloqueio** opção. A função é adicionada pela identidade gerida de atribuição do esquema e só pode ser removida dos recursos de artefacto pela mesma identidade gerida. Esta medida de segurança impõe o mecanismo de bloqueio e impede a remover o bloqueio de esquema fora de esquemas. Remoção da função e o bloqueio só é possível ao remover a atribuição do esquema, que só pode ser executada por indivíduos com direitos adequados.
 
 > [!IMPORTANT]
-> O Azure Active Directory armazena em cache os detalhes de atribuição de função para até 30 minutos. Como resultado, `denyAssignments` no esquema recursos talvez não seja em efeito total. Durante este período de tempo, é possível eliminar um recurso que se destina a ser protegidos por bloqueios de esquema.
+> O Azure Resource Manager coloca em cache os detalhes de atribuição de função durante até 30 minutos. Como resultado, `denyAssignments` no esquema recursos talvez não seja em efeito total. Durante este período de tempo, é possível eliminar um recurso que se destina a ser protegidos por bloqueios de esquema.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

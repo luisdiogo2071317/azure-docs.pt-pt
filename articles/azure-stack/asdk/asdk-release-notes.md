@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 10/26/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: e13934a52d7da1f5352bf23d39dbf5f3d1121b5f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 284a964162a2374287b42698b9a2021be36590dd
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095410"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158164"
 ---
-# <a name="azure-stack-development-kit-release-notes"></a>Notas de versão do Azure Stack Development Kit  
-Este artigo fornece informações sobre problemas conhecidos no Kit de desenvolvimento do Azure Stack, correções e melhorias. Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
+# <a name="asdk-release-notes"></a>Notas de versão ASDK  
+Este artigo fornece informações sobre melhorias, correções e problemas conhecidos no Azure Stack Development Kit (ASDK). Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
 
 > Mantenha-se atualizado com o que há de novo no ASDK inscrevendo-se para o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 

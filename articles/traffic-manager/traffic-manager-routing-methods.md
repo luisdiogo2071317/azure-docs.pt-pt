@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955223"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139348"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de encaminhamento do Traffic Manager
 
 O Gestor de tráfego do Azure suporta seis métodos de encaminhamento de tráfego de mensagens em fila para determinar como encaminhar o tráfego de rede para vários pontos de extremidade do serviço. Para qualquer perfil, o Gestor de tráfego aplica-se o método de encaminhamento de tráfego de mensagens em fila associado a ele para cada consulta DNS que recebe. O método de encaminhamento de tráfego determina qual ponto de extremidade é devolvido na resposta DNS.
 
-Há quatro métodos de encaminhamento de tráfego disponíveis no Gestor de tráfego:
+Os métodos de encaminhamento de tráfego seguintes estão disponíveis no Gestor de tráfego:
 
 * **[Prioridade](#priority):** selecionar **prioridade** quando pretender utilizar um ponto de extremidade de serviço principal para todo o tráfego e fornecer cópias de segurança no caso da primária ou os pontos finais de cópia de segurança não estão disponíveis.
 * **[Ponderado](#weighted):** selecionar **ponderado** quando deseja distribuir o tráfego por um conjunto de pontos de extremidade, uniformemente ou, de acordo com pesos, que defina.
 * **[Desempenho](#performance):** selecionar **desempenho** quando têm pontos finais em localizações geográficas diferentes e pretender que os utilizadores finais utilizem o ponto final "mais próximo" em termos a menor latência de rede.
 * **[Geográfica](#geographic):** selecionar **geográfica** para que os utilizadores são direcionados para os pontos finais (do Azure, externas ou aninhados) com base nas localizações geográficas em suas consultas DNS são originados. Isso capacita os clientes do Gestor de tráfego para ativar cenários em que conhecer a região geográfica de um utilizador e encaminhamento-los com base no que são importante. Os exemplos incluem o cumprimento mandatos de soberania de dados, a localização da experiência de utilizador e de conteúdo e medir o tráfego a partir de regiões diferentes.
 * **[Multivalue](#multivalue):** selecionar **MultiValue** para perfis do Gestor de tráfego que podem ter apenas endereços IPv4/IPv6, como pontos finais. Quando uma consulta é recebida para este perfil, são devolvidos todos os pontos finais de bom estado de funcionamento.
-* **[Sub-rede](#subnet):** selecionar **sub-rede** método de encaminhamento de tráfego de mensagens em fila para mapear os conjuntos de intervalos de endereços IP do utilizador final para um ponto final específico dentro de um perfil do Gestor de tráfego. Quando é recebido um pedido, o ponto final devolvido será a que é mapeada para o endereço IP de origem esse pedido. 
+* **[Sub-rede](#subnet):** selecionar **sub-rede** método de encaminhamento de tráfego de mensagens em fila para mapear os conjuntos de intervalos de endereços IP do utilizador final para um ponto final específico dentro de um perfil do Gestor de tráfego. Quando é recebido um pedido, o ponto final devolvido será a que é mapeada para o endereço IP de origem esse pedido. 
 
 
 Todos os perfis do Gestor de tráfego incluem a monitorização de estado de funcionamento do ponto final e ativação pós-falha do ponto de extremidade automática. Para obter mais informações, consulte [monitorização de ponto final do Gestor de tráfego](traffic-manager-monitoring.md). Um único perfil do Gestor de tráfego pode utilizar apenas um método de encaminhamento de tráfego. Pode selecionar um método de encaminhamento de tráfego diferentes para o seu perfil em qualquer altura. As alterações são aplicadas num minuto e, sem períodos de indisponibilidade é incorrido. Métodos de encaminhamento de tráfego podem ser combinados utilizando perfis do Gestor de tráfego aninhados. Aninhamento permite sofisticadas e flexíveis configurações de encaminhamento de tráfego que satisfazem as necessidades das aplicações grandes e complexas. Para obter mais informações, consulte [aninhada de perfis do Gestor de tráfego](traffic-manager-nested-profiles.md).

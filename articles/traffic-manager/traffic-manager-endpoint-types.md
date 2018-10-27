@@ -4,9 +4,6 @@ description: Este artigo explica os diferentes tipos de pontos de extremidade qu
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 06965c43408e943922048804099f8f28d69c8540
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: acdae15af1e81bf194bb9e599b97152af98ef5d4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248290"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139793"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 O Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em datacenters diferentes. Configurar a cada implementação de aplicação como um ponto 'final' no Gestor de tráfego. Quando o Gestor de tráfego recebe um pedido DNS, ele escolhe um ponto de extremidade disponível para devolver na resposta DNS. O Gestor de tráfego bases a escolha sobre o estado atual do ponto final e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).

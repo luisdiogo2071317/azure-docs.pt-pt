@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165775"
+---
 <!--author=SharS last changed: 06/22/2016-->
 
 ### <a name="to-configure-and-register-the-device"></a>Para configurar e registar o dispositivo
@@ -6,36 +19,36 @@
 3. Ser-lhe-á solicitado que escolha o idioma que pretende configurar para o dispositivo. Especifique o idioma e prima **Enter**.
    
     ![Configurar e registar o dispositivo 1 do StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. No menu da consola de série que é apresentado, selecione a opção 1, **iniciar sessão com acesso total**.
+4. No menu da consola de série apresentado, selecione a opção 1, **Iniciar sessão com acesso total**.
    
     ![Registar o dispositivo 2 do StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
 5. Execute os seguintes passos para configurar as definições de rede mínimas necessárias para o seu dispositivo.
    
    > [!IMPORTANT]
-   > Estes passos de configuração têm de ser executados no controlador ativo do dispositivo. O menu da consola de série indica o estado do controlador na mensagem de faixa. Se não estiver a ligar ao controlador ativo, desligue e volte a ligar ao controlador ativo.
+   > Estes passos de configuração têm de ser executados no controlador ativo do dispositivo. O menu da consola de série indica o estado do controlador na mensagem de faixa. Se não estão a ligar ao controlador ativo, desligue e, em seguida, ligar para o controlador ativo.
    
    1. Na linha de comandos, escreva a sua palavra-passe. A palavra-passe predefinida do dispositivo é **Password1**.
    2. Escreva o seguinte comando:
       
         `Invoke-HcsSetupWizard`
-   3. Será apresentado um assistente de configuração para o ajudar a configurar as definições de rede do dispositivo. Forneça as seguintes informações:
+   3. Será apresentado um assistente de configuração para o ajudar a configurar as definições de rede do dispositivo. Insira as seguintes informações:
       
-      * Endereço de IP da interface rede DATA 0
+      * Endereço IP para a interface rede DATA 0
       * Máscara de sub-rede
       * Gateway
       * Endereço IP do servidor DNS Primário
       * Endereço IP do servidor NTP Primário
       
       > [!NOTE]
-      > Poderá ter de aguardar alguns minutos para a máscara de sub-rede e as definições de DNS sejam aplicadas.
+      > Poderá ter de aguardar alguns minutos para que a máscara de sub-rede e as definições de DNS a ser aplicado.
     
-   4. Opcionalmente, configure o servidor proxy web.
+   4. Opcionalmente, configure o servidor de proxy da web.
       
       > [!IMPORTANT]
-      > Apesar da configuração de proxy web é opcional, lembre-se de que se utilizar um proxy web, só pode configurá-lo aqui. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](../articles/storsimple/storsimple-configure-web-proxy.md).
+      > Apesar de configuração do proxy web é opcional, lembre-se de que se utilizar um proxy da web, pode apenas configurá-lo aqui. Para obter mais informações, veja [Configure web proxy for your device (Configurar o proxy Web para o seu dispositivo)](../articles/storsimple/storsimple-configure-web-proxy.md).
      
 6. Prima Ctrl + C para sair do Assistente de configuração.
-8. Execute o seguinte cmdlet para apontar o dispositivo ao portal do Microsoft Azure Government (porque aponta para o portal clássico do Azure público por predefinição). Esta ação irá reiniciar tanto os controladores. Recomendamos que utilize duas sessões PuTTY para ligar em simultâneo para ambos os controladores para que possa ver quando cada controlador é reiniciado.
+8. Execute o seguinte cmdlet para apontar o dispositivo ao portal do Microsoft Azure Government (porque ele aponta para o portal clássico do Azure público por predefinição). Esta ação irá reiniciar os dois controladores. Recomendamos que utilize duas sessões PuTTY para ligar em simultâneo para ambos os controladores para que pode ver quando cada controlador é reiniciado.
    
     `Set-CloudPlatform -AzureGovt_US`
    
@@ -46,29 +59,29 @@
    
     ![Assistente de configuração de retomar](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
    
-10. Aceite as definições de rede. Verá uma mensagem de validação após a aceitação de cada definição.
+10. Aceite as definições de rede. Verá uma mensagem de validação depois de aceitar cada definição.
 11. Por motivos de segurança, a palavra-passe de administrador do dispositivo expira após a primeira sessão e terá de a alterar agora. Quando lhe for solicitado, forneça uma palavra-passe de administrador do dispositivo. Uma palavra-passe de administrador do dispositivo válida tem de ter entre 8 e 15 carateres. A palavra-passe tem de conter três dos seguintes: minúsculas, maiúsculas, números e carateres especiais.
     
     <br/>![Registar o dispositivo 5 do StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. O último passo do assistente de configuração regista o dispositivo com o serviço Gestor de Dispositivos do StorSimple. Para tal, terá da chave de registo do serviço que obteve no [passo 2: obter a chave de registo do serviço](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registo, poderá ter de aguardar 2 a 3 minutos até o dispositivo ficar registado.
+12. O último passo do assistente de configuração regista o dispositivo com o serviço Gestor de Dispositivos do StorSimple. Para isso, terá da chave de registo de serviço que obteve no [passo 2: obter a chave de registo do serviço](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Depois de fornecer a chave de registo, poderá ter de aguardar 2 a 3 minutos até o dispositivo ficar registado.
     
     > [!NOTE]
     > Pode premir Ctrl + C em qualquer momento para sair do assistente de configuração. Se tiver introduzido todas as definições de rede (Endereço IP para Data 0, Máscara de sub-rede e Gateway), as entradas serão mantidas.
     
     ![Progresso de registo do StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
-13. Uma vez registado o dispositivo, aparecerá uma chave de Encriptação de Dados do Serviço. Copie esta chave e guarde-a numa localização segura. **Esta chave é necessária com a chave de registo do serviço para registar dispositivos adicionais com o serviço do Gestor de dispositivos do StorSimple.** Veja [Segurança do StorSimple](../articles/storsimple/storsimple-8000-security.md) para obter mais informações sobre esta chave.
+13. Uma vez registado o dispositivo, aparecerá uma chave de Encriptação de Dados do Serviço. Copie esta chave e guarde-a numa localização segura. **Esta chave é necessária com a chave de registo de serviço para registar dispositivos adicionais com o serviço StorSimple Device Manager.** Veja [Segurança do StorSimple](../articles/storsimple/storsimple-8000-security.md) para obter mais informações sobre esta chave.
     
     ![Registar o dispositivo 7 do StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
     > [!IMPORTANT]
     > Para copiar o texto da janela da consola de série, basta selecioná-lo. Em seguida, poderá colá-lo na área de transferência ou num editor de texto.
     > 
-    > Não utilize **Ctrl + C** para copiar a chave de encriptação de dados do serviço. Utilizar **Ctrl + C** fará com que sair do Assistente de configuração. Como resultado, a palavra-passe de administrador do dispositivo não será alterada e o dispositivo irá reverter para a palavra-passe predefinida.
+    > Não utilize **Ctrl + C** para copiar a chave de encriptação de dados do serviço. Usando **Ctrl + C** fará com que sair do Assistente de configuração. Como resultado, a palavra-passe de administrador do dispositivo não será alterada e o dispositivo irá reverter para a palavra-passe predefinida.
     
 14. Feche a consola de série.
-15. Regresse ao Portal de administração pública do Azure e execute os seguintes passos:
+15. Regresse ao Portal de administração pública do Azure e conclua os seguintes passos:
     
     1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple.
-    2. Clique em **Dispositivos**. Na lista de dispositivos, identifica o dispositivo que está ddeploying. Certifique-se de que o dispositivo foi ligado com êxito para o serviço ao observar o estado. O estado do dispositivo deve ser **Online**.
+    2. Clique em **Dispositivos**. Na lista de dispositivos, identificar o dispositivo que está ddeploying. Certifique-se de que o dispositivo foi ligado com êxito para o serviço, vendo o estado. O estado do dispositivo deve ser **Online**.
             
         Se o estado do dispositivo for **Offline**, aguarde alguns minutos para que o dispositivo fique online.
        

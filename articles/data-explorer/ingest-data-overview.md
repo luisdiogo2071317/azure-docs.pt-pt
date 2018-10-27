@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972664"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139531"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -60,9 +60,15 @@ Kusto oferece o cliente SDK que pode ser utilizado para ingerir e consultar dado
 
 * [SDK Java](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
+* [Nó SDK]
+
 * [API REST](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Técnicas de ingestão programática**:
+
+* Ingestão de dados através do serviço de gestão de dados do Azure Data Explorer (ingestão de alto débito e fiável)
+
+  * [**Ingestão de lote** ](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornecido pelo SDK): o cliente carrega os dados para o armazenamento de Blobs do Azure (designado pelo serviço de gestão de dados do Explorador de dados do Azure) e envia uma notificação para uma fila do Azure. Essa é a técnica recomendada para ingestão de dados de grande volume, fiáveis e barato.
 
 * Ingestão de dados diretamente para o mecanismo de Explorador de dados do Azure (mais adequado para a exploração e a criação de protótipos):
 
@@ -71,10 +77,6 @@ Kusto oferece o cliente SDK que pode ser utilizado para ingerir e consultar dado
   * **Ingestão de consulta**: comandos de controle (.set, .set ou acrescentar, .set ou substituir) que aponta para os resultados da consulta é utilizado para a geração de relatórios ou pequenas tabelas temporárias.
 
   * **Ingestão de armazenamento**: o comando de controlo (.ingest em) com os dados armazenados externamente (por exemplo, armazenamento de Blobs do Azure) permite a ingestão em massa eficiente de dados.
-
-* Ingestão de dados através do serviço de gestão de dados do Azure Data Explorer (ingestão de alto débito e fiável)
-
-  * [**Ingestão de lote** ](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornecido pelo SDK): o cliente carrega os dados para o armazenamento de Blobs do Azure (designado pelo serviço de gestão de dados do Explorador de dados do Azure) e envia uma notificação para uma fila do Azure. Esta é a técnica recomendada para elevado volume, confiável e ingestão de dados barato.
 
 **Latência de métodos diferentes**:
 
@@ -125,7 +127,7 @@ Mapeamento de esquema ajuda determinística vincular os campos de dados de orige
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure](ingest-data-event-hub.md)
+[Início Rápido: ingerir dados do Hub de Eventos para o Azure Data Explorer](ingest-data-event-hub.md)
 
-[Início rápido: Ingerir dados com a biblioteca de Python de Explorador de dados do Azure](python-ingest-data.md)
+[Início Rápido: ingerir dados através da biblioteca Python do Azure Data Explorer](python-ingest-data.md)
 

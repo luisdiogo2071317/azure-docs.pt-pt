@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345893"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140828"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerir contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contentor para laboratórios geridos, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório com o Azure Lab Services e fornece acesso a proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou eliminar uma conta de laboratório.
@@ -55,17 +55,17 @@ Para configurar um laboratório de sala de aula numa conta de laboratório, o ut
     ![Adicionar utilizador à função de Criador do Laboratório](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Especifique as imagens do Marketplace disponíveis para os proprietários de laboratório
-Como um proprietário da conta de laboratório, pode especificar as imagens do Marketplace que os criadores de laboratório podem usar para criar laboratórios na conta de laboratório. 
+Enquanto proprietário de uma conta de laboratório, pode especificar as imagens do Marketplace que os criadores de laboratórios podem utilizar para criar laboratórios nessa conta. 
 
 1. Selecione **Imagens do Marketplace** no menu à esquerda. Por predefinição, verá a lista completa de imagens (ativadas e desativadas). Pode filtrar a lista para ver apenas as imagens ativadas/desativadas ao selecionar a opção **Apenas ativado**/**Apenas desativado** na lista pendente na parte superior. 
     
     ![Página de imagens do Marketplace](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
-    As imagens do Marketplace que são apresentadas na lista são apenas aqueles que satisfazem as condições seguintes:
+    As imagens do Marketplace que aparecem na lista são as que satisfazem as seguintes condições:
         
-    - Cria uma VM única.
+    - Cria uma VM individual.
     - Utiliza o Azure Resource Manager para aprovisionar VMs
-    - Não precisa de comprar um plano de licenciamento extra
+    - Não requer a compra de planos de licenciamento extra
 2. Para **desativar** uma imagem do Marketplace que tenha sido ativada, efetue uma das seguintes ações: 
     1. Selecione **... (reticências)** na última coluna e selecione **Desativar imagem**. 
 
@@ -90,6 +90,28 @@ Siga as instruções da secção anterior, que apresenta as contas de laboratór
 2. Selecione **eliminar** da barra de ferramentas. 
 3. Tipo **Sim** confirmação.
 4. Selecione **Eliminar**. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>Ver e gerir laboratórios na conta de laboratório
+
+1. Sobre o **conta de laboratório** página, selecione **laboratórios** no menu da esquerda.
+
+    ![Laboratórios na conta](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. Verá um **lista de laboratórios** na conta com as seguintes informações: 
+    1. Nome do laboratório.
+    2. A data em que foi criado o laboratório. 
+    3. Endereço de e-mail do utilizador que criou o laboratório. 
+    4. Número máximo de utilizadores com permissão para o laboratório. 
+    5. Estado do laboratório. 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>Eliminar um laboratório na conta de laboratório
+Siga as instruções na secção anterior para ver uma lista dos laboratórios na conta de laboratório.
+
+1. Selecione **... (reticências)** e selecione **eliminar**. 
+
+    ![Eliminar um laboratório – botão](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Selecione **Sim** na mensagem de aviso. 
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Introdução à configuração de um laboratório com o Azure Lab Services:

@@ -10,14 +10,14 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 03/04/2018
+ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d61570cd5d56cda7737bdb2d1a8d681fc2364610
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353497"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139395"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 Este guia contém informações sobre as complicações de escrever as funções do Azure com o JavaScript.
@@ -400,13 +400,14 @@ Existem duas formas de instalar os pacotes em sua aplicação de funções:
     Esta ação transfere os pacotes indicados no ficheiro Package. JSON e reinicia a aplicação de funções.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
-Para obter uma variável de ambiente ou uma aplicação de definir o valor, utilize `process.env`, conforme mostrado aqui no `GetEnvironmentVariable` função:
+
+Em funções, [as definições da aplicação](functions-app-settings.md), por exemplo, a ligação de serviço são expostos cadeias de caracteres, como variáveis de ambiente durante a execução. Pode acessar essas configurações usando `process.env`, conforme mostrado aqui no `GetEnvironmentVariable` função:
 
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node.js timer trigger function ran!', timeStamp);
     context.log(GetEnvironmentVariable("AzureWebJobsStorage"));
     context.log(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
 
@@ -418,6 +419,10 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+Ao executar localmente, as definições da aplicação são lidos a partir da [Settings](functions-run-local.md#local-settings-file) arquivo de projeto.
 
 ## <a name="configure-function-entry-point"></a>Configurar o ponto de entrada da função
 

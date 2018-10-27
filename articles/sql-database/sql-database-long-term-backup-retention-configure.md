@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 1775e1810a164bfbdd1cddea9360674592cf446c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/24/2018
+ms.openlocfilehash: b4736f47d066d1e2b8e5c7115cb14abeb1cc566a
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857538"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137230"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
@@ -172,6 +172,9 @@ Este exemplo mostra como eliminar um LTR cópia de segurança na lista de cópia
 $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
+> [!IMPORTANT]
+> A eliminar LTR cópia de segurança é não reversível. Pode definir notificações sobre cada delete no Azure Monitor ao filtrar pela operação 'Elimina uma cópia de segurança de retenção de longo prazo'. O registo de atividade contém informações sobre quem e quando efetuou o pedido. Ver [criar alertas de registo de atividades](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) para obter instruções detalhadas.
+>
 
 ### <a name="restore-from-ltr-backups"></a>Restaurar a partir de cópias de segurança LTR
 Este exemplo mostra como restaurar a partir de uma cópia de segurança LTR. Tenha em atenção que esta interface não foi alterado, mas o parâmetro de id de recurso requer agora que o id de recurso de cópia de segurança de LTR. 

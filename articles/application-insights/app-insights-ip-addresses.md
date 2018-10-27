@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: dd03aceae2111ce64244b9b449aa0e4be7c53aed
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 76037419730aac57e880b71f5b885e657533553d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428237"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157450"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e o Log Analytics
 O [do Azure Application Insights](app-insights-overview.md) serviço usa um número de endereços IP. Poderá ter de conhecer estes endereços se a aplicação que está a monitorizar é alojada por trás de uma firewall.
@@ -38,7 +38,7 @@ Tem de abrir algumas portas de envio na firewall do servidor para permitir que o
 
 | Objetivo | do IdP | IP | Portas |
 | --- | --- | --- | --- |
-| Telemetria |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74 | 443 |
+| Telemetria |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23 | 443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Monitor de Estado
@@ -317,6 +317,7 @@ East US
 | API interna |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |Dinâmico|443 |
 
 ## <a name="log-analytics-api"></a>API do log Analytics
+
 | Objetivo | URI | IP | Portas |
 | --- | --- | --- | --- |
 | API |api.loganalytics.io<br/>*.api.loganalytics.io |Dinâmico |80,443 |
@@ -358,7 +359,7 @@ Nota: *. loganalytics.io domínio é propriedade da Equipe do Log Analytics.
 ## <a name="alert-webhooks"></a>Webhooks de alertas
 
 | Objetivo | IP | Portas
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Alertas | 23.96.11.4 | 443 |
 
 ## <a name="profiler"></a>Gerador de perfis
