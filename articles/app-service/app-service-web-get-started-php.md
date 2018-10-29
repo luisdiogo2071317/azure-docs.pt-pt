@@ -40,7 +40,7 @@ Pode seguir os passos aqui indicados num computador Mac, Windows ou Linux. Depoi
 
 Para concluir este guia de início rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instale o Git</a>.
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
 * <a href="http://php.net/manual/install.php" target="_blank">Instalar o PHP</a>
 
 ## <a name="download-the-sample-locally"></a>Transferir o exemplo localmente
@@ -66,7 +66,7 @@ Pode ver a mensagem **Olá, mundo!** da aplicação de exemplo apresentada na p�
 
 ![Aplicação de exemplo em execução localmente](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
-Na janela do terminal, prima **Ctrl+C** para sair do servidor Web.
+Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
