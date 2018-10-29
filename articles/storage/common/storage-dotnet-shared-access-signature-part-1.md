@@ -2,18 +2,18 @@
 title: Utilizar a partilhado assinaturas de acesso (SAS) no armazenamento do Azure | Documentos da Microsoft
 description: Saiba como utilizar assinaturas de acesso partilhado (SAS) para delegar acesso a recursos de armazenamento do Azure, incluindo blobs, filas, tabelas e ficheiros.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 315c5a88d16206414b6b81a83963cbb1f8b4424a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 94783e6c6ee662c77d6bf60e96bbe7d171cefeef
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524759"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140439"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 

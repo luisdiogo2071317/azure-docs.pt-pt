@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ae5218bae12b9489d67b0264f0e5fdb6d833cb9e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187772"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140405"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Instruções do acelerador de soluções de Fábrica Ligada
 
@@ -53,23 +53,27 @@ A solução também tem um cliente de OPC UA integrado numa aplicação Web que 
 
 As estações simuladas e os sistemas de execução de fabrico simulados (MES, Manufacturing Execution Systems) são compostos por linhas de produção de fábrica. Os dispositivos simulados e o Módulo de Publicador OPC baseiam-se na [Normal OPC UA .NET][lnk-OPC-UA-NET-Standard] publicada pela OPC Foundation.
 
-O Proxy OPC e o Publicador OPC são implementados como módulos baseados no [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Cada linha de produção simulada tem um gateway designado anexado.
+O Proxy OPC e o Publicador OPC são implementados como módulos baseados no [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Cada linha de produção simulada tem um gateway anexado.
 
 Todos os componentes da simulação são executados em contentores do Docker alojados numa VM do Linux do Azure. A simulação está configurada para executar oito linhas de produção simuladas por predefinição.
 
 ## <a name="simulated-production-line"></a>Linha de produção simulada
 
-Uma linha de produção fabrica peças. É composta por diferentes estações: uma estação de montagem, uma de teste e outra de empacotamento.
+Uma linha de produção fabrica peças. Ele é composto por diferentes estações: uma estação de montagem, uma estação de teste e outra de empacotamento.
 
-A simulação é executada e atualiza os dados que são expostos através dos nós de OPC UA. Todas as estações da linha de produção simulada são orquestradas pelo MES através do OPC UA.
+A simulação é executada e atualiza os dados que são disponibilizados por meio dos nós de OPC UA. Todas as estações da linha de produção simulada são orquestradas pelo MES através do OPC UA.
 
 ## <a name="simulated-manufacturing-execution-system"></a>Sistema de execução de fabrico simulado
 
-O MES monitoriza cada estação da linha de produção através de OPC UA para detetar alterações ao estado das estações. Chama métodos de OPC UA para controlar as estações e envia produtos de uma estação para outra até que estejam concluídos.
+O MES monitoriza cada estação da linha de produção através de OPC UA para detetar alterações ao estado das estações. Chama métodos para controlar as estações de OPC UA e passa um produto de uma estação para o próximo até esta estar concluída.
 
 ## <a name="gateway-opc-publisher-module"></a>Módulo de publicador OPC do gateway
 
-O Módulo de Publicador do OPC liga-se aos serviços OPC UA da estação e subscreve os nós do OPC que vão ser publicados. O módulo converte os dados dos nós no formato JSON, encripta-os e envia-os para o Hub IoT como mensagens Pub/Sub de OPC UA.
+O Módulo de Publicador do OPC liga-se aos serviços OPC UA da estação e subscreve os nós do OPC que vão ser publicados. O módulo:
+
+1. Converte os dados de nós no formato JSON.
+1. Encripta o JSON.
+1. Envia o JSON para o IoT Hub como mensagens Pub/Sub de OPC UA.
 
 O Módulo de Publicador OPC só precisa de uma porta https de saída (443) e funciona com a infraestrutura empresarial existente.
 
@@ -77,7 +81,7 @@ O Módulo de Publicador OPC só precisa de uma porta https de saída (443) e fun
 
 O Módulo de Proxy OPC UA do Gateway faz o túnel de mensagens de comando e controlo binárias de OPC UA e só precisa de uma porta https de saída (443). Funciona com a infraestrutura empresarial existente, incluindo Proxies Web.
 
-Utiliza métodos de Dispositivo Hub IoT para transferir dados TCP/IP empacotados na camada da aplicação e, assim, garante a fiabilidade do ponto final, a encriptação dos dados e a integridade através da utilização de SSL/TLS.
+Ele usa os métodos de dispositivos no Hub IoT para transferir dados de TCP/IP empacotados na camada da aplicação para garantir a confiança de ponto final, a encriptação de dados e integridade usando SSL/TLS.
 
 O protocolo binário OPC UA transmitido através do próprio proxy utiliza a autenticação e a encriptação UA.
 
@@ -93,13 +97,13 @@ O Hub IoT disponibiliza uma origem de eventos para o Azure TSI. O TSI armazena d
 * O Carimbo de data/hora da origem
 * O DisplayName de OPC UA
 
-Atualmente, o TSI não permite aos clientes personalizar o período de tempo durante o qual pretendem manter os dados.
+Atualmente, o TSI não permite aos clientes personalizar o quanto quiser manter os dados.
 
-O TSI consulta os dados dos nós através de um **SearchSpan** [InvervalodePesquisa] \(**Time.From** [Hora.De], **Time.To** [Hora.Até]) e agrega por **OPC UA ApplicationUri** [UriAplicação OPC UA], **OPC UA NodeId** [IdNó OPC UA] ou **OPC UA DisplayName** [NomeaApresentar OPC UA].
+O TSI executa consultas em relação a dados do nó usando um baseados no tempo **SearchSpan** e agrega por **OPC UA ApplicationUri** ou **OPC UA NodeId** ou **DisplayName de OPC UA**.
 
-Para obter os dados relativos aos medidores OEE e KPI, bem como os gráficos de séries temporais, os dados são agregados por contagem de eventos, Soma, Média, Mín e Máx.
+Para obter os dados para os medidores OEE e KPI e os gráficos de séries de tempo, a solução agrega dados pela contagem de eventos, **soma**, **média**, **Min**, e  **Máx**.
 
-As séries temporais são criadas com outro processo. O OEE e os KPIs são calculados a partir dos dados base das estações e agregados para a topologia (linhas de produção, fábricas, empresas) da aplicação.
+As séries temporais são criadas com outro processo. A solução calcula os valores OEE e KPI dos dados de base de estação e são exibidos os valores para as linhas de produção, fábricas e enterprise.
 
 Além disso, as séries temporais para a topologia de OEE e KPI são calculadas na aplicação, sempre que um intervalo de tempo apresentado estiver pronto. Por exemplo, a vista diária é atualizada a cada hora completa.
 
@@ -116,7 +120,7 @@ O Hub IoT na solução também:
 A solução utiliza o Armazenamento de blobs do Azure como armazenamento de discos para a VM e para armazenar dados de implementação.
 
 ## <a name="web-app"></a>Aplicação Web
-A aplicação Web implementada como parte do acelerador de soluções inclui um cliente OPC UA integrado, processamento de alertas e visualização de telemetria.
+A aplicação web implementada como parte do solution accelerator inclui um cliente de OPC UA integrado processamento de alertas e visualização de telemetria.
 
 ## <a name="telemetry-data-flow"></a>Fluxo de dados de telemetria
 
@@ -161,7 +165,7 @@ A aplicação Web implementada como parte do acelerador de soluções inclui um 
     - Este passo é interno para o datacenter.
 
 11. O browser liga à WebApp de Fábrica Ligada.
-    - Compõe o dashboard de Fábrica Ligada.
+    - Apresenta o dashboard de fábrica ligada.
     - Liga por HTTPS.
     - O acesso à Aplicação de Fábrica Ligada requer autenticação do utilizador através do Azure Active Directory.
     - Todas as chamadas WebApi na aplicação de Fábrica Ligada são protegidas por Tokens Antifalsificação.
@@ -182,9 +186,9 @@ A aplicação Web implementada como parte do acelerador de soluções inclui um 
 
 2. O Proxy OPC (componente de servidor) efetua o próprio registo no Hub IoT.
     - Lê todos os dispositivos conhecidos a partir do Hub IoT.
-    - Utiliza MQTT por TLS através de Socket ou Websocket Seguro.
+    - Utiliza MQTT por TLS através de Socket ou WebSocket seguro.
 
-3. O browser liga à WebApp de Fábrica Ligada e compõe o dashboard de Fábrica Ligada.
+3. Navegador da Web liga à WebApp de fábrica ligada e apresenta o dashboard de fábrica ligada.
     - Utiliza HTTPS.
     - Um utilizador seleciona um servidor OPC UA ao qual ligar.
 
@@ -212,7 +216,7 @@ A aplicação Web implementada como parte do acelerador de soluções inclui um 
     - Estes dados são entregues na pilha OPC UA na aplicação de Fábrica Ligada.
 
 11. A WebApp de Fábrica Ligada devolve o OPC Browser UX enriquecido com as informações específicas do OPC UA que recebeu do servidor OPC UA para composição pelo Browser.
-    - Ao navegar pelo espaço de endereços OPC e ao aplicar as funções nos nós do espaço de endereços OPC, o cliente OPC Browser UX utiliza as chamadas AJAX por HTTPS seguro com Tokens Antifalsificação para obter dados da WebApp de Fábrica Ligada.
+    - Enquanto um usuário navega por meio do espaço de endereços OPC e aplica-se as funções para nós o espaço de endereços OPC, o cliente OPC Browser UX utiliza chamadas AJAX por HTTPS seguro com Tokens antifalsificação para obter dados da WebApp de fábrica ligada.
     - Se necessário, o cliente utiliza a comunicação explicada nos passos 4 a 10 para trocar informações com o servidor OPC UA.
 
 > [!NOTE]
