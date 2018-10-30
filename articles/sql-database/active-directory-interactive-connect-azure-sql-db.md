@@ -124,13 +124,13 @@ O programa c# baseia-se no espaço de nomes **ActiveDirectory**. As classes para
 
 É um espaços de nomes que depende de exemplo de c# **SqlClient**. De especial interesse é o enum **SqlAuthenticationMethod**. Essa enumeração possui os seguintes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory * Interactive ***:&nbsp; utilizá-lo com um nome de utilizador do Azure AD para alcançar a autenticação multifator MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*Interactive**\*:&nbsp; utilizá-lo com um nome de utilizador do Azure AD para alcançar a autenticação multifator MFA.
     - Este valor é o foco deste artigo presente. Produz uma experiência interativa ao apresentar caixas de diálogo para a palavra-passe de utilizador e, em seguida, para a validação de MFA, se a MFA é imposta este utilizador.
     - Este valor está disponível a partir do .NET Framework versão 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory * integrado ***:&nbsp; utilizá-lo para um *federado* conta. Para uma conta federada, o nome de utilizador é conhecido para o domínio do Windows. Este método não suporta a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*integrado**\*:&nbsp; utilizá-lo para um *federado* conta. Para uma conta federada, o nome de utilizador é conhecido para o domínio do Windows. Este método não suporta a MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory * palavra-passe ***:&nbsp; utilizá-lo para a autenticação que requer um utilizador e palavra-passe do utilizador. Base de dados SQL do Azure realiza a autenticação. Este método não suporta a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory \*palavra-passe**\*:&nbsp; utilizá-lo para a autenticação que requer um utilizador e palavra-passe do utilizador. Base de dados SQL do Azure realiza a autenticação. Este método não suporta a MFA.
 
 
 
