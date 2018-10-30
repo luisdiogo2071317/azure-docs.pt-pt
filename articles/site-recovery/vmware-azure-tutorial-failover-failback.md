@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391373"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457077"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos replicados no Azure
 
@@ -93,13 +93,12 @@ Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md)
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparação para a nova proteção da VM do Azure
 
-### <a name="create-a-process-server-in-azure"></a>Criar um servidor de processos no Azure
+- Pode utilizar o servidor de processos no local (servidor de processos incorporado) que é instalado automaticamente no servidor de configuração, como parte da configuração **se tiver uma ligação do Azure ExpressRoute**.
 
-O servidor de processos recebe dados da VM do Azure e envia-os para o site no local. É necessária uma rede de latência baixa entre o servidor de processos e a VM protegida.
+> [!IMPORTANT]
+> Se tiver uma ligação VPN entre o ambiente no local e o Azure, tem de configurar uma VM do Azure como um servidor de processos de reproteção e reativação pós-falha. Para configurar um servidor de processos no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
 
-- Para fins de teste, se tiver uma ligação do Azure ExpressRoute, pode utilizar o servidor de processos no local (servidor de processos incorporado) que é instalado automaticamente no servidor de configuração.
-- Se tiver uma ligação VPN ou se estiver a executar a reativação pós-falha num ambiente de produção, tem de configurar uma VM do Azure como um servidor de processos baseado no Azure para reativação pós-falha.
-- Para configurar um servidor de processos no Azure, siga as instruções [neste artigo](vmware-azure-set-up-process-server-azure.md).
+Para obter mais informações sobre os pré-requisitos de reproteção e reativação pós-falha, veja esta [secção]](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurar o servidor de destino mestre
 

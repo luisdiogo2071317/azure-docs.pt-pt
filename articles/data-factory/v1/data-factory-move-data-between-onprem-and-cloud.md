@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057410"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233604"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -65,7 +65,7 @@ Neste passo, vai utilizar o portal do Azure para criar uma instância do Azure D
    > [!IMPORTANT]
    > O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **nome da fábrica de dados "ADFTutorialOnPremDF" não está disponível**, altere o nome da fábrica de dados (por exemplo, yournameADFTutorialOnPremDF) e tente criar novamente. Utilize este nome em vez de ADFTutorialOnPremDF ao realizar os passos restantes neste tutorial.
    >
-   > O nome da fábrica de dados pode ser registado como um nome **DNS** no futuro e, por conseguinte, ficar publicamente visível.
+   > O nome da fábrica de dados pode ser registado como um **DNS** publicaly de nome no futuro e, por conseguinte, ficar visível.
    >
    >
 4. Selecione a **Subscrição do Azure** onde pretende que seja criada a fábrica de dados.
@@ -304,7 +304,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
 ## <a name="create-pipeline"></a>Criar pipeline
 Neste passo, vai criar um **pipeline** com um **atividade de cópia** que utiliza **EmpOnPremSQLTable** como entrada e **OutputBlobTable** como saída.
 
-1. No Editor do Data Factory, clique em **... Mais** e clique em **Novo pipeline**.
+1. No Editor do Data Factory, clique em **... Mais** e clique em **Novo pipeline.
 2. Substitua o JSON no painel da direita com o seguinte texto:    
 
     ```JSON   
