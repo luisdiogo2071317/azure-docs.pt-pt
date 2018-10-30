@@ -43,7 +43,7 @@ Obtém:
 
 Opções de onde pode continuar a utilizar Express:
 
-- Se não quiser sincronizar todas as UOs, ainda pode utilizar o Express e na última página, anule a seleção * * iniciar o processo de sincronização... ***. Em seguida, execute novamente o Assistente de instalação e alterar as UOs na [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options) e ativar a sincronização agendada.
+- Se não quiser sincronizar todas as UOs, ainda pode utilizar o Express e na última página, anule a seleção **iniciar o processo de sincronização...**\*. Em seguida, execute novamente o Assistente de instalação e alterar as UOs na [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options) e ativar a sincronização agendada.
 - Pretende ativar um dos recursos no Azure AD Premium, tais como a repetição de escrita de palavra-passe. Em primeiro lugar express para obter a instalação inicial foi concluída. Em seguida, execute novamente o Assistente de instalação e alterar os [opções de configuração](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Personalizado
