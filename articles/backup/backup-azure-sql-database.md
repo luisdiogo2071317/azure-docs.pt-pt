@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434250"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211507"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer cópias de segurança de bases de dados do SQL Server para o Azure
 
@@ -658,23 +658,23 @@ O Azure Backup utiliza as APIs nativas do SQL para todas as operações de cópi
 O exemplo seguinte é uma consulta que obtém todas as tarefas de cópia de segurança para uma base de dados com o nome **DB1**. Personalize a consulta para a monitorização avançada.
 
 ```
-select CAST (
+select CAST (
 Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
 server_name,
 machine_name,
 backup_start_date,
 backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
  
 ```
 
@@ -703,7 +703,7 @@ Quando parar a proteção para uma base de dados do SQL Server, o Azure Backup p
 * Parar todas as tarefas de cópia de segurança futuras e eliminar todos os pontos de recuperação.
 * Parar todas as tarefas de cópia de segurança futuras, mas deixar os pontos de recuperação.
 
-Existe um custo de deixar os pontos de recuperação. Os pontos de recuperação para SQL incorrem a instância protegida de SQL preços custo e o armazenamento consumido. Para obter mais informações sobre os preços de cópia de segurança do Azure para SQL, consulte a [página de preços do Azure Backup](https://azure.microsoft.com/pricing/details/backup/). 
+Se optar por parar cópia de segurança mantendo os dados, pontos de recuperação serão limpo de acordo com a política de cópia de segurança. Será cobrado a instância protegida de SQL preços custo e o armazenamento consumido até que todos os pontos de recuperação são limpos. Para obter mais informações sobre os preços de cópia de segurança do Azure para SQL, consulte a [página de preços do Azure Backup](https://azure.microsoft.com/pricing/details/backup/). 
 
 Para parar a proteção para uma base de dados:
 

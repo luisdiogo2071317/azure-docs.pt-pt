@@ -1,19 +1,19 @@
 ---
-title: Instalar o serviço de mobilidade (VMware ou físico para o Azure) | Documentos da Microsoft
-description: Saiba como instalar o agente do serviço de mobilidade para proteger as suas VMs de VMware no local e servidores físicos com o Azure Site Recovery.
+title: Instalar o serviço de mobilidade de recuperação após desastre de VMs de VMware e servidores físicos para o Azure | Documentos da Microsoft
+description: Saiba como instalar o agente do serviço de mobilidade para recuperação após desastre de VMs de VMware e servidores físicos para o Azure com o serviço Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527002"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212697"
 ---
-# <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Instalar o serviço de mobilidade de recuperação após desastre de VMs de VMware e servidores físicos
 
 Serviço de mobilidade da recuperação de sites do Azure está instalado em VMs de VMware e servidores físicos que pretende replicar para o Azure. O serviço obtém dados, escreve num computador e, em seguida, encaminha-os para o servidor de processos. Implemente o serviço de mobilidade para todos os computadores (VMware VM ou servidor físico) que pretende replicar para o Azure. Pode implementar o serviço de mobilidade nos servidores e VMs de VMware que pretende proteger através dos seguintes métodos:
 
@@ -113,7 +113,7 @@ Utilize um dos seguintes métodos para desinstalar o serviço de mobilidade num 
 2. Selecione **servidor do Microsoft Azure Site Recovery Mobility Service/destino principal**e, em seguida, selecione **desinstalação**.
 
 ### <a name="uninstall-at-a-command-prompt"></a>Desinstalar uma linha de comandos
-1. Abra uma janela de linha de comandos como administrador.
+1. Abra a janela da linha de comandos como administrador.
 2. Para desinstalar o serviço de mobilidade, execute o seguinte comando:
 
     ```

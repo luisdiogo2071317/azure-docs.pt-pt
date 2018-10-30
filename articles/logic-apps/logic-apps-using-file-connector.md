@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 41dd8ad721329c4c4d2761c9e4a37c640251dac3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125283"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232550"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com o Azure Logic Apps
 
@@ -99,7 +99,7 @@ Para obter detalhes técnicos sobre os limites, ações e acionadores, que é de
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Para ajudar a melhorar o Azure Logic Apps e conectores, vote ou submeta ideias no [site do Azure Logic Apps User Voice](http://aka.ms/logicapps-wish).
+* Para ajudar a melhorar o Azure Logic Apps e conectores, vote ou submeta ideias no [site do Azure Logic Apps User Voice](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

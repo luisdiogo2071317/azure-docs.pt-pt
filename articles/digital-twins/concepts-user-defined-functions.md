@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324183"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210130"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -25,7 +25,7 @@ Assim que os dispositivos enviam dados telemétricos para Digital Twins, os dese
 
 ![Fluxo de processamento de dados digitais duplos][1]
 
-1. O _validar_ fase transforma a mensagem de telemetria de entrada para um normalmente compreendida [ `data transfer object` ](https://en.wikipedia.org/wiki/Data_transfer_object) formato. Esta fase também executa a validação de dispositivos e sensores.
+1. O _validar_ fase transforma a mensagem de telemetria de entrada para um normalmente compreendida [ **objeto de transferência de dados** ](https://en.wikipedia.org/wiki/Data_transfer_object) formato. Esta fase também executa a validação de dispositivos e sensores.
 1. O _corresponde ao_ fase localiza a função de (ões) do adequadas definidas pelo utilizador para ser executado. Matchers predefinidos irão encontrar que a função de definidas pelo utilizador (ões) com base em informações de espaço de mensagem de telemetria de entrada, sensores e dispositivos.
 1. O _computação_ fase é executado o definidas pelo utilizador de função ((de ões), correspondentes na fase anterior. Estes função (ões) pode ler e atualizar valores computados em nós de gráfico geográficos e pode emitir notificações personalizadas.
 1. O _expedição_ fase encaminha qualquer notificações personalizadas da fase de computação para pontos finais definidos no gráfico.
@@ -40,11 +40,11 @@ Processamento de dados no duplos Digital do Azure consiste em definir três obje
 
 _Matchers_ definir um conjunto de condições que avaliar quais ações irão ocorrer com base na telemetria de sensores de entrada. Estas condições para determinar a correspondência podem incluir as propriedades do sensor, o dispositivo de principal do sensor e o espaço de principal do sensor. As condições são expressas como comparações contra um [caminho JSON](http://jsonpath.com/) conforme descrito no exemplo abaixo:
 
-- Todos os sensores do tipo de dados `Temperature`.
+- Todos os sensores do tipo de dados **temperatura**.
 - Ter `01` na respetiva porta.
-- Que pertencem a dispositivos com a chave da propriedade expandida `Manufacturer` definido para o valor `GoodCorp`.
-- Que pertencem aos espaços do tipo `Venue`.
-- Quais são os descendentes do pai `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Que pertencem a dispositivos com a chave da propriedade expandida **fabricante** definido para o valor `"GoodCorp"`.
+- Que pertencem aos espaços do tipo `"Venue"`.
+- Quais são os descendentes do pai **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

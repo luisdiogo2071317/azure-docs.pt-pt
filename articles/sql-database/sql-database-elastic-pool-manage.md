@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: fbe648ad1869753666babd9d573f086177fc8adf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466074"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232687"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -99,11 +99,11 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 
 | Comando | Descrição |
 | --- | --- |
-|[Conjuntos elásticos - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Cria um novo conjunto elástico ou atualiza um conjunto elástico existente.|
-|[Conjuntos elásticos - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Elimina o conjunto elástico.|
-|[Conjuntos elásticos - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Obtém um conjunto elástico.|
-|[Conjuntos elásticos - lista por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
-|[Conjuntos elásticos - atualização](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Atualiza um conjunto elástico existente.|
+|[Conjuntos elásticos - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Cria um novo conjunto elástico ou atualiza um conjunto elástico existente.|
+|[Conjuntos elásticos - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Elimina o conjunto elástico.|
+|[Conjuntos elásticos - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Obtém um conjunto elástico.|
+|[Conjuntos elásticos - lista por servidor](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Devolve uma lista de conjuntos elásticos num servidor.|
+|[Conjuntos elásticos - atualização](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Atualiza um conjunto elástico existente.|
 |[Atividades de conjunto elástico](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Devolve as atividades de conjunto elástico.|
 |[Conjunto elástico da base de dados de atividades](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Devolve a atividade nas bases de dados dentro de um conjunto elástico.|
 |[Bases de dados - criar ou atualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Cria uma nova base de dados ou atualiza a base de dados existente.|

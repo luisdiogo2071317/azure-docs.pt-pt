@@ -1,7 +1,7 @@
 ---
 title: API de REST (V4) - Python - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de códigos para o ajudar a começar a utilizar rapidamente a API de Texto do Microsoft Translator nos Serviços Cognitivos da Microsoft no Azure.
+description: Obtenha informações e código amostras de Python para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 595eee6a10192d877aa77f4849bac494dff05808
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1eff6ab146bb3a7ee053b8ac7fe3137d7c58c93a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650014"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212476"
 ---
 # <a name="qna-maker-rest-api-with-python"></a>API de REST do QnA Maker com Python
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../Overview/overview.md) com Python para fazer o seguinte.
+Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/overview.md) com o Python para fazer o seguinte.
 
 - [Criar uma nova base de dados de conhecimento.](#Create)
 - [Atualizar uma base de dados de conhecimento existente.](#Update)

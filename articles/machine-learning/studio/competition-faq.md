@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fcbba3578627f53ff1de29fe6e309db9608b31c9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465632"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231513"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Competitions FAQ (FAQ dos Concursos do Microsoft Cortana Intelligence)
 **O que é o Cortana Intelligence competições?**
 
-As competições do Microsoft Cortana Intelligence une uma Comunidade global de entusiastas de dados por coletivamente resolver alguns dos problemas de ciência de dados mais complexos do mundo. Competições do Cortana Intelligence permite apaixonados dos dados de em todo o mundo competem e criar modelos de ciência de dados altamente precisos e inteligente. Estes competições alojadas baseiam-se a conjuntos de dados exclusivos que foram disponibilizados para publicamente pela primeira vez. Os participantes podem ganhar recompensas ou ser reconhecido por meio do placar pública 10. Pode acessar a home page de competições no [aka.ms/CIComp](http://aka.ms/CIComp).
+As competições do Microsoft Cortana Intelligence une uma Comunidade global de entusiastas de dados por coletivamente resolver alguns dos problemas de ciência de dados mais complexos do mundo. Competições do Cortana Intelligence permite apaixonados dos dados de em todo o mundo competem e criar modelos de ciência de dados altamente precisos e inteligente. Estes competições alojadas baseiam-se a conjuntos de dados exclusivos que foram feitos publicaly disponível pela primeira vez. Os participantes podem ganhar recompensas ou ser reconhecido por meio do placar pública 10. Pode acessar a home page de competições no [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Com que frequência é que a Microsoft vai lançar novas competições?**
 

@@ -4,17 +4,17 @@ description: Determinam a conformidade e efeitos de avaliações de política do
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970860"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233417"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 
@@ -40,6 +40,44 @@ Avaliações de políticas atribuídas e iniciativas de acontecem como resultado
 - Uma política ou iniciativa já atribuído a um âmbito é atualizada. O ciclo de avaliação e o tempo para este cenário é igual de uma nova atribuição a um âmbito.
 - Um recurso é implementado para um âmbito com uma atribuição através do Resource Manager, do REST, da CLI do Azure ou do Azure PowerShell. Neste cenário, o evento de efeito (acrescentar, auditoria, negar, implementar) e informações de estado de conformidade para o recurso individual ficarem disponíveis no portal e SDKs de cerca de 15 minutos mais tarde. Este evento não faz com que uma edição de avaliação de outros recursos.
 - Ciclo de avaliação de conformidade. Uma vez a cada 24 horas, as atribuições são reavaliadas automaticamente. Uma política de grandes ou iniciativa avaliada em comparação com um âmbito grande de recursos pode demorar tempo, portanto, não há nenhuma expectativa predefinida de quando a avaliação ciclo será concluída. Depois de terminar, resultados de compatibilidade atualizados estão disponíveis no portal e SDKs.
+- A verificação por demanda
+
+### <a name="on-demand-evaluation-scan"></a>A verificação de avaliação por demanda
+
+Uma análise de avaliação para uma subscrição ou um grupo de recursos pode ser iniciada com uma chamada à REST API. Esse é um processo assíncrono. Como tal, o ponto final REST para iniciar a análise não tem de aguardar até que a verificação estiver concluída, a responder. Em vez disso, ele fornece um URI para consultar o estado da avaliação pedida.
+
+Em cada URI da API REST, existem variáveis que são utilizadas que precisa de substituir pelos seus próprios valores:
+
+- `{YourRG}` -Substituir pelo nome do seu grupo de recursos
+- `{subscriptionId}` - substituir pelo ID da subscrição
+
+A análise suporta a avaliação dos recursos numa subscrição ou num grupo de recursos. Iniciar uma verificação para o âmbito pretendido com uma API REST **POST** comando utilizando as estruturas URI seguintes:
+
+- Subscrição
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Grupo de recursos
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+A chamada retorna um **aceite 202** estado. Incluído na resposta de cabeçalho é um **localização** propriedade com o seguinte formato:
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` estaticamente é gerado para o âmbito de pedido. Se um âmbito estiver a executar uma análise a pedido on, uma nova análise não está iniciada. Em vez disso, o novo pedido é fornecido o mesmo `{ResourceContainerGUID}` **localização** URI para o estado. Uma API REST **Obtenha** comando para o **localização** URI retorna um **aceite 202** enquanto a avaliação está em curso. Quando a análise de avaliação foi concluída, ele retorna um **200 OK** estado. O corpo de uma verificação concluídos é uma resposta JSON com o estado:
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
 

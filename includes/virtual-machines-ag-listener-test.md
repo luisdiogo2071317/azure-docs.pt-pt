@@ -1,18 +1,31 @@
-Neste passo, testar o serviço de escuta do grupo de disponibilidade, utilizando uma aplicação cliente que está a ser executado na mesma rede.
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226886"
+---
+Neste passo, vai testar o serviço de escuta do grupo de disponibilidade, utilizando uma aplicação cliente que está em execução na mesma rede.
 
-Conectividade de clientes tem os seguintes requisitos:
+Conectividade de cliente tem os seguintes requisitos:
 
-* Ligações de cliente para o serviço de escuta tem provenientes de máquinas que residem num serviço cloud diferente daquela que aloja as réplicas de disponibilidade Always On.
-* Se as réplicas Always On estiverem em sub-redes diferentes, os clientes têm de especificar *MultisubnetFailover = True* na cadeia de ligação. Esta condição resulta em tentativas de ligação de paralelo para réplicas nas várias sub-redes. Este cenário inclui a uma implementação de por várias regiões Always On disponibilidade grupo.
+* Ligações de cliente para o serviço de escuta tem de ser provenientes de máquinas que residem num serviço cloud diferente daquele que aloja as réplicas de disponibilidade Always On.
+* Se as réplicas Always On estiverem em sub-redes diferentes, os clientes têm de especificar *MultisubnetFailover = True* na cadeia de ligação. Esta condição resulta em tentativas de ligação paralela para réplicas em várias sub-redes. Este cenário inclui uma implementação de entre regiões Always On disponibilidade grupo.
 
-Um exemplo é para ligar ao serviço de escuta de uma das VMs na mesma rede virtual do Azure (mas não um que aloja uma réplica). Uma forma fácil para concluir este teste está a tentar estabelecer a ligação SQL Server Management Studio para o serviço de escuta do grupo de disponibilidade. Outro método simple está a ser executado [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), da seguinte forma:
+Um exemplo é para ligar ao serviço de escuta, a partir de uma das VMs na mesma rede virtual do Azure (mas não um que aloja uma réplica). Uma forma fácil de concluir este teste é tentar conectar-se o SQL Server Management Studio para o serviço de escuta do grupo de disponibilidade. Outro método simple consiste em executar [SQLCMD.exe](https://technet.microsoft.com/library/ms162773.aspx), da seguinte forma:
 
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> Se o valor de EndpointPort for *1433*, não é necessário especificá-la na chamada. A chamada anterior também assume que o computador de cliente está associado ao mesmo domínio e se o autor da chamada foram concedida as permissões na base de dados utilizando a autenticação do Windows.
+> Se for o valor de EndpointPort *1433*, não é necessário especificá-lo na chamada. A chamada anterior também pressupõe que o computador cliente está associado ao mesmo domínio e se o chamador foram concedido as permissões na base de dados utilizando a autenticação do Windows.
 > 
 > 
 
-Quando testar o serviço de escuta, lembre-se de que a ativação pós-falha o grupo de disponibilidade para se certificar de que os clientes podem ligar ao serviço de escuta em ativações pós-falha.
+Ao testar o serviço de escuta, certifique-se de que a ativação pós-falha o grupo de disponibilidade para se certificar de que os clientes podem ligar para o serviço de escuta em ativações pós-falha.
 

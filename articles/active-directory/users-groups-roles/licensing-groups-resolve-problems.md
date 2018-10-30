@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861906"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211541"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licença para um grupo no Azure Active Directory
 
@@ -65,7 +65,7 @@ Para ver a quais usuários e grupos que estão consumindo licenças, selecione u
 
 **Problema:** contém um dos produtos que é especificado no grupo de um plano de serviço que está em conflito com outro plano de serviço que já está atribuído ao utilizador através de um produto diferente. Alguns planos de serviço são configurados de forma que não é possível atribuir o mesmo utilizador como o plano do serviço de outra, relacionados.
 
-Considere o exemplo a seguir. Um utilizador tiver uma licença para o Office 365 Enterprise *E1* atribuídos diretamente, com todos os planos ativados. O utilizador foi adicionado a um grupo que tenha o Office 365 Enterprise *E3* produto atribuído ao mesmo. O produto E3 contém planos de serviço que não podem sobrepor-se com os planos que estão incluídos no E1, para que a atribuição de licença de grupo falha com o erro "Planos do serviço em conflito". Neste exemplo, os planos de serviço em conflito são:
+Considere o seguinte exemplo. Um utilizador tiver uma licença para o Office 365 Enterprise *E1* atribuídos diretamente, com todos os planos ativados. O utilizador foi adicionado a um grupo que tenha o Office 365 Enterprise *E3* produto atribuído ao mesmo. O produto E3 contém planos de serviço que não podem sobrepor-se com os planos que estão incluídos no E1, para que a atribuição de licença de grupo falha com o erro "Planos do serviço em conflito". Neste exemplo, os planos de serviço em conflito são:
 
 -   SharePoint Online (plano 2) está em conflito com o SharePoint Online (plano 1).
 -   Exchange Online (plano 2) está em conflito com o Exchange Online (plano 1).
@@ -96,6 +96,19 @@ Para resolver este problema, remova os utilizadores de nonsupported locais do gr
 
 > [!NOTE]
 > Quando o Azure AD atribuir licenças de grupo, todos os utilizadores sem uma localização de utilização especificada herdam a localização do diretório. Recomendamos que os administradores definir a correta utilização valores de localização em utilizadores antes de utilizar o licenciamento baseado em grupo para cumprir as leis e regulamentações locais.
+
+## <a name="duplicate-proxy-addresses"></a>Endereços de proxy duplicados
+
+Se utilizar o Exchange Online, alguns utilizadores no seu inquilino podem ser incorretamente configurados com o mesmo valor de endereço de proxy. Quando tenta com o licenciamento baseado em grupo atribuir uma licença para esse usuário, falhará e mostra "endereço de Proxy já está a ser utilizado".
+
+> [!TIP]
+> Para ver se existe um endereço de proxy duplicados, execute o seguinte cmdlet do PowerShell no Exchange Online:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> Para obter mais informações sobre este problema, consulte [mensagem de erro "o endereço de Proxy já está a ser utilizado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como ligar ao Exchange Online com o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx). Veja este artigo para obter mais informações [sobre como o atributo proxyAddresses é preenchido no Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+Depois de resolver quaisquer problemas de endereço de proxy para os utilizadores afetados, certifique-se forçar o processamento de licença no grupo de certificar-se de que as licenças agora podem ser aplicadas.
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>O que acontece quando existe mais de uma licença de produto num grupo?
 
@@ -134,19 +147,7 @@ De agora em diante, quaisquer utilizadores adicionados a este grupo consumam uma
 > [!TIP]
 > Pode criar vários grupos para cada plano do serviço de pré-requisitos. Por exemplo, se utilizar o Office 365 Enterprise E1 e o Office 365 Enterprise E3 para os seus utilizadores, pode criar dois grupos a licença Microsoft Workplace Analytics: um que utiliza E1 como um pré-requisito e outra que utiliza E3. Isso permite que distribuir o complemento para os utilizadores E1 e E3 sem consumir licenças adicionais.
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>A atribuição de licenças falha silenciosamente por um utilizador devido a endereços de proxy duplicadas no Exchange Online
 
-Se utilizar o Exchange Online, alguns utilizadores no seu inquilino podem ser incorretamente configurados com o mesmo valor de endereço de proxy. Quando tenta com o licenciamento baseado em grupo atribuir uma licença para esse usuário, ele falha e não grava um erro. A falha para registrar o erro nesta instância é uma limitação na versão de pré-visualização desse recurso, e vamos para resolver o problema antes *disponibilidade geral*.
-
-> [!TIP]
-> Se notar que alguns utilizadores não recebeu uma licença e não existe nenhum erro registrado para os utilizadores, verifique primeiro se eles têm um endereço de proxy duplicados.
-> Para ver se existe um endereço de proxy duplicados, execute o seguinte cmdlet do PowerShell no Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> Para obter mais informações sobre este problema, consulte [mensagem de erro "o endereço de Proxy já está a ser utilizado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como ligar ao Exchange Online com o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
-
-Depois de resolver quaisquer problemas de endereço de proxy para os utilizadores afetados, certifique-se forçar o processamento de licença no grupo de certificar-se de que as licenças agora podem ser aplicadas.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Como forçar o processamento de licença num grupo para resolver erros?
 
@@ -154,11 +155,19 @@ Dependendo de quais etapas que seguimos para resolver os erros, poderá ser nece
 
 Por exemplo, se libertar algumas licenças ao remover atribuições diretas de licenças de utilizadores, terá de acionar o processamento de grupos que tenha falhado anteriormente totalmente licenciar todos os membros de utilizador. Reprocessar um grupo, vá para o painel de grupo, abra **licenças**e, em seguida, selecione a **Reprocessar** botão na barra de ferramentas.
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Como forçar o processamento de licença num utilizador para resolver erros?
+
+Dependendo de quais etapas que seguimos para resolver os erros, poderá ser necessário acionar manualmente o processamento de um utilizador para atualizar o estado de usuários.
+
+Por exemplo, depois de resolver o problema de endereço de proxy duplicados para um utilizador afetado, precisa acionar o processamento do utilizador. Reprocessar um utilizador, vá para o painel do utilizador, abra **licenças**e, em seguida, selecione a **Reprocessar** botão na barra de ferramentas.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para saber mais sobre outros cenários para gestão de licenças através de grupos, consulte o seguinte:
 
-* [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [O que é o licenciamento no Azure Active Directory com base em grupo?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Como migrar utilizadores licenciados individuais para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
-* [O Azure Active Directory cenários adicionais de licenciamento baseado no grupo](licensing-group-advanced.md)
+* [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
+* [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
+* [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-change-licenses.md)
+* [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)
+* [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-ps-examples.md)

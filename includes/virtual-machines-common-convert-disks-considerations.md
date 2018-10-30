@@ -1,9 +1,21 @@
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: bf26af7fa4b1b31514fb82c5e28a85154b2e274a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227249"
+---
 * A conversão necessita de um reinício da VM, por isso, agende a migração das VMs durante uma janela de manutenção pré-existente. 
 
 * A conversão não é reversível. 
 
-* Tenha em atenção que todos os utilizadores com o [contribuinte de Máquina Virtual](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) função não será possível alterar o tamanho da VM (uma vez que estes foi pré-conversão). Isto acontece porque as VMs com discos geridos exigem que o utilizador ter a permissão de Microsoft.Compute/disks/write nos discos do SO.
+* Tenha em atenção que qualquer os utilizadores com o [contribuinte de Máquina Virtual](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) função não será possível alterar o tamanho da VM (como pré-conversão de). Isto acontece porque as VMs com discos geridos pedir ao utilizador que tem a permissão de Microsoft.Compute/disks/write nos discos de SO.
 
 * Certifique-se de que testa a conversão. Migre uma máquina virtual de teste antes de efetuar a migração na produção.
 
@@ -11,4 +23,4 @@
 
 * Os VHDs originais e a conta de armazenamento utilizada pela VM antes da conversão não são eliminados. Continuam a incorrer em custos. Para evitar a cobrança destes artefactos, elimine os blobs de VHD originais depois de verificar que a conversão está concluída.
 
-* Reveja a versão mínima do agente de VM do Azure necessário para suportar o processo de conversão. Para obter informações sobre como Verifique e atualize a sua versão do agente, consulte [suporte para a versão mínima para agentes VM no Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+* Reveja a versão mínima do agente de VM do Azure necessário para suportar o processo de conversão. Para obter informações sobre como verificar e atualizar a versão do agente, consulte [suporte para a versão mínima para os agentes VM no Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)

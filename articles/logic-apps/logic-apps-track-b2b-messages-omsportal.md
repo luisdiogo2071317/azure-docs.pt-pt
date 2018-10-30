@@ -1,5 +1,5 @@
 ---
-title: Monitorizar mensagens B2B com o Azure Log Analytics - Azure Logic Apps | Documentos da Microsoft
+title: Monitorizar mensagens B2B com o Log Analytics - Azure Logic Apps | Documentos da Microsoft
 description: Controlar a comunicação de B2B para contas de integração e o Azure Logic Apps com o Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -8,18 +8,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 06/19/2018
-ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/19/2018
+ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405689"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233566"
 ---
-# <a name="track-b2b-communication-with-azure-log-analytics"></a>Controlar B2B comunicação com o Azure Log Analytics
+# <a name="track-b2b-messages-with-azure-log-analytics"></a>Monitorizar mensagens B2B com o Azure Log Analytics
 
-Após configurar a comunicação de B2B entre dois processos de negócios ou aplicativos através da sua conta de integração, a executar essas entidades podem trocar mensagens entre si. Para verificar se estas mensagens são processadas corretamente, pode controlar o AS2, X12, e mensagens de EDIFACT com [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). Por exemplo, pode utilizar estas capacidades de controle baseado na web para mensagens de controlo:
+Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta de integração, os parceiros podem trocar mensagens com protocolos, como o AS2, X12 e EDIFACT. Para verificar que estas mensagens são processadas corretamente, pode controlar estas mensagens com [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). Por exemplo, pode utilizar estas capacidades de controle baseado na web para mensagens de controlo:
 
 * Contagem de mensagens e o Estado
 * Estado de agradecimentos
@@ -27,7 +26,10 @@ Após configurar a comunicação de B2B entre dois processos de negócios ou apl
 * Descrições de erro detalhadas para falhas
 * Capacidades de pesquisa
 
-## <a name="requirements"></a>Requisitos
+> [!NOTE]
+> Passos para saber como realizar estas tarefas com o Microsoft Operations Management Suite (OMS), que é descrito anteriormente, esta página [extinguir em Janeiro de 2019](../log-analytics/log-analytics-oms-portal-transition.md), substitui esses passos com o Azure Log Analytics em vez disso. 
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma aplicação de lógica que está configurada com o registo de diagnósticos. Saiba mais [como criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
@@ -35,51 +37,57 @@ Após configurar a comunicação de B2B entre dois processos de negócios ou apl
 
 * Se ainda não o fez, [publicar dados de diagnóstico para o Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> Depois de cumprir os requisitos anteriores, deve ter uma área de trabalho do Log Analytics. Deve usar a mesma área de trabalho para rastrear a comunicação de B2B no Log Analytics. 
->  
-> Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+* Depois de cumprir os requisitos anteriores, também precisa de uma área de trabalho do Log Analytics, que são utilizados para comunicação de B2B através da análise de registo de controlo. Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Adicionar a solução de aplicações lógicas B2B para o Azure
+## <a name="install-logic-apps-b2b-solution"></a>Instalar a solução de aplicações lógicas B2B
 
-Para que o Log Analytics monitorizar mensagens B2B para a aplicação lógica, tem de adicionar o **Logic Apps B2B/EDI** solução para o Log Analytics. Saiba mais sobre [adicionar soluções ao Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Antes de pode ter o Log Analytics monitorizar mensagens B2B para a aplicação lógica, adicione a **Logic Apps B2B/EDI** solução para o Log Analytics. Saiba mais sobre [adicionar soluções ao Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. Na [portal do Azure](https://portal.azure.com), escolha **todos os serviços**. Procure "log analytics" e, em seguida, escolha **do Log Analytics** conforme mostrado aqui:
+1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, encontre "log analytics" e selecione **do Log Analytics**.
 
-   ![Encontrar o Log Analytics](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Selecione o Log Analytics](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-2. Sob **do Log Analytics**, localize e selecione a sua área de trabalho do Log Analytics. 
+1. Sob **do Log Analytics**, localize e selecione a sua área de trabalho do Log Analytics. 
 
-   ![Selecione a sua área de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Selecione a área de trabalho do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-3. Sob **gerenciamento**, escolha **resumo de área de trabalho**.
+1. Sob **introdução ao Log Analytics** > **configurar soluções de monitorização**, escolha **ver soluções**.
 
-   ![Escolher o portal do Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Escolha "Ver soluções"](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-4. Depois de abrir a home page, escolha **adicionar** para instalar a solução de aplicações lógicas B2B.    
-   ![Selecione a Galeria de soluções](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+1. Na página Descrição geral, escolha **Add**, que abre o **soluções de gestão** lista. A partir dessa lista, selecione **Logic Apps B2B/EDI**. 
 
-5. Sob **soluções de gestão**, localize e crie **aplicações lógicas B2B** solução.     
-   ![Escolher aplicações lógicas B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+   ![Selecione a solução de aplicações lógicas B2B](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   Na home page, no mosaico relativo **mensagens de B2B de aplicações lógicas** aparece agora. 
-   Este mosaico é atualizada a contagem de mensagens quando as mensagens B2B são processadas.
+   Se não conseguir encontrar a solução, na parte inferior da lista, escolha **carregar mais** até que apareça a solução.
+
+1. Escolher **Create**, confirme a área de trabalho do Log Analytics onde pretende instalar a solução e, em seguida, escolha **criar** novamente.   
+
+   ![Escolha "Criar" para aplicações lógicas B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+
+   Se não pretender utilizar uma área de trabalho existente, também pode criar uma nova área de trabalho neste momento.
+
+1. Quando tiver terminado, volte para a área de trabalho **descrição geral** página. 
+
+   A solução de aplicações lógicas B2B agora aparece na página de descrição geral. 
+   Quando são processadas mensagens B2B, a contagem de mensagens nesta página é atualizada.
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-log-analytics"></a>Controlar o estado de mensagem e os detalhes no Log Analytics
+## <a name="view-b2b-message-information"></a>Ver informações de mensagens B2B
 
-1. Depois das mensagens B2B são processadas, pode ver o estado e os detalhes para essas mensagens. Na página Descrição geral, escolha o **mensagens de B2B de aplicações lógicas** mosaico.
+Após o processamento de mensagens B2B, pode ver o estado e os detalhes para essas mensagens no **Logic Apps B2B/EDI** mosaico.
+
+1. Vá para a área de trabalho de análise de lógica e abrir a página de descrição geral. Escolher **Logic Apps B2B/EDI**.
 
    ![Contagem de mensagens atualizado](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > Por predefinição, o **mensagens de B2B de aplicações lógicas** mosaico mostra os dados com base num único dia. Para alterar o âmbito de dados para um intervalo diferente, escolha o controlo de âmbito na parte superior da página:
+   > Por predefinição, o **Logic Apps B2B/EDI** mosaico mostra os dados com base num único dia. Para alterar o âmbito de dados para um intervalo diferente, escolha o controlo de âmbito na parte superior da página:
    > 
-   > ![Alterar o âmbito de dados](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
-   >
+   > ![Intervalo de alteração](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. Após a mensagem de estado é apresentado o dashboard, pode ver mais detalhes sobre um tipo de mensagem específica, que mostra os dados com base num único dia. Escolha o mosaico da **AS2**, **X12**, ou **EDIFACT**.
+1. Após a mensagem de estado é apresentado o dashboard, pode ver mais detalhes sobre um tipo de mensagem específica, que mostra os dados com base num único dia. Escolha o mosaico da **AS2**, **X12**, ou **EDIFACT**.
 
    ![Ver o estado de mensagem](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 
@@ -145,7 +153,7 @@ Aqui estão as descrições de propriedade para cada mensagem AS2.
 | ACK | O estado da mensagem MDN <br>Aceite = recebidos ou enviados um MDN positivo. <br>Pendente = esperando para receber ou enviar um MDN. <br>Rejeitado = recebidos ou enviados um MDN negativo. <br>Não é necessário = MDN não está definido no contrato. |
 | Direção | A direção de mensagem AS2 |
 | ID de Correlação | O ID que correlaciona todos os acionadores e ações numa aplicação lógica |
-| ID da mensagem | O ID da mensagem AS2 dos cabeçalhos de mensagem AS2 |
+| ID da Mensagem | O ID da mensagem AS2 dos cabeçalhos de mensagem AS2 |
 | Carimbo de data/hora | A hora quando a ação de AS2 processado a mensagem |
 |          |             |
 

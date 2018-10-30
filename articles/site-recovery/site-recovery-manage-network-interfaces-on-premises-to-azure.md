@@ -1,22 +1,20 @@
 ---
-title: Gerir as interfaces de rede no Azure Site Recovery para o local para a replicação do Azure | Documentos da Microsoft
-description: Descreve como gerir as interfaces de rede para o local para a replicação do Azure com o Azure Site Recovery
-services: site-recovery
+title: Gerir as interfaces de rede no Azure Site Recovery para recuperação de desastre no local para o Azure | Documentos da Microsoft
+description: Descreve como gerir as interfaces de rede para recuperação de desastre no local para o Azure com o Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352415"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212459"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gerir as interfaces de rede de máquina virtual para o local para a replicação do Azure
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerir as interfaces de rede de máquina virtual para recuperação de desastre no local para o Azure
 Uma máquina virtual (VM) no Azure tem de ter, pelo menos, uma interface de rede ligada ao mesmo. Ele pode ter como muitos anexados a ele como o suporte de tamanho VM de interfaces de rede.
 
 Por predefinição, a primeira interface de rede ligada a uma máquina virtual do Azure é definida como a interface de rede principal. Todas as outras interfaces de rede na máquina virtual são interfaces de rede secundárias. Também por predefinição, todo o tráfego de saída da máquina virtual é enviado o endereço IP que está atribuído a configuração de IP principal da interface de rede principal.

@@ -1,6 +1,6 @@
 ---
-title: Gerir controladores de dispositivo de série 8000 do StorSimple | Microsoft Docs
-description: Saiba como parar, reiniciar, encerre ou repor os controladores de dispositivo StorSimple.
+title: Gerir controladores de dispositivo do StorSimple 8000 series | Documentos da Microsoft
+description: Saiba como parar, reiniciar, desligar ou repor os controladores de dispositivo do StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 75c1bdb570967b6d1902697597f0b5bf3f4ffb7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23875117"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215434"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerir os controladores de dispositivo do StorSimple
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial descreve as operações diferentes que podem ser efetuadas nos controladores de dispositivo StorSimple. Os controladores de dispositivo StorSimple são controladores redundante (ponto a ponto) uma configuração de ativo-passivo. Num determinado momento, apenas um controlador está ativo e está a processar todas as operações de disco e rede. O controlador de outro está num modo passivo. Se o controlador de Active Directory falhar, o controlador passivo automaticamente fica ativo.
+Este tutorial descreve as diferentes operações que podem ser executadas em seus controladores de dispositivo do StorSimple. Os controladores de dispositivo StorSimple são os controladores de redundantes (ponto) numa configuração ativa-passiva. Num determinado momento, apenas um controlador está ativo e está a processar todas as operações de disco e rede. É outro controlador num modo passivo. Se o controlador ativo falhar, o controlador passivo é automaticamente ativo.
 
-Este tutorial inclui instruções passo a passo para gerir os controladores de dispositivo utilizando o:
+Este tutorial inclui instruções passo a passo para gerir os controladores de dispositivo com o:
 
-* **Controladores** painel para o seu dispositivo no serviço do Gestor de dispositivos do StorSimple.
+* **Controladores** painel para o seu dispositivo no serviço StorSimple Device Manager.
 * Windows PowerShell para StorSimple.
 
-Recomendamos que gere os controladores de dispositivo através do serviço do Gestor de dispositivos do StorSimple. Se uma ação só pode ser efetuada através do Windows PowerShell para StorSimple, o tutorial faz uma nota do mesmo.
+Recomendamos que gerencie os controladores de dispositivo por meio do serviço StorSimple Device Manager. Se uma ação só pode ser efetuada utilizando o Windows PowerShell para StorSimple, o tutorial faz uma nota do mesmo.
 
 Depois de ler este tutorial, será capaz de:
 
@@ -41,124 +41,124 @@ Depois de ler este tutorial, será capaz de:
 * Repor o dispositivo StorSimple para as predefinições de fábrica
 
 ## <a name="restart-or-shut-down-a-single-controller"></a>Reiniciar ou encerrar um único controlador
-Um controlador reinício ou encerramento não é necessário como parte da operação do sistema normal. Operações de encerramento para um controlador de dispositivo único são comuns apenas nos casos em que um componente de hardware do dispositivo falhou requer substituição. Também poderá ser necessário um reinício do controlador uma situação em que o desempenho é afetado pela utilização de memória excessiva ou um controlador malfunctioning. Também ser necessário reiniciar um controlador depois de uma substituição de controlador com êxito, se pretender ativar e testar o controlador substituído.
+Um reinício do controlador ou encerramento não é necessário como parte da operação de normais do sistema. Operações de desligamento de um controlador de dispositivo único são comuns apenas em casos em que um componente de hardware do dispositivo com falha requer substituição. Também pode ser necessário um reinício de controlador numa situação em que o desempenho é afetado pela utilização de memória excessiva, ou um controlador com funcionamento incorreto. Também poderá reiniciar um controlador após uma substituição de controlador com êxito, se pretender ativar e testar o controlador substituído.
 
-Reiniciar um dispositivo não é acontece aos iniciadores ligados, assumindo que o controlador passivo está disponível. Se um controlador passivo não estiver disponível ou ativado desativado, em seguida, reiniciar o controlador de Active Directory poderão resultar na interrupção do serviço e o período de indisponibilidade.
+Reiniciar um dispositivo não é perturbador para os iniciadores conectados, partindo do princípio de que o controlador passivo não está disponível. Se um controlador passivo não está disponível ou não desativado, em seguida, reiniciar o controlador ativo pode resultar na interrupção de serviço e o tempo de inatividade.
 
 > [!IMPORTANT]
-> * **Nunca deve ser removido fisicamente um controlador em execução como isto resultaria em perda de redundância e um maior risco de indisponibilidade.**
-> * O procedimento seguinte aplica-se apenas para o dispositivo físico StorSimple. Para obter informações sobre como iniciar, parar e reiniciar a aplicação de nuvem do StorSimple, consulte [trabalhar com a aplicação de nuvem](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * **Nunca deve ser removido fisicamente um controlador em execução como isso poderia resultar numa perda de redundância e um maior risco de períodos de indisponibilidade.**
+> * O procedimento seguinte aplica-se apenas para o dispositivo físico StorSimple. Para obter informações sobre como iniciar, parar e reiniciar a StorSimple Cloud Appliance, consulte [trabalhar com a aplicação da cloud](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
 
-Pode reiniciar ou encerrar um controlador de dispositivo único através do portal do Azure do serviço do Gestor de dispositivos do StorSimple ou do Windows PowerShell para StorSimple.
+Pode reiniciar ou encerrar um controlador de dispositivo único através do portal do Azure do serviço StorSimple Device Manager ou do Windows PowerShell para StorSimple.
 
 Para gerir os controladores de dispositivo do portal do Azure, execute os seguintes passos.
 
 #### <a name="to-restart-or-shut-down-a-controller-in-azure-portal"></a>Para reiniciar ou encerrar um controlador no portal do Azure
-1. No seu serviço do Gestor de dispositivos do StorSimple, aceda a **dispositivos**. Selecione o seu dispositivo da lista de dispositivos. 
+1. No seu serviço StorSimple Device Manager, aceda a **dispositivos**. Selecione o seu dispositivo da lista de dispositivos. 
 
     ![Escolha um dispositivo](./media/storsimple-8000-manage-device-controller/manage-controller1.png)
 
 2. Aceda a **definições > controladores**.
    
-    ![Certifique-se de que os controladores de dispositivo StorSimple estão em bom Estados](./media/storsimple-8000-manage-device-controller/manage-controller2.png)
-3. No **controladores** painel, certifique-se de que o estado de ambos os controladores no seu dispositivo é **bom estado de funcionamento**. Selecionar um controlador, clique com botão direito e, em seguida, selecione **reiniciar** ou **Encerrar**.
+    ![Certifique-se de controladores de dispositivo do StorSimple estão em bom Estados](./media/storsimple-8000-manage-device-controller/manage-controller2.png)
+3. Na **controladores** painel, certifique-se de que o estado de ambos os controladores no seu dispositivo é **bom estado de funcionamento**. Selecione um controlador, com o botão direito e, em seguida, selecione **reinicie** ou **Encerrar**.
 
-    ![Selecionar reiniciar ou encerrar os controladores de dispositivo StorSimple](./media/storsimple-8000-manage-device-controller/manage-controller3.png)
+    ![Selecione reiniciar ou encerrar a controladores de dispositivo do StorSimple](./media/storsimple-8000-manage-device-controller/manage-controller3.png)
 
-4. É criada uma tarefa para reiniciar ou encerrar o controlador e é apresentadas com avisos aplicáveis, se aplicável. Para monitorizar o reinício ou encerramento, aceda a **serviço > registos de atividade** e, em seguida, filtre os parâmetros específicos ao seu serviço. Se um controlador foi encerrado, terá de push o botão de energia para ativar o controlador de ativá-la.
+4. É criada uma tarefa para reiniciar ou encerrar o controlador e é apresentada com avisos aplicável, se aplicável. Para monitorizar o reinício ou encerramento, aceda a **serviço > registos de atividades** e, em seguida, filtrar por parâmetros específicos ao seu serviço. Se um controlador foi encerrado corretamente, terá de enviar o botão de energia para ativar o controlador para ativá-la.
 
-#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Para reiniciar ou encerrar um controlador no Windows PowerShell para StorSimple
-Execute os seguintes passos para encerrar ou reiniciar um único controlador no dispositivo StorSimple do Windows PowerShell para StorSimple.
+#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Para reiniciar ou encerrar um controlador do Windows PowerShell para StorSimple
+Execute os seguintes passos para encerrar ou reiniciar um único controlador do seu dispositivo StorSimple a partir do Windows PowerShell para StorSimple.
 
-1. Acede ao dispositivo através da consola de série ou de uma sessão telnet a partir de um computador remoto. Para ligar ao controlador 0 ou 1 de controlador, siga os passos no [utilizar o PuTTY para ligar à consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+1. Aceda ao dispositivo através da consola de série ou de uma sessão telnet a partir de um computador remoto. Para ligar ao controlador 0 ou 1 do controlador, siga os passos em [utilizar o PuTTY para ligar a consola de série do dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
 2. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total**.
-3. Na mensagem de faixa, tome nota do controlador de que está ligado (controlador 0 ou 1 controlador) e se é o Active Directory ou o controlador passivo (modo de espera).
+3. Na mensagem de faixa, tome nota do controlador que está ligado à (controlador 0 ou controlador 1) e seja o Active Directory ou o controlador passivo (em espera).
    
    * Para encerrar um único controlador, na linha de comandos, escreva:
      
        `Stop-HcsController`
      
-       O controlador de que estão ligados a este encerrado. Se parar o controlador de Active Directory, em seguida, o dispositivo a ativação pós-falha para o controlador passivo.
+       Isso encerra o controlador que está ligado. Se parar o controlador ativo, em seguida, o dispositivo não consegue sobre o controlador passivo.
 
    * Para reiniciar um controlador, na linha de comandos, escreva:
      
        `Restart-HcsController`
      
-       Esta ação reinicia o controlador de que estão ligados a. Se reiniciar o controlador de Active Directory,-lo a ativação pós-falha para o controlador passivo antes de reiniciar.
+       Isto reinicia o controlador que está ligado à. Se reiniciar o controlador ativo, ele executa failover para o controlador passivo antes da reinicialização.
 
 ## <a name="shut-down-a-storsimple-device"></a>Encerrar um dispositivo StorSimple
 
-Esta secção explica como encerrar em execução ou de um dispositivo StorSimple falhado de um computador remoto. Um dispositivo está a ser desativado depois dos controladores de dispositivo estão a ser encerrados. Um encerramento de dispositivo é feito quando o dispositivo for movido fisicamente ou é retirado do serviço.
+Esta secção explica como encerrar uma em execução ou um dispositivo StorSimple com falha de um computador remoto. Um dispositivo está a ser desativado depois dos controladores de dispositivo são encerrados. Um encerramento de dispositivo é feito quando o dispositivo for movido fisicamente ou está a ser utilizado fora de serviço.
 
 > [!IMPORTANT]
-> Antes de encerrar o dispositivo, verifique o estado de funcionamento dos componentes do dispositivo. Navegue para o seu dispositivo e, em seguida, clique em **definições > Estado de funcionamento do Hardware**. No **hardware e estado de funcionamento** painel, certifique-se de que o estado de LED de todos os componentes verde. Apenas um dispositivo em bom estado de funcionamento tem o estado verde. Se o dispositivo está a ser desligado para substituir um componente malfunctioning, verá um falha (vermelho) ou um Estado degradado (amarelo) para os respetivos componentes.
+> Antes de encerrar o dispositivo, verifique o estado de funcionamento dos componentes do dispositivo. Navegue para o seu dispositivo e, em seguida, clique em **definições > Estado de funcionamento do Hardware**. Na **estado de funcionamento do Estado e o hardware** painel, certifique-se de que o estado de LED de todos os componentes é verde. Apenas um dispositivo em bom estado de funcionamento tem o estado verde. Se o seu dispositivo está a ser desligado para substituir um componente com funcionamento incorreto, verá um falha (vermelho) ou um Estado degradado (amarelo) para os respetivos componentes.
 
 
 #### <a name="to-shut-down-a-storsimple-device"></a>Para encerrar um dispositivo StorSimple
 
-1. Utilize o [reiniciar ou encerrar um controlador](#restart-or-shut-down-a-single-controller) procedimento para identificar e encerre o controlador passivo no seu dispositivo. Pode efetuar esta operação no portal do Azure ou no Windows PowerShell para StorSimple.
-2. Repita o passo anterior para encerrar controlador ativo.
-3. Tem agora observe o back-plane do dispositivo. Depois de dois controladores são totalmente encerrados, o estado LEDs em ambos os controladores deve blinking vermelho. Se tiver de desativar o dispositivo completamente neste momento, Inverte os comutadores de energia no energia e arrefecimento módulos (PCMs) para a posição OFF. Isto deve desativar o dispositivo.
+1. Utilize o [reiniciar ou encerrar um controlador](#restart-or-shut-down-a-single-controller) procedimento para identificar e encerrar o controlador passivo no seu dispositivo. Pode efetuar esta operação no portal do Azure ou no Windows PowerShell para StorSimple.
+2. Repita o passo anterior para encerrar o controlador ativo.
+3. Agora precisa considerar o plano de fundo do dispositivo. Depois dos dois controladores são totalmente encerrados, o estado LEDs em ambos os controladores deve ser intermitente vermelho. Se precisar de desativar completamente a dispositivo neste momento, inverta as opções de energia em energia e refrigeração módulos (PCMs) para a posição de OFF. Isso deve desativar o dispositivo.
 
 ## <a name="reset-the-device-to-factory-default-settings"></a>Repor o dispositivo para as predefinições de fábrica
 
 > [!IMPORTANT]
-> Se precisar de repor o seu dispositivo para as predefinições de fábrica, contacte Support da Microsoft. O procedimento descrito abaixo deve ser utilizado apenas em conjunto com Support da Microsoft.
+> Se precisar de repor o dispositivo para as predefinições de fábrica, contacte o Support da Microsoft. O procedimento descrito abaixo deve ser usado apenas em conjunto com Support da Microsoft.
 
 Este procedimento descreve como repor o dispositivo do Microsoft Azure StorSimple para as predefinições de fábrica com o Windows PowerShell para StorSimple.
 Repor um dispositivo remove todos os dados e definições de todo o cluster por predefinição.
 
 Execute os seguintes passos para repor o dispositivo do Microsoft Azure StorSimple para as predefinições de fábrica:
 
-### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Para repor o dispositivo para as predefinições no Windows PowerShell para StorSimple
-1. Aceder ao dispositivo através da respetiva consola de série. Consulte a mensagem de faixa para se certificar de que estão ligadas ao **Active Directory** controlador.
+### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Para repor o dispositivo às predefinições no Windows PowerShell para StorSimple
+1. Aceda ao dispositivo por meio de sua consola de série. Verifique a mensagem de faixa para se certificar de que está ligado para o **Active Directory** controlador.
 2. No menu da consola de série, selecione a opção 1, **iniciar sessão com acesso total**.
-3. Na linha de comandos, escreva o seguinte comando para repor a todo o cluster, a remover todas as definições de controlador, metadados e dados:
+3. Na linha de comandos, escreva o seguinte comando para repor a todo o cluster, remover todas as definições de dados, metadados e controlador:
    
     `Reset-HcsFactoryDefault`
    
-    Para repor a um único controlador em vez disso, utilize o [reposição HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet com o `-scope` parâmetro.)
+    Para repor a um único controlador em vez disso, utilize o [reposição-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet com o `-scope` parâmetro.)
    
-    O sistema irá reiniciar várias vezes. Será notificado quando a reposição foi concluída com êxito. Consoante o modelo de sistema, pode demorar 45-60 minutos para um dispositivo 8100 e 60 90 minutos para que um 8600 concluir este processo.
+    O sistema será reiniciado várias vezes. Será notificado quando a reposição foi concluída com êxito. Consoante o modelo de sistema, pode demorar 45 a 60 minutos para um dispositivo 8100 e 60 a 90 minutos para um 8600 concluir este processo.
    
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Perguntas e respostas sobre a gestão de controladores de dispositivo
-Nesta secção, iremos ter resumidos algumas das perguntas frequentes sobre gerir controladores de dispositivo StorSimple.
+Nesta secção, resumimos algumas das perguntas mais frequentes relativas ao gerir controladores de dispositivo do StorSimple.
 
-**P.** O que acontece se ambos os controladores de dispositivo são bom estado de funcionamento e desativada no e consigo reiniciar ou encerrar controlador ativo?
+**P.** O que acontece se ambos os controladores no meu dispositivo estão em bom estado e ativados no e eu reiniciar ou encerrar o controlador ativo?
 
-**R.** Se ambos os controladores no seu dispositivo são bom estado de funcionamento e desativada, lhe for pedida a confirmação. Pode optar por:
+**R.** Se ambos os controladores no seu dispositivo são ativados e em bom estado, lhe for pedida confirmação. Pode optar por:
 
-* **Reinicie o controlador de Active Directory** – for notificado de que a reiniciar um controlador de Active Directory causou o dispositivo para a ativação pós-falha para o controlador passivo. Reinicia o controlador.
-* **Encerrar um controlador de Active Directory** – for notificado de que a encerrar um controlador de Active Directory resulta num período de indisponibilidade. Terá também de push o botão de energia no dispositivo para ativar o controlador.
+* **Reiniciar o controlador ativo** – são notificados de que a reiniciar um controlador ativo causou o dispositivo para a ativação pós-falha para o controlador passivo. O reinício do controlador.
+* **Encerrar um controlador ativo** – são notificados de que um controlador ativo a ser encerrado resulta em tempo de inatividade. Também terá de enviar o botão de energia no dispositivo para ativar o controlador.
 
-**P.** O que acontece se o controlador passivo no meu dispositivo está indisponível ou desativada desativado e consigo reiniciar ou encerrar controlador ativo?
+**P.** O que acontece se o controlador passivo no meu dispositivo estiver indisponível ou não desativado e eu reiniciar ou encerrar o controlador ativo?
 
-**R.** Se o controlador passivo no seu dispositivo está indisponível ou desativada desativado e optar por:
+**R.** Se o controlador passivo no seu dispositivo está indisponível ou não desativado e optar por:
 
-* **Reinicie o controlador de Active Directory** – for notificado de que continuar a operação irá resultar numa interrupção temporária do serviço e que lhe for pedida a confirmação.
-* **Encerrar um controlador de Active Directory** – for notificado de que continuar a operação resulta no período de indisponibilidade. Terá também de push o botão de energia num ou ambos os controladores para ativar o dispositivo. Lhe for pedida a confirmação.
+* **Reiniciar o controlador ativo** – será notificado que continuar a operação resulta numa interrupção temporária do serviço e lhe for pedida a confirmação.
+* **Encerrar um controlador ativo** – será notificado que continuar a operação resulta em tempo de inatividade. Também terá de enviar o botão de energia num ou ambos os controladores para ativar o dispositivo. For pedida a confirmação.
 
-**P.** Quando executa o controlador reinício ou encerramento não consegue progresso?
+**P.** Quando faz a reinício do controlador ou o encerramento não progride?
 
-**R.** Reiniciar ou encerrar um controlador poderão falhar se:
+**R.** Reiniciar ou encerrar um controlador poderá falhar se:
 
-* Uma atualização de dispositivo está em curso.
-* Já está em curso um reinício de controlador.
-* Um encerramento de controlador já está em curso.
+* Uma atualização do dispositivo está em curso.
+* Já está em curso um reinício do controlador.
+* Um encerramento do controlador já está em curso.
 
-**P.** Como pode descobrir o se um controlador foi reiniciado ou encerrado?
+**P.** Como descobrir se um controlador foi reiniciado ou encerrado?
 
-**R.** Pode verificar o estado do controlador no painel de controlador. O estado do controlador irá indicar se um controlador no processo de reiniciar ou encerrar. Além disso, o **alertas** painel contêm um alerta informativo, se o controlador é reiniciado ou encerrado. As operações de reinício e encerramento do controlador também são registadas nos registos acitivity. Para obter mais informações sobre os registos de acitivity, aceda a [ver os registos de atividade](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**R.** Pode verificar o estado do controlador no painel de controlador. O estado do controlador indica se um controlador está no processo de reiniciar ou encerrar. Além disso, o **alertas** painel contêm um alerta informativo, se o controlador é reiniciado ou encerrado. As operações de reinício e encerramento do controlador também são registadas nos registos de atividade. Para obter mais informações sobre os registos de atividade, aceda a [ver os registos de atividade](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
-**P.** Existe qualquer impacto para a e/s como resultado de ativação pós-falha do controlador?
+**P.** Existe qualquer impacto para a e/s em decorrência de ativação pós-falha de controlador?
 
-**R.** As ligações de TCP entre iniciadores e o controlador de Active Directory serão repostas como resultado de ativação pós-falha do controlador, mas serão possível restabelecer quando o controlador passivo pressupõe que a operação. Poderão ocorrer uma interrupção temporária (menos de 30 segundos) na atividade de e/s entre iniciadores e o dispositivo no decorrer desta operação.
+**R.** As conexões TCP entre iniciadores e o controlador ativo serão repostas como resultado de ativação pós-falha de controlador, mas são restabelecidas quando o controlador passivo pressupõe que a operação. Pode haver uma pausa de temporária (menos de 30 segundos) na atividade de e/s entre iniciadores e o dispositivo no decorrer desta operação.
 
-**P.** Como posso devolver os meus controladores depois de serem encerrar e removido de serviço?
+**P.** Como posso retornar meu controlador de serviço depois de serem encerrado e removida?
 
-**R.** Para devolver os controladores de serviço, tem de inseri-lo para o chassis conforme descrito em [substituir um módulo de controlador no dispositivo StorSimple](storsimple-8000-controller-replacement.md).
+**R.** Para devolver um controlador de serviço, tem de inseri-lo para os chassis conforme descrito em [substituir um módulo de controlador do seu dispositivo StorSimple](storsimple-8000-controller-replacement.md).
 
-## <a name="next-steps"></a>Passos seguintes
-* Se tiver quaisquer problemas com os controladores de dispositivo do StorSimple que não é possível resolver utilizando os procedimentos indicados neste tutorial, [contacte a Microsoft Support](storsimple-8000-contact-microsoft-support.md).
-* Para saber mais sobre como utilizar o serviço do Gestor de dispositivos do StorSimple, aceda à [utilizar o serviço do Gestor de dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
+## <a name="next-steps"></a>Passos Seguintes
+* Se encontrar algum problema com os controladores de dispositivo do StorSimple que não é possível resolver através dos procedimentos listados neste tutorial, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+* Para saber mais sobre como utilizar o serviço StorSimple Device Manager, aceda à [utilizar o serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
 

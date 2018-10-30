@@ -1,21 +1,20 @@
 ---
-title: Planear a capacidade e dimensionamento para replicação de VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Utilize este artigo para planear a capacidade e dimensionamento ao replicar VMs de VMware para o Azure com o Azure Site Recovery
-services: site-recovery
+title: Planear a capacidade e dimensionamento para recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
+description: Utilize este artigo para planear a capacidade e dimensionamento ao configurar a recuperação após desastre de VMs de VMware para o Azure com o Azure Site Recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 833000cb09d315a996ebc9e2d66210c805160f2a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9bc0d5976cf01eb61c2a09a35ccd3a834313ca00
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067558"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210504"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Planear a capacidade e dimensionamento para replicação do VMware com o Azure Site Recovery
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-auzre"></a>Planear a capacidade e dimensionamento para a recuperação de desastre do VMware para Azure
 
 Utilize este artigo para descobrir a planear a capacidade e dimensionamento, ao replicar VMs de VMware no local e servidores físicos para o Azure com [do Azure Site Recovery](site-recovery-overview.md).
 

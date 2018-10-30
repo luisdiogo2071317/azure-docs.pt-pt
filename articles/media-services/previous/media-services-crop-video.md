@@ -1,47 +1,46 @@
 ---
-title: Como recortar vídeos com o codificador de multimédia Standard - Azure | Microsoft Docs
-description: Este artigo mostra como recortar vídeos com o codificador de multimédia Standard.
+title: Como recortar vídeos com o Media Encoder Standard - Azure | Documentos da Microsoft
+description: Este artigo mostra como recortar vídeos com o Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 29/10/2018
 ms.author: anilmur;juliako;
-ms.openlocfilehash: 2592316481c9e265fbae20b832beb21ae4905b14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f6c853648b138763675e016d8de6eaff6377f166
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788334"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229605"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Recortar vídeos com o Media Encoder Standard
-Pode utilizar suportes de dados codificador padrão (MES) para recortar vídeo a sua entrada. Cropping é o processo de selecionar um intervalo de retangular dentro da moldura de vídeo e codificação apenas os pixels esse período. O diagrama seguinte ajuda a ilustrar o processo.
+Pode usar o Media Encoder Standard (MES) para cortar sua entrada de vídeo. Corte é o processo de seleção de uma janela retangular dentro do quadro do vídeo e a codificação de apenas os pixels nessa janela. O diagrama a seguir ajuda a ilustrar o processo.
 
 ![Recortar um vídeo](./media/media-services-crop-video/media-services-crop-video01.png)
 
-Suponha que tem como entrada um vídeo que tem uma resolução de 1920 x 1080 pixels (proporção de 16:9), mas possui barras preta (pilar caixas) à esquerda e direita, para que apenas uma janela de 4:3 ou 1440 x 1080 pixels contém as vídeo Active Directory. Pode utilizar MES recortar ou editar a saída de barras preta e codificar a região 1440 x 1080.
+Suponha que tenha como entrada um vídeo que tem uma resolução de 1920 x 1080 pixels (proporção de 16:9), mas tem o pretas barras (caixas de pilar) à esquerda e direita, para que apenas uma janela de 4:3 ou 1440 x 1080 pixels contém vídeo Active Directory. Pode utilizar o MES para cortar ou editar as barras de pretas e codificar a região de 1440 x 1080.
 
-Cropping no MES é uma fase de pré-processamento, pelo que os parâmetros cropping a predefinição de codificação aplicam para o vídeo de entrada original. Codificação é uma fase subsequente e aplicam as definições de largura/altura para a *pré-processados* vídeo e não para o vídeo original. Ao conceber a sua predefinição precisa de fazer o seguinte: (a) selecione os parâmetros de cortar com base no vídeo de entrada original e (b) selecione as definições com base no vídeo cropped de codificar. Se não corresponder ao seu definições para a vídeo cropped de codificar o resultado não, como esperado.
+Corte em MES é um estágio de pré-processamento, pelo que se aplicam os parâmetros de recorte, a predefinição de codificação para o vídeo de entrada original. Codificação é uma fase subsequente, e as definições de largura/altura aplicam-se para o *previamente processada* vídeo e não para o vídeo original. Ao conceber a sua configuração predefinida que precisa fazer o seguinte: (a) selecione os parâmetros de recorte com base no vídeo de entrada original e (b) selecione as definições com base no vídeo cropped de codificar. Se não forem iguais a codificar as definições para o vídeo cropped, a saída não estarão conforme o esperado.
 
 O [seguintes](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) tópico mostra como criar uma tarefa de codificação com MES e como especificar um personalizado predefinido para a tarefa de codificação. 
 
-## <a name="creating-a-custom-preset"></a>Criar uma predefinição personalizada
+## <a name="creating-a-custom-preset"></a>Criar uma configuração predefinida personalizada
 No exemplo mostrado no diagrama:
 
-1. Entrada original é de 1920 x 1080
-2. Tem de ser recortadas para uma saída de 1440 x 1080, que se centra-se na moldura de entrada
-3. Isto significa que um desvio igual a X (1920 – 1440) / 2 = 240 e um Y de deslocamento de zero
-4. A largura e altura do retângulo cortar são 1440 e 1080, respetivamente
-5. Na fase codificar, a peça ao é para produzir três camadas, são resoluções 1440 x 1080, 960 x 720 e 480 x 360, respetivamente
+1. Entrada original é 1920 x 1080
+2. Ele precisa ser recortada para uma saída 1440 x 1080, que se centra-se na estrutura de entrada
+3. Isso significa que um desvio de X de (1920 – 1440) / 2 = 240 e um Y de deslocamento de zero
+4. A largura e altura do retângulo corte são 1440 e 1080, respetivamente
+5. Na fase encode, do ask é produzir três camadas, são as resoluções 1440 x 1080, 960 x 720 e 480 x 360, respetivamente
 
-### <a name="json-preset"></a>Predefinição JSON
+### <a name="json-preset"></a>Configuração predefinida JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -126,20 +125,20 @@ No exemplo mostrado no diagrama:
     }
 
 
-## <a name="restrictions-on-cropping"></a>Restrições na cropping
-A funcionalidade cropping se destinar a ser manual. Terá de carregar o seu vídeo de entrada para uma ferramenta de edição adequada que lhe permite selecionar frames de interesse, posicione o cursor para determinar os desvios para o retângulo cropping, para determinar a predefinição de codificação está otimizada para esse etc de vídeo específico. Esta funcionalidade destina-se não ativar coisas como: deteção automática e a remoção de preto letterbox/pillarbox limites no seu vídeo de entrada.
+## <a name="restrictions-on-cropping"></a>Restrições de corte
+O recurso de recorte deve ser manual. Terá de carregar o seu vídeo de entrada para uma ferramenta de edição adequada que permite que selecione quadros de interesse, posicione o cursor para determinar os desvios para o retângulo de recorte, para determinar a predefinição de codificação concebido para esse etc de vídeo, específico. Esta funcionalidade não se destina a ativar a coisas como: a deteção automática e a remoção de bordas pretas letterbox/pillarbox no seu vídeo de entrada.
 
-As seguintes restrições aplicam-se à funcionalidade cropping. Se estes não são cumpridos, a codificar a tarefa pode falhar ou produzir um resultado inesperado.
+As seguintes restrições aplicam-se para o recurso de recorte. Se eles não forem cumpridos, a codificar tarefas pode falhar ou produzir um resultado inesperado.
 
-1. O ordinates conjunta e o tamanho do retângulo cortar tem que caber no vídeo de entrada
-2. Tal como mencionado acima, a largura e altura nas definições de codificar tem de corresponder ao vídeo cropped
-3. Cropping aplica-se aos vídeos capturados no modo horizontal (ou seja, não é aplicável a vídeos registados com um smartphone contido verticalmente ou no modo de vertical)
-4. Funciona melhor com as vídeo transferência progressiva capturada com quadrado pixels
+1. O ordinates conjunta e o tamanho do retângulo corte tem que caber no vídeo de entrada
+2. Conforme mencionado acima, a largura e altura nas definições de codificar tem de corresponder ao vídeo cropped
+3. Corte aplica-se a vídeos capturados no modo horizontal (ou seja, mantido não aplicável para os vídeos gravados com um smartphone, verticalmente ou no modo vertical)
+4. Funciona melhor com vídeo progressivo capturado com pixels quadrados
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-step"></a>Passo seguinte
-Consulte os Media Services do Azure percursos de aprendizagem para o ajudar a saber mais sobre excelentes funcionalidades oferecidas pelas AMS.  
+Veja o Azure Media Services percursos de aprendizagem para saber mais sobre os excelentes recursos oferecidos pelo AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

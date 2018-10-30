@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269263"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215264"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
@@ -72,11 +72,6 @@ As máquinas que podem ser expandidas no mapa para mostrar a execução de proce
 
 Por predefinição, o maps de mapa de serviço mostram os últimos 30 minutos de informações de dependência. Com os controles de tempo no canto superior esquerdo, pode consultar o maps para intervalos de tempo do histórico de até uma hora para mostrar como dependências viu no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração). Dados de mapa de serviço são armazenados durante 30 dias em áreas de trabalho pagas e durante sete dias em áreas de trabalho gratuitas.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>Destaques de estado e as cores de limite
 Na parte inferior de cada servidor no mapa pode ser uma lista de destaques de estado transmitir informações de estado sobre o servidor. Destaques indicarem que existem algumas informações relevantes para o servidor de um das integrações de solução. Clicar num distintivo leva-o diretamente para os detalhes do Estado no painel da direita. Os destaques de estado atualmente disponíveis incluem alertas, serviço de atendimento, as alterações, segurança e atualizações.
 
@@ -104,7 +99,7 @@ Aqui, pode escolher **criar novo** e dê um nome de grupo.
 ![Nome do grupo](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Grupos de máquinas estão atualmente limitados a 10 servidores, mas estamos a planear aumentar este limite em breve.
+>Grupos de máquinas estão limitados a 10 servidores.
 
 ### <a name="viewing-a-group"></a>Visualização de um grupo
 Depois de criar alguns grupos, pode visualizá-los ao escolher o separador de grupos.

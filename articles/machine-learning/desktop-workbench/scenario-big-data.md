@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d3c6b78944d9365d1e7e88ed33aba852b71a9c1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964706"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232023"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão da carga de trabalho dos servidores em terabytes de dados
 
@@ -100,7 +100,7 @@ Executar `git status` para inspecionar o estado dos ficheiros para a versão de 
 
 ## <a name="data-description"></a>Descrição de dados
 
-Os dados utilizados neste exemplo são os dados de carga de trabalho de servidor sintetizado. Ele está hospedado numa conta de armazenamento de Blobs do Azure que seja acessível publicamente na região E.U.A. Leste. Podem encontrar as informações de conta de armazenamento específicos a `dataFile` campo [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) no formato de "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Pode utilizar os dados diretamente a partir do armazenamento de Blobs. Se o armazenamento é utilizado por vários utilizadores em simultâneo, pode utilizar [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) para transferir os dados para o seu próprio armazenamento para uma melhor experiência de experimentação. 
+Os dados utilizados neste exemplo são os dados de carga de trabalho de servidor sintetizado. Ele está hospedado numa conta de armazenamento de Blobs do Azure que seja publicaly acessível na região E.U.A. Leste. Podem encontrar as informações de conta de armazenamento específicos a `dataFile` campo [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) no formato de "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Pode utilizar os dados diretamente a partir do armazenamento de Blobs. Se o armazenamento é utilizado por vários utilizadores em simultâneo, pode utilizar [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) para transferir os dados para o seu próprio armazenamento para uma melhor experiência de experimentação. 
 
 O tamanho total dos dados é aproximadamente 1 TB. Cada arquivo é de cerca de 1 a 3 GB e está no formato de ficheiro CSV, sem cabeçalho. Cada linha de dados representa a carga de uma transação de um determinado servidor. As informações detalhadas do esquema de dados são o seguinte:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389280"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231887"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -74,9 +74,9 @@ Este problema ocorre se a partilha de ficheiros do Azure já está a ser utiliza
 Se vir esta mensagem e a partilha de ficheiros do Azure atualmente não está em utilização por um ponto final da cloud, conclua os seguintes passos para limpar os metadados de sincronização de ficheiros do Azure na partilha de ficheiros do Azure:
 
 > [!Warning]  
-> A eliminar os metadados de uma partilha de ficheiros do Azure que está atualmente em utilização por um ponto final da cloud faz com que operações de sincronização de ficheiros do Azure efetuar a ativação. 
+> A eliminar os metadados de uma partilha de ficheiros do Azure que está atualmente em utilização por um ponto final da cloud faz com que operações de sincronização de ficheiros do Azure efetuar a ativação. 
 
-1. No portal do Azure, vá para a partilha de ficheiros do Azure.  
+1. No portal do Azure, vá para a partilha de ficheiros do Azure.  
 2. A partilha de ficheiros do Azure com o botão direito e, em seguida, selecione **Editar metadados**.
 3. Com o botão direito **SyncService**e, em seguida, selecione **eliminar**.
 
@@ -519,7 +519,7 @@ Este erro ocorre porque há o alterações na partilha de ficheiros do Azure dir
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
-| **Cadeia de erro** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Cadeia de erro** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediação necessária** | Sim |
 | | |
 | **HRESULT** | 0x80c80253 |

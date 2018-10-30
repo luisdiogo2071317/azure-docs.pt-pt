@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498509"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233808"
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral da segurança de rede do Azure
 
@@ -29,12 +29,15 @@ Este artigo aborda algumas das opções que o Azure oferece na área de seguran�
 
 * Redes do Azure
 * Controlo de acesso de rede
+* Azure Firewall
 * Proteger o acesso remoto e em vários locais conectividade
 * Disponibilidade
 * Resolução de nomes
 * Arquitetura de rede (rede de Perímetro) de perímetro
-* Monitorização e deteção de ameaças
 * Proteção contra DDoS do Azure
+* Porta de entrada do Azure
+* Gestor de tráfego
+* Monitorização e deteção de ameaças
 
 ## <a name="azure-networking"></a>Redes do Azure
 
@@ -126,6 +129,19 @@ Por exemplo, os seus requisitos de segurança podem incluir:
 
 Pode acessar esses recursos de segurança de rede aprimorada com uma solução de parceiro do Azure. Pode encontrar a rede de parceiros do Azure mais recente soluções de segurança ao aceder a [do Azure Marketplace](https://azure.microsoft.com/marketplace/)e ao procurar por "security" e "segurança de rede".
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud que protege os recursos da Rede Virtual do Azure. É uma firewall com total monitoração de estado como um serviço com elevada disponibilidade incorporada e escalabilidade da cloud sem restrições. Algumas funcionalidades incluem:
+
+* Elevada disponibilidade
+* Escalabilidade de cloud
+* Regras de filtragem de FQDN de aplicação
+* Regras de filtragem de tráfego de rede
+
+Saiba mais:
+
+* [Descrição geral do Firewall do Azure](../firewall/overview.md)
+
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Proteger o acesso remoto e em vários locais conectividade
 
 Instalação, configuração e gestão das suas necessidades de recursos do Azure para ser feita remotamente. Além disso, pode querer implantar [TI híbridos](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) soluções que tem componentes no local e na cloud pública do Azure. Estes cenários requerem acesso remoto seguro.
@@ -139,9 +155,15 @@ Redes do Azure suportam os seguintes cenários de acesso remoto seguro:
 
 ### <a name="connect-individual-workstations-to-a-virtual-network"></a>Ligue-se de estações de trabalho individuais a uma rede virtual
 
-Pode querer permitir que desenvolvedores individuais ou pessoal de operações gerir máquinas virtuais e serviços no Azure. Por exemplo, digamos que precisa de acesso a uma máquina virtual numa rede virtual. Mas a política de segurança não permite o acesso remoto, RDP ou SSH, a máquinas virtuais individuais. Neste caso, pode utilizar uma ligação de VPN ponto a site.
+Pode querer permitir que desenvolvedores individuais ou pessoal de operações gerir máquinas virtuais e serviços no Azure. Por exemplo, digamos que precisa de acesso a uma máquina virtual numa rede virtual. Mas a política de segurança não permite o acesso remoto, RDP ou SSH, a máquinas virtuais individuais. Neste caso, pode utilizar um [VPN point-to-site](../vpn-gateway/point-to-site-about.md) ligação.
 
-A ligação de VPN ponto a site utiliza a [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocolo para que possa configurar uma ligação privada e segura entre o utilizador e a rede virtual. Quando a ligação VPN é estabelecida, o utilizador pode RDP ou SSH através da ligação VPN em qualquer máquina virtual na rede virtual. (Isto pressupõe que o usuário pode autenticar e está autorizado.)
+A ligação de VPN ponto a site permite-lhe configurar uma ligação privada e segura entre o utilizador e a rede virtual. Quando a ligação VPN é estabelecida, o utilizador pode RDP ou SSH através da ligação VPN em qualquer máquina virtual na rede virtual. (Isto pressupõe que o usuário pode autenticar e está autorizado.) Suporta a VPN ponto a site:
+
+* Secure Socket Tunneling Protocol (SSTP), um protocolo proprietário de VPN baseado em SSL. Uma solução de SSL VPN consegue penetrar firewalls, uma vez que a maioria das firewalls abre a porta TCP 443, que usa SSL. O SSTP só é suportado em dispositivos Windows. O Azure suporta todas as versões do Windows que têm de SSTP (Windows 7 e posterior).
+
+* VPN IKEv2, uma solução de VPN IPsec baseada em normas. A VPN IKEv2 pode ser utilizada para ligar a partir de dispositivos Mac (versões de OSX 10.11 e superiores).
+
+* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
 
 Saiba mais:
 
@@ -165,11 +187,13 @@ Ligações de VPN ponto a site e de site a site são eficazes para ativar a cone
 * Ligações VPN mover dados através da internet. Isso expõe estas ligações para potenciais problemas de segurança envolvidas com a transferência de dados através de uma rede pública. Além disso, fiabilidade e disponibilidade para ligações de internet não podem ser garantidas.
 * Ligações de VPN para redes virtuais podem não ter a largura de banda para algumas aplicações e os efeitos, à medida que o máximo horizontalmente em cerca de 200 Mbps.
 
-As organizações que precisam, normalmente, o maior nível de segurança e a disponibilidade para as suas ligações entre locais utilizam ligações WAN dedicadas para ligar a sites remotos. Azure fornece-lhe a capacidade de utilizar uma ligação WAN dedicada que pode utilizar para ligar a sua rede no local a uma rede virtual. O Azure ExpressRoute permite isso.
+As organizações que precisam, normalmente, o maior nível de segurança e a disponibilidade para as suas ligações entre locais utilizam ligações WAN dedicadas para ligar a sites remotos. Azure fornece-lhe a capacidade de utilizar uma ligação WAN dedicada que pode utilizar para ligar a sua rede no local a uma rede virtual. O Azure ExpressRoute, alcance global do Express route direto e Express route ativar esta opção.
 
 Saiba mais:
 
 * [Visão geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md)
+* [ExpressRoute direto](../expressroute/expressroute-erdirect-about.md)
+* [Express route de alcance global](..//expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>Ligar redes virtuais entre si
 
@@ -287,6 +311,46 @@ Saiba mais:
 
 * [Serviços Cloud da Microsoft e segurança de rede](../best-practices-network-security.md)
 
+## <a name="azure-ddos-protection"></a>Proteção contra DDoS do Azure
+
+Os ataques de Denial of Service distribuído (DDoS) são algumas das maiores preocupações de disponibilidade e segurança relativamente aos clientes que estão a mover as suas aplicações para a cloud. Um ataque de DDoS tenta esgotar os recursos de uma aplicação, tornando a aplicação indisponível para legitimar utilizadores. Os ataques de DDoS podem ser direcionadas para qualquer ponto final que esteja publicamente acessível através da internet.
+A Microsoft fornece proteção contra DDoS, conhecida como **básica** como parte da plataforma Azure. Isto é fornecido sem custos e inclui sempre na monitorização e em tempo real mitigação de ataques de nível de rede comuns. Além de proteções incluídas com a proteção contra DDoS **básica** pode habilitar o **padrão** opção. Funcionalidades padrão do DDoS Protection incluem:
+
+* **Integração de plataforma nativa:** nativamente integrada no Azure. Inclui a configuração através do portal do Azure. Padrão de proteção contra DDoS compreende os recursos e a configuração do recurso.
+* **Proteção de chave na mão:** simplificado configuração protege de imediato todos os recursos numa rede virtual assim que o padrão de proteção contra DDoS está ativada. Nenhuma definição de utilizador ou intervenção é necessária. Padrão de proteção de DDoS instantaneamente mitiga e automática o ataque, assim que este é detetado.
+* **Monitorização de tráfego sempre ativa:** seus padrões de tráfego da aplicação são monitorizados 24 horas por dia, 7 dias por semana, à procura de indicadores de ataques de DDoS. Atenuação é executada quando as políticas de proteção são excedidas.
+* **Relatórios de mitigação de ataque** relatórios de mitigação de ataque utilizar dados de fluxo de rede agregados para fornecer informações detalhadas sobre ataques destinados a seus recursos.
+* **Registos de fluxo de mitigação de ataque** registos de fluxo de mitigação de ataque permite-lhe rever o tráfego ignorado, tráfego reencaminhado e outros dados de ataque em tempo quase real durante um ataque de DDoS Active Directory.
+* **Otimização adaptável:** a criação de perfis de tráfego inteligente aprende o tráfego da aplicação ao longo do tempo e seleciona e atualiza o perfil que é mais adequado para o seu serviço. O perfil ajusta à medida tráfego muda ao longo do tempo. A camada 3 para proteção de camada 7: fornece a proteção de DDoS de pilha completa, quando utilizado com uma firewall de aplicações web.
+* **Escala de atenuação extensa:** ao longo de 60 tipos de ataques diferentes podem ser atenuados com capacidade global, para proteger contra os ataques de DDoS conhecidos maior.
+* **Métricas de ataque:** Summarized métricas de cada ameaça são acessíveis através do Azure Monitor.
+* **Alertas de ataque:** alertas podem ser configurados no início e paragem de um ataque e ao longo da duração do ataque, uso de métricas de ataque incorporada. Alertas de integrar o seu software operacional, como o Microsoft Azure Log Analytics, o Splunk, o armazenamento do Azure, o E-Mail e o portal do Azure.
+* **Garantia de custo:** transferência de dados e créditos de serviço de escalamento horizontal do aplicativo para ataques de DDoS documentados.
+* **Rápida de DDoS reativa** clientes DDoS Protection padrão têm agora acesso a equipe de resposta rápida durante um ataque de Active Directory. DRR pode ajudar a investigação de ataque, atenuações personalizadas durante um ataque e a análise de pós ataque de.
+
+
+Saiba mais:
+
+* [Descrição geral da proteção de DDOS](../virtual-network/ddos-protection-overview.md)
+
+## <a name="azure-front-door"></a>Porta de entrada do Azure
+
+O serviço de porta de entrada do Azure permite-lhe definir, gerir e monitorizar o encaminhamento do tráfego web global. Otimiza o tráfego encaminhamento para melhor desempenho e elevada disponibilidade. O Azure Front Door permite criar regras de firewall de aplicações Web (WAF) personalizadas para o controlo de acesso de forma a proteger a carga de trabalho HTTP/HTTPS da exploração com base em endereços IP de cliente, no indicativo e em parâmetros http. Além disso, a porta de entrada também lhe permite criar regras para tráfego de bot malicioso à exaustão de limitação de taxas, inclui descarga de SSL e o pedido por-HTTP/HTTPS, processamento de camada de aplicativo.
+
+Própria plataforma de porta de entrada está protegida pelo Azure DDoS Protection básico. Para aumentar a proteção, é possível ativar a proteção padrão do Azure DDoS Protection nas suas VNETs e recursos de salvaguarda contra ataques de camada de rede (TCP/UDP) através de ajuste automático e mitigação. Porta de entrada é um proxy inverso de camada 7, só permite o tráfego web para passagem para fazer uma cópia de servidores de fim e bloquear outros tipos de tráfego por predefinição.
+
+Saiba mais:
+
+* Para obter mais informações sobre o conjunto completo de front-Azure porta capacidades, pode rever o [descrição geral de porta de entrada do Azure](../frontdoor/front-door-overview.md)
+
+## <a name="azure-traffic-manager"></a>Gestor de tráfego do Azure
+
+O Gestor de Tráfego do Azure é um balanceador de carga de tráfego baseado em DNS que lhe permite distribuir o tráfego de forma otimizada para serviços nas regiões globais do Azure, proporcionando, ao mesmo tempo, elevada disponibilidade e capacidade de resposta. O Gestor de Tráfego utiliza o DNS para direcionar os pedidos do cliente para o ponto final de serviço mais adequado com base num método de encaminhamento de tráfego e no estado de funcionamento dos pontos finais. Os pontos finais são serviços com acesso à Internet alojados dentro ou fora do Azure. O Gestor de tráfego monitoriza os pontos finais e não a direcionar o tráfego para pontos finais que não estão disponíveis.
+
+Saiba mais:
+
+* [Descrição geral de Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md)
+
 ## <a name="monitoring-and-threat-detection"></a>Monitorização e deteção de ameaças
 
 O Azure fornece recursos para ajudá-lo nessa área de chaves com detecção antecipada, monitorização, e recolher e analisar o tráfego de rede.
@@ -318,6 +382,14 @@ Saiba mais:
 
 * [Introdução ao Centro de Segurança do Azure](../security-center/security-center-intro.md)
 
+### <a name="virtual-network-tap"></a>TAP de Rede Virtual
+
+TOQUE (ponto de acesso de Terminal) de rede virtual do Azure permite-lhe para o stream continuamente o tráfego de rede de máquina virtual para uma ferramenta de recoletor ou análise da pacotes de rede. O recoletor ou a ferramenta de análise é fornecida por um parceiro de aplicação virtual de rede. Pode utilizar a mesma rede virtual recursos de TOQUE para agregar o tráfego de várias interfaces de rede nas subscrições idêntica ou diferentes.
+
+Saiba mais:
+
+* [TESTE de rede virtual](../virtual-network/virtual-network-tap-overview.md)
+
 ### <a name="logging"></a>Registo
 
 Registro em log num nível de rede é uma função de chave para qualquer cenário de segurança de rede. No Azure, pode se conectar informações obtidas para NSGs obter informações de registo de nível de rede. Com o Registro em log NSG, obtém informações a partir de:
@@ -330,21 +402,3 @@ Também pode utilizar [Microsoft Power BI](https://powerbi.microsoft.com/what-is
 Saiba mais:
 
 * [Análise de registos para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md)
-
-## <a name="azure-ddos-protection"></a>Proteção contra DDoS do Azure
-
-Ataques denial of service (DDoS) distribuídos são algumas das maiores preocupações de disponibilidade e segurança voltada para os clientes que estão a mover seus aplicativos para a cloud. Um ataque de DDoS tenta a esgotar os recursos de um aplicativo, que a aplicação disponível para os usuários legítimos. Ataques de DDoS podem ser direcionadas para qualquer ponto final que está publicamente acessível através da internet.
-A Microsoft fornece proteção contra DDoS, conhecida como **básica** como parte da plataforma Azure. Isto é fornecido sem custos e inclui sempre na monitorização e em tempo real mitigação de ataques de nível de rede comuns. Além de proteções incluídas com a proteção contra DDoS **básica** pode habilitar o **padrão** opção. Funcionalidades padrão do DDoS Protection incluem:
-
-* **Integração de plataforma nativa:** nativamente integrada no Azure. Inclui a configuração através do portal do Azure. Padrão de proteção contra DDoS compreende os recursos e a configuração do recurso.
-* **Proteção de chave na mão:** simplificado configuração protege de imediato todos os recursos numa rede virtual assim que o padrão de proteção contra DDoS está ativada. Nenhuma definição de utilizador ou intervenção é necessária. Padrão de proteção de DDoS instantaneamente mitiga e automática o ataque, assim que este é detetado.
-* **Monitorização de tráfego sempre ativa:** seus padrões de tráfego da aplicação são monitorizados 24 horas por dia, 7 dias por semana, à procura de indicadores de ataques de DDoS. Atenuação é executada quando as políticas de proteção são excedidas.
-* **Otimização adaptável:** a criação de perfis de tráfego inteligente aprende o tráfego da aplicação ao longo do tempo e seleciona e atualiza o perfil que é mais adequado para o seu serviço. O perfil ajusta à medida tráfego muda ao longo do tempo. A camada 3 para proteção de camada 7: fornece a proteção de DDoS de pilha completa, quando utilizado com uma firewall de aplicações web.
-* **Escala de atenuação extensa:** ao longo de 60 tipos de ataques diferentes podem ser atenuados com capacidade global, para proteger contra os ataques de DDoS conhecidos maior.
-* **Métricas de ataque:** Summarized métricas de cada ameaça são acessíveis através do Azure Monitor.
-* **Alertas de ataque:** alertas podem ser configurados no início e paragem de um ataque e ao longo da duração do ataque, uso de métricas de ataque incorporada. Alertas de integrar o seu software operacional, como o Microsoft Azure Log Analytics, o Splunk, o armazenamento do Azure, o E-Mail e o portal do Azure.
-* **Garantia de custo:** transferência de dados e créditos de serviço de escalamento horizontal do aplicativo para ataques de DDoS documentados.
-
-Saiba mais:
-
-* [Descrição geral da proteção de DDOS](../virtual-network/ddos-protection-overview.md)

@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093637"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210691"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: conceitos e arquitetura
 
@@ -143,7 +143,7 @@ Uma execução é um registo que contém as seguintes informações:
 
 * Metadados sobre a execução (timestamp, duração etc.)
 * Métricas registadas pelo seu script
-* Ficheiros de saída recolhidas automaticamente pela experimentação ou explicitamente carregados por si.
+* Ficheiros autocollected pela experimentação de saída, ou explicitamente carregados por si.
 * Um instantâneo do diretório que contém os scripts, antes da execução
 
 Uma execução é produzida quando submete um script para preparar um modelo. Uma execução pode ter zero ou mais execuções de subordinados. Para que a execução de nível superior poderá ter duas execuções de subordinados, cada um dos quais pode ter seus próprios subordinado é executado.
@@ -156,23 +156,28 @@ Uma experimentação é um agrupamento de várias execuções de um determinado 
 
 Para obter um exemplo da utilização de uma experimentação, consulte a [início rápido: introdução ao serviço Azure Machine Learning](quickstart-get-started.md) documento.
 
-
 ## <a name="pipelines"></a>Pipelines
 
-Pipelines são utilizados para criar e gerir os fluxos de trabalho que fases de aprendizagem automática em conjunto inserir manualmente (ML), como a preparação de dados, preparação de modelos, implementação do modelo e inferência. Cada fase pode incluir vários passos, cada um dos quais pode ser executado automaticamente em vários destinos de computação.
+Pipelines são utilizados para criar e gerir fluxos de trabalho que reunir do machine learning fases. Por exemplo, um pipeline pode incluir preparação de dados, preparação de modelos, implementação do modelo e fases de inferência. Cada fase pode incluir vários passos, cada um dos quais pode ser executado automaticamente em vários destinos de computação.
 
 Para obter mais informações sobre o machine learning pipelines com este serviço, consulte o artigo [Pipelines e o Azure Machine Learning](concept-ml-pipelines.md).
 
 ## <a name="compute-target"></a>Destino de computação
 
-Um destino de computação é o recurso de computação utilizado para executar o script de treinamento ou alojar a sua implementação do serviço web. Os destinos de computação suportados são: 
+Um destino de computação é o recurso de computação utilizado para executar o script de treinamento ou a implementação do serviço de anfitrião. Os destinos de computação suportados são: 
 
-* Seu computador local
-* Uma VM do Linux no Azure (por exemplo, a Máquina Virtual de ciência de dados)
-* Cluster do Azure Batch AI
-* Apache Spark para HDInsight
-* Instância de Contentor do Azure
-* Serviço Kubernetes do Azure
+| Destino de computação | Formação | Implementação |
+| ---- |:----:|:----:|
+| Seu computador local | ✓ | &nbsp; |
+| Uma VM do Linux no Azure</br>(por exemplo, a Máquina Virtual de ciência de dados) | ✓ | &nbsp; |
+| Cluster do Azure Batch AI | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Apache Spark para HDInsight | ✓ | &nbsp; |
+| Instância de Contentor do Azure | ✓ | ✓ |
+| Serviço Kubernetes do Azure | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Matriz de porta de campos programáveis) | &nbsp; | ✓ |
 
 Destinos de computação são anexados a uma área de trabalho. Destinos que não seja o computador local são partilhados por utilizadores da área de trabalho de computação.
 
@@ -194,7 +199,7 @@ Por exemplo, executar configurações, consulte a [selecionar e utilizar um dest
 
 Para preparar um modelo, especifique o diretório que contém o script de formação e os ficheiros associados. Também especificar um nome de experimentação, o que é utilizado para armazenar as informações recolhidas durante o treinamento. Durante o treinamento, o diretório é copiado para o ambiente de treinamento (destino de computação) e o script especificado na configuração da execução é iniciado. Um instantâneo do diretório também é armazenado abaixo a experimentação na área de trabalho.
 
-Para obter um exemplo do uso de scripts para preparar um modelo, consulte [criar uma área de trabalho com Python](quickstart-get-started.md)
+Por exemplo, veja [criar uma área de trabalho com Python](quickstart-get-started.md)
 
 ## <a name="logging"></a>Registo
 

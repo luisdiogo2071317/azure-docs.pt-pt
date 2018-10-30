@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954148"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232210"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Base de dados SQL perguntas mais frequentes (FAQ)
 
@@ -31,7 +31,7 @@ Garantimos, pelo menos, 99,99% do tempo, ter conectividade entre a base de dados
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>Posso controlar quando ocorre um período de indisponibilidade de aplicação de patches
 
-Não. O impacto da aplicação de patches não é normalmente noticable se [empregar a lógica de repetição](sql-database-develop-overview.md#resiliency) na sua aplicação.
+Não. O impacto da aplicação de patches em geral, não é perceptível se [empregar a lógica de repetição](sql-database-develop-overview.md#resiliency) na sua aplicação.
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>O que é o novo vCore com base no modelo de compra para a base de dados do Azure SQL
 

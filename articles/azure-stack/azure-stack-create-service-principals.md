@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
+ms.date: 10/26/2018
 ms.author: sethm
-ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a6d8ef698c005429c1184b5565b1a9387d05e062
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958453"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230119"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornecimento de acesso de aplicações ao Azure Stack
 
@@ -77,6 +77,13 @@ O script é executado a partir do ponto final com privilégios numa máquina vir
 Requisitos:
 - É necessário um certificado.
 
+Requisitos de certificado:
+ - O fornecedor de serviços criptográficos (CSP) tem de ser fornecedor de chave de legado.
+ - O formato de certificado tem de estar no ficheiro PFX, que as chaves públicas e privadas são necessárias. Servidores do Windows utilizam ficheiros PFX, que contêm o ficheiro de chave pública (ficheiro de certificado SSL) e o ficheiro de chave privada associado.
+ - Para a produção, tem de ser emitido o certificado de uma autoridade de certificação interna ou uma autoridade de certificação pública. Se utilizar uma autoridade de certificação pública, tem incluído a autoridade na imagem do sistema operacional base como parte do programa autoridade de raiz fidedigna Microsoft. Pode encontrar a lista completa em [Microsoft Trusted Root Certificate Program: participantes](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - A infraestrutura do Azure Stack tem de ter acesso à rede para a localização de lista de revogação de certificados (CRL) da autoridade de certificação publicada no certificado. Esta CRL tem de ser um ponto final HTTP.
+
+
 #### <a name="parameters"></a>Parâmetros
 
 As seguintes informações são necessárias como entrada para os parâmetros de automatização:
@@ -93,7 +100,7 @@ As seguintes informações são necessárias como entrada para os parâmetros de
 1. Abra uma sessão elevada do Windows PowerShell e execute os seguintes comandos:
 
    > [!NOTE]
-   > Este exemplo cria um certificado autoassinado. Ao executar estes comandos numa implementação de produção, utilize [Get-Certificate](/powershell/module/pkiclient/get-certificate) para recuperar o objeto de certificado para o certificado que pretende utilizar.
+   > Este exemplo cria um certificado autoassinado. Ao executar estes comandos numa implementação de produção, utilize [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) para recuperar o objeto de certificado para o certificado que pretende utilizar.
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
@@ -102,7 +109,7 @@ As seguintes informações são necessárias como entrada para os parâmetros de
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}

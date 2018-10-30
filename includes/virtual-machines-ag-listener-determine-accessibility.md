@@ -1,14 +1,27 @@
-É importante compreender que existem duas formas de configurar um serviço de escuta do grupo de disponibilidade no Azure. As formas diferem no tipo de Balanceador de carga do Azure a utiliza quando criar o serviço de escuta. A tabela seguinte descreve as diferenças:
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227194"
+---
+É importante perceber que existem duas formas de configurar um serviço de escuta do grupo de disponibilidade no Azure. As formas são diferentes no tipo de Balanceador de carga do Azure que utiliza quando cria o serviço de escuta. A tabela seguinte descreve as diferenças:
 
 | Tipo de Balanceador de carga | Implementação | Utilize se: |
 | --- | --- | --- |
-| **Externo** |Utiliza o *endereço IP virtual público* do serviço de nuvem que aloja as máquinas virtuais (VMs). |Precisa de aceder ao serviço de escuta de fora da rede virtual, incluindo a partir da Internet. |
-| **Interno** |Utiliza um *Balanceador de carga interno* com um endereço privado para o serviço de escuta. |Pode aceder ao serviço de escuta apenas a partir de dentro da mesma rede virtual. Este acesso inclui VPN site a site em cenários híbridos. |
+| **Externo** |Utiliza a *endereço IP virtual público* do serviço em nuvem que aloja as máquinas virtuais (VMs). |Precisa acessar o serviço de escuta de fora da rede virtual, incluindo a partir da Internet. |
+| **Interno** |Utiliza um *Balanceador de carga interno* com um endereço privado para o serviço de escuta. |Pode acessar o serviço de escuta apenas a partir de dentro da mesma rede virtual. Este acesso inclui VPN site a site em cenários híbridos. |
 
 > [!IMPORTANT]
-> Para um serviço de escuta que utiliza pública VIP o serviço em nuvem (Balanceador de carga externo), desde que o cliente, serviço de escuta e bases de dados na mesma região do Azure, não será cobrado encargos associados à saída. Caso contrário, os dados devolvidos através do serviço de escuta são considerados saída e é-lhe cobrado às taxas de transferência de dados normal. 
+> Para um serviço de escuta que utiliza VIP público o serviço em nuvem (Balanceador de carga externo), contanto que o cliente, serviço de escuta e bases de dados estão na mesma região do Azure, não incorrerá em custos de saída. Caso contrário, todos os dados devolvidos por meio do serviço de escuta são considerados a saída, e ele é cobrado às tarifas de transferência de dados normal. 
 > 
 > 
 
-Pode ser configurado um ILB apenas em redes virtuais com um âmbito regional. As redes virtuais existentes que tenham sido configuradas para um grupo de afinidade não é possível utilizar um ILB. Para obter mais informações, consulte [descrição geral do Balanceador de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
+Pode ser configurado um ILB apenas em redes virtuais com um âmbito regional. Redes virtuais existentes que foram configuradas para um grupo de afinidade não podem utilizar um ILB. Para obter mais informações, consulte [descrição geral do Balanceador de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
 

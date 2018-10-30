@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7e62986569888ebbcd9f17b4eb4cfb2c70411d4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392083"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231649"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Efetuar operações de dados no Azure Logic Apps
 
@@ -567,7 +567,7 @@ Para confirmar se o **selecione** ação cria os resultados esperados, envie uma
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
+* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,19 +1,19 @@
 ---
-title: Instalar um servidor de destino principal do Linux para a ativação pós-falha do Azure no local | Documentos da Microsoft
-description: Antes de proteger novamente a máquina virtual do Linux, precisa de um servidor de destino principal do Linux. Saiba como instalar um.
+title: Instalar um servidor de destino principal do Linux para reativação pós-falha para um site no local | Documentos da Microsoft
+description: Saiba como configurar um servidor de destino principal do Linux para reativação pós-falha para um site no local durante a recuperação após desastre de VMs de VMware para o Azure com o Azure Site Recovery.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 470d4547a63105e319f072461a4d8f24ebe3dbe8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094127"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212374"
 ---
-# <a name="install-a-linux-master-target-server"></a>Instalar um servidor de destino principal do Linux
+# <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
 
 Se a sua máquina virtual protegida é uma máquina virtual do Windows, em seguida, tem um destino principal do Windows. Para uma máquina virtual do Linux, tem um destino principal do Linux. Leia os seguintes passos para saber como criar e instalar um destino principal do Linux.

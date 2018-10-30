@@ -1,6 +1,6 @@
 ---
-title: Ligar a pesquisa do Bing - as do Azure Logic Apps | Microsoft Docs
-description: Localizar notícias com APIs de REST de pesquisa do Bing e Azure Logic Apps
+title: Ligar a pesquisa do Bing - Azure Logic Apps | Documentos da Microsoft
+description: Encontre notícias com APIs de REST de pesquisa do Bing e o Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,64 +11,64 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 9997f27f360f84ff3cd185d7c12c45519513d82b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021290"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233094"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Localizar notícias de última hora com a pesquisa do Bing e Azure Logic Apps 
+# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Encontre notícias com pesquisa do Bing e o Azure Logic Apps 
 
-Este artigo mostra como pode encontrar notícias de última hora, vídeos e outros itens através da pesquisa do Bing de dentro de uma aplicação lógica com o conector de pesquisa do Bing. Dessa forma, pode criar as logic apps que automatizem tarefas e fluxos de trabalho para processamento de resultados da pesquisa e tornar esses itens disponíveis para outras ações. 
+Este artigo mostra como encontrará notícias, vídeos e outros itens por meio da pesquisa do Bing de dentro de uma aplicação lógica com o conector de pesquisa do Bing. Dessa forma, pode criar aplicações lógicas que automatizam tarefas e fluxos de trabalho para processamento de resultados da pesquisa e tornam esses itens disponíveis para outras ações. 
 
-Por exemplo, pode localizar itens de notícias de última hora com base nos critérios de pesquisa e tem de publicar esses itens como tweets no seu Twitter feed do Twitter.
+Por exemplo, pode encontrar itens de notícias com base nos critérios de pesquisa e ter o Twitter, publicar esses itens como feed de tweets no seu Twitter.
 
-Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. Se estiver familiarizado com as logic apps, reveja [que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: criar a sua primeira aplicação de lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Para obter informações técnicas específicas do conector, consulte o <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">referência de conector de pesquisa do Bing</a>.
+Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [guia de início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para obter informações técnicas específicas do conector, consulte a <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">referência do conector de pesquisa do Bing</a>.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A [conta de serviços cognitivos](../cognitive-services/cognitive-services-apis-create-account.md)
+* A [conta dos serviços cognitivos](../cognitive-services/cognitive-services-apis-create-account.md)
 
-* A [chave de API de pesquisa do Bing](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api), que fornece acesso a partir da sua aplicação lógica para as APIs de pesquisa do Bing 
+* R [chave de API de pesquisa Bing](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api), que fornece acesso da sua aplicação lógica para as APIs de pesquisa do Bing 
 
-* A aplicação lógica onde pretende aceder ao seu Hub de eventos. Para iniciar a sua aplicação lógica com um acionador de pesquisa do Bing, é necessário um [aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* A aplicação de lógica onde pretende aceder ao seu Hub de eventos. Para começar a sua aplicação lógica com um acionador de pesquisa do Bing, tem um [aplicação lógica em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 <a name="add-trigger"></a>
 
 ## <a name="add-a-bing-search-trigger"></a>Adicionar um acionador de pesquisa do Bing
 
-No Azure Logic Apps, cada aplicação lógica tem de começar com uma [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que é desencadeado quando um evento específico acontece ou quando for cumprida uma condição específica. Sempre que o acionador é desencadeado, o motor de Logic Apps cria uma instância de aplicação lógica e inicia a executar o fluxo de trabalho da sua aplicação.
+No Azure Logic Apps, todas as aplicações lógicas têm de começar com uma [acionador](../logic-apps/logic-apps-overview.md#logic-app-concepts), que é acionado quando um evento específico acontece ou quando for cumprida uma condição específica. Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica e começa a ser executado o fluxo de trabalho da sua aplicação.
 
-1. No portal do Azure ou Visual Studio, crie uma aplicação de lógica em branco, o qual abre o Designer de aplicação lógica. Este exemplo utiliza o portal do Azure.
+1. O portal do Azure ou o Visual Studio, crie uma aplicação lógica em branco, que abre o Estruturador da aplicação lógica. Este exemplo utiliza o portal do Azure.
 
-2. Na caixa de pesquisa, introduza "Pesquisa do Bing" como o filtro. Na lista de acionadores, selecione o acionador que quiser. 
+2. Na caixa de pesquisa, introduza "Pesquisa do Bing" como o filtro. Na lista de disparadores, selecione o acionador que pretende. 
 
-   Este exemplo utiliza este acionador: **pesquisa do Bing - no novo artigo de notícias de última hora**
+   Este exemplo utiliza este acionador: **de pesquisa do Bing - no novo artigo de notícias**
 
-   ![Localizar o acionador de pesquisa do Bing](./media/connectors-create-api-bing-search/add-trigger.png)
+   ![Localizar acionador de pesquisa do Bing](./media/connectors-create-api-bing-search/add-trigger.png)
 
-3. Se lhe for pedida para detalhes de ligação, [criar a ligação de pesquisa do Bing agora](#create-connection). Em alternativa, se a ligação já existir, forneça as informações necessárias para o acionador.
+3. Se lhe for pedido para obter detalhes de ligação, [criar a ligação de pesquisa do Bing agora](#create-connection). Em alternativa, se a ligação já existir, fornecer as informações necessárias para o acionador.
 
-   Neste exemplo, forneça critérios para regressar correspondente artigos de notícias de última hora de pesquisa do Bing.
+   Neste exemplo, fornece critérios para retornar os artigos de notícias correspondente de pesquisa do Bing.
 
    | Propriedade | Necessário | Valor | Descrição | 
    |----------|----------|-------|-------------| 
-   | Consulta de Pesquisa | Sim | <*palavras de pesquisa*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
-   | Comercializar | Sim | <*Região*> | A região de pesquisa. A predefinição é "en-US" mas, pode selecionar outro valor. | 
-   | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderada", mas que selecionar outro nível. | 
+   | Consulta de Pesquisa | Sim | <*pesquisa de palavras*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
+   | Comercializar | Sim | <*Localidade*> | A localidade de pesquisa. A predefinição é "en-US", mas pode selecionar outro valor. | 
+   | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderado", mas seleciona outro nível. | 
    | Contagem | Não | <*Contagem de resultados*> | Devolva o número especificado de resultados. A predefinição é 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. | 
-   | Desvio | Não | <*Ignorar-valor*> | O número de resultados para ignorar antes de o devolver resultados | 
+   | Desvio | Não | <*valor Skip*> | O número de resultados a ignorar antes de retornar resultados | 
    ||||| 
 
    Por exemplo:
 
    ![Configurar o acionador](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
-4. Selecione o intervalo de frequência e para a frequência com que pretende que o acionador para verificar os resultados.
+4. Selecione o intervalo e a frequência para a frequência com que pretende que o acionador para verificar a existência de resultados.
 
-5. Quando tiver terminado, na barra de ferramentas estruturador, escolha **guardar**. 
+5. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**. 
 
 6. Agora continue a adicionar uma ou mais ações à sua aplicação lógica para as tarefas que pretende executar com os resultados de Acionador.
 
@@ -76,68 +76,68 @@ No Azure Logic Apps, cada aplicação lógica tem de começar com uma [acionador
 
 ## <a name="add-a-bing-search-action"></a>Adicionar uma ação de pesquisa do Bing
 
-No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um passo no fluxo de trabalho que se segue um acionador ou outra ação. Neste exemplo, a aplicação lógica começa com um acionador de pesquisa do Bing devolve novos artigos que correspondam aos critérios especificados. 
+No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um passo no fluxo de trabalho que se segue um acionador ou outra ação. Neste exemplo, a aplicação lógica começa com um acionador de pesquisa do Bing que retorna artigos de notícias que correspondam aos critérios especificados. 
 
-1. No portal do Azure ou Visual Studio, abra a aplicação de lógica no Designer de aplicação lógica. Este exemplo utiliza o portal do Azure.
+1. No portal do Azure ou Visual Studio, abra a aplicação lógica no Estruturador da aplicação lógica. Este exemplo utiliza o portal do Azure.
 
-2. Sob o acionador ou ação, escolha **novo passo** > **adicionar uma ação**.
+2. Sob o acionador ou ação, escolha **novo passo** > **adicionar uma ação**.
 
-   Este exemplo utiliza este acionador: **pesquisa do Bing - no novo artigo de notícias de última hora**
+   Este exemplo utiliza este acionador: **de pesquisa do Bing - no novo artigo de notícias**
 
    ![Adicionar ação](./media/connectors-create-api-bing-search/add-action.png)
 
-   Para adicionar uma ação entre passos existentes, mova o rato sobre a seta para a ligação. 
-   Escolha o sinal de adição (**+**) que é apresentado e, em seguida, escolha **adicionar uma ação**.
+   Para adicionar uma ação entre os passos existentes, mova o rato por cima da seta de ligação. 
+   Selecione o sinal de adição (**+**) que é apresentada e, em seguida, escolha **adicionar uma ação**.
 
 3. Na caixa de pesquisa, introduza "Pesquisa do Bing" como o filtro.
 Na lista de ações, selecione a ação que pretende.
 
-   Este exemplo utiliza esta ação: **pesquisa do Bing - notícias de lista pela consulta**
+   Este exemplo utiliza esta ação: **de pesquisa do Bing - notícias de lista por consulta**
 
    ![Encontrar a ação de pesquisa do Bing](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
-4. Se lhe for pedida para detalhes de ligação, [criar a ligação de pesquisa do Bing agora](#create-connection). Em alternativa, se a ligação já existir, forneça as informações necessárias para a ação. 
+4. Se lhe for pedido para obter detalhes de ligação, [criar a ligação de pesquisa do Bing agora](#create-connection). Em alternativa, se a ligação já existir, fornecer as informações necessárias para a ação. 
 
-   Neste exemplo, forneça os critérios para devolver um subconjunto dos resultados do acionador.
+   Neste exemplo, fornece os critérios para retornando um subconjunto dos resultados do acionador.
 
    | Propriedade | Necessário | Valor | Descrição | 
    |----------|----------|-------|-------------| 
-   | Consulta de Pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão para consultar os resultados de Acionador. Pode selecionar os campos na lista de conteúdo dinâmico ou crie uma expressão com o construtor de expressão. |
-   | Comercializar | Sim | <*Região*> | A região de pesquisa. A predefinição é "en-US" mas, pode selecionar outro valor. | 
-   | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderada", mas que selecionar outro nível. | 
+   | Consulta de Pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão de consulta de resultados de Acionador. Pode selecionar a partir de campos na lista de conteúdo dinâmico ou crie uma expressão com o construtor de expressões. |
+   | Comercializar | Sim | <*Localidade*> | A localidade de pesquisa. A predefinição é "en-US", mas pode selecionar outro valor. | 
+   | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível de filtro para excluir o conteúdo para adultos. A predefinição é "Moderado", mas seleciona outro nível. | 
    | Contagem | Não | <*Contagem de resultados*> | Devolva o número especificado de resultados. A predefinição é 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. | 
-   | Desvio | Não | <*Ignorar-valor*> | O número de resultados para ignorar antes de o devolver resultados | 
+   | Desvio | Não | <*valor Skip*> | O número de resultados a ignorar antes de retornar resultados | 
    ||||| 
 
    Por exemplo, suponha que pretende que esses resultados cujo nome de categoria inclui a palavra "técnico". 
    
-   1. Clique no **consulta de pesquisa** caixa, pelo que é apresentada a lista de conteúdo dinâmica. 
-   Essa lista, escolha **expressão** para o construtor de expressão é apresentada. 
+   1. Clique nas **consulta de pesquisa** caixa para que a lista de conteúdo dinâmico apareça. 
+   Nessa lista, escolha **expressão** para que o construtor de expressões apareça. 
 
       ![Acionador de pesquisa do Bing](./media/connectors-create-api-bing-search/bing-search-action.png)
 
-      Agora pode começar a criar a expressão.
+      Agora pode começar a criar a sua expressão.
 
-   2. Na lista de funções, selecione o **contains()** função, o que, em seguida, é apresentado na caixa de expressão. Clique em **conteúdo dinâmico** para que a lista de campos reappears, mas certifique-se de que o cursor permanece dentro de parênteses.
+   2. Na lista de funções, selecione o **contains()** função, que, em seguida, é apresentado na caixa de expressão. Clique em **conteúdo dinâmico** para que a lista de campos reaparece, mas certifique-se de que o cursor permanece dentro dos parênteses.
 
       ![Selecione uma função](./media/connectors-create-api-bing-search/expression-select-function.png)
 
-   3. Na lista de campos, selecione **categoria**, que converte um parâmetro. 
-   Adicionar uma vírgula, após o primeiro parâmetro e, após a vírgula, adicione esta palavra: `'tech'` 
+   3. Na lista de campos, selecione **categoria**, que converte a um parâmetro. 
+   Adicione uma vírgula após o primeiro parâmetro e, após a vírgula, adicione esta palavra: `'tech'` 
 
       ![Selecione um campo](./media/connectors-create-api-bing-search/expression-select-field.png)
    
    4. Quando tiver terminado, escolha **OK**.
 
-      A expressão agora aparece no **consulta de pesquisa** caixa neste formato:
+      A expressão agora é apresentado na **consulta de pesquisa** caixa no seguinte formato:
 
       ![Expressão concluído](./media/connectors-create-api-bing-search/resolved-expression.png)
 
-      Na vista de código, esta expressão for apresentada neste formato:
+      Na vista de código, esta expressão aparece neste formato:
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. Quando tiver terminado, na barra de ferramentas estruturador, escolha **guardar**.
+5. Quando tiver terminado, na barra de ferramentas da estruturador, escolha **guardar**.
 
 <a name="create-connection"></a>
 
@@ -145,13 +145,13 @@ Na lista de ações, selecione a ação que pretende.
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)] 
 
-1. Quando lhe for pedida informações de ligação, forneça estes detalhes:
+1. Quando lhe for pedido para obter informações de ligação, forneça estes detalhes:
 
    | Propriedade | Necessário | Valor | Descrição | 
    |----------|----------|-------|-------------| 
-   | Nome da Ligação | Sim | <*nome da ligação*> | O nome para criar para a ligação |
-   | Versão da API | Sim | <*Versão de API*> | Por predefinição, a versão da API de pesquisa do Bing está definida para a versão atual. Pode selecionar uma versão anterior, conforme necessário. | 
-   | Chave de API | Sim | <*Chave de API*> | A chave de API de pesquisa do Bing que obteve anteriormente. Se não tiver uma chave, obter o [agora a chave de API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nome da Ligação | Sim | <*nome da ligação*> | O nome para criar para a sua ligação |
+   | Versão da API | Sim | <*Versão de API*> | Por predefinição, a versão de API de pesquisa do Bing está definida para a versão atual. Pode selecionar uma versão anterior, se necessário. | 
+   | Chave de API | Sim | <*A chave de API*> | A chave de API de pesquisa do Bing que recebeu anteriormente. Se não tiver uma chave, obter seu [chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Por exemplo:
@@ -162,13 +162,13 @@ Na lista de ações, selecione a ação que pretende.
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos, como acionadores, ações e limites, conforme descrito pelo ficheiro Swagger do conector, consulte o [página de referência do conector](/connectors/bingsearch/). 
+Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito pelo ficheiro de Swagger do conector, consulte a [página de referência do conector](/connectors/bingsearch/). 
 
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
+* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre outros [conectores Logic Apps](../connectors/apis-list.md)
+* Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)

@@ -1,5 +1,5 @@
 ---
-title: Monitorizar a utilização de base de dados com informações inteligentes - base de dados SQL do Azure | Documentos da Microsoft
+title: Monitorizar o desempenho da base de dados com informações inteligentes - base de dados SQL do Azure | Documentos da Microsoft
 description: Azure informações inteligentes de base de dados SQL utiliza inteligência incorporada para monitorizar a utilização da base de dados através de inteligência artificial e detetar eventos disruptivos que provocar um mau desempenho continuamente.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: b64c8f5d30f95cccf8a029adfd5c443a81597c4d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870694"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214686"
 ---
-# <a name="intelligent-insights-using-artificial-intelligence-to-monitor-database-usage"></a>Informações inteligentes com a inteligência artificial para monitorizar a utilização de base de dados
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Informações inteligentes com ia para monitorizar e resolver problemas de desempenho de base de dados
 
 Azure informações inteligentes de base de dados SQL permite-lhe saber o que acontece com o desempenho de base de dados SQL e a instância gerida da base de dados.
 

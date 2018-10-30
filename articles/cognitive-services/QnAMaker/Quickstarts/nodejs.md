@@ -1,7 +1,7 @@
 ---
 title: API de REST (V4) - node. js - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações baseadas em REST e amostras de código para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
+description: Obtenha informações com base em node. js REST e amostras de código para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 68ec8fe90c19106c989f072dc041ee81af536389
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: cd3d159e4482b43c6356ab7b657a79fa59159c60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647923"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214992"
 ---
 # <a name="qna-maker-rest-api-with-nodejs"></a>API de REST do QnA Maker com node. js 
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../Overview/overview.md) com Node.js para fazer o seguinte.
+Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/overview.md) com node. js para fazer o seguinte.
 
 - [Criar uma nova base de dados de conhecimento.](#Create)
 - [Atualizar uma base de dados de conhecimento existente.](#Update)

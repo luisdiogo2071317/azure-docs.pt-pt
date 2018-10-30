@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3f23b28c1b20155e50fddf17db90cd2a53c04855
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735906"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209824"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento no Azure Active Directory com base em grupo?
 
@@ -28,14 +28,12 @@ Até agora, só foi possível atribuir licenças ao nível do utilizador individ
 
 Para resolver esses desafios, o Azure AD inclui agora licenciamento baseado no grupo. Pode atribuir uma ou mais licenças de produto a um grupo. O Azure AD garante que as licenças são atribuídas a todos os membros do grupo. São atribuídas as licenças adequadas a quaisquer novos membros que adiram ao grupo. Ao saírem do grupo, essas licenças são removidas. Isto elimina a necessidade de automatizar a gestão de licenças através do PowerShell para refletir as alterações na organização e na estrutura departamental por utilizador.
 
->[!Note]
->O licenciamento baseado em grupo é uma funcionalidade de pré-visualização pública do Azure Active Directory (Azure AD) e está disponível com qualquer plano de licença do Azure AD. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="features"></a>Funcionalidades
 
 Seguem-se as principais funcionalidades do licenciamento baseado no grupo:
 
-- As licenças podem ser atribuídas a qualquer grupo de segurança no Azure AD. Os grupos de segurança podem ser sincronizados no local através do Azure AD Connect. Também pode criar grupos de segurança diretamente no Azure AD (também denominados grupos apenas na cloud) ou automaticamente através da funcionalidade de grupos dinâmicos do Azure AD.
+- As licenças podem ser atribuídas a qualquer grupo de segurança no Azure AD. Grupos de segurança podem ser sincronizados no local, utilizando o Azure AD Connect. Também pode criar grupos de segurança diretamente no Azure AD (também denominados grupos apenas na cloud) ou automaticamente através da funcionalidade de grupos dinâmicos do Azure AD.
 
 - Quando uma licença de produto é atribuída a um grupo, o administrador pode desativar um ou mais planos de serviço no produto. Normalmente, isto é feito quando a organização ainda não está preparada para começar a utilizar um serviço incluído num produto. Por exemplo, o administrador pode atribuir o Office 365 a um departamento, mas desativar temporariamente o serviço Yammer.
 
@@ -45,11 +43,11 @@ Seguem-se as principais funcionalidades do licenciamento baseado no grupo:
 
 - O Azure AD gere automaticamente as modificações de licença que resultam de alterações à associação ao grupo. Normalmente, as modificações de licença entram em vigor alguns minutos após uma alteração de associação.
 
-- Um utilizador pode ser membro de vários grupos com políticas de licença especificadas. Um utilizador também pode ter algumas licenças atribuídas diretamente, fora de quaisquer grupos. O estado de utilizador resultante é uma combinação de todos os produtos e licenças de serviço atribuídos.
+- Um utilizador pode ser membro de vários grupos com políticas de licença especificadas. Um utilizador também pode ter algumas licenças atribuídas diretamente, fora de quaisquer grupos. O estado de utilizador resultante é uma combinação de todos os produtos e licenças de serviço atribuídos. Se a mesma licença é atribuída a um utilizador de várias origens, a licença será consumida apenas uma vez.
 
 - Em alguns casos, não é possível atribuir licenças a um utilizador. Por exemplo, podem não existir licenças disponíveis suficientes no inquilino ou podem ter sido atribuídos serviços em conflito ao mesmo tempo. Os administradores têm acesso a informações sobre os utilizadores para os quais o Azure AD não conseguiu processar totalmente licenças de grupo. Em seguida, podem tomar medidas corretivas com base nessas informações.
 
-- Durante a pré-visualização pública, é necessária uma subscrição paga ou de avaliação das edições Azure AD Básico ou Premium no inquilino para utilizar a gestão de licenças baseadas no grupo.
+- Uma subscrição paga ou de avaliação para o Azure AD básico ou um paga ou de avaliação do Office 365 Enterprise E3, Office 365 A3 e superiores edições é necessário no inquilino para utilizar a gestão de licença baseada em grupo. Esta funcionalidade requer a licença para cada utilizador exclusivo que é um membro dos grupos que são atribuídos a licença. Não é necessário atribuir licenças aos utilizadores para os mesmos para serem membros de grupos que são atribuídos a licença, mas tem de ter o número mínimo de licenças no inquilino para cobrir todos esses usuários. Por exemplo, se tivesse um total de 1000 utilizadores exclusivos em todos os grupos com licenças atribuídas no seu inquilino, precisaria 1.000, pelo menos, licenças para cumprir o requisito de licença.
 
 ## <a name="your-feedback-is-welcome"></a>Os seus comentários são bem-vindos!
 
@@ -62,4 +60,6 @@ Para saber mais sobre outros cenários para gestão de licenças através do lic
 * [Atribuir licenças a um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
 * [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+* [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

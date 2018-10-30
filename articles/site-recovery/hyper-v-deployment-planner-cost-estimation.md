@@ -1,6 +1,6 @@
 ---
-title: Detalhes de estimativa de custos do Planeador de Implementações do Azure Site Recovery de Hyper-V para o Azure | Microsoft Docs
-description: Este artigo descreve os detalhes da estimativa de custos de um relatório gerado através do Planeador de Implementações do Azure Site Recovery para o cenário de Hyper-V para o Azure.
+title: Reveja o Azure Site Recovery Deployment Planner custo relatório de estimativa para recuperação após desastre de VMs de Hyper-V para o Azure | Documentos da Microsoft
+description: Este artigo descreve como rever o custo estimativa relatório gerado do Azure Site Recovery Deployment Planner para recuperação após desastre de Hyper-V para o Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387247"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213190"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custos do Planeador de Implementações do Azure Site Recovery 
 

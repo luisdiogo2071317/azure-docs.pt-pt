@@ -7,20 +7,22 @@ ms.service: firewall
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: cba8ee486e13f00043a6b2092ae98bd84f9f6cba
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095181"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233400"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Exemplos de Firewall Log Analytics do Azure
 
-Os exemplos seguintes do Log Analytics podem ser utilizados para analisar os registos de Firewall do Azure.
+Os exemplos seguintes do Log Analytics podem ser utilizados para analisar os registos de Firewall do Azure. O ficheiro de exemplo baseia-se no estruturador de vista do Log Analytics, o [estruturador de vista do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artigo tem mais informações sobre o conceito de estrutura da vista.
 
 ## <a name="log-analytics-view"></a>Vista do Log Analytics
 
-Eis como pode configurar uma visualização de análise de registo de exemplo. Pode baixar a visualização de exemplo [aqui](scripts/AzureFirewall.omsview). Execute os seguintes passos para adicionar a vista para sua área de trabalho do log analytics:
+Eis como pode configurar uma visualização de análise de registo de exemplo. Pode baixar a visualização de exemplo a partir do [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) repositório. A maneira mais fácil é com o botão direito na hiperligação nesta página e escolher *guardar como* e forneça um nome como **AzureFirewall.omsview**. 
+
+Execute os seguintes passos para adicionar a vista para sua área de trabalho do log analytics:
 
 1. Abra a área de trabalho do log analytics no Portal do Azure.
 2. Open **exibir Designer** abaixo **geral**.

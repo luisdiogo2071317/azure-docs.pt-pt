@@ -1,7 +1,7 @@
 ---
 title: REST API (V4) - ir - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Obtenha informações baseadas em REST e amostras de código para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
+description: Obtenha informações baseadas em G0 REST e amostras de código para ajudá-lo a rapidamente começar a utilizar a API de texto do Microsoft Translator nos serviços cognitivos da Microsoft no Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 1b4f4c50c8c3fbdc2cc556705bdd446cb360ef2c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b9451d51bf0c0c684cebf89ad448b66fee59d9ea
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650235"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210708"
 ---
 # <a name="qna-maker-rest-api-with-go"></a>API de REST do QnA Maker com Go 
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como utilizar a [API do Criador de FAQ da Microsoft](../Overview/overview.md) com Go para fazer o seguinte.
+Este artigo mostra-lhe como utilizar o [API do Microsoft QnA Maker](../Overview/overview.md) com o Go para fazer o seguinte.
 
 - [Criar uma nova base de dados de conhecimento.](#Create)
 - [Atualizar uma base de dados de conhecimento existente.](#Update)

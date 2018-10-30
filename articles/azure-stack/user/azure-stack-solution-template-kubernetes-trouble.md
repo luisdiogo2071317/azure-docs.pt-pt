@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116917"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231241"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Resolver problemas relacionados com a implementação para o Kubernetes no Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116917"
 > [!Note]  
 > Kubernetes no Azure Stack está em pré-visualização.
 
-O seguinte artigo analisa de resolução de problemas do seu cluster do Kubernetes. Pode rever o alerta de implementação e consultar o estado da implementação, os elementos necessários para a implementação. Terá de recolher os registos de implementação a partir do Azure Stack ou as VMs do Linux que alojam Kubernetes. Além disso, terá de contactar o administrador do Azure Stack para obter os registos de um ponto de extremidade administrativo.
+O seguinte artigo analisa de resolução de problemas do seu cluster do Kubernetes. Pode rever o alerta de implementação e rever o estado da implementação ao observar os elementos necessários para a implementação. Terá de recolher os registos de implementação a partir do Azure Stack ou as VMs do Linux que alojam Kubernetes. Além disso, terá de contactar o administrador do Azure Stack para obter os registos de um ponto de extremidade administrativo.
 
 ## <a name="overview-of-deployment"></a>Descrição geral da implementação
 
@@ -47,7 +47,7 @@ O diagrama seguinte mostra o processo geral para implementar o cluster.
     Introduza os valores que necessários para configurar o cluster Kubernetes, incluindo:
     -  **Nome de utilizador** nome de utilizador para as máquinas de virtuais de Linux que fazem parte do cluster de Kubernetes e DVM.
     -  **Chave pública SSH** a chave utilizada para a autorização para todas as máquinas de Linux criados como parte do cluster de Kubernetes e DVM
-    -  **Principal de serviço** o ID utilizado pelo fornecedor de cloud do Azure do Kubernetes. O ID de cliente identificado como o ID da aplicação quando são criadas seu principal de serviço. 
+    -  **Principal de serviço** o ID utilizado pelo fornecedor de cloud do Azure do Kubernetes. O ID de cliente foi identificado como o ID da aplicação quando são criadas seu serviço principal. 
     -  **Segredo do cliente** chaves que criou ao criar o seu principal de serviço.
 
 2. Cria a VM de implementação e extensão de script personalizado.

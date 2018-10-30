@@ -1,5 +1,16 @@
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227455"
+---
 As extensões de VM podem ajudá-lo a:
 
 * Modificar as funcionalidades de segurança e identidade, como repor valores de conta e utilizar antimalware
@@ -31,7 +42,7 @@ O Agente VM é ativado nas seguintes situações:
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* Quando cria uma imagem de VM que inclui um agente VM instalado. Depois de a imagem com o agente VM existir, pode carregar essa imagem para o Azure. Para uma VM do Windows, transfira o [ficheiro .msi do Agente VM do Windows](http://go.microsoft.com/fwlink/?LinkID=394789) e instale o Agente VM. Para uma VM com Linux, instale o agente de VM a partir do repositório do GitHub, localizado em <https://github.com/Azure/WALinuxAgent>. Para obter mais informações sobre como instalar o Agente VM no Linux, veja [Guia de Utilizador do Agente VM do Linux no Azure](../articles/virtual-machines/extensions/agent-linux.md).
+* Quando cria uma imagem de VM que inclui um agente VM instalado. Depois de a imagem com o agente VM existir, pode carregar essa imagem para o Azure. Para uma VM do Windows, transfira o [ficheiro .msi do Agente VM do Windows](http://go.microsoft.com/fwlink/?LinkID=394789) e instale o Agente VM. Para uma VM do Linux, instale o agente VM a partir do repositório GitHub localizado em <https://github.com/Azure/WALinuxAgent>. Para obter mais informações sobre como instalar o Agente VM no Linux, veja [Guia de Utilizador do Agente VM do Linux no Azure](../articles/virtual-machines/extensions/agent-linux.md).
 
 > [!NOTE]
 > No PaaS, o Agente VM chama-se **WindowsAzureGuestAgent** e está sempre disponível em VMs da Web e de Função de Trabalho. (Para obter mais informações, veja [Arquitetura de Funções do Azure](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx).) O Agente VM para VMs de função pode agora adicionar extensões às VMs do serviço cloud, da mesma forma que o faz para Máquinas Virtuais persistentes. A maior diferença entre Extensões de VM em VMs de função e em VMs persistentes é quando as Extensões de VM são adicionadas. Nas VMs de função, as extensões são primeiro adicionadas ao serviço cloud e, em seguida, às implementações dentro desse serviço cloud.

@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 0f223660f8dc99b590f8aa80a03d60fcbf3aa5d3
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091305"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232584"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 
-Um instantâneo é uma cópia completa, só de leitura de uma unidade de disco rígida virtual (VHD). Pode tirar um instantâneo de um disco de SO ou dados VHD para utilizar como uma cópia de segurança ou para resolver problemas de máquina virtual (VM). 
+Um instantâneo é uma cópia completa, só de leitura de uma unidade de disco rígida virtual (VHD). Pode tirar um instantâneo de um disco de SO ou dados VHD para utilizar como uma cópia de segurança ou para resolver problemas de máquina virtual (VM).
+
+Se pretender utilizar o instantâneo para criar uma nova VM, recomendamos que encerrada corretamente a VM antes de tirar um instantâneo, para limpar todos os processos que estão em curso.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure 
 

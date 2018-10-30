@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 290bca5f3839356817651096e6a274c868a5a268
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165653"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50221925"
 ---
 1. No seu servidor de configuração, inicie CSPSConfigtool.exe. Está disponível como um atalho no ambiente de trabalho e encontra-se na pasta *localização de instalação*\home\svsystems\bin.
 2. Clique em **Gerir Contas** > **Adicionar Conta**.

@@ -1,8 +1,8 @@
 ---
-title: Chamar, acionador ou aninhar fluxos de trabalho com pontos finais HTTP - Azure Logic Apps | Microsoft Docs
-description: Configurar pontos finais HTTP chamar, acionador, ou aninhar fluxos de trabalho para o Azure Logic Apps
+title: Chamar, acionar ou aninhar fluxos de trabalho com pontos de extremidade HTTP - Azure Logic Apps | Documentos da Microsoft
+description: Configurar pontos finais HTTP para chamar, acionar, ou aninhar fluxos de trabalho para o Azure Logic Apps
 services: logic-apps
-keywords: fluxos de trabalho, pontos finais de HTTP
+keywords: fluxos de trabalho, pontos de extremidade HTTP
 author: jeffhollan
 manager: jeconnoc
 editor: ''
@@ -16,18 +16,18 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: 9c02a0f540f52007412a850b9d69e337743fc35f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7920fee1bacf569ac41c36142fc68080b4de5780
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300203"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230493"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, acionador, ou aninhar fluxos de trabalho com pontos finais HTTP nas logic apps
+# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>Chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no logic apps
 
-Nativamente pode expor os pontos finais de HTTP síncronos como os acionadores nas logic apps para que possa acionar ou chamar as logic apps através de um URL. Também pode aninhar fluxos de trabalho nas suas logic apps utilizando um padrão de possível chamar EndRead pontos finais.
+Nativamente podem expor pontos de extremidade HTTP síncronos como disparadores sobre as aplicações lógicas, para que possa acionar ou chamar as aplicações lógicas através de um URL. Também pode aninhar fluxos de trabalho nas suas aplicações lógicas através de um padrão de pontos finais disponíveis.
 
-Para criar pontos finais de HTTP, pode adicionar estes acionadores para que as logic apps podem receber pedidos de entrada:
+Para criar pontos de extremidade HTTP, pode adicionar estes acionadores, para que as aplicações lógicas podem receber pedidos de entrada:
 
 * [Pedido](../connectors/connectors-native-reqres.md)
 
@@ -36,22 +36,22 @@ Para criar pontos finais de HTTP, pode adicionar estes acionadores para que as l
 * [Webhook de HTTP](../connectors/connectors-native-webhook.md)
 
    > [!NOTE]
-   > Embora estes exemplos utilizam o **pedido** acionador, pode utilizar qualquer um dos acionadores HTTP listados e todos os princípios de forma idêntica aplicam para outros tipos de Acionador.
+   > Embora estes exemplos utilizam o **pedir** acionador, pode usar qualquer um dos acionadores HTTP listados e todos os princípios aplicam-se idêntico para os outros tipos de Acionador.
 
-## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurar um ponto final HTTP para a sua aplicação lógica
+## <a name="set-up-an-http-endpoint-for-your-logic-app"></a>Configurar um ponto de final HTTP para a aplicação lógica
 
-Para criar um ponto final de HTTP, adicione um acionador que pode receber pedidos recebidos.
+Para criar um ponto final HTTP, adicione um acionador que pode receber pedidos recebidos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure"). Aceda à sua aplicação lógica e abra o Designer de aplicação lógica.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure"). Aceda à sua aplicação lógica e abrir o Estruturador da aplicação lógica.
 
-2. Adicione um acionador que permite que a sua aplicação lógica receber pedidos recebidos. Por exemplo, adicione o **pedido** acionador à sua aplicação lógica.
+2. Adicione um acionador que permite que a sua aplicação lógica recebe as solicitações de entrada. Por exemplo, adicione a **pedir** acionador à sua aplicação lógica.
 
-3.  Em **esquema de JSON de corpo do pedido**, opcionalmente, pode introduzir um esquema JSON para o payload (dados), que espera que o acionar a receber.
+3.  Sob **pedir esquema JSON do corpo**, opcionalmente, pode introduzir um esquema JSON para o payload (dados) que pretende que o acionador para receber.
 
-    O estruturador utiliza este esquema para gerar tokens que pode utilizar a aplicação lógica para consumir, analisar e transmitir dados de Acionador através do seu fluxo de trabalho. 
-    Mais informações sobre como [tokens gerados a partir de esquemas JSON](#generated-tokens).
+    O designer usa esse esquema para gerar tokens que a aplicação lógica pode usar para consumir, analisar e transmitir dados a partir do acionador por meio de seu fluxo de trabalho. 
+    Saiba mais sobre [tokens gerados a partir de esquemas JSON](#generated-tokens).
 
-    Neste exemplo, introduza o esquema mostrado no designer de:
+    Neste exemplo, introduza o esquema mostrado ao designer:
 
     ```json
     {
@@ -67,12 +67,12 @@ Para criar um ponto final de HTTP, adicione um acionador que pode receber pedido
     }
     ```
 
-    ![Adicionar a ação de pedido][1]
+    ![Adicione a ação de pedido][1]
 
     > [!TIP]
     > 
-    > Pode gerar um esquema para um payload JSON de exemplo a partir de uma ferramenta como o [jsonschema.net](http://jsonschema.net/), ou no **pedido** acionador escolhendo **payload de exemplo de utilização para gerar o esquema**. 
-    > Introduza o payload de exemplo e escolha **feito**.
+    > Pode gerar um esquema para um payload JSON de exemplo a partir de uma ferramenta como o [jsonschema.net](http://jsonschema.net/), ou no **pedir** acionador ao escolher **utilizar payload de amostra para gerar esquema**. 
+    > Introduzir o payload de exemplo e escolha **feito**.
 
     Por exemplo, este payload de exemplo:
 
@@ -82,7 +82,7 @@ Para criar um ponto final de HTTP, adicione um acionador que pode receber pedido
     }
     ```
 
-    gera neste esquema:
+    gera esse esquema:
 
     ```json
     {
@@ -95,16 +95,16 @@ Para criar um ponto final de HTTP, adicione um acionador que pode receber pedido
     }
     ```
 
-4.  Guarde a aplicação lógica. Em **POST de HTTP para este URL**, agora deve encontrar um URL de chamada de retorno gerado, tal como neste exemplo:
+4.  Guarde a aplicação lógica. Sob **HTTP POST para este URL**, agora deve encontrar um URL de chamada de retorno gerado, como neste exemplo:
 
     ![URL de chamada de retorno gerado para o ponto final](./media/logic-apps-http-endpoint/generated-endpoint-url.png)
 
     Este URL contém uma chave de assinatura de acesso partilhado (SAS) os parâmetros de consulta que são utilizados para autenticação. 
-    Também pode obter o URL de ponto final HTTP a partir da descrição geral da aplicação lógica no portal do Azure. Em **histórico de Acionador**, selecione o acionador:
+    Também pode obter o URL de ponto final HTTP da sua descrição geral da aplicação lógica no portal do Azure. Sob **histórico de Acionadores**, selecione o acionador:
 
-    ![Obter o URL de ponto final HTTP a partir do portal do Azure][2]
+    ![Obter URL de ponto final HTTP a partir do portal do Azure][2]
 
-    Ou pode obter o URL ao efetuar esta chamada:
+    Em alternativa, pode obter o URL ao fazer esta chamada:
 
     ```
     POST https://management.azure.com/{logic-app-resourceID}/triggers/{myendpointtrigger}/listCallbackURL?api-version=2016-06-01
@@ -112,55 +112,55 @@ Para criar um ponto final de HTTP, adicione um acionador que pode receber pedido
 
 ## <a name="change-the-http-method-for-your-trigger"></a>Alterar o método HTTP para o acionador
 
-Por predefinição, o **pedido** acionador espera um pedido POST de HTTP, mas pode utilizar um método HTTP diferente. 
+Por predefinição, o **pedido** acionador espera um pedido HTTP POST, mas pode usar um método diferente de HTTP. 
 
 > [!NOTE]
 > Pode especificar o tipo de apenas um método.
 
-1. No seu **pedido** acionar, escolha **Mostrar opções avançadas**.
+1. No seu **pedir** acionador, escolha **Mostrar opções avançadas**.
 
-2. Abra o **método** lista. Para este exemplo, selecione **obter** , para que possa testar URL do ponto final de HTTP mais tarde.
+2. Abra o **método** lista. Para este exemplo, selecione **obter** para que pode testar URL seu ponto final HTTP mais tarde.
 
     > [!NOTE]
-    > Pode selecionar qualquer outro método HTTP ou especificar um método personalizado para a sua própria aplicação lógica.
+    > Pode selecionar qualquer outro método HTTP, ou especificar um método personalizado para a sua própria aplicação lógica.
 
     ![Alterar o método HTTP](./media/logic-apps-http-endpoint/change-method.png)
 
-## <a name="accept-parameters-through-your-http-endpoint-url"></a>Aceitar parâmetros através do seu URL de ponto final HTTP
+## <a name="accept-parameters-through-your-http-endpoint-url"></a>Aceitar parâmetros por meio de seu URL de ponto final HTTP
 
 Quando pretender que o seu URL de ponto final HTTP para aceitar parâmetros, personalize o caminho relativo do acionador.
 
-1. No seu **pedido** acionar, escolha **Mostrar opções avançadas**. 
+1. No seu **pedir** acionador, escolha **Mostrar opções avançadas**. 
 
-2. Em **método**, especifique o método HTTP que pretende que o seu pedido para utilizar. Para este exemplo, selecione o **obter** método, se ainda não o fez, para que possa testar URL do ponto final de HTTP.
+2. Sob **método**, especifique o método HTTP que pretende que o seu pedido para utilizar. Para este exemplo, selecione o **obter** método, se ainda não o fez, para que pode testar o URL do seu ponto final HTTP.
 
       > [!NOTE]
       > Quando especificar um caminho relativo para o acionador, tem de especificar também explicitamente um método HTTP para o acionador.
 
-3. Em **caminho relativo**, especifique o caminho relativo para o parâmetro que o URL deve aceitar, por exemplo, `customers/{customerID}`.
+3. Sob **caminho relativo**, especifique o caminho relativo para o parâmetro que deve aceitar o URL, por exemplo, `customers/{customerID}`.
 
     ![Especifique o método HTTP e o caminho relativo para o parâmetro](./media/logic-apps-http-endpoint/relativeurl.png)
 
-4. Para utilizar o parâmetro, adicione um **resposta** ação à sua aplicação lógica. (Sob o acionador, escolha **novo passo** > **adicionar uma ação** > **resposta**) 
+4. Para utilizar o parâmetro, adicione uma **resposta** ação à sua aplicação lógica. (No seu acionador, escolha **novo passo** > **adicionar uma ação** > **resposta**) 
 
-5. Na sua resposta **corpo**, incluem o token para o parâmetro especificado no caminho relativo do acionador.
+5. Em sua resposta **corpo**, incluem o token para o parâmetro que especificou no caminho relativo do seu acionador.
 
-    Por exemplo, para devolver `Hello {customerID}`, atualize a sua resposta **corpo** com `Hello {customerID token}`. 
-    A lista de conteúdo dinâmica deve aparecer e mostrar a `customerID` token para o selecionar.
+    Por exemplo, para retornar `Hello {customerID}`, atualize a sua resposta **corpo** com `Hello {customerID token}`. 
+    Lista de conteúdo dinâmico deve aparecer e mostrar o `customerID` token para o selecionar.
 
-    ![Adicionar o parâmetro de corpo de resposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+    ![Adicionar parâmetros ao corpo da resposta](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
-    O **corpo** deverá ser semelhante neste exemplo:
+    Sua **corpo** deve ter um aspeto semelhante a este exemplo:
 
     ![Corpo de resposta com o parâmetro](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. Guarde a aplicação lógica. 
 
-    O URL de ponto final HTTP inclui agora o caminho relativo, por exemplo: 
+    O URL de ponto final HTTP agora inclui o caminho relativo, por exemplo: 
 
     https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
-7. Para testar o ponto final de HTTP, copie e cole o URL atualizado outra janela do browser, mas substitua `{customerID}` com `123456`, e prima Enter.
+7. Para testar o seu ponto final de HTTP, copie e cole o URL atualizado na outra janela do browser, mas substitua `{customerID}` com `123456`, e prima Enter.
 
     O browser deve mostrar este texto: 
 
@@ -170,11 +170,11 @@ Quando pretender que o seu URL de ponto final HTTP para aceitar parâmetros, per
 
 ### <a name="tokens-generated-from-json-schemas-for-your-logic-app"></a>Tokens gerados a partir de esquemas JSON para a sua aplicação lógica
 
-Quando fornecer o esquema JSON na sua **pedido** acionador, o Designer de aplicação lógica gera tokens para propriedades que esquema. Em seguida, pode utilizar esses tokens para transmitir dados através do seu fluxo de trabalho de aplicação lógica.
+Quando fornecer um esquema JSON no seu **pedir** acionador, o Estruturador da aplicação lógica gera tokens para propriedades nesse esquema. Em seguida, pode usar esses tokens para transmitir dados através de seu fluxo de trabalho de aplicação lógica.
 
-Neste exemplo, se adicionar o `title` e `name` propriedades para o esquema JSON, os seus tokens estão agora disponíveis para utilização em passos posteriores do fluxo de trabalho. 
+Neste exemplo, se adicionar o `title` e `name` propriedades para o seu esquema JSON, os tokens estão agora disponíveis para utilizar em passos posteriores do fluxo de trabalho. 
 
-Segue-se o esquema JSON concluído:
+Este é o esquema JSON completo:
 
 ```json
 {
@@ -200,22 +200,22 @@ Segue-se o esquema JSON concluído:
 
 ## <a name="create-nested-workflows-for-logic-apps"></a>Criar fluxos de trabalho aninhados para aplicações lógicas
 
-Pode ser aninhado fluxos de trabalho na sua aplicação lógica adicionando outras as logic apps que podem receber pedidos. Para incluir estes logic apps, adicione o **Azure Logic Apps - escolha um fluxo de trabalho Logic Apps** ação a acionar. Em seguida, pode selecionar a partir de aplicações lógicas elegível.
+Pode aninhar fluxos de trabalho na sua aplicação lógica, adicionando outras aplicações lógicas que podem receber pedidos. Para incluir estas aplicações lógicas, adicione a **do Azure Logic Apps - escolher um fluxo de trabalho do Logic Apps** ação para o acionador. Em seguida, pode selecionar a partir das aplicações lógicas elegíveis.
 
-![Adicionar outra aplicação lógica](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+![Adicionar outra aplicação de lógica](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
-## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Chamar ou acionar as logic apps através de pontos finais HTTP
+## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>Chamar ou acionar aplicações lógicas através de pontos finais HTTP
 
-Depois de criar o ponto final de HTTP, pode acionar a sua aplicação lógica através de um `POST` método para o URL completo. As Logic apps têm suporte incorporado para pontos finais de acesso direto.
+Depois de criar o ponto final HTTP, pode acionar a sua aplicação lógica através de um `POST` método para o URL completo. Aplicações lógicas têm suporte incorporado para pontos finais de acesso direto.
 
 > [!NOTE] 
-> Para executar manualmente uma aplicação lógica em qualquer altura, na barra de ferramentas Designer de aplicação lógica ou de vista de código de aplicação lógica, escolha **executar**.
+> Para executar manualmente uma aplicação lógica em qualquer altura, na barra de ferramentas da Estruturador da aplicação lógica ou a vista de código de aplicação lógica, escolha **executar**.
 
-## <a name="reference-content-from-an-incoming-request"></a>Conteúdo de referência de um pedido recebido
+## <a name="reference-content-from-an-incoming-request"></a>Conteúdo de referência de uma solicitação de entrada
 
-Se o tipo de conteúdo é `application/json`, pode referenciar propriedades do pedido a receber. Caso contrário, o conteúdo é tratado como uma única unidade binária, que pode passar para outras APIs. Para fazer referência a este conteúdo dentro do fluxo de trabalho, tem de converter esse conteúdo. Por exemplo, se passa `application/xml` conteúdo, pode utilizar `@xpath()` para extração um XPath, ou `@json()` para a conversão XML para JSON. Saiba mais sobre [trabalhar com os tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+Se de tipo o conteúdo for `application/json`, pode referenciar propriedades da solicitação recebida. Caso contrário, o conteúdo é tratado como uma unidade de binária única que pode passar para outras APIs. Para fazer referência a este conteúdo dentro do fluxo de trabalho, tem de converter esse conteúdo. Por exemplo, se passar `application/xml` conteúdo, pode utilizar `@xpath()` para uma extração de XPath, ou `@json()` para a conversão XML para JSON. Saiba mais sobre [trabalhar com tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
 
-Para obter o resultado de um pedido recebido, pode utilizar o `@triggerOutputs()` função. A saída aspeto que poderá ter neste exemplo:
+Para obter o resultado de uma solicitação de entrada, pode usar o `@triggerOutputs()` função. A saída pode ser semelhante a este exemplo:
 
 ```json
 {
@@ -228,18 +228,18 @@ Para obter o resultado de um pedido recebido, pode utilizar o `@triggerOutputs()
 }
 ```
 
-Para o acesso a `body` propriedade especificamente, pode utilizar o `@triggerBody()` atalho. 
+Para aceder a `body` propriedade especificamente, pode usar o `@triggerBody()` atalho. 
 
 ## <a name="respond-to-requests"></a>Responder a pedidos
 
-Pode querer responder a pedidos de determinados que iniciar uma aplicação lógica ao devolver o conteúdo para o autor da chamada. Para construir o código de estado, o cabeçalho e o corpo da sua resposta, pode utilizar o **resposta** ação. Esta ação pode aparecer em qualquer local na sua aplicação lógica, não apenas no final do fluxo de trabalho.
+Pode querer responder a pedidos de determinados que iniciar uma aplicação lógica, retornando o conteúdo para o chamador. Para construir o código de estado, o cabeçalho e o corpo da sua resposta, pode utilizar o **resposta** ação. Esta ação pode aparecer em qualquer local na sua aplicação lógica, não apenas no final do seu fluxo de trabalho.
 
 > [!NOTE] 
-> Se a sua aplicação lógica não inclui um **resposta**, o ponto final de HTTP responde *imediatamente* com um **aceites 202** estado. Além disso, para o pedido original ao obter a resposta, todos os passos necessários para a resposta devem ser concluído dentro do [limite de tempo limite do pedido](./logic-apps-limits-and-config.md) , exceto se chamar o fluxo de trabalho como uma aplicação lógica aninhada. Se nenhuma resposta acontece este limite, o pedido de entrada exceder o tempo limite e recebe a resposta HTTP **tempo limite de cliente 408**. Para aplicações lógicas aninhados, a aplicação de lógica principal continua a aguardar pela resposta até à conclusão, independentemente da quanto tempo é necessário.
+> Se a sua aplicação lógica não inclui um **resposta**, o ponto de extremidade HTTP responde *imediatamente* com um **aceite 202** estado. Além disso, para a solicitação original obter a resposta, todas as etapas necessárias para a resposta deverá ser concluída no [limite de tempo limite do pedido](./logic-apps-limits-and-config.md) , a menos que chamar o fluxo de trabalho como uma aplicação lógica aninhada. Se nenhuma resposta acontecer dentro deste limite, a solicitação de entrada exceder o tempo limite e recebe a resposta HTTP **408 tempo limite do cliente**. Para aplicações de lógica aninhada, a aplicação de lógica principal continua a aguardar por uma resposta até concluídos, independentemente de quanto tempo é necessário.
 
 ### <a name="construct-the-response"></a>Construir a resposta
 
-Pode incluir mais do que um cabeçalho e qualquer tipo de conteúdo no corpo da resposta. A resposta de exemplo, o cabeçalho Especifica que a resposta tem o tipo de conteúdo `application/json`. e o corpo contém `title` e `name`, consoante o esquema JSON anteriormente atualizado para incluir o **pedido** acionador.
+Pode incluir mais de um cabeçalho e de qualquer tipo de conteúdo no corpo da resposta. A resposta de exemplo, o cabeçalho Especifica que a resposta tem o tipo de conteúdo `application/json`. e o corpo contém `title` e `name`, com base no esquema JSON atualizado anteriormente para o **pedir** acionador.
 
 ![Ação de resposta de HTTP][3]
 
@@ -247,11 +247,11 @@ As respostas têm estas propriedades:
 
 | Propriedade | Descrição |
 | --- | --- |
-| statusCode |Especifica o código de estado HTTP para responder ao pedido de entrada. Este código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, os códigos de estado de 3xx não são permitidos. |
-| cabeçalhos |Define qualquer número de cabeçalhos para incluir na resposta. |
-| corpo |Especifica um objeto de corpo pode ser uma cadeia, um objeto JSON ou mesmo binário conteúdo referenciado a partir de um passo anterior. |
+| statusCode |Especifica o código de estado HTTP para responder à solicitação de entrada. Esse código pode ser qualquer código de estado válido que comece com 2xx, 4xx ou 5xx. No entanto, os códigos de estado de 3xx não são permitidos. |
+| Cabeçalhos |Define a qualquer número de cabeçalhos para incluir na resposta. |
+| corpo |Especifica um objeto de corpo que pode ser uma cadeia de caracteres, um objeto JSON ou até mesmo binário conteúdo referenciado a partir de um passo anterior. |
 
-Eis o que o esquema JSON assemelha agora o **resposta** ação:
+Eis o que o esquema JSON aparência agora para o **resposta** ação:
 
 ``` json
 "Response": {
@@ -271,48 +271,48 @@ Eis o que o esquema JSON assemelha agora o **resposta** ação:
 ```
 
 > [!TIP]
-> Para ver a definição JSON concluída para a sua aplicação lógica, no Designer de aplicação lógica, escolha **Code vista**.
+> Para ver a definição de JSON completa para a sua aplicação lógica no Estruturador da aplicação lógica, escolha **exibição de código**.
 
 ## <a name="q--a"></a>P&R
 
-#### <a name="q-what-about-url-security"></a>P: E sobre segurança URL?
+#### <a name="q-what-about-url-security"></a>P: o que dizer sobre segurança de URL?
 
-R: azure gera em segurança URLs da chamada de retorno de aplicação de lógica com uma assinatura de acesso partilhado (SAS). Esta assinatura atravessa como um parâmetro de consulta e tem de ser validada antes da aplicação lógica pode acionados. O Azure gera a assinatura utilizando uma combinação exclusiva de uma chave secreta por aplicação lógica, o nome do acionador e a operação que é executada. Por isso, exceto se alguém tiver acesso à chave de aplicação lógica segredo, não é possível gerar uma assinatura válida.
+R: azure gera em segurança os URLs de retorno de chamada de aplicação lógica com uma assinatura de acesso partilhado (SAS). Essa assinatura passa por meio de como um parâmetro de consulta e têm de ser validada antes de pode acionar a sua aplicação lógica. Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do acionador e a operação que é executada. Portanto, a menos que alguém tem acesso para a chave da aplicação lógica secreta, não é possível gerar uma assinatura válida.
 
    > [!IMPORTANT]
-   > Para produção e sistemas seguros, Desaconselhamos vivamente a sua aplicação lógica ao chamar diretamente a partir do browser porque:
+   > Para a produção e sistemas de segurança, recomendamos vivamente em relação a sua aplicação lógica ao chamar diretamente a partir do navegador porque:
    > 
    > * A chave de acesso partilhado é apresentado no URL.
-   > * Não é possível gerir políticas de conteúdo seguras devido a domínios partilhados entre os clientes de aplicação lógica.
+   > * Não é possível gerir políticas de conteúdo seguras devido a domínios compartilhadas entre os clientes de aplicação lógica.
 
-#### <a name="q-can-i-configure-http-endpoints-further"></a>P: posso configurar pontos finais de HTTP mais?
+#### <a name="q-can-i-configure-http-endpoints-further"></a>P: posso configurar pontos finais HTTP ainda mais?
 
-R: Sim, pontos finais de HTTP suportam a configuração mais avançada através de [ **API Management**](../api-management/api-management-key-concepts.md). Este serviço também oferece a capacidade para gerir todas as suas APIs, incluindo as logic apps consistentemente, configurar os nomes de domínio personalizado, utilize mais métodos de autenticação e muito mais, por exemplo:
+R: Sim, pontos de extremidade HTTP suportam configurações mais avançadas através de [ **gestão de API**](../api-management/api-management-key-concepts.md). Este serviço também oferece a capacidade para gerir todas as suas APIs, incluindo aplicações lógicas consistentemente, configurar nomes de domínio personalizado, utilize os métodos de autenticação mais e muito mais, por exemplo:
 
 * [O método de pedido de alteração](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Alterar os segmentos de URL do pedido](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* Configurar os domínios de gestão de API no [portal do Azure](https://portal.azure.com/ "portal do Azure")
-* Configurar a política para verificar se a autenticação básica
+* Configurar seus domínios de gestão de API no [portal do Azure](https://portal.azure.com/ "portal do Azure")
+* Configurar a política para verificar a existência de autenticação básica
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: quais alterado quando o esquema migrado a partir da pré-visualização 1 de Dezembro de 2014
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: o que foi alterado quando o esquema migrada a partir da pré-visualização do dia 1 de Dezembro de 2014?
 
-R: Eis um resumo sobre estas alterações:
+R: aqui está um resumo sobre estas alterações:
 
 | Pré-visualização de 1 de Dezembro de 2014 | 1 de Junho de 2016 |
 | --- | --- |
-| Clique em **serviço de escuta HTTP** aplicação API |Clique em **acionador Manual** (não existe nenhuma aplicação de API obrigatório) |
-| Definição de serviço de escuta de HTTP "*envia automaticamente resposta*" |Quer incluir um **resposta** ação ou não a definição de fluxo de trabalho |
-| Configurar a autenticação básica ou OAuth |através da gestão de API |
-| Configurar o método de HTTP |Em **Mostrar opções avançadas**, escolha um método HTTP |
-| Configurar o caminho relativo |Em **Mostrar opções avançadas**, adicione um caminho relativo |
-| O corpo de entrada através de referência `@triggerOutputs().body.Content` |Referência através da `@triggerOutputs().body` |
-| **Enviar uma resposta HTTP** ação sobre o serviço de escuta de HTTP |Clique em **responder a pedidos de HTTP** (não existe nenhuma aplicação de API obrigatório) |
+| Clique em **serviço de escuta de HTTP** aplicação API |Clique em **acionador Manual** (nenhuma aplicação de API obrigatório) |
+| Definição de serviço de escuta de HTTP "*envia automaticamente a resposta*" |Qualquer um incluem uma **resposta** ação ou não na definição do fluxo de trabalho |
+| Configurar autenticação básica ou do OAuth |através da gestão de API |
+| Configurar o método HTTP |Sob **Mostrar opções avançadas**, escolha um método de HTTP |
+| Configurar o caminho relativo |Sob **Mostrar opções avançadas**, adicione um caminho relativo |
+| O corpo de entrada através de referência `@triggerOutputs().body.Content` |Referência através de `@triggerOutputs().body` |
+| **Enviar resposta HTTP** ação no serviço de escuta de HTTP |Clique em **responder ao pedido HTTP** (nenhuma aplicação de API obrigatório) |
 
 ## <a name="get-help"></a>Obter ajuda
 
 Para fazer perguntas, responder a perguntas e ver o que os outros utilizadores do Azure Logic Apps estão a fazer, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-Para ajudar a melhorar o Azure Logic Apps e os conectores, vote ou submeta ideais no [site de comentários dos utilizadores do Azure Logic Apps](http://aka.ms/logicapps-wish).
+Para ajudar a melhorar o Azure Logic Apps e os conectores, vote ou submeta ideais no [site de comentários dos utilizadores do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

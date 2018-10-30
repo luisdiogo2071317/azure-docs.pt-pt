@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982277"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230068"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar os links codificados para as aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -97,6 +97,7 @@ Para melhorar o desempenho e a segurança, não são traduzidos alguns links:
 
 - Ligações não dentro de etiquetas de código. 
 - Ligações não no HTML ou CSS. 
+- Links no formato com codificação URL.
 - Ligações internas abertas a partir de outros programas. Links enviados por e-mail ou por mensagem instantânea ou incluídos em outros documentos, não ser traduzido. Os usuários precisarão saber para ir para o URL externo.
 
 Se tiver de oferecer suporte a um desses dois cenários, utilize os mesmos URLs internos e externos em vez de conversão de link.  

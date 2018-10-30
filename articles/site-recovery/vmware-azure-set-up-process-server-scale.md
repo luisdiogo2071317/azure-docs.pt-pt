@@ -1,21 +1,20 @@
 ---
-title: Configurar um servidor de processos no Azure para a VM de VMware e a reativação pós-falha do servidor físico com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha de VMs do Azure para VMware.
-services: site-recovery
+title: Configurar um servidor de processos no Azure para falhar durante a recuperação após desastre de VMs de VMware e servidores físicos com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo descreve como configurar um servidor de processos no Azure, para a reativação pós-falha do Azure no local durante a recuperação após desastre de VMs de VMware e servidores físicos.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955389"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212238"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Configurar servidores de processos adicionais para obter escalabilidade
+# <a name="scale-for-failback-with-additional-process-servers"></a>Escala para reativação pós-falha com servidores de processos adicionais
 
 Por predefinição, quando está a replicar VMs de VMware ou servidores físicos para o Azure com [recuperação de Site](site-recovery-overview.md), um servidor de processos está instalado na máquina do servidor de configuração e é usado para coordenar a transferência de dados entre o Site Recovery e sua infraestrutura no local. Para aumentar a capacidade e ampliar a sua implementação de replicação, pode adicionar servidores de processos adicionais autónomo. Este artigo descreve como fazer isso.
 

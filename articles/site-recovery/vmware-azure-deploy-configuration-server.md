@@ -1,21 +1,20 @@
 ---
 title: Implementar o servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery
-services: site-recovery
+description: Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware para o Azure com o Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025281"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233162"
 ---
-# <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
+# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Implementar um servidor de configuração para a recuperação de desastre do VMware para o Azure
 
 Implementar um servidor de configuração no local quando utiliza [do Azure Site Recovery](site-recovery-overview.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. As comunicações de coordenadas do servidor de configuração entre locais VMware e o Azure. Ele também gerencia a replicação de dados. Este artigo orienta-o pelos passos necessários para implementar o servidor de configuração quando está a replicar VMs de VMware para o Azure. [Siga este artigo](physical-azure-set-up-source.md) se precisar de configurar um servidor de configuração para a replicação de servidor físico.
 
@@ -117,6 +116,14 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 8. Selecione **Finalizar configuração** para concluir o registo.
 9. Após a conclusão do registo, abra o portal do Azure, certifique-se de que o servidor de configuração e o servidor VMware estão listados na **cofre dos serviços de recuperação** > **gerir**  >  **Infraestrutura do site Recovery** > **servidores de configuração**.
 
+## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
+
+Para atualizar o servidor de configuração para a versão mais recente, siga estes [passos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## <a name="manage-the-configuration-server"></a>Gerir o servidor de configuração
+
+Para evitar interrupções na replicação em curso, certifique-se de que o endereço IP do servidor de configuração não é alterada depois do servidor de configuração foi registado para um cofre. Pode saber mais sobre tarefas de gestão de servidor de configuração comuns [aqui](vmware-azure-manage-configuration-server.md).
+
 ## <a name="faq"></a>FAQ
 
 1. Pode utilizar a VM, onde está instalado o servidor de configuração, para fins diferentes?
@@ -140,14 +147,6 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 7. Onde posso transferir as chaves de registo do Cofre?
 
     Na **Cofre de serviços de recuperação**, **gerir** > **infraestrutura do Site Recovery** > **deservidoresdeconfiguração**. Nos servidores, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
-
-## <a name="upgrade-the-configuration-server"></a>Atualizar o servidor de configuração
-
-Para atualizar o servidor de configuração para a versão mais recente, siga estes [passos](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## <a name="manage-the-configuration-server"></a>Gerir o servidor de configuração
-
-Para evitar interrupções na replicação em curso, certifique-se de que o endereço IP do servidor de configuração não é alterada depois do servidor de configuração foi registado para um cofre. Pode saber mais sobre tarefas de gestão de servidor de configuração comuns [aqui](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 

@@ -4,16 +4,16 @@ description: Este artigo descreve a criação e gestão de políticas do Azure P
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dd7ec4f1d0c018a3c7eed19bea523f7c09bfea3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a68b60df76dcc554158d6c8db4d0dfe8dd32be7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985321"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209229"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação
 
@@ -85,6 +85,12 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
    ```
 
    Substitua _ContosoRG_ com o nome do seu grupo de recursos pretendido.
+
+   O **âmbito** parâmetro no `New-AzureRmPolicyAssignment` também funciona com as subscrições e grupos de gestão. O parâmetro usa um caminho de recurso completo, que o **ResourceId** propriedade no `Get-AzureRmResourceGroup` devolve. O padrão para **âmbito** para cada contentor é da seguinte forma.  Substitua `{rgName}`, `{subId}`, e `{mgName}` com seu recurso agrupar nome, o ID de subscrição e o nome do grupo de gestão, respectivamente.
+
+   - Grupo de recursos- `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Subscrição- `/subscriptions/{subId}/`
+   - Grupo de gestão- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Para obter mais informações sobre a gestão de políticas de recursos com o módulo PowerShell do Azure Resource Manager, consulte [Azurerm](/powershell/module/azurerm.resources/#policies).
 

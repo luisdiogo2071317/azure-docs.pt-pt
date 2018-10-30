@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a235851d7172d32d62c64b163e0b7635a1a47fd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37862071"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215009"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores pela associação de grupo no Azure Active Directory
 
@@ -28,7 +28,7 @@ Este artigo o orienta através da atribuição de licenças de produto a um grup
 Neste exemplo, o inquilino contém um grupo de segurança chamado **departamento de RH**. Esse grupo inclui todos os membros do departamento de recursos humanos (aproximadamente 1.000 usuários). Pretende atribuir licenças do Office 365 Enterprise E3 ao departamento de todo. O serviço de Yammer empresarial que está incluído no produto tem de ser temporariamente desativado até que o departamento está pronto para começar a utilizar. Também queira implementar licenças Enterprise Mobility + Security para o mesmo grupo de utilizadores.
 
 > [!NOTE]
-> Alguns serviços da Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar a propriedade de localização de utilização no utilizador.
+> Alguns serviços Microsoft não estão disponíveis em todas as localizações. Antes de uma licença pode ser atribuída a um utilizador, o administrador tem de especificar a propriedade de localização de utilização no utilizador.
 
 > Para a atribuição de licença de grupo, todos os utilizadores sem uma localização de utilização definida herdam a localização do diretório. Se tiver usuários em vários locais, recomendamos que defina a localização de utilização sempre como parte do seu fluxo de criação do utilizador no Azure AD (por exemplo, através do AAD Connect configuração) – que garante o resultado da atribuição de licenças que sempre está correto e se os utilizadores não recebem serviços em locais que não são permitidas.
 
@@ -52,7 +52,7 @@ Neste exemplo, o inquilino contém um grupo de segurança chamado **departamento
 
    ![Opções de atribuição](./media/licensing-groups-assign/assignment-options.png)
 
-7. Para concluir a atribuição, sobre o **atribuir licenças** painel, clique em **atribuir** na parte inferior do painel.
+7. Para concluir a atribuição, no painel **Atribuir licença**, clique em **Atribuir**, na parte inferior.
 
 8. É apresentada uma notificação no canto superior direito que mostra o estado e o resultado do processo. Se não foi possível concluir a atribuição ao grupo (por exemplo, por causa de licenças pré-existentes no grupo), clique na notificação para ver os detalhes da falha.
 
@@ -105,5 +105,7 @@ Para saber mais sobre o conjunto para gestão de licenças por meio dos grupos d
 
 * [O que é o licenciamento no Azure Active Directory com base em grupo?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Como migrar utilizadores licenciados individuais para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-migrate-users.md)
-* [O Azure Active Directory cenários adicionais de licenciamento baseado no grupo](../active-directory-licensing-group-advanced.md)
+* [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
+* [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-change-licenses.md)
+* [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](../active-directory-licensing-group-advanced.md)
+* [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-ps-examples.md)

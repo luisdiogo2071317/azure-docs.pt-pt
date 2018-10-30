@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.custom: vs-azure
 ms.date: 12/16/2015
 ms.author: mlearned
-ms.openlocfilehash: 6cceb760ab62ea4f7225c9cc0cee7a6baf8ed8be
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a1b2524b059601e1f6f999af7a9d9e063f7c0420
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442216"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233451"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Adicionar os serviços móveis com o Visual Studio ligado Services
 Com o Visual Studio 2015, pode ligar a serviços móveis do Azure utilizando o **Adicionar serviço ligado** caixa de diálogo. Pode ligar a partir de qualquer aplicação de cliente do c#, qualquer aplicação do JavaScript ou aplicação do Cordova para várias plataformas. Depois de ligar, pode criar e aceder a dados, criar APIs personalizadas e tarefas agendadas ou adicionar suporte para as notificações push.  A operação de serviços ligados adiciona todas as referências apropriadas e código de ligação. Também pode tirar partido do suporte incorporado para a autenticação com uma variedade de esquemas de identidade populares, como o Azure AD, Facebook, Twitter e Accounts da Microsoft.
@@ -68,7 +68,7 @@ Pode utilizar a caixa de diálogo de serviços ligados para ligar aos serviços 
 6. Com os exemplos de código como guia, começar a escrever código para acessar o seu serviço móvel!
 
 ## <a name="how-your-project-is-modified"></a>Como o seu projeto é modificado
-Como o Visual Studio modifica seu projeto depende do tipo de projeto. Para c# aplicações de cliente, consulte [o que aconteceu – projetos c#](http://go.microsoft.com/fwlink/p/?LinkId=513119). Para aplicativos de cliente JavaScript, consulte [o que aconteceu – projetos de JavaScript](http://go.microsoft.com/fwlink/p/?LinkId=513120). Para aplicações Cordova, consulte [o que aconteceu – Cordova projetos](http://go.microsoft.com/fwlink/p/?LinkId=513116).
+Como o Visual Studio modifica seu projeto depende do tipo de projeto. Para C# aplicações de cliente, consulte [o que aconteceu – C# projetos](http://go.microsoft.com/fwlink/p/?LinkId=513119). Para aplicativos de cliente JavaScript, consulte [o que aconteceu – projetos de JavaScript](http://go.microsoft.com/fwlink/p/?LinkId=513120). Para aplicações Cordova, consulte [o que aconteceu – Cordova projetos](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Faça perguntas e obter ajuda: 

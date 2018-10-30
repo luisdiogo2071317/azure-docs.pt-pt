@@ -1,27 +1,20 @@
 ---
-title: Replicar uma aplicação do SharePoint de várias camadas com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como replicar uma aplicação do SharePoint de várias camadas utilizando funções do Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo descreve como configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas utilizando funções do Azure Site Recovery.
 author: sujayt
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: eb5801988b6fa966a0326c39be4a267ea08500a8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5e3ebd7d3aa5555fbe5ea77dece6eb3177809de7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916790"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215079"
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Replicar um aplicativo do SharePoint com várias camado para recuperação após desastre com o Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas para recuperação após desastre com o Azure Site Recovery
 
 Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando [do Azure Site Recovery](site-recovery-overview.md).
 

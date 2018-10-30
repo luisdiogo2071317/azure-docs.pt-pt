@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0746247d2c912ba66e81b95f45b168e32b522130
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d07873b34a41ff20b5007a88743f6b150d4d8a3d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988432"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212833"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>Verifique o estado de funcionamento de um cluster do Explorador de dados do Azure
 
 Há vários fatores que afetam o estado de funcionamento de um cluster do Explorador de dados do Azure, incluindo a CPU, memória e o subsistema de disco. Este artigo mostra alguns passos básicos que pode tomar para avaliar o estado de funcionamento de um cluster.
 
-1. Inicie sessão no [ https://dataexplorer.azure.com ](https://dataexplorer.azure.com).
+1. Inicie sessão em [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
 1. No painel esquerdo, selecione o cluster e execute o seguinte comando.
 
@@ -35,6 +35,8 @@ Há vários fatores que afetam o estado de funcionamento de um cluster do Explor
 
     ![Métrica de manter ativo do cluster](media/check-cluster-health/portal-metrics.png)
 
-1. Adicione outras métricas, como CPU e memória de colocação em cache para medir a utilização de recursos para o cluster.
+1. É possível adicionar outras métricas para o gráfico. Selecione o gráfico, em seguida, **adicionar métrica**. Selecione outra métrica - este exemplo mostra **CPU**.
 
-1. Se precisar de assistência diagnosticar problemas com o estado de funcionamento de um cluster, abra um pedido de suporte no [portal do Azure](https://portal.azure.com).
+    ![Adicionar métrica](media/check-cluster-health/add-metric.png)
+
+1. Se precisar de assistência diagnosticar problemas com o estado de funcionamento de um cluster, abra um pedido de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

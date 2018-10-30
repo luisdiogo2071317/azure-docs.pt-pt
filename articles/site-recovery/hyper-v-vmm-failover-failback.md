@@ -1,19 +1,19 @@
 ---
-title: Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicado para um Datacenter secundário com o Site Recovery | Documentos da Microsoft
-description: Aprenda a ativação pós-falha de VMs de Hyper-V para o seu site no local secundário e a reativação pós-falha para o site primário, com o Azure Site Recovery
+title: Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicado para um Datacenter secundário durante a recuperação após desastre com o Azure Site Recovery | Documentos da Microsoft
+description: Saiba como a ativação pós-falha de VMs de Hyper-V para o seu site no local secundário e a reativação pós-falha para um site primário, durante a recuperação após desastre com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 782ddc3ebb7b3c533d0eb5c4b7735a13cbaf268c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077685"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210011"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicados para o seu site no local secundário
 
@@ -68,7 +68,7 @@ Iniciar a replicação do site secundário para o primário e reativação pós-
  
 1. Clique na VM > clique em **inverter replicar**.
 2. Quando a tarefa estiver concluída, clique na VM > no **ativação pós-falha**, certifique-se a direção de ativação pós-falha (a partir de nuvem VMM secundária) e selecione as localizações de origem e de destino. 
-4. Inicie a ativação pós-falha. Pode seguir o progresso de ativação pós-falha no **tarefas** separador.
+4. Iniciar a ativação pós-falha. Pode seguir o progresso da ativação pós-falha no separador **Trabalhos**.
 5. Na cloud principal do VMM, verifique que a VM está disponível.
 6. Se quiser iniciar a replicação novamente a VM principal para o site secundário, clique em **inverter replicar**.
 

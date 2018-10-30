@@ -1,22 +1,20 @@
 ---
-title: Descrição geral do suporte multi-inquilino para replicação de VMS de VMware para Azure (CSP) com o Azure Site Recovery | Documentos da Microsoft
-description: Fornece uma visão geral do suporte do Azure Site Recovery para o inquilino subscrições num ambiente multi-inquilino, através do programa CSP.
-services: site-recovery
+title: Descrição geral do suporte de vários inquilino para recuperação após desastre de VM de VMware para Azure (CSP) com o Azure Site Recovery | Documentos da Microsoft
+description: Fornece uma visão geral do suporte do Azure Site Recovery para recuperação de desastre do VMWare para o Azure num programa de ambiente multi-inquilino (CSP).
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352876"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210763"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Descrição geral do suporte de multi-inquilino para a replicação de VMware para o Azure com o CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Descrição geral do suporte de multi-inquilino para a recuperação de fisaster de VMware para Azure com o CSP
 
 [O Azure Site Recovery](site-recovery-overview.md) suporta ambientes de multi-inquilinos para subscrições de inquilino. Também suporta vários inquilinos para subscrições de inquilino que são criadas e geridas através do programa de fornecedor de soluções Cloud (CSP) da Microsoft.
 

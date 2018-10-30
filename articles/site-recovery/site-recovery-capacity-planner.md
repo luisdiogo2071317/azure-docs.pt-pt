@@ -1,27 +1,20 @@
 ---
-title: Estimar a capacidade de replicação no Azure | Documentos da Microsoft
-description: Utilize este artigo para estimar a capacidade, ao replicar com o Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
+title: Planear a capacidade para recuperação após desastre de Hyper-V com o Azure Site Recovery | Documentos da Microsoft
+description: Utilize este artigo para estimar a capacidade, ao configurar a recuperação após desastre com o serviço Azure Site Recovery.
 author: rayne-wiselman
-manager: jwhit
-editor: ''
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: 3df7bd5ed44bdf514d48e451468329bd11fdf596
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094042"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211422"
 ---
-# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planear a capacidade para proteger as VMs de Hyper-V com o Site Recovery
+# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planear a capacidade para a recuperação de desastres da VM de Hyper-V 
 
 Uma nova versão melhorada do [do Azure Site Recovery Deployment Planner do Hyper-V para implementação do Azure](site-recovery-hyper-v-deployment-planner.md) está agora disponível. Ele substitui a ferramenta antiga. Utilize a nova ferramenta para o planeamento da implementação.
 A ferramenta fornece as seguintes diretrizes:

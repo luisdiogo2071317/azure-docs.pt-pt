@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627394"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215417"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Cenários, limitações e problemas conhecidos, utilizar grupos para gerir o licenciamento no Azure Active Directory
 
@@ -211,23 +211,21 @@ Poderá ver erros semelhantes ao tentar eliminar o grupo através do PowerShell 
 
 Se utilizar o licenciamento baseado em grupo, é uma boa idéia para se familiarizar com a seguinte lista de limitações e problemas conhecidos.
 
-- Licenciamento baseado em grupo atualmente não suporta grupos que contêm outros grupos (grupos aninhados). Se aplicar uma licença a um grupo aninhado, apenas os membros de imediato de primeiro nível de utilizador do grupo tem as licenças aplicadas.
+- Licenciamento baseado em grupo atualmente não suporta grupos que contêm outros grupos (grupos aninhados). Se aplicar uma licença a um grupo aninhado, apenas os membros utilizadores de primeiro nível do grupo têm as licenças aplicadas.
 
-- O recurso só pode ser usado com grupos de segurança. Grupos do Office não são atualmente suportados e não poderá usá-los no processo de atribuição de licença.
+- A funcionalidade só pode ser utilizada com grupos de segurança e grupos do Office 365 com securityEnabled = TRUE.
 
 - O [portal de administração do Office 365](https://portal.office.com ) não suporta atualmente licenciamento baseado em grupo. Se um utilizador herda uma licença de um grupo, esta licença é apresentado no portal de administração do Office como uma licença de utilizador normal. Se tentar modificar essa licença ou tente remover a licença, o portal devolve uma mensagem de erro. Não não possível modificar licenças herdadas de grupo diretamente num utilizador.
 
-- Quando um utilizador é removido de um grupo e perde a licença, os planos de serviço dessa licença (por exemplo, SharePoint Online) estão definidos para um **suspenso** estado. Os planos de serviço não estão definidos para um estado final e desativado. Esta precaução pode evitar uma remoção acidental de dados de utilizador, se um administrador cometeu um erro na gestão de associação de grupo.
-
 - Quando as licenças são atribuídas ou modificadas durante um grande grupo (por exemplo, 100 000 utilizadores), ele poderia afetar o desempenho. Especificamente, o volume de alterações gerado pela automatização do Azure AD pode afetar negativamente o desempenho da sua sincronização de diretórios entre o Azure AD e sistemas no local.
 
-- Em determinadas situações de carga elevada, o processamento de licença pode sofrer um atraso e alterações, como adicionar/remover um grupo de licenças ou a adição/remoção de utilizadores do grupo, poderão demorar muito tempo a ser processado. Se vir as suas alterações demorar mais de 24 horas para processar, tente [abra um pedido de suporte](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para permitir a investigar. Iremos melhorar as características de desempenho desse recurso antes de atingir *disponibilidade geral*.
+- Se estiver a utilizar grupos dinâmicos para gerir a associação do seu utilizador, certifique-se de que o utilizador faz parte do grupo, o que é necessário para a atribuição de licenças. Caso contrário, [verifique o estado de processamento para a regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule) do grupo dinâmico. 
+
+- Em determinadas situações de carga elevada, poderá demorar muito tempo a processar as alterações de licença para grupos ou as alterações na associação a grupos com licenças existentes. Se vir as suas alterações demorar mais de 24 horas para processar o grupo de tamanho de utilizadores de 60 mil ou menos, tente [abra um pedido de suporte](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) para permitir a investigar. 
 
 - Automatização da gestão de licenças não reagirem automaticamente a todos os tipos de alterações no ambiente. Por exemplo, poderá ter ficado sem licenças, fazendo com que alguns usuários estejam no estado de erro. Para libertar o número de licenças disponíveis, pode remover algumas licenças atribuídas diretamente de outros utilizadores. No entanto, o sistema não automaticamente reagir a essa alteração e corrigir os utilizadores com esse Estado de erro.
 
   Como solução para esses tipos de limitações, pode ir para o **grupo** painel no Azure AD e clique em **Reprocessar**. Este comando processa todos os utilizadores nesse grupo e resolve os Estados de erro, se possível.
-
-- Licenciamento baseado em grupo não grava erros quando uma licença não foi possível atribuir a um utilizador devido a uma configuração de endereço de proxy duplicadas no Exchange Online; esses usuários são ignorados durante a atribuição de licença. Para obter mais informações sobre como identificar e resolver esse problema, consulte [esta secção](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -237,3 +235,5 @@ Para saber mais sobre outros cenários para gestão de licenças através do lic
 * [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
 * [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Como migrar os utilizadores licenciados individuais para o licenciamento baseado no grupo no Azure Active Directory](licensing-groups-migrate-users.md)
+* [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

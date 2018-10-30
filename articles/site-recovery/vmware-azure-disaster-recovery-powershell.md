@@ -1,21 +1,20 @@
 ---
-title: Replicar e efetuar a ativação pós-falha de VMs de VMware para o Azure com o PowerShell no Azure Site Recovery | Documentos da Microsoft
-description: Saiba como configurar a replicação e ativação pós-falha para o Azure das VMs de VMware com o PowerShell no Azure Site Recovery.
-services: site-recovery
+title: Configurar a recuperação após desastre de VMs de VMware para o Azure com o PowerShell no Azure Site Recovery | Documentos da Microsoft
+description: Saiba como configurar a replicação e ativação pós-falha do Azure para recuperação após desastre de VMs de VMware com o PowerShell no Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042807"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211643"
 ---
-# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Replicar e efetuar a ativação pós-falha de VMs de VMware para o Azure com o PowerShell
+# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação após desastre de VMs de VMware para o Azure com o PowerShell
 
 Neste artigo, verá como replicar e máquinas de virtuais de VMware de ativação pós-falha para o Azure com o Azure PowerShell. 
 

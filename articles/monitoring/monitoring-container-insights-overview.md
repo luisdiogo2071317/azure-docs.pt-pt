@@ -1,5 +1,5 @@
 ---
-title: Descrição geral do Azure Monitor para contentores | Documentos da Microsoft
+title: Descrição geral do Azure Monitor para contentores (pré-visualização) | Documentos da Microsoft
 description: Este artigo descreve o Monitor do Azure para contentores que monitoriza a solução de informações de contentor do AKS e o valor proporciona ao monitorizar o estado de funcionamento dos seus clusters do AKS e instâncias de contentores no Azure.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 6819cf96eb968e8faad5441cf3f3dd672653f1cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971438"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213003"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>Monitor do Azure para contentores-descrição geral
+# <a name="azure-monitor-for-containers-preview-overview"></a>Monitor do Azure para contentores (pré-visualização)-Descrição geral
 
 Monitor do Azure para contentores é uma funcionalidade concebida para monitorizar o desempenho de cargas de trabalho de contentor implementadas em clusters do Kubernetes alojados no Azure Kubernetes Service (AKS) geridos. Os contentores é fundamental monitorizar, especialmente quando estiver a executar um cluster de produção em escala, com várias aplicações.
 

@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ea170f4751952288c7894cab9c5acda2bf443043
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cdc8d8cad26ce4807c8f7bf8fe1d33f13d5799c1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295508"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232941"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Perguntas mais frequentes (FAQ) sobre a API de pesquisa de imagens do Bing
 
@@ -35,9 +35,9 @@ Os cabeçalhos seguintes podem ocorrer nas respostas de API de pesquisa de image
 
 No entanto, quando chama a API de pesquisa de imagens do Bing do JavaScript, funcionalidades de segurança incorporadas do seu browser (CORS) podem impedir que os valores desses cabeçalhos a aceder.
 
-Para obter acesso aos cabeçalhos, pode fazer o pedido de API de pesquisa de imagens do Bing através de um proxy CORS. A resposta de um proxy deste tipo tem um `Access-Control-Expose-Headers` cabeçalho que cabeçalhos de resposta de listas de permissões e disponibiliza-os para o JavaScript.
+Para obter acesso aos cabeçalhos, pode fazer o pedido de API de pesquisa de imagens do Bing através de um proxy CORS. A resposta de um proxy deste tipo inclui um cabeçalho `Access-Control-Expose-Headers`, que adiciona os cabeçalhos das respostas à lista de permissões e os disponibiliza para o JavaScript.
 
-É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](tutorial-bing-image-search-single-page-app.md) para acessar os cabeçalhos de opcional do cliente. Primeiro, se ainda não o tiver, [instalar node. js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
+É fácil de instalar um proxy CORS para permitir que nossos [tutorial de aplicação](tutorial-bing-image-search-single-page-app.md) para acessar os cabeçalhos de opcional do cliente. Em primeiro lugar, se ainda não o tiver, [instale Node.js](https://nodejs.org/en/download/). Em seguida, introduza o seguinte comando no prompt de comando.
 
     npm install -g cors-proxy-server
 
@@ -45,17 +45,17 @@ Em seguida, altere o ponto final de API de pesquisa de imagens do Bing no arquiv
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Por fim, inicie o proxy CORS com o seguinte comando:
+Por fim, inicie o proxy do CORS com o comando seguinte:
 
     cors-proxy-server
 
-Deixe a janela de comando aberta e, embora usar o tutorial de aplicação; fechar a janela será interrompido o proxy. Na secção de cabeçalhos HTTP expansível abaixo os resultados da pesquisa, pode agora ver o `X-MSEdge-ClientID` cabeçalho (entre outras) e certifique-se de que é o mesmo para cada solicitação.
+Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
 ## <a name="response-headers-in-production"></a>Cabeçalhos de resposta em produção
 
 A abordagem de proxy CORS descrita na resposta anterior é adequada para o desenvolvimento, teste e aprendizado.
 
-No entanto, num ambiente de produção, deve hospedar um script do lado do servidor no mesmo domínio que a página da Web que utiliza a API de pesquisa Web Bing. Este script, na verdade, deve fazer as chamadas à API mediante a solicitação de página da Web JavaScript e passar todos os resultados, incluindo os cabeçalhos, volta ao cliente. Como os dois recursos (página e script) compartilham uma origem, CORS não entram em cena e os cabeçalhos especiais são acessible para o JavaScript na página da Web.
+No entanto, num ambiente de produção, deve hospedar um script do lado do servidor no mesmo domínio que a página da Web que utiliza a API de pesquisa Web Bing. Este script, na verdade, deve fazer as chamadas à API mediante a solicitação de página da Web JavaScript e passar todos os resultados, incluindo os cabeçalhos, volta ao cliente. Como os dois recursos (página e script) compartilham uma origem, CORS não entram em cena e os cabeçalhos especiais estão acessíveis para o JavaScript na página da Web.
 
 Essa abordagem também protege a chave de API de exposição ao público, uma vez que somente o script do lado do servidor precise dele. O script pode utilizar outro método (por exemplo, odkazující HTTP) para se certificar de que a solicitação é autorizada.
 

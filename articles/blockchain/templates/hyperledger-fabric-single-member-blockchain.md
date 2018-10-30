@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242884"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231377"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Rede de membro único Hyperledger recursos de infraestrutura
 
@@ -28,7 +28,7 @@ Depois de ler este artigo, irá:
 
 ## <a name="about-blockchain"></a>Sobre blockchain
 
-Se estiver familiarizado com a Comunidade de blockchain, esta é uma ótima oportunidade para saber mais sobre a tecnologia de maneira fácil e configurável no Azure. Blockchain é a tecnologia subjacente Bitcoins; No entanto, é muito mais do que apenas um ativador para uma moeda virtual. É uma composição de base de dados existente, o sistema distribuído e tecnologias de criptografia, que permite que o cálculo de múltiplos intervenientes seguro com garantias para imutabilidade, capacidade de verificação, auditability e resiliência a ataques. Protocolos diferentes empregam mecanismos diferentes para fornecer esses atributos. [Recursos de infraestrutura Hyperledger](https://github.com/hyperledger/fabric) é um protocolo desse tipo.
+Se estiver familiarizado com a Comunidade de blockchain, este modelo de solução é uma ótima oportunidade para saber mais sobre a tecnologia de maneira fácil e configurável no Azure. Blockchain é a tecnologia subjacente Bitcoins; No entanto, é muito mais do que apenas um ativador para uma moeda virtual. É uma composição de base de dados existente, o sistema distribuído e tecnologias de criptografia, que permite que o cálculo de múltiplos intervenientes seguro com garantias para imutabilidade, capacidade de verificação, auditability e resiliência a ataques. Protocolos diferentes empregam mecanismos diferentes para fornecer esses atributos. [Recursos de infraestrutura Hyperledger](https://github.com/hyperledger/fabric) é um protocolo desse tipo.
 
 ## <a name="consortium-architecture-on-azure"></a>Arquitetura de Consortium no Azure
 
@@ -36,7 +36,7 @@ Este modelo implementa uma topologia para ajudar a testar e simular produção p
 
 A rede é composta por três tipos de nós:
 
-1. **Nó de membro**: um nó a executar o serviço de associação de recursos de infraestrutura que registra e gere os membros da rede. Este nó, eventualmente, pode ser agrupado para escalabilidade e elevada disponibilidade, no entanto, neste laboratório, será utilizado um nó de membro único.
+1. **Nó de membro**: um nó a executar o serviço de associação de recursos de infraestrutura que registra e gere os membros da rede. Este nó pode ser em cluster para escalabilidade e elevada disponibilidade; No entanto neste laboratório, será utilizado um nó de membro único.
 2. **Nós orderer**: transações atômicas ou difusão de encomenda de um nó a executar o serviço de comunicação implementando uma garantia de entrega, como o total.
 3. **Configurar o peering entre nós**: um nó em que consolida as transações e mantém o estado e uma cópia do livro razão distribuído.
 
@@ -57,13 +57,13 @@ Assim que tiver uma subscrição, vá para o [portal do Azure](https://portal.az
 
 ## <a name="deployment"></a>Implementação
 
-Para começar, selecione o **Hyperledger Fabric único membro Blockchain** e clique em **criar**. Esta ação abre o **Noções básicas** painel no assistente.
+Para começar, selecione o **Hyperledger Fabric único membro Blockchain** e clique em **Create** para abrir o **Noções básicas** painel no assistente.
 
 A implementação do modelo explica como configurar a rede de vários nó. O fluxo de implementação é dividido em três passos: Noções básicas, configuração de rede e a configuração de recursos de infraestrutura.
 
 ### <a name="basics"></a>Noções básicas
 
-Sob o **Noções básicas** painel, especifique os valores de parâmetros padrão para qualquer implementação, tais como a subscrição, grupo de recursos e propriedades de máquinas virtuais básico.
+Na **Noções básicas** painel, especifique os valores de parâmetros padrão para qualquer implementação. Como, por exemplo de subscrição, grupo de recursos e basic virtual machine propriedades.
 
 ![Noções básicas](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,7 +72,7 @@ Nome do Parâmetro| Descrição| Valores Permitidos|Valor Predefinido
 **Prefixo de recursos**| Uma cadeia de caracteres usada como base para atribuir nomes os recursos implementados.|6 carateres ou menos|ND
 **Nome de utilizador VM**| O nome de utilizador do administrador para cada uma das máquinas virtuais implementadas para este membro.|1 - 64 carateres|azureuser
 **Tipo de autenticação**| O método para autenticar para a máquina virtual.|Chave pública de palavra-passe ou SSH|Palavra-passe
-**Palavra-passe (tipo de autenticação = a palavra-passe)**|A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas. A palavra-passe tem de conter 3 dos seguintes: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial.<br /><br />Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|12 - 72 carateres|ND
+**Palavra-passe (tipo de autenticação = a palavra-passe)**|A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial.<br /><br />Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|12 - 72 carateres|ND
 **Chave SSH (tipo de autenticação = a chave pública)**|A chave secure shell utilizada para início de sessão remoto.||ND
 **Restringir o acesso por endereço IP**|Definição para determinar se o acesso para cliente do ponto final é restrito ou não o tipo.|Sim/Não| Não
 **Permitido o endereço IP ou sub-rede (restringir o acesso por endereço IP = Yes)**|O endereço IP ou o conjunto de endereços IP que está autorizado a aceder ao ponto de final do cliente quando o controlo de acesso está ativado.||ND
@@ -82,7 +82,7 @@ Nome do Parâmetro| Descrição| Valores Permitidos|Valor Predefinido
 
 ### <a name="network-size-and-performance"></a>Tamanho de rede e o desempenho
 
-Em seguida, em **tamanho e o desempenho, de rede** especificar entradas para o tamanho da rede consortium, como o número de associação, orderer e nós de ponto a ponto. Escolha as opções de infraestrutura e o tamanho da máquina virtual.
+Em seguida, no **tamanho e o desempenho, de rede** especificar entradas para o tamanho da rede de consórcio. Por exemplo, o número de associação, orderer e nós de ponto a ponto. Escolha as opções de infraestrutura e o tamanho da máquina virtual.
 
 ![Tamanho de rede e o desempenho](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -135,7 +135,7 @@ O ecrã de detalhes mostrará a um resumo da implementação, seguido de três p
 
 - O _ponto final de API_ pode ser utilizado depois de implementar uma aplicação na rede.
 - O _PREFIXO_ , também conhecido como _prefixo de implementação_ , exclusivamente identifica os recursos e a implementação. Será utilizado ao utilizar as ferramentas com base da linha de comandos.
-- O _SSH-para-FIRST-VM_ dá a um previamente montado comando ssh com todos os parâmetros certos necessárias para ligar a primeira VM na sua rede; no caso de recursos de infraestrutura Hyperledger, é o nó do Fabric-CA.
+- O _SSH-para-FIRST-VM_ dá a um previamente montado comando ssh com todos os parâmetros corretos necessários para ligar a primeira VM na sua rede; Para recursos de infraestrutura Hyperledger, é o nó do Fabric-CA.
 
 Pode ligar remotamente para as máquinas virtuais para cada nó através de SSH com a sua chave de nome de utilizador e palavra-passe/SSH de administrador fornecida. Uma vez que as VMs de nó não tem seus próprios endereços IP públicos, terá de passar pelo balanceador de carga e especifique o número de porta. O comando SSH para aceder ao primeiro nó de transação é o terceiro resultado de modelo, * * SSH-para-FIRST-VM (para a implementação de exemplo: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Para aceder a nós de transações adicionais, incrementar o número de porta por um (por exemplo, o primeiro nó de transação é na porta 3000, a segunda é no 3001, o terceiro é no 3002, etc.).
 

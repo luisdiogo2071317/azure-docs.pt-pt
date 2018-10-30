@@ -1,19 +1,18 @@
 ---
-title: Replicar VMs de Hyper-V com o PowerShell e o Azure Resource Manager | Documentos da Microsoft
-description: Automatize a replicação de VMs de Hyper-V para o Azure com o Azure Site Recovery com o PowerShell e do Azure Resource Manager.
-services: site-recovery
+title: Configurar a recuperação após desastre para o Azure das VMs de Hyper-V com o PowerShell e do Azure Resource Manager | Documentos da Microsoft
+description: Automatize a recuperação após desastre de VMs de Hyper-V para o Azure com o serviço Azure Site Recovery com o PowerShell e do Azure Resource Manager.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1d72d56188c3b787ab335ced554eb7c1dc74e0b7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f8f690a4f94ee56cfaa5532fa090fada1a33bddf
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427438"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214788"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurar a recuperação após desastre para o Azure das VMs de Hyper-V com o PowerShell e do Azure Resource Manager
 

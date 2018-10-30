@@ -1,26 +1,23 @@
 ---
-title: Matriz de suporte do Azure Site Recovery para replicar a partir do Azure para o Azure | Documentos da Microsoft
+title: Matriz de suporte do Azure Site Recovery para recuperação após desastre de VMs de IaaS do Azure entre regiões do Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Resume os sistemas operativos suportados e configurações para a replicação do Azure Site Recovery de máquinas virtuais do Azure (VMs) de uma região para outro para as necessidades de (DR recuperação) após desastre.
 services: site-recovery
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2018
-ms.author: sujayt
-ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: a2668ab99ef110c89ddd69cd5e8df858552d27af
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378623"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215060"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
+# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
-
-
-Este artigo resume as configurações suportadas e componentes ao replicar e recuperar máquinas virtuais do Azure a partir de uma região para outra região, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
+Este artigo resume as configurações suportadas e componentes quando implementar a recuperação após desastre com replicação, ativação pós-falha e recuperação de máquinas virtuais do Azure a partir de uma região do Azure para outra, com o [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
 ## <a name="user-interface-options"></a>Opções de interface de utilizador
 

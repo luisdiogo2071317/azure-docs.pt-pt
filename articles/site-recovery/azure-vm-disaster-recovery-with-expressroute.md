@@ -1,5 +1,5 @@
 ---
-title: Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure com o Azure Site Recovery | Documentos da Microsoft
+title: Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure com o serviço Azure Site Recovery | Documentos da Microsoft
 description: Descreve como configurar a recuperação após desastre para VMs do Azure com o Azure Site Recovery e o Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 03fac23ea17a6baa1b43e748a4390cf142661a19
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e7c63fba892f70ca0e18c1bffcda0782316b7ada
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353546"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211558"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrar o Azure ExpressRoute com recuperação após desastre para VMs do Azure
 

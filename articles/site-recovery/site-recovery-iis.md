@@ -1,21 +1,20 @@
 ---
-title: Replicar uma aplicação web com base no IIS com o Azure Site Recovery de várias camadas | Documentos da Microsoft
+title: Configurar a recuperação após desastre fo uma aplicação web com base no IIS com o Azure Site Recovery de várias camadas | Documentos da Microsoft
 description: Saiba como replicar máquinas virtuais IIS web farm com o Azure Site Recovery.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920853"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211830"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Replicar uma aplicação web baseada no IIS de várias camadas
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação após desastre para uma aplicação web baseada no IIS de várias camadas
 
 Software de aplicativos é o mecanismo de produtividade de negócios numa organização. Vários aplicativos web podem servir finalidades diferentes numa organização. Alguns aplicativos, como as aplicações utilizadas para processamento de folha de pagamento, aplicativos financeiros e Web sites do lado do cliente, podem ser fundamentais para uma organização. Para evitar a perda de produtividade, é importante para a organização ter esses aplicativos continuamente em funcionamento. Mais importante, ter esses aplicativos consistentemente disponíveis pode ajudar a evitar danos à marca ou imagem da organização.
 

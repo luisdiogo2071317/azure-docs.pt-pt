@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 7754e93035a5f76d31f6a4202c757c909706a52a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156940"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215485"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selecione e utilize um destino de computação para preparar o seu modelo
 
-Com o serviço Azure Machine Learning, pode preparar o seu modelo em vários ambientes diferentes. Estes ambientes, chamados __destinos de computação__, pode ser local ou na cloud. Neste documento, aprenderá sobre os destinos de computação suportados e como utilizá-los.
+Com o serviço Azure Machine Learning, pode preparar o seu modelo em ambientes diferentes. Estes ambientes, chamados __destinos de computação__, pode ser local ou na cloud. Neste documento, ficará a conhecer os destinos de computação suportados e como utilizá-los.
 
-Um destino de computação é o recurso que executa o script de treinamento ou anfitriões seu modelo quando for implementada como um serviço web. Eles podem ser criados e geridos com o SDK do Azure Machine Learning ou a CLI. Se tiver de destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
+Um destino de computação é o recurso que executa o script de treinamento ou que aloja o seu modelo quando for implementada como um serviço web. Eles podem ser criados e geridos com o SDK do Azure Machine Learning ou a CLI. Se tiver de destinos de computação que foram criados por outro processo (por exemplo, o portal do Azure ou a CLI do Azure), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
 
 Pode começar com execuções locais no seu computador e, em seguida, aumentar verticalmente e horizontalmente para outros ambientes, tais como máquinas de virtuais de ciência de dados remotas com GPU ou do Azure Batch AI. 
 
@@ -36,8 +36,13 @@ Serviço de Machine Learning do Azure suporta os seguintes destinos de computaç
 |----|:----:|:----:|:----:|:----:|
 |[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
 |[Máquina de Virtual de ciência de dados (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[O Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[O Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[O Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* O azure Databricks e o Azure Data Lake Analytics podem __apenas__ ser usado num pipeline. Para obter mais informações sobre pipelines, consulte a [Pipelines no Azure Machine Learning](concept-ml-pipelines.md) documento.
 
 __[O Azure Container Instances (ACI)](#aci)__  também pode ser utilizado para formar modelos. É uma sem servidor oferta na cloud que é barata e fácil de criar e trabalhar com. ACI não suporta a aceleração da GPU, parâmetro hyper automatizada de otimização, ou automatizada seleção do modelo. Além disso, não pode ser utilizado num pipeline.
 
@@ -52,7 +57,7 @@ Pode utilizar o SDK do Azure Machine Learning, a CLI do Azure ou o portal do Azu
 > [!IMPORTANT]
 > Não é possível anexar uma instância de contentores do Azure existente para a área de trabalho. Em vez disso, tem de criar uma nova instância.
 >
-> Não é possível criar um cluster do HDInsight do Azure dentro de uma área de trabalho. Em vez disso, terá de ligar um cluster existente.
+> Não é possível criar o Azure HDInsight, o Azure Databricks ou o Azure Data Lake Store dentro de uma área de trabalho. Em vez disso, tem de criar o recurso e, em seguida, anexá-lo à área de trabalho.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -311,6 +316,106 @@ Pode demorar entre alguns segundos para alguns minutos para criar um destino de 
 
 Para um bloco de notas do Jupyter que demonstra o treinamento na instância de contentor do Azure, consulte [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
+## <a id="databricks"></a>O Azure Databricks
+
+O Azure Databricks é um ambiente baseado em Apache Spark na cloud do Azure. Ele pode ser usado como um destino de computação ao treinar modela com um pipeline do Azure Machine Learning.
+
+> [!IMPORTANT]
+> Um destino de computação apenas pode ser usado num pipeline de Machine Learning do Azure Databricks.
+>
+> Tem de criar uma área de trabalho do Azure Databricks antes de o utilizar para preparar o seu modelo. Para criar esses recursos, consulte a [executar uma tarefa do Spark no Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) documento.
+
+Para anexar o Azure Databricks, como um destino de computação, tem de utilizar o SDK do Azure Machine Learning e forneça as seguintes informações:
+
+* __Nome de computação__: O nome que pretende atribuir a este recurso de computação.
+* __ID de recurso__: O ID de recurso da área de trabalho do Azure Databricks. O texto seguinte é um exemplo de formato para este valor:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > Para obter o ID de recurso, utilize o seguinte comando da CLI do Azure. Substitua `<databricks-ws>` com o nome da sua área de trabalho do Databricks:
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Token de acesso__: O token de acesso utilizado para autenticar para o Azure Databricks. Para gerar um token de acesso, consulte a [autenticação](https://docs.azuredatabricks.net/api/latest/authentication.html) documento.
+
+O código a seguir demonstra como anexar o Azure Databricks, como um destino de computação:
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+O Azure Data Lake Analytics é uma plataforma de análise de macrodados na cloud do Azure. Ele pode ser usado como um destino de computação ao treinar modela com um pipeline do Azure Machine Learning.
+
+> [!IMPORTANT]
+> Um Azure Data Lake Analytics só pode ser utilizado o destino de computação num pipeline de Machine Learning.
+>
+> Tem de criar uma conta do Azure Data Lake Analytics antes de o utilizar para preparar o seu modelo. Para criar este recurso, consulte a [introdução ao Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) documento.
+
+Para anexar como um destino de computação do Data Lake Analytics, tem de utilizar o SDK do Azure Machine Learning e forneça as seguintes informações:
+
+* __Nome de computação__: O nome que pretende atribuir a este recurso de computação.
+* __ID de recurso__: O ID de recurso da conta do Data Lake Analytics. O texto seguinte é um exemplo de formato para este valor:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > Para obter o ID de recurso, utilize o seguinte comando da CLI do Azure. Substitua `<datalakeanalytics>` com o nome do nome da sua conta do Data Lake Analytics:
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+O código a seguir demonstra como anexar como um destino de computação do Data Lake Analytics:
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> O Azure Machine Learning pipelines só podem trabalhar com dados armazenados no arquivo de dados predefinido da conta do Data Lake Analytics. Se os dados tiver de com seja de um arquivo de não-padrão, pode utilizar um [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) para copiar os dados antes de treinamento.
+
 ## <a id="hdinsight"></a>Anexar um cluster do HDInsight 
 
 HDInsight é uma plataforma popular para análise de macrodados. Ele fornece o Apache Spark, que pode ser utilizado para preparar o seu modelo.
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>Submeter treinamento executar
-    
-O código para submeter uma execução de treinamento é o mesmo, independentemente do destino de computação:
+
+Existem duas formas de submeter uma execução de treinamento:
+
+* Submeter um `ScriptRunConfig` objeto.
+* Submeter um `Pipeline` objeto.
+
+> [!IMPORTANT]
+> O Azure Databricks, Azure Datalake Analytics e Azure HDInsight computação destinos só podem ser utilizados num pipeline.
+> O destino de computação local não pode ser utilizado num Pipeline.
+
+### <a name="submit-using-scriptrunconfig"></a>Submeter através `ScriptRunConfig`
+
+O padrão de código para submeter um treinamento é executado com `ScriptRunConfig` é o mesmo, independentemente do destino de computação:
 
 * Criar um `ScriptRunConfig` objeto usando a configuração de execução para o destino de computação.
 * Submeta a execução.
@@ -360,13 +476,46 @@ O código para submeter uma execução de treinamento é o mesmo, independenteme
 
 O exemplo seguinte utiliza a configuração para o destino de computação local gerenciados pelo sistema que criou anteriormente neste documento:
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 Para um bloco de notas do Jupyter que demonstra o treinamento com o Spark no HDInsight, consulte [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### <a name="submit-using-a-pipeline"></a>Submeter através de um pipeline
+
+O código padrão para submeter um treinamento é executado com um pipeline é o mesmo, independentemente do destino de computação:
+
+* Adicione um passo para o pipeline para o recurso de computação.
+* Submeta uma execução com o pipeline.
+* Aguarde a execução concluir.
+
+O exemplo seguinte utiliza o destino de computação do Azure Databricks criado anteriormente neste documento:
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Para obter mais informações sobre o machine learning pipelines do, consulte a [Pipelines e o Azure Machine Learning](concept-ml-pipelines.md) documento.
+
+Por exemplo os blocos de notas do Jupyter que demonstram o treinamento com um pipeline, veja [ https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline ](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Ver e configurar a computação no portal do Azure
 
@@ -387,11 +536,18 @@ Siga os passos acima para ver a lista de destinos de computação e, em seguida,
 
 1. Introduza um nome para o destino de computação.
 1. Selecione o tipo de computação para anexar para __treinamento__. 
+
+    > [!IMPORTANT]
+    > Nem todos de computação tipos podem ser criados com o portal do Azure. Atualmente, os tipos que podem ser criados para treinamento são:
+    > 
+    > * Máquina Virtual
+    > * Batch AI
+
 1. Selecione __criar novo__ e preencha o formulário necessária. 
 1. Selecione __Criar__
 1. Pode ver o estado da operação de criação ao selecionar o destino de computação a partir da lista.
 
-    ![Veja a lista de computação](./media/how-to-set-up-training-targets/View_list.png) , em seguida, verá os detalhes para esse computação.
+    ![Veja a lista de computação](./media/how-to-set-up-training-targets/View_list.png) , em seguida, verá os detalhes para o destino de computação.
     ![Ver detalhes](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. Agora pode enviar uma execução em relação a esses destinos conforme detalhado acima.
 
@@ -401,8 +557,16 @@ Siga os passos acima para ver a lista de destinos de computação e, em seguida,
 
 1. Clique nas **+** iniciar para adicionar um destino de computação.
 2. Introduza um nome para o destino de computação.
-3. Selecione o tipo de computação para anexar para treinamento. O batch AI e máquinas virtuais são atualmente suportadas no portal de treinamento.
-4. Selecione "Utilizar existente".
+3. Selecione o tipo de computação para anexar para treinamento.
+
+    > [!IMPORTANT]
+    > Nem todos de computação tipos podem ser anexados utilizando o portal.
+    > Atualmente, os tipos que podem ser anexados para treinamento são:
+    > 
+    > * Máquina Virtual
+    > * Batch AI
+
+1. Selecione "Utilizar existente".
     - Ao anexar clusters de IA do Batch, selecione o destino de computação na lista pendente, selecione a área de trabalho de IA do Batch e o Cluster de IA do Batch e, em seguida, clique em **criar**.
     - Ao anexar uma Máquina Virtual, introduza o endereço IP, a combinação de nome de utilizador/palavra-passe, chaves pública/privada e a porta e clique em criar.
 
@@ -412,7 +576,7 @@ Siga os passos acima para ver a lista de destinos de computação e, em seguida,
     > * [Criar e utilizar chaves SSH no Linux ou macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Criar e utilizar chaves SSH no Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. Pode ver o estado do Estado de aprovisionamento ao selecionar o destino de computação a partir da lista de computações.
+5. Pode ver o estado do Estado de aprovisionamento ao selecionar o destino de computação a partir da lista.
 6. Agora pode enviar uma execução em relação a esses destinos.
 
 ## <a name="examples"></a>Exemplos

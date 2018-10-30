@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cbe6ddc2c4680028d5a4a0491756c7a7b9897c69
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990251"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233247"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Expandir alertas do Log Analytics para alertas do Azure
 A funcionalidade de alertas no Log Analytics do Azure está a ser substituída através de alertas do Azure. Como parte desta transição, os alertas que configurou originalmente no Log Analytics irão ser expandidas para o Azure. Se não quiser esperar que elas sejam movidas automaticamente para o Azure, pode iniciar o processo:
@@ -22,7 +22,7 @@ A funcionalidade de alertas no Log Analytics do Azure está a ser substituída a
 - Por meio de programação, utilizando a API AlertsVersion.  
 
 > [!NOTE]
-> Microsoft irá ampliar automaticamente os alertas criados em instâncias de cloud pública do Log Analytics para alertas do Azure a partir de 14 de Maio de 2018, uma série de recorrente até concluído. Se tiver quaisquer problemas ao criar [grupos de ação](monitoring-action-groups.md), utilize [estes passos de remediação](monitoring-alerts-extend-tool.md#troubleshooting) para obter os grupos de ação criados automaticamente. Pode utilizar estes passos até 5 de Julho de 2018. *Não aplicável para Goverment do Azure e os utilizadores da nuvem Soveriegn do Log Analytics*. 
+> Microsoft irá ampliar automaticamente os alertas criados em instâncias de cloud pública do Log Analytics para alertas do Azure a partir de 14 de Maio de 2018, uma série de recorrente até concluído. Se tiver quaisquer problemas ao criar [grupos de ação](monitoring-action-groups.md), utilize [estes passos de remediação](monitoring-alerts-extend-tool.md#troubleshooting) para obter os grupos de ação criados automaticamente. Pode utilizar estes passos até 5 de Julho de 2018. *Não aplicável para o Azure Government e os utilizadores de cloud soberanas do Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opção 1: Iniciar partir do portal do Operations Management Suite
 Os passos seguintes descrevem como ampliar alertas para a área de trabalho a partir do portal do Operations Management Suite.  

@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 9f2adfcbf2d6ca5de79cc787029f5139138b0e52
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958521"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230442"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar o Key Vault à sua aplicação web com o Visual Studio ligado Services
 
@@ -57,7 +57,7 @@ Para obter detalhes sobre as alterações que serviços ligados feitas em seu pr
 
    ![Adicionar serviço ligado ao projeto](media/vs-key-vault-add-connected-service/KeyVaultConnectedService4.PNG)
 
-1. Agora, adicione um segredo no Cofre de chaves no Azure. Para obter o lugar certo, no portal, clique no link para os segredos de gerir armazenados neste Cofre de chave. Se fechou a página ou o projeto, pode navegar para ele no [portal do Azure](https://portal.azure.com) escolhendo **todos os serviços**, em **segurança**, escolha **doKeyVault**, em seguida, selecione o Cofre de chaves que acabou de criar.
+1. Agora, adicione um segredo no Cofre de chaves no Azure. Para obter o lugar certo, no portal, clique no link para os segredos de gerir armazenados neste Cofre de chave. Se fechou a página ou o projeto, pode navegar para ele no [portal do Azure](https://portal.azure.com) escolhendo **todos os serviços**, em **segurança**, escolha **doKeyVault**, em seguida, selecione o Cofre de chaves que criou.
 
    ![Navegar para o portal](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
@@ -73,94 +73,62 @@ Para obter detalhes sobre as alterações que serviços ligados feitas em seu pr
  
 Agora, pode acessar seus segredos no código. As próximas etapas são diferentes, dependendo se está a utilizar ASP.NET 4.7.1 ou ASP.NET Core.
 
-## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>Aceder aos seus segredos no código (projetos ASP.NET Core)
+## <a name="access-your-secrets-in-code"></a>Os segredos no código de acesso
 
-A ligação ao Cofre de chaves é configurada durante a inicialização por uma classe que implementa [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) usando uma forma de estender o comportamento de arranque que é descrito em [aprimorar uma aplicação a partir de um externo Assembly em ASP.NET Core com IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). A classe de inicialização usa duas variáveis de ambiente que contêm as informações de ligação do Key Vault: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, definido como true e ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, defina a sua chave URL do cofre. Estas são adicionadas ao ficheiro launchsettings.json quando executa por meio da **Adicionar serviço ligado** processo.
+1. Instalar estes dois pacotes de nuget [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) bibliotecas NuGet.
 
-Para aceder aos seus segredos:
+2. Abra o ficheiro Program.cs e atualizar o código com o código a seguir: 
+```
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            BuildWebHost(args).Run();
+        }
 
-1. No Visual Studio, no seu projeto ASP.NET Core, agora pode referenciar estes segredos com as seguintes expressões no código:
- 
-   ```csharp
-      config["MySecret"] // Access a secret without a section
-      config["Secrets:MySecret"] // Access a secret in a section
-      config.GetSection("Secrets")["MySecret"] // Get the configuration section and access a secret in it.
-   ```
+        public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
 
-1. Numa página. cshtml, digamos que carregarei, adicione o @inject diretiva perto da parte superior do ficheiro para configurar uma variável que pode utilizar para aceder a configuração de Cofre de chaves.
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+    }
+```
+3. Em seguida, abra o ficheiro de About.cshtml.cs e escrever o código a seguir
+    1. Incluir uma referência ao Microsoft.Extensions.Configuration por este usando a instrução    
+        ```
+        using Microsoft.Extensions.Configuration
+        ```
+    2. Adicionar este construtor
+        ```
+        public AboutModel(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+        ```
+    3. Atualize o método OnGet. Atualize o valor do marcador de posição mostrado aqui com o nome do segredo que criou nos comandos anteriores
+        ```
+        public void OnGet()
+        {
+            //Message = "Your application description page.";
+            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+        }
+        ```
 
-   ```cshtml
-      @inject Microsoft.Extensions.Configuration.IConfiguration config
-   ```
-
-1. Como um teste, pode confirmar que o valor do segredo do está disponível por exibi-la em uma das páginas. Utilize @config para referenciar a variável de config.
- 
-   ```cshtml
-      <p> @config["MySecret"] </p>
-      <p> @config.GetSection("Secrets")["MySecret"] </p>
-      <p> @config["Secrets:MySecret"] </p>
-   ```
-
-1. Criar e executar o aplicativo web, navegue para a página sobre e ver o valor de "segredo".
-
-## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>Os segredos no código de acesso (ASP.NET 4.7.1 projetos)
-
-A ligação ao Cofre de chaves é estabelecida pela classe ConfigurationBuilder com informações de que foi adicionadas ao seu arquivo Web. config quando executa por meio da **Adicionar serviço ligado** processo.
-
-Para aceder aos seus segredos:
-
-1. Modificar Web. config da seguinte forma. As chaves são marcadores de posição que vão ser substituídas pelo AzureKeyVault ConfigurationBuilder com os valores dos segredos no Key Vault.
-
-   ```xml
-     <appSettings configBuilders="AzureKeyVault">
-       <add key="webpages:Version" value="3.0.0.0" />
-       <add key="webpages:Enabled" value="false" />
-       <add key="ClientValidationEnabled" value="true" />
-       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
-       <add key="MySecret" value="dummy1"/>
-       <add key="Secrets--MySecret" value="dummy2"/>
-     </appSettings>
-   ```
-
-1. Em HomeController, no método de controlador About, adicione as seguintes linhas para recuperar o segredo e armazená-la na ViewBag.
- 
-   ```csharp
-            var secret = ConfigurationManager.AppSettings["MySecret"];
-            var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
-            ViewBag.Secret = $"Secret: {secret}";
-            ViewBag.Secret2 = $"Secret2: {secret2}";
-   ```
-
-1. Na vista de carregarei, adicione o seguinte para apresentar o valor do segredo (apenas para teste).
-
-   ```csharp
-      <h3>@ViewBag.Secret</h3>
-      <h3>@ViewBag.Secret2</h3>
-   ```
-
-1. Execute a aplicação localmente ao verificar o que pode ler o valor secreto inseridas no portal do Azure, não um valor fictício de seu arquivo de configuração.
-
-Em seguida, publique a sua aplicação para o Azure.
-
-## <a name="publish-to-azure-app-service"></a>Publicar no serviço de aplicações do Azure
-
-1. Com o botão direito no nó do projeto e escolha **publicar**. É apresentado um ecrã que diz **escolher um destino publicar**. No lado esquerdo, selecione **serviço de aplicações**e, em seguida **criar nova**.
-
-   ![Publicar no Serviço de Aplicações](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
-
-1. Sobre o **criar serviço de aplicações** ecrã, certifique-se de que a subscrição e grupo de recursos são iguais às que criou o Cofre de chaves no e escolham **criar**.
-
-   ![Criar Serviço de Aplicações](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
-
-1. Depois de criar seu aplicativo web, o **publicar** ecrã é apresentado. Anote o URL para a sua aplicação web publicada, alojado no Azure. Se vir **None** junto a **Key Vault**, ainda terá de informar ao serviço de aplicações que o Key Vault para ligar a. Escolha o **adicione o Key Vault** associar e escolha o Cofre de chaves que criou.
-
-   ![Adicionar o Cofre de chaves](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
-
-   Se vir **gerir o Key Vault**, pode clicar nele para ver as definições atuais, permissões de edição, ou efetuar alterações ao segredo no Portal do Azure.
-
-1. Agora, selecione a ligação de URL do Site para visitar a sua aplicação web no browser. Certifique-se de que consegue ver o valor correto a partir do Key Vault.
-
-Parabéns, tiver confirmado que a aplicação web pode utilizar o Key Vault para aceder aos segredos armazenados em segurança quando executado no Azure.
+Execute a aplicação localmente ao navegar para a página. Deve seu valor secreto obtido
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855872"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211388"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o carregador de inicialização Unified geral. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.
@@ -33,7 +33,7 @@ Para entrar no modo de utilizador único, terá de introduzir o GRUB quando a VM
 ## <a name="general-grub-access"></a>Acesso GRUB geral
 Para acessar o GRUB, terá de reiniciar a VM, mantendo o painel de consola de série aberto. Algumas distribuições irão exigir a entrada de teclado para mostrar o GRUB, enquanto outros automaticamente mostrará GRUB por alguns segundos e permitir a entrada de teclado do usuário cancelar o tempo limite. 
 
-Convém garantir que o GRUB está ativado na sua VM para que seja possível para o modo de utilizador único de acesso. Dependendo de sua distribuição, pode haver algum trabalho de configuração para se certificar de que o GRUB está ativado. Informações de distribuição específicos estão disponíveis abaixo.
+Convém garantir que o GRUB está ativado na sua VM para que seja possível para o modo de utilizador único de acesso. Dependendo de sua distribuição, pode haver algum trabalho de configuração para se certificar de que o GRUB está ativado. Informações específicas de distribuição estão disponíveis abaixo e no [esta ligação](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Reinicie a VM para aceder a GRUB na consola de série
 A reiniciar a VM com o painel de consola de série aberto pode ser feita com uma SysRq `'b'` comando se [SysRq](./serial-console-nmi-sysrq.md) está ativado ou ao clicar o reinício botão no painel de descrição geral (aberto a VM num novo separador do browser para reiniciar o computador sem fechar o painel de consola de série). Siga as instruções de distribuição específicos abaixo para saber o que esperar de GRUB quando reiniciar.
@@ -186,6 +186,7 @@ Siga as instruções para RHEL acima para ativar o modo de utilizador único no 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * A página de documentação do Linux de consola de série principal está localizada [aqui](serial-console-linux.md).
+* Saiba como utilizar a consola de série para [ativar GRUB em várias distribuições](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Utilizar a consola de série para [chamadas NMI e SysRq](serial-console-nmi-sysrq.md)
 * Também está disponível para a consola de série [Windows](serial-console-windows.md) VMs
 * Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md)

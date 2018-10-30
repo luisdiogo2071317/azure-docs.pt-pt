@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377399"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232601"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso no Azure Logic Apps
 
@@ -168,7 +168,7 @@ Pode querer parametrizar alguns aspectos de uma definição de fluxo de trabalho
 
 ### <a name="using-parameters-and-secure-parameters"></a>Utilizar parâmetros e os parâmetros seguros
 
-Para acessar o valor de um parâmetro de recurso no tempo de execução, o [linguagem de definição de fluxo de trabalho](http://aka.ms/logicappsdocs) fornece uma `@parameters()` operação. Além disso, pode [especificar parâmetros no modelo de implementação do recurso](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Mas se especificar o tipo de parâmetro como `securestring`, o parâmetro não ser devolvido com o restante da definição do recurso e não estará acessível ao visualizar o recurso após a implementação.
+Para acessar o valor de um parâmetro de recurso no tempo de execução, o [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs) fornece uma `@parameters()` operação. Além disso, pode [especificar parâmetros no modelo de implementação do recurso](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Mas se especificar o tipo de parâmetro como `securestring`, o parâmetro não ser devolvido com o restante da definição do recurso e não estará acessível ao visualizar o recurso após a implementação.
 
 > [!NOTE]
 > Se o parâmetro é utilizado no cabeçalhos ou no corpo de um pedido, o parâmetro pode estar visível acessando o histórico de execuções e o pedido de HTTP de saída. Certifique-se definir as políticas de acesso ao conteúdo em conformidade.

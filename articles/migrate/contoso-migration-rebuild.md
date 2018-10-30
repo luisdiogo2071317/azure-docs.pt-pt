@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092985"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233587"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migração de Contoso: reconstrua uma aplicação no local para o Azure
 
@@ -116,7 +116,7 @@ Contoso avalia a estrutura proposta ao juntar-se de uma lista de prós e contras
 --- | --- | ---
 [AKS](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Simplifica o gerenciamento, implantação e operações do Kubernetes. Fornece um serviço de orquestração de contentores do Kubernetes totalmente gerido.  | AKS é um serviço gratuito.  Pague apenas a máquinas virtuais e armazenamento associado e recursos de rede consumidos. [Saiba mais](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 [Funções do Azure](https://azure.microsoft.com/services/functions/) | Acelera o desenvolvimento com uma experiência de computação sem servidor condicionadas por eventos. Dimensione sob pedido.  | Paga apenas pelos recursos consumidos. Plano é faturado com base no consumo de recursos por segundo e execuções. [Saiba mais](https://azure.microsoft.com/pricing/details/functions/).
-[Registo de contentor do Azure](https://azure.microsoft.com/services/container-registry/) | Armazena imagens de todos os tipos de implementações de contentor. | Custo com base em recursos, armazenamento e a duração de utilização. [Saiba mais](https://azure.microsoft.com/pricing/details/container-registry/).
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Armazena imagens de todos os tipos de implementações de contentor. | Custo com base em recursos, armazenamento e a duração de utilização. [Saiba mais](https://azure.microsoft.com/pricing/details/container-registry/).
 [Serviço de Aplicações do Azure](https://azure.microsoft.com/services/app-service/containers/) | Crie, implemente e dimensione rapidamente aplicações API, Web e móveis em execução em qualquer plataforma. | Os planos do Serviço de Aplicações são cobrados com base por segundo. [Saiba mais](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -139,7 +139,7 @@ Eis como Contoso será executada a migração:
 > * **Passo 1: Aprovisionar AKS e ACR**: Contoso Aprovisiona o cluster do AKS gerido e o registo de contentor do Azure com o PowerShell
 > * **Passo 2: Criar contentores de Docker**: configurar o CI para contentores do Docker com o Azure DevOps e emiti-las para o ACR.
 > * **Passo 3: Implementar microsserviços de back-end**: que implementam o resto da infra-estrutura que irá ser aproveitada por microsserviços de back-end.
-> * **Passo 4: Implementar a infraestrutura de front-end**: que implementam a infraestrutura de front-end, inlcuding o armazenamento de BLOBs para os telefones pet, o Cosmos DB e API de imagem digitalizada.
+> * **Passo 4: Implementar a infraestrutura de front-end**: que implementam a infra-estrutura de front-end, incluindo o armazenamento de BLOBs para os pet telemóveis, o Cosmos DB e API de imagem digitalizada.
 > * **Passo 5: Migrar o back-end**: eles implementar microsserviços e execute no AKS, para migrar o back-end.
 > * **Passo 6: Publicar o front-end**: eles publicam a aplicação da SmartHotel360 para o serviço de aplicações do Azure e a aplicação de função que será chamado pelo serviço de estimação.
 

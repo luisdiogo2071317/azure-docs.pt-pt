@@ -1,6 +1,6 @@
 ---
-title: Execuções da aplicação de lógica de monitor com o Log Analytics - Azure Logic Apps | Documentos da Microsoft
-description: Obter informações e dados sobre execuções de aplicação lógica com o Log Analytics de depuração para resolução de problemas e diagnóstico
+title: Monitorizar aplicações lógicas com o Log Analytics - Azure Logic Apps | Documentos da Microsoft
+description: Obter informações e dados para resolução de problemas e diagnosticar as execuções de aplicação lógica com o Azure Log Analytics de depuração
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,26 +8,26 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/19/2018
+ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457147"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232381"
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitorizar e obter conhecimentos sobre execuções de aplicação lógica com o Log Analytics
+# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorizar aplicações lógicas com o Azure Log Analytics
 
-Para informações de depuração mais avançadas e monitorização, pode ativar o Log Analytics ao mesmo tempo, quando cria uma aplicação lógica. O log Analytics proporciona o diagnóstico de registo e monitorização para a aplicação lógica é executada através do portal do Azure. Quando adiciona a solução de gestão do Logic Apps, obter o estado agregado para as suas execuções da aplicação lógica e os detalhes específicos, como o estado, o tempo de execução, o estado de ressubmissão e o IDs de correlação.
+Para monitorizar e obter os detalhes de depuração mais avançadas sobre as aplicações lógicas, ative [do Azure Log Analytics](../log-analytics/log-analytics-overview.md) quando criar a sua aplicação lógica. O log Analytics disponibiliza diagnósticos de registo e monitorização para as aplicações lógicas ao instalar a solução de gestão do Logic Apps no portal do Azure. Esta solução também fornece informações agregadas para a aplicação lógica é executado com detalhes específicos, tais como Estado, o tempo de execução, o estado de ressubmissão e o IDs de correlação. Este artigo mostra como ativar o Log Analytics, para que pode ver eventos de tempo de execução e dados para a aplicação lógica é executada.
 
-Este artigo mostra como ativar o Log Analytics, para que pode ver eventos de tempo de execução e a execução de dados para a aplicação lógica.
+Para ativar o Azure Log Analytics para o logic apps existentes, siga estes passos para [ativar o registo de diagnósticos e enviar dados de tempo de execução de aplicação lógica para o Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > Para monitorizar as logic apps existentes, siga estes passos para [ativar o registo de diagnósticos e enviar dados de tempo de execução de aplicação lógica para o Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> Passos para saber como realizar estas tarefas com o Microsoft Operations Management Suite (OMS), que é descrito anteriormente, esta página [extinguir em Janeiro de 2019](../log-analytics/log-analytics-oms-portal-transition.md), substitui esses passos com o Azure Log Analytics em vez disso. 
 
-## <a name="requirements"></a>Requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, tem de ter uma área de trabalho do Log Analytics. Saiba mais [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Antes de começar, terá de uma área de trabalho do Log Analytics. Saiba mais [como criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Ativar o registo de diagnóstico durante a criação de aplicações lógicas
 
@@ -54,11 +54,11 @@ Antes de começar, tem de ter uma área de trabalho do Log Analytics. Saiba mais
 
 1. Para ver a sua aplicação lógica é executada, [continuar com estes passos](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution"></a>Instalar a solução de gestão do Logic Apps
+## <a name="install-logic-apps-management-solution"></a>Instalar a solução de gestão do Logic Apps
 
 Se já ativou o Log Analytics quando criou a sua aplicação lógica, ignore este passo. Já tem a solução de gestão do Logic Apps instalada.
 
-1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, introduza "do log analytics" como o filtro e selecione **do Log Analytics**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, encontre "log analytics" e selecione **do Log Analytics**.
 
    ![Selecione "Do Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -66,7 +66,7 @@ Se já ativou o Log Analytics quando criou a sua aplicação lógica, ignore est
 
    ![Selecione a sua área de trabalho do Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Sob **configurar soluções de monitorização**, escolha **ver soluções**.
+1. Sob **introdução ao Log Analytics** > **configurar soluções de monitorização**, escolha **ver soluções**.
 
    ![Escolha "Ver soluções"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -76,19 +76,23 @@ Se já ativou o Log Analytics quando criou a sua aplicação lógica, ignore est
 
    Se não conseguir encontrar a solução, na parte inferior da lista, escolha **carregar mais** até que apareça a solução.
 
-1. Escolher **criar**, que instala a solução.
+1. Escolher **Create**, confirme a área de trabalho do Log Analytics onde pretende instalar a solução e, em seguida, escolha **criar** novamente.   
 
-   ![Escolha "Adicionar" para "Gestão do Logic Apps"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Escolha "Criar" para "Gestão do Logic Apps"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   Se não pretender utilizar uma área de trabalho existente, também pode criar uma nova área de trabalho neste momento.
+
+   Quando tiver terminado, a solução de gestão do Logic Apps é apresentada na página de descrição geral. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Aplicação de lógica de exibição é executado na área de trabalho do Log Analytics
+## <a name="view-logic-app-run-information"></a>Aplicação de lógica de exibição executar informações
 
-1. Para ver a contagem e um Estado para execuções de aplicação lógica, aceda à sua área de trabalho do Log Analytics e abrir a página de descrição geral. 
+Após a execução da sua aplicação lógica, pode ver o estado e a contagem para essas execuções no **gestão do Logic Apps** mosaico. 
 
-   Detalhes sobre execuções de aplicação lógica são apresentados no **gestão do Logic Apps** mosaico. Para ver um resumo com mais detalhes sobre execuções de aplicação lógica, escolha o **gestão do Logic Apps** mosaico. 
+1. Vá para a área de trabalho do Log Analytics e abrir a página de descrição geral. Escolher **gestão do Logic Apps**. 
 
-   ![Mosaico de descrição geral que mostra a contagem de execução da aplicação lógica e o Estado](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![Status e contagem de execução da aplicação lógica](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    Aqui, as execuções de aplicação lógica são agrupadas por nome ou por Estado de execução. 
    Esta página também mostra detalhes sobre falhas de ações ou acionadores para execuções de aplicação lógica.

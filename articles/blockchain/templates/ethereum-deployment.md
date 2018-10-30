@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242923"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231802"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modelo de solução de prova de trabalho consortium Ethereum
 
@@ -119,7 +119,7 @@ Quinto região| Quinto região para implementar a rede de consórcio (visível a
 
 ### <a name="network-size-and-performance"></a>Tamanho de rede e o desempenho
 
-Em seguida, em **tamanho e o desempenho de rede** especificar entradas para o tamanho da rede consortium, como o número e tamanho de nós de extração e os nós de transação.
+Em seguida, em **tamanho e o desempenho de rede** especificar entradas para o tamanho da rede de consórcio. Como o número e tamanho de nós de extração e os nós de transação.
 
 ![Tamanho de rede e o desempenho](./media/ethereum-deployment/network-size-performance.png)
 
@@ -261,10 +261,10 @@ Em seguida, importe o módulo:
 
 Por fim, execute a função com a entrada apropriada:
 
-- **MyGatewayResourceId** : caminho de recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : caminho de recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de saída de implementação do modelo de também denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : um nome para identificar esta ligação de Gateway.
-- **Chave partilhada** : O segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
+- **MyGatewayResourceId:** caminho de recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** caminho de recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de saída de implementação do modelo de também denominado **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** um nome para identificar esta ligação de Gateway.
+- **Chave partilhada:** o segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < caminho de recurso do gateway do membro junção > - ConnectionName Aminhaligação - SharedKey "MySharedKeyAbc123"
 
@@ -274,11 +274,11 @@ Transfira o script da CLI do Azure e armazene-o localmente. A localização do s
 
 Execute o script com a entrada apropriada:
 
-- **MyGatewayResourceId** : caminho de recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : caminho de recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de implementação do modelo da sua implementação com o nome também **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : um nome para identificar esta ligação de Gateway.
-- **Chave partilhada** : O segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
-- **Localização** : A região do Azure em que o seu recurso de gateway é implementado.
+- **MyGatewayResourceId:** caminho de recurso do Gateway. Este é o parâmetro de saída de implementação do modelo com o nome **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** caminho de recurso do gateway de junção do membro. Isto é fornecido pelo membro junção e é o parâmetro de implementação do modelo da sua implementação com o nome também **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** um nome para identificar esta ligação de Gateway.
+- **Chave partilhada:** o segredo previamente estabelecido entre os dois membros da rede de consórcio, que estão a estabelecer uma ligação.
+- **Localização:** a região do Azure em que o seu recurso de gateway é implementado.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -316,7 +316,7 @@ Para instalar a extensão no Chrome, vá para personalizar e controlar o Google 
 
 ![Extensão de MetaMask](./media/ethereum-deployment/metamask-extension.png)
 
-Uma vez instalado, abra MetaMask e crie um novo cofre. Por predefinição, o Cofre será ligado à rede de teste Morden. Terá de alterá-la para ligar à rede de consórcio privada implementada, especificamente para o Balanceador de carga à frente de nós de transação. A partir da saída do modelo, recuperar o expostos Ethereum RPC ponto final na porta 8545, com o nome como `ETHEREUM-RPC-ENDPOINT`e introduza-o no RPC personalizado, conforme mostrado abaixo.
+Uma vez instalado, abra MetaMask e crie um novo cofre. Por predefinição, o Cofre será ligado à rede de teste Morden. Altere esta opção para ligar à rede de consórcio privada implementada, especificamente para o Balanceador de carga à frente de nós de transação. A partir da saída do modelo, recuperar o expostos Ethereum RPC ponto final na porta 8545, com o nome como `ETHEREUM-RPC-ENDPOINT`e introduza-o no RPC personalizado, conforme mostrado abaixo.
 
 ![Definições de MetaMask](./media/ethereum-deployment/metamask-settings.png)
 

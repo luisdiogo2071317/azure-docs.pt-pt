@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 94783e6c6ee662c77d6bf60e96bbe7d171cefeef
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d170fc0a0e4113b0f58c3b78f3a61aa2b08e69ff
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140439"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231539"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 
@@ -222,7 +222,7 @@ As seguintes recomendações para a utilização de assinaturas de acesso partil
 6. **Seja específico com o recurso a ser acessado.** Uma melhor prática de segurança é fornecer um utilizador com os mínimos privilégios necessários. Se um utilizador necessita apenas de acesso de leitura para uma única entidade, em seguida, lhes conceda acesso de leitura para essa entidade única e não de leitura/escrita/eliminar acesso a todas as entidades. Isto também ajuda a reduzir os danos se uma SAS for comprometida, uma vez que a SAS tem menos poder nas mãos de um atacante.
 7. **Compreenda o que sua conta será cobrada qualquer utilização, incluindo o que é feito com SAS.** Se fornecer acesso de escrita para um blob, um utilizador pode optar por carregar um blob de 200GB. Se demos-lhes acesso de leitura também, optem para baixá-lo 10 vezes, incorrer em custos de saída em 2 TB para. Novamente, fornece permissões limitadas para ajudar a atenuar as ações possíveis de utilizadores mal intencionados. Utilize a SAS de curta duração para reduzir esta ameaça (mas ficar atentos a distorção na hora de fim).
 8. **Valide dados escritos através da SAS.** Quando um aplicativo cliente escreve dados para a sua conta de armazenamento, tenha em atenção que pode haver problemas com os dados. Se seu aplicativo exigir que os dados ser validados ou autorizados antes que ele está pronto a utilizar, deve realizar esta validação depois dos dados são escritos e antes de ser utilizada pela sua aplicação. Esta prática também protege contra dados danificados ou maliciosos que está a ser escritos para a sua conta, por um usuário que adquiriu corretamente a SAS ou por um utilizador explorando uma fuga SAS.
-9. **Não utilize sempre SAS.** Por vezes, os riscos associados uma determinada operação contra a sua conta de armazenamento superam os benefícios de SAS. Para essas operações, criar um serviço de camada intermediária que escreve na sua conta de armazenamento depois de efetuar as empresas a regra de validação, autenticação e auditoria. Além disso, às vezes, é mais simples gerir o acesso de outras formas. Por exemplo, se quiser efetuar todos os blobs num contentor legíveis publicamente, pode tornar o contentor público, em vez de fornecer uma SAS para todos os clientes de acesso.
+9. **Não utilize sempre SAS.** Por vezes, os riscos associados uma determinada operação contra a sua conta de armazenamento superam os benefícios de SAS. Para essas operações, criar um serviço de camada intermediária que escreve na sua conta de armazenamento depois de efetuar as empresas a regra de validação, autenticação e auditoria. Além disso, às vezes, é mais simples gerir o acesso de outras formas. Por exemplo, se quiser fazer todos os blobs num contêiner publicaly legível, pode tornar o contentor público, em vez de fornecer uma SAS para todos os clientes de acesso.
 10. **Utilize a análise de armazenamento para monitorizar a sua aplicação.** Pode utilizar o registo e as métricas para observar qualquer pico em falhas de autenticação devido a uma falha no seu serviço do fornecedor SAS ou para a remoção acidental de uma política de acesso armazenado. Consulte a [blogue da equipa do Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) para obter informações adicionais.
 
 ## <a name="sas-examples"></a>Exemplos SAS

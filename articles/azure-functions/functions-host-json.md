@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 7a049a1fb57d65824fa2c44b40d3d51083459973
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887041"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232256"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>referência de Host. JSON para as funções do Azure
 
@@ -195,7 +195,7 @@ Invocações de função são agregadas quando o primeiro dos dois limites são 
 
 ## <a name="applicationinsights"></a>applicationInsights
 
-Controles a [funcionalidade de amostragem no Application Insights](functions-monitoring.md#configure-sampling). Na versão 2.x, esta definição é um elemento subordinado [registo](#log).
+Controles a [funcionalidade de amostragem no Application Insights](functions-monitoring.md#configure-sampling). Na versão 2.x, esta definição é um elemento subordinado [registo](#logging).
 
 ```json
 {
@@ -443,7 +443,7 @@ Definições de configuração para os registos que criar utilizando um `TraceWr
 |consoleLevel|informações|O nível de rastreio para o registo da consola. As opções são: `off`, `error`, `warning`, `info`, e `verbose`.|
 |fileLoggingMode|debugOnly|O nível de rastreio para o registo do ficheiro. As opções são `never`, `always`, `debugOnly`.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>versão
 
 *Versão 2.x*
 

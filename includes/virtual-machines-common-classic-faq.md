@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226768"
+---
 Este artigo aborda algumas perguntas comuns dos utilizadores sobre máquinas virtuais do Azure criadas com o modelo de implementação clássico.
 
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Posso migrar a minha VM criada no modelo de implementação clássico para o novo modelo do Resource Manager?
@@ -48,7 +58,7 @@ Para máquinas de virtuais criadas no modelo de implementação clássico, pode 
 Terá de especificar a rede a que pretende que a máquina virtual pertença quando criar a máquina virtual. Não é possível associar uma máquina virtual existente a uma rede virtual. No entanto, pode contornar este problema ao desanexar o disco rígido virtual (VHD) da máquina virtual existente e, em seguida, utilizá-lo para criar uma nova máquina virtual com a configuração de rede que pretende.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>Como posso aceder à minha máquina virtual?
-Tem de estabelecer uma ligação remota para iniciar sessão para a máquina virtual utilizando a ligação de ambiente de trabalho remoto para uma VM do Windows ou um Secure Shell (SSH) para uma VM com Linux. Para obter instruções, veja:
+Tem de estabelecer uma ligação remota para iniciar sessão para a máquina virtual utilizando a conexão de área de trabalho remoto para uma VM do Windows ou um Secure Shell (SSH) para uma VM do Linux. Para obter instruções, veja:
 
 * [Como Iniciar Sessão numa Máquina Virtual com o Windows Server](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Um máximo de 2 ligações simultâneas são suportadas, a menos que o servidor esteja configurado como um anfitrião de sessões de Serviços de Ambiente de Trabalho Remoto.  
 * [Como Iniciar Sessão numa Máquina Virtual com o Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Por predefinição, o SSH permite um máximo de 10 ligações simultâneas. Pode aumentar este número, editando o ficheiro de configuração.
@@ -57,7 +67,7 @@ Se tiver problemas com o Ambiente de Trabalho Remoto ou o SSH, instale e utilize
 
 Para VMs do Windows, as opções adicionais incluem:
 
-* No portal do Azure, localize a VM, em seguida, clique em **repor o acesso remoto** na barra de comando.
+* No portal do Azure, localize a VM, em seguida, clique em **repor o acesso remoto** na barra de comandos.
 * Reveja [Resolução de problemas de ligações ao Ambiente de Trabalho Remoto para uma Máquina Virtual do Azure baseada no Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Utilize a comunicação remota do Windows PowerShell para ligar à VM ou criar pontos finais adicionais para que outros recursos liguem à VM. Para obter mais detalhes, veja [Como Configurar Pontos Finais para uma Máquina Virtual](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -78,13 +88,13 @@ Geralmente, a atualização do termo implica mover para uma versão mais recente
 Para obter mais detalhes gerais sobre as ferramentas e os processos para migrar o Windows Server, veja [Migrar Funções e Funcionalidades para o Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Quais são o nome de utilizador e a palavra-passe predefinidos da máquina virtual?
-As imagens fornecidas pelo Azure não têm um nome de utilizador e a palavra-passe pré-configurados. Ao criar a máquina virtual utilizando uma dessas imagens, terá de fornecer um nome de utilizador e palavra-passe, que irá utilizar para iniciar sessão para a máquina virtual.
+As imagens fornecidas pelo Azure não têm um nome de utilizador e a palavra-passe pré-configurados. Ao criar máquina virtual utilizando uma dessas imagens, terá de fornecer um nome de utilizador e palavra-passe, que irá utilizar para iniciar sessão para a máquina virtual.
 
 Caso se tenha esquecido do nome de utilizador ou palavra-passe e tiver instalado o Agente de VM, pode instalar e utilizar a extensão [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para corrigir o problema.
 
 Detalhes adicionais:
 
-* Para as imagens de Linux, se utilizar o portal do Azure, 'azureuser' é fornecido como um nome de utilizador predefinido, mas pode alterar esta utilizando 'Da galeria' em vez de 'Criação rápida' como a forma para criar a máquina virtual. Utilizar “Da galeria” também lhe permite decidir se deve utilizar uma palavra-passe, uma chave SSH ou ambas para iniciar a sessão. A conta de utilizador é de um utilizador sem privilégios que tenha acesso “sudo” para executar comandos com privilégios. A conta “raiz” está desativada.
+* Para as imagens do Linux, se utilizar o portal do Azure, "azureuser" é fornecido como um nome de utilizador padrão, mas pode alterar isto utilizando "Da Galeria" em vez de "Criação rápida" como a forma de criar a máquina virtual. Utilizar “Da galeria” também lhe permite decidir se deve utilizar uma palavra-passe, uma chave SSH ou ambas para iniciar a sessão. A conta de utilizador é de um utilizador sem privilégios que tenha acesso “sudo” para executar comandos com privilégios. A conta “raiz” está desativada.
 * Para as imagens do Windows, terá de fornecer um nome de utilizador e palavra-passe quando criar a VM. A conta é adicionada ao grupo de Administradores.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>O Azure pode executar antivírus nas minhas máquinas virtuais?
@@ -104,7 +114,7 @@ O Azure cobra um preço por hora com base no tamanho da VM e do sistema operativ
 
 É-lhe cobrado quando o estado da VM está Em execução ou Parado, mas não lhe é cobrado quando o estado da VM está Parado (Desalocado). Para colocar uma VM no estado Parado (Desalocado), efetue um dos seguintes procedimentos:
 
-* Encerrar ou eliminar a VM a partir do portal do Azure.
+* Encerre ou elimine a VM no portal do Azure.
 * Utilize o cmdlet Stop-AzureVM disponível no módulo Azure PowerShell.
 * Utilize a operação Função de Encerramento na API REST da Gestão de Serviços e especifique StoppedDeallocated para o elemento PostShutdownAction.
 

@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13d1353b0f8b3320972973d428f4aedb0fb68ac8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990693"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212765"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Como configurar a base de dados do Azure para a replicação de dados de MariaDB
 
@@ -62,7 +62,7 @@ Os seguintes passos prepararem e configurar a MariaDB server alojado no local, u
 
    Crie uma conta de utilizador no servidor principal que está configurado com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou uma ferramenta como o MySQL Workbench. Considere se pretender replicar com SSL como isto terá de ser especificado quando criar o utilizador. Consulte a documentação da MariaDB para compreender como [adicionar contas de utilizador](https://mariadb.com/kb/en/library/create-user/) no seu servidor mestre. 
 
-   Os comandos abaixo, a nova função de replicação criada é capaz de acessar o mestre de qualquer máquina, não apenas a máquina que aloja o mestre em si. Isso é feito ao especificar "syncuser@'%'" no comando de utilizador de criar. Consulte a documentação da MariaDB para saber mais sobre [especificando os nomes das contas](https://mariadb.com/kb/en/library/create-user/#account-names).
+   Os comandos abaixo, a nova função de replicação criada é capaz de acessar o mestre de qualquer máquina, não apenas a máquina que aloja o mestre em si. Isso é feito ao especificar "syncuser\@'%'" no comando de utilizador de criar. Consulte a documentação da MariaDB para saber mais sobre [especificando os nomes das contas](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **Comando SQL**
 

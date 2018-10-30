@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d521406e37920dcd76c0078d2fdf54c16b7a0461
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040606"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209994"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Criar um grupo dinâmico e verificar o Estado
 
@@ -39,8 +39,9 @@ Este artigo fornece detalhes sobre como configurar uma regra no portal do Azure 
 
    ![Adicionar regra de associação dinâmica](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Depois de criar a regra, selecione **adicionar consulta** na parte inferior do painel.
-6. Selecione **Create** sobre o **grupo** painel para criar o grupo.
+5. Para ver a lista completa de propriedades de extensão do cliente que pode adicionar à sua consulta de associação, selecione **propriedades de extensão do cliente de Get**, introduza um ID exclusivo e, em seguida, selecione **atualizar propriedades**. O ist completa das propriedades serão agora estar disponíveis para seleção.
+6. Depois de criar a regra, selecione **adicionar consulta** na parte inferior do painel.
+7. Selecione **Create** sobre o **grupo** painel para criar o grupo.
 
 > [!TIP]
 > Falha ao criar o grupo se a regra que introduziu foi formado incorretamente ou não é válido. É apresentada uma notificação no canto superior direito do portal, que contém uma explicação de por que não foi possível processar a regra. Lê-lo cuidadosamente para compreender como precisa de ajustar a regra para que seja válido.

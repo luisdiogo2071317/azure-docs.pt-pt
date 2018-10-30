@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery Deployment Planner de VMware para o Azure | Microsoft Docs
-description: Este artigo descreve o modo de executar o planeador de implementação do Azure Site Recovery para o cenário de VMware para o Azure.
-services: site-recovery
+title: Executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure | Documentos da Microsoft
+description: Este artigo descreve como executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: f83ab78cae17859dc28349cf7c435d7101c5fa3b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b890dce5d94c2177c8fc8cdb5477b92df15c8095
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093166"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211031"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Executar Azure Site Recovery Deployment Planner de VMware para o Azure
+# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Executar o Azure Site Recovery Deployment Planner para a recuperação de desastre do VMware para o Azure
 Este artigo é o manual do utilizador do Azure Site Recovery Deployment Planner para implementações de produção de VMware para o Azure.
 
 

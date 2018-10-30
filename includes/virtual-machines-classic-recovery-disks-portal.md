@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227425"
+---
 Se a sua máquina virtual (VM) no Azure se deparar com um erro de arranque ou disco, poderá ter de realizar alguns passos de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicação com falha e que impediria a VM de ser arrancada com êxito. Este artigo descreve como utilizar o portal do Azure para ligar o seu disco rígido virtual a outra VM, para corrigir erros e, depois, recriar a VM original.
 
 
@@ -57,6 +70,6 @@ Após resolver os erros, desmonte e desanexe o disco rígido virtual já existen
 Para criar uma VM a partir do seu disco rígido virtual original, utilize [portal do Azure](https://portal.azure.com).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Na parte superior esquerda do portal, selecione **crie um recurso** > **computação** > **Máquina Virtual** > **do Galeria**.
+2. Na parte superior esquerda do portal, selecione **criar um recurso** > **computação** > **Máquina Virtual** > **do Galeria**.
 3. Na secção **Escolher Imagem**, selecione **Os meus discos** e selecione o disco rígido virtual original. Verifique a informação da localização. Esta é a região em que a VM tem de ser implementada. Selecione o botão “seguinte”.
 4. Na secção **Configuração da máquina virtual**, escreva o nome da VM e selecione um tamanho para a mesma.

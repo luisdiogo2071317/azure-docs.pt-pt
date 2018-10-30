@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 775d0701f9eeaf7d26a83b814711bea630efb2a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3ae9c0926f9c2a8bb900e25b610f8c2f4e6d292
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973767"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231581"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Reconhecimento de entidades biomédicas com o modelo de processo de ciência de dados de equipa (TDSP)
 
@@ -64,7 +64,7 @@ A figura a seguir mostra a arquitetura que foi utilizada para processar dados e 
 ## <a name="data-description"></a>Descrição de dados
 
 ### <a name="1-word2vec-model-training-data"></a>1. Dados de treinamento de modelo Word2Vec
-Baixamos o MEDLINE abstratos dados brutos do primeiro [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). Os dados estão publicamente disponíveis na forma de arquivos XML em seus [servidor de FTP](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Existem 892 arquivos XML no servidor e cada um dos arquivos XML tem as informações de 30 000 artigos. Obter mais detalhes sobre o passo de recolha de dados são fornecidos na secção de estrutura do projeto. Os campos presentes em cada arquivo são 
+Baixamos o MEDLINE abstratos dados brutos do primeiro [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). Os dados são publicaly disponível na forma de arquivos XML em seus [servidor de FTP](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Existem 892 arquivos XML no servidor e cada um dos arquivos XML tem as informações de 30 000 artigos. Obter mais detalhes sobre o passo de recolha de dados são fornecidos na secção de estrutura do projeto. Os campos presentes em cada arquivo são 
         
         abstract
         affiliation

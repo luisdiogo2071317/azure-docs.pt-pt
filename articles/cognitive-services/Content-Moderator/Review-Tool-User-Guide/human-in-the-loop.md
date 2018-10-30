@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023938"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212204"
 ---
 # <a name="human-in-the-loop"></a>Humanos no Loop
 
@@ -31,3 +31,5 @@ A ferramenta de revisão humana quando utilizado em conjunto com as APIs de mode
 5. Adicionar revisão humana para qualquer API ou business processos ao simplesmente criar um conector.
 6. Utilize os conectores padrão para rever os resultados da Microsoft PhotoDNA, análise de texto e APIs de rostos.
 7. Obter métricas chave de desempenho em seus processos de moderação de conteúdos.
+
+![Ferramenta de revisão de vídeo do Content Moderator](../images/video-review-default-view.png)

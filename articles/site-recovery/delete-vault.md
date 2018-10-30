@@ -1,6 +1,6 @@
 ---
-title: Eliminar um cofre de recuperação de sites
-description: Saiba como eliminar um cofre de recuperação de sites do Azure, com base no cenário de recuperação de sites.
+title: Eliminar um cofre de serviços de recuperação configurado para o serviço Azure Site Recovery
+description: Saiba como eliminar um cofre de serviços de recuperação configurado para o Azure Site Recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971193"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212425"
 ---
-# <a name="delete-a-site-recovery-vault"></a>Eliminar um cofre de recuperação de sites
+# <a name="delete-a-site-recovery-recovery-services-vault"></a>Eliminar um cofre dos serviços de recuperação de recuperação de Site
 
 As dependências que podem impedir que a eliminar um cofre do Azure Site Recovery. As ações que necessárias variam consoante o cenário de recuperação de sites. Para eliminar um cofre utilizado na cópia de segurança do Azure, veja [eliminar um cofre de cópia de segurança no Azure](../backup/backup-azure-delete-vault.md).
 

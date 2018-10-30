@@ -1,20 +1,18 @@
 ---
-title: Resolver falhas de instalação de push do serviço de mobilidade durante ativar Replication(VMware to Azure) | Documentos da Microsoft
-description: Resolver problemas de erros de instalação push do serviço de mobilidade ao replicar máquinas virtuais do Azure.
-services: site-recovery
+title: Resolver problemas de falhas de instalação de push do serviço de mobilidade quando ativar a replicação para recuperação após desastre | Documentos da Microsoft
+description: Resolver erros de instalação de serviços de mobilidade ao ativar a replicação para recuperação após desastre
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.author: ramamill
-ms.date: 09/19/2018
-ms.openlocfilehash: 4c57d048f4c3222ac180355a6a700562415f601c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/29/2018
+ms.openlocfilehash: c12683fee7022b84e097c2b71628776271611429
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390198"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210997"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação de push do serviço de mobilidade
 

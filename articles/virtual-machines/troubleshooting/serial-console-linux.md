@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 57abb01d70929144a8457a04ebc0caf9aecaa61c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885294"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212408"
 ---
 # <a name="virtual-machine-serial-console"></a>Consola de série de máquina virtual
 
@@ -217,5 +217,6 @@ R. Neste momento, o acesso à consola de série para instâncias do conjunto de 
 ## <a name="next-steps"></a>Passos Seguintes
 * Utilizar a consola de série para [arrancar GRUB e introduza o modo de utilizador único](serial-console-grub-single-user-mode.md)
 * Utilizar a consola de série para [chamadas NMI e SysRq](serial-console-nmi-sysrq.md)
+* Saiba como utilizar a consola de série para [ativar GRUB em várias distribuições](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Também está disponível para a consola de série [Windows](../windows/serial-console.md) VMs
 * Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md)

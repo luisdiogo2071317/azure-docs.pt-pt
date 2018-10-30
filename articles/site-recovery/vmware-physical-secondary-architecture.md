@@ -1,21 +1,22 @@
 ---
-title: Arquitetura de replicação de VMware/servidor físico no Azure Site Recovery | Documentos da Microsoft
-description: Este artigo fornece uma descrição geral dos componentes e da arquitetura utilizada ao replicar no local VMs de VMware ou servidores físicos do Windows/Linux para um site de VMware secundário com o Azure Site Recovery
+title: Arquitetura da recuperação após desastre VMware/servidor físico no Azure Site Recovery | Documentos da Microsoft
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada durante a recuperação após desastre de VMs de VMware no local ou servidores físicos do Windows/Linux para um site de VMware secundário com o Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921403"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215128"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>Servidor VM de VMware/físico para a arquitetura da replicação de VMware
+# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>Servidor VM de VMware/físico para a arquitetura de recuperação de desastre do VMware
 
-Este artigo descreve a arquitetura e os processos utilizados ao replicar, efetuar a ativação pós-falha e recuperar máquinas de virtuais de VMware no local (VMs) ou servidores físicos do Windows/Linux para uma secundária através de site de VMware [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve a arquitetura e os processos utilizados quando configurar a replicação de recuperação após desastre, ativação pós-falha e recuperação de máquinas de virtuais de VMware no local (VMs) ou servidores físicos do Windows/Linux para uma secundária através de site de VMware [Azure Recuperação de sites](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componentes da arquitetura

@@ -1,6 +1,6 @@
 ---
-title: Integrar segurança nas suas estruturas da arquitetura do Azure | Microsoft Docs
-description: " Este artigo irá ajudá-lo a compreender a arquitetura de serviços e aplicações no Azure para tornar mais fácil integrar a segurança na conceção e implementação. "
+title: Integrar a segurança em seus designs de arquiteturais do Azure | Documentos da Microsoft
+description: " Este artigo ajuda-o a compreender a arquitetura de aplicações e serviços no Azure para que seja mais fácil de integrar a segurança no design e implementação. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f15378c50dbf80863305ed4d1f31ae75f46a7789
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2017
-ms.locfileid: "25549441"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233740"
 ---
 # <a name="application-architecture-on-azure"></a>Arquitetura de aplicações no Azure
-Para ajudar a proteger as soluções baseadas na nuvem no Microsoft Azure, uma forte foundation da arquitetura é fundamental. Arquitetos de TI, designers e os implementadores beneficiam um conhecimento forte da arquitetura de serviços e aplicações. Este conhecimento básico ajuda-o a compreender a todos os componentes das suas soluções baseado na nuvem e facilitam a segurança integrada em todos os aspetos da sua estrutura e implementação.
+Para ajudar a proteger suas soluções com base na cloud no Microsoft Azure, uma base sólida de arquitetura é fundamental. Arquitetos, designers e implementadores beneficiam de um conhecimento forte da arquitetura de aplicações e serviços. Esse conhecimento básico ajuda-o a compreender todos os componentes das suas soluções com base na cloud e tornar mais fácil de integrar a segurança em todos os aspectos de seu design e implementação.
 
-Temos o seguinte para ajudá-lo com as suas as investigações da arquitetura e estruturas:
+Temos o seguinte para ajudá-lo com suas investigações de arquiteturais e os designs:
 
-* Infographics da arquitetura
-* Esquemas da arquitetura
+* Infográficos arquiteturais
+* Planos de arquitetura
 * Conjunto de símbolo de cloud e enterprise
-* Modelo de Visio 3D blueprint
+* Modelo de plano gráfico 3D do Visio
 
-## <a name="architectural-infographics"></a>Infographics da arquitetura
-A Microsoft publica relacionados da arquitetura várias cartazes infographics. Estas definições incluem:
+## <a name="architectural-infographics"></a>Infográficos arquiteturais
+A Microsoft publica vários arquiteturais cartazes/infográficos relacionados. Eles incluem:
 
-* [Criar aplicações de nuvem do mundo Real](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Dimensionamento com serviços em nuvem](https://azure.microsoft.com/documentation/infographics/cloud-services/)
+* [Criação de aplicativos na Cloud reais](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
+* [Dimensionar com os serviços Cloud](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
-## <a name="architectural-blueprints"></a>Esquemas da arquitetura
-A Microsoft publica um conjunto de alto nível [esquemas da arquitetura](http://aka.ms/azblueprints) que mostra como criar tipos específicos de sistemas com produtos Microsoft.
-Cada blueprint inclui r:
+## <a name="architectural-blueprints"></a>Planos de arquitetura
+A Microsoft publica um conjunto de alto nível [planos de arquitetura](https://aka.ms/azblueprints) mostra como criar tipos específicos de sistemas usando produtos da Microsoft.
+Cada plano gráfico inclui o r:
 
-* Ficheiros baseado no Visio 2003 flat 2D que pode transferir e modificar
-* Ficheiro PDF colorful perspetiva 3D para apresentar o blueprint audiências menos técnicas
+* Ficheiro com o Visio 2003 2D simples que pode transferir e modificar
+* Ficheiro PDF coloridos perspetiva 3D para apresentar o plano gráfico a públicos-alvo menos técnica
 * Vídeo que explica a versão 3D
 
 ## <a name="cloud-and-enterprise-symbol-set"></a>Conjunto de símbolo de cloud e enterprise
-[Ver o Visio e o vídeo de preparação de símbolos](http://aka.ms/CnESymbolsVideo) e, em seguida, [transferir a nuvem e definir o símbolo de Enterprise](http://aka.ms/CnESymbols) para ajudar a criar materiais técnicos que descrevem o Azure, Windows Server, SQL Server e muito mais. Pode utilizar os símbolos no diagramas de arquitetura, materiais de formação, apresentações, datasheets, infographics, documentos técnicos e documentação de terceiros, mesmo se o livro trains pessoas para utilizar produtos da Microsoft. No entanto, não deveriam para utilização em interfaces de utilizador.
+[Ver o Visio e símbolos de vídeo de formação](https://aka.ms/CnESymbolsVideo) e, em seguida [baixe a nuvem e definir o símbolo de Enterprise](https://aka.ms/CnESymbols) para ajudar a criar materiais técnicos que descrevem o Azure, Windows Server, SQL Server e muito mais. Pode usar os símbolos no diagramas de arquitetura, materiais de treinamento, apresentações, folhas de dados, infográficos, White Papers e livros de terceiros, mesmo se o livro prepara as pessoas a usarem os produtos da Microsoft. No entanto, que não é suposto para utilização em interfaces do usuário.
 
-## <a name="3d-blueprint-visio-template"></a>Modelo de Visio 3D blueprint
-As versões do 3D o [esquemas de arquitetura Microsoft](http://aka.ms/azblueprints) inicialmente foram criados numa ferramenta de terceiros. Um novo modelo de Visio 2013 (e versões posterior) vem incluído no 5 de Agosto de 2015 como parte de um [decorrer de certificação do Microsoft Architecture distribuído EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
+## <a name="3d-blueprint-visio-template"></a>Modelo de plano gráfico 3D do Visio
+As versões 3D dos [esquemas de arquitetura do Microsoft](https://aka.ms/azblueprints) inicialmente foram criados numa ferramenta de terceiros. Um novo modelo de Visio 2013 (e versões posterior) enviado no dia 5 de Agosto de 2015 como parte de um [cursos de certificação Microsoft Architecture distribuído de EDX.ORG](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
-O modelo está também disponível fora longo.
+O modelo também está disponível fora do curso.
 
-* [Veja o vídeo de formação](http://aka.ms/3dBlueprintTemplateVideo) primeiro para saber o que pode fazer
-* Transferir o [Microsoft modelo de Visio Blueprint 3d](http://aka.ms/3DBlueprintTemplate)
-* Transferir o [Cloud e Enterprise símbolos](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) para utilizar com o modelo 3D
+* [Ver o vídeo de formação](https://aka.ms/3dBlueprintTemplateVideo) primeiro para que saiba que ele pode fazer
+* Transferir o [Microsoft modelo de esquema do Visio 3d](https://aka.ms/3DBlueprintTemplate)
+* Transfira o [Cloud e símbolos de Enterprise](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) para utilizar com o modelo 3D

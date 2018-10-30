@@ -1,6 +1,6 @@
 ---
-title: Reativação pós-falha no Azure Site Recovery | Documentos da Microsoft
-description: Este artigo fornece uma visão geral dos vários tipos de reativação pós-falha e avisos que devem ser considerados ao realizar a ativação para o local com o serviço Azure Site Recovery.
+title: Reativação pós-falha durante a recuperação após desastre com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo fornece uma visão geral dos vários tipos de reativação pós-falha e avisos que devem ser considerados ao realizar a ativação para o local durante a recuperação após desastre com o serviço Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920394"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210147"
 ---
 # <a name="overview-of-failback"></a>Descrição geral da reativação pós-falha
 
-Depois de ter a pós-falha para o Azure, pode efetuar a ativação para seu site no local. Existem dois tipos diferentes de reativação pós-falha que são possíveis com o Azure Site Recovery: 
+Depois de ter ativação pós-falha para o Azure como parte do seu processo de recuperação após desastre, pode efetuar a ativação para seu site no local. Existem dois tipos diferentes de reativação pós-falha que são possíveis com o Azure Site Recovery: 
 
 - Reativação pós-falha para a localização original 
 - Reativação pós-falha para uma localização alternativa

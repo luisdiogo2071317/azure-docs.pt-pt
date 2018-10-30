@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 9f5d5abc2a5e7291e8b699f151bd84b10b7eb4ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227477"
+---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erros comuns durante a migração da implementação Clássica para a implementação Azure Resource Manager
 Este artigo cataloga os erros e mitigações mais comuns durante a migração de recursos de IaaS do modelo de implementação clássica do Azure para a pilha do Azure Resource Manager.
 
@@ -18,7 +31,7 @@ Este artigo cataloga os erros e mitigações mais comuns durante a migração de
 | A implementação {deployment-name} em HostedService {hosted-service-name} contém uma VM {vm-name} com um Disco de Dados {data-disk-name}, cujos bytes do tamanho físico do blob {size-of-the-vhd-blob-backing-the-data-disk} não correspondem aos bytes tamanho lógico do Disco de Dados da VM {size-of-the-data-disk-specified-in-the-vm-api}. A migração prossegue sem especificar um tamanho para o disco de dados da VM do Azure Resource Manager. | Este erro acontece se tiver redimensionado o blob do VHD sem atualizar o tamanho no modelo da API da VM. Os passos de mitigação detalhados estão descritos [abaixo](#vm-with-data-disk-whose-physical-blob-size-bytes-does-not-match-the-vm-data-disk-logical-size-bytes).|
 | Ocorreu uma exceção de armazenamento ao validar o disco de dados {data disk name} com a ligação de multimédia {data disk Uri} para a VM {VM name} no Serviço Cloud {Cloud Service name}. Confirme que a ligação de multimédia do VHD está acessível para esta máquina virtual. | Este erro pode acontecer se os discos da VM tiverem sido eliminados ou já não estiverem acessíveis. Certifique-se de que os discos da VM existem.|
 | A VM {vm-name} em HostedService {cloud-service-name} contém o Disco com a Ligação de Multimédia {vhd-uri}, que tem o nome de blob {vhd-blob-name}, o qual não é suportado no Azure Resource Manager. | Este erro ocorre quando o nome do blob tem uma "/" no mesmo, o que não é atualmente suportado no Fornecedor de Recursos de Computação. |
-| A migração não é suportada na Implementação {deployment-name} em HostedService {cloud-service-name}, pois não está no âmbito regional. Consulte http://aka.ms/regionalscope para mover esta implementação para o âmbito regional. | Em 2014, o Azure anunciou que os recursos de rede vão passar de um âmbito de nível de cluster para o âmbito regional. Consulte http://aka.ms/regionalscope para obter mais detalhes. Este erro ocorre se a implementação que está a ser migrada não tiver tido uma operação de atualização, o que a move automaticamente para um âmbito regional. A melhor solução é adicionar um ponto final a uma VM ou um disco de dados à VM e repetir a migração. <br> Veja [How to set up endpoints on a classic Windows virtual machine in Azure](../articles/virtual-machines/windows/classic/setup-endpoints.md#create-an-endpoint) (Como configurar pontos finais em máquinas virtuais do Windows clássicas no Azure) ou [Attach a data disk to a Windows virtual machine created with the classic deployment model](../articles/virtual-machines/windows/classic/attach-disk.md) (Ligar um disco de dados a uma máquina virtual do Windows criada com o modelo de implementação clássica).|
+| A migração não é suportada na Implementação {deployment-name} em HostedService {cloud-service-name}, pois não está no âmbito regional. Consulte http://aka.ms/regionalscope para mover esta implementação para o âmbito regional. | Em 2014, o Azure anunciou que os recursos de rede vão passar de um âmbito de nível de cluster para o âmbito regional. Veja [http://aka.ms/regionalscope] para obter mais detalhes (http://aka.ms/regionalscope). Este erro ocorre se a implementação que está a ser migrada não tiver tido uma operação de atualização, o que a move automaticamente para um âmbito regional. A melhor solução é adicionar um ponto final a uma VM ou um disco de dados à VM e repetir a migração. <br> Veja [How to set up endpoints on a classic Windows virtual machine in Azure](../articles/virtual-machines/windows/classic/setup-endpoints.md#create-an-endpoint) (Como configurar pontos finais em máquinas virtuais do Windows clássicas no Azure) ou [Attach a data disk to a Windows virtual machine created with the classic deployment model](../articles/virtual-machines/windows/classic/attach-disk.md) (Ligar um disco de dados a uma máquina virtual do Windows criada com o modelo de implementação clássica).|
 | Migração não é suportada para a rede Virtual {vnet-name}, porque tem implementações de PaaS sem gateways. | Este erro ocorre quando tem implementações de PaaS sem gateways como os serviços de Gateway de aplicação ou gestão de API que estão ligadas à rede Virtual.|
 
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b64727f6a77bb1151a4f9016b6179a7ee22e3a5c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0e5d42dddf550d8c7d4a579afd8436343749a995
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085483"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233655"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utilizar um endereço IP público estático com o Balanceador de carga do Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,10 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Utilizar um endereço IP estático fora do grupo de recursos de nó
 
-Com o Kubernetes 1.10 ou posterior, pode utilizar um endereço IP estático, que é criado fora do grupo de recursos de nó. O principal de serviço utilizado pelo cluster do AKS tem de ter delegado permissões para o grupo de recursos.
+Com o Kubernetes 1.10 ou posterior, pode utilizar um endereço IP estático, que é criado fora do grupo de recursos de nó. O principal de serviço utilizado pelo cluster do AKS tem de ter delegado permissões para o outro grupo de recursos, utilizando o comando seguinte para conceder permissões de SP:
+```
+az role assignment create --assignee <SP Client ID> --role "Network Contributor" --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+```
 
 Para utilizar um endereço IP fora do grupo de recursos de nó, adicione uma anotação a definição do serviço. O exemplo seguinte define a anotação ao grupo de recursos com o nome *myResourceGroup*. Fornece seu próprio nome de grupo de recursos:
 

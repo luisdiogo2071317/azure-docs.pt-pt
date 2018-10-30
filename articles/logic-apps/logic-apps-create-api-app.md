@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122251"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233519"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas, pode chamar a partir do Azure Logic Apps
 
@@ -38,10 +38,10 @@ Pode alojar as suas APIs num [App Service do Azure](../app-service/app-service-w
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/containers/quickstart-python.md)
+> * [python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Para exemplos de aplicações de API criados para o logic apps, visite o [repositório do GitHub do Azure Logic Apps](http://github.com/logicappsio) ou [blog](http://aka.ms/logicappsblog).
+> Para exemplos de aplicações de API criados para o logic apps, visite o [repositório do GitHub do Azure Logic Apps](http://github.com/logicappsio) ou [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Como a APIs personalizadas diferem dos conectores personalizados?
 
@@ -167,7 +167,7 @@ Aqui estão algumas etapas específicas para um acionador de consulta, descrito 
 
 | Foram encontrados novos dados ou eventos?  | Resposta da API | 
 | ------------------------- | ------------ |
-| Encontrado | Devolver um HTTP `200 OK` Estado com o payload de resposta (entrada para o passo seguinte). <br/>Esta resposta cria uma instância da aplicação lógica e inicia o fluxo de trabalho. | 
+| Foi encontrado | Devolver um HTTP `200 OK` Estado com o payload de resposta (entrada para o passo seguinte). <br/>Esta resposta cria uma instância da aplicação lógica e inicia o fluxo de trabalho. | 
 | Não encontrado | Devolver um HTTP `202 ACCEPTED` Estado com um `location` cabeçalho e uma `retry-after` cabeçalho. <br/>Para acionadores, o `location` cabeçalho deve conter também uma `triggerState` parâmetro de consulta, que é normalmente um "timestamp". A API pode utilizar este identificador para controlar a última vez que a aplicação lógica foi acionada. | 
 ||| 
 
@@ -230,7 +230,7 @@ Para disponibilizar as suas APIs personalizadas para todos os utilizadores no Lo
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Para ajudar a melhorar o Logic Apps, vote ou submeta ideais no [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish). 
+* Para ajudar a melhorar o Logic Apps, vote ou submeta ideais no [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

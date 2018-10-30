@@ -1,22 +1,19 @@
 ---
-title: Manter os endereços IP quando efetuar a ativação pós-falha de máquinas virtuais do Azure para outra região do Azure | Documentos da Microsoft
-description: Descreve como manter os endereços IP para cenários de ativação pós-falha do Azure para o Azure com o Azure Site Recovery
+title: Manter os endereços IP para ativação pós-falha da VM do Azure | Documentos da Microsoft
+description: Descreve como manter os endereços IP quando efetuar a ativação pós-falha de VMs do Azure para recuperação após desastre para uma região secundária com o Azure Site Recovery
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353327"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213037"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Retenção de endereço IP para a ativação pós-falha da máquina virtual do Azure
+# <a name="ip-address-retention-for-azure-vm-failover"></a>Retenção de endereço IP para a ativação pós-falha da VM do Azure
 
 O Azure Site Recovery permite a recuperação após desastre para VMs do Azure. Quando efetuar a ativação pós-falha de uma região do Azure para outra, os clientes precisarão da retenção de suas configurações de IP. Recuperação de site, por predefinição, imita rede virtual de origem e a estrutura de sub-rede quando criar esses recursos na região de destino. Para as VMs do Azure configurada com endereços IP privados estáticos, o Site Recovery também torna dentro dos melhor esforços tentar aprovisionar o mesmo IP privado na VM, de destino se este IP já não está bloqueado por um recurso do Azure ou uma VM replicada.
 

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227481"
+---
 Antes de poder utilizar a CLI do Azure com comandos e modelos do Resource Manager para implementar recursos e cargas de trabalho do Azure, precisa de uma conta no Azure. Se não tiver uma conta, pode obter uma [avaliação gratuita do Azure, aqui](https://azure.microsoft.com/pricing/free-trial/).
 
 Se ainda não tiver instalado a CLI do Azure e não tiver ligado à sua subscrição, veja o artigo [Instalar a CLI do Azure](../articles/cli-install-nodejs.md), defina o modo para `arm` com `azure config mode arm` e ligue ao Azure com o comando `azure login`.

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471480"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233859"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Descrição geral: Grupos de georreplicação e ativação pós-falha automática Active Directory
 
@@ -281,18 +281,18 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 | --- | --- |
 | [Criar ou atualizar banco de dados (createMode = restauro)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Cria, atualiza ou restaura a base de dados secundário ou de um site primário. |
 | [Começar a criar ou atualizar o estado da base de dados](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Devolve o estado durante uma operação de criação. |
-| [Definir a base de dados secundária como principal (ativação pós-falha planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Conjuntos de qual banco de dados de réplica é principal ao realizar a ativação pós-falha da base de dados de réplica primária atual. |
-| [Definir a base de dados secundária como principal (ativação pós-falha não planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Conjuntos de qual banco de dados de réplica é principal ao realizar a ativação pós-falha da base de dados de réplica primária atual. Esta operação poderá resultar em perda de dados. |
-| [Obter a ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Obtém uma ligação de replicação específicos para um determinado banco de dados do SQL numa parceria de replicação geográfica. Obtém as informações visíveis na vista de catálogo sys.geo_replication_links. |
-| [Ligações de replicação - lista pela base de dados](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Obtém todas as ligações de replicação para uma determinada base de dados do SQL numa parceria de replicação geográfica. Obtém as informações visíveis na vista de catálogo sys.geo_replication_links. |
-| [Eliminar ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Elimina uma ligação de replicação de base de dados. Não pode ser feito durante a ativação pós-falha. |
-| [Criar ou atualizar o grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Cria ou atualiza um grupo de ativação pós-falha |
-| [Eliminar grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Remove o grupo de ativação pós-falha do servidor |
-| [Ativação pós-falha (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Efetua a ativação pós-falha do servidor primário atual para este servidor. |
-| [Permitir a ativação pós-falha forçada perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |aflige através do servidor primário atual para este servidor. Esta operação poderá resultar em perda de dados. |
-| [Obter grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Obtém um grupo de ativação pós-falha. |
-| [Lista de grupos de ativação pós-falha por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Lista os grupos de ativação pós-falha num servidor. |
-| [Grupo de ativação pós-falha de atualização](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Atualiza um grupo de ativação pós-falha. |
+| [Definir a base de dados secundária como principal (ativação pós-falha planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Conjuntos de qual banco de dados de réplica é principal ao realizar a ativação pós-falha da base de dados de réplica primária atual. |
+| [Definir a base de dados secundária como principal (ativação pós-falha não planeada)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Conjuntos de qual banco de dados de réplica é principal ao realizar a ativação pós-falha da base de dados de réplica primária atual. Esta operação poderá resultar em perda de dados. |
+| [Obter a ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Obtém uma ligação de replicação específicos para um determinado banco de dados do SQL numa parceria de replicação geográfica. Obtém as informações visíveis na vista de catálogo sys.geo_replication_links. |
+| [Ligações de replicação - lista pela base de dados](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Obtém todas as ligações de replicação para uma determinada base de dados do SQL numa parceria de replicação geográfica. Obtém as informações visíveis na vista de catálogo sys.geo_replication_links. |
+| [Eliminar ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não pode ser feito durante a ativação pós-falha. |
+| [Criar ou atualizar o grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Cria ou atualiza um grupo de ativação pós-falha |
+| [Eliminar grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Remove o grupo de ativação pós-falha do servidor |
+| [Ativação pós-falha (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Efetua a ativação pós-falha do servidor primário atual para este servidor. |
+| [Permitir a ativação pós-falha forçada perda de dados](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |aflige através do servidor primário atual para este servidor. Esta operação poderá resultar em perda de dados. |
+| [Obter grupo de ativação pós-falha](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Obtém um grupo de ativação pós-falha. |
+| [Lista de grupos de ativação pós-falha por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lista os grupos de ativação pós-falha num servidor. |
+| [Grupo de ativação pós-falha de atualização](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Atualiza um grupo de ativação pós-falha. |
 |  | |
 
 ## <a name="next-steps"></a>Passos Seguintes

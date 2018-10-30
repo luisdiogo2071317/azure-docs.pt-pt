@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 945a91b9021ed5ff02e8c1ef7baf85e2098202ca
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269365"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214669"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo mostra os passos a seguir para configurar relatórios para o Azure Backup com um cofre dos serviços de recuperação. Ela também mostra como acessar relatórios com o Power BI. Depois de concluir estes passos, pode aceder diretamente ao Power BI para visualizar, personalizar e criar relatórios.
 
+> [!IMPORTANT]
+> A partir de 1 de Novembro de 2018, alguns clientes podem ver problemas em carregar os dados na aplicação de cópia de segurança do Azure no Power BI, dizendo "encontrámos carateres adicionais no final da entrada JSON. A exceção foi gerada pela interface do IDataReader."
+Isso é devido a uma alteração no formato no qual os dados são carregados para a conta de armazenamento.
+Atualize a aplicação para a versão mais recente para evitar este problema.
+>
+>
+
 ## <a name="supported-scenarios"></a>Cenários suportados
 - Relatórios de cópia de segurança do Azure são suportados para a cópia de segurança da máquina virtual do Azure e arquivo e pasta cópia de segurança para a cloud utilizando o agente de serviços de recuperação do Azure.
-- Relatórios para o servidor de base de dados do Azure SQL, o Data Protection Manager e o Azure Backup não são suportados neste momento.
+- Relatórios para a base de dados do Azure SQL, o partilhas de ficheiros do Azure, o Data Protection Manager e o servidor de cópia de segurança do Azure não são suportados neste momento.
 - Pode visualizar relatórios em cofres e subscrições, se a mesma conta de armazenamento está configurada para cada um dos cofres de. A conta de armazenamento selecionada tem de ser na mesma região que o Cofre de serviços de recuperação.
 - A frequência de atualização agendada para os relatórios é 24 horas no Power BI. Também pode efetuar uma atualização do ad-hoc dos relatórios no Power BI. Neste caso, os dados mais recentes na conta de armazenamento de cliente são utilizados para renderizar relatórios.
 

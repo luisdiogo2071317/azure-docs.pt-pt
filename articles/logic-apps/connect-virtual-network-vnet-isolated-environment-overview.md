@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: f21af23cf0b7b121441b1433f382db60ef7f13fe
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c5fc071e61a3d5304821343b6dc992112f4bd6b1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408664"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233145"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso a recursos de rede Virtual do Azure a partir do Azure Logic Apps, utilizando ambientes de serviço de integração (ISEs)
 
@@ -85,7 +85,7 @@ Pode utilizar contas de integração com logic apps, que são executados num amb
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">fórum do Azure Logic Apps</a>.
-* Para submeter ou votar em ideias para funcionalidades, visite o <a href="http://aka.ms/logicapps-wish" target="_blank">site de comentários dos utilizadores do Logic Apps</a>.
+* Para submeter ou votar em ideias para funcionalidades, visite o <a href="https://aka.ms/logicapps-wish" target="_blank">site de comentários dos utilizadores do Logic Apps</a>.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

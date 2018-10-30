@@ -1,21 +1,22 @@
 ---
-title: Ativação pós-falha no Site Recovery | Documentos da Microsoft
-description: O Azure Site Recovery coordena a replicação, ativação pós-falha e recuperação de máquinas virtuais e servidores físicos. Saiba mais sobre a ativação pós-falha para o Azure ou num datacenter secundário.
+title: Ativação pós-falha durante a recuperação após desastre com o Azure Site Recovery | Documentos da Microsoft
+description: Saiba como realizar a ativação pós-falha de VMs e servidores físicos durante a recuperação após desastre com o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391322"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215162"
 ---
-# <a name="failover-in-site-recovery"></a>Reativação pós-falha na Recuperação de Sites
+# <a name="fail-over-vms-and-physical-servers"></a>Efetuar a ativação pós-falha de VMs e servidores físicos 
+
 Este artigo descreve como máquinas de virtuais de ativação pós-falha e físico servidores protegidos pelo Site Recovery.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -114,9 +115,9 @@ Para manter a letra de unidade em máquinas virtuais após ativação pós-falha
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar a ligação para VMs do Azure após a ativação pós-falha
 
-Se pretender ligar a VMs do Azure com RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Se quiser ligar a VMs do Azure através de RDP/SSH após a ativação pós-falha, siga os requisitos resumidos na tabela [aqui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver problemas de qualquer conectividade problemas após a ativação pós-falha.
+Siga os passos descritos [aqui](site-recovery-failover-to-azure-troubleshoot.md) para resolver quaisquer problemas de conectividade após a ativação pós-falha.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

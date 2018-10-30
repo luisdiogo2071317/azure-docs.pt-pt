@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 27a73bddc2e7fb613950d78967d3100c7adcae41
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883844"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232448"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Criar demonstrativos de comutador que executam ações de fluxo de trabalho com base nos valores específicos nas Azure Logic Apps
 
@@ -125,7 +125,7 @@ Agora que criou uma aplicação lógica com uma instrução switch, vamos analis
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em funcionalidades ou sugestões, visite o [site de comentários de utilizadores do Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Para submeter ou votar em funcionalidades ou sugestões, visite o [site de comentários de utilizadores do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

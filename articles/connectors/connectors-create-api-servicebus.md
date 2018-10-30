@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048779"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232720"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Mensagens do Exchange na nuvem com o Azure Service Bus e Azure Logic Apps
 
@@ -64,7 +64,7 @@ Confirme que a aplicação lógica tem permissões para aceder ao seu espaço de
       ![Copie a cadeia de ligação do espaço de nomes do Service Bus](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se a cadeia de ligação está associada ao seu espaço de nomes do Service Bus ou uma entidade de mensagens como, por exemplo, uma fila, procure a cadeia de ligação para o `EntityPath` parâmetro. Se encontrar este parâmetro, a cadeia de ligação é de uma entidade específica e não a cadeia de caracteres correta para utilizar com a sua aplicação lógica.
+   > Para confirmar se a cadeia de ligação está associada ao seu espaço de nomes do Service Bus ou uma entidade de mensagens como, por exemplo, uma fila, procure a cadeia de ligação para o `EntityPath`  parâmetro. Se encontrar este parâmetro, a cadeia de ligação é de uma entidade específica e não a cadeia de caracteres correta para utilizar com a sua aplicação lógica.
 
 ## <a name="add-trigger-or-action"></a>Adicionar acionador ou ação
 
@@ -140,7 +140,7 @@ Para obter detalhes técnicos sobre os limites, ações e acionadores, que é de
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](http://aka.ms/logicapps-wish).
+* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

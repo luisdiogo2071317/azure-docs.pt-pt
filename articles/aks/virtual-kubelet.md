@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: b52e491162dcf17eff2ca07bc067586358aa9a35
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393297"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233485"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utilizar o Virtual Kubelet com o serviço Kubernetes do Azure (AKS)
 
@@ -115,7 +115,7 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 
 ## <a name="run-linux-container"></a>Executar o contentor do Linux
 
-Crie um ficheiro denominado `virtual-kubelet-linux.yaml` e copie o YAML seguinte. Substitua o `kubernetes.io/hostname` valor com o nome do nó Virtual Kubelet de Linux. Observe que uma [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
+Crie um ficheiro denominado `virtual-kubelet-linux.yaml` e copie o YAML seguinte. Observe que uma [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
 
 ```yaml
 apiVersion: apps/v1
@@ -138,7 +138,9 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
+        beta.kubernetes.io/os: linux
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -163,7 +165,7 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 
 ## <a name="run-windows-container"></a>Executar o contentor do Windows
 
-Crie um ficheiro denominado `virtual-kubelet-windows.yaml` e copie o YAML seguinte. Substitua o `kubernetes.io/hostname` valor com o nome do nó Virtual Kubelet do Windows. Observe que uma [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
+Crie um ficheiro denominado `virtual-kubelet-windows.yaml` e copie o YAML seguinte. Observe que uma [nodeSelector] [ node-selector] e [toleration] [ toleration] estão a ser utilizadas para agendar o contentor no nó.
 
 ```yaml
 apiVersion: apps/v1
@@ -174,7 +176,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: aci-helloworld
+      app: nanoserver-iis
   template:
     metadata:
       labels:
@@ -186,7 +188,9 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
+        beta.kubernetes.io/os: windows
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal

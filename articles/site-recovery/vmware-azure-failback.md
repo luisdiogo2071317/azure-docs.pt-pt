@@ -1,19 +1,19 @@
 ---
-title: Reativação pós-falha do Azure para o VMware com o Azure Site Recovery | Documentos da Microsoft
-description: Após a ativação pós-falha de máquinas virtuais para o Azure, pode iniciar uma reativação pós-falha para colocar as máquinas virtuais no local. Conheça as etapas sobre como efetuar a reativação pós-falha.
+title: Reativação pós-falha do Azure durante a recuperação após desastre de VMs de VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
+description: Saiba como a falha para o site no local após a ativação pós-falha para o Azure, durante a recuperação após desastre de VMs de VMware e servidores físicos para o Azure.
 author: nsoneji
 ms.service: site-recovery
 ms.date: 10/11/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 841e036555723051dfeaf946f31eaf9eedaee798
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093515"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215179"
 ---
-# <a name="fail-back-from-azure-to-an-on-premises-site"></a>Reativação pós-falha do Azure para um site no local
+# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Reativação pós-falha de VMs de VMware e servidores físicos do Azure para um site no local
 
 Este artigo descreve como efetuar a ativação de back-máquinas virtuais de máquinas virtuais do Azure para um ambiente de VMware no local. Siga as instruções neste artigo para efetuar a ativação fazer uma cópia suas máquinas de virtuais de VMware ou o Windows/Linux servidores físicos, depois de ter pós-falha os locais de sites para o Azure com o [ativação pós-falha no Azure Site Recovery](site-recovery-failover.md) tutorial.
 

@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304429"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230144"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Comuns cenários, exemplos, tutoriais e orientações passo a passo para o Azure Logic Apps
 
@@ -59,7 +59,7 @@ Para sistemas e serviços que não podem ter publicado conectores, também pode 
 * [Configurar as ações de execução longa para execuções de fluxo de trabalho](../logic-apps/logic-apps-create-api-app.md)
 * [Responder a eventos externos e ações com webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Chamar, acionar, ou aninhar fluxos de trabalho com síncronas respostas a pedidos de HTTP](../logic-apps/logic-apps-http-endpoint.md)
-* [Tutorial: Criar um dashboard de rede social com tecnologia de IA em minutos com o Logic Apps e o Power BI](http://aka.ms/logicappsdemo)
+* [Tutorial: Criar um dashboard de rede social com tecnologia de IA em minutos com o Logic Apps e o Power BI](https://aka.ms/logicappsdemo)
 * [Vídeo: Responder a webhooks de Twilio SMS e enviar uma resposta de texto](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Fluxo de controle, tratamento de erros e capacidades de registo
@@ -84,11 +84,11 @@ Totalmente pode desenvolver e implementar aplicações lógicas com o Visual Stu
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Tipos de conteúdo, conversões e transformações dentro de uma execução
 
-Pode acessar, converter e transformar vários tipos de conteúdo com muitas funções no Azure Logic Apps [linguagem de definição de fluxo de trabalho](http://aka.ms/logicappsdocs). Por exemplo, é possível converter entre uma cadeia de caracteres JSON e XML com o `@json()` e `@xml()` expressões de fluxo de trabalho. O motor do Logic Apps preserva os tipos de conteúdo para oferecer suporte a transferência de conteúdo de forma sem perdas entre serviços.
+Pode acessar, converter e transformar vários tipos de conteúdo com muitas funções no Azure Logic Apps [linguagem de definição de fluxo de trabalho](https://aka.ms/logicappsdocs). Por exemplo, é possível converter entre uma cadeia de caracteres JSON e XML com o `@json()` e `@xml()` expressões de fluxo de trabalho. O motor do Logic Apps preserva os tipos de conteúdo para oferecer suporte a transferência de conteúdo de forma sem perdas entre serviços.
 
 * [Como expressões de fluxo de trabalho funcionam no logic apps](../logic-apps/logic-apps-author-definitions.md)
 * [Lidar com tipos de conteúdo não JSON](../logic-apps/logic-apps-content-type.md), como `application/xml`, `application/octet-stream`, e `multipart/formdata`
-* [Esquema de linguagem de definição de fluxo de trabalho para o Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Esquema de linguagem de definição de fluxo de trabalho para o Azure Logic Apps](https://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Outras integrações e capacidades
 

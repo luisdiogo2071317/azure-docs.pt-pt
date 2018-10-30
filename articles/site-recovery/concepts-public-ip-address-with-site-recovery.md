@@ -1,22 +1,21 @@
 ---
-title: Endereço IP público com o Site Recovery | Documentos da Microsoft
-description: Descreve como configurar endereços IP públicos com o Azure Site Recovery e o Gestor de tráfego do Azure para recuperação após desastre e migração
+title: Utilizar endereços IP públicos após a ativação pós-falha com o Azure Site Recovery | Documentos da Microsoft
+description: Descreve como configurar endereços IP públicos com o Azure Site Recovery e o Gestor de tráfego do Azure para a migração e de recuperação após desastre
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435221"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215281"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Endereço IP público com o Site Recovery
+# <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após a ativação pós-falha
 
 Os endereços IP públicos permitem que os recursos da Internet comuniquem com os recursos do Azure à entrada. Os endereços IP públicos também permitem que os recursos do Azure comuniquem com a Internet à saída, bem como com serviços do Azure destinados ao público com um endereço IP atribuído ao recurso.
 - Comunicação de entrada da Internet para o recurso, tal como máquinas virtuais (VM) do Azure, os Gateways de aplicação do Azure, balanceadores de carga do Azure, Gateways de VPN do Azure e outros. Continua a pode comunicar com alguns recursos, tais como VMs, a partir da Internet, se uma VM não tem um endereço IP público atribuído ao mesmo, desde que a VM é a parte de um conjunto de back-end de Balanceador de carga e o Balanceador de carga é atribuído um endereço IP público.

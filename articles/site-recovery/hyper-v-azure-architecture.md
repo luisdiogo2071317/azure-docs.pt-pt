@@ -1,20 +1,20 @@
 ---
-title: Hyper-V para a arquitetura da replicação do Azure no Azure Site Recovery | Documentos da Microsoft
-description: Este artigo apresenta uma descrição geral dos componentes e da arquitetura utilizada ao replicar VMs Hyper-V (sem o VMM) no local para o Azure com o serviço Azure Site Recovery.
+title: Hyper-V para a arquitetura da recuperação após desastre do Azure no Azure Site Recovery | Documentos da Microsoft
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada ao implementar a recuperação após desastre para VMs de Hyper-V no local (sem VMM) para o Azure com o serviço Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078363"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210657"
 ---
-# <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V para a arquitetura da replicação do Azure
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V para a arquitetura da recuperação após desastre do Azure
 
 
 Este artigo descreve a arquitetura e os processos utilizados ao replicar, efetuar a ativação pós-falha e recuperar máquinas de virtuais de Hyper-V (VMs) entre anfitriões de Hyper-V no local e o Azure, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.

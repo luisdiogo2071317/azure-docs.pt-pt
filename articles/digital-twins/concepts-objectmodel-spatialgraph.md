@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324201"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215111"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Noções básicas sobre modelos de objetos duplos Digital e gráfico de inteligência espaciais
 
@@ -25,7 +25,7 @@ Com _modelos de objetos duplos Digital_ e _Ontologia_ no lugar, se possível pre
 
 ![Construção de gráfico geográficos duplos digital][1]
 
-<a id="model" />
+<a id="model"></a>
 
 O gráfico geográfico reúne espaços, dispositivos, sensores e os utilizadores. Cada um é vinculado de forma que modela o mundo real: local 43 tem quatro pisos, cada um com várias áreas diferentes. Os utilizadores estão associados com suas estações de trabalho e quais são dado acesso a partes do gráfico.  Por exemplo, o administrador teria direitos para efetuar alterações ao gráfico espacial, enquanto um visitante só pode ter direitos de visualizar certos dados de criação.
 
@@ -52,19 +52,19 @@ Outras categorias de objetos são:
 - **Matchers** são objetos que determinam quais UDFs serão executados de uma mensagem de telemetria de determinado.
 - **Pontos finais** são os locais onde as mensagens de telemetria e eventos de duplos Digital podem ser encaminhados, por exemplo `Event Hub`, `Service Bus`, `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
-## <a name="spatial-intelligence-graph"></a>Gráfico de inteligência espaciais
+## <a name="spatial-intelligence-graph"></a>Gráfico de inteligência espacial
 
 **Gráfico espacial** é o gráfico hierárquico de espaços, dispositivos, e as pessoas definidos na **modelo de objeto de duplos Digital**. O gráfico geográfico suporta _herança_, _filtragem_, _atravessando_, _escalabilidade_, e _extensibilidade_ . Os utilizadores podem gerir e interagir com seus gráfico espacial com uma coleção de APIs de REST (ver abaixo).
 
-O utilizador que implementa um serviço de duplos Digital na respetiva subscrição torna-se o administrador global do nó raiz, automaticamente, conceder acesso total a estrutura inteira. Este utilizador, em seguida, pode aprovisionar espaços no gráfico com o `Space` API. Dispositivos podem ser aprovisionados com o `Device` API, sensores podem ser provisionados usando `Sensor` API, etc. Também oferecemos [ferramentas de código aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) para aprovisionar o gráfico em massa.
+O utilizador que implementa um serviço de duplos Digital na respetiva subscrição torna-se o administrador global do nó raiz, automaticamente, conceder acesso total a estrutura inteira. Este utilizador, em seguida, pode aprovisionar espaços no graph com a API de espaço. Dispositivos poderiam ser aprovisionados com a API de dispositivos, sensores poderiam ser provisionados usando a API do Sensor, etc. Também oferecemos [ferramentas de código aberto](https://github.com/Azure-Samples/digital-twins-samples-csharp) para aprovisionar o gráfico em massa.
 
 Graph _herança_ aplica-se para as permissões e as propriedades que são originadas um nó principal para todos os nós abaixo dele. Por exemplo, quando uma função é atribuída a um usuário num determinado nó, o utilizador terá permissões dessa função para o nó fornecido e todos os nós abaixo do mesmo. Além disso, cada chave de propriedade e o tipo de extensão definidos para um determinado nó serão herdado por todos os nós abaixo desse nó.
 
-Graph _filtragem_ permite que os usuários restrinja os resultados de pedido por IDs, nome, tipos, subtipos, espaço de principal, espaços associados, tipos de dados de sensor, chaves de propriedade e valores, completas, minLevel, maxLevel e outro filtro de OData parâmetros.
+Graph _filtragem_ permite que os usuários restrinja os resultados de pedido por IDs, nome, tipos, subtipos, espaço principal, espaços associados, tipos de dados de sensor, chaves de propriedade e os valores, *atravessar*,  *minLevel*, *maxLevel*e outros parâmetros de filtro de OData.
 
-Graph _atravessando_ permite aos usuários navegar o gráfico geográfico em seu profundidade e amplitude. Para detalhes, o gráfico pode ser percorrido descendente ou ascendente com os parâmetros de navegação `traverse`, `minLevel`, `maxLevel`. Para a amplitude, o gráfico foi direcionado para obter nós colateral diretamente ligados a um espaço de principal ou um dos respetivos descendentes. Ao consultar um objeto, foi possível obter todos os objetos relacionados que têm relações para esse objeto, utilizando o `includes` parâmetro das APIs obter.
+Graph _atravessando_ permite aos usuários navegar o gráfico geográfico em seu profundidade e amplitude. Para detalhes, o gráfico pode ser percorrido descendente ou ascendente com os parâmetros de navegação *atravessar*, *minLevel*, *maxLevel*. Para a amplitude, o gráfico foi direcionado para obter nós colateral diretamente ligados a um espaço de principal ou um dos respetivos descendentes. Ao consultar um objeto, foi possível obter todos os objetos relacionados que têm relações para esse objeto utilizando a *inclui* parâmetro das APIs obter.
 
 Duplos Digital do Azure garante graph _escalabilidade_, de modo que possa manipular suas cargas de trabalho do mundo real. Os gémeos digital podem ser utilizados para representar grandes portefólios de imóveis, infraestrutura, dispositivos, sensores, telemetria e muito mais.
 
@@ -80,8 +80,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Nome do atributo personalizado | Substituir por |
 | --- | --- |
-| `yourInstanceName` | O nome da sua instância de duplos Digital do Azure |
-| `yourLocation` | Qual sua instância estiver alojada num servidor a região |
+| *yourInstanceName* | O nome da sua instância de duplos Digital do Azure |
+| *yourLocation* | Qual sua instância estiver alojada num servidor a região |
 
  O formato de URL completo pode ser visto que está a ser utilizada na imagem abaixo:
 

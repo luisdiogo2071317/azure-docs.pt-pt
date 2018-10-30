@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226749"
+---
 É importante proteger a sua máquina virtual (VM) para as aplicações que executar. Proteger as VMs pode incluir um ou mais serviços do Azure e os recursos que abrangem o acesso seguro às suas VMs e armazenamento seguro dos seus dados. Este artigo fornece informações que lhe permite proteger a sua VM e aplicações.
 
 ## <a name="antimalware"></a>Antimalware
@@ -26,7 +39,7 @@ Quando ligar às VMs, deve utilizar a criptografia de chave pública para fornec
 
 Um desafio comum inerente à criação de aplicações na cloud passa pela gestão das credenciais que estão no seu código para a autenticação nos serviços cloud. Manter essas credenciais protegidas é uma tarefa importante. Idealmente, nunca aparecem nas estações de trabalho dos programadores nem são verificadas no controlo de origem. O Azure Key Vault oferece uma forma de armazenar credenciais, segredos e outras chaves em segurança, mas o código tem de se autenticar no Key Vault para poder obtê-los. 
 
-As identidades geridas para a funcionalidade de recursos do Azure no Azure Active Directory (Azure AD) resolve este problema. Oferece aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar essa identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.  O código que está a executar uma VM pode solicitar um token de dois pontos finais que estão acessíveis apenas a partir de dentro da VM. Para obter mais informações sobre este serviço, reveja os [geridos identidades para recursos do Azure](../articles/active-directory/managed-identities-azure-resources/overview.md) página de descrição geral.   
+A funcionalidade de identidades geridas para recursos do Azure no Active Directory (Azure AD) resolve este problema. Oferece aos serviços do Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar essa identidade para autenticar em qualquer serviço que suporte a autenticação do Azure AD, incluindo o Key Vault, sem ser necessário ter credenciais no seu código.  O código que está a executar uma VM pode solicitar um token de dois pontos finais que estão acessíveis apenas a partir de dentro da VM. Para obter mais informações sobre este serviço, reveja os [geridos identidades para recursos do Azure](../articles/active-directory/managed-identities-azure-resources/overview.md) página de descrição geral.   
 
 ## <a name="policies"></a>Políticas
 

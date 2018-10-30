@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eb3489c24bd5aa328620c5a6c14ee71882a6a6f2
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 45682caedaaaac1c9d335a45db64f16d713dfd7f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249575"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233502"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Expandir alertas do Log Analytics para alertas do Azure
 Até recentemente, o Azure Log Analytics incluído sua própria funcionalidade alerta, o que foi notificado proativamente das condições com base nos dados do Log Analytics. Gerido regras de alerta no portal do Microsoft Operations Management Suite. A nova experiência de alertas está agora integrado alertas em vários serviços no Microsoft Azure. Isto está disponível como **alertas** em Azure Monitor no portal do Azure e suporta a alertas dos registos de atividades, métricas e inicia a partir do Log Analytics e Azure Application Insights. 
@@ -30,7 +30,7 @@ Existem diversas vantagens de criar e gerir alertas no portal do Azure, tais com
 O processo de mover os alertas do Log Analytics para alertas do Azure não envolve a alterar a definição de alerta, consulta ou configuração de qualquer forma. A única alteração necessária é que no Azure, executar todas as ações ao utilizar um grupo de ação. Se os grupos de ação já estão associados com o alerta, são incluídos quando expandidos para o Azure.
 
 > [!NOTE]
-> Microsoft irá ampliar automaticamente os alertas criados em instâncias de cloud pública do Log Analytics para alertas do Azure a partir de 14 de Maio de 2018, uma série de recorrente até concluído. Se tiver quaisquer problemas ao criar [grupos de ação](monitoring-action-groups.md), utilize [estes passos de remediação](monitoring-alerts-extend-tool.md#troubleshooting) para obter os grupos de ação criados automaticamente. Pode utilizar estes passos até 5 de Julho de 2018. *Não aplicável para Goverment do Azure e os utilizadores da nuvem Soveriegn do Log Analytics*. 
+> Microsoft irá ampliar automaticamente os alertas criados em instâncias de cloud pública do Log Analytics para alertas do Azure a partir de 14 de Maio de 2018, uma série de recorrente até concluído. Se tiver quaisquer problemas ao criar [grupos de ação](monitoring-action-groups.md), utilize [estes passos de remediação](monitoring-alerts-extend-tool.md#troubleshooting) para obter os grupos de ação criados automaticamente. Pode utilizar estes passos até 5 de Julho de 2018. *Não aplicável para o Azure Government e os utilizadores de cloud soberanas do Log Analytics*. 
 > 
 
 Quando agendar alertas numa área de trabalho do Log Analytics para ser estendido para o Azure, eles continuar a trabalhar e não em que qualquer forma de comprometer a configuração. Quando agendada, os alertas podem não estar disponíveis para modificação temporariamente, mas pode continuar a criar novos alertas do Azure durante este período. Se tentar editar ou criar alertas a partir do portal do Operations Management Suite, terá a opção para continuar a criá-los a partir de sua área de trabalho do Log Analytics. Também é possível criá-los dos alertas do Azure no portal do Azure.

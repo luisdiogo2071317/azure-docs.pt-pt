@@ -1,22 +1,20 @@
 ---
-title: 'Resolver problemas de falha de agente do Azure Site Recovery: Estado do agente convidado indisponível | Documentos da Microsoft'
-description: Os sintomas, causas e resoluções de falhas de recuperação de sites do Azure relacionados com o agente e extensão
-services: site-recovery
+title: Resolver problemas com agentes do Azure Site Recovery | Documentos da Microsoft
+description: Fornece informações sobre os sintomas, causas e resoluções de falhas de agente do Azure Site Recovery.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919809"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215043"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de extensão do Azure Site Recovery: problemas com o agente ou a extensão
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Resolver problemas com o agente do Azure Site Recovery
 
 Este artigo fornece passos de resolução de problemas que podem ajudar a resolverem erros de Azure Site Recovery relacionados com o agente da VM e a extensão.
 
@@ -105,7 +103,7 @@ Para desinstalar a extensão:
 
 1. Na [portal do Azure](https://portal.azure.com/), vá para a VM que está com falhas de cópia de segurança.
 2. Selecione **definições**.
-3. Selecione **extensões**.
+3. Selecione **Extensions** (Extensões).
 4. Selecione **extensão de recuperação de Site**.
 5. Selecione **desinstalar**.
 
