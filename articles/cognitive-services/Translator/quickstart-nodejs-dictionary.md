@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Localizar traduções alternativas – Tradução de Texto, Node.js'
+title: 'Início Rápido: localizar traduções alternativas, Node.js – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 5361dce567743e239e0499352affa179b7d40382
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 4b5857fdb7871107396ca1fd50865f317038abb5
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127232"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646233"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-nodejs"></a>Guia de Início Rápido: Encontrar traduções e utilização alternativas com Node.js
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-nodejs"></a>Início Rápido: localizar traduções alternativas com a API REST de Texto do Microsoft Translator (Node.js)
 
 Neste guia de introdução, pode encontrar detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, pode encontrar detalhes de possíveis traduções al
 
 Irá precisar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="dictionary-lookup-request"></a>Pedido de Pesquisa no Dicionário
 
@@ -161,7 +161,7 @@ DictionaryLookup (content);
 
 ## <a name="dictionary-examples-request"></a>Pedido de Exemplos do Dicionário
 
-Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo do dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
+Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo no dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
 
 1. Crie um novo projeto Node.js no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -266,7 +266,7 @@ DictionaryExamples (content);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Explorar exemplos de Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)

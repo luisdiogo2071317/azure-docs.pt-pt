@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Obter o comprimento de frases – Tradução de Texto, Go'
+title: 'Início Rápido: obter o comprimento de frases, Go – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: erhopf
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 34b30179d674a42f6c9c2c358c0feb6e083089f6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 92ea2291760edf16863dc58a00bac4389f818e72
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129459"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644933"
 ---
-# <a name="quickstart-get-sentence-lengths-with-go"></a>Guia de introdução: obter o comprimento de frases com o Go
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-go"></a>Início Rápido: obter os comprimentos de frases com a API de Texto do Microsoft Translator (Go)
 
 Neste guia de introdução, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, encontrará o comprimento de frases no texto atravé
 
 Terá de instalar a [distribuição do Go](https://golang.org/doc/install) para executar este código. O código de exemplo utiliza apenas bibliotecas **principais**, pelo que não há dependências externas.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>Pedido de BreakSentence
 
-O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md).
+O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md) (Separar Frase).
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 2. Adicione o código indicado abaixo.

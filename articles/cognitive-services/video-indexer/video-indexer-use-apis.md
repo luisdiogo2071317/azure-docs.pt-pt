@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Utilizar a API do Video Indexer'
+title: Utilizar a API do Video Indexer
 titlesuffix: Azure Cognitive Services
 description: Este artigo mostra como pode começar a utilizar a API do Video Indexer.
 services: cognitive services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 10/20/2018
 ms.author: juliako
-ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 401811ec8803f3ede5a829dc96edc1e7f15e5ee0
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985569"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637752"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
+# <a name="use-the-video-indexer-api"></a>Utilizar a API do Video Indexer
 
 > [!Note]
 > A API do Video Indexer V1 foi preterida no dia 1 de agosto de 2018. Agora, deve utilizar a API do Video Indexer v2. <br/>Para programar com APIs do Video Indexer v2, veja as instruções que se encontram [aqui](https://api-portal.videoindexer.ai/). 
@@ -51,6 +51,9 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
     Após subscrever, poderá ver a sua subscrição e as suas chaves primárias e secundárias. As chaves devem ser protegidas. As chaves só devem ser utilizadas pelo seu código do servidor. As chaves não devem estar disponíveis do lado do cliente (.js, .html, etc.).
 
     ![Inscrever-se](./media/video-indexer-use-apis/video-indexer-api03.png)
+
+> [!TIP]
+> O utilizador do Video Indexer pode utilizar uma chave de subscrição individual para ligar a várias contas do Video Indexer. Em seguida, pode associar estas contas do Video Indexer a diferentes contas dos Serviços de Multimédia.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Obter o token de acesso com a API de Autorização
 

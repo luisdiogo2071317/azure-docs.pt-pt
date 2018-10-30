@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: Detetar rostos numa imagem – API Face com C#'
+title: 'Início rápido: detetar rostos numa imagem com a API REST e C#'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá detetar rostos numa imagem através da API Face com C#.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 080e616067bb0b8a640ded6faec184030314d79a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5a3b3e70a12f70874bf54e8f01a0f8baf3eec845
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341026"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954526"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c"></a>Guia de Início Rápido: Detetar rostos numa imagem com C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-c"></a>Início rápido: detetar rostos numa imagem com a API REST e C#
 
 Neste início rápido, irá detetar rostos humanos numa imagem com a API Face.
 

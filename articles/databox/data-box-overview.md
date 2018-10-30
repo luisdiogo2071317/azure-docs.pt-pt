@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090811"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955342"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -62,7 +62,7 @@ O dispositivo Data Box tem as seguintes funcionalidades nesta versão.
 | Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
 | Espaço em rack                                              | 7 U quando colocado no rack ao seu lado (não pode ser montado em rack)|
 | Cabos necessários                                         | 1 x cabo de alimentação (incluído) <br> 2 cabos RJ45 <br> 2 X cabos de cobre SFP + Twinax|
-| Capacidade de armazenamento                                        | 100 TB <br> Capacidade utilizável de 80 TB depois da proteção de RAID 5|
+| Capacidade de armazenamento                                        | O dispositivo de 100 TB tem a capacidade utilizável de 80 TB depois da proteção de RAID 5|
 | Interfaces de rede                                      | 2 x interfaces de 1 GbE – MGMT, DATA 3. <br> MGMT – para gestão, não configurável pelo utilizador, utilizada para a configuração inicial <br> DATA3 – para dados, configurável pelo utilizador, dinâmica por predefinição <br> As interfaces MGMT e DATA 3 também podem funcionar como 10 GbE <br> 2 X interfaces de 10 GbE – DATA 1, DATA 2 <br> Ambas são para dados, podem ser configuradas como dinâmicas (predefinição) ou estáticas |
 | Suporte de transferência de dados                                     | RJ45, SFP + Ethernet 10 GbE de cobre  |
 | Segurança                                                | Caixa robusta do dispositivo com parafusos personalizados à prova de adulteração <br> Autocolantes invioláveis colocados na parte inferior do dispositivo|

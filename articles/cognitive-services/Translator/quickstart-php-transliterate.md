@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, PHP'
+title: 'Início Rápido: converter script de texto, PHP – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá converter texto de um idioma de um script noutro através da API de Texto do Microsoft Translator com o PHP.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: b2b1773bc6eeea3a19d197faae75039511e77cf9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: e858e33864ddec211f2424c7380b5b421a3db0f5
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123873"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649480"
 ---
-# <a name="quickstart-transliterate-text-with-php"></a>Guia de Início Rápido: Transliterar texto com PHP
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-php"></a>Início Rápido: transliterar texto com a API REST de Texto do Microsoft Translator (PHP)
 
 Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, irá converter texto de um idioma de um script para 
 
 Irá precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 

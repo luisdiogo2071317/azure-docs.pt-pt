@@ -1,21 +1,20 @@
 ---
-title: Voltar a proteger VMs do Azure para um site no local | Documentos da Microsoft
-description: Após a ativação pós-falha de VMs para o Azure, pode iniciar uma reativação pós-falha para colocar as VMs no local. Saiba como voltar a proteger antes de uma reativação pós-falha.
-services: site-recovery
+title: Voltar a proteger VMs do Azure para um site no local durante a recuperação após desastre de VMs de VMware e servidores físicos | Documentos da Microsoft
+description: Após a ativação pós-falha para o Azure durante a recuperação após desastre de VMs de VMware e servidores físicos, Aprenda a reativação pós-falha do Azure para o site no local.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346684"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213292"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Voltar a proteger máquinas do Azure para um site no local
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Voltar a proteger e efetuar a ativação de back-computadores para um site no local após a ativação pós-falha para o Azure
 
 Após [ativação pós-falha](site-recovery-failover.md) de VMs de VMware no local ou servidores físicos no Azure, é a primeira etapa da falha para seu site no local voltar a proteger as VMs do Azure que foram criadas durante a ativação pós-falha. Este artigo descreve como fazer isso. 
 

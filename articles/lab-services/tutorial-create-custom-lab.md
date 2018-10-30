@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636992"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467434"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório com o Azure DevTest Labs
 Neste tutorial, vai criar um laboratório com o portal do Azure. O administrador do laboratório configura um laboratório numa organização, cria VMs no laboratório e configura as políticas. Os utilizadores do laboratório (por exemplo: o programador e os técnicos de teste) reivindicam as VMs no laboratório, ligam-se a elas e utilizam-nas. 
@@ -55,7 +55,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 1. Na página **DevTest Lab**, selecione **+ Adicionar** na barra de ferramentas. 
 
     ![Botão Adicionar](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. Na página **Escolher uma base**, pesquise com a palavra-chave **Ubuntu** e selecione uma das imagens de base na lista. 
+1. Na página **Escolher uma base**, pesquise com uma palavra-chave (por exemplo: Windows, Ubuntu) e selecione uma das imagens de base na lista. 
 1. Na página **Máquina virtual**, realize as seguintes ações: 
     1. Em **Nome da máquina virtual**, introduza um nome para a máquina virtual. 
     2. Para **Nome de utilizador**, introduza um nome para o utilizador com acesso à máquina virtual. 
@@ -71,6 +71,9 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 
         ![Estado de criação da VM](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. Uma vez criada a VM, será apresentada na lista de **Máquinas de virtuais reclamáveis**. 
+
+    > [!NOTE] 
+    > Ao adicionar uma VM do Linux a um laboratório, pode ativar o acesso do SSH e do RDP à VM. Se não ativar o acesso ao criar a VM, pode adicionar manualmente regras no grupo de segurança de rede associado à VM para abrir portas para SSH e RDP.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Adicionar um utilizador à função de Utilizador do Laboratório
 

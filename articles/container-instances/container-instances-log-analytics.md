@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856042"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405604"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registar instância de contentor com o Azure Log Analytics
 
@@ -100,7 +100,7 @@ Deverá receber uma resposta do Azure com detalhes de implementação poucos ins
 
 Após implementar o grupo de contentores, pode demorar vários minutos (até 10) para as primeiras entradas do registo aparecerem no portal do Azure. Para ver os registos do grupo de contentores, abra a sua área de trabalho do Log Analytics e, em seguida:
 
-1. Na descrição geral da **Área de trabalho de OMS** selecione **Pesquisa de registos**
+1. Na descrição geral da **Área de trabalho de OMS** selecione **Pesquisa de Registos**. As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.  
 1. Em **Algumas consultas mais para tentar**, selecione a ligação **Todos os dados recolhidos**
 
 Deverá ver vários resultados apresentados pela consulta `search *`. Se a princípio não vir quaisquer resultados, aguarde alguns minutos e, em seguida, selecione o botão **EXECUTAR** para executar a consulta novamente. Por predefinição, as entradas de registo são apresentadas na vista de "Lista" – selecione **Tabela** para ver as entradas de registo num formato mais condensado. Em seguida, pode expandir uma linha para ver os conteúdos de uma entrada de registo individual.

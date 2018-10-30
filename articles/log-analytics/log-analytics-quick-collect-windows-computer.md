@@ -16,12 +16,12 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 39c30934ddf3b1d90b2dc604af0f0bb29bf79c04
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 756b5e208cd2a3fa70f7ed3cf1c4deaaf72348ed
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043734"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407814"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Windows num ambiente híbrido
 O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente do seu computador Windows físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples.  Para as VMs do Windows do Azure, veja o tópico seguinte [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) (Recolher dados sobre as Máquinas Virtuais do Azure).  
@@ -37,7 +37,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Clique em **Criar** e, em seguida, selecione as opções para os seguintes itens:
 
-  * Indique um nome para a nova **Área de Trabalho do OMS**, como *DefaultLAWorkspace*. 
+  * Indique um nome para a nova **Área de Trabalho do Log Analytics**, como *DefaultLAWorkspace*. 
   * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contenha uma ou mais máquinas virtuais do Azure.  
   * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).  
@@ -45,7 +45,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
-3. Depois de fornecer as informações necessárias no painel **Área de Trabalho do OMS**, clique em **OK**.  
+3. Depois de dar as informações necessárias no painel **Área de Trabalho do Log Analytics**, clique em **OK**.  
 
 Enquanto as informações são confirmadas e a área de trabalho criada, pode acompanhar o progresso em **Notificações**, no menu. 
 
@@ -66,7 +66,7 @@ Os passos seguintes instalam e configuram o agente para o Log Analytics no Azure
 2. Na página **Bem-vindo**, clique em **Seguinte**.
 3. Na página **Termos de Licenciamento**, leia a licença e clique em **Aceito**.
 4. Na página **Pasta de Destino**, altere ou mantenha a pasta de instalação predefinida e clique em **Seguinte**.
-5. Na página **Opções de Configuração do Agente** , escolha ligar o agente ao Azure Log Analytics (OMS) e clique em **Seguinte**.   
+5. Na página **Opções de Configuração do Agente** , escolha ligar o agente ao Azure Log Analytics e clique em **Seguinte**.   
 6. Na página **Azure Log Analytics**, faça o seguinte:
    1. Cole o **ID da Área de Trabalho** e a **Chave da Área de Trabalho (Chave Primária)** que copiou anteriormente.  Caso o computador deva reportar a uma área de trabalho do Log Analytics na cloud do Azure Government, selecione **Azure US Government**, na lista pendente **Cloud do Azure**.  
    2. Se o computador tiver de comunicar através de um servidor proxy com o serviço do Log Analytics, clique em **Avançadas** e forneça o URL e o número da porta do servidor proxy.  Se o seu servidor proxy precisar de autenticação, escreva o nome de utilizador e a palavra-passe para autenticação no mesmo e clique em **Seguinte**.  
@@ -74,7 +74,7 @@ Os passos seguintes instalam e configuram o agente para o Log Analytics no Azure
 8. Na página **Pronto para Instalar**, reveja as suas opções e clique em **Instalar**.
 9. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
 
-Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Pode rever a configuração e confirmar que o agente está ligado ao Log Analytics. Quando estiver ligado, no separador **Azure Log Analytics (OMS)**, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent ligou-se com êxito ao serviço Microsoft Operations Management Suite.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Quando terminar, o **Microsoft Monitoring Agent** aparece no **Painel de Controlo**. Pode rever a configuração e confirmar que o agente está ligado ao Log Analytics. Quando estiver ligado, no separador **Azure Log Analytics**, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent ligou-se com êxito ao serviço Microsoft Log Analytics.**<br><br> ![Estado da ligação do MMA ao Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 ## <a name="collect-event-and-performance-data"></a>Recolher dados de eventos e de desempenho
 O Log Analytics pode recolher eventos do registo do Windows e de contadores de desempenho que especificar para análises e relatórios a longo prazo e efetuar ações quando é detetada uma determinada condição.  Siga estes passos para configurar a recolha de eventos a partir do registo de eventos do Windows e de vários contadores de desempenho comuns para começar.  

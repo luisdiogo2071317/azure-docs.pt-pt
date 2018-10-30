@@ -1,5 +1,5 @@
 ---
-title: Criar a sua primeira função no Azure usando o Visual Studio | Microsoft Docs
+title: Criar a sua primeira função no Azure com o Visual Studio
 description: Criar e publicar uma Função do Azure acionada por HTTP com o Visual Studio.
 services: functions
 documentationcenter: na
@@ -10,21 +10,23 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 10/17/2018
 ms.author: glenga
-ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: b7c9b08d1f6cb1c52419519658765ab687a234fc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116594"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649980"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar a sua primeira função com o Visual Studio
 
 As Funções do Azure permitem-lhe executar o seu código num ambiente [sem servidor](https://azure.microsoft.com/solutions/serverless/), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web.
 
 Neste artigo, aprenderá a utilizar as ferramentas do Visual Studio 2017 para as Funções do Azure para criar localmente e testar uma função de "hello world". Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017.
+
+![Resposta da função localhost no browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
 Este tópico inclui [um vídeo](#watch-the-video) que demonstra os mesmos passos básicos.
 
@@ -54,13 +56,13 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 
 2. Copie o URL da sua função na saída do tempo de execução das funções do Azure.
 
-    ![Tempo de execução local do Azure](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
+    ![Tempo de execução local do Azure](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-debugging.png)
 
-3. Cole o URL do pedido HTTP na barra de endereço do browser. Anexe a cadeia de consulta `?name=<yourname>` a este URL e execute o pedido. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função: 
+3. Cole o URL do pedido HTTP na barra de endereço do browser. Anexe a cadeia de consulta `?name=<YOUR_NAME>` a este URL e execute o pedido. O exemplo apresentado em seguida mostra a resposta no browser relativamente ao pedido GET devolvido retornado pela função: 
 
-    ![Resposta da função localhost no browser](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+    ![Resposta da função localhost no browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local.png)
 
-4. Para parar a depuração, prima Shift + F5.
+4. Para parar a depuração, prima **Shift + F5**.
 
 Depois de verificar que a função é executada corretamente no computador local, deve publicar o projeto no Azure.
 
@@ -72,15 +74,15 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 
 ## <a name="test-your-function-in-azure"></a>Testar a sua função no Azure
 
-1. Copie a URL de base da aplicação de funções a partir da página de perfil Publicar. Substitua a `localhost:port` parte da URL que utilizou ao testar a localmente a função com a nova URL de base. Tal como antes, certifique-se de que anexa a cadeia de consulta `?name=<yourname>` a este URL e execute o pedido.
+1. Copie a URL de base da aplicação de funções a partir da página de perfil Publicar. Substitua a `localhost:port` parte da URL que utilizou ao testar a localmente a função com a nova URL de base. Tal como antes, certifique-se de que anexa a cadeia de consulta `?name=<YOUR_NAME>` a este URL e execute o pedido.
 
     O URL que chama a função de acionada por HTTP deve estar no seguinte formato:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME> 
 
 2. Cole este novo URL do pedido HTTP na barra de endereço do browser. A imagem seguinte mostra a resposta no browser em relação ao pedido GET devolvido pela função:
 
-    ![Resposta da função no browser](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![Resposta da função no browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
 ## <a name="watch-the-video"></a>Ver o vídeo
 

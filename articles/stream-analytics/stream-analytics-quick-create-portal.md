@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022784"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958861"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure
 
@@ -179,7 +179,9 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, implementou uma tarefa simples do Stream Analytics. Para saber mais sobre como configurar outras origens de entrada e efetuar a deteção em tempo real, avance para o seguinte artigo:
+Neste início rápido, implementou uma tarefa simples do Stream Analytics com o portal do Azure. Também pode implementar tarefas do Stream Analytics com o [PowerShell](stream-analytics-quick-create-powershell.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
+
+Para saber mais sobre como configurar outras origens de entrada e efetuar a deteção em tempo real, avance para o seguinte artigo:
 
 > [!div class="nextstepaction"]
 > [Deteção de fraudes em tempo real com o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

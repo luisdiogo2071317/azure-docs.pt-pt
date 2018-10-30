@@ -1,38 +1,37 @@
 ---
-title: Gira partilhas de ficheiros do Azure com a CLI do Azure
-description: Aprenda a utilizar a CLI do Azure para gerir os Ficheiros do Azure.
+title: Início Rápido para gerir partilhas de ficheiros do Azure com a CLI do Azure
+description: Utilize este início rápido para saber como utilizar a CLI do Azure para gerir Ficheiros do Azure.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 03/26/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: de48789c42ccd2d7e090af6f430f323b16416e9c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: aab248ac7c9adf7d996406ec35e0317594ce0b68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389790"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945023"
 ---
-# <a name="manage-azure-file-shares-using-azure-cli"></a>Gira partilhas de ficheiros do Azure com a CLI do Azure
-Os [Ficheiros do Azure](storage-files-introduction.md) são o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas no Windows, Linux e macOS. Este artigo orienta-o pelas noções básicas da utilização de partilhas de ficheiros do Azure com a CLI do Azure. Aprenda a: 
-
-> [!div class="checklist"]
-> * Criar um grupo de recursos e uma conta de armazenamento
-> * Criar uma partilha de ficheiros do Azure 
-> * Criar um diretório
-> * Carregar um ficheiro 
-> * Transferir um ficheiro
-> * Criar e utilizar um instantâneo de partilha
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Início Rápido: criar e gerir partilhas de ficheiros do Azure com a CLI do Azure
+Este guia orienta-o pelas noções básicas da utilização de [partilhas de ficheiros do Azure](storage-files-introduction.md) com a CLI do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI do Azure localmente, para seguir os passos neste artigo, tem de executar a versão 2.0.4 da CLI do Azure ou uma versão posterior. Execute **az --version** para encontrar a versão da CLI do Azure. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Se optar por instalar e utilizar a CLI do Azure localmente, para seguir os passos neste artigo, tem de executar a versão 2.0.4 da CLI do Azure ou uma versão posterior. Execute **az --version** para encontrar a versão da CLI do Azure. Se precisar de instalar ou atualizar, veja [instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). 
 
 Por predefinição, os comandos da CLI do Azure devolvem JavaScript Object Notation (JSON). JSON é a forma padrão de enviar e receber mensagens a partir de APIs REST. Para facilitar a utilização das respostas JSON, alguns dos exemplos neste artigo utilizam o parâmetro *query* nos comandos da CLI do Azure. Este parâmetro utiliza a [linguagem de consulta JMESPath](http://jmespath.org/) para analisar o JSON. Para saber mais sobre como utilizar os resultados dos comandos da CLI do Azure ao seguir a linguagem de consulta do JMESPath, veja o [tutorial JMESPath](http://jmespath.org/tutorial.html).
+
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+Se estiver a utilizar a CLI do Azure localmente, abra uma linha de comandos e inicie sessão no Azure, se ainda não o tiver feito.
+
+```bash 
+az login
+```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Se ainda não tiver um grupo de recursos do Azure, pode utilizar o comando [az group create](/cli/azure/group#create) para criar um. 
@@ -77,15 +76,26 @@ az storage share create \
     --name "myshare" 
 ```
 
-> [!IMPORTANT]  
-> Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and referencing shares, directories, files, and metadata (Nomenclatura e referência de partilhas, diretórios, ficheiros e metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and referencing shares, directories, files, and metadata (Nomenclatura e referência de partilhas, diretórios, ficheiros e metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Trabalhar com os conteúdos de uma partilha de ficheiros do Azure
-Agora que já criou uma partilha de ficheiros do Azure, pode montá-la com o SMB no [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) ou [macOS](storage-how-to-use-files-mac.md). Em alternativa, pode trabalhar com a partilha de ficheiros do Azure com a CLI do Azure. A vantagem de utilizar a CLI do Azure em vez de montar a partilha de ficheiros com o SMB é que todos os pedidos realizados com a CLI do Azure são feitos através da API REST de Ficheiros. Pode utilizar a API REST de Ficheiros para criar, modificar e eliminar ficheiros e diretórios na sua partilha de ficheiros a partir destas localizações:
+## <a name="use-your-azure-file-share"></a>Utilizar a partilha de ficheiros do Azure
+O serviço Ficheiros do Azure fornece dois métodos para utilizar ficheiros e pastas na sua partilha de ficheiros do Azure : o [protocolo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor e o [protocolo REST de Ficheiros](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api). 
 
-- Do Azure Cloud Shell do Bash (que não pode montar partilhas de ficheiros através de SMB)
-- De clientes que não conseguem montar partilhas SMB, tais como clientes no local que não têm a porta 445 desbloqueada
-- De cenários sem servidor, como nas [Funções do Azure](../../azure-functions/functions-overview.md)
+Para montar uma partilha de ficheiros com SMB, veja o documento seguinte com base no seu SO:
+- [Linux](storage-how-to-use-files-linux.md)
+- [macOS](storage-how-to-use-files-mac.md)
+- [Windows](storage-how-to-use-files-windows.md)
+
+### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Utilizar uma partilha de ficheiros do Azure com o protocolo REST de Ficheiros 
+É possível trabalhar diretamente com o protocolo REST de Ficheiros (ou seja, criar manualmente chamadas HTTP REST), mas a forma mais comum de utilizar o protocolo REST de Ficheiros é através da CLI do Azure, do [módulo AzureRM PowerShell](storage-how-to-use-files-powershell.md), ou de um SDK do Armazenamento do Azure, sendo que todos oferecem um bom wrapper para o protocolo REST de Ficheiros na linguagem de scripts/programação da sua preferência.  
+
+Contamos que a maioria das utilizações dos Ficheiros do Azure irão querer trabalhar com a partilha de ficheiros do Azure através do protocolo SMB, pois permite-lhes utilizar as aplicações e ferramentas existentes, mas existem vários motivos pelos quais é vantajoso utilizar a API REST de Ficheiros em vez do SMB, tais como:
+
+- Se estiver a navegar na partilha de ficheiros a partir do Azure Bash Cloud Shell (que não pode montar partilhas de ficheiros através de SMB).
+- Se precisar de executar um script ou aplicação a partir de um cliente que não pode montar partilhas SMB, como clientes no local que não têm a porta 445 desbloqueada.
+- Se estiver a tirar partido de recursos sem servidor, como o serviço [Funções do Azure](../../azure-functions/functions-overview.md). 
+
+Os exemplos seguintes mostram como utilizar o módulo AzureRM PowerShell para manipular a partilha de ficheiros do Azure com o protocolo REST de Ficheiros. 
 
 ### <a name="create-a-directory"></a>Criar um diretório
 Para criar um novo diretório com o nome *myDirectory* na raiz da partilha de ficheiros do Azure, utilize o comando [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create):
@@ -176,84 +186,6 @@ az storage file list \
 
 Embora o comando `az storage file copy start` seja conveniente para movimentações de ficheiros entre partilhas de ficheiros do Azure e contentores de armazenamento de Blobs do Azure, recomendamos que utilize o AzCopy para mover ficheiros maiores. (Maior em termos do número ou tamanho dos ficheiros a serem movidos.) Saiba mais sobre o [AzCopy para Linux](../common/storage-use-azcopy-linux.md) e [AzCopy para Windows](../common/storage-use-azcopy.md). O AzCopy tem de ser instalado localmente. O AzCopy não está disponível no Cloud Shell. 
 
-## <a name="create-and-modify-share-snapshots"></a>Criar e modificar instantâneos de partilha
-Outra tarefa útil que pode realizar com uma partilha de ficheiros do Azure é criar instantâneos de partilha. Os instantâneos preservam uma cópia de ponto no tempo das partilhas de ficheiros do Azure. Os instantâneos de partilha são semelhantes a algumas tecnologias de sistema operativo com as quais pode já estar familiarizado:
-- Instantâneos do [Gestor de Volumes Lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
-- Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
-- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, como NTFS e ReFS
-
-Pode criar um instantâneo de partilha com o comando [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
-
-```azurecli-interactive
-SNAPSHOT=$(az storage share snapshot \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --name "myshare" \
-    --query "snapshot" | tr -d '"')
-```
-
-### <a name="browse-share-snapshot-contents"></a>Procurar conteúdo de instantâneo de partilha
-Pode procurar o conteúdo de um instantâneo de partilha ao transmitir o carimbo de data/hora do instantâneo de partilha capturado na variável `$SNAPSHOT` ao comando `az storage file list`:
-
-```azurecli-interactive
-az storage file list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --share-name "myshare" \
-    --snapshot $SNAPSHOT \
-    --output table
-```
-
-### <a name="list-share-snapshots"></a>Listar instantâneos de partilha
-Para ver a lista de instantâneos que criou para a sua partilha, utilize o seguinte comando:
-
-```azurecli-interactive
-az storage share list \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --include-snapshot \
-    --query "[? name=='myshare' && snapshot!=null]" | tr -d '"'
-```
-
-### <a name="restore-from-a-share-snapshot"></a>Restaurar a partir de um instantâneo de partilha
-Pode restaurar um ficheiro com o comando `az storage file copy start` utilizado anteriormente. Em primeiro lugar, elimine o ficheiro SampleUpload.txt que carregou, para que possa restaurá-lo a partir do instantâneo:
-
-```azurecli-interactive
-# Delete SampleUpload.txt
-az storage file delete \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --share-name "myshare" \
-    --path "myDirectory/SampleUpload.txt"
-
-# Build the source URI for a snapshot restore
-URI=$(az storage account show \
-    --resource-group "myResourceGroup" \
-    --name $STORAGEACCT \
-    --query "primaryEndpoints.file" | tr -d '"')
-
-URI=$URI"myshare/myDirectory/SampleUpload.txt?sharesnapshot="$SNAPSHOT
-
-# Restore SampleUpload.txt from the share snapshot
-az storage file copy start \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --source-uri $URI \
-    --destination-share "myshare" \
-    --destination-path "myDirectory/SampleUpload.txt"
-```
-
-### <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
-Pode eliminar um instantâneo de partilha com o comando [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete). Utilize a variável que contém a referência `$SNAPSHOT` para o parâmetro `--snapshot`:
-
-```azurecli-interactive
-az storage share delete \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
-    --name "myshare" \
-    --snapshot $SNAPSHOT
-```
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar, pode utilizar o comando [`az group delete`](/cli/azure/group#delete) para remover o grupo de recursos e todos os recursos relacionados: 
 
@@ -288,7 +220,6 @@ Em alternativa, pode remover recursos individualmente.
     ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Gerir partilhas de ficheiros com o portal do Azure](storage-how-to-use-files-portal.md)
-- [Gerir partilhas de ficheiros com o Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Gerir partilhas de ficheiros com o Explorador de Armazenamento](storage-how-to-use-files-storage-explorer.md)
-- [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [O que são os Ficheiros do Azure?](storage-files-introduction.md)

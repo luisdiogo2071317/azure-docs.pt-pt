@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1a2bc5626e94f5fcb0ec8c2be8d91c8fc6484e0b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 001805aaf87ed6c3481a8ad8378cdc22ef74d274
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224567"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646393"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Executar a primeira consulta do Resource Graph com o Azure PowerShell
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="add-the-resource-graph-module"></a>Adicionar o módulo do Resource Graph
 
-Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Este módulo pode ser utilizado com o Windows PowerShell instalado localmente e o PowerShell Core, bem como a [imagem do Docker do Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
+Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Este módulo pode ser utilizado com o Windows PowerShell instalado localmente e o PowerShell Core ou com a [imagem do Docker do Azure PowerShell](https://hub.docker.com/r/azuresdk/azure-powershell/).
 
 ### <a name="base-requirements"></a>Requisitos de base
 
@@ -41,7 +41,11 @@ O módulo do Azure Resource Graph necessita do seguinte software:
   > [!NOTE]
   > Atualmente, não se recomenda instalar o módulo no Cloud Shell.
 
-- PowerShellGet. Se não estiver ainda instalado ou atualizado, siga [estas instruções](/powershell/gallery/installing-psget).
+- PowerShellGet 2.0.1 ou superior. Se não estiver ainda instalado ou atualizado, siga [estas instruções](/powershell/gallery/installing-psget).
+
+### <a name="cloud-shell"></a>Cloud Shell,
+
+Para adicionar o módulo do Azure Resource Graph no Cloud Shell, siga as instruções abaixo para o PowerShell Core.
 
 ### <a name="powershell-core"></a>PowerShell Core
 
@@ -49,21 +53,21 @@ O módulo do Resource Graph para o PowerShell Core é **Az.ResourceGraph**.
 
 1. Na linha de comandos **administrativa** do PowerShell Core, execute o seguinte comando:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Confirme que o módulo foi importado e se é a versão correta (0.2.0):
+1. Confirme que o módulo foi importado e se é a versão correta (0.3.0):
 
-   ```powershell
+   ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
    Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
 1. Ative os aliases retrocompatíveis de **Az** até **AzureRm** com o seguinte comando:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Enable backwards alias compatibility
    Enable-AzureRmAlias
    ```
@@ -79,7 +83,7 @@ O módulo do Resource Graph para o Windows PowerShell Core é **AzureRm.Resource
    Install-Module -Name AzureRm.ResourceGraph -AllowPrerelease
    ```
 
-1. Confirme que o módulo foi importado e se é a versão correta (0.1.0-pré-visualização):
+1. Confirme que o módulo foi importado e se é a versão correta (0.1.1-preview):
 
    ```powershell
    # Get a list of commands for the imported AzureRm.ResourceGraph module
@@ -88,12 +92,12 @@ O módulo do Resource Graph para o Windows PowerShell Core é **AzureRm.Resource
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Agora que o módulo Azure PowerShell foi adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e **Tipo de Recurso** de cada recurso.
+Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de Recurso** de cada recurso.
 
 1. Execute a primeira consulta do Azure Resource Graph com o cmdlet `Search-AzureRmGraph`:
 
-   ```powershell
-   # Login first with Connect-AzureRmAccount
+   ```azurepowershell-interactive
+   # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
    Search-AzureRmGraph -Query 'project name, type | limit 5'
@@ -104,7 +108,7 @@ Agora que o módulo Azure PowerShell foi adicionado ao seu ambiente escolhido, �
 
 1. Atualize a consulta para `order by` propriedade **Nome**:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
    Search-AzureRmGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
@@ -114,7 +118,7 @@ Agora que o módulo Azure PowerShell foi adicionado ao seu ambiente escolhido, �
 
 1. Atualize a consulta para primeiro `order by` propriedade **Nome** e, em seguida, `limit` os cinco resultados principais:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    Search-AzureRmGraph -Query 'project name, type | order by name asc | limit 5'
    ```

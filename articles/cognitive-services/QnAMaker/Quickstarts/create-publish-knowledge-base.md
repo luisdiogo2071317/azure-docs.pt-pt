@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar uma BDC – Criador de FAQ'
+title: Criar, preparar, publicar a base de dados de conhecimento – Criador de FAQ
 titleSuffix: Azure Cognitive Services
 description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. A Base de Dados de Conhecimento do Criador de FAQ neste exemplo é criada a partir de uma página Web de FAQ simples para responder a perguntas sobre recuperação de chaves do BitLocker.
 author: diberry
@@ -7,16 +7,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c57edd897797d4352706283072aa19444948436b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389671"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644790"
 ---
-# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Início Rápido: Criar, preparar e publicar a sua base de dados de conhecimento
+# <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, preparar e publicar a sua base de dados de conhecimento do Criador de FAQ
 
 Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. A Base de Dados de Conhecimento do Criador de FAQ neste exemplo é criada a partir de uma página Web de FAQ simples para responder a perguntas sobre recuperação de chaves do BitLocker.
 

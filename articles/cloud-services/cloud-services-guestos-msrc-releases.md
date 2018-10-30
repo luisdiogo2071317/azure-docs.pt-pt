@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/24/2018
+ms.date: 10/28/2018
 ms.author: raiye
-ms.openlocfilehash: 989627388e9ad1c99daa31bd9c8af884ab16b421
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087785"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215519"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
@@ -30,11 +30,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Segurança do Windows 10 | 5.24 | 9 de outubro de 2018 |
-| Rel 18-10 | [4464330] | Segurança do Windows 10 | 6.01 | 9 de outubro de 2018 |
+| Rel 18-10 | [4464330] | Segurança do Windows 10 | 6.0 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462915] | Segurança do Windows | 2.79 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462931] | Segurança do Windows | 3.66 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462941] | Segurança do Windows | 4.59 | 9 de outubro de 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24, 6.01 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24, 6.0 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 de outubro de 2018 |
 | N/A | [4339284] | Atualização de fuso horário | 2.79, 3.66, 4.59 | 24 de julho de 2018 |
 | N/A | [4457144] | Rollup de Setembro sem segurança | 2.79 | 11 de Setembro de 2018 |

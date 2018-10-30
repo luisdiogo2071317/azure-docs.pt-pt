@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Obter o comprimento de frases – Tradução de Texto, Node.js'
+title: 'Início Rápido: obter os comprimentos de frases, Node.js – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator com Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 9a55642ae41eb311121c9e334472a8afbc8d9925
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 60b7bf8de0f0f296d0efb49a1e08030c2d5999e3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127204"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644917"
 ---
-# <a name="quickstart-get-sentence-lengths-with-nodejs"></a>Guia de Início Rápido: Calcular o comprimento de frases com o Node.js
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-nodejs"></a>Início Rápido: obter os comprimentos de frases com a API de Texto do Microsoft Translator (Node.js)
 
 Neste guia de introdução, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, encontrará o comprimento de frases no texto atravé
 
 Irá precisar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>Pedido de BreakSentence
 
-O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md).
+O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md) (Separar Frase).
 
 1. Crie um novo projeto Node.js no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -121,7 +121,7 @@ BreakSentences (content);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Explorar exemplos de Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)

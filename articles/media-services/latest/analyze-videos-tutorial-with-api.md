@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 96ed5c17501aeb195ee584ce6d41a84fc2118bac
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376657"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985714"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: analisar vídeos com os Serviços de Multimédia do Azure 
 
@@ -33,9 +33,6 @@ Este tutorial mostrar-lhe como:
 > * Executar a aplicação
 > * Examinar o ficheiro de saída
 > * Limpar recursos
-
-> [!Note]
-> Utilize o portal do Azure, conforme descrito em [Dimensionar processamento de suporte de dados](../previous/media-services-scale-media-processing-overview.md), para definir a sua conta de Serviços de Multimédia para 10 Unidades Reservadas de Multimédia S3.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,6 +68,9 @@ O exemplo realiza as seguintes ações:
 4. Submete a tarefa.
 5. Verifica o estado da tarefa.
 6. Transfere os ficheiros que resultaram da execução da tarefa. 
+
+> [!NOTE]
+> Quando utilizar uma predefinição do Analisador de Vídeo ou Áudio, utilize o portal do Azure para definir a sua conta para ter 10 Unidades Reservadas de Multimédia S3. Para obter mais informações, veja [Dimensionar o processamento de multimédia](../previous/media-services-scale-media-processing-overview.md).
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Começar a utilizar as APIs dos Serviços de Multimédia com o SDK .NET
 

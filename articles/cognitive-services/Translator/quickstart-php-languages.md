@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Obter idiomas suportados – Tradução de Texto, PHP'
+title: 'Início Rápido: obter idiomas suportados, PHP – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá obter uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário, e exemplos que utilizam a API de Texto do Microsoft Translator com PHP.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 2924a61a31037fcf52986d250007b906ffb40b98
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: e208e66c906531bb084438539c76e0a07c3caa9a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128712"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647257"
 ---
-# <a name="quickstart-get-supported-languages-with-php"></a>Guia de Início Rápido: Obter os idiomas suportados com PHP
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Início Rápido: obter idiomas suportados com a API de Texto do Microsoft Translator (PHP)
 
 Neste guia de introdução, obtém uma lista de idiomas com suporte para tradução, transliteração e pesquisa no dicionário e exemplos que utilizam a API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, obtém uma lista de idiomas com suporte para traduç
 
 Irá precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="languages-request"></a>Pedido de idiomas
 
-O código seguinte obtém uma lista dos idiomas suportados para tradução, transliteração e pesquisa no dicionário e exemplos, utilizando o método [Idiomas](./reference/v3-0-languages.md).
+O seguinte código obtém uma lista dos idiomas suportados para tradução, transliteração e pesquisa no dicionário e exemplos, utilizando o método [Idiomas](./reference/v3-0-languages.md).
 
 1. Crie um novo projeto PHP no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -174,7 +174,7 @@ fclose($out);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de PHP no GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)

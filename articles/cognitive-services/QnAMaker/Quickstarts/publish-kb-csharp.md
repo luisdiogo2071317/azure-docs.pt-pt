@@ -1,23 +1,23 @@
 ---
-title: 'Início Rápido: publicar Base de Dados de Conhecimento - REST, C# - Criador de FAQ'
+title: 'Início Rápido: publicar base de dados de conhecimento – REST, C# – Criador de FAQ'
 titleSuffix: Azure Cognitive Services
-description: Este início rápido descreve a publicação da KB, que emite a versão mais recente da base de dados de conhecimento testada para um índice do Azure Search que representa a base de dados de conhecimento publicada. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+description: Este início rápido baseado em REST descreve a publicação da KB, que emite a versão mais recente da base de dados de conhecimento testada para um índice do Azure Search que representa a base de dados de conhecimento publicada. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: f2aa73dacdffaebcddbf91b2f5c7c3db4a331431
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ce027abb75423d0174a7175c3bbafe5c0fb3e157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883589"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646267"
 ---
-# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-c"></a>Início Rápido: publicar uma base de dados de conhecimento do Criador de FAQ em C#
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o C#
 
 Este início rápido descreve a publicação, através de programação, da sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 
@@ -28,7 +28,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 
 * A [**edição da Comunidade do Visual Studio**](https://www.visualstudio.com/downloads/) mais recente.
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **Chaves** em **Gestão de Recursos** no seu dashboard. 
-* O ID da base de dados de conhecimento (KB) do Criador de FAQ encontrado no URL no parâmetro de cadeia de caracteres de consulta kbid, conforme mostrado abaixo.
+* O ID da base de dados de conhecimento (KB) do Criador de FAQ encontrado no URL no parâmetro de cadeia de consulta kbid, conforme mostrado abaixo.
 
     ![ID da base de dados de conhecimento do Criador de FAQ](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 

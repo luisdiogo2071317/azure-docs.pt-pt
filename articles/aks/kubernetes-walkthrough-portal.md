@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34c8ec0650ea859365ca30606b364f4b6f81f1a6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4da20ffebb9943787fa487336dbd2ba22fdcf875
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394159"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458178"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Início Rápido: Implementar um cluster do Serviço Kubernetes do Azure (AKS)
 
@@ -22,6 +22,8 @@ Neste guia de introdução, vai implementar um cluster do AKS com o portal do Az
 ![Imagem de navegação para o exemplo de aplicação Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para obter informações detalhadas sobre o Kubernetes, consulte a [documentação do Kubernetes][kubernetes-documentation].
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -96,6 +98,9 @@ aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ## <a name="run-the-application"></a>Executar a aplicação
 
 Os ficheiros de manifesto do Kubernetes definem um estado pretendido para um cluster, incluindo quais as imagens dos contentores devem estar em execução. Neste início rápido, é utilizado um manifesto para criar todos os objetos necessários para executar uma aplicação de exemplo Azure Vote. Estes objetos incluem duas [implementações do Kubernetes][kubernetes-deployment], uma para o front-end de Azure Vote e outra para uma instância de Redis. Além disso, são criados dois [serviços do Kubernetes][kubernetes-service], um serviço interno para a instância de Redis e um serviço externo para aceder à aplicação Azure Vote a partir da Internet.
+
+> [!TIP]
+> Neste início rápido, crie e implemente manualmente os seus manifestos de aplicação para o cluster do AKS. Em mais cenários do mundo real, pode utilizar o [Azure Dev Spaces][azure-dev-spaces] para iterar e depurar o seu código rápida e diretamente no cluster do AKS. Pode utilizar o Dev Spaces em várias plataformas do SO e ambientes de desenvolvimento, e trabalhar em conjunto com outras pessoas na sua equipa.
 
 Crie um ficheiro com o nome `azure-vote.yaml` e copie-o para o código YAML seguinte. Se estiver a trabalhar no Azure Cloud Shell, crie o ficheiro com `vi` ou `Nano`, como se estivesse a trabalhar num sistema físico ou virtual.
 
@@ -286,3 +291,4 @@ Para saber mais sobre o AKS e ver um exemplo completo de código para implementa
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/

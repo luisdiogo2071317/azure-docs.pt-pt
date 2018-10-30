@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 641081e4a01aa5810d569795c10e967e4b46568e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341145"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023582"
 ---
 # <a name="what-is-translator-speech-api"></a>O que é a API de Voz do Microsoft Translator?
 
@@ -34,7 +34,7 @@ Na conversão de voz em voz, o serviço proporciona a capacidade de sintetizar a
 A API de Voz do Microsoft Translator utiliza o protocolo WebSocket para fornecer um canal de comunicação duplo e complexo entre o cliente e o servidor. 
 
 ## <a name="about-microsoft-translator"></a>Sobre o Microsoft Translator
-O Microsoft Translator é um serviço de tradução automática com base na cloud. No núcleo deste serviço estão a [API de Texto do Microsoft Translator] (https://www.microsoft.com/en-us/translator/translatorapi.aspx)) e a API de Voz do Microsoft Translator que potencializam vários produtos e serviços da Microsoft e são utilizados por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, permitindo que o conteúdo alcance o público no mundo inteiro.
+O Microsoft Translator é um serviço de tradução automática com base na cloud. No núcleo deste serviço estão a [API de Texto do Microsoft Translator](https://www.microsoft.com/en-us/translator/translatorapi.aspx) e a API de Voz do Microsoft Translator que potencializam vários produtos e serviços da Microsoft e são utilizados por milhares de empresas em todo o mundo nas suas aplicações e fluxos de trabalho, permitindo que o conteúdo alcance o público no mundo inteiro.
 
 Saiba mais sobre o [serviço do Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
 

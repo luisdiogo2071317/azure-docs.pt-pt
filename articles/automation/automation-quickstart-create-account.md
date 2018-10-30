@@ -4,17 +4,17 @@ description: Saiba como criar uma conta de Automatização do Azure e executar u
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 08/22/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616601"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426197"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -32,7 +32,7 @@ Inicie sessão no Azure a https://portal.azure.com
 
 1. Selecione **Ferramentas de Monitorização** e, em seguida, selecione **Automatização**.
 
-1. Introduza as informações da conta. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. É importante ter em atenção que ao criar uma Conta de Automatização, o nome não pode ser alterado depois de ser escolhido. Quando terminar, clique em **Criar**, para iniciar a implementação da conta de Automatização.
+1. Introduza as informações da conta. Para **Criar uma conta Run As do Azure**, escolha **Sim** para que os artefactos para simplificar a autenticação no Azure sejam ativados automaticamente. É importante ter em atenção que ao criar uma Conta de Automatização, o nome não pode ser alterado depois de ser escolhido. Uma Conta de Automatização pode gerir os recursos entre todas as regiões e subscrições para um determinado inquilino. Quando terminar, clique em **Criar**, para iniciar a implementação da conta de Automatização.
 
     ![Introduza as informações sobre a conta de Automatização na página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 

@@ -1,33 +1,34 @@
 ---
 title: 'Início Rápido: reconhecer voz em Java (Windows ou Linux)'
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer voz em Java (Windows ou Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339201"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467264"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em Java no Windows ou Linux com o SDK de Voz
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Início Rápido: reconhecer voz em Java no Windows ou Linux com o SDK do Serviço de Voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Neste artigo, vai criar uma aplicação de consola Java com o [SDK de Voz](speech-sdk.md). Converta voz em texto em tempo real, a partir do microfone do seu PC. A aplicação baseia-se no pacote Maven do SDK de Voz e no IDE Java do Eclipse (v4.8) no Windows de 64 bits ou Ubuntu Linux 16.04. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
+Neste artigo, vai criar uma aplicação de consola Java com o [SDK do Serviço de Voz](speech-sdk.md). Converta voz em texto em tempo real a partir do microfone do seu PC. A aplicação baseia-se no pacote Maven do SDK de Voz e no IDE Java do Eclipse (v4.8) no Windows de 64 bits ou Ubuntu Linux 16.04. É executada num ambiente de tempo de execução Java 8 de 64 bits (JRE).
 
 > [!NOTE]
 > Para o SDK de Dispositivos de Voz e o dispositivo Roobo, veja [SDK de Dispositivos de Voz](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia de Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o serviço de Voz gratuitamente](get-started.md) para obter detalhes.
+Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia de Início Rápido. Pode obter uma gratuitamente. Veja [Experimente o Serviço de Voz gratuitamente](get-started.md) para obter detalhes.
 
 
 ## <a name="create-and-configure-project"></a>Criar e configurar o projeto

@@ -1,25 +1,25 @@
 ---
-title: 'Guia de Início Rápido: API Java – Criar base de dados de conhecimento – Criador de FAQ'
+title: 'Início Rápido: criar base de dados de conhecimento – REST, Java – Criador de FAQ'
 titlesuffix: Azure Cognitive Services
-description: Este guia de início rápido descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
+description: Este início rápido baseado em REST descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 572895e51d579efb3b141322a87e374283af1648
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 72a687d6a67ba8e4ccc49cf622cb368e7c8d0db2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384706"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649674"
 ---
-# <a name="create-a-new-knowledge-base-in-java"></a>Criar uma nova base de dados de conhecimento em Java
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Java
 
-Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

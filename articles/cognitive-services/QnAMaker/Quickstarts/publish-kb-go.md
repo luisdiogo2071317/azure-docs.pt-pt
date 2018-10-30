@@ -1,25 +1,28 @@
 ---
-title: 'Início Rápido: Publicar a Base de Dados de Conhecimento no Go – Criador de FAQ'
+title: 'Início Rápido: publicar base de dados de conhecimento - REST, Go - Criador de FAQ'
 titleSuffix: Azure Cognitive Services
-description: Como publicar uma base de dados de conhecimento no Go para o Criador de FAQ.
+description: Este início rápido baseado em REST descreve a publicação da KB, que emite a versão mais recente da base de dados de conhecimento testada para um índice do Azure Search que representa a base de dados de conhecimento publicada. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: c53763ad54932137e09e39c4b95dfd29f6c79c13
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 67914cccd4b1cee2bb43f18fc00346f15d79cafa
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883538"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646097"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-go"></a>Início Rápido: Publicar uma base de dados de conhecimento no Go
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Go
 
-O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+Este início rápido descreve a publicação, através de programação, da sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+
+Este início rápido chama as APIs do Criador de FAQ:
+* [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - esta API não requer quaisquer informações no corpo do pedido.
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.

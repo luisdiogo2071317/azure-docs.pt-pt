@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901623"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406471"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurar a aplicação Python para o Serviço de Aplicações do Azure no Linux
 
@@ -74,10 +74,16 @@ Se o módulo da aplicação principal estiver num ficheiro diferente, utilize ou
 
 ### <a name="custom-startup-command"></a>Comando de arranque personalizado
 
-Pode controlar o comportamento de arranque do contentor ao fornecer um comando de arranque do Gunicorn personalizado. Por exemplo, se tiver uma aplicação Flask cujo módulo principal seja *hello.py* e o objeto de aplicação Flask tenha o nome `myapp`, o comando é o seguinte:
+Pode controlar o comportamento de arranque do contentor ao fornecer um comando de arranque do Gunicorn personalizado. Por exemplo, se tiver uma aplicação Flask cujo módulo principal seja *hello.py* e o objeto de aplicação Flask nesse ficheiro tenha o nome `myapp`, o comando é o seguinte:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+Se o seu módulo principal estiver numa subpasta, como `website`, especifique essa pasta com o argumento `--chdir`:
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 Também pode adicionar todos os argumentos adicionais para o Gunicorn ao comando, como `--workers=4`. Para obter mais informações, veja [Executar o Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
@@ -105,9 +111,10 @@ Se o Serviço de Aplicações não encontrar um comando personalizado, uma aplic
 
 - **Vê a aplicação predefinida depois de implementar o seu próprio código de aplicação.**  A aplicação predefinida é apresentada porque não implementou realmente o código da aplicação no Serviço de Aplicações ou o Serviço de Aplicações não encontrou o código da aplicação e executou a aplicação predefinida.
   - Reinicie o Serviço de Aplicações, aguarde 15 a 20 segundos e verifique novamente a aplicação.
-  - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verifique se os ficheiros existem em *site/wwwroot*. Se os ficheiros não existirem, reveja o processo de implementação e volte a implementar a aplicação.
+  - Certifique-se de que está a utilizar o Serviço de Aplicações para Linux, em vez de uma instância baseada no Windows. A partir da CLI do Azure, execute o comando `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, ao substituir `<resource_group_name>` e `<app_service_name>`, respetivamente. Deverá ver `app,linux` como resultado; caso contrário, recrie o Serviço de Aplicações e escolha o Linux.
+    - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verifique se os ficheiros existem em *site/wwwroot*. Se os ficheiros não existirem, reveja o processo de implementação e volte a implementar a aplicação.
   - Se os ficheiros existirem, o Serviço de Aplicações não conseguiu identificar o ficheiro de arranque específico. Verifique se a aplicação está estruturada como Serviço de Aplicações para o [Django](#django-app) ou o [Flask](#flask-app), ou utilize um [comando de arranque personalizado](#custom-startup-command).
-
+  
 - **Vê a mensagem "Serviço Indisponível" no browser.** O browser esgotou o tempo limite ao aguardar uma resposta do Serviço de Aplicações, o que indica que o Serviço de Aplicações iniciou o servidor do Gunicorn, mas os argumentos que especificam o código da aplicação estão incorretos.
   - Atualize o browser, especialmente se estiver a utilizar os escalões de preços mais baixos no seu Plano do Serviço de Aplicações. A aplicação poderá demorar mais tempo a iniciar quando utilizar, por exemplo, escalões gratuitos e responde depois de atualizar o browser.
   - Verifique se a aplicação está estruturada como Serviço de Aplicações para o [Django](#django-app) ou o [Flask](#flask-app), ou utilize um [comando de arranque personalizado](#custom-startup-command).

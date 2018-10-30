@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066994"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458059"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Executar um teste de recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -26,12 +26,13 @@ Este tutorial mostra como executar um teste de recuperação após desastre para
 > * Verificar os pré-requisitos
 > * Executar uma ativação pós-falha de teste para uma única VM
 
-
+> [!NOTE]
+> Este tutorial destina-se a orientar o utilizador através de passos para efetuar um teste de recuperação após desastre com poucos passos; caso deseje saber mais sobre os vários aspetos associados a um teste de recuperação após desastre, incluindo as considerações de rede, a automatização ou a resolução de problemas, veja os documentos em "Procedimentos" para VMs do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Antes de executar uma ativação pós-falha de teste, recomendamos que verifique as propriedades da VM para garantir que funciona tudo conforme o esperado.  Aceda às propriedades da VM nos **Itens replicados**. O painel **Informações Básicas** mostra informações sobre estados e definições de computadores.
-- Recomendamos que utilize uma rede de VMs do Azure na ativação pós-falha de teste, e não a rede predefinida que foi configurada quando ativou a replicação.
+- **Recomendamos que utilize uma rede de VMs do Azure na ativação pós-falha de teste**, e não a rede predefinida que foi configurada quando ativou a replicação.
 
 
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste

@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, Node.js'
+title: 'Início Rápido: converter script de texto, Node.js – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá converter texto de um idioma de um script noutro através da API de Texto do Microsoft Translator com Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 53ebcd6c37141a783303dd71666d5c8d4805ca49
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 1980adb78a4ba457fd05f532cdd6e30bba7d9132
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127701"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646201"
 ---
-# <a name="quickstart-transliterate-text-with-nodejs"></a>Guia de Início Rápido: Transliterar texto com Node.js
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-nodejs"></a>Início Rápido: transliterar texto com a API REST de Texto do Microsoft Translator (Node.js)
 
 Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, irá converter texto de um idioma de um script para 
 
 Irá precisar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 
-Os passos seguintes convertem texto num idioma de um script para outro script com o método [Transliteração](./reference/v3-0-transliterate.md).
+Os passos seguintes convertem texto num idioma de um script para outro com o método de [Transliteração](./reference/v3-0-transliterate.md).
 
 1. Crie um novo projeto Node.js no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -119,4 +119,4 @@ Transliterate (content);
 Explore o código de exemplo para este guia de início rápido e outros, incluindo a tradução e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Explore exemplos do Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)

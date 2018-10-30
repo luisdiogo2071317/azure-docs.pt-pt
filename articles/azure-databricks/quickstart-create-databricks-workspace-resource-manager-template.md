@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 21f30e5db59f07b6384304f9e64157d312547ad9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 225571379cc1dd3d747219db7613fbf4a53bac9a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731313"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024108"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar uma tarefa do Spark no Azure Databricks com o modelo do Azure Resource Manager
 
@@ -73,7 +73,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o modelo
 
     * Introduza um nome para o cluster.
     * Para este artigo, crie um cluster com o runtime **4.0**. 
-    * Certifique-se de que seleciona a caixa de verificação **Terminar após ___ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
+    * Certifique-se de que seleciona a caixa de verificação **Terminar após \_\_ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
     
     Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark. 
 

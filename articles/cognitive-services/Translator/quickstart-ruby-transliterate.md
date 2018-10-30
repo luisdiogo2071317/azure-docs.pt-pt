@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, Ruby'
+title: 'Início Rápido: converter script de texto, Ruby – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator com o Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: d78586243b47563440f629689800ad618cb411d8
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121758"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647090"
 ---
-# <a name="quickstart-transliterate-text-with-ruby"></a>Guia de Início Rápido: Transliterar texto com Ruby
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-ruby"></a>Início Rápido: transliterar texto com a API REST de Texto do Microsoft Translator (Ruby)
 
 Neste guia de introdução, irá converter texto de um idioma de um script para outro através da API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, irá converter texto de um idioma de um script para 
 
 Irá precisar do [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 

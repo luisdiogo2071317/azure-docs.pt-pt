@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Localizar traduções alternativas – Tradução de Texto, Go'
+title: 'Início Rápido: localizar traduções alternativas, Go – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, pode localizar traduções alternativas e exemplos de termos em contexto através da API de Texto do Microsoft Translator com Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0c4872aaf222110a0044095040db08d0180e37c4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128881"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649640"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Guia de introdução: encontrar traduções e utilizações alternativas com o Go
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-go"></a>Início Rápido: localizar traduções alternativas com a API REST de Texto do Microsoft Translator (Go)
 
 Neste guia de introdução, pode encontrar detalhes de possíveis traduções alternativas para um termo, assim como exemplos de utilizações dessas traduções alternativas com a API de Texto do Microsoft Translator.
 
@@ -25,7 +25,7 @@ Neste guia de introdução, pode encontrar detalhes de possíveis traduções al
 
 Terá de instalar a [distribuição do Go](https://golang.org/doc/install) para executar este código. O código de exemplo utiliza apenas bibliotecas **principais**, pelo que não há dependências externas.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="dictionary-lookup-request"></a>Pedido de Pesquisa no Dicionário
 
@@ -169,7 +169,7 @@ func main() {
 
 ## <a name="dictionary-examples-request"></a>Pedido de Exemplos do Dicionário
 
-Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo do dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
+Apresentamos uma situação onde obtém exemplos contextuais de como utilizar um termo no dicionário através do método [Exemplos do Dicionário](./reference/v3-0-dictionary-examples.md).
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 2. Adicione o código indicado abaixo.

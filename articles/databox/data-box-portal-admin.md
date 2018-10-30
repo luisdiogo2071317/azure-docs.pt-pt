@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 49c2258100e99742bcb2e22fbce7f05b69c70ef6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1b228a66f2d59b3ff252df266783f7bd5d27139e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090727"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645444"
 ---
 # <a name="use-the-azure-portal-to-administer-your-data-box"></a>Utilizar o portal do Azure para administrar o Data Box
 
@@ -48,7 +48,7 @@ Execute os seguintes passos para clonar uma encomenda.
 
     ![Clonar a encomenda 1](media/data-box-portal-admin/clone-order1.png)
 
-2.  Todos os detalhes da encomenda permanecem iguais. O nome da encomenda é o nome da encomenda original anexada por *-Clone*. Selecione a caixa de verificação para confirmar que reviu as informações de privacidade. Clique em **Criar**.    
+2.  Todos os detalhes da encomenda permanecem iguais. O nome da encomenda é o nome da encomenda original anexada por *-Clone*. Selecione a caixa de verificação para confirmar que reviu as informações de privacidade. Clique em **Criar**.
 
 O clone é criado em apenas alguns minutos e o portal é atualizado para mostrar a nova encomenda.
 
@@ -72,6 +72,7 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 Terá de descarregar a etiqueta de envio caso o visor E-ink do Data Box não esteja a funcionar e não apresente a etiqueta de envio para devolução. 
 
 Execute os seguintes passos para transferir uma etiqueta de envio.
+
 1.  Aceda a **Descrição Geral > Transferir etiqueta de envio**. Esta opção só fica disponível após o dispositivo ser enviado. 
 
     ![Transferir etiqueta de envio](media/data-box-portal-admin/download-shipping-label.png)
@@ -109,6 +110,77 @@ Execute os seguintes passos para editar os detalhes de notificação.
     ![Editar detalhes de notificação 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
+## <a name="download-order-history"></a>Transferir histórico de encomendas
+
+Assim que a encomenda do Data Box estiver concluída, os dados nos discos de dispositivo são apagados. Quando a limpeza do dispositivo estiver concluída, pode transferir o histórico de encomendas no portal do Azure.
+
+Execute os seguintes passos para transferir o histórico de encomendas.
+
+1. Na sua encomenda do Data Box, aceda a **Descrição geral**. Certifique-se de que a encomenda é concluída. Se a encomenda estiver concluída e a limpeza do dispositivo também, então aceda a **Detalhes da encomenda**. A opção **Transferir histórico de encomendas** está disponível.
+
+    ![Transferir histórico de encomendas](media/data-box-portal-admin/download-order-history-1.png)
+
+2. Clique em **Transferir histórico de encomendas**. No histórico transferido, verá um registo dos registos de controlo da operadora. Se deslocar para baixo para a parte inferior deste registo, pode ver as ligações para:
+    
+    - **Copiar registos** - tenha a lista de ficheiros que obtiveram erros durante a cópia de dados do Data Box para a sua conta de armazenamento do Azure.
+    - **Registos de auditoria** - contêm informações sobre a ativação e partilha de acesso no Data Box quando este está fora do datacenter do Azure.
+    - **Ficheiros BOM** - tenha a lista de ficheiros (também conhecida como manifesto de ficheiro), que pode transferir durante a **Preparação para envio** e tem os nomes de ficheiros, tamanhos dos ficheiros e as somas de verificação dos ficheiros.
+
+        ```
+        -------------------------------
+        Microsoft Data Box Order Report
+        -------------------------------
+        
+        Name                                               : eastusdryrun                                      
+        StartTime(UTC)                                     : 9/6/2018 12:54:47 PM +00:00                       
+        DeviceType                                         : ImolaPod                                          
+        
+        -------------------
+        Data Box Activities
+        -------------------
+        
+        Time(UTC)             | Activity                       | Status          | Description                                                                                                                                           
+        
+        9/6/2018 12:54:51 PM  | OrderCreated         | Completed  |                                                                                                                              
+        9/11/2018 8:57:38 PM  | DevicePrepared       | Completed  |                                                                                                                                                       
+        9/12/2018 7:28:15 PM  | ShippingToCustomer   | InProgress | Pickup Scan. Local Time : 9/12/2018 2:52:31 PM at Chantilly                                                                                           
+        9/13/2018 2:33:04 AM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/12/2018 9:00:00 PM at Chantilly                                                                                                                                                                                                                                                              
+        9/13/2018 12:40:31 PM | ShippingToCustomer   | InProgress | Arrival Scan. Local Time : 9/13/2018 5:00:00 AM at Oakland                                                                                            
+        9/13/2018 2:42:10 PM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/13/2018 6:08:00 AM at Oakland                                                                                          
+        9/13/2018 3:42:12 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:14:08 AM at Sunnyvale                                                                                      
+        9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:56:54 AM at Sunnyvale                                                                                      
+        9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Out For Delivery Today. Local Time : 9/13/2018 9:11:21 AM at Sunnyvale                                                                                
+        9/13/2018 5:43:07 PM  | ShippingToCustomer   | Completed  | Delivered. Local Time : 9/13/2018 9:44:17 AM at SUNNYVALE                                                                                             
+        9/14/2018 11:48:35 PM | ShippingToDataCenter | InProgress | Pickup Scan. Local Time : 9/14/2018 3:55:37 PM at Sunnyvale                                                                                                                                                                                 
+        9/15/2018 1:52:35 AM  | ShippingToDataCenter | InProgress | Arrival Scan. Local Time : 9/14/2018 6:31:00 PM at San Jose                                                                                           
+        9/15/2018 2:52:39 AM  | ShippingToDataCenter | InProgress | Departure Scan. Local Time : 9/14/2018 7:17:00 PM at San Jose                                                                                                                                                                             
+        9/17/2018 8:23:31 AM  | ShippingToDataCenter | InProgress | Destination Scan. Local Time : 9/17/2018 4:14:37 AM at Chantilly                                                                                      
+        9/17/2018 12:24:42 PM | ShippingToDataCenter | InProgress | Loaded on Delivery Vehicle. Local Time : 9/17/2018 7:45:36 AM at Chantilly                                                                            
+        9/17/2018 1:25:11 PM  | ShippingToDataCenter | InProgress | Out For Delivery Today. Local Time : 9/17/2018 8:27:11 AM at Chantilly                                                                                
+        9/17/2018 2:25:51 PM  | ShippingToDataCenter | Completed | Delivered. Local Time : 9/17/2018 9:56:32 AM at STERLING                                                                                              
+        9/18/2018 9:55:41 PM  | DeviceBoot           | Completed | Appliance booted up successfully                                                                                                                      
+        9/18/2018 11:00:25 PM | DataCopy             | Started   |                                                                                                                                                       
+        9/18/2018 11:01:33 PM | DataCopy             | Completed | Copy Completed.                                                                                                                                       
+        9/18/2018 11:20:58 PM | SecureErase          | Started   |                                                                                                                                                       
+        9/18/2018 11:28:46 PM | SecureErase          | Completed | Azure Data Box:BY506B4B616700 has been sanitized according to NIST 800 -88 Rev 1.                                                                     
+        
+        ----------------------
+        Data Box Job Log Links
+        ----------------------
+        
+        Account Name         : eastusdryrun                                         
+        Copy Logs Path       : copylog/copylogd695869a2a294396b7b903296c208388.xml                                                                                                                                                     
+        Audit Logs Path      : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700                                                                                                                     
+        BOM Files Path       : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700
+        ```
+Pode, em seguida, aceder à sua conta de armazenamento e ver os registos de cópia.
+
+![Registos nas contas de armazenamento](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+
+Também pode ver a cadeia de registos de custódia que incluem os registos de auditoria e os ficheiros BOM.
+
+![Registos nas contas de armazenamento](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+
 ## <a name="view-order-status"></a>Ver o estado da encomenda
 
 Quando o estado do dispositivo no portal mudar, será notificado através de uma mensagem de e-mail.
@@ -125,7 +197,7 @@ Quando o estado do dispositivo no portal mudar, será notificado através de uma
 |Concluído       |A encomenda foi concluída com êxito.<br> Verifique se os seus dados estão no Azure antes de eliminar os dados no local dos servidores.         |
 |Concluído com erros| A cópia de dados foi concluída, mas ocorreram erros durante a cópia. <br> Reveja os registos de cópia com o caminho indicado no portal do Azure.   |
 |Cancelado            |A encomenda foi cancelada. <br> Cancelou a encomenda ou foi encontrado um erro e o serviço cancelou a encomenda. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma também será cancelada e o requerente será notificado.     |
-|Limpeza | Os dados nos discos de dispositivo são apagados. A limpeza de dispositivo será considerada como concluída quando o relatório de registo da encomenda ficar disponível no portal do Azure.|
+|Limpeza | Os dados nos discos de dispositivo são apagados. A limpeza de dispositivo será considerada como concluída quando o histórico da encomenda ficar disponível para transferência no portal do Azure.|
 
 
 

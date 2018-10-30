@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ab79201442fe9c7334525972c34eba86daf27e99
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069102"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457430"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurar a recuperação após desastre de VMs do Azure para uma região secundária do Azure
 
@@ -27,6 +27,9 @@ Este tutorial mostra como configurar a recuperação após desastre para uma reg
 > * Verificar as definições dos recursos de destino
 > * Configurar o acesso de saída das VMs
 > * Ativar replicação para uma VM
+
+> [!NOTE]
+> Este tutorial destina-se a orientar o utilizador através de passos para ativar a replicação com o mínimo de personalização; caso deseje saber mais sobre os vários aspetos associados à recuperação após desastre, incluindo as considerações de rede, a automatização ou a resolução de problemas, veja os documentos em "Procedimentos" para VMs do Azure.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -193,7 +196,7 @@ Clique em “Personalizar”, junto às definições de encriptação, para subs
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, configurou a recuperação após desastre para uma VM do Azure. O passo seguinte consiste em testar a configuração.
+Neste tutorial, configurou a recuperação após desastre para uma VM do Azure. O passo seguinte consiste em testar a configuração ao iniciar um teste de recuperação após desastre.
 
 > [!div class="nextstepaction"]
 > [Executar um teste de recuperação após desastre](azure-to-azure-tutorial-dr-drill.md)

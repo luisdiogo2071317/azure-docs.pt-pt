@@ -1,36 +1,29 @@
 ---
-title: Gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
-description: Saiba como utilizar o Explorador de Armazenamento do Azure para gerir Ficheiros do Azure.
+title: Início rápido para gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
+description: Utilize este início rápido para saber como utilizar o Explorador de Armazenamento do Azure para gerir Ficheiros do Azure.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 949d96bb1b5ffdc948737d4a47ffa14b2e344b5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574736"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944223"
 ---
-# <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure 
-Os [Ficheiros do Azure](storage-files-introduction.md) são o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Este artigo orienta-o pelas noções básicas da utilização de partilhas de ficheiros do Azure com o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). O Explorador de Armazenamento é uma ferramenta de cliente popular que está disponível para Windows, macOS e Linux. Pode utilizar o Explorador de Armazenamento para gerir partilhas de ficheiros do Azure e outros recursos de armazenamento.
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início rápido: criar e gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
+Este guia orienta-o pelas noções básicas de utilizar [partilhas de ficheiros do Azure](storage-files-introduction.md) com o Explorador de Armazenamento do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 
 
+O Explorador de Armazenamento do Azure é uma ferramenta de cliente popular que está disponível para Windows, macOS e Linux. Pode utilizar o Explorador de Armazenamento para gerir partilhas de ficheiros do Azure e outros recursos de armazenamento.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+## <a name="prerequisites"></a>Pré-requisitos
 Este início rápido requer a instalação do Explorador de Armazenamento. Para transferi-lo e instalá-lo, aceda ao [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
-
-Neste artigo, vai aprender a:
-
-> [!div class="checklist"]
-> * Criar um grupo de recursos e uma conta de armazenamento
-> * Criar uma partilha de ficheiros do Azure 
-> * Criar um diretório
-> * Carregar um ficheiro
-> * Transferir um ficheiro
-> * Criar e utilizar um instantâneo de partilha
-
-Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 Não pode utilizar o Explorador de Armazenamento para criar novos recursos. Para efeitos desta demonstração, crie a conta de armazenamento no [portal do Azure](https://portal.azure.com/). 
@@ -49,7 +42,7 @@ Para efeitos deste início rápido, inicie sessão com a sua conta do Azure. Sel
 ![Uma captura de ecrã do Explorador de Armazenamento do Microsoft Azure – Janela Ligar](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
 ### <a name="create-a-file-share"></a>Criar uma partilha de ficheiros
-Para criar a sua primeira partilha de ficheiros do Azure na conta de armazenamento *storageacct<random number>*:
+Para criar a sua primeira partilha de ficheiros do Azure na conta de armazenamento `storageacct<random number>`:
 
 1. Expanda a conta de armazenamento que criou.
 2. Clique com o botão direito do rato em **Partilhas de Ficheiros** e, em seguida, selecione **Criar Partilha de Ficheiros**.  
@@ -57,13 +50,12 @@ Para criar a sua primeira partilha de ficheiros do Azure na conta de armazenamen
 
 3. Para a partilha de ficheiros, introduza *myshare* e, em seguida, prima Enter.
 
-> [!IMPORTANT]  
-> Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and referencing shares, directories, files, and metadata (Nomenclatura e referência de partilhas, diretórios, ficheiros e metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Os nomes das partilhas só podem ter letras minúsculas, números e hífenes (mas não podem começar com um hífen). Para obter detalhes completos sobre a nomenclatura de partilhas de ficheiros e ficheiros, veja [Naming and referencing shares, directories, files, and metadata (Nomenclatura e referência de partilhas, diretórios, ficheiros e metadados)](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 Depois de criar a partilha de ficheiros, é aberto um separador para a partilha de ficheiros no painel direito. 
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Trabalhar com os conteúdos de uma partilha de ficheiros do Azure
-Agora que já criou uma partilha de ficheiros do Azure, pode montá-la com SMB em [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) ou [macOS](storage-how-to-use-files-mac.md). Em alternativa, pode trabalhar com a partilha de ficheiros do Azure com a CLI do Azure. A vantagem de utilizar a CLI do Azure em vez de montar a partilha de ficheiros com o SMB é que todos os pedidos realizados com a CLI do Azure são feitos através da API REST de Ficheiros. Pode utilizar a API REST do Ficheiro para criar, modificar e eliminar ficheiros e diretórios em clientes que não têm acesso ao SMB.
+## <a name="use-your-azure-file-share"></a>Utilizar a partilha de ficheiros do Azure
+Agora que já criou uma partilha de ficheiros do Azure, pode montá-la com SMB em [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) ou [macOS](storage-how-to-use-files-mac.md). Em alternativa, pode trabalhar com a partilha de ficheiros do Azure com o Explorador de Armazenamento do Azure. A vantagem de utilizar o Explorador de Armazenamento do Azure em vez de montar a partilha de ficheiros com o SMB é que todos os pedidos realizados com o Explorador de Armazenamento do Azure são feitos através da API REST de Ficheiros. Pode utilizar a API REST do Ficheiro para criar, modificar e eliminar ficheiros e diretórios em clientes que não têm acesso ao SMB.
 
 ### <a name="create-a-directory"></a>Criar um diretório
 Adicionar um diretório proporciona uma estrutura hierárquica para gerir a sua partilha de ficheiros. Pode criar vários níveis no seu diretório. No entanto, tem de se certificar que os diretórios principais existem antes de criar subdiretórios. Por exemplo, para o caminho myDirectory/mySubDirectory, tem primeiro de criar o diretório *myDirectory*. Em seguida, pode criar *mySubDirectory*. 
@@ -89,41 +81,12 @@ Para transferir uma cópia de um ficheiro a partir da partilha de ficheiros, cli
 
 O progresso da transferência aparece no painel **Atividades** na parte inferior da janela.
 
-## <a name="create-and-modify-share-snapshots"></a>Criar e modificar instantâneos de partilha
-Os instantâneos preservam uma cópia de ponto no tempo das partilhas de ficheiros do Azure. Os instantâneos de partilhas de ficheiros são semelhantes a outras tecnologias com as quais pode já estar familiarizado:
-- [Serviço de Cópia Sombra de Volumes (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) para sistemas de ficheiros Windows, como NTFS e ReFS
-- Instantâneos do [Gestor de Volumes Lógicos (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) para sistemas Linux
-- Instantâneos do [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) para macOS
-
-Para criar um instantâneo de partilha:
-
-1. Selecione o separador da partilha de ficheiros *myshare*.
-2. No menu superior, selecione **Criar Instantâneo**. (Poderá ter de selecionar primeiro **Mais** para ver esta opção, consoante as dimensões da janela do Explorador de Armazenamento.)  
-    ![Uma captura de ecrã do botão Criar Instantâneo no contexto](media/storage-how-to-use-files-storage-explorer/create-share-snapshot-1.png)
-
-### <a name="list-and-browse-share-snapshots"></a>Listar e procurar instantâneos de partilhas
-Após a criação do instantâneo, para listar os instantâneos da partilha, selecione **Ver Instantâneos da Partilha de Ficheiros**. (Poderá ter de selecionar primeiro **Mais** para ver esta opção, consoante as dimensões da janela do Explorador de Armazenamento.) Para pesquisar um instantâneo de partilha, faça duplo clique no mesmo.
-
-![Uma captura de ecrã da janela Procurar Instantâneos](media/storage-how-to-use-files-storage-explorer/list-browse-snapshots-1.png)
-
-### <a name="restore-from-a-share-snapshot"></a>Restaurar a partir de um instantâneo de partilha
-Para demonstrar como restaurar um ficheiro a partir de um instantâneo de partilha, primeiro tem de eliminar um ficheiro da partilha de ficheiros do Azure em direto. Vá para a pasta *myDirectory*, clique com o botão direito do rato no ficheiro que carregou e, em seguida, selecione **Eliminar**. Para restaurar esse ficheiro a partir do instantâneo de partilha:
-
-1. Selecione **Ver Instantâneos da Partilha de Ficheiros**. (Poderá ter de selecionar primeiro **Mais** para ver esta opção, consoante as dimensões da janela do Explorador de Armazenamento.)
-2. Na lista de instantâneos de partilha, faça duplo clique no instantâneo de partilha.
-3. Procure o instantâneo até encontrar o ficheiro que eliminou. Selecione a partilha de ficheiros e, em seguida, selecione **Restaurar Instantâneos**. (Poderá ter de selecionar primeiro **Mais** para ver esta opção, consoante as dimensões da janela do Explorador de Armazenamento.) Uma janela é aberta e apresenta um aviso a dizer que o restauro do ficheiro substituirá os conteúdos da partilha de ficheiros e que este não pode ser anulado. Selecione **OK**.
-4. O ficheiro deverá estar agora no local original, abaixo da partilha de ficheiros do Azure ativa.
-
-### <a name="delete-a-share-snapshot"></a>Eliminar um instantâneo de partilha
-Para eliminar um instantâneo de partilha, vá para a [lista de instantâneos de partilhas](#list-and-browse-share-snapshots). Clique com o botão direito do rato no instantâneo de partilha que pretende eliminar e, em seguida, selecione **Eliminar**.
-
 ## <a name="clean-up-resources"></a>Limpar recursos
 Não pode utilizar o Explorador de Armazenamento para remover recursos. Para limpar este início rápido, pode utilizar o [portal do Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Gerir partilhas de ficheiros com o portal do Azure](storage-how-to-use-files-portal.md)
-- [Gerir partilhas de ficheiros com o Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Gerir partilhas de ficheiros com a CLI do Azure](storage-how-to-use-files-cli.md)
-- [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [O que são os Ficheiros do Azure?](storage-files-introduction.md)

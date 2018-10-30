@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: ed8230b76300d6b7fee06761133ebbea779fe3cb
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920574"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024366"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados com o Azure Databricks
 
@@ -94,7 +94,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
     * Introduza um nome para o cluster.
     * Para este artigo, crie um cluster com o runtime **4.2**.
-    * Certifique-se de que seleciona a caixa de verificação **Terminar após ___ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
+    * Certifique-se de que seleciona a caixa de verificação **Terminar após \_\_ minutos de atividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
     Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 

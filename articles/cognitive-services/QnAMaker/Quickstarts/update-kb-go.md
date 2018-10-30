@@ -1,25 +1,31 @@
 ---
-title: 'Guia de Início Rápido: atualizar a base de dados de conhecimento em Go – Criador de FAQ'
+title: 'Início Rápido: atualizar base de dados de conhecimento – REST, Go – Criador de FAQ'
 titleSuffix: Azure Cognitive Services
-description: Como atualizar uma base de dados de conhecimento em Go para o Criador de FAQ.
+description: Este início rápido baseado em REST ajuda-o a atualizar programaticamente a sua base de dados de conhecimento do Criador de FAQ de exemplo. A definição de JSON que utiliza para atualizar uma BDC permite-lhe adicionar, alterar ou eliminar os pares de perguntas e respostas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389314"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646886"
 ---
-# <a name="update-a-knowledge-base"></a>Atualizar uma base de dados de conhecimento
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: atualizar uma base de dados de conhecimento no Criador de FAQ com o Go
 
-O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Este início rápido ajuda-o a atualizar programaticamente uma base de dados de conhecimento do Criador de FAQ existente.  Este JSON permite-lhe atualizar uma BDC através da adição de novas origens de dados, da alteração de origens de dados ou da eliminação de origens de dados.
+
+Esta API é equivalente a editar e, em seguida, utilizar o botão **Guardar e preparar** no portal do Criador de FAQ.
+
+Este início rápido chama as API do Criador de FAQ:
+* [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) – O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
+* [Obter Detalhes da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. Crie um novo projeto do Go no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obter estado do pedido
 
-Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o estado de um pedido para criar ou atualizar uma base de dados de conhecimento. Para ver como este método é utilizado, consulte o código de exemplo para o método [Criar](#Create) ou [Atualizar](#Update).
+Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o estado de um pedido para criar ou atualizar uma base de dados de conhecimento. Para ver como este método é utilizado, veja o código de exemplo para o início rápido [Criar](create-new-kb-go.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

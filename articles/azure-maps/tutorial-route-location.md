@@ -1,20 +1,20 @@
 ---
 title: Encontrar o trajeto com o Azure Maps | Microsoft Docs
 description: Ir para um ponto de interesse com o Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fda234b882cbf4a155881895bbf8401fe3ff3aca
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816723"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645092"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ir para um ponto de interesse com o Azure Maps
 
@@ -80,11 +80,10 @@ Os passos seguintes mostram como criar uma página HTML estática incorporada co
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     O ficheiro **atlas.Map** fornece o controlo para um mapa Web visual e interativo, sendo um componente da API do Controlo de Mapas do Azure.
 
 4. Guarde o ficheiro e abra-o no browser. Neste momento, tem um mapa básico que pode aprimorar mais.
@@ -126,7 +125,7 @@ Para este tutorial, defina o ponto de partida como Microsoft e o ponto de chegad
         padding: 50
     });
 
-    map.addEventListener("load", function () { 
+    map.events.add("load", function () { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -135,7 +134,7 @@ Para este tutorial, defina o ponto de partida como Microsoft e o ponto de chegad
         });
     });
     ```
-    **map.setCameraBounds** ajusta a janela de mapa de acordo com as coordenadas dos pontos de partida e de chegada. O **map.addEventListener** garante que todas as funções do mapa adicionadas ao mapa são carregadas depois de o mapa estar totalmente carregado. A API **map.addPins** dentro da escuta de eventos adiciona os pontos ao Controlo de mapa como componentes visuais.
+    **map.setCameraBounds** ajusta a janela de mapa de acordo com as coordenadas dos pontos de partida e de chegada. Depois de o mapa estar totalmente carregado, o **map.events.add** garante que todas as funções dos mapas adicionadas ao mapa são carregadas. A API **map.addPins** dentro da escuta de eventos adiciona os pontos ao Controlo de mapa como componentes visuais.
 
 3. Guarde o ficheiro **MapRoute.html** e atualize o browser. Agora, o mapa está centrado em Seattle e consegue ver o alfinete azul redondo a marcar o ponto de partida e o alfinete azul a marcar o ponto de chegada.
 

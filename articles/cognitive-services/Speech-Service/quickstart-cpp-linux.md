@@ -1,20 +1,21 @@
 ---
-title: 'Guia de Início Rápido: reconhecer voz em C++ no Linux com o SDK de Voz dos Serviços Cognitivos'
-titleSuffix: Microsoft Cognitive Services
-description: Saiba como reconhecer voz em C++ no Linux com o SDK de Voz dos Serviços Cognitivos
+title: 'Início Rápido: reconhecer voz em C++ no Linux com o SDK de Serviço de Voz'
+titleSuffix: Azure Cognitive Services
+description: Aprenda a reconhecer voz em C++ no Linux com o SDK de Serviço de Voz
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: f23e25ec117d798bae81945104fa3fb53f320f1c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c637659c58ba518b8d1efca11bfa5303f1e1dde0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344092"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469117"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Guia de Início Rápido: reconhecer voz em C++ no Linux com o SDK de Voz
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f3925c26e2b7e4044daf5ac4e94fbb24393a4ddc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8310885ddf7e2229054f36b8fda92b92c1ab01e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999890"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406505"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Linux no Azure
 
@@ -308,7 +308,7 @@ az vm extension set \
 
 Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytics.
 
-![Painel do OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

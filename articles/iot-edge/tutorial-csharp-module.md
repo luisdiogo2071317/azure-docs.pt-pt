@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0c4c86017655facd6ab29f8e9e6c8f496ef79c72
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61bcb01f549b6a47f3c4899975d4b1b23fbd9e3b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166224"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957025"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge do C# e implementar no seu dispositivo simulado
 
@@ -266,7 +266,7 @@ Na secção anterior, criou uma solução do IoT Edge e adicionou código ao **C
 
 3. No ficheiro deployment.template.json, a secção **registryCredentials** armazena as credenciais de registo do Docker. Os pares de nome de utilizador e palavra-passe reais são armazenados no ficheiro .env, ignorado pelo git.  
 
-4. Adicione o módulo duplo **CSharpModule** ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção **moduleContent**, após o módulo duplo **$edgeHub**: 
+4. Adicione o módulo duplo **CSharpModule** ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção **modulesContent**, após o módulo duplo **$edgeHub**: 
     ```json
         "CSharpModule": {
             "properties.desired":{

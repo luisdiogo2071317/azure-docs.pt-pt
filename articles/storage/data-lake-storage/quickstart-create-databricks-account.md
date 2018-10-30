@@ -8,12 +8,12 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: b0db5e79ac3f52bfcd9c7791a843265a421ef1bf
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903016"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426724"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
@@ -53,7 +53,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     |**Nome da área de trabalho**     | Indique um nome para a sua área de trabalho do Databricks        |
     |**Subscrição**     | Na lista pendente, selecione a sua subscrição do Azure.        |
     |**Grupo de recursos**     | Especifique se quer criar um novo grupo de recursos ou utilizar um existente. Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. Para obter mais informações, veja [Descrição geral do Grupo de Recursos do Azure](../../azure-resource-manager/resource-group-overview.md). |
-    |**Localização**     | Selecione **E.U.A. Oeste 2**. Para outras regiões disponíveis, veja [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
+    |**Localização**     | Selecione **E.U.A. Oeste 2**. Pode selecionar outra região pública, se preferir.        |
     |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Selecione **Afixar ao dashboard** e, em seguida, clique em **Criar**.

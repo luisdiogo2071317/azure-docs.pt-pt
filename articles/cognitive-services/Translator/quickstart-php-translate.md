@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Traduzir texto – Tradução de Texto, PHP'
+title: 'Início Rápido: traduzir texto, PHP – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá traduzir texto de um idioma noutro através da API de Texto do Microsoft Translator com PHP.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 7b9716ba3d2ec793dc9591d5487acc4ced3276fa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 5edecf780c1687a4abc583f3223f0245964ddf18
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125141"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647804"
 ---
-# <a name="quickstart-translate-text-with-php"></a>Guia de introdução: traduzir texto com PHP
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Início Rápido: traduzir texto com a API REST de Texto do Microsoft Translator (PHP)
 
 Neste guia de introdução, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, irá traduzir texto de um idioma para outro através
 
 Irá precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="translate-request"></a>Pedido de tradução
 
-O código seguinte traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
+O seguinte código traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
 
 1. Crie um novo projeto PHP no seu editor de código preferido.
 2. Adicione o código indicado abaixo.
@@ -134,7 +134,7 @@ echo $json;
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste guia de início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste início rápido e outros, incluindo a transliteração e a identificação do idioma, assim como outros projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de PHP no GitHub](https://aka.ms/TranslatorGitHub?type=&language=php)

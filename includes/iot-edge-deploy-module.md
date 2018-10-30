@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 06e2be14cf7592edf373b6f679ac5d9ff3c87269
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 983c65ba6e8b87f1dd66fcfdb50eac088ffab5d0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161461"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49960193"
 ---
-Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar módulos nos seus dispositivos do IoT Edge a partir da cloud. Os módulos do IoT Edge são pacotes executáveis que são implementados como contentores. Nesta secção, vai implementar um módulo que gera telemetria para o seu dispositivo simulado. 
+Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar módulos nos seus dispositivos do IoT Edge a partir da cloud. Os módulos do IoT Edge são pacotes executáveis que são implementados como contentores. Nesta secção, vai implementar um módulo que gera telemetria para o seu dispositivo simulado.
 
 1. No portal do Azure, navegue para o seu hub IoT.
-1. Aceda a **IoT Edge** e selecione o seu dispositivo IoT Edge.
+1. Aceda a **IoT Edge** sob **Gestão de Dispositivos Automáticos** e selecione o seu dispositivo IoT Edge.
 1. Selecione **Definir Módulos**.
-1. Na secção **Módulos de Implementação** da página, clique em **Adicionar** e, em seguida, selecione **Módulo do IoT Edge**.
-1. No campo **Nome**, introduza `tempSensor`. 
-1. No campo **URI da Imagem**, introduza `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. 
+1. Na secção **Módulos de Implementação** do passo **Adicionar Módulos**, clique em **Adicionar** e, em seguida, selecione **Módulo do IoT Edge**.
+1. No campo **Nome**, introduza `tempSensor`.
+1. No campo **URI da Imagem**, introduza `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
 1. Deixe as outras definições inalteradas e selecione **Guardar**.
 
    ![Guardar o módulo do IoT Edge depois de introduzir o nome e o URI da imagem](./media/iot-edge-deploy-module/name-image.png)
@@ -39,6 +39,6 @@ Uma das principais funcionalidades do Azure IoT Edge é conseguir implementar m�
    ```
 
 1. No passo **Rever Implementação**, selecione **Submeter**.
-1. Regresse à página de detalhes do dispositivo e selecione **Atualizar**. Além do módulo edgeAgent que foi criado quando iniciou o serviço pela primeira vez, deve ver outro módulo do runtime chamado **edgeHub** e o módulo **tempSensor** listado. 
+1. Regresse à página de detalhes do dispositivo e selecione **Atualizar**. Além do módulo edgeAgent que foi criado quando iniciou o serviço pela primeira vez, deve ver outro módulo do runtime chamado **edgeHub** e o módulo **tempSensor** listado.
 
    ![Vista de tempSensor na lista de módulos implementados](./media/iot-edge-deploy-module/deployed-modules.png)

@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 10/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392810"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024397"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: compor uma cena com o Azure Batch 
 
@@ -31,7 +31,7 @@ Neste tutorial, irá compor uma cena 3ds Max com o Batch, através do compositor
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma subscrição pay as you go ou de outra opção de compra do Azure para utilizar aplicações de composição no Batch no modelo de faturação de pagamento por utilização. O licenciamento de pagamento por utilização não será suportado se utilizar uma oferta gratuita do Azure que fornece um crédito monetário.
+Precisa de uma subscrição pay as you go ou de outra opção de compra do Azure para utilizar aplicações de composição no Batch no modelo de faturação de pagamento por utilização. **O licenciamento de pagamento por utilização não será suportado se utilizar uma oferta gratuita do Azure que oferece um crédito monetário.**
 
 A cena 3ds Max de exemplo para este tutorial encontra-se no [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), em conjunto com um script Bash de exemplo e ficheiros de configuração JSON. A cena 3ds Max é proveniente dos [ficheiros de exemplo do Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Os ficheiros de exemplo do Autodesk 3ds Max estão disponíveis com uma licença de Atribuição Semelhante à Partilha Não Comercial da Creative Commons. Copyright © Autodesk, Inc.)
 
@@ -175,7 +175,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 Tome nota do token devolvido pelo comando, que é semelhante ao seguinte. Irá utilizar este token num passo posterior.

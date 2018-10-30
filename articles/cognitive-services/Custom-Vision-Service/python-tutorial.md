@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um projeto de classificação de imagens – Serviço de Visão Personalizada, Python'
+title: 'Tutorial: criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Python'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com um ponto final predefinido.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363382"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953117"
 ---
-# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Tutorial: Criar um projeto de classificação de imagens com o Serviço de Visão Personalizada com Python
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>Tutorial: criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Python
 
 Saiba como criar um projeto de classificação de imagens com o Serviço de Visão Personalizada e um script de Python básico. Depois de criar o projeto, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizá-lo para testar uma imagem de forma programática. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
 

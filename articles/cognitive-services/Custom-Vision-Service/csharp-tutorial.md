@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar uma aplicação do Windows para o Serviço de Visão Personalizada com C#'
+title: 'Tutorial: criar um projeto de classificação de imagens com o SDK de Visão Personalizada para C#'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com o ponto final predefinido.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366646"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953048"
 ---
-# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Tutorial: Utilizar o Serviço de Visão Personalizada de uma aplicação do C#
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Tutorial: criar um projeto de classificação de imagens com o SDK de Visão Personalizada para C#
 
-Saiba como utilizar o Serviço de Visão Personalizada de uma aplicação do C#. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação para Windows com a API do Serviço de Visão Personalizada.
+Saiba como utilizar o SDK de serviço de Visão Personalizada numa aplicação do C#. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação para Windows com a API do Serviço de Visão Personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

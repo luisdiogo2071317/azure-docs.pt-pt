@@ -1,23 +1,23 @@
 ---
 title: 'Início Rápido: Atualizar base de dados de conhecimento – REST, C# – Criador de FAQ'
 titleSuffix: Azure Cognitive Services
-description: Este início rápido ajuda-o a atualizar programaticamente a sua base de dados de conhecimento do Criador de FAQ de exemplo. A definição de JSON que utiliza para atualizar uma BDC permite-lhe adicionar, alterar ou eliminar os pares de perguntas e respostas.
+description: Este início rápido baseado em REST ajuda-o a atualizar programaticamente a sua base de dados de conhecimento do Criador de FAQ de exemplo. A definição de JSON que utiliza para atualizar uma BDC permite-lhe adicionar, alterar ou eliminar os pares de perguntas e respostas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9fa57a02f11461a3ea9a08b7b1b101b143924037
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 463fb4bc1cfd6ba7a7fc4df2fcde53bda7767488
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801698"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648237"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-c"></a>Início Rápido: Atualizar uma base de dados de conhecimento do Criador de FAQ em C#
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: atualizar uma base de dados de conhecimento no Criador de FAQ com o C#
 
 Este início rápido ajuda-o a atualizar programaticamente uma base de dados de conhecimento do Criador de FAQ existente.  Este JSON permite-lhe atualizar uma BDC através da adição de novas origens de dados, da alteração de origens de dados ou da eliminação de origens de dados.
 
@@ -63,7 +63,7 @@ Depois das constantes, adicione a definição de modelo de BDC seguinte. A defin
 * update
 * delete
 
-Cada seção pode ser utilizada no mesmo pedido simples para a API. 
+Cada seção pode ser utilizada no mesmo pedido simples à API. 
 
 ```csharp
 static string new_kb = @"

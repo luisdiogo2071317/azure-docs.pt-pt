@@ -1,25 +1,31 @@
 ---
-title: 'Guia de Início Rápido: Atualização da base de dados de conhecimento em Java – Criador de FAQ'
+title: 'Início Rápido: atualizar base de dados de conhecimento – REST, Java – Criador de FAQ'
 titleSuffix: Azure Cognitive Services
-description: Como atualizar uma base de dados de conhecimento em Java para o Criador de FAQ.
+description: Este início rápido baseado em REST ajuda-o a atualizar programaticamente a sua base de dados de conhecimento do Criador de FAQ de exemplo. A definição de JSON que utiliza para atualizar uma BDC permite-lhe adicionar, alterar ou eliminar os pares de perguntas e respostas.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: fc2792086d93e584535389c8c0f162fc1e592cbd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b7aaf57def84feec95cc6a157ac6dd33a17b2fc0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388250"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645860"
 ---
-# <a name="update-a-knowledge-base-in-java"></a>Atualizar uma base de dados de conhecimento em Java
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: atualizar uma base de dados de conhecimento no Criador de FAQ com o Java
 
-O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Este início rápido ajuda-o a atualizar programaticamente uma base de dados de conhecimento do Criador de FAQ existente.  Este JSON permite-lhe atualizar uma BDC através da adição de novas origens de dados, da alteração de origens de dados ou da eliminação de origens de dados.
+
+Esta API é equivalente a editar e, em seguida, utilizar o botão **Guardar e preparar** no portal do Criador de FAQ.
+
+Este início rápido chama as API do Criador de FAQ:
+* [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) – O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
+* [Obter Detalhes da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

@@ -6,22 +6,25 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 361a1934a1e0cdcc0647c4c4f62af98f52b8c899
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915207"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456884"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware no local para a recuperação após desastre para o Azure
 
 O [Azure Site Recovery](site-recovery-overview.md) contribui para a sua estratégia de continuidade comercial e recuperação após desastre (BCDR) ao manter as suas aplicações empresariais em funcionamento durante falhas planeadas e não planeadas. O Site Recovery gere e orquestra a recuperação após desastre de computadores no local e máquinas virtuais (VMs) do Azure, incluindo replicação, ativação pós-falha e recuperação.
 
 - Este artigo é o segundo tutorial de uma série que lhe mostra como configurar a recuperação após desastre no Azure para VMs do VMware no local. No primeiro tutorial, [configurámos os componentes do Azure](tutorial-prepare-azure.md) necessários para a recuperação após desastre do VMware.
-- Os tutoriais são concebidos para mostrar o caminho de implementação mais simples num cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
+
+
+> [!NOTE]
+> Os tutoriais são concebidos para mostrar o caminho de implementação mais simples num cenário. Utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. Para obter instruções detalhadas, veja a secção **Procedimentos** para o cenário correspondente.
 
 Neste artigo, vamos mostrar-lhe como preparar o ambiente do VMware no local quando pretende replicar VMs do VMware para o Azure com o Azure Site Recovery. Saiba como:
 
@@ -101,11 +104,13 @@ Para ligar às VMs do Linux via SSH após a ativação pós-falha, faça o segui
 - [Adicione um endereço IP público](site-recovery-monitoring-and-troubleshooting.md) para a VM.
 - Pode consultar o **Diagnóstico de arranque** para ver uma captura de ecrã da VM.
 
+
+## <a name="failback-requirements"></a>Requisitos de reativação pós-falha
+Se planear a reativação pós-falha no local, terá também de se certificar de que certos [pré-requisitos são cumpridos](vmware-azure-reprotect.md##before-you-begin). No entanto, estes **não são necessários para começar a utilizar a ativação da recuperação após desastre** nas suas VMs, e também podem ser feitos após a ativação pós-falha do Azure.
+
 ## <a name="useful-links"></a>Ligações úteis
 
 Se estiver a replicar várias VMs, deverá planear a capacidade e a implementação antes de começar. [Saiba mais](site-recovery-deployment-planner.md).
-
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

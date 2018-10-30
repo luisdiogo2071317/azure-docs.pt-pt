@@ -1,29 +1,32 @@
 ---
-title: 'Início Rápido: Publicar a Base de Dados de Conhecimento no Java – Criador de FAQ'
+title: 'Início Rápido: publicar base de dados de conhecimento – REST, Java – Criador de FAQ'
 titleSuffix: Azure Cognitive Services
-description: Como publicar uma base de dados de conhecimento em Java para o Criador de FAQ.
+description: Este início rápido baseado em REST descreve a publicação da KB, que emite a versão mais recente da base de dados de conhecimento testada para um índice do Azure Search que representa a base de dados de conhecimento publicada. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: defd0cb7fc22423db9b2c7d25960b5dc27042506
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 83390ace8d9747d218fdd5c6b50ba9bdc6d11957
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885089"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648824"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-java"></a>Início Rápido: Publicar uma base de dados de conhecimento no Java
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Início Rápido: publicar uma base de dados de conhecimento no Criador de FAQ com o Java
 
-O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+Este início rápido descreve a publicação, através de programação, da sua base de dados de conhecimento (KB). A publicação emite a versão mais recente da base de dados de conhecimento para um índice dedicado do Azure Search e cria um ponto final que pode ser chamado na sua aplicação ou chatbot.
+
+Este início rápido chama as APIs do Criador de FAQ:
+* [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - esta API não requer quaisquer informações no corpo do pedido.
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
-1. Criar um novo projeto do Java no seu IDE favorito.
+1. Criar um novo projeto de Java no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `key` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.

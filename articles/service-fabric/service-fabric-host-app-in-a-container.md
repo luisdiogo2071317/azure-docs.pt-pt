@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380136"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429597"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implementar uma aplicação .NET num contentor do Windows no Azure Service Fabric
 
@@ -61,7 +61,9 @@ O contentor está agora pronto para ser criado e empacotado numa aplicação do 
 ## <a name="create-an-azure-sql-db"></a>Criar uma BD SQL do Azure
 Quando executa a aplicação Fabrikam Fiber CallCenter em produção, os dados têm de ser mantidos numa base de dados. Não existe atualmente nenhuma forma de garantir que os dados fiquem num contentor, por isso não pode armazenar dados de produção no SQL Server num contentor.
 
-Recomendamos a [Base de Dados SQL do Azure](/azure/sql-database/sql-database-get-started-powershell). Para configurar e executar uma Base de Dados SQL Server gerida no Azure, execute o seguinte script.  Modifique as variáveis do script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento.  Se estiver protegido por uma firewall de empresa, o endereço IP do seu computador de desenvolvimento não pode ser exposto à Internet.  Também pode definir a regra de firewall do servidor para a base de dados SQL através do [portal do Azure](https://portal.azure.com), que apresenta o endereço IP do seu computador.
+Recomendamos a [Base de Dados SQL do Azure](/azure/sql-database/sql-database-get-started-powershell). Para configurar e executar uma Base de Dados SQL Server gerida no Azure, execute o seguinte script.  Modifique as variáveis do script conforme necessário. *clientIP* é o endereço IP do seu computador de desenvolvimento.
+
+Se estiver protegido por uma firewall de empresa, o endereço IP do seu computador de desenvolvimento não pode ser exposto à Internet. Para verificar que a base de dados tem o endereço IP correto para a regra de firewall, vá para o [portal do Azure](https://portal.azure.com) e encontre a sua base de dados na secção Bases de Dados SQL. Clique no respetivo nome e, em seguida, na secção Descrição geral, clique em "Definir firewall do servidor". O "endereço IP do cliente" é o endereço IP do seu computador de desenvolvimento. Certifique-se de que corresponde ao endereço IP na regra "AllowClient".
 
 ```powershell
 $subscriptionID="<subscription ID>"

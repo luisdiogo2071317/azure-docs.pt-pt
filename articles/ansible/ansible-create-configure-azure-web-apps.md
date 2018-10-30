@@ -1,6 +1,6 @@
 ---
-title: Criar Aplicações Web do Azure com o Ansible (Pré-visualização)
-description: Saiba como utilizar o Ansible para criar uma Aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
+title: Criar aplicações Web do Azure com o Ansible (pré-visualização)
+description: Saiba como utilizar o Ansible para criar uma aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, manual de procedimentos, Serviço de Aplicações do Azure,Aplicação Web, Java
 author: tomarcher
@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 1899b1fc1e0a38d859fb3a7ce2153585579650f3
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586714"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426561"
 ---
-# <a name="create-azure-app-service-web-apps-using-ansible-preview"></a>Criar Aplicações Web do Serviço de Aplicações do Azure com o Ansible (pré-visualização)
-[Aplicações Web do Serviço de Aplicações do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (ou apenas Aplicações Web) é um serviço para o alojamento de aplicações Web, APIs REST e back-ends móveis. Pode desenvolver no seu idioma favorito, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
+# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Criar aplicações Web do Serviço de Aplicações do Azure com o Ansible (pré-visualização)
+[Aplicações Web do Serviço de Aplicações do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (ou apenas Aplicações Web) aloja aplicações Web, APIs REST e back-ends móveis. Pode desenvolver no seu idioma favorito&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
 
-O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Este artigo mostra-lhe como utilizar o Ansible para criar uma Aplicação Web com o runtime de Java. 
+O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Este artigo mostra-lhe como utilizar o Ansible para criar uma aplicação Web com o runtime de Java. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> O Ansible 2.7 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. Pode instalar a versão RC do Ansible 2.7 ao executar `sudo pip install ansible[azure]==2.7.0rc2`. O Ansible 2.7 será lançado em outubro de 2018. Depois disso, não será necessário especificar a versão aqui porque a versão predefinida será 2.7. 
+> O Ansible 2.7 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. Pode instalar a versão RC do Ansible 2.7 ao executar `sudo pip install ansible[azure]==2.7.0rc2`. Após o lançamento do Ansible 2.7, não tem de especificar uma versão aqui, porque a versão predefinida será 2.7. 
 
 ## <a name="create-a-simple-app-service"></a>Criar um serviço de Aplicações simples
 Esta secção apresenta um manual de procedimentos do Ansible de exemplo que define os seguintes recursos:
-- Grupo de recursos, onde o plano do serviço de aplicações e a aplicação Web serão implementados
-- Aplicação Web, uma Aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
+- Grupo de recursos, onde o plano do Serviço de Aplicações e a aplicação Web serão implementados
+- numa aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
 
 ```
 - hosts: localhost
@@ -62,9 +62,9 @@ Esta secção apresenta um manual de procedimentos do Ansible de exemplo que def
               java_container: tomcat
               java_container_version: 8.5
 ```
-Guarde o manual de procedimentos acima como firstwebapp.yml.
+Guarde o manual de procedimentos anterior como **firstwebapp.yml**.
 
-Para executar o manual de procedimentos, utilize o comando **ansible playbook** da seguinte forma:
+Para executar o manual de procedimentos, utilize o comando **ansible-playbook** da seguinte forma:
 ```bash
 ansible-playbook firstwebapp.yml
 ```
@@ -84,17 +84,17 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## <a name="create-app-service-with-traffic-manager"></a>Criar Serviço de Aplicações com o Gestor de Tráfego
-Pode utilizar o [Gestor de Tráfego do Azure](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) para controlar como os pedidos de clientes Web são distribuídos para as aplicações no Serviço de Aplicações do Azure. Quando os pontos finais do Serviço de Aplicações são adicionados a um perfil do Gestor de Tráfego do Azure, o Gestor de Tráfego do Azure mantém um registo do estado das suas aplicações do Serviço de Aplicações (em execução, parado ou eliminado), para que possa decidir quais desses pontos finais deve receber tráfego.
+## <a name="create-an-app-service-by-using-traffic-manager"></a>Criar um serviço de aplicações com o Gestor de Tráfego
+Pode utilizar o [Gestor de Tráfego do Azure](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) para controlar como os pedidos de clientes Web são distribuídos para as aplicações no Serviço de Aplicações do Azure. Quando os pontos finais do Serviço de Aplicações são adicionados a um perfil do Gestor de Tráfego do Azure, o Gestor de Tráfego controla o estado das suas aplicações do Serviço de Aplicações. Os estados incluem em execução, paradas e eliminadas. O Gestor de Tráfego pode, em seguida, decidir quais destes pontos finais devem receber tráfego.
 
 No Serviço de Aplicações, as aplicações são executadas num [plano do Serviço de Aplicações](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
 ). Um plano do Serviço de Aplicações define um conjunto de recursos de computação para a execução da aplicação Web. Pode gerir o seu plano do Serviço de Aplicações e a aplicação Web em grupos diferentes.
 
 Esta secção apresenta um manual de procedimentos do Ansible de exemplo que define os seguintes recursos:
 - Grupo de recursos, onde o plano do serviço de aplicações será implementado
-- Plano do Serviço de Aplicações
+- Plano do App Service
 - Grupo de recursos secundário, onde a aplicação Web será implementada
-- Aplicação Web, uma Aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
+- numa aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
 - Perfil do Gestor de Tráfego
 - Ponto final do Gestor de Tráfego, com o site criado
 
@@ -179,9 +179,9 @@ Esta secção apresenta um manual de procedimentos do Ansible de exemplo que def
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-Guarde o manual de procedimentos acima como webapp.yml ou [transfira o manual de procedimentos](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
+Guarde o manual de procedimentos anterior como **webapp.yml** ou [transfira o manual de procedimentos](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
-Para executar o manual de procedimentos, utilize o comando **ansible playbook** da seguinte forma:
+Para executar o manual de procedimentos, utilize o comando **ansible-playbook** da seguinte forma:
 ```bash
 ansible-playbook webapp.yml
 ```

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um projeto de classificação de imagens – Serviço de Visão Personalizada, Java'
+title: 'Tutorial: criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Java'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com um ponto final predefinido.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367360"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957220"
 ---
-# <a name="tutorial-build-an-image-classification-project-with-java"></a>Tutorial: Criar um projeto de classificação de imagens com Java
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Tutorial: criar um projeto de classificação de imagens com o SDK de Visão Personalizada para Java
 
 Saiba como criar um projeto de classificação de imagens com o Serviço de Visão Personalizada ao utilizar Java. Depois de criar o projeto, pode adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizá-lo para testar uma imagem de forma programática. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
 

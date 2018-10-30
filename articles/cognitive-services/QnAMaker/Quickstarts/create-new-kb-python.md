@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: API Python – Criar base de dados de conhecimento – Criador de FAQ'
+title: 'Início Rápido: criar base de dados de conhecimento - REST, Python - Criador de FAQ'
 titlesuffix: Azure Cognitive Services
-description: Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+description: Este início rápido baseado em REST descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 2646cc39197145e797f61d0c2d9e6d944ed19351
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d8802f1d5188966d08ac6a5fc74d38a704925faf
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388464"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646335"
 ---
-# <a name="create-a-new-knowledge-base-in-python"></a>Criar uma base de dados de conhecimento no Python
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Python
 
 Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
 

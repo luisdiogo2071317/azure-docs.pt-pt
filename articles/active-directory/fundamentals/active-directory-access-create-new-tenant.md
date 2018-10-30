@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363009"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023558"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Início Rápido: Aceder ao Microsoft Azure Active Directory para criar um novo inquilino
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -24,13 +24,6 @@ Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure
 Neste início rápido, ficará a saber como aceder ao portal do Azure e do Microsoft Azure Active Directory e aprenderá como criar um inquilino básico para a sua organização.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, precisará de:
-
-- Confirmar que a sua organização tem uma licença válida do Microsoft Azure AD.
-
-- Confirmar que é um Administrador global.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no [portal do Azure](https://portal.azure.com/) da sua organização com uma conta de Administrador global.
@@ -76,3 +69,5 @@ Se não quiser continuar a utilizar esta aplicação, poderá eliminar o inquili
 - Para adicionar grupos e membros, veja [Criar um grupo básico e adicionar membros](active-directory-groups-create-azure-portal.md)
 
 - Saiba mais sobre o [acesso baseado em funções com o Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e o [Acesso condicional](../../role-based-access-control/conditional-access-azure-management.md) para ajudar a gerir o acesso a aplicações e recursos da sua organização.
+
+- Saiba mais sobre o Azure AD, incluindo [informações básicas de licenciamento, terminologia e funcionalidades associadas](active-directory-whatis.md).

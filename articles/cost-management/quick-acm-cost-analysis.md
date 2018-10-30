@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079111"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471293"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guia de Início Rápido: Explorar e analisar os custos com a Análise de custos
 
@@ -34,21 +34,25 @@ Neste início rápido, vai aprender a:
 
 A análise de custos está disponível para todos os clientes do [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos para ver os dados de custos.
 
-- O âmbito da *conta de faturação* é definido no https://ea.azure.com e requer o acesso de Administrador da Empresa. Não é necessária nenhuma definição de pré-requisitos de EA. As informações de faturação na análise de custos são consolidadas para todas as subscrições no contrato Enterprise. A conta de faturação é frequentemente referida como o *Contrato Enterprise* ou *Inscrição*.
 
-- O âmbito *departamento* é definido como https://ea.azure.com e requer acesso de Administrador do Departamento. A definição ativada **Ver custos de DA** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todas as subscrições que pertençam à conta de inscrição e estejam ligadas ao departamento.
+|**Âmbito**|**Definido no**|**Acesso obrigatório para analisar os custos de âmbito**|**Definição de pré-requisitos de EA**|**Consolida os dados de faturação para**|
+|---                |---                  |---                   |---            |---           |
+|Conta de faturação<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Administrador da Empresa|Nenhuma|Todas as subscrições do contrato enterprise|
+|Departamento|[https://ea.azure.com ](https://ea.azure.com )|Administrador do Departamento|Custos de vista do AD ativados|Todas as subscrições que pertencem a uma conta de inscrição que está associada ao departamento|
+|Conta de inscrição<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Proprietário da Conta|Custos de vista do PC ativados|Todas as subscrições da conta de inscrição|
+|Grupo de gestão|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Cost Management (ou Leitor)|Custos de vista do PC ativados|Todas as subscrições abaixo o grupo de gestão|
+|Subscrição|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Cost Management (ou Leitor)|Custos de vista do PC ativados|Todos os recursos/grupos de recursos na subscrição|
+|Grupo de recursos|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Cost Management (ou Leitor)|Custos de vista do PC ativados|Todos os recursos no grupo de recursos|
 
-- O âmbito *conta de inscrição* é definido no https://ea.azure.com e requer o acesso de Proprietário da Conta. A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todas as subscrições que pertençam à conta de inscrição. A conta de inscrição é frequentemente referida como o *proprietário da conta*.
+<sup>1</sup>A conta de faturação é frequentemente referida como o Contrato Enterprise ou Inscrição.
 
-- O âmbito *grupo de gestão* é definido no https://portal.azure.com e requer o acesso de Leitor de Gestão de Custos (ou Leitor). A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todas as subscrições no grupo de gestão.
-
-- O âmbito *subscrição* é definido no https://portal.azure.com e requer o acesso de Leitor de Gestão de Custos (ou Leitor). A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todos os recursos e grupos de recursos na subscrição.
-
-- O âmbito *grupo de recursos* é definido no https://portal.azure.com e requer o acesso de Leitor de Gestão de Custos (ou Leitor). A definição ativada **Ver custos de AO** no portal do EA é necessária. As informações de faturação na análise de custos são consolidadas para todos os recursos no grupo de recursos.
-
-
+<sup>2</sup>A conta de inscrição é frequentemente referida como o proprietário da conta.
 
 Para obter mais informações sobre como configurar as definições **Ver custos de DA** e **Ver custos de AO**, veja [Permitir o acesso aos custos](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
+
+
+
+
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

@@ -1,23 +1,30 @@
 ---
-title: 'Guia de Início Rápido: API Go – criar uma base de dados de conhecimento – Criador de FAQ'
+title: 'Início Rápido: criar base de dados de conhecimento - REST, Go - Criador de FAQ'
 titlesuffix: Azure Cognitive Services
-description: Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+description: Este início rápido baseado em REST descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: d7181b95780f726e15b1162188909b579b056fd9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e3a498e983985a2610ee4e52a497ad6c7f7b87a8
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384807"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647379"
 ---
-# <a name="create-a-new-knowledge-base-in-go"></a>Criar uma nova base de dados de conhecimento em Go
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Go
+
+Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
+
+Este início rápido chama as APIs do Criador de FAQ:
+* [Criar KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Obter Detalhes da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

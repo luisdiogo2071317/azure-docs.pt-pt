@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857963"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955480"
 ---
 # <a name="secure-your-azure-sql-database"></a>Proteger a sua Base de Dados SQL do Azure
 
@@ -59,7 +59,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 As bases de dados SQL estão protegidas por uma firewall no Azure. Por predefinição, todas as ligações ao servidor e às bases de dados contidas no servidor são rejeitadas, exceto quando se trata de ligações de outros serviços do Azure. Para obter mais informações, veja [Regras de firewall ao nível do servidor da Base de Dados SQL e ao nível da base de dados](sql-database-firewall-configure.md).
 
-A configuração mais segura consiste em definir a opção "Permitir acesso a serviços do Azure" como DESATIVADA. Se precisar de ligar à base de dados a partir de uma VM do Azure ou de um serviço cloud, deve criar um [IP Reservado](../virtual-network/virtual-networks-reserved-public-ip.md) e permitir o acesso do endereço IP reservado apenas através da firewall. 
+A configuração mais segura consiste em definir a opção "Permitir acesso a serviços do Azure" como DESATIVADA. Se precisar de ligar à base de dados a partir de uma VM do Azure ou de um serviço cloud, deve criar um [IP Reservado (implementação clássica)](../virtual-network/virtual-networks-reserved-public-ip.md) e permitir o acesso do endereço IP reservado apenas através da firewall. Se estiver a utilizar o modelo de implementação do [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm), é atribuído um endereço IP público dedicado ao recurso, e deve permitir este endereço IP através da firewall.
 
 Siga estes passos para criar uma [regra de firewall ao nível do servidor da Base de Dados SQL](sql-database-firewall-configure.md) para o seu servidor de modo a permitir ligações a partir de um endereço IP específico. 
 

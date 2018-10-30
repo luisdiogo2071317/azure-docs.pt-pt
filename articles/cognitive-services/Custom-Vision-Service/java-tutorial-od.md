@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um projeto de deteção de objetos – API de Visão Personalizada, Java'
+title: 'Tutorial: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Java - Serviço de Visão Personalizada'
 titlesuffix: Azure Cognitive Services
 description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com um ponto final predefinido.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365036"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957340"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-java"></a>Tutorial: Criar um projeto de deteção de objetos com Java
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Tutorial: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Java
 
 Explore uma aplicação Java básica que utilize a API de Imagem Digitalizada para criar um projeto de deteção de objetos. Depois de criado, pode adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem através de programação. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
 

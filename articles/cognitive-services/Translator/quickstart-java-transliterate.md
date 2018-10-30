@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Converter script de texto – Tradução de Texto, Java'
+title: 'Início Rápido: converter script de texto – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá converter texto de um idioma de um script noutro através da API de Texto do Microsoft Translator com o Java.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 47d0462dcf7e54a3c2b2e2ea8b713b02af2baf37
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: erhopf
+ms.openlocfilehash: 53482c725b2cb20ec8c53354ee9683bb0c4c61d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297436"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645222"
 ---
-# <a name="quickstart-transliterate-text-with-java"></a>Guia de Início Rápido: Transliterar texto com Java
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-java"></a>Início Rápido: transliterar texto com a API REST de Texto do Microsoft Translator (Java)
 
 Neste guia de início rápido, irá converter texto de um idioma de um script noutro através da API de Texto do Microsoft Translator.
 
@@ -25,13 +25,13 @@ Neste guia de início rápido, irá converter texto de um idioma de um script no
 
 Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Pode utilizar um IDE Java, se tiver um favorito, mas um editor de texto também funciona.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Pedido de transliteração
 
-Os passos seguintes convertem texto num idioma de um script para outro script com o método [Transliteração](./reference/v3-0-transliterate.md).
+Os passos seguintes convertem texto num idioma de um script para outro com o método de [Transliteração](./reference/v3-0-transliterate.md).
 
-1. Crie um novo projeto do Java no seu editor de código favorito.
+1. Crie um novo projeto Java no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.

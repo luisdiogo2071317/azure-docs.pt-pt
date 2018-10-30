@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831216"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955157"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -50,10 +50,26 @@ As Redes Aceleradas do Azure melhoram o desempenho da rede ao permitirem a virtu
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Criar um conjunto de dimensionamento que faça referência a um balanceador de carga do Azure existente
 Quando um conjunto de dimensionamento é criado no portal do Azure, é criado um novo balanceador de carga para a maioria das opções de configuração. Se criar um conjunto de dimensionamento que tenha de referenciar um balanceador de carta existente, poderá utilizar a CLI para o fazer. O script de exemplo seguinte cria um balanceador de carta e, depois, um conjunto de dimensionamento, que o referencia:
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Criar um conjunto de dimensionamento que referencie um Gateway de Aplicação
@@ -91,7 +107,7 @@ Para configurar servidores DNS personalizados num modelo do Azure, adicione uma 
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Criar um conjunto de dimensionamento com nomes de domínio de máquinas virtuais configuráveis
-Para criar um conjunto de dimensionamento com um nome DNS personalizado para as máquinas virtuais através da CLI, adicione o argumento **--vm-domain-name** ao comando **vmss create**, seguido por uma cadeia de carateres que representa o nome de domínio.
+Para criar um conjunto de dimensionamento com um nome DNS personalizado para as máquinas virtuais através da CLI, adicione o argumento **--vm-domain-name** ao comando **virtual machine scale set create**, seguido por uma cadeia de carateres que representa o nome de domínio.
 
 Para definir o nome de domínio num modelo do Azure, adicione uma propriedade **dnsSettings** à secção **networkInterfaceConfigurations** do conjunto de dimensionamento. Por exemplo:
 
@@ -155,23 +171,35 @@ Para listar os endereços IP públicos atribuídos às máquinas virtuais do con
 
 Para utilizar o PowerShell para listar os endereços IP públicos do conjunto de dimensionamento, utilize o comando _Get-AzureRmPublicIpAddress_. Por exemplo:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Também pode consultar os endereços IP públicos ao referenciar diretamente o ID de recurso da configuração desses endereços. Por exemplo:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Pode consultar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento com o [Azure Resource Explorer](https://resources.azure.com) ou a API REST do Azure com a versão **2017-03-30** ou superior.
+Também pode apresentar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento ao consultar o [Azure Resource Explorer](https://resources.azure.com) ou a API REST do Azure com a versão **2017-03-30** ou superior.
 
-Para utilizar o Resource Explorer para ver os endereços IP públicos de um conjunto de dimensionamento, veja a secção **publicipaddresses** desse conjunto. Por exemplo: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+Para consultar o [Azure Resource Explorer](https://resources.azure.com):
 
-```
+1. Abra o [Azure Resource Explorer](https://resources.azure.com) num browser da Web.
+1. Expanda *subscrições* no lado esquerdo ao clicar em *+* junto ao mesmo. Se tiver apenas um item sob *subscrições*, pode já estar expandido.
+1. Expanda a sua subscrição.
+1. Expanda o seu grupo de recursos.
+1. Expanda *fornecedores*.
+1. Expanda *Microsoft.Compute*.
+1. Expanda *virtualMachineScaleSets*.
+1. Expanda o seu conjunto de dimensionamento.
+1. Clique em *publicipaddresses*.
+
+Para consultar a API REST do Azure:
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-Exemplo de saída:
+Exemplo de saída do [Azure Resource Explorer](https://resources.azure.com) e a API REST do Azure:
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ O exemplo seguinte é um perfil de rede de um conjunto de dimensionamento que mo
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>NSG e ASGs por conjunto de dimensionamento
+Os [Grupos de Segurança de Rede](../virtual-network/security-overview.md) permitem-lhe filtrar o tráfego de e para os recursos do Azure numa rede virtual do Azure com regras de segurança. Os [Grupos de Segurança de Aplicação](../virtual-network/security-overview.md#application-security-groups) permitem-lhe lidar com a segurança de rede de recursos do Azure e agrupá-los como uma extensão da estrutura da sua aplicação.
+
 Podem ser aplicados Grupos de Segurança de Rede diretamente a um conjunto de dimensionamento. Para tal, adicione uma referência à secção de configuração da interface de rede das propriedades da máquina virtual do conjunto.
 
 Os Grupos de Segurança de Aplicação podem ser diretamente especificados para um conjunto de dimensionamento. Para tal, adicione uma referência à secção de configuração do IP da interface de rede das propriedades da máquina virtual do conjunto de dimensionamento.
 
 Por exemplo: 
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ Por exemplo:
     ]
 }
 ```
+
+Para verificar se o seu Grupo de Segurança de Rede está associado ao seu conjunto de dimensionamento, utilize o comando `az vmss show`. O exemplo abaixo utiliza `--query` para filtrar os resultados e mostrar apenas a secção relevante da saída.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+Para verificar se o seu Grupo de Segurança da Aplicação está associado ao seu conjunto de dimensionamento, utilize o comando `az vmss show`. O exemplo abaixo utiliza `--query` para filtrar os resultados e mostrar apenas a secção relevante da saída.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre redes virtuais do Azure, veja [Descrição geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

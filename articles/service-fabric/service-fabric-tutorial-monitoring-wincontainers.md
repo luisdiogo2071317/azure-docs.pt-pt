@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 24b4cbe0eb13a41ccd6ae98db90d4bf0cf7d22a7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dfce4adbe986c018ab14e843ee3e8a256a10993f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311223"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407049"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutorial: Monitorizar contentores do Windows no Service Fabric com o Log Analytics
 
@@ -218,7 +218,7 @@ Clicar em qualquer um destes painéis leva-o para a consulta do Log Analytics qu
 
 Outra vantagem da utilização do agente do Log Analytics é a capacidade de alterar os contadores de desempenho que quer recolher através da experiência de IU do Log Analytics, em vez de ter de configurar o agente de diagnósticos do Azure e de fazer uma atualização baseada num modelo do Resource Manager de cada vez. Para tal, clique em **Área de Trabalho do OMS** na página de destino da solução de Monitorização de Contentores (ou do Service Fabric).
 
-Desta forma, é encaminhado para a Área de Trabalho do Log Analytics, onde pode ver as suas soluções, criar dashboards personalizados e configurar o agente do Log Analytics. 
+Desta forma, é encaminhado para a área de trabalho do Log Analytics, onde pode ver as suas soluções, criar dashboards personalizados e configurar o agente do Log Analytics. 
 * Clique em **Definições Avançadas** para abrir o menu Definições Avançadas.
 * Clique em **Connected Sources** (Origens Ligadas)  > **Windows Servers** (Servidores Windows) *5 Windows Computers Connected* (5 Computadores Windows Ligados).
 * Clique em **Data** (Dados) > **Windows Performance Counters** (Contadores de Desempenho do Windows) para procurar e adicionar contadores de desempenho novos. Aqui, verá uma lista de recomendações do Log Analytics relativamente aos contadores de desempenho que pode recolher, bem como a opção para procurar outros contadores. Verifique se os contadores **Processador(_Total)\% de Tempo do Processador** e **Memória(*)\MBytes Disponíveis** estão a ser recolhidos.

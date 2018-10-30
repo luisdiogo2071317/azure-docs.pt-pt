@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Traduzir texto – Tradução de Texto, Go'
+title: 'Início Rápido: traduzir texto, Go – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá traduzir texto de um idioma noutro através da API de Texto do Microsoft Translator com Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: df8b938c9541a4f57a337065af0ab02fe6815c6d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 53ca6c830d4e4fb80a47d498e4b033cee0f6f7a7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126705"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648314"
 ---
-# <a name="quickstart-translate-text-with-go"></a>Guia de introdução: traduzir texto com o Go
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-go"></a>Início Rápido: traduzir texto com a API REST de Texto do Microsoft Translator (Go)
 
 Neste guia de introdução, irá traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator.
 
@@ -25,11 +25,11 @@ Neste guia de introdução, irá traduzir texto de um idioma para outro através
 
 Terá de instalar a [distribuição do Go](https://golang.org/doc/install) para executar este código. O código de exemplo utiliza apenas bibliotecas **principais**, pelo que não há dependências externas.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="translate-request"></a>Pedido de tradução
 
-O código seguinte traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
+O seguinte código traduz o texto de origem de um idioma para o outro através do método [Traduzir](./reference/v3-0-translate.md).
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 2. Adicione o código indicado abaixo.

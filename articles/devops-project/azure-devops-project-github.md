@@ -17,23 +17,23 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4e0e28ff9ea14e42e1df7ce35bb90e8720a0d0b6
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 02b6823a46c94edb0ba28c7a2a8b9ae0efc44ae8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407302"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406097"
 ---
-# <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Criar um pipeline de CI/CD para o seu código existente com o Projeto de DevOps do Azure
+# <a name="tutorial--create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Tutorial: criar um pipeline de CI/CD para o seu código existente com o Projeto de DevOps do Azure
 
 O Projeto de DevOps do Azure apresenta uma experiência simplificada, onde pode utilizar o seu código existente e o repositório Git, ou escolher um dos exemplos de aplicação, para criar um pipeline de integração contínua (CI) e entrega contínua (CD) para o Azure.
 
-Vai:
+Irá:
 
 > [!div class="checklist"]
 > * Criar um Projeto de DevOps do Azure
 > * Configurar o acesso ao seu repositório GitHub e escolher uma arquitetura
-> * Configurar os Serviços DevOps do Azure e uma subscrição do Azure 
+> * Configurar os Serviços de DevOps do Azure e uma subscrição do Azure 
 > * Consolidar as alterações ao GitHub e implementar automaticamente no Azure
 > * Examinar o pipeline de CI/CD dos Serviços DevOps do Azure
 > * Configurar a monitorização do Azure Application Insights
@@ -45,11 +45,11 @@ Vai:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-O Projeto de DevOps do Azure cria um pipeline de CI/CD nos Serviços DevOps do Azure.  Pode criar uma organização **nova dos Serviços DevOps do Azure** ou utilizar uma **organização existente**.  O projeto de DevOps do Azure também cria **recursos do Azure** na **subscrição do Azure** que escolher.
+O Projeto de DevOps do Azure cria um pipeline de CI/CD nos Serviços DevOps do Azure.  Pode criar uma organização **nova dos Serviços de DevOps do Azure** ou utilizar uma **organização existente**.  O projeto de DevOps do Azure também cria **recursos do Azure** na **subscrição do Azure** que escolher.
 
 1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
 
-1. Escolha o ícone **+ Novo** na barra de navegação esquerda e, em seguida, procure **Projeto de DevOps**.  Escolha **Criar**.
+1. Escolha o ícone **+ Novo** na barra de navegação esquerda e, em seguida, procure **DevOps Project**.  Escolha **Criar**.
 
     ![A Iniciar a Entrega Contínua](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -65,7 +65,7 @@ O Projeto de DevOps do Azure cria um pipeline de CI/CD nos Serviços DevOps do A
 
 1. A arquitetura de aplicações que escolheu nos passos anteriores dita o tipo de destino da implementação do serviço do Azure disponível aqui.  Selecione o **serviço de destino** que escolher.  Quando tiver terminado, escolha **Seguinte**.
 
-## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configurar os Serviços DevOps do Azure e uma subscrição do Azure 
+## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configurar os Serviços de DevOps do Azure e uma subscrição do Azure 
 
 1. Crie uma organização **nova** dos Serviços DevOps do Azure ou utilize uma organização **existente**.  Escolha um **nome** para o seu Projeto de DevOps do Azure.  Selecione a sua **subscrição do Azure**, a **localização** e escolha um **nome** para a sua aplicação.  Quando tiver terminado, escolha **Concluído**.
 
@@ -101,7 +101,7 @@ O Projeto de DevOps do Azure configurou automaticamente um pipeline de CI/CD dos
 
 1. No nome do pipeline de compilação, selecione **Histórico**.  Verá um registo de auditoria das alterações recentes da compilação.  Os Serviços DevOps do Azure mantêm um registo de todas as alterações efetuadas no pipeline de compilação e permitem-lhe comparar versões.
 
-1. Selecione **Acionadores**.  O Projeto de DevOps do Azure criou automaticamente um acionador de CI e cada consolidação no repositório inicia uma nova compilação.  Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
+1. Selecione **Acionadores**.  O Azure DevOps Project criou automaticamente um acionador de CI e cada consolidação no repositório inicia uma nova compilação.  Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
 
 1. Selecione **Retenção**.  Com base no seu cenário, pode especificar políticas para manter ou remover um determinado número de compilações.
 
@@ -125,7 +125,7 @@ O Projeto de DevOps do Azure configurou automaticamente um pipeline de CI/CD dos
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Configurar a monitorização do Azure Application Insights
 
-Com o Azure Application Insights, pode monitorizar facilmente o desempenho e a utilização da aplicação.  O Projeto de DevOps do Azure configurou automaticamente um recurso do Application Insights para a sua aplicação.  Pode configurar vários alertas e capacidades de monitorização, conforme necessário.
+Com o Azure Application Insights, pode monitorizar facilmente o desempenho e a utilização da aplicação.  O Azure DevOps Project configurou automaticamente um recurso do Application Insights para a sua aplicação.  Pode configurar vários alertas e capacidades de monitorização, conforme necessário.
 
 1. Navegue para o dashboard do **Projeto de DevOps do Azure** no portal do Azure.  No canto inferior direito do dashboard, escolha a ligação ao **Application Insights** para a sua aplicação.
 
@@ -162,7 +162,7 @@ Quando configurou o processo de CI/CD neste tutorial, um pipeline de compilaçã
 > [!div class="checklist"]
 > * Criar um Projeto de DevOps do Azure
 > * Configurar o acesso ao seu repositório GitHub e escolher uma arquitetura
-> * Configurar os Serviços DevOps do Azure e uma subscrição do Azure 
+> * Configurar os Serviços de DevOps do Azure e uma subscrição do Azure 
 > * Consolidar as alterações ao GitHub e implementar automaticamente no Azure
 > * Examinar o pipeline de CI/CD dos Serviços DevOps do Azure
 > * Configurar a monitorização do Azure Application Insights

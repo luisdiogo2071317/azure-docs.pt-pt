@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: Detetar rostos numa imagem – SDK, C#'
+title: 'Início rápido: detetar rostos numa imagem com o SDK .NET com C#'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá detetar rostos numa imagem com a biblioteca de cliente em C# para Windows do Face nos Serviços Cognitivos.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344987"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954968"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Guia de Início Rápido: Detetar rostos numa imagem com C&#35; - Face
+# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Início rápido: detetar rostos numa imagem com o SDK .NET com C#
 
 Neste guia de início rápido, irá detetar rostos humanos numa imagem com a biblioteca de cliente para Windows do Face.
 
@@ -30,7 +30,7 @@ Neste guia de início rápido, irá detetar rostos humanos numa imagem com a bib
 ## <a name="detectwithurlasync-method"></a>Método DetectWithUrlAsync
 
 > [!TIP]
-> Obtenha o código mais recente como uma solução do Visual Studio a partir do [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
+> Obter o código mais recente como uma solução do Visual Studio a partir do [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 Os métodos `DetectWithUrlAsync` e `DetectWithStreamAsync` encapsulam num wrapper a [API Rosto – Detetar](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para imagens remotas e locais, respetivamente. Pode utilizar estes métodos para detetar rostos numa imagem e devolver atributos de rosto, incluindo:
 

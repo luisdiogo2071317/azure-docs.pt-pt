@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: criar um projeto de deteção de objetos – API de Visão Personalizada, Python'
+title: 'Tutorial: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Python - Serviço de Visão Personalizada'
 titlesuffix: Azure Cognitive Services
-description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com o ponto final predefinido.
+description: Crie um projeto, adicione etiquetas, carregue imagens, prepare o seu projeto e faça uma predição com um ponto final predefinido.
 services: cognitive-services
 author: areddish
 manager: cgronlun
@@ -10,20 +10,20 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363705"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958538"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutorial: criar um projeto de deteção de objetos com Python
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Tutorial: criar um projeto de deteção de objeto com o SDK de Visão Personalizada para Python
 
-Explore um script Python básico que utilize a API de Imagem Digitalizada para criar um projeto de deteção de objetos. Depois de criado, poderá adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
+Explore um script Python básico que utilize a API de Imagem Digitalizada para criar um projeto de deteção de objetos. Depois de criado, poderá adicionar regiões etiquetadas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Utilize este exemplo de open source como um modelo para criar a sua própria aplicação com a API de Visão Personalizada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este tutorial, tem de fazer o seguinte:
+Para utilizar o tutorial, tem de fazer o seguinte:
 
 - Instale o Python 2.7+ ou Python 3.5+.
 - Instale o pip.
@@ -43,7 +43,7 @@ Pode transferir as imagens com os [Exemplos de Python](https://github.com/Azure-
 
 ## <a name="step-1-get-the-training-and-prediction-keys"></a>Passo 1: obter as chaves de formação e de predição
 
-Para obter as chaves utilizadas neste exemplo, visite o [site da Visão Personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na secção __Accounts__ (Contas), copie os valores dos campos __Training Key__ (Chave de Formação) e __Prediction Key__ (Chave de Predição).
+Para obter as chaves utilizadas neste exemplo, visite o [site da Visão Personalizada](https://customvision.ai) e selecione o __ícone de engrenagem__ no canto superior direito. Na secção __Accounts__ (Contas), copie os valores dos campos __Training Key__ (Chave de Preparação) e __Prediction Key__ (Chave de Predição).
 
 ![Imagem da IU de chaves](./media/python-tutorial/training-prediction-keys.png)
 

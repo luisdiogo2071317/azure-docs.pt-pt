@@ -1,31 +1,31 @@
 ---
-title: 'Guia de Início Rápido: Identificar o idioma do texto – Tradução de Texto, Ruby'
+title: 'Início Rápido: identificar o idioma do texto, Ruby – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: e2b138b5c28047487da2ca7a72169a10a125eaf5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: ee6792358e6d5852c259b8045f77df24d14a6397
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121708"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644872"
 ---
-# <a name="quickstart-identify-language-from-text-with-ruby"></a>Guia de Início Rápido: Identificar o idioma do texto com Ruby
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-ruby"></a>Início Rápido: identificar o idioma do texto com a API de Texto do Microsoft Translator (Ruby)
 
-Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
+Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Irá precisar do [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou posterior para executar este código.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="detect-request"></a>Pedido de deteção
 
@@ -107,7 +107,7 @@ puts json
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Ruby no GitHub](https://aka.ms/TranslatorGitHub?type=&language=ruby)

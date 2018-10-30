@@ -1,28 +1,28 @@
 ---
 title: 'Início Rápido: criar base de dados de conhecimento - REST, Node.js - Criador de FAQ'
-description: Este guia de introdução descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no seu Dashboard do Azure, da sua conta de API dos Serviços Cognitivos.
+description: Este início rápido baseado em REST descreve a criação programática de uma base de dados de conhecimento do Criador de FAQ de exemplo, que será apresentada no Dashboard do Azure da sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: f0375affa547f657ae36de71901298047359cae2
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fdba785e33c16c397e2ffaeb4462ea2066a99126
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884921"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647549"
 ---
-# <a name="quickstart-create-a-qna-maker-knowledge-base-in-nodejs"></a>Início Rápido: criar uma base de dados de conhecimento do Criador de FAQ em Node.js
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o Node.js
 
 Este início rápido descreve a criação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
 
 Este início rápido chama as APIs do Criador de FAQ:
 * [Criar KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [Obter Detalhes da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Obter Detalhes da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +54,7 @@ Depois das constantes, adicione a seguinte definição de modelo de KB. Este mod
 
 ## <a name="add-supporting-functions"></a>Adicionar funções de suporte
 
-Em seguida, adicione as seguintes funções de suporte.
+Em seguida, adicione as funções de suporte seguintes.
 
 1. Adicione a seguinte função para imprimir JSON num formato legível:
 
@@ -103,13 +103,13 @@ Repita a chamada até ter êxito ou falhar:
 
 ## <a name="add-create-kb-function"></a>Adicionar função create-kb
 
-A função seguinte é a função principal, que cria a KB e repete as verificações de estado. Uma vez que a criação da KB pode demorar algum tempo, terá de repetir as chamadas para verificar o estado até que o estado seja efetuado com êxito ou falhe.
+A função seguinte é a função principal, que cria a KB e repete as verificações de estado. Uma vez que a criação da KB pode demorar algum tempo, terá de repetir as chamadas para verificar o estado até que o estado seja com êxito ou falhe.
 
 [!code-nodejs[Add create-kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=137-167 "Add create-kb function")]
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Introduza o seguinte comando numa linha de comandos para executar o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da consola.
+Introduza o comando seguinte numa linha de comandos para executar o programa. Enviará o pedido à API do Criador de FAQ para criar a KB e, em seguida, irá consultar para obter os resultados a cada 30 segundos. Cada resposta é impressa na janela da consola.
 
 ```bash
 node create-new-knowledge-base.js

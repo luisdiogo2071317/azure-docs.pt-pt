@@ -1,23 +1,23 @@
 ---
-title: 'Guia de Início Rápido: Obter o comprimento de frases – Tradução de Texto, Java'
+title: 'Início Rápido: obter o comprimento de frases, Java – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, pode encontrar o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Java nos Serviços Cognitivos.
+description: Neste início rápido, pode encontrar o comprimento de frases no texto através da API de Texto do Microsoft Translator com o Java nos Serviços Cognitivos.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: d0459b04bbd0dbbda3dab80623a39742a6f843b2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 3ea4c3a6463b831fe960bf6aec9e4c1151f8424d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122627"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644883"
 ---
-# <a name="quickstart-get-sentence-lengths-with-java"></a>Guia de Início Rápido: Obter o comprimento de frases com o Java
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Início Rápido: obter os comprimentos de frases com a API de Texto do Microsoft Translator (Java)
 
 Neste guia de introdução, encontrará o comprimento de frases no texto através da API de Texto do Microsoft Translator.
 
@@ -25,13 +25,13 @@ Neste guia de introdução, encontrará o comprimento de frases no texto atravé
 
 Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Pode utilizar um IDE Java, se tiver um favorito, mas um editor de texto também funciona.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como iniciar sessão para a API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>Pedido de BreakSentence
 
 O seguinte código separa o texto de origem em frases através do método [BreakSentence](./reference/v3-0-break-sentence.md).
 
-1. Crie um novo projeto do Java no seu editor de código favorito.
+1. Crie um novo projeto Java no seu editor de código favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 4. Execute o programa.
@@ -162,7 +162,7 @@ public class BreakSentences {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste guia de início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
+Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Java no GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+> [Explorar exemplos de Java no GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)

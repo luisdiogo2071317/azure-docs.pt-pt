@@ -1,20 +1,21 @@
 ---
-title: 'Guia de Início Rápido: reconhecer voz em C# no .NET Framework no Windows com o SDK de Voz dos Serviços Cognitivos'
-titleSuffix: Microsoft Cognitive Services
-description: Saiba como reconhecer voz em C# no .NET Framework no Windows com o SDK de Voz dos Serviços Cognitivos
+title: 'Início Rápido: reconhecer voz em C# no .NET Framework no Windows com o SDK de Serviço de Voz'
+titleSuffix: Azure Cognitive Services
+description: Aprenda a reconhecer voz em C# no .NET Framework no Windows com o SDK de Serviço de Voz
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 32b484451c4ee2264c25cca92b1d03d91b955a29
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 06d4a41a4a67d077f8d79eee68938dff65adf0e8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054001"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468522"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-by-using-the-speech-sdk"></a>Guia de Início Rápido: reconhecer voz em C# no .NET Framework no Windows com o SDK de Voz
 
@@ -46,7 +47,7 @@ Precisa de uma chave de subscrição do serviço de Voz para concluir este Guia 
 
 1. Compile a aplicação. Na barra de menus, selecione **Compilar** > **Compilar Solução**. Agora o código deverá ser compilado sem erros.
 
-    ![Captura de ecrã a mostrar a aplicação Visual Studio, com a opção Compilar Solução realçada](media/sdk/qs-csharp-dotnet-windows-08-build.png "Compilação bem-sucedida")
+    ![Captura de ecrã da aplicação Visual Studio, com a opção Compilar Solução realçada](media/sdk/qs-csharp-dotnet-windows-08-build.png "Compilação bem-sucedida")
 
 1. Inicie a aplicação. Na barra de menus, selecione **Depurar** > **Iniciar Depuração** ou prima **F5**.
 

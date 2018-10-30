@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Detetar e enquadrar rostos numa imagem – API Face, C#'
+title: 'Tutorial: Detetar e enquadrar rostos numa imagem através do SDK .NET com o C#'
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, irá criar uma aplicação Windows que utiliza a API Face para detetar e enquadrar rostos numa imagem.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: pafarley
-ms.openlocfilehash: ba850c1d4f9d8018f333662eead56f8e91b3fbd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df5e46270275ca08a8499607fbad4c1161382fab
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340958"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956499"
 ---
-# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: criar uma aplicação WPF para detetar e enquadrar rostos numa imagem
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image-using-the-net-sdk"></a>Tutorial: Criar uma aplicação do WPF para detetar e enquadrar rostos numa imagem através do SDK .NET
 
 Neste tutorial, vai criar uma aplicação WPF (Windows Presentation Framework) que utiliza o serviço Face através da respetiva biblioteca de cliente do .NET. A aplicação deteta os rostos numa imagem, desenha uma moldura em torno de cada rosto e apresenta uma descrição do rosto na barra de estado. O código de exemplo completo está disponível no GitHub em [Detetar e enquadrar os rostos numa imagem do Windows](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample).
 

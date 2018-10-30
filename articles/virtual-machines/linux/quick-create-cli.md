@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: beb70b03198589808c20ab17498902367a1c6a3d
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 3c2212ba0216949d3ca7dbcedb5e086bc3e43b97
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067501"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406641"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: criar uma máquina virtual do Linux com a CLI do Azure
 
-A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido mostra como utilizar a CLI do Azure para implementar uma máquina virtual (VM) do Linux no Azure. Neste tutorial, vamos instalar o Ubuntu 160.04 LTS. Para mostrar a VM em ação, irá ligar à mesma através de SSH e instalar o servidor Web NGINX.
+A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este início rápido mostra como utilizar a CLI do Azure para implementar uma máquina virtual (VM) do Linux no Azure. Neste tutorial, vamos instalar o Ubuntu 16.04 LTS. Para mostrar a VM em ação, irá ligar à mesma através de SSH e instalar o servidor Web NGINX.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
-Para abrir o Cloud Shell, basta selecionar **Experimente** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado, acedendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 Se preferir instalar e utilizar a CLI localmente, este início rápido requer a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 

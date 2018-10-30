@@ -1,31 +1,31 @@
 ---
-title: 'Guia de Início Rápido: Identificar o idioma do texto – Tradução de Texto, Go'
+title: 'Início Rápido: identificar o idioma do texto, Go – API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com o Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0275b408e71ec967f6453c94566b4799b3dd4396
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129714"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647209"
 ---
-# <a name="quickstart-identify-language-from-text-with-go"></a>Guia de Início Rápido: Identificar o idioma do texto com Go
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-go"></a>Início Rápido: identificar o idioma do texto com a API de Texto do Microsoft Translator (Go)
 
-Neste guia de início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
+Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Terá de instalar a [distribuição do Go](https://golang.org/doc/install) para executar este código. O código de exemplo utiliza apenas bibliotecas **principais**, pelo que não há dependências externas.
 
-Para utilizar a API de Texto do Microsoft Translator, também precisa de uma chave de subscrição, veja [Como inscrever-se na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
 ## <a name="detect-request"></a>Pedido de deteção
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167261"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987312"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerir atualizações do Windows com a Automatização do Azure
 
@@ -194,6 +194,9 @@ Quando tiver terminado de configurar a agenda, selecione **Criar**.
 ![Painel Definições de Agendamento de Atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 Volta ao dashboard de estado. Selecione **Implementações de atualização agendadas** para mostrar a agenda de implementação que criou.
+
+> [!NOTE]
+> A Gestão de Atualizações suporta a implementação de atualizações da primeira parte e a transferência prévia de patches. Isto exige alterações nos sistemas que estão a ser corrigidos, veja [suporte da primeira parte e da pré-transferência](automation-update-management.md#firstparty-predownload) para aprender a configurar estas definições nos seus sistemas.
 
 ## <a name="view-results-of-an-update-deployment"></a>Ver resultados de uma implementação de atualização
 

@@ -16,12 +16,12 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 901765174c2e68a00624c48c7ea85e060265ca5e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 84bf6bb3ed4d639851b110c6db7b8b5dc8c3f87f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042183"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404258"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Linux num ambiente híbrido
 O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente do seu computador Linux físico ou virtual no seu datacenter ou noutro ambiente na cloud para um único repositório, para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados do seu computador com Linux em alguns passos simples.  Para as VMs do Linux do Azure, veja o tópico seguinte [Recolher dados sobre Máquinas Virtuais do Azure](log-analytics-quick-collect-azurevm.md).  
@@ -37,7 +37,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Clique em **Criar** e, em seguida, selecione as opções para os seguintes itens:
 
-  * Indique um nome para a nova **Área de Trabalho do OMS**, como *DefaultLAWorkspace*. 
+  * Indique um nome para a nova **Área de trabalho do Log Analytics**, como *DefaultLAWorkspace*. As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.   
   * Selecione uma **Subscrição** à qual ligar ao escolher na lista pendente se a predefinição selecionada não é adequada.
   * Para **Grupo de Recursos**, selecione um grupo de recursos existente que contenha uma ou mais máquinas virtuais do Azure.  
   * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).  
@@ -45,12 +45,14 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 
         ![Create Log Analytics resource blade](./media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 
-3. Depois de fornecer as informações necessárias no painel **Área de Trabalho do OMS**, clique em **OK**.  
+3. Depois de dar as informações necessárias no painel **área de trabalho do Log Analytics**, clique em **OK**.  
 
 Enquanto as informações são confirmadas e a área de trabalho criada, pode acompanhar o progresso em **Notificações**, no menu. 
 
 ## <a name="obtain-workspace-id-and-key"></a>Obter o ID e a chave da área de trabalho
-Antes de instalar o agente do OMS para Linux, precisa do ID e da chave da área de trabalho do Log Analytics.  Esta informação é necessária para o script de wrapper do agente configurar corretamente o agente e assegurar que consegue comunicar com êxito com o Log Analytics.  
+Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave da área de trabalho do Log Analytics.  Esta informação é necessária para o script de wrapper do agente configurar corretamente o agente e assegurar que consegue comunicar com êxito com o Log Analytics.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
 1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
 2. Na lista de áreas de trabalho do Log Analytics, selecione *DefaultLAWorkspace*, criada anteriormente.
@@ -62,7 +64,7 @@ Antes de instalar o agente do OMS para Linux, precisa do ID e da chave da área 
 Os passos seguintes configuram o agente do Log Analytics no Azure e na cloud do Azure Government.  
 
 >[!NOTE]
->O agente do OMS para Linux não pode ser configurado para reportar a mais do que uma área de trabalho do Log Analytics.  
+>O agente do Log Analytics para Linux não pode ser configurado para reportar a mais do que uma área de trabalho do Log Analytics.  
 
 Se o seu computador Linux precisar de comunicar através de um servidor Proxy com o Log Analytics, a configuração do proxy pode ser especificada na linha de comandos ao incluir `-p [protocol://][user:password@]proxyhost[:port]`.  A propriedade *proxyhost* aceita um nome de domínio completamente qualificado ou o endereço IP do servidor proxy. 
 

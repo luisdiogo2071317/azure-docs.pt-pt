@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ff80bc2452c9826a5c51c146a957fddc72d2dbc2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920754"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409123"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Ativar a funcionalidade de Captura de Hubs de Eventos no portal do Azure
 
@@ -75,6 +75,7 @@ Pode configurar a Captura em hubs de eventos existentes que se encontram num esp
 
 - Saiba mais sobre a captura dos Hubs de Eventos ao ler a [Descrição geral de Captura de Hubs de Eventos][capture-overview].
 - Também pode configurar uma Captura de Hubs de Eventos através dos modelos do Azure Resource Manager. Para obter mais informações, consulte [Enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md) (Ativar a Captura através de um modelo do Azure Resource Manager).
+- [Saiba como criar uma subscrição do Azure Event Grid com um espaço de nomes de Hubs de Eventos como origem](store-captured-data-data-warehouse.md)
 - [Introdução ao Azure Data Lake Store com o portal do Azure](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

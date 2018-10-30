@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162138"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645836"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar e automatizar tarefas, processos e fluxos de trabalho com o Azure Logic Apps – Visual Studio
 
@@ -148,6 +148,10 @@ Antes de executar a aplicação lógica, implemente a aplicação a partir do Vi
 
    ![Saída do estado de implementação](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   Se os conectores que selecionou precisarem de alguma intervenção sua, pode abrir uma janela do PowerShell no plano de fundo e pedir as palavras-passe ou chaves secretas que são precisas. Após introduzir estas informações, a implementação continua.
+   
+   ![Implementação do powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    Uma vez concluída a implementação, a aplicação lógica fica ativa no portal do Azure e consulta o feed RSS com base na agenda especificada (a cada minuto). 
    Se o feed RSS tiver itens novos, a sua aplicação lógica envia um e-mail para cada item novo. 
    Caso contrário, a aplicação lógica aguarda até o intervalo seguinte antes de realizar uma nova consulta. 

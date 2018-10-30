@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056442"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647277"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e Atribuir um Azure Blueprint no portal
 
@@ -42,7 +42,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Criar esquema](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Em **Nome do Esquema**, escreva, por exemplo, “MyBlueprint” (letras e números, até 48 carateres, mas sem espaços nem carateres especiais), mas deixe a **Descrição do Esquema** em branco por agora.  Na caixa **Definir Localização**, clique nas reticências à direita, selecione o [grupo de gestão](../management-groups/overview.md) onde quer guardar o esquema e clique em **Selecionar**.
+1. Em **Nome do Esquema**, escreva, por exemplo, “MyBlueprint” (letras e números, até 48 carateres, mas sem espaços nem carateres especiais), mas deixe a **Descrição do Esquema** em branco por agora.  Na caixa **Definição da Localização**, clique nas reticências à direita, selecione o [grupo de gestão](../management-groups/overview.md) onde quer guardar o esquema e clique em **Selecionar**.
 
    > [!NOTE]
    > As definições do esquema só podem ser guardadas em grupos de gestão. Para criar o seu primeiro grupo de gestão, siga [estes passos](../management-groups/create.md).
@@ -111,7 +111,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Artefacto – Modelo do Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Repare que cada artefacto tem “_x_ de _y_ parâmetros preenchidos” na coluna _Parâmetros_. Os **parâmetros dinâmicos** serão definidos durante cada atribuição do esquema e o único **parâmetro estático** na função de atribuição já foi configurado.
+1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Repare que cada artefacto tem “_x_ de _y_ parâmetros preenchidos” na coluna _Parâmetros_. Os **parâmetros dinâmicos** serão definidos durante cada atribuição do esquema.
 
    ![Esquema concluído](./media/create-blueprint-portal/completed-blueprint.png)
 

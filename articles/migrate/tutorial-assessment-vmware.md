@@ -4,15 +4,15 @@ description: Descreve como detetar e avaliar VMs VMware no local para migração
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 10/24/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161884"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025893"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar VMs VMware no local para migração para o Azure
 
@@ -69,12 +69,18 @@ O Azure Migrate cria uma VM no local, conhecida como aplicação recoletora. Est
 1. No projeto do Azure Migrate, clique em **Começar** > **Detetar e Avaliar** > **Detetar Máquinas**.
 2. Em **Detetar máquinas**, há duas opções disponíveis para a aplicação, clique em **Transferir** para transferir a aplicação adequada com base na sua preferência.
 
-    a. **Deteção única:** a aplicação para este modelo comunica com o vCenter Server para recolher os metadados acerca das VMs. Para a recolha de dados de desempenho das VMs, a aplicação utiliza os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Neste modelo, o Azure Migrate recolhe o contador da média (versus o contador de pico) para cada métrica, [saiba mais] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Uma vez que é uma deteção única, as alterações no ambiente no local não são refletidas assim que a deteção esteja concluída. Se quiser que as alterações sejam refletidas, precisará fazer uma redeteção do mesmo ambiente para o mesmo projeto.
+    a. **Deteção única:** a aplicação para este modelo comunica com o vCenter Server para recolher os metadados acerca das VMs. Para a recolha de dados de desempenho das VMs, a aplicação utiliza os dados de desempenho do histórico armazenados no vCenter Server e recolhe o histórico de desempenho do último mês. Neste modelo, o Azure Migrate recolhe o contador da média (versus o contador de pico) para cada métrica, [saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Uma vez que é uma deteção única, as alterações no ambiente no local não são refletidas assim que a deteção esteja concluída. Se quiser que as alterações sejam refletidas, precisará fazer uma redeteção do mesmo ambiente para o mesmo projeto.
 
     b. **Deteção contínua:** a aplicação para este modelo, analisa continuamente o ambiente no local para recolher dados de utilização em tempo real para cada VM. Neste modelo, os contadores de pico são recolhidos para cada métrica (utilização da CPU, utilização da memória, etc.). Este modelo não utiliza as definições de estatísticas do vCenter Server para a recolha de dados de desempenho. Pode parar a criação contínua de perfis em qualquer altura da aplicação.
 
+    Tenha em atenção que a aplicação recolhe apenas dados de desempenho continuamente, não deteta qualquer alteração de configuração no ambiente no local (ou seja, adição de VM, eliminação, adição de disco, etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
+
+    1. Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+
+    2. Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+
     > [!NOTE]
-    > A funcionalidade de deteção contínua está em pré-visualização.
+    > A funcionalidade de deteção contínua está em pré-visualização. Recomendamos que utilize este método, porque este recolhe dados de desempenho granular e resulta num dimensionamento preciso.
 
 3. Em **Copiar as credenciais do projeto**, copie o ID e a chave do projeto. Precisará destes dados quando configurar o recoletor.
 
@@ -91,6 +97,14 @@ Verifique se o ficheiro .OVA é seguro, antes de implementá-lo.
 3. O hash gerado deve corresponder a estas definições.
 
 #### <a name="one-time-discovery"></a>Deteção única
+
+  Para a versão OVA 1.0.9.15
+
+  **Algoritmo** | **Valor de hash**
+  --- | ---
+  MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+  SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+  SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
   Para a versão OVA 1.0.9.14
 
@@ -174,7 +188,7 @@ Importe o ficheiro transferido para o vCenter Server.
     - Em **Âmbito da coleção**, selecione um âmbito para a deteção de VMs. O recoletor só pode detetar VMs dentro do âmbito especificado. O âmbito pode ser definido para uma pasta, datacenter ou cluster específicos. Não deve conter mais de 1500 VMs. [Saiba mais](how-to-scale-assessment.md) acerca da deteção de um ambiente maior.
 
 7. Em **Especificar projeto de migração**, especifique o ID e a chave de projeto do Azure Migrate que copiou do portal. Se não os tiver copiado, abra o portal do Azure a partir da VM do recoletor. Na página **Descrição geral** do projeto, clique em **Detetar Máquinas** e copie os valores.  
-8. Em **Ver o progresso da recolha**, monitorize o estado da deteção. Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
+8. Em **Ver o progresso da recolha**, monitorize o estado da deteção. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) acerca dos dados que são recolhidos pelo recoletor do Azure Migrate.
 
 > [!NOTE]
 > O recoletor só suporta "Inglês (Estados Unidos)" como idioma do sistema operativo e da interface do recoletor.

@@ -6,16 +6,16 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 10/19/2018
 ms.author: rogarana
-ms.openlocfilehash: dfd04aa0c8f314327afaefa67f1c63b1ff605e9b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c675dd17994abaaf6d0eed1934bec8f2220e7435
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387213"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955707"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Início Rápido: carregar, transferir e listar blobs com o SDK V10 de Armazenamento Java (pré-visualização)
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Início Rápido: carregar, transferir e listar blobs com o SDK V10 de Armazenamento Java
 
 Neste início rápido, vai aprender a utilizar o novo SDK de Armazenamento Java para carregar, transferir e listar blobs de blocos num contentor no armazenamento de Blobs do Azure. O novo SDK Java utiliza o modelo de programação reativa com RxJava, que permite operações assíncronas. Saiba mais sobre as [extensões reativas RxJava para a VM de Java](https://github.com/ReactiveX/RxJava). 
 
@@ -116,16 +116,16 @@ Em primeiro lugar, cria as referências para os objetos que são utilizados para
 
 1. Crie uma instância do objeto **StorageURL** que aponte para a conta de armazenamento.
 
-    * O objeto [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) é uma representação da sua conta de armazenamento. Utilize-o para gerar um novo pipeline. 
+    * O objeto [StorageURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-stable) é uma representação da sua conta de armazenamento. Utilize-o para gerar um novo pipeline. 
     * Um pipeline é um conjunto de políticas que é utilizado para manipular pedidos e respostas com mecanismos de autorização, registo e repetição. Para obter mais informações, veja [Pipeline HTTP](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline).  
-    * Ao utilizar o pipeline, cria uma instância do objeto [ServiceURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview).
-    * Ao utilizar o objeto **ServiceURL**, cria uma instância do [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview).
+    * Ao utilizar o pipeline, cria uma instância do objeto [ServiceURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-stable).
+    * Ao utilizar o objeto **ServiceURL**, cria uma instância do [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-stable).
     * O **ContainerURL** é necessário para executar operações nos contentores de blobs.
 
 2. Crie uma instância do objeto **ContainerURL** que represente o contentor ao qual está a aceder. Os contentores organizam os blobs, da mesma forma que as pastas no computador organizam os ficheiros.
 
     * O **ContainerURL** fornece um ponto de acesso ao serviço de contentores. 
-    * Pode criar uma instância do objeto [BlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview) com o [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview).
+    * Pode criar uma instância do objeto [BlobURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-stable) com o [ContainerURL](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-stable).
     * O **BlobURL** é necessário criar blobs.
 
 3. Crie uma instância do objeto **BlobURL** que aponte para o blob específico que lhe interessa. 
@@ -137,7 +137,7 @@ Em primeiro lugar, cria as referências para os objetos que são utilizados para
 
 Nesta secção, vai criar uma instância do **ContainerURL**. Vai criar um novo contentor juntamente com a instância. O contentor no exemplo é designado **quickstart**. 
 
-Este exemplo utiliza [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview), para que consiga criar um contentor novo sempre que o exemplo é executado. Em alternativa, pode criar o contentor com antecedência, para que não tenha de criá-lo no código.
+Este exemplo utiliza [ContainerURL.create](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-stable#com_microsoft_azure_storage_blob__container_u_r_l_create_Metadata_PublicAccessType_Context_), para que consiga criar um contentor novo sempre que o exemplo é executado. Em alternativa, pode criar o contentor com antecedência, para que não tenha de criá-lo no código.
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
@@ -168,9 +168,9 @@ O armazenamento de blobs suporta blobs de blocos, blobs de acréscimo e blobs de
 1. Para carregar um ficheiro para um blob, obtenha uma referência para o blob no contentor de destino. 
 2. Depois de obter a referência do blob, pode carregar um ficheiro para o mesmo, com uma das seguintes APIs:
 
-    * APIs de baixo nível. Os exemplos são [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview), também denominado PutBlob, e [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_), também denominado PutBLock, na instância de **BlockBlobURL**. 
+    * APIs de baixo nível. Os exemplos são [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), também denominado PutBlob, e [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), também denominado PutBLock, na instância de **BlockBlobURL**. 
 
-    * APIs de alto nível fornecidas na [Classe TransferManager](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview). Um exemplo é o método [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview). 
+    * APIs de alto nível fornecidas na [Classe TransferManager](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). Um exemplo é o método [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable). 
 
     Esta operação cria o blob, caso este ainda não exista. Substitui o blob, caso ele já exista.
 
@@ -195,7 +195,7 @@ Os blobs de blocos podem ser qualquer tipo de ficheiro binário ou de texto. Os 
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-Pode obter uma lista de objetos num contentor com [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview). Este método devolve até 5.000 objetos em simultâneo, juntamente com um marcador de continuação, ou marcador seguinte, se existirem mais itens a listar no contentor. Crie uma função auxiliar que se chama a si própria repetidamente quando existe um marcador seguinte na resposta **listBlobsFlatSegment** anterior.
+Pode obter uma lista de objetos num contentor com [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-stable). Este método devolve até 5.000 objetos em simultâneo, juntamente com um marcador de continuação, ou marcador seguinte, se existirem mais itens a listar no contentor. Crie uma função auxiliar que se chama a si própria repetidamente quando existe um marcador seguinte na resposta **listBlobsFlatSegment** anterior.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -253,7 +253,7 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
 
 ### <a name="download-blobs"></a>Transferir blobs
 
-Transfira blobs para o seu disco local com [BlobURL.download](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview).
+Transfira blobs para o seu disco local com [BlobURL.download](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-stable).
 
 O código seguinte transfere o blob atualizado numa secção anterior. Adiciona um sufixo de **_DOWNLOADED** ao nome do blob, para que possa ver ambos os ficheiros no disco local. 
 
@@ -278,7 +278,7 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) {
 
 ### <a name="clean-up-resources"></a>Limpar recursos
 
-Se não precisa dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview). Este método também elimina os ficheiros no contentor.
+Se não precisa dos blobs carregados neste início rápido, pode eliminar o contentor inteiro com [ContainerURL.delete](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-stable). Este método também elimina os ficheiros no contentor.
 
 ```java
 containerURL.delete(null).blockingGet();
@@ -289,6 +289,6 @@ containerURL.delete(null).blockingGet();
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com Java. 
 
 > [!div class="nextstepaction"]
-> [SDK V10 de Armazenamento para código fonte de Java](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)
-> [Referência da API](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview)
+> [SDK V10 de Armazenamento para código fonte de Java](https://github.com/Azure/azure-storage-java/)
+> [Referência da API](https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable)
 > [Saiba mais sobre RxJava](https://github.com/ReactiveX/RxJava)

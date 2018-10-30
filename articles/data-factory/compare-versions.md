@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095924"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638247"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory ao Data Factory versão 1
 Este artigo compara o Data Factory ao Data Factory versão 1. Para obter uma introdução ao Data Factory, veja [Introdução ao Data Factory](introduction.md). Para obter uma introdução ao Data Factory versão 1, veja [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). 
@@ -62,7 +62,7 @@ A [atividade ForEach](control-flow-for-each-activity.md) define um fluxo de cont
 A atividade [Until](control-flow-until-activity.md) disponibiliza a mesma funcionalidade que uma estrutura de ciclos do-until fornecem nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como `true`. Pode especificar um valor de tempo limite para a atividade Until no Data Factory.  
 
 ### <a name="trigger-based-flows"></a>Fluxos baseados em acionadores
-Os pipelines podem ser adicionados a pedido ou com base no tempo total de execução. O artigo [pipelines e acionadores](concepts-pipeline-execution-triggers.md) tem informações detalhadas sobre acionadores. 
+Os pipelines podem ser adicionados a pedido (baseados em eventos, ou seja, mensagem de blogue) ou com base no tempo total de execução. O artigo [pipelines e acionadores](concepts-pipeline-execution-triggers.md) tem informações detalhadas sobre acionadores. 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>Invocar um pipeline de outro pipeline
 A [atividade Executar Pipeline](control-flow-execute-pipeline-activity.md) permite que um pipeline do Data Factory invoque outro pipeline.

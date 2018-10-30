@@ -1,5 +1,5 @@
 ---
-title: 'Guia de Início Rápido: Detetar rostos numa imagem – API Face, Python'
+title: 'Início rápido: detetar rostos numa imagem com a API REST e Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá detetar rostos numa imagem através da API Face com o Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: pafarley
-ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339586"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957280"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-python"></a>Guia de Início Rápido: Detetar rostos numa imagem com Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>Início rápido: detetar rostos numa imagem com a API REST e Python
 
 Neste guia de início rápido, irá detetar rostos humanos numa imagem remota com o serviço Face. Os rostos detetados são delimitados por retângulos e sobrepostos com o género e a idade de cada pessoa. Para utilizar uma imagem local, veja a sintaxe em [Imagem Digitalizada: analisar uma imagem local com o Python](../../Computer-vision/QuickStarts/python-disk.md).
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 56bd3ab61045ff99601ed50cd27332b370204795
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068031"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946084"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para uma [Instância Gerida da Base de Dados Azure SQL](../sql-database/sql-database-managed-instance.md), com um período de indisponibilidade mínimo. Para métodos adicionais que podem exigir algum trabalho manual, veja o artigo [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) (Migração de instância do SQL Server para a Instância Gerida da Base de Dados SQL do Azure).
@@ -32,6 +32,10 @@ Neste tutorial, ficará a saber como:
 > * Crie um projeto de migração e inicie a migração online com o Azure Database Migration Service.
 > * Monitorizar a migração.
 > * Transfira a migração quando estiver pronto.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+Este artigo descreve uma migração online do SQL Server para a Instância Gerida da Base de Dados SQL do Azure. Para uma migração offline, veja [Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL offline com o DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, precisa de:
