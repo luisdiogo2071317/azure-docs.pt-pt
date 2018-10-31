@@ -24,44 +24,45 @@
 ## [Ativar o Azure AD Domain Services com o PowerShell](active-directory-ds-enable-using-powershell.md)
 ## [Configurar a sincronização de âmbito do Azure AD para um domínio gerido](active-directory-ds-scoped-synchronization.md)
 ## [Proteja o seu domínio gerido](active-directory-ds-secure-your-domain.md)
-## Aderir a um domínio gerido
-### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)
-### [CentOS](active-directory-ds-join-centos-linux-vm.md)
-### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
-### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
-## Administrar um domínio gerido
-### [Administrar um domínio gerido](active-directory-ds-admin-guide-administer-domain.md)
-### [Administrar o DNS num domínio gerido](active-directory-ds-admin-guide-administer-dns.md)
-### [Atualizar notificações por e-mail](active-directory-ds-notifications.md)
-### Configurar LDAP seguro para um domínio gerido
-#### [Tarefa 1: obter um certificado para o LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md)
-#### [Tarefa 2: exportar o certificado LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [Tarefa 3: ativar o LDAP seguro para o domínio gerido com o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-#### [Tarefa 4: configurar o DNS para aceder ao domínio gerido a partir da Internet](active-directory-ds-ldaps-configure-dns.md)
-#### [Tarefa 5: vincular ao domínio gerido e bloquear o acesso LDAP seguro](active-directory-ds-ldaps-bind-lockdown.md)
-#### [Resolver problemas do LDAP seguro](active-directory-ds-ldaps-troubleshoot.md)
-
-### [Criar uma UO num domínio gerido](active-directory-ds-admin-guide-create-ou.md)
-### [Criar uma conta de serviço gerida num domínio gerido](active-directory-ds-create-gmsa.md)
-### [Administrar política de grupo num domínio gerido](active-directory-ds-admin-guide-administer-group-policy.md)
-### [Configurar políticas de palavra-passe num domínio gerido](active-directory-ds-password-policy.md)
+## [Criar uma UO num domínio gerido](active-directory-ds-admin-guide-create-ou.md)
+## [Criar uma conta de serviço gerida num domínio gerido](active-directory-ds-create-gmsa.md)
+## [Administrar política de grupo num domínio gerido](active-directory-ds-admin-guide-administer-group-policy.md)
+## [Configurar políticas de palavra-passe num domínio gerido](active-directory-ds-password-policy.md)
 ## [Selecionar uma rede virtual](active-directory-ds-networking.md)
 ## Implementar aplicações
 ### [Configurar o suporte de sincronização de perfis do SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Configurar Delegação Restrita de Kerberos](active-directory-ds-enable-kcd.md)
 ### [Implementar o Proxy de Aplicações do Azure AD](active-directory-ds-deploy-azure-app-proxy.md)
 ## [Eliminar um domínio gerido](active-directory-ds-disable-aadds.md)
-## Resolução de problemas
-### [FAQs](active-directory-ds-faqs.md)
-### [Guia de resolução de problemas](active-directory-ds-troubleshooting.md)
-### [Alertas de resolução de problemas](active-directory-ds-troubleshoot-alerts.md)
-#### [Corrigir uma configuração de NSG quebrada](active-directory-ds-troubleshoot-nsg.md)
-#### [Restaurar principais de serviço em falta](active-directory-ds-troubleshoot-service-principals.md)
-#### [Erros de Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
-### [Resolva os erros de inquilino não correspondentes](active-directory-ds-mismatched-tenant-error.md)
-### [Domínios suspensos](active-directory-ds-suspension.md)
+
+# Aderir a um domínio gerido
+## [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+## [VM do Windows Server a partir do modelo](active-directory-ds-join-windows-vm-template.md)
+## [CentOS](active-directory-ds-join-centos-linux-vm.md)
+## [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+## [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+## [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
+# Administrar um domínio gerido
+## [Administrar um domínio gerido](active-directory-ds-admin-guide-administer-domain.md)
+## [Administrar o DNS num domínio gerido](active-directory-ds-admin-guide-administer-dns.md)
+## [Atualizar notificações por e-mail](active-directory-ds-notifications.md)
+# Configurar LDAP seguro para um domínio gerido
+## [Tarefa 1: obter um certificado para o Secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [Tarefa 2: exportar o certificado Secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+## [Tarefa 3: ativar o Secure LDAP para o domínio gerido com o portal do Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+## [Tarefa 4: configurar o DNS para aceder ao domínio gerido a partir da Internet](active-directory-ds-ldaps-configure-dns.md)
+## [Tarefa 5: vincular ao domínio gerido e bloquear o acesso LDAP seguro](active-directory-ds-ldaps-bind-lockdown.md)
+## [Resolver problemas do LDAP seguro](active-directory-ds-ldaps-troubleshoot.md)
+
+# Resolução de problemas
+## [FAQs](active-directory-ds-faqs.md)
+## [Guia de resolução de problemas](active-directory-ds-troubleshooting.md)
+## [Alertas de resolução de problemas](active-directory-ds-troubleshoot-alerts.md)
+### [Corrigir uma configuração de NSG quebrada](active-directory-ds-troubleshoot-nsg.md)
+### [Restaurar principais de serviço em falta](active-directory-ds-troubleshoot-service-principals.md)
+### [Erros de Secure LDAP](active-directory-ds-troubleshoot-ldaps.md)
+## [Resolva os erros de inquilino não correspondentes](active-directory-ds-mismatched-tenant-error.md)
+## [Domínios suspensos](active-directory-ds-suspension.md)
 
 
 # Referência

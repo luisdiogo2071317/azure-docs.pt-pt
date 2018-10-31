@@ -74,21 +74,27 @@ items:
     href: sql-api-resources.md
   - name: Distribuição global
     items:
-    - name: Introdução
+    - name: Descrição geral
       href: distribute-data-globally.md
-    - name: Principais vantagens
-      href: distribute-data-globally-benefits.md
-    - name: Ativar a distribuição global
-      href: distribute-data-globally-turnkey.md
-    - name: Ativar multimestre
-      href: enable-multi-master.md
-    - name: Multimestre com as bases de dados OSS NoSQL
-      href: multi-master-oss-nosql.md
-    - name: Resolução de conflitos
-      href: multi-master-conflict-resolution.md
+    - name: Níveis de Consistência
+      href: consistency-levels.md
+    - name: Escolher o nível de consistência certo
+      href: consistency-levels-choosing.md
+    - name: Níveis de consistência e APIs do Cosmos DB
+      href: consistency-levels-across-apis.md
+    - name: Vantagens de consistência, disponibilidade e desempenho
+      href: consistency-levels-tradeoffs.md
+    - name: Elevada disponibilidade
+      href: high-availability.md
+    - name: Dimensionar o débito globalmente
+      href: scaling-throughput.md
+    - name: Políticas de resolução de conflitos
+      href: conflict-resolution-policies.md
+    - name: Distribuição global - em segundo plano
+      href: global-dist-under-the-hood.md
   - name: Débito
     items:
-    - name: Introdução
+    - name: Descrição geral
       href: request-units.md
     - name: Obter e definir débito
       href: set-throughput.md
@@ -96,8 +102,6 @@ items:
     href: partition-data.md
   - name: Indexação
     href: indexing-policies.md
-  - name: Modelos de consistência
-    href: consistency-levels.md
   - name: Feed de alterações
     href: change-feed.md
   - name: Time to live
@@ -106,7 +110,7 @@ items:
     href: unique-keys.md
   - name: Segurança
     items:
-    - name: Introdução
+    - name: Descrição geral
       href: database-security.md
     - name: Encriptação de dados
       href: database-encryption-at-rest.md
@@ -122,8 +126,6 @@ items:
     href: cosmos-db-reserved-capacity.md
   - name: Cópia de segurança e restauro
     href: online-backup-and-restore.md
-  - name: Elevada disponibilidade
-    href: regional-failover.md
 - name: APIs com vários modelos
   items:
   - name: Documentos da API de SQL
@@ -190,6 +192,8 @@ items:
         href: programming.md
       - name: Criação de partições de dados SQL
         href: sql-api-partition-data.md
+      - name: Resolver problemas do SDK do Java Async
+        href: troubleshoot-java-async-sdk.md
       - name: Tipos de dados
         items:
         - name: DateTime
@@ -417,6 +421,14 @@ items:
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Configurar os pipelines CI/CD do VSTS
     href: tutorial-setup-ci-cd.md
+  - name: Distribuição global
+    items:
+    - name: Gerir a Conta de Base de Dados
+      href: how-to-manage-database-account.md
+    - name: Gerir a Consistência
+      href: how-to-manage-consistency.md
+    - name: Gerir Conflitos
+      href: how-to-manage-conflicts.md
   - name: Melhores práticas
     items:
     - name: Sugestões de desempenho
@@ -501,9 +513,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: dfa5b34127abf569a359814b6064ec981f57796d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 55a0bb09e56667078d463846d90cd086cb05dd4e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985833"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240431"
