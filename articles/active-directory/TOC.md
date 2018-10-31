@@ -4,7 +4,6 @@
 ## [O que é o Azure Active Directory?](fundamentals/active-directory-whatis.md)
 ## [Sobre a gestão de identidade do Azure](fundamentals/identity-fundamentals.md)
 ## [Compreender as soluções de identidade do Azure](fundamentals/understand-azure-identity-solutions.md)
-## [Escolher uma solução de identidade híbrida](choose-hybrid-identity-solution.md)
 ## [Associar as subscrições Azure](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Residência e considerações de dados](fundamentals/active-directory-data-storage-eu.md)
 ## [FAQs](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Adicionar novos utilizadores ao Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Gerir perfis de utilizador](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Repor palavras-passe do utilizador](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Contas de partilha](active-directory-sharing-accounts.md)
 ### [Atribuir utilizadores a funções de administrador](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Adicionar utilizadores convidados a partir de outro diretório (B2B)](b2b/what-is-b2b.md)
 #### [Administradores que adicionam utilizadores B2B](b2b/add-users-administrator.md)
@@ -320,11 +318,15 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Implementar os AD FS no Azure](hybrid/how-to-connect-fed-azure-adfs.md)
-### [Elevada disponibilidade](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [Algoritmo de alteração de hash de assinatura](active-directory-federation-sha256-guidance.md)
+
 
 ## [Resolução de problemas](fundamentals/active-directory-troubleshooting-support-howto.md)
+
+## Implementar a Prova de Conceito (PoC) do Azure AD
+### [Manual PoC: Introdução](active-directory-playbook-intro.md)
+### [Manual PoC: Ingredientes](active-directory-playbook-ingredients.md)
+### [Manual PoC: Implementação](active-directory-playbook-implementation.md)
+### [Manual PoC: Blocos Modulares](active-directory-playbook-building-blocks.md)
 
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=active-directory)
