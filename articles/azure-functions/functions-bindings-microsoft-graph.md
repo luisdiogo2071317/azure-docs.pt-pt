@@ -2,19 +2,19 @@
 title: Enlaces do Microsoft Graph para as funções do Azure
 description: Compreenda como utilizar acionadores do Microsoft Graph e enlaces nas funções do Azure.
 services: functions
-author: mattchenderson
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: mahender
-ms.openlocfilehash: 04786ce69b880abcd5508b9653d9ff30efcc187c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.author: cshoe
+ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087224"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251112"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Enlaces do Microsoft Graph para as funções do Azure
 

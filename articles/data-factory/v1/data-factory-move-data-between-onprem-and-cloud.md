@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233604"
+ms.locfileid: "50240471"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -65,7 +65,7 @@ Neste passo, vai utilizar o portal do Azure para criar uma instância do Azure D
    > [!IMPORTANT]
    > O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o erro: **nome da fábrica de dados "ADFTutorialOnPremDF" não está disponível**, altere o nome da fábrica de dados (por exemplo, yournameADFTutorialOnPremDF) e tente criar novamente. Utilize este nome em vez de ADFTutorialOnPremDF ao realizar os passos restantes neste tutorial.
    >
-   > O nome da fábrica de dados pode ser registado como um **DNS** publicaly de nome no futuro e, por conseguinte, ficar visível.
+   > O nome da fábrica de dados pode ser registado como um **DNS** nome no futuro e, por conseguinte, ficar publicamente visível.
    >
    >
 4. Selecione a **Subscrição do Azure** onde pretende que seja criada a fábrica de dados.

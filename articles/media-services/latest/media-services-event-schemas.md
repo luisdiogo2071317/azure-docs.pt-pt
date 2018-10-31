@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/16/2018
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376793"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249331"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>O Azure Event Grid esquemas para eventos de serviços de multimédia
 
@@ -116,9 +116,7 @@ O objeto de dados tem as seguintes propriedades:
 
 Em que o estado da tarefa pode ser um dos valores: *em fila*, *agendada*, *processamento*, *concluído*, *erro*, *Cancelada*, *Cancelar*
 
-### <a name="jobscheduled"></a>JobScheduled
-### <a name="jobprocessing"></a>JobProcessing
-### <a name="jobcanceling"></a>JobCanceling
+### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobCanceling JobScheduled, JobProcessing,
 
 Para cada não final tarefa alteração de estado (por exemplo, JobCanceling JobScheduled, JobProcessing,), o esquema de exemplo terá um aspeto semelhante ao seguinte:
 
@@ -142,9 +140,7 @@ Para cada não final tarefa alteração de estado (por exemplo, JobCanceling Job
 }]
 ```
 
-### <a name="jobfinished"></a>JobFinished
-### <a name="jobcanceled"></a>JobCanceled
-### <a name="joberrored"></a>JobErrored
+### <a name="jobfinished-jobcanceled-joberrored"></a>JobErrored JobFinished, JobCanceled,
 
 Para cada alteração de estado final da tarefa (por exemplo, JobErrored JobFinished, JobCanceled,), o esquema de exemplo terá um aspeto semelhante ao seguinte:
 
@@ -215,12 +211,7 @@ O exemplo seguinte mostra o esquema do **JobOutputStateChange** eventos:
 }]
 ```
 
-### <a name="joboutputscheduled"></a>JobOutputScheduled
-### <a name="joboutputprocessing"></a>JobOutputProcessing
-### <a name="joboutputfinished"></a>JobOutputFinished
-### <a name="joboutputcanceling"></a>JobOutputCanceling
-### <a name="joboutputcanceled"></a>JobOutputCanceled
-### <a name="joboutputerrored"></a>JobOutputErrored
+### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
 
 Para cada alteração de estado de JobOutput, o esquema de exemplo terá um aspeto semelhante ao seguinte:
 
@@ -420,7 +411,7 @@ O objeto de dados tem as seguintes propriedades:
 | TrackName | cadeia | Nome da faixa. |
 | Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
 | Carimbo de data/hora | cadeia | Timestamp do segmento de dados removida. |
-| escala temporal | cadeia | Escala temporal do período de tempo. |
+| Escala temporal | cadeia | Escala temporal do período de tempo. |
 | ResultCode | cadeia | Motivo da lista de segmentos de dados. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -463,7 +454,7 @@ O objeto de dados tem as seguintes propriedades:
 | EncoderIp | cadeia  | IP do codificador. |
 | EncoderPort | cadeia | Porta do codificador de onde vem esse fluxo. |
 | Carimbo de data/hora | cadeia | Primeira timestamp do segmento de dados recebido. |
-| escala temporal | cadeia | Escala temporal em que é representado timestamp. |
+| Escala temporal | cadeia | Escala temporal em que é representado timestamp. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -534,7 +525,7 @@ O objeto de dados tem as seguintes propriedades:
 | FirstDuration | cadeia | Duração do segmento de dados com timestamp primeiro. |
 | SecondTimestamp | cadeia  | Timestamp recebido para algum outro nível de controle/qualidade do tipo vídeo. |
 | SecondDuration | cadeia | Duração do segmento de dados com o segundo timestamp. |
-| escala temporal | cadeia | Escala temporal de carimbos e duração.|
+| Escala temporal | cadeia | Escala temporal de carimbos e duração.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -577,7 +568,7 @@ O objeto de dados tem as seguintes propriedades:
 | Velocidade de transmissão | inteiro | Velocidade de transmissão da faixa. |
 | IncomingBitrate | inteiro | Velocidade de transmissão calculada com base nos segmentos de dados provenientes do codificador. |
 | LastTimestamp | cadeia | Mais recente timestamp recebida um Roteiro na última 20 segundos. |
-| escala temporal | cadeia | Escala temporal em que são expressos carimbos. |
+| Escala temporal | cadeia | Escala temporal em que são expressos carimbos. |
 | OverlapCount | inteiro | Número de segmentos de dados tinha overlapped carimbos de data / no último 20 segundos. |
 | DiscontinuityCount | inteiro | Número de discontinuities observados nos últimos 20 segundos. |
 | NonIncreasingCount | inteiro | Número de segmentos de dados carimbos de data no passado foram recebido nos últimos 20 segundos. |
@@ -622,7 +613,7 @@ O objeto de dados tem as seguintes propriedades:
 | PreviousTimestamp | cadeia | Timestamp do fragmento anterior. |
 | NewTimestamp | cadeia | Timestamp do fragmento atual. |
 | DiscontinuityGap | cadeia | Lacuna entre acima dois carimbos. |
-| escala temporal | cadeia | Escala temporal na qual lacuna timestamp e descontinuidade são representados. |
+| Escala temporal | cadeia | Escala temporal na qual lacuna timestamp e descontinuidade são representados. |
 
 ### <a name="common-event-properties"></a>Propriedades de evento comum
 
@@ -631,7 +622,7 @@ Um evento tem os seguintes dados de nível superior:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | cadeia | O tópico de EventGrid. Esta propriedade tem o ID de recurso para a conta de Media Services. |
-| Assunto | cadeia | O caminho de recurso para o canal de serviços de multimédia sob a conta de Media Services. Concatenar dão o tópico e o assunto é o recurso de ID da tarefa. |
+| assunto | cadeia | O caminho de recurso para o canal de serviços de multimédia sob a conta de Media Services. Concatenar dão o tópico e o assunto é o recurso de ID da tarefa. |
 | eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. Por exemplo, "Microsoft.Media.JobStateChange". |
 | eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | cadeia | Identificador exclusivo para o evento. |
@@ -642,3 +633,8 @@ Um evento tem os seguintes dados de nível superior:
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Se registrar para eventos de alteração de estado de tarefa](job-state-events-cli-how-to.md)
+
+## <a name="see-also"></a>Consulte também
+
+- [SDK de .NET de EventGrid que inclui eventos de serviço de multimédia](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Definições de eventos de serviços de multimédia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
