@@ -4,18 +4,18 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: edb8503f4187fd2d21129ea03e954a0d3516be4b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226413"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254533"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Criar um ponto final TCP para a máquina virtual
 Para aceder ao SQL Server a partir da Internet, a máquina virtual tem de ter um ponto final para escutar comunicações de TCP recebidas. Este passo de configuração do Azure direciona o tráfego da porta TCP recebido para uma porta TCP a que a máquina virtual tenha acesso.
 
 > [!NOTE]
-> Se estiver a ligar dentro do mesmo serviço cloud ou a rede virtual, não é necessário que criar um ponto de extremidade acessíveis publicaly. Nesse caso, pode continuar para o passo seguinte. Para obter mais informações, veja [Cenários de Ligação](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> Se estiver a ligar dentro do mesmo serviço cloud ou a rede virtual, não é necessário criar um ponto final acessível publicamente. Nesse caso, pode continuar para o passo seguinte. Para obter mais informações, veja [Cenários de Ligação](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 > 
 > 
 

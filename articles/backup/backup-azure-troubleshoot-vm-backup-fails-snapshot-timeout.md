@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Cópia de segurança do Azure; Agente da VM; Conectividade de rede
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 06/25/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: ce4a889cae852d333ea9862138f4d44471677c26
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5c37e2e3cabb81ed123146f283c7d568cc58816d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544018"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242633"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -195,7 +195,7 @@ Este problema é específico para VMs gerenciadas em que o usuário bloqueia o g
 #### <a name="solution"></a>Solução
 
 Para resolver o problema, remova o bloqueio do grupo de recursos e conclua os seguintes passos para remover a coleção de ponto de restauro: 
- 
+ 
 1. Remova o bloqueio no grupo de recursos em que a VM se encontra. 
 2. Instale ARMClient com o Chocolatey: <br>
    https://github.com/projectkudu/ARMClient

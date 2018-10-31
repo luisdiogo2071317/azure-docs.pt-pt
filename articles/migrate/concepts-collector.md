@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986785"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241196"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986785"
 
 Recoletor do Azure Migrate é uma aplicação simples que pode ser utilizado para detetar um ambiente de vCenter no local para fins de avaliação com o [do Azure Migrate](migrate-overview.md) serviço específico, antes da migração para o Azure.  
 
+## <a name="discovery-methods"></a>Métodos de deteção
+
+Existem duas opções para a aplicação de Recoletor, deteção única ou deteção contínua.
+
+### <a name="one-time-discovery"></a>Deteção única
+
+A aplicação Recoletora comunica de forma única com o vCenter Server para recolher os metadados sobre as VMs. Através deste método:
+
+- A aplicação da continuamente não está ligada ao projeto do Azure Migrate.
+- Alterações no ambiente no local não são refletidas no Azure Migrate, após a conclusão da deteção. Para refletir as alterações, precisa descobrir novamente o mesmo ambiente no mesmo projeto.
+- Aquando da recolha de dados de desempenho para uma VM, a aplicação da conta com os dados de desempenho do histórico armazenados no vCenter Server. Recolhe o histórico de desempenho para o último mês.
+- Para a recolha de dados de desempenho históricos, terá de configurar as definições de estatísticas no vCenter Server para o nível de três. Depois de definir o nível a três, terá de aguardar pelo menos um dia para o vCenter recolher contadores de desempenho. Como tal, recomendamos que execute a deteção depois de, pelo menos, um dia. Se pretender avaliar o ambiente com base nos dados de desempenho de uma semana ou de 1 mês, terá de esperar em conformidade.
+- Neste método de deteção, o Azure Migrate recolhe contadores médios para cada métrica (em vez de contadores de pico) que podem resultar em dimensionamento insuficientemente. Recomendamos que utilize a opção de deteção contínua para obter mais precisos, os resultados de dimensionamento.
+
+### <a name="continuous-discovery"></a>Deteção contínua
+
+A aplicação Recoletora fica continuamente conectada ao projeto do Azure Migrate e continuamente recolhe dados de desempenho de VMs.
+
+- O Recoletor perfis continuamente o ambiente no local para recolher dados de utilização em tempo real a cada 20 segundos.
+- A aplicação agrega os exemplos de 20 segundos e cria um único ponto de dados a cada 15 minutos.
+- Para criar os dados ponto a aplicação da seleciona o valor de pico de exemplos de 20 segundos e envia-os para o Azure.
+- Este modelo não depende das definições de estatísticas do vCenter Server para recolher dados de desempenho.
+- Pode parar contínua de criação de perfis em qualquer altura do Recoletor.
+
+Tenha em atenção que a aplicação recolhe apenas dados de desempenho continuamente, não deteta qualquer alteração de configuração no ambiente no local (ou seja, adição de VM, eliminação, adição de disco, etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal:
+
+- Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, iniciá-la novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
+
+- Eliminação das VMs: devido à forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isto acontece porque os dados das deteções subsequentes são anexados às deteções mais antigas e não são substituídos. Neste caso, pode simplesmente ignorar a VM no portal, ao removê-la do seu grupo e recalcular a avaliação.
+
+> [!NOTE]
+> A funcionalidade de deteção contínua está em pré-visualização. Recomendamos que utilize este método, porque este recolhe dados de desempenho granular e resulta num dimensionamento preciso.
 
 ## <a name="deploying-the-collector"></a>Implementar o Recoletor
 
@@ -163,43 +195,6 @@ Pode atualizar o Recoletor para a versão mais recente sem baixar o OVA novament
 3. Copie o ficheiro zip para a máquina de virtual do recoletor de Azure Migrate (aplicação recoletora).
 4. Com o botão direito no ficheiro zip e selecione extrair tudo.
 5. Com o botão direito no Setup.ps1 e selecionar executar com o PowerShell e siga as instruções no ecrã para instalar a atualização.
-
-
-## <a name="discovery-methods"></a>Métodos de deteção
-
-Existem dois métodos que a aplicação Recoletora pode usar para deteção, a deteção única ou a deteção contínua.
-
-
-### <a name="one-time-discovery"></a>Deteção única
-
-O Recoletor comunica de forma única com o vCenter Server para recolher os metadados sobre as VMs. Através deste método:
-
-- A aplicação da continuamente não está ligada ao projeto do Azure Migrate.
-- Alterações no ambiente no local não são refletidas no Azure Migrate, após a conclusão da deteção. Para refletir as alterações, precisa descobrir novamente o mesmo ambiente no mesmo projeto.
-- Para este método de deteção, terá de configurar as definições de estatísticas no vCenter Server para o nível de três.
-- Depois de definir o nível a três, demoram até um dia para gerar os contadores de desempenho. Como tal, recomendamos que execute a deteção depois de um dia.
-- Aquando da recolha de dados de desempenho para uma VM, a aplicação da conta com os dados de desempenho do histórico armazenados no vCenter Server. Recolhe o histórico de desempenho para o último mês.
-- O Azure Migrate recolhe contadores médios (em vez de contador de pico) para cada métrica que pode resultar em dimensionamento insuficientemente.
-
-### <a name="continuous-discovery"></a>Deteção contínua
-
-A aplicação Recoletora fica continuamente conectada ao projeto do Azure Migrate e continuamente recolhe dados de desempenho de VMs.
-
-- O Recoletor perfis continuamente o ambiente no local para recolher dados de utilização em tempo real a cada 20 segundos.
-- Este modelo não depende das definições de estatísticas do vCenter Server para recolher dados de desempenho.
-- A aplicação agrega os exemplos de 20 segundos e cria um único ponto de dados a cada 15 minutos.
-- Para criar os dados ponto a aplicação da seleciona o valor de pico de exemplos de 20 segundos e envia-os para o Azure.
-- Pode parar contínua de criação de perfis em qualquer altura do Recoletor.
-
-Tenha em atenção que a aplicação só recolhe dados de desempenho continuamente, ele não detecta qualquer alteração de configuração no ambiente no local (ou seja, a adição de VM, eliminação, a adição de disco etc.). Se houver uma alteração de configuração no ambiente no local, pode fazer o seguinte para refletir as alterações no portal do:
-
-1. Adição de itens (VMs, discos, núcleos, etc.): para refletir estas alterações no portal do Azure, pode parar a deteção a partir da aplicação e, em seguida, inicie-o novamente. Isto irá garantir que as alterações são atualizadas no projeto do Azure Migrate.
-
-2. Eliminação das VMs: a forma como a aplicação foi concebida, a eliminação de VMs não será refletida, mesmo se parar e iniciar a deteção. Isso ocorre porque os dados a partir de deteções subsequentes são anexados ao deteções mais antigas e não substituídos. Neste caso, pode simplesmente ignorar a VM no portal, removê-lo a partir do seu grupo de e para recalcular a avaliação.
-
-> [!NOTE]
-> A funcionalidade de deteção contínua está em pré-visualização. Recomendamos que utilize este método como esse método recolhe dados de desempenho granular e resulta em redimensionamento preciso.
-
 
 ## <a name="discovery-process"></a>Processo de deteção
 

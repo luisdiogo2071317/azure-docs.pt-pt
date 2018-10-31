@@ -1,8 +1,8 @@
 ---
-title: H264 Único SD de qualidade de baixa velocidade de transmissão para Android | Microsoft Docs
-description: O tópico fornece uma descrição geral do **H264 única de velocidade de transmissão baixa qualidade SD para Android** tarefas da configuração predefinida.
+title: H264 taxa de bits Única de baixa qualidade SD para Android | Documentos da Microsoft
+description: O tópico fornece uma visão geral do **h264 taxa de bits única de velocidade de transmissão baixa qualidade SD para Android** predefinido de tarefa.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: af10b703615e35c28038ef5b8e15f3e58e0eecb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c69923518a0e886bb9174750be201b05be442cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788306"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250334"
 ---
-# <a name="h264-single-bitrate-low-quality-sd-for-android"></a>H264 Baixa de velocidade de transmissão única qualidade SD para Android
-`Media Encoder Standard` Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-low-quality-sd-for-android"></a>H264 taxa de bits Única de baixa qualidade SD para Android
+`Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Single Bitrate Low Quality SD for Android` no formato XML e o JSON da configuração predefinida.  
+ Este tópico mostra o `H264 Single Bitrate Low Quality SD for Android` predefinidos no formato XML e JSON.  
   
- Este ficheiro predefinidas produz um único MP4 com velocidade de transmissão de 56 kbps e stereo áudio AAC. Para obter informações detalhadas sobre o perfil, velocidade de transmissão, fazendo a amostragem taxa, etc. Isto da configuração predefinida, examine o XML ou JSON definido abaixo. Para explicações de que cada elemento no meio estas predefinições e os valores válidos para cada elemento, consulte o [esquema codificador de multimédia Standard](media-services-mes-schema.md) tópico.  
+ Este ficheiro predefinidas produz um único MP4 com velocidade de transmissão de 56 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de que cada elemento desses meios de suas configurações predefinidas e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md) tópico.  
   
  XML  
   

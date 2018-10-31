@@ -7,16 +7,17 @@ ms.subservice: performance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 02fae39325e632c087fcd2969fbaf5dd705994ba
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 23d696971d49210479c675a0f3e2a0a85d1e8b3b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867666"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241128"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Ativar o ajuste automático monitorar as consultas e melhorar o desempenho da carga de trabalho
 
@@ -65,7 +66,7 @@ Tenha em atenção que a opção de DROP_INDEX neste momento não é compatível
 
 Assim que tiver selecionado a configuração pretendida, clique em **aplicar**.
 
-### <a name="rest-api"></a>API REST
+### <a name="rest-api"></a>REST API
 
 Saiba mais sobre como utilizar a REST API para ativar o ajuste automático numa base de dados, consulte [da base de dados de otimização automática SQL métodos UPDATE e GET HTTP](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 

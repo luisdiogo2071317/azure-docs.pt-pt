@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050751"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243219"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar microsserviços de forma previsível no Azure
 Este tutorial mostra como aprovisionar e implementar um aplicativo composto [microsserviços](https://en.wikipedia.org/wiki/Microservices) na [App Service do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível, com modelos de grupo de recursos JSON e Script do PowerShell. 
@@ -148,7 +148,7 @@ As definições da aplicação também são definidas como um recurso aninhado.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-Na `properties` elemento para `config/appsettings`, tem duas definições de aplicações no formato `“<name>” : “<value>”`.
+Na `properties` elemento para `config/appsettings`, tem duas definições de aplicações no formato `"<name>" : "<value>"`.
 
 * `PROJECT` é um [definição de KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) que indica a implementação do Azure que utilize uma solução do Visual Studio multiprojeto do projeto. Mostrarei posteriormente como o controlo de origem estiver configurado, mas uma vez que o código de ToDoApp está numa solução do Visual Studio multiprojeto, precisamos esta definição.
 * `clientUrl` é simplesmente uma aplicação que definir o código do aplicativo usa.
@@ -158,7 +158,7 @@ As cadeias de ligação também são definidas como um recurso aninhado.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-Na `properties` elemento para `config/connectionstrings`, cada cadeia de ligação também é definida como um par de valores de nomes, com o formato específico de `“<name>” : {“value”: “…”, “type”: “…”}`. Para o `type` elemento, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure`, e `Custom`.
+Na `properties` elemento para `config/connectionstrings`, cada cadeia de ligação também é definida como um par de valores de nomes, com o formato específico de `"<name>" : {"value": "…", "type": "…"}`. Para o `type` elemento, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure`, e `Custom`.
 
 > [!TIP]
 > Para obter uma lista definitiva dos tipos de cadeia de ligação, execute o seguinte comando no Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")

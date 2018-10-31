@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 36db41308678f3f1bd713561f9a844288f5db401
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 19a4b77be613eb7ddb4367ca5dc5731c4e0a0287
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312243"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249259"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect com a base de dados ADSync existente
 Azure AD Connect requer uma base de dados do SQL Server para armazenar dados. Pode utilizar o predefinido do que SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou utilizar a sua própria versão completa do SQL. Anteriormente, quando instalou o Azure AD Connect, uma nova base de dados com o nome ADSync sempre foi criado. Com o Azure AD Connect versão 1.1.613.0 (ou depois), tem a opção de instalação do Azure AD Connect ao apontá-la para uma base de dados ADSync existente.
@@ -86,6 +86,17 @@ Notas importantes para tirar tenha em atenção de antes de continuar:
  
 11. Assim que a instalação estiver concluída, o servidor do Azure AD Connect é ativado automaticamente para o Modo de Teste. É recomendado que reveja se existem alterações inesperadas na configuração do servidor e nas exportações pendentes antes de desativar o Modo de Teste. 
 
+## <a name="post-installation-tasks"></a>Tarefas de pós-instalação
+Quando restaurar uma cópia de segurança da base de dados criado por uma versão do Azure AD Connect antes <our pending release>, o servidor de preparação selecionará automaticamente um método de início de sessão do **não Configure**. Embora a sincronização de hash de palavra-passe e as preferências de repetição de escrita de palavra-passe serão restauradas, em seguida, tem de alterar o método de início de sessão de acordo com as outras políticas em vigor para o servidor de sincronização do Active Directory.  Falha ao concluir estes passos pode impedir os utilizadores se inscrevam no deve este servidor é ativada.  
+
+Utilize a tabela abaixo para verificar quaisquer passos adicionais que são necessários.
+
+|Funcionalidade|Passos|
+|-----|-----|
+|Sincronização de Hash de Palavra-passe| as definições de repetição de escrita de palavra-passe e sincronização de Hash de palavra-passe sejam totalmente restauradas para versões do AADC começando com <our impending release>.  Se restaurar com uma versão antiga do AADC, reveja as definições da opção de sincronização para estas funcionalidades para se certificar de que corresponde ao seu servidor de sincronização do Active Directory.  Não existem outros passos de configuração devem ser necessários.|
+|Federação com o AD FS|Autenticações do Azure irão continuar a utilizar a política ADFS configurada para o seu servidor de sincronização do Active Directory.  Se utilizar o Azure AD Connect para gerir o farm do AD FS, opcionalmente, pode alterar o método de início de sessão para a Federação do AD FS em preparação para o servidor em espera, tornando-se a instância de sincronização do Active Directory.   Se as opções de dispositivo estão ativadas no servidor de sincronização do Active Directory, configure essas opções neste servidor ao executar a tarefa "Configurar opções de dispositivo".|
+|Autenticação pass-through e ambiente de trabalho Single Sign-On|Atualize o método de início de sessão para corresponderem à configuração no seu servidor de sincronização do Active Directory.  Se isto não for seguido antes de promover o servidor para autenticação primária, pass-through, juntamente com o início de sessão único totalmente integrado no será desativada e o seu inquilino pode ser bloqueado se não tiver PHS como opção de início de sessão de cópia de segurança. Tenha também em atenção que ao ativar a autenticação pass-through no modo de teste, um novo agente de autenticação será instalado, registado e será executado como um agente de elevada disponibilidade que irá aceitar pedidos de início de sessão.|
+|Federação com o PingFederate|Autenticações do Azure irão continuar a utilizar a política de PingFederate configurada para o seu servidor de sincronização do Active Directory.  Opcionalmente, pode alterar o método de início de sessão para PingFederate em preparação para o servidor em espera, tornando-se a instância de sincronização do Active Directory.  Este passo pode ser adiado até que é necessário federar domínios adicionais com PingFederate.|
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).

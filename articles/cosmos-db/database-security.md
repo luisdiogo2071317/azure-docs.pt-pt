@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e0cbf806b7999a56ccdf2826a735238fe8130bf5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061468"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240584"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Segurança de base de dados do Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Vamos examinar cada um em detalhes.
 |Os utilizadores e permissões|Utilizar o [chave mestra](#master-key) para a conta, pode criar recursos de utilizador e os recursos de permissão por base de dados. R [token de recursos](#resource-token) está associado uma permissão numa base de dados e determina se o utilizador tem acesso (leitura / escrita, só de leitura, ou sem acesso) para um recurso de aplicação na base de dados. Recursos de aplicativos incluem o contentor, documentos, anexos, procedimentos armazenados, acionadores e UDFs. O token de recursos, em seguida, é utilizado durante a autenticação para fornecer ou negar o acesso ao recurso.<br><br>Saiba mais em [proteger o acesso aos recursos do Azure Cosmos DB](secure-access-to-data.md).|
 |Integração do Active Directory (RBAC)| Também pode fornecer acesso à conta de base de dados usando o controle de acesso (IAM) no portal do Azure, conforme mostrado na captura de ecrã a seguir à tabela. IAM fornece controlo de acesso baseado em funções e integra-se com o Active Directory. Pode usar funções incorporadas ou funções personalizadas para indivíduos e grupos, conforme mostrado na imagem seguinte.|
 |Replicação global|O Azure Cosmos DB oferece distribuição global chave na mão, que permite-lhe replicar os seus dados para qualquer um dos datacenters de nível mundial do Azure com o clique de um botão. Replicação global permite-lhe dimensioná-las globalmente e fornecer acesso de latência baixa aos seus dados em todo o mundo.<br><br>No contexto de segurança, os replicação global garante proteção de dados contra falhas regionais.<br><br>Saiba mais em [Distribuir dados globalmente](distribute-data-globally.md).|
-|Ativações pós-falha regionais|Se tiver replicado seus dados em mais de um Datacenter, do Azure Cosmos DB passa automaticamente suas operações deve um Datacenter regional ficam offline. Pode criar uma lista prioritária de regiões de ativação pós-falha, as regiões em que os dados são replicados a utilizar. <br><br>Saiba mais em [ativações pós-falha regionais no Azure Cosmos DB](regional-failover.md).|
+|Ativações pós-falha regionais|Se tiver replicado seus dados em mais de um Datacenter, do Azure Cosmos DB passa automaticamente suas operações deve um Datacenter regional ficam offline. Pode criar uma lista prioritária de regiões de ativação pós-falha, as regiões em que os dados são replicados a utilizar. <br><br>Saiba mais em [ativações pós-falha regionais no Azure Cosmos DB](high-availability.md).|
 |Replicação local|Mesmo dentro de um único centro de dados, do Azure Cosmos DB replica automaticamente os dados para elevada disponibilidade, dando-lhe a opção de [níveis de consistência](consistency-levels.md). Isso garante que um 99,99% [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/cosmos-db) para todas as contas de região única e todas as contas de várias regiões com consistência flexível e 99,999% de disponibilidade em todas as contas de base de dados de várias regiões de leitura.|
 |Cópias de segurança online automáticas|Bases de dados do Cosmos DB do Azure são uma cópia de segurança regularmente e armazenados num arquivo georedundant. <br><br>Saiba mais em [cópia de segurança online automática e restauro com o Azure Cosmos DB](online-backup-and-restore.md).|
 |Dados de restauro eliminado|As cópias de segurança online automatizadas podem ser utilizadas para recuperar dados que pode ter acidentalmente eliminado até aproximadamente 30 dias após o evento. <br><br>Saiba mais em [cópia de segurança online automática e restauro com o Azure Cosmos DB](online-backup-and-restore.md)|

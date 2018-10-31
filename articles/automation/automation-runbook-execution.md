@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85ff0013b469c006d1922c3994ec58a0595d1dd2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: bb6236203a1165361505c8699ba94bff54e41c2a
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091990"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247355"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
-Quando inicia um runbook na automatização do Azure, é criada uma tarefa. Uma tarefa é uma instância de execução individual de um runbook. Um operador de automatização do Azure é atribuído para executar cada tarefa. Embora funções de trabalho são partilhadas por muitas contas do Azure, as tarefas de diferentes contas de automatização são isoladas uns dos outros. Não tem controle sobre qual trabalho processa o pedido para a sua tarefa. Um runbook individual pode ter muitos trabalhos em execução em simultâneo. O ambiente de execução de trabalhos a partir da mesma conta de automatização pode ser reutilizado. Quando exibir a lista de runbooks no portal do Azure, ele indica o estado de todas as tarefas que foram iniciados para cada runbook. Pode ver a lista de tarefas para cada runbook controlar o estado de cada. Os registos da tarefa são armazenados durante um máximo de 30 dias. Para obter uma descrição dos Estados de tarefa diferente [Estados das tarefas](#job-statuses).
+Quando inicia um runbook na automatização do Azure, é criada uma tarefa. Uma tarefa é uma instância de execução individual de um runbook. Um operador de automatização do Azure é atribuído para executar cada tarefa. Embora funções de trabalho são partilhadas por muitas contas do Azure, as tarefas de diferentes contas de automatização são isoladas uns dos outros. Não tem controle sobre qual trabalho processa o pedido para a sua tarefa. Um runbook individual pode ter muitos trabalhos em execução em simultâneo. O ambiente de execução de trabalhos a partir da mesma conta de automatização pode ser reutilizado. Mais tarefas são executadas ao mesmo tempo, mais freqüentemente podem ser enviados para a mesma área de segurança. Tarefas em execução no mesmo processo de sandbox podem afetar a si, um exemplo está em execução o `Disconnect-AzureRMAccount` cmdlet. Executar este cmdlet seria desligar a cada tarefa de runbook no processo de sandbox partilhado. Quando exibir a lista de runbooks no portal do Azure, ele indica o estado de todas as tarefas que foram iniciados para cada runbook. Pode ver a lista de tarefas para cada runbook controlar o estado de cada. Os registos da tarefa são armazenados durante um máximo de 30 dias. Para obter uma descrição dos Estados de tarefa diferente [Estados das tarefas](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 904502e5c73127cca7920da2173edd013e55762f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429480"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242250"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
-Dados de registo recolhidos pelo Azure Monitor são armazenados no Log Analytics que recolhe telemetria e outros dados de várias origens e fornece uma linguagem de consulta para análises avançadas.
+Dados de registo recolhidos pelo Azure Monitor são armazenados numa área de trabalho do Log Analytics, que se baseia nos [Explorador de dados do Azure](/data-explorer). Ele recolhe telemetria a partir de várias origens e utiliza a [linguagem do Explorador de dados de consulta](/kusto) para recuperar e analisar dados.
 
 > [!NOTE]
 > O log Analytics anteriormente era tratado como seu próprio serviço no Azure. Ele agora é considerado uma parte do Azure Monitor e se concentra no armazenamento e análise de dados de registo com a sua linguagem de consulta. Funcionalidades que foram consideradas parte do Log Analytics, por exemplo, agentes Windows e Linux para a recolha de dados, modos de exibição para visualizar os dados existentes e alertas para ser notificado proativamente dos problemas, não foram alterados, mas agora são consideradas parte do Azure Monitor.
@@ -51,7 +51,7 @@ As diferentes formas que irá utilizar consultas do Log Analytics incluem o segu
 ![Pesquisas de registos](media/log-analytics-queries/queries-overview.png)
 
 ## <a name="write-a-query"></a>Escrever uma consulta
-O log Analytics inclui [uma extensa linguagem de consulta](query-language/get-started-queries.md) que permite-lhe recuperar e analisar dados de registo de diversas formas.  Geralmente começa com a consultas básicas e, em seguida, avançar para utilizar as funções mais avançadas, como os seus requisitos se tornam mais complexos.
+Utilizações de análise de registo [uma versão da linguagem de consulta Data Explorer](query-language/get-started-queries.md) para recuperar e analisar dados de registo de diversas formas.  Geralmente começa com a consultas básicas e, em seguida, avançar para utilizar as funções mais avançadas, como os seus requisitos se tornam mais complexos.
 
 A estrutura básica de uma consulta é uma tabela de origem, seguida de uma série de operadores, separados por um caráter de pipe `|`.  Em conjunto pode encadear vários operadores para refinar os dados e realizar funções avançadas.
 

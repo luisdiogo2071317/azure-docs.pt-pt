@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 10/28/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ad3ec09f039b38290929289c7bca77664b0fb554
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3ba3e6036821323146f00cf9c255b70606771aed
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441790"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241162"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o runtime de integração Azure-SSIS
 
@@ -98,7 +98,11 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        ![Copie e guarde a assinatura de acesso partilhado](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com o PowerShell, antes de iniciar o runtime de integração Azure-SSIS, execute o `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet com o URI de SAS do seu contentor, como o valor para a nova `SetupScriptContainerSasUri` parâmetro. Por exemplo:
+    1.  Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com a IU do Data Factory, antes de iniciar o runtime de integração Azure-SSIS, introduza o URI de SAS do seu contentor no campo adequado:
+
+       ![Introduza a assinatura de acesso partilhado](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
+
+       Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com o PowerShell, antes de iniciar o runtime de integração Azure-SSIS, execute o `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet com o URI de SAS do seu contentor, como o valor para a nova `SetupScriptContainerSasUri` parâmetro. Por exemplo:
 
        ```powershell
        Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
@@ -143,7 +147,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        1. Um `MSDTC` pasta, que contém uma configuração personalizada para modificar as configurações de rede e segurança para o serviço de coordenador de transações distribuídas ' (MSDTC) da Microsoft em cada nó do seu ir Azure-SSIS. Para garantir que o MSDTC foi iniciado, adicione executar tarefa de processo no início do fluxo de controle em seus pacotes a executar o seguinte comando: `%SystemRoot%\system32\cmd.exe /c powershell -Command "Start-Service MSDTC"` 
 
-       1. Uma `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação silenciosa (`client.rsp`) para instalar o controlador de Oracle OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, a origem e destino. Em primeiro lugar, transfira o cliente mais recente do Oracle - por exemplo, `winx64_12102_client.zip` - a partir de [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e, em seguida, carregue-o em conjunto com `main.cmd` e `client.rsp` ao contentor. Se usar TNS para ligar a Oracle, também tem de transferir `tnsnames.ora`, editá-lo e carregá-lo para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
+       1. Uma `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores de Oracle e o controlador OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, a origem e destino. Em primeiro lugar, Baixe o Microsoft Connectors v5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) da [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente mais recente Oracle - por exemplo, `winx64_12102_client.zip` – na [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), em seguida, carregá-los tudo em conjunto com `main.cmd` e `client.rsp` ao contentor. Se usar TNS para ligar a Oracle, também tem de transferir `tnsnames.ora`, editá-lo e carregá-lo para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
 
        1. Uma `ORACLE STANDARD` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador ODP.NET do Oracle em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe utilizar o Gestor de ligações ADO.NET, a origem e destino. Em primeiro lugar, por exemplo, a transferir o controlador Oracle ODP.NET mais recentes - `ODP.NET_Managed_ODAC122cR1.zip` - a partir de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregue-o em conjunto com `main.cmd` ao contentor.
 

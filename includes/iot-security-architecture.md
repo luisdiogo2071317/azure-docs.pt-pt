@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: bbdff5a9aa74ab08dc99c41f8ab847f901e18256
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227409"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254482"
 ---
 # <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança de Internet das coisas
 
@@ -21,7 +21,7 @@ Quando um sistema, é importante compreender as ameaças potenciais para esse si
 
 ## <a name="security-starts-with-a-threat-model"></a>Segurança começa com um modelo de ameaças
 
-A Microsoft há muito tempo utiliza modelos de ameaça para seus produtos e fez publicaly de processo disponíveis de modelagem de ameaças da empresa. A experiência de empresa demonstra que a Modelagem tem benefícios inesperados além a compreensão imediata dos quais ameaças são mais relacionados. Por exemplo, ele também cria um caminho para um debate aberto com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e aprimoramentos no produto.
+A Microsoft há muito tempo utiliza modelos de ameaça para seus produtos e fez publicamente disponível do processo de modelagem de ameaças da empresa. A experiência de empresa demonstra que a Modelagem tem benefícios inesperados além a compreensão imediata dos quais ameaças são mais relacionados. Por exemplo, ele também cria um caminho para um debate aberto com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e aprimoramentos no produto.
 
 O objetivo da modelagem de ameaças é compreender como um invasor poderá comprometer um sistema e, em seguida, certifique-se de atenuações apropriadas estão em vigor. Forças de modelagem de ameaças a equipa de design a serem considerados atenuações, como o sistema foi concebido, em vez depois de um sistema é implementado. Esse fato é extremamente importante, uma vez que estão modernizando suas defesas de segurança para uma grande variedade de dispositivos no terreno é inviável, propenso a erros e os clientes de folhas em risco.
 

@@ -7,24 +7,24 @@ ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056289"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242573"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-inquilino com ferramentas de base de dados elástica e segurança ao nível da linha
 
 [Ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md) e [ao nível da linha (RLS) de segurança] [ rls] cooperam para ativar o dimensionamento a camada de dados de uma aplicação multi-inquilino com a base de dados do Azure SQL. Quando combinadas, essas tecnologias ajudam-o a criar uma aplicação que tenha uma camada de dados altamente dimensionável. A camada de dados suporta fragmentos multi-inquilino e usa **ADO.NET SqlClient** ou **Entity Framework**. Para obter mais informações, consulte [padrões de Design para aplicações de SaaS multi-inquilino com a base de dados do Azure SQL](saas-tenancy-app-design-patterns.md).
 
 - **Ferramentas de bases de dados elásticas** permitem que os desenvolvedores a ampliar a camada de dados com as práticas de fragmentação padrão, utilizando bibliotecas .NET e modelos de serviço do Azure. Gerir partições horizontais com o [biblioteca de clientes de base de dados elástica] [ s-d-elastic-database-client-library] ajuda a automatizar e simplificar muitas das tarefas de infraestrutura normalmente associadas a fragmentação.
-- **Segurança de nível de linha** permite que os desenvolvedores armazenar com segurança os dados de vários inquilinos na mesma base de dados. As políticas de segurança RLS filtram as linhas que não pertencem ao inquilino de execução de uma consulta. Centralizando a lógica de filtro no banco de dados simplifica a manutenção e reduz o risco de um erro de segurança. A alternativa de depender de todo o código de cliente para segurança enfore é arriscada.
+- **Segurança de nível de linha** permite que os desenvolvedores armazenar com segurança os dados de vários inquilinos na mesma base de dados. As políticas de segurança RLS filtram as linhas que não pertencem ao inquilino de execução de uma consulta. Centralizando a lógica de filtro no banco de dados simplifica a manutenção e reduz o risco de um erro de segurança. A alternativa de depender de todo o código de cliente para impor a segurança é arriscada.
 
 Ao utilizar estas funcionalidades em conjunto, um aplicativo pode armazenar dados de vários inquilinos na mesma base de dados de partição horizontal. Ele tem um custo inferior por inquilino quando os inquilinos partilham uma base de dados. Ainda a mesma aplicação pode também oferecer seus inquilinos premium a opção de pagar pelos seus próprios fragmentos de inquilino único dedicado. Uma vantagem de isolamento de inquilino único é firmer garantias de desempenho. Num banco de dados de inquilino único, não existe nenhum outro inquilino competindo por recursos.
 
@@ -39,8 +39,8 @@ O objetivo é utilizar a biblioteca de cliente da base de dados elástica [encam
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Utilizar o Visual Studio (2012 ou superior) 
-- Criar três bases de dados SQL do Azure 
+- Utilizar o Visual Studio (2012 ou superior)
+- Criar três bases de dados SQL do Azure
 - Transfira o projeto de exemplo: [ferramentas elásticas de DB para SQL do Azure - partições horizontais de multi-inquilino](http://go.microsoft.com/?linkid=9888163)
   - Preencha as informações nas bases de dados no início do **Program.cs** 
 

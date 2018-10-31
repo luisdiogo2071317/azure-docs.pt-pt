@@ -3,19 +3,19 @@ title: Enlaces do SendGrid de funções do Azure
 description: Referência de enlaces do SendGrid de funções do Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: glenga
-ms.openlocfilehash: 79fb24e85dea5a8d8d9ca637612ea4a65339a4e3
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.author: cshoe
+ms.openlocfilehash: 23ec5cd6eee3333922b5371a0ece631ebbc20939
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087417"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248036"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces do SendGrid de funções do Azure
 
@@ -199,6 +199,31 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**text**|**Text** (Texto)| o conteúdo de e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>definições de Host. JSON
+
+Esta secção descreve as definições de configuração global disponíveis para essa ligação na versão 2.x. O ficheiro de Host. JSON de exemplo abaixo contém apenas as versão 2.x as definições para este enlace. Para obter mais informações sobre as definições de configuração global na versão 2.x, consulte [referência de Host. JSON para a versão das funções do Azure 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Para obter uma referência de Host. JSON nas funções 1.x, consulte [referência de Host. JSON para as funções do Azure 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Propriedade  |Predefinição | Descrição |
+|---------|---------|---------| 
+|de|n/d|Endereço de e-mail do remetente em todas as funções.| 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190161"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249616"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Atribuir funções de diretório do Azure AD no PIM
 
@@ -41,7 +41,7 @@ Siga estes passos para tornar um utilizador elegível para uma função de diret
 
 1. Clique em **funções** ou **membros**.
 
-    ![Funções do diretório do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Funções de diretório do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Clique em **Add member** abrir Adicionar geridos membros.
 
@@ -112,6 +112,39 @@ Siga estes passos para remover um utilizador específico de uma função de dire
     ![Remover uma função](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     A atribuição de função é removida.
+
+## <a name="authorization-error-when-assigning-roles"></a>Erro de autorização ao atribuir funções
+
+Se ativou recentemente o PIM para obter uma subscrição e obtém um erro de autorização quando tentar fazer com que um utilizador elegível para uma função de diretório, poderá ser porque o principal de serviço MS-PIM ainda não tem as permissões adequadas. O principal de serviço MS-PIM tem de ter o [administrador de acesso de utilizador](../../role-based-access-control/built-in-roles.md#user-access-administrator) função para atribuir funções a outras pessoas. Em vez de aguardar até o MS PIM é atribuída a função de administrador de acesso de utilizador, pode atribuí-la manualmente.
+
+Siga estes passos para atribuir a função de administrador de acesso de utilizador para o MS-PIM principal de serviço para uma subscrição.
+
+1. Inicie sessão no portal do Azure como Administrador Global.
+
+1. Escolher **todos os serviços** e, em seguida **subscrições**.
+
+1. Escolha a sua subscrição.
+
+1. Escolha **Controlo de acesso (IAM)** para ver a lista atual de atribuições de funções no âmbito da subscrição.
+
+   ![Painel de controlo (IAM) de acesso para uma subscrição](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Verifique se o **MS-PIM** principal de serviço é atribuído a **administrador de acesso de utilizador** função.
+
+1. Se não, escolha **Add** para abrir o **adicionar permissões** painel.
+
+1. Na **função** na lista pendente, selecione a **administrador de acesso de utilizador** função.
+
+1. Na **selecionar** lista, localize e selecione o **MS-PIM** principal de serviço.
+
+   ![Adicionar permissões para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Escolher **guardar** para atribuir a função.
+
+   Após alguns instantes, o principal de serviço MS-PIM é atribuída a função de administrador de acesso de utilizador no âmbito da subscrição.
+
+   ![Função de administrador de acesso de utilizador para MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

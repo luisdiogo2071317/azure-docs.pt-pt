@@ -4,16 +4,16 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 59c56f6a6549056fc1db5a8aff325097bcc42aa7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133136"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254583"
 ---
 ## <a name="rest"></a>Implementar o ficheiro ZIP com as APIs REST 
 
-Pode utilizar o [REST APIs do serviço de implementação](https://github.com/projectkudu/kudu/wiki/REST-API) para implementar o ficheiro. zip para a sua aplicação no Azure. Para implementar, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/zipdeploy. O pedido POST tem de conter o ficheiro. zip no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. Para obter mais informações, consulte a [referência de implementação de push. zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
+Pode utilizar o [REST APIs do serviço de implementação](https://github.com/projectkudu/kudu/wiki/REST-API) para implementar o ficheiro. zip para a sua aplicação no Azure. Para implementar, envie um pedido POST para https://<app_name>.scm.azurewebsites.net/api/zipdeployui. O pedido POST tem de conter o ficheiro. zip no corpo da mensagem. As credenciais de implementação para a sua aplicação são fornecidas no pedido através da autenticação básica HTTP. Para obter mais informações, consulte a [referência de implementação de push. zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
 Para a autenticação básica HTTP, terá de suas credenciais de implementação do serviço de aplicações. Para ver como definir as suas credenciais de implementação, consulte [definido e repor as credenciais de nível de usuário](../articles/app-service/app-service-deployment-credentials.md#userscope).
 
@@ -22,7 +22,7 @@ Para a autenticação básica HTTP, terá de suas credenciais de implementação
 O exemplo seguinte utiliza a ferramenta cURL para implementar um ficheiro. zip. Substitua os marcadores de posição `<username>`, `<password>`, `<zip_file_path>`, e `<app_name>`. Quando lhe for pedido curl, escreva a palavra-passe.
 
 ```bash
-curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
+curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeployui
 ```
 
 Este pedido aciona a implementação de push a partir do ficheiro. zip carregado. Pode rever as implementações atuais e anteriores, utilizando o `https://<app_name>.scm.azurewebsites.net/api/deployments` ponto de extremidade, conforme mostrado no exemplo cURL seguinte. Mais uma vez, substitua `<app_name>` com o nome da sua aplicação e `<deployment_user>` com o nome de utilizador de suas credenciais de implementação.
@@ -40,7 +40,7 @@ O exemplo seguinte utiliza [Invoke-RestMethod](/powershell/module/microsoft.powe
 $username = "<deployment_user>"
 $password = "<deployment_password>"
 $filePath = "<zip_file_path>"
-$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/zipdeploy"
+$apiUrl = "https://<app_name>.scm.azurewebsites.net/api/zipdeployui"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
 $userAgent = "powershell/1.0"
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -UserAgent $userAgent -Method POST -InFile $filePath -ContentType "multipart/form-data"

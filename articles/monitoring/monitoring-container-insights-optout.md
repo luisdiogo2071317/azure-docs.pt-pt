@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 56250625a0770828fc31985f737df944f76d3f13
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d2cf2fec50e3dd803d828537ddd724ee61015c71
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209621"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248291"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Como parar a monitorização do Azure Kubernetes Service (AKS) com o Azure Monitor para contentores (pré-visualização)
 
@@ -111,7 +111,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
 
 4. Edite os valores dos **aksResourceId** e **aksResourceLocation** utilizando os valores do cluster do AKS, que pode ser encontrado no **propriedades** página para o cluster selecionado .
 
-    ![Página de propriedades do contentor](./media/monitoring-container-health/container-properties-page.png)
+    ![Página de propriedades do contentor](media/monitoring-container-insights-optout/container-properties-page.png)
 
     Enquanto estiver a utilizar o **propriedades** página, também copiar a **ID de recurso da área de trabalho**. Este valor é necessário se decidir que pretende eliminar a área de trabalho do Log Analytics mais tarde. A eliminar a área de trabalho do Log Analytics não é efetuada como parte deste processo. 
 

@@ -1,8 +1,8 @@
 ---
-title: Velocidade de transmissão única do H264 16 x 9 SD codificador de multimédia Standard predefinição - Azure | Microsoft Docs
-description: O tópico fornece uma descrição geral do **H264 de transmissão única 16 x 9 SD** tarefas da configuração predefinida.
+title: H264 taxa de bits única 16x9 SD Media Encoder Standard configuração predefinida - Azure | Documentos da Microsoft
+description: O tópico fornece uma visão geral do **h264 taxa de bits única 16x9 SD** predefinido de tarefa.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 746dc845f1e32d6be3f207448523d8966da9f8a0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 430c566113b9a2c010529e4f6094b5e2a37166bf
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788411"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246829"
 ---
-# <a name="h264-single-bitrate-16x9-sd"></a>H264 SD de velocidade de transmissão única 16 x 9
-`Media Encoder Standard` Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-16x9-sd"></a>H264 taxa de bits Única 16x9 SD
+`Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Single Bitrate 16x9 SD` no formato XML e o JSON da configuração predefinida.  
+ Este tópico mostra o `H264 Single Bitrate 16x9 SD` predefinidos no formato XML e JSON.  
   
- Este ficheiro predefinidas produz um único MP4 com velocidade de transmissão de 2200 kbps e stereo áudio AAC. Para obter informações detalhadas sobre o perfil, velocidade de transmissão, fazendo a amostragem taxa, etc. Isto da configuração predefinida, examine o XML ou JSON definido abaixo. Para explicações de que cada elemento no meio estas predefinições e os valores válidos para cada elemento, consulte o [esquema codificador de multimédia Standard](media-services-mes-schema.md) tópico.  
+ Este ficheiro predefinidas produz um único MP4 com velocidade de transmissão de 2200 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de que cada elemento desses meios de suas configurações predefinidas e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md) tópico.  
   
  XML  
   

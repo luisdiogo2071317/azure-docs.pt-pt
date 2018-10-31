@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: ef10f45cbe02bd364563be4b0d62f9c491848452
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098079"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248426"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas de definições de Roaming de estado empresarial no Azure Active Directory
 
@@ -74,7 +74,7 @@ Roaming de estado empresarial requer que o dispositivo ser registado com o Azure
 **Problema em potencial**: **WamDefaultSet** e **AzureAdJoined** tem o valor do campo "Não", o dispositivo foi associado a um domínio e registado com o Azure AD e do dispositivo não sincroniza. Se está a mostrar isso, o dispositivo poderá ter de aguardar para a política seja aplicada ou a autenticação do dispositivo falhou ao estabelecer ligação ao Azure AD. O utilizador pode ter de esperar algumas horas para a política seja aplicada. Outros passos de resolução de problemas podem incluir repetir o registo automático ao terminar a sessão e de volta no ou a iniciar a tarefa no agendador de tarefas. Em alguns casos, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
 
 
-**Problema em potencial**: O campo de **SettingsUrl** está vazia e o dispositivo não sincroniza. O utilizador pode ter iniciou sessão no dispositivo antes do Roaming de estado empresarial foi ativada no Portal do Azure Active Directory. Reiniciar o dispositivo e ter o início de sessão do utilizador. Opcionalmente, no portal, tente ter o administrador de TI desative e volte a ativar utilizadores podem sincronizar definições e dados de aplicação empresariais. Uma vez reativada, reiniciar o dispositivo e tem o início de sessão do utilizador. Se isso não resolver o problema **SettingsUrl** pode estar vazio no caso de um certificado de dispositivo. Neste caso, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
+**Problema em potencial**: O campo de **SettingsUrl** está vazia e o dispositivo não sincroniza. O utilizador pode ter iniciou sessão no dispositivo antes do Roaming de estado empresarial foi ativada no Portal do Azure Active Directory. Reiniciar o dispositivo e ter o início de sessão do utilizador. Opcionalmente, no portal, tente ter o administrador de TI, navegue até **do Azure Active Directory** > **dispositivos** > **Roaming de estado empresarial** Desativar e reativar **os utilizadores podem sincronizar definições e dados de aplicação em todos os dispositivos**. Uma vez reativada, reiniciar o dispositivo e tem o início de sessão do utilizador. Se isso não resolver o problema **SettingsUrl** pode estar vazio no caso de um certificado de dispositivo. Neste caso, em execução "*dsregcmd.exe /leave*" numa janela de linha de comandos elevada, reiniciar o computador e tente novamente o registo podem ajudar nessa questão.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Roaming de estado empresarial e multi-factor Authentication 
 

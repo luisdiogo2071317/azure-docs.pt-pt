@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128171"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240637"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Receber eventos dos Hubs de eventos do Azure com Java
 
@@ -50,11 +50,11 @@ Para utilizar o EventProcessorHost, tem de ter uma [conta de armazenamento do Az
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Copie o valor de chave1 para uma localização temporária, para utilizar mais tarde neste tutorial.
+    Copie o valor de chave1 para uma localização temporária. Vai utilizá-lo mais tarde no tutorial.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Criar um projeto Java com o EventProcessorHost
 
-A biblioteca de cliente de Java dos Hubs de eventos está disponível para uso em projetos Maven a partir da [repositório Central Maven][Maven Package]e pode ser referenciada com a seguinte declaração de dependência dentro do Maven arquivo de projeto. A versão atual é para artefactos do azure-eventhubs-eph é 2.0.1 e a versão atual para o azure-eventhubs artefacto é 1.0.2:    
+A biblioteca de cliente de Java dos Hubs de eventos está disponível para uso em projetos Maven a partir da [repositório Central Maven][Maven Package]e pode ser referenciada com a seguinte declaração de dependência dentro do Maven arquivo de projeto. A versão atual para artefactos do azure-eventhubs-eph é 2.0.1 e a versão atual para o azure-eventhubs artefacto é 1.0.2:    
 
 ```xml
 <dependency>
@@ -241,15 +241,15 @@ Para diferentes tipos de ambientes de compilação, pode obter explicitamente os
     }
     ```
 
-Este tutorial utiliza uma única instância do EventProcessorHost. Para aumentar o débito, recomenda-se que execute várias instâncias do EventProcessorHost, preferencialmente, em computadores separados.  Esta opção fornece redundância também. Nesses casos, as várias instâncias coordenam-se automaticamente entre si para equilibrarem a carga dos eventos recebidos. Se pretender várias recetores para que cada um processe *todos* os eventos, terá de utilizar o conceito **ConsumerGroup**. Se receber eventos de vários computadores, poderá ser útil especificar os nomes das instâncias do EventProcessorHost com base nos computadores (ou funções) em que estão implementadas.
+Este tutorial utiliza uma única instância do EventProcessorHost. Para aumentar o débito, recomendamos que execute várias instâncias do EventProcessorHost, preferencialmente, em computadores separados.  Ele fornece também a redundância. Nesses casos, as várias instâncias coordenam-se automaticamente entre si para equilibrarem a carga dos eventos recebidos. Se pretender várias recetores para que cada um processe *todos* os eventos, terá de utilizar o conceito **ConsumerGroup**. Se receber eventos de vários computadores, poderá ser útil especificar os nomes das instâncias do EventProcessorHost com base nos computadores (ou funções) em que estão implementadas.
 
 ## <a name="publishing-messages-to-eventhub"></a>Publicação de mensagens para EventHub
 
 Antes das mensagens são obtidas pelos consumidores, têm de ser publicado para as partições primeiro pelos fabricantes. Vale a pena observar que quando as mensagens são publicadas para o hub de eventos sincronicamente usando o método de sendSync() no objeto com.microsoft.azure.eventhubs.EventHubClient, a mensagem pode ser enviada para uma partição específica ou distribuída para todas as partições disponíveis de uma forma de rodízio consoante esteja a chave de partição está especificada ou não.
 
-Quando uma cadeia de caracteres que representa a chave de partição for especificada, a chave será convertida para determinar qual partição para enviar o evento para.
+Quando uma cadeia de caracteres que representa a chave de partição for especificada, a chave é protegido por hash para determinar qual partição para enviar o evento.
 
-Quando a chave de partição não está definida, serão round robined para todas as partições disponíveis, em seguida, as mensagens
+Quando a chave de partição não está definida, em seguida, as mensagens são round robined para todas as partições disponíveis
 
 ```java
 // Serialize the event into bytes
@@ -273,23 +273,18 @@ A API fornece um mecanismo para implementar o seu Gestor de ponto de verificaç�
 
 O Gestor de ponto de verificação padrão utiliza o armazenamento de BLOBs, mas se substituir o Gestor de ponto de verificação utilizado por EPH com sua própria implementação, pode utilizar qualquer armazenamento que pretende criar a sua implementação do Gestor de ponto de verificação.
 
-Tem de criar uma classe que implementa a interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
+Criar uma classe que implementa a interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
 
 Utilizar a sua implementação personalizada do Gestor de ponto de verificação (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-Dentro de sua implementação, pode substituir o mecanismo de ponto de verificação padrão e implementar nossos própria pontos de verificação com base no seu próprio arquivo de dados (SQL Server, CosmosDB, etc de Cache de Redis). Recomenda-se que o arquivo utilizado para fazer uma cópia de sua implementação do Gestor de ponto de verificação ser acessíveis a todas as instâncias EPH que estão a processar os eventos para o grupo de consumidores.
+Dentro de sua implementação, pode substituir o mecanismo de ponto de verificação padrão e implementar nossos própria pontos de verificação com base no seu próprio arquivo de dados (SQL Server, CosmosDB, etc de Cache de Redis). Recomendamos que o arquivo utilizado para fazer uma cópia de sua implementação do Gestor de ponto de verificação está acessível a todas as instâncias EPH que estão a processar os eventos para o grupo de consumidores.
 
-Pode usar qualquer arquivo de dados que estarão disponível no seu ambiente.
+Pode usar qualquer arquivo de dados que está disponível no seu ambiente.
 
-A classe com.microsoft.azure.eventprocessorhost.EventProcessorHost fornece 2 construtores que permitem que substitua o Gestor de ponto de verificação para o EventProcessorHost.
+A classe com.microsoft.azure.eventprocessorhost.EventProcessorHost oferece dois construtores que permitem que substitua o Gestor de ponto de verificação para o EventProcessorHost.
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
-
-* [Descrição geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
-* [FAQ dos Hubs de Eventos](event-hubs-faq.md)
+Neste início rápido, criou uma aplicação de Java que recebeu mensagens a partir de um hub de eventos. Para saber como enviar eventos para um hub de eventos com Java, veja [enviar eventos do hub de eventos - Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

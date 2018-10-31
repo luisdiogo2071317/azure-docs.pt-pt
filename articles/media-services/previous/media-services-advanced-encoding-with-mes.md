@@ -1,10 +1,10 @@
 ---
-title: Efetuar a codificação avançadas personalizando MES predefinições | Microsoft Docs
-description: Este tópico mostra como efetuar a codificação avançadas personalizando o codificador de multimédia Standard predefinições de tarefas.
+title: Realizar a codificação avançada ao personalizar predefinições MES | Documentos da Microsoft
+description: Este tópico mostra como realizar a codificação avançada ao personalizar o Media Encoder Standard predefinições de tarefas.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services
@@ -12,53 +12,53 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9480e6f3f651611e5281968d6d1651bd39dda44f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4601628fd0fbdbd80c2b159a4578e25cb4e3c4c5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788922"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250772"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Efetuar a codificação avançadas personalizando MES predefinições 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Realizar a codificação avançada ao personalizar predefinições MES 
 
 ## <a name="overview"></a>Descrição geral
 
-Este tópico mostra como personalizar predefinições codificador de multimédia Standard. O [codificação com o codificador de multimédia Standard utilizando predefinições personalizadas](media-services-custom-mes-presets-with-dotnet.md) tópico mostra como utilizar o .NET para criar uma tarefa de codificação e uma tarefa que executa esta tarefa. Depois de personalizar uma predefinição, forneça as predefinições para a tarefa de codificação personalizadas. 
+Este tópico mostra como personalizar as predefinições do Media Encoder Standard. O [Encoding com Media Encoder Standard com configurações predefinidas personalizadas](media-services-custom-mes-presets-with-dotnet.md) tópico mostra como usar o .NET para criar uma tarefa de codificação e uma tarefa que executa essa tarefa. Depois de personalizar uma configuração predefinida, fornece as configurações predefinidas personalizadas para a tarefa de codificação. 
 
 >[!NOTE]
->Se utilizar uma predefinição XML, certifique-se preservar a ordem dos elementos, conforme mostrado nos exemplos XML abaixo (por exemplo, KeyFrameInterval deve preceder SceneChangeDetection).
+>Se utilizar uma configuração predefinida XML, certifique-se preservar a ordem dos elementos, conforme mostrado nos exemplos XML abaixo (por exemplo, KeyFrameInterval deve preceda SceneChangeDetection).
 >
 
-Neste tópico, as predefinições personalizadas que executam as seguintes tarefas de codificação são demonstradas.
+Neste tópico, as configurações predefinidas personalizadas que executam as seguintes tarefas de codificação são demonstradas.
 
-## <a name="support-for-relative-sizes"></a>Suporte para tamanhos de relativos
+## <a name="support-for-relative-sizes"></a>Suporte para tamanhos relativos
 
-Ao gerar miniaturas, não terá sempre especificar saída largura e altura em pixéis. Pode especificá-las em percentagens, no intervalo [% 1,..., 100%].
+Ao gerar miniaturas, não é necessário especificar sempre saída largura e altura em pixels. Pode especificá-las em porcentagens, no intervalo [% 1,..., 100%].
 
-### <a name="json-preset"></a>Predefinição JSON
+### <a name="json-preset"></a>Configuração predefinida JSON
     "Width": "100%",
     "Height": "100%"
 
-### <a name="xml-preset"></a>Predefinição XML
+### <a name="xml-preset"></a>Configuração predefinida XML
     <Width>100%</Width>
     <Height>100%</Height>
 
 ## <a id="thumbnails"></a>Gerar miniaturas
 
-Esta secção mostra como personalizar uma predefinição que gera miniaturas. A predefinição definida abaixo contém informações sobre como pretende codificar o ficheiro, bem como informações necessárias para gerar miniaturas. Pode efetuar qualquer uma das predefinições de MES documentadas [isto](media-services-mes-presets-overview.md) secção e adicione o código que gera miniaturas.  
+Esta secção mostra como personalizar uma predefinição que gera miniaturas. A configuração predefinida de definido abaixo contém informações sobre como pretende codificar o ficheiro, bem como informações necessárias para gerar miniaturas. Pode pegar qualquer as predefinições MES documentadas [isso](media-services-mes-presets-overview.md) secção e adicione código que gera miniaturas.  
 
 > [!NOTE]
-> O **SceneChangeDetection** definição na predefinição seguinte só pode ser definida como verdadeira se estão a codificação para uma velocidade de transmissão única vídeo. Se estiver a codificação para um vídeo de transmissão múltipla e um conjunto **SceneChangeDetection** para verdadeiro, o codificador devolve um erro.  
+> O **SceneChangeDetection** definição na configuração predefinida seguinte só pode ser definida como VERDADEIRO se está a codificar para uma velocidade de transmissão única vídeo. Se está a codificar a uma velocidade de transmissão vídeo e um conjunto **SceneChangeDetection** para verdadeiro, o codificador devolve um erro.  
 >
 >
 
-Para obter informações sobre o esquema, consulte [isto](media-services-mes-schema.md) tópico.
+Para obter informações sobre o esquema, consulte [isso](media-services-mes-schema.md) tópico.
 
-Certifique-se de que revê o [considerações](#considerations) secção.
+Lembre-se de que reveja os [considerações](#considerations) secção.
 
-### <a id="json"></a>Predefinição JSON
+### <a id="json"></a>Configuração predefinida JSON
     {
       "Version": 1.0,
       "Codecs": [
@@ -158,7 +158,7 @@ Certifique-se de que revê o [considerações](#considerations) secção.
     }
 
 
-### <a id="xml"></a>Predefinição XML
+### <a id="xml"></a>Configuração predefinida XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
@@ -233,27 +233,27 @@ Certifique-se de que revê o [considerações](#considerations) secção.
 
 ### <a name="considerations"></a>Considerações
 
-Aplicam as seguintes considerações:
+As seguintes considerações aplicam-se:
 
-* A utilização de carimbos explícitas para iniciar/passo/intervalo parte do princípio de que a origem de entrada é muito pelo menos 1 minuto.
-* Elementos de jpg/Png/BmpImage tem início, passo e os atributos de cadeia no intervalo – estes podem ser interpretados como:
+* A utilização de carimbos de data / explícita para iniciar/passo/intervalo parte do princípio de que a origem de entrada é longo, pelo menos, 1 minuto.
+* Elementos de jpg/Png/BmpImage tem início, passo e os atributos de cadeia de caracteres de intervalo – estas podem ser interpretadas como:
 
-  * Número de moldura que se encontrem números inteiros de não negativo, por exemplo "Start": "120"
-  * Relativo a duração de origem se expresso como %-o sufixo, por exemplo "Start": "15%", ou
-  * Timestamp se expresso como hh: mm:... Formatar, por exemplo "Start": "00: 01:00"
+  * Número de fotograma, se forem inteiros não negativos, por exemplo "Start": "120,"
+  * Relativamente à duração de origem, se for expresso como sufixo %, por exemplo "Start": "% de 15", ou
+  * Timestamp se for expresso no hh: mm:... Formatar, por exemplo "Start": "00: 01:00"
 
     Pode combinar e misturar notações como.
 
-    Além disso, o início suporta também uma Macro especial: {melhores}, que tenta determinar o intervalo de "interessante" primeiro do conteúdo tenha em atenção: (passo e o intervalo são ignoradas quando início está definido como {melhor})
-  * As predefinições: Iniciar: {melhor}
-* Formato de saída tem de ser explicitamente fornecido para cada formato de imagem: Png/Jpg/BmpFormat. Quando presente, MES corresponde à JpgVideo para JpgFormat e assim sucessivamente. OutputFormat introduz uma nova Macro específico de imagem codec: {índice}, que tem de estar presente (uma vez e apenas uma vez) para formatos de saída de imagem.
+    Além disso, o início suporta também uma Macro especial: {melhores}, que tentará determinar o primeiro quadro "interessante" da nota conteúdo: (passo e o intervalo são ignoradas quando início está definido como {melhor})
+  * Predefinições: Iniciar: {melhor}
+* Formato de saída tem de ser explicitamente fornecido para cada formato de imagem: Png/Jpg/BmpFormat. Quando estiver presente, o MES corresponde a JpgVideo para JpgFormat e assim por diante. OutputFormat introduz uma nova Macro específicos de codec de imagem: {Index}, que tem de estar presente (uma vez e apenas uma vez) para os formatos de saída de imagem.
 
-## <a id="trim_video"></a>Compactar um vídeo (recorte)
-Esta secção aborda modificar as predefinições de codificador recortar ou compactar o vídeo de entrada onde a entrada é um ficheiro de mezanino so-called ou o ficheiro a pedido. O codificador também pode ser utilizado para recortar ou compactar um recurso, o que é capturado ou arquivado a partir de um fluxo em direto – os detalhes para este estão disponíveis no [este blogue](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+## <a id="trim_video"></a>Cortar um vídeo (recorte)
+Esta seção fala sobre como modificar as predefinições de codificador para recortar ou cortar o vídeo de entrada em que a entrada é um ficheiro de mezanino chamado ou ficheiro sob demanda. O codificador também pode ser utilizado para recortar ou cortar um ativo, o que é capturado ou arquivado num fluxo em direto – os detalhes para isso estão disponíveis na [este blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-Para compactar seus vídeos, pode efetuar qualquer uma das predefinições de MES documentadas [isto](media-services-mes-presets-overview.md) secção e modificar o **origens** elemento (tal como mostrado abaixo). O valor de StartTime tem de corresponder aos carimbos absolutos do vídeo de entrada. Por exemplo, se o primeiro intervalo do vídeo de entrada tem um carimbo de 12:00:10.000, em seguida, StartTime deve ser, pelo menos, 12:00:10.000 e superior. No exemplo abaixo, iremos partem do princípio de que o vídeo de entrada tem um timestamp inicial igual a zero. **Origens** deve ser colocado no início a predefinição.
+Para cortar os seus vídeos, pode pegar qualquer das predefinições MES documentadas [isso](media-services-mes-presets-overview.md) secção e modificar a **origens** elemento (conforme mostrado abaixo). O valor de StartTime tem de corresponder os carimbos de data / absoluto de vídeo de entrada. Por exemplo, se o primeiro quadro de vídeo de entrada tem um carimbo de 12:00:10.000, em seguida, StartTime deve ser, pelo menos, 12:00:10.000 e superior. No exemplo a seguir, partimos do princípio de que o vídeo de entrada tem um carimbo inicial igual a zero. **Origens** devem ser colocadas no início da configuração predefinida.
 
-### <a id="json"></a>Predefinição JSON
+### <a id="json"></a>Configuração predefinida JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -372,8 +372,8 @@ Para compactar seus vídeos, pode efetuar qualquer uma das predefinições de ME
       ]
     }
 
-### <a name="xml-preset"></a>Predefinição XML
-Para compactar seus vídeos, pode efetuar qualquer uma das predefinições de MES documentadas [aqui](media-services-mes-presets-overview.md) e modificar o **origens** elemento (tal como mostrado abaixo).
+### <a name="xml-preset"></a>Configuração predefinida XML
+Para cortar os seus vídeos, pode pegar qualquer das predefinições MES documentadas [aqui](media-services-mes-presets-overview.md) e modificar a **origens** elemento (conforme mostrado abaixo).
 
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -492,11 +492,11 @@ Para compactar seus vídeos, pode efetuar qualquer uma das predefinições de ME
 
 ## <a id="overlay"></a>Criar uma sobreposição
 
-O codificador de multimédia Standard permite-lhe sobreposição uma imagem para um vídeo existente. Atualmente, são suportados os seguintes formatos: png, jpg, gif e bmp. A predefinição definida abaixo está um exemplo básico da sobreposição de vídeo.
+O Media Encoder Standard permite-lhe sobrepor uma imagem para um vídeo existente. Atualmente, são suportados os seguintes formatos: png, jpg, gif e bmp. A configuração predefinida de definido abaixo é um exemplo básico de uma sobreposição de vídeo.
 
-Além de definir um ficheiro predefinido, também tem de permitir aos serviços de suporte de dados de saber qual o ficheiro no elemento é a imagem de sobreposição e qual o ficheiro é a origem de vídeo em que pretende sobreposição a imagem. O ficheiro de vídeo tem de ser o **primário** ficheiro.
+Além de definir um ficheiro predefinido, também tem de permitir que os serviços de multimédia sabe qual arquivo no elemento é a imagem de sobreposição e qual é o ficheiro é a origem de vídeo em que deseja sobrepor a imagem. O ficheiro de vídeo tem de ser o **primário** ficheiro.
 
-Se estiver a utilizar o .NET, adicione as seguintes duas funções ao exemplo .NET definido no [isto](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) tópico. O **UploadMediaFilesFromFolder** função carregamentos de ficheiros a partir de uma pasta (por exemplo, BigBuckBunny.mp4 e Image001.png) e define o ficheiro mp4 se o ficheiro primário no elemento. O **EncodeWithOverlay** função utiliza o ficheiro predefinido personalizado que foi passado ao mesmo (por exemplo, a predefinição que se segue) para criar a tarefa de codificação.
+Se estiver a utilizar o .NET, adicione as seguintes duas funções para o exemplo de .NET definido no [isso](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) tópico. O **UploadMediaFilesFromFolder** função carrega ficheiros a partir de uma pasta (por exemplo, BigBuckBunny.mp4 e Image001.png) e define o ficheiro mp4 se o ficheiro primário no ativo. O **EncodeWithOverlay** função usa o arquivo predefinido personalizado que foi passado para ele (por exemplo, a configuração predefinida que se segue) para criar a tarefa de codificação.
 
 
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
@@ -556,11 +556,11 @@ Se estiver a utilizar o .NET, adicione as seguintes duas funções ao exemplo .N
 >
 > A definição de opacidade de sobreposição não é suportada.
 >
-> O ficheiro de vídeo de origem e o ficheiro de imagem de sobreposição têm de estar no mesmo elemento e o ficheiro de vídeo tem de ser definido como ficheiro principal este recurso.
+> O ficheiro de vídeo de origem e o arquivo de imagem de sobreposição têm de estar no mesmo elemento, e o ficheiro de vídeo tem de ser definida como o ficheiro primário deste recurso.
 >
 >
 
-### <a name="json-preset"></a>Predefinição JSON
+### <a name="json-preset"></a>Configuração predefinida JSON
     {
       "Version": 1.0,
       "Sources": [
@@ -637,7 +637,7 @@ Se estiver a utilizar o .NET, adicione as seguintes duas funções ao exemplo .N
     }
 
 
-### <a name="xml-preset"></a>Predefinição XML
+### <a name="xml-preset"></a>Configuração predefinida XML
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Sources>
@@ -700,14 +700,14 @@ Se estiver a utilizar o .NET, adicione as seguintes duas funções ao exemplo .N
     </Preset>
 
 
-## <a id="silent_audio"></a>Inserir um registo de áudio automática quando a entrada não tem nenhum áudio
-Por predefinição, se enviar uma entrada para o codificador que contém apenas os vídeos e nenhum áudio, em seguida, o elemento de saída contém ficheiros que contêm as vídeos apenas dados. Alguns jogadores poderão não ser capazes de lidar com esses fluxos de saída. Pode utilizar esta definição para forçar o codificador para adicionar um registo de áudio automática para a saída nesse cenário.
+## <a id="silent_audio"></a>Inserir uma faixa de áudio silenciosa quando a entrada tem sem áudio
+Por predefinição, se tiver de enviar uma entrada ao codificador que contém apenas vídeo e áudio de nenhum, em seguida, o elemento de saída contém ficheiros que contêm dados apenas de vídeos. Alguns leitores podem não ser capazes de lidar com esses fluxos de saída. Pode utilizar esta definição para forçar o codificador para adicionar uma faixa de áudio automática para a saída desse cenário.
 
-Para forçar o codificador para produzir um elemento que contenha um registo de áudio automática quando a entrada não tem nenhum áudio, especifique o valor de "InsertSilenceIfNoAudio".
+Para forçar o codificador para produzir um elemento que contenha uma faixa de áudio silenciosa quando a entrada tem sem áudio, especifique o valor de "InsertSilenceIfNoAudio".
 
-Pode efetuar qualquer uma das predefinições de MES documentadas em [isto](media-services-mes-presets-overview.md) secção e efetuar a modificação do seguinte:
+Pode pegar qualquer as predefinições MES documentadas em [isso](media-services-mes-presets-overview.md) secção e efetuar a modificação do seguinte:
 
-### <a name="json-preset"></a>Predefinição JSON
+### <a name="json-preset"></a>Configuração predefinida JSON
     {
       "Channels": 2,
       "SamplingRate": 44100,
@@ -716,19 +716,19 @@ Pode efetuar qualquer uma das predefinições de MES documentadas em [isto](medi
       "Condition": "InsertSilenceIfNoAudio"
     }
 
-### <a name="xml-preset"></a>Predefinição XML
+### <a name="xml-preset"></a>Configuração predefinida XML
     <AACAudio Condition="InsertSilenceIfNoAudio">
       <Channels>2</Channels>
       <SamplingRate>44100</SamplingRate>
       <Bitrate>96</Bitrate>
     </AACAudio>
 
-## <a id="deinterlacing"></a>Desativar anular interlacing automática
-Os clientes não precisam de fazer nada se estes que o conteúdo de interlace ser automaticamente anular entrelaçada. Quando o automática anular interlacing está ativada (predefinição) o MES não a deteção automática de fotogramas entrelaçadas e apenas interlaces anular frames marcados como entrelaçadas.
+## <a id="deinterlacing"></a>Desativar automaticamente anular do entrelaçamento
+Os clientes não precisam de fazer nada se desejarem o conteúdo de interlace sejam entrelaçadas automaticamente anular. Quando o automática anular entrelaçamento está ativada (predefinição) o MES faz a deteção automática de quadros entrelaçadas e apenas interlaces anular quadros marcados como entrelaçadas.
 
-Pode desativar o automática anular interlacing. Esta opção não é recomendada.
+Pode desativar o automática anular entrelaçamento. Esta opção não é recomendada.
 
-### <a name="json-preset"></a>Predefinição JSON
+### <a name="json-preset"></a>Configuração predefinida JSON
     "Sources": [
     {
      "Filters": {
@@ -739,7 +739,7 @@ Pode desativar o automática anular interlacing. Esta opção não é recomendad
     }
     ]
 
-### <a name="xml-preset"></a>Predefinição XML
+### <a name="xml-preset"></a>Configuração predefinida XML
     <Sources>
     <Source>
       <Filters>
@@ -751,8 +751,8 @@ Pode desativar o automática anular interlacing. Esta opção não é recomendad
     </Sources>
 
 
-## <a id="audio_only"></a>Predefinições de só de áudio
-Esta secção demonstra predefinições MES dois só de áudio: AAC áudio e AAC boa qualidade áudio.
+## <a id="audio_only"></a>Configurações predefinidas de só de áudio
+Esta secção demonstra duas configurações predefinidas MES de só de áudio: AAC áudio e AAC boa qualidade áudio.
 
 ### <a name="aac-audio"></a>Áudio AAC
     {
@@ -798,28 +798,28 @@ Esta secção demonstra predefinições MES dois só de áudio: AAC áudio e AAC
       ]
     }
 
-## <a id="concatenate"></a>Concatenar duas ou mais ficheiros de vídeo
+## <a id="concatenate"></a>Concatenar dois ou mais ficheiros de vídeo
 
-O exemplo seguinte ilustra a forma como pode gerar uma predefinição para concatenar duas ou mais ficheiros de vídeo. O cenário mais comum é quando pretender adicionar um cabeçalho ou uma trailer para o vídeo principal. A utilização pretendida é quando propriedades (resolução de vídeo, velocidade de fotogramas, contagem de controlar áudio, etc.) da partilha de ficheiros de vídeo a ser editados em conjunto. Deve demorar está interessado não misture vídeos de taxas de moldura diferente ou com um número diferente de áudio controla.
+O exemplo a seguir ilustra como pode gerar uma configuração predefinida para concatenar duas ou mais ficheiros de vídeo. O cenário mais comum é quando deseja adicionar um cabeçalho ou uma trailers ao vídeo principal. A utilização pretendida é quando propriedades (resolução de vídeo, taxa de quadros, contagem de faixa de áudio, etc.) da partilha de ficheiros de vídeo a ser editados em conjunto. Deve Tome cuidado para não misturar vídeos de taxas de quadros diferentes, ou com um número diferente de faixas de áudio.
 
 >[!NOTE]
->O design da funcionalidade concatenação espera que os clips de vídeos de entrada são consistentes em termos de resolução, velocidade de fotogramas etc. 
+>O design atual da funcionalidade de concatenação de espera que os clips de vídeo de entrada são consistentes em termos de resolução, taxa de quadros etc. 
 
 ### <a name="requirements-and-considerations"></a>Requisitos e considerações
 
-* Vídeos de entrada devem ter apenas um registo de áudio.
-* Vídeos de entrada devem ter a mesmo velocidade de fotogramas.
-* Tem de carregar os seus vídeos para recursos separados e definir os vídeos como ficheiro principal cada recurso.
-* É necessário saber a duração dos seus vídeos.
-* Os exemplos predefinidos abaixo parte do princípio de que todos os vídeos entrados começar com um carimbo de zero. Terá de modificar os valores StartTime se os vídeos tem timestamp inicial diferentes, como é normalmente o caso de arquivos em direto.
-* A predefinição JSON torna referências explícitas para os valores de AssetID dos recursos de entrada.
-* O código de exemplo parte do princípio de que a predefinição JSON foi guardada para um ficheiro local, como "C:\supportFiles\preset.json". Também parte do princípio que foram criados dois recursos através do carregamento de ficheiros de vídeo de dois e de que sabe os valores de AssetID resultantes.
-* O fragmento de código e JSON predefinição mostra um exemplo de concatenar ficheiros de vídeo de dois. Pode expandi-lo a mais do que dois vídeos por:
+* Vídeos de entrada devem ter apenas uma faixa de áudio.
+* Vídeos de entrada devem ter a mesma taxa de quadros.
+* Tem de carregar os seus vídeos para recursos separados e definir os vídeos que o ficheiro primário em cada ativo.
+* Precisa saber a duração dos seus vídeos.
+* Os exemplos predefinidos abaixo parte do princípio de que todos os vídeos de entrada começar com um carimbo de zero. Terá de modificar os valores StartTime se os vídeos tem timestamp partida diferente, como é normalmente o caso com arquivos em direto.
+* A configuração predefinida de JSON torna referências explícitas para os valores de AssetID os ativos de entrada.
+* O código de exemplo parte do princípio de que a configuração predefinida de JSON tiver sido salva um arquivo local, como "C:\supportFiles\preset.json". Também parte do princípio de que dois recursos foram criados através do carregamento de ficheiros de vídeo de dois, e de que sabe os valores de AssetID resultantes.
+* O trecho de código e JSON predefinido mostra um exemplo de concatenar dois ficheiros de vídeo. Pode expandi-lo a mais do que dois vídeos por:
 
-  1. Chamar uma tarefa. InputAssets.Add() repetidamente para adicionar mais vídeos, por ordem.
-  2. Efetuar correspondente edita para o elemento de "Origens" no JSON, adicionando mais entradas, pela mesma ordem.
+  1. Tarefa de chamada. InputAssets.Add() repetidamente para adicionar mais vídeos, por ordem.
+  2. Tornar correspondente edita para o elemento "Origens" em JSON, adicionando mais entradas, pela mesma ordem.
 
-### <a name="net-code"></a>Código de .NET
+### <a name="net-code"></a>Código do .NET
 
     IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
     IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
@@ -852,9 +852,9 @@ O exemplo seguinte ilustra a forma como pode gerar uma predefinição para conca
     job.Submit();
     job.GetExecutionProgressTask(CancellationToken.None).Wait();
 
-### <a name="json-preset"></a>Predefinição JSON
+### <a name="json-preset"></a>Configuração predefinida JSON
 
-Atualize o seu personalizado com ids de recursos que pretende concatenar e com o segmento de momento adequado para cada vídeo da configuração predefinido.
+Atualize seu personalizado predefinido com ids dos ativos que deseja concatenar e com o segmento de hora apropriada para cada vídeo.
 
     {
       "Version": 1.0,
@@ -908,24 +908,24 @@ Atualize o seu personalizado com ids de recursos que pretende concatenar e com o
       ]
     }
 
-## <a id="crop"></a>Vídeos de cortar com o codificador de multimédia Standard
-Consulte o [recortar vídeos com o codificador de multimédia Standard](media-services-crop-video.md) tópico.
+## <a id="crop"></a>Recortar vídeos com o Media Encoder Standard
+Consulte a [recortar vídeos com o Media Encoder Standard](media-services-crop-video.md) tópico.
 
-## <a id="no_video"></a>Inserir um vídeo controlar quando a entrada não tem nenhum vídeo
+## <a id="no_video"></a>Inserir um Roteiro de vídeo quando a entrada não tem nenhum vídeo
 
-Por predefinição, se enviar uma entrada para o codificador que contém apenas áudio e vídeo de nenhuma, em seguida, o elemento de saída contém ficheiros que contêm dados de áudio apenas. Alguns jogadores, incluindo o leitor de multimédia do Azure (consulte [isto](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) pode não ser capaz de lidar com esses fluxos. Pode utilizar esta definição para forçar o codificador para adicionar um registo de vídeo monochrome à saída de nesse cenário.
+Por predefinição, se tiver de enviar uma entrada ao codificador que contenha apenas áudio e nenhum vídeo, em seguida, o elemento de saída contém ficheiros que contêm dados de áudio apenas. Alguns leitores, incluindo o leitor de multimédia do Azure (veja [isso](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) pode não ser capaz de lidar com tais fluxos. Pode utilizar esta definição para forçar o codificador para adicionar uma faixa de vídeo monocrômica à saída nesse cenário.
 
 > [!NOTE]
-> Forçar o codificador de inserir um controlar de vídeo de saída aumenta o tamanho do resultado Asset, e, deste modo, o custo tarifas da tarefa de codificação. Deve executar testes para verificar se este aumento resultante tem apenas um impacto modest no seu encargos mensais.
+> Forçar o codificador para inserir um track de vídeo de saída aumenta o tamanho da saída ativo, e, deste modo, o custo incorrido para a tarefa de codificação. Deve executar testes para verificar se este aumento resultante tem apenas um impacto modesto em suas Cobranças mensais.
 >
 
-### <a name="inserting-video-at-only-the-lowest-bitrate"></a>A inserção de vídeo no apenas a mais baixa de velocidade de transmissão
+### <a name="inserting-video-at-only-the-lowest-bitrate"></a>A inserção de vídeo no apenas a velocidade de transmissão mais baixa
 
-Suponhamos que está a utilizar uma velocidade de transmissão vários codificação predefinido, tal como ["H264 múltipla 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) de codificar o seu todo catálogo entrado para transmissão em fluxo, que contém uma mistura de ficheiros de vídeo e ficheiros só de áudio. Neste cenário, quando a entrada não tem nenhum vídeo, poderá pretender forçar o codificador de inserir um registo de vídeo monochrome apenas a menor velocidade de transmissão, por oposição a inserção de vídeo no cada velocidade de transmissão de saída. Para tal, tem de utilizar o **InsertBlackIfNoVideoBottomLayerOnly** sinalizador.
+Suponha que estiver a utilizar uma velocidade de transmissão múltiplas codificação predefinidos, tais como ["h264 taxa de bits múltiplas 720p"](media-services-mes-preset-h264-multiple-bitrate-720p.md) codificar sua entrado catálogo completo para transmissão em fluxo, que contém uma mistura de ficheiros de vídeo e ficheiros só de áudio. Neste cenário, quando a entrada não tem nenhum vídeo, pode querer forçar o codificador para inserir um Roteiro de vídeo monocrômica em apenas a mais baixa velocidade de transmissão, em vez de inserção de vídeo no cada velocidade de transmissão de saída. Para conseguir isso, tem de utilizar o **InsertBlackIfNoVideoBottomLayerOnly** sinalizador.
 
-Pode efetuar qualquer uma das predefinições de MES documentadas em [isto](media-services-mes-presets-overview.md) secção e efetuar a modificação do seguinte:
+Pode pegar qualquer as predefinições MES documentadas em [isso](media-services-mes-presets-overview.md) secção e efetuar a modificação do seguinte:
 
-#### <a name="json-preset"></a>Predefinição JSON
+#### <a name="json-preset"></a>Configuração predefinida JSON
     {
           "KeyFrameInterval": "00:00:02",
           "StretchMode": "AutoSize",
@@ -935,9 +935,9 @@ Pode efetuar qualquer uma das predefinições de MES documentadas em [isto](medi
           ]
     }
 
-#### <a name="xml-preset"></a>Predefinição XML
+#### <a name="xml-preset"></a>Configuração predefinida XML
 
-Quando utilizar XML, utilize condição = "InsertBlackIfNoVideoBottomLayerOnly" como um atributo para o **H264Video** o elemento e a condição = "InsertSilenceIfNoAudio" como um atributo para **AACAudio**.
+Ao utilizar o XML, use a condição = "InsertBlackIfNoVideoBottomLayerOnly" como um atributo para o **H264Video** elemento e a condição = "InsertSilenceIfNoAudio" como um atributo para **AACAudio**.
 
 ```
 . . .
@@ -963,12 +963,12 @@ Quando utilizar XML, utilize condição = "InsertBlackIfNoVideoBottomLayerOnly" 
 . . .
 ```
 
-### <a name="inserting-video-at-all-output-bitrates"></a>Inserir em todas as vídeo de saída de forma
-Suponhamos que está a utilizar uma velocidade de transmissão vários codificação predefinido, tal como ["H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) de codificar o seu todo catálogo entrado para transmissão em fluxo, que contém uma mistura de ficheiros de vídeo e ficheiros só de áudio. Neste cenário, quando a entrada não tem nenhum vídeo, poderá pretender forçar o codificador de inserir um registo de vídeo monochrome de todo a resultado de forma. Isto garante que a saída ativos são todos os homogéneo no que respeita à número de vídeo controla e controla áudio. Para tal, tem de especificar o sinalizador "InsertBlackIfNoVideo".
+### <a name="inserting-video-at-all-output-bitrates"></a>Inserir o vídeo em todos os velocidades de transmissão de saída
+Suponha que estiver a utilizar uma velocidade de transmissão múltiplas codificação predefinidos, tais como ["h264 taxa de bits múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) codificar sua entrado catálogo completo para transmissão em fluxo, que contém uma mistura de ficheiros de vídeo e ficheiros só de áudio. Neste cenário, quando a entrada não tem nenhum vídeo, pode querer forçar o codificador para inserir um Roteiro de vídeo monocrômica em todos os as velocidades de transmissão de saída. Isto garante que a saída ativos são todos homogéneo em relação ao número de faixas de vídeo e faixas de áudio. Para conseguir isso, terá de especificar o sinalizador "InsertBlackIfNoVideo".
 
-Pode efetuar qualquer uma das predefinições de MES documentadas em [isto](media-services-mes-presets-overview.md) secção e efetuar a modificação do seguinte:
+Pode pegar qualquer as predefinições MES documentadas em [isso](media-services-mes-presets-overview.md) secção e efetuar a modificação do seguinte:
 
-#### <a name="json-preset"></a>Predefinição JSON
+#### <a name="json-preset"></a>Configuração predefinida JSON
     {
           "KeyFrameInterval": "00:00:02",
           "StretchMode": "AutoSize",
@@ -978,9 +978,9 @@ Pode efetuar qualquer uma das predefinições de MES documentadas em [isto](medi
           ]
     }
 
-#### <a name="xml-preset"></a>Predefinição XML
+#### <a name="xml-preset"></a>Configuração predefinida XML
 
-Quando utilizar XML, utilize condição = "InsertBlackIfNoVideo" como um atributo para o **H264Video** o elemento e a condição = "InsertSilenceIfNoAudio" como um atributo para **AACAudio**.
+Ao utilizar o XML, use a condição = "InsertBlackIfNoVideo" como um atributo para o **H264Video** elemento e a condição = "InsertSilenceIfNoAudio" como um atributo para **AACAudio**.
 
 ```
 . . .
@@ -1006,10 +1006,10 @@ Quando utilizar XML, utilize condição = "InsertBlackIfNoVideo" como um atribut
 . . .  
 ```
 
-## <a id="rotate_video"></a>Roda um vídeo
-O [codificador de multimédia Standard](media-services-dotnet-encode-with-media-encoder-standard.md) suporta rotação pelos ângulos de 0/90/180/270. O comportamento predefinido é "Auto", onde tenta detetar os metadados de rotação no ficheiro de vídeo de entrada e compensá-lo. Incluem o seguinte **origens** uma das predefinições definidas no elemento [isto](media-services-mes-presets-overview.md) secção:
+## <a id="rotate_video"></a>Girar um vídeo
+O [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) suporta a rotação por ângulos de 0/90/180/270. O comportamento padrão é "Auto", onde ele tenta detetar os metadados de rotação no ficheiro de vídeo de entrada e compensar para o mesmo. Incluem o seguinte **origens** uma das predefinições definidas no elemento [isso](media-services-mes-presets-overview.md) secção:
 
-### <a name="json-preset"></a>Predefinição JSON
+### <a name="json-preset"></a>Configuração predefinida JSON
     "Sources": [
     {
       "Streams": [],
@@ -1021,7 +1021,7 @@ O [codificador de multimédia Standard](media-services-dotnet-encode-with-media-
     "Codecs": [
 
     ...
-### <a name="xml-preset"></a>Predefinição XML
+### <a name="xml-preset"></a>Configuração predefinida XML
     <Sources>
            <Source>
           <Streams />
@@ -1031,9 +1031,9 @@ O [codificador de multimédia Standard](media-services-dotnet-encode-with-media-
         </Source>
     </Sources>
 
-Além disso, consulte [isto](media-services-mes-schema.md#PreserveResolutionAfterRotation) tópico para obter mais informações sobre como o codificador interpreta as definições de largura e altura da predefinição, quando é acionada compensação de rotação.
+Além disso, veja [isso](media-services-mes-schema.md#PreserveResolutionAfterRotation) tópico para obter mais informações sobre como o codificador interpreta as definições de largura e altura na configuração predefinida, quando for acionada a compensação de rotação.
 
-Pode utilizar o valor "0" para indicar ao codificador para ignorar os metadados de rotação, se estiver presente, o vídeo de entrada.
+Pode usar o valor "0" para indicar ao codificador para ignorar os metadados de rotação, se estiver presente, no vídeo de entrada.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -1042,4 +1042,4 @@ Pode utilizar o valor "0" para indicar ao codificador para ignorar os metadados 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consultar Também
-[Descrição geral de codificação de serviços de multimédia](media-services-encode-asset.md)
+[Descrição geral da codificação de serviços de multimédia](media-services-encode-asset.md)

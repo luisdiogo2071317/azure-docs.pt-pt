@@ -1,6 +1,6 @@
 ---
-title: Desenvolver módulos para limite de IoT do Azure | Microsoft Docs
-description: Saiba como criar módulos personalizados para o limite de IoT do Azure
+title: Desenvolver módulos do Azure IoT Edge | Documentos da Microsoft
+description: Saiba como criar módulos personalizados para o Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,78 +8,71 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dbbd07e93602855afb0c9755e8872e0b46557611
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 761485de4bf52b7261ac8f1f8c3d937486c66546
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030024"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248005"
 ---
-# <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Compreender os requisitos e ferramentas para o desenvolvimento de módulos de limite de IoT
+# <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge
 
-Este artigo explica que funcionalidades estão disponíveis ao escrever as aplicações que são executados como o módulo de IoT Edge e como tirar partido dos mesmos.
+Este artigo explica o que funcionalidades estão disponíveis ao escrever aplicativos que são executados como módulo do IoT Edge e como tirar proveito delas.
 
-## <a name="iot-edge-runtime-environment"></a>Ambiente de tempo de execução de limite de IoT
-O tempo de execução do limite de IoT fornece a infraestrutura para integrar a funcionalidade de vários módulos de limite de IoT e implementá-las em dispositivos de limite de IoT. Um nível elevado, qualquer programa pode ser compactado como um módulo de limite de IoT. No entanto, para tirar partido do limite de IoT comunicação funções e funcionalidades de gestão, um programa em execução no módulo pode estabelecer ligação ao hub IoT Edge local, integrado no tempo de execução de limite de IoT.
+## <a name="iot-edge-runtime-environment"></a>Ambiente de runtime do IoT Edge
+O runtime do IoT Edge fornece a infraestrutura para integrar a funcionalidade de vários módulos do IoT Edge e implementá-las em dispositivos IoT Edge. Num alto nível, qualquer programa pode ser empacotado como um módulo do IoT Edge. No entanto, para tirar partido do IoT Edge, comunicação e funcionalidades de gestão, um programa em execução num módulo pode ligar-se para o hub IoT Edge local, integrado no runtime do IoT Edge.
 
 ## <a name="using-the-iot-edge-hub"></a>Utilizar o hub IoT Edge
 O hub IoT Edge fornece duas funcionalidades principais: proxy para o IoT Hub e comunicações locais.
 
-### <a name="iot-hub-primitives"></a>Primitivos do IoT Hub
-IoT Hub vê um módulo instância analogously num dispositivo, na medida em que as TI:
+### <a name="iot-hub-primitives"></a>Primitivos de IoT Hub
+Vê do Hub IoT um módulo analogously instância para um dispositivo, no sentido de que a TI:
 
-* tem um duplo de módulo, que é distinto e isolados do [dispositivo duplo] [ lnk-devicetwin] e outros duplos módulo desse dispositivo;
-* Pode enviar [mensagens do dispositivo para nuvem][lnk-iothub-messaging];
-* pode receber [direcionar métodos] [ lnk-methods] direcionada especificamente a respetiva identidade.
+* tem um duplo do módulo, que é distinto e isolado a partir do [dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md) e os outros duplos de módulo de que o dispositivo;
+* Pode enviar [mensagens dispositivo-para-cloud](../iot-hub/iot-hub-devguide-messaging.md);
+* pode receber [métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md) direcionado especificamente para a sua identidade.
 
-Atualmente, um módulo não é possível receber mensagens da nuvem para o dispositivo nem utilizar a funcionalidade de carregamento de ficheiros.
+Atualmente, um módulo não é possível receber mensagens da cloud para dispositivo nem utilizar a funcionalidade de carregamento de ficheiros.
 
-Quando escrever um módulo, pode simplesmente utilizar o [SDK de dispositivos do IoT do Azure] [ lnk-devicesdk] para estabelecer ligação ao hub IoT Edge e utilizar a funcionalidade acima, tal como faria para utilizar o IoT Hub com uma aplicação de dispositivo, o único diferença a ser que, da sua back-end de aplicação, tem de referir-se a identidade do módulo em vez da identidade do dispositivo.
+Ao escrever um módulo, pode simplesmente usar o [SDK de dispositivo do IoT do Azure](../iot-hub/iot-hub-devguide-sdks.md) para se ligar ao hub IoT Edge e utilizar a funcionalidade acima, tal como faria ao utilizar o IoT Hub com um aplicativo de dispositivo, a única diferença é que, a partir do seu back-end da aplicação, terá de fazer referência à identidade do módulo em vez da identidade de dispositivo.
 
-Consulte [desenvolver e implementar um módulo de IoT Edge para um dispositivo simulado] [ lnk-tutorial2] para obter um exemplo de uma aplicação de módulo que envia mensagens do dispositivo para nuvem e utiliza o duplo de módulo.
+Ver [desenvolver e implementar um módulo do IoT Edge num dispositivo simulado](tutorial-csharp-module.md) para obter um exemplo de um aplicativo de módulo que envia mensagens do dispositivo para a cloud e utiliza o módulo duplo.
 
 ### <a name="device-to-cloud-messages"></a>Mensagens do dispositivo para a cloud
-Para poder ativar complexas de processamento de mensagens do dispositivo para a nuvem, hub IoT Edge fornece declarativa de encaminhamento de mensagens entre módulos e entre módulos e IoT Hub.
-Isto permite que módulos de intercetar e processar mensagens enviadas por outros módulos e propagarem-los para pipelines complexas.
-O artigo [composição do módulo] [ lnk-module-comp] explica como compor módulos para pipelines complexas com rotas.
+Para ativar complexas de processamento de mensagens do dispositivo para a cloud, hub do IoT Edge fornece declarativa de encaminhamento de mensagens entre módulos e entre módulos e o IoT Hub.
+Isso permite que módulos interceptar e processar mensagens enviadas por outros módulos e propagação-las em pipelines de complexos.
+O artigo [composição do módulo](module-composition.md) explica como compor módulos em pipelines complexos com rotas.
 
-Um módulo de limite de IoT diferente, uma aplicação de dispositivo IoT Hub normal, pode receber mensagens dispositivo-nuvem que estão a ser efetuadas pelo seu hub IoT Edge local, para processá-los.
+Módulo do IoT Edge, forma diferente do que um aplicativo de dispositivo do IoT Hub normal, pode receber mensagens dispositivo-para-cloud que estão a ser transmitidas por proxy ao seu hub IoT Edge local, para poder processá-las.
 
-Hub IoT Edge propaga as mensagens para o módulo com base nas rotas declarativas descritas a [composição do módulo] [ lnk-module-comp] artigo. Quando um módulo de limite de IoT a desenvolver, já pode receber estas mensagens, definindo os processadores de mensagens, conforme mostrado no tutorial [desenvolver e implementar um módulo de IoT Edge para um dispositivo simulado][lnk-tutorial2].
+Hub do IoT Edge propaga as mensagens ao módulo com base nas rotas declarativas descritas na [composição do módulo](module-composition.md) artigo. Ao desenvolver um módulo do IoT Edge, pode receber essas mensagens através da definição de manipuladores de mensagens, conforme mostrado no tutorial [desenvolver e implementar um módulo do IoT Edge num dispositivo simulado] [lnk-tutorial2].
 
-Para simplificar a criação de rotas, o limite de IoT adiciona o conceito de módulo *entrada* e *saída* pontos finais. Um módulo pode receber todas as mensagens do dispositivo para nuvem encaminhadas para a mesma sem especificar qualquer entrada e pode enviar mensagens do dispositivo para nuvem sem especificar qualquer saída.
-Utilizar explícitas entradas e saídas, embora, faz com que as regras de encaminhamento mais simples de compreender. Consulte [composição do módulo] [ lnk-module-comp] para obter mais informações sobre regras de encaminhamento e pontos finais de entrada e de saída de módulos.
+Para simplificar a criação de rotas, IoT Edge adiciona o conceito de módulo *entrada* e *saída* pontos de extremidade. Um módulo pode receber todas as mensagens de dispositivo-para-cloud encaminhadas para o mesmo sem especificar qualquer entrada e pode enviar mensagens dispositivo-para a cloud sem especificar quaisquer dados.
+No entanto, uso explícitas entradas e saídas, torna as regras de roteamento mais simples de entender. Ver [composição do módulo](module-composition.md) para obter mais informações sobre regras de encaminhamento e pontos finais de entrada e saídos para os módulos.
 
-Por fim, mensagens dispositivo-nuvem processadas pelo Edge hub são carimbo de data / com as seguintes propriedades do sistema:
+Por fim, as mensagens de dispositivo-para-cloud manipuladas pelo Edge hub são marcadas com as seguintes propriedades do sistema:
 
 | Propriedade | Descrição |
 | -------- | ----------- |
 | $connectionDeviceId | O ID de dispositivo do cliente que enviou a mensagem |
-| $connectionModuleId | O ID do módulo do módulo que enviou a mensagem |
+| $connectionModuleId | O ID de módulo do módulo que enviou a mensagem |
 | $inputName | A entrada que recebeu esta mensagem. Pode estar vazio. |
 | $outputName | A saída utilizada para enviar a mensagem. Pode estar vazio. |
 
-### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Ligar ao hub IoT limite a partir de um módulo
-Ligar para o hub IoT Edge local a partir de um módulo envolve dois passos: utilizar a cadeia de ligação fornecida pelo tempo de execução do limite de IoT quando o módulo é iniciado e certifique-se a sua aplicação aceita o certificado apresentado pelo hub IoT Edge nesse dispositivo.
+### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Ligar ao hub IoT Edge, a partir de um módulo
+Ligar ao hub IoT Edge local a partir de um módulo envolve dois passos: utilizar a cadeia de ligação, desde que o runtime do IoT Edge quando seu módulo é iniciado, e certifique-se de que seu aplicativo aceita o certificado apresentado pelo hub IoT Edge nesse dispositivo.
 
-A cadeia de ligação a utilizar é injetada pelo tempo de execução de limite de IoT a variável de ambiente `EdgeHubConnectionString`. Isto torna disponível para qualquer programa que pretende utilizá-lo.
+Cadeia de ligação a utilizar é injetada pelo runtime do IoT Edge na variável de ambiente `EdgeHubConnectionString`. Isto torna disponível para qualquer programa que queira utilizá-la.
 
-Analogously, o certificado a utilizar para validar a ligação do hub IoT Edge é injetado pelo runtime IoT Edge num ficheiro cujo caminho está disponível na variável de ambiente `EdgeModuleCACertificateFile`.
+Analogously, o certificado a utilizar para validar a ligação do hub IoT Edge é injetado pelo runtime do IoT Edge num arquivo cujo caminho está disponível na variável de ambiente `EdgeModuleCACertificateFile`.
 
-O tutorial [desenvolver e implementar um módulo de IoT Edge para um dispositivo simulado] [ lnk-tutorial2] mostra como Certifique-se de que o certificado no arquivo do computador na sua aplicação de módulo. Claramente, qualquer outro método para confiar ligações que funcionam de certificado a utilizar.
+O tutorial [desenvolver e implementar um módulo do IoT Edge num dispositivo simulado] [lnk-tutorial2] mostra como tornar-se de que o certificado no arquivo do computador em seu aplicativo de módulo. Sem dúvida, qualquer outro método para ligações com esse trabalho de certificado de confiança.
 
 ## <a name="packaging-as-an-image"></a>Empacotamento como uma imagem
-Módulos de limite de IoT são reunidos as imagens de Docker.
-Pode utilizar diretamente toolchain de Docker ou Visual Studio Code, conforme mostrado no tutorial [desenvolver e implementar um módulo de IoT Edge para um dispositivo simulado][lnk-tutorial2].
+Módulos do IoT Edge são empacotados como imagens do Docker.
+Pode utilizar diretamente coleção de ferramentas de Docker ou o Visual Studio Code, conforme mostrado no tutorial [desenvolver e implementar um módulo do IoT Edge num dispositivo simulado] [lnk-tutorial2].
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de desenvolver um módulo, saiba como [implementar e monitorizar os módulos de limite de IoT à escala][lnk-howto-deploy].
+Depois de desenvolver um módulo, saiba como [implementar e monitorizar os módulos do IoT Edge em escala](how-to-deploy-monitor.md).
 
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-devicetwin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-messaging]: ../iot-hub/iot-hub-devguide-messaging.md
-[lnk-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
-[lnk-tutorial2]: tutorial-csharp-module.md
-[lnk-module-comp]: module-composition.md
-[lnk-howto-deploy]: how-to-deploy-monitor.md

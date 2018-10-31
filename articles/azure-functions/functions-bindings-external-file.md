@@ -2,20 +2,20 @@
 title: Enlaces de ficheiro externos para as funções do Azure (experimental)
 description: Utilizar enlaces de ficheiro externo nas funções do Azure
 services: functions
-author: alexkarcher-msft
+author: craigshoemaker
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: alkarche
-ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093775"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248698"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Enlaces de ficheiro externo de funções do Azure (experimentais)
 Este artigo mostra como manipular ficheiros a partir de diferentes fornecedores de SaaS (como o Dropbox ou Google Drive) nas funções do Azure. Funções do Azure suporta acionaram, de entrada e saída enlaces para arquivos externos. Essas associações criar ligações de API para fornecedores SaaS ou utilizam as ligações de API existentes do grupo de recursos da sua aplicação de função.

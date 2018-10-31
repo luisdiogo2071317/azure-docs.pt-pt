@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: e2dc9b7e7cf5964c36b21418a0162c1c2ef92dc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430186"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integração do Azure Active Directory com Sprinklr
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Sprinklr, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Sprinklr início de sessão único na subscrição ativado
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Sprinklr com o Azure AD, terá de adicionar Sp
 
 **Para adicionar Sprinklr a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -161,7 +161,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     h. Colar o **URL de fim de sessão** valor que copiou do Portal do Azure para o **URL de fim de sessão do fornecedor de identidade** caixa de texto.
      
-    i. Como **tipo de ID de utilizador de SAML**, selecione **asserção contém o utilizador "nome de utilizador do s sprinklr.com**.
+    i. Como **tipo de ID de utilizador de SAML**, selecione **asserção contém o nome de utilizador do utilizador sprinklr.com**.
 
     j. Como **localização do ID de utilizador de SAML**, selecione **ID de utilizador é no elemento de identificador de nome da declaração de assunto**.
 

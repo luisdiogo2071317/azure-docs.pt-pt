@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: eefbfcf741db3d0949910bc5da8494e087c39ec7
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139157"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242165"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introdução ao Azure Active Directory Identity Protection e Microsoft Graph
 Microsoft Graph é o Microsoft unified ponto final de API e a casa dos [do Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. A primeira API **identityRiskEvents**, permite-lhe consultar o Microsoft Graph para obter uma lista de [eventos de risco](../reports-monitoring/concept-risk-events.md) e informações de associados. Este artigo permite-lhe começar a consultar esta API. Para uma introdução aprofundada, a documentação completa e acesso para a API do Graph, consulte a [site do Microsoft Graph](https://graph.microsoft.io/).
@@ -173,7 +173,7 @@ Para se autenticar, enviar um pedido post para `https://login.microsoft.com` com
 Se tiver êxito, esta ação devolve um token de autenticação.  
 Para chamar a API, crie um cabeçalho com o seguinte parâmetro:
 
-    `Authorization`=”<token_type> <access_token>"
+    `Authorization`="<token_type> <access_token>"
 
 
 Durante a autenticação, pode encontrar o tipo de token e o token de acesso no token retornado.

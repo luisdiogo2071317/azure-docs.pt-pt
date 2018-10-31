@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239139"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243134"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Impor uma política de nomes para grupos do Office 365 no Azure Active Directory (pré-visualização)
 
@@ -49,7 +49,7 @@ Pode usar cadeias de caracteres para facilitar a análise e a distinguir a grupo
 
 #### <a name="user-attributes"></a>Atributos do utilizador
 
-Pode usar os atributos que podem ajudá-lo e os seus utilizadores identificam quais departamento, o office ou a região geográfica para a qual o grupo foi criado. Por exemplo, se definir a política de nomenclatura como `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”`, e `User’s department = Engineering`, em seguida, um nome do grupo de imposto pode ser "GRP My Group Engineering." Suporte do Azure AD atributos são \[departamento\], \[empresa\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Atributos de utilizador não suportados são tratados como cadeias de caracteres fixas; Por exemplo, "\[postalCode\]". Atributos de extensão e os atributos personalizados não são suportados.
+Pode usar os atributos que podem ajudá-lo e os seus utilizadores identificam quais departamento, o office ou a região geográfica para a qual o grupo foi criado. Por exemplo, se definir a política de nomenclatura como `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"`, e `User’s department = Engineering`, em seguida, um nome do grupo de imposto pode ser "GRP My Group Engineering." Suporte do Azure AD atributos são \[departamento\], \[empresa\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Atributos de utilizador não suportados são tratados como cadeias de caracteres fixas; Por exemplo, "\[postalCode\]". Atributos de extensão e os atributos personalizados não são suportados.
 
 Recomendamos que utilize atributos que têm valores preenchidos para todos os utilizadores na sua organização e não utilizarem atributos que têm valores longos.
 
@@ -75,9 +75,9 @@ Os administradores selecionados podem ser dispensados destas políticas, em toda
 
 ## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Instalar os cmdlets do PowerShell para configurar uma política de nomes
 
-Certifique-se de que desinstale qualquer versão anterior do Azure Active Directory PowerShell para o módulo de gráfico para o Windows PowerShell e instale [Azure Active Directory PowerShell para Graph - versão de pré-visualização pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) antes de executar o Comandos do PowerShell. 
+Certifique-se de que desinstala qualquer versão anterior do módulo Azure Active Directory PowerShell para Graph para o Windows PowerShell e instala o [Azure Active Directory PowerShell para Graph - Versão de Pré-visualização Pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) antes de executar os comandos do PowerShell. 
 
-1. Abra a aplicação do Windows PowerShell como administrador.
+1. Abra a aplicação Windows PowerShell como administrador.
 2. Desinstale qualquer versão anterior do AzureADPreview.
   
   ````
@@ -88,21 +88,21 @@ Certifique-se de que desinstale qualquer versão anterior do Azure Active Direct
   ````
   Install-Module AzureADPreview
   ````
-Se lhe for pedido sobre como acessar um repositório não fidedigno, escreva **Y**. Poderá demorar alguns minutos para que o novo módulo instalar.
+Se lhe for pedido para aceder a um repositório não fidedigno, escreva **Y**. Pode demorar alguns minutos a instalar o novo módulo.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configurar o grupo de política de nomenclatura para um inquilino com o Azure AD PowerShell
 
 1. Abra uma janela do Windows PowerShell no seu computador. Pode abri-lo sem privilégios elevados.
 
-2. Execute os seguintes comandos para se preparar para executar os cmdlets.
+2. Execute os seguintes comandos para preparar a execução dos cmdlets.
   
   ````
   Import-Module AzureADPreview
   Connect-AzureAD
   ````
-  Na **iniciar sessão na sua conta** ecrã que é aberta, introduza a conta de administrador e a palavra-passe para ligá-lo ao seu serviço e selecione **iniciar sessão**.
+  No ecrã **Iniciar sessão na sua conta** apresentado, introduza a conta de administrador e a palavra-passe para ligar ao serviço e selecione **Iniciar sessão**.
 
-3. Siga os passos em [cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md) para criar definições de grupo para este inquilino.
+3. Siga os passos em [Cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md) para criar definições de grupo para este inquilino.
 
 ### <a name="view-the-current-settings"></a>Ver as definições atuais
 
@@ -112,7 +112,7 @@ Se lhe for pedido sobre como acessar um repositório não fidedigno, escreva **Y
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
   ````
   
-2. Apresenta as definições do grupo atual.
+2. Apresente as definições atuais do grupo.
   
   ````
   $Setting.Values
@@ -120,25 +120,25 @@ Se lhe for pedido sobre como acessar um repositório não fidedigno, escreva **Y
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Defina a política de nomes e palavras bloqueadas personalizadas
 
-1. Defina os prefixos de nome de grupo e sufixos no Azure AD PowerShell.
+1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
   ````
   
-2. Defina as palavras bloqueadas personalizadas que pretende restringir. O exemplo a seguir ilustra como pode adicionar suas próprias palavras personalizadas.
+2. Defina as palavras bloqueadas personalizadas que quer restringir. O exemplo seguinte ilustra como pode adicionar as suas próprias palavras personalizadas.
   
   ````
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
   ````
   
-3. Guarde as definições para a nova política para ser eficaz, tal como no exemplo a seguir.
+3. Guarde as definições da nova política para serem aplicadas, como no exemplo a seguir.
   
   ````
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
   ````
   
-E já está. Ter definido a política de nomes e adicionado sua palavras bloqueadas.
+Já está. Ter definido a política de nomes e adicionado sua palavras bloqueadas.
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Exportar ou importar a lista de palavras bloqueadas personalizadas
 

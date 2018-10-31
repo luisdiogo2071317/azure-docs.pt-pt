@@ -1,8 +1,8 @@
 ---
-title: H264 múltipla 4, 3 para iOS | Microsoft Docs
-description: O tópico fornece uma descrição geral do **H264 múltipla 4, 3 para iOS** tarefas da configuração predefinida.
+title: H264 taxa de bits múltiplas 4x3 para iOS | Documentos da Microsoft
+description: O tópico fornece uma visão geral do **h264 taxa de bits múltiplas 4x3 para iOS** predefinido de tarefa.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 0f7c07f504b5ca4461a93c31a85b632d37fc328d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f3a98af11d551a94b79e2b326657b0bc1f4c803e
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788439"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249970"
 ---
-# <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264 múltipla 4, 3 para iOS
-`Media Encoder Standard` Define um conjunto de predefinições, que pode utilizar quando criar tarefas de codificação de codificação. Pode utilizar um `preset name` para especificar no qual o formato de que gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar os seus próprios JSON ou predefinições baseado em XML (utilizando a codificação UTF-8 ou UTF-16. Em seguida, seria passar personalizado predefinido ao codificador. Para obter a lista de todos os nomes de predefinidas, suportada por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o codificador de multimédia Standard](media-services-mes-presets-overview.md).  
+# <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264 taxa de bits múltiplas 4x3 para iOS
+`Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
- Este tópico mostra o `H264 Multiple Bitrate 4x3 for iOS` no formato XML e o JSON da configuração predefinida.  
+ Este tópico mostra o `H264 Multiple Bitrate 4x3 for iOS` predefinidos no formato XML e JSON.  
   
- Esta predefinição produz um conjunto de 8 ficheiros MP4 alinhada GOP, vão de 8500 kbps 200 kbps e stereo áudio AAC. Para obter informações detalhadas sobre o perfil, velocidade de transmissão, fazendo a amostragem taxa, etc. Isto da configuração predefinida, examine o XML ou JSON definido abaixo. Para explicações de que cada elemento no meio estas predefinições e os valores válidos para cada elemento, consulte o [esquema codificador de multimédia Standard](media-services-mes-schema.md) tópico.  
+ Esta predefinição produz um conjunto de 8 ficheiros MP4 GOP alinhados, desde 8500 kbps até 200 kbps e áudio AAC estéreo. Para obter informações detalhadas sobre o perfil, a velocidade de transmissão, amostragem taxa, etc. isso configuração predefinida, examinar o XML ou JSON definido abaixo. Para obter explicações de que cada elemento desses meios de suas configurações predefinidas e os valores válidos para cada elemento, consulte a [esquema Media Encoder Standard](media-services-mes-schema.md) tópico.  
   
 > [!NOTE]
->  Quando modificar o `Width` e `Height` valores em camadas, certifique-se de que a proporção permanecem consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Não deve utilizar uma combinação de proporções, tais como: 1280 x 720, 720 x 480, 640 x 360.  
+>  Ao modificar os `Width` e `Height` valores em camadas, certifique-se de que a taxa de proporção permanece consistente. Por exemplo: 1920 x 1080, 1280 x 720, 1080 x 576, 640 x 360. Não deve utilizar uma combinação de proporções, tais como: 1280 x 720, 720 x 480, 640 x 360.  
   
  XML  
   

@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: shvija
-ms.openlocfilehash: eaea6adbaef7baf9bb1e617ba0a709cf14edf781
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005583"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239496"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Receber eventos dos Hubs de eventos com Go
 
@@ -80,7 +80,7 @@ import (
 
 ## <a name="create-service-principal"></a>Criar um principal de serviço
 
-Crie um novo principal de serviço ao seguir as instruções em [criar um Azure principal de serviço com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli). Guarde as credenciais fornecidas no seu ambiente com os seguintes nomes. O Azure SDK para Go e o pacote de Hubs de eventos estão pré-configuradas para procurar por estes nomes de variáveis.
+Crie um novo principal de serviço ao seguir as instruções em [criar um Azure principal de serviço com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli). Guardar as credenciais fornecidas no seu ambiente com os seguintes nomes: O Azure SDK para Go e os Hubs de eventos de pacote estão pré-configuradas para procurar por estes nomes de variáveis.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -197,13 +197,7 @@ if err != nil {
 Este tutorial utiliza uma única instância do **EventProcessorHost**. Para aumentar o débito e a confiabilidade, deve executar várias instâncias **EventProcessorHost** em sistemas diferentes. Leaser sistema garante que apenas um recetor está associado e recebe mensagens de uma partição especificada num tempo especificado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-Visite estas páginas para obter mais informações sobre os Hubs de eventos:
-
-* [Enviar eventos com Go](event-hubs-go-get-started-send.md)
-* [Descrição geral dos Hubs de Eventos](event-hubs-about.md)
-* [Criar um Hub de Eventos](event-hubs-create.md)
-* [FAQ dos Hubs de Eventos](event-hubs-faq.md)
+Neste início rápido, criou uma aplicação Go que recebeu mensagens a partir de um hub de eventos. Para saber como enviar eventos para um hub de eventos através de Go, veja [enviar eventos do hub de eventos - Go](event-hubs-go-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

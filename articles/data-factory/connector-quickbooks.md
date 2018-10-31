@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de QuickBooks com o Azure Data Factory (pré-visualização) | Documentos da Microsoft
-description: Saiba como copiar dados de QuickBooks para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
+title: Copiar dados do QuickBooks Online com o Azure Data Factory (pré-visualização) | Documentos da Microsoft
+description: Saiba como copiar dados do QuickBooks Online para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127154"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241689"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Copiar dados de QuickBooks com o Azure Data Factory (pré-visualização)
+# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados do QuickBooks Online com o Azure Data Factory (pré-visualização)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de QuickBooks. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados do QuickBooks Online. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 > [!IMPORTANT]
 > Este conector está atualmente em pré-visualização. Pode experimentá-lo e envie-nos comentários. Se quiser realizar uma dependência em conectores de pré-visualização na sua solução, contacte o [Suporte do Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de QuickBooks para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados do QuickBooks Online para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 O Azure Data Factory fornece um driver incorporado para permitir a conectividade, portanto não precisa de instalar manualmente a qualquer driver utilizar este conector.
 
@@ -48,8 +48,8 @@ As seguintes propriedades são suportadas para o serviço ligado de QuickBooks:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo deve ser definida como: **QuickBooks** | Sim |
-| endpoint | O ponto final do servidor QuickBooks. (ou seja, quickbooks.api.intuit.com)  | Sim |
-| companyId | O ID de empresa da empresa para autorizar o QuickBooks.  | Sim |
+| endpoint | O ponto final do servidor do QuickBooks Online. (ou seja, quickbooks.api.intuit.com)  | Sim |
+| companyId | O ID de empresa da empresa para autorizar o QuickBooks. Para informações sobre como localizar o ID da empresa, veja [como posso encontrar minha ID da empresa?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Sim |
 | consumerKey | A chave de consumidor para a autenticação OAuth 1.0. | Sim |
 | consumerSecret | O segredo de consumidor para a autenticação OAuth 1.0. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | accessToken | O token de acesso para a autenticação OAuth 1.0. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -89,7 +89,7 @@ As seguintes propriedades são suportadas para o serviço ligado de QuickBooks:
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do QuickBooks.
 
-Para copiar dados de QuickBooks, defina a propriedade de tipo de conjunto de dados para **QuickBooksObject**. Não existe nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
+Para copiar dados do QuickBooks Online, defina a propriedade de tipo de conjunto de dados para **QuickBooksObject**. Não existe nenhuma propriedade de tipo específicas adicional neste tipo de conjunto de dados.
 
 **Exemplo**
 
@@ -112,7 +112,7 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="quickbookssource-as-source"></a>QuickBooksSource como origem
 
-Para copiar dados de QuickBooks, definir o tipo de origem na atividade de cópia para **QuickBooksSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do QuickBooks Online, defina o tipo de origem na atividade de cópia para **QuickBooksSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -150,6 +150,9 @@ Para copiar dados de QuickBooks, definir o tipo de origem na atividade de cópia
     }
 ]
 ```
+## <a name="copy-data-from-quickbooks-desktop"></a>Copiar dados de Quickbooks ambiente de trabalho
+
+A atividade de cópia no Azure Data Factory não foi possível copiar os dados diretamente a partir do ambiente de trabalho do Quickbooks. Para copiar dados de ambiente de trabalho do Quickbooks, exporte os dados de Quickbooks para um ficheiro (CSV) de valores vírgula separados e, em seguida, carregue o ficheiro para o armazenamento de Blobs do Azure. A partir daí, pode utilizar o Data Factory para copiar os dados para o sink à sua escolha.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

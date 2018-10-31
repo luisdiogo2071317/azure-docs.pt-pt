@@ -3,20 +3,20 @@ title: Acionador do Event Grid para as funções do Azure
 description: Compreenda como manipular eventos do Event Grid nas funções do Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
-ms.author: glenga
-ms.openlocfilehash: 4bfc1fa167185023b71566bde6e6199bdb18849b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.author: cshoe
+ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087649"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249208"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 

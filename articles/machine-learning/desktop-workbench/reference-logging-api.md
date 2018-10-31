@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f7dac645ef0b732b7f3087a06c74385871d5b1c9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958225"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238341"
 ---
 # <a name="logging-api-reference"></a>Referência da API de registo
 
@@ -89,5 +89,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## <a name="next-steps"></a>Passos Seguintes
-- Percorrer a [classificar tutoria de íris, parte 2](tutorial-classifying-iris-part-2.md) para ver a API de log em ação.
+- Percorrer a [classificar íris, tutorial, parte 2](tutorial-classifying-iris-part-2.md) para ver a API de log em ação.
 - Revisão [como histórico de execuções de utilização e métricas de modelo no Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) para compreender melhor como APIs de Registro pode ser usada no histórico de execuções.

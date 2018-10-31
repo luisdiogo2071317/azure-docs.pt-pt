@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222697"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239887"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Socializar com o Azure Cosmos DB
 Vivendo numa sociedade em massa interconectada significa que, em algum momento na vida, se parte de um **rede social**. Utilizar redes sociais para manter-se em contacto com amigos, colegas, família, ou, às vezes, para partilhar a sua paixão com pessoas com interesses comuns.
@@ -233,7 +233,7 @@ O que acontece se as coisas estão a melhorar e os utilizadores de outro país, 
 
 Mas espere... logo perceberá sua experiência com a plataforma não é o ideal; eles estão até agora para fora da sua região operacional que a latência é terrível, e é claro que não pretende para sair. Se houvesse uma forma fácil de **estender o alcance global**... mas há!
 
-O cosmos DB permite-lhe [replicar globalmente os seus dados](../cosmos-db/tutorial-global-distribution-sql-api.md) e de forma transparente em apenas alguns cliques e automaticamente, selecione entre as regiões disponíveis a partir do seu [código de cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Isso também significa que pode ter [várias regiões de ativação pós-falha](regional-failover.md). 
+O cosmos DB permite-lhe [replicar globalmente os seus dados](../cosmos-db/tutorial-global-distribution-sql-api.md) e de forma transparente em apenas alguns cliques e automaticamente, selecione entre as regiões disponíveis a partir do seu [código de cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Isso também significa que pode ter [várias regiões de ativação pós-falha](high-availability.md). 
 
 Quando replica globalmente os seus dados, terá de certificar-se de que os clientes podem se aproveitar dele. Se estiver a utilizar um front-end da web ou a aceder a APIs de clientes móveis, pode implantar [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) e clone o App Service do Azure em todas as regiões desejadas, através de uma configuração de desempenho para suportar o expandida global cobertura. Quando os clientes acessam o front-end ou APIs, eles serão encaminhados para o serviço de aplicações mais próximo, que por sua vez, irá ligar para a réplica local do Cosmos DB.
 

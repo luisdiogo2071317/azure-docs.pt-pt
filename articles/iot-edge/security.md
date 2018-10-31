@@ -1,6 +1,6 @@
 ---
-title: Segurança no Azure IoT Edge | Microsoft Docs
-description: Segurança, a autenticação e autorização de dispositivos de IoT Edge
+title: Segurança no Azure IoT Edge | Documentos da Microsoft
+description: Segurança, a autenticação e autorização de dispositivos do IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,40 +8,40 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 890189f6b6e18ef10f274324915cc7dee019f1f0
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030585"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249140"
 ---
-# <a name="securing-azure-iot-edge"></a>Proteger o limite de IoT do Azure
+# <a name="securing-azure-iot-edge"></a>Proteger o Azure IoT Edge
 
-Proteger o contorno inteligente é necessário confer confiança na operação de uma solução de IoT ponto a ponto. Limite de IoT do Azure foi concebida para segurança extensível para perfis de risco diferentes, cenários de implementação, e oferece a mesma proteção que se espera de todos os serviços do Azure.
+A proteção de um edge inteligente é necessário para a concessão de confiança na operação de uma solução de IoT ponto a ponto. O Azure IoT Edge foi concebido para segurança, que é extensível para perfis de risco diferentes, cenários de implantação e oferece a mesma proteção que se espera de todos os serviços do Azure.
 
-Limite de IoT do Azure é executado em hardware diferente, suporta Linux e Windows e é aplicável a cenários de implementação diversos.  Risco avaliado depende em conta muitos aspetos, incluindo a propriedade de solução, geografia de implementação, confidencialidade de dados, privacidade, requisitos de vertical e de regulamentação de aplicação.  Em vez de oferta concretas soluções para cenários específicos, faz sentido para estruturar uma arquitetura extensível segurança com base no princípios bem grounded concebidos para dimensionamento. 
- 
-Este artigo fornece uma descrição geral do framework de segurança. Para obter mais informações, consulte [proteger o contorno inteligente][lnk-edge-blog].
+O Azure IoT Edge é executado num hardware diferente, suporta o Linux e Windows e é aplicável para cenários de implementação diferentes.  Risco avaliado depende de muitos considerações, incluindo a propriedade de solução, área geográfica de implementação, confidencialidade de dados, privacidade, requisitos regulamentares e vertical do aplicativo.  Em vez de oferecer soluções concretas para cenários específicos, faz sentido criar uma estrutura de segurança extensível baseada nos princípios mantermos bem concebidos para dimensionamento. 
+ 
+Este artigo fornece uma descrição geral da estrutura de segurança. Para obter mais informações, consulte [proteger um edge inteligente](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
-## <a name="standards"></a>Normas
+## <a name="standards"></a>Padrões
 
-As normas promover o facilitar scrutiny e facilidade de implementação, que são hallmark de segurança.  Uma solução de segurança bem nova deve cada scrutiny em avaliação para criar confiança e não deve ser um hurdle à implementação.  A estrutura da estrutura de proteger o limite do Azure IoT emanates de time-tested e protocolos de segurança da indústria comprovada tirar partido familiaridade e reutilização. 
+Padrões de promovem a facilidade de exame detalhado e facilidade de implementação, que são a marca de segurança.  Uma solução de segurança de rede bem arquitetada deve é adaptado para exame detalhado em avaliação para criar a confiança e não deve ser um obstáculo para a implementação.  O design da estrutura para proteger o Azure IoT Edge emanates de comprovada e protocolos de segurança comprovada pelo setor tirar partido do conhecimento prévio e reutilização. 
 
 ## <a name="authentication"></a>Autenticação
 
-É essencial na criação de confiança saber sem uma dúvida que atores, dispositivos e componentes estão a participar na entrega de valor através de uma solução de IoT ponto a ponto.  Esses dados de conhecimento oferece accountability segura de participantes a ativação de base para admissão.  Limite de IoT do Azure attains estes conhecimentos através da autenticação.  O mecanismo de principal para a autenticação para a plataforma do Azure IoT Edge é autenticação baseada em certificado.  Este mecanismo deriva de um conjunto de normas que rege a infraestrutura de chaves públicas (PKiX) pela Internet Engineering Task Force (IETF).     
+É fundamental no desenvolvimento de confiança a saber, sem dúvida, quais actors, dispositivos e componentes estão a participar no fornecimento de valor por meio de uma solução de IoT ponto a ponto.  Esses dados de conhecimento oferece a responsabilidade de segura de participantes para ativar a base para a admissão.  O Azure IoT Edge atinge esse conhecimento através da autenticação.  O mecanismo primário para a autenticação para a plataforma do Azure IoT Edge é a autenticação baseada em certificados.  Esse mecanismo é derivada de um conjunto de normas que regem a infraestrutura de chave pública (PKiX) pelo IETF Internet Engineering Task Force ().     
 
-Chama o framework de segurança do Azure IoT Edge para identidades de certificado exclusivo para todos os dispositivos, módulos (contentores que encapsulam lógica dentro do dispositivo) e atores interagir com o dispositivo de limite de IoT do Azure seja fisicamente ou através de uma ligação de rede.  Não cada cenário ou componente poderá cada autenticação baseada em certificado para o qual a extensibilidade do framework de segurança oferece seguras vias para accommodation. 
+A estrutura de segurança do Azure IoT Edge chama de identidades de certificado exclusivo para todos os dispositivos, módulos (contentores que encapsulam a lógica dentro do dispositivo) e atores interagir com o dispositivo Azure IoT Edge seja fisicamente ou através de uma ligação de rede.  Nem todo componente ou cenário poderá é adaptado para autenticação baseada em certificado para o qual a extensibilidade da estrutura de segurança oferece caminhos seguros para accommodation. 
 
 ## <a name="authorization"></a>Autorização
 
-A capacidade para delegar o acesso de autoridade e o controlo é fundamental para alcançar um principal de segurança fundamentais – o princípio do menor privilégio.  Dispositivos, módulos e atores obter acesso apenas para dados dentro do âmbito da sua permissão e apenas quando é permitido em termos de arquitetura e de recursos.  Isto significa que alguns permissões são configuráveis com privilégios e outros em termos de arquitetura imposta suficientes.  Por exemplo, enquanto um módulo pode ser autorizado através da configuração com privilégios para iniciar uma ligação ao IoT Hub do Azure, não há nenhum motivo por que razão um módulo de um dispositivo de limite de IoT do Azure deve aceder duplo de um módulo no outro dispositivo de limite de IoT do Azure.  Por este motivo, a última opção seria possível em termos de arquitetura precluded. 
+A capacidade de delegar a autoridade e controlar o acesso é crucial para alcançar um princípio fundamental da segurança – o princípio de privilégio mínimo.  Dispositivos, módulos e atores podem ganhar acesso apenas aos recursos e os dados dentro do respetivo âmbito de permissão e apenas quando é aceitável em termos de arquitetura.  Isso significa que algumas permissões são configuráveis com privilégios e outros impostos em termos de arquitetura suficientes.  Por exemplo, enquanto um módulo pode ser autorizado por meio da configuração com privilégios para iniciar uma ligação para o IoT Hub do Azure, não há nenhuma razão por que um módulo num dispositivo Azure IoT Edge deve acessar o duplo do módulo no outro dispositivo Azure IoT Edge.  Por esse motivo, a segunda opção seria possível em termos de arquitetura impedida. 
 
-Outros esquemas de autorização incluem direitos de assinatura de certificado e o controlo de acesso baseado em funções (RBAC).  A extensibilidade do framework de segurança permite a adoção de outros esquemas de autorização madura. 
+Outros esquemas de autorização incluem direitos de assinatura de certificado e o controlo de acesso baseado em funções (RBAC).  A extensibilidade da estrutura de segurança permite que a adoção de outros esquemas de autorização madura. 
 
 ## <a name="attestation"></a>Atestado
 
-Atestado assegura a integridade de bits de software.  É importante para a deteção e prevenção de software maligno.  O framework de segurança do Azure IoT Edge classifica atestado em três categorias principais:
+Atestado assegura a integridade dos bits de software.  É importante para a deteção e prevenção de software maligno.  A estrutura de segurança do Azure IoT Edge classifica atestado em três categorias principais:
 
 * Atestado estático
 * Atestado de tempo de execução
@@ -49,40 +49,37 @@ Atestado assegura a integridade de bits de software.  É importante para a dete�
 
 ### <a name="static-attestation"></a>Atestado estático
 
-Atestado estático é a verificação de integridade de todos os bits de software, incluindo os sistemas operativos, todos os tempos de execução, e informações de configuração no dispositivo energia cópia de segurança.  Este é frequentemente referido como o arranque seguro.  A arquitetura de segurança de dispositivos de limite de IoT do Azure expande para fornecedores de silicon e incorpora capacidades de hardware seguro ingrained para assegurar que os processos de atestado estático. Estes processos incluem arranque seguro e firmware segura atualizar processos.  Trabalhar em colaboração fechar com fornecedores de silicon elimina as camadas de firmware supérfluas assim que minimiza a superfície de ameaça. 
+Atestado estático é a verificação da integridade de todos os bits de software, incluindo os sistemas operativos, todos os tempos de execução, e informações de configuração no dispositivo. o power-up.  Ele é frequentemente referido como o arranque seguro.  A estrutura de segurança para dispositivos do Azure IoT Edge expande para fornecedores de silício e incorpore os recursos de hardware de segurança incluída a fim de garantir os processos de atestado estático. Esses processos incluem a inicialização segura e firmware seguro processos de atualização.  Trabalhar em colaboração fechar com fornecedores de silício elimina as camadas de firmware supérfluo assim minimizar a superfície de ameaças. 
 
 ### <a name="runtime-attestation"></a>Atestado de tempo de execução
 
-Depois de um sistema tem de concluir um processo de arranque validado e está a funcionar e em execução, bem estruturados sistemas seguros seriam detetar tenta injetar software maligno através de portas de sistemas e interfaces e tomar medidas preventivas adequadas.  Para dispositivos de limite inteligente no físico custódia dos atores maliciosos, é possível inserir malcontent através de meios que não sejam de interfaces de dispositivo, como a adulteração e do lado do canal de ataques.   Essa malcontent, que pode ter o formato de software maligno ou alterações de configuração não autorizado, normalmente, não seria possível detetar pelo processo de arranque seguro porque estes ocorrem após o processo de arranque.  Medidas preventivas oferecidas ou imposto pelo hardware do dispositivo significativamente contribui para warding desativar estas ameaças.  O framework de segurança para o Azure IoT Edge explicitamente chama a atenção para as extensões para combatting ameaças de tempo de execução.     
+Depois de um sistema concluiu um processo de inicialização validados e está a funcionar e em execução, bem estruturados sistemas seguros detectaria tenta injetar o software maligno através de interfaces e portas de sistemas e tomar as contramedidas adequadas.  Para dispositivos de um edge inteligente no custódia físico de atores maliciosos, é possível inserir malcontent através de meios que não a interfaces de dispositivo, como a adulteração e ataques de canal de lado.   Tal malcontent, que pode ser na forma de software maligno ou alterações de configuração não autorizado, normalmente não seria detetado pelo processo de arranque seguro porque eles ocorrerem após o processo de inicialização.  Medidas preventivas oferecidos ou imposto pelo hardware do dispositivo bastante contribui para a evitando essas ameaças.  A estrutura de segurança do Azure IoT Edge explicitamente chama para extensões para combatting ameaças de tempo de execução.     
 
 ### <a name="software-attestation"></a>Atestado de software
 
-Todos os sistemas de bom estado de funcionamento, incluindo sistemas inteligente contorno tem de ser propensos a correções de erros e atualizações.  Segurança é importante para os processos de atualização podem ser vetores de ameaças potenciais.  O framework de segurança para chamadas de limite de IoT do Azure para atualizações através de medido e assinado pacotes para garantir a integridade e autenticar-se a origem dos pacotes.  Isto é aplicável a todos os sistemas operativos e bits de software da aplicação. 
+Todos os sistemas de bom estado de funcionamento, incluindo sistemas de um edge inteligente tem de ser abertos a patches e atualizações.  A segurança é importante para os processos de atualização caso contrário, que eles podem ser potenciais vetores de ameaças.  A estrutura de segurança do Azure IoT Edge chamadas por atualizações medido e assinado pacotes para garantir a integridade e autenticar-se a origem dos pacotes.  Isto é aplicável a todos os sistemas operativos e bits de software de aplicação. 
 
 ## <a name="hardware-root-of-trust"></a>Raiz de hardware de confiança
 
-Para muitas implementações do dispositivos de limite inteligente, especialmente dos implementados em locais onde atores maliciosos potenciais tenham acesso físico ao dispositivo, a segurança oferecida pelo hardware do dispositivo é a último defesa para proteção.  Por este motivo, a confiança anchoring no hardware resistente a adulterações é máximo crucial para implementações deste tipo.  O framework de segurança para o Azure IoT Edge envolve a colaboração segura silicon fabricantes de hardware diferentes tipos de raiz de hardware de confiança para acomodar os vários cenários de implementação de perfis de risco e a oferta. Estes incluem a utilização de silicon segura a cumprir os padrões de protocolo de segurança comuns, como o Trusted Platform Module (ISO/IEC 11889) e dispositivos identificador composição motor (ORGANIZAM fidedigno informática do grupo de).  Estes incluem também enclave segura de tecnologias como TrustZones e extensões de proteção de Software (SGX). 
+Para muitas implementações de dispositivos de um edge inteligente, especialmente aqueles implantados em lugares em que os atores maliciosos potenciais têm acesso físico ao dispositivo, a segurança oferecida pelo hardware do dispositivo de é o último defesa para proteção.  Por esse motivo, a ancoragem de confiança no hardware resistente a adulterações é mais crucial para implementações deste tipo.  A estrutura de segurança do Azure IoT Edge envolve a colaboração segura silicon os fornecedores de hardware para oferecer diferentes tipos de raiz de hardware de confiança para acomodar vários perfis de risco e cenários de implementação. Estes incluem o uso de silicon segura a cumprir os padrões de protocolo de segurança comuns, como o Trusted Platform Module (ISO/IEC 11889) e Device identificador Composition Engine (DICE da Trusted Computing Group).  Estas instruções também incluem tecnologias de enclave seguro como TrustZones e extensões de proteção de Software (SGX). 
 
 ## <a name="certification"></a>Certificação
 
-Para ajudar a tomar decisões informadas ao aquisição de dispositivos de limite de IoT do Azure para as suas implementações de clientes, a arquitetura de limite de IoT do Azure inclui os requisitos de certificação.  Fundamentais sobre estes requisitos são certificações relativas à segurança afirmações e certificações relativas a validação da implementação de segurança.  Por exemplo, uma certificação de afirmação de segurança seria informar que o dispositivo de limite de IoT utiliza o hardware seguro conhecido resist ataques de arranque. Certificação uma validação seria informar que o hardware seguro foi implementado corretamente para oferecer este valor no dispositivo.  In keeping with o princípio de simplicidade, a estrutura oferece a visão manter o fardo de certificação mínima.   
+Para ajudar a tomar decisões informadas ao adquirir dispositivos Azure IoT Edge para a implantação de clientes, a estrutura de Azure IoT Edge inclui os requisitos de certificação.  Certificações relacionadas à segurança afirmações e certificações relativas a validação da implementação de segurança, são fundamentais para esses requisitos.  Por exemplo, uma certificação de afirmação da segurança informa que o dispositivo do IoT Edge usa hardware de segurança conhecido para resistir a ataques de arranque. Uma certificação de validação informa que o hardware de segurança foi implementado corretamente para oferecer esse valor no dispositivo.  Para manter o princípio de simplicidade, o framework oferece a visão de manter a carga de certificação mínima.   
 
 ## <a name="extensibility"></a>Extensibilidade
 
-Extensibilidade é uma primeira classe citizen no framework de segurança do Azure IoT Edge.  Com a tecnologia de IoT a ocasionar a diferentes tipos de transformações de negócio,-representa pelo motivo que a segurança deve perfeitamente evoluir no lockstep para endereço emergentes cenários.  O framework de segurança do Azure IoT Edge começa com uma base sólida no qual se baseia-se no extensibilidade em dimensões diferentes para incluir: 
+A extensibilidade é um cidadão de primeira classe, a estrutura de segurança do Azure IoT Edge.  Com a tecnologia de IoT impulsionar diferentes tipos de transformações de negócios, é razoável dizer que segurança deve evoluir de forma totalmente integrada ao mesmo tempo para endereço emergentes de cenários.  A estrutura de segurança do Azure IoT Edge é iniciado com uma base sólida na qual ele se baseia na extensibilidade em dimensões diferentes para incluir: 
 
-* Primeiro serviços de segurança de terceiros, como o serviço de aprovisionamento de dispositivos de IoT Hub do Azure.
-* Serviços de terceiros, como serviços de segurança geridos para verticals diferente da aplicação (como industriais ou cuidados de saúde) ou o foco de tecnologia (como a monitorização em segurança mesh redes ou os serviços de atestado de hardware silicon) através de uma rede de avançado parceiros.
-* Sistemas legados para incluir retrofitting com estratégias de segurança alternativas, incluindo utilizando a tecnologia segura que não sejam certificados para a gestão de identidade e autenticação.
-* Proteja o hardware para totalmente integrada adoção de tecnologias emergentes de hardware seguro e silicon contribuições de parceiro.
+* Primeira serviços de segurança de terceiros como o serviço de aprovisionamento de dispositivos para o IoT Hub do Azure.
+* Serviços de terceiros, como serviços de segurança gerida para mercados verticais de aplicação diferente (como industriais ou cuidados de saúde) e do foco de tecnologia (como a segurança de monitorização na malha redes ou serviços de atestado de hardware de silicon) através de uma rede avançada de parceiros.
+* Sistemas herdados para incluir retroajustar com estratégias de segurança alternativas, gosto de usar tecnologia segura que não sejam certificados para gestão de identidades e autenticação.
+* Proteger o hardware para a adoção totalmente integrada de tecnologias emergentes de hardware de segurança e silicon contribuições de parceiro.
 
-Estes são alguns exemplos de dimensões extensibilidade e framework de segurança do Azure IoT Edge foi concebido para ser seguro a partir do zero para suportar este extensibilidade. 
+Esses são apenas alguns exemplos de dimensões de extensibilidade e a estrutura de segurança do Azure IoT Edge foi concebida para ser seguro desde o início para suportar essa extensibilidade. 
 
-No final, o êxito proteger inteligente limite mais alto resulta da colaboração contribuições de uma Comunidade abra condicionadas pelo interesse comuns proteger IoT.  Estes contribuições poderão estar sob a forma de tecnologias seguras ou serviços.  O framework de segurança do Azure IoT Edge oferece uma base sólida para segurança extensível para a cobertura máxima oferecer o mesmo nível de confiança e integridade no limite inteligente como com a nuvem do Azure.  
+No final, o maior sucesso na proteção de um edge inteligente resulta da colaboração contribuições de uma Comunidade de open orientado pelo interesse comuns na proteção de IoT.  Nessas contribuições poderão ser na forma de tecnologias seguras ou serviços.  A estrutura de segurança do Azure IoT Edge oferece uma base sólida de segurança que é extensível para a máxima cobertura oferecer o mesmo nível de confiança e a integridade de um edge inteligente como com a cloud do Azure.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre como é o Azure IoT Edge [proteger o contorno inteligente][lnk-edge-blog].
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 
+Saiba mais sobre como é o Azure IoT Edge [proteger um edge inteligente](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).

@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a0a330d3ea7362ffabb20a5d390cee87cbf7d8ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365410"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242981"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
-Este artigo lista problemas comuns relacionados com ficheiros do Microsoft Azure quando se liga a partir de clientes do Windows. Ele também fornece possíveis causas e resoluções para esses problemas. Além dos passos de resolução de problemas neste artigo, pode também usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente de cliente do Windows tem pré-requisitos corretos. AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o ambiente para obter um desempenho ideal. Também pode encontrar estas informações no [solucionador de problemas de partilhas de ficheiros do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece os passos para ajudá-lo com problemas de partilhas de ficheiros do Azure de ligar/mapeamento/montagem.
+Este artigo lista problemas comuns relacionados com ficheiros do Microsoft Azure quando se liga a partir de clientes do Windows. Ele também fornece possíveis causas e resoluções para esses problemas. Além dos passos de resolução de problemas neste artigo, pode também usar [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) para garantir que o ambiente de cliente do Windows tem pré-requisitos corretos. AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o ambiente para obter um desempenho ideal. Também pode encontrar estas informações no [solucionador de problemas de partilhas de ficheiros do Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece os passos para ajudá-lo com problemas de partilhas de ficheiros do Azure de ligar/mapeamento/montagem.
 
 
 <a id="error53-67-87"></a>
@@ -32,13 +32,13 @@ Ao tentar montar uma partilha de ficheiros no local ou a partir de um centro de 
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: Canal de comunicação sem encriptação
 
-Por motivos de segurança, as ligações a partilhas de ficheiros do Azure são bloqueadas se o canal de comunicação não é encriptado e se a tentativa de ligação não é feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. Conexões não criptografadas no mesmo datacenter podem também ser bloqueados se o [transferência segura necessária](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento. Encriptação de canal de comunicação é fornecida apenas se o SO de cliente do usuário oferece suporte a encriptação SMB.
+Por motivos de segurança, as ligações a partilhas de ficheiros do Azure são bloqueadas se o canal de comunicação não é encriptado e se a tentativa de ligação não é feita a partir do mesmo datacenter onde residem as partilhas de ficheiros do Azure. Conexões não criptografadas no mesmo datacenter podem também ser bloqueados se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição está ativada na conta de armazenamento. Encriptação de canal de comunicação é fornecida apenas se o SO de cliente do usuário oferece suporte a encriptação SMB.
 
 Windows 8, Windows Server 2012 e versões posteriores de cada sistema negociam pedidos que incluem o SMB 3.0, que suporta a encriptação.
 
 ### <a name="solution-for-cause-1"></a>Solução para causa 1
 
-1. Verifique se o [transferência segura necessária](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) definição estiver desativada na conta de armazenamento.
+1. Verifique se o [transferência segura necessária](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) definição estiver desativada na conta de armazenamento.
 2. Ligar a partir de um cliente que faz o seguinte:
 
     - Cumpre os requisitos do Windows 8 e Windows Server 2012 ou versões posteriores
@@ -189,6 +189,24 @@ Para copiar um ficheiro através da rede, tem de desencriptá-lo primeiro. Utili
   - Valor = 1
 
 Lembre-se de que definir a chave do registo afeta todas as operações de cópia que são feitas a compartilhamentos de rede.
+
+## <a name="slow-enumeration-of-files-and-folders"></a>Enumeração lenta de ficheiros e pastas
+
+### <a name="cause"></a>Causa
+
+Este problema pode ocorrer se existir sem cache suficiente no computador cliente para grandes diretórios.
+
+### <a name="solution"></a>Solução
+
+Para resolver este problema, ajustar a **DirectoryCacheEntrySizeMax** valor de registo para permitir a colocação em cache de listagens de diretórios de maior no computador cliente:
+
+- Localização: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Mane de valor: DirectoryCacheEntrySizeMax 
+- Tipo de valor: DWORD
+ 
+ 
+Por exemplo, pode defini-lo como 0x100000 e ver se o desempenho se tornar melhor.
+
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para seu problema resolvido rapidamente.

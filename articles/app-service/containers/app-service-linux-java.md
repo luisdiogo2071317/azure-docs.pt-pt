@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1639194741fb343391f80790d0a2cc7f392218ac
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815176"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238120"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -146,6 +146,8 @@ Siga as instruções no [vincular um certificado SSL personalizado existente](/a
 
 >[!NOTE]
 > Se a sua aplicação utilizar o Spring Framework ou o Spring Boot, pode definir as informações de ligação de base de dados para a Primavera dados JPA como variáveis de ambiente [em seu arquivo de propriedades da aplicação]. Em seguida, utilize [as definições da aplicação](/azure/app-service/web-sites-configure#app-settings) para definir esses valores para a sua aplicação no portal do Azure ou na CLI.
+
+Os fragmentos de configuração de exemplo nesta secção utilizam a base de dados MySQL. Para obter mais informações, consulte os documentos de configuração para [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [JDBC do SQL Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 Para configurar o Tomcat para utilizar ligações geridas para bases de dados com a conectividade de banco de dados de Java (JDBC) ou a API de persistência de Java (JPA), primeiro de personalizá-a variável de ambiente de CATALINA_OPTS lida por Tomcat na inicialização. Defina estes valores através de uma definição de aplicação no plug-in Maven do serviço de aplicações:
 

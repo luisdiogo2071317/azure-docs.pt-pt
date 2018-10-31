@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b9146bfc284a469f12eb626c2434f4afe52335dc
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407117"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250467"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração de mapa de serviço com o System Center Operations Manager
   > [!NOTE]
@@ -53,19 +53,19 @@ Para configurar a integração de mapa de serviço, faça o seguinte:
 
 1. Para abrir o Assistente de configuração, na **descrição geral do mapa de serviço** painel, clique em **adicionar área de trabalho**.  
 
-    ![Painel de descrição geral do mapa de serviço](media/monitoring-service-map/scom-configuration.png)
+    ![Painel de descrição geral do mapa de serviço](media/monitoring-service-map-scom/scom-configuration.png)
 
 2. Na **configuração da ligação** janela, introduza o nome do inquilino ou o ID, o ID da aplicação (também conhecido como o nome de utilizador ou ID de cliente) e a palavra-passe do principal de serviço e, em seguida, clique em **próxima**. Para obter mais informações, aceda a [criar um principal de serviço](#creating-a-service-principal).
 
-    ![A janela de configuração da ligação](media/monitoring-service-map/scom-config-spn.png)
+    ![A janela de configuração da ligação](media/monitoring-service-map-scom/scom-config-spn.png)
 
 3. Na **seleção de subscrição** janela, selecione a subscrição do Azure, o grupo de recursos do Azure (aquele que contém a área de trabalho do Log Analytics) e a área de trabalho do Log Analytics e, em seguida, clique em **próxima**.
 
-    ![A área de trabalho de configuração do Operations Manager](media/monitoring-service-map/scom-config-workspace.png)
+    ![A área de trabalho de configuração do Operations Manager](media/monitoring-service-map-scom/scom-config-workspace.png)
 
 4. Na **seleção de grupo de computadores** janela, escolher os grupos de máquina de mapa de serviço que pretende sincronizar para o Operations Manager. Clique em **Adicionar/remover grupos de máquinas**, selecione os grupos da lista de **grupos de máquinas disponíveis**e clique em **Add**.  Quando tiver terminado de selecionar os grupos, clique em **Ok** para concluir.
     
-    ![Os grupos de máquina de configuração do Gestor de operações](media/monitoring-service-map/scom-config-machine-groups.png)
+    ![Os grupos de máquina de configuração do Gestor de operações](media/monitoring-service-map-scom/scom-config-machine-groups.png)
     
 5. Na **seleção de servidor** janela, configurar o grupo de servidores de mapa de serviço com os servidores que pretende sincronizar entre o Operations Manager e o mapa de serviço. Clique em **Adicionar/remover servidores**.   
     
@@ -75,36 +75,36 @@ Para configurar a integração de mapa de serviço, faça o seguinte:
     * Gerido pelo mapa de serviço
     * Listado no grupo de servidores de mapa de serviço
 
-    ![O grupo de configuração do Operations Manager](media/monitoring-service-map/scom-config-group.png)
+    ![O grupo de configuração do Operations Manager](media/monitoring-service-map-scom/scom-config-group.png)
 
 6. Opcional: Selecione o agrupamento de recursos do servidor de gestão para comunicar com o Log Analytics e, em seguida, clique em **adicionar área de trabalho**.
 
-    ![O agrupamento de recursos de configuração do Gestor de operações](media/monitoring-service-map/scom-config-pool.png)
+    ![O agrupamento de recursos de configuração do Gestor de operações](media/monitoring-service-map-scom/scom-config-pool.png)
 
     Poderá demorar um minuto para configurar e registar a área de trabalho do Log Analytics. Depois de estar configurada, o Operations Manager inicia a primeira sincronização de mapa de serviço.
 
-    ![O agrupamento de recursos de configuração do Gestor de operações](media/monitoring-service-map/scom-config-success.png)
+    ![O agrupamento de recursos de configuração do Gestor de operações](media/monitoring-service-map-scom/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>Mapa de serviço do monitor
 Depois que estiver ligada a área de trabalho do Log Analytics, uma nova pasta, o mapa de serviço, é apresentada na **monitorização** painel da consola do Operations Manager.
 
-![O painel de monitorização do Operations Manager](media/monitoring-service-map/scom-monitoring.png)
+![O painel de monitorização do Operations Manager](media/monitoring-service-map-scom/scom-monitoring.png)
 
 A pasta de mapa de serviço tem quatro nós:
 * **Alertas ativos**: apresenta uma lista de todos os alertas ativos sobre a comunicação entre o Operations Manager e o mapa de serviço.  Tenha em atenção que estes alertas não são do Log Analytics alerta a ser sincronizado com o Operations Manager. 
 
 * **Servidores**: apresenta uma lista de servidores monitorizados que estão configurados para sincronizar a partir do mapa de serviço.
 
-    ![O painel de servidores de monitorização do Operations Manager](media/monitoring-service-map/scom-monitoring-servers.png)
+    ![O painel de servidores de monitorização do Operations Manager](media/monitoring-service-map-scom/scom-monitoring-servers.png)
 
 * **Vistas do grupo de dependência do Machine**: apresenta uma lista de todos os grupos de computadores que são sincronizados a partir de mapa de serviço. Pode clicar em qualquer grupo para ver o diagrama de aplicação distribuída.
 
-    ![O diagrama de aplicação distribuída do Operations Manager](media/monitoring-service-map/scom-group-dad.png)
+    ![O diagrama de aplicação distribuída do Operations Manager](media/monitoring-service-map-scom/scom-group-dad.png)
 
 * **Modos de exibição de dependência de servidor**: apresenta uma lista de todos os servidores que são sincronizados a partir de mapa de serviço. Pode clicar em qualquer servidor para ver o diagrama de aplicação distribuída.
 
-    ![O diagrama de aplicação distribuída do Operations Manager](media/monitoring-service-map/scom-dad.png)
+    ![O diagrama de aplicação distribuída do Operations Manager](media/monitoring-service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Editar ou eliminar a área de trabalho
 Pode editar ou eliminar a área de trabalho configurada através da **descrição geral do mapa de serviço** painel (**administração** painel > **Operations Management Suite**  >  **Mapa de serviço**).
@@ -114,12 +114,12 @@ Pode editar ou eliminar a área de trabalho configurada através da **descriçã
 
 Pode configurar apenas uma área de trabalho do Log Analytics por agora.
 
-![O painel da área de trabalho do Operations Manager editar](media/monitoring-service-map/scom-edit-workspace.png)
+![O painel da área de trabalho do Operations Manager editar](media/monitoring-service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>Configurar regras e substituições
 Uma regra _Microsoft.SystemCenter.ServiceMapImport.Rule_, é criado para obter periodicamente informações de mapa de serviço. Para alterar os tempos de sincronização, pode configurar substituições da regra (**Authoring** painel > **regras** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
 
-![A janela de propriedades substituições do Operations Manager](media/monitoring-service-map/scom-overrides.png)
+![A janela de propriedades substituições do Operations Manager](media/monitoring-service-map-scom/scom-overrides.png)
 
 * **Ativado**: Ativar ou desativar as atualizações automáticas. 
 * **IntervalMinutes**: repor a hora entre as atualizações. O intervalo predefinido é de uma hora. Se pretender sincronizar os mapas de servidor com mais frequência, pode alterar o valor.

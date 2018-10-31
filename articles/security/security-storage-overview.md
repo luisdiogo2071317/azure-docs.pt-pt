@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061688"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239360"
 ---
 # <a name="azure-storage-security-overview"></a>Descrição geral da segurança de armazenamento do Azure
 
@@ -33,6 +33,7 @@ O Azure Storage é a solução de armazenamento na cloud para aplicações moder
 * Utilize a análise para controlar o método de autenticação que alguém está a utilizar quando acedem de armazenamento.
 
 Para uma visão mais detalhada de segurança no armazenamento do Azure, consulte a [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md). Este guia fornece uma descrição aprofundada os recursos de segurança do armazenamento do Azure. Estas funcionalidades incluem as chaves de conta de armazenamento, encriptação de dados em trânsito e em repouso e análise de armazenamento.
+
 
 Este artigo fornece uma descrição geral das funcionalidades de segurança do Azure que pode utilizar com o armazenamento do Azure. Links para artigos fornecem detalhes de cada funcionalidade, para que possa saber mais.
 
@@ -91,13 +92,35 @@ Saiba mais
 
 * [Azure Disk Encryption para Windows e máquinas virtuais Linux IaaS](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Redes de Firewalls e armazenamento Virtual do Azure
+## <a name="firewalls-and-virtual-networks"></a>Firewalls e redes virtuais
 
 O armazenamento do Azure permite-lhe ativar as regras de firewall para as suas contas de armazenamento. Uma vez ativado, que irão bloquear os pedidos recebidos para os dados, incluindo pedidos de outros serviços do Azure. Pode configurar exceções para permitir o tráfego. Regras de firewall podem ser ativadas em contas de armazenamento existentes ou durante a hora de criação.
 
 Deve usar essa funcionalidade para proteger as contas de armazenamento para um conjunto específico de redes permitidas.
 
 Para obter mais informações sobre o armazenamento do Azure firewalls e redes virtuais, consulte o artigo [configurar Firewalls de armazenamento do Azure e redes virtuais](../storage/common/storage-network-security.md)
+
+## <a name="azure-data-box"></a>Azure Data Box
+
+Os dispositivos Data Box, Data Box Disk e Data Box Heavy ajudam a transferir grandes volumes de dados para o Azure quando a rede não é uma opção. Estes dispositivos de transferência de dados offline são entregues entre a sua organização e o Centro de dados do Azure. Utilizam encriptação AES para ajudar a proteger os dados em trânsito e são submetidos a um processo de limpeza pós-carregamento para eliminar dados do dispositivo.
+
+Data Box Edge e Data Box Gateway são produtos de transferência de dados online que funcionam como gateways de armazenamento de rede para gerir dados entre o site e o Azure. O Data Box Edge, um dispositivo de rede no local, transfere dados de e para o Azure e utiliza computação edge ativada por inteligência artificial (AI) para processar dados. O Data Box Gateway é uma aplicação virtual com capacidades de gateway de armazenamento.
+
+Saiba mais:
+
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Edge de caixa de dados do Azure](../databox-online/data-box-edge-overview.md)
+* [Gateway de caixa de dados do Azure](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
+
+O armazenamento do Azure fornece proteção avançada contra ameaças para uma camada adicional de inteligência de segurança Deteta tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de sua conta de armazenamento. Avançado monitores de proteção contra ameaças registos de diagnóstico de armazenamento do Azure para leitura suspeita, escrever ou eliminar pedidos ao armazenamento de Blobs. 
+
+Alertas de proteção contra ameaças avançadas podem ser visualizadas a partir [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/). Centro de segurança do Azure fornece detalhes sobre qualquer atividade suspeita detetada e recomendando ações para investigar e remediar a ameaça potencial. 
+
+Saiba mais:
+
+* [Armazenamento do Azure Advanced descrição geral da proteção de ameaças](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

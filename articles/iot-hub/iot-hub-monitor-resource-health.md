@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: c400a084a78af6313e355d65bcbc07a520f55514
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b470ca15163ef1e74ec9795ad0a2581a24c83474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156056"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250422"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente
 
@@ -24,13 +24,13 @@ Monitor do Azure é uma única origem de monitorização e registo para todos os
 > [!IMPORTANT]
 > Não são garantidos que os eventos emitidos pelo serviço do IoT Hub com os registos de diagnóstico do Azure Monitor ser ordenada ou confiável. Alguns eventos podem ser perdidos ou ser entregue fora de ordem. Os registos de diagnóstico também não devem ser em tempo real e poderá demorar alguns minutos para eventos em log à sua escolha de destino.
 
-Estado de funcionamento de recursos do Azure ajuda-o a diagnosticar e obter suporte quando um problemas do Azure afeta os seus recursos. Um dashboard personalizado fornece o estado de funcionamento atuais e anteriores para os Hubs IoT. Continue a ler este artigo para saber como [utilização do Azure Resource Health](#use-azure-resource-health) com o seu hub IoT. 
+Estado de funcionamento de recursos do Azure ajuda-o a diagnosticar e obter suporte quando um problema do Azure afeta os seus recursos. Um dashboard personalizado fornece o estado de funcionamento atuais e anteriores para os Hubs IoT. Continue a ler este artigo para saber como [utilização do Azure Resource Health](#use-azure-resource-health) com o seu hub IoT. 
 
-Além da integração com estes dois serviços, o IoT Hub fornece também suas próprias métricas que pode utilizar para compreender o estado dos seus recursos de IoT. Para obter mais informações, consulte [métricas de compreender o IoT Hub][lnk-metrics].
+IoT Hub também fornece seu próprio métricas que pode utilizar para compreender o estado dos seus recursos de IoT. Para obter mais informações, consulte [métricas de compreender o IoT Hub][lnk-metrics].
 
 ## <a name="use-azure-monitor"></a>Utilizar o Azure Monitor
 
-O Azure Monitor fornece informações de diagnóstico ao nível do recurso, o que significa que pode monitorizar as operações que ocorrem dentro do seu hub IoT. 
+O Azure Monitor fornece informações de diagnóstico para recursos do Azure, que significa que pode monitorizar as operações que ocorrem dentro do seu hub IoT. 
 
 Monitorizar a substitui de definições de diagnóstico do Azure Monitor as operações do IoT Hub. Se utilizar atualmente a monitorização de operações, deve migrar os seus fluxos de trabalho. Para obter mais informações, consulte [migrar de operações de definições de monitorização para o diagnóstico][lnk-migrate].
 
@@ -42,11 +42,9 @@ Para saber mais sobre as métricas específicas e os eventos que observa o Azure
 
 O Azure Monitor controla as operações diferentes que ocorrem no IoT Hub. Cada categoria tem um esquema que define a forma como os eventos nessa categoria são comunicados. 
 
-
-
 #### <a name="connections"></a>Ligações
 
-O dispositivo de faixas de categoria ligações ligar e desligar eventos a partir de um hub IoT, bem como erros. Esta categoria de controlo é útil para identificar as tentativas de ligação não autorizado e para controlar quando uma conexão está perdida para dispositivos em áreas de conectividade ruim.
+O dispositivo de faixas de categoria ligações ligar e desligar eventos a partir de um hub IoT, bem como erros. Esta categoria é útil para identificar as tentativas de ligação não autorizado e ou alertas quando a perder a ligação aos dispositivos.
 
 > [!NOTE]
 > Para obter o estado de ligação fiável de dispositivos de verificação [heartbeat do dispositivo][lnk-devguide-heartbeat].
@@ -65,7 +63,13 @@ O dispositivo de faixas de categoria ligações ligar e desligar eventos a parti
 
 #### <a name="cloud-to-device-commands"></a>Comandos de cloud para dispositivo
 
-A categoria de comandos do cloud-para-dispositivo rastreia erros ocorridos no IoT hub e estão relacionadas com o pipeline de mensagens da cloud para o dispositivo. Esta categoria inclui erros que ocorrem quando enviar mensagens da cloud para o dispositivo (por exemplo, o remetente não autenticado), receber mensagens da cloud para o dispositivo (por exemplo, a contagem de entrega excedida) e receber comentários de mensagem de cloud-para-dispositivo (como comentários expiraram). Esta categoria não detectar erros de um dispositivo que trata incorretamente uma mensagem de cloud para o dispositivo se a mensagem de cloud para o dispositivo foi entregue com êxito.
+A categoria de comandos do cloud-para-dispositivo rastreia erros ocorridos no IoT hub e estão relacionadas com o pipeline de mensagens da cloud para o dispositivo. Esta categoria inclui erros que ocorrem a partir de:
+
+* Envio de mensagens de cloud-para-dispositivo (como erros de remetente não autenticado),
+* Receber mensagens da cloud para o dispositivo (como erros de contagem de excedida de entrega), e
+* Receber comentários de mensagem de cloud-para-dispositivo (como comentários expirado erros). 
+
+Esta categoria não detectar erros quando a mensagem de cloud para o dispositivo é entregue com êxito, mas, em seguida, incorretamente, processada pelo dispositivo.
 
 ```json
 {
@@ -111,7 +115,13 @@ A categoria de operações de identidade de dispositivo rastreia erros que ocorr
 
 #### <a name="routes"></a>Rotas
 
-A categoria de roteamento de mensagem rastreia erros que ocorrem durante a avaliação de rota de mensagem e o estado de funcionamento do ponto de extremidade como percebido pelo IoT Hub. Esta categoria inclui eventos, como quando uma regra avalia como "undefined", quando o IoT Hub marca um ponto de extremidade como morto e outros erros recebidos de um ponto de extremidade. Esta categoria não inclui erros específicos sobre as mensagens propriamente ditos (por exemplo, o dispositivo erros de limitação), que são apresentadas na categoria "telemetria do dispositivo".
+A categoria de roteamento de mensagem rastreia erros que ocorrem durante a avaliação de rota de mensagem e o estado de funcionamento do ponto de extremidade como percebido pelo IoT Hub. Esta categoria inclui eventos como:
+
+* Uma regra avalia como "undefined",
+* IoT Hub marca um ponto de extremidade como morta, ou
+* Erros recebidos de um ponto de extremidade. 
+
+Esta categoria não inclui erros específicos sobre as mensagens propriamente ditos (como dispositivo de erros de limitação), que são apresentadas na categoria "telemetria do dispositivo".
 
 ```json
 {
@@ -365,7 +375,7 @@ class Program 
 
 Utilize o Azure Resource Health para monitorizar se o seu hub IoT está em execução. Também pode saber se uma falha regional está a afetar o estado de funcionamento do seu hub IoT. Para compreender os detalhes específicos sobre o estado de funcionamento do seu IoT Hub do Azure, recomendamos que [utilização do Azure Monitor](#use-azure-monitor). 
 
-O IoT Hub do Azure indica o estado de funcionamento num nível regional. Se existir uma falha regional afetar o seu hub IoT, o estado de funcionamento é apresentado como **desconhecido**. Para saber mais sobre as verificações de estado de funcionamento específico que executa do Azure Resource Health, veja [tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure][lnk-ARH-checks].
+O IoT Hub do Azure indica o estado de funcionamento num nível regional. Se uma falha regional tem impacto no seu hub IoT, o estado de funcionamento é apresentado como **desconhecido**. Para obter mais informações, consulte [tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure][lnk-ARH-checks].
 
 Para verificar o estado de funcionamento os hubs IoT, siga estes passos:
 

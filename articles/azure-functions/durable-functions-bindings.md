@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: dcfd0d51698c742db85dd939ce31b56d81052454
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 24231a02575fed8ee71f85c22a14540f2e9d47e3
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139429"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247509"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Enlaces de funções duráveis (funções do Azure)
 
@@ -351,6 +351,12 @@ module.exports = function (context, input) {
 ```
 
 Podem encontrar mais detalhes sobre como iniciar instâncias na [gerenciamento de instância](durable-functions-instance-management.md).
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>definições de Host. JSON
+
+[!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

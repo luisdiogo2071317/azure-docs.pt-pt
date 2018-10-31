@@ -1,10 +1,10 @@
 ---
-title: Codificador de multimédia Standard formatos e codecs
-description: Este tópico fornece uma descrição geral de codecs e de formatos de codificador de multimédia Standard.
+title: Formatos e codecs Media Encoder Standard
+description: Este tópico apresenta uma visão geral do Media Encoder Standard formatos e codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
@@ -12,64 +12,64 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 181a1b8ad6403045264ddc0bd502273f36df3eff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ef74ebfab9450d0aa22b5a2f3287491d96573cff
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638335"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249174"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e Codecs do Codificador de Multimédia Standard
-Este documento contém uma lista de importação mais comuns e formatos de ficheiro de exportação que pode utilizar com o codificador de multimédia Standard.
+Este documento contém uma lista do importar mais comuns e formatos de ficheiro de exportação que pode utilizar com o Media Encoder Standard.
 
-## <a name="input-containerfile-formats"></a>Formatos de contentor/ficheiro de entrada
+## <a name="input-containerfile-formats"></a>Formatos de arquivo/contentor de entrada
 | Formatos de ficheiro (extensões de ficheiro) | Suportadas |
 | --- | --- | --- | --- |
-| FLV (com codecs 264 e AAC) (.flv) |Sim |
-| MXF (.mxf) |Sim |
+| FLV (com codecs H.264 e AAC) (. flv) |Sim |
+| Ficheiros do MXF (.mxf) |Sim |
 | GXF (.gxf) |Sim |
-| 3GP MPEG2-PS, MPEG2-TS (.ts .ps, .3gp, .3gpp, .mpg) |Sim |
-| Vídeo de suporte de dados do Windows (WMV) / ASF (. wmv, .asf) |Sim |
-| AVI (descomprimidos 8 bits/10 bits) (. avi) |Sim |
-| MP4 (mp4 .m4a, .m4v) / ISMV (.isma, .ismv) |Sim |
-| [Recording(DVR-MS) Vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr ms) |Sim |
+| 3GP MPEG2-PS, MPEG2-TS (. TS, .ps, .3gp, .3gpp, .mpg) |Sim |
+| Windows Media Video (WMV) / ASF (. wmv,. asf) |Sim |
+| AVI (descomprimido 8 bits/10 bits) (. avi) |Sim |
+| MP4 (. mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Sim |
+| [Recording(DVR-MS) de vídeo Digital da Microsoft](https://msdn.microsoft.com/library/windows/desktop/dd692984) (. dvr-ms) |Sim |
 | Matroska/WebM (.mkv) |Sim |
-| WAVE/WAV (wav) |Sim |
+| WAVE/WAV (. wav) |Sim |
 | QuickTime (.mov) |Sim |
 
 > [!NOTE]
-> Acima é uma lista das extensões de ficheiro mais frequentemente foi encontrado. Codificador de multimédia Standard suporta muitas outras (por exemplo: .m2ts, .mpeg2video, .qt). Se tentar codificar um ficheiro e receber uma mensagem de erro sobre o formato não suportado, forneça os seus comentários [aqui](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Acima encontra-se uma lista das extensões de ficheiro encontradas mais frequentemente. Codificador de multimédia Standard suporta muitas outras (por exemplo:. m2ts,. mpeg2video,. qt). Se tentar codificar um ficheiro e receber uma mensagem de erro sobre o formato não suportado, fornecer seus comentários [aqui](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em contentores de entrada
-Codificador de multimédia Standard suporta as devidas os seguintes formatos de áudio em contentores de entrada:
+Codificador de multimédia Standard suporta os seguintes formatos de áudio em contentores de entrada:
 
-* Ficheiros MXF, GXF e QuickTime, que tem de áudio controla com stereo intercalado ou 5.1 amostras
+* Arquivos de ficheiros do MXF, do GXF e do QuickTime que têm faixas de áudio com estéreo intercalado ou 5.1 amostras
 
 ou
 
-* Podem ser deduzidos MXF GXF, ficheiros e QuickTime onde áudio é executado como separada PCM controla, mas o canal mapeamento (stereo ou 5.1) dos metadados de ficheiro
+* Arquivos de ficheiros do MXF, do GXF e do QuickTime onde o áudio é executado como faixas PCM em separado, mas o mapeamento do canal (para estéreo ou 5.1) pode ser reduzido a partir dos metadados
 
-Suporte para o mapeamento de canal explícita/fornecido pelo utilizador irá ser fornecido num futuro próximo.
+Será fornecido suporte para o mapeamento de canal explícita/fornecido pelo usuário num futuro próximo.
 
-## <a name="input-video-codecs"></a>Codecs vídeo de entrada
-| Codecs vídeo de entrada | Suportadas |
+## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
+| Codecs de vídeo de entrada | Suportadas |
 | --- | --- | --- | --- |
-| AVC 8 bits/10-bits, até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
-| DNxHD avid (em MXF) |Sim |
-| DVCPro/DVCProHD (em MXF) |Sim |
+| AVC 8 bits/10-bits, até 4:2:2, incluindo AVCIntra |4 de 8 bits: 2:0 e 4:2:2 |
+| Avid DNxHD (no MXF) |Sim |
+| DVCPro/DVCProHD (no MXF) |Sim |
 | Vídeo digital (DV) (em ficheiros AVI) |Sim |
 | JPEG 2000 |Sim |
-| MPEG-2 (até perfil 422 e de elevado nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Perfil até 422 |
+| MPEG-2 (até perfil 422 e alto nível; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® e D10) |Até perfil 422 |
 | MPEG-1 |Sim |
 | VC-1/WMV9 |Sim |
 | Canopus HQ/HQX |Não |
 | MPEG-4 parte 2 |Sim |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sim |
-| YUV420 descomprimidos ou mezanino |Sim |
+| YUV420 descomprimido ou mezanino |Sim |
 | Apple ProRes 422 |Sim |
 | Apple ProRes 422 LT |Sim |
 | Apple ProRes 422 HQ |Sim |
@@ -78,30 +78,30 @@ Suporte para o mapeamento de canal explícita/fornecido pelo utilizador irá ser
 | Apple ProRes 4444 XQ |Sim |
 | HEVC/H.265| Perfil de principal|
 
-## <a name="input-audio-codecs"></a>Codecs entrada de áudio
-| Codecs entrada de áudio | Suportadas |
+## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
+| Codecs de áudio de entrada | Suportadas |
 | --- | --- | --- | --- |
-| AAC (AAC LC, AAC Putador e AAC-HEv2; até 5.1) |Sim |
+| AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG camada 2 |Sim |
-| MP3 (MPEG-1 a camada áudio 3) |Sim |
+| MP3 (MPEG-1 camada de áudio 3) |Sim |
 | Áudio de suporte de dados do Windows |Sim |
 | WAV/PCM |Sim |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sim |
 | [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (taxa multi adaptável) |Sim |
-| AES (SMPTE 331 M e 302 M, AES3 2003) |Não |
-| Dolby® I |Não |
+| AES (SMPTE 331m e 302 M, AES3 2003) |Não |
+| Dolby® E |Não |
 | Dolby® Digital (AC3) |Não |
-| Dolby® Digital Plus (AC3-I) |Não |
+| Dolby® Digital Plus (E-AC3) |Não |
 
-## <a name="output-formats-and-codecs"></a>Formatos de saída e codecs
-A tabela seguinte lista os formatos de codecs e de ficheiros que são suportados para exportação.
+## <a name="output-formats-and-codecs"></a>E codecs de formatos de saída
+A tabela seguinte lista os codecs e formatos de arquivo que são suportados para exportação.
 
-| Formato de ficheiro | Codec de vídeo | Codec de áudio |
+| Formato do Ficheiro | Codec de vídeo | Codec de áudio |
 | --- | --- | --- |
-| MP4 <br/><br/>(incluindo contentores de MP4 de velocidade de transmissão múltipla) |264 (alta, principal e os perfis de linha de base) |AAC-LC, AAC Putador v1, v2 Putador AAC |
-| MPEG2 TS |264 (alta, principal e os perfis de linha de base) |AAC-LC, AAC Putador v1, v2 Putador AAC |
+| MP4 <br/><br/>(incluindo contentores de MP4 de velocidade de transmissão) |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, v2 HE-AAC |
+| MPEG2-TS |H.264 (alta, Main e perfis de linha de base) |AAC-LC, HE-AAC v1, v2 HE-AAC |
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -110,7 +110,7 @@ A tabela seguinte lista os formatos de codecs e de ficheiros que são suportados
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consulte também
-[A codificação de conteúdo a pedido com os Media Services do Azure](media-services-encode-asset.md)
+[Codificação de conteúdo a pedido com os serviços de multimédia do Azure](media-services-encode-asset.md)
 
-[Como codificar com o codificador de multimédia Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
+[Como codificar com o Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 

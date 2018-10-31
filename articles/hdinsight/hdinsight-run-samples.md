@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84c28eebc2bcf1bfdfcb0995f1caa05ed19629e2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111004"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250840"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Executar exemplos de MapReduce do Hadoop no HDInsight baseado em Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Um conjunto de exemplos são fornecidos para ajudar a introdução tarefas de MapReduce em execução em clusters do Hadoop com o Azure HDInsight. Estes exemplos são disponibilizados em cada um dos clusters HDInsight gerido que criar. Executar estes exemplos familiarizá-lo com a utilização de cmdlets do Azure PowerShell para executar tarefas em clusters do Hadoop.
+Um conjunto de exemplos é fornecido para ajudar a introdução tarefas de MapReduce em execução em clusters do Hadoop com o Azure HDInsight. Estes exemplos são disponibilizados em cada um dos clusters HDInsight gerido que criar. Executar estes exemplos familiarizá-lo com a utilização de cmdlets do Azure PowerShell para executar tarefas em clusters do Hadoop.
 
 * [**Contagem de palavras**][hdinsight-sample-wordcount]: contagem de ocorrências de palavras num arquivo de texto.
 * [**Contagem de palavras de transmissão em fluxo com c#**][hdinsight-sample-csharp-streaming]: contagem de ocorrências de palavras num arquivo de texto usando a interface de transmissão em fluxo do Hadoop.
@@ -167,7 +167,7 @@ O script fornecido para este exemplo submete uma tarefa de jar do Hadoop e é co
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>Graysort de 10 GB
-Este exemplo utiliza um modesto 10GB de dados para que podem ser executada relativamente rapidamente. Ele usa os aplicativos de MapReduce desenvolvidos pela Owen O'Malley e a Arun Murthy que ganhou o parâmetro de comparação de ordenação de terabytes de fins gerais ("daytona") anual em 2009 com uma taxa de 0.578 TB por minuto (100 TB, em minutos 173). Para obter mais informações sobre este e outros parâmetros de comparação de classificação, consulte a [Sortbenchmark](http://sortbenchmark.org/) site.
+Este exemplo utiliza um modesto 10 GB de dados para que podem ser executada relativamente rapidamente. Ele usa os aplicativos de MapReduce desenvolvidos pela Owen O'Malley e a Arun Murthy que ganhou o parâmetro de comparação de ordenação de terabytes de fins gerais ("daytona") anual em 2009 com uma taxa de 0.578 TB por minuto (100 TB, em minutos 173). Para obter mais informações sobre este e outros parâmetros de comparação de classificação, consulte a [Sortbenchmark](http://sortbenchmark.org/) site.
 
 Este exemplo utiliza três conjuntos de programas MapReduce:
 
@@ -211,7 +211,6 @@ Este artigo e os artigos em cada um dos exemplos, aprendeu a executar os exemplo
 * [Utilizar o Pig com o Hadoop no HDInsight][hdinsight-use-pig]
 * [Utilizar o Hive com o Hadoop no HDInsight][hdinsight-use-hive]
 * [Submeta tarefas Hadoop no HDInsight][hdinsight-submit-jobs]
-* [Documentação do HDInsight SDK do Azure][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Apêndice A – o código de origem de contagem do Word
 
@@ -977,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

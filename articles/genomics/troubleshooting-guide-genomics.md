@@ -1,77 +1,146 @@
 ---
-title: Guia de resolução de problemas do Microsoft Genomics
+title: 'Microsoft Genomics: Guia de resolução de problemas | Documentos da Microsoft'
 titleSuffix: Azure
 description: Saiba mais sobre estratégias de resolução de problemas
 keywords: resolução de problemas, erro, depuração
-services: genomics
-author: grhuynh
-manager: cgronlun
-ms.author: grhuynh
-ms.service: genomics
+services: microsoft-genomics
+author: ruchir
+editor: jasonwhowell
+ms.author: ruchir
+ms.service: microsoft-genomics
+ms.workload: genomics
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: bd946f84023345c68a01a48a4dc310b7afb68397
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.date: 10/29/2018
+ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735391"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239904"
 ---
-# <a name="troubleshooting-guide-for-microsoft-genomics"></a>Guia de resolução de problemas do Microsoft Genomics
-Esta descrição geral descreve estratégias para resolver problemas comuns ao utilizar o serviço Microsoft Genomics. Para perguntas freqüentes gerais sobre, consulte [perguntas comuns](frequently-asked-questions-genomics.md). 
+# <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
+Eis algumas sugestões de resolução de problemas para alguns dos problemas comuns que poderá deparar ao utilizar o serviço Microsoft Genomics, MSGEN.
 
-## <a name="how-do-i-check-my-job-status"></a>Como posso verificar o meu estado de tarefa?
-Pode verificar o estado do fluxo de trabalho ao chamar `msgen status` da linha de comando, conforme mostrado. 
+ Para perguntas frequentes, não relacionados com a solução de problemas, consulte [perguntas comuns](frequently-asked-questions-genomics.md).
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Passo 1: Localizar os códigos de erro associados com o fluxo de trabalho
 
+Pode localizar as mensagens de erro associadas com o fluxo de trabalho por:
+
+1. Com a linha de comando e escrever na  `msgen status`
+2. A examinar o conteúdo do standardoutput.txt.
+
+### <a name="1-using-the-command-line-msgen-status"></a>1. Com a linha de comandos `msgen status`
+
+```bash
+msgen status -u URL -k KEY -w ID 
 ```
-msgen status -u URL -k KEY -w ID [-f CONFIG] 
-```
+
+
+
 
 Existem três argumentos necessários:
+
 * Adresa URL – o URI de base para a API
-* CHAVE - a chave de acesso para a sua conta do Genomics. 
+* CHAVE - a chave de acesso para a sua conta do Genomics
+    * Para localizar o URL e a chave, aceda ao portal do Azure e abrir a página da sua conta Microsoft Genomics. Sob o **gerenciamento** cabeçalho, escolha **chaves de acesso**. Aí, encontrará o URL da API e as chaves de acesso.
+
+  
 * ID - o ID de fluxo de trabalho
+    * Para localizar o tipo de ID de fluxo de trabalho no `msgen list` comando. Supondo que o ficheiro de configuração contém o URL e as chaves de acesso e está localizado está na mesma localização que o exe msgen, o comando terá esta aparência: 
+        
+        ```bash
+        msgen list -f "config.txt"
+        ```
+        Saída desse comando terá o seguinte aspeto:
+        
+        ```bash
+            Microsoft Genomics command-line client v0.7.4
+                Copyright (c) 2018 Microsoft. All rights reserved.
+                
+                Workflow List
+                -------------
+                Total Count  : 1
+                
+                Workflow ID     : 10001
+                Status          : Completed successfully
+                Message         :
+                Process         : snapgatk-20180730_1
+                Description     :
+                Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
+                End Date        : Mon, 27 Aug 2018 20:55:12 GMT
+                Wall Clock Time : 0h 27m 48s
+                Bases Processed : 1,348,613,600 (1 GBase)
+        ```
 
-Para localizar o URL e a chave, aceda ao portal do Azure e abrir a página da sua conta do Genomics. Sob o **gerenciamento** cabeçalho, escolha **chaves de acesso**. Aí, encontrará o URL da API e as chaves de acesso.
+ > [!NOTE]
+ >  Em alternativa pode incluir o caminho para o ficheiro de configuração em vez de introduzir diretamente o URL e a chave. Se incluir estes argumentos da linha de comandos, bem como o ficheiro de configuração, os argumentos da linha de comandos irão ter precedência.  
 
-Em alternativa, pode incluir o caminho para o ficheiro de configuração em vez de introduzir diretamente o URL e a chave. Tenha em atenção que, se incluir estes argumentos da linha de comandos, bem como o ficheiro de configuração, os argumentos da linha de comandos irão ter precedência. 
+Para o fluxo de trabalho ID de 1001 e o ficheiro Config txt colocado no mesmo caminho que o msgen executável, o comando terá esta aparência:
 
-Após chamar `msgen status`, será apresentada uma mensagem amigável, que descreve se o fluxo de trabalho foi concluída com êxito ou fornecendo um motivo para a falha da tarefa. 
+```bash
+msgen status -w 1001 -f "config.txt"
+```
 
-
-## <a name="get-more-information-about-my-workflow-status"></a>Obter mais informações sobre o meu estado de fluxo de trabalho
-
-Para obter mais informações sobre por que uma tarefa pode não ter foi concluída com êxito, pode explorar os ficheiros de registo produzidos durante o fluxo de trabalho. No seu contentor de saída, deverá ver um `[youroutputfilename].logs.zip` pasta.  Descomprimir nesta pasta, verá os seguintes itens:
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2.  Examinar o conteúdo de standardoutput.txt 
+Localize o contentor de saída para o fluxo de trabalho em questão. MSGEN cria um, `[workflowfilename].logs.zip` pasta após cada execução de fluxo de trabalho. Descompacte a pasta para exibir seu conteúdo:
 
 * outputFileList.txt - uma lista dos ficheiros de saída produzidos durante o fluxo de trabalho
 * StandardError.txt - Este ficheiro está em branco.
-* StandardOutput.txt - contém o registo de nível superior do fluxo de trabalho. 
+* StandardOutput.txt - regista todas as mensagens de estado de nível superior, incluindo erros, o que ocorreu ao executar o fluxo de trabalho.
 * Ficheiros - todos os outros ficheiros de registo de GATK o `logs` pasta
 
-O `standardoutput.txt` ficheiro é um bom lugar para começar a determinar o motivo pelo qual o fluxo de trabalho não foi bem-sucedida, pois inclui mais informações de baixo nível do fluxo de trabalho. 
-
-## <a name="common-issues-and-how-to-resolve-them"></a>Problemas comuns e como resolvê-los
-Esta secção destaca rapidamente problemas comuns e como resolvê-los.
-
-### <a name="fastq-files-are-unmatched"></a>Ficheiros Fastq são sem correspondência
-Ficheiros Fastq apenas devem ser diferente pelo /1 à direita ou /2 no identificador de exemplo. Se tiver submetido acidentalmente arquivos de ficheiros FASTQ sem correspondência, poderá ver as seguintes mensagens de erro ao chamar `msgen status`.
-* `Encountered an unmatched read`
-* `Error reading a FASTQ file, make sure the input files are valid and paired correctly` 
-
-Para resolver este problema, reveja se os ficheiros fastq submetidos para o fluxo de trabalho são, na verdade, um conjunto correspondente. 
+Para resolução de problemas, examinar o conteúdo de standardoutput.txt e observe as mensagens de erro que são apresentados.
 
 
-### <a name="error-uploading-bam-file-output-blob-already-exists-and-the-overwrite-option-was-set-to-false"></a>Erro ao carregar o ficheiro do ficheiro. BAM. Blob de saída já existe e se a opção de substituição foi definida como False.
-Se vir a seguinte mensagem de erro, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, a pasta de saída já contém um ficheiro de saída com o mesmo nome.  A eliminar o ficheiro de saída existentes ou ative a opção de substituição no ficheiro de configuração. Em seguida, volte a submeter o fluxo de trabalho.
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Passo 2: Tente etapas recomendadas para erros comuns
 
-### <a name="when-to-contact-microsoft-genomics-support"></a>Quando contactar o suporte do Microsoft Genomics
-Se vir as seguintes mensagens de erro, Ocorreu um erro interno. 
+Esta secção destaca resumidamente comuns de erros de saída ao serviço Microsoft Genomics (msgen) e as estratégias que pode utilizar para resolvê-los. 
 
-* `Error locating input files on worker machine`
-* `Process management failure`
+O serviço Microsoft Genomics (msgen) pode emitir os seguintes tipos de erros:
 
-Tente voltar a submeter o seu fluxo de trabalho. Se continuar com falhas de tarefas, ou se tiver outras dúvidas, contacte o suporte da Microsoft Genomics no portal do Azure. Pode encontrar informações adicionais sobre como submeter um pedido de suporte [aqui](file-support-ticket-genomics.md).
+1. Erros de serviço internos: Erros que são internos para o serviço, que pode não ser resolvido, corrigindo os parâmetros ou ficheiros de entrada. Por vezes, voltar a submeter o fluxo de trabalho pode corrigir estes erros.
+2. Erros de entrada: Erros que podem ser resolvidos utilizando os argumentos corretos ou corrigir formatos de arquivo.
+
+### <a name="1-internal-service-errors"></a>1. Erros de serviço interno
+
+Um erro de serviço interno não é passíveis de ação do utilizador. Pode submeter novamente o fluxo de trabalho, mas se isto não resultar, contacte o suporte da Microsoft Genomics
+
+| Mensagem de erro                                                                                                                            | Passos de resolução de problemas recomendados                                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ocorreu um erro interno. Tente voltar a submeter o fluxo de trabalho. Se a ver este erro, contacte o suporte da Microsoft Genomics para obter assistência | Submeta novamente o fluxo de trabalho. Contacto do Microsoft Genomics suporte para assistência se o problema persistir através da criação de suporte [pedido de suporte](file-support-ticket-genomics.md ). |
+
+### <a name="2-input-errors"></a>2. Erros de entrada
+
+Estes erros são passíveis de ação do utilizador. Com base no tipo de ficheiro e o código de erro, o serviço Microsoft Genomics gera códigos de erro distintos. Siga os passos recomendados de resolução de problemas indicados abaixo.
+
+| Tipo de ficheiro | Código de erro | Mensagem de erro                                                                           | Passos de resolução de problemas recomendados                                                                                         |
+|--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Qualquer          | 701        | Tem de leitura [readId] [numberOfBases] bases, mas o limite é de [maxReadLength]           | A razão mais comum para este erro é que leva a concatenação de duas leituras de danos no ficheiro. Verifique os ficheiros de entrada. |                                |
+| BAM          | 200        |   Não é possível ler o ficheiro '[yourFileName]'.                                                                                       | Verifique o formato do ficheiro BAM. Submeta novamente o fluxo de trabalho com um ficheiro formatado corretamente.                                                                           |
+| BAM          | 201        |  Não é possível ler o ficheiro BAM [nome_ficheiro].                                                                                      |Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
+| BAM          | 202        | Não é possível ler o ficheiro BAM [nome_ficheiro]. Ficheiro demasiado pequeno e em falta o cabeçalho.                                                                                        | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
+| BAM          | 203        |   Não é possível ler o ficheiro BAM [nome_ficheiro]. Cabeçalho do ficheiro foi danificado.                                                                                      |Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                           |
+| BAM          | 204        |    Não é possível ler o ficheiro BAM [nome_ficheiro]. Cabeçalho do ficheiro foi danificado.                                                                                     | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                           |
+| BAM          | 205        |    Não é possível ler o ficheiro BAM [nome_ficheiro]. Cabeçalho do ficheiro foi danificado.                                                                                     | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
+| BAM          | 206        |   Não é possível ler o ficheiro BAM [nome_ficheiro]. Cabeçalho do ficheiro foi danificado.                                                                                      | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
+| BAM          | 207        |  Não é possível ler o ficheiro BAM [nome_ficheiro]. Ficheiro truncado junto ao deslocamento [offset].                                                                                       | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
+| BAM          | 208        |   Ficheiro BAM inválido. O ReadID [Read_Id] não tem nenhuma sequência no ficheiro [nome_ficheiro].                                                                                      | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                             |
+| FICHEIROS FASTQ        | 300        |  Não é possível ler o ficheiro de ficheiros FASTQ. [Nome_ficheiro] não termina com uma nova linha.                                                                                     | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                           |
+| FICHEIROS FASTQ        | 301        |   Não é possível ler o arquivo de ficheiros FASTQ [nome_ficheiro]. Registo de ficheiros FASTQ é maior do que o tamanho da memória intermédia no desvio: [_offset]                                                                                      | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FICHEIROS FASTQ        | 302        |     Erro de sintaxe de ficheiros FASTQ. O ficheiro [nome_ficheiro] tem uma linha em branco.                                                                                    | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FICHEIROS FASTQ        | 303        |       Erro de sintaxe de ficheiros FASTQ. O ficheiro [nome_ficheiro] tem um caráter de partida inválido no desvio: escreva do [_offset], linha: [line_type], caracteres: [_char]                                                                                  | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FICHEIROS FASTQ        | 304      |  Erro de sintaxe de ficheiros FASTQ em readID [_ReadID].  Leia primeiro do batch não tem readID que termine em /1 no ficheiro [nome_ficheiro]                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FICHEIROS FASTQ        | 305        |  Erro de sintaxe de ficheiros FASTQ em readID [_readID]. Segunda leitura do lote não tem readID que termine em /2 no ficheiro [nome_ficheiro]                                                                                      | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
+| FICHEIROS FASTQ        | 306        |  Erro de sintaxe de ficheiros FASTQ em readID [_ReadID]. Leia primeiro do par não tem um ID que termina em /1 no ficheiro [nome_ficheiro]                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
+| FICHEIROS FASTQ        | 307        |   Erro de sintaxe de ficheiros FASTQ em readID [_ReadID]. ReadID não termina com /1 ou / 2. O ficheiro [nome_ficheiro] não pode ser utilizado como um arquivo de ficheiros FASTQ emparelhado.                                                                                      |Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
+| FICHEIROS FASTQ        | 308        |  Erro de leitura de ficheiros FASTQ. Leituras de ambas as extremidades responderam de forma diferente. Escolher os ficheiros FASTQ corretos?                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+|        |       |                                                                                        |                                                                           |
+
+## <a name="step-3-contact-microsoft-genomics-support"></a>Passo 3: Suporte de contacto Microsoft Genomics
+
+Se continuar com falhas de tarefas, ou se tiver outras dúvidas, contacte o suporte da Microsoft Genomics no portal do Azure. Pode encontrar informações adicionais sobre como submeter um pedido de suporte [aqui](file-support-ticket-genomics.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Neste artigo, aprendeu a resolver problemas comuns com o serviço Microsoft Genomics. Para obter mais informações e FAQ mais gerais, veja [perguntas comuns](frequently-asked-questions-genomics.md). 

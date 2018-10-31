@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 10bcb3c0c4842202f95cdc1fff30d12b7a8fbbc2
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e6f4e67d09eacadbbf9d74f417357a87ece0a951
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366028"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238510"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Definir uma página inicial personalizada para aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -62,7 +62,7 @@ Antes de definir o URL da home page, tenha em atenção os seguintes requisitos:
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Instalar o módulo do PowerShell do Azure AD
 
-Antes de definir um URL de página inicial personalizada com o PowerShell, instale o módulo do PowerShell do Azure AD. Pode transferir o pacote a partir da [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), que utiliza o ponto de extremidade do Graph API. 
+Antes de definir um URL de página inicial personalizada com o PowerShell, instale o módulo do PowerShell do Azure AD. Pode transferir o pacote a partir da [galeria do PowerShell](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), que utiliza o ponto de extremidade do Graph API. 
 
 Para instalar o pacote, siga estes passos:
 
@@ -72,7 +72,7 @@ Para instalar o pacote, siga estes passos:
      Install-Module -Name AzureAD
     ```
     Se estiver a executar o comando como um não-administrador, utilize o `-scope currentuser` opção.
-2. Durante a instalação, selecione **Y** para instalar dois pacotes de Nuget.org. Ambos os pacotes são necessários. 
+2. Durante a instalação, selecione **Y** para instalar dois pacotes de Nuget.org. Ambos os pacotes são necessários. 
 
 ### <a name="find-the-objectid-of-the-app"></a>Localizar o ObjectID da aplicação
 
@@ -92,14 +92,14 @@ Obtenha o ObjectID da aplicação e, em seguida, procure a aplicação pela sua 
 3. Localize a aplicação com base no seu URL da home page. Pode encontrar o URL no portal, acedendo a **do Azure Active Directory** > **aplicações empresariais** > **todas as aplicações**. Este exemplo utiliza *sharepoint iddemo*.
 
     ```
-    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
     ```
 4. Deve obter um resultado semelhante à mostrada aqui. Copie o GUID de ObjectID para utilizar na secção seguinte.
 
     ```
     DisplayName : SharePoint
-    Homepage    : https://sharepoint-iddemo.msappproxy.net/
-    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Homepage    : https://sharepoint-iddemo.msappproxy.net/
+    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 ### <a name="update-the-home-page-url"></a>Atualizar o URL da home page
@@ -117,13 +117,13 @@ Crie o URL da home page e atualizar a sua aplicação com esse valor. Continue a
 2. Crie um objeto de aplicativo em branco para manter as alterações que deseja fazer. Esta variável contém os valores que pretende atualizar. Nada é criado neste passo.
 
     ```
-    $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
+    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. Defina o URL da home page para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da home page da *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os utilizadores da aplicação vão diretamente para a home page personalizada.
+3. Defina o URL da home page para o valor que pretende. O valor tem de ser um caminho de subdomínio da aplicação publicada. Por exemplo, se alterar o URL da home page da *https://sharepoint-iddemo.msappproxy.net/* para *https://sharepoint-iddemo.msappproxy.net/hybrid/*, os utilizadores da aplicação vão diretamente para a home page personalizada.
 
     ```
-    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
 4. Faça a atualização com o GUID (ObjectID) que copiou no "passo 1: localizar o ObjectID da aplicação."
 

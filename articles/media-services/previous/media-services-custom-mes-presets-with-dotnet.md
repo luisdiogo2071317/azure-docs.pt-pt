@@ -1,10 +1,10 @@
 ---
-title: Personalizar predefinições codificador de multimédia Standard | Microsoft Docs
-description: Este tópico mostra como efetuar a codificação avançadas personalizando o codificador de multimédia Standard predefinições de tarefas. O tópico mostra como utilizar o SDK .NET dos Media Services para criar uma tarefa de codificação e a tarefa. Também mostra como fornecer predefinições personalizadas para a tarefa de codificação.
+title: Personalizando as configurações predefinidas de codificador de multimédia Standard | Documentos da Microsoft
+description: Este tópico mostra como realizar a codificação avançada ao personalizar o Media Encoder Standard predefinições de tarefas. O tópico mostra como utilizar o SDK .NET dos Media Services para criar uma tarefa de codificação e a tarefa. Ele também mostra como fornecer configurações predefinidas personalizadas para o trabalho de codificação.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
@@ -12,32 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4bdfdb5bd5362d5a8039ca31d498d122843df2a7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 21f182051e3e92cd126b832876d57854ac126367
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788418"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247458"
 ---
-# <a name="customizing-media-encoder-standard-presets"></a>Predefinições personalizar codificador de multimédia Standard
+# <a name="customizing-media-encoder-standard-presets"></a>Predefine personalizar Media Encoder Standard
 
 ## <a name="overview"></a>Descrição geral
 
-Este artigo mostra como realizar avançadas encoding com Media codificador padrão (MES) com uma predefinição personalizada. O artigo utiliza o .NET para criar uma tarefa de codificação e uma tarefa que executa esta tarefa.  
+Este artigo mostra como realizar avançadas encoding com Media Encoder Standard (MES) com uma configuração predefinida. O artigo utiliza o .NET para criar uma tarefa de codificação e uma tarefa que executa essa tarefa.  
 
-Este artigo mostra como personalizar uma predefinição, efetuando a [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinido e reduzir o número de camadas. O [predefinições personalizar codificador de multimédia Standard](media-services-advanced-encoding-with-mes.md) artigo demonstra predefinições personalizadas que podem ser utilizadas para efetuar tarefas de codificação avançadas.
+Este artigo mostra-lhe como personalizar uma configuração predefinida, efetuando a [h264 taxa de bits múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) predefinidos e reduzindo o número de camadas. O [predefine personalizando o Media Encoder Standard](media-services-advanced-encoding-with-mes.md) artigo demonstra as configurações predefinidas personalizadas que podem ser utilizadas para executar tarefas de codificação avançadas.
 
 ## <a id="customizing_presets"></a> Personalizar uma predefinição MES
 
-### <a name="original-preset"></a>Predefinição original
+### <a name="original-preset"></a>Configuração predefinida original
 
-Guardar o JSON definido no [H264 múltipla 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artigo no algum ficheiro com extensão. JSON. Por exemplo, **CustomPreset_JSON.json**.
+Guardar o JSON definido no [h264 taxa de bits múltiplas 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) artigo em algum arquivo com extensão. JSON. Por exemplo, **CustomPreset_JSON.json**.
 
-### <a name="customized-preset"></a>Predefinição personalizada
+### <a name="customized-preset"></a>Configuração predefinida personalizada
 
-Abra o **CustomPreset_JSON.json** do ficheiro e remover os primeiros três camadas da **H264Layers** para o ficheiro tem o seguinte aspeto.
+Abra o **CustomPreset_JSON.json** do ficheiro e remover o primeiro de três camadas de **H264Layers** para que o ficheiro tem o seguinte aspeto.
 
 ```json 
     {  
@@ -112,19 +112,19 @@ Abra o **CustomPreset_JSON.json** do ficheiro e remover os primeiros três camad
 
 ## <a id="encoding_with_dotnet"></a>Encoding com Media Services .NET SDK
 
-Exemplo de código seguinte utiliza o SDK .NET dos Media Services para realizar as seguintes tarefas:
+O exemplo de código seguinte utiliza o SDK .NET dos Media Services para efetuar as seguintes tarefas:
 
 - Crie uma tarefa de codificação.
-- Obter uma referência ao codificador codificador de multimédia Standard.
+- Obter uma referência ao codificador Media Encoder Standard.
 - Carregar a predefinição JSON personalizada que criou na secção anterior. 
   
         // Load the JSON from the local file.
         string configuration = File.ReadAllText(fileName);  
 
-- Adicione uma tarefa de codificação à tarefa. 
-- Especifique o elemento de entrada para ser codificado.
+- Adicione uma tarefa de codificação para a tarefa. 
+- Especifique o elemento de entrada estar codificado.
 - Crie um elemento de saída que contém o elemento codificado.
-- Adicione um processador de eventos para verificar o progresso da tarefa.
+- Adicione um manipulador de eventos para verificar o progresso da tarefa.
 - Submeta a tarefa.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto de Visual Studio
@@ -268,5 +268,5 @@ namespace CustomizeMESPresests
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consultar Também
-[Descrição geral de codificação de serviços de multimédia](media-services-encode-asset.md)
+[Descrição geral da codificação de serviços de multimédia](media-services-encode-asset.md)
 

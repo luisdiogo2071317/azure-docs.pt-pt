@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 9fd23ce8236688f1456bcddb2b16b539d5e18482
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855634"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238153"
 ---
 # <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
@@ -46,7 +46,7 @@ az container create \
     --name mycontainer2 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
+    --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
 Assim que é apresentado como estado de ambos os contêineres *Terminated* (utilizar [show de contentor az] [ az-container-show] para verificar o estado), exibir seus logs com [registos de contentor az] [ az-container-logs] para ver a saída.
@@ -95,7 +95,7 @@ New-AzureRmContainerGroup `
 Agora, execute o seguinte procedimento [New-AzureRmContainerGroup] [ new-azurermcontainergroup] comando. Isso Especifica o *NumWords* e *MinLength* variáveis de ambiente depois de preencher uma variável de matriz, `envVars`:
 
 ```azurepowershell-interactive
-$envVars = @{NumWords=5;MinLength=8}
+$envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
@@ -167,7 +167,7 @@ Definir uma variável de ambiente seguro, especificando o `secureValue` propried
 Criar um `secure-env.yaml` ficheiro pelo seguinte fragmento.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: securetest
 properties:
@@ -175,10 +175,10 @@ properties:
   - name: mycontainer
     properties:
       environmentVariables:
-        - "name": "NOTSECRET"
-          "value": "my-exposed-value"
-        - "name": "SECRET"
-          "secureValue": "my-secret-value"
+        - name: 'NOTSECRET'
+          value: 'my-exposed-value'
+        - name: 'SECRET'
+          secureValue: 'my-secret-value'
       image: nginx
       ports: []
       resources:

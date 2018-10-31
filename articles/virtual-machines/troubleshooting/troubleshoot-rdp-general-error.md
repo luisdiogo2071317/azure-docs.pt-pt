@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 701373efa3c3c22eb5969705927e1c0cc6e3f36b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215805"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239395"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Resolver problemas relacionados com um erro geral do RDP na VM do Azure
 
 Este artigo descreve um erro geral que pode ocorrer quando efetuar uma ligação de protocolo de ambiente de trabalho remoto (RDP) para uma Máquina Virtual de Windows (VM) no Azure.
 
-## <a name="symptoms"></a>Sintomas
+## <a name="symptom"></a>Sintoma
 
 Quando efetuar uma ligação RDP a uma VM de janela no Azure, poderá receber a seguinte mensagem de erro geral:
 
@@ -61,11 +61,11 @@ O serviço de escuta RDP está configurado incorretamente.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este problema, [cópia de segurança de disco do sistema operativo](../windows/snapshot-copy-managed-disk.md), e [anexar o disco do sistema operativo para uma VM de resgate](troubleshoot-recovery-disks-portal-windows.md)e, em seguida, siga as opções de solução em conformidade ou experimente as soluções individualmente.
+Para resolver este problema, [cópia de segurança de disco do sistema operativo](../windows/snapshot-copy-managed-disk.md), e [anexar o disco do sistema operativo para uma VM de resgate](troubleshoot-recovery-disks-portal-windows.md)e, em seguida, siga os passos.
 
 ### <a name="serial-console"></a>Consola de série
 
-#### <a name="step-1-turn-on-remote-desk"></a>Passo 1: Ativar o suporte técnico remoto
+#### <a name="step-1-turn-on-remote-deskop"></a>Passo 1: Ativar o ambiente remoto
 
 1. Acesso a [consola de série](serial-console-windows.md) ao selecionar **suporte e resolução de problemas** > **consola de série (pré-visualização)**. Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
 
@@ -76,14 +76,7 @@ Para resolver este problema, [cópia de segurança de disco do sistema operativo
    ```
    ch -si 1
    ```
-
-4. Ative o ambiente de trabalho remoto através da política de GPO, alterando a seguinte política:
-
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
-
-5. Algumas chaves de registo que podem causar esse problema, verifique os valores das chaves de registo da seguinte forma:
+4. Verifique os valores das chaves de registo da seguinte forma:
 
    1. Certifique-se de que o componente RDP está ativado.
 
@@ -97,7 +90,7 @@ Para resolver este problema, [cópia de segurança de disco do sistema operativo
 
       Se existir a diretiva de domínio, a configuração na política local será substituída.
 
-         - Se a política de domínio indica que o RDP é desativado (1), em seguida, atualizar a política do AD.
+         - Se a política de domínio indica que o RDP é desativado (1), em seguida, política de atualização do AD do controlador de domínio.
          - Se a política de domínio afirma que o RDP é ativado (0), não é necessária nenhuma atualização.
 
       Se não existe a diretiva de domínio e a política local indica que o RDP está desabilitado (1), ative o protocolo RDP, utilizando o seguinte comando:
@@ -184,75 +177,63 @@ Para obter mais informações, consulte [área de trabalho remota se desliga com
 
 ### <a name="offline-repair"></a>Reparação offline
 
-#### <a name="step-1-turn-on-remote-desk"></a>Passo 1: Ativar o suporte técnico remoto
+#### <a name="step-1-turn-on-remote-deskop"></a>Passo 1: Ativar o ambiente remoto
 
-> [!NOTE]  
-> Partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua-o com o valor apropriado na sua VM. Os hives do sistema e o SOFTWARE tem de ser desmontados e, em seguida, montado.
+1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
+3. Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
+3. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
+4. Abra uma sessão de linha de comandos elevada (**executar como administrador**). Execute os seguintes scripts. Nesse script, partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua esta letra de unidade com o valor apropriado para a sua VM.
 
-1. Abra uma instância CMD elevada e execute os seguintes scripts na VM em ação:
+      ```
+      reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
+      reg load HKLM\BROKENSOFTWARE F:\windows\system32\config\SOFTWARE.hiv 
+ 
+      REM Ensure that Terminal Server is enabled 
 
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE.hiv
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
 
-   REM Ensure that Terminal Server is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
+      REM Ensure Terminal Service is not set to Drain mode 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service is not set to Drain mode
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
+      REM Ensure Terminal Service has logon enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service has logon enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
+      REM Ensure the RDP Listener is not disabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
 
-   REM Ensure the RDP Listener is not disabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
+      REM Ensure the RDP Listener accepts logons 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure the RDP Listener accepts logons
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
+      REM RDP component is enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
 
-   REM RDP component is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+      reg unload HKLM\BROKENSYSTEM 
+      reg unload HKLM\BROKENSOFTWARE 
+      ```
 
-   reg unload HKLM\BROKENSYSTEM
-   reg unload HKLM\BROKENSOFTWARE
-   ```
-
-2. Os hives do sistema e o SOFTWARE de montagem.
-
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE
-   ```
-
-3. Se a máquina virtual está associado a um domínio, foi possível desativar o RDP num nível de política. Para confirmar se ele for o caso, verifique a chave de registo seguinte:
+3. Se a VM estiver associado a um domínio, consulte a seguinte chave de registo para ver se existe uma política de grupo que desativa o RDP. 
 
    ```
-   HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
    ```
 
-4. Se este valor de chave é definido como 1, RDP está desativado pela política.
 
-5. Ative o ambiente de trabalho remoto através da política de GPO, alterando a seguinte política:
+      Se este valor de chave é definido como 1, isso significa que o RDP está desativada pela política. Para ativar o ambiente de trabalho remoto através da política de GPO, altere a seguinte política do controlador de domínio:
 
    ```
    Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
    ```
 
-6. Se esta chave de registo não existir, verifique a chave de registo seguinte:
-
-   ```
-   HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
-   ```
-
-7. Se esta chave é definida como 1, RDP é a vez desativado. Altere o valor da chave para 0.
-8. Desanexe o disco da VM entra em ação.
-9. [Criar uma nova VM a partir do disco](../windows/create-vm-specialized.md).
+4. Desanexe o disco da VM entra em ação.
+5. [Criar uma nova VM a partir do disco](../windows/create-vm-specialized.md).
 
 Se o problema ainda acontece, mova para o passo 2.
 

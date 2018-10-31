@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405519"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249013"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -146,7 +146,7 @@ Neste artigo, faremos referência a todos os agentes, se o Linux ou Windows liga
 
 O agente do mapa de serviço não transmitir todos os dados em si, e não requer alterações às firewalls ou portas. Os dados no mapa de serviço sempre são transmitidos pelo agente do Log Analytics para o serviço do Log Analytics, diretamente ou através do gateway do Log Analytics.
 
-![Agentes de mapa de serviço](media/monitoring-service-map/agents.png)
+![Agentes de mapa de serviço](media/monitoring-service-map-configure/agents.png)
 
 Se for um cliente do System Center Operations Manager com um grupo de gestão ligado ao Log Analytics:
 
