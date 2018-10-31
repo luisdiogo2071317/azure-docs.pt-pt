@@ -47,7 +47,7 @@ Crie uma nova VM do Linux:
 
     ![Descrição geral do agente de telégrafo de tamanho do máquina virtual](./media/metrics-store-custom-linux-telegraf/vm-size.png)
 
-1. Sobre o **definições** página no **rede** > **grupo de segurança de rede**   >  ** Selecione as portas de entrada públicas**, selecione **HTTP** e **SSH (22)**. Deixe o resto dos padrões e selecione **OK**. 
+1. Sobre o **definições** página no **rede** > **grupo de segurança de rede** > **Selecione as portas de entrada públicas**, selecione **HTTP** e **SSH (22)**. Deixe o resto dos padrões e selecione **OK**. 
 
 1. Na página Resumo, selecione **Create** para iniciar a implementação de VM. 
 
