@@ -54,7 +54,7 @@ Nesta secção, vai criar um balanceador de carga público que ajuda a fazer o b
     | Nome                   | *myLoadBalancer*                                   |
     | Tipo          | Público                                        |
     | SKU           | Standard                          |
-    | Endereço IP público | Selecione **Criar novo** e escreva *myPublicIP* na caixa de texto. O SKU Standard para o endereço IP Público é selecionado por predefinição. Em **Zona de disponibilidade**, selecione **Com Redundância de Zona**. |
+    | Endereço IP público | Selecione **Criar novo** e escreva *myPublicIP* na caixa de texto. O SKU Standard para o endereço IP Público é selecionado por predefinição. Em **Zona de disponibilidade**, selecione **Com Redundância entre Zonas**. |
     | Subscrição               | Selecione a sua subscrição.    |
     |Grupo de recursos | Selecione **Criar novo** e, em seguida, escreva *myResourceGroupSLB*.    |
     | Localização           | Selecione **Europa Ocidental**.                          |

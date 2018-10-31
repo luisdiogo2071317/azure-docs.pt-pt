@@ -63,7 +63,7 @@ O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Qua
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Nesta secção, vai criar uma rede virtual. Também vai criar duas máquinas virtuais na mesma zona (nomeadamente, na zona 1) da região para adicionar ao conjunto de back-ends do seu balanceador de carga. Em seguida, vai instalar o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância de zona. Se uma VM falhar, a sonda de estado de funcionamento da VM na mesma zona falha. O tráfego continua a ser servido pelas outras VMs na mesma zona.
+Nesta secção, vai criar uma rede virtual. Também vai criar duas máquinas virtuais na mesma zona (nomeadamente, na zona 1) da região para adicionar ao conjunto de back-ends do seu balanceador de carga. Em seguida, vai instalar o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância entre zonas. Se uma VM falhar, a sonda de estado de funcionamento da VM na mesma zona falha. O tráfego continua a ser servido pelas outras VMs na mesma zona.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Rede virtual**.  Introduza estes valores para a rede virtual:

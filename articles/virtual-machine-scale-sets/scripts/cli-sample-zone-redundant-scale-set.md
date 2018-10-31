@@ -1,5 +1,5 @@
 ---
-title: Exemplos da CLI do Azure – Conjunto de dimensionamento com redundância de zona | Microsoft Docs
+title: Exemplos da CLI do Azure – Conjunto de dimensionamento com redundância entre zonas | Microsoft Docs
 description: Exemplos da CLI do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49465122"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona com o PowerShell
+# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Criar um conjunto de dimensionamento de máquinas virtuais com redundância entre zonas com o PowerShell
 Este script cria um conjunto de dimensionamento de máquinas virtuais com o Ubuntu em várias Zonas de Disponibilidade. Depois de executar o script, pode aceder à máquina virtual através de RDP.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

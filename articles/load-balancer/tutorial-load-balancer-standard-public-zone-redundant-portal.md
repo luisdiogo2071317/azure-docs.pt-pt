@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: VMs de Balanceador de Carga em múltiplas zonas de disponibilidade – Portal do Azure | Microsoft Docs'
-description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end de redundância de zona para balancear a carga de VMs em múltiplas zonas de disponibilidade, através do portal do Azure
+description: Este tutorial demonstra como criar um Balanceador de Carga Standard com front-end com redundância entre zonas para balancear a carga de VMs em múltiplas zonas de disponibilidade, através do portal do Azure
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -31,7 +31,7 @@ O balanceamento de carga oferece um nível mais elevado de disponibilidade ao pr
 > [!div class="checklist"]
 > * Criar um Balanceador de Carga Standard
 > * Criar grupos de segurança de rede para definir regras de tráfego de entrada
-> * Criar VMs com redundância de zona em múltiplas zonas e ligar a um balanceador de carga
+> * Criar VMs com redundância entre várias zonas e ligar a um balanceador de carga
 > * Criar uma sonda de estado de funcionamento do balanceador de carga
 > * Criar regras de tráfego do balanceador de carga
 > * Criar um site do IIS básico
@@ -49,13 +49,13 @@ Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azu
 
 ## <a name="create-a-standard-load-balancer"></a>Criar um Balanceador de Carga Standard
 
-O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao criar um novo IP público durante a criação do balanceador de carga, é automaticamente configurado como uma versão de SKU Standard e tem também redundância de zona automaticamente.
+O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao criar um novo IP público durante a criação do balanceador de carga, é automaticamente configurado como uma versão de SKU Standard e tem também com redundância entre zonas automaticamente.
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
 2. Na página **Criar um balanceador de carga**, introduza estes valores para o balanceador de carga:
     - *myLoadBalancer* - no nome do balanceador de carga.
     - **Público** - no tipo de balanceador de carga.
-     - *myPublicIP* – no endereço IP Público novo que criar. Para tal, clique em **Selecionar um endereço IP público** e, em seguida, clique em **Criar novo**. Para o tipo de nome *myPublicIP*, o SKU é Standard por predefinição e seleciona **Redundância de zona** para a **Zona de disponibilidade**.
+     - *myPublicIP* – no endereço IP Público novo que criar. Para tal, clique em **Selecionar um endereço IP público** e, em seguida, clique em **Criar novo**. Para o tipo de nome *myPublicIP*, o SKU é Standard por predefinição e selecione **Com redundância entre zonas** para a **Zona de disponibilidade**.
     - *myResourceGroupLBAZ* - no nome do novo grupo de recursos que criar.
     - **westeurope** - na localização.
 3. Clique em **Criar** para criar o balanceador de carga.
@@ -65,7 +65,7 @@ O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
-Nesta secção, irá criar uma rede virtual, máquinas virtuais em diferentes zonas na região e, em seguida, instalar o IIS nas máquinas virtuais para o ajudar a testar o balanceador de carga com redundância de zona. Por conseguinte, se uma zona falhar, a sonda de estado de funcionamento da VM na mesma zona falhará e o tráfego continuará a ser servido por VMs nas outras zonas.
+Nesta secção, vai criar uma rede virtual, máquinas virtuais em diferentes zonas na região e, em seguida, instalar o IIS nas máquinas virtuais para o ajudar a testar o balanceador de carga com redundância entre zonas. Por conseguinte, se uma zona falhar, a sonda de estado de funcionamento da VM na mesma zona falhará e o tráfego continuará a ser servido por VMs nas outras zonas.
 
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 Crie uma rede virtual para implementar os seus servidores de back-end.

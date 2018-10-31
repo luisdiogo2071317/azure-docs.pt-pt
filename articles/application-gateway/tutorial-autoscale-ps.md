@@ -19,10 +19,10 @@ ms.locfileid: "48016939"
 
 Este tutorial descreve como criar um Gateway de Aplicação Azure com cmdlets do Azure PowerShell e o modelo de implementação Azure Resource Manager. Este tutorial aborda as diferenças do novo SKU de dimensionamento automático em comparação com o SKU padrão existente. Especificamente, as funcionalidades para suportar o dimensionamento automático, a redundância de zona e as VIPs reservadas (IP estático).
 
-Para obter mais informações sobre o dimensionamento automático e a redundância de zona do gateway de aplicação, veja [Gateway de Aplicação de Dimensionamento Automático e Redundância de Zona (Pré-visualização Pública)](application-gateway-autoscaling-zone-redundant.md).
+Para obter mais informações sobre o dimensionamento automático e a redundância de zona do gateway de aplicação, veja [Gateway de Aplicação de Dimensionamento Automático e Redundância entre Zonas (Pré-visualização Pública)](application-gateway-autoscaling-zone-redundant.md).
 
 > [!IMPORTANT]
-> O SKU do gateway de aplicação de dimensionamento automático e redundância de zona está atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+> O SKU do gateway de aplicação de dimensionamento automático e com redundância entre zonas está atualmente em pré-visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 Neste tutorial, ficará a saber como:
 

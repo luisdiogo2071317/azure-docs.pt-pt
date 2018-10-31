@@ -33,7 +33,7 @@ items:
     href: point-to-site-about.md
   - name: Acerca do encaminhamento VPN de Ponto a Site
     href: vpn-gateway-about-point-to-site-routing.md
-  - name: Sobre os gateways com redundância de zona para as Zonas de Disponibilidade
+  - name: Sobre os gateways com redundância entre zonas para as Zonas de Disponibilidade
     href: about-zone-redundant-vnet-gateways.md
   - name: Interoperabilidade de Conectividade de Back-end
     items:
@@ -129,7 +129,7 @@ items:
     items:
     - name: Azure PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
-  - name: Criar um gateway de VNet com redundância de zona nas Zonas de Disponibilidade do Azure
+  - name: Criar um gateway de VNet com redundância entre zonas nas Zonas de Disponibilidade do Azure
     href: create-zone-redundant-vnet-gateway.md
   - name: Encaminhamento, BGP e VNet Peering
     items:

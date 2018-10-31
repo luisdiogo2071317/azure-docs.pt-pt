@@ -28,7 +28,7 @@ items:
       href: expressroute-locations-providers.md
     - name: Localizações por Fornecedor
       href: expressroute-locations.md
-  - name: Gateways de rede virtual para o ExpressRoute
+  - name: Sobre os gateways de rede virtual
     href: expressroute-about-virtual-network-gateways.md
   - name: Pré-requisitos
     href: expressroute-prerequisites.md
@@ -120,7 +120,7 @@ items:
     href: expressroute-howto-move-arm.md
   - name: Migrar redes virtuais associadas do clássico para o Resource Manager
     href: expressroute-migration-classic-resource-manager.md
-  - name: Criar um gateway de VNet com redundância de zona nas Zonas de Disponibilidade do Azure
+  - name: Criar um gateway de VNet com redundância entre zonas nas Zonas de Disponibilidade do Azure
     href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: Configurar um router para o ExpressRoute
     items:
@@ -221,9 +221,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Configurar o Peering Público para o seu circuito
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 775830771fb179168af41f2fc8537807dd6c44b1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 13f0548ebc60dd1ffe7800f9eb9c45fea66a2bcc
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214975"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242607"

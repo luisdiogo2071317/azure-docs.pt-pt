@@ -43,7 +43,7 @@ Além das funcionalidades descritas neste artigo, o Gateway de Aplicação tamb�
 
 - **Desempenho de descarga SSL 5x melhor** em comparação com o SKU normalmente disponível.
 
-Para obter mais informações sobre as funcionalidades em pré-visualização pública do Gateway de Aplicação, consulte [Gateway de Aplicação de Dimensionamento Automático com Redundância de Zona (Pré-visualização Pública)](application-gateway-autoscaling-zone-redundant.md).
+Para obter mais informações sobre as funcionalidades em pré-visualização pública do Gateway de Aplicação, consulte [Gateway de Aplicação de Dimensionamento Automático com Redundância entre Zonas (Pré-visualização Pública)](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Pré-visualização do controlador do Entradas do Azure Kubernetes Service (AKS) 
 
