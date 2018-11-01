@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599632"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416159"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar utilizadores ponto a ponto no Serviço de Aplicações do Azure
 
@@ -82,6 +82,10 @@ Para parar o ASP.NET Core em qualquer altura, prima `Ctrl+C` no terminal.
 ## <a name="deploy-apps-to-azure"></a>Implementar aplicações no Azure
 
 Neste passo, vai implementar o projeto em duas aplicações do Serviço de Aplicações. Uma é a aplicação de front-end e a outra é a de back-end.
+
+### <a name="configure-a-deployment-user"></a>Configurar um utilizador de implementação
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-azure-resources"></a>Criar recursos do Azure
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696453"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242295"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -52,10 +52,10 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
     * O Azure Cosmos DB garante baixa latência ponto a ponto no percentil 99 aos seus clientes. 
     * Para um item de 1 KB típico, o Cosmos DB garante a latência ponto a ponto das leituras abaixo dos 10 ms e das escritas indexadas abaixo dos 15 ms no percentil 99, dentro da mesma região do Azure. As latências medianas são significativamente inferiores (abaixo dos 5 ms).
 
-* **Garantia de disponibilidade "always on"**
+* **Garantia de disponibilidade “always on”**
     * SLA de 99,99% de disponibilidade para todas as contas de bases de dados de região única e 99,999% de disponibilidade de leitura em todas as contas de bases de dados de várias regiões.
     * Para maior disponibilidade e melhor desempenho, implemente em qualquer número de [regiões do Azure](https://azure.microsoft.com/regions).
-    * Defina dinamicamente prioridades para regiões e [simule uma falha](regional-failover.md) de uma ou mais regiões com garantia de zero perda de dados para testar a disponibilidade ponto a ponto de toda a aplicação (e não apenas da base de dados). 
+    * Defina dinamicamente prioridades para regiões e [simule uma falha](high-availability.md) de uma ou mais regiões com garantia de zero perda de dados para testar a disponibilidade ponto a ponto de toda a aplicação (e não apenas da base de dados). 
 
 * **Escrever aplicações de distribuição global, da forma correta**
     * Cinco [modelos de consistência](consistency-levels.md) bem definidos, práticos e intuitivos oferecem um espetro que vai desde consistência forte semelhante ao SQL até consistência descontraída eventual semelhante ao NoSQL e todas as outras consistências entre estas duas. 
@@ -64,7 +64,7 @@ Como um serviço de base de dados com vários modelos de distribuição global, 
     * [Contratos de nível de serviço](https://aka.ms/acdbsla) (SLAs) líderes na indústria, abrangentes e com suporte financeiro para disponibilidade, latência, débito e consistência dos seus dados críticos. 
 
 * **Sem gestão de esquema/índices de bases de dados**
-    * Itere rapidamente o esquema da sua aplicação sem ter de se preocupar com a gestão do índice e/ou do esquema da base de dados.
+    * Itere rapidamente o esquema da sua aplicação sem ter de se preocupar com o gestão do índice e/ou do esquema da base de dados.
     * O motor de base de dados do Azure Cosmos DB é totalmente sem esquema. Indexa automaticamente todos os dados que ingere sem necessidade de qualquer esquema ou índice e serve consultas muito rápidas. 
 
 * **Baixo custo de propriedade**
@@ -80,7 +80,7 @@ O Azure Cosmos DB fornece as melhores capacidades das bases de dados relacionais
 | Distribuição global | Não | Não | Sim, distribuição chave na mão em mais de 30 regiões, com APIs multi-homing|
 | Dimensionamento horizontal | Não | Sim | Sim, pode dimensionar o armazenamento e o débito de forma independente | 
 | Garantias de latência | Não | Sim | Sim, 99% de leituras em < 10 ms e de escritas em < 15 ms | 
-| Elevada disponibilidade | Não | Sim | Sim, o Azure Cosmos DB está sempre ativado ("always on"), tem compromissos PACELC bem definidos e oferece opções de ativação pós-falha automáticas e manuais|
+| Elevada disponibilidade | Não | Sim | Sim, o Azure Cosmos DB está sempre ativado (“always on”), tem compromissos PACELC bem definidos e oferece opções de ativação pós-falha automáticas e manuais|
 | Modelo de dados + API | Relacional + SQL | Vários modelos e API OSS | Vários modelos + SQL + API OSS (mais em breve) |
 | SLAs | Sim | Não | Sim, SLAs abrangentes para latência, débito, consistência e disponibilidade |
 

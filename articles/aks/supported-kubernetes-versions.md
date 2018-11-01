@@ -31,7 +31,7 @@ Por exemplo, se apresenta o AKS *1.11.x* hoje em dia, também é fornecido supor
 
 Quando uma nova versão secundária é introduzida, as mais antigas pequenas versão e patch em versões suportadas são descontinuadas. 15 dias antes do lançamento da nova versão secundária e extinção de versão futura, um anúncio é feito por meio dos canais de atualização do Azure. No exemplo acima onde *1.11.x* é lançado, as versões retiradas são *1.7.g* + *1.7.h*.
 
-Quando implementa um cluster do AKS no portal ou com a CLI do Azure, o cluster está sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se suportar do AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1.9* , *1.8.e* + *1.8F*, é a versão predefinida para novos clusters *1.10.b*.
+Quando implementa um cluster do AKS no portal ou com a CLI do Azure, o cluster está sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se suportar do AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1.9*, *1.8.e* + *1.8F*, é a versão predefinida para novos clusters *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Lista de versões suportadas atualmente
 

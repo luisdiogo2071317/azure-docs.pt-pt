@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e6511b9511d2598b58fd3afee34803ceb09ac5ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582857"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239018"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET
 
@@ -45,7 +45,7 @@ Este tutorial é para os programadores que estão familiarizados com o SDK de ar
 
 Se utilizar atualmente o armazenamento de Tabelas do Azure, beneficia das vantagens seguintes com a API de Tabelas do Azure Cosmos DB:
 
-- [Distribuição global](distribute-data-globally.md) chave na mão com multi-homing e [ativações pós-falha automáticas e manuais](regional-failover.md)
+- [Distribuição global](distribute-data-globally.md) chave na mão com multi-homing e [ativações pós-falha automáticas e manuais](high-availability.md)
 - Suporte para indexação automática e independente de esquema relativamente a todas as propriedades (“índices secundários”) e consultas rápidas 
 - Suporte para [dimensionamento independente de armazenamento e débito](partition-data.md), em qualquer número de regiões
 - Suporte para [débito dedicado por tabela](request-units.md) que pode ser dimensionado de centenas para milhões de pedidos por segundo

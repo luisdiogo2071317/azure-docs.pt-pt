@@ -1,4 +1,16 @@
-
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 505eac0996129a17b6b68e8ab4ea2d4fc80fd473
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133020"
+---
 1. Visite o [Portal do Azure]. Clique em **Procurar Tudo** > **Mobile Apps** > o back-end que acabou de criar. Nas definições da aplicação móvel, clique em **Início Rápido** > **Android**. Em **Configurar a aplicação cliente**, clique em **Transferir**. Esta ação transfere um projeto Android concluído para uma aplicação pré-configurada para ligar ao back-end. 
 2. Abra o projeto com o **Android Studio**, utilizando **Importar projeto (Eclipse ADT, Gradle, etc.)**. Verifique se seleciona esta importação para evitar eventuais erros do JDK.
 3. Prima o botão **Executar “aplicação”** para criar o projeto e iniciar a aplicação no simulador do Android.

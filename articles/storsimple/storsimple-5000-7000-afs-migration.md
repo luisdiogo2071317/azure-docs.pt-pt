@@ -87,7 +87,7 @@ Execute os seguintes passos para migrar a partilha de ficheiros do Windows confi
     Ignore este passo e vá para o passo seguinte, se estiver a utilizar outro anfitrião Windows Server. Se estiver a utilizar o mesmo servidor de ficheiros do Windows para AFS, agora terá alguns minutos de tempo de inatividade. 
     - **Período de indisponibilidade começa** -eliminar o ponto final de servidor que criou no *passo 1F*. 
     - Crie um novo ponto de final de servidor com o caminho onde pretende que os dados residam daqui para frente.
-    - Assim que o ponto final do servidor é apresentado como bom estado de funcionamento (pode demorar alguns minutos), verá os dados nesta localização nova. Agora pode configurar o anfitrião do Windows Server para servir ficheiros a partir desta localização nova. -  **Período de indisponibilidade termina**.
+    - Assim que o ponto final do servidor é apresentado como bom estado de funcionamento (pode demorar alguns minutos), verá os dados nesta localização nova. Agora pode configurar o anfitrião do Windows Server para servir ficheiros a partir desta localização nova.\ -  **Período de indisponibilidade termina**.
 5.  Se estiver a utilizar outro servidor de ficheiros do Windows para o Azure File Sync, em seguida, não ocorrerá qualquer período de inatividade. 
     - Adicione outro ponto final do servidor com o caminho do armazenamento local que está preparado para usar como um cache em vez do dispositivo StorSimple. 
     - Será capaz de ver os arquivos no novo servidor dentro de alguns minutos. É livre para a transição do seu dispositivo StorSimple para esta nova localização no anfitrião em qualquer altura.
