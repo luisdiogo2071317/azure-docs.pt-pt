@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952006"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419849"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e o Azure Stack
 
@@ -112,7 +112,7 @@ Os passos seguintes descrevem o que é necessário para configurar a autenticaç
 3. Valide a subscrição do Azure Stack através do controlo de acesso baseado em funções para permitir que o serviço Principal Name (SPN) para fazer parte da função de contribuinte.
 4. Crie uma nova definição de serviço nos serviços de DevOps do Azure com os pontos finais do Azure Stack e as informações de SPN.
 
-### <a name="create-a-service-principal"></a>Criar um Principal de serviço
+### <a name="create-a-service-principal"></a>Criar um Principal de Serviço
 
 Consulte a [criação do Principal de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar um principal de serviço. Escolher **aplicação/API Web** para o tipo de aplicação ou [usar o script do PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) conforme explicado no artigo [crie uma ligação de serviço do Azure Resource Manager com um serviço existente principal ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
@@ -180,7 +180,7 @@ Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao rec
 
 3. No Visual Studio Enterprise, selecione **controlo de acesso (IAM)**.
 
-    ![Controlo de acesso (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![Controlo de Acesso (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
 
 4. Selecione **Adicionar**.
 
@@ -273,21 +273,57 @@ Através da criação de pontos de extremidade, uma compilação do Visual Studi
 10. Selecione **guardar alterações**.
 
 Agora que as informações de ponto final existem, serviços de DevOps do Azure para a ligação do Azure Stack está pronto a utilizar. O agente de compilação no Azure Stack obtém as instruções dos serviços de DevOps do Azure e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
+
 ## <a name="create-an-azure-stack-endpoint"></a>Criar um ponto de final do Azure Stack
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Criar um ponto final para implementações do Azure AD
 
 Pode seguir as instruções em [criar uma ligação de serviço do Azure Resource Manager com um serviço existente principal ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artigo para criar uma ligação de serviço principal com um serviço existente e utilizar o seguinte mapeamento:
 
-- Ambiente: AzureStack
-- URL de ambiente: Algo como `https://management.local.azurestack.external`
-- ID de subscrição: ID de subscrição de utilizador do Azure Stack
-- Nome da subscrição: nome de subscrição de utilizador do Azure Stack
-- ID de cliente do Principal de serviço: O ID de principal da [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) secção deste artigo.
-- Chave de Principal de serviço: A chave do mesmo artigo (ou a palavra-passe se utilizou o script).
-- ID do inquilino: O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+Pode criar uma ligação de serviço com o seguinte mapeamento:
 
-Agora que o ponto final for criado, o VSTS para ligação do Azure Stack está pronta a utilizar. O agente de compilação no Azure Stack obtém as instruções do VSTS e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
+| Nome | Exemplo | Descrição |
+| --- | --- | --- |
+| Nome da ligação | O Azure Stack do Azure AD | O nome da ligação. |
+| Ambiente | AzureStack | O nome do seu ambiente. |
+| URL do ambiente | `https://management.local.azurestack.external` | Ponto final de gestão. |
+| Nível de âmbito | Subscrição | O âmbito da ligação. |
+| ID da subscrição | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de subscrição do utilizador do Azure Stack |
+| Nome da subscrição | name@contoso.com | Nome de subscrição de utilizador do Azure Stack. |
+| ID de cliente do Principal de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | O ID de principal da [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) secção deste artigo. |
+| Chave de Principal de serviço | THESCRETGOESHERE = | A chave do mesmo artigo (ou a palavra-passe se utilizou o script). |
+| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino, recupera a seguinte instrução em obter o inquilino ID. O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Ligação: | Não verificado | Valide as definições de ligação para o principal de serviço. |
 
-![Agente de compilação](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Agora que o ponto final for criado, o DevOps para ligação do Azure Stack está pronta a utilizar. O agente de compilação no Azure Stack obtém as instruções do DevOps e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
+
+![Criar o agente do Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>Criar um ponto final para o AD FS
+
+Permite que a atualização mais recente do Azure DevOps para criar uma ligação de serviço com um principal de serviço com um certificado para autenticação. Isto é necessário quando o Azure Stack é implementado com o AD FS como fornecedor de identidade. 
+
+![Criar o agente do AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+Pode criar uma ligação de serviço com o seguinte mapeamento:
+
+| Nome | Exemplo | Descrição |
+| --- | --- | --- |
+| Nome da ligação | O Azure Stack ADFS | O nome da ligação. |
+| Ambiente | AzureStack | O nome do seu ambiente. |
+| URL do ambiente | `https://management.local.azurestack.external` | Ponto final de gestão. |
+| Nível de âmbito | Subscrição | O âmbito da ligação. |
+| ID da subscrição | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID de subscrição do utilizador do Azure Stack |
+| Nome da subscrição | name@contoso.com | Nome de subscrição de utilizador do Azure Stack. |
+| ID de cliente do Principal de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | O ID de cliente do Principal de serviço que criou para o AD FS. |
+| Certificado | `<certificate>` |  Converta o ficheiro de certificado de PFX em PEM. Cole o conteúdo do ficheiro do certificado PEM neste campo. <br> Converter o PFX em PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino, recupera a seguinte instrução em obter o inquilino ID. O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Ligação: | Não verificado | Valide as definições de ligação para o principal de serviço. |
+
+Agora que o ponto final for criado, o Azure DevOps para ligação do Azure Stack está pronto a utilizar. O agente de compilação no Azure Stack obtém as instruções de DevOps do Azure e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
+
+> [!Note]
+> Se o ponto final de ARM de utilizador do Azure Stack não está exposto à Internet, a validação de ligação irá falhar. Isto é esperado e pode validar a sua ligação ao criar um pipeline de lançamento com uma tarefa simples. 
 
 ## <a name="develop-your-application-build"></a>Desenvolver a sua compilação de aplicação
 

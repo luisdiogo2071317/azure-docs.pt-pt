@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095468"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419729"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção inteligente – anomalias de desempenho
 
@@ -47,7 +47,7 @@ Não, uma notificação não significa que a aplicação tem definitivamente um 
 As notificações incluem informações de diagnóstico. Segue-se um exemplo:
 
 
-![Eis um exemplo de deteção de degradação de tempo de resposta do servidor](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Eis um exemplo de deteção de degradação de tempo de resposta do servidor](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Triagem**. A notificação mostra o número de utilizadores ou quantas operações são afetadas. Isto pode ajudar a atribuir uma prioridade para o problema.
 2. **Âmbito**. O problema é afetar todo o tráfego, ou apenas algumas páginas? Está restringida para navegadores específicos ou localizações? Estas informações podem ser obtidas a partir da notificação.
@@ -61,7 +61,7 @@ As notificações incluem informações de diagnóstico. Segue-se um exemplo:
 
 Notificações de deteção inteligentes são ativadas por predefinição e enviadas para os utilizadores que têm [proprietários, contribuidores e leitores de acesso para o recurso do Application Insights](app-insights-resources-roles-access-control.md). Para alterar isso, clique em **configurar** na notificação por e-mail ou abra definições de deteção inteligente no Application Insights. 
   
-  ![Definições de deteção inteligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Definições de deteção inteligente](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * Pode utilizar o **anular a subscrição** ligação no e-mail de deteção inteligente para parar de receber as notificações por e-mail.
 
@@ -143,7 +143,7 @@ Aplicação moderna mais adotar a abordagem de design de microsserviços, que, e
 
 Notificação de degradação de dependência de exemplo:
 
-![Eis um exemplo de deteção de degradação de duração de dependência](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Eis um exemplo de deteção de degradação de duração de dependência](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Tenha em atenção que ele diz a:
 
@@ -161,7 +161,7 @@ Tenha em atenção que ele diz a:
 
 O Application Insights encontra problemas de desempenho que podem afetar apenas uma parte dos seus utilizadores ou afetam apenas os utilizadores em alguns casos. Por exemplo, a notificação sobre o carregamento de páginas é mais lenta num tipo de browser que em outros tipos de navegadores, ou se os pedidos são servidos mais lenta de um servidor específico. Também pode detetar problemas relacionados com combinações de propriedades, como o carregamento da página lenta numa área geográfica para clientes que utilizam o sistema operativo específico.  
 
-Anomalias de como esses são muito difíceis de detetar apenas ao inspecionar os dados, mas são mais comuns que imagina. Muitas vezes, eles só surgem quando reclamam os seus clientes. Nesse momento, é tarde demais: os utilizadores afetados já estão mudando para seus concorrentes!
+Anomalias de como esses são muito difíceis de detetar apenas ao inspecionar os dados, mas são mais comuns que imagina. Muitas vezes, eles só surgem quando reclamam os seus clientes. Naquela época, ele s muito tarde: os utilizadores afetados já estão mudando para seus concorrentes!
 
 Atualmente, nossos algoritmos examinar os tempos de carregamento de página, tempos de resposta do pedido no servidor e tempos de resposta de dependência.  
 
