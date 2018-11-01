@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cb004745cfbc6af185a06c4787fb34326eccc69a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 25352d12e578c289ccb4ab8aab60dc55a444762e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381425"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413507"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil técnico para um emissor de tokens JWT em políticas personalizadas do Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ O **InputClaims**, **OutputClaims**, e **PersistClaims** elementos estão vazios
 | id_token_lifetime_secs | Não | Durações de token de ID. A predefinição é de 3600 segundos (1 hora). O mínimo (inclusive) é de 300 segundos (5 minutos). O máximo (inclusive) é segundos 86,400 (24 horas). | 
 | refresh_token_lifetime_secs | Não | Durações de token de atualização. O período de tempo máximo antes do qual um token de atualização pode ser utilizado para adquirir um novo token de acesso, se seu aplicativo tenha recebido o âmbito de offline_access. A predefinição é 120,9600 segundos (14 dias). O mínimo (inclusive) é de 86.400 segundos (24 horas). O máximo (inclusive) é 7,776,000 segundos (90 dias). | 
 | rolling_refresh_token_lifetime_secs | Não | Atualize token duração da janela deslizante. Após este período de tempo decorrido o utilizador é forçado a autenticar, independentemente do período de validade mais recente do token atualizado adquirido pela aplicação. Se não pretender impor uma duração de janela deslizante, defina o valor da allow_infinite_rolling_refresh_token para `true`. A predefinição é 7,776,000 segundos (90 dias). O mínimo (inclusive) é de 86.400 segundos (24 horas). O máximo (inclusive) é 31,536,000 segundos (365 dias). | 
-| rolling_refresh_token_lifetime_secs | Não | Se definido como `true`, o token de atualização janela deslizante duração nunca expira. |
+| allow_infinite_rolling_refresh_token | Não | Se definido como `true`, o token de atualização janela deslizante duração nunca expira. |
 | IssuanceClaimPattern | Sim | Controla a afirmação do emissor (iss). Um dos valores:<ul><li>AuthorityAndTenantGuid - a afirmação de iss inclui seu nome de domínio, tal como `login.microsoftonline` ou `tenant-name.b2clogin.com`e o identificador do inquilino https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - a afirmação de iss inclui seu nome de domínio, tal como `login.microsoftonline` ou `tenant-name.b2clogin.com`, o seu inquilino do identificador e o nome da sua política terceiros entidade confiadora. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
 | AuthenticationContextReferenceClaimPattern | Não | Controles a `acr` valor da afirmação.<ul><li>Nenhum - Azure AD B2C não emita a afirmação do acr</li><li>PolicyId - o `acr` afirmação contém o nome da política</li></ul>As opções para a definição deste valor são TFP (política de estrutura de confiança) e ACR (referência de contexto de autenticação). Recomenda-se definir este valor para TFP, para definir o valor, certifique-se a `<Item>` com o `Key="AuthenticationContextReferenceClaimPattern"` existe e o valor é `None`. Na sua política de terceiros entidade confiadora, adicione <OutputClaims> de item, adicione este elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Além disso, certifique-se de que a sua política contém o tipo de afirmação `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 

@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632829"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421259"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -47,7 +47,7 @@ Clique em **Todos os recursos** para abrir o painel Descrição geral do novo re
 ## <a name="setup"></a>Criar um teste de ping do URL
 Abra o painel Disponibilidade e adicione um teste.
 
-![Indique, pelo menos, o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Indique, pelo menos, o URL do seu site](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **O URL** pode ser qualquer página Web que pretender testar, mas tem de estar visível a partir da Internet pública. O URL pode incluir uma cadeia de consulta. Desta forma, pode, por exemplo, testar um pouco a base de dados. Se o URL remeter para um redirecionamento, iremos segui-lo até dez redirecionamentos.
 * **Analisar pedidos dependentes**: se esta opção for selecionada, o teste pede imagens, scripts, ficheiros de estilo e outros ficheiros que fazem parte da página Web a ser testada. O tempo de resposta gravado inclui o tempo necessário para obter estes ficheiros. O teste falha se todos estes recursos não puderem ser transferidos com êxito no tempo limite para a realização do teste completo. Se a opção não estiver selecionada, o teste pede apenas o ficheiro no URL especificado.
@@ -56,10 +56,10 @@ Abra o painel Disponibilidade e adicione um teste.
 
 * **Frequência de teste**: define a frequência de execução do teste em cada localização de teste. Com uma frequência predefinida de cinco minutos e cinco localizações de teste, o site é testado, em média, a cada minuto.
 
-* As **Localizações de teste** são os locais a partir de onde os nossos servidores enviam pedidos Web ao seu URL. Escolha mais do que uma localização para poder diferenciar os problemas no site dos problemas de rede. Pode selecionar até 16 localizações.
+* As **Localizações de teste** são os locais a partir de onde os nossos servidores enviam pedidos Web ao seu URL. Nosso número mínimo de localizações de teste recomendado é cinco e para assim garantir que pode distinguir problemas no seu Web site dos problemas de rede. Pode selecionar até 16 localizações.
 
-> [!NOTE] 
-> * Recomendamos vivamente que teste a partir de várias localizações, para evitar alarmes falsos resultante de problemas transitórios com uma localização específica.
+> [!NOTE]
+> * Recomendamos vivamente que teste a partir de vários locais com um mínimo de cinco locais. Este procedimento impede que os alarmes falsos que pode ser resultado de problemas transitórios com uma localização específica. Além disso Descobrimos que a configuração ideal é fazer com que o número de localizações de teste de ser igual ao limiar de alerta de localização + 2. 
 > * Permitir que os resultados de opção "Analisar pedidos dependentes" numa verificação mais estritas. O teste poderá falhar por casos que não podem ser perceptíveis ao navegar manualmente o site.
 
 * **Critérios de êxito**:
@@ -70,10 +70,12 @@ Abra o painel Disponibilidade e adicione um teste.
 
     **Correspondência do conteúdo**: uma cadeia, como “Bem-vindo!” Podemos testar que uma correspondência sensíveis às maiúsculas e minúsculas ocorre em cada resposta. Tem de ser uma cadeia simples, sem carateres universais. Não se esqueça de que se alterar o conteúdo da página, poderá ter de a atualizar.
 
+* **Limiar de alerta de localização**: recomendamos um mínimo de 3/5 localizações. A relação ideal entre o limiar de alerta de localização e o número de localizações de teste é **limiar de localização de alerta** = **número de localizações de teste** - 2, com um mínimo de cinco testar localizações.
+
 ## <a name="multi-step-web-tests"></a>Testes Web com vários passos
 Pode monitorizar um cenário que envolva uma sequência de URLs. Por exemplo, se estiver a monitorizar um site de vendas, pode testar se a adição de artigos no carrinho de compras funciona corretamente.
 
-> [!NOTE] 
+> [!NOTE]
 > Os testes Web de vários passos estão sujeitos a um custo. [Esquema do escalão de preço](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 

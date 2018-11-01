@@ -1,6 +1,6 @@
 ---
-title: Secção de parâmetro de modelo do Azure Resource Manager | Microsoft Docs
-description: Descreve a secção de parâmetros de modelos Azure Resource Manager utilizando a sintaxe declarativa de JSON.
+title: Secção de parâmetro de modelo do Azure Resource Manager | Documentos da Microsoft
+description: Descreve a secção de parâmetros de modelos Azure Resource Manager usando sintaxe declarativa do JSON.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604340"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417774"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Secção de parâmetros de modelos Azure Resource Manager
-Na secção de parâmetros do modelo, especifique os valores que pode introduzir quando implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptados para um ambiente específico (por exemplo, o desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no modelo, mas sem parâmetros do modelo implementaria sempre os mesmos recursos com os mesmos nomes, localizações e as propriedades.
+Na secção de parâmetros do modelo, especifique os valores que pode inserir ao implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptadas para um ambiente específico (por exemplo, desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no seu modelo, mas sem parâmetros seu modelo implementaria sempre os mesmos recursos com os mesmos nomes, locais e propriedades.
 
-Está limitado a 255 parâmetros de num modelo. Pode reduzir o número de parâmetros utilizando os objetos que contêm várias propriedades, como mostrado neste artigo.
+Está limitado a 256 parâmetros num modelo. Pode reduzir o número de parâmetros com objetos que contêm várias propriedades, conforme mostrado neste artigo.
 
 ## <a name="define-and-use-a-parameter"></a>Definir e utilizar um parâmetro
 
-O exemplo seguinte mostra uma definição do parâmetro simples. Define o nome do parâmetro e especifica que demora um valor de cadeia. O parâmetro só aceita valores que façam sentido para a sua utilização pretendida. Especifica um valor predefinido quando não é fornecido nenhum valor durante a implementação. Por fim, o parâmetro inclui uma descrição da sua utilização. 
+O exemplo seguinte mostra uma definição de parâmetro simples. Ele define o nome do parâmetro e especifica que demora um valor de cadeia de caracteres. O parâmetro só aceita valores que façam sentido para seu uso pretendido. Especifica um valor predefinido quando é fornecido nenhum valor durante a implementação. Por fim, o parâmetro inclui uma descrição de seu uso. 
 
 ```json
 "parameters": {
@@ -48,7 +48,7 @@ O exemplo seguinte mostra uma definição do parâmetro simples. Define o nome d
 }
 ```
 
-Modelo de referenciar o valor para o parâmetro com a seguinte sintaxe:
+No modelo, referenciar o valor para o parâmetro com a seguinte sintaxe:
 
 ```json
 "resources": [
@@ -86,18 +86,18 @@ O exemplo anterior mostrou apenas algumas das propriedades que pode utilizar a s
 | Nome do elemento | Necessário | Descrição |
 |:--- |:--- |:--- |
 | parameterName |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
-| tipo |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
-| defaultValue |Não |Valor predefinido para o parâmetro se não for fornecido nenhum valor para o parâmetro. |
-| allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que é fornecido o valor correto. |
-| MinValue |Não |O valor mínimo de parâmetros de tipo int, este valor é inclusive. |
-| maxValue |Não |O valor máximo de parâmetros de tipo int, este valor é inclusive. |
-| minLength |Não |O comprimento mínimo de cadeia, securestring e parâmetros de tipo de matriz, este valor é inclusive. |
-| maxLength |Não |O comprimento máximo da cadeia, securestring e parâmetros de tipo de matriz, este valor é inclusive. |
-| descrição |Não |Descrição do parâmetro que é apresentada aos utilizadores através do portal. |
+| tipo |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| defaultValue |Não |Valor predefinido para o parâmetro, se não for fornecido nenhum valor para o parâmetro. |
+| allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que o valor correto é fornecido. |
+| minValue |Não |O valor mínimo para os parâmetros de tipo int, este valor é inclusivo. |
+| maxValue |Não |O valor máximo para os parâmetros de tipo int, este valor é inclusivo. |
+| minLength |Não |O comprimento mínimo para a cadeia de caracteres, securestring e parâmetros de tipo de matriz, este valor é inclusivo. |
+| maxLength |Não |O comprimento máximo para a cadeia de caracteres, securestring e parâmetros de tipo de matriz, este valor é inclusivo. |
+| descrição |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. |
 
 ## <a name="template-functions-with-parameters"></a>Funções de modelo com parâmetros
 
-Ao fornecer o valor predefinido para um parâmetro, pode utilizar a maioria das funções de modelo. Pode utilizar outro valor de parâmetro para criar um valor predefinido. O modelo seguinte demonstra a utilização de funções no valor predefinido:
+Ao especificar o valor predefinido para um parâmetro, pode utilizar a maioria das funções de modelo. Pode utilizar outro valor de parâmetro para criar um valor predefinido. O modelo seguinte demonstra o uso de funções no valor predefinido:
 
 ```json
 "parameters": {
@@ -118,13 +118,13 @@ Ao fornecer o valor predefinido para um parâmetro, pode utilizar a maioria das 
 }
 ```
 
-Não é possível utilizar o `reference` função na secção de parâmetros. Os parâmetros são avaliados antes da implementação, por isso, o `reference` função não é possível obter o estado do tempo de execução de um recurso. 
+Não é possível utilizar o `reference` função na secção de parâmetros. Parâmetros são avaliados antes da implantação até a `reference` função não é possível obter o estado de tempo de execução de um recurso. 
 
 ## <a name="objects-as-parameters"></a>Objetos como parâmetros
 
-Pode ser mais fácil organizar os valores relacionados transferindo-os na como um objeto. Esta abordagem também reduz o número de parâmetros no modelo.
+Pode ser mais fácil organizar os valores relacionados, passando-os na como um objeto. Essa abordagem também reduz o número de parâmetros no modelo.
 
-Defina o parâmetro no seu modelo e especifique um objeto JSON em vez de um valor único durante a implementação. 
+Defina o parâmetro no seu modelo e especifique um objeto JSON em vez de um único valor durante a implementação. 
 
 ```json
 "parameters": {
@@ -154,7 +154,7 @@ Defina o parâmetro no seu modelo e especifique um objeto JSON em vez de um valo
 },
 ```
 
-Em seguida, fazer referência a subproperties do parâmetro utilizando o operador de ponto.
+Em seguida, referenciar subproperties do parâmetro ao utilizar o operador de ponto.
 
 ```json
 "resources": [
@@ -191,14 +191,14 @@ Em seguida, fazer referência a subproperties do parâmetro utilizando o operado
 ## <a name="recommendations"></a>Recomendações
 As seguintes informações podem ser úteis quando trabalha com parâmetros:
 
-* Estará a minimizar a utilização de parâmetros. Sempre que possível, utilize uma variável ou um valor literal. Utilize parâmetros apenas para estes cenários:
+* Minimize a utilização de parâmetros. Sempre que possível, utilize uma variável ou um valor literal. Utilize parâmetros apenas para estes cenários:
    
    * Definições que pretende utilizar variações de acordo com o ambiente (SKU, tamanho, capacidade).
-   * Nomes de recursos que pretende especificar para fins de identificação fácil.
-   * Valores que utilizar com frequência para realizar outras tarefas (por exemplo, um nome de utilizador de admin).
-   * Segredos (tal como as palavras-passe).
-   * O número ou a matriz de valores a utilizar quando criar várias instâncias de um tipo de recurso.
-* Utilize camel case para os nomes dos parâmetros.
+   * Nomes de recursos que pretende especificar para fácil identificação.
+   * Valores que utiliza com frequência para realizar outras tarefas (por exemplo, um nome de utilizador de administrador).
+   * Segredos (por exemplo, palavras-passe).
+   * O número ou a matriz de valores a utilizar quando criar mais do que uma instância de um tipo de recurso.
+* Utilize maiúscula para nomes de parâmetro.
 * Forneça uma descrição de cada parâmetro nos metadados:
 
    ```json
@@ -212,7 +212,7 @@ As seguintes informações podem ser úteis quando trabalha com parâmetros:
    }
    ```
 
-* Defina os valores predefinidos para os parâmetros (exceto para palavras-passe e chaves SSH). Ao fornecer um valor predefinido, o parâmetro torna-se opcional durante a implementação. O valor predefinido pode ser uma cadeia vazia. 
+* Defina valores predefinidos para os parâmetros (exceto para senhas e chaves SSH). Ao especificar um valor predefinido, o parâmetro torna-se opcional durante a implementação. O valor predefinido pode ser uma cadeia vazia. 
    
    ```json
    "parameters": {
@@ -226,7 +226,7 @@ As seguintes informações podem ser úteis quando trabalha com parâmetros:
    }
    ```
 
-* Utilize **securestring** para todas as palavras-passe e segredos. Se passar dados confidenciais num objeto JSON, utilize o **secureObject** tipo. Não não possível ler os parâmetros do modelo tipos securestring ou secureObject após a implementação de recursos. 
+* Uso **securestring** para todas as palavras-passe e segredos. Se passar dados confidenciais num objeto JSON, utilize o **secureObject** tipo. Não não possível ler os parâmetros de modelo com tipos de securestring ou secureObject após a implementação de recursos. 
    
    ```json
    "parameters": {
@@ -239,7 +239,7 @@ As seguintes informações podem ser úteis quando trabalha com parâmetros:
    }
    ```
 
-* Utilize um parâmetro para especificar a localização e partilhar esse valor de parâmetro quanto possível com os recursos que são provável que esteja na mesma localização. Esta abordagem minimiza o número de vezes que os utilizadores são-lhe pedidos para fornecer informações de localização. Se um tipo de recurso é suportado em apenas um número limitado de localizações, poderá especificar uma localização válida diretamente no modelo ou adicione outro parâmetro de localização. Quando uma organização limita as regiões permitidas aos utilizadores, a **resourceGroup (). location** expressão pode impedir um utilizador que está a ser possível implementar o modelo. Por exemplo, um utilizador cria um grupo de recursos numa região. Um segundo utilizador tem de implementar a esse grupo de recursos, mas não tem acesso para a região. 
+* Utilizar um parâmetro para especificar a localização e partilhar esse valor de parâmetro tanto quanto possível com os recursos que é provável que estejam na mesma localização. Essa abordagem minimiza o número de vezes que os utilizadores são solicitados a fornecer informações de localização. Se um tipo de recurso é suportado em apenas um número limitado de localizações, pode querer especificar uma localização válida de diretamente no modelo ou adicione outro parâmetro de localização. Quando uma organização limita as regiões permitidas para seus usuários, o **resourceGroup (). location** expressão pode impedir um utilizador de implementar o modelo. Por exemplo, um utilizador cria um grupo de recursos numa região. Um segundo utilizador tem de implementar no grupo de recursos, mas não tem acesso para a região. 
    
    ```json
    "resources": [
@@ -253,21 +253,21 @@ As seguintes informações podem ser úteis quando trabalha com parâmetros:
    ]
    ```
     
-* Evite utilizar um parâmetro ou variável para a versão da API para um tipo de recurso. Propriedades de recursos e os valores podem variar pelo número de versão. O IntelliSense num editor de código não é possível determinar o esquema correto quando a versão de API está definida como um parâmetro ou variável. Em vez disso, versão de codificar a API no modelo.
-* Evite especificar um nome de parâmetro no modelo que corresponda a um parâmetro de comando de implementação. Gestor de recursos resolve este conflito de atribuição de nomes ao adicionar o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se incluir um parâmetro com o nome **ResourceGroupName** no seu modelo, está em conflito com o **ResourceGroupName** parâmetro o [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Durante a implementação, lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**.
+* Evite utilizar um parâmetro ou variável para a versão de API para um tipo de recurso. Propriedades de recursos e os valores podem variar consoante o número de versão. IntelliSense num editor de código não é possível determinar o esquema correto quando a versão de API está definida como um parâmetro ou variável. Em vez disso, versão de codificar a API no modelo.
+* Evite especificar um nome de parâmetro no seu modelo que corresponda a um parâmetro no comando de implementação. Gestor de recursos resolve este conflito de nomes, adicionando o sufixo **FromTemplate** para o parâmetro de modelo. Por exemplo, se incluir um parâmetro denominado **ResourceGroupName** no seu modelo, está em conflito com o **ResourceGroupName** parâmetro no [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Durante a implementação, lhe for pedido para fornecer um valor para **ResourceGroupNameFromTemplate**.
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Estes modelos de exemplo demonstram alguns cenários de utilização de parâmetros. Implementá-las para testar a forma como os parâmetros são processados em cenários diferentes.
+Estes modelos de exemplo demonstram alguns cenários de utilização de parâmetros. Implementá-las para testar como os parâmetros são tratados em cenários diferentes.
 
 |Modelo  |Descrição  |
 |---------|---------|
-|[parâmetros com as funções para os valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar funções de modelo quando definir os valores predefinidos para os parâmetros. O modelo não implementa todos os recursos. Constrói valores de parâmetros e devolve esses valores. |
-|[Objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra a utilização de um objeto para um parâmetro. O modelo não implementa todos os recursos. Constrói valores de parâmetros e devolve esses valores. |
+|[parâmetros com funções para os valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar funções de modelo ao definir os valores predefinidos de parâmetros. O modelo implementa todos os recursos. Ele constrói os valores de parâmetros e retorna esses valores. |
+|[Objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como utilizar um objeto para um parâmetro. O modelo implementa todos os recursos. Ele constrói os valores de parâmetros e retorna esses valores. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para ver modelos completos para vários tipos de soluções, veja os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/).
-* Para saber como os valores de parâmetros de entrada durante a implementação, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md). 
-* Para obter detalhes sobre as funções que pode utilizar a partir de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
-* Para obter informações sobre a utilização de um objeto parameter, consulte [utilizar um objeto como um parâmetro num modelo Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+* Para saber como os valores de parâmetro de entrada durante a implementação, consulte [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md). 
+* Para obter detalhes sobre as funções que pode utilizar a partir de dentro de um modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md).
+* Para obter informações sobre a utilização de um objeto de parâmetro, consulte [utilize um objeto como um parâmetro num modelo Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

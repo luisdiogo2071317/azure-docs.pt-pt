@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 283b529aa8c6431ea725b066c9b5cb3db19a929b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/30/2018
+ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969449"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412453"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na base de dados do Azure para MySQL
 
@@ -34,6 +34,10 @@ Um cenário comum é fazer com que o BI e cargas de trabalho analíticas utiliza
 ### <a name="pricing-tiers"></a>Escalões de preço
 
 Réplicas de leitura só estão atualmente disponíveis nos escalões de preços para fins gerais e memória otimizada.
+
+### <a name="master-server-restart"></a>Reiniciar o servidor mestre
+
+Durante esta pré-visualização, ao criar uma réplica para um modelo que tenha não réplicas existentes, o mestre pela primeira vez será reiniciado para se preparar para a replicação. . Levar isso em consideração e executar estas operações durante um período de ponta.
 
 ### <a name="stopping-replication"></a>A parar a replicação
 

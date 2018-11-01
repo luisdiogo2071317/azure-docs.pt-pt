@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 64e735a1090972a6e4cef85d1a51909e8550c536
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221939"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418012"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de arquitetura
 
@@ -92,8 +92,7 @@ HDInsight utiliza a base de dados do Azure SQL para Hive e Oozie metastores. Exi
     - Clusters podem ser criados e eliminados sem perder a metadados, incluindo detalhes da tarefa do Hive do esquema Oozie.
     - Db de metastore único pode ser partilhado com diferentes tipos de clusters
     - Metastore pode ser aumentado verticalmente, conforme necessário
-
-Para obter mais informações, consulte o artigo: [utilizar arquivos de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
+    - Para obter mais informações, consulte [utilizar arquivos de metadados externos no Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
 
 ## <a name="best-practices-for-hive-metastore"></a>Melhores práticas para Hive Metastore
 
@@ -105,20 +104,20 @@ Seguem-se algumas práticas recomendadas de metastore Hive do HDInsight:
 - Criar cópias de segurança o metastore personalizado periodicamente.
 - Mantenha o metastore e o cluster do HDInsight na mesma região.
 - Monitorize o metastore para desempenho e disponibilidade usando ferramentas de monitorização de base de dados SQL do Azure, como o portal do Azure ou o Log Analytics do Azure.
-- Executar o **analisar tabela** comando conforme necessário para gerar estatísticas de tabelas e colunas. Por exemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- Executar o **analisar tabela** comando conforme necessário para gerar estatísticas de tabelas e colunas. Por exemplo, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-types-of-workloads"></a>Melhores práticas para diferentes tipos de cargas de trabalho
 
 - Considere a utilização de LLAP cluster para consultas interativas do Hive com o tempo de resposta melhoradas [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) é uma funcionalidade nova no 2.0 Hive, que permite a colocação em cache de memória de consultas. LLAP torna muito mais rápidas, até de consultas do Hive [26 x mais rapidamente do que o Hive 1.x em alguns casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
-- Considere a utilização de tarefas do Spark no lugar de tarefas do Hive
-- Considere substituir consultas baseadas em impala com consultas LLAP
-- Considerar a substituição de tarefas de MapReduce com tarefas do Spark
-- Considerar a substituição de tarefas de lote de Spark de baixa latência através de tarefas de transmissão estruturada do Spark
-- Orquestração de dados, considere a utilização do Azure Data Factory(ADF) 2.0
-- Considere o Ambari para gestão de clusters
-- Alterar o armazenamento de dados do HDFS no local para WASB ou ADLS ou AD FS para o processamento de scripts
-- Considere utilizar o Ranger RBAC em tabelas de ramo de registo e auditoria
-- Considere a utilização de cosmos DB em vez do MongoDB ou o Cassandra
+- Considere a utilização de tarefas do Spark no lugar de tarefas do Hive.
+- Considere substituir consultas baseadas em impala consultas LLAP.
+- Considere a substituição de tarefas de MapReduce com tarefas do Spark.
+- Considere a substituição de tarefas de lote de Spark de baixa latência através de tarefas de transmissão estruturada do Spark.
+- Considere a utilização com o Azure Data Factory (ADF) 2.0 para orquestração de dados.
+- Considere o Ambari para gerenciamento de Cluster.
+- Altere o armazenamento de dados do HDFS no local para WASB ou ADLS ou AD FS para o processamento de scripts.
+- Considere utilizar o Ranger RBAC em tabelas de ramo de registo e auditoria.
+- Considere a utilização do cosmos DB em vez do MongoDB ou o Cassandra.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

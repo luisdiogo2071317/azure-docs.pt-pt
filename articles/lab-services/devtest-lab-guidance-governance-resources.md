@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2edfa84530c147e1f716aef10c967ac36eadc922
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251073"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740387"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governação da infraestrutura do Azure DevTest Labs - recursos
 Este artigo aborda o alinhamento e a gestão de recursos para laboratórios Dev/Test na sua organização. 
@@ -67,7 +67,7 @@ Recomendamos unidades de negócios e os grupos de desenvolvimento que estão ass
 
 Também poderá considerar limites geográficos. Por exemplo, os desenvolvedores no Leste do Norte EUA (US) pode usar um laboratório aprovisionado em e.u.a. Leste 2. Além disso, os desenvolvedores em Dallas, no Texas e Denver, Colorado podem ser direcionados para utilizar um recurso no e.u.a. centro-Sul. Se houver um esforço colaborativo com um terceiro externo, eles podem ser atribuídos a um laboratório que não seja utilizado por programadores internos. 
 
-Também pode usar um laboratório para um projeto específico dentro do projeto de equipe do Visual Studio Team Services. Em seguida, aplicar segurança através de um grupo do Azure Active Directory especificado, que permite o acesso a ambos os conjunto de recursos. A rede virtual atribuída ao laboratório pode ser outro limite a consolidar os utilizadores.
+Também pode utilizar um laboratório para um projeto específico nos projetos de DevOps do Azure. Em seguida, aplicar segurança através de um grupo do Azure Active Directory especificado, que permite o acesso a ambos os conjunto de recursos. A rede virtual atribuída ao laboratório pode ser outro limite a consolidar os utilizadores.
 
 ## <a name="deletion-of-resources"></a>Eliminação de recursos
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365067"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421089"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
 Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
@@ -93,7 +93,7 @@ Considere um cenário em que queria um alerta se a qualquer computador excedeu a
 
 A consulta deverá criar um valor médio para cada computador em intervalos de 5 minutos.  Esta consulta seria executada a cada 5 minutos para os dados recolhidos durante os 30 minutos anteriores.  Dados de exemplo são mostrados abaixo para três computadores.
 
-![Resultados da consulta de exemplo](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Resultados da consulta de exemplo](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 Neste exemplo, seriam possível criar alertas separadas para srv02 e srv03, uma vez que eles infringido o limiar de 90% três vezes ao longo do período de tempo.  Se o **acionar alerta com base em:** foram alterados para **Consecutive** , em seguida, seria possível criar um alerta apenas para srv03, uma vez que ele infringido o limiar para três amostras consecutivas.
 

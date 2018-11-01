@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: babanisa
-ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068200"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741526"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -37,7 +37,7 @@ Se estiver a utilizar qualquer outro tipo de ponto de extremidade, como um acion
 
 1. **ValidationCode handshake**: no momento da criação de subscrição de eventos, EventGrid publica um "evento do validação de subscrição" para o ponto final. O esquema deste evento é semelhante a qualquer outro EventGridEvent e a parte de dados deste evento inclui um `validationCode` propriedade. Assim que a sua aplicação ter verificado que o pedido de validação é para uma subscrição de evento esperado, o código da aplicação tem de responder ao repetir o código de validação para EventGrid. Esse mecanismo de handshake é suportado em todas as versões de EventGrid.
 
-2. **O handshake de ValidationURL (Manual handshake)**: em certos casos, pode não ter controle do código-fonte do ponto de extremidade para poder implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), poderá não conseguir responder através de programação com o código de validação. A partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com o SDK/ferramentas que utilizam este novo EventGrid envia do API versão (2018-05-01-pré-visualização), um `validationUrl` propriedade como parte da parte de dados do evento de validação de subscrição. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O URL de validação fornecido é válido apenas para cerca de 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de criar a subscrição de evento novamente antes de repetir a validação manual.
+2. **O handshake de ValidationURL (Manual handshake)**: em certos casos, pode não ter controle do código-fonte do ponto de extremidade para implementar o handshake ValidationCode com base. Por exemplo, se usar um serviço de terceiros (como [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), não consegue responder através de programação com o código de validação. A partir da versão de 2018-05-01-pré-visualização, EventGrid agora oferece suporte a um handshake de validação manual. Se estiver a criar uma subscrição de evento com um SDK ou ferramenta que utiliza a versão de 2018-05-01-a pré-visualização da API ou posterior, EventGrid envia um `validationUrl` propriedade como parte da parte de dados do evento de validação de subscrição. Para concluir o handshake, basta um GET solicitá a esse URL, por meio de um cliente REST ou com o browser. O URL de validação fornecido é válido apenas para cerca de 10 minutos. Durante esse tempo, o estado de aprovisionamento a subscrição de evento é `AwaitingManualAction`. Se não concluir a validação manual no prazo de 10 minutos, o estado de aprovisionamento é definido como `Failed`. Terá de criar a subscrição de evento novamente antes de iniciar a validação manual.
 
 Esse mecanismo de validação manual está em pré-visualização. Para a utilizar, tem de instalar a [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a [CLI do Azure](/cli/azure/install-azure-cli). Pode instalá-la com `az extension add --name eventgrid`. Se estiver a utilizar a API REST, certifique-se de que está a utilizar `api-version=2018-05-01-preview`.
 
@@ -93,7 +93,7 @@ Durante a criação de subscrição de evento, se estiver a ver uma mensagem de 
 
 ### <a name="event-delivery-security"></a>Segurança de entrega de eventos
 
-Pode proteger o seu ponto final do webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token) que o webhook pode usar para reconhecer o evento é proveniente de Event Grid com permissões válidas. Grelha de eventos irá incluir esses parâmetros de consulta em cada entrega de eventos para o webhook.
+Pode proteger o seu ponto final do webhook ao adicionar parâmetros de consulta para o URL do webhook durante a criação de uma subscrição de evento. Definir um destes parâmetros de consulta para ser um segredo como um [token de acesso](https://en.wikipedia.org/wiki/Access_token). O webhook pode utilizar para reconhecer que o evento é proveniente de Event Grid com permissões válidas. Grelha de eventos irá incluir esses parâmetros de consulta em cada entrega de eventos para o webhook.
 
 Ao editar a subscrição de evento, os parâmetros de consulta não são apresentados ou retornados, a menos que o [– incluir-full--url de ponto final](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parâmetro é utilizado no Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -174,11 +174,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Controlo de acesso de gestão
 
-O Azure Event Grid permite-lhe controlar o nível de acesso que é atribuído aos usuários diferentes para fazer várias operações de gestão, tais como as subscrições de eventos da lista, criar novos e gerar as chaves. Grelha de eventos utiliza baseado do Azure em funções acesso verificar (RBAC).
+O Azure Event Grid permite-lhe controlar o nível de acesso que é atribuído aos usuários diferentes para fazer várias operações de gestão, tais como as subscrições de eventos da lista, criar novos e gerar as chaves. Grelha de eventos utiliza o controlo de acesso baseado em funções do Azure (RBAC).
 
 ### <a name="operation-types"></a>Tipos de operação
 
-Grelha de eventos do Azure suporta as seguintes ações:
+Event Grid suporta as seguintes ações:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -187,13 +187,17 @@ Grelha de eventos do Azure suporta as seguintes ações:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-As últimas três operações devolvem informações potencialmente secretas, que obtém filtradas dos operações de leitura normais. Recomenda-se que restringir o acesso a essas operações. Funções personalizadas podem ser criadas usando [do Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Interface de linha de comandos (CLI do Azure)](../role-based-access-control/role-assignments-cli.md)e o [REST API](../role-based-access-control/role-assignments-rest.md).
+As últimas três operações devolvem informações potencialmente secretas, que obtém filtradas dos operações de leitura normais. Recomenda-se que restringir o acesso a essas operações. 
 
-### <a name="enforcing-role-based-access-check-rbac"></a>Imposição de função com a base de verificação de acesso (RBAC)
+### <a name="built-in-roles"></a>Funções incorporadas
 
-Utilize os seguintes passos para impor o RBAC a utilizadores diferentes:
+Event Grid fornece duas funções incorporadas para gerir subscrições de eventos. Estas funções são `EventSubscription Contributor (Preview)` e `EventSubscription Reader (Preview)`. Eles são importantes durante a implementação de domínios de evento. Para obter mais informações sobre as ações concedidas, consulte [domínio de eventos - gestão de acesso](event-domains.md#access-management).
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Crie um ficheiro de definição de função personalizada (. JSON)
+Pode [atribuir essas funções a um utilizador ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+### <a name="custom-roles"></a>Funções personalizadas
+
+Se tiver de especificar permissões que são diferentes de funções incorporadas, pode criar funções personalizadas.
 
 Seguem-se as definições de funções de grelha de eventos de exemplo que permitem aos utilizadores efetuar ações diferentes.
 
@@ -201,18 +205,18 @@ Seguem-se as definições de funções de grelha de eventos de exemplo que permi
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -220,22 +224,22 @@ Seguem-se as definições de funções de grelha de eventos de exemplo que permi
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -243,37 +247,25 @@ Seguem-se as definições de funções de grelha de eventos de exemplo que permi
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Criar e atribuir uma função personalizada com a CLI do Azure
-
-Para criar uma função personalizada, utilize:
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-Para atribuir a função a um utilizador, utilize:
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+Pode criar funções personalizadas com [PowerShell](../role-based-access-control/custom-roles-powershell.md), [CLI do Azure](../role-based-access-control/custom-roles-cli.md), e [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

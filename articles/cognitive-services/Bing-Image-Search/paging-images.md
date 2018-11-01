@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 019d91f6a86bab5c4f446085e0244f9b5323f1fb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294412"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739371"
 ---
 # <a name="paging-results"></a>Resultados de paginação
 
@@ -61,3 +61,6 @@ Para eliminar duplicados resultados, utilize o [nextOffset](https://docs.microso
 
 > [!NOTE]
 > Paginação aplica-se apenas a pesquisa de imagens (/ imagens/search) e não para informações de imagem ou imagens em destaque (/ imagens/tendências).
+
+> [!NOTE]
+> O `TotalEstimatedAnswers` campo é uma estimativa do número total de resultados de pesquisa, pode recuperar para a consulta atual.  Se definir `count` e `offset` parâmetros, o `TotalEstimatedAnswers` número pode ser alterada. 

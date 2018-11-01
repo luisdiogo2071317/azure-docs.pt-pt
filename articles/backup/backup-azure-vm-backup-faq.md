@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 910225e74fcd4655a9eff711d3ac1316d948c2b3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886199"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414799"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço Azure VM Backup
 Este artigo tem respostas a perguntas comuns para o ajudar a compreender rapidamente os componentes do Azure VM Backup. Em algumas das respostas, existem ligações para os artigos que incluem informação abrangente. Também pode publicar perguntas sobre o serviço de Backup do Azure no [fórum de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,7 +48,7 @@ Sim. Mesmo quando uma máquina é encerrada cópias de segurança funcionam e o 
 Sim. Pode cancelar a tarefa de cópia de segurança se ele está na fase de "Criar o instantâneo". **Não é possível cancelar uma tarefa, se a transferência de dados de instantâneos está em curso**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Eu habilitei o bloqueio do grupo de recursos em minhas VMs com cópia de segurança de discos geridos. As minhas cópias de segurança vão continuar a funcionar?
-Se o usuário bloqueia o grupo de recursos, o serviço de cópia de segurança não é possível eliminar os pontos de restauro mais antigos. Devido a isso novas cópias de segurança começam a falhar porque não existe um limite máximo 18 de pontos de restauro impostas a partir do back-end. Se as cópias de segurança estão a falhar com um erro interno após o bloqueio RG, siga estes [coleção de ponto de passos para remover o restauro](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+Se o usuário bloqueia o grupo de recursos, o serviço de cópia de segurança não é possível eliminar os pontos de restauro mais antigos. Devido a isso novas cópias de segurança começam a falhar porque não existe um limite máximo 18 de pontos de restauro impostas a partir do back-end. Se as cópias de segurança estão a falhar com um erro interno após o bloqueio RG, siga estes [coleção de ponto de passos para remover o restauro](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Política de cópia de segurança demora Time(DST) da guardar a hora de Verão em conta?
 Não. Lembre-se de que data e hora no seu computador local é apresentado na sua hora local e com a tendência atual do horário de Verão. Portanto, o tempo configurado para cópias de segurança agendadas pode ser diferente da sua hora local devido ao horário de Verão.

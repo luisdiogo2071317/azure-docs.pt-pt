@@ -113,11 +113,11 @@ Nos casos em que não pode utilizar as ferramentas, as instruções passo a pass
 
 1. Estime as eDTUs ou vCores necessárias para o conjunto da seguinte forma:
 
-   Para o modelo de compra baseado em DTU: máx. (<*número Total de DBs* X *utilização média de DTUS por DB*>,<br>
-   <*Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB*)
+   Para o modelo de compra baseado em DTU: máx. (<*número Total de DBs* X *utilização média de DTUS por DB* >,<br>
+   < *Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB* >)
 
-   Para o modelo de compra baseado em vCore: máx. (<*número Total de DBs* X *média de utilização de vCore por DB*>,<br>
-   <*Número de com picos simultâneos DBs* X *pico de utilização de vCore por DB*)
+   Para o modelo de compra baseado em vCore: máx. (<*número Total de DBs* X *média de utilização de vCore por DB* >,<br>
+   < *Número de com picos simultâneos DBs* X *pico de utilização de vCore por DB* >)
 
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, têm o maior entre as estimativas de eDTU do passo 1 e 2. Para o modelo de compra baseado em vCore, têm a estimativa de vCore do passo 1.

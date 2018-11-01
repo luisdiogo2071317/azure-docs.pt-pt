@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976844"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419372"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -34,26 +34,26 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas de registo 
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Criar uma regra de alerta de registo com o portal do Azure
 1. Na [portal](https://portal.azure.com/), selecione **Monitor** e, na secção MONITOR - escolher **alertas**.  
-    ![Monitorização](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Monitorização](media/alert-log/AlertsPreviewMenu.png)
 
 1. Selecione o **nova regra de alerta** botão para criar um novo alerta no Azure.
-    ![Adicionar alerta](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Adicionar alerta](media/alert-log/AlertsPreviewOption.png)
 
 1. A secção de criar o alerta é mostrada com três partes consiste em: *definir a condição de alerta*, *definir detalhes do alerta*, e *Definir grupo de ação*.
 
-    ![Criar regra](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Criar regra](media/alert-log/AlertsPreviewAdd.png)
 
 1.  Definir a condição de alerta com o **selecionar recurso** ligação e especificando o destino ao selecionar um recurso. Filtro ao selecionar o _subscrição_, _tipo de recurso_e necessária _recurso_. 
 
     >[!NOTE]
 
     > Para criar um registo de alerta – verificar a **log** sinal está disponível para o recurso selecionado antes de continuar.
-    ![Selecione o recurso](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Selecione o recurso](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Alertas de registo*: Certifique-se **tipo de recurso** é uma origem de análise, como *do Log Analytics* ou *Application Insights* e sinalizar tipo como **registo** , em seguida, uma vez adequado **recurso** está selecionado, clique em *feito*. Em seguida utilize o **adicionar critérios** botão para ver a lista de opções de sinal disponíveis para o recurso e a partir da lista de sinal **pesquisa de registos personalizado** opção para escolhida iniciar o monitor de serviço, como *registo Análise* ou *Application Insights*.
 
-   ![Selecione um recurso - pesquisa de registos personalizado](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Selecione um recurso - pesquisa de registos personalizado](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas de registo 
 
 1.  *Alertas de registo*: depois de selecionada, a consulta para alertas pode ser indicada na **consulta de pesquisa** campo; se a sintaxe de consulta está incorreta o campo apresenta o erro em vermelho. Se a sintaxe de consulta está correta – para referência, histórico de dados da consulta declarado é mostrado como um gráfico com a opção para ajustar a janela de tempo da última seis horas da semana passada.
 
- ![Configurar a regra de alerta](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Configurar a regra de alerta](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas de registo 
 
     >  Para o tipo de medida da métrica de alertas de registo com o Application insights, pode especificar qual variável específico para agrupar os dados utilizando o **agregada no** opção; conforme ilustrado na abaixo:
 
-    ![Agregar na opção](./media/monitor-alerts-unified/aggregate-on.png)
+    ![Agregar na opção](media/alert-log/aggregate-on.png)
 
 1.  *Alertas de registo*: com a visualização no local, **Alert Logic** podem ser selecionados a partir das opções apresentadas da condição, a agregação e, finalmente, limiar. Por fim especifique na lógica de tempo para avaliar a condição especificada, utilizando **período** opção. Juntamente com a frequência com que o alerta deve executar selecionando **frequência**.
 Para **alertas de registo** alertas podem ser baseados em:
@@ -83,7 +83,7 @@ Para **alertas de registo** alertas podem ser baseados em:
 
     - **Suprimir alertas**: Quando ativar a supressão para a regra de alerta, as ações da regra estão desativadas para um comprimento de definidos de tempo depois de criar um novo alerta. A regra ainda está em execução e cria registos de alerta, desde que os critérios são cumpridos. Permitindo que tempo para corrigir o problema sem executar ações duplicadas.
 
-        ![Suprimir alertas para alertas de registo](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Suprimir alertas para alertas de registo](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Especifique um valor alerta suppress superior à frequência do alerta para garantir a notificações são paradas sem sobreposição
@@ -98,19 +98,19 @@ Para **alertas de registo** alertas podem ser baseados em:
     - **Notificação por e-mail**: substitui *assunto do e-mail* no e-mail, enviado por grupo de ação; se uma ou mais ações de e-mail do grupo de ação disse. Não é possível modificar o corpo da mensagem e este campo é **não** para endereço de e-mail.
     - **Incluir payload Json personalizado**: substitui o JSON utilizado por grupos de ação do webhook, se uma ou mais ações de webhook do grupo de ação disse. Utilizador pode especificar o formato do JSON a ser utilizado para todos os webhooks configurados no grupo de ação associado; Para obter mais informações sobre formatos de webhook, veja [ação do webhook para alertas de registo](monitor-alerts-unified-log-webhook.md). Opção de Webhook do modo de exibição é fornecida para verificar o formato com dados JSON de exemplo.
 
-        ![Substituições de ação para alertas de registo](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Substituições de ação para alertas de registo](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Se todos os campos são válidos e com escala verde a **criar regra de alerta** botão pode ser clicado e é criado um alerta no Azure Monitor - alertas. Todos os alertas podem ser visualizados a partir os alertas do Dashboard.
 
-    ![Criação de regras](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Criação de regras](media/alert-log/AlertsPreviewCreate.png)
 
     Em poucos minutos, o alerta está ativo e aciona conforme descrito anteriormente.
 
 Os utilizadores podem também finalizado sua consulta do analytics num [página de análise de registos no portal do Azure](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ) e, em seguida, enviá-la para criar um alerta através do botão 'Definir alerta' -, em seguida, seguir instruções da etapa 6 ou posterior no tutorial anterior.
 
- ![O log Analytics - definir alerta](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![O log Analytics - definir alerta](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Ver e gerir alertas de registo no portal do Azure
 
@@ -122,7 +122,7 @@ Os utilizadores podem também finalizado sua consulta do analytics num [página 
 
 
 1. Selecione o **gerir regras** botão na barra superior, para navegar para a secção de gestão de regra - onde estão apresentadas os todas as regras de alerta criadas; incluindo alertas que foram desativadas.
-    ![ Gerir regras de alerta](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ Gerir regras de alerta](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gerir alertas de registo com o modelo de recursos do Azure
 Atualmente registo de alertas podem ser criados através de dois modelos de recursos diferentes, com a base de sobre qual plataforma de análise, o alerta é se baseie (ou seja) o Log Analytics ou o Application Insights.

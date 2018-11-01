@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666064"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414782"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar a rede registos de fluxo do grupo de segurança no Azure com o observador de rede e o Graylog
 
@@ -38,7 +38,7 @@ Registos de fluxo de grupo de segurança de rede estão ativados com o observado
 
 ### <a name="enable-network-security-group-flow-logging"></a>Ativar o registo de fluxo de grupo de segurança de rede
 
-Para este cenário, tem de ter ativado no grupo de segurança de rede, pelo menos, um na sua conta dos registo de fluxo de grupo para segurança rede. Para obter instruções sobre como ativar os registos de fluxo do grupo de segurança de rede, consulte o seguinte artigo [introdução ao registo do fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md).
+Para este cenário, tem de ter ativado no grupo de segurança de rede, pelo menos, um na sua conta dos registo de fluxo de grupo para segurança rede. Para obter instruções sobre como ativar os registos de fluxo do grupo de segurança de rede, consulte o seguinte artigo [introdução ao registo do fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md).
 
 ### <a name="setting-up-graylog"></a>Como configurar o Graylog
 
@@ -51,7 +51,7 @@ Este exemplo utiliza a mínimo (ou seja, a configuração o Graylog uma única i
 
 O Graylog pode ser instalado de várias maneiras, dependendo das suas plataformas e preferências. Para obter uma lista completa dos métodos de instalação possíveis, consulte oficial do Graylog [documentação](http://docs.graylog.org/en/2.2/pages/installation.html). A aplicação de servidor o Graylog é executado em distribuições do Linux e tem os seguintes pré-requisitos:
 
--  Oracle Java SE 8 ou posterior – [documentação de instalação da Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Java SE 8 ou posterior – [documentação Azul Azure JDK](https://aka.ms/azure-jdks)
 -  Elástico pesquisar 2.x (2.1.0 ou posterior)- [documentação de instalação do Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
 -  MongoDB 2,4 ou posterior – [documentação de instalação do MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
@@ -244,4 +244,4 @@ Ao integrar o observador de rede com o Graylog, agora tem uma forma conveniente 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como visualizar os seus registos de fluxo do grupo de segurança rede com o Power BI ao visitar [registos com o Power BI de fluxos do grupo de segurança de rede de visualizar](network-watcher-visualize-nsg-flow-logs-power-bi.md).
+Saiba como visualizar os seus registos de fluxo do grupo de segurança rede com o Power BI ao visitar [registos com o Power BI de fluxos do grupo de segurança de rede de visualizar](network-watcher-visualize-nsg-flow-logs-power-bi.md).

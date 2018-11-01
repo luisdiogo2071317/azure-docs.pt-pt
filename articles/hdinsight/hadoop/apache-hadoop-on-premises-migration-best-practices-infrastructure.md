@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e60425edaebf9e77b7e71f43fa3fe2f2ac3227c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a1dbc04a83e80281fb6cd516c546c1dddff6db37
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221958"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413811"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de infraestrutura
 
@@ -45,11 +45,11 @@ Aplicativos ou componentes que estavam disponíveis em clusters no local, mas n�
 
 |**Aplicação**|**Integração**
 |---|---|
-|Ventilação|Nó IaaS ou de extremidade de HDI
+|Ventilação|IaaS ou de extremidade de HDInsight nó
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Nenhum (apenas HDP)
-|Datameer|Nó de extremidade de HDI
+|Datameer|Nó de extremidade do HDInsight
 |Datastax (Cassandra)|IaaS (CosmosDB alternativa no Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -58,15 +58,15 @@ Aplicativos ou componentes que estavam disponíveis em clusters no local, mas n�
 |Mapador|IaaS 
 |Mongo|IaaS (CosmosDB alternativa no Azure)
 |NiFi|IaaS 
-|Presto|Nó IaaS ou de extremidade de HDI
+|Presto|IaaS ou de extremidade de HDInsight nó
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|IaaS (SQL dw alternativa no Azure)
 |Tableau|IaaS 
-|Waterline|Nó de extremidade de HDI
-|StreamSets|Edge HDI 
+|Waterline|Nó de extremidade do HDInsight
+|StreamSets|Edge do HDInsight 
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
@@ -213,7 +213,7 @@ HDInsight pode ser ligadas à rede no local através de redes virtuais do Azure 
 - Configure a resolução de nomes DNS entre a rede virtual e a rede no local.
 - Configure grupos de segurança de rede ou rotas definidas pelo utilizador (UDR) para controlar o tráfego de rede.
 
- Para obter mais informações, consulte o artigo [ligar o HDInsight à sua rede no local](../connect-on-premises-network.md)
+Para obter mais informações, consulte o artigo [ligar o HDInsight à sua rede no local](../connect-on-premises-network.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

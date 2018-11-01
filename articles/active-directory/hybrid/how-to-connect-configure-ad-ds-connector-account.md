@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6fef23b3624703305a13b205b588c83dd135764
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094743"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412864"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
-Um novo módulo do PowerShell ADSyncConfig.psm1 nomeado foi introduzida com criar 1.1.880.0 (lançado em Agosto de 2018), que inclui um conjunto de cmdlets para o ajudar a configurar as permissões corretas do Active Directory para a sua implementação do Azure AD Connect. 
+Um novo módulo do PowerShell com o nome [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) foi introduzida com compilação 1.1.880.0 (lançado em Agosto de 2018), que inclui um conjunto de cmdlets para o ajudar a configurar as permissões corretas do Active Directory para o Azure AD Ligue-se a implementação. 
 
 ## <a name="overview"></a>Descrição geral 
 Os seguintes cmdlets PowerShell pode ser utilizado para configurar permissões do Active Directory da conta do conector do AD DS, para cada recurso que finge para ativar no Azure AD Connect. Para evitar quaisquer problemas, deve preparar permissões do Active Directory com antecedência sempre que deseja instalar o Azure AD Connect com uma conta de domínio personalizado para ligar à sua floresta. Este módulo de ADSyncConfig também pode ser utilizado para configurar permissões após a implementação do Azure AD Connect.
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Configurar](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->! [NOTA] Também pode copiar o ficheiro **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** para um controlador de domínio que já tem as FARS para AD DS instalada e utilizar este módulo do PowerShell a partir daí.
+>[!NOTE]
+>Também pode copiar o ficheiro **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** para um controlador de domínio que já tem as FARS para AD DS instalada e utilizar este módulo do PowerShell a partir daí.
 
 Para começar a utilizar o ADSyncConfig terá de carregar o módulo numa janela do Windows PowerShell: 
 
@@ -118,7 +119,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAcco
 ```
 
 
-ou; 
+Ou; 
 
 ``` powershell
 Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -146,7 +147,7 @@ Para definir permissões para a conta do conector do AD DS quando utiliza o atri
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
-ou; 
+Ou; 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -166,7 +167,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnec
 ```
 
 
-ou; 
+Ou; 
 
 ``` powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonParameters>] 
@@ -187,7 +188,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConne
 ```
 
 
-ou;
+Ou;
 
 ``` powershell
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -206,7 +207,7 @@ Para definir permissões para a conta do conector do AD DS ao utilizar a repeti�
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
-ou; 
+Ou; 
 
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
@@ -228,7 +229,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADC
 ```
 
 
-ou; 
+Ou; 
 
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -252,7 +253,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -
 ```
 
 
-ou; 
+Ou; 
 
 ``` powershell
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
@@ -301,3 +302,5 @@ Este cmdlet irá definir as seguintes permissões:
 - [Azure AD Connect: contas e permissões](reference-connect-accounts-permissions.md)
 - [Instalação rápida](how-to-connect-install-express.md)
 - [Instalação personalizada](how-to-connect-install-custom.md)
+- [Referência de ADSyncConfig](reference-connect-adsyncconfig.md)
+

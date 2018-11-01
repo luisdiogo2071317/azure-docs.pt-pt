@@ -12,23 +12,24 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 470128344182cc6a06a378a0f4ab75b19e9a646e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249809"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740458"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
+
 Este guia contém informações sobre as complicações de escrever as funções do Azure com o JavaScript.
 
 Uma função de JavaScript é um exportado `function` que é executado quando acionado ([acionadores são configurados na Function](functions-triggers-bindings.md)). O primeiro argumento é transmitida a cada função é um `context` objeto que é utilizado para envio e recebimento vinculação de dados, o registo e a comunicação com o tempo de execução.
 
-Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md). Também é recomendável que seguiu um tutorial em "Inícios rápidos" para [criar a primeira função](functions-create-first-function-vs-code.md).
+Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md). Também deverá concluir o início rápido das funções para criar a sua primeira função, usando [Visual Studio Code](functions-create-first-function-vs-code.md) ou [no portal do](functions-create-first-azure-function.md).
 
 ## <a name="folder-structure"></a>estrutura de pastas
 
-A estrutura de pasta necessária para um projeto de JavaScript é semelhante ao seguinte. Tenha em atenção que este padrão pode ser alterado: consulte os [scriptFile](functions-reference-node.md#using-scriptfile) secção abaixo para obter mais detalhes.
+A estrutura de pasta necessária para um projeto de JavaScript é semelhante ao seguinte. Este padrão pode ser alterado. Para obter mais informações, consulte a [scriptFile](#using-scriptfile) secção abaixo.
 
 ```
 FunctionsProject
@@ -71,7 +72,10 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ### <a name="exporting-an-async-function"></a>Exportar uma função de async
 Ao usar o JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração ou caso contrário, retornando um JavaScript [promessa](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (não disponível com as funções v1.x), não é explicitamente necessário chamar o [ `context.done` ](#contextdone-method) retorno de chamada para sinalizar que a função foi concluída. Sua função é concluída quando a função/promessa exportado assíncrona for concluída.
 
-Por exemplo, esta é uma função simples que regista o que ele foi acionado e imediatamente conclui a execução.
+Ao utilizar o [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração ou JavaScript simples [promessas](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) versão 2.x do runtime das funções, não é necessário chamar explicitamente o [ `context.done` ](#contextdone-method) retorno de chamada para sinalizar que a função foi concluída. Sua função é concluída quando a função/promessa exportado assíncrona for concluída. Para as funções de direcionamento o tempo de execução do versão 1.x, deve chamar ainda [ `context.done` ](#contextdone-method) quando é feito o seu código em execução.
+
+O exemplo seguinte é uma função simples que regista o que ele foi acionado e imediatamente conclui a execução.
+
 ``` javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
@@ -81,6 +85,7 @@ module.exports = async function (context) {
 Ao exportar uma função de async, também pode configurar um enlace de saída para tirar o `return` valor. Isto é recomendado se tiver apenas um enlace de saída.
 
 Para atribuir uma saída com `return`, altere o `name` propriedade `$return` no `function.json`.
+
 ```json
 {
   "type": "http",
@@ -88,7 +93,9 @@ Para atribuir uma saída com `return`, altere o `name` propriedade `$return` no 
   "name": "$return"
 }
 ```
-O código de função do JavaScript poderia ter esta aparência:
+
+Neste caso, sua função deve ter um aspeto semelhante ao seguinte exemplo:
+
 ```javascript
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
@@ -185,10 +192,11 @@ module.exports = function(ctx) {
 
 ### <a name="contextbindings-property"></a>propriedade de Context.Bindings
 
-```
+```js
 context.bindings
 ```
-Devolve um objeto nomeado que contém todos os seus dados de entrada e saídos. Por exemplo, as seguintes definições de ligação no seu *Function* permite que acesse o conteúdo de uma fila de `context.bindings.myInput` e atribua saídas para uma fila usando `context.bindings.myOutput`.
+
+Devolve um objeto nomeado que contém todos os seus dados de entrada e saídos. Por exemplo, as seguintes definições de ligação na sua Function permitem-lhe aceder o conteúdo de uma fila de `context.bindings.myInput` e atribua saídas para uma fila usando `context.bindings.myOutput`.
 
 ```json
 {
@@ -214,21 +222,23 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-Tenha em atenção que pode optar por definir através de dados de enlace de saída a `context.done` método em vez do `context.binding` objeto (ver abaixo).
+Pode optar por definir através de dados de enlace de saída a `context.done` método em vez do `context.binding` objeto (ver abaixo).
 
 ### <a name="contextbindingdata-property"></a>propriedade de context.bindingData
 
-```
+```js
 context.bindingData
 ```
+
 Devolve um objeto nomeado que contém dados de invocação de metadados e a função de Acionador (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Para obter um exemplo de metadados de Acionador, ver isso [exemplo de hubs de eventos](functions-bindings-event-hubs.md#trigger---javascript-example).
 
 ### <a name="contextdone-method"></a>método Context.Done
-```
+
+```js
 context.done([err],[propertyBag])
 ```
 
-Informa o tempo de execução que terminou a seu código. Se a sua função usa o JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração (disponível através do nó 8 + na versão de funções 2.x), não é necessário utilizar `context.done()`. O `context.done` implicitamente é chamado de retorno de chamada.
+Permite que o tempo de execução saiba que o seu código foi concluída. Quando a função utiliza a [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaração, não é necessário utilizar `context.done()`. O `context.done` implicitamente é chamado de retorno de chamada. Funções de Async estão disponíveis em 8 de nó ou uma versão posterior, o que requer a versão 2.x do runtime das funções.
 
 Se a sua função não é uma função de async **tem de chamar** `context.done` para informar o tempo de execução que sua função está concluída. Os tempos de execução se está em falta.
 
@@ -246,9 +256,10 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 
 ### <a name="contextlog-method"></a>método Context.log  
 
-```
+```js
 context.log(message)
 ```
+
 Pode escrever nos registos de função de transmissão em fluxo no nível de rastreio predefinido. No `context.log`, métodos de registo adicionais estão disponíveis, que permitem que escreva registos de função em outros níveis de rastreio:
 
 
@@ -264,13 +275,14 @@ O exemplo a seguir registra um log no nível de rastreio de aviso:
 ```javascript
 context.log.warn("Something has happened."); 
 ```
+
 Pode [configurar o limiar de nível de rastreio para o registo de](#configure-the-trace-level-for-console-logging) no ficheiro de Host. JSON. Para obter mais informações sobre como escrever os registos, consulte [escrever saídas de rastreio](#writing-trace-output-to-the-console) abaixo.
 
 Leia [monitorizar as funções do Azure](functions-monitoring.md) para saber mais sobre ver e consultar os registos da função.
 
 ## <a name="writing-trace-output-to-the-console"></a>Escrever os resultados de rastreio na consola 
 
-As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. No v2.x de funções, rastrear ouputs via `console.log` são capturados ao nível da aplicação de função. Isso significa que produz de `console.log` não estão associadas a uma invocação de função específica e, por conseguinte, não são apresentados nos registos de uma função específica. Eles, no entanto, se propaguem para o Application Insights. Não pode utilizar as funções v1.x, `console.log` para escrever no console. 
+As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. V2.x de funções, trace produz usando `console.log` são capturados ao nível da aplicação de função. Isso significa que produz de `console.log` não estão associadas a uma invocação de função específica e, por conseguinte, não são apresentados nos registos de uma função específica. Eles, no entanto, se propaguem para o Application Insights. Não pode utilizar as funções v1.x, `console.log` para escrever no console.
 
 Quando chama `context.log()`, a mensagem é escrita para a consola no nível de rastreio predefinido, que é o _informações_ rastrear nível. Escreve o código a seguir para a consola no nível de rastreio de informações:
 
@@ -308,12 +320,12 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Configurar o nível de rastreio para o registo da consola
 
-As funções permitem-lhe definir o nível de rastreio de limiar para escrever na consola, o que torna mais fácil para controlar os rastreios de forma são escritos na consola das suas funções. Para definir o limiar para todos os rastreios escritos na consola, utilize o `tracing.consoleLevel` propriedade no arquivo de Host. JSON. Esta definição aplica-se a todas as funções na sua aplicação de função. O exemplo seguinte define o limiar de rastreio para ativar o registo verboso:
+As funções permitem-lhe definir o nível de rastreio de limiar para escrever na consola, o que torna mais fácil para controlar os rastreios de forma são escritos na consola da sua função. Para definir o limiar para todos os rastreios escritos na consola, utilize o `tracing.consoleLevel` propriedade no arquivo de Host. JSON. Esta definição aplica-se a todas as funções na sua aplicação de função. O exemplo seguinte define o limiar de rastreio para ativar o registo verboso:
 
 ```json
-{ 
-    "tracing": {      
-        "consoleLevel": "verbose"     
+{
+    "tracing": {
+        "consoleLevel": "verbose"
     }
 }  
 ```
@@ -468,13 +480,14 @@ Ao executar localmente, as definições da aplicação são lidos a partir da [S
 
 ## <a name="configure-function-entry-point"></a>Configurar o ponto de entrada da função
 
-O `function.json` propriedades `scriptFile` e `entryPoint` pode ser utilizado para configurar a localização e o nome da sua função exportada. Estes podem ser importantes se o JavaScript é transpiled.
+O `function.json` propriedades `scriptFile` e `entryPoint` pode ser utilizado para configurar a localização e o nome da sua função exportada. Estas propriedades podem ser importantes quando o JavaScript é transpiled.
 
 ### <a name="using-scriptfile"></a>Utilizar o `scriptFile`
 
 Por predefinição, uma função de JavaScript é executada a partir `index.js`, um ficheiro que partilha o mesmo diretório principal de seu correspondente `function.json`.
 
-`scriptFile` pode ser usado para obter uma estrutura de pastas é semelhante a este:
+`scriptFile` pode ser usado para obter uma estrutura de pastas é semelhante ao seguinte exemplo:
+
 ```
 FunctionApp
  | - host.json
@@ -488,6 +501,7 @@ FunctionApp
 ```
 
 O `function.json` para `myNodeFunction` deve incluir um `scriptFile` propriedade apontando para o arquivo com a função exportada para executar.
+
 ```json
 {
   "scriptFile": "../lib/nodeFunction.js",
@@ -501,7 +515,8 @@ O `function.json` para `myNodeFunction` deve incluir um `scriptFile` propriedade
 
 Na `scriptFile` (ou `index.js`), uma função tem de ser exportada usando `module.exports` para ser encontrado e executar. Por predefinição, a função que é executado quando acionada está a exportação apenas a partir desse arquivo, a exportação com o nome `run`, ou a exportação com o nome `index`.
 
-Isso pode ser configurado usando `entryPoint` em `function.json`:
+Isso pode ser configurado usando `entryPoint` em `function.json`, como no exemplo a seguir:
+
 ```json
 {
   "entryPoint": "logFoo",
@@ -511,13 +526,14 @@ Isso pode ser configurado usando `entryPoint` em `function.json`:
 }
 ```
 
-V2.x de funções, que suporta o `this` parâmetro nas funções de utilizador, o código de função, em seguida, pode ser o seguinte:
+V2.x de funções, que suporta o `this` parâmetro nas funções de utilizador, o código de função, em seguida, pode ser igual ao seguinte:
+
 ```javascript
 class MyObj {
     constructor() {
         this.foo = 1;
     };
-    
+
     function logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
@@ -539,15 +555,17 @@ Ao trabalhar com as funções de JavaScript, lembre-se de que as considerações
 Quando cria uma aplicação de funções que utiliza o plano do serviço de aplicações, recomendamos que selecione um plano de vCPU de único, em vez de um plano com vários vCPUs. Hoje em dia, funções executa funções JavaScript com mais eficiência em VMs de vCPU de único e utilizar VMs maiores não produz os aprimoramentos de desempenho esperadas. Quando for necessário, manualmente pode aumentar horizontalmente ao adicionar mais instâncias VM de vCPU de único ou pode ativar o dimensionamento automático. Para obter mais informações, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>Suporte do typeScript e CoffeeScript
+
 Uma vez que o suporte direto ainda não existe para compilar o automática TypeScript ou CoffeeScript via o tempo de execução, esse suporte deve ser tratado fora o tempo de execução, no momento da implementação. 
 
 ### <a name="cold-start"></a>Arranque a frio
-Quando começar a desenvolver funções do Azure no modelo de alojamento sem servidor, cold são uma realidade. "A frio" refere-se ao fato de que quando a aplicação Function App é iniciado pela primeira vez após um período de inatividade, demora mais tempo a iniciar cópia de segurança. Em particular, para as funções de JavaScript com árvores de dependência grandes isso pode causar lentidão principais. Para acelerar o processo, se possível, [executar as suas funções como um ficheiro de pacote](run-functions-from-deployment-package.md). Vários métodos de implementação escolher a esse modelo, por predefinição, mas se estiver a sofrer grandes arranques a frio e não estiver a executar um ficheiro de pacote, isso pode ser uma enorme melhoria.
+
+Quando começar a desenvolver funções do Azure no modelo de alojamento sem servidor, cold são uma realidade. *Arranque a frio* refere-se ao fato de que quando a aplicação function app é iniciado pela primeira vez após um período de inatividade, demora mais tempo a iniciar cópia de segurança. Para as funções de JavaScript com árvores de dependência de grandes dimensões em particular, a frio pode ser significativa. Para acelerar o processo de arranque a frio [executar as suas funções como um ficheiro de pacote](run-functions-from-deployment-package.md) sempre que possível. Vários métodos de implementação utilizam a execução do modelo de pacote, por predefinição, mas se estiver a ter grande arranques a frio e não estão em execução desta forma, essa alteração pode oferecer uma melhoria significativa.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
-* [Referência para programadores das Funções do Azure](functions-reference.md)
-* [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)
-
++ [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
++ [Referência para programadores das Funções do Azure](functions-reference.md)
++ [Acionadores de funções do Azure e enlaces](functions-triggers-bindings.md)

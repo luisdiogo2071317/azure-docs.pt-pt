@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820284"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419236"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnóstico de transação de vários componentes unificada
 
@@ -38,7 +38,7 @@ Os componentes são partes implementáveis independentemente do aplicativo/micro
 ## <a name="transaction-diagnostics-experience"></a>Experiência de diagnóstico de transação
 Esta vista tem quatro partes-chave: resulta de lista, um gráfico de transações entre componentes, uma lista da sequência de tempo de toda a telemetria relacionada com esta operação e o painel de detalhes de qualquer item de telemetria selecionado à esquerda.
 
-![Partes-chave](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![Partes-chave](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Gráfico de transações entre componentes
 
@@ -57,19 +57,19 @@ Chamadas para outros componentes tem duas linhas: uma linha representa a chamada
 
 Esta secção mostra a vista de lista simples de uma seqüência de tempo de toda a telemetria relacionados com esta transação. Ela também mostra os eventos personalizados e os rastreios que não são apresentados no gráfico de transação. Pode filtrar esta lista para a telemetria gerada por uma chamada/componente específica. Pode selecionar qualquer item de telemetria de nesta lista para ver o correspondente [detalhes à direita](#details-of-the-selected-telemetry).
 
-![Sequência de tempo de toda a telemetria](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![Sequência de tempo de toda a telemetria](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Detalhes da telemetria selecionada
 
 Este painel recolhível mostra os detalhes de qualquer item selecionado do gráfico de transação ou na lista. "Mostrar todos os" lista todos os atributos padrão que são recolhidos. Todos os atributos personalizados em separado estão listados abaixo do conjunto padrão. Clique no "..." abaixo a janela de rastreio de pilha para obter uma opção para copiar o rastreio. "Rastreios do profiler abrir" ou "Abrir instantâneo de depuração" mostra o diagnóstico ao nível do código nos painéis de detalhes correspondente.
 
-![Detalhe da exceção](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Detalhe da exceção](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Resultados da pesquisa
 
 Este painel recolhível mostra os outros resultados que cumprem os critérios de filtro. Clique em qualquer resultado para atualizar os respectivos detalhes 3 secções listados acima. Vamos tentar encontrar exemplos que são mais provável que tenha os detalhes disponíveis em todos os componentes, mesmo que a amostragem está em vigor em qualquer um deles. Estes são apresentados como exemplos "sugeridos".
 
-![Resultados da pesquisa](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![Resultados da pesquisa](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Depurador Profiler e o instantâneo
 
@@ -79,7 +79,7 @@ Se não foi possível obter o Profiler a funcionar, contacte **serviceprofilerhe
 
 Se não foi possível obter o Snapshot Debugger trabalhar, entre em contato com **snapshothelp@microsoft.com**
 
-![Integração do Profiler](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![Integração do Profiler](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>FAQ
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5c37e2e3cabb81ed123146f283c7d568cc58816d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242633"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420970"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -22,33 +22,60 @@ Este artigo fornece passos de resolução de problemas que podem ajudar a resolv
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente VM não é possível comunicar com o Azure Backup
+## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - agente VM não é possível comunicar com o Azure Backup
 
-Mensagem de erro: "Agente VM não é possível comunicar com o Backup do Azure"<br>
-Código de erro: "UserErrorGuestAgentStatusUnavailable"
+**Código de erro**: UserErrorGuestAgentStatusUnavailable <br>
+**Mensagem de erro**: agente de VM não é possível comunicar com o Azure Backup<br>
 
-Depois de registar e agendar uma VM para o serviço de cópia de segurança, cópia de segurança inicia a tarefa através da comunicação com o agente da VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Quando um instantâneo não é acionado, a cópia de segurança poderá falhar. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:
-
+Depois de registar e agendar uma VM para o serviço de cópia de segurança, cópia de segurança inicia a tarefa através da comunicação com o agente da VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Quando um instantâneo não é acionado, a cópia de segurança poderá falhar. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:<br>
 **Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
 **Causa 2: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
 **Causa 3: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Causa 4: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
 **Causa 5: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>A operação de instantâneo falha porque a máquina virtual não está ligada à rede
+## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - não foi possível comunicar com o agente VM para o estado do instantâneo
 
-Mensagem de erro: "A operação falhou devido a nenhuma conectividade de rede na máquina virtual do instantâneo"<br>
-Código de erro: "ExtensionSnapshotFailedNoNetwork"
+**Código de erro**: GuestAgentSnapshotTaskStatusError<br>
+**Mensagem de erro**: não foi possível comunicar com o agente VM para o estado do instantâneo <br>
+
+Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
+**Causa 1: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
+
+## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - atingiu o limite máximo da coleção de ponto de restauro
+
+**Código de erro**: UserErrorRpCollectionLimitReached <br>
+**Mensagem de erro**: atingiu o limite máximo da coleção do ponto de restauro. <br>
+Descrição:  
+* Este problema pode ocorrer se existir um bloqueio no grupo de recursos de ponto de recuperação que impede a limpeza automática de ponto de recuperação.
+* Este problema também pode acontecer se várias cópias de segurança são acionadas por dia. Atualmente, recomendamos que apenas uma cópia de segurança por dia como instantâneas RPs são mantidas durante 7 dias e apenas 18 RPs instantâneas pode ser associado uma VM em qualquer momento. <br>
+
+Ação recomendada:<br>
+Para resolver este problema, remova o bloqueio do grupo de recursos e repita a operação para acionar a limpeza.
+
+> [!NOTE]
+    > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
+
+
+**Passo 1: [remover o bloqueio do grupo de grupo de recursos de ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Passo 2: [limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
+
+## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - operação de instantâneo falhou devido a nenhuma conectividade de rede na máquina virtual
+
+**Código de erro**: ExtensionSnapshotFailedNoNetwork<br>
+**Mensagem de erro**: a operação falhou devido a nenhuma conectividade de rede na máquina virtual de instantâneo<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:    
 **Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
 **Causa 2: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 3: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="vmsnapshot-extension-operation-failed"></a>Operação de extensão de VMSnapshot falha
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - operação de extensão de VMSnapshot falhou
 
-Mensagem de erro: "a operação de extensão de VMSnapshot falhou"<br>
-Código de erro: "ExtentionOperationFailed"
+**Código de erro**: ExtentionOperationFailed <br>
+**Mensagem de erro**: a operação de extensão do VMSnapshot falhou<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
 **Causa 1: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -56,20 +83,10 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Causa 3: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Causa 4: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Cópia de segurança falha porque o agente da VM não está a responder
+## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - cópia de segurança falha, com um erro interno
 
-Mensagem de erro: "Não foi possível comunicar com o agente VM para o estado do instantâneo" <br>
-Código de erro: "GuestAgentSnapshotTaskStatusError"
-
-Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
-**Causa 1: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 3: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
-
-## <a name="backup-fails-with-an-internal-error"></a>Falha de cópia de segurança, com um erro interno
-
-Mensagem de erro: "cópia de segurança falhou com um erro interno - repita a operação dentro de alguns minutos" <br>
-Código de erro: "BackUpOperationFailed" / "BackUpOperationFailedV2"
+**Código de erro**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
+**Mensagem de erro**: cópia de segurança falhou com um erro interno - repita a operação dentro de alguns minutos <br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
 **Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
@@ -101,7 +118,7 @@ Para resolver o problema, experimente um dos seguintes métodos:
 
 ##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Permitir o acesso ao armazenamento do Azure, que corresponde à região
 
-Pode usar [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para permitir ligações para o armazenamento da região específica. Certifique-se de que a regra que permite o acesso à conta de armazenamento tem uma prioridade mais alta do que a regra que bloqueia o acesso de internet. 
+Pode usar [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) para permitir ligações para o armazenamento da região específica. Certifique-se de que a regra que permite o acesso à conta de armazenamento tem uma prioridade mais alta do que a regra que bloqueia o acesso de internet.
 
 ![Grupo de segurança de rede com marcas de armazenamento para uma região](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
@@ -112,7 +129,7 @@ Para compreender o procedimento passo a passo para configurar as etiquetas de se
 
 Se utilizar Managed Disks do Azure, poderá ter de abertura de portas adicionais (porta 8443) nas firewalls.
 
-Além disso, se a sub-rede não tiver uma rota para tráfego de saída da internet, terá de adicionar um ponto final de serviço com a etiqueta de serviço "Microsoft. Storage" à sua sub-rede. 
+Além disso, se a sub-rede não tiver uma rota para tráfego de saída da internet, terá de adicionar um ponto final de serviço com a etiqueta de serviço "Microsoft. Storage" à sua sub-rede.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>O agente está instalado na VM, mas ele não está a responder (para VMs do Windows)
 
@@ -124,7 +141,7 @@ O agente da VM pode ter sido corrompido ou o serviço pode ter sido parado. Rein
 4. Se o agente convidado do Windows é apresentada no **programas e funcionalidades**, desinstale o agente convidado do Windows.
 5. Transferir e instalar o [mais recente versão do agente do MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tem de ter direitos de administrador para concluir a instalação.
 6. Certifique-se de que os serviços do agente de convidado do Windows são apresentadas nos serviços.
-7. Execute uma cópia de segurança a pedido: 
+7. Execute uma cópia de segurança a pedido:
     * No portal, selecione **cópia de segurança agora**.
 
 Além disso, certifique-se de que [Microsoft .NET 4.5 está instalado](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) na VM. .NET 4.5 é necessário para o agente da VM comunicar com o serviço.
@@ -185,28 +202,41 @@ Para desinstalar a extensão:
 4. Selecione **extensão de Vmsnapshot**.
 5. Selecione **desinstalar**.
 
-Para VM do Linux, se a extensão do VMSnapshot não mostra no portal do Azure, [atualizar o agente do Linux do Azure](../virtual-machines/linux/update-agent.md), e, em seguida, execute a cópia de segurança. 
+Para VM do Linux, se a extensão do VMSnapshot não mostra no portal do Azure, [atualizar o agente do Linux do Azure](../virtual-machines/linux/update-agent.md), e, em seguida, execute a cópia de segurança.
 
 Concluir estes passos, faz com que a extensão de ser reinstalados durante a próxima cópia de segurança.
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>O serviço de cópia de segurança não tem permissão para eliminar os pontos de restauração antigos devido a um bloqueio de grupo de recursos
-Este problema é específico para VMs gerenciadas em que o usuário bloqueia o grupo de recursos. Neste caso, o serviço de cópia de segurança não é possível eliminar os pontos de restauro mais antigos. Como há um limite de 18 pontos de restauro, novas cópias de segurança começam a falhar.
+### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remova o bloqueio do grupo de recursos de ponto de recuperação
+1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
+2. Aceda a **opção de todos os recursos**, selecione o grupo de recursos de coleção de ponto de restauro no seguinte formato AzureBackupRG_<Geo>_<number>.
+3. Na **configurações** secção, selecione **bloqueios** para apresentar os bloqueios.
+4. Para remover o bloqueio, selecione as reticências e clique em **eliminar**.
 
-#### <a name="solution"></a>Solução
+    ![Bloqueio de eliminação ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-Para resolver o problema, remova o bloqueio do grupo de recursos e conclua os seguintes passos para remover a coleção de ponto de restauro: 
- 
-1. Remova o bloqueio no grupo de recursos em que a VM se encontra. 
-2. Instale ARMClient com o Chocolatey: <br>
-   https://github.com/projectkudu/ARMClient
-3. Inicie sessão no ARMClient: <br>
-    `.\armclient.exe login`
-4. Obter a coleção de ponto de restauro que corresponde à VM: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+### <a name="clean_up_restore_point_collection"></a> Limpar a coleção de ponto de restauro
+Depois de remover o bloqueio, os pontos de restauro têm ser limpos. Para limpar os pontos de restauro, siga qualquer um dos métodos:<br>
+* [Limpar a coleção de ponto de restauro pela cópia de segurança ad-hoc em execução](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Limpar a coleção de ponto de restauro do portal criado pelo serviço de cópia de segurança](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
 
-    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Elimine a coleção de ponto de restauro: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. O próximo backup agendado cria automaticamente uma coleção de ponto de restauro e novos pontos de restauro.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a coleção de ponto de restauro pela cópia de segurança ad-hoc em execução
+Depois de remover o bloqueio, acione uma cópia de segurança ad-hoc/manual. Isto irá garantir que os pontos de restauro são limpas automaticamente. Esperar que esta operação de ad-hoc/manual para efetuar a ativação pela primeira vez; No entanto, ele garantirá a limpeza automática em vez de eliminação manual de pontos de restauro. Após a limpeza deve ter êxito a cópia de segurança agendada seguinte.
 
-Quando tiver terminado, pode novamente colocar novamente o bloqueio no grupo de recursos VM. 
+> [!NOTE]
+    > A limpeza automática irão ocorrer após algumas horas de acionar a cópia de segurança ad-hoc/manual. Se continuar a falhar a cópia de segurança agendada, em seguida, tente eliminar manualmente a coleção do ponto de restauro utilizando os passos listados [aqui](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+
+#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Limpar a coleção de ponto de restauro do portal criado pelo serviço de cópia de segurança<br>
+
+O restauro de limpar manualmente pontos de coleção que não estão a ser desmarcadas devido ao bloqueio no grupo de recursos, os seguintes passos:
+1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
+2. Sobre o **Hub** menu, clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_`<Geo>`_`<number>` onde está localizada a sua VM.
+
+    ![Bloqueio de eliminação ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+
+3. Clique em grupo de recursos, o **descrição geral** é apresentado o painel.
+4. Selecione **mostrar tipos ocultos** opção para apresentar todos os recursos ocultos. Selecione as coleções do ponto de restauro com o seguinte formato AzureBackupRG_`<VMName>`_`<number>`.
+
+    ![Bloqueio de eliminação ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+
+5. Clique em **eliminar**, para limpar a coleção de ponto de restauro.
+6. Repita a operação de cópia de segurança novamente.

@@ -1,5 +1,5 @@
 ---
-title: Configurar o diagnóstico do Azure para enviar dados para o Application Insights
+title: Configurar os diagnósticos do Azure para enviar dados para o Application Insights
 description: Atualize a configuração pública de diagnóstico do Azure para enviar dados para o Application Insights.
 services: azure-monitor
 author: rboucher
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262142"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416697"
 ---
-# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de serviço em nuvem, a Máquina Virtual ou o Service Fabric para o Application Insights
-Serviços cloud, máquinas virtuais, conjuntos de dimensionamento de Máquina Virtual e Service Fabric todas as utilizam a extensão de diagnóstico do Azure para recolher dados.  Diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, também pode pipe todas ou um subconjunto dos dados para outras localizações utilizando a extensão de diagnóstico do Azure versão 1.5 ou posterior.
+# <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico do serviço em nuvem, a Máquina Virtual ou o Service Fabric para o Application Insights
+Serviços cloud, máquinas virtuais, os conjuntos de dimensionamento de máquinas virtuais e recursos de infraestrutura do serviço de todos os utilizam a extensão de diagnóstico do Azure para recolher dados.  Diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, pode também todos os de pipe ou um subconjunto dos dados para outras localizações com a extensão de diagnóstico do Azure versão 1.5 ou posterior.
 
-Este artigo descreve como enviar dados de extensão de diagnóstico do Azure ao Application Insights.
+Este artigo descreve como enviar dados a partir da extensão de diagnóstico do Azure para o Application Insights.
 
 ## <a name="diagnostics-configuration-explained"></a>Configuração de diagnósticos explicada
-A extensão de diagnóstico do Azure 1.5 introduzida sinks, que são localizações adicionais onde pode enviar dados de diagnóstico.
+A extensão de diagnóstico do Azure 1.5 introduzida coletores, que são localizações adicionais, onde pode enviar dados de diagnóstico.
 
-Configuração de exemplo de um receptor de para o Application Insights:
+Exemplo de configuração de um coletor para o Application Insights:
 
 ```XML
 <SinksConfig>
@@ -60,33 +60,33 @@ Configuração de exemplo de um receptor de para o Application Insights:
 ```
 - O **Sink** *nome* atributo é um valor de cadeia que identifica exclusivamente o sink.
 
-- O **ApplicationInsights** elemento Especifica a chave de instrumentação do recurso de insights na aplicação onde os dados de diagnóstico do Azure são enviados.
-    - Se não tiver um recurso do Application Insights existente, consulte [criar um novo recurso do Application Insights](../application-insights/app-insights-create-new-resource.md) para obter mais informações sobre como criar um recurso e ao obter a chave de instrumentação.
-    - Se estiver a desenvolver um serviço em nuvem com o Azure SDK 2.8 e posterior, esta chave de instrumentação é preenchido automaticamente. O valor é baseado no **APPINSIGHTS_INSTRUMENTATIONKEY** definição de configuração do serviço quando empacotamento o projeto de serviço em nuvem. Consulte [utilizar o Application Insights com serviços em nuvem](../application-insights/app-insights-cloudservices.md).
+- O **Application Insights** elemento Especifica a chave de instrumentação do recurso do Application insights onde os dados de diagnóstico do Azure são enviados.
+    - Se não tiver um recurso do Application Insights existente, consulte [criar um novo recurso do Application Insights](../application-insights/app-insights-create-new-resource.md) para obter mais informações sobre como criar um recurso e obter a chave de instrumentação.
+    - Se estiver a desenvolver um serviço em nuvem com o Azure SDK 2.8 e posterior, esta chave de instrumentação é preenchida automaticamente. O valor se baseia a **APPINSIGHTS_INSTRUMENTATIONKEY** definição de configuração do serviço quando empacotar o projeto de serviço em nuvem. Ver [utilizar o Application Insights com os serviços Cloud](../application-insights/app-insights-cloudservices.md).
 
 - O **canais** elemento contém um ou mais **canal** elementos.
     - O *nome* atributo refere-se exclusivamente para esse canal.
-    - O *loglevel* atributo permite-lhe especificar o nível de registo que permite que o canal. Os níveis de registo disponível por ordem de mais informações, pelo menos, são:
+    - O *loglevel* atributo permite-lhe especificar o nível de registo que permite o canal. Os níveis de registo disponíveis por ordem de mais informações, pelo menos, são:
         - Verboso
         - Informações
         - Aviso
         - Erro
         - Crítica
 
-Um canal funciona como um filtro e permite-lhe selecionar os níveis de registo específicos para enviar para o sink de destino. Por exemplo, pode recolher registos verbosos e enviá-los para armazenamento, mas enviar erros apenas para o sink.
+Um canal funciona como um filtro e permite-lhe selecionar níveis de registo específicos para enviar para o sink de destino. Por exemplo, pode recolher registos verbosos e enviá-los para armazenamento, mas enviar apenas erros para o sink.
 
 O gráfico seguinte mostra esta relação.
 
-![Configuração pública de diagnóstico](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![Configuração pública de diagnóstico](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
-O gráfico seguinte resume os valores de configuração e como funcionam. Pode incluir vários sinks na configuração em níveis diferentes da hierarquia. O sink no nível superior age como uma definição global e especificado no elemento individuais funciona como uma substituição para essa definição global.
+O gráfico a seguir resume os valores de configuração e como elas funcionam. Pode incluir vários coletores na configuração em diferentes níveis da hierarquia. O coletor no nível superior age como uma configuração global e um serviço especificado no elemento individual funciona como uma substituição para essa definição global.
 
-![Diagnóstico Sinks configuração com o Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![Coletores de diagnóstico de configuração com o Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
-## <a name="complete-sink-configuration-example"></a>Exemplo de configuração de receptores concluída
-Eis um exemplo de conclusão da configuração pública de ficheiros que
-1. envia a todos os erros para o Application Insights (especificado no **DiagnosticMonitorConfiguration** nó)
-2. também envia registos nível verbosos para os registos da aplicação (especificado no **registos** nó).
+## <a name="complete-sink-configuration-example"></a>Exemplo de configuração de sink concluída
+Eis um exemplo completo da configuração pública de ficheiros que
+1. envia todos os erros para o Application Insights (especificado na **DiagnosticMonitorConfiguration** nó)
+2. também envia registos verbosos de nível para os registos da aplicação (especificado na **registos** nó).
 
 ```XML
 <WadCfg>
@@ -170,9 +170,9 @@ Eis um exemplo de conclusão da configuração pública de ficheiros que
     }
 }
 ```
-A configuração anterior, as seguintes linhas tem os significados seguintes:
+A configuração anterior, as seguintes linhas têm os significados seguintes:
 
-### <a name="send-all-the-data-that-is-being-collected-by-azure-diagnostics"></a>Enviar todos os dados que está a ser recolhidos ao diagnóstico do Azure
+### <a name="send-all-the-data-that-is-being-collected-by-azure-diagnostics"></a>Enviar todos os dados que estão a ser recolhidos pelo diagnóstico do Azure
 
 ```XML
 <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="ApplicationInsights">
@@ -196,7 +196,7 @@ A configuração anterior, as seguintes linhas tem os significados seguintes:
 }
 ```
 
-### <a name="send-verbose-application-logs-to-application-insights"></a>Enviar registos de aplicação verboso ao Application Insights
+### <a name="send-verbose-application-logs-to-application-insights"></a>Enviar registos de aplicações verboso ao Application Insights
 
 ```XML
 <Logs scheduledTransferPeriod="PT1M" scheduledTransferLogLevelFilter="Verbose" sinks="ApplicationInsights.MyLogData"/>
@@ -210,11 +210,11 @@ A configuração anterior, as seguintes linhas tem os significados seguintes:
 
 ## <a name="limitations"></a>Limitações
 
-- **Canais apenas iniciar contadores de tipo e não o desempenho.** Se especificar um canal com um elemento de contador de desempenho, é ignorada.
-- **O nível de registo para um canal não pode exceder o nível de registo para o que está a ser recolhido ao diagnóstico do Azure.** Por exemplo, não é possível recolher os erros do registo de aplicação no elemento de registos e tente enviar verboso registos para o sink do Application Insight. O *scheduledTransferLogLevelFilter* atributo sempre tem de recolher igual ou mais registos do que os registos está a tentar enviar para um receptor de.
-- **Não é possível enviar os dados de blob recolhidos pela extensão de diagnóstico do Azure ao Application Insights.** Por exemplo, nada especificado sob o *diretórios* nós. Para informações de falhas de informação de falha real é enviada para o armazenamento de BLOBs e apenas uma notificação que foi gerada a informação de falha é enviada para o Application Insights.
+- **Canais apenas iniciar contadores de tipo e não o desempenho.** Se especificar um canal com um elemento de contador de desempenho, ela é ignorada.
+- **O nível de registo para um canal não pode exceder o nível de registo para o que está a ser recolhido pelo diagnóstico do Azure.** Por exemplo, não é possível recolher erros de registo de aplicações do elemento de Logs e tentar enviar verboso registos para o sink do Application Insights. O *scheduledTransferLogLevelFilter* atributo sempre tem de recolher igual ou mais logs do que os registos que está a tentar enviar para um sink.
+- **Não é possível enviar os dados de blob recolhidos por extensão de diagnóstico do Azure para o Application Insights.** Por exemplo, nada especificado sob o *diretórios* nó. Para informações de falhas a informação de falha real é enviada para o armazenamento de BLOBs e apenas uma notificação de que a informação de falha foi gerada é enviada para o Application Insights.
 
 ## <a name="next-steps"></a>Próximos Passos
 * Saiba como [veja as suas informações de diagnóstico do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) no Application Insights.
-* Utilize [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação.
-* Utilize [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação
+* Uso [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação.
+* Uso [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) para ativar a extensão de diagnóstico do Azure para a sua aplicação
