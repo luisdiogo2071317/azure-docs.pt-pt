@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408885"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415190"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ de solução de Monitor de desempenho de rede
 
-![Símbolo de Monitor de desempenho de rede](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Símbolo de Monitor de desempenho de rede](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 Este artigo captura as perguntas mais frequentes (FAQ) sobre o Monitor de desempenho de rede (NPM) no Azure
 
@@ -44,7 +44,7 @@ Abaixo encontram-se os requisitos de plataforma para de NPM vários recursos:
 A capacidade de monitorizar redes utilizando nós baseado em Linux está atualmente em pré-visualização privada. Entrar em contacto ao seu Gestor de conta para saber mais. Depois de fornecer o ID de área de trabalho, iremos vá em frente e ativar a capacidade. Agentes do Linux fornecem a capacidade de monitorização apenas para a capacidade de Monitor de desempenho do NPM e não estão disponíveis para os recursos de Monitor de conectividade do serviço e Monitor do ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de tamanho de nós para ser utilizada para monitorização pelo NPM?
-Para executar a solução NPM no nó VMs para monitorizar as redes, os nós devem ter, pelo menos, 500 MB de memória e um núcleo. Não é necessário utilizar nós separados para a execução de NPM. A solução pode ser executado em nós que têm outras cargas de trabalho em execução no mesmo. A solução tem a capacidade de parar o processo de monitorização, no caso de ele utiliza mais do que 5% da CPU.
+Para executar a solução NPM no nó VMs para monitorizar as redes, os nós devem ter pelo menos de 500 MB de memória e um núcleo. Não é necessário utilizar nós separados para a execução de NPM. A solução pode ser executado em nós que têm outras cargas de trabalho em execução no mesmo. A solução tem a capacidade de parar o processo de monitorização, no caso de ele utiliza mais do que 5% da CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Para utilizar o NPM, deve ligar meus nós como agente direto ou por meio do System Center Operations Manager?
 O Monitor de desempenho e as capacidades de Monitor de conectividade do serviço de suporte nós [ligado como agentes diretos](log-analytics-agent-windows.md) , bem como [ligado através do Operations Manager](log-analytics-om-agents.md).
@@ -54,7 +54,7 @@ Para capacidade de Monitor do ExpressRoute, os nós do Azure devem estar conecta
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Qual protocolo entre TCP e ICMP deve ser selecionado para a monitorização?
 Se estiver a monitorizar sua rede através de nós com base no servidor do Windows, recomendamos que utilizar TCP como protocolo de monitorização, uma vez que ele fornece uma melhor precisão. 
 
-Para nós de com base no sistema operativo de áreas de trabalho/cliente de Windows, o ICMP é recomendado, uma vez que esta plataforma não permitir que os dados TCP ser enviado por sockets não processados, que é exigida pelo NPM para detetar a topologia de rede.
+ICMP é recomendado para nós de com base no sistema operativo de áreas de trabalho/cliente do Windows. Esta plataforma não permitir que os dados TCP ser enviado por sockets não processados, qual NPM para detetar a topologia de rede.
 
 Pode obter mais detalhes sobre as vantagens relativas de cada protocolo [aqui](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 

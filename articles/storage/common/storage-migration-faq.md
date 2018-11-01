@@ -5,15 +5,15 @@ services: storage
 author: genlin
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 3c671fe6dcb1af25bfb0aa09fecf8ad5e5ceb97b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732265"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416397"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
 
@@ -23,7 +23,7 @@ Este artigo responde a perguntas comuns sobre a migração de armazenamento do A
 
 **Como posso criar um script para copiar ficheiros de um contentor para outro?**
 
-Para copiar ficheiros entre contentores, pode utilizar o AzCopy. Veja o exemplo seguinte:
+Para copiar ficheiros entre contentores, pode utilizar o AzCopy. Veja o seguinte exemplo:
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 95b753a3be824b5815a70fee84913f1c129f2605
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221947"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418182"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de migração de dados
 
@@ -100,14 +100,14 @@ O metastore hive pode ser migrado usando os scripts ou utilizando a replicação
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migração de metastore Hive através de scripts
 
-- Gere o DDLs do Hive a partir de metastore de Hive no local. Este passo pode ser feito usando um [script de bash de wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-- Editar a DDL gerada para substituir o url HDFS com urls do ADLS/WASB/ABFS
-- Execute a DDL atualizada no metastore do HDI cluster
-- Certifique-se de que a versão de metastore Hive é compatível entre no local e na cloud
+1. Gere o DDLs do Hive a partir de metastore de Hive no local. Este passo pode ser feito usando um [script de bash de wrapper]. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
+1. Editar a DDL gerada para substituir o url HDFS com URLs do ADLS/WASB/ABFS
+1. Execute a DDL atualizada no metastore do cluster do HDInsight
+1. Certifique-se de que a versão de metastore Hive é compatível entre no local e na cloud
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Migração de metastore Hive utilizando a replicação de DB
 
-- Configurar a replicação de base de dados entre locais metastore de Hive DB e HDI metastore DB
+- Configurar a replicação de base de dados entre locais metastore de Hive DB e HDInsight metastore DB
 - Utilize "MetaTool do Hive" para substituir o url HDFS com urls do ADLS/WASB/ABFS, por exemplo:
 
 ```bash
@@ -116,9 +116,9 @@ O metastore hive pode ser migrado usando os scripts ou utilizando a replicação
 
 ### <a name="ranger"></a>Ranger
 
-- Exportar políticas do Ranger no local para arquivos xml
-- Transformar no local com base no HDFS caminhos específicos para WASB/ADLS usando uma ferramenta como XSLT
-- importar as políticas de sessão no Ranger em execução no HDI
+- Exporte políticas do Ranger no local para arquivos xml.
+- Transforme no local com base no HDFS caminhos específicos para WASB/ADLS usando uma ferramenta como XSLT.
+- Importe as políticas de sessão no Ranger em execução no HDInsight.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

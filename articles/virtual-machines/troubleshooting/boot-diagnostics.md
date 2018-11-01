@@ -8,14 +8,14 @@ editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 64641f8acfe7b58763756e2a0707fa799ee804b2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414679"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419559"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Como utilizar o diagnóstico de arranque para resolver problemas relacionados com máquinas virtuais no Azure
 
@@ -24,6 +24,10 @@ O suporte de duas funcionalidades de depuração está agora disponível no Azur
 Quando colocar a sua própria imagem para o Azure ou mesmo arrancar uma das imagens da plataforma, podem existir muitos motivos por que uma máquina virtual entra num Estado de não arranque. Estas funcionalidades permitem-lhe facilmente diagnosticar e recuperar suas máquinas virtuais de falhas de arranque.
 
 Para máquinas virtuais do Linux, pode visualizar facilmente a saída de registo da consola a partir do Portal. Para máquinas virtuais Windows e Linux, o Azure também permite-lhe ver uma captura de ecrã da VM do hipervisor. Esses dois recursos são suportadas para máquinas virtuais do Azure em todas as regiões. Tenha em atenção que as capturas de ecrã e a saída podem demorar até 10 minutos a aparecer na sua conta de armazenamento.
+
+Pode selecionar o **diagnósticos de arranque** opção para ver o registo e a captura de ecrã.
+
+![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Erros de arranque comuns
 
@@ -70,7 +74,7 @@ Para máquinas virtuais do Linux, pode visualizar facilmente a saída de registo
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                 "enabled": true,
-                "storageUri": "[concat('http://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
                 }
             }
             }

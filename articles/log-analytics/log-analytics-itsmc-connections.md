@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409208"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416465"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar produtos/serviços de ITSM com o conector de gestão do serviço de TI
 Este artigo fornece informações sobre como configurar a conexão entre seus produtos/serviços ITSM e o conector de gestão de serviço de TI (ITSMC) no Log Analytics para gerenciar de forma centralizada seus itens de trabalho. Para obter mais informações sobre ITSMC, consulte [descrição geral](log-analytics-itsmc-overview.md).
@@ -57,7 +57,7 @@ Utilize o procedimento seguinte para ligar a sua instância de System Center Ser
 
 2.  Sob **ORIGENS de dados de área de trabalho** clique em **ligações de ITSM**.
 
-    ![Nova ligação](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nova ligação](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **adicionar**.
 
@@ -78,7 +78,7 @@ Utilize o procedimento seguinte para ligar a sua instância de System Center Ser
 | **Sincronizar dados** | Escreva o número de dias decorridos que pretende que os dados do. **Limite máximo**: 120 dias. |
 | **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionada, o Log Analytics cria os CIs afetados como itens de configuração (em caso de não existente CIs) no sistema ITSM suportado. **Predefinido**: desativado. |
 
-![Ligação do Service manager](./media/log-analytics-itsmc/service-manager-connection.png)
+![Ligação do Service manager](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **Quando ligado com êxito e sincronizados**:
 
@@ -128,14 +128,14 @@ Utilize o procedimento seguinte para configurar a ligação híbrida que se liga
 2. Clique em **configurações** > **redes**.
 3. Sob **ligações híbridas**, clique em **configurar os pontos de extremidade de ligação híbrida**.
 
-    ![Rede de ligação híbrida](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![Rede de ligação híbrida](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. Na **ligações híbridas** painel, clique em **adicionar ligação híbrida**.
 
-    ![Adicionar ligação híbrida](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![Adicionar ligação híbrida](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. Na **adicionar as ligações híbridas** painel, clique em **híbrida de criar nova ligação**.
 
-    ![Nova ligação híbrida](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![Nova ligação híbrida](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Escreva os seguintes valores:
 
@@ -146,14 +146,14 @@ Utilize o procedimento seguinte para configurar a ligação híbrida que se liga
     - **Localização**: selecione a localização.
     -  **Nome**: Especifique um nome para o servicebus, se estiver a criar.
 
-    ![Valores de ligação híbrida](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![Valores de ligação híbrida](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Clique em **OK** para fechar a **criar ligação híbrida** painel e começa a criar a ligação híbrida.
 
     Depois da ligação híbrida criada, é apresentado no painel de.
 
 7. Depois de criar a ligação híbrida, selecione a ligação e clique em **selecionado de adicionar ligação híbrida**.
 
-    ![Nova ligação híbrida](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![Nova ligação híbrida](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>Configurar o programa de configuração do serviço de escuta
 
@@ -171,14 +171,14 @@ Utilize o procedimento seguinte para configurar o programa de configuração do 
 
 A ligação híbrida é ligada com êxito.
 
-![ligação híbrida com êxito](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![ligação híbrida com êxito](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > Após a híbrida é criada a ligação, certifique-se e testar a ligação ao visitar a aplicação Web do Service Manager implementada. Certifique-se de que a ligação é efetuada com êxito antes de tentar ligar ao ITSMC no Azure.
 
 A imagem de exemplo seguinte mostra os detalhes de uma ligação com êxito:
 
-![Teste de ligação híbrida](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![Teste de ligação híbrida](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Ligar o ServiceNow ao serviço de TI conector de gestão no Azure
 
@@ -209,7 +209,7 @@ Utilize o procedimento seguinte para criar uma ligação do ServiceNow:
 1. No portal do Azure, aceda a **todos os recursos** e procure **ServiceDesk(YourWorkspaceName)**
 
 2.  Sob **ORIGENS de dados de área de trabalho** clique em **ligações de ITSM**.
-    ![Nova ligação](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nova ligação](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **adicionar**.
 
@@ -232,7 +232,7 @@ Utilize o procedimento seguinte para criar uma ligação do ServiceNow:
 | **Sincronizar dados** | Escreva o número de dias decorridos que pretende que os dados do. **Limite máximo**: 120 dias. |
 | **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionada, ITSMC cria os CIs afetados como itens de configuração (em caso de não existente CIs) no sistema ITSM suportado. **Predefinido**: desativado. |
 
-![Ligação do ServiceNow](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![Ligação do ServiceNow](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **Quando ligado com êxito e sincronizados**:
 
@@ -304,7 +304,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 1. No portal do Azure, aceda a **todos os recursos** e procure **ServiceDesk(YourWorkspaceName)**
 
 2.  Sob **ORIGENS de dados de área de trabalho** clique em **ligações de ITSM**.
-    ![Nova ligação](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nova ligação](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **adicionar**.
 
@@ -326,7 +326,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 | **Sincronizar dados** | Escreva o número de dias decorridos que pretende que os dados do. **Limite máximo**: 120 dias. |
 | **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionada, ITSMC cria os CIs afetados como itens de configuração (em caso de não existente CIs) no sistema ITSM suportado. **Predefinido**: desativado.|
 
-![Ligação de provance](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Ligação de provance](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **Quando ligado com êxito e sincronizados**:
 
@@ -355,7 +355,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 1. No portal do Azure, aceda a **todos os recursos** e procure **ServiceDesk(YourWorkspaceName)**
 
 2.  Sob **ORIGENS de dados de área de trabalho** clique em **ligações de ITSM**.
-    ![Nova ligação](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nova ligação](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Na parte superior do painel direito, clique em **adicionar**.
 
@@ -378,7 +378,7 @@ Utilize o procedimento seguinte para criar uma ligação de Provance:
 | **Criar novo item de configuração na solução ITSM** | Selecione esta opção se pretender criar os itens de configuração no produto ITSM. Quando selecionada, ITSMC cria os CIs afetados como itens de configuração (em caso de não existente CIs) no sistema ITSM suportado. **Predefinido**: desativado. |
 
 
-![Ligação de provance](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Ligação de provance](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **Quando ligado com êxito e sincronizados**:
 
@@ -396,7 +396,7 @@ Para gerar o chave do ID de cliente para o Cherwell, utilize o seguinte procedim
 2. Clique em **Security** > **definições de cliente de API do REST de editar**.
 3. Selecione **criar novo cliente** > **segredo do cliente**.
 
-    ![Id de utilizador Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![Id de utilizador Cherwell](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

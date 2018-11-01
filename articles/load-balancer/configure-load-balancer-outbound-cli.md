@@ -4,8 +4,6 @@ description: Este artigo mostra como configurar regras de saída e balanceamento
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0759b6a8e3deb9bc1d04e41598e4eef9304ecd83
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160660"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416414"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar o balanceamento de carga e regras de saída no balanceador de carga Standard com a CLI do Azure
 
-Este início rápido mostra como configurar regras de saída no balanceador de carga Standard com a CLI do Azure.  
+Este guia de introdução mostra-lhe como configurar regras de saída no balanceador de carga Standard com a CLI do Azure.  
 
 Quando tiver terminado, o recurso do Balanceador de carga contém dois front-ends e regras associadas a eles: um para entrada e outro para saída.  Cada front-end tem uma referência para um endereço IP público e esta utiliza de cenário um endereço IP público diferente para entrada e saída.   A regra de balanceamento de carga fornece balanceamento de carga entrada única e a regra de saída controla o NAT de saída fornecido para a VM.
 
@@ -63,7 +61,7 @@ Para aceder à sua aplicação Web na Internet, precisa de um endereço IP públ
 
 ## <a name="create-outbound-public-ip-address"></a>Criar endereço IP público de saída 
 
-Criar um endereço IP padrão para a configuração de saída de front-end do Balanceador de carga [criar a rede de az public-ip](https://docs.microsoft.com/cli/azure/network/public-ip#create) com o nome *mypublicipoutbound* no *myresourcegroupoutbound*.
+Criar um endereço IP padrão para a configuração de saída de front-end do Balanceador de carga através de [criar a rede de az public-ip](https://docs.microsoft.com/cli/azure/network/public-ip#create).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +79,7 @@ Esta secção descreve como pode criar e configurar os seguintes componentes do 
 
 ### <a name="create-load-balancer"></a>Criar Balanceador de carga
 
-Criar um balanceador de carga com a entrada através de endereços IP [criar az rede lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) com o nome *lb* que inclui uma configuração de IP de front-end entrada com o nome *myfrontendinbound*, um conjunto de back-end designado *bepool* que está associado com o endereço IP público *mypublicipinbound* que criou no passo anterior.
+Criar um balanceador de carga com a entrada através de endereços IP [criar az rede lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) com o nome *lb* que inclui uma configuração de IP de entrada de front-end e um conjunto de back-end que estão associado com o endereço IP público *mypublicipinbound* que criou no passo anterior.
 
 ```azurecli-interactive
   az network lb create \
