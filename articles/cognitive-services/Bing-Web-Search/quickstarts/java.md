@@ -1,7 +1,7 @@
 ---
 title: 'Guia de Início Rápido: Executar uma pesquisa com o Java – API de Pesquisa na Web do Bing'
 titleSuffix: Azure Cognitive Services
-description: Neste guia de início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do Java e receber uma resposta JSON.
+description: Neste início rápido, irá aprender a fazer a primeira chamada à API de Pesquisa na Web do Bing através do Java e receber uma resposta JSON.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,24 +10,24 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: e0c1a038a0d63bcae8620c89462bdecfd88d8227
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9fc9d35db50305b632f5d9c8bdfa13d28ab97980
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121979"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412980"
 ---
-# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Guia de Início rápido: Utilizar o Java para chamar a API de Pesquisa na Web do Bing  
+# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o Java para chamar a API de Pesquisa na Web do Bing  
 
-Utilize este guia de início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON.  
+Utilize este início rápido para fazer a primeira chamada à API de Pesquisa na Web do Bing e receber uma resposta JSON.  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão algumas coisas de que irá precisar antes de executar este guia de início rápido:
+Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
-* [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 7 ou 8](https://aka.ms/azure-jdks)
 * [Biblioteca de Gson](https://github.com/google/gson)
 * Uma chave de subscrição
 
@@ -60,7 +60,7 @@ Se estiver a utilizar o Maven, declare o Gson no `POM.xml`. Ignore este passo se
 
 ## <a name="declare-the-bingwebsearch-class"></a>Declarar a classe BingWebSearch
 
-Declare a classe `BingWebSearch`. Incluirá a maior parte do código que revemos neste guia de início rápido, incluindo o método `main`.  
+Declare a classe `BingWebSearch`. Ela irá incluir a maior parte do código que revemos neste início rápido, incluindo o método `main`.  
 
 ```java
 public class BingWebSearch {

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/16/2018
-ms.openlocfilehash: c52f64c2508870bf061e144229cf26ab269c343b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f757db47ff91537405b04dbc949797f5855b7952
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049241"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416176"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar as APIs de Produtor e de Consumidor de Apache Kafka
 
@@ -37,7 +37,7 @@ Para obter mais informações sobre as APIs, veja a documentação do Apache ded
 
 Tem de ter os seguintes componentes instalados no seu ambiente de desenvolvimento:
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) ou equivalente, como OpenJDK.
+* [Java JDK 8](https://aka.ms/azure-jdks) ou equivalente, como OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/)
 

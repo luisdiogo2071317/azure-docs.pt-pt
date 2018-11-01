@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: a4840fee22086bf6716f5f83ba86c4ac464377f9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3b2e25df74d0667b52429a7b998157c4d9e3fe56
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364409"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421106"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (Java)
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Precisa do Java SE 8 ou posterior no seu computador de desenvolvimento.
 
-Pode transferir o Java para múltiplas plataformas a partir do [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+Pode transferir o Java para múltiplas plataformas a partir do [Oracle](https://aka.ms/azure-jdks).
 
 Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 

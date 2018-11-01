@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc4a1a7f99de657a6199985dd0c963eed741ac97
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037478"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210028"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Início Rápido: utilizar a aplicação Home Automation pré-concebida
 
@@ -23,7 +23,7 @@ Neste início rápido, crie uma aplicação LUIS que utiliza o domínio pré-con
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este artigo, precisa de uma conta de LUIS gratuita criada no portal do LUIS em [http://www.luis.ai](http://www.luis.ai). 
+Para este artigo, precisa de uma conta de LUIS gratuita criada no portal do LUIS em [https://www.luis.ai](https://www.luis.ai). 
 
 ## <a name="create-a-new-app"></a>Criar uma nova aplicação
 Pode criar e gerir as suas aplicações em **My Apps** (As Minhas Aplicações). 

@@ -3,19 +3,19 @@ title: O que é a API de Conhecimento Académico?
 titlesuffix: Azure Cognitive Services
 description: Utilize a API de Conhecimento Académico para interpretar consultas de utilizador e obter informações detalhadas do Academic Graph.
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
-ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/30/2018
+ms.author: darrine
+ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901215"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240363"
 ---
 # <a name="academic-knowledge-api"></a>API de Conhecimento Académico
 
@@ -32,13 +32,10 @@ A API de Conhecimento Académico consiste em quatro pontos finais de REST relaci
   1. **interpret** – Interpreta uma cadeia de consulta de utilizador de linguagem natural. Devolve interpretações anotadas para permitir experiências de conclusão automática de caixa de pesquisa detalhada que antecipam o que o utilizador está a escrever.  
   2. **evaluate** – Avalia uma expressão de consulta e devolve resultados da entidade de Conhecimento Académico.  
   3. **calchistogram** – Calcula um histograma da distribuição de valores de atributo para entidades académicas devolvidas por uma expressão de consulta, como a distribuição de citações por ano de um determinado autor.  
-  4. **graph search** – Pesquisa um determinado padrão de gráfico e devolve os resultados de entidade correspondentes.
-
+  
 Utilizados em conjunto, estes métodos de API permitem que crie uma experiência de pesquisa de semântica detalhada. Dada uma cadeia de consulta de utilizador, o método **interpret** (Interpretar) fornece uma versão anotada da consulta e uma expressão de consulta estruturada, ao mesmo tempo que conclui, opcionalmente, a consulta de utilizador com base na semântica dos dados académicos subjacentes. Por exemplo, se um utilizador escrever a cadeia *s latente*, o método **interpret** (Interpretar) pode fornecer um conjunto de interpretações classificadas, sugerindo que o utilizador pode estar a procurar o campo de estudo  *análise semântica latente*, o documento *análise de estrutura latente* ou outras expressões de entidade que contenham *s latente*. Estas informações podem ser utilizadas para orientar rapidamente o utilizador para os resultados de pesquisa pretendidos.
 
 O método **evaluate** (Avaliar) pode ser utilizado para recuperar um conjunto de entidades de documento correspondentes da base de dados de conhecimento académica e o método **calchistogram** pode ser utilizado para calcular a distribuição dos valores de atributo para um conjunto de entidades de documento que pode ser utilizado para filtrar ainda mais os resultados da pesquisa.        
-
-O método **graph search** (Pesquisa de gráfico) tem dois modos: *json* e *lambda*. O modo *json* pode efetuar a correspondência de padrões de gráfico, de acordo com os padrões de gráfico especificados por um objeto JSON. O modo *lambda* pode realizar cálculos do lado do servidor durante percursos em gráfico, de acordo com as expressões lambda especificadas pelo utilizador.
 
 ## <a name="getting-started"></a>Introdução 
 Consulte os subtópicos do lado esquerdo para obter documentação detalhada.  Tenha em atenção que, para melhorar a legibilidade dos exemplos, as chamadas de REST API contêm carateres (por exemplo, espaços), que não possuem codificação URL.  O seu código terá de aplicar as codificações URL apropriadas.
