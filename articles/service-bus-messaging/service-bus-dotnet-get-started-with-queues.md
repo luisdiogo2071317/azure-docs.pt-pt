@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 30ff970a1f6243bbba6aa42046cf6e08c808f4e5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 0d3cbc83c5d2558d7eba3de897477814df81893c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068865"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242437"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 
@@ -40,7 +40,7 @@ Este tutorial contém os seguintes passos:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Criar um espaço de nomes com o Portal do Azure
+## <a name="create-a-namespace-using-the-azure-portal"></a>Criar um espaço de nomes com o Portal do Azure
 
 > [!NOTE] 
 > Também pode criar um espaço de nomes do Service Bus e entidades de mensagens com o [PowerShell](/powershell/azure/get-started-azureps). Para obter mais informações, veja [Use PowerShell to manage Service Bus resources (Utilizar o PowerShell para gerir recursos do Service Bus)](service-bus-manage-with-ps.md).
@@ -49,13 +49,13 @@ Se já tiver criado um espaço de nomes das mensagens do Service Bus, avance par
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Criar uma fila com o Portal do Azure
+## <a name="create-a-queue-using-the-azure-portal"></a>Criar uma fila com o Portal do Azure
 
 Se já tiver criado uma fila do Service Bus, avance para a secção [Enviar mensagens para a fila](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3. Enviar mensagens para a fila
+## <a name="send-messages-to-the-queue"></a>Enviar mensagens para a fila
 
 Para enviar mensagens para a fila, escreva uma aplicação de consola C# com o Visual Studio.
 
@@ -214,7 +214,7 @@ Abra o Visual Studio e crie um novo projeto de **Console App (.NET Core) (Aplica
    
       ![Tamanho da mensagem][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4. Receber mensagens da fila
+## <a name="receive-messages-from-the-queue"></a>Receber mensagens da fila
 
 Para receber as mensagens que acabou de enviar, crie outra aplicação de consola .NET Core e instale o pacote NuGet **Microsoft.Azure.ServiceBus**, semelhante à aplicação do remetente anterior.
 

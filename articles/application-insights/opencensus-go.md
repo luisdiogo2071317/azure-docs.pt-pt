@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 64e49dee5bf560dec263e67daa3c130a0ba8b40c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165538"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420953"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Recolher rastreios de distribuída a partir do Go (pré-visualização)
 
@@ -22,7 +22,7 @@ O Application Insights agora suporta distribuídas de aplicações do Go atravé
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Precisa de uma subscrição do Azure.
+- Precisa de uma Subscrição do Azure.
 - Deve ser instalado o Go, este artigo utiliza a versão 1.11 [ir transferir](https://golang.org/dl/).
 - Siga as instruções para instalar o [reencaminhador local como um serviço do Windows](./opencensus-local-forwarder.md#windows-service).
 
@@ -208,7 +208,7 @@ Primeiro tem de criar um recurso do Application Insights que irá gerar uma chav
 
     Uma vez que estamos apenas foram rastrear uma chamada de método, nosso mapa da aplicação não é tão interessante. Mas o mapa da aplicação pode ser dimensionado para visualizar as aplicações distribuídas muito mais:
 
-   ![Mapeamento de Aplicações](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Mapeamento de Aplicações](media/opencensus-go/application-map.png)
 
 4. Selecione **investigar desempenho** para efetuar a análise detalhada do desempenho e determinar a causa de raiz de um desempenho lento.
 

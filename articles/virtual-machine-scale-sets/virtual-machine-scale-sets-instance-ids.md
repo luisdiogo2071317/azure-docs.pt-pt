@@ -1,9 +1,9 @@
 ---
-title: Compreender os IDs de instância para as VMs de conjunto de dimensionamento de VM do Azure | Microsoft Docs
-description: Compreender que as VMs de conjunto de IDs de instância para o dimensionamento de VM do Azure
+title: Compreender os IDs de instância para VMs do conjunto de dimensionamento de VM do Azure | Documentos da Microsoft
+description: Compreender a que VMS do conjunto de IDs de instância para o dimensionamento de VM do Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
-ms.author: negat
-ms.openlocfilehash: 3a43dc86f1fb53dfde4bce3938faaa30e18f5a6d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: manayar
+ms.openlocfilehash: f15b2154c1bac4d699af91980a4bc2a7192bb0c9
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29742777"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740880"
 ---
-# <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Compreender que as VMs de conjunto de IDs de instância para o dimensionamento de VM do Azure
-Este artigo descreve os IDs de instância para conjuntos de dimensionamento e as várias formas que superfície.
+# <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Compreender a que VMS do conjunto de IDs de instância para o dimensionamento de VM do Azure
+Este artigo descreve os IDs de instância para conjuntos de dimensionamento e as várias formas de superfície eles.
 
-## <a name="scale-set-instance-ids"></a>Os IDs de instância de conjunto de dimensionamento
+## <a name="scale-set-instance-ids"></a>IDs de instância de conjunto de dimensionamento
 
-Cada VM num conjunto de dimensionamento obtém um ID de instância que identifica exclusivamente. Conjunto de VM na escala desta instância que ID é utilizado no conjunto de dimensionamento APIs para efetuar operações numa específica. Por exemplo, pode especificar um ID de instância específica a recriação de imagem quando utilizar a API de recriação de imagem:
+Cada VM num conjunto de dimensionamento obtém um ID de instância que identifica de forma exclusiva. Esta instância que ID é usado no conjunto de dimensionamento APIs para fazer operações específicas de uma conjunto de VM à escala. Por exemplo, pode especificar um ID de instância específica de recriação de imagem, ao utilizar a API de recriação de imagem:
 
-API de REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para obter mais informações, consulte o [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
+REST API: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/reimage?api-version={apiVersion}` (para obter mais informações, consulte a [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage))
 
-PowerShell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para obter mais informações, consulte o [Powershell documentação](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
+PowerShell: `Set-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para obter mais informações, consulte a [documentação do Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmssvm))
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para obter mais informações, consulte o [documentação CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage)).
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para obter mais informações, consulte a [documentação da CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_reimage)).
 
-Pode obter a lista de IDs de instância enumerando todas as instâncias num conjunto de dimensionamento:
+Pode obter a lista de IDs de instância listando todas as instâncias num conjunto de dimensionamento:
 
-API de REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (para obter mais informações, consulte o [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
+REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (para obter mais informações, consulte a [documentação da REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
 
-PowerShell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para obter mais informações, consulte o [Powershell documentação](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
+PowerShell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para obter mais informações, consulte a [documentação do Powershell](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para obter mais informações, consulte o [documentação CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances)).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para obter mais informações, consulte a [documentação da CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances)).
 
-Também pode utilizar [resources.azure.com](https://resources.azure.com) ou [Azure SDKs](https://azure.microsoft.com/downloads/) para listar as VMs num conjunto de dimensionamento.
+Também pode utilizar [resources.azure.com](https://resources.azure.com) ou o [SDKs do Azure](https://azure.microsoft.com/downloads/) para listar as VMs num conjunto de dimensionamento.
 
-A apresentação de saída exata depende as opções de que fornecer ao comando, mas eis algumas saídas de exemplo a partir da CLI do:
+A apresentação exata da saída depende as opções de que fornecer ao comando, mas eis algumas saídas de exemplo a partir da CLI:
 
 ```
 $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
@@ -60,22 +60,22 @@ $ az vmss show -g {resourceGroupName} -n {vmScaleSetName}
     .
 ```
 
-Como pode ver, a propriedade de "instanceId" é apenas um número decimal. A instância IDs pode ser reutilizada para novas instâncias depois instâncias antigas são eliminadas.
+Como pode ver, a propriedade de "instanceId" é apenas um número decimal. A instância IDs pode ser reutilizada para novas instâncias, uma vez antigas instâncias são eliminadas.
 
 >[!NOTE]
-> Não há **nenhuma garantia** na instância de forma IDs atribuídos às VMs no conjunto de dimensionamento. Estes poderão parecer sequencialmente crescente por vezes, mas tal nem sempre é o caso. Não execute uma dependência de forma específica na qual os IDs de instância são atribuídos às VMs.
+> Há **nenhuma garantia** na instância de forma IDs são atribuídos às VMs no conjunto de dimensionamento. Eles podem parecer sequencialmente crescentes às vezes, mas isso nem sempre é o caso. Tem uma dependência de forma específica, em que os IDs de instância são atribuídos às VMs.
 
-## <a name="scale-set-vm-names"></a>Os nomes de VM de conjunto de dimensionamento
+## <a name="scale-set-vm-names"></a>Nomes de VMS de conjunto de dimensionamento
 
-Na saída de exemplo acima, há também um "name" para a VM. Este nome assume a forma "{nome de conjunto de dimensionamento} _ {id de instância}". Este nome é aquele que vir no portal do Azure quando listar as instâncias num conjunto de dimensionamento:
+Na saída do exemplo acima, também há um "name" para a VM. Este nome assume a forma "{dimensionamento-set-name} _ {instância-id}". Este nome é o que veem no portal do Azure quando listar instâncias num conjunto de dimensionamento:
 
 ![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
-A parte {id de instância} com o nome é o mesmo número decimal que a propriedade de "instanceId" discutido anteriormente.
+A parte de {id de instância} do nome é o mesmo número decimal que a propriedade de "instanceId" discutido anteriormente.
 
 ## <a name="instance-metadata-vm-name"></a>Nome da VM de metadados de instância
 
-Se consultar o [instância metadados](../virtual-machines/windows/instance-metadata-service.md) de dentro de um conjunto de dimensionamento VM, verá um "name" na saída:
+Se consultar a [metadados de instância](../virtual-machines/windows/instance-metadata-service.md) de dentro de um conjunto de dimensionamento de VM, verá um "name" na saída:
 
 ```
 {
@@ -89,11 +89,11 @@ Se consultar o [instância metadados](../virtual-machines/windows/instance-metad
 
 Este nome é igual ao nome discutido anteriormente.
 
-## <a name="scale-set-vm-computer-name"></a>Nome do computador VM de conjunto de dimensionamento
+## <a name="scale-set-vm-computer-name"></a>Nome do computador VM do conjunto de dimensionamento
 
-Cada VM com uma escala definir também obtém um nome de computador atribuído ao mesmo. Este nome de computador é o nome do anfitrião da VM no [resolução dentro da rede virtual de nomes de DNS fornecidos pelo Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Este nome de computador tem o formato "{computer-name-prefix}{base-36-instance-id}".
+Cada VM num conjunto de dimensionamento obtém um nome de computador atribuído a ele. Este nome de computador é o nome do anfitrião da VM no [resolução dentro da rede virtual de nomes de DNS fornecida pelo Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Este nome de computador é o formato "{computer-name-prefix}{base-36-instance-id}".
 
-O {base-36--id de instância} está a ser [base 36](https://en.wikipedia.org/wiki/Base36) e é sempre seis dígitos de comprimento. Se a representação 36 base do número demora menos de seis dígitos, o {base-36--id de instância} será preenchido com zeros para torná-lo seis dígitos de comprimento. Por exemplo, uma instância com {prefixo de nome de computador} "nsgvmss" e de instância ID 85 tem computador. o nome "nsgvmss00002D".
+O {base-36-instância-id} está [basear 36](https://en.wikipedia.org/wiki/Base36) e é sempre seis dígitos de comprimento. Se a representação de 36 base do número leva menos de seis dígitos, o {base-36-instância-id} é preenchido com zeros para torná-lo seis dígitos de comprimento. Por exemplo, uma instância com {prefixo de nome de computador} "nsgvmss" e instância ID 85 terão computador. o nome "nsgvmss00002D".
 
 >[!NOTE]
-> O prefixo de nome do computador é uma propriedade do modelo de conjunto de dimensionamento, que pode definir, pelo que pode ser diferente do nome do conjunto de dimensionamento em si.
+> O prefixo do nome do computador é uma propriedade do modelo de conjunto de dimensionamento, que pode definir, pelo que pode ser diferente do nome do conjunto de dimensionamento em si.

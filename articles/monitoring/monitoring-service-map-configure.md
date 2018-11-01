@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249013"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419525"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -172,7 +172,7 @@ Para obter mais informações sobre a recolha de dados e a utilização, consult
 
 ## <a name="installation"></a>Instalação
 
-## <a name="azure-vm-extension"></a>Extensão de VM do Azure
+### <a name="azure-vm-extension"></a>Extensão de VM do Azure
 Existe uma extensão disponível para Windows (DependencyAgentWindows) e o Linux (DependencyAgentLinux) e pode facilmente implementar o agente de dependência para o seu VMs do Azure com um [extensão de VM do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Com a extensão de VM do Azure, pode implementar o agente de dependência para o Windows e VMs do Linux utilizar um script de PowerShell ou diretamente na VM com um modelo do Azure Resource Manager.  Se implementar o agente com a extensão de VM do Azure, os agentes são automaticamente atualizados para a versão mais recente.
 
 Para implementar a extensão de VM do Azure com o PowerShell, pode utilizar o exemplo seguinte:

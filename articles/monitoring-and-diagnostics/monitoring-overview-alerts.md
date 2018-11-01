@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960639"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413865"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -23,7 +23,7 @@ Este artigo descreve quais os alertas são, seus benefícios e como começar a u
 ## <a name="what-are-alerts-in-microsoft-azure"></a>O que são alertas no Microsoft Azure?
 Alertas de forma proativa notificá-lo quando importante condições forem encontradas nos seus dados de monitorização. Eles permitem que identificar e resolver problemas antes dos utilizadores do seu sistema tenha em atenção-los. 
 
-Este artigo aborda a experiência unificada de alerta no Azure Monitor, que inclui agora o Log Analytics e Application Insights. O [experiência anterior de alerta](monitoring-overview-alerts.md)e são chamados de tipos de alerta **alertas clássicos**. Pode ver esta experiência anterior e o tipo de alerta mais antigo, clicando em **ver alertas clássicos** na parte superior da página do alerta. 
+Este artigo aborda a experiência unificada de alerta no Azure Monitor, que inclui agora o Log Analytics e Application Insights. O [experiência anterior de alerta](monitoring-overview-alerts.md) e são chamados de tipos de alerta **alertas clássicos**. Pode ver esta experiência anterior e o tipo de alerta mais antigo, clicando em **ver alertas clássicos** na parte superior da página do alerta.
 
 
 ## <a name="overview"></a>Descrição geral
@@ -95,9 +95,9 @@ Selecione os seguintes valores na parte superior da página de alertas para abri
 
 | Valor | Descrição |
 |:---|:---|
-| Total de alertas | O número total de alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a vista de todos os alertas com nenhum filtro. |
+| Alertas totais | O número total de alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a vista de todos os alertas com nenhum filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criadas a partir os alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a lista de grupos inteligente na vista de todos os alertas.
-| Total de regras de alerta | O número total de regras de alerta do grupo de recursos e subscrição selecionados. Selecione este valor para abrir a vista de regras filtrado com base na subscrição selecionada e o grupo de recursos.
+| Regras de alertas totais | O número total de regras de alerta do grupo de recursos e subscrição selecionados. Selecione este valor para abrir a vista de regras filtrado com base na subscrição selecionada e o grupo de recursos.
 
 
 ## <a name="manage-alert-rules"></a>Gere regras do alerta

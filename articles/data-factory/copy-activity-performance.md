@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002250"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416941"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copie o guia de Otimização e desempenho de atividade
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Como uma referência, a tabela a seguir mostra o número do débito de cópia **
 Pontos a serem observados:
 
 * Débito é calculado utilizando a seguinte fórmula: [ler tamanho dos dados de origem] / [duração de execução da atividade cópia].
-* Os números de referência de desempenho na tabela foram medidos usando [TPC-H](http://www.tpc.org/tpch/) conjunto de dados numa execução de atividade de cópia única.
+* Os números de referência de desempenho na tabela foram medidos usando [TPC-H](http://www.tpc.org/tpch/) conjunto de dados numa execução de atividade de cópia única. Ficheiros de teste para arquivos baseados em ficheiros são vários ficheiros com 10GB de tamanho.
 * Nos arquivos de dados do Azure, a origem e sink são na mesma região do Azure.
 * Para obter uma cópia entre no local e na cloud híbrida armazenamentos de dados, cada nó do Integration Runtime autoalojado estava em execução num computador que estava separado do arquivo de dados com abaixo especificação. Quando uma única atividade estiver em execução, a operação de cópia consumido apenas uma pequena parte de CPU, memória ou largura de banda de rede da máquina de teste.
     <table>
@@ -76,7 +76,7 @@ Pontos a serem observados:
 
 
 > [!TIP]
-> Pode alcançar um débito mais elevado ao utilizar a mais dados integração unidades (DIU) que não o predefinido permitido DIUs máximos, o que são 32 para uma atividade de cópia de cloud-para-cloud executar. Por exemplo, com 100 DIUs, pode conseguir copiar dados de Blobs do Azure para o Azure Data Lake Store na **1.0GBps**. Consulte a [unidades de integração de dados](#data-integration-units) secção para obter detalhes sobre esta funcionalidade e o cenário suportado. Contacte [suporte do Azure](https://azure.microsoft.com/support/) para solicitar mais DIUs.
+> Pode alcançar um débito mais elevado ao utilizar unidades de integração de dados mais (DIU). Por exemplo, com 100 DIUs, pode conseguir copiar dados de Blobs do Azure para o Azure Data Lake Store na **1.0GBps**. Consulte a [unidades de integração de dados](#data-integration-units) secção para obter detalhes sobre esta funcionalidade e o cenário suportado. 
 
 ## <a name="data-integration-units"></a>Unidades de integração de dados
 
@@ -94,7 +94,7 @@ Para substituir esta predefinição, especifique um valor para o **dataIntegrati
 Pode ver as unidades de integração de dados, na verdade, utilizado para cada executada da atividade de cópia de saída ao monitorizar uma execução de atividade de cópia. Conheça os detalhes da [copiar a monitorização da atividade](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Se precisar de mais DIUs um débito mais elevado, contacte [suporte do Azure](https://azure.microsoft.com/support/). Definição de 8 e superior funciona atualmente apenas quando é **copiar vários ficheiros de Blob storage/Data Lake Store/Amazon S3/nuvem FTP/nuvem SFTP para quaisquer outros arquivos de dados de nuvem**.
+> Definição de DIUs **superior a 4** atualmente funciona apenas quando **copiar vários ficheiros de armazenamento de BLOBs/Data Lake armazenamento/Amazon S3/nuvem FTP/nuvem SFTP para quaisquer outros dados de cloud armazena.**.
 >
 
 **Exemplo:**
@@ -248,7 +248,7 @@ Sugerimos que siga estes passos para otimizar o desempenho do seu serviço do Da
      * [Escalabilidade do Runtime de integração autoalojada](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Runtime de integração autoalojado](#considerations-for-self-hosted-integration-runtime)
    * [Origem](#considerations-for-the-source)
-   * [Sink](#considerations-for-the-sink)
+   * [sink](#considerations-for-the-sink)
    * [Serialização e desserialização](#considerations-for-serialization-and-deserialization)
    * [Compressão](#considerations-for-compression)
    * [Mapeamento de colunas](#considerations-for-column-mapping)

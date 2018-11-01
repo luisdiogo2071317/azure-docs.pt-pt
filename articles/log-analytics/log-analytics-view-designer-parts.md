@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043299"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419780"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência a partes de visualização do estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados da sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
@@ -50,7 +50,7 @@ As secções seguintes descrevem os tipos de mosaico e as respetivas propriedade
 ## <a name="list-of-queries-part"></a>Lista de parte de consultas
 A lista de parte de consultas apresenta uma lista de consultas de pesquisa de registo. Pode selecionar cada consulta para exibir os resultados. A vista inclui uma única consulta, por predefinição e pode selecionar **+ consulta** adicionar consultas adicionais.
 
-![Lista de vista de consultas](media/log-analytics-view-designer/view-list-queries.png)
+![Lista de vista de consultas](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -66,7 +66,7 @@ A lista de parte de consultas apresenta uma lista de consultas de pesquisa de re
 ## <a name="number-and-list-part"></a>Parte do número e lista
 O cabeçalho apresenta um único número, que mostra uma contagem de registos de uma consulta de pesquisa de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
 
-![Lista de vista de consultas](media/log-analytics-view-designer/view-number-list.png)
+![Lista de vista de consultas](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -95,7 +95,7 @@ O cabeçalho apresenta um único número, que mostra uma contagem de registos de
 ## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
 O cabeçalho tem dois números que mostra uma contagem de registos de consultas de pesquisa de registo separado. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
 
-![Ver os dois números & lista](media/log-analytics-view-designer/view-two-numbers-list.png)
+![Ver os dois números & lista](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -126,7 +126,7 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 ## <a name="donut-and-list-part"></a>Parte do anel e lista
 O cabeçalho apresenta um único número que resume uma coluna de valor numa consulta de registo. Anel apresenta graficamente os resultados dos registos de três principais.
 
-![Vista de anel e lista](media/log-analytics-view-designer/view-donut-list.png)
+![Vista de anel e lista](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -167,7 +167,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 ## <a name="two-timelines-and-list-part"></a>Parte dois de linhas cronológicas e lista
 O cabeçalho apresenta os resultados de duas consultas de registo ao longo do tempo, como gráficos de colunas, com uma nota de aviso que exibe um único número que resume uma coluna de valor numa consulta de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
 
-![Ver duas linhas cronológicas e lista](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Ver duas linhas cronológicas e lista](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -199,7 +199,7 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 ## <a name="information-part"></a>Parte da informação
 O cabeçalho exibe texto estático e uma ligação opcional. A lista apresenta um ou mais itens com um título estático e o texto.
 
-![Vista de informações](media/log-analytics-view-designer/view-information.png)
+![Vista de informações](media/log-analytics-view-designer-parts/view-information.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -220,7 +220,7 @@ O cabeçalho exibe texto estático e uma ligação opcional. A lista apresenta u
 ## <a name="line-chart-callout-and-list-part"></a>Gráfico de linhas, nota de aviso e parte da lista
 O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta de registo ao longo do tempo e uma nota de aviso com um valor resumido. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
 
-![Gráfico de linhas, nota de aviso e vista de lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Gráfico de linhas, nota de aviso e vista de lista](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -260,7 +260,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 ## <a name="line-chart-and-list-part"></a>Parte de gráfico e a lista de linha
 O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta de registo ao longo do tempo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
 
-![Vista de lista e gráfico de linha](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vista de lista e gráfico de linha](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -296,7 +296,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 ## <a name="stack-of-line-charts-part"></a>Pilha de parte de gráficos de linha
 A pilha do gráfico de linhas apresenta três gráficos de linha separado, com várias séries de uma consulta de registo ao longo do tempo, conforme mostrado aqui:
 
-![Pilha de gráficos de linhas](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Pilha de gráficos de linhas](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Definição | Descrição |
 |:--- |:--- |

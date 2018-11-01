@@ -1,26 +1,19 @@
 ---
-title: 'Configurar filtros de rota para peering de ExpressRoute ao Microsoft Azure: PowerShell | Microsoft Docs'
-description: Este artigo descreve como configurar filtros de rota para Peering da Microsoft através do PowerShell
+title: 'Configurar filtros de rota para peering da Microsoft de ExpressRoute do Azure: PowerShell | Documentos da Microsoft'
+description: Este artigo descreve como configurar filtros de rota para Peering da Microsoft com o PowerShell
 documentationcenter: na
 services: expressroute
 author: ganesr
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: 6e767166ecf248aa0e7fc16dc21361394e03107d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d4ef500185675ab84485c5dd6a9af4034c57b060
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593496"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419270"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar filtros de rota para peering da Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -29,122 +22,120 @@ ms.locfileid: "31593496"
 > * [CLI do Azure](how-to-routefilter-cli.md)
 > 
 
-Filtros de rota são uma forma para consumir um subconjunto de serviços suportados através do peering da Microsoft. Os passos neste artigo ajudam a configurar e gerir filtros de rota para circuitos do ExpressRoute.
+Os filtros de rota são uma forma de consumir um subconjunto de serviços suportados através do peering da Microsoft. Os passos neste artigo ajudam-na configurar e gerir filtros de rota para circuitos do ExpressRoute.
 
-Serviços de Dynamics 365 e serviços do Office 365, como o Exchange Online, SharePoint Online e Skype para empresas e serviços público do Azure, tais como o armazenamento e a base de dados SQL estão acessíveis através do peering da Microsoft. Serviços de público do Azure são selecionáveis numa base por região e não pode ser definidos por serviço público. 
+Serviços do Dynamics 365 e serviços do Office 365 como o Exchange Online, SharePoint Online e Skype para empresas e serviços público do Azure, como o armazenamento e BD SQL estão acessíveis através do peering da Microsoft. Serviços público do Azure são selecionáveis numa base por região e não pode ser definidos por serviço público. 
 
-Quando o peering da Microsoft está configurado num circuito ExpressRoute e está ligado um filtro de rota, todos os prefixos estão selecionados para estes serviços são anunciados através de que são estabelecidas sessões de BGP. Um valor das Comunidades de BGP está anexado a cada prefixo para identificar o serviço que é fornecido através de prefixo. Para obter uma lista dos valores das Comunidades BGP e os serviços que mapeiam para, consulte [Comunidades BGP](expressroute-routing.md#bgp).
+Quando o peering da Microsoft está configurado num circuito do ExpressRoute e está ligado um filtro de rota, todos os prefixos estão selecionados para estes serviços são anunciados através as sessões de BGP estabelecidas. Está anexado um valor da comunidade BGP a cada prefixo para identificar o serviço oferecido através do prefixo. Para obter uma lista de valores das Comunidades do BGP e os serviços podem ser mapeados para, consulte [Comunidades do BGP](expressroute-routing.md#bgp).
 
-Se necessitar de conectividade a todos os serviços, um grande número de prefixos está anunciado através da BGP. Isto aumenta significativamente o tamanho das tabelas de rota mantida por routers na sua rede. Se planear consumir apenas um subconjunto de serviços fornecidos via peering da Microsoft, pode reduzir o tamanho das suas tabelas de rota de duas formas. Pode:
+Se precisar de uma conectividade a todos os serviços, um grande número de prefixos é anunciado através do BGP. Isto aumenta significativamente o tamanho das tabelas de rota mantido por routers na sua rede. Se planear consumir apenas um subconjunto de serviços oferecidos através do peering da Microsoft, pode reduzir o tamanho de suas tabelas de rota de duas formas. Pode:
 
-- Filtre prefixos indesejáveis aplicando filtros de rota no Comunidades BGP. Esta é uma prática padrão de rede e é utilizada frequentemente no diversas redes.
+- Filtre prefixos indesejados ao aplicar filtros de rota em Comunidades BGP. Esta é uma prática padrão de rede e é usada normalmente muitas redes.
 
-- Definir os filtros de rota e aplicá-las para o circuito do ExpressRoute. Um filtro de rota é um novo recurso, que lhe permite selecionar a lista de serviços que planear consumir através do peering da Microsoft. Routers de ExpressRoute enviam apenas a lista de prefixos que pertencem aos serviços identificados no filtro de rota.
+- Definir filtros de rota e aplicá-las para o seu circuito do ExpressRoute. Um filtro de rota é um novo recurso que permite selecionar a lista de serviços que pretende consumir através do peering da Microsoft. Routers de ExpressRoute apenas enviam a lista de prefixos que pertencem aos serviços identificados no filtro de rota.
 
-### <a name="about"></a>Sobre os filtros de rotas
+### <a name="about"></a>Sobre filtros de rota
 
-Quando o peering da Microsoft está configurado no seu circuito do ExpressRoute, os routers de limite de Microsoft estabelecer um par de sessões de BGP com os routers de limite (seu ou o fornecedor de conectividade). Não existem rotas estão anunciadas à sua rede. Para ativar os anúncios de rota à sua rede, tem de associar um filtro de rota.
+Se o peering da Microsoft é configurado no seu circuito do ExpressRoute, os routers de limite de Microsoft estabelecem um par de sessões BGP com os routers de limite (sua ou seu fornecedor de conectividade). Não são anunciadas rotas à sua rede. Para ativar anúncios de rota para a sua rede, tem de associar um filtro de rota.
 
-Um filtro de rota permite-lhe identificar os serviços que pretende consumir através do peering da Microsoft do circuito do ExpressRoute. É essencialmente uma lista de permissão de todos os valores de Comunidades BGP. Depois de um recurso de filtro de rota é definido e ligado a um circuito do ExpressRoute, todos os prefixos que mapeiam para os valores das Comunidades BGP estão anunciados à sua rede.
+Um filtro de rota permite-lhe identificar os serviços que deseja consumir através do peering da Microsoft do circuito do ExpressRoute. É essencialmente uma lista de permissões de todos os valores da comunidade BGP. Depois de um recurso de filtro de rota ser definido e anexado a um circuito do ExpressRoute, todos os prefixos que mapeiam para os valores da comunidade BGP são anunciados à sua rede.
 
-Ser capaz de ligar os filtros de rotas com serviços do Office 365 nos mesmos, tem de ter autorização para consumir os serviços do Office 365 através do ExpressRoute. Se não está autorizado a consumir os serviços do Office 365 através do ExpressRoute, a operação ligar filtros de rota falhar. Para mais informações sobre o processo de autorização, consulte [Azure ExpressRoute para o Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). A conectividade aos serviços de Dynamics 365 não requer qualquer autorização anterior.
+Para poder-se de que filtros de rota com serviços do Office 365 nos mesmos de anexar, tem de ter autorização para consumir os serviços do Office 365 através do ExpressRoute. Se não está autorizado a consumir os serviços do Office 365 através do ExpressRoute, a operação para anexar os filtros de rota falhará. Para obter mais informações sobre o processo de autorização, consulte [Azure ExpressRoute para o Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd). Conectividade dos serviços do Dynamics 365 não requer qualquer autorização anterior.
 
 > [!IMPORTANT]
-> Peering da Microsoft dos circuitos ExpressRoute que foram configurados antes de 1 de Agosto de 2017, terá todos os serviço prefixos anunciados através da Microsoft, peering, mesmo se os filtros de rota não estão definidos. Peering da Microsoft dos circuitos ExpressRoute que estão configurados em ou após 1 de Agosto de 2017 não terão qualquer prefixos anunciados até um filtro de rota está ligado ao circuito.
+> Peering da Microsoft dos circuitos do ExpressRoute que foram configurados antes de 1 de Agosto de 2017, terá todos os serviço prefixos anunciados através de peering, da Microsoft, mesmo se os filtros de rota não estão definidos. Peering da Microsoft dos circuitos do ExpressRoute que estão configurados em ou depois de 1 de Agosto de 2017 não terão qualquer prefixos anunciados até que um filtro de rota é anexado ao circuito.
 > 
 > 
 
 ### <a name="workflow"></a>Workflow
 
-Para conseguir ligar com êxito aos serviços através do peering da Microsoft, tem de concluir os seguintes passos de configuração:
+Para poder ligar com êxito aos serviços através do peering da Microsoft, tem de concluir os seguintes passos de configuração:
 
 - Tem de ter um circuito ExpressRoute ativo que tenha aprovisionado de peering da Microsoft. Pode utilizar as seguintes instruções para realizar estas tarefas:
-  - [Criar um circuito ExpressRoute](expressroute-howto-circuit-arm.md) e tem de ativar o circuito pelo seu fornecedor de conectividade antes de continuar. O circuito ExpressRoute tem de estar num Estado aprovisionado e ativado.
-  - [Criar peering da Microsoft](expressroute-circuit-peerings.md) se gerir diretamente a sessão de BGP. Ou, solicite ao seu fornecedor de conectividade aprovisionar o peering da Microsoft para o seu circuito.
+  - [Criar um circuito do ExpressRoute](expressroute-howto-circuit-arm.md) e ter o circuito ativado pelo seu fornecedor de conectividade antes de continuar. O circuito do ExpressRoute tem de estar num Estado aprovisionado e ativado.
+  - [Criar o peering da Microsoft](expressroute-circuit-peerings.md) se gerir diretamente a sessão de BGP. Ou, ter o seu fornecedor de conectividade aprovisionar o peering da Microsoft para o seu circuito.
 
 -  Tem de criar e configurar um filtro de rota.
-    - Identificar os serviços que com consumir através do peering da Microsoft
-    - Identifique a lista de valores das Comunidades BGP associado aos serviços
-    - Criar uma regra para permitir a lista de prefixo correspondente os valores das Comunidades do BGP
+    - Identificar os serviços que com a consumir através do peering da Microsoft
+    - Identificar a lista de valores de Comunidade do BGP associado aos serviços
+    - Criar uma regra para permitir que a lista de prefixo que corresponda os valores de Comunidade do BGP
 
--  Terá de ligar o filtro de rota para o circuito do ExpressRoute.
+-  Terá de anexar o filtro de rota ao circuito do ExpressRoute.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Antes de iniciar a configuração, certifique-se de que satisfazem os seguintes critérios:
+Antes de iniciar a configuração, certifique-se de que cumpre os seguintes critérios:
 
- - Instale a versão mais recente dos cmdlets do PowerShell do Azure Resource Manager. Para obter mais informações, veja [nstall and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-azurerm-ps).
+ - Reveja os [pré-requisitos](expressroute-prerequisites.md) e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 
-  > [!NOTE]
-  > Transfira a versão mais recente a partir da galeria do PowerShell, em vez de utilizarem o instalador. O instalador não suporta atualmente os cmdlets necessários.
-  > 
+ - Deve ter um circuito ExpressRoute ativo. Siga as instruções para [Criar um circuito ExpressRoute](expressroute-howto-circuit-arm.md) e solicite ao seu fornecedor de conectividade para ativar o circuito antes de continuar. O circuito do ExpressRoute tem de estar num Estado aprovisionado e ativado.
 
- - Reveja o [pré-requisitos](expressroute-prerequisites.md) e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
+ - Tem de ter um peering da Microsoft Active Directory. Siga as instruções no [criar e modificar a configuração do peering](expressroute-circuit-peerings.md) artigo.
 
- - Deve ter um circuito ExpressRoute ativo. Siga as instruções para [Criar um circuito ExpressRoute](expressroute-howto-circuit-arm.md) e solicite ao seu fornecedor de conectividade para ativar o circuito antes de continuar. O circuito ExpressRoute tem de estar num Estado aprovisionado e ativado.
 
- - Tem de ter um peering da Microsoft Active Directory. Siga as instruções apresentadas em [criar e modificar a configuração do peering](expressroute-circuit-peerings.md)
+### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ### <a name="log-in-to-your-azure-account"></a>Iniciar sessão na sua conta do Azure
 
 Antes de iniciar esta configuração, deve iniciar sessão na conta do Azure. O cmdlet pede-lhe as credenciais de início de sessão da conta Azure. Após iniciar sessão, são transferidas as definições da conta para que fiquem disponíveis para o Azure PowerShell.
 
-Abra a consola do PowerShell com privilégios elevados e ligue-se à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
+Abra a consola do PowerShell com privilégios elevados e ligue-se à sua conta. Utilize o seguinte exemplo para o ajudar a ligar. Se estiver a utilizar o Azure Cloud Shell, não precisa de executar este cmdlet, como irá automaticamente iniciar sessão.
 
-```powershell
+```azurepowershell
 Connect-AzureRmAccount
 ```
 
 Se tiver múltiplas subscrições do Azure, verifique as subscrições da conta.
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmSubscription
 ```
 
 Especifique a subscrição que pretende utilizar.
 
-```powershell
+```azurepowershell-interactive
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>Passo 1: Obter uma lista de prefixos e os valores das Comunidades BGP
+## <a name="prefixes"></a>Passo 1: Obter uma lista de prefixos e valores de Comunidade do BGP
 
-### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores das Comunidades BGP
+### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores de Comunidade do BGP
 
-Utilize o cmdlet seguinte para obter a lista de valores das Comunidades BGP associados a serviços acessíveis através do peering da Microsoft e a lista de prefixos associadas:
+Utilize o cmdlet seguinte para obter a lista de valores de Comunidade do BGP associados aos serviços acessíveis através do peering da Microsoft e a lista de prefixos associadas a eles:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmBgpServiceCommunity
 ```
-### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Se uma lista de valores que pretende utilizar
+### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2. Fazer uma lista dos valores que pretende utilizar
 
-Se uma lista dos valores das Comunidades BGP que pretende utilizar no filtro de rota. Por exemplo, o valor das Comunidades de BGP para os serviços de Dynamics 365 é 12076:5040.
+Faça uma lista de valores de Comunidade do BGP que pretende utilizar no filtro de rota. Por exemplo, o valor de Comunidade do BGP para os serviços do Dynamics 365 é 12076:5040.
 
 ## <a name="filter"></a>Passo 2: Criar um filtro de rota e uma regra de filtro
 
-Um filtro de rota pode ter apenas uma regra e, a regra tem de ser do tipo 'Permitir'. Esta regra pode ter uma lista dos valores das Comunidades BGP associados à mesma.
+Um filtro de rota pode ter apenas uma regra e, a regra tem de ser do tipo "Permitir". Esta regra pode ter uma lista de valores de Comunidade do BGP associados a ele.
 
 ### <a name="1-create-a-route-filter"></a>1. Criar um filtro de rota
 
-Em primeiro lugar, crie o filtro de rota. O comando 'New-AzureRmRouteFilter' apenas cria um recurso de filtro de rota. Depois de criar o recurso, deve, em seguida, criar uma regra e anexe-o para o objeto de filtro de rota. Execute o seguinte comando para criar um recurso de filtro de rota:
+Primeiro, crie o filtro de rota. O comando 'New-AzureRmRouteFilter' apenas cria um recurso de filtro de rota. Depois de criar o recurso, tem, em seguida, criar uma regra e anexá-lo para o objeto de filtro de rota. Execute o seguinte comando para criar um recurso de filtro de rota:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup" -Location "West US"
 ```
 
 ### <a name="2-create-a-filter-rule"></a>2. Criar uma regra de filtro
 
-Pode especificar um conjunto de Comunidades BGP como uma lista separada por vírgulas, conforme mostrado no exemplo. Execute o seguinte comando para criar uma nova regra:
+Pode especificar um conjunto de Comunidades BGP como uma lista separada por vírgulas, como mostrado no exemplo. Execute o seguinte comando para criar uma nova regra:
  
-```powershell
+```azurepowershell-interactive
 $rule = New-AzureRmRouteFilterRuleConfig -Name "Allow-EXO-D365" -Access Allow -RouteFilterRuleType Community -CommunityList "12076:5010,12076:5040"
 ```
 
-### <a name="3-add-the-rule-to-the-route-filter"></a>3. Adicionar a regra de filtro de rota
+### <a name="3-add-the-rule-to-the-route-filter"></a>3. Adicionar a regra para o filtro de rota
 
 Execute o seguinte comando para adicionar a regra de filtro para o filtro de rota:
  
-```powershell
+```azurepowershell-interactive
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
@@ -152,9 +143,9 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 
 ## <a name="attach"></a>Passo 3: Ligar o filtro de rota para um circuito do ExpressRoute
 
-Execute o seguinte comando para anexar o filtro de rota para o circuito do ExpressRoute, partindo do princípio que tem apenas peering da Microsoft:
+Execute o seguinte comando para anexar o filtro de rota ao circuito do ExpressRoute, pressupondo que tenha apenas peering da Microsoft:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 $ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -168,31 +159,31 @@ Para obter as propriedades de um filtro de rota, utilize os seguintes passos:
 
 1. Execute o seguinte comando para obter o recurso de filtro de rota:
 
-  ```powershell
+  ```azurepowershell-interactive
   $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
   ```
-2. Obter a rota de regras de filtro para o recurso de filtro de rota, executando o seguinte comando:
+2. Obter a rota regras do filtro para o recurso de filtro de rota ao executar o seguinte comando:
 
-  ```powershell
+  ```azurepowershell-interactive
   $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
   $rule = $routefilter.Rules[0]
   ```
 
 ### <a name="updateproperties"></a>Para atualizar as propriedades de um filtro de rota
 
-Se o filtro de rota já está ligado a um circuito, as atualizações à lista de comunidades de BGP automaticamente propagam alterações de anúncio de prefixo adequado através de estabelecer sessões de BGP. Pode atualizar a lista de Comunidades BGP do seu filtro de rota com o seguinte comando:
+Se o filtro de rota já está ligado a um circuito, atualizações para a lista de Comunidade do BGP propagarem automaticamente alterações de anúncio de prefixo adequado por meio de sessões BGP estabelecidas. Pode atualizar a lista de Comunidade do BGP de seu filtro de rota com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
 $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-### <a name="detach"></a>Anular a exposição de um filtro de rota de um circuito do ExpressRoute
+### <a name="detach"></a>Para anular a exposição de um filtro de rota de um circuito do ExpressRoute
 
-Depois de um filtro de rota é desligado do circuito ExpressRoute, nenhum prefixos estão anunciados através da sessão de BGP. Pode desanexar um filtro de rota de um circuito ExpressRoute com o seguinte comando:
+Depois de um filtro de rota é desanexado do circuito ExpressRoute, não existem prefixos são anunciados através da sessão BGP. Pode anular a exposição de um filtro de rota de um circuito do ExpressRoute com o seguinte comando:
   
-```powershell
+```azurepowershell-interactive
 $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
@@ -201,7 +192,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 Só é possível eliminar um filtro de rota, se não está ligado a qualquer circuito. Certifique-se de que o filtro de rota não está ligado a qualquer circuito antes de tentar eliminá-lo. Pode eliminar um filtro de rota com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
 

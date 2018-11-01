@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009253"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412810"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilizar o controlo de acesso baseado em funções para gerir pontos de recuperação de cópia de segurança do Azure
 O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
@@ -34,19 +34,29 @@ Se estiver procurando para definir suas próprias funções para o controle aind
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>O mapeamento de funções de cópia de segurança incorporadas para ações de gestão de cópia de segurança
 A tabela seguinte mostra as ações de gestão de cópia de segurança e correspondente função RBAC mínimo necessário para executar essa operação.
 
-| Operação de gestão | Função RBAC mínima necessária |
-| --- | --- |
-| Criar cofre dos serviços de recuperação | Contribuinte no grupo de recursos do Cofre |
-| Ativar cópia de segurança de VMs do Azure | Operador de cópia de segurança definido no âmbito do grupo de recursos com o cofre, contribuinte de Máquina Virtual em VMs |
-| Cópia de segurança a pedido da VM | Operador de cópia de segurança |
-| Restaurar VM | Operador de cópia de segurança, colaborador de grupo de recursos no qual a VM será sejam implementadas, continue a ler Vnet e Junte-se na sub-rede selecionada |
-| Restaurar discos, ficheiros individuais a partir de cópia de segurança VM | Operador de cópia de segurança, contribuinte de Máquina Virtual em VMs |
-| Criar política de cópia de segurança para cópia de segurança de VM do Azure | Contribuidor de cópia de segurança |
-| Modificar a política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de cópia de segurança |
-| Eliminar política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de cópia de segurança |
-| Parar cópia de segurança (mantendo os dados ou eliminar dados) na cópia de segurança VM | Contribuidor de cópia de segurança |
-| Registre-se no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Operador de cópia de segurança |
-| Eliminar registados no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Contribuidor de cópia de segurança |
+| Operação de gestão | Função RBAC mínima necessária | Âmbito necessário |
+| --- | --- | --- |
+| Criar cofre dos serviços de recuperação | Contribuinte | Grupo de recursos com o Cofre |
+| Ativar cópia de segurança de VMs do Azure | Operador de Cópia de Segurança | Grupo de recursos com o Cofre |
+| | Contribuinte de Máquina Virtual | Recurso de VM |
+| Cópia de segurança a pedido da VM | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
+| Restaurar VM | Operador de Cópia de Segurança | Grupo de recursos em que a VM irá ser implementada |
+| | Contribuinte de Máquina Virtual | Grupo de recursos em que a VM irá ser implementada |
+| Restaurar cópia de segurança VM de discos não geridos | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
+| | Contribuinte de Máquina Virtual | Recurso de VM |
+| | Contribuinte de Conta de Armazenamento | Recurso de conta de armazenamento |
+| Restaurar discos geridos a partir de cópia de segurança VM | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
+| | Contribuinte de Máquina Virtual | Recurso de VM |
+| | Contribuinte de Conta de Armazenamento | Recurso de conta de armazenamento |
+| | Contribuinte | Grupo de recursos para o qual o disco gerido vai ser restaurado |
+| Restaurar ficheiros individuais a partir de cópia de segurança VM | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
+| | Contribuinte de Máquina Virtual | Recurso de VM |
+| Criar política de cópia de segurança para cópia de segurança de VM do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
+| Modificar a política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
+| Eliminar política de cópia de segurança da cópia de segurança de VM do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
+| Parar cópia de segurança (mantendo os dados ou eliminar dados) na cópia de segurança VM | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
+| Registre-se no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Operador de Cópia de Segurança | Recurso do Cofre de recuperação |
+| Eliminar registados no local Windows servidor SCDPM/cliente ou servidor de cópia de segurança do Azure | Contribuidor de Cópia de Segurança | Recurso do Cofre de recuperação |
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md): começar a utilizar o RBAC no portal do Azure.

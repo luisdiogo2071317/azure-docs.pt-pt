@@ -1,5 +1,5 @@
 ---
-title: Monitorizar os serviços e aplicações do Azure com o Grafana
+title: Monitorizar serviços do Azure e as aplicações com o Grafana
 description: Dados de rota do Azure Monitor e o Application Insights para que pode vê-los numa Grafana.
 services: azure-monitor
 keywords: ''
@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957383"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413150"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorizar os serviços do Azure no Grafana
 Agora também pode monitorizar os serviços do Azure e aplicações a partir [Grafana](https://grafana.com/) utilizando o [Plug-in de origem de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho do aplicativo recolhidos pelo Application Insights SDK, bem como os dados de infraestrutura fornecidos pelo Azure Monitor. Em seguida, pode exibir esses dados no seu dashboard da Grafana.
@@ -37,13 +37,13 @@ Utilize os seguintes passos para configurar um servidor o Grafana do Azure Marke
 ## <a name="log-in-to-grafana"></a>Inicie sessão para o Grafana
 1. Depois de concluída a implementação, selecione **vá para o grupo de recursos**. É apresentada uma lista de recursos criados recentemente.
 
-    ![Objetos de grupo de recursos o Grafana](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Objetos de grupo de recursos o Grafana](media/monitor-send-to-grafana/grafana1.png)
 
     Se selecionar o grupo de segurança de rede (*grafana-nsg* neste caso), pode ver que a porta 3000 é utilizada para aceder ao servidor da Grafana.
 
 2. Volte à lista de recursos e selecione **endereço IP público**. Utilizando os valores encontrados neste ecrã, escreva *http://<IP address>: 3000* ou a  *<DNSName>: 3000* no seu browser. Deverá ver uma página de início de sessão do servidor o Grafana que acabou de criar.
 
-    ![Ecrã de início de sessão o Grafana](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Ecrã de início de sessão o Grafana](media/monitor-send-to-grafana/grafana2.png)
 
 3. Inicie sessão com o nome de utilizador como *administrador* e a senha de administrador de servidor Grafana que criou anteriormente.
 
@@ -51,7 +51,7 @@ Utilize os seguintes passos para configurar um servidor o Grafana do Azure Marke
 
 Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de dados do Azure Monitor já está incluído.
 
-![O Grafana mostra o plug-in do Azure Monitor](.\media\monitor-how-to-grafana\grafana3.png)
+![O Grafana mostra o plug-in do Azure Monitor](media/monitor-send-to-grafana/grafana3.png)
 
 1. Selecione **Adicionar origem de dados** para configurar o Azure Monitor e o Application Insights.
 
@@ -70,7 +70,7 @@ O Grafana utiliza um principal de serviço do Azure Active Directory para ligar 
 
 4. Após introduzir todas estas informações, selecione **guardar** e o Grafana testa a API. Deverá ver uma mensagem semelhante ao seguinte.  
 
-    ![O Grafana mostra o plug-in do Azure Monitor](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![O Grafana mostra o plug-in do Azure Monitor](media/monitor-send-to-grafana/grafana4-1.png)
 
 > [!NOTE]
 > Ao configurar o plug-in, pode indicar que Cloud do Azure (público, do Azure US Government, Azure Alemanha ou Azure China) gostaria de ter o plug-in para ser configurado em relação.
@@ -83,7 +83,7 @@ O Grafana utiliza um principal de serviço do Azure Active Directory para ligar 
 
 2. No novo dashboard, selecione o **Graph**. Pode experimentar outras opções de criação de gráficos, mas este artigo usa *Graph* como exemplo.
 
-    ![Novo Dashboard da Grafana](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Novo Dashboard da Grafana](media/monitor-send-to-grafana/grafana5.png)
 
 3. Um gráfico em branco aparece no seu dashboard.
 
@@ -93,14 +93,14 @@ O Grafana utiliza um principal de serviço do Azure Active Directory para ligar 
 
 Segue-se um dashboard simple com dois gráficos. Um no lado esquerdo mostra a percentagem de CPU de duas VMs. O gráfico à direita mostra as transações numa conta de armazenamento do Azure, dividida por tipo de transação de API.
 
-![O Grafana dois gráficos exemplo](.\media\monitor-how-to-grafana\grafana6.png)
+![O Grafana dois gráficos exemplo](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## <a name="optional-create-dashboard-playlists"></a>Opcional: Criar listas de reprodução do dashboard
 
 Uma das várias funcionalidades da Grafana é a lista de reprodução do dashboard. Pode criar vários dashboards e adicioná-los para configurar um intervalo para cada dashboard mostrar uma lista de reprodução. Selecione **reproduzir** para ver os dashboards percorrer. Poderá exibi-los num monitor de parede grande para fornecer um quadro"Estado" para o seu grupo.
 
-![Exemplo de lista de reprodução o Grafana](.\media\monitor-how-to-grafana\grafana7.png)
+![Exemplo de lista de reprodução o Grafana](media/monitor-send-to-grafana/grafana7.png)
 
 
 ## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: Monitorizar as métricas personalizadas no mesmo servidor o Grafana
@@ -117,7 +117,7 @@ Seguem-se artigos de boa referência sobre como utilizar Telegraf, InfluxDB, Pro
  - [Uma solução de monitorização para anfitriões do Docker, contentores e serviços em contentores](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Aqui está uma imagem de um dashboard da Grafana completa que tem as métricas do Azure Monitor e o Application Insights.
-![Métricas de exemplo o Grafana](.\media\monitor-how-to-grafana\grafana8.png)
+![Métricas de exemplo o Grafana](media/monitor-send-to-grafana/grafana8.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

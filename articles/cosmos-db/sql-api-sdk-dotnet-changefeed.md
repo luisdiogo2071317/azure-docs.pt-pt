@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023956"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740965"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ ms.locfileid: "50023956"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>compilações de v2
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Foi corrigido um problema que possam ocorrer durante o processamento de dividir quando a coleção de concessão está particionada. O problema pode levar a concessões para não ser eliminadas da coleção de concessão de partições de já era. O problema é resolvido com esta versão.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Cálculo da Calculadora fixo para contas de principal múltiplo e o novo formato de Token de sessão.

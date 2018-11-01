@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386524"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418431"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Unificada alertas e monitorização no Azure Monitor substitui clássico alertas e monitorização
 
@@ -21,7 +21,7 @@ O Azure Monitor tem agora se tornará am de pilha completa unificada monitoriza�
 
 Com o novo Azure de monitorização e alertas plataforma no local, será descontinuado o "clássico" monitorização e alertas plataforma - hospedada no *ver alertas clássicos* seção de alertas do Azure, vai ser preterido pela de 2019 de Junho.
 
- ![Alerta clássica no portal do Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Alerta clássica no portal do Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Incentivamos a começar a utilizar o e recrie os alertas na nova plataforma. Para clientes que possuam um grande número de alertas, está trabalhando para fornecer uma forma de mover alertas clássicos existentes para o novo sistema de alertas sem interrupção ou adicionado os custos.
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: f5da3759e97eaa2f89a393d55ae95eb6623fbc5d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 34a561c5bb523b914f4b88dc8c6edc2bd00627d0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158334"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741934"
 ---
 # <a name="understand-iot-hub-metrics"></a>Compreender as métricas do IoT Hub
 
@@ -26,11 +26,15 @@ As métricas estão ativadas por predefinição. Pode ver as métricas do IoT Hu
 
 2. Abra o painel do IoT hub. A partir daí, clique em **métricas**.
    
-    ![Painel de métricas para o IoT hub](./media/iot-hub-metrics/enable-metrics-1.png)
+    ![Captura de ecrã que mostra onde a opção de métricas está na página de recursos do IoT Hub](./media/iot-hub-metrics/enable-metrics-1.png)
 
-3. No painel métricas, pode ver as métricas para o seu hub IoT e criar vistas personalizadas, as métricas. Pode optar por enviar os seus dados de métricas para um ponto de extremidade de Hubs de eventos ou uma conta de armazenamento do Azure ao clicar em **as definições de diagnóstico**.
+3. No painel métricas, pode ver as métricas para o seu hub IoT e criar vistas personalizadas, as métricas. 
    
-    ![Definições de diagnóstico](./media/iot-hub-metrics/enable-metrics-2.png)
+    ![Captura de ecrã que mostra a página de métricas para o IoT Hub](./media/iot-hub-metrics/enable-metrics-2.png)
+    
+4. Pode optar por enviar os seus dados de métricas para um ponto de extremidade de Hubs de eventos ou uma conta de armazenamento do Azure ao clicar em **as definições de diagnóstico**, em seguida, **Adicionar definição de diagnóstico**
+
+   ![Captura de ecrã que mostra onde está o botão de definições de diagnóstico](./media/iot-hub-metrics/enable-metrics-3.png)
 
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>Métricas do IoT Hub e como utilizá-los
 

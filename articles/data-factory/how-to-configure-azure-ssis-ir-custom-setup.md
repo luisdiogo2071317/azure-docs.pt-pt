@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/31/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3ba3e6036821323146f00cf9c255b70606771aed
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241162"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420273"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o runtime de integração Azure-SSIS
 
@@ -98,7 +98,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        ![Copie e guarde a assinatura de acesso partilhado](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com a IU do Data Factory, antes de iniciar o runtime de integração Azure-SSIS, introduza o URI de SAS do seu contentor no campo adequado:
+    1.  Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com a IU do Data Factory, antes de iniciar o runtime de integração Azure-SSIS, introduza o URI de SAS do seu contentor no campo adequado **definições avançadas** painel:
 
        ![Introduza a assinatura de acesso partilhado](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -141,6 +141,8 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        1. A `.NET FRAMEWORK 3.5` pasta, que contém uma configuração personalizada para instalar uma versão anterior do .NET Framework que poderão ser necessárias para componentes personalizados em cada nó do seu ir Azure-SSIS.
 
+       1. Um `AAS` pasta, que contém uma configuração personalizada para instalar as bibliotecas de cliente em cada nó do Runtime de integração Azure-SSIS que permitem as tarefas de Analysis Services ligar à instância do Azure Analysis Services (AAS) usando a autenticação do principal de serviço. Em primeiro lugar, transfira a versão mais recente **MSOLAP (amd64)** e **AMO** cliente bibliotecas/Windows instaladores - por exemplo, `x64_15.0.900.108_SQL_AS_OLEDB.msi` e `x64_15.0.900.108_SQL_AS_AMO.msi` - a partir de [aqui](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers), em seguida, carregá-los, tudo em conjunto com `main.cmd` ao contentor.  
+
        1. R `BCP` pasta, que contém uma configuração personalizada para instalar os utilitários da linha de comandos do SQL Server (`MsSqlCmdLnUtils.msi`), incluindo o programa de cópia em massa (`bcp`), em cada nó do seu ir Azure-SSIS.
 
        1. Uma `EXCEL` pasta, que contém uma configuração personalizada para instalar os assemblies de código-fonte aberto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, e `ExcelDataReader.dll`) em cada nó do seu ir Azure-SSIS.
@@ -155,7 +157,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        1. A `STORAGE` pasta, que contém uma configuração personalizada para instalar o Azure PowerShell em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe implementar e pacotes de SSIS execução que são executados [scripts do PowerShell para manipular a sua conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Cópia `main.cmd`, uma amostra `AzurePowerShell.msi` (ou instalar a versão mais recente), e `storage.ps1` para o seu contentor. Utilize PowerShell.dtsx como um modelo para os pacotes. O modelo de pacote combina uma [a tarefa de transferir o Blob do Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), os downloads `storage.ps1` como um script do PowerShell modificável e uma [executar tarefa de processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/) que executa o script em cada nó.
 
-       1. R `TERADATA` pasta, que contém um script de configuração personalizada (`main.cmd)`, seu arquivo associado (`install.cmd`) e pacotes de instalador (`.msi`). Estes ficheiros instale conectores Teradata, a API de TPT e o controlador ODBC em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações de Teradata, a origem e destino. Em primeiro lugar, transfira o ficheiro de zip de 15.x de Teradata ferramentas e utilitários (TTU) (por exemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) da [Teradata](http://partnerintelligence.teradata.com)e, em seguida, carregue-o em conjunto com o acima `.cmd` e `.msi` ficheiros para o seu contentor.
+       1. R `TERADATA` pasta, que contém um script de configuração personalizada (`main.cmd`), seu arquivo associado (`install.cmd`) e pacotes de instalador (`.msi`). Estes ficheiros instale conectores Teradata, a API de TPT e o controlador ODBC em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações de Teradata, a origem e destino. Em primeiro lugar, transfira o ficheiro de zip de 15.x de Teradata ferramentas e utilitários (TTU) (por exemplo, `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) da [Teradata](http://partnerintelligence.teradata.com)e, em seguida, carregue-o em conjunto com o acima `.cmd` e `.msi` ficheiros para o seu contentor.
 
     ![Pastas na pasta de cenários de utilizador](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

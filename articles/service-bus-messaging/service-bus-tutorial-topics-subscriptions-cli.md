@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: ad315b822a908212a95b3a2ab9420a343a1803f9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404949"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413575"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar inventários utilizando a CLI e tópicos/subscrições
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes
 
 Para desenvolver uma aplicação Service Bus com Java, tem de ter o seguinte instalado:
 
-- [Kit de Desenvolvimento de Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), versão mais recente.
+- [Kit de Desenvolvimento de Java](https://aka.ms/azure-jdks), versão mais recente.
 - [CLI do Azure](https://docs.microsoft.com/cli/azure)
 - [Apache Maven](https://maven.apache.org), versão 3.0 ou superior.
 

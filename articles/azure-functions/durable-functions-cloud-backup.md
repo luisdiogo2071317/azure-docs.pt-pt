@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4fec410db81077fd454f29d3359dc3728aad4bff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987544"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739622"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-in em funções duráveis - exemplo de cópia de segurança da Cloud
 
@@ -131,7 +131,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> O `HttpStart` função que está a invocar só funciona com conteúdo formatado em JSON. Por esse motivo, o `Content-Type: application/json` cabeçalho é obrigatório e o caminho do diretório é codificado como uma cadeia de caracteres do JSON.
+> O `HttpStart` função que está a invocar só funciona com conteúdo formatado em JSON. Por esse motivo, o `Content-Type: application/json` cabeçalho é obrigatório e o caminho do diretório é codificado como uma cadeia de caracteres do JSON. Além disso, o fragmento HTTP pressupõe que existe uma entrada no `host.json` ficheiros que remove a predefinição `api/` prefixo a partir de todos os URLs de funções de Acionador HTTP. Pode encontrar a marcação para esta configuração no `host.json` ficheiro nos exemplos.
 
 Acionadores de pedido esta HTTP a `E2_BackupSiteContent` orchestrator e passa a cadeia de caracteres `D:\home\LogFiles` como um parâmetro. A resposta fornece uma ligação para obter o estado da operação de cópia de segurança:
 

@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058825"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740982"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utilize o Azure Cosmos DB alterar feed para visualizar a análise de dados em tempo real
 
@@ -104,7 +104,7 @@ Agora, vai criar uma coleção para manter os eventos de site de comércio eletr
    * Para **capacidade de armazenamento**, selecione **ilimitado**.  
    * Para o **chave de partição** , insira **/Item**. O que diferencia maiúsculas de minúsculas, pelo que certifique-se de que inseri-lo corretamente.  
    * Para o **débito** , insira **10000**.  
-   * Clique no botão **OK**.  
+   * Selecione o botão **OK**.  
 
 3. Em seguida, crie outra coleção com o nome **concessões** para processamento de feed de alterações. A coleção de concessões coordena o feed de alterações em várias funções de trabalho de processamento. Uma coleção separada é utilizada para armazenar as concessões com uma concessão por partição.  
 
@@ -114,7 +114,7 @@ Agora, vai criar uma coleção para manter os eventos de site de comércio eletr
    * Para o **id da coleção** , insira **concessões**.  
    * Para **capacidade de armazenamento**, selecione **Fixed**.  
    * Deixe o **débito** campo definido como o valor predefinido.  
-   * Clique no botão **OK**.
+   * Selecione o botão **OK**.
 
 ## <a name="get-the-connection-string-and-keys"></a>Obter as chaves e a cadeia de ligação
 
@@ -207,7 +207,7 @@ O Azure Stream Analytics é um serviço totalmente gerido na cloud para processa
    * Deixe **formato de serialização de eventos** como **JSON**.  
    * Deixe **campo Encoding** definida como **UTF-8**.  
    * Deixe **tipo de compressão de evento** campo definido como **nenhum**.  
-   * Clique no botão **Guardar**.
+   * Selecione o botão **Guardar**.
 
 5. Navegue de volta para a página da tarefa do stream analytics e selecione **saídas**.  
 
@@ -219,10 +219,10 @@ O Azure Stream Analytics é um serviço totalmente gerido na cloud para processa
    * Deixe o **área de trabalho de grupo** campo definido como **autorizar a ligação a carregar áreas de trabalho**.  
    * Na **nome do conjunto de dados** , insira **averagePrice**.  
    * Na **nome da tabela** , insira **averagePrice**.  
-   * Clique nas **autorizar** botão, em seguida, siga as instruções para autorizar a ligação para o Power BI.  
-   * Clique no botão **Guardar**.  
+   * Selecione o **autorizar** botão, em seguida, siga as instruções para autorizar a ligação para o Power BI.  
+   * Selecione o botão **Guardar**.  
 
-8. Em seguida, volte ao **streamjob1** e clique em **Editar consulta**.
+8. Em seguida, volte ao **streamjob1** e selecione **Editar consulta**.
 
    ![Editar consulta](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ O Azure Stream Analytics é um serviço totalmente gerido na cloud para processa
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Em seguida, clique em **guardar** no canto superior esquerdo.  
+10. Em seguida, selecione **guardar** no canto superior esquerdo.  
 
-11. Agora volte ao **streamjob1** e clique nas **iniciar** botão na parte superior da página. O Azure Stream Analytics pode demorar alguns minutos a iniciar a cópia de segurança, mas, eventualmente, verá que ele altere de "Iniciar" para "Em execução".
+11. Agora volte ao **streamjob1** e selecione o **iniciar** botão na parte superior da página. O Azure Stream Analytics pode demorar alguns minutos a iniciar a cópia de segurança, mas, eventualmente, verá que ele altere de "Iniciar" para "Em execução".
 
 ## <a name="connect-to-power-bi"></a>Ligar ao Power BI
 
@@ -249,9 +249,9 @@ O Power BI é um conjunto de ferramentas de análise de negócio para analisar d
 
 3. Selecione **+ adicionar mosaico** no canto superior direito.  
 
-4. Selecione **dados de transmissão em fluxo personalizados**, em seguida, clique nas **próxima** botão.  
+4. Selecione **dados de transmissão em fluxo personalizados**, em seguida, selecione a **próxima** botão.  
  
-5. Selecione **averagePrice** da **conjuntos de dados de seu**, em seguida, clique em **seguinte**.  
+5. Selecione **averagePrice** partir **conjuntos de dados YOUR**, em seguida, selecione **seguinte**.  
 
 6. Na **tipo de visualização** campo, escolha **colocar em cluster gráfico de barras** no menu pendente. Sob **eixo**, adicione a ação. Ignorar **legenda** sem adicionar nada. Em seguida, na secção seguinte chamado **valor**, adicione **média**. Selecione **próxima**, em seguida, o gráfico do título e selecione **aplicar**. Deverá ver um novo gráfico no seu dashboard!  
 
@@ -261,7 +261,7 @@ O Power BI é um conjunto de ferramentas de análise de negócio para analisar d
    b. **Alias de saída:** top5Output, nome do conjunto de dados: top5, nome da tabela: top5  
    c. **Alias de saída:** uniqueVisitorCountOutput, nome do conjunto de dados: uniqueVisitorCount, nome da tabela: uniqueVisitorCount
 
-   Em seguida, clique em **consulta de edição** e cole as seguintes consultas **acima** aquele que já escreveu.
+   Em seguida, selecione **consulta de edição** e cole as seguintes consultas **acima** aquele que já escreveu.
 
    ```sql
     /*TOP 5*/
@@ -329,9 +329,9 @@ Agora irá observar como pode utilizar a nova ferramenta de análise de dados pa
 
    Adicionar outra coleção sob **changefeedlabdatabase** com o nome **topItems** com **ilimitado** capacidade de armazenamento. Escrever **/Item** como a chave de partição.
 
-2. Clique no **topItems** coleção e, em **dimensionamento e as definições** definir o **TTL** ser **30 segundos** , de modo que topItems atualiza cada 30 segundos.
+2. Selecione o **topItems** coleção e, em **dimensionamento e as definições** definir o **TTL** ser **30 segundos** , de modo que topItems atualiza cada 30 segundos.
 
-   ![TTL](./media/changefeed-ecommerce-solution/time-to-live.png)
+   ![Time to live](./media/changefeed-ecommerce-solution/time-to-live.png)
 
 3. Para preencher os **topItems** coleção com comprados com mais freqüência itens, navegue de volta para **streamjob1** e adicionar um novo **saída**. Selecione **Cosmos DB**.
 

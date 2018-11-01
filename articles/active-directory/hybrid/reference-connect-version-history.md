@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390317"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420253"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -37,6 +37,37 @@ Permissões obrigatórias | Para as permissões necessárias para aplicar uma at
 
 Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>Estado da versão 
+
+10/25/2018: lançado para download
+
+ 
+### <a name="new-features-and-improvements"></a>Novos recursos e aperfeiçoamentos 
+
+
+- Mudou a funcionalidade do atributo de write-back para garantir o correio de voz alojado está a funcionar conforme esperado.  Em determinados cenários, do Azure AD foi substituir o atributo msExchUcVoicemailSettings durante a repetição de escrita com um valor nulo.  O Azure AD agora limpará já não é o valor deste atributo no local se o valor na cloud que não está definido.
+- Melhorada a manipulação de regras predefinidas alterados. Agora é notificado se foram efetuadas alterações às regras predefinidas e estão disponíveis opções para reparar regras predefinidas. 
+- Adicionado o diagnóstico no Assistente do Azure AD Connect para investigar e identificar problemas de conectividade para o Azure AD. Esse mesmo diagnóstico também pode ser executado diretamente através do Powershell com o Cmdlet Test - AdSyncAzureServiceConnectivity. 
+- Adicionado o diagnóstico no Assistente do Azure AD Connect para investigar e identificar problemas de conectividade para o AD. Esse mesmo diagnóstico também pode ser executado diretamente através do Powershell usando a função de início ConnectivityValidation no módulo do ADConnectivityTools Powershell.  Para obter mais informações consulte [o que é o módulo do PowerShell ADConnectivityTool?](how-to-connect-adconnectivitytools.md)
+- Adicionada uma verificação prévia da versão do esquema AD para híbrida do Azure Active Directory Join e repetição de escrita do dispositivo 
+- Alterar a procura de atributo de página de extensão de diretório para ser o caso de não sensíveis.
+-   Foi adicionado suporte completo para o TLS 1.2. Esta versão suporta todos os outros protocolos a ser desativados e apenas TLS 1.2 seja ativado na máquina onde o Azure AD Connect está instalado.  Para obter mais informações consulte [imposição de TLS 1.2 para o Azure AD Connect](reference-connect-tls-enforcement.md)
+
+ 
+
+### <a name="fixed-issues"></a>Problemas corrigidos   
+
+- Foi corrigido um erro em que o Azure AD Connect atualizar falharia se o SQL Always On estava a ser utilizada. 
+- Foi corrigido um erro ao analisar corretamente os nomes de UO que contenham uma barra. 
+- Foi corrigido um problema em que seria possível desativar a autenticação pass-through para uma instalação limpa no modo de teste. 
+- Foi corrigido um erro que impediu o módulo do PowerShell para ser carregado quando executar as ferramentas de resolução de problemas 
+- Foi corrigido um erro que seria impedir que os clientes com valores numéricos no primeiro caráter de um nome de anfitrião. 
+- Foi corrigido um erro em que o Azure AD Connect permitiria partições inválidas e seleção de contentor 
+- Corrigida a mensagem de erro "Palavra-passe inválida" quando o SSO de ambiente de trabalho está ativado. 
+- Várias correções de erros para a gestão de confiança do AD FS  
+- Quando configurar a repetição de escrita do dispositivo - fixo a verificação de esquema para procurar a classe de objeto msDs-DeviceContainer (introduzida no WS2012 R2)
 
  
 ## <a name="118820"></a>1.1.882.0  

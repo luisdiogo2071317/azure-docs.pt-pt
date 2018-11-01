@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407508"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421191"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
-![Símbolo de conector de gestão do serviço IT](./media/log-analytics-itsmc/itsmc-symbol.png)
+![Símbolo de conector de gestão do serviço IT](media/log-analytics-itsmc-overview/itsmc-symbol.png)
 
 O conector de gestão de serviço de TI (ITSMC) permite-lhe ligar o Azure e um suportados produtos/serviços de gestão de serviço de TI (ITSM).
 
@@ -56,18 +56,18 @@ Antes de poder criar uma ligação, terá de adicionar a solução de conector I
 
 1.  No portal do Azure, clique em **+ novo** ícone.
 
-    ![Recurso novo do Azure](./media/log-analytics-itsmc/azure-add-new-resource.png)
+    ![Recurso novo do Azure](media/log-analytics-itsmc-overview/azure-add-new-resource.png)
 
 2.  Procure **conector de gestão do serviço de TI** no Marketplace e clique **criar**.
 
-    ![Adicionar solução ITSMC](./media/log-analytics-itsmc/add-itsmc-solution.png)
+    ![Adicionar solução ITSMC](media/log-analytics-itsmc-overview/add-itsmc-solution.png)
 
 3.  Na **área de trabalho OMS** secção, selecione a área de trabalho do Log Analytics do Azure onde pretende instalar a solução.
    >[!NOTE]
    >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 4.  Na **definições de área de trabalho do OMS** secção, selecione o ResourceGroup onde pretende criar o recurso de solução.
 
-    ![Área de trabalho ITSMC](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    ![Área de trabalho ITSMC](media/log-analytics-itsmc-overview/itsmc-solution-workspace.png)
     >[!NOTE]
     >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
@@ -93,12 +93,12 @@ Depois de ter preparado suas ferramentas ITSM, siga os passos abaixo para criar 
 
 1.  Aceda a **todos os recursos**, procure **ServiceDesk(YourWorkspaceName)**.
 2.  Sob **ORIGENS de dados de área de trabalho** no painel esquerdo, clique em **ligações de ITSM**.
-    ![Ligações de ITSM](./media/log-analytics-itsmc/itsm-connections.png)
+    ![Ligações de ITSM](media/log-analytics-itsmc-overview/itsm-connections.png)
 
     Esta página apresenta a lista de ligações.
 3.  Clique em **adicionar ligação**.
 
-    ![Adicionar a ligação ITSM](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Adicionar a ligação ITSM](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
 4.  Especifique as definições de ligação, conforme descrito em [configurar a ligação de ITSMC com o seu artigo de produtos/serviços ITSM](log-analytics-itsmc-connections.md).
 
@@ -106,7 +106,7 @@ Depois de ter preparado suas ferramentas ITSM, siga os passos abaixo para criar 
 
     > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez em cada 24 horas. Para atualizar os dados de sua ligação instantaneamente para qualquer edições ou modelo de atualização que fizer, clique nas **sincronização** botão no painel da sua ligação.
 
-    ![Atualização de ligação](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
+    ![Atualização de ligação](media/log-analytics-itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>Utilizar a solução
@@ -123,16 +123,16 @@ Utilize o seguinte procedimento:
 1. No portal do Azure, clique em **Monitor**.
 2. No painel esquerdo, clique em **grupos de ação**. O **grupo de ação de adicionar** é apresentada a janela.
 
-    ![Grupos de Ação](media/log-analytics-itsmc/action-groups.png)
+    ![Grupos de Ação](media/log-analytics-itsmc-overview/action-groups.png)
 
 3. Fornecer **Name** e **ShortName** para o seu grupo de ação. Selecione o **grupo de recursos** e **subscrição** onde pretende criar um grupo de ação.
 
-    ![Detalhes de grupos de ação](media/log-analytics-itsmc/action-groups-details.png)
+    ![Detalhes de grupos de ação](media/log-analytics-itsmc-overview/action-groups-details.png)
 
 4. Na lista de ações, selecione **ITSM** no menu pendente para **tipo de ação**. Fornecer um **Name** da ação e clique em **editar detalhes**.
 5. Selecione o **subscrição** onde está localizada a sua área de trabalho do Log Analytics. Selecione o **ligação** nome (o nome do conector ITSM) seguido pelo seu nome de área de trabalho. Por exemplo, "MyITSMMConnector(MyWorkspace)".
 
-    ![Detalhes da ação de ITSM](./media/log-analytics-itsmc/itsm-action-details.png)
+    ![Detalhes da ação de ITSM](media/log-analytics-itsmc-overview/itsm-action-details.png)
 
 6. Selecione **Item de trabalho** tipo no menu pendente.
    Opte por utilizar um modelo existente ou preencher os campos necessários pelo seu produto ITSM.
@@ -151,7 +151,7 @@ Com base na sua configuração ao configurar uma ligação, conector ITSM pode s
 
 Os dados de pedido de incidentes e alterações podem ser visualizados com o dashboard de conector ITSM na solução.
 
-![Ecrã do log Analytics](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
+![Ecrã do log Analytics](media/log-analytics-itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 O dashboard também fornece informações sobre o estado do conector que pode ser utilizado como um ponto de partida para analisar quaisquer problemas com as ligações.
 
@@ -161,7 +161,7 @@ Mapa de serviço Deteta os componentes da aplicação em sistemas Windows e Linu
 
 Se estiver a utilizar a solução mapa de serviço, pode ver os itens de suporte técnico de serviço criados nas soluções ITSM, conforme mostrado no exemplo a seguir:
 
-![Ecrã do log Analytics](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![Ecrã do log Analytics](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
 Obter mais informações: [mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md)
 
@@ -254,7 +254,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Categoria |
 | Title_s|  Breve descrição |
 | Description_s|  Notas |
-| CreatedDate_t|  Aberto |
+| CreatedDate_t|  Aberturas |
 | ClosedDate_t| Fechado|
 | ResolvedDate_t|Resolvido|
 | Computador  | Item de configuração |

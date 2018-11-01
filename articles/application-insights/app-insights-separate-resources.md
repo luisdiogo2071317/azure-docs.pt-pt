@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 88626c3a4bfd4a1ff3a2e9cbc8c3f2b1c5553295
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 83852333d8e66c76f2d2710b1813a4400622e624
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303630"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417315"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>A separação de telemetria de desenvolvimento, teste e produção
 
@@ -156,7 +156,7 @@ No entanto, tenha em atenção que o número de versão da compilação é gerad
 ### <a name="release-annotations"></a>Anotações da versão
 Se utilizar o Azure DevOps, pode [obter um marcador de anotação](app-insights-annotations.md) adicionado aos seus gráficos sempre que lançar uma nova versão. A imagem seguinte mostra como este marcador é apresentado.
 
-![Captura de ecrã de um exemplo de anotação de versão num gráfico](./media/app-insights-asp-net/release-annotation.png)
+![Captura de ecrã de um exemplo de anotação de versão num gráfico](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Recursos partilhados para várias funções](app-insights-monitor-multi-role-apps.md)

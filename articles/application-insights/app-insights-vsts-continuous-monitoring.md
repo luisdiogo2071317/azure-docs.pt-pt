@@ -9,12 +9,12 @@ ms.date: 11/13/2017
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 75401614b6892402083af5192b691f00d82c8d05
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301634"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413626"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar a monitorização contínua para o seu pipeline de lançamento
 
@@ -28,13 +28,13 @@ Serviços de DevOps do Azure agora suporta a monitorização contínua, por meio
 
 2. Coloque o cursor sobre **criar e lançar** > selecione **versões** > clique o **sinal de adição** > **Criar definição de versão** > Procure **monitoramento** > **implementação de serviço de aplicações do Azure com a monitorização contínua.**
 
-   ![Novo Pipeline de lançamento de serviços do Azure DevOps](.\media\app-insights-continuous-monitoring\001.png)
+   ![Novo Pipeline de lançamento de serviços do Azure DevOps](media/app-insights-vsts-continuous-monitoring/001.png)
 
 3. Clique em **aplicam-se.**
 
 4. Junto ao ponto de exclamação vermelho, selecione o texto azul para **ver tarefas do ambiente.**
 
-   ![Tarefas da vista de ambiente](.\media\app-insights-continuous-monitoring\002.png)
+   ![Tarefas da vista de ambiente](media/app-insights-vsts-continuous-monitoring/002.png)
 
    Será exibida uma caixa de configuração, utilize a seguinte tabela para preencher os campos de entrada.
 
@@ -60,7 +60,7 @@ Serviços de DevOps do Azure agora suporta a monitorização contínua, por meio
 
 3. Modificar a disponibilidade **limiar** para cumprir os requisitos de nível de serviço.
 
-   ![Modificar alerta](.\media\app-insights-continuous-monitoring\003.png)
+   ![Modificar alerta](media/app-insights-vsts-continuous-monitoring/003.png)
 
 4. Selecione **OK** > **guardar** > introduza um comentário descritivo > clique em **OK.**
 
@@ -68,13 +68,13 @@ Serviços de DevOps do Azure agora suporta a monitorização contínua, por meio
 
 1. Clique em **Pipeline** > selecione o **pré** ou **condições de pós-implementação** símbolo consoante o estágio de que necessita de uma porta de monitorização contínua.
 
-   ![Condições de pré-implementação](.\media\app-insights-continuous-monitoring\004.png)
+   ![Condições de pré-implementação](media/app-insights-vsts-continuous-monitoring/004.png)
 
 2. Definir **Gates** ao **ativado** > **gates aprovação**> clique em **adicionar.**
 
 3. Selecione **do Azure Monitor** (esta opção dá-lhe a capacidade para alertas de acesso tanto a partir do Azure Monitor e o Application Insights)
 
-    ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
+    ![Azure Monitor](media/app-insights-vsts-continuous-monitoring/005.png)
 
 4. Introduza um **Gates tempo-limite** valor.
 
@@ -86,7 +86,7 @@ Depois de adicionar grupos de implementação, um alerta no Application Insights
 
 Para observar esse comportamento, selecione **versões** > nome da versão com o botão direito **abrir** > **registos.**
 
-![Registos](.\media\app-insights-continuous-monitoring\006.png)
+![Registos](media/app-insights-vsts-continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

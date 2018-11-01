@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8ecdf1fffb51c0b8e9ce996307595a5444a64ee
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414694"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417468"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Windows Azure
 
@@ -82,7 +82,7 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Ele usa a func
 2. Volte a iniciar, procure no Windows PowerShell, Windows PowerShell com o botão direito e, em seguida, selecionar executar como administrador.
 
 3. Certifique-se de que a VM está configurada para utilizar o servidor correto do KMS do Azure. Para tal, execute o seguinte comando:
-  
+  
     ```
     iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
     kms.core.windows.net:1688
@@ -90,11 +90,11 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Ele usa a func
     O comando deverá devolver: nome da máquina de Key Management Service definido como kms.core.windows.net:1688 com êxito.
 
 4. Certifique-se ao utilizar o Psping que tem conetividade ao servidor do KMS. Mude para a pasta onde extraiu o download de Pstools.zip e, em seguida, execute o seguinte:
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
+  
   Na linha segundo ao último da saída, certifique-se de que vê: enviados = 4, recebidos = 4, perdida = 0 (perda de 0%).
 
   Se perdida for superior a 0 (zero), a VM tem conetividade ao servidor do KMS. Nesta situação, é capaz de resolver kms.core.windows.net se a VM estiver numa rede virtual e tiver um servidor DNS personalizado especificado, deve certificar-se de que o servidor DNS. Em alternativa, altere o servidor DNS de forma que resolver kms.core.windows.net.

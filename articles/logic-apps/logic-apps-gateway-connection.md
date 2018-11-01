@@ -3,19 +3,18 @@ title: Aceder a origens de dados no local para o Azure Logic Apps | Documentos d
 description: Criar e configurar o gateway de dados no local para que possa aceder a origens de dados no local a partir das aplicações lógicas
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 6b6006293d562dbc270dc77bc49da2027f171dd2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 10/01/2018
+ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233298"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413711"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Ligar a origens de dados no local a partir do Azure Logic Apps com o gateway de dados no local
 
@@ -34,18 +33,17 @@ Para obter informações sobre como utilizar o gateway com outros serviços, vej
 
 * A instalação do gateway já não está associada a um recurso de gateway no Azure. Pode ligar a sua instalação do gateway apenas para um recurso de gateway, o que acontece quando criar o recurso de gateway e selecione a sua instalação do gateway. Essa vinculação torna a instalação do gateway indisponível para outros recursos.
 
-* Quando iniciar sessão no portal do Azure e criar o recurso de gateway, tem de utilizar a mesmo início de sessão na conta que foi utilizada anteriormente para [instalar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md#requirements).
-Também tem de utilizar o mesmo [subscrição do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) que foi utilizada para instalar o gateway. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>.
+* Quando iniciar sessão no portal do Azure e criar o recurso de gateway, certifique-se de utilizar a mesma início de sessão na conta que foi utilizada anteriormente para [instalar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md#requirements) juntamente com o mesmo [subscrição do Azure ](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) que foi utilizada para instalar o gateway. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>.
 
-* Para criar e manter o recurso de gateway no portal do Azure, sua [conta de serviço do Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) tem de ter pelo menos **contribuinte** permissões. O gateway de dados no local é executado como um serviço do Windows e está configurado para utilizar `NT SERVICE\PBIEgwService` credenciais de início de sessão do serviço para o Windows. 
+* Para criar e manter o recurso de gateway no portal do Azure, sua [conta de serviço do Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) necessita de pelo menos **contribuinte** permissões. O gateway de dados no local é executado como um serviço do Windows e está configurado para utilizar `NT SERVICE\PBIEgwService` credenciais de início de sessão do serviço para o Windows. 
 
   > [!NOTE]
   > A conta de serviço é diferente da conta utilizada para ligar a dados no local de Windows origens e do Azure conta escolar ou profissional utilizada para iniciar sessão nos serviços cloud.
 
 ## <a name="download-and-install-gateway"></a>Transferir e instalar gateway
 
-Antes de continuar com os passos neste artigo, tem de ter o gateway já instalado num computador local.
-e se ainda não o fez, siga os passos para [transferir e instalar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md). 
+Antes de continuar com os passos neste artigo, certificar-se de que o gateway já está instalado num computador local.
+Se ainda não o fez, siga os passos para [transferir e instalar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 

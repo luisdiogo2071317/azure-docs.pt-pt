@@ -14,12 +14,12 @@ ms.date: 07/17/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2233fc1068891ec63dacaf5871eef7957c3ac7dc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139878"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413969"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descubra como os clientes estão a utilizar o seu aplicativo com o Application Insights funis
 
@@ -40,7 +40,7 @@ Aqui estão as etapas executadas para criar o seu funil.
 Captura de ecrã seguinte mostra que um exemplo do tipo de dados, a ferramenta funis gera. Os proprietários de Fabrikam podem ver que durante os últimos 90 dias, por cento de 54.3 dos seus clientes que acederam a home page de criar um pedido de cliente. Também podem ver que 2,700 dos seus clientes veio para o índice na home page. Isto pode indicar um problema de atualização.
 
 
-![Ferramenta de captura de ecrã de funis com dados](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Ferramenta de captura de ecrã de funis com dados](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Funis funcionalidades
 Captura de ecrã anterior inclui cinco áreas destacadas. Esses são recursos de funis. A lista a seguir explica mais sobre cada área correspondente na captura de ecrã:

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078312"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740846"
 ---
 # <a name="azure-stack-capacity-planner"></a>O Azure Stack Capacity Planner
 O planeador de capacidade do Azure Stack é uma folha de cálculo utilizada para planejamento de capacidade de recursos do Azure Stack. O planeador de capacidade fornece a capacidade de criar várias alocações de recursos de computação e veja como se encaixa numa seleção de ofertas de hardware. São fornecidas instruções detalhadas para a utilização da Calculadora do Azure Stack abaixo.
@@ -56,7 +56,7 @@ Essa ferramenta fornece dois métodos de alocação de recursos da VM; seja como
 ## <a name="definebyvmfootprint-instructions"></a>Instruções de DefineByVMFootprint
 Para criar um modelo com uma coleção única de vários tamanhos e as quantidades de VMs, selecione o separador "DefineByVMFootprint" e siga essa seqüência de etapas.
 
-1. No canto superior direito desta folha de cálculo, use os controles de caixa de lista fornecida de pendente para selecionar um número inicial de servidores (entre 4 e 12) pretende que sejam instaladas em cada sistema de hardware (SKU). Este número de servidores pode ser modificado em qualquer altura durante o processo de modelagem para ver como isso afeta geral recursos disponíveis para o modelo de alocação de recursos.
+1. No canto superior direito desta folha de cálculo, use os controles de caixa de lista fornecida de pendente para selecionar um número inicial de servidores (entre 4 e 16) pretende que sejam instaladas em cada sistema de hardware (SKU). Este número de servidores pode ser modificado em qualquer altura durante o processo de modelagem para ver como isso afeta geral recursos disponíveis para o modelo de alocação de recursos.
 2. Se deseja modelar várias alocações de recursos VM em relação a uma configuração de hardware específico, encontre a caixa de listagem de pendente azul diretamente abaixo a etiqueta "SKU atual" no canto superior direito da página. Obter esta caixa de lista e selecione o SKU de hardware pretendido.
 3. Agora está pronto para começar a adicionar várias VMs de tamanho para o seu modelo. Para incluir um determinado tipo VM, introduza um valor de quantidade na caixa delineada de azul à esquerda dessa entrada VM.
 
@@ -73,7 +73,7 @@ Para criar um modelo com uma coleção de cargas de trabalho do Azure Stack, sel
 > [!TIP]
 > Para alterar o tamanho de armazenamento fornecido para uma VM do Azure Stack, consulte a nota na etapa três na secção anterior.
 
-1. No canto superior direito desta página, use os controles de caixa de lista fornecida de pendente para selecionar um número inicial de servidores (entre 4 e 12) pretende que sejam instaladas em cada sistema de hardware (SKU).
+1. No canto superior direito desta página, use os controles de caixa de lista fornecida de pendente para selecionar um número inicial de servidores (entre 4 e 16) pretende que sejam instaladas em cada sistema de hardware (SKU).
 2. Se deseja modelar várias alocações de recursos VM em relação a uma configuração de hardware específico, encontre a caixa de listagem de pendente azul diretamente abaixo a etiqueta "SKU atual" no canto superior direito da página. Obter esta caixa de lista e selecione o SKU de hardware pretendido.
 3. Selecione o tamanho de armazenamento adequado para cada uma das suas VMs de pilha do Azure pretendido na página DefineByVMFootprint, conforme descrito acima no terceiro passo de DefineByVMFootprint instruções. O tamanho de armazenamento por VM é definido na folha de DefineByVMFootprint.
 4. A iniciar no canto superior esquerdo da página DefineByWorkloadFootprint, crie configurações para até seis diferentes tipos de carga de trabalho ao introduzir a quantidade de cada tipo VM contido essa carga de trabalho. Isso é feito colocando em valores numéricos na coluna diretamente abaixo do nome da carga de trabalho. Nomes de carga de trabalho podem ser modificados para refletir o tipo de cargas de trabalho que serão suportadas por esta configuração específica.

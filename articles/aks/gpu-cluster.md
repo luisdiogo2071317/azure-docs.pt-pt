@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: laevenso
-ms.openlocfilehash: db9d42cca4bc327d216229f45f5fa1742f70fb9a
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 683abd9bad93bff51bea84c8081d2b8f9d300cd4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138814"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419254"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilizar GPUs para cargas de trabalho intensivas de computação no Azure Kubernetes Service (AKS)
 
@@ -121,6 +121,9 @@ Non-terminated Pods:         (9 in total)
 Para ver a GPU em ação, agende uma carga de trabalho com GPU ativada com a solicitação de recurso adequado. Neste exemplo, vamos executar uma [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) da tarefa em relação a [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/).
 
 Crie um ficheiro denominado *exemplos-tf-mnist-demo.yaml* e cole o manifesto YAML seguinte. O manifesto de trabalho seguinte inclui um limite de recursos de `nvidia.com/gpu: 1`:
+
+> [!NOTE]
+> Se receber um erro de incompatibilidade de versão quando a chamada para drivers, tais como a versão do controlador CUDA é insuficiente para a versão de runtime CUDA, reveja o gráfico de compatibilidade de matriz do driver de nVidia- [https://docs.nvidia.com/deploy/cuda-compatibility/index.html](https://docs.nvidia.com/deploy/cuda-compatibility/index.html)
 
 ```yaml
 apiVersion: batch/v1

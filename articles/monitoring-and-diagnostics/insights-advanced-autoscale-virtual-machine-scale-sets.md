@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978187"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420562"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração do dimensionamento automático avançado com modelos do Resource Manager para conjuntos de dimensionamento de VM
 Pode reduzir e aumentar horizontalmente em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métricas de desempenho, por uma agenda periódica ou por uma data específica. Também pode configurar notificações de e-mail e webhook para ações de dimensionamento. Estas instruções mostram um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager num conjunto de dimensionamento de VM.
@@ -29,7 +29,7 @@ Nestas instruções, utilizamos [Explorador de recursos do Azure](https://resour
 1. Implemente um novo conjunto de dimensionamento com uma definição de dimensionamento automático básicas. Este artigo utiliza um da Galeria de início rápido do Azure, que tem um Windows conjunto de dimensionamento com um modelo de dimensionamento automático básicas. Conjuntos de dimensionamento do Linux funcionam da mesma maneira.
 2. Depois do conjunto de dimensionamento é criado, navegue para o recurso de conjunto de dimensionamento do Azure Resource Explorer. Consulte o seguinte no nó de Microsoft. insights.
 
-    ![Explorador do Azure](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Explorador do Azure](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     A execução do modelo tem criado uma definição de dimensionamento automático de padrão com o nome **'autoscalewad'**. No lado direito, pode ver a definição completa desta definição de dimensionamento automático. Neste caso, a predefinição de dimensionamento automático é fornecido com uma regra de aumento horizontal e a redução horizontal da % com base de CPU.  
 
@@ -58,11 +58,11 @@ Nestas instruções, utilizamos [Explorador de recursos do Azure](https://resour
 
 5. Certifique-se estiver a utilizar o **leitura/escrita** modo no Explorador de recursos
 
-    ![Autoscalewad, definição de dimensionamento automático predefinidos](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, definição de dimensionamento automático predefinidos](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Clique em Editar. **Substitua** o elemento "perfis" na definição de dimensionamento automático com a seguinte configuração:
 
-    ![Perfis](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![Perfis](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

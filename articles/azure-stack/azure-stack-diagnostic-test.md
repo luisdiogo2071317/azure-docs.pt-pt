@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087479"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740319"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
@@ -39,7 +39,7 @@ Quando tiver um problema, contacte o suporte ao cliente de serviços da Microsof
     3. Abra o PowerShell como um Administrador.
     4. Execute: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Execute: `Test-AzureStack`
-4. Se qualquer um relatório de testes **FALHAR**, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` o cmdlet reúne os registos de teste AzureStack. Para obter mais informações sobre os registos de diagnóstico, consulte [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Não deve recolher registos ou contacte o suporte de serviços ao cliente da Microsoft (CSS) se o relatório de testes **WARN**.
+4. Se qualquer um relatório de testes **FALHAR**, execute: `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred` o cmdlet reúne os registos de teste AzureStack. Para obter mais informações sobre os registos de diagnóstico, consulte [ferramentas de diagnóstico do Azure Stack](azure-stack-diagnostics.md). Não deve recolher registos ou contacte o suporte de serviços ao cliente da Microsoft (CSS) se o relatório de testes **WARN**.
 5. Enviar a **SeedRing** registos ao suporte ao cliente de serviços da Microsoft. Suporte ao cliente de serviços da Microsoft trabalha para resolver o problema.
 
 ## <a name="reference-for-test-azurestack"></a>Referência para o teste AzureStack

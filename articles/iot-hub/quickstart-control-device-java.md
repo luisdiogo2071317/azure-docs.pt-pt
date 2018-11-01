@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 6b7de80d18250550c9bd7e52537a7a950e6ffea7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3e936b3e08884c1728809aea9054278ffdb99045
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364772"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416992"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT (Java)
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Java. Precisa do Java SE 8 ou posterior no seu computador de desenvolvimento.
 
-Pode transferir o Java para múltiplas plataformas a partir do [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+Pode transferir o Java para múltiplas plataformas a partir do [Oracle](https://aka.ms/azure-jdks).
 
 Pode verificar qual a versão atual do Java no seu computador de desenvolvimento através do seguinte comando:
 

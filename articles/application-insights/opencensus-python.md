@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9f14664ca035b3de1af80ca3101c22751c83237
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7507cdd7f3967dc132eecf81de347f2da791487f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963650"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414986"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Recolher rastreios distribuídos do Python (pré-visualização)
 
@@ -22,7 +22,7 @@ O Application Insights agora suporta distribuídas de aplicativos do Python atra
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Precisa de uma subscrição do Azure.
+- Precisa de uma Subscrição do Azure.
 - Deve ser instalado o Python, este artigo usa [Python 3.7.0](https://www.python.org/downloads/), embora as versões anteriores irão provável que funcionem com o pequeno ajuste.
 - Siga as instruções para instalar o [reencaminhador local como um serviço do Windows](./opencensus-local-forwarder.md#windows-service)
 
@@ -180,7 +180,7 @@ Primeiro tem de criar um recurso do Application Insights que gerará um key(ikey
 
     Uma vez que estamos apenas foram rastrear uma chamada de método, nosso mapa da aplicação não é tão interessante. Mas o mapa da aplicação pode ser dimensionado para visualizar as aplicações distribuídas muito mais:
 
-   ![Mapeamento de Aplicações](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Mapeamento de Aplicações](media/opencensus-python/application-map.png)
 
 4. Selecione **investigar desempenho** para efetuar a análise detalhada do desempenho e determinar a causa de raiz de um desempenho lento.
 

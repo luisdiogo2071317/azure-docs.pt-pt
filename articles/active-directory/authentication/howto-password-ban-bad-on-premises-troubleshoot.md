@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c164c2465a4e9d60159ea9596139f2e4938f792f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242505"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741186"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Pré-visualização: Azure AD monitorização de proteção de palavra-passe, relatórios e resolução de problemas
 
 |     |
 | --- |
-| Proteção de palavra-passe do Azure AD e a lista de palavras-passe banidas personalizadas são funcionalidades de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Proteção de palavra-passe do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Após a implementação da proteção de palavra-passe do Azure AD de monitorização e relatórios são tarefas essenciais. Este artigo apresenta detalhes para ajudar a que compreender onde cada serviço regista informações e como um relatório sobre a utilização de proteção de palavra-passe do Azure AD.
@@ -88,7 +88,7 @@ Algumas outras mensagens de chave de registo de eventos para ter em consideraç�
 
 A palavra-passe para o utilizador especificado foi aceite porque uma política de palavra-passe do Azure ainda não está disponível
 
-Nome de utilizador: <user> FullName: <user>
+Nome de utilizador: SomeUser FullName: algum utilizador
 
 Esta condição pode ser causada por uma ou mais dos seguintes razões: % n
 

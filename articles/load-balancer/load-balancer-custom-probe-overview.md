@@ -4,10 +4,6 @@ description: Saiba como utilizar sondas de estado de funcionamento para monitori
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695430"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419338"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
@@ -95,7 +91,7 @@ Se utilizar os serviços Cloud e ter funções da web que utilizam w3wp.exe, alc
 
 Um HTTP / HTTPS sonda falha quando:
 * Ponto final da sonda devolve um código de resposta HTTP que não 200 (por exemplo, 403, 404 ou 500). Esta ação marca a sonda de estado de funcionamento para baixo imediatamente. 
-* Ponto final da sonda não responder durante a um período de tempo limite do segundo 31. Dependendo do valor de tempo limite que está definido, várias solicitações de sondagem podem passar sem resposta antes da sonda é marcada como não está em execução (ou seja, antes de SuccessFailCount sondas são enviadas).
+* Ponto final da sonda não responde durante o período de tempo limite do segundo 31. Dependendo do valor de tempo limite que está definido, várias solicitações de sondagem podem passar sem resposta antes da sonda é marcada como não está em execução (ou seja, antes de SuccessFailCount sondas são enviadas).
 * Ponto final da sonda fecha a ligação através de uma reposição TCP.
 
 #### <a name="resource-manager-templates"></a>Modelos do Resource Manager
@@ -163,11 +159,11 @@ Uma regra de balanceamento de carga definiu uma sonda de estado de funcionamento
 
 ### <a name="tcp-connections"></a>Ligações TCP
 
-Novas ligações de TCP serão concluída com êxito à instância de back-end que está em bom estado e tem um aplicativo capaz de aceitar um novo fluxo e o SO convidado.
+Novas ligações de TCP serão concluída com êxito à instância de back-end que está em bom estado e tem um sistema operacional convidado e um aplicativo capaz de aceitar um novo fluxo.
 
 Se a sonda de estado de funcionamento de uma instância de back-end falha, continuam a conexões TCP estabelecidas para esta instância de back-end.
 
-Se todas as sondas para todas as instâncias de um conjunto de back-end falharem, não existem fluxos novo serão enviados para o conjunto de back-end. Balanceador de carga Standard permitirá estabelecidos fluxos TCP para continuar.  Balanceador de carga básico irá terminar todos os fluxos TCP existente para o conjunto de back-end.
+Se todas as sondas para todas as instâncias de um conjunto de back-end falharem, não existem fluxos novo serão enviados para o conjunto de back-end. Balanceador de carga Standard permitirá estabelecidos fluxos TCP para continuar.  Balanceador de carga básico irá terminar todos os fluxos TCP existentes para o conjunto de back-end.
  
 Uma vez que o fluxo é sempre entre o cliente e o convidado da VM, um conjunto com todas as sondas para baixo fará com que um front-end não responder a tentativas abertas de ligação de TCP, porque não existe nenhuma instância de bom estado de funcionamento de back-end para receber o fluxo.
 

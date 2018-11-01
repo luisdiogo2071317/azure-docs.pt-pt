@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 76c8421286633dc3c81a073423a7d9f9ca1e1d85
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406624"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420851"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
@@ -35,13 +35,13 @@ Pode executar as seguintes funções com o Monitor de conectividade do serviço:
 - Identifica pontos de acesso na rede que podem estar provocando o desempenho da aplicação insatisfatório visualizando a latência contribuída cada salto num mapa de topologia.
 
 
-![Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Monitor de Conectividade de Serviço](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
 Para abrir a configuração de Monitor de desempenho de rede, abra a [solução Monitor de desempenho de rede](log-analytics-network-performance-monitor.md) e selecione **configurar**.
 
-![Configurar o Monitor de desempenho de rede](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configurar o Monitor de desempenho de rede](media/log-analytics-network-performance-monitor-service-endpoint/npm-configure-button.png)
 
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurar agentes do Log Analytics para monitorizar
@@ -79,7 +79,7 @@ Comece a criar seus testes para monitorizar a conectividade de rede para os pont
 10. Escolha a monitorização de condições. Pode definir limiares personalizados para a geração de evento de estado de funcionamento ao introduzir os valores de limiar. Sempre que o valor da condição mais do seu limiar selecionado para a rede selecionada ou par sub-rede, é gerado um evento de estado de funcionamento. 
 11. Selecione **guardar** para guardar a configuração. 
 
-    ![Configurações de teste do Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Configurações de teste do Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 
 
 
@@ -87,11 +87,11 @@ Comece a criar seus testes para monitorizar a conectividade de rede para os pont
 
 Ir para a vista de dashboard de Monitor de desempenho de rede. Para obter um resumo do Estado de funcionamento dos testes diferentes que criou, observe a **Monitor de conectividade do serviço** página. 
 
-![Página de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Página de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-blade.png)
 
 Selecione o mosaico para ver os detalhes dos testes no **testes** página. Na tabela à esquerda, pode ver o estado de funcionamento do ponto anterior no tempo e o valor do tempo de resposta do serviço, latência de rede e perda de pacotes de todos os testes. Use o controle de gravação de estado de rede para ver o instantâneo de rede em outro momento no passado. Selecione o teste na tabela que pretende investigar. Nos gráficos no painel à direita, pode ver a tendência histórica dos valores de tempo de resposta, latência e perda. Selecione o **detalhes de teste** ligação para ver o desempenho de cada nó.
 
-![Testes de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Testes de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-tests.png)
 
 Na **nós de teste** vista, pode observar que a conectividade de rede de cada nó. Selecione o nó que tem uma degradação do desempenho. Este é o nó em que o aplicativo é observado estar em execução lenta.
 
@@ -99,15 +99,15 @@ Determine se o desempenho da aplicação insatisfatório é devido à rede ou um
 
 * **Problema de aplicação:** um pico no tempo de resposta, mas a consistência na latência de rede sugere que a rede estiver funcionando e que o problema poderá ser devido a um problema no final do aplicativo. 
 
-    ![Problema de aplicativo de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Problema de aplicativo de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
 * **Problema de rede:** um pico no tempo de resposta acompanhado de um pico correspondente na latência de rede sugere que o aumento no tempo de resposta pode ser devido a um aumento na latência de rede. 
 
-    ![Problema de Monitor de conectividade do serviço de rede](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Problema de Monitor de conectividade do serviço de rede](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
 Depois de determinar que o problema é devido a rede, selecione o **topologia** ligação de vista para identificar o salto problemáticos do mapa de topologia. Um exemplo é mostrado na imagem seguinte. Sem a latência total 105 ms entre o nó e o ponto final da aplicação, 96 ms é devido ao salto marcado em vermelho. Depois de identificar o salto problemáticos, pode tomar medidas corretivas. 
 
-![Testes de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Testes de Monitor de conectividade do serviço](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnóstico 
 

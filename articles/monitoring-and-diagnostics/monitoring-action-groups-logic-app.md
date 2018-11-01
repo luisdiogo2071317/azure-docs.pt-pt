@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3c1bff98debf426fc02dbd4518c0bb798d7ba96d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 74607f61482d4a96931e307e77b4a6d4c45e4c30
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576027"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420936"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como realizar ações complexos com alertas do Azure Monitor
 
@@ -38,25 +38,25 @@ O processo é semelhante, se pretender que a aplicação lógica para executar u
 
 1.  No portal do Azure, selecione **criar um recurso** no canto superior esquerdo.
 
-2.  Procure e selecione **aplicação lógica**, em seguida, selecione **criar**.
+2.  Procure e selecione **aplicação lógica**, em seguida, selecione **criar**.
 
 3.  Dê à sua aplicação lógica uma **Name**, escolha um **grupo de recursos**e assim por diante.
 
-    ![Criar uma aplicação lógica](media/monitoring-action-groups/create-logic-app-dialog.png "criar uma aplicação lógica")
+    ![Criar uma aplicação lógica](media/monitoring-action-groups-logic-app/create-logic-app-dialog.png "criar uma aplicação lógica")
 
 4.  Selecione **criar** para criar a aplicação lógica. Uma mensagem de pop-up indica que a aplicação lógica é criada. Selecione **recursos inicie** para abrir o **estruturador de aplicações lógicas**.
 
 5.  Selecione o acionador: **pedido de HTTP de quando é recebido**.
 
-    ![Acionadores da aplicação lógica](media/monitoring-action-groups/logic-app-triggers.png "acionadores da aplicação lógica")
+    ![Acionadores da aplicação lógica](media/monitoring-action-groups-logic-app/logic-app-triggers.png "acionadores da aplicação lógica")
 
 6.  Selecione **editar** para alterar o acionador de pedido HTTP.
 
-    ![Acionadores de pedido HTTP](media/monitoring-action-groups/http-request-trigger-shape.png "acionadores de pedido HTTP")
+    ![Acionadores de pedido HTTP](media/monitoring-action-groups-logic-app/http-request-trigger-shape.png "acionadores de pedido HTTP")
 
 7.  Selecione **Utilizar o payload de exemplo para gerar esquema**.
 
-    ![Utilizar um payload de exemplo](media/monitoring-action-groups/use-sample-payload-button.png "utilizar um payload de exemplo")
+    ![Utilizar um payload de exemplo](media/monitoring-action-groups-logic-app/use-sample-payload-button.png "utilizar um payload de exemplo")
 
 8.  Copie e cole o esquema de exemplo seguinte na caixa de diálogo:
 
@@ -99,15 +99,15 @@ O processo é semelhante, se pretender que a aplicação lógica para executar u
 
 9. O **Estruturador da aplicação lógica** exibe uma janela de pop-up para lembrá-lo de que o pedido enviado para a aplicação lógica tem de definir o **Content-Type** cabeçalho para **application/json**. Feche a janela de pop-up. O alerta de Azure Monitor define o cabeçalho.
 
-    ![Definir o cabeçalho Content-Type](media/monitoring-action-groups/content-type-header.png "definir o cabeçalho Content-Type")
+    ![Definir o cabeçalho Content-Type](media/monitoring-action-groups-logic-app/content-type-header.png "definir o cabeçalho Content-Type")
 
 10. Selecione **+** **novo passo** e, em seguida, escolha **adicionar uma ação**.
 
-    ![Adicionar uma ação](media/monitoring-action-groups/add-action.png "adicionar uma ação")
+    ![Adicionar uma ação](media/monitoring-action-groups-logic-app/add-action.png "adicionar uma ação")
 
 11. Procure e seleccione o conector do Microsoft Teams. Escolha o **Microsoft Teams – publicar mensagem** ação.
 
-    ![Ações do Microsoft Teams](media/monitoring-action-groups/microsoft-teams-actions.png "ações do Microsoft Teams")
+    ![Ações do Microsoft Teams](media/monitoring-action-groups-logic-app/microsoft-teams-actions.png "ações do Microsoft Teams")
 
 12. Configure a ação do Microsoft Teams. O **estruturador de aplicações lógicas** pede-lhe para autenticar a sua conta Office 365. Escolha o **ID da equipa** e **ID do canal** para enviar a mensagem.
 
@@ -125,13 +125,13 @@ O processo é semelhante, se pretender que a aplicação lógica para executar u
     > [!NOTE]
     > Existem dois campos dinâmicos que são nomeados **estado**. Adicione ambos estes campos à mensagem. Utilize o campo que está a **activityLog** recipiente de propriedades e elimine o outro campo. Coloque o cursor sobre o **estado** campo para ver a referência de campo completamente qualificado, conforme mostrado na captura de ecrã seguinte:
 
-    ![Ação do Microsoft Teams: publique uma mensagem](media/monitoring-action-groups/teams-action-post-message.png "ação do Microsoft Teams: publique uma mensagem")
+    ![Ação do Microsoft Teams: publique uma mensagem](media/monitoring-action-groups-logic-app/teams-action-post-message.png "ação do Microsoft Teams: publique uma mensagem")
 
 14. Na parte superior a **estruturador de aplicações lógicas**, selecione **guardar** para guardar a aplicação lógica.
 
 15. Abra o seu grupo de ação existente e adicionar uma ação para referenciar a aplicação lógica. Se não tiver um grupo de ação existente, consulte [criar e gerir grupos de ação no portal do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para criar um. Não se esqueça de guardar as alterações.
 
-    ![Atualizar o grupo de ação](media/monitoring-action-groups/update-action-group.png "atualizar o grupo de ação")
+    ![Atualizar o grupo de ação](media/monitoring-action-groups-logic-app/update-action-group.png "atualizar o grupo de ação")
 
 Da próxima vez que um alerta chama seu grupo de ação, a sua aplicação lógica é chamada.
 
@@ -192,7 +192,7 @@ Entradas de estado de funcionamento do serviço do Azure fazem parte do registo 
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      !["Condição de payload de estado de funcionamento do serviço"](media/monitoring-action-groups/service-health-payload-condition.png "condição de payload de estado de funcionamento do serviço")
+      !["Condição de payload de estado de funcionamento do serviço"](media/monitoring-action-groups-logic-app/service-health-payload-condition.png "condição de payload de estado de funcionamento do serviço")
 
    1. Na **se for true** condição, siga as instruções nos passos 11 por meio de 13 na [criar um alerta de registo de atividade](#create-an-activity-log-alert-administrative) para adicionar a ação do Microsoft Teams.
 
@@ -209,7 +209,7 @@ Entradas de estado de funcionamento do serviço do Azure fazem parte do registo 
        <p>[communication]</p>
        ```
 
-       !["Ação de postagem de verdadeira condição de estado de funcionamento do serviço"](media/monitoring-action-groups/service-health-true-condition-post-action.png "ação de estado de funcionamento do serviço de publicação de condição verdadeira")
+       !["Ação de postagem de verdadeira condição de estado de funcionamento do serviço"](media/monitoring-action-groups-logic-app/service-health-true-condition-post-action.png "ação de estado de funcionamento do serviço de publicação de condição verdadeira")
 
    1. Para o **se for FALSO** de condição, fornecer uma mensagem útil:
 
@@ -219,7 +219,7 @@ Entradas de estado de funcionamento do serviço do Azure fazem parte do registo 
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       !["Ação de publicação do Estado de funcionamento do serviço condição falso"](media/monitoring-action-groups/service-health-false-condition-post-action.png "ação de estado de funcionamento do serviço de publicação de condição falsa")
+       !["Ação de publicação do Estado de funcionamento do serviço condição falso"](media/monitoring-action-groups-logic-app/service-health-false-condition-post-action.png "ação de estado de funcionamento do serviço de publicação de condição falsa")
 
 - Passo 15 é o mesmo. Siga as instruções para guardar a aplicação lógica e atualizar o seu grupo de ação.
 
@@ -279,15 +279,15 @@ O processo para criar um alerta de métrica é semelhante à [criar um alerta de
        - `schemaId == AzureMonitorMetricAlert`
        - `version == "2.0"`
        
-       !["Condição de payload de alerta de métrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "condição de payload de alerta de métrica")
+       !["Condição de payload de alerta de métrica"](media/monitoring-action-groups-logic-app/metric-alert-payload-condition.png "condição de payload de alerta de métrica")
 
    1. Na **se for true** condição, adicione um **para cada** loop e a ação do Microsoft Teams. Defina a mensagem com uma combinação de HTML e de conteúdo dinâmico.
 
-       !["Ação de postagem de métrica condição verdadeiro do alerta"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "ação de postagem de condições verdadeiro alerta de métricas")
+       !["Ação de postagem de métrica condição verdadeiro do alerta"](media/monitoring-action-groups-logic-app/metric-alert-true-condition-post-action.png "ação de postagem de condições verdadeiro alerta de métricas")
 
    1. Na **se for FALSO** de condição, defina uma ação do Microsoft Teams para comunicar que o alerta de métrica não corresponde às expectativas da aplicação lógica. Inclua JSON payload. Observe como fazer referência a `triggerBody` conteúdo dinâmico no `json()` expressão.
 
-       !["Ação de postagem de condições de Falso alerta métricas"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "ação de postagem de condições falso alerta de métricas")
+       !["Ação de postagem de condições de Falso alerta métricas"](media/monitoring-action-groups-logic-app/metric-alert-false-condition-post-action.png "ação de postagem de condições falso alerta de métricas")
 
 - Passo 15 é o mesmo. Siga as instruções para guardar a aplicação lógica e atualizar o seu grupo de ação.
 

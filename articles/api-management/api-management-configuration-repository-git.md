@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945821"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414408"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Para guardar e configurar a sua configuração do serviço de gestão de API com o Git
 
@@ -190,7 +190,8 @@ A raiz `api-management` pasta contém um `configuration.json` ficheiro que cont�
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -200,10 +201,11 @@ As quatro primeiras definições (`RegistrationEnabled`, `UserRegistrationTerms`
 
 | Definição de identidade | É mapeado para |
 | --- | --- |
-| RegistrationEnabled |**Redirecionar utilizadores anónimos para a página de início de sessão** caixa de verificação |
+| RegistrationEnabled |Presença **nome de utilizador e palavra-passe** fornecedor de identidade |
 | UserRegistrationTerms |**Termos de utilização na inscrição do utilizador** caixa de texto |
 | UserRegistrationTermsEnabled |**Mostrar termos de utilização na página de inscrição** caixa de verificação |
 | UserRegistrationTermsConsentRequired |**Exigir consentimento** caixa de verificação |
+| RequireUserSigninEnabled |**Redirecionar utilizadores anónimos para a página de início de sessão** caixa de verificação |
 
 As próximas quatro definições (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, e `DelegationValidationKey`) mapear para as seguintes definições no **delegação** separador o **segurança** secção.
 

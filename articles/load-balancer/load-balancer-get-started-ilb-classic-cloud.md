@@ -4,22 +4,19 @@ description: Saiba como criar um balanceador de carga interno com o PowerShell n
 services: load-balancer
 documentationcenter: na
 author: genlin
-manager: cshepard
-tags: azure-service-management
-ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: 96a7c5b21d78dcc84a32fbfc8835542d64a5d7af
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: fb543e705c613ee1e69564e391080cf5f8357ba5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067763"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417383"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Introdução à criação de um balanceador de carga interno (modo clássico) para serviços em nuvem
 
@@ -92,7 +89,7 @@ Ao seguir os mesmos valores do exemplo acima, vamos adicionar os valores ao fich
 
 Será efetuado o balanceamento de carga do tráfego de rede com o balanceador de carga testLB através da porta 80 para pedidos de entrada e o envio das instâncias de função de trabalho também será na porta 80.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Configurar um modo de distribuição de balanceador de carga com a afinidade do IP de origem](load-balancer-distribution-mode.md)
 

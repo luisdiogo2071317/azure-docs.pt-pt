@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: cd5d6ef6a75088d02bc34558f66ed520c230e06b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225570"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741900"
 ---
 # <a name="paging-videos"></a>Vídeos de paginação
 
-Quando chama a API de pesquisa de vídeo, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que são relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) campo.  
+Quando chamar a API de Pesquisa de Vídeos, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que são relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) campo.  
   
 A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma resposta de vídeo.  
   
@@ -65,3 +65,6 @@ Por exemplo, se quiser página 30 vídeos ao mesmo tempo, definiria `count` de 3
 
 > [!NOTE]
 > Paginação aplica-se apenas a pesquisa de vídeos (/ vídeos/search) e não para informações de vídeo (/ vídeos/detalhes) ou vídeos populares (/ vídeos/tendências).
+
+> [!NOTE]
+> O `TotalEstimatedAnswers` campo é uma estimativa do número total de resultados de pesquisa, pode recuperar para a consulta atual.  Se definir `count` e `offset` parâmetros, o `TotalEstimatedAnswers` número pode ser alterada. 

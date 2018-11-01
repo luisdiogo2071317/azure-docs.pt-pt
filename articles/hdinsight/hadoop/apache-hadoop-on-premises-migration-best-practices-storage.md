@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f89cf9431d3d72b74bc856093108a7bc0ab5a0b4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4f4aedd1d85a83e6f55d5729b82b88e2e9e8c00d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221952"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415938"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de armazenamento
 
@@ -47,23 +47,27 @@ Armazenamento do Azure oferece [eliminação de forma recuperável para objetos 
 Pode criar [instantâneos de blob](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob). Um instantâneo é uma versão só de leitura de um blob que está a ser utilizado num ponto no tempo e fornece uma forma de fazer cópias de segurança de um blob. Assim que tiver sido criado um instantâneo, ele possa ser lido, copiado, ou eliminado, mas não modificado.
 
 > [!Note]
-> Para a versão mais antiga do distribuições de Hadoop no local no local que não tenha o certificado de "wasbs", ele precisa ser importados para o arquivo de confiança de Java. Os comandos seguintes podem ser utilizados para importar certificados para o arquivo de confiança de Java:
+> Para a versão mais antiga do distribuições de Hadoop no local no local que não tenha o certificado de "wasbs", ele precisa ser importados para o arquivo de confiança de Java.
 
-- Transferir o certificado de ssl de Blobs do Azure para um ficheiro
+Os seguintes métodos podem ser utilizados para importar certificados para o arquivo de confiança de Java:
+
+Transferir o certificado de ssl de Blobs do Azure para um ficheiro
 
 ```bash
 echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
 ```
 
-- Importe o ficheiro acima para o arquivo de confiança de Java em todos os nós
+Importe o ficheiro acima para o arquivo de confiança de Java em todos os nós
 
 ```bash
 keytool -import -trustcacerts -keystore /path/to/jre/lib/security/cacerts -storepass changeit -noprompt -alias blobtrust -file Azure_Storage.cer
 ```
 
-- Certifique-se de que o certificado foi adicionado está no arquivo de confiança
+Certifique-se de que o certificado foi adicionado está no arquivo de confiança
 
-`keytool -list -v -keystore /path/to/jre/lib/security/cacerts`
+```bash
+keytool -list -v -keystore /path/to/jre/lib/security/cacerts
+```
 
 Para obter mais informações, veja os artigos seguintes:
 
@@ -152,23 +156,31 @@ HDInsight por predefinição tem acesso total aos dados nas contas de armazename
     - storage_account_key: A chave para a conta de armazenamento.
     - storage_container_name: O contentor na conta de armazenamento que pretende restringir o acesso ao.
     - example_file_path: O caminho para um ficheiro que é carregado para o contentor
+
 2. O ficheiro de SASToken.py vem com o `ContainerPermissions.READ + ContainerPermissions.LIST` permissões e pode ser ajustado com base no caso de utilização.
+
 3. Execute o script da seguinte forma: `python SASToken.py`
+
 4. Apresenta o token SAS semelhante ao seguinte texto quando o script tiver concluído: `sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
 
 5. Para limitar o acesso a um contentor com a assinatura de acesso partilhado, adicione uma entrada personalizada para a configuração de site principal para o cluster em Ambari HDFS configurações avançadas de site principal Adicionar propriedade personalizada.
+
 6. Utilize os seguintes valores para o **chave** e **valor** campos:
 
-    **Chave**: fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net **valor**: A chave de SAS devolvido pelo passo FROM da aplicação Python 4 acima
+    **Chave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valor**: A chave de SAS devolvido pelo passo FROM da aplicação Python 4 acima.
 
 7. Clique nas **Add** botão para guardar esta chave e valor, em seguida, clique nas **guardar** botão para guardar as alterações de configuração. Quando lhe for pedido, adicione uma descrição da alteração ("adicionar acesso do armazenamento SAS" por exemplo) e, em seguida, clique em **guardar**.
+
 8. No Ambari web UI, selecione o HDFS da lista à esquerda e, em seguida, selecione **reiniciar todos os afetados** das ações do serviço de lista pendente à direita. Quando lhe for pedido, selecione **confirmar reiniciar todos os**.
+
 9. Repita este processo para MapReduce2 e YARN.
 
 Existem três coisas importantes a serem lembrados sobre a utilização de Tokens de SAS no Azure:
 
 1. Quando os tokens SAS são criados com permissões de "Ler a lista de +", os usuários que acessam o contentor de Blobs com esse token SAS não será capazes de "escrita e eliminação" dados. Os utilizadores que aceder ao contentor de Blobs com esse token SAS e experimente uma gravação ou operação de eliminação, irá receber uma mensagem como `"This request is not authorized to perform this operation"`.
+
 2. Quando os tokens de SAS são gerados com `READ + LIST + WRITE` permissões (para restringir `DELETE` apenas), comandos como `hadoop fs -put` primeiro escreverá um `\_COPYING\_` de ficheiros e, em seguida, tentar renomear o arquivo. Esta operação de HDFS mapeia para uma `copy+delete` para WASB. Uma vez que o `DELETE` permissão não foi fornecida, "put" falhe. O `\_COPYING\_` operação é um recurso de Hadoop destinado a fornecer algum controlo de simultaneidade. Atualmente não é possível restringir apenas a operação de "DELETE" sem afetar as operações de "Escrita" também.
+
 3. Infelizmente, o provedor de credenciais do hadoop e o principal fornecedor de desencriptação (ShellDecryptionKeyProvider) atualmente não funcionam com os tokens SAS e por isso, atualmente não pode ser protegido visibilidade.
 
 Para obter mais informações, consulte [utilização do Azure Storage assinaturas de acesso partilhado para restringir o acesso aos dados no HDInsight](../hdinsight-storage-sharedaccesssignature-permissions.md)
@@ -180,7 +192,9 @@ Todos os dados escritos no armazenamento do Azure são automaticamente encriptad
 - [Armazenamento localmente redundante (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Armazenamento com redundância de zona (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Armazenamento georredundante (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Armazenamento georredundante com acesso de leitura (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) armazenamento do Azure Data Lake fornece armazenamento localmente redundante (LRS), mas também deve copiar os dados críticos para outra conta de armazenamento do Data Lake noutra região com uma frequência alinhada com as necessidades das plano de recuperação após desastre. Há uma variedade de métodos para copiar dados, incluindo [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), ou [do Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Recomenda-se também para impor políticas de acesso para a conta de armazenamento do Data Lake para impedir a eliminação acidental.
+- [Armazenamento georredundante com acesso de leitura (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+
+Armazenamento do Azure Data Lake fornece armazenamento localmente redundante (LRS), mas também deve copiar os dados críticos para outra conta de armazenamento do Data Lake noutra região com uma frequência alinhada com as necessidades do plano de recuperação após desastre. Há uma variedade de métodos para copiar dados, incluindo [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md), ou [do Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Recomenda-se também para impor políticas de acesso para a conta de armazenamento do Data Lake para impedir a eliminação acidental.
 
 Para obter mais informações, veja os artigos seguintes:
 

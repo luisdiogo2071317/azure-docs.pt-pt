@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853526"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741067"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
@@ -40,7 +40,7 @@ Regras do filtro complexos exigem a capacidade de processamento. Em particular, 
 
 ## <a name="actions"></a>Ações
 
-Com condições de filtro SQL, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL](service-bus-messaging-sql-filter.md) que livremente apresenta a sintaxe de instrução SQL UPDATE. A ação é executada na mensagem depois foi encontrada e antes da mensagem será selecionada para o tópico. As alterações às propriedades da mensagem são privadas para a mensagem copiada para a subscrição.
+Com condições de filtro SQL, pode definir uma ação que pode anotar a mensagem por adicionar, remover ou substituir as propriedades e os respetivos valores. A ação [utiliza uma expressão de tipo SQL](service-bus-messaging-sql-filter.md) que livremente apresenta a sintaxe de instrução SQL UPDATE. A ação é executada na mensagem depois foi encontrada e antes da mensagem será selecionada para a subscrição. As alterações às propriedades da mensagem são privadas para a mensagem copiada para a subscrição.
 
 ## <a name="usage-patterns"></a>Padrões de utilização
 

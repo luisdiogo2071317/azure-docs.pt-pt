@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042191"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413065"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para mosaicos do estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
@@ -47,7 +47,7 @@ As secções seguintes descrevem os tipos de mosaico e as respetivas propriedade
 ## <a name="number-tile"></a>Mosaico de número
 O **número** mosaico mostra ambas as a contagem de registos a partir de uma consulta de registo e um rótulo.
 
-![Mosaico de número](media/log-analytics-view-designer/tile-number.png)
+![Mosaico de número](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -65,7 +65,7 @@ O **número** mosaico mostra ambas as a contagem de registos a partir de uma con
 ## <a name="two-numbers-tile"></a>Mosaico de dois números
 Este mosaico apresenta a contagem de registos de duas consultas de registo diferentes e uma etiqueta para cada um.
 
-![Mosaico de dois números](media/log-analytics-view-designer/tile-two-numbers.png)
+![Mosaico de dois números](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -86,7 +86,7 @@ Este mosaico apresenta a contagem de registos de duas consultas de registo difer
 ## <a name="donut-tile"></a>Mosaico de anel
 O **anel** mosaico apresenta um único número que resume uma coluna de valor numa consulta de registo. Anel apresenta graficamente os resultados dos registos de três principais.
 
-![Mosaico de anel](media/log-analytics-view-designer/tile-donut.png)
+![Mosaico de anel](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -110,7 +110,7 @@ O **anel** mosaico apresenta um único número que resume uma coluna de valor nu
 ## <a name="line-chart-tile"></a>Mosaico de gráfico de linha
 Este mosaico é um gráfico de linhas que exibe várias séries de uma consulta de registo ao longo do tempo. 
 
-![Mosaico de gráfico e nota de aviso da linha](media/log-analytics-view-designer/tile-line-chart.png)
+![Mosaico de gráfico e nota de aviso da linha](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -131,7 +131,7 @@ Este mosaico é um gráfico de linhas que exibe várias séries de uma consulta 
 ## <a name="line-chart-and-callout-tile"></a>Mosaico de gráfico e nota de aviso da linha
 Este mosaico tem tanto de uma linha do gráfico que apresenta várias séries de um log de consulta ao longo do tempo e uma nota de aviso com um valor resumido. 
 
-![Mosaico de gráfico e nota de aviso da linha](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Mosaico de gráfico e nota de aviso da linha](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | Definição | Descrição |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Este mosaico tem tanto de uma linha do gráfico que apresenta várias séries de
 ## <a name="two-timelines-tile"></a>Mosaico de duas linhas cronológicas
 O **duas linhas cronológicas** mosaico apresenta os resultados de duas consultas de registo ao longo do tempo, como gráficos de colunas. Uma nota de aviso é apresentada para cada série. 
 
-![Mosaico de duas linhas cronológicas](media/log-analytics-view-designer/tile-two-timelines.png)
+![Mosaico de duas linhas cronológicas](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | Definição | Descrição |
 |:--- |:--- |

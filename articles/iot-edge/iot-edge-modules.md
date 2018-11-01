@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423396"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741679"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Compreender os módulos do Azure IoT Edge
 
@@ -31,7 +31,7 @@ As imagens de existem na nuvem e podem ser atualizadas, alteradas e implementada
 
 Sempre que uma imagem do módulo é implementada num dispositivo e iniciada pelo runtime do IoT Edge, é criada uma nova instância desse módulo. Dois dispositivos em diferentes partes do mundo poderiam usar a mesma imagem do módulo; No entanto cada uma teria sua própria instância do módulo quando o módulo é iniciado no dispositivo. 
 
-![Imagens de módulo na cloud - instâncias de módulo em dispositivos][1]
+![Imagens de módulo na cloud - instâncias de módulo em dispositivos](./media/iot-edge-modules/image_instance.png)
 
 Na implementação, as imagens de módulos existam como imagens de contentor num repositório e instâncias de módulo são contentores em dispositivos. 
 
@@ -46,23 +46,23 @@ A identidade associada uma instância de módulo depende da identidade do dispos
 
 Sem dúvida, em cenários quando precisa implantar uma imagem de módulo várias vezes no mesmo dispositivo, pode implementar a mesma imagem várias vezes com nomes diferentes.
 
-![Identidades do módulo são exclusivas][2]
+![Identidades do módulo são exclusivas](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Duplos de módulo
 
 Cada instância de módulo também tem um módulo duplo correspondente que pode utilizar para configurar a instância de módulo. A instância e o duplo estão associados entre si através de identidade do módulo. 
 
-Um módulo duplo é um documento JSON que armazena as propriedades de informações e a configuração do módulo. Esse conceito faz um paralelo com o [dispositivo duplo] [ lnk-device-twin] conceito do IoT Hub. A estrutura de um módulo duplo é exatamente o mesmo que um dispositivo duplo. As APIs usadas para interagir com os dois tipos de duplos também são os mesmos. A única diferença entre as duas é a identidade utilizada para instanciar o SDK do cliente. 
+Um módulo duplo é um documento JSON que armazena as propriedades de informações e a configuração do módulo. Esse conceito faz um paralelo com o [dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md) conceito do IoT Hub. A estrutura de um módulo duplo é exatamente o mesmo que um dispositivo duplo. As APIs usadas para interagir com os dois tipos de duplos também são os mesmos. A única diferença entre as duas é a identidade utilizada para instanciar o SDK do cliente. 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>Funcionalidades offline
@@ -79,15 +79,8 @@ Módulos do IoT Edge podem ser offline por períodos prolongados, desde que são
 Capacidades offline adicionais estão disponíveis em pré-visualização pública. Para obter mais informações, consulte [compreender estendido recursos offline para o IoT Edge, dispositivos, módulos e dispositivos de subordinados](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
- - [Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge][lnk-mod-dev]
- - [Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura][lnk-runtime]
+ - [Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge](module-development.md)
+ - [Compreender o tempo de execução do Azure IoT Edge e respetiva arquitetura](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

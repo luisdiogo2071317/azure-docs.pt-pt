@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfb95a57da62037df8f7fbe7e5d8edd970e264ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044370"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418896"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics
 
@@ -55,7 +55,7 @@ Existem duas formas em que o volume de dados pode ser limitada e ajudar a contro
 Log Analytics torna isso fácil de entender o que são provável que os custos basear-se nos padrões de utilização recente.  Para tal, execute os seguintes passos.  
 
 1. Inicie sessão no [Portal do Azure](http://portal.azure.com). 
-2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-manage-cost-storage/azure-portal-01.png)<br><br>  
 3. No painel de subscrições do Log Analytics, selecione a sua área de trabalho e, em seguida, clique em **utilização e custos estimados** no painel esquerdo.<br><br> ![Utilização e a página de custos estimados](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 A partir daqui pode rever o volume dos seus dados para o mês. Isto inclui todos os dados recebidos e mantidas na sua área de trabalho do Log Analytics.  Clique em **detalhes de utilização** da parte superior da página para ver o dashboard de utilização com informações sobre as tendências de volume de dados de origem, computadores e oferta. Para ver e definir um máximo diário ou para modificar o período de retenção, clique em **gestão de volumes de dados**.

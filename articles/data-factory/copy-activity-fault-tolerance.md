@@ -1,6 +1,6 @@
 ---
-title: Tolerância de atividade de cópia no Azure Data Factory a falhas | Microsoft Docs
-description: Saiba mais sobre como adicionar tolerância a falhas para a atividade de cópia no Azure Data Factory por ignorar as linhas incompatíveis.
+title: Tolerância a atividade de cópia no Azure Data Factory falhas | Documentos da Microsoft
+description: Saiba mais sobre como adicionar a tolerância a falhas para a atividade de cópia no Azure Data Factory por ignorar as linhas incompatíveis.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,45 +11,47 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 10/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3f207cdb3af3f7e328cd5843053240bbbe15980e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37058987"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418348"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas de atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Versão atual](copy-activity-fault-tolerance.md)
 
-A atividade de cópia no Azure Data Factory oferece duas formas de lidar com linhas incompatíveis ao copiar dados entre os arquivos de dados de origem e dependente:
+A atividade de cópia no Azure Data Factory oferece duas formas de lidar com linhas incompatíveis durante a cópia de dados entre arquivos de dados de origem e sink:
 
-- Pode abortar e efetuar a cópia atividade quando os dados incompatíveis encontrado (comportamento predefinido).
-- Pode continuar copiar todos os dados ao adicionar a tolerância a falhas e a ignorar as linhas de dados incompatíveis. Além disso, pode iniciar as linhas incompatíveis no Blob storage do Azure ou do Azure Data Lake Store. Em seguida, pode examinar o registo para obter a causa da falha, corrija os dados na origem de dados e repita a atividade de cópia.
+- Pode abortar e falhar a cópia de atividade, quando os dados incompatíveis encontrou (comportamento predefinido).
+- Pode continuar copiar todos os dados ao adicionar a tolerância a falhas e Ignorar linhas de dados incompatíveis. Além disso, pode iniciar as linhas incompatíveis no armazenamento de Blobs do Azure ou no Azure Data Lake Store. Em seguida, pode examinar o registo para obter a causa da falha, corrigir os dados na origem de dados e repita a atividade de cópia.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
-Atividade de cópia suporta três cenários para detetar, ignorar, dados e registo incompatíveis:
+Atividade de cópia suporta três cenários para detetar, a ignorar e registo de dados incompatíveis:
 
-- **Incompatibilidade entre o tipo de dados de origem e o tipo nativo sink**. 
+- **Incompatibilidade entre o tipo de dados de origem e sink obsahující nativní typ**. 
 
-    Por exemplo: copiar dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema contém três colunas do tipo INT. As linhas do ficheiro CSV que contêm dados numéricos, tais como 123,456,789 são copiadas com êxito para o arquivo de sink. No entanto, as linhas que contêm valores não numéricos, tais como 123,456, abc são detetados como incompatíveis e são ignorados.
+    Por exemplo: copiar dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contém três colunas de tipo INT. As linhas do ficheiro CSV que contêm dados numéricos, como 123,456,789 são copiadas com êxito para o arquivo sink. No entanto, as linhas que contêm valores não numéricos, como 123,456, abc são detetados como incompatíveis e são ignorados.
 
 - **Erro de correspondência no número de colunas entre a origem e o sink**.
 
-    Por exemplo: copiar dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contenha seis colunas. As linhas do ficheiro CSV que contenha seis colunas são copiadas com êxito para o arquivo de sink. As linhas do ficheiro CSV que contenha colunas mais ou menos de seis são detetadas como incompatíveis e são ignoradas.
+    Por exemplo: copiar dados de um ficheiro CSV no armazenamento de BLOBs para base de dados SQL com uma definição de esquema que contém seis colunas. As linhas do ficheiro CSV que contêm seis colunas são copiadas com êxito para o arquivo sink. As linhas do ficheiro CSV que contêm mais ou menos seis colunas são detetadas como incompatíveis e são ignoradas.
 
-- **Violação da chave primária ao escrever a base de dados do SQL Server/Azure SQL da base de dados/Azure Cosmos**.
+- **Violação de chave primária ao escrever para o SQL Server/Azure SQL da base de dados/do Azure Cosmos DB**.
 
-    Por exemplo: copiar dados do SQL server para uma base de dados do SQL Server. É definida uma chave primária na base de dados do SQL Server sink, mas essa nenhuma chave primária está definido no servidor SQL de origem. As linhas duplicadas que existe na origem não não possível copiar o sink. Atividade de cópia copia apenas a primeira linha dos dados de origem para o sink. As linhas subsequentes de origem que contêm o valor de chave primária duplicado são detetadas como incompatíveis e são ignoradas.
+    Por exemplo: copiar dados de um SQL server para uma base de dados SQL. Uma chave primária é definida na base de dados do SQL sink, mas a chave não principal está definido no servidor SQL de origem. Não não possível copiar as linhas duplicadas que existam na origem para o sink. Atividade de cópia copia apenas a primeira linha dos dados de origem para o sink. As linhas de origem subsequentes que contêm o valor da chave primário duplicado são detetadas como incompatíveis e são ignoradas.
 
 >[!NOTE]
->Esta funcionalidade não se aplica quando a atividade de cópia está configurada para invocar incluindo mecanismo do carregamento de dados externos [Azure SQL Data Warehouse PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) ou [Amazon Redshift descarregamento](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift). Para carregar dados para o SQL Data Warehouse, utilizando o PolyBase, utilize o suporte de tolerância de falhas nativo do PolyBase especificando "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia.
+>- Para carregar dados para o SQL Data Warehouse com o PolyBase, configurar as definições de tolerância de falhas nativo do PolyBase ao especificar políticas de rejeitar através de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Ainda pode ativar o redirecionamento PolyBase de linhas incompatíveis para Blob ou ADLS como normal, conforme mostrado abaixo.
+>- Esta funcionalidade não se aplica quando a atividade de cópia está configurada para invocar [descarregamento do Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
+
 
 ## <a name="configuration"></a>Configuração
-O exemplo seguinte fornece uma definição de JSON para configurar a ignorar as linhas incompatíveis na atividade de cópia:
+O exemplo a seguir fornece uma definição de JSON para configurar a ignorar as linhas incompatíveis na atividade de cópia:
 
 ```json
 "typeProperties": {
@@ -73,12 +75,12 @@ O exemplo seguinte fornece uma definição de JSON para configurar a ignorar as 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | Especifica se pretende ignorar linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>FALSE (predefinição) | Não
-redirectIncompatibleRowSettings | Um grupo de propriedades que podem ser especificados quando pretender registar as linhas incompatíveis. | &nbsp; | Não
-linkedServiceName | O serviço ligado do [Storage do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para armazenar o registo que contém as linhas ignoradas. | O nome de um `AzureStorage` ou `AzureDataLakeStore` tipo de serviço ligado que referencia a instância que pretende utilizar para armazenar o ficheiro de registo. | Não
-caminho | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique o caminho que pretende utilizar para registar os dados incompatíveis. Se não fornecer um caminho, o serviço cria um contentor para si. | Não
+redirectIncompatibleRowSettings | Um grupo de propriedades que podem ser especificados quando pretende registar linhas incompatíveis. | &nbsp; | Não
+linkedServiceName | Serviço ligado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [do Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para armazenar o registo que contém as linhas ignoradas. | O nome de um `AzureStorage` ou `AzureDataLakeStore` tipo de serviço ligado, o que se refere à instância que pretende utilizar para armazenar o ficheiro de registo. | Não
+caminho | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique o caminho que pretende utilizar para iniciar sessão os dados incompatíveis. Se não fornecer um caminho, o serviço cria um contentor para. | Não
 
-## <a name="monitor-skipped-rows"></a>Monitorizar linhas ignoradas
-Após a conclusão da execução da atividade de cópia, pode ver o número de linhas ignorados na saída da atividade de cópia:
+## <a name="monitor-skipped-rows"></a>Linhas de monitor ignorada
+Depois de concluída a execução de atividade de cópia, pode ver o número de linhas ignorados na saída da atividade de cópia:
 
 ```json
 "output": {
@@ -93,9 +95,9 @@ Após a conclusão da execução da atividade de cópia, pode ver o número de l
         },
 
 ```
-Se configurar para registar as linhas incompatíveis, pode encontrar o ficheiro de registo neste caminho: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
+Se o configurar para iniciar as linhas incompatíveis, pode encontrar o ficheiro de registo neste caminho: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
 
-Os ficheiros de registo só podem ser os ficheiros csv. Os dados originais ignorados serão registados com vírgulas como delimitador de coluna se for necessário. Iremos adicionar mais duas colunas "ErrorCode" e "ErrorMessage" no adicionais aos dados de origem original no ficheiro de registo, onde pode ver a raiz causa de incompatibilidade. O código de erro e ErrorMessage vai estar escritos entre aspas por aspas duplas. 
+Os ficheiros de registo só podem ser os ficheiros csv. Os dados originais, que está a ser ignorados serão registados com vírgula como delimitador de colunas se for necessário. Iremos adicionar mais duas colunas "ErrorCode" e "ErrorMessage" no adicionais para a origem de dados original no ficheiro de registo, onde pode ver a raiz causa da incompatibilidade. O código de erro e ErrorMessage irão estar escritos entre aspas por aspas duplas. 
 
 Um exemplo do conteúdo do ficheiro de registo é o seguinte:
 

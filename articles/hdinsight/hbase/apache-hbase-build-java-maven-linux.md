@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: jasonh
-ms.openlocfilehash: d198db98c07c01a56be118e74ce2bf4b29b8c757
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c62e52d9f2ee456dbaa12be24ff46285023e5eed
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048437"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417562"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Criar aplicações de Java para o Apache HBase
 
@@ -30,7 +30,7 @@ Os passos neste documentam uso [Maven](http://maven.apache.org/) para criar e co
 
 ## <a name="requirements"></a>Requisitos
 
-* [A plataforma Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 ou posterior.
+* [A plataforma Java JDK](https://aka.ms/azure-jdks) 8 ou posterior.
 
     > [!NOTE]
     > HDInsight 3.5 e superior requer Java 8. Versões anteriores do HDInsight requerem Java 7.

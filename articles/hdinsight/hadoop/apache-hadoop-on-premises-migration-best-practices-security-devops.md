@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a1cf731678ef7678b740020a4d61725f9a2b32a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9489d6e8780a30c5c54ee307d6c45c4bc2eb0e5d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221953"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419287"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - segurança e as melhores práticas de DevOps
 
@@ -62,11 +62,11 @@ Para obter mais informações, veja os artigos seguintes:
 
 Ponto a segurança da empresa de ponto pode ser obtido usando os controles seguintes:
 
-- **Pipeline de dados particulares e protegidos** (segurança de nível de perímetro):
+- **Pipeline de dados particulares e protegidos (segurança de nível de perímetro)**
     - Segurança em nível de perímetro pode ser alcançada através de redes virtuais do Azure, os grupos de segurança de rede e o serviço de Gateway
 
 - **Autenticação e autorização de acesso a dados**
-    - Crie o cluster HDI associados a um domínio com o Azure Active Directory Domain Services. (Pacote de segurança empresarial)
+    - Crie cluster do HDInsight associado a um domínio com o Azure Active Directory Domain Services. (Pacote de segurança empresarial)
     - Utilizar Ambari para fornecer acesso baseado em funções aos recursos do cluster para os utilizadores do AD
     - Utilizar o Apache Ranger para definir políticas de controlo de acesso para o Hive na mesa / coluna / nível de linha.
     - Acesso SSH para o cluster pode ser restringido apenas ao administrador.
@@ -97,14 +97,14 @@ Para obter mais informações, consulte o artigo:
 
 Atualize regularmente para a versão mais recente do HDInsight para tirar partido das funcionalidades mais recentes. Os seguintes passos podem ser utilizados para atualizar o cluster para a versão mais recente:
 
-- Crie um novo cluster de HDI de teste com a versão HDI mais recente disponível.
-- Teste no novo cluster para se certificar de que as cargas de trabalho e tarefas funcionam conforme esperado.
-- Modificar tarefas ou aplicações ou cargas de trabalho conforme necessário.
-- Fazer backup de todos os dados transitórios armazenados localmente em nós do cluster.
-- Elimine o cluster existente.
-- Crie um cluster do HDInsight versão mais recente na mesma sub-rede VNET, utilizar o mesmo arquivo de dados e metadados de predefinição que o cluster anterior.
-- Importe todos os dados transitórios que foi feitos backup.
-- Iniciar tarefas/continuam a utilizar o novo cluster de processamento.
+1. Crie um novo cluster de HDInsight de teste com a versão de HDInsight mais recente disponível.
+1. Teste no novo cluster para se certificar de que as cargas de trabalho e tarefas funcionam conforme esperado.
+1. Modificar tarefas ou aplicações ou cargas de trabalho conforme necessário.
+1. Fazer backup de todos os dados transitórios armazenados localmente em nós do cluster.
+1. Elimine o cluster existente.
+1. Crie um cluster do HDInsight versão mais recente na mesma sub-rede VNET, utilizar o mesmo arquivo de dados e metadados de predefinição que o cluster anterior.
+1. Importe todos os dados transitórios que foi feitos backup.
+1. Iniciar tarefas/continuam a utilizar o novo cluster de processamento.
 
 Para obter mais informações, consulte o artigo: [cluster HDInsight de atualizar para uma nova versão](../hdinsight-upgrade-cluster.md)
 
@@ -116,133 +116,9 @@ Para obter mais informações, consulte o artigo: [aplicação de patches de SO 
 
 ## <a name="post-migration"></a>Pós-migração
 
-1. **Correção dos aplicativos** - iterativamente efetue as alterações necessárias para os trabalhos, processos e scripts
-2. **Executar testes de** - iterativamente execução funcional e desempenho testes
+1. **Correção dos aplicativos** - iterativamente efetue as alterações necessárias para os trabalhos, processos e scripts.
+2. **Executar testes de** - iterativamente execução funcional e desempenho de testes.
 3. **Otimizar** – resolva problemas de desempenho com base nos resultados de teste acima e, em seguida, testar novamente para confirmar as melhorias de desempenho.
-
-## <a name="appendix-gathering-details-to-prepare-for-a-migration"></a>Apêndice: detalhes para se preparar para uma migração de recolha
-
-Esta seção fornece questionários de modelo para o ajudar a reunir informações importantes sobre:
-
-- A implementação no local.
-- Detalhes do projeto.
-- Requisitos do Azure.
-
-### <a name="on-premises-deployment-questionnaire"></a>Questionário de implementação no local
-
-| **Pergunta** | **Exemplo** | **Resposta** |
-|---|---|---|
-|**Tópico**: **ambiente**|||
-|Tipo de distribuição de cluster|Hortonworks, Cloudera, MapR| |
-|Versão de distribuição do cluster|HDP 2.6.5, CDH 5.7|
-|Grandes componentes do sistema ao meio ambiente de dados|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Tipos de cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
-|Número de clusters|4|
-|Número de nós do mestre|2|
-|Número de nós de trabalho|100|
-|Número de nós de extremidade| 5|
-|Total de espaço em disco|100 TB|
-|Configuração do nó principal|m/y, cpu, disco, etc.|
-|Configuração de nós de dados|m/y, cpu, disco, etc.|
-|Configuração de nós de extremidade|m/y, cpu, disco, etc.|
-|Encriptação de HDFS?|Sim|
-|Elevada Disponibilidade|HA do HDFS, Metastore HA|
-|Recuperação após desastre / cópia de segurança|Cluster de cópia de segurança?|  
-|Sistemas que são dependentes do Cluster|SQL Server, Teradata, Power BI, MongoDB|
-|Integrações de terceiros|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**Tópico**: **segurança**|||
-|Segurança de perímetro|Firewalls|
-|Cluster de autenticação e autorização|Active Directory, Ambari, Cloudera o Gestor de diretório, sem autenticação|
-|Controlo de acesso do HDFS|  Manual, ssh utilizadores|
-|Ramo de registo de autenticação e autorização|Sentry, LDAP, AD com o Kerberos, o Ranger|
-|Auditoria|Ambari, navegador Cloudera, Ranger|
-|Monitorização|Graphite, recolhidos, statsd, Telegraf, InfluxDB|
-|Alertas|Kapacitor, Prometheus, Datadog|
-|Duração da retenção de dados| 3 anos, 5 anos|
-|Administradores de cluster|Administrador de único, vários administradores|
-
-### <a name="project-details-questionnaire"></a>Questionário de detalhes do projeto
-
-|**Pergunta**|**Exemplo**|**Resposta**|
-|---|---|---|
-|**Tópico**: **cargas de trabalho e a frequência**|||
-|Tarefas de MapReduce|10 tarefas – duas vezes por dia||
-|Tarefas do Hive|100 tarefas – cada hora||
-|Tarefas de lote do Spark|50 tarefas – a cada 15 minutos||
-|Tarefas de transmissão em fluxo do Spark|5 tarefas – a cada 3 minutos||
-|Tarefas de transmissão em fluxo estruturada|5 tarefas – a cada minuto||
-|Tarefas de formação do modelo de ML|2 tarefas, uma vez numa semana||
-|Linguagens de Programação|Python, Scala, Java||
-|Scripts|Shell, Python||
-|**Tópico**: **dados**|||
-|Origens de dados|Arquivos simples, Json, Kafka, RDBMS||
-|Orquestração de dados|Fluxos de trabalho do Oozie, ventilação||
-|Em pesquisas de memória|Apache Ignite, Redis||
-|Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
-|**Tópico**: **metadados**|||
-|Tipo de BD do Hive|MySQL, Postgres||
-|Não. de metastores do Hive|2||
-|Não. de tabelas do Hive|100||
-|Não. de políticas do Ranger|20||
-|Não. dos fluxos de trabalho do Oozie|100||
-|**Tópico**: **dimensionamento**|||
-|Volume de dados, incluindo a replicação|100 TB||
-|Volume de ingestão de diário|50 GB||
-|Taxa de crescimento de dados|10% por ano||
-|Taxa de crescimento de nós de cluster|5% por ano
-|**Tópico**: **utilização do Cluster**|||
-|Média de CPU de % utilizada|60%||
-|Média % de memória utilizada|75%||
-|Espaço em disco utilizado|75%||
-|Média de rede de % utilizada|25%
-|**Tópico**: **equipe**|||
-|Não. de administradores|2||
-|Não. de desenvolvedores|10||
-|Não. dos utilizadores finais|100||
-|Competências|Hadoop, Spark||
-|Não. de recursos disponíveis para iniciativas de migração|2||
-|**Tópico**: **limitações**|||
-|Limitações atuais|Latência é elevada||
-|Desafios atuais|Problema de simultaneidade||
-
-### <a name="azure-requirements-questionnaire"></a>Questionário de requisitos do Azure
-
-|**Tópico**: **infraestrutura** |||
-|---|---|---|
-|**Pergunta**|**Exemplo**|**Resposta**|
-| Região preferencial|E.U.A Leste||
-|VNet preferido?|Sim||
-|HA / DR necessária?|Sim||
-|Integração com outros serviços em nuvem?|ADF, cosmos DB||
-|**Tópico**: **movimento de dados**  |||
-|Preferência de carregamento inicial|DistCp, dados de caixa, ADF, WANDisco||
-|Diferenças de transferência de dados|DistCp, o AzCopy||
-|Transferência de dados incrementais em curso|DistCp, Sqoop||
-|**Tópico**: **monitorização e alertas** |||
-|Utilizar a monitorização de terceiros de monitorização do Azure & alertas integrar o Vs|Utilizar o Azure, monitorização e alertas||
-|**Tópico**: **preferências de segurança** |||
-|Pipeline de dados particulares e protegidos?|Sim||
-|Cluster de associado de domínio (ESPP)?|     Sim||
-|No local sincronização do AD para a Cloud?|     Sim||
-|Não. de utilizadores do AD para sincronizar?|          100||
-|OK para sincronizar as palavras-passe para a cloud?|    Sim||
-|Apenas utilizadores de cloud?|                 Sim||
-|MFA necessário?|                       Não|| 
-|Requisitos de autorização de dados?|  Sim||
-|Controlo de acesso baseado em funções?|        Sim||
-|Auditoria necessário?|                  Sim||
-|Encriptação de dados Inativos?|          Sim||
-|Encriptação de dados em trânsito?|       Sim||
-|**Tópico**: **preferências de Rearquitetura** |||
-|Tipos de clusters específicos do cluster único vs|Tipos de clusters específicos||
-|Armazenamento remoto do Vs de armazenamento colocalizados?|Armazenamento remoto||
-|Tamanho de cluster mais pequeno que dados é armazenado remotamente?|Tamanho de cluster mais pequeno||
-|Utilizar vários clusters menores em vez de um único cluster grande?|Utilizar vários clusters menores||
-|Utilizar um metastore remoto?|Sim||
-|Partilhar metastores entre clusters diferentes?|Sim||
-|Eles possuem de desconstruir cargas de trabalho?|Substitua as tarefas do Hive com tarefas do Spark||
-|Utilizar o ADF para orquestração de dados?|Não||
-|HDI vs HDP no IaaS?|HDI||
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Não é possível eliminar uma rede virtual no Azure | Microsoft Docs
-description: Saiba como resolver o problema no qual não é possível eliminar uma rede virtual no Azure.
+title: Não é possível eliminar uma rede virtual no Azure | Documentos da Microsoft
+description: Saiba como resolver o problema em que não é possível eliminar uma rede virtual no Azure.
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -12,53 +12,53 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d3ffcd9981ff0c57f6d625efcede3e930acd17b5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4bd143b37e4403d039108b4349b27604b6503e0e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072114"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415224"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Resolução de problemas: Falha ao eliminar uma rede virtual no Azure
 
-Poderá receber erros ao tentar eliminar uma rede virtual no Microsoft Azure. Este artigo fornece os passos de resolução de problemas para o ajudar a resolver este problema. 
+Poderá receber erros ao tentar eliminar uma rede virtual no Microsoft Azure. Este artigo fornece passos de resolução de problemas para o ajudar a resolver este problema. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-guidance"></a>Orientação na resolução de problemas 
 
-1. [Verifique se um gateway de rede virtual está em execução na rede virtual](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
-2. [Verifique se um gateway de aplicação está em execução na rede virtual](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
+1. [Verificar se um gateway de rede virtual está em execução na rede virtual](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
+2. [Verificar se um gateway de aplicação está em execução na rede virtual](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
 3. [Verifique se o serviço de domínio do Active Directory do Azure está ativado na rede virtual](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Certifique-se a rede virtual está ligada a outro recurso](#check-whether-the-virtual-network-is-connected-to-other-resource).
+4. [Verifique se a rede virtual está ligada a outros recursos](#check-whether-the-virtual-network-is-connected-to-other-resource).
 5. [Verifique se uma máquina virtual ainda está em execução na rede virtual](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Verifique se a rede virtual está encravada no migração](#check-whether-the-virtual-network-is-stuck-in-migration).
+6. [Verifique se a rede virtual fica preso em migração](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
-### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Verifique se um gateway de rede virtual está em execução na rede virtual
+### <a name="check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network"></a>Verificar se um gateway de rede virtual está em execução na rede virtual
 
 Para remover a rede virtual, tem de remover primeiro o gateway de rede virtual.
 
-Para redes virtuais clássicas, vá para o **descrição geral** página da rede virtual clássica no portal do Azure. No **ligações VPN** secção, se o gateway está em execução na rede virtual, verá o endereço IP do gateway. 
+Para redes virtuais clássicas, vá para o **descrição geral** página da rede virtual clássica no portal do Azure. Na **ligações VPN** secção, se o gateway estiver em execução na rede virtual, verá o endereço IP do gateway. 
 
 ![Verifique se o gateway está em execução](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
-Para redes virtuais, vá para o **descrição geral** página da rede virtual. Verifique **dispositivos ligados** para o gateway de rede virtual.
+Para as redes virtuais, vá para o **descrição geral** página da rede virtual. Verifique **dispositivos ligados** para o gateway de rede virtual.
 
 ![Verifique o dispositivo ligado](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Antes de poder remover o gateway, primeiro remova qualquer **ligação** objetos no gateway. 
 
-### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>Verifique se um gateway de aplicação está em execução na rede virtual
+### <a name="check-whether-an-application-gateway-is-running-in-the-virtual-network"></a>Verificar se um gateway de aplicação está em execução na rede virtual
 
-Vá para o **descrição geral** página da rede virtual. Verifique o **dispositivos ligados** para o gateway de aplicação.
+Vá para o **descrição geral** página da rede virtual. Verifique os **dispositivos ligados** para o gateway de aplicação.
 
 ![Verifique o dispositivo ligado](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
-Se existir um gateway de aplicação, tem de removê-lo antes de poder eliminar a rede virtual.
+Se houver um gateway de aplicação, tem de o remover antes de poder eliminar a rede virtual.
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Verifique se o serviço de domínio do Active Directory do Azure está ativado na rede virtual
 
@@ -70,11 +70,11 @@ Para desativar o serviço, consulte [desativar o Azure Active Directory Domain S
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Verifique se a rede virtual está ligada a outros recursos
 
-Verifique a existência de ligações de circuito, ligações e peerings de rede virtual. Qualquer uma destas pode provocar a eliminação de rede virtual falhe. 
+Verificar a existência de ligações de circuito, ligações e peerings de rede virtual. Qualquer uma dessas pode causar uma exclusão de rede virtual efetuar a ativação. 
 
 A ordem de eliminação recomendada é o seguinte:
 
-1. Ligações de gateway
+1. ligações de gateway
 2. Gateways
 3. IPs
 4. Peerings de rede virtual
@@ -82,11 +82,11 @@ A ordem de eliminação recomendada é o seguinte:
 
 ### <a name="check-whether-a-virtual-machine-is-still-running-in-the-virtual-network"></a>Verifique se uma máquina virtual ainda está em execução na rede virtual
 
-Certifique-se de que nenhuma máquina virtual na rede virtual.
+Certifique-se de que nenhuma máquina virtual está na rede virtual.
 
-### <a name="check-whether-the-virtual-network-is-stuck-in-migration"></a>Verifique se a rede virtual está encravada no migração
+### <a name="check-whether-the-virtual-network-is-stuck-in-migration"></a>Verifique se a rede virtual está bloqueada na migração
 
-Se a rede virtual está encravada no estado de migração, não pode ser eliminada. Execute o seguinte comando para abortar da migração e, em seguida, elimine a rede virtual.
+Se a rede virtual fica preso num Estado de migração, não pode ser eliminada. Execute o seguinte comando para abortar a migração e, em seguida, elimine a rede virtual.
 
     Move-AzureVirtualNetwork -VirtualNetworkName "Name" -Abort
 

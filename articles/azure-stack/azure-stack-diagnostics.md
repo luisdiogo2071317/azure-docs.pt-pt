@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419613"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740558"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -86,32 +86,38 @@ if($s)
   Recolha todos os registos para todas as funções:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred
   ```
 
   Recolha registos de funções VirtualMachines e bare-metal:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
   Recolha registos de funções VirtualMachines e bare-metal, com data de filtragem para ficheiros de registo para as últimos 8 horas:
     
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
   Recolha registos de funções VirtualMachines e bare-metal, com data de filtragem para ficheiros de registo para o período de tempo entre 8 horas atrás e 2 horas atrás:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerações de parâmetro para ASDK e sistemas integrados
 
 - Se o **FromDate** e **ToDate** não foram especificados parâmetros, os registos são recolhidos para as últimos quatro horas por predefinição.
-- Utilize o **FilterByNode** parâmetro para filtrar registos por nome do computador. Por exemplo: ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
-- Utilize o **FilterByLogType** parâmetro para filtrar registos por tipo. Pode optar por filtrar por ficheiro, a partilha ou WindowsEvent. Por exemplo: ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- Utilize o **FilterByNode** parâmetro para filtrar registos por nome do computador. Por exemplo:
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+```
+- Utilize o **FilterByLogType** parâmetro para filtrar registos por tipo. Pode optar por filtrar por ficheiro, a partilha ou WindowsEvent. Por exemplo:
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+```
 - Pode utilizar o **TimeOutInMinutes** parâmetro para definir o tempo limite para a recolha de registos. Ele é definido como 150 (2,5 horas) por predefinição.
 - Na versão 1805 e posterior, a recolha de informação de registo de ficheiros está desativada por predefinição. Para ativá-la, utilize o **IncludeDumpFile** mudar o parâmetro. 
 - Atualmente, pode utilizar o **FilterByRole** parâmetro para a recolha de registos de filtro para as seguintes funções:
@@ -127,7 +133,7 @@ if($s)
  |ACSMigrationService|Domain|KeyVaultInternalDataPlane|SQL|
  |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
  |ACSSettingsService|EventAdminRP|MDM|Armazenamento|
- |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
+ |ACSTableMaster|EventRP|MetricsAdminRP|storageAccounts|
  |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
  |ACSWac|Recursos de infraestrutura|MetricsServer|Inquilino|
  |ADFS|FabricRing|MetricsStoreService|TraceCollector|
@@ -138,7 +144,7 @@ if($s)
  |AzureStackBitlocker|Gateway|Rede|FOI|
  |BareMetal|HealthMonitoring|NonPrivilegedAppGateway|WASBootstrap|
  |BRP|HintingServiceV2|NRP|WASPUBLIC|
- |AC|HRP|OboService|WindowsDefender|
+ |CA|HRP|OboService|WindowsDefender|
  |CacheService|IBC|OEM|     |
  |Nuvem|identityProvider|OnboardRP|     |   
  |Cluster|iDns|PXE|     |
