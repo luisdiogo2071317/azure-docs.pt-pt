@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315169"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747257"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alterar a senha de conta de serviço de sincronização do Azure AD Connect
 Se alterar a senha de conta de serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de encriptação e reinicializados a senha de conta de serviço de sincronização do Azure AD Connect. 
@@ -44,7 +44,7 @@ Em primeiro lugar, terá de alterar a palavra-passe sob o Gestor de controlo do 
 Em segundo lugar, em condições específicas, se a palavra-passe é atualizada, o serviço de sincronização pode já não obter a chave de encriptação por meio de DPAPI. Sem a chave de encriptação, o serviço de sincronização não é possível desencriptar as palavras-passe necessárias para sincronizar em locais AD e o Azure AD.
 Verá erros, tais como:
 
-- Em Gestor de controlo de serviço de Windows, se tentar iniciar o serviço de sincronização e ele não é possível obter a chave de encriptação, ele falha com o erro "**Windows não conseguiu iniciar a sincronização do Microsoft Azure AD no computador Local. Para obter mais informações, consulte o registo de eventos do sistema. Se se tratar de um serviço de terceiros, contacte o fornecedor de serviço e consulte o código de erro específico do serviço \*\*-21451857952**\*\*."
+- Em Gestor de controlo de serviço de Windows, se tentar iniciar o serviço de sincronização e ele não é possível obter a chave de encriptação, ele falha com o erro "* * Windows não conseguiu iniciar a sincronização do Microsoft Azure AD no computador Local. Para obter mais informações, consulte o registo de eventos do sistema. Se se tratar de um serviço de terceiros, contacte o fornecedor de serviço e consulte o código de erro específico do serviço * *-21451857952 ***. "
 - No Visualizador de eventos do Windows, o log de eventos do aplicativo contém um erro com **evento ID 6028** e mensagem de erro *"**a chave de encriptação do servidor não pode ser acedida.**"*
 
 Para garantir que não recebem esses erros, siga os procedimentos [abandonar a chave de encriptação do Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) quando alterar a palavra-passe.
@@ -59,6 +59,8 @@ Utilize os procedimentos seguintes para abandonar a chave de encriptação.
 
 Se precisar de abandonar a chave de encriptação, utilize os procedimentos seguintes para conseguir isso.
 
+1. [Parar o serviço de sincronização](#stop-the-synchronization-service)
+
 1. [Abandonar a chave de encriptação existente](#abandon-the-existing-encryption-key)
 
 2. [Forneça a palavra-passe da conta do AD DS](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Se precisar de abandonar a chave de encriptação, utilize os procedimentos segu
 3. [Reinicializar a palavra-passe da conta de sincronização do Azure AD](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [Iniciar o serviço de sincronização](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>Parar o serviço de sincronização
+Em primeiro lugar pode parar o serviço no Gestor de controlo de serviço do Windows.  Certifique-se de que o serviço não está em execução durante a tentativa de pará-la.  Se for, aguarde que ele seja concluída e, em seguida, impedi-lo.
+
+
+1. Aceda ao Gestor de controlo de serviço do Windows (início → serviços).
+2. Selecione **Microsoft Azure AD Sync** e clique em parar.
 
 #### <a name="abandon-the-existing-encryption-key"></a>Abandonar a chave de encriptação existente
 Abandone a chave de encriptação existente para que essa nova chave de encriptação pode ser criado:

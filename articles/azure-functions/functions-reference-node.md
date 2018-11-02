@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 18ff0e3fadad64f7bd7fe014a6dcec6a628ef1b9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740458"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914557"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -76,7 +76,7 @@ Ao utilizar o [ `async function` ](https://developer.mozilla.org/docs/Web/JavaSc
 
 O exemplo seguinte é uma função simples que regista o que ele foi acionado e imediatamente conclui a execução.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -112,19 +112,24 @@ No JavaScript, [enlaces](functions-triggers-bindings.md) são configuradas e def
 ### <a name="reading-trigger-and-input-data"></a>Acionador de leitura e dados de entrada
 Acionar e enlaces de entrada (enlaces de `direction === "in"`) podem ser lidos por uma função de três formas:
  - **_[Recomendável]_  Como parâmetros transmitidos para a sua função.** Elas são passadas para a função na mesma ordem em que elas estão definidas na *Function*. Tenha em atenção que o `name` propriedade definida no *Function* não tem de corresponder ao nome do seu parâmetro, embora ele deve.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **Membros de, a [ `context.bindings` ](#contextbindings-property) objeto.** Com o nome por cada membro de `name` propriedade definida no *Function*.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **Como entradas usando o JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto.** Isso é essencialmente o mesmo que passar entradas como parâmetros, mas permite que manipule dinamicamente entradas.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -137,7 +142,8 @@ Saídas (enlaces de `direction === "out"`) pode ser escrito por uma função de 
 
 Pode atribuir os dados para ligações de saída de uma das seguintes formas. Não deve combinar esses métodos.
 - **_[Recomendado para várias saídas]_  Retornando um objeto.** Se estiver a utilizar uma função de retorno do async/promessa, pode retornar um objeto com dados de saída atribuído. No exemplo abaixo, as ligações de saída são com o nome "httpResponse" e "queueOutput" no *Function*.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ Pode atribuir os dados para ligações de saída de uma das seguintes formas. N�
       };
   };
   ```
+  
   Se estiver a utilizar uma função síncrona, pode retornar este objeto utilizando [ `context.done` ](#contextdone-method) (veja o exemplo).
 - **_[Recomendado para saída única]_  Retornar um valor diretamente e utilizar o nome da ligação $return.** Isso só funciona para async/promessa, retornando as funções. Veja o exemplo na [exportar uma função de async](#exporting-an-async-function). 
 - **Atribuir valores para `context.bindings`**  pode atribuir valores diretamente a context.bindings.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {

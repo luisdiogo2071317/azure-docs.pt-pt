@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2f7871aac0469e5fb8eaaebef9ca48404609bab7
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528032"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912565"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.locfileid: "39528032"
 
 ## <a name="what-is-a-management-solution"></a>O que é uma solução de gestão?
 
-Soluções de gestão contêm recursos do Azure que funcionam em conjunto para obter um cenário de gestão específico.  Eles são implementados como [modelos de gestão de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md) que contêm detalhes sobre como instalar e configurar os recursos contidos quando a solução é instalada.
+Soluções de gestão contêm recursos do Azure que funcionam em conjunto para obter um cenário de gestão específico.  Eles são implementados como [modelos de gestão de recursos](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) que contêm detalhes sobre como instalar e configurar os recursos contidos quando a solução é instalada.
 
 A estratégia básica é começar a sua solução de gestão com a criação de componentes individuais no seu ambiente do Azure.  Assim que tiver a funcionalidade funcionar corretamente, pode começar a empacotá-los para um [arquivo da solução de gestão]( monitoring-solutions-solution-file.md). 
 
@@ -49,7 +49,7 @@ Existem várias maneiras de origens de dados que podem ser recolhidas no reposit
 Se necessitar de dados que não são acessíveis através de qualquer uma das origens de dados disponíveis, em seguida, pode utilizar o [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) que permite-lhe escrever dados para o repositório do Log Analytics a partir de qualquer cliente que pode chamar uma API REST.  Os meios mais comuns de recolha de dados personalizados numa solução de gestão de consiste em criar uma [runbook na automatização do Azure](../automation/automation-runbook-types.md) que recolhe os dados necessários a partir dos recursos do Azure ou externos e utiliza a API de Recoletor de dados para escrever o repositório.  
 
 ### <a name="log-searches"></a>Pesquisas de registos
-[Pesquisas de registos](../log-analytics/log-analytics-log-searches.md) são usados para extrair e analisar dados no repositório do Log Analytics.  São utilizados pelas vistas e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
+[Pesquisas de registos](../log-analytics/log-analytics-log-search.md) são usados para extrair e analisar dados no repositório do Log Analytics.  São utilizados pelas vistas e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
 
 Deve definir todas as consultas que acredita que serão úteis para os utilizadores, mesmo que eles não são utilizados por quaisquer vistas ou alertas.  Estes vão estar disponíveis a eles como pesquisas guardadas no portal e também pode incluir os mesmos num [parte de visualização de lista de consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) na vista personalizada.
 
@@ -58,7 +58,7 @@ Deve definir todas as consultas que acredita que serão úteis para os utilizado
 
 Se o problema potencialmente pode ser corrigido com um processo automatizado, normalmente, irá criar um runbook na automatização do Azure para realizar essa correção.  Os serviços mais do Azure podem ser geridos com [cmdlets](/powershell/azure/overview) que o runbook poderia aproveitar para fazer essa funcionalidade.
 
-Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../log-analytics/log-analytics-alerts-actions.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
+Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
 
 ### <a name="views"></a>Vistas
 Vistas no Log Analytics são utilizadas para visualizar dados do repositório do Log Analytics.  Cada solução normalmente irá conter uma única vista com um [mosaico](../log-analytics/log-analytics-view-designer-tiles.md) que é apresentado no dashboard principal do usuário.  A vista pode conter qualquer número de [partes de visualização](../log-analytics/log-analytics-view-designer-parts.md) para fornecer visualizações diferentes dos dados recolhidos para o usuário.

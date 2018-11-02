@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025944"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748294"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar a cópia de segurança de VMs do Azure
 
-Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementadas no Azure Resource Manager. Os passos apresentados nos procedimentos de utilizam o portal do Azure. Quando cria cópias de segurança de uma máquina virtual, os dados de cópia de segurança ou os pontos de recuperação, são armazenados num cofre de cópia de segurança do Recovery Services. 
+Este artigo fornece os passos para preparar o ambiente para fazer uma cópia de segurança de uma máquina de virtual (VM) implementadas no Azure Resource Manager. Os passos apresentados nos procedimentos de utilizam o portal do Azure. Quando cria cópias de segurança de uma máquina virtual, os dados de cópia de segurança ou os pontos de recuperação, são armazenados num cofre de cópia de segurança do Recovery Services.
 
 
 
@@ -45,7 +45,7 @@ Se estas condições já existem no seu ambiente, avance para o [cópia de segur
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Limitações ao fazer backup e restaurar uma VM
 Antes de preparar o seu ambiente, certifique-se de que compreender estas limitações:
 
-* Cópias de máquinas virtuais com mais do que 32 discos de dados não é suportada.
+* Cópias de máquinas virtuais com mais de 16 discos de dados não é suportada.
 * Não é suportada para o backup das VMs de Linux encriptado através da encriptação de Linux Unified chave configuração (LUKS).
 * Não recomendamos que o backup das VMs que contêm a configuração de Volumes de partilhado de Cluster (CSV) ou o servidor de ficheiros de escalamento horizontal. Se feito, espera-se a falha de escritores CSV. Eles exigem envolvendo todas as VMs incluídas na configuração do cluster durante uma tarefa de instantâneo. O Azure Backup não suporta a consistência de várias VMS.
 * Dados de cópia de segurança não incluem unidades de rede montado anexadas a uma VM.
@@ -194,7 +194,7 @@ O serviço de cópia de segurança instala a extensão de cópia de segurança, 
 ## <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 Para gerir os instantâneos VM, a extensão de cópia de segurança precisa de conectividade para os endereços IP públicos do Azure. Sem conectividade de internet adequada, tempo limite de pedidos de HTTP da máquina virtual e a operação de cópia de segurança falhará. Se a sua implementação tem restrições de acesso no local – através de um grupo de segurança de rede (NSG), por exemplo – escolha uma destas opções para fornecer um caminho claro para o tráfego de cópia de segurança:
 
-* [Intervalos de IP do datacenter do Azure de lista branca](http://www.microsoft.com/en-us/download/details.aspx?id=41653).
+* [Intervalos de IP do datacenter do Azure de lista branca](http://www.microsoft.com/download/details.aspx?id=41653).
 * Implemente um servidor de proxy HTTP para o encaminhamento de tráfego.
 
 Quando estiver a decidir qual a opção para utilizar, são os compromissos entre a capacidade de gerenciamento, um controle granular e custo.
@@ -205,7 +205,7 @@ Quando estiver a decidir qual a opção para utilizar, são os compromissos entr
 | Utilizar um proxy de HTTP |Um controle granular no proxy sobre o armazenamento é permitida a URLs.<br><br>Único ponto de acesso à internet para VMs.<br><br>Não sujeitas a alterações ao endereço IP do Azure. |Custos adicionais para executar uma VM com o software de proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Intervalos de IP da lista de permissões do datacenter do Azure
-A lista de permissões os intervalos IP do datacenter do Azure, consulte a [Web site do Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
+A lista de permissões os intervalos IP do datacenter do Azure, consulte a [Web site do Azure](http://www.microsoft.com/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
 
 Pode permitir ligações para o armazenamento da região específica, utilizando [etiquetas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tem uma prioridade mais alta do que a regra que bloqueia o acesso à internet.
 

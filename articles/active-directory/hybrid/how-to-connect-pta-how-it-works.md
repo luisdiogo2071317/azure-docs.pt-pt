@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b8a758923f0e3e287da4a377d140f1f659cef46f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312698"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913807"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Do Azure Active Directory autenticação pass-through: Aprofundamento técnico
 Este artigo é uma visão geral de como funciona a autenticação pass-through do Azure Active directory (Azure AD). Para técnica e informações de segurança, consulte a [detalhada da segurança](how-to-connect-pta-security-deep-dive.md) artigo.
@@ -52,7 +52,7 @@ O diagrama seguinte ilustra a todos os componentes e as etapas envolvidas:
 ## <a name="next-steps"></a>Passos Seguintes
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários são suportados e quais não são.
 - [Início Rápido](how-to-connect-pta-quick-start.md): comece a utilizar na autenticação pass-through do Azure AD.
-- [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
+- [Migrar do AD FS para autenticação pass-through](https://aka.ms/adfstoPTADP) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Perguntas mais frequentes](how-to-connect-pta-faq.md): encontre respostas para perguntas mais frequentes.
 - [Resolver problemas de](tshoot-connect-pass-through-authentication.md): Saiba como resolver problemas comuns com a funcionalidade de autenticação pass-through.

@@ -9,14 +9,14 @@ tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2ec5caab32e12411f5ccab4a9a6b98d3c4e57c0b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1de70b3ddea84fc0067a0e20ec613f01024f0ed4
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414640"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748039"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Resolver erros de eliminação de recursos de armazenamento
 
@@ -69,10 +69,7 @@ Repita a eliminar a conta de armazenamento, contentor ou blob depois de concluir
 
 ### <a name="scenario-3-deleting-storage-account---identify-all-blobs-within-storage-account-that-are-attached-to-vms"></a>Cenário 3: A eliminar o armazenamento de contas – identificar todos os BLOBs na conta de armazenamento que estão ligados às VMs
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No Hub menu, selecione **todos os recursos**. Vá para a conta de armazenamento, em **serviço Blob** selecionar **contentores**.
-
-    ![Captura de ecrã do portal, com os contentores de conta de armazenamento e o "Estado da concessão" com "Concedido" realçado](./media/troubleshoot-vhds/utd-containers-sm.png)
-
+2. No Hub menu, selecione **todos os recursos**. Vá para a conta de armazenamento, em **serviço Blob** selecionar **Blobs**.
 3. Na **contentores** painel, identificar todos os contentores em que **estado da concessão** é **concedido** e siga [cenário 2](#scenario-2-deleting-a-container---identify-all-blobs-within-container-that-are-attached-to-vms) para cada  **Concedidos** contentor.
 4. Siga [passo 2](#step-2-delete-vm-to-detach-os-disk) e [passo 3](#step-3-detach-data-disk-from-the-vm) ao eliminar a VM (s) com **OSDisk** e desanexar **DataDisk**. 
 

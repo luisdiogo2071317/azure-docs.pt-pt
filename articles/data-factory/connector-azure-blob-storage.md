@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 3a27f275cfc151b374ea2807580b430c4e9aa1e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 83be53edf240220726639b51381b487c5b742cee
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420250"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754091"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -22,6 +22,8 @@ ms.locfileid: "50420250"
 > * [Versão atual](connector-azure-blob-storage.md)
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados para e do armazenamento de Blobs do Azure. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+
+Para saber mais sobre o Azure Data Factory, leia os [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 

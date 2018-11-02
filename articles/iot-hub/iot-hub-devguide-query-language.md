@@ -1,18 +1,18 @@
 ---
 title: Compreender a linguagem de consulta do IoT Hub do Azure | Documentos da Microsoft
 description: Guia do desenvolvedor – descrição do IoT Hub semelhante a SQL utilizada para obter informações sobre o dispositivo/módulo duplos e tarefas do seu hub IoT de linguagem de consulta.
-author: fsautomata
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.author: elioda
-ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 10/29/2018
+ms.author: rezas
+ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318253"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747920"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do IoT Hub para twins de dispositivo e o módulo, tarefas e encaminhamento de mensagens
 
@@ -389,6 +389,11 @@ GROUP BY <group_by_element>
 **Attribute_name** refere-se a qualquer propriedade do documento JSON da coleção de FROM.
 
 Atualmente, a cláusula GROUP BY só é suportada quando as consultas a gémeos de dispositivo.
+
+> [!IMPORTANT]
+> O termo `group` atualmente é tratado como uma palavra-chave especial nas consultas. No caso, utilize `group` como o nome de propriedade, considere envolvente, Retos duplo para evitar erros, por exemplo, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+>
+>
 
 ## <a name="expressions-and-conditions"></a>Expressões e condições
 Num alto nível, uma *expressão*:

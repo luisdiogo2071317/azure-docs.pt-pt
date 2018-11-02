@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42061463"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914724"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory
 
@@ -72,7 +72,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |50003|O início de sessão falhou devido à falta da chave de assinatura ou do certificado. Isto poderá dever-se ao facto de não existir nenhuma chave de assinatura configurada na aplicação. Veja as resoluções descritas em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Se continuar a encontrar problemas, contacte o proprietário ou o administrador da aplicação.|
 |50005|O utilizador tentou iniciar sessão num dispositivo a partir de uma plataforma que não é atualmente suportada através da política de acesso condicional|
 |50006| A verificação da assinatura falhou devido a assinatura inválida. Veja a resolução descrita em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Se continuar a encontrar problemas, contacte o proprietário ou o administrador da aplicação.|
-|50007|O certificado de encriptação do parceiro não foi encontrado para esta aplicação. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) junto da Microsoft para resolver esse problema.|
+|50007|O certificado de encriptação do parceiro não foi encontrado para esta aplicação. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a Microsoft para resolver esse problema.|
 |50008|A asserção SAML está em falta ou não está devidamente configurada no token. Contacte o seu fornecedor de federação.|
 |50010|A validação do URI de audiência da aplicação falhou, pois não foram configuradas audiências de token. Contacte o proprietário da aplicação.|
 |50011|O endereço de resposta está em falta, está mal configurado ou não corresponde aos endereços de resposta configurados para a aplicação. Experimente a resolução indicada em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Se continuar a encontrar problemas, contacte o proprietário ou o administrador da aplicação.|
@@ -117,10 +117,10 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |50135|É necessário alterar a palavra-passe, porque a conta está em risco|
 |50136|Redirecionar sessão de msa para a aplicação – foi detetada uma sessão única de MSA |
 |50140|Este erro ocorreu devido à interrupção de "Manter sessão iniciada" quando o utilizador estava a iniciar sessão. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o ID de Correlação, o ID do Pedido e o código de Erro para obter mais detalhes. |
-|50143|Erro de correspondência de sessão: a sessão é inválida porque o inquilino do utilizador não corresponde à sugestão de domínio devido a um recurso ser diferente. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o ID de Correlação, o ID do Pedido e o código de Erro para obter mais detalhes.|
+|50143|Erro de correspondência de sessão - sessão é inválida porque o inquilino do utilizador não coincide com a sugestão de domínio devido a recursos diferentes.  [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de ID de correlação, o ID do pedido e o erro para obter mais detalhes.|
 |50144|A palavra-passe do Active Directory do utilizador expirou. Gerar uma palavra-passe nova para o utilizador ou pedir ao utilizador final que utilize a ferramenta de reposição personalizada de palavras-passe|
 |50146|Esta aplicação tem de ser configurada com uma chave de assinatura específica da aplicação. Ou não está configurada com uma chave destas ou a chave expirou ou ainda não é válida. Contacte o proprietário da aplicação.|
-|50148|O code_verifier não corresponde ao code_challenge fornecido no pedido de autorização do PKCE. Contacte o programador da aplicação. |
+|50148|O code_verifier não corresponde ao code_challenge fornecido no pedido de autorização do PKCE. Contacte o programador da aplicação. |
 |50155|A autenticação do dispositivo para este utilizador falhou|
 |50158|O desafio de segurança externo não foi cumprido|
 |50161|As afirmações enviadas pelo fornecedor externo não são suficientes ou a afirmação que foi pedida ao fornecedor externo está em falta|
@@ -128,7 +128,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |50169|O realm não é um realm configurado do espaço de nomes do serviço atual.|
 |50172|O fornecedor de afirmações externo não foi aprovado. Contacte o administrador do inquilino.|
 |50173|É necessário um token de autenticação atualizado. Pedir ao utilizador que volte a iniciar sessão com credenciais novas|
-|50177|O desafio externo não é suportado para utilizadores de pass-through|
+|50177|Desafio externo não é suportado para os utilizadores de pass-through|
 |50178|O Controlo de Sessão não é suportado para utilizadores de pass-through|
 |50180|É necessária a Autenticação Integrada do Windows Ativar o inquilino para SSO Totalmente Integrado.|
 |51001|A Sugestão de Domínio não está presente com o Identificador de Segurança no Local: UPN no Local|
@@ -152,7 +152,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |70007|A aplicação devolveu um valor não suportado de “response_mode” durante um pedido de token. Contacte o proprietário da aplicação.|
 |70008|O código de autorização ou o token de atualização fornecido expirou ou foi revogado. Pedir ao utilizador que inicie sessão|
 |70011|O âmbito que a aplicação pediu é inválido. Contacte o proprietário da aplicação.|
-|70012|Ocorreu um erro de servidor ao autenticar um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+|70012|Ocorreu um erro de servidor ao autenticar um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abrir um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Código de verificação inválido devido ao Utilizador ter introduzido o código de utilizador errado no fluxo de códigos do dispositivo. A autorização não foi aprovada|
 |70019|O código de verificação expirou. Pedir ao utilizador que volte a inicie sessão|
 |70037|Foi fornecida uma resposta errada para o desafio. A sessão de autenticação remota foi recusada.|
@@ -180,6 +180,7 @@ A secção seguinte proporciona-lhe uma descrição geral completa de todos os p
 |90014| Um campo obrigatório de uma mensagem de protocolo estava em falta, contacte o proprietário da aplicação. Se for o proprietário da aplicação, certifique-se de que tem todos os parâmetros necessários para o pedido de início de sessão. |
 |90072| A conta tem de ser adicionado como um utilizador externo no inquilino pela primeira vez. Fim de sessão e inicie sessão novamente com um diferente do Azure AD conta.|
 |90094| A concessão de permissões de administrador. Peça ao administrador de inquilino para fornecer o consentimento para esta aplicação.|
+|500133| A declaração não está dentro do seu intervalo de tempo válida. Certifique-se de que o token de acesso não expirou antes de o utilizar para a asserção de utilizador ou pedir um novo token.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

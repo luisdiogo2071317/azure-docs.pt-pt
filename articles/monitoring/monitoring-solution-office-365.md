@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b2e7cc46a844ff866ae2d325b610653cd3179d8d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406326"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914571"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -30,7 +30,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o seu ambiente do O
 - Monitorizar atividades de administrador para controlar as alterações de configuração ou operações de alto privilégio.
 - Detete e investigue o comportamento dos utilizadores indesejados, que pode ser personalizado para as suas necessidades organizacionais.
 - Demonstre a conformidade e auditoria. Por exemplo, pode monitorizar operações de acesso de arquivos em ficheiros confidenciais, o que podem ajudá-lo com o processo de auditoria e conformidade.
-- Resolver os problemas operacionais usando [pesquisas de registos](../log-analytics/log-analytics-log-search.md) sobre dados de atividade do Office 365 da sua organização.
+- Resolver os problemas operacionais usando [pesquisas de registos](../log-analytics/log-analytics-queries.md) sobre dados de atividade do Office 365 da sua organização.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 É necessário o seguinte antes desta solução a ser instalado e configurado.
@@ -518,7 +518,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 | OrganizationId | O GUID para o inquilino do Office 365 da sua organização. Este valor será sempre o mesmo para a sua organização, independentemente do serviço do Office 365 em que ocorre. |
 | RecordType | Tipo de operação realizada. |
 | ResultStatus | Indica se a ação (especificada na propriedade operação) foi concluída com êxito ou não. Valores possíveis são com êxito, parcialmente bem sucedido ou falhou. Para a atividade de administrador do Exchange, o valor é True ou False. |
-| ID de utilizador | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultou no registo que está sendo registrado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos de atividades realizadas por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
+| UserId | O UPN (nome Principal de utilizador) do utilizador que efetuou a ação que resultou no registo que está sendo registrado; Por exemplo, my_name@my_domain_name. Tenha em atenção que os registos de atividades realizadas por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Um ID alternativo para o utilizador identificado na propriedade de ID de utilizador.  Por exemplo, esta propriedade é preenchida com o ID exclusivo do passport (PUID) para eventos realizadas por utilizadores no SharePoint, OneDrive para empresas e o Exchange. Esta propriedade também pode especificar o mesmo valor da propriedade de ID de utilizador para eventos que ocorrem noutros serviços e eventos realizados por contas do sistema|
 | userType | O tipo de utilizador que executou a operação.<br><br>Administração<br>Aplicação<br>DcAdmin<br>Regular<br>Reservado<br>ServicePrincipal<br>Sistema |
 
@@ -709,6 +709,6 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilizar as Pesquisas de Registos no [Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver dados de atualizações detalhados.
+* Utilizar as Pesquisas de Registos no [Log Analytics](../log-analytics/log-analytics-log-search.md) para ver dados de atualizações detalhados.
 * [Criar seus próprios dashboards](../log-analytics/log-analytics-dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.
-* [Criar alertas](../log-analytics/log-analytics-alerts.md) para ser notificado proativamente das atividades do Office 365 importantes.  
+* [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para ser notificado proativamente das atividades do Office 365 importantes.  

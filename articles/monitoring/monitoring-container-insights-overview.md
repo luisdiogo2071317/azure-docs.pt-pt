@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b90aa9e3c627708b2640086b2b812b8c7079e5bf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213003"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912535"
 ---
 # <a name="azure-monitor-for-containers-preview-overview"></a>Monitor do Azure para contentores (pré-visualização)-Descrição geral
 
 Monitor do Azure para contentores é uma funcionalidade concebida para monitorizar o desempenho de cargas de trabalho de contentor implementadas em clusters do Kubernetes alojados no Azure Kubernetes Service (AKS) geridos. Os contentores é fundamental monitorizar, especialmente quando estiver a executar um cluster de produção em escala, com várias aplicações.
 
-Monitor do Azure para contentores dá-lhe visibilidade de desempenho por memória de coleta e métricas de processador de controladores, nós e contentores que estão disponíveis no Kubernetes por meio da API de métricas. Os registos do contentor também são recolhidos.  Depois de ativar a monitorização de clusters de Kubernetes, estas métricas e registos são automaticamente recolhidos para por meio de uma versão em contentores do agente do Log Analytics para Linux e armazenados no seu [do Log Analytics](../log-analytics/log-analytics-overview.md) área de trabalho. 
+Monitor do Azure para contentores dá-lhe visibilidade de desempenho por memória de coleta e métricas de processador de controladores, nós e contentores que estão disponíveis no Kubernetes por meio da API de métricas. Os registos do contentor também são recolhidos.  Depois de ativar a monitorização de clusters de Kubernetes, estas métricas e registos são automaticamente recolhidos para por meio de uma versão em contentores do agente do Log Analytics para Linux e armazenados no seu [do Log Analytics](../log-analytics/log-analytics-queries.md) área de trabalho. 
  
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>O que faz do Azure Monitor para os contentores oferecem?
 

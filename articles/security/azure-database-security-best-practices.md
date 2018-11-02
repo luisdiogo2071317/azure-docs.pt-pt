@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 50cfc2e8420d9f427b02c739f497d8546d880d7c
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040102"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747767"
 ---
 # <a name="azure-database-security-best-practices"></a>Práticas recomendadas de segurança da base de dados do Azure
 A segurança é uma grande preocupação para a gestão de bases de dados e, sempre foi uma prioridade para o [base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/). As bases de dados podem ser fortemente protegidos para ajudar a satisfazer mais normas ou requisitos de segurança, incluindo a HIPAA, ISO 27001/27002 e PCI DSS nível 1. A lista atual de certificações de conformidade de segurança está disponível na [site do Microsoft Trust Center](http://azure.microsoft.com/support/trust-center/services/). Também pode optar por colocar as bases de dados nos datacenters do Azure específicos com base nos requisitos de regulamentação.
@@ -72,22 +72,18 @@ Os benefícios incluem o seguinte:
 
 > [!NOTE]
 > Autenticação do SQL Server não é possível utilizar o protocolo de segurança do Kerberos.
->
->
 
 Se utilizar a autenticação do SQL Server, tem de:
 
 - As credenciais fortes gerida por si.
 - Protege as credenciais na cadeia de ligação.
-- Protege (potencialmente) as credenciais transmitidas através da rede do servidor web para a base de dados. Para obter mais informações, consulte [como: ligar ao SQL Server a utilizar autenticação do SQL no ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+- Protege (potencialmente) as credenciais transmitidas através da rede do servidor web para a base de dados. Para obter mais informações, consulte [como: ligar ao SQL Server a utilizar autenticação do SQL no ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Autenticação do Azure Active Directory (AD)*
 Autenticação do Azure AD é um mecanismo de ligação a base de dados do Azure SQL e [o SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando identidades no Azure AD. Com a autenticação do Azure AD, pode gerir as identidades dos utilizadores de base de dados e outros serviços da Microsoft num local central. Gerenciamento de ID central fornece um único local para gerir utilizadores de base de dados e simplifica a gestão de permissões.
 
 > [!NOTE]
 > Recomendamos a utilização da autenticação do Azure AD sobre a utilização da autenticação do SQL Server.
->
->
 
 Os benefícios incluem o seguinte:
 
@@ -112,12 +108,12 @@ Os passos de configuração incluem os seguintes procedimentos para configurar e
 
 Pode encontrar informações detalhadas nos [autenticação de utilização do Azure Active Directory para a autenticação com base de dados SQL, instância gerida ou SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-## <a name="protect-your-data-by-using-encryption"></a>Proteger os seus dados através de encriptação
-[A encriptação de dados transparente de base de dados SQL do Azure](https://msdn.microsoft.com/library/dn948096.aspx) ajuda a proteger dados no disco e protege contra acesso não autorizado ao hardware. Ele executa criptografia em tempo real e a descriptografia da base de dados, cópias de segurança associadas e ficheiros de registo de transação em repouso sem a necessidade de alterações à aplicação. Encriptação de dados transparente criptografa o armazenamento de uma base de dados completa com uma chave simétrica denominada a chave de encriptação da base de dados.
+## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>Proteger os seus dados através da utilização de criptografia e segurança ao nível da linha
+[A encriptação de dados transparente de base de dados SQL do Azure](../sql-database/transparent-data-encryption-azure-sql.md) ajuda a proteger dados no disco e protege contra acesso não autorizado ao hardware. Ele executa criptografia em tempo real e a descriptografia da base de dados, cópias de segurança associadas e ficheiros de registo de transação em repouso sem a necessidade de alterações à aplicação. Encriptação de dados transparente criptografa o armazenamento de uma base de dados completa com uma chave simétrica denominada a chave de encriptação da base de dados.
 
 Mesmo quando o armazenamento completo é encriptado, é importante também para encriptar a base de dados em si. Esta é uma implementação da abordagem de defesa em profundidade para proteção de dados. Se estiver a utilizar o SQL Database do Azure e pretende proteger dados confidenciais (por exemplo, cartão de crédito ou números de cpf), pode encriptar bases de dados com FIPS 140-2 validados encriptação AES de 256 bits. Esta encriptação cumpre os requisitos de muitos padrões da indústria (por exemplo, HIPAA e PCI).
 
-Ficheiros relacionados com [extensão do conjunto (BPE) da memória intermédia](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) não estão encriptados quando criptografa uma base de dados através de encriptação de dados transparente. Tem de utilizar ferramentas de encriptação de nível de sistema de ficheiros, como [BitLocker](https://technet.microsoft.com/library/cc732774) ou o [Encrypting File System (EFS)]() para ficheiros relacionados com o BPE.
+Ficheiros relacionados com [extensão do conjunto (BPE) da memória intermédia](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) não estão encriptados quando criptografa uma base de dados através de encriptação de dados transparente. Tem de utilizar ferramentas de encriptação de nível de sistema de ficheiros, como [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) ou o [Encrypting File System (EFS)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10)) para ficheiros relacionados com o BPE.
 
 Uma vez que um utilizador autorizado como um administrador de segurança ou um administrador de banco de dados pode aceder aos dados, mesmo que a base de dados é encriptado com encriptação de dados transparente, também deve seguir estas recomendações:
 
@@ -128,9 +124,9 @@ Uma vez que um utilizador autorizado como um administrador de segurança ou um a
 
 Para outras formas de encriptar os seus dados, considere:
 
-- A [encriptação ao nível da célula](https://msdn.microsoft.com/library/ms179331.aspx), para encriptar colunas específicas ou até mesmo células de dados com chaves de encriptação diferentes.
-- [Sempre encriptado](https://msdn.microsoft.com/library/mt163865.aspx), que permite aos clientes encriptar dados confidenciais em aplicativos cliente e nunca revelar as chaves de encriptação para o motor de base de dados (base de dados SQL ou SQL Server). Como resultado, o Always Encrypted fornece uma separação entre os proprietários dos dados (e os podem ver) e aqueles que gerir os dados (mas não devem ter acesso).
-- [Segurança ao nível da linha](https://msdn.microsoft.com/library/dn765131), que permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que está a executar uma consulta. (As características de exemplo são o contexto de execução e associação de grupo.)
+- A [encriptação ao nível da célula](/sql/relational-databases/security/encryption/encrypt-a-column-of-data), para encriptar colunas específicas ou até mesmo células de dados com chaves de encriptação diferentes.
+- [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine), que permite aos clientes encriptar dados confidenciais em aplicativos cliente e nunca revelar as chaves de encriptação para o motor de base de dados (base de dados SQL ou SQL Server). Como resultado, o Always Encrypted fornece uma separação entre os proprietários dos dados (e os podem ver) e aqueles que gerir os dados (mas não devem ter acesso).
+- [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security), que permite aos clientes controlar o acesso às linhas numa tabela de base de dados com base nas características do utilizador que está a executar uma consulta. (As características de exemplo são o contexto de execução e associação de grupo.)
 
 As organizações que não estiver a utilizar criptografia em nível de base de dados podem ser mais suscetíveis a ataques que comprometer dados localizados nas bases de dados SQL.
 

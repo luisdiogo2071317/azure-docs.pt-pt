@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 25c9cbcaf852aa07bcbe4f71bf69de366d4dbb87
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420970"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754040"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -48,7 +48,6 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 
 **Código de erro**: UserErrorRpCollectionLimitReached <br>
 **Mensagem de erro**: atingiu o limite máximo da coleção do ponto de restauro. <br>
-Descrição:  
 * Este problema pode ocorrer se existir um bloqueio no grupo de recursos de ponto de recuperação que impede a limpeza automática de ponto de recuperação.
 * Este problema também pode acontecer se várias cópias de segurança são acionadas por dia. Atualmente, recomendamos que apenas uma cópia de segurança por dia como instantâneas RPs são mantidas durante 7 dias e apenas 18 RPs instantâneas pode ser associado uma VM em qualquer momento. <br>
 
@@ -59,7 +58,7 @@ Para resolver este problema, remova o bloqueio do grupo de recursos e repita a o
     > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 
-**Passo 1: [remover o bloqueio do grupo de grupo de recursos de ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Passo 1: [remover o bloqueio do grupo de recursos do ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - operação de instantâneo falhou devido a nenhuma conectividade de rede na máquina virtual
@@ -95,6 +94,21 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Causa 4: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Causa 5: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 6: [serviço de cópia de segurança não tem permissão para eliminar os pontos de restauração antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - atualmente o Azure Backup não suporta tamanhos de disco superiores a 1023GB
+
+**Código de erro**: UserErrorUnsupportedDiskSize <br>
+**Mensagem de erro**: atualmente o Azure Backup não suporta tamanhos de disco superiores a 1023 GB <br>
+
+A operação de cópia de segurança poderá falhar quando a cópia de segurança de VM com o tamanho do disco superior a 1023GB, uma vez que o Cofre não é atualizado para a pilha de cópia de segurança do Azure VM V2. Atualizar para o Azure VM Backup pilha V2 irá fornecer suporte a até 4TB. Reveja estes [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)e, em seguida, continue a atualização através destas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - atualmente o Azure Backup não suporta discos de Standard SSD
+
+**Código de erro**: UserErrorStandardSSDNotSupported <br>
+**Mensagem de erro**: atualmente o Azure Backup não suporta discos de Standard SSD <br>
+
+Atualmente o Azure Backup suporta discos de SSD padrão apenas para os cofres que sejam atualizados para a pilha de cópia de segurança do Azure VM V2. Reveja estes [benefícios](backup-upgrade-to-vm-backup-stack-v2.md), [considerações](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)e, em seguida, continue a atualização através destas [instruções](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+
 
 ## <a name="causes-and-solutions"></a>Causas e soluções
 
@@ -208,7 +222,7 @@ Concluir estes passos, faz com que a extensão de ser reinstalados durante a pr�
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remova o bloqueio do grupo de recursos de ponto de recuperação
 1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
-2. Aceda a **opção de todos os recursos**, selecione o grupo de recursos de coleção de ponto de restauro no seguinte formato AzureBackupRG_<Geo>_<number>.
+2. Aceda a **opção de todos os recursos**, selecione o grupo de recursos de coleção de ponto de restauro no seguinte formato AzureBackupRG_`<Geo>`_`<number>`.
 3. Na **configurações** secção, selecione **bloqueios** para apresentar os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **eliminar**.
 
@@ -217,17 +231,17 @@ Concluir estes passos, faz com que a extensão de ser reinstalados durante a pr�
 ### <a name="clean_up_restore_point_collection"></a> Limpar a coleção de ponto de restauro
 Depois de remover o bloqueio, os pontos de restauro têm ser limpos. Para limpar os pontos de restauro, siga qualquer um dos métodos:<br>
 * [Limpar a coleção de ponto de restauro pela cópia de segurança ad-hoc em execução](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Limpar a coleção de ponto de restauro do portal criado pelo serviço de cópia de segurança](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Limpeza do wsu restauro do ponto de coleção a partir do portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a coleção de ponto de restauro pela cópia de segurança ad-hoc em execução
 Depois de remover o bloqueio, acione uma cópia de segurança ad-hoc/manual. Isto irá garantir que os pontos de restauro são limpas automaticamente. Esperar que esta operação de ad-hoc/manual para efetuar a ativação pela primeira vez; No entanto, ele garantirá a limpeza automática em vez de eliminação manual de pontos de restauro. Após a limpeza deve ter êxito a cópia de segurança agendada seguinte.
 
 > [!NOTE]
-    > A limpeza automática irão ocorrer após algumas horas de acionar a cópia de segurança ad-hoc/manual. Se continuar a falhar a cópia de segurança agendada, em seguida, tente eliminar manualmente a coleção do ponto de restauro utilizando os passos listados [aqui](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+    > A limpeza automática irão ocorrer após algumas horas de acionar a cópia de segurança ad-hoc/manual. Se continuar a falhar a cópia de segurança agendada, em seguida, tente eliminar manualmente a coleção do ponto de restauro utilizando os passos listados [aqui](#clean-up-restore-point-collection-from-azure-portal).
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Limpar a coleção de ponto de restauro do portal criado pelo serviço de cópia de segurança<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Limpeza do wsu restauro do ponto de coleção a partir do portal do Azure <br>
 
-O restauro de limpar manualmente pontos de coleção que não estão a ser desmarcadas devido ao bloqueio no grupo de recursos, os seguintes passos:
+Para limpar manualmente o restauro pontos de coleção que não estão a ser desmarcadas devido ao bloqueio no grupo de recursos, tente os seguintes passos:
 1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
 2. Sobre o **Hub** menu, clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_`<Geo>`_`<number>` onde está localizada a sua VM.
 

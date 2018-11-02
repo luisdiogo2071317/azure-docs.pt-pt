@@ -11,23 +11,23 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 370df2f13ddf9a2cf6613da95bd845ebfd0f253a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/01/2018
+ms.openlocfilehash: 8579eccfade83b3b3a016fc84429a914fbccd584
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868195"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912276"
 ---
-# <a name="configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local
+# <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Início rápido: Configurar uma ligação de ponto a site para uma instância de gerida de base de dados do Azure SQL no local
 
 Este início rápido demonstra como ligar a uma instância gerida da base de dados SQL do Azure, utilizando [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) de um computador de cliente no local através de uma ligação ponto a site. Para obter informações sobre ligações ponto a site, consulte [sobre VPN ponto a Site](../vpn-gateway/point-to-site-about.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este guia de introdução:
+Este guia de início rápido:
 
-- Utiliza como sua partida apontar os recursos criados neste início rápido: [criar uma instância gerida](sql-database-managed-instance-get-started.md).
+- Utiliza como ponto de partida os recursos criados neste guia de início rápido: [Criar uma Instância Gerida](sql-database-managed-instance-get-started.md).
 - Requer o PowerShell 5.1 e o Azure PowerShell 5.4.2 ou superior seu computador de cliente no local.
 - Requer a versão mais recente do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) no seu computador de cliente no local
 
@@ -104,5 +104,5 @@ Depois de ligar, pode ver as bases de dados do sistema e dos utilizadores no nó
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para um início rápido que mostra como ligar a partir de uma máquina virtual do Azure, consulte [configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md)
-- Para uma descrição geral das opções de ligação para aplicações, consulte [conectar seus aplicativos para a instância gerida](sql-database-managed-instance-connect-app.md).
-- Para restaurar uma base de dados existente do SQL Server no local para uma instância gerida, pode utilizar o [do Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [T-SQL RESTORE comando](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.
+- Para uma descrição geral das opções de ligação para aplicações, veja [Ligar as suas aplicações à Instância Gerida](sql-database-managed-instance-connect-app.md).
+- Para restaurar uma base de dados do SQL Server existente do local para uma Instância Gerida, pode utilizar o [Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.

@@ -13,44 +13,38 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/31/2018
+ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 044486424f8bcc9d66998f775154eff9c52e7d1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b80c2fe44ddd15e0e31a83e5baab37736dc57fca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981234"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913772"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Como encriptar uma máquina virtual do Linux no Azure
 
 Para segurança aprimorada de máquina virtual (VM) e de conformidade, discos virtuais e a própria VM podem ser encriptados. As VMs são encriptadas com chaves criptográficas que são protegidas num Azure Key Vault. Pode controlar estas chaves criptográficas e pode auditar o seu uso. Este artigo detalha como encriptar discos virtuais numa VM do Linux com a CLI do Azure. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
+
+O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
+
+Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.30 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="overview-of-disk-encryption"></a>Descrição geral da encriptação de disco
-Discos virtuais em VMs do Linux são encriptados através de rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Não existe nenhum custo associado para encriptar discos virtuais no Azure. As chaves criptográficas são armazenadas no Azure Key Vault com a proteção de software, ou pode importar ou gerar as suas chaves em módulos de segurança de Hardware (HSMs) com certificação FIPS 140-2 de padrões no nível 2. Manter o controlo destas chaves criptográficas e pode auditar o seu uso. Estas chaves criptográficas são utilizados para encriptar e desencriptar os discos virtuais anexados a sua VM. Um principal de serviço do Azure Active Directory fornece um mecanismo seguro para a emissão estas chaves criptográficas, como as VMs têm a tecnologia e desativar.
+Discos virtuais em VMs do Linux são encriptados através de rest [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Não existe nenhum custo associado para encriptar discos virtuais no Azure. As chaves criptográficas são armazenadas no Azure Key Vault com a proteção de software, ou pode importar ou gerar as suas chaves em módulos de segurança de Hardware (HSMs) com certificação FIPS 140-2 de padrões no nível 2. Manter o controlo destas chaves criptográficas e pode auditar o seu uso. Estas chaves criptográficas são utilizados para encriptar e desencriptar os discos virtuais anexados a sua VM. 
 
 O processo para encriptar uma VM é o seguinte:
 
 1. Crie uma chave criptográfica num Azure Key Vault.
-2. Configure a chave criptográfica para ser utilizada para encriptar discos.
-3. Para ler a chave criptográfica no Azure Key Vault, crie um Azure Active Directory principal de serviço com as permissões adequadas.
-4. Emita o comando para encriptar os discos virtuais, especificando o Azure Active Directory service principal e apropriado chave criptográfica para ser utilizado.
-5. O principal de serviço do Azure Active Directory solicita a chave criptográfica necessária no Azure Key Vault.
-6. Os discos virtuais são encriptados com a chave criptográfica fornecida.
+1. Configure a chave criptográfica para ser utilizada para encriptar discos.
+1. Ative a encriptação de disco para os discos virtuais.
+1. As chaves criptográficas necessárias são solicitadas no Azure Key Vault.
+1. Os discos virtuais são encriptados com a chave criptográfica fornecida.
 
-## <a name="encryption-process"></a>Processo de criptografia
-Encriptação de disco baseia-se dos seguintes componentes adicionais:
-
-* **O Azure Key Vault** - utilizado para salvaguardar chaves criptográficas e segredos utilizados para o processo de encriptação/desencriptação do disco.
-  * Se existir, pode utilizar um Azure Key Vault existente. Não é preciso dedicar um Key Vault para encriptação de discos.
-  * Para separar os limites administrativos e visibilidade de chave, pode criar um cofre de chaves dedicado.
-* **O Azure Active Directory** -lida com a troca segura das chaves de criptografia necessárias e autenticação para ações pedidas.
-  * Normalmente, pode utilizar uma instância existente do Azure Active Directory para que hospeda o aplicativo.
-  * O principal de serviço fornece um mecanismo seguro para pedir e emitido as chaves criptográficas apropriadas. Não estiver a desenvolver um aplicativo real que se integra com o Azure Active Directory.
 
 ## <a name="requirements-and-limitations"></a>Requisitos e limitações
 Cenários suportados e os requisitos para encriptação de disco:
@@ -79,16 +73,17 @@ Ativar o fornecedor do Azure Key Vault com a sua subscrição do Azure com [Regi
 
 ```azurecli-interactive
 az provider register -n Microsoft.KeyVault
-az group create --name myResourceGroup --location eastus
+resourcegroup="myResourceGroup"
+az group create --name $resourcegroup --location eastus
 ```
 
 O Cofre de chaves do Azure que contém as chaves criptográficas e os recursos de computação associado como o armazenamento e a própria VM têm de residir na mesma região. Criar um Azure Key Vault com [az keyvault criar](/cli/azure/keyvault#az-keyvault-create) e ativar o Key Vault para utilização com a encriptação de disco. Especifique um nome exclusivo do Key Vault para *keyvault_name* da seguinte forma:
 
 ```azurecli-interactive
-keyvault_name=myuniquekeyvaultname
+keyvault_name=myvaultname$RANDOM
 az keyvault create \
     --name $keyvault_name \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --location eastus \
     --enabled-for-disk-encryption True
 ```
@@ -98,27 +93,10 @@ Pode armazenar as chaves criptográficas com o software ou de proteção de mode
 Para ambos os modelos de proteção, a plataforma do Azure tem de ter acesso para solicitar as chaves criptográficas quando a VM arranca para desencriptar os discos virtuais. Criar uma chave criptográfica no seu Cofre de chaves com [criar chave de Cofre de chaves de az](/cli/azure/keyvault/key#az-keyvault-key-create). O exemplo seguinte cria uma chave denominada *myKey*:
 
 ```azurecli-interactive
-az keyvault key create --vault-name $keyvault_name --name myKey --protection software
-```
-
-
-## <a name="create-an-azure-active-directory-service-principal"></a>Criar um principal de serviço do Azure Active Directory
-Quando os discos virtuais são encriptados ou desencriptados, especificar uma conta para lidar com a autenticação e a troca de chaves criptográficas do Key Vault. Esta conta, um principal de serviço do Azure Active Directory, permite que a plataforma do Azure pedir as chaves criptográficas apropriadas em nome da VM. Uma instância do Azure Active Directory padrão está disponível na sua subscrição, embora muitas organizações têm dedicado diretórios do Azure Active Directory.
-
-Criar um principal de serviço com o Azure Active Directory com [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). O exemplo seguinte lê os valores para o principal de serviço e a palavra-passe para ser utilizado nos comandos posteriores:
-
-```azurecli-interactive
-read sp_id sp_password <<< $(az ad sp create-for-rbac --query [appId,password] -o tsv)
-```
-
-A palavra-passe só é apresentada quando criar o serviço principal. Se assim o desejar, ver e registar a palavra-passe (`echo $sp_password`). Pode listar os principais de serviço com [lista do az ad sp](/cli/azure/ad/sp#az-ad-sp-list) e ver informações adicionais sobre um serviço específico principal com [show do az ad sp](/cli/azure/ad/sp#az-ad-sp-show).
-
-Com êxito criptografar ou descriptografar discos virtuais, as permissões na chave de criptografia armazenadas no Key Vault tem de ser definidas para permitir o principal de serviço do Azure Active Directory para ler as chaves. Definir as permissões no Cofre de chaves com [az keyvault conjunto-policy](/cli/azure/keyvault#az-keyvault-set-policy). No exemplo a seguir, o ID de principal de serviço é fornecido no comando anterior:
-
-```azurecli-interactive
-az keyvault set-policy --name $keyvault_name --spn $sp_id \
-  --key-permissions wrapKey \
-  --secret-permissions set
+az keyvault key create \
+    --vault-name $keyvault_name \
+    --name myKey \
+    --protection software
 ```
 
 
@@ -127,7 +105,7 @@ Crie uma VM com [az vm criar](/cli/azure/vm#az-vm-create) e anexar um disco de d
 
 ```azurecli-interactive
 az vm create \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
@@ -139,21 +117,14 @@ SSH para a VM com o *publicIpAddress* apresentados no resultado do comando anter
 
 
 ## <a name="encrypt-the-virtual-machine"></a>Encriptar a máquina virtual
-Para encriptar os discos virtuais, reunir todos os componentes anteriores:
 
-1. Especifica o principal de serviço do Azure Active Directory e a palavra-passe.
-2. Especifique o Key Vault para armazenar os metadados para os discos encriptados.
-3. Especifica as chaves criptográficas para utilizar para a encriptação real e a desencriptação.
-4. Especifique se pretende encriptar o disco do SO, os discos de dados ou todos.
 
 Encriptar VM com [ativar a encriptação de vm de az](/cli/azure/vm/encryption#az-vm-encryption-enable). O exemplo seguinte utiliza a *$sp_id* e *$sp_password* variáveis a partir de anterior [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) comando:
 
 ```azurecli-interactive
 az vm encryption enable \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --name myVM \
-    --aad-client-id $sp_id \
-    --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
     --volume-type all
@@ -162,53 +133,33 @@ az vm encryption enable \
 Demora algum tempo para conclusão do processo de encriptação de disco. Monitorizar o estado do processo com [show do az vm encryption](/cli/azure/vm/encryption#az-vm-encryption-show):
 
 ```azurecli-interactive
-az vm encryption show --resource-group myResourceGroup --name myVM
+az vm encryption show --resource-group $resourcegroup --name myVM --query 'status'
 ```
 
-O resultado é semelhante ao seguinte exemplo de como truncado:
+Quando terminar, o resultado será semelhante ao seguinte exemplo:
 
 ```json
 [
-  "dataDisk": "EncryptionInProgress",
-  "osDisk": "EncryptionInProgress"
+  {
+    "code": "ProvisioningState/succeeded",
+    "displayStatus": "Provisioning succeeded",
+    "level": "Info",
+    "message": "Encryption succeeded for all volumes",
+    "time": null
+  }
 ]
 ```
 
-Aguarde até que o estado para o sistema operativo do disco relatórios **VMRestartPending**, em seguida, reinicie a VM com [reinício da vm az](/cli/azure/vm#az-vm-restart):
-
-```azurecli-interactive
-az vm restart --resource-group myResourceGroup --name myVM
-```
-
-O processo de encriptação de disco é finalizado durante o processo de inicialização, por isso, aguarde alguns minutos antes de a verificar o estado de encriptação com [show do az vm encryption](/cli/azure/vm/encryption#az-vm-encryption-show):
-
-```azurecli-interactive
-az vm encryption show --resource-group myResourceGroup --name myVM
-```
-
-O estado agora deve reportar o disco do SO e o disco de dados como **Encrypted**.
-
 
 ## <a name="add-additional-data-disks"></a>Adicionar discos de dados adicionais
-Depois de ter a criptografar seus discos de dados, pode adicionar mais tarde discos virtuais adicionais para a VM e também criptografá-los. Por exemplo, permite adicionar um segundo disco virtual à sua VM da seguinte forma:
+Depois de ter a criptografar seus discos de dados, pode adicionar mais discos virtuais para a VM e criptografá-los. 
 
-```azurecli-interactive
-az vm disk attach \
-    --resource-group myResourceGroup \
-    --vm-name myVM \
-    --disk myDataDisk \
-    --new \
-    --size-gb 5
-```
-
-Volte a executar o comando para encriptar os discos virtuais da seguinte forma:
+Assim que o disco de dados foi adicionado à VM, execute novamente o comando para encriptar os discos virtuais da seguinte forma:
 
 ```azurecli-interactive
 az vm encryption enable \
-    --resource-group myResourceGroup \
+    --resource-group $resourcegroup \
     --name myVM \
-    --aad-client-id $sp_id \
-    --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
     --volume-type all

@@ -4,16 +4,16 @@ description: Como configurar o tempo de execução do Azure IoT Edge e quaisquer
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037461"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913228"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para comunicar através de um servidor proxy
 
@@ -25,6 +25,18 @@ Configurar um dispositivo IoT Edge para trabalhar com um servidor proxy, segue e
 2. Configure o daemon do Docker e o daemon de IoT Edge no seu dispositivo para utilizar o servidor proxy.
 3. Configure as propriedades de edgeAgent no arquivo config.yaml no seu dispositivo.
 4. Defina variáveis de ambiente para o runtime do IoT Edge e outros do IoT Edge módulos no manifesto de implantação. 
+
+## <a name="know-your-proxy-url"></a>Saber o URL de proxy
+
+Para configurar o daemon do Docker e o IoT Edge no seu dispositivo, precisa saber o URL de proxy. 
+
+URLs de proxy efetuar o seguinte formato: **protocolo**://**proxy_host**:**porta_proxy**. 
+
+* O **protocolo** é HTTP ou HTTPS. O daemon do Docker pode ser configurado com qualquer protocolo, dependendo das suas definições de registo de contentor, mas os contentores de daemon e o runtime do IoT Edge devem sempre utilizar HTTPS.
+
+* O **proxy_host** é um endereço do servidor proxy. Se o servidor proxy requer autenticação, pode fornecer as suas credenciais como parte da proxy_host no formato **usuário**:**palavra-passe**@**proxy_host**. 
+
+* O **porta_proxy** é a porta de rede em que o proxy responde ao tráfego de rede. 
 
 ## <a name="install-the-runtime"></a>Instalar o tempo de execução
 
@@ -47,7 +59,7 @@ Os daemons do Docker e do IoT Edge em execução no seu dispositivo IoT Edge tem
 
 ### <a name="docker-daemon"></a>Daemon do docker
 
-Consulte a documentação do Docker para configurar o daemon do Docker com variáveis de ambiente. A maioria dos registos de contentores (incluindo DockerHub e registos de contentores do Azure) suportam pedidos HTTPS, pelo que é a variável que deve definir **HTTPS_PROXY**. Se está obtendo imagens a partir de um registo que não suporta a segurança de camada de transporte (TLS), em seguida, deve definir os **HTTP_PROXY**. 
+Consulte a documentação do Docker para configurar o daemon do Docker com variáveis de ambiente. A maioria dos registos de contentores (incluindo DockerHub e registos de contentores do Azure) suportam pedidos HTTPS, pelo que é o parâmetro que deve definir **HTTPS_PROXY**. Se está obtendo imagens a partir de um registo que não suporta a segurança de camada de transporte (TLS), então deve definir os **HTTP_PROXY** parâmetro. 
 
 Escolha o artigo que aplica-se a sua versão do Docker: 
 
@@ -113,7 +125,9 @@ Abra o ficheiro de config.yaml no seu dispositivo IoT Edge. Em sistemas Linux, e
 
 No ficheiro config.yaml, localize a **especificação do módulo de agente do Edge** secção. A definição de agente do Edge inclui uma **env** parâmetro onde pode adicionar variáveis de ambiente. 
 
-![definição de edgeAgent](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Remova as chavetas que marcadores de posição para o parâmetro env e adicionar a nova variável numa nova linha. Lembre-se de que recua no YAML é dois espaços. 
 
@@ -201,7 +215,7 @@ Se tiver incluído os **UpstreamProtocol** variável de ambiente no arquivo conf
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

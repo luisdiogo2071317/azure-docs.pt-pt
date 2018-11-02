@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404040"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914163"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de estado de funcionamento de agente no Azure
 A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics ou um grupo de gestão do System Center Operations Manager ligado ao Log Analytics, o que não respondem e submeter operacional dados.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
@@ -39,7 +39,7 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado a uma �
 Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Configuração
-Adicionar a solução de estado de funcionamento de agente à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](../log-analytics/log-analytics-add-solutions.md). Não há nenhuma configuração adicional.
+Adicionar a solução de estado de funcionamento de agente à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](monitoring-solutions.md). Não há nenhuma configuração adicional.
 
 
 ## <a name="data-collection"></a>Recolha de dados
@@ -118,4 +118,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos q
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Veja o artigo [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics.
+* Veja o artigo [Alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics.

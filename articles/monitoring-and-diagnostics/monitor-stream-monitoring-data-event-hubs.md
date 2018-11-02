@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ae02868500329763ea459f8fb81be17598fac4ec
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954845"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914537"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
@@ -113,6 +113,7 @@ Encaminhamento seus dados de monitorização para um hub de eventos com o Azure 
     1. [O suplemento de Monitor do Azure para o Splunk](https://splunkbase.splunk.com/app/3534/) está disponível em Splunkbase e um projeto de código-fonte aberto. [A documentação está aqui](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Se não é possível instalar um suplemento na sua instância do Splunk (ex. Se utilizar um proxy ou em execução na Splunk Cloud), pode reencaminhar estes eventos para o coletor de eventos do Splunk HTTP usando [essa função que é acionada por mensagens novas no hub de eventos](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -instruções sobre como configurar SumoLogic consumir dados de um hub de eventos é [disponível aqui](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **ArcSight** -conector de inteligente o Hub de eventos do Azure ArcSight está disponível como parte da [aqui a coleção de conector inteligente ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
 * **Servidor syslog** - se de que pretende transmitir dados do Azure Monitor diretamente para um servidor syslog, pode consultar [deste repositório do github](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Próximos Passos

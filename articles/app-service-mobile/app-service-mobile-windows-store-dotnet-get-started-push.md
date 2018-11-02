@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c137f6cfdff9d043a656783f38ec9b894e644338
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818825"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913024"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Adicionar notificações push à aplicação Windows
 
@@ -37,21 +37,23 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
 
 ## <a name="register-your-app-for-push-notifications"></a>Registar a aplicação para notificações push
 
-Tem de submeter a sua aplicação para a Microsoft Store, em seguida, configurar seu projeto de servidor para integrar com serviços de notificação de Windows (WNS) para enviar push.
+Tem de submeter a sua aplicação para a Microsoft Store, em seguida, configurar seu projeto de servidor para integrar com o [serviços de notificação Windows (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) para enviar push.
 
 1. No Explorador de soluções do Visual Studio, clique no projeto de aplicação UWP, clique em **Store** > **associar aplicação a Store...** .
 
     ![Associar a aplicação à Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+
 2. No assistente, clique em **próxima**, inicie sessão com a sua conta Microsoft, escreva um nome para a sua aplicação na **reservar um novo nome de aplicação**, em seguida, clique em **reserva**.
 3. Quando o registo da aplicação é criado com êxito, selecione o novo nome de aplicação, clique em **próxima**e, em seguida, clique em **associar**. Esta ação adiciona as informações de registo necessárias do Microsoft Store para o manifesto do aplicativo.
-4. Navegue para o [Windows Dev Center](https://dev.windows.com/en-us/overview), inicie sessão com a sua conta Microsoft, clique em novo registo de aplicação na **as minhas aplicações**, em seguida, expanda **serviços**  >   **Notificações push**.
-5. Na **notificações Push** página, clique em **site dos Serviços Live** sob **serviços móveis do Microsoft Azure**.
-6. Na página de registro, tome nota do valor sob **segredos da aplicação** e o **SID do pacote**, que em seguida irá utilizar para configurar o seu back-end de aplicação móvel.
+4. Navegue para o [Portal de registo de aplicação](https://apps.dev.microsoft.com/) e inicie sessão com a sua conta Microsoft. Clique na aplicação da Windows Store associados no passo anterior.
+5. Na página de registro, tome nota do valor sob **segredos da aplicação** e o **SID do pacote**, que em seguida irá utilizar para configurar o seu back-end de aplicação móvel.
 
     ![Associar a aplicação à Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > O segredo de cliente e o SID do pacote são credenciais de segurança importantes. Não partilhe estes valores com ninguém e não os distribua com a aplicação. O **Id da aplicação** é utilizado com o segredo para configurar a autenticação de Account Microsoft.
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) também tem instruções para configurar as aplicações UWP para notificações push.
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Configurar o back-end para enviar notificações push
 

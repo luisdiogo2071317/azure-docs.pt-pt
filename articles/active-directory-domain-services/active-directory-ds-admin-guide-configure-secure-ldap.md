@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: de77050206c98832b274e8bdbda8026fc115610e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9188e7a8dc5364592772b95c302c59a16bfad2be
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156226"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754074"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o secure LDAP (LDAPS) para um domínio gerido do Azure AD Domain Services
 Este artigo mostra como pode permitir proteger Lightweight Directory Access Protocol (LDAPS) para o seu domínio gerido do Azure AD Domain Services. LDAP seguro também é conhecido como "acesso protocolo LDAP (Lightweight Directory) através de Secure Sockets Layer (SSL) / Transport Layer Security (TLS)".
@@ -45,7 +45,7 @@ Adquira um certificado válido pelas seguintes diretrizes, antes de ativar o LDA
 
 1. **Emissor fidedigno** -o certificado tem de ser emitido por uma autoridade confiável pelos computadores conectando-se o domínio gerido com o secure LDAP. Esta autoridade pode ser uma autoridade de certificação pública (AC) ou uma AC empresarial fidedigno para estes computadores.
 2. **Tempo de vida** -o certificado tem de ser válido para, pelo menos, de 3 a 6 meses seguintes. Acesso de Secure LDAP ao seu domínio gerido é interrompido quando o certificado expirar.
-3. **Nome do requerente** -o nome do requerente do certificado tem de ser um caráter universal para o seu domínio gerido. Por exemplo, se o seu domínio com o nome 'contoso100.com', nome do requerente do certificado tem de ser "*. contoso100.com'. Defina o nome DNS (nome alternativo do requerente) para este nome de caráter universal.
+3. **Nome do requerente** -o nome do requerente do certificado tem de ser o nome do seu domínio gerido. Por exemplo, se o seu domínio com o nome 'contoso100.com', nome do requerente do certificado tem de ser 'contoso100.com'. 
 4. **Utilização de chave** -o certificado tem de ser configurado para o seguinte utiliza - as assinaturas de Digital e cifragem de chaves.
 5. **Objetivo do certificado** -o certificado tem de ser válido para autenticação de servidor SSL.
 

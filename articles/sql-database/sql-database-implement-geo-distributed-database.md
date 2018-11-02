@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 2508d43e876a7e463d68eed1b1ca93ddf0d1e9d1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166270"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913349"
 ---
-# <a name="implement-a-geo-distributed-database"></a>Implementar uma base de dados distribuída geograficamente
+# <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar uma base de dados distribuída geograficamente
 
 Neste tutorial, pode configurar uma base de dados SQL do Azure e a aplicação para ativação pós-falha para uma região remota e, em seguida, testar o seu plano de ativação pós-falha. Saiba como: 
 

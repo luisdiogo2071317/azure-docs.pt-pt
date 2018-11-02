@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d6491ea1fd46d1dbd3d258a79a8d8e932173dae5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023562"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912293"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre o armazenamento de discos para VMs do Windows do Azure
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre como o Azure utiliza o disco temporário, co
 
 ### <a name="data-disk"></a>Disco de dados
 
-Um disco de dados é um VHD que está ligado a uma máquina virtual para armazenar dados de aplicação ou outros dados que precisa para manter. Discos de dados estão registados como unidades SCSI e são rotulados com uma letra que escolher. Cada disco de dados tem a capacidade máxima de 4095 GB, os discos geridos têm a capacidade máxima de TiB 32.767. O tamanho da máquina virtual determina quantos discos de dados, pode anexar a ele e o tipo de armazenamento pode utilizar para alojar os discos.
+Um disco de dados é um VHD que está ligado a uma máquina virtual para armazenar dados de aplicação ou outros dados que precisa para manter. Discos de dados estão registados como unidades SCSI e são rotulados com uma letra que escolher. Cada disco de dados tem a capacidade máxima de 4095 GB, os discos geridos têm a capacidade máxima de 32.767 GiB. O tamanho da máquina virtual determina quantos discos de dados, pode anexar a ele e o tipo de armazenamento pode utilizar para alojar os discos.
 
 > [!NOTE]
 > Para obter mais informações sobre as capacidades de máquinas virtuais, consulte [máquinas de virtuais de tamanhos para Windows](sizes.md).

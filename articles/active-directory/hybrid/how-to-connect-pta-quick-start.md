@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b45acebf95d5bf24ff2045f5739c8584f374842
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: afd2b31c5829015e11a3875c609ea3171006c501
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320463"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914146"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Do Azure Active Directory autenticação pass-through: Início rápido
 
@@ -142,7 +142,7 @@ Em segundo lugar, pode criar e executar um script de implementação automática
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
+- [Migrar do AD FS para autenticação pass-through](http://aka.ms/adfstoptadp) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais cenários são suportados com a autenticação pass-through e quais não são.
 - [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.

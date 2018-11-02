@@ -1,5 +1,5 @@
 ---
-title: Informações de ameaças de gestão no Azure Active Directory B2C | Documentos da Microsoft
+title: Gerir as ameaças aos recursos e dados no Azure Active Directory B2C | Documentos da Microsoft
 description: Saiba mais sobre técnicas de deteção e mitigação de ataques denial-of-service e ataques de palavra-passe no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,26 +7,36 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/27/2016
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1801fe9695aa15850d600300b957df2c7d7cd9ef
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ee99e7346d438e81a0cd25f8c522838524732568
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058231"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912854"
 ---
-# <a name="azure-active-directory-b2c-threat-management"></a>Do Azure Active Directory B2C: Gestão de ameaças
+# <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerir as ameaças aos recursos e dados no Azure Active Directory B2C
 
-Gestão de ameaças inclui o planeamento para proteção contra ataques contra o seu sistema e redes. Ataques denial-of-service podem tornar recursos indisponível para usuários. Ataques de palavra-passe levam ao acesso não autorizado aos recursos. O Azure Active Directory B2C (Azure AD B2C) tem recursos incorporados que podem ajudá-lo a proteger os seus dados contra essas ameaças de várias formas.
+O Azure Active Directory (Azure AD) B2C tem recursos incorporados que podem ajudar a proteger contra ameaças para os dados e recursos. Estas ameaças incluem ataques denial-of-service e ataques de palavra-passe. Ataques denial-of-service podem tornar recursos indisponível para usuários. Ataques de palavra-passe levam ao acesso não autorizado aos recursos. 
 
 ## <a name="denial-of-service-attacks"></a>Ataques denial-of-service
 
-Azure AD B2C utiliza deteção e atenuação técnicas, como cookies SYN e limites de taxa e ligação de rede para proteger os recursos subjacentes contra ataques denial-of-service.
+O Azure AD B2C faz a defesa contra ataques de inundação SYN através de um cookie SYN. O Azure AD B2C também protege contra ataques de negação de serviço através de limites para ligações e taxas.
 
 ## <a name="password-attacks"></a>Ataques de palavra-passe
 
-O Azure AD B2C também tem as técnicas de atenuação para ataques de palavra-passe. Atenuação inclui os ataques de palavra-passe de dicionário e ataques de força bruta a senhas. Palavras-passe que são definidas por utilizadores têm de ser razoavelmente complexo. Ao utilizar vários sinais, o Azure AD B2C analisa a integridade dos pedidos. O Azure AD B2C foi concebido para inteligência diferenciar usuários de hackers e botnets. O Azure AD B2C fornece uma estratégia sofisticada para bloquear as contas com base em palavras-passe introduzidas na probabilidade de um ataque.
+Palavras-passe que são definidas por utilizadores têm de ser razoavelmente complexo. O Azure AD B2C tem técnicas de atenuação para ataques de palavra-passe. Atenuação inclui os ataques de palavra-passe de dicionário e ataques de força bruta a senhas. Ao utilizar vários sinais, o Azure AD B2C analisa a integridade dos pedidos. O Azure AD B2C foi concebido para inteligência diferenciar usuários de hackers e botnets. 
+
+O Azure AD B2C utiliza uma estratégia sofisticada para bloquear as contas. As contas estão bloqueadas com base no IP do pedido e as palavras-passe que introduziu. A duração do bloqueio também aumenta com base na probabilidade que é um ataque. Depois de uma palavra-passe é experimentada 10 vezes sem êxito, ocorre um bloqueio de um minuto. Da próxima vez que um início de sessão for concluído com êxito depois da conta está desbloqueada, outro bloqueio de um minuto ocorre e continua para cada início de sessão sem êxito. Introduzir a mesma palavra-passe repetidamente não contabiliza como vários inícios de sessão sem êxito. 
+
+Os períodos de 10 bloqueio primeiro são longo de um minuto. Os períodos de bloqueio de 10 a seguir são ligeiramente maiores e aumentam a duração depois de todos os períodos de bloqueio de 10. Repõe o contador de bloqueio para zero após um início de sessão com êxito, quando a conta não está bloqueada. Períodos de bloqueio podem sobreviver a várias até cinco horas. 
+
+Atualmente, não é possível:
+
+- Acionar um bloqueio com menos de 10 inícios de sessão falhados
+- Obter uma lista de contas bloqueadas horizontalmente
+- Configurar o bloqueio da política
 
 Para obter mais informações, visite o [Microsoft Trust Center](https://www.microsoft.com/trustcenter/default.aspx).

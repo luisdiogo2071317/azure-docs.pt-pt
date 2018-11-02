@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362607"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914061"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 Dimensionamento automático é uma capacidade adicional do Service Fabric para dimensionar dinamicamente os seus serviços com base na carga que serviços estão a enviar relatórios ou com base na respetiva utilização de recursos. Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento de instâncias adicionais ou partições do seu serviço a pedido. O processo de dimensionamento de automático todo é automatizada e transparente e, depois de configurar as políticas num serviço não é necessário para operações de dimensionamento manuais no nível de serviço. Dimensionamento automático pode ser ativado no momento da criação de serviço ou em qualquer altura ao atualizar o serviço.
@@ -41,7 +41,7 @@ Todos os acionadores que são atualmente suportados funcionará com [métricas d
 Há dois mecanismos que são atualmente suportados para o dimensionamento automático. Primeiro destina-se para serviços sem estado ou para contentores, dimensionamento automático onde é feita adicionando ou removendo [instâncias](service-fabric-concepts-replica-lifecycle.md). Para os serviços com e sem estado, dimensionamento automático pode também ser executada ao adicionar ou remover nomeados [partições](service-fabric-concepts-partitioning.md) do serviço.
 
 > [!NOTE]
-> Atualmente, existe suporte para apenas uma política de dimensionamento por serviço.
+> Atualmente, existe suporte para apenas uma política de dimensionamento por serviço e apenas um acionador de dimensionamento por política.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Acionador de carga de partição média com a instância de dimensionamento com base em
 O primeiro tipo de Acionador baseia-se a carga de instâncias de uma partição de serviço sem estado. Métrica cargas são primeiro suavizadas para obter a carga para cada instância de uma partição e, em seguida, estes valores são transformadas em médias de todas as instâncias da partição. Existem três fatores que determinam quando o serviço será dimensionado:

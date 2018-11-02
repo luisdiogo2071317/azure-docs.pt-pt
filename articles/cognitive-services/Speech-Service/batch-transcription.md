@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bb87b9ae207da27d45d559903499177472ee1185
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648807"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914214"
 ---
 # <a name="batch-transcription"></a>Transcrição em lote
 
@@ -27,9 +27,9 @@ A transcrição de Batch API oferece assíncrona de voz em transcrição de text
 
 1. Criar pedidos de processamento de batch
 
-2. Estado da Consulta 
+2. Estado de consulta 
 
-3. Baixar o trnascriptions
+3. Baixar o transcrições
 
 > [!NOTE]
 > A API de transcrição do Batch é ideal para os centros de chamada, que normalmente se acumular milhares de horas de áudio. A API é orientada por uma filosofia "disparar e esquecer", que facilita a transcrição de grande volume de gravações de áudio.

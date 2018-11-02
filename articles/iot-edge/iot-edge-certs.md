@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313419"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914380"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Detalhes de utilização de certificados do Azure IoT Edge
 
@@ -21,7 +21,7 @@ Certificados de IoT Edge são utilizados para os módulos e a jusante dispositiv
 
 Para limpar qualquer confusão sobre a utilização do IoT Edge de certificados, este artigo explica como certificados de IoT Edge podem ser útil em cenários de à escala, bem como cenários de desenvolvimento e teste. Embora os scripts sejam diferente (Powershell vs. bash), os conceitos são os mesmos entre o Linux e Windows.
 
-## <a name="iot-edge-certificates"></a>Certificados de IoT Edge
+## <a name="iot-edge-certificates"></a>Certificados do IoT Edge
 
 Na maioria dos casos, os fabricantes são entidades independentes dos utilizadores finais de um dispositivo de limite. Às vezes, a relação única entre o fabricante e o operador é a compra de um dispositivo do Edge disponível comercialmente. Outras vezes, o fabricante de trabalhar em contrato para criar um dispositivo do Edge em nome do operador. O design de certificado do IoT Edge tenta considerar os dois cenários.
 
@@ -78,9 +78,9 @@ Como fabricante e o operador processos estão separados, há algumas implicaçõ
 
 ## <a name="devtest-implications"></a>Implicações de Dev/Test
 
-Para facilitar o desenvolvimento e testar cenários, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente.
+Para facilitar o desenvolvimento e testar cenários, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente. Para obter exemplos de como funcionam os scripts, consulte [configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md).
 
-Estes scripts geram certificados que seguem a estrutura de cadeia de certificado explicada neste artigo. Para [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) ou [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). Os seguintes comandos geram o "certificado de AC de raiz" e um único "certificado de AC intermediária".
+Estes scripts geram certificados que seguem a estrutura de cadeia de certificado explicada neste artigo. Os seguintes comandos geram o "certificado de AC de raiz" e um único "certificado de AC intermediária".
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ Pode ver a hierarquia de profundidade de certificado representada na captura de 
 
 [Compreender os módulos do Azure IoT Edge](iot-edge-modules.md)
 
-[Utilizar um dispositivo IoT Edge como gateway transparente (Linux)](how-to-create-transparent-gateway-linux.md)
-
-[Utilizar um dispositivo IoT Edge como gateway transparente (Windows)](how-to-create-transparent-gateway-windows.md)
+[Configurar um dispositivo IoT Edge para atuar como gateway transparente](how-to-create-transparent-gateway.md)

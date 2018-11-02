@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9fb955b6bce5b3d40def095180326fdc9aed33b1
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095533"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747903"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -44,7 +44,7 @@ Não. Não não possível mover dados de cópia de segurança armazenados num co
 Não. Um cofre dos serviços de recuperação só pode alterar as opções de armazenamento antes de quaisquer cópias de segurança foram armazenadas.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Pode fazer um Item de nível de restaurar (ILR) para cópia de segurança para um cofre dos serviços de recuperação de VMs?
-Não, ILR não é suportada. 
+Não, ILR não é suportada.
 
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
@@ -99,7 +99,7 @@ Sim. Mas deve configurar o DPM primeiro e, em seguida, instale o agente de cópi
 ## <a name="general-backup"></a>Cópia de segurança geral
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existem limites sobre o agendamento de cópia de segurança?
-Sim. 
+Sim.
 - Pode criar cópias de segurança do Windows Server ou o Windows em máquinas de até três vezes por dia. Pode definir a política de agendamento para agendas diárias ou semanais.
 - Pode fazer backup do DPM até duas vezes por dia. Pode definir a política de agendamento para diárias, semanais, mensais e anuais.
 - Fazer backup de VMs do Azure uma vez por dia.
@@ -110,12 +110,12 @@ O Azure Backup suporta estes sistemas operativos para criar cópias de seguranç
 
 **OS**| **SKU** |**Detalhes**
 --- | --- | ---
-Estação de trabalho | | 
+Estação de trabalho | |
 Windows 10 64 bits | Enterprise, Pro, Home | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 8.1 de 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 8 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 O Windows 7 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
-Servidor | | 
+Servidor | |
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | O serviço mais recente do wit pacotes/atualizações.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com as atualizações/mais recentes service packs.
 Windows Server 2012 de 64 bits | Datacenter, Foundation, Standard | Com as atualizações/mais recentes service packs.
@@ -133,20 +133,20 @@ Para cópias de segurança do Linux de VM do Azure, o Azure Backup suporta [a li
 Limites de tamanhos-se da seguinte forma:
 
 
-SO/máquina | Limite de tamanho da origem de dados 
---- | --- | --- 
-Windows 8 ou posterior | 54 400 GB 
-Windows 7 |1700 GB 
-Windows Server 2012 ou posterior | 54 400 GB 
-Windows Server 2008, Windows Server 2008 R2 | 1700 GB 
-VM do Azure | discos de dados de 32<br/><br/> Até 4095 GB do disco de dados
+SO/máquina | Limite de tamanho da origem de dados
+--- | --- | ---
+Windows 8 ou posterior | 54 400 GB
+Windows 7 |1700 GB
+Windows Server 2012 ou posterior | 54 400 GB
+Windows Server 2008, Windows Server 2008 R2 | 1700 GB
+VM do Azure | discos de dados de 16<br/><br/> Até 4095 GB do disco de dados
 
 ## <a name="how-is-the-data-source-size-determined"></a>Como é o tamanho da origem de dados determinado?
 
 A tabela seguinte explica a forma como é determinado cada tamanho da origem de dados.
 
 **Origem de dados** | **Detalhes**
---- | --- 
+--- | ---
 Volume |A quantidade de dados para a cópia de segurança de VM a cópia de segurança de único volume.
 Base de dados do SQL Server |Tamanho do tamanho da base de dados SQL único a cópia de segurança.
 SharePoint | Soma das bases de dados de conteúdo e a configuração dentro de um farm do SharePoint a cópia de segurança.
@@ -158,7 +158,7 @@ Estado do sistema/BMR |Cada cópia individual da BMR ou estado do sistema da má
 
 Não existe nenhum limite na quantidade de dados, que pode criar cópias de segurança através de um cofre dos serviços de recuperação.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se cancelar uma tarefa de cópia de segurança depois de ser iniciada, os dados de cópia de segurança transferidos são eliminados? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Se cancelar uma tarefa de cópia de segurança depois de ser iniciada, os dados de cópia de segurança transferidos são eliminados?
 Não. Todos os dados transferidos para o cofre, antes da tarefa de cópia de segurança ser cancelada, permanecem no cofre. O Backup do Azure utiliza um mecanismo de ponto de verificação para adicionar, ocasionalmente, pontos de verificação aos dados de cópia de segurança durante a cópia de segurança. Por existirem pontos de verificação nos dados de cópia de segurança, o processo de cópia de segurança seguinte pode validar a integridade dos ficheiros. A tarefa de cópia de segurança seguinte será incremental face aos dados para os quais foi criada uma cópia de segurança anteriormente. As cópias de segurança incrementais só transferem dados novos ou alterados, o que se traduz numa melhor utilização da largura de banda.
 
 Se cancelar uma tarefa de cópia de segurança para uma VM do Azure, os dados transferidos são ignorados. A próxima tarefa de cópia de segurança transfere os dados incrementais desde a última tarefa de cópia de segurança bem-sucedida.
@@ -186,7 +186,7 @@ Não. Todos os dados transferidos para o cofre, antes da tarefa de cópia de seg
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>As políticas de retenção para máquinas DPM e o Windows sem DPM são iguais?
 Sim, os dois têm políticas de retenção diárias, semanais, mensais e anuais.
 
-### <a name="can-i-customize-retention-policies"></a>Pode personalizar as políticas de retenção? 
+### <a name="can-i-customize-retention-policies"></a>Pode personalizar as políticas de retenção?
 Sim, tem de personalizar as políticas. Por exemplo, pode configurar semanal e diariamente os requisitos de retenção, mas não anuais e mensais.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Pode utilizar diferentes momentos para políticas de retenção e agendamento de cópia de segurança?
@@ -208,7 +208,7 @@ A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mund
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Existe um limite no número de pontos de recuperação que podem ser criados?
 
-Pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que cria cópias de segurança para o Azure. 
+Pode criar até 9999 pontos de recuperação por instância protegida. Uma instância protegida é um computador, servidor (físico ou virtual) ou carga de trabalho que cria cópias de segurança para o Azure.
 
 - Saiba mais sobre [cópia de segurança e retenção](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - Saiba mais sobre [instâncias protegidas](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)?
@@ -238,7 +238,7 @@ Sim. Os dados no Azure são encriptados em repouso.
 - Para cópia de segurança no local, encriptação em reposição é fornecida com a frase de acesso que fornecer quando a cópia de segurança para o Azure.
 - Para VMs do Azure, os dados são encriptados em-redefinição utilizando a encriptação de serviço de armazenamento (SSE).
 
-A Microsoft não desencripta os dados da cópia de segurança em momento algum. 
+A Microsoft não desencripta os dados da cópia de segurança em momento algum.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>O que é o comprimento mínimo da encriptação a chave utilizada para encriptar dados da cópia de segurança?

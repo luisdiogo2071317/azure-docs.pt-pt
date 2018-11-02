@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237902"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914333"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -27,13 +27,13 @@ Antes de entrar em detalhes sobre como planear uma implementação de sincroniza
 O serviço de sincronização de armazenamento é o recurso de nível superior do Azure para o Azure File Sync. O recurso de serviço de sincronização de armazenamento é um elemento de rede do recurso de conta de armazenamento e da mesma forma pode ser implementado em grupos de recursos do Azure. Recursos de nível superior distintos do recurso de conta de armazenamento é necessário porque o serviço de sincronização de armazenamento podem criar relacionamentos de sincronização com várias contas de armazenamento através de vários grupos de sincronização. Uma subscrição pode ter vários recursos de serviço de sincronização de armazenamento implementados.
 
 ### <a name="sync-group"></a>Grupo de sincronização
-Um grupo de sincronização define a topologia de sincronização para um conjunto de arquivos. Pontos finais dentro de um grupo de sincronização são mantidos em sincronia entre si. Se, por exemplo, tem dois conjuntos distintos de ficheiros que pretende gerir com o Azure File Sync, poderia criar dois grupos de sincronização e adicionar pontos de extremidade diferentes para cada grupo de sincronização. Um serviço de sincronização de armazenamento pode alojar os grupos de sincronização, conforme necessário.  
+Os grupos de sincronização definem a topologia da sincronização para um conjunto de ficheiros. Pontos finais dentro de um grupo de sincronização são mantidos em sincronia entre si. Se, por exemplo, tem dois conjuntos distintos de ficheiros que pretende gerir com o Azure File Sync, poderia criar dois grupos de sincronização e adicionar pontos de extremidade diferentes para cada grupo de sincronização. Um serviço de sincronização de armazenamento pode alojar os grupos de sincronização, conforme necessário.  
 
 ### <a name="registered-server"></a>Servidor registado
 O objeto de servidor registado representa uma relação de confiança entre o servidor (ou cluster) e o serviço de sincronização de armazenamento. Pode registar os servidores a uma instância de serviço de sincronização de armazenamento que quiser. No entanto, um servidor (ou cluster) pode ser registrado com apenas um serviço de sincronização de armazenamento cada vez.
 
 ### <a name="azure-file-sync-agent"></a>Agente de sincronização de ficheiros do Azure
-O agente de sincronização de ficheiros do Azure é um pacote disponível para download que permite ao Windows Server a ser sincronizada com uma partilha de ficheiros do Azure. O agente de sincronização de ficheiros do Azure tem três componentes principais: 
+O agente do Azure File Sync é um pacote transferível que permite a sincronização do Windows Server com uma partilha de ficheiros do Azure. O agente de sincronização de ficheiros do Azure tem três componentes principais: 
 - **FileSyncSvc.exe**: O serviço do Windows que é responsável pelo monitorização das alterações nos pontos finais de servidor e para iniciar sessões de sincronização para o Azure de em segundo plano.
 - **StorageSync.sys**: O Azure File Sync ficheiro filtro do sistema, que é responsável por camadas de ficheiros para ficheiros do Azure (quando na cloud em camadas estiver ativada).
 - **Cmdlets de gestão do PowerShell**: cmdlets do PowerShell que utilizar para interagir com o fornecedor de recursos do Microsoft.StorageSync Azure. Pode encontrá-los nos seguintes locais (predefinição):
@@ -41,7 +41,7 @@ O agente de sincronização de ficheiros do Azure é um pacote disponível para 
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Ponto final do servidor
-Um ponto de final de servidor representa uma localização específica num servidor registado, por exemplo, uma pasta num volume do servidor. Vários pontos de extremidade do servidor podem existir no mesmo volume se seus espaços de nomes não se sobrepõem (por exemplo, `F:\sync1` e `F:\sync2`). Pode configurar políticas de camadas de cloud individualmente para cada ponto de final do servidor. 
+Os pontos finais de servidor representam uma localização específica num servidor registado, como uma pasta num volume do servidor. Vários pontos de extremidade do servidor podem existir no mesmo volume se seus espaços de nomes não se sobrepõem (por exemplo, `F:\sync1` e `F:\sync2`). Pode configurar políticas de camadas de cloud individualmente para cada ponto de final do servidor. 
 
 Pode criar um ponto final do servidor por meio de um ponto de montagem. Tenha em atenção que a mountpoints dentro do ponto final de servidor são ignorados.  
 
@@ -242,7 +242,9 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Ásia Oriental | RAE de Hong Kong |
 | EUA Leste | Virgínia |
 | E.U.A. Leste 2 | Virgínia |
+| EUA Centro-Norte | Illinois |
 | Europa do Norte | Irlanda |
+| EUA Centro-Sul | Texas |
 | Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
@@ -269,6 +271,7 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | EUA Leste             | EUA Oeste            |
 | EUA Leste 2           | EUA Central         |
 | Europa do Norte        | Europa Ocidental        |
+| EUA Centro-Norte    | EUA Centro-Sul   |
 | Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |
 | Reino Unido Sul            | Reino Unido Oeste            |

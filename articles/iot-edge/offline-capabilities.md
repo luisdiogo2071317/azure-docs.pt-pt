@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d84df3e5e0b961b8a53044102f99205ee0fe9896
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340176"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914112"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Compreender as capacidades offline expandidas para dispositivos do IoT Edge, módulos e dispositivos de subordinado (pré-visualização)
 
@@ -142,4 +142,4 @@ Substitua `<HostStoragePath>` e `<ModuleStoragePath>` com o armazenamento de anf
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Ativar as operações offline expandidas nos seus cenários de gateway transparente para [Linux](how-to-create-transparent-gateway-linux.md) ou [Windows](how-to-create-transparent-gateway-windows.md) dispositivos.
+Ativar as operações offline expandidas no seu [gateway transparente](how-to-create-transparent-gateway.md) cenários.

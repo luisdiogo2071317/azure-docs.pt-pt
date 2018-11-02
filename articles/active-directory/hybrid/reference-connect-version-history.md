@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 335db0130ae6dd3d11d6592208fdf37e762509e5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420253"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914826"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>O Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -48,7 +48,6 @@ Transferir | [Transferir o Azure AD Connect](http://go.microsoft.com/fwlink/?Lin
 
 
 - Mudou a funcionalidade do atributo de write-back para garantir o correio de voz alojado está a funcionar conforme esperado.  Em determinados cenários, do Azure AD foi substituir o atributo msExchUcVoicemailSettings durante a repetição de escrita com um valor nulo.  O Azure AD agora limpará já não é o valor deste atributo no local se o valor na cloud que não está definido.
-- Melhorada a manipulação de regras predefinidas alterados. Agora é notificado se foram efetuadas alterações às regras predefinidas e estão disponíveis opções para reparar regras predefinidas. 
 - Adicionado o diagnóstico no Assistente do Azure AD Connect para investigar e identificar problemas de conectividade para o Azure AD. Esse mesmo diagnóstico também pode ser executado diretamente através do Powershell com o Cmdlet Test - AdSyncAzureServiceConnectivity. 
 - Adicionado o diagnóstico no Assistente do Azure AD Connect para investigar e identificar problemas de conectividade para o AD. Esse mesmo diagnóstico também pode ser executado diretamente através do Powershell usando a função de início ConnectivityValidation no módulo do ADConnectivityTools Powershell.  Para obter mais informações consulte [o que é o módulo do PowerShell ADConnectivityTool?](how-to-connect-adconnectivitytools.md)
 - Adicionada uma verificação prévia da versão do esquema AD para híbrida do Azure Active Directory Join e repetição de escrita do dispositivo 

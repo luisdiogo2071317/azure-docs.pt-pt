@@ -6,17 +6,17 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: fe66ca8b8f5b4474290e302f73b35868dce68caa
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/01/2018
+ms.openlocfilehash: b5a1e521f46da7feffd2eb556ad1662a9ccaee55
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634321"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913841"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Compreender os domínios de eventos para o gerenciamento de tópicos do Event Grid
 
-Este artigo descreve como utilizar domínios de eventos para gerenciar o fluxo de eventos personalizados para várias organizações do negócio, os clientes ou aplicações. Domínios de eventos de utilização para:
+Este artigo descreve como utilizar domínios de eventos para gerenciar o fluxo de eventos personalizados para várias organizações comerciais, os clientes ou aplicações. Domínios de eventos de utilização para:
 
 * Faça a gestão de arquiteturas de multi-inquilino de eventos à escala.
 * Gerir a sua autorização e autenticação.
@@ -25,18 +25,17 @@ Este artigo descreve como utilizar domínios de eventos para gerenciar o fluxo d
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
+## <a name="event-domain-overview"></a>Descrição geral do domínio de eventos
 
-## <a name="event-domains-overview"></a>Descrição geral de domínios de eventos
+Um domínio de eventos é uma ferramenta de gestão para um grande número de tópicos do Event Grid relacionadas com a mesma aplicação. Pode pensá-lo como um meta-tópico que pode ter milhares de tópicos individuais.
 
-Um domínio de eventos é uma ferramenta de gestão para um grande número de tópicos do Event Grid relacionadas com a mesma aplicação. Pode pensá-lo como um tópico meta que pode conter a milhares de tópicos individuais.
-
-Domínios de evento tornam a arquitetura de serviços do Azure, como a utilizam o armazenamento e o IoT Hub para publicar seus eventos disponíveis para utilização no seu próprio sistema. Eles permitem que publicar eventos para milhares de tópicos. Domínios também dão-lhe controlo de autorização e autenticação sobre cada tópico para que pode dividir os seus inquilinos.
+Domínios de evento tornam disponível para a mesma arquitetura utilizada pelos serviços do Azure (como o armazenamento e o IoT Hub) para publicar seus eventos. Eles permitem que publicar eventos para milhares de tópicos. Domínios também dão-lhe controlo de autorização e autenticação sobre cada tópico para que pode dividir os seus inquilinos.
 
 ### <a name="example-use-case"></a>Caso de utilização de exemplo
 
-Domínios de eventos mais facilmente são explicados com um exemplo. Digamos que executar o mecanismo de construção da Contoso, em que fabrica tractors, compreendendo o equipamento e outra maquinaria pesada. Como parte da execução da empresa, enviar informações em tempo real para os clientes em relação à manutenção de equipamento, estado de funcionamento de sistemas, de contrato de atualizações, etc. Todas essas informações vai para vários pontos de extremidade incluindo a sua aplicação, os pontos de extremidade do cliente e outros clientes de infraestrutura têm o programa de configuração.
+Domínios de eventos mais facilmente são explicados com um exemplo. Digamos que executar o mecanismo de construção da Contoso, em que fabrica tractors, compreendendo o equipamento e outra maquinaria pesada. Como parte da execução da empresa, enviar informações em tempo real para os clientes sobre manutenção de equipamento, estado de funcionamento de sistemas e atualizações de contrato. Todas essas informações direciona-o para vários pontos de extremidade incluindo a sua aplicação, pontos de extremidade do cliente e outras infraestruturas de que os clientes configurados.
 
-Domínios de eventos permite-lhe ao modelo de mecanismo de construção da Contoso como uma entidade de eventos único. Cada um dos seus clientes é representada como um tópico dentro do domínio / autenticação e autorização são processadas com o Azure Active Directory. Cada um dos seus clientes pode subscrever o tópico e obter os seus eventos fornecidos às mesmas. Acesso gerido através do domínio de eventos garante que só possam aceder ao respetivo tópico.
+Domínios de eventos permitem o modelo de mecanismo de construção da Contoso como uma entidade de eventos único. Cada um dos seus clientes é representada como um tópico no domínio. Autenticação e autorização são processadas com o Azure Active Directory. Cada um dos seus clientes pode subscrever o tópico e obter os seus eventos fornecidos às mesmas. Acesso gerido através do domínio de eventos garante que só possam aceder ao respetivo tópico.
 
 Ele também fornece um único ponto de extremidade, o que poderá publicar todos os eventos de cliente para. Grelha de eventos se encarregará de certificar-se de que cada tópico apenas tem conhecimento de eventos no âmbito do seu inquilino.
 
@@ -44,85 +43,19 @@ Ele também fornece um único ponto de extremidade, o que poderá publicar todos
 
 ## <a name="access-management"></a>Gestão de acesso
 
- Com um domínio, tem de controlo de autorização e autenticação de refinado sobre cada tópico através baseado do Azure em funções acesso verificar (RBAC). Pode utilizar estas funções para restringir a cada inquilino na sua aplicação para apenas os tópicos que pretende conceder-lhes acesso a.
+Com um domínio, tem de controlo de autorização e autenticação de refinado sobre cada tópico através do controlo de acesso baseado em funções do Azure (RBAC). Pode utilizar estas funções para restringir a cada inquilino na sua aplicação para apenas os tópicos que pretende conceder-lhes acesso a.
 
-Função de acesso baseado em verificar (RBAC) em domínios de evento funciona da mesma maneira [geridos pelo controlo de acesso](https://docs.microsoft.com/azure/event-grid/security-authentication#management-access-control) funciona no resto do Event Grid e o Azure. Utilize o RBAC para criar e impor definições de funções personalizadas em domínios de evento.
+RBAC em domínios de evento funciona da mesma maneira [geridos pelo controlo de acesso](security-authentication.md#management-access-control) funciona no resto do Event Grid e o Azure. Utilize o RBAC para criar e impor definições de funções personalizadas em domínios de evento.
 
 ### <a name="built-in-roles"></a>Funções incorporadas
 
-Grelha de eventos tem duas definições de função incorporada para facilitar o RBAC:
+Grelha de eventos tem duas definições de função incorporada para facilitar o RBAC para trabalhar com domínios de evento. Estas funções são **EventGrid EventSubscription contribuinte (pré-visualização)** e **EventGrid EventSubscription leitor (pré-visualização)**. Atribuir essas funções a utilizadores que precisam de subscrever tópicos no seu domínio de evento. Definir o âmbito de atribuição de função para apenas o que os utilizadores tem de subscrever o tópico.
 
-#### <a name="eventgrid-eventsubscription-contributor-preview"></a>Contribuinte de EventSubscription EventGrid (pré-visualização)
-
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
-
-#### <a name="eventgrid-eventsubscription-reader-preview"></a>Leitor de EventSubscription EventGrid (pré-visualização)
-
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+Para obter informações sobre estas funções, consulte [funções incorporadas do Event Grid](security-authentication.md#built-in-roles).
 
 ## <a name="subscribing-to-topics"></a>Subscrição de tópicos
 
-Subscrever a eventos num tópico dentro de um domínio de evento é igual a [criar uma subscrição de evento num tópico personalizado](./custom-event-quickstart.md) ou subscrever a qualquer um dos incorporada ofertas do Azure de publicadores de eventos.
+Subscrever a eventos num tópico dentro de um domínio de evento é igual a [criar uma subscrição de evento num tópico personalizado](./custom-event-quickstart.md) ou assinar um evento de um serviço do Azure.
 
 ### <a name="domain-scope-subscriptions"></a>Subscrições de âmbito de domínio
 
@@ -163,13 +96,13 @@ Por exemplo, a matriz a seguir de eventos de publicação seria enviar eventos c
 }]
 ```
 
-Domínios de evento lidar com a publicação para tópicos para. Em vez de publicar eventos para cada tópico que gerir individualmente, pode publicar todos os eventos para o ponto de extremidade do domínio e Event Grid encarrega-se de garantir que cada evento é enviado para o tópico correto.
+Domínios de evento lidar com a publicação para tópicos para. Em vez de eventos de publicação para cada tópico que gerir individualmente, pode publicar todos os eventos para o ponto de extremidade do domínio. Grelha de eventos torna-se de que cada evento é enviado para o tópico correto.
 
 ## <a name="limits-and-quotas"></a>Limites e quotas
 
 ### <a name="control-plane"></a>Plano de controlo
 
-Durante a pré-visualização, os domínios de evento serão limitados a 1000 tópicos dentro de um domínio e de 50 subscrições de eventos por tópico dentro de um domínio. Subscrições de âmbito de domínio de eventos também será limitadas a 50.
+Durante a pré-visualização, os domínios de evento estão limitados a 1000 tópicos dentro de um domínio e 50 subscrições de eventos por tópico dentro de um domínio. Subscrições de âmbito de domínio de eventos também estão limitadas a 50.
 
 ### <a name="data-plane"></a>Plano de dados
 
@@ -177,7 +110,7 @@ Durante a pré-visualização, o débito de eventos para um domínio de eventos 
 
 ## <a name="pricing"></a>Preços
 
-Durante a pré-visualização, os domínios de eventos irá utilizar o mesmo [preços de operações](https://azure.microsoft.com/pricing/details/event-grid/) que utilizam todos os outros recursos no Event Grid.
+Durante a pré-visualização, os domínios de eventos usam os mesmos [preços de operações](https://azure.microsoft.com/pricing/details/event-grid/) que utilizam todos os outros recursos no Event Grid.
 
 Operações funcionam da mesma em domínios de evento tal como nos tópicos personalizados. Cada entrada de um evento a um domínio de eventos é uma operação e cada tentativa de entrega de um evento é uma operação.
 

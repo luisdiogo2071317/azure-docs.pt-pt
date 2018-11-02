@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159521"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913675"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Configurar a VM do Azure para ligar a uma instância de gerida de base de dados do Azure SQL
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: Configurar a VM do Azure para ligar a uma instância de gerida de base de dados do Azure SQL
 
 Este guias de introdução demonstra como configurar uma máquina virtual do Azure para ligar a uma instância do Azure SQL da base de dados geridos com o SQL Server Management Studio (SSMS). Para um início rápido que mostra como ligar a partir de um computador de cliente no local através de uma ligação ponto a site, consulte [configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md) 
 
@@ -37,7 +37,7 @@ Os passos seguintes criam uma nova sub-rede na VNet de instância gerida para um
 
 1. Abra o grupo de recursos para a instância gerida que criou no [criar uma instância gerida](sql-database-managed-instance-get-started.md) início rápido e clique na rede virtual da sua instância gerida e, em seguida, clique em **sub-redes**.
 
-   ![Recursos de instância geridos](./media/sql-database-managed-instance-configure-vm/resources.png)
+   ![Recursos da Instância Gerida](./media/sql-database-managed-instance-configure-vm/resources.png)
 
 2. Clique nas **+** inscrever-se junto a **sub-rede** para criar uma nova sub-rede.
 
@@ -142,5 +142,5 @@ Depois de ligar, pode ver as bases de dados do sistema e dos utilizadores no nó
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para um início rápido que mostra como ligar a partir de um computador de cliente no local através de uma ligação ponto a site, consulte [configurar uma ligação ponto a site](sql-database-managed-instance-configure-p2s.md).
-- Para uma descrição geral das opções de ligação para aplicações, consulte [conectar seus aplicativos para a instância gerida](sql-database-managed-instance-connect-app.md).
-- Para restaurar uma base de dados existente do SQL Server no local para uma instância gerida, pode utilizar o [do Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [T-SQL RESTORE comando](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.
+- Para uma descrição geral das opções de ligação para aplicações, veja [Ligar as suas aplicações à Instância Gerida](sql-database-managed-instance-connect-app.md).
+- Para restaurar uma base de dados do SQL Server existente do local para uma Instância Gerida, pode utilizar o [Azure Database Migration Service (DMS) para a migração](../dms/tutorial-sql-server-to-managed-instance.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados ou o [comando T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) para restaurar a partir de um ficheiro de cópia de segurança da base de dados.

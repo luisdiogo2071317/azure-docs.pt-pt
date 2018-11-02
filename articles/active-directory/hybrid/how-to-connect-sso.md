@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 8b74cf533c0fe59a0967b7063791df2cfc9a7a77
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054189"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913936"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>O Azure Active Directory totalmente integrada início de sessão único
 
@@ -39,7 +39,7 @@ SSO totalmente integrado pode ser combinada com ambos os [sincronização de Has
 
 ## <a name="key-benefits"></a>Principais vantagens
 
-- *Grande experiência de usuário*
+- *Experiência de utilizador excecional*
   - Os utilizadores são iniciados automaticamente no local e aplicações baseadas na nuvem.
   - Os utilizadores não têm de introduzir as palavras-passe repetidamente.
 - *Fácil de implementar e administrar*
@@ -58,7 +58,7 @@ SSO totalmente integrado pode ser combinada com ambos os [sincronização de Has
 - Clientes do Office 365 Win32 (Outlook, Word, Excel e outras pessoas) com as versões 16.0.8730.xxxx e superior são suportados com um fluxo não interativo. Para o OneDrive, terá de ativar a [funcionalidade de configuração automática do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de início de sessão silenciosa.
 - Pode ser ativada através do Azure AD Connect.
 - É uma funcionalidade gratuita e não é necessário qualquer nas edições pagas do Azure AD para utilizá-lo.
-- É suportada em clientes baseados em navegador da web e clientes do Office que suportam [autenticação moderna](https://aka.ms/modernauthga) nas plataformas e browsers com capacidade de autenticação do Kerberos:
+- É suportada em clientes baseados em navegador da web e clientes do Office que suportam [autenticação moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) nas plataformas e browsers com capacidade de autenticação do Kerberos:
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 

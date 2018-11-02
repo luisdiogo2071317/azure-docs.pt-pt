@@ -1,6 +1,6 @@
 ---
-title: Os serviços de ambiente de trabalho remoto não está a iniciar uma VM do Azure | Documentos da Microsoft
-description: Saiba como resolver problemas com os serviços de ambiente de trabalho remoto, ao ligar a uma Máquina Virtual | Documentos da Microsoft
+title: Não é a partir de serviços de ambiente de trabalho remoto numa VM do Azure | Documentos da Microsoft
+description: Saiba como resolver problemas com os serviços de ambiente de trabalho remoto quando se liga a uma máquina virtual | Documentos da Microsoft
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: a9967aec61aaab5bc6b4517407f36e2a6c7342c8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 756417ee2f98549d648386c2471baa74889245a4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238867"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914027"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Não é a partir de serviços de ambiente de trabalho remoto numa VM do Azure
 
-Este artigo descreve como resolver problemas de ligação para uma Máquina Virtual do Azure (VM) quando os serviços de ambiente de trabalho remoto (TermService) não está a iniciar ou não conseguir iniciar.
+Este artigo descreve como resolver problemas quando se liga a uma máquina virtual do Azure (VM) e os serviços de ambiente de trabalho remoto ou TermService, não está a iniciar ou não consegue iniciar.
 
->[!NOTE]
->O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve com o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez de usar o modelo de implementação clássica.
+> [!NOTE]  
+> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [do Azure Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo descreve com o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez do modelo de implementação clássica.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -35,7 +35,7 @@ Quando tentar ligar a uma VM, ocorrer os seguintes cenários:
 
     ![Captura de ecrã do Estado da VM](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- Remotamente ver os registos de eventos na VM com o Visualizador de eventos, verá que os serviços de ambiente de trabalho remoto (TermServ) não é a partir de ou falha ao iniciar. Segue-se um registo de exemplo:
+- Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Verá que os serviços de ambiente de trabalho remoto, TermService, não está a iniciar ou não conseguir iniciar. O registo seguinte é um exemplo:
 
     **Nome de registo**: sistema </br>
     **Origem**: Gestor de controlo de serviço </br>
@@ -48,7 +48,7 @@ Quando tentar ligar a uma VM, ocorrer os seguintes cenários:
     **Computador**: vm.contoso.com</br>
     **Descrição**: serviço de serviços de ambiente de trabalho remoto a suspenso sobre como iniciar. 
 
-    Também pode utilizar a funcionalidade de consola de acesso de série para procurar por estes erros utilizando a seguinte consulta: 
+    Também pode utilizar a funcionalidade de consola de acesso de série para procurar por estes erros ao executar a seguinte consulta: 
 
         wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
 
@@ -61,91 +61,112 @@ Este problema ocorre porque os serviços de ambiente de trabalho remoto não est
 
 ## <a name="solution"></a>Solução
 
-Para resolver este problema, utilize a consola de série ou [Repare a VM offline](#repair-the-vm-offline) ao anexar o disco de SO da VM para uma VM de recuperação.
+Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM offline](#repair-the-vm-offline) ao anexar o disco de SO da VM para uma VM de recuperação.
 
 ### <a name="use-serial-console"></a>Utilizar a consola de série
 
 1. Acesso a [consola de série](serial-console-windows.md) ao selecionar **suporte e resolução de problemas** > **consola de série**. Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
 
-2. Crie um novo canal para uma instância CMD. Tipo **CMD** para iniciar o canal para obter o nome do canal.
+2. Crie um novo canal para uma instância CMD. Introduza **CMD** para iniciar o canal e obter o nome do canal.
 
-3. Mude para o canal que executar a instância CMD. Nesse caso deve ser canal de 1.
+3. Mude para o canal que executa a instância CMD. Neste caso, deve ser canal 1:
 
    ```
    ch -si 1
    ```
 
-4. Prima **Enter** novamente e introduza um nome de utilizador válido e a palavra-passe (ID de locais ou de domínio) para a VM.
+4. Selecione **Enter** novamente e introduza um nome de utilizador válido e o ID de palavra-passe, local ou num domínio, para a VM.
 
-5. Consulte o estado do serviço TermService.
+5. Consulte o estado do serviço TermService:
 
    ```
    sc query TermService
    ```
 
-6. Se o estado do serviço mostra **parado**, tente iniciar o serviço.
+6. Se o estado do serviço mostra **parado**, tente iniciar o serviço:
 
     ```
     sc start TermService
      ``` 
 
-7. Consulte o serviço novamente para certificar-se de que o serviço é iniciado com êxito.
+7. Consulte o serviço novamente para certificar-se de que o serviço é iniciado com êxito:
 
    ```
    sc query TermService
    ```
-    Se o serviço não iniciar, siga a solução com base no erro que recebeu:
+8. Se o serviço não iniciar, siga a solução com base no erro que recebeu:
 
     |  Erro |  Sugestão |
     |---|---|
-    |5 - ACESSO NEGADO |Consulte [TermService serviço está parado devido a erro de acesso negado](#termService-service-is-stopped-because-of-access-denied-error) |
-    |1058 - ERROR_SERVICE_DISABLED  |Consulte [TermService o serviço está desativado.](#termService-service-is-disabled)  |
-    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão rapidamente resolvida|
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão rapidamente resolvida|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão rapidamente resolvida    |
-    |1070 - ERROR_SERVICE_START_HANG   | [Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão rapidamente resolvida  |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | Consulte [TermService o serviço está desativado](#termService-service-is-disabled)  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão rapidamente resolvida |
-    |1753   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão rapidamente resolvida   |
+    |5 - ACESSO NEGADO |Ver [TermService serviço está parado devido a um erro de acesso negado](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1058 - ERROR_SERVICE_DISABLED  |Ver [TermService serviço for desativado](#termService-service-is-disabled).  |
+    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.|
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.|
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.    |
+    |1070 - ERROR_SERVICE_START_HANG   | [Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.  |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | Ver [TermService serviço for desativado](#termService-service-is-disabled).  |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente. |
+    |1753   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.   |
 
-#### <a name="termservice-service-is-stopped-because-of-access-denied-error"></a>O serviço de TermService está parado devido a erro de acesso negado
+#### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>O serviço de TermService está parado devido a um problema de acesso negado
 
 1. Ligar à [consola de série](serial-console-windows.md#) e abra uma instância do PowerShell.
 2. Transferir a ferramenta de Monitor do processo executando o seguinte script:
 
-        remove-module psreadline  
-        $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-        $destination = "c:\temp\ProcessMonitor.zip" 
-        $wc = New-Object System.Net.WebClient 
-        $wc.DownloadFile($source,$destination) 
-3. Agora a começar um rastreamento de procmon:
+   ```
+   remove-module psreadline  
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
+   $destination = "c:\temp\ProcessMonitor.zip" 
+   $wc = New-Object System.Net.WebClient 
+   $wc.DownloadFile($source,$destination) 
+   ```
 
-        procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
-4. Negar a reproduzir o problema ao iniciar o serviço que está a dar o acesso: 
+3. Inicie agora uma **procmon** rastreio:
 
-        sc start TermService 
-        
-    Quando a falha, vá em frente e encerrar o rastreio de Monitor do processo:
+   ```
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   ```
 
-        procmon /Terminate 
-5. Recolher o arquivo **c:\temp\ProcMonTrace.PML**, abra-o utilizando procmon e, em seguida, filtrar por **resultado é o acesso NEGADO** como a seguinte captura de ecrã mostra:
+4. Reproduza o problema ao iniciar o serviço que está a dar **acesso negado**: 
+
+   ```
+   sc start TermService 
+   ```
+
+   Quando ocorre uma falha, encerrar o rastreio de Monitor do processo:
+
+   ```   
+   procmon /Terminate 
+   ```
+
+5. Recolher o arquivo **c:\temp\ProcMonTrace.PML**. Abra-o utilizando **procmon**. Em seguida, filtrar por **resultado é o acesso NEGADO**, conforme mostrado na captura de ecrã seguinte:
 
     ![Filtrar por resultado no Monitor do processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. Corrigi as chaves do Registro, pastas ou ficheiros que estão na saída. Normalmente, este problema seja causado pelo registo na conta utilizada no serviço não tem permissão de ACL para aceder a esses objetos. Para saber a permissão de ACL correta para o início de sessão na conta, pode verificar uma VM em bom estado. 
+6. Corrigi as chaves do Registro, pastas ou ficheiros que estão na saída. Normalmente, esse problema é causado quando a conta de início de sessão que é utilizada no serviço não tem permissão de ACL de acesso esses objetos. Para saber a permissão de ACL correta para a conta de início de sessão, pode verificar uma VM em bom estado. 
 
 #### <a name="termservice-service-is-disabled"></a>O serviço TermService está desativado
 
-1.  Restaure o serviço para o valor de arranque predefinido:
+1. Restaure o serviço para o valor de arranque predefinido:
 
-        sc config TermService start= demand 
-        
-2.  Inicie o serviço:
+   ```
+   sc config TermService start= demand 
+   ```
 
-        sc start TermService 
-3.  Consultar o seu estado novamente para garantir que o serviço está em execução: consulta de sc TermService 
-4.  Tente conntet a VM com o ambiente de trabalho remoto.
+2. Inicie o serviço:
+
+   ```
+   sc start TermService
+   ```
+
+3. Consulte o seu estado novamente para se certificar de que o serviço está em execução:
+
+   ```
+   sc query TermService 
+   ```
+
+4. Tente ligar à VM com o ambiente de trabalho remoto.
 
 
 ### <a name="repair-the-vm-offline"></a>Repare a VM offline
@@ -154,19 +175,22 @@ Para resolver este problema, utilize a consola de série ou [Repare a VM offline
 
 1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
 2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação. Certifique-se de que o disco ligado é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
-3.  Abra uma instância de linha de comandos elevada (**executar como administrador**), e, em seguida, execute o seguinte script. Partimos do princípio de que a letra de unidade que está atribuída ao disco do SO anexado é F. Substitua-o com o valor apropriado na sua VM. 
+3.  Abra uma instância de linha de comandos elevada (**executar como administrador**). Em seguida, execute o seguinte script. Partimos do princípio de que é a letra de unidade que está atribuída ao disco do SO anexado **F**. Substitua-o com o valor apropriado na sua VM. 
 
-        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+   ```
+   reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
         
-        REM Set default values back on the broken service 
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
-4. [Desanexar o disco do SO e recriar a VM](../windows/troubleshoot-recovery-disks-portal.md)e, em seguida, verifique se o problema está resolvido.
+   REM Set default values back on the broken service 
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
+   ```
+
+4. [Desanexar o disco do SO e recriar a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema foi resolvido.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
-Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.
+Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema.

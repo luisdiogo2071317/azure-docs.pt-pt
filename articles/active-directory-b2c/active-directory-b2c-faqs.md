@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264720"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914775"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
@@ -72,7 +72,7 @@ A assinatura de e-mail contém o nome do inquilino do Azure AD B2C que indicou q
 1. Abra o **do Azure Active Directory** painel.
 1. Clique nas **propriedades** separador.
 1. Alteração da **nome** campo.
-1. Clique em **guardar** na parte superior da página.
+1. Clique em **Guardar** no início da página.
 
 Atualmente não é possível alterar o "de:" campo no email. Vote [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) estiver interessado em Personalizar o corpo da mensagem de e-mail de verificação.
 
@@ -80,7 +80,7 @@ Atualmente não é possível alterar o "de:" campo no email. Vote [feedback.azur
 Pode utilizar o Azure AD Graph API para escrever a sua ferramenta de migração. Consulte a [guia de migração de utilizador](active-directory-b2c-user-migration.md) para obter detalhes.
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Que política de palavra-passe é utilizada para contas locais no Azure AD B2C?
-A política de palavra-passe do Azure AD B2C para contas locais baseia-se na política para o Azure AD. O Azure AD B2C da inscrição, a inscrição ou início de sessão e palavra-passe utiliza políticas de reposição a força da palavra-passe "segura" e não expirarem as palavras-passe. Leitura a [política de palavra-passe do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter mais detalhes.
+A política de palavra-passe do Azure AD B2C para contas locais baseia-se na política para o Azure AD. O Azure AD B2C da inscrição, a inscrição ou início de sessão e palavra-passe utiliza políticas de reposição a força da palavra-passe "segura" e não expirarem as palavras-passe. Leitura a [política de palavra-passe do Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obter mais detalhes. Para obter informações sobre bloqueios de conta e palavras-passe, consulte [gere as ameaças aos recursos e dados no Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Pode utilizar o Azure AD Connect para migrar as identidades de consumidor que estão armazenadas no meu diretório de Active Directory no local ao Azure AD B2C?
 Não, do Azure AD Connect não foi concebido para funcionar com o Azure AD B2C. Considere utilizar o [Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) para a migração de utilizador.  Consulte a [guia de migração de utilizador](active-directory-b2c-user-migration.md) para obter detalhes.

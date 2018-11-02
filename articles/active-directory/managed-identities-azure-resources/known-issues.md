@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295586"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913993"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "44295586"
 ## <a name="frequently-asked-questions-faqs"></a>Perguntas Mais Frequentes (FAQs)
 
 > [!NOTE]
-> Identidades de gerido para recursos do Azure é o novo nome para o serviço anteriormente conhecido como identidade de serviço gerida (MSI).
+> Identidades geridas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como Identidade de Serviço Gerida (MSI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Identidades geridas para recursos do Azure funciona com serviços Cloud do Azure?
 
@@ -60,7 +60,7 @@ Para obter mais informações sobre o serviço de metadados de instância do Azu
 
 Todas as distribuições de Linux suportadas pelo Azure IaaS podem ser utilizadas com identidades geridas para recursos do Azure através do ponto de extremidade IMDS. 
 
-Nota: As identidades geridas para a extensão de VM (planeada para preterição em Janeiro de 2019) de recursos do Azure só suporta as seguintes distribuições de Linux:
+As identidades geridas para a extensão de VM (planeada para preterição em Janeiro de 2019) de recursos do Azure só suporta as seguintes distribuições de Linux:
 - Stable do CoreOS
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ Assim que a VM é iniciada, a etiqueta pode ser removida ao utilizar o seguinte 
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Problemas conhecidos relacionados com identidades atribuídas
+### <a name="vm-extension-provisioning-fails"></a>Falha de aprovisionamento de extensão de VM
 
-- atribuições de identidades atribuídas só estão disponíveis para a VM e VMSS. Importante: atribuído ao utilizador atribuições de identidade serão alterado nos próximos meses.
-- Duplicar Identidiades atribuídas na mesma VM/VMSS, fará com que a VM/VMSS falhe. Isto inclui a identidades que são adicionadas com maiúsculas/minúsculas diferentes. Por exemplo, MyUserAssignedIdentity e myuserassignedidentity. 
-- Aprovisionamento da extensão VM (planeada para preterição em Janeiro de 2019) a uma VM pode falhar devido a falhas de pesquisa DNS. Reinicie a VM e tente novamente. 
-- Adicionar uma identidade de utilizador atribuída 'não existente' fará com que a VM falhe. 
-- Criar uma identidade de utilizador atribuída com carateres especiais (por exemplo, um caráter de sublinhado) no nome, não é suportada.
-- nomes de identidade atribuída por utilizador estão limitados a 24 carateres para o cenário de ponta a ponta. identidiades atribuídas com mais de 24 carateres de nomes irão falhar a ser atribuída.
+Aprovisionamento da extensão VM poderá falhar devido a falhas de pesquisa DNS. Reinicie a VM e tente novamente.
+ 
+> [!NOTE]
+> A extensão de VM está prevista para preterição até Janeiro de 2019. Recomendamos que passar a usar o ponto de extremidade IMDS.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferindo uma assinatura entre diretórios do Azure AD
+
+Identidades geridas for atualizadas quando a subscrição for movido/transferidos para outro diretório. Como resultado, qualquer existente atribuído de sistema ou identidades geridas atribuído ao utilizador será quebradas. 
+
+Como solução assim que a subscrição foi movida, pode desativar atribuído de sistema de identidades geridas e volte a ativar. Da mesma forma, pode eliminar e recriar quaisquer identidades geridas atribuído ao utilizador. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Problemas conhecidos relacionados com identidades geridas atribuído ao utilizador
+
+- Criar uma identidade gerida atribuído ao utilizador com carateres especiais (por exemplo, um caráter de sublinhado) no nome, não é suportada.
+- Nomes de identidade atribuída por utilizador estão limitados a 24 carateres. Se o nome for superior a 24 carateres, a identidade não ser atribuídos a um recurso (ou seja, a Máquina Virtual.)
 - Se utilizar a extensão de máquina virtual de identidade gerida (planeada para preterição em Janeiro de 2019), o limite suportado é 32 identidades geridas atribuído ao utilizador. Sem a extensão de máquina virtual de identidade gerida, o limite suportado é 512.  
-- Ao adicionar uma identidade de utilizador atribuído segundo, o ID de cliente pode não estar disponível para tokens de pedidos para a extensão VM. Facilitar a reiniciar as identidades geridas para a extensão VM de recursos do Azure com os seguintes comandos de dois bash:
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Quando uma VM tem uma identidade de utilizador atribuída, mas nenhuma identidade atribuída de sistema, o portal que irá mostrar a interface do Usuário geridos identidades para recursos do Azure como desativados. Para ativar a identidade atribuída de sistema, utilize um modelo Azure Resource Manager, uma CLI do Azure ou um SDK.
+- Mover uma identidade gerida atribuído ao utilizador para um grupo de recursos diferente, fará com que a identidade de quebrar. Como resultado, não será capaz de pedir tokens para essa identidade. 
+- Transferindo uma assinatura para outro diretório irá interromper qualquer existente identidades geridas atribuído ao utilizador. 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743262"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913641"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Preview: Histórico de versões de agente de proteção palavra-passe do Azure AD
 
@@ -23,6 +23,23 @@ ms.locfileid: "50743262"
 | --- |
 | Proteção de palavra-passe do Azure AD é uma funcionalidade de pré-visualização pública do Azure Active Directory. Para obter mais informações sobre pré-visualizações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+Data de lançamento: 11/01/2018
+
+Correções:
+
+* Serviço de agente e o proxy de controlador de domínio já não deve falhar devido a falhas de confiança de certificado.
+* Serviço de agente e o proxy de controlador de domínio tem correções adicionais para máquinas compatíveis com FIPS.
+* Serviço de proxy agora funcionará corretamente num ambiente de rede TLS 1.2 só.
+* Desempenho de pequenas e robustez correções
+* A melhoria do registo
+
+Alterações:
+
+* O mínimo necessário ao nível do SO para o serviço de Proxy é, agora, Windows Server 2012 R2. O nível de SO mínimo necessário para o serviço do agente DC permanece no Windows Server 2012.
+* O algoritmo de validação da palavra-passe usa uma tabela de normalização de caráter expandido. Isso pode resultar em palavras-passe a ser rejeitadas foram aceites nas versões anteriores.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ Correções:
 > Atualizações in-loco do software do agente DC exigirá uma reinicialização.
 
 * Serviço de agente e o proxy de DC suportam agora em execução num servidor configurado para utilizar apenas os algoritmos em conformidade com FIPS.
-* A melhoria do registo
 * Desempenho de pequenas e robustez correções
+* A melhoria do registo
 
 ## <a name="11103"></a>1.1.10.3
 

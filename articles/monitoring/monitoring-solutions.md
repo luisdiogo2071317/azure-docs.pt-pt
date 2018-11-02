@@ -1,6 +1,6 @@
 ---
-title: As soluções de gestão no Azure | Microsoft Docs
-description: Soluções de gestão no Azure são uma coleção de regras de aquisição lógica, visualização e os dados que fornecem métricas pivoted em torno de uma área de problema específico.  Este artigo fornece informações sobre como instalar e utilizar as soluções de gestão.
+title: Soluções de gestão do Azure | Documentos da Microsoft
+description: Soluções de gestão no Azure são um conjunto de dados, visualização e lógica de regras de aquisição que fornecem métricas articuladas em torno de uma área de problema específico.  Este artigo fornece informações sobre como instalar e utilizar soluções de gestão.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,95 +14,95 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: fb1a05a92244743ac8b5f980ff912c9e839d0609
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752926"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913007"
 ---
-# <a name="management-solutions-in-azure"></a>Soluções de gestão no Azure
-As soluções de gestão tirar partido dos serviços do Azure para fornecer informações adicionais sobre a operação de uma determinada aplicação ou serviço. Este artigo fornece uma breve descrição geral das soluções de gestão no Azure e detalhes sobre como utilizar e instalá-los.
+# <a name="management-solutions-in-azure"></a>Soluções de gestão do Azure
+Soluções de gestão de tirar partido dos serviços do Azure para fornecer informações adicionais sobre o funcionamento de uma determinada aplicação ou serviço. Este artigo fornece uma breve descrição geral de soluções de gestão do Azure e os detalhes sobre como utilizar e instalá-los.
 
-Soluções de gestão, normalmente, recolhem informações para análise de registos e fornecem pesquisas de registo e vistas para analisar os dados recolhidos. Estes podem também tirar partido de outros serviços, tais como a automatização do Azure para efetuar ações relacionadas com a aplicação ou serviço.
+Soluções de gestão, normalmente, recolhem informações no Log Analytics e fornecem pesquisas de registos e modos de exibição para analisar os dados recolhidos. Eles também podem tirar partido outros serviços, como a automatização do Azure para efetuar ações relacionadas com a aplicação ou serviço.
 
-Pode adicionar as soluções de gestão à sua subscrição do Azure para quaisquer aplicações e serviços que utiliza. São normalmente disponíveis em nenhum dado custo mas recolher que invocam a custos de utilização. Além das soluções fornecidas pela Microsoft, parceiros e os clientes podem [criar soluções de gestão](../monitoring/monitoring-solutions-creating.md) a ser utilizada no seu próprio ambiente ou disponibilizada para clientes através da Comunidade.
+Pode adicionar soluções de gestão para a sua subscrição do Azure para quaisquer aplicações e serviços que utilizar. Eles estão normalmente disponíveis em nenhum dado de custo mas recolher invoca os custos de utilização. Além das soluções fornecidas pela Microsoft, parceiros e clientes podem [criar soluções de gestão](../monitoring/monitoring-solutions-creating.md) a ser utilizada no seu próprio ambiente ou disponibilizados aos clientes através da Comunidade.
 
-## <a name="using-management-solutions"></a>Soluções de gestão
-O **descrição geral** página para cada área de trabalho de análise de registos apresenta um mosaico para cada solução instalado na área de trabalho. Clique no mosaico para a solução abrir a vista que inclui uma análise mais detalhada dos dados recolhidos.
+## <a name="using-management-solutions"></a>Usando soluções de gestão
+O **descrição geral** página para cada área de trabalho do Log Analytics apresenta um mosaico para cada solução instalado na área de trabalho. Clique no mosaico para a solução abrir a vista que inclui uma análise mais detalhada em seus dados recolhidos.
 
 ![Descrição geral](media/monitoring-solutions/overview.png)
 
-As soluções de gestão podem conter vários tipos de recursos do Azure e pode ver todos os recursos incluídos com uma solução, tal como quaisquer outros recursos. Por exemplo, as pesquisas de registo incluídas na solução estão incluídas com **pesquisas guardadas** na área de trabalho. Pode utilizar as pesquisas quando efetuar a análise ad-hoc na análise de registos.
+Soluções de gestão podem conter vários tipos de recursos do Azure e pode ver todos os recursos incluídos com uma solução, assim como qualquer outro recurso. Por exemplo, são incluídas com qualquer incluídas na solução de pesquisas de registos **pesquisas guardadas** na área de trabalho. Pode usar essas pesquisas ao executar a análise ad hoc no Log Analytics.
 
-## <a name="list-installed-management-solutions"></a>Lista de soluções de gestão instalados 
+## <a name="list-installed-management-solutions"></a>Liste as soluções de gestão instalados 
 Utilize o procedimento seguinte para listar as soluções de gestão instaladas na sua subscrição.
 
 1. Inicie sessão no portal do Azure.
 2. No painel esquerdo, selecione **todos os serviços**.
-3. O desloque para baixo até **soluções** ou tipo *soluções* para o **filtro** caixa de diálogo.
-4. Soluções instaladas em todas as áreas de trabalho são listadas. O nome da solução é seguido pelo nome da área de trabalho de análise de registos que está instalado na.
-1. Utilize as caixas de lista pendente, na parte superior do ecrã, para filtrar por subscrição ou grupo de recursos.
+3. Qualquer um desloque para baixo até **soluções** ou tipo *soluções* para o **filtro** caixa de diálogo.
+4. Soluções instaladas em todas as áreas de trabalho são listadas. O nome da solução é seguido do nome da área de trabalho do Log Analytics que está instalado na.
+1. Utilize as caixas de lista pendente na parte superior do ecrã para filtrar por subscrição ou grupo de recursos.
 
 
-![Lista todas as soluções](media/monitoring-solutions/list-solutions-all.png)
+![Listar todas as soluções](media/monitoring-solutions/list-solutions-all.png)
 
-Clique no nome de uma solução para abrir a página de resumo. Esta página apresenta as vistas de análise de registos incluídas na solução e fornece diferentes opções para a solução em si e a área de trabalho. Ver a página de resumo para uma solução utilizando um dos procedimentos acima para soluções de lista e, em seguida, clique no nome da solução.
+Clique no nome de uma solução para abrir a página de resumida. Esta página apresenta todas as vistas do Log Analytics incluídas na solução e fornece opções diferentes para a solução em si e a sua área de trabalho. Ver a página de resumo para uma solução utilizando um dos procedimentos acima para soluções de lista e, em seguida, clique no nome da solução.
 
 ![Propriedades de solução](media/monitoring-solutions/solution-properties.png)
 
 
 
 ## <a name="install-a-management-solution"></a>Instalar uma solução de gestão
-As soluções de gestão da Microsoft e de parceiros estão disponíveis a partir de [Azure Marketplace](https://azuremarketplace.microsoft.com). Pode procurar soluções disponíveis e instalá-los utilizando o procedimento seguinte.
+Soluções de gestão da Microsoft e parceiros estão disponíveis a partir da [do Azure Marketplace](https://azuremarketplace.microsoft.com). Pode procurar as soluções disponíveis e instalá-los utilizando o procedimento seguinte.
 
-1. Do [lista de soluções para a sua subscrição](#list-installed-management-solutions), clique em **adicionar**. 
-1. À direita do **soluções de gestão**, clique em **mais**. 
-1. Localize a solução de gestão que pretende e leia a descrição.
+1. Partir do [lista de soluções para a sua subscrição](#list-installed-management-solutions), clique em **Add**. 
+1. À direita da **soluções de gestão**, clique em **mais**. 
+1. Localize a solução de gestão que pretende e ler sua descrição.
 1. Clique em **criar** para iniciar o processo de instalação.
-1. Quando é iniciado o processo de instalação, está a pedido para fornecer configuração necessárias que varia de cada solução. Todos eles tem de selecionar uma área de trabalho de análise de registos onde será instalada a solução e onde serão recolhidos os respetivos dados. 
+1. Quando o processo de instalação é iniciado, lhe for pedido para fornecer configuração necessárias que varia para cada solução. Todos eles irão requerer que selecione uma área de trabalho do Log Analytics onde a solução será instalada e onde serão recolhidos os seus dados. 
 
 ![Instalar uma solução](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Instalar uma solução da Comunidade
-Os membros da Comunidade podem submeter soluções de gestão de modelos de início rápido do Azure. Pode instalar estas soluções diretamente ou transferi-los modelos para instalação posterior.
+Membros da Comunidade podem submeter soluções de gestão para modelos de início rápido do Azure. Pode instalar essas soluções diretamente ou transferi-los modelos para posterior instalação.
 
-1. Siga o processo descrito no [área de trabalho de análise de registos e a conta de automatização](#log-analytics-workspace-and-automation-account) para ligar uma área de trabalho e a conta.
+1. Siga o processo descrito em [área de trabalho do Log Analytics e a conta de automatização](#log-analytics-workspace-and-automation-account) para ligar uma área de trabalho e a conta.
 2. Aceda a [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/). 
-3. Procurar uma solução que lhe interessa.
-4. Selecione a solução na lista de resultados para ver os detalhes.
-5. Clique em de **implementar no Azure** botão.
-6. É-lhe pedido que fornecem informações tais como o grupo de recursos e a localização para além de valores para os parâmetros na solução.
+3. Procurar por uma solução que está interessado.
+4. Selecione a solução dos resultados para ver os detalhes.
+5. Clique nas **implementar no Azure** botão.
+6. Lhe for pedido para fornecer informações tais como o grupo de recursos e a localização, além de valores de quaisquer parâmetros na solução.
 7. Clique em **Compra** para instalar a solução.
 
 
-## <a name="log-analytics-workspace-and-automation-account"></a>Área de trabalho de análise de registo e a conta de automatização
-Todas as soluções de gestão requerem um [área de trabalho de análise de registos](../log-analytics/log-analytics-manage-access.md) para armazenar os dados recolhidos pela solução de e para alojar a vistas e pesquisas de registo. Algumas soluções também requerem um [conta de automatização](../automation/automation-security-overview.md#automation-account-overview) para conter os runbooks e recursos relacionados. A área de trabalho e a conta tem de cumprir os seguintes requisitos.
+## <a name="log-analytics-workspace-and-automation-account"></a>Área de trabalho do log Analytics e a conta de automatização
+Todas as soluções de gestão exigem uma [área de trabalho do Log Analytics](../log-analytics/log-analytics-manage-access.md) para armazenar os dados coletados pela solução e para alojar as suas vistas e pesquisas de registos. Algumas soluções também exigem um [conta de automatização](../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados. A área de trabalho e a conta tem de cumprir os seguintes requisitos.
 
-* Cada instalação de uma solução só pode utilizar uma área de trabalho de análise de registos e uma conta de automatização. Pode instalar a solução em separado para várias áreas de trabalho.
-* Se uma solução requer uma conta de automatização, em seguida, a área de trabalho de análise de registos e a conta de automatização tem ser ligadas a um do outro. Uma área de trabalho do Log Analytics só pode ser associada a uma conta de automatização e uma conta de automatização só pode ser associada a uma área de trabalho de análise de registos.
-* Estar ligado, a área de trabalho de análise de registos e a conta de automatização devem estar no mesmo grupo de recursos e região. A exceção é a região EUA Leste uma área de trabalho e a conta de automatização nos EUA Leste 2.
+* Cada instalação de uma solução só pode utilizar uma área de trabalho do Log Analytics e uma conta de automatização. Pode instalar a solução em separado em várias áreas de trabalho.
+* Se uma solução requer uma conta de automatização, em seguida, a área de trabalho do Log Analytics e a conta de automatização devem ser vinculados a um do outro. Uma área de trabalho do Log Analytics só pode ser ligada a uma conta de automatização e uma conta de automatização só pode ser ligada a uma área de trabalho do Log Analytics.
+* Para ser ligada a área de trabalho do Log Analytics e a conta de automatização tem de ser no mesmo grupo de recursos e região. A exceção é uma área de trabalho na região E.U.A. leste e conta de automatização na região E.U.A. Leste 2.
 
-### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Criar uma ligação entre uma área de trabalho de análise de registos e a conta de automatização
-Como especificar a área de trabalho de análise de registos e a conta de automatização depende o método de instalação para a sua solução.
+### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Criar uma ligação entre uma área de trabalho do Log Analytics e uma conta de automatização
+Como especificar a área de trabalho do Log Analytics e a conta de automatização depende do método de instalação para a sua solução.
 
-* Quando instala uma solução através do Azure Marketplace, lhe for pedido para uma área de trabalho e a conta de automatização. É criada a ligação entre eles se estes já não estão ligados.
-* Para soluções fora do Azure Marketplace, tem de ligar a área de trabalho de análise de registos e a conta de automatização antes de instalar a solução. Pode fazê-lo a selecionar qualquer solução no Azure Marketplace e selecionando a área de trabalho de análise de registos e a conta de automatização. Não tem de instalar, na verdade, a solução porque a ligação for criada assim que a área de trabalho de análise de registos e a conta de automatização estão selecionadas. Depois da ligação for criada, em seguida, pode utilizar essa área de trabalho de análise de registos e a conta de automatização para qualquer solução.
+* Quando instala uma solução no Azure Marketplace, lhe for pedido para a área de trabalho e conta de automatização. A ligação entre eles é criada se eles já não estão ligados.
+* Para soluções de fora do Azure Marketplace, tem de associar a área de trabalho do Log Analytics e a conta de automatização antes de instalar a solução. Pode fazê-lo ao selecionar qualquer solução no Azure Marketplace e ao selecionar a área de trabalho do Log Analytics e a conta de automatização. Não tem de instalar, na verdade, a solução porque a ligação for criada assim que a área de trabalho do Log Analytics e a conta de automatização estão selecionadas. Depois de criar a ligação, em seguida, pode utilizar essa área de trabalho do Log Analytics e a conta de automatização para qualquer solução.
 
-### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>Verificar a ligação entre uma área de trabalho de análise de registos e a conta de automatização
-Pode verificar a ligação entre uma área de trabalho de análise de registos e uma conta de automatização utilizando o procedimento seguinte.
+### <a name="verifying-the-link-between-a-log-analytics-workspace-and-automation-account"></a>A verificar a ligação entre uma área de trabalho do Log Analytics e uma conta de automatização
+Pode verificar a ligação entre uma área de trabalho do Log Analytics e uma conta de automatização utilizando o procedimento seguinte.
 
 1. Selecione a conta de automatização no portal do Azure.
 1. Desloque-se para o **recursos relacionados** secção do menu.
-1. Se o **área de trabalho** definição estiver ativada, em seguida, esta conta está associada a uma área de trabalho de análise de registos. Pode clicar em **área de trabalho** para ver os detalhes da área de trabalho.
+1. Se o **área de trabalho** está habilitada, em seguida, esta conta está ligada a uma área de trabalho do Log Analytics. Pode clicar em **área de trabalho** para ver os detalhes da área de trabalho.
 
 ## <a name="remove-a-management-solution"></a>Remover uma solução de gestão
-Para remover uma solução de instalados, localizá-la no [lista de soluções instaladas](#list-installed-management-solutions). Clique no nome da solução para abrir a página de resumo e, em seguida, clique em **eliminar**.
+Para remover uma solução de instalados, localizá-la na [lista de soluções instaladas](#list-installed-management-solutions). Clique no nome da solução para abrir a página de resumida e, em seguida, clique em **eliminar**.
 
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Obter um [lista de soluções de gestão da Microsoft](monitoring-solutions-inventory.md).
-* Saiba como [criar consultas](../log-analytics/log-analytics-log-searches.md) para analisar os dados recolhidos por soluções de gestão.
+* Saiba como [criar consultas](../log-analytics/log-analytics-log-search.md) para analisar os dados recolhidos por soluções de gestão.
 

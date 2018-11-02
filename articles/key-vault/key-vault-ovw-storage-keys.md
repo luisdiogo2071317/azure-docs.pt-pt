@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f3f310c247aea3842b5ec7a9a1409032d5bdc0bf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232227"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912922"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de armazenamento do Azure Key Vault
 
@@ -34,9 +34,12 @@ ms.locfileid: "50232227"
     - Siga os passos desta [documento](https://docs.microsoft.com/azure/storage/) para criar uma conta de armazenamento  
     - **Orientações de nomenclatura:** nomes de conta de armazenamento tem de ter entre 3 e 24 carateres de comprimento e pode conter apenas letras minúsculas e números.        
       
-<a name="step-by-step-instructions"></a>Passo a passo-instruções
--------------------------
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>Passo a passo instruções sobre como utilizar o Key Vault para gerir chaves de conta de armazenamento
+--------------------------------------------------------------------------------
 Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter permissões de operador na sua conta de armazenamento
+
+> [!NOTE]
+> . Tenha em atenção que assim que tiver configurado a cópia de segurança gerida do Azure Key Vault conta de armazenamento de chaves que eles deve **não** já é possível alterar, exceto através do Key Vault. Armazenamento de chaves de conta significa que o Key Vault iria gerir a rotação da chave de conta de armazenamento geridas
 
 1. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter o ID de recurso da conta de armazenamento, que pretende gerir
 
@@ -71,6 +74,8 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+### <a name="relavant-azure-cli-cmdlets"></a>Cmdlets da CLI do Azure de Relavant
+- [Cmdlets de armazenamento da CLI do Azure](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>Cmdlets do Powershell relevantes
 

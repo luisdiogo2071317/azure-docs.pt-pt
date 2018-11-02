@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406675"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747546"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ligar o Cosmos DB com o Azure Search utilizando indexadores
 
@@ -48,6 +48,8 @@ Suporte para as APIs adicionais é próximo. Para nos ajudar a priorizar quais p
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Além de uma conta do Cosmos DB, tem de ter uma [serviço Azure Search](search-create-service-portal.md). 
+
+Na sua conta do Cosmos DB pode escolher se pretende que a coleção para indexar automaticamente todos os documentos. Por predefinição, todos os documentos são indexados automaticamente, mas pode desativar a indexação automática. Quando a indexação é desativada, documentos podem ser acedidos através de apenas seus auto-ligações ou por consultas utilizando o documento ID. O Azure Search necessita do Cosmos DB automática de indexação ativada na coleção que será indexada pelo Azure Search. 
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Conceitos do indexador de pesquisa do Azure

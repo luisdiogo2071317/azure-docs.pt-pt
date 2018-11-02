@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 60a92e35f1408d944e8091be4945c53abe3791d1
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585718"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754057"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para exportar dados do armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure em segurança exportar grandes quantidades de dados do armazenamento de Blobs do Azure. O serviço exige que envie discos vazios para o datacenter do Azure. O serviço exporta os dados da sua conta de armazenamento para as unidades e, em seguida, é fornecido as unidades de volta.
@@ -64,7 +64,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
     - Especifique os dados de BLOBs que pretende exportar a partir de sua conta de armazenamento à sua unidade em branco ou unidades. 
     - Optar por **exportar todas** dados na conta de armazenamento de Blobs.
     
-         ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
+         ![Exportar todo](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
     - Pode especificar quais os contentores e blobs a exportar.
         - **Para especificar um blob para exportar**: Utilize o **igual a** Seletor. Especifique o caminho relativo para o blob, começando com o nome do contentor. Uso *$root* para especificar o contentor de raiz.
@@ -114,7 +114,7 @@ Se não souber o número de unidades de que precisa, vá para o [verificar o nú
 Quando o dashboard de relatórios que a tarefa estiver concluída, os discos são enviados para si e o número de controlo para o envio está disponível no portal.
 
 1. Depois de receber as unidades com dados exportados, terá de obter as chaves do BitLocker para desbloquear as unidades. Vá para a tarefa de exportação no portal do Azure. Clique em **importação/exportação** separador. 
-2. Selecione e clique em que a exportação da tarefa na lista. Aceda a **chaves do BitLocker** e copie as chaves.
+2. Selecione e clique em sua tarefa de exportação na lista. Aceda a **chaves do BitLocker** e copie as chaves.
    
    ![Exibir as chaves do BitLocker para a tarefa de exportação](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 

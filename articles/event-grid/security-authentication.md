@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: babanisa
-ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741526"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914044"
 ---
 # <a name="event-grid-security-and-authentication"></a>Autenticação e segurança do Event Grid 
 
@@ -191,15 +191,83 @@ As últimas três operações devolvem informações potencialmente secretas, qu
 
 ### <a name="built-in-roles"></a>Funções incorporadas
 
-Event Grid fornece duas funções incorporadas para gerir subscrições de eventos. Estas funções são `EventSubscription Contributor (Preview)` e `EventSubscription Reader (Preview)`. Eles são importantes durante a implementação de domínios de evento. Para obter mais informações sobre as ações concedidas, consulte [domínio de eventos - gestão de acesso](event-domains.md#access-management).
+Event Grid fornece duas funções incorporadas para gerir subscrições de eventos. Eles são importantes ao implementar [domínios de evento](event-domains.md) porque eles dar aos utilizadores as permissões necessárias para subscrever tópicos no seu domínio de evento. Estas funções estão focalizadas em subscrições de eventos e não a conceder acesso para ações como a criação de tópicos.
 
 Pode [atribuir essas funções a um utilizador ou grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+**Contribuinte de EventSubscription EventGrid (pré-visualização)**: gerir as operações de subscrição do Event Grid
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**Leitor de EventSubscription EventGrid (pré-visualização)**: ler subscrições do Event Grid
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
 
 ### <a name="custom-roles"></a>Funções personalizadas
 
 Se tiver de especificar permissões que são diferentes de funções incorporadas, pode criar funções personalizadas.
 
-Seguem-se as definições de funções de grelha de eventos de exemplo que permitem aos utilizadores efetuar ações diferentes.
+Seguem-se as definições de funções de grelha de eventos de exemplo que permitem aos utilizadores efetuar ações diferentes. Estas funções personalizadas são diferentes das funções incorporadas, porque eles concedem um acesso mais abrangente do que apenas as subscrições de eventos.
 
 **EventGridReadOnlyRole.json**: permitir apenas operações só de leitura.
 

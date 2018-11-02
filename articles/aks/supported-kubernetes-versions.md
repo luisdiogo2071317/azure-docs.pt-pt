@@ -27,11 +27,11 @@ AKS oferece suporte a quatro versões secundárias do Kubernetes:
 - A atual versão secundária que é lançado a montante (n)
 - Três versões secundárias anteriores. Cada versão secundária suportado também oferece suporte a dois patches estáveis.
 
-Por exemplo, se apresenta o AKS *1.11.x* hoje em dia, também é fornecido suporte para *1.10.a* + *1.10.b*, *1.9.c*  +  *1!d 1,9*, *1.8.e* + *1.8F* (em que as versões de patch letras são duas compilações estáveis mais recente).
+Por exemplo, se apresenta o AKS *1.11.x* hoje em dia, também é fornecido suporte para *1.10.a* + *1.10.b*, *1.9.c*  +  *1!d 1,9*, *1.8.e*\ + *1.8F* (em que as versões de patch letras são duas compilações estáveis mais recente).
 
 Quando uma nova versão secundária é introduzida, as mais antigas pequenas versão e patch em versões suportadas são descontinuadas. 15 dias antes do lançamento da nova versão secundária e extinção de versão futura, um anúncio é feito por meio dos canais de atualização do Azure. No exemplo acima onde *1.11.x* é lançado, as versões retiradas são *1.7.g* + *1.7.h*.
 
-Quando implementa um cluster do AKS no portal ou com a CLI do Azure, o cluster está sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se suportar do AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1.9*, *1.8.e* + *1.8F*, é a versão predefinida para novos clusters *1.10.b*.
+Quando implementa um cluster do AKS no portal ou com a CLI do Azure, o cluster está sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se suportar do AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1.9*, *1.8.e*\ + *1.8F*, é a versão predefinida para novos clusters *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Lista de versões suportadas atualmente
 
@@ -62,7 +62,7 @@ KubernetesVersion    Upgrades
 
 Se estiver a utilizar o *n-4* versão, está fora do SLO. Se a atualização da versão n-4 para n-3 for bem-sucedida, em seguida, está novamente no SLO. Por exemplo:
 
-- Se forem as versões suportadas do AKS *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1,9*,  *1.8.e* + *1.8F* e estiver a utilizar *1.7.g* ou *1.7.h*, está fora do SLO.
+- Se forem as versões suportadas do AKS *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1,9*,  *1.8.e*\ + *1.8F* e estiver a utilizar *1.7.g* ou *1.7.h*, está fora do SLO.
 - Se a atualização a partir de *1.7.g* ou *1.7.h* para *1.8.e* ou *1.8.f* tiver êxito, está novamente no SLO.
 
 As atualizações para versões mais antigas que *n-4* não são suportadas. Nesses casos, recomendamos aos clientes criar novos clusters do AKS e voltar a implementar as cargas de trabalho.

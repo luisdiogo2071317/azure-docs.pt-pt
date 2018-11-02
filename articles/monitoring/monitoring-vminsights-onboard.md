@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8cca69109f07cbcffe2a5d796262e51fc9233cc5
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092779"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914693"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como carregar para o Azure Monitor para VMs (pré-visualização)
 Este artigo descreve como configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento do sistema operativo de máquinas virtuais do Azure e detetar e mapear as dependências de aplicativo que podem ser hospedadas nos mesmos.  
@@ -355,12 +355,12 @@ A tabela seguinte lista as definições de política fornecidas.
 |Nome |Descrição |Tipo |  
 |-----|------------|-----|  
 |[Pré-visualização]: Ativar o Azure Monitor para VMs |Ative o Azure Monitor para as máquinas virtuais (VMs) no âmbito especificado (grupo de gestão, subscrição ou grupo de recursos). Aceita a área de trabalho do Log Analytics como parâmetro. |Iniciativa |  
-|[Pré-visualização]: implementação de agente de dependência de auditoria – imagem de VM (SO) não listados |VMs de relatórios como não conforme se a imagem de VM (SO) não está na lista definida e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementação de agente de análise de registo de auditoria – imagem de VM (SO) não listados |VMs de relatórios como não conforme se a imagem de VM (SO) não está na lista definida e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de dependência para VMs do Linux |Implemente o agente de dependência para VMs do Linux, se a imagem de VM (SO) está na lista definida e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de dependência para VMs do Windows |Implemente o agente de dependência para as VMs do Windows se a imagem de VM (SO) está na lista definida e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de análise de registo para VMs do Linux |Implemente agente do Log Analytics para VMs do Linux, se a imagem de VM (SO) está na lista definida e o agente não está instalado. |Política |  
-|[Pré-visualização]: implementar o agente de análise de registo para VMs do Windows |Implemente o agente de análise de registo para Windows VMs se a imagem de VM (SO) está na lista definida e o agente não está instalado. |Política |  
+|[Pré-visualização]: implementação de agente de dependência de auditoria – imagem de VM (SO) não listados |As VMs são reportadas como não conformes se a Imagem de VM (SO) não estiver na lista definida e o agente não estiver instalado. |Política |  
+|[Pré-visualização]: implementação de agente de análise de registo de auditoria – imagem de VM (SO) não listados |As VMs são reportadas como não conformes se a Imagem de VM (SO) não estiver na lista definida e o agente não estiver instalado. |Política |  
+|[Pré-visualização]: implementar o agente de dependência para VMs do Linux |Implemente o Dependency Agent para as VM do Linux se a Imagem de VM (SO) estiver na lista definida e o agente não estiver instalado. |Política |  
+|[Pré-visualização]: implementar o agente de dependência para VMs do Windows |Implemente o Dependency Agent para as VM do Windows se a Imagem de VM (SO) estiver na lista definida e o agente não estiver instalado. |Política |  
+|[Pré-visualização]: implementar o agente de análise de registo para VMs do Linux |Implemente o Agente do Log Analytics para VMs do Linux se a Imagem de VM (SO) estiver na lista definida e o agente não estiver instalado. |Política |  
+|[Pré-visualização]: implementar o agente de análise de registo para VMs do Windows |Implemente o Agento do Log Analytics para as VMs do Windows se a Imagem de VM (SO) estiver na lista definida e o agente não estiver instalado. |Política |  
 
 Política autónoma (não incluída com a iniciativa) 
 

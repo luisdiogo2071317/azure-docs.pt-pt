@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621206"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747563"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos no Azure Event Grid
 
@@ -48,7 +48,7 @@ Ao conceber a sua aplicação, tem flexibilidade ao decidir como vários tópico
 
 ## <a name="event-subscriptions"></a>Subscrições de eventos
 
-Uma subscrição informa ao Event Grid os eventos num tópico está interessado em receber. Ao criar a subscrição, é fornecer um ponto de extremidade para manipular o evento. Pode filtrar os eventos que são enviados para o ponto final. Pode filtrar por tipo de evento, ou um padrão de assunto. Para obter mais informações, consulte [esquema de subscrições do Event Grid](subscription-creation-schema.md).
+Uma subscrição informa ao Event Grid os eventos num tópico deseja receber. Ao criar a subscrição, é fornecer um ponto de extremidade para manipular o evento. Pode filtrar os eventos que são enviados para o ponto final. Pode filtrar por tipo de evento, ou um padrão de assunto. Para obter mais informações, consulte [esquema de subscrições do Event Grid](subscription-creation-schema.md).
 
 Para obter exemplos de criação de subscrições, veja:
 
@@ -58,9 +58,17 @@ Para obter exemplos de criação de subscrições, veja:
 
 Para obter informações sobre como obter subscrições do grid de seu evento atual, consulte [subscrições do Event Grid da consulta](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Expiração da subscrição de evento
+
+O [extensão do Event Grid](/cli/azure/azure-cli-extensions-list) para a CLI do Azure permite-lhe definir uma expiração data quando criar uma subscrição de evento. Se estiver a utilizar a API REST, utilize `api-version=2018-09-15-preview`
+
+A subscrição de evento é expirará automaticamente após essa data. Definir uma expiração para subscrições de eventos que são necessários apenas por um período limitado, e não quiser se preocupar sobre a limpeza nessas subscrições. Por exemplo, ao criar uma subscrição de evento para um cenário de teste, pode desejar definir uma vencimento. 
+
+Para obter um exemplo de configuração de uma de vencimento, consulte [subscrever com filtros avançados](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Processadores de eventos
 
-Da perspectiva do Event Grid, um manipulador de eventos é o local em que o evento é enviado. O manipulador demora alguns mais nenhuma ação ao processar o evento. Event Grid suporta vários tipos de manipulador. Pode usar um serviço do Azure suportado ou a sua própria webhook como o manipulador. Dependendo do tipo de processador, o Event Grid segue mecanismos diferentes para garantir a entrega do evento. Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorna um código de estado `200 – OK`. Para a fila de armazenamento do Azure, os eventos sejam repetidos até que o serviço de fila é capaz de processar com êxito o envio de mensagens na fila.
+Da perspectiva do Event Grid, um manipulador de eventos é o local em que o evento é enviado. O manipulador demora alguns mais nenhuma ação ao processar o evento. Event Grid suporta vários tipos de manipulador. Pode usar um serviço do Azure suportado ou a sua própria webhook como o manipulador. Dependendo do tipo de processador, o Event Grid segue mecanismos diferentes para garantir a entrega do evento. Para manipuladores de eventos de webhook HTTP, o evento é repetido até que o manipulador retorna um código de estado `200 – OK`. Para a fila de armazenamento do Azure, os eventos sejam repetidos até que o serviço de fila com êxito processa o envio de mensagens na fila.
 
 Para obter informações sobre a implementação de qualquer um dos manipuladores Event Grid suportados, consulte [manipuladores de eventos no Azure Event Grid](event-handlers.md).
 
@@ -74,7 +82,7 @@ Se o Event Grid não é possível confirmar que um evento foi recebido pelo pont
 
 ## <a name="batching"></a>Lotes
 
-Quando utilizar um tópico personalizado, eventos tem sempre de ser publicados numa matriz. Isso pode ser um lote de um para cenários de débito e baixa, no entanto, para usecases de volume elevado, é recomendado que o batch vários eventos em conjunto por publicar para alcançar maior eficiência. Lotes podem ser até 1 MB. Cada evento ainda não deve exceder os 64 KB.
+Quando utilizar um tópico personalizado, eventos tem sempre de ser publicados numa matriz. Isso pode ser um lote de um para cenários de débito e baixa, no entanto, para elevado volume casos de utilização, recomenda-se que batch vários eventos em conjunto por publicar para alcançar maior eficiência. Lotes podem ser até 1 MB. Cada evento ainda não deve ser superior a 64 KB.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
