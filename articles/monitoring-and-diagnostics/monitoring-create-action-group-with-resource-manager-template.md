@@ -1,6 +1,6 @@
 ---
 title: Criar grupos de ação com modelos do Resource Manager
-description: Saiba como criar um grupo de ação utilizando um modelo Azure Resource Manager.
+description: Saiba como criar um grupo de ação com um modelo Azure Resource Manager.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 9b49d21dad9bb1e48194cc31940c5cd53c909dc0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 583a84fd943f6dab63f94e2811e21853e6e5f6a1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263104"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959176"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ação com um modelo do Resource Manager
-Este artigo mostra como utilizar um [modelo Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de ação. Utilizando os modelos, pode automaticamente configurar grupos de ação que podem ser reutilizados na determinados tipos de alertas. Estes grupos de ação Certifique-se de que todas as partes corretas são notificadas quando um alerta é acionado.
+Este artigo mostra-lhe como utilizar um [modelo Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para configurar grupos de ação. Com os modelos, pode configurar automaticamente a grupos de ação que podem ser reutilizados em determinados tipos de alertas. Estes grupos de ação Certifique-se de que todas as partes corretas são notificadas quando for acionado um alerta.
 
 Os passos básicos são:
 
 1. Crie um modelo como um ficheiro JSON que descreve como criar o grupo de ação.
 
-2. Implementar o modelo utilizando [qualquer método de implementação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
+2. Implementar o modelo usando [qualquer método de implementação](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
-Em primeiro lugar, iremos descrevem como criar um modelo do Resource Manager para um grupo de ação em que as definições de ação estão hard-coded no modelo. Segundo, iremos descrevem como criar um modelo que utiliza as informações de configuração de webhook como parâmetros de entrada quando o modelo é implementado.
+Em primeiro lugar, descreveremos como criar um modelo do Resource Manager para um grupo de ação em que as definições de ação são codificados no modelo. Em segundo lugar, descreveremos como criar um modelo que usa as informações de configuração de webhook como parâmetros de entrada quando o modelo é implementado.
 
 ## <a name="resource-manager-templates-for-an-action-group"></a>Modelos do Resource Manager para um grupo de ação
 
-Para criar um grupo de ação com um modelo do Resource Manager, criar um recurso do tipo `Microsoft.Insights/actionGroups`. Em seguida, tem de preencher todas as propriedades relacionadas. Seguem-se dois modelos de exemplo que crie um grupo de ação.
+Para criar um grupo de ação com um modelo do Resource Manager, crie um recurso do tipo `Microsoft.Insights/actionGroups`. Em seguida, preencher todas as propriedades relacionadas. Aqui estão dois modelos de exemplo que criar um grupo de ação.
 
 ```json
 {
@@ -164,6 +164,6 @@ Para criar um grupo de ação com um modelo do Resource Manager, criar um recurs
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [grupos ação](monitoring-action-groups.md).
+* Saiba mais sobre [grupos de ação](monitoring-action-groups.md).
 * Saiba mais sobre [alertas](monitoring-overview-alerts.md).
-* Saiba como adicionar [alertas utilizando o modelo do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Saiba como adicionar [alertas ao utilizar um modelo do Resource Manager](alert-activity-log.md).

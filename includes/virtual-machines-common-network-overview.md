@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 89d35197567c4bd44c5867dbb120d07e9f99d1e9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746675"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973937"
 ---
 Quando cria uma máquina virtual (VM) do Azure, tem de criar uma [rede virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) ou de utilizar uma VNet já existente. Também tem de decidir como pretende que se faça o acesso às VMs na VNet. É importante [planear antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e ter a certeza de que compreende os [limites dos recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -36,9 +36,7 @@ Para além destes recursos básicos, também deve considerar estes recursos opci
 
 Uma [interface de rede (NIC)](../articles/virtual-network/virtual-network-network-interface.md) é a interligação entre uma VM e uma rede virtual (VNet). As VMs têm de ter, pelo menos, uma NIC, mas podem ter mais, dependendo do tamanho da VM que criar. Saiba mais sobre quantas NICs a cada VM suporta o tamanho para [Windows](../articles/virtual-machines/windows/sizes.md) ou [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Pode criar uma VM com várias NICs e adicionar ou remover NICs todo o ciclo de vida de uma VM. Várias NICs permitem que uma VM ligar a sub-redes diferentes e enviar ou receber tráfego através da interface mais adequada.
-
-Se a VM for adicionada a um conjunto de disponibilidade, todas as VMs dentro desse grupo têm de ter uma ou várias NICs. As VMs que tenham mais de uma NIC não têm, obrigatoriamente, de ter o mesmo número de interfaces, mas todas têm de ter, no mínimo, duas.
+Pode criar uma VM com várias NICs e adicionar ou remover NICs todo o ciclo de vida de uma VM. Várias NICs permitem que uma VM ligar a sub-redes diferentes e enviar ou receber tráfego através da interface mais adequada. As VMs com qualquer número de interfaces de rede podem existir no mesmo conjunto de disponibilidade, até ao número suportado pelo tamanho da VM. 
 
 Cada NIC ligada a uma VM tem de existir na mesma localização e subscrição que a VM. Cada NIC deve estar ligada a uma VNet que exista na mesma localização e subscrição do Azure que essa NIC. Pode alterar a sub-rede de que uma VM está ligada ao depois de criado, mas não é possível alterar a VNet. É atribuído um endereço MAC a cada NIC ligada a uma VM, o qual não muda até a VM ser eliminada.
 

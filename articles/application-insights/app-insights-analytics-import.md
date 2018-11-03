@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060710"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960009"
 ---
 # <a name="import-data-into-analytics"></a>Importar dados para análise
 
@@ -120,10 +120,10 @@ Formato JSON
  
 Cada coluna é identificada pela localização, o nome e o tipo.
 
-* Localização – para o ficheiro delimitado formatá-lo é a posição do valor mapeada. Para o formato JSON, é o jpath da chave mapeada.
+* Localização - para o ficheiro delimitado formatá-lo é a posição do valor mapeado. Para o formato JSON, é o jpath da chave mapeada.
 * Nome – o nome apresentado da coluna.
-* Tipo – o tipo de dados dessa coluna.
- 
+* Tipo - o tipo de dados dessa coluna.
+
 > [!NOTE]
 > No caso de dados de exemplo foi utilizados e o formato de arquivo é delimitado, a definição de esquema tem de mapear todas as colunas e adicionar novas colunas no final.
 > 
@@ -137,7 +137,7 @@ Para importar dados, carregá-lo para o armazenamento do Azure, criar uma chave 
 
 Pode efetuar o seguinte processo manualmente ou configurar um sistema automatizado para fazê-lo em intervalos regulares. Tem de seguir estes passos para cada bloco de dados que pretende importar.
 
-1. Carregar os dados para [armazenamento de Blobs do Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Carregar os dados para [armazenamento de Blobs do Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * Os BLOBs podem ser qualquer um tamanho até 1GB descomprimido. Blobs grandes de centenas de MB são ideais da perspectiva do desempenho.
  * Pode comprimi-los com Gzip para melhorar o tempo de carregamento e a latência para os dados estejam disponíveis para consulta. Utilize o `.gz` extensão de nome de ficheiro.
@@ -369,5 +369,5 @@ Utilize este código para cada blob.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Visita guiada da linguagem de consulta do Log Analytics](app-insights-analytics-tour.md)
+* [Visita guiada da linguagem de consulta do Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * Se estiver a utilizar o Logstash, utilize o [Plug-in do Logstash para enviar dados para o Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

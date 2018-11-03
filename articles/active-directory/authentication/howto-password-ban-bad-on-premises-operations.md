@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: e728162da8221046b8496cced8671695c7794164
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739469"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978388"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Pré-visualização: Procedimentos de proteção de palavra-passe do Azure AD operacionais
 
@@ -67,7 +67,7 @@ Esta definição normalmente deve ser deixada no estado predefinido ativado (Sim
 
 O `Get-AzureADPasswordProtectionSummaryReport` cmdlet pode ser utilizado para produzir uma vista de resumo da atividade. Um exemplo de saída deste cmdlet é o seguinte:
 
-```
+```Powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,10 +83,26 @@ PasswordSetErrors               : 1
 O âmbito do relatório do cmdlet pode ser influenciado através de um dos parâmetros de – – DomainController, - domínio ou floresta. Não especificar um parâmetro implica – floresta.
 
 > [!NOTE]
-> Este cmdlet funciona ao abrir uma sessão do Powershell para cada controlador de domínio. Por ordem para o sucesso, o suporte de sessão remota do Powershell tem de estar ativado em cada controlador de domínio e o cliente tem de ter privilégios suficientes. Para obter mais informações sobre requisitos de sessão remota do Powershell, execute "Get-Help about_Remote_Troubleshooting" numa janela do Powershell.
+> Este cmdlet funciona ao abrir uma sessão do Powershell para cada controlador de domínio. Para ter êxito, o suporte de sessão remota do Powershell tem de estar ativado em cada controlador de domínio e o cliente tem de ter privilégios suficientes. Para obter mais informações sobre requisitos de sessão remota do Powershell, execute "Get-Help about_Remote_Troubleshooting" numa janela do Powershell.
 
 > [!NOTE]
 > Este cmdlet funciona ao consultar o registo de eventos do administrador do serviço de agente cada controlador de domínio remotamente. Se os registos de eventos contêm um grande número de eventos, o cmdlet poderá demorar muito tempo a concluir. Além disso, consultas de rede em massa de grandes conjuntos de dados podem afetar o desempenho do controlador de domínio. Por conseguinte, este cmdlet deve ser usado com cuidado em ambientes de produção.
+
+## <a name="dc-agent-discovery"></a>Deteção de agente de DC
+
+O `Get-AzureADPasswordProtectionDCAgent` cmdlet pode ser utilizado para apresentar informações básicas sobre os vários agentes de controlador de domínio em execução num domínio ou floresta. Estas informações são obtidas os objetos de serviceConnectionPoint registados, os serviços de agente do controlador de domínio em execução. Um exemplo de saída deste cmdlet é o seguinte:
+
+```Powershell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+As diversas propriedades são atualizadas por cada serviço de agente do controlador de domínio numa base horária aproximado. Os dados estão ainda sujeitos a latência de replicação do Active Directory.
+
+O âmbito de consulta do cmdlet pode ser influenciado através de um – parâmetros de floresta ou – o domínio.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

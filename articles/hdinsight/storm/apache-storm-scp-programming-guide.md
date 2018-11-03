@@ -4,17 +4,17 @@ description: Saiba como utilizar SCP.NET para criar. Com base em NET topologias 
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-ms.author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: daf9efb2f9044ed1395b0f2aa3663c2471406e2f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fb7a8ed81794e3a5c1a772fd242f5ef85a800365
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045469"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959210"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](http://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](http://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 

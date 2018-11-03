@@ -1,5 +1,5 @@
 ---
-title: Noções básicas sobre práticas recomendadas de segurança de duplos Digital do Azure | Documentos da Microsoft
+title: Compreender as práticas recomendadas de segurança de duplos Digital do Azure | Documentos da Microsoft
 description: Os gémeos Digital segurança melhores práticas do Azure
 author: kingdomofends
 manager: alinast
@@ -8,23 +8,23 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6ca01523744dbce15f8fdb3bbe2d5a9b44510f3f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092190"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959482"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
-Segurança de duplos Digital do Azure permite que preciso acesso a recursos específicos e ações no seu gráfico de IoT. Ele faz isso por meio do gerenciamento de função e a permissão granular, chamado de controlo de acesso baseado em funções.
+Segurança de duplos Digital do Azure permite que preciso acesso a recursos específicos e ações no seu gráfico de IoT. Ele faz isso por meio da função granular e controlo de acesso baseado em funções de chamada de gestão de permissões.
 
-Duplos Digital do Azure também tira partido de outras funcionalidades de segurança presentes no IoT do Azure, incluindo o Azure Active Directory. Por esse motivo, configurar a sua aplicação de duplos Digital do Azure envolve a utilização de muitas das mesmas [práticas de segurança do Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) recomendado atualmente.
+Duplos Digital do Azure também utiliza outros recursos de segurança que estão presentes no Azure IoT, que inclui o Azure Active Directory (Azure AD). Por esse motivo, configurar a sua aplicação de duplos Digital do Azure envolve a utilização de muitas das mesmas [práticas de segurança do Azure IoT](https://docs.microsoft.com/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/) recomendado atualmente.
 
 Este artigo resume as principais práticas recomendadas a seguir.
 
 > [!IMPORTANT]
-> Reveja os recursos de segurança adicionais (incluindo os fornecedores de dispositivos) para garantir a segurança máximo para o seu espaço de IoT.
+> Para garantir a segurança máximo para o seu espaço de IoT, reveja os recursos de segurança adicional. Certifique-se incluir os seus fornecedores de dispositivos.
 
 ## <a name="iot-security-best-practices"></a>Melhores práticas da segurança de IoT
 
@@ -32,8 +32,8 @@ Algumas das principais práticas para proteger os seus dispositivos IoT com segu
 
 > [!div class="checklist"]
 > * Proteja a cada dispositivo que está ligado ao seu espaço de IoT de uma forma de prova de adulteração.
-> * Limite a função de cada pessoa dentro do seu espaço de IoT, sensores e dispositivos. Se comprometido, o impacto seja minimizado.
-> * Restrição de filtragem e a porta de endereços de potencial uso de IP do dispositivo.
+> * Limite a função de cada pessoa dentro do seu espaço de IoT, sensores e dispositivos. Se comprometido, o efeito é minimizado.
+> * Considere a utilização de potencial de IP do dispositivo de filtragem de endereços e restrição de porta.
 > * Limitar largura de banda de e/s e dispositivo para melhorar o desempenho. Limitação de velocidade pode aumentar a segurança, impedindo ataques denial-of-service.
 > * Mantenha o firmware do dispositivo atualizadas.
 
@@ -42,20 +42,20 @@ Algumas chaves práticas para proteger a um espaço de IoT com segurança inclue
 > [!div class="checklist"]
 > * Encripte dados persistentes, guardados ou armazenados.
 > * Exigir palavras-passe ou chaves para ser alterada ou atualizada periodicamente.
-> * Restringir cuidadosamente o acesso e permissões por função (consulte as práticas recomendadas do controlo de acesso baseado em funções abaixo).
-> * Utilize a encriptação poderosas. Isso significa que a necessidade de senhas longas, usando protocolos seguros e autenticação de dois fatores.
+> * Restringir cuidadosamente o acesso e permissões por função. Consulte a secção "acesso baseado em função de controlo" práticas recomendadas.
+> * Utilize a encriptação poderosas. Necessitam de senhas longas e utilize protocolos seguros e a autenticação de dois fatores.
 
-Monitorizar os recursos de IoT para deteção de valores atípicos, ameaças ou parâmetros do recurso que fique fora do intervalo da operação normal é gerido através da análise do Azure.
+Monitorize os recursos de IoT para deteção de valores atípicos, ameaças ou parâmetros do recurso que fique fora do intervalo da operação normal. Utilize a análise do Azure para gerir a monitorização.
 
 > [!NOTE]
-> Para obter mais informações sobre eventos de processamento e a monitorização, consulte nosso artigo sobre [evento > encaminhamento](./concepts-events-routing.md).
+> Para obter mais informações sobre o processamento de eventos e monitorização, consulte [encaminhar eventos e mensagens duplos Digital do Azure](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Práticas recomendadas do Active Directory do Azure
 
-Duplos Digital do Azure utiliza o Azure Active Directory para autenticar os utilizadores e proteger as aplicações. O Azure Active Directory suporta a autenticação para uma variedade de modernas arquiteturas, todos eles com base em protocolos de norma da indústria, como o OAuth 2.0 ou OpenID Connect. Alguns principais práticas para proteger o seu espaço de IoT do Azure Active Directory incluem:
+Os gémeos Digital do Azure utiliza o Azure AD para autenticar os utilizadores e proteger as aplicações. O Azure AD suporta a autenticação para uma variedade de modernas arquiteturas. Todos elas são baseadas em protocolos de norma da indústria, como o OAuth 2.0 ou OpenID Connect. Alguns principais práticas para proteger o seu espaço de IoT para o Azure AD incluem:
 
 > [!div class="checklist"]
-> * Store, tais como chaves e segredos de aplicações do Azure Active Directory num local seguro [Key Vault](https://azure.microsoft.com/services/key-vault/).
+> * Store chaves e segredos de aplicações do Azure AD numa localização segura, tal como [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 > * Utilizar um certificado emitido por uma confiança [autoridade de certificação](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) em vez de segredos de aplicação para autenticar.
 > * Limitar o âmbito de OAuth 2.0 de acesso de um token.
 > * Verifique se o período de tempo, que um token é válido e se um token permanece válido.
@@ -72,4 +72,4 @@ Para saber mais sobre as melhores práticas de IoT do Azure, leia [práticas rec
 
 Para saber mais sobre o controlo de acesso baseado em funções, leia [controlo de acesso baseado em funções](./security-role-based-access-control.md).
 
-Para a autenticação, lido [autenticar com as APIs](./security-authenticating-apis.md).
+Para saber mais sobre autenticação, leia [autenticar com as APIs](./security-authenticating-apis.md).

@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 05bdc841108bf1fb909375b6f2c6399f8121ceeb
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344656"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958105"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Criar utilizadores na base de dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como pode criar os utilizadores numa base de dados do Azure para o servidor PostgreSQL.
@@ -36,7 +36,7 @@ A conta de utilizador de administrador do servidor pode ser utilizada para criar
    Para ligar ao seu servidor de bases de dados, precisa do nome completo do servidor e das credenciais de início de sessão de administrador. Pode encontrar facilmente o nome do servidor e informações de início de sessão do servidor **descrição geral** página ou o **propriedades** página no portal do Azure. 
 
 2. Utilize a conta de administrador e a palavra-passe para ligar ao seu servidor de base de dados. Utilize a sua ferramenta de cliente preferido, como pgAdmin ou psql.
-   Se tiver a certeza de como se pode ligar, consulte o artigo [Connect para a base de dados do PostgreSQL com psql no Cloud Shell](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
+   Se tiver a certeza de como se pode ligar, consulte o artigo [o guia de introdução](./quickstart-create-server-database-portal.md)
 
 3. Edite e execute o seguinte código SQL. Substitua o novo nome de utilizador para o valor do marcador de posição < new_user > e substitua a palavra-passe do marcador de posição pela sua própria palavra-passe segura. 
 

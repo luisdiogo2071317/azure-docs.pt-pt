@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341241"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958955"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente ao utilizar os Hubs de eventos
 Diagnóstico do Azure fornece formas flexíveis para coletar métricas e registos provenientes de máquinas de virtuais de serviços cloud (VMs) e transferir os resultados para o armazenamento do Azure. A partir do intervalo de tempo de Março de 2016 (SDK 2.9), pode enviar diagnósticos para origens de dados personalizados e transferir dados de caminho mais utilizado em segundos, utilizando [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -42,7 +42,7 @@ Dados de receieving de Hubs de eventos de diagnóstico do Azure são suportados 
 * As configurações existentes do diagnóstico do Azure num aplicativo usando uma *.wadcfgx* ficheiro e um dos seguintes métodos:
   * Visual Studio: [Konfiguruje se Diagnostika para serviços Cloud do Azure e máquinas virtuais](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [ativar diagnósticos nos serviços de Cloud do Azure com o PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Espaço de nomes do Hubs de eventos aprovisionado por artigo, [introdução aos Hubs de eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Espaço de nomes do Hubs de eventos aprovisionado por artigo, [introdução aos Hubs de eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Ligar o diagnóstico do Azure para o sink de Hubs de eventos
 Por predefinição, diagnóstico do Azure sempre envia registos e métricas para uma conta de armazenamento do Azure. Um aplicativo também pode enviar dados para os Hubs de eventos, adicionando um novo **coletores** secção sob a **PublicConfig** / **WadCfg** elemento do *. wadcfgx* ficheiro. No Visual Studio, o *.wadcfgx* arquivo é armazenado no seguinte caminho: **projeto de serviço em nuvem** > **funções** > **( RoleName)** > **diagnostics.wadcfgx** ficheiro.
@@ -220,7 +220,7 @@ Na figura a seguir, o dashboard de Hubs de eventos mostra em bom estado de envio
 ## <a name="view-hot-path-data"></a>Ver dados de caminhos recorrentes
 Como discutido anteriormente, há muitos casos de utilização para ouvir e processar dados de Hubs de eventos.
 
-Uma abordagem simples é criar uma aplicação de consola de teste pequeno para escutar o hub de eventos e imprimir o fluxo de saída. Pode colocar o código a seguir, que é explicado mais detalhadamente nas [introdução aos Hubs de eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)), num aplicativo de console.  
+Uma abordagem simples é criar uma aplicação de consola de teste pequeno para escutar o hub de eventos e imprimir o fluxo de saída. Pode colocar o código a seguir, que é explicado mais detalhadamente nas [introdução aos Hubs de eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), num aplicativo de console.  
 
 Tenha em atenção que a aplicação de consola tem de incluir o [pacote NuGet de anfitrião do processador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -508,7 +508,7 @@ Definições protegidas:
 ## <a name="next-steps"></a>Passos Seguintes
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
-* [Descrição geral dos Hubs de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Descrição geral dos Hubs de Eventos](../event-hubs/event-hubs-about.md)
 * [Criar um hub de eventos](../event-hubs/event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](../event-hubs/event-hubs-faq.md)
 

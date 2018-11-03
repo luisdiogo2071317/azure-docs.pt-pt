@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fa73062cc2fdfa3704088f37b2e4856e134a6dfe
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470325"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979034"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de armazenamento do Azure
 
@@ -143,6 +143,12 @@ Se as definições de proxy estão corretas, poderá ter de contactar o seu admi
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Não é possível obter subordinados"
 
 Se estiver ligado ao Azure através de um proxy, certifique-se de que as definições de proxy estão corretas. Se foi concedido acesso a um recurso do proprietário da subscrição ou conta, certifique-se de que tem de leitura ou lista de permissões para esse recurso.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Cadeia de ligação não tem definições de configuração concluída
+
+Se receber esta mensagem de erro, é possível que não tem as permissões necessárias para obter as chaves para a sua conta de armazenamento. Para confirmar se for este o caso, aceda ao portal e localize a sua conta de armazenamento. Pode rapidamente fazer isso clicando com o botão direito do rato no nó para a sua conta de armazenamento e clicar em "Abrir no Portal". Depois de o fazer, aceda ao painel "Chaves de acesso". Se não tiver permissões para ver as chaves, em seguida, verá uma página com a mensagem "Não tem acesso". Para resolver este problema, pode obter a chave de conta de outra pessoa e anexar com nome e a chave, ou pode pedir a alguém para uma SAS para a conta de armazenamento e utilizá-lo para anexar a conta de armazenamento.
+
+Se vir as chaves de conta, em seguida, submeta um problema no GitHub, de modo que pode ajudá-lo a resolver o problema.
 
 ## <a name="issues-with-sas-url"></a>Problemas com o URL de SAS
 Se estiver a ligar a um serviço através de um URL de SAS e com este erro:

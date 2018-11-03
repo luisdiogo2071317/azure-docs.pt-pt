@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982210"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958683"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Armazenamento de ficheiros do Azure de montagem em VMs do Linux através de SMB
 
@@ -100,6 +100,7 @@ Monte a partilha de ficheiros do Azure para o diretório local.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+O comando acima utiliza a [montar](https://linux.die.net/man/8/mount) comandos para montar a partilha de ficheiros do Azure e as opções específicas [cifs](https://linux.die.net/man/8/mount.cifs). Especificamente, o file_mode dir_mode opções e conjunto de arquivos e diretórios à permissão `0777`. O `0777` dá permissão para ler, escrever e permissões a todos os utilizadores de execução. Pode alterar estas permissões, substituindo os valores com os outros [chmod permissões](https://en.wikipedia.org/wiki/Chmod). Também pode usar outro [cifs](https://linux.die.net/man/8/mount.cifs) opções, como gid ou uid. 
 
 
 ## <a name="persist-the-mount"></a>Manter a montagem

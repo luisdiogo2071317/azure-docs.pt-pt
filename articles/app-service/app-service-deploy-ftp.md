@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f82a01f3a2b88e66988717eb008a65c8f2aecf28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8f32e84e5381a548ada2c5ad393e16c65b17379e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900330"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957187"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
@@ -45,7 +45,7 @@ No dashboard do FTP, clique em **cópia** para copiar as credenciais de ponto fi
 
 ## <a name="deploy-files-to-azure"></a>Implementar os ficheiros para o Azure
 
-1. Partir do seu cliente FTP (por exemplo, [Visual Studio](https://www.visualstudio.com/vs/community/) ou [FileZilla](https://filezilla-project.org/download.php?type=client)), utilize as informações de ligação que recolheu para ligar à sua aplicação.
+1. Partir do seu cliente FTP (por exemplo, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), ou [WinSCP](https://winscp.net/index.php)), utilize as informações de ligação que recolheu para ligar à sua aplicação.
 3. Copiar os ficheiros e a sua respetiva estrutura de diretório para o [ **/site/wwwroot** diretório](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) no Azure (ou o **/site/wwwroot/aplicação_dados/tarefas/** diretório para o WebJobs).
 4. Navegue para o URL da sua aplicação para verificar se que a aplicação está a funcionar corretamente. 
 

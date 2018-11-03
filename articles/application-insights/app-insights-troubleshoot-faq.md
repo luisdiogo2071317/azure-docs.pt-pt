@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4f063299a0bb454c8eaf3d38a0cb0a5fb20abcc8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094088"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959312"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas mais frequentes
 
@@ -27,7 +27,7 @@ ms.locfileid: "47094088"
 
 * [Aplicação .NET](app-insights-asp-net-troubleshoot-no-data.md)
 * [Monitorização de uma aplicação já em execução](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Diagnóstico do Azure](app-insights-azure-diagnostics.md)
+* [Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Aplicação Web Java](app-insights-java-troubleshoot.md)
 
 *Posso obter não existem dados de meu servidor*
@@ -111,7 +111,7 @@ A partir de aplicações do servidor web:
 
 Partir [páginas da web cliente](app-insights-javascript.md):
 
-* [Contagens de visualizações de página](app-insights-web-track-usage.md)
+* [Contagens de visualizações de página](app-insights-usage-overview.md)
 * [Chamadas AJAX](app-insights-asp-net-dependencies.md) pedidos efetuados a partir de um script em execução.
 * Dados de carga de vista de página
 * Contagens de utilizadores e de sessão
@@ -119,7 +119,7 @@ Partir [páginas da web cliente](app-insights-javascript.md):
 
 De outras origens, se configurá-las:
 
-* [Diagnóstico do Azure](app-insights-azure-diagnostics.md)
+* [Diagnóstico do Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Contentores do docker](app-insights-docker.md)
 * [Importar tabelas para análise](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)

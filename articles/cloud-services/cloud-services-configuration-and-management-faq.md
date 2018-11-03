@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054339"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979204"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de configuração e gestão de serviços Cloud do Azure: Perguntas mais frequentes sobre (FAQ)
 
@@ -142,7 +142,7 @@ Para obter mais informações, consulte os seguintes documentos:
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Como posso ativar o registo de WAD para serviços em nuvem?
 Pode ativar o registo de Windows Azure Diagnostics (WAD) por meio de opções seguintes:
-1. [Ativar a partir do Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+1. [Ativar a partir do Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Ativar por meio de código do .net](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Ativar através do Powershell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
@@ -248,7 +248,7 @@ Para obter mais informações sobre como integrar o diagnóstico do Azure com o 
 
 Para obter mais informações sobre como ativar o Application Insights para serviços em nuvem, consulte [Application Insights para serviços Cloud do Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-Para obter mais informações sobre como ativar o registo de diagnósticos do Azure para serviços em nuvem, consulte [configurar diagnósticos para serviços Cloud do Azure e máquinas virtuais](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+Para obter mais informações sobre como ativar o registo de diagnósticos do Azure para serviços em nuvem, consulte [configurar diagnósticos para serviços Cloud do Azure e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>Genérico
 

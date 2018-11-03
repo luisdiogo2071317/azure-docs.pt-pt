@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cca475f552495a42aabc60faf0bd57382f148120
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736976"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958586"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -23,7 +23,7 @@ Este artigo descreve como, como um desenvolvedor de dispositivo, para ligar um d
 
 Para executar os passos descritos neste artigo é necessário o seguinte:
 
-1. Uma aplicação do Azure IoT Central, criada a partir da **Devkits exemplo** o modelo de aplicativo. Para obter mais informações, consulte [criar seu aplicativo de Central de IoT do Azure](howto-create-application.md).
+1. Uma aplicação do Azure IoT Central, criada a partir da **Devkits exemplo** o modelo de aplicativo. Para obter mais informações, consulte a [criar um guia de introdução do aplicativo](quick-deploy-iot-central.md).
 1. Um dispositivo de DevKit. Para comprar um dispositivo de DevKit, visite [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -226,7 +226,7 @@ Ativar/desativar definições
 
 | Nome a apresentar | Nome do campo | No texto | Desativar o texto | Inicial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| RUNTIME DE INTEGRAÇÃO           | activateIR | ON      | OFF      | Desativado     |
+| IR           | activateIR | ON      | OFF      | Desativado     |
 
 ### <a name="properties"></a>Propriedades
 

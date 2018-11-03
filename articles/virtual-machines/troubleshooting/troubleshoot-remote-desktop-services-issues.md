@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 756417ee2f98549d648386c2471baa74889245a4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914027"
+ms.locfileid: "50957712"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Não é a partir de serviços de ambiente de trabalho remoto numa VM do Azure
 
@@ -58,6 +58,7 @@ Este problema ocorre porque os serviços de ambiente de trabalho remoto não est
 
 - O serviço de TermService está definido como **desativado**. 
 - O serviço de TermService está a falhar ou desligar-se. 
+- O TermService não está a iniciar devido uma configuração incorreta.
 
 ## <a name="solution"></a>Solução
 
@@ -98,16 +99,17 @@ Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM 
 
     |  Erro |  Sugestão |
     |---|---|
-    |5 - ACESSO NEGADO |Ver [TermService serviço está parado devido a um erro de acesso negado](#termService-service-is-stopped-because-of-an-access-denied-error). |
-    |1058 - ERROR_SERVICE_DISABLED  |Ver [TermService serviço for desativado](#termService-service-is-disabled).  |
+    |5 - ACESSO NEGADO |Ver [TermService serviço está parado devido a um erro de acesso negado](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Ver [TermService serviço for desativado](#termService-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |Ver [TermService serviço falhas ou paradas](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.|
+    |1067 - ERROR_PROCESS_ABORTED  |Ver [TermService serviço falhas ou paradas](#termService-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.    |
-    |1070 - ERROR_SERVICE_START_HANG   | [Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Consulte [TermService serviço falha devido a falha de início de sessão](#termService-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | Ver [TermService serviço falhas ou paradas](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | Ver [TermService serviço for desativado](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente. |
-    |1753   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.   |
-
+    |1753   |[Contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.   |   |5 - ACESSO NEGADO |Ver [TermService serviço está parado devido a um erro de acesso negado](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>O serviço de TermService está parado devido a um problema de acesso negado
 
 1. Ligar à [consola de série](serial-console-windows.md#) e abra uma instância do PowerShell.
@@ -139,7 +141,14 @@ Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM 
    procmon /Terminate 
    ```
 
-5. Recolher o arquivo **c:\temp\ProcMonTrace.PML**. Abra-o utilizando **procmon**. Em seguida, filtrar por **resultado é o acesso NEGADO**, conforme mostrado na captura de ecrã seguinte:
+5. Recolher o arquivo **c:\temp\ProcMonTrace.PML**:
+
+    1. [Anexar um disco de dados para a VM](../windows/attach-managed-disk-portal.md
+).
+    2. Utilize a consola de série, pode copiar o ficheiro para o novo disco. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Neste comando, F é a letra de unidade do disco de dados anexados.
+    3. Desligar a unidade de dados e anexá-lo num VM que tenha ubstakke de Monitor do processo instalado em funcionamento.
+
+6. Open **ProcMonTrace.PML** com o Monitor de processo a VM em funcionamento. Em seguida, filtrar por **resultado é o acesso NEGADO**, conforme mostrado na captura de ecrã seguinte:
 
     ![Filtrar por resultado no Monitor do processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
@@ -168,6 +177,27 @@ Para resolver este problema, utilize a consola de série. Ou outro [Repare a VM 
 
 4. Tente ligar à VM com o ambiente de trabalho remoto.
 
+#### <a name="termservice-service-fails-because-of-logon-failure"></a>Serviço de TermService falhar devido a falha de início de sessão
+
+1. Este problema ocorre se a conta de arranque deste serviço tiver sido alterada. Alterado voltar para a predefinição: 
+
+        sc config TermService obj= 'NT Authority\NetworkService'
+2. Inicie o serviço:
+
+        sc start TermService
+3. Tente ligar à VM com o ambiente de trabalho remoto.
+
+#### <a name="termservice-service-crashes-or-hangs"></a>TermService serviço falhas ou travamentos
+1. Se o estado do serviço fica preso em **inicial** ou **parar**, em seguida, tente parar o serviço: 
+
+        sc stop TermService
+2. Isole o serviço no seu próprio contentor "svchost":
+
+        sc config TermService type= own
+3. Inicie o serviço:
+
+        sc start TermService
+4. Se o serviço ainda está a falhar começar, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="repair-the-vm-offline"></a>Repare a VM offline
 

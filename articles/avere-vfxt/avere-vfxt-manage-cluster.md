@@ -6,14 +6,14 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5b91329f5287c1d8f76c98f27d9bc2fd464a11a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634567"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958921"
 ---
-# <a name="manage-the-avere-vfxt-cluster"></a>Gerir o cluster de vFXT Avere
+# <a name="manage-the-avere-vfxt-cluster"></a>Gerir o cluster do Avere vFXT
 
 Depois de criar o cluster, poderá ter de adicionar nós de cluster ou parar ou reiniciar o cluster. E quando o projeto estiver concluído precisa saber como parar e remova o cluster permanentemente. 
 
@@ -83,7 +83,7 @@ Como o painel de controlo de Avere, operações de vfxt.py tentam para se certif
 
 vfxt.PY é pré-instalado no controlador de cluster VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Um guia de utilização vfxt.py completo está disponível no GitHub: <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
+Um guia de utilização vfxt.py completo está disponível no GitHub: [na Cloud de gestão de clusters com vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Adicionar nós de cluster com vfxt.py
 
@@ -115,7 +115,7 @@ Se não estiver usando o protótipo, deve construir um comando como o seguinte, 
    --log ~/vfxt.log
 ```
 
-Para obter mais informações, leia [adicionar nós a um cluster](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) no guia de utilização de vfxt.py.
+Para obter mais informações, leia [adicionar nós a um cluster](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) no guia de utilização de vfxt.py.
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>Parar um cluster com vfxt.py
 
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-Uma vez que o cluster estiver parado, tem de passar os identificadores de instância para especificar os nós do cluster. Leia [especificando qual cluster para modificar](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) no guia de utilização de vfxt.py para saber mais.
+Uma vez que o cluster estiver parado, tem de passar os identificadores de instância para especificar os nós do cluster. Leia [especificando qual cluster para modificar](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) no guia de utilização de vfxt.py para saber mais.
 
 ### <a name="destroy-a-cluster-with-vfxtpy"></a>Destrua um cluster com vfxt.py
 
@@ -139,8 +139,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 A opção ``--quick-destroy`` pode ser utilizado se não desejar gravar dados alterados a partir da cache de cluster.
 
-Leitura a [guia de utilização de vfxt.py](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>) para obter informações adicionais.  
-<!-- change to final location when available -->
+Leitura a [guia de utilização de vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) para obter informações adicionais.  
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>Gerir VMs do cluster a partir do portal do Azure 
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 06b3d97f4b2b7867f09a8c4e5fe974615e9b0c70
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093425"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958632"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas de SO convidado para o arquivo de dados do Azure Monitor para uma máquina virtual de Windows (clássico)
 
@@ -45,7 +45,7 @@ O processo que é descrito neste artigo só funciona em máquinas virtuais clás
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-Criar um principal de serviço no seu inquilino do Azure Active Directory com as instruções em [criar um principal de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md). Tenha em atenção o seguinte ao percorrer este processo: 
+Criar um principal de serviço no seu inquilino do Azure Active Directory com as instruções em [criar um principal de serviço](../active-directory/develop/howto-create-service-principal-portal.md). Tenha em atenção o seguinte ao percorrer este processo: 
 - Crie novo segredo do cliente para esta aplicação.
 - Guarde a chave e o ID de cliente para uso em passos posteriores.
 

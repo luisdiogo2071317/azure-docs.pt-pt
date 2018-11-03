@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 86b7b87c8cc11be5c4f2c8892905bb6e6800e729
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079077"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958887"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -173,7 +173,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 Por predefinição `ServerTelemetryChannel` utiliza a pasta de dados de uma aplicação local do utilizador atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%`. (Consulte [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Num ambiente do Linux, armazenamento local será desativado, a menos que uma pasta de armazenamento é especificada.
 
-O fragmento de código seguinte mostra como definir `ServerTelemetryChannel.StorageFolder` no `ConfigureServices()` método de sua `Startup.cs` classe:
+O fragmento de código seguinte mostra como definir `ServerTelemetryChannel.StorageFolder` no `ConfigureServices()`  método de sua `Startup.cs` classe:
 
 ```
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -232,7 +232,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Dados pessoais armazenados no Application Insights
 
-Nosso [artigo de dados pessoais do Application Insights](app-insights-customer-data.md) aborda este problema aprofundado.
+Nosso [artigo de dados pessoais do Application Insights](../log-analytics/log-analytics-personal-data-mgmt.md) aborda este problema aprofundado.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Podem os meus utilizadores desativar Application Insights?
 Não diretamente. Não fornecemos um comutador que os utilizadores podem operar para desativar o Application Insights.
@@ -274,7 +274,7 @@ Para [SDKs para outras plataformas][platforms], veja os seus documentos.
 | Pedidos |URL, duração, o código de resposta |
 | Dependências |Tipo (SQL, HTTP,...), a cadeia de ligação ou URI, sincronização/async, duração, sucesso, instrução de SQL (com o Monitor de estado) |
 | **Exceções** |Tipo, **mensagem**, pilhas de chamadas, id de thread number, ficheiros e de linha de origem |
-| Falhas |Id do processo, a identificação do processo pai, a id do thread de falhas; patch do aplicativo, a id, a compilação;  tipo de exceção, endereço, motivo; símbolos oculto e registros, binários endereços inicial e final, nome binário e caminho, tipo de cpu |
+| Falhas de sistema |Id do processo, a identificação do processo pai, a id do thread de falhas; patch do aplicativo, a id, a compilação;  tipo de exceção, endereço, motivo; símbolos oculto e registros, binários endereços inicial e final, nome binário e caminho, tipo de cpu |
 | Rastreio |**Mensagem** e nível de gravidade |
 | Contadores de desempenho |Tempo do processador, memória disponível, taxa de pedidos, taxa de exceções, bytes privados do processo, taxa de e/s, duração do pedido, comprimento da fila de pedidos |
 | Disponibilidade |Código de resposta de teste Web, a duração de cada etapa do teste, nome do teste, timestamp, sucesso, tempo de resposta, localização de teste |

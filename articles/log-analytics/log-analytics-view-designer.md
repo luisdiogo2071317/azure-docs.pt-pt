@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 9a981b80921b8fea60941a994595b19933b61a21
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 042271594893350e4883c6dc7dbdd21d84db0520
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042381"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958326"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas com o estruturador de vistas no Log Analytics
-Ao utilizar o estruturador de vistas no [do Azure Log Analytics](log-analytics-overview.md), pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
+Ao utilizar o estruturador de vistas no [do Azure Log Analytics](log-analytics-queries.md), pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
 
 Para obter mais informações sobre o estruturador de vistas, consulte:
 
@@ -42,7 +42,7 @@ As vistas que criar com o estruturador de vistas contêm os elementos que são d
 |:--- |:--- |
 | Mosaicos | São apresentadas na sua área de trabalho do Log Analytics **descrição geral** página. Cada mosaico mostra um resumo visual do modo de exibição personalizado, que ele representa. Cada tipo de mosaico fornece uma visualização diferente de seus registros. Selecionar um mosaico para apresentar uma vista personalizada. |
 | Vista personalizada | Apresentado quando seleciona um mosaico. Cada vista contém um ou mais partes de visualização. |
-| Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [pesquisas de registos](log-analytics-log-searches.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte para efetuar uma pesquisa de registos que fornece registos detalhados. |
+| Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [pesquisas de registos](log-analytics-log-search.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte para efetuar uma pesquisa de registos que fornece registos detalhados. |
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com uma vista existente

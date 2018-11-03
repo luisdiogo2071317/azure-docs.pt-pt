@@ -10,16 +10,16 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: dc394093e9e2db223defe61229832ce5448bdfaa
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 100d2a6163c6b2b7a7bf8a557e69e1082b48eaee
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748737"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979221"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API de pesquisa de negócios locais do Bing v7
 
-O envia de API de pesquisa de negócios locais uma pesquisa de consulta para o Bing para obter resultados que incluem incluem restaurantes, hotéis ou outros negócios locais. Para locais, a consulta pode especificar o nome da empresa local, ou uma categoria (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. Local neste contexto é entidades comerciais, Estados, países, etc.  
+A API de pesquisa de negócios locais envia uma consulta de pesquisa do Bing para obter resultados que incluem restaurantes, hotéis ou outros negócios locais. Para locais, a consulta pode especificar o nome da empresa local, ou uma categoria (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. Local neste contexto é entidades comerciais, Estados, países, etc.  
 
 Esta secção fornece detalhes técnicos sobre os objetos de resposta e os parâmetros de consulta e os cabeçalhos que afetam os resultados da pesquisa. Para obter exemplos que mostram como fazer pedidos, consulte [Local de negócios de pesquisa C# início rápido](quickstarts/local-quickstart.md) ou [início rápido de Java de pesquisa de negócios locais](quickstarts/local-search-java-quickstart.md). 
   
@@ -37,7 +37,7 @@ Para obter informações sobre o uso permitido e a exibição de resultados, con
 Para pedir os resultados de negócios locais, envie um pedido GET para: 
 
 ``` 
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search
+https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search
 
 ```
   

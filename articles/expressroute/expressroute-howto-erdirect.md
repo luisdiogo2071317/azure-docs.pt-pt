@@ -2,28 +2,28 @@
 title: Como configurar o Azure ExpressRoute Direct | Documentos da Microsoft
 description: Esta página ajuda-o a configurar o ExpressRoute Direct (pré-visualização)
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: e0009791263c45e0172abcb4836aaadde26f3ace
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 11/02/2018
+ms.author: jaredro
+ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887194"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959678"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Como configurar o ExpressRoute Direct (pré-visualização)
 
 ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. Para obter mais informações, consulte [sobre o ExpressRoute direto ligar](expressroute-erdirect-about.md).
 
 > [!IMPORTANT]
-> ExpressRoute direto está atualmente em pré-visualização.
+> Direct do ExpressRoute está atualmente em pré-visualização.
 >
 > Esta Pré-visualização Pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
-## <a name="resources"></a>1. Criar o recurso
+## <a name="resources"></a>Criar o recurso
 
 1. Inicie sessão no Azure e selecione a subscrição. O recurso direto do ExpressRoute e circuitos do ExpressRoute tem de ser na mesma subscrição.
 
@@ -154,10 +154,9 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
   Circuits                   : []
   ```
 
-## <a name="state"></a>2. Alterar o estado de administrador de ligações
+## <a name="state"></a>Alterar o estado de administrador de ligações
 
-Este processo deve ser utilizado para conduzir um teste de camada 1, garantindo que cada ligação cruzada é corretamente corrigida em cada router principal e secundário.
-
+  Este processo deve ser utilizado para conduzir um teste de camada 1, garantindo que cada ligação cruzada é corretamente corrigida em cada router principal e secundário.
 1. Obter os detalhes da direta do ExpressRoute.
 
   ```powershell
@@ -223,9 +222,9 @@ Este processo deve ser utilizado para conduzir um teste de camada 1, garantindo 
   Circuits                   : []
   ```
 
-Utilize o mesmo procedimento com `AdminState = “Disabled”` para ativar às portas.
+  Utilize o mesmo procedimento com `AdminState = “Disabled”` para ativar às portas.
 
-## <a name="circuit"></a>3. Criar um circuito
+## <a name="circuit"></a>Criar um circuito
 
 Por predefinição, pode criar 10 circuitos na subscrição em que é o recurso direto do ExpressRoute. Isso pode ser aumentado em suporte. É responsável por controlar aprovisionado e largura de banda utilizada. Largura de banda aprovisionada é a soma de largura de banda de todos os circuitos no recurso direto do ExpressRoute e utilizada de largura de banda é a utilização física das interfaces físicas subjacentes.
 
@@ -235,43 +234,43 @@ Circuitos do Standard ou premium podem ser criados. Circuitos padrão são inclu
 
 Crie um circuito no recurso direto do ExpressRoute.
 
-```powershell
-New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 1.0 | 2.0 | 5.0 | 10.0 | 40.0 | 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
-```
+  ```powershell
+  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  ```
 
-Incluem outras larguras de banda: 1.0, 2.0, 5.0, 10.0 e 40.0
+  Incluem outras larguras de banda: 5.0, 10.0 e 40.0
 
-**Exemplo de saída:**
+  **Exemplo de saída:**
 
-```powershell
-Name                             : ExpressRoute-Direct-ckt
-ResourceGroupName                : Contoso-Direct-rg
-Location                         : westcentralus
-Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
+  ```powershell
+  Name                             : ExpressRoute-Direct-ckt
+  ResourceGroupName                : Contoso-Direct-rg
+  Location                         : westcentralus
+  Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
                                    rk/expressRouteCircuits/ExpressRoute-Direct-ckt
-Etag                             : W/"<etagnumber>"
-ProvisioningState                : Succeeded
-Sku                              : {
+  Etag                             : W/"<etagnumber>"
+  ProvisioningState                : Succeeded
+  Sku                              : {
                                      "Name": "Premium_MeteredData",
                                      "Tier": "Premium",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             : 
-ServiceProviderProperties        : null
-ExpressRoutePort                 : {
+  CircuitProvisioningState         : Enabled
+  ServiceProviderProvisioningState : Provisioned
+  ServiceProviderNotes             : 
+    ServiceProviderProperties        : null
+  ExpressRoutePort                 : {
                                      "Id": "/subscriptions/<subscriptionID>n/resourceGroups/Contoso-Direct-rg/providers/Micros
                                    oft.Network/expressRoutePorts/Contoso-Direct"
                                    }
-BandwidthInGbps                  : 10
-Stag                             : 2
-ServiceKey                       : <number>
-Peerings                         : []
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag     
-```
+  BandwidthInGbps                  : 10
+  Stag                             : 2
+  ServiceKey                       : <number>
+  Peerings                         : []
+  Authorizations                   : []
+  AllowClassicOperations           : False
+  GatewayManagerEtag     
+  ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

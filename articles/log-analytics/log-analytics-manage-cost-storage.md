@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2c52baf47e0b1495a5abfa727ab8bc8d997a4283
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8343c27693538480757a879e477ec77fba08de3d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418896"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958343"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics
 
@@ -78,7 +78,7 @@ Os passos seguintes descrevem como configurar um limite para gerir o volume de d
 5. Limite diário é **OFF** por predefinição – clique em **ON** para ativá-la e, em seguida, defina o limite de volume de dados em GB/dia.<br><br> ![Configurar o limite de dados do log Analytics](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-limit-reached"></a>Alertar quando atingido o limite
-Embora, apresentamos uma indicação visual no portal do Azure quando o limiar de limite de dados for cumprido, esse comportamento não necessariamente alinhados com como gerir os problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para obter mais informações, consulte [como criar, ver e gerir alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
+Embora, apresentamos uma indicação visual no portal do Azure quando o limiar de limite de dados for cumprido, esse comportamento não necessariamente alinhados com como gerir os problemas operacionais que requerem atenção imediata.  Para receber uma notificação de alerta, pode criar uma nova regra de alerta no Azure Monitor.  Para obter mais informações, consulte [como criar, ver e gerir alertas](../monitoring-and-diagnostics/alert-metric.md).      
 
 Para começar, seguem-se as definições recomendadas para o alerta:
 

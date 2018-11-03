@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: afba39d1af700650cfbf7226dff36729a76a0bda
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 65e764d843f9e87adee4cf94c1d22b02db80eda0
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634459"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958845"
 ---
 # <a name="additional-documentation"></a>Documentação adicional
 
@@ -33,4 +33,4 @@ Documentação do cluster de Avere adicional pode ser encontrada no site em <htt
 
 ## <a name="vfxt-creation-and-management-documentation"></a>documentação de criação e gestão de vFXT
 
-Um guia completo para usar vfxt.py, a criação do cluster na cloud e o utilitário de gestão, é fornecido <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>.  
+Um guia completo para usar vfxt.py, a criação do cluster na cloud e o utilitário de gestão, é fornecido no GitHub: [Cloud de gestão de clusters com vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).  

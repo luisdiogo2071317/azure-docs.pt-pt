@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: f43db05cac03d090116d227536e343c4a7bb0df4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025674"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958879"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -46,8 +46,8 @@ Como a solução não utiliza agentes para ligar ao serviço Log Analytics, a so
 | --- | --- | --- |
 | **[Diagnóstico do Azure](log-analytics-azure-storage.md)** | **Sim** | Dados de registo e métricas do Azure são enviados para o Log Analytics diretamente pelo Azure. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | O log Analytics não ler os dados de uma conta de armazenamento. |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não | Agentes diretos do Windows não são usados pela solução. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | Agentes diretos do Linux não são usados pela solução. |
+| [Agentes do Windows](log-analytics-agent-windows.md) | Não | Agentes diretos do Windows não são usados pela solução. |
+| [Agentes do Linux](log-analytics-quick-collect-linux-computer.md) | Não | Agentes diretos do Linux não são usados pela solução. |
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Não | Uma ligação direta do agente do SCOM para o Log Analytics não é utilizada pela solução. |
 
 ## <a name="configuration"></a>Configuração
@@ -192,7 +192,7 @@ Alertas automatizados na solução se baseia em escrever uma consulta do Log Ana
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criar alertas para a base de dados do Azure SQL
 
-Pode facilmente [criar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [pesquisa de registos](log-analytics-log-searches.md) consultas que pode utilizar com um alerta de registo:
+Pode facilmente [criar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [pesquisa de registos](log-analytics-log-search.md) consultas que pode utilizar com um alerta de registo:
 
 *Elevada da CPU na base de dados SQL do Azure*
 
@@ -289,6 +289,6 @@ Embora a solução é gratuita, consumo de telemetria de diagnóstico acima as u
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Uso [pesquisas de registos](log-analytics-log-searches.md) no Log Analytics para ver os dados de SQL do Azure detalhados.
+- Uso [pesquisas de registos](log-analytics-log-search.md) no Log Analytics para ver os dados de SQL do Azure detalhados.
 - [Criar seus próprios dashboards](log-analytics-dashboards.md) a mostrar dados de SQL do Azure.
-- [Criar alertas](log-analytics-alerts.md) quando ocorrem eventos específicos do SQL do Azure.
+- [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) quando ocorrem eventos específicos do SQL do Azure.

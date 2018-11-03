@@ -1,6 +1,6 @@
 ---
-title: Obter mais informações sobre o Azure Application Insights | Microsoft Docs
-description: Depois de introdução ao Application Insights, eis um resumo das funcionalidades que pode explorar.
+title: Aproveitar ao máximo o Azure Application Insights | Documentos da Microsoft
+description: Após a introdução ao Application Insights, aqui está um resumo das funcionalidades, pode explorar.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5d46b446a71d75a20cc4771b651fbf107db31358
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294341"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958446"
 ---
-# <a name="more-telemetry-from-application-insights"></a>Mais de telemetria do Application Insights
-Depois de ter [adicionado Application Insights ao seu código ASP.NET](app-insights-asp-net.md), existem algumas coisas que pode fazer para obter telemetria ainda mais. 
+# <a name="more-telemetry-from-application-insights"></a>Mais telemetria do Application Insights
+Depois de ter [adicionado o Application Insights ao seu código ASP.NET](app-insights-asp-net.md), existem algumas coisas que pode fazer para obter ainda mais telemetria. 
 
 | Ação | O que obtém|
 |---|---|
-|(Os servidores do IIS) [Instalar Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648) em cada computador do servidor.<br/>(As aplicações da web do azure) No painel de controlo do Azure para a aplicação web, abra o painel do Application Insights.| [**Contadores de desempenho**](app-insights-performance-counters.md)<br/>[**Exceções** ](app-insights-asp-net-exceptions.md) - detalhadas rastreios de pilha<br/>[**Dependências**](app-insights-asp-net-dependencies.md)|
-|[Adicione o fragmento do JavaScript para páginas web](app-insights-javascript.md)|[Página desempenho](app-insights-web-track-usage.md), exceções de browser de desempenho de AJAX. Telemetria personalizada do lado do cliente.|
+|(Servidores IIS) [Instalar o Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(As aplicações web do azure) No painel de controlo do Azure para a aplicação web, abra o painel do Application Insights.| [**Contadores de desempenho**](app-insights-performance-counters.md)<br/>[**Exceções** ](app-insights-asp-net-exceptions.md) - detalhadas rastreios de pilha<br/>[**Dependências**](app-insights-asp-net-dependencies.md)|
+|[Adicione o fragmento do JavaScript às suas páginas web](app-insights-javascript.md)|[Página desempenho](app-insights-usage-overview.md), exceções do browser, desempenho de AJAX. Telemetria personalizada do lado do cliente.|
 |[Criar testes web de disponibilidade](app-insights-monitor-web-app-availability.md)|Obtenha alertas se o seu site ficar indisponível|
-|[Certifique-se buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) é gerado pelo MSBuild|[Criar anotações nos gráficos métricas](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
-|[Escrever métricas e eventos personalizados](app-insights-api-custom-events-metrics.md)|Contagem de métricas e eventos de negócio, controlar a utilização detalhada e muito mais.|
-|[Perfil do site em direto](https://aka.ms/AIProfilerPreview)|Temporizações de detalhado de função da sua aplicação web em direto|
+|[Certifique-se de buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) é gerado pelo MSBuild|[Criar anotações em gráficos de métricas](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
+|[Escrever métricas e eventos personalizados](app-insights-api-custom-events-metrics.md)|Contagem de métricas e eventos de negócios, controlar a utilização detalhada e muito mais.|
+|[Perfil de seu site em direto](https://aka.ms/AIProfilerPreview)|Tempos de função detalhadas da sua aplicação web em direto|
 
 
 

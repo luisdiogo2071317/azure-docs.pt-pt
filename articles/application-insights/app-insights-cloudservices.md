@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 46c05c7c6568a967aae8e50a5da9ae70779a6060
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783607"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959023"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para os Serviços Cloud do Azure
 As [aplicações de Serviço cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorizadas pelo [Application Insights][start] quanto à disponibilidade, ao desempenho, às falhas e à utilização, ao combinar dados de SDKs do Application Insights com dados do [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dos seus Serviços Cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -96,7 +96,7 @@ Se tiver optado por utilizar um recurso do Application Insights separado para ca
 
 Isto tem o efeito de inserir as chaves de instrumentação do Application Insights nos ficheiros com o nome `ServiceConfiguration.*.cscfg`. ([Código de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
 
-Se quiser variar o nível de informações de diagnóstico enviadas para o Application Insights, pode fazê-lo [ao editar os ficheiros `.cscfg` diretamente](app-insights-azure-diagnostics.md).
+Se quiser variar o nível de informações de diagnóstico enviadas para o Application Insights, pode fazê-lo [ao editar os ficheiros `.cscfg` diretamente](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 ## <a name="sdk"></a>Instalar o SDK em cada projeto
 Esta opção acrescenta a capacidade de adicionar telemetria empresarial personalizada a qualquer função, para uma análise mais cuidada relativamente à utilização e ao desempenho da sua aplicação.
@@ -151,7 +151,7 @@ Para ver contadores de desempenho e contagens de eventos, abra o [Explorador de 
 
 ![Dados de diagnósticos do Azure](./media/app-insights-cloudservices/23-wad.png)
 
-Utilize a [Pesquisa](app-insights-diagnostic-search.md) ou uma [consulta do Analytics](app-insights-analytics-tour.md) para pesquisar pelos vários registos de rastreio que o Diagnóstico do Azure envia. Por exemplo, imagine que tem uma exceção não processada que fez com que uma Função falhasse e se reciclasse. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio de pilha completo da exceção. Isto ajudará a determinar a causa do problema.
+Utilize a [Pesquisa](app-insights-diagnostic-search.md) ou uma [consulta do Analytics](../log-analytics/query-language/get-started-analytics-portal.md) para pesquisar pelos vários registos de rastreio que o Diagnóstico do Azure envia. Por exemplo, imagine que tem uma exceção não processada que fez com que uma Função falhasse e se reciclasse. Esta informação apareceria no canal Aplicação do Registo de Eventos do Windows. Pode utilizar a Pesquisa para ver o erro do Registo de Eventos do Windows e obter o rastreio de pilha completo da exceção. Isto ajudará a determinar a causa do problema.
 
 ![Pesquisa nos diagnósticos do Azure](./media/app-insights-cloudservices/25-wad.png)
 
@@ -231,7 +231,7 @@ Compilou para .NET 4.6? O 4.6 não é suportado automaticamente nas funções do
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Configure sending Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md) (Configurar o envio de Diagnósticos do Azure para o Application Insights)
+* [Configure sending Azure Diagnostics to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) (Configurar o envio de Diagnósticos do Azure para o Application Insights)
 * [Automate creation of Application Insights resources](app-insights-powershell.md) (Automatizar a criação de recursos do Application Insights)
 * [Automatizar o Diagnóstico do Azure](app-insights-powershell-azure-diagnostics.md)
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)

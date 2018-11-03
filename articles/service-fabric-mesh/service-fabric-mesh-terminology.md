@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 0047ed4f0a172451bd50af3f62e2fecb8e147bf2
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944448"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979136"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologia de malha do Service Fabric
 
@@ -84,5 +84,6 @@ A tabela seguinte descreve os modelos de aplicação diferente e as ferramentas 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre a malha de recursos de infraestrutura do serviço, leia a visão geral:
-- [Descrição geral de malha do Service Fabric](service-fabric-mesh-overview.md)
+Para saber mais sobre o Service Fabric Mesh, consulte [Descrição geral do Service Fabric Mesh](service-fabric-mesh-overview.md).
+
+Encontre respostas para [perguntas comuns](service-fabric-mesh-faq.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 1d04c4335fcb2d7264d91e0b147c43828b3cff2e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955309"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958751"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções de API do REST de monitorização do Azure
 Este artigo mostra como efetuar a autenticação para que seu código pode utilizar o [referência da API do REST do Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -54,7 +54,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Para consultar a API do Azure Monitor, a aplicação cliente deve utilizar o principal de serviço criado anteriormente para autenticar. O script do PowerShell de exemplo seguinte mostra uma abordagem, utilizando o [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) para obter o token de autenticação do JWT. O token JWT é passado como parte de um parâmetro de autorização de HTTP em pedidos para a API de REST do Azure Monitor.
+Para consultar a API do Azure Monitor, a aplicação cliente deve utilizar o principal de serviço criado anteriormente para autenticar. O script do PowerShell de exemplo seguinte mostra uma abordagem, utilizando o [Active Directory Authentication Library](../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) para obter o token de autenticação do JWT. O token JWT é passado como parte de um parâmetro de autorização de HTTP em pedidos para a API de REST do Azure Monitor.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -694,7 +694,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Reveja os [descrição geral da monitorização](monitoring-overview.md).
+* Reveja os [descrição geral da monitorização](../azure-monitor/overview.md).
 * Ver os [suportado métricas com o Azure Monitor](monitoring-supported-metrics.md).
 * Reveja os [do Microsoft Azure monitorizar referência da API REST](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Reveja os [biblioteca de gestão do Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).

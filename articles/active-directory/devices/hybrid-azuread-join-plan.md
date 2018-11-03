@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238802"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959992"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planear a sua implementação híbrida do Azure Active Directory
 
@@ -49,6 +49,7 @@ Para planear a implementação do Azure AD híbrido, deve familiarizar-se com:
 |---|---|
 |![Marcar][1]|Rever suportado dispositivos|
 |![Marcar][1]|Deve saber de coisas de revisão|
+|![Marcar][1]|Rever como controlar a associação do Azure AD híbrido dos seus dispositivos|
 |![Marcar][1]|Selecione o seu cenário|
 
 
@@ -112,6 +113,11 @@ Se sua organização precisar de acesso à Internet através de um proxy de saí
 Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Se isso é verdadeiro para, consulte [como controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md).
 
 
+## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Rever como controlar a associação do Azure AD híbrido dos seus dispositivos
+
+Associação ao Azure AD híbrido é um processo para registrar automaticamente os seus dispositivos de associados a um domínio no local com o Azure AD. Há casos em que não pretende todos os seus dispositivos para registar automaticamente. Isso é para true de exemplo, durante a implementação inicial para verificar que tudo funciona conforme esperado.
+
+Para obter mais informações, consulte [como controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md)
 
 ## <a name="select-your-scenario"></a>Selecione o seu cenário
 

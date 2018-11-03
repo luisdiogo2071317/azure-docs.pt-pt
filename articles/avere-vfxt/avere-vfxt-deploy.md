@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634537"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958615"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
 
@@ -30,7 +30,7 @@ Para obter mais informações sobre passos de implementação de cluster e o pla
 
 Depois de seguir as instruções neste documento, terá uma rede virtual, uma sub-rede, um controlador e um cluster de vFXT, conforme mostrado no diagrama seguinte:
 
-![diagrama que mostra a vnet que contém armazenamento de BLOBs opcional e uma sub-rede que contém três agrupados VMs denominadas vFXT nós/vFXT cluster e um controlador de cluster com nome de VM](media/avere-vfxt-deployment-500px.png)
+![diagrama que mostra a vnet que contém armazenamento de BLOBs opcional e uma sub-rede que contém três agrupados VMs denominadas vFXT nós/vFXT cluster e um controlador de cluster com nome de VM](media/avere-vfxt-deployment.png)
 
 Antes de começar, certifique-se de que ter abordou esses pré-requisitos:  
 
@@ -198,9 +198,7 @@ Também pode encontrar em falta informações ao navegar para a página de infor
 
 Para encontrar estas informações do Resource Manager a saída do modelo, siga este procedimento:
 
-1. A partir do ícone de notificação na barra superior do portal do Azure, clique em **vá para o grupo de recursos**. Isso mostra o novo grupo de recursos que contém seu controller e a vnet.
-
-   ![Notificações de mensagens de seção do portal com "Implementação bem-sucedida" e "Ir para o grupo de recursos" e "Afixar ao dashboard" botões](media/avere-vfxt-browse-to-rg.png)
+1. Vá para o grupo de recursos para seu controlador de cluster.
 
 1. No lado esquerdo, clique em **implementações**e, em seguida **Template**.
 

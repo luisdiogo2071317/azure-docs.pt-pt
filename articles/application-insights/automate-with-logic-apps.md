@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1e9170c955f2a36d68600372e3dcdac2a63056c1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301196"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957765"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatize processos do Application Insights ao utilizar o Logic Apps
 
@@ -51,7 +51,7 @@ Neste tutorial, saiba como criar uma aplicação lógica que utiliza o algoritmo
 
 1. Na **escolher uma ação** caixa de pesquisa, escreva **Azure Application Insights**.
 
-1. Sob **ações**, clique em **pré-visualização de consulta do Azure Application Insights – análise de visualizar**.
+1. Sob **ações**, clique em **pré-visualização de consulta do Azure Application Insights - Analytics visualizar**.
 
     !["Escolher uma ação" janela do Estruturador da aplicação lógica](./media/automate-with-logic-apps/flow2.png)
 
@@ -93,7 +93,7 @@ Ao criar suas próprias consultas, certifique-se de que estão a funcionar corre
 
 1. Na caixa de pesquisa, escreva **Outlook do Office 365**.
 
-1. Clique em **Office 365 Outlook – enviar um e-mail**.
+1. Clique em **Office 365 Outlook - enviar um e-mail**.
 
     ![Seleção do Outlook do Office 365](./media/automate-with-logic-apps/flow2b.png)
 
@@ -132,7 +132,7 @@ Quando é executada a sua aplicação lógica, os destinatários especificados n
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre a criação [consultas de análise](app-insights-analytics-using.md).
+- Saiba mais sobre a criação [consultas de análise](../log-analytics/query-language/get-started-queries.md).
 - Saiba mais sobre o [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10cd05bd40262815e3b27c861982debc18e5b4f3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 152632c55fc21d2b49f6dfd8ae734833ea870898
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142498"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978371"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Conjunto de aplicações de web de perfil em execução numa máquina virtual do Azure ou o dimensionamento de máquinas virtuais com o Application Insights Profiler
 Também pode implementar o criador de perfil do Application Insights estes serviços:
@@ -63,11 +63,8 @@ Esta página irá guiá-lo pelos passos necessários obter o criador de perfil d
 
 1. Implemente a sua aplicação.
 
-## <a name="enable-profiler-on-on-premises-servers"></a>Ativar Profiler nos servidores no local
-
-Ativar Profiler num servidor no local também é conhecido como de do Application Insights Profiler em execução no modo autônomo. Não está associado a modificações de extensão de diagnóstico do Azure.
-
-Não temos nenhum plano para suportar oficialmente Profiler para servidores no local. Se estiver interessado em fazer experiências com este cenário, pode [baixar código de suporte](https://github.com/ramach-msft/AIProfiler-Standalone). Estamos *não* responsável por manter esse código, ou para responder a problemas e pedidos de funcionalidades que estão relacionadas com o código.
+## <a name="can-profiler-run-on-on-premises-servers"></a>Criador de perfil pode ser executado em servidores no local?
+Não temos planos para suportar a aplicação Insights Profiler para servidores no local. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

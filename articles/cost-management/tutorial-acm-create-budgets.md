@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017367"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977673"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
-Orçamentos no Cost Management ajudá-lo a planejar e responsabilidade de unidade organizacional. Com orçamentos, podem contribuir para os serviços do Azure se consume ou se subscreve durante um período específico. Ajudam a informar outras pessoas sobre seus gastos para gerenciar de forma proativa os custos e para monitorizar a forma como gastos avança ao longo do tempo. Pode ver como gastos avança ao longo do tempo. Quando os limiares de orçamento que criou são excedidos, apenas notificações são acionadas. Nenhum dos seus recursos são afetados e seu consumo não está parado. Pode usar os orçamentos de comparar e controlar a analisar os custos de gastos.
+Os orçamentos no Cost Management ajudam-no a planear e a gerar a responsabilidade organizacional. Com os orçamentos, pode contribuir para os serviços do Azure que consome ou subscrever durante um período específico. Ajudam a informar outras pessoas sobre seus gastos para gerenciar de forma proativa os custos e para monitorizar a forma como gastos avança ao longo do tempo. Pode ver como gastos avança ao longo do tempo. Quando os limiares de orçamento que criou são excedidos, apenas notificações são acionadas. Nenhum dos seus recursos são afetados e seu consumo não está parado. Pode usar os orçamentos de comparar e controlar a analisar os custos de gastos.
 
 Orçamentos repor automaticamente no final de um período (mensalmente, trimestralmente ou anualmente) para a mesma quantidade de orçamento ao selecionar uma data de expiração no futuro. Porque repostas com a mesma quantidade de orçamento, tem de criar orçamentos separados quando orçada diferem de valores de moeda para períodos futuros.
 
@@ -33,13 +33,13 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Orçamentos estão disponíveis para todos os clientes do EA do Azure. Tem de ter acesso de leitura para uma subscrição do Azure EA para criar e gerir orçamentos. Contas de faturas de EA não são suportadas por orçamentos.
+Orçamentos estão disponíveis para todos os clientes do EA do Azure. Tem de ter acesso de leitura de uma subscrição do EA do Azure para criar e gerir orçamentos. Pode criar orçamentos individuais para as subscrições do EA e grupos de recursos. No entanto, não é possível criar orçamentos para contas de faturação de EA.
 
-Orçamentos são criados na subscrição ou ao nível do grupo de recursos, individualmente. As seguintes permissões do Azure são suportadas por subscrição para os orçamentos de por utilizador e grupo:
+As seguintes permissões do Azure são suportadas por subscrição para os orçamentos de por utilizador e grupo:
 
-- Proprietário – pode criar, modificar ou eliminar orçamentos para uma subscrição.
-- Contribuinte – pode criar, modificar ou eliminar os seus próprios orçamentos. Pode modificar a quantidade de orçamento para orçamentos criados por outros utilizadores.
-- Leitor-pode ver os orçamentos de que eles têm permissão para.
+- Proprietário: pode criar, modificar ou eliminar orçamentos de uma subscrição.
+- Contribuinte: pode criar, modificar ou eliminar os respetivos orçamentos. Pode modificar a quantidade de orçamento para orçamentos criados por outros utilizadores.
+- Leitor: pode ver orçamentos para os quais tem permissões.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Expandir alertas do registo Analytcs para o Azure
+title: Expandir os alertas do Log Analytics para o Azure
 description: Este artigo descreve as ferramentas e a API através do qual pode expandir alertas do Log Analytics para alertas do Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415707"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957426"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Expandir alertas do Log Analytics para alertas do Azure
 A funcionalidade de alertas no Log Analytics do Azure está a ser substituída através de alertas do Azure. Como parte desta transição, os alertas que configurou originalmente no Log Analytics irão ser expandidas para o Azure. Se não quiser esperar que elas sejam movidas automaticamente para o Azure, pode iniciar o processo:
@@ -470,7 +470,7 @@ Eis os passos de remediação para cada erro:
 
 - **Erro: Política está presente ao nível do grupo de recursos/subscrição**: ![captura de ecrã do Operations Management Suite page do portal definições de alerta, com a mensagem de erro de política realçada](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    Quando [do Azure Policy](../azure-policy/azure-policy-introduction.md) é aplicada, restringe qualquer novo recurso num subscrição ou grupo de recursos que contém a área de trabalho do Log Analytics (Operations Management Suite). O sistema é não é possível expandir os alertas para o Azure e criar grupos de ação necessário.
+    Quando [do Azure Policy](../governance/policy/overview.md) é aplicada, restringe qualquer novo recurso num subscrição ou grupo de recursos que contém a área de trabalho do Log Analytics (Operations Management Suite). O sistema é não é possível expandir os alertas para o Azure e criar grupos de ação necessário.
     
     Para resolver, edite a política que está a causar o *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* erro, o que impede a criação de novos recursos na sua subscrição ou grupo de recursos que contém a área de trabalho. Pode fazê-lo ao utilizar o portal do Azure, PowerShell, CLI do Azure ou a API. É possível auditar as ações para localizar a política adequada, que está causando a falha. Para obter mais informações, consulte [visualizar registos de atividades para auditar as ações](../azure-resource-manager/resource-group-audit.md). 
     

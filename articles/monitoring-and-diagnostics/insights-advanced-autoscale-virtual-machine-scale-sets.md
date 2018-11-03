@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 49012c69a6dacaf76c95ea4c760e5951ecb6a9fb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420562"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958853"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração do dimensionamento automático avançado com modelos do Resource Manager para conjuntos de dimensionamento de VM
 Pode reduzir e aumentar horizontalmente em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métricas de desempenho, por uma agenda periódica ou por uma data específica. Também pode configurar notificações de e-mail e webhook para ações de dimensionamento. Estas instruções mostram um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager num conjunto de dimensionamento de VM.
 
 > [!NOTE]
-> Embora estas instruções explica os passos para conjuntos de dimensionamento de VM, as mesmas informações aplica-se para dimensionamento automático [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Para um dimensionamento simples de entrada/saída de definição de um conjunto de dimensionamento de VM com base numa métrica de desempenho simples, tais como CPU, consulte a [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) documentos
+> Embora estas instruções explica os passos para conjuntos de dimensionamento de VM, as mesmas informações aplica-se para dimensionamento automático [serviços Cloud](https://azure.microsoft.com/services/cloud-services/), [serviço de aplicações - aplicações Web](https://azure.microsoft.com/services/app-service/web/), e [deserviçosdegestãodeAPI](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Para um dimensionamento simples de entrada/saída de definição de um conjunto de dimensionamento de VM com base numa métrica de desempenho simples, tais como CPU, consulte a [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) documentos
 >
 >
 

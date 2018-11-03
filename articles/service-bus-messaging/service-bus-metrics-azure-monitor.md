@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: spelluru
-ms.openlocfilehash: 293cde00e53171e848263df8564ec85f273c1a40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7d4b4a98c38757eb33c3f8713f662ed52a686924
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166338"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978660"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de barramento de serviço do Azure no Azure Monitor (pré-visualização)
 
@@ -80,6 +80,8 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 | ------------------- | ----------------- |
 |Mensagens de entrada (pré-visualização)|O número de eventos ou as mensagens enviadas para o Service Bus num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 |Mensagens de saída (pré-visualização)|O número de eventos ou mensagens recebidas do Service Bus num determinado período.<br/><br/> Unidade: contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Mensagens (pré-visualização) | Contagem de mensagens em fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Dimensão: EntityName |
+| ActiveMessages (pré-visualização) | Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: contagem <br/> Tipo de agregação: médio <br/> Dimensão: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 

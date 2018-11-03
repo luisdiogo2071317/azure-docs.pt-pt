@@ -3,18 +3,18 @@ title: Compreender as saídas do Azure Stream Analytics
 description: Este artigo descreve as opções de saída de dados disponíveis no Azure Stream Analytics, incluindo o Power BI para os resultados da análise.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 396b843ecd17c15e9476bacb5e96545f963f0c4e
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: abf581430f7cf7020145b0217c387b8c2fc4f795
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747852"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979408"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
@@ -323,10 +323,11 @@ A tabela seguinte explica algumas das considerações para a criação de batche
 | Fila do Service Bus do Azure   | 256 KB por mensagem</br> Consulte também [limita do Service Bus](../service-bus-messaging/service-bus-quotas.md) | Evento único por mensagem |
 | Tópico de barramento de serviço do Azure | 256 KB por mensagem</br> Consulte também [limita do Service Bus](../service-bus-messaging/service-bus-quotas.md) | Evento único por mensagem |
 | Azure Cosmos DB   | Consulte [limites do Azure Cosmos DB](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch de tamanho e frequência é ajustadas dinamicamente com base CosmosDB as respostas de escrita. </br> Não existem limitações predeterminadas do Stream Analytics. |
-| Funções do Azure   | | Tamanho de lote de predefinido é 246 KB. </br> Contagem de eventos padrão por lote é 100. </br> O tamanho do lote é configurável e pode aumentar ou diminuir o Stream Analytics [opções de saída](#azure-functions). 
+| Funções do Azure   | | Tamanho de lote de predefinido é 256 KB. </br> Contagem de eventos padrão por lote é 100. </br> O tamanho do lote é configurável e pode aumentar ou diminuir o Stream Analytics [opções de saída](#azure-functions). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
+
 > [Início rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

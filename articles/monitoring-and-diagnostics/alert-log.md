@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 43ff945747915edb76da8b593b232e86778374ce
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419372"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958513"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -57,7 +57,7 @@ Próxima detalhada é um guia passo a passo para utilizar os alertas de registo 
 
    > [!NOTE]
 
-   > Alertas de listas, podem importar consulta do analytics como tipo de sinal - **Log (consulta guardada)**, como mostra acima ilustração. Para que os utilizadores possam aperfeiçoa sua consulta do Analytics e, em seguida, guarde-as para utilização futura nos alertas - mais detalhes sobre como utilizar a guardar consulta disponível em [utilizando a pesquisa de registos no log analytics](../log-analytics/log-analytics-log-searches.md) ou [consulta partilhada no application insights análise](../log-analytics/log-analytics-overview.md). 
+   > Alertas de listas, podem importar consulta do analytics como tipo de sinal - **Log (consulta guardada)**, como mostra acima ilustração. Para que os utilizadores possam aperfeiçoa sua consulta do Analytics e, em seguida, guarde-as para utilização futura nos alertas - mais detalhes sobre como utilizar a guardar consulta disponível em [utilizando a pesquisa de registos no log analytics](../log-analytics/log-analytics-log-searches.md) ou [consulta partilhada no application insights análise](../log-analytics/log-analytics-queries.md). 
 
 1.  *Alertas de registo*: depois de selecionada, a consulta para alertas pode ser indicada na **consulta de pesquisa** campo; se a sintaxe de consulta está incorreta o campo apresenta o erro em vermelho. Se a sintaxe de consulta está correta – para referência, histórico de dados da consulta declarado é mostrado como um gráfico com a opção para ajustar a janela de tempo da última seis horas da semana passada.
 
@@ -132,7 +132,7 @@ Por conseguinte, a secção abaixo fornecem detalhes sobre como usar o modelo do
 ### <a name="azure-resource-template-for-log-analytics"></a>Modelo de recursos do Azure para o Log Analytics
 Alertas de registo para o Log Analytics são criadas por regras de alerta que executam uma procura guardada num intervalo regular. Se os resultados da correspondência de consulta especificados critérios, é criado um registo de alerta e uma ou mais ações são executadas. 
 
-Modelo de recurso para pesquisa e alertas do Log analytics de guardada do Log analytics estão disponíveis na seção do Log Analytics da documentação. Para obter mais informações, consulte [adicionando o Log Analytics guardar pesquisas e alertas](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); que inclui exemplos ilustrativos, bem como detalhes de esquema.
+Modelo de recurso para pesquisa e alertas do Log analytics de guardada do Log analytics estão disponíveis na seção do Log Analytics da documentação. Para obter mais informações, consulte [adicionando o Log Analytics guardar pesquisas e alertas](../monitoring/monitoring-solutions-resources-searches-alerts.md); que inclui exemplos ilustrativos, bem como detalhes de esquema.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Modelo de recursos do Azure para o Application Insights
 Alerta de registo de recursos do Application Insights tem um tipo de `Microsoft.Insights/scheduledQueryRules/`. Para obter mais informações sobre este tipo de recurso, consulte [do Azure Monitor - referência da API de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Numa operação concluída com êxito, será devolvido 201 à criação de regra
 * Saiba mais sobre [alertas de registo nos alertas do Azure](monitor-alerts-unified-log.md)
 * Compreender [ações de Webhook para alertas de registo](monitor-alerts-unified-log-webhook.md)
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md)
-* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-queries.md). 
 

@@ -1,44 +1,50 @@
 ---
-title: Ligar a conta do SFTP a partir do Azure Logic Apps | Documentos da Microsoft
-description: Automatizar tarefas e fluxos de trabalho que monitorizarem, criarem, gerirem, enviarem e recebem ficheiros para um servidor SFTP ao utilizar o Azure Logic Apps
+title: Ligar à conta do SFTP - Azure Logic Apps | Documentos da Microsoft
+description: Automatizar tarefas e processos que monitorizarem, criarem, gerirem, enviarem e recebem ficheiros para um servidor SFTP através de SSH com o Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 10/11/2018
-ms.openlocfilehash: 8eb5d85a56e03ba8ceb646a3fbe580f8d525d8a3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 10/26/2018
+ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233706"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979459"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros de SFTP ao utilizar o Azure Logic Apps
 
-Com o Azure Logic Apps e o conector do SFTP, pode criar tarefas automatizadas e fluxos de trabalho que monitorizarem, criarem, enviarem e recebem ficheiros através da sua conta num [SFTP](https://www.ssh.com/ssh/sftp/) servidor, juntamente com outras ações como, por exemplo:
+Para automatizar as tarefas que monitorizarem, criarem, enviarem e recebem arquivos num [proteger o protocolo SFTP (File Transfer)](https://www.ssh.com/ssh/sftp/) servidor, que pode criar e automatizar fluxos de trabalho de integração com o Azure Logic Apps e o conector do SFTP. SFTP é um protocolo de rede que fornece acesso a ficheiros, a transferência de ficheiros e a gestão de ficheiros através de qualquer fluxo de dados fiável. Seguem-se algumas tarefas de exemplo que pode automatizar: 
 
 * Monitor de quando os ficheiros são adicionados ou alterados.
 * Obter, criar, copiar, atualizar, lista e eliminar ficheiros.
 * Obter conteúdo do ficheiro e metadados.
 * Extraia os arquivos para pastas.
 
-Pode usar acionadores que obtém respostas a partir do seu servidor SFTP e disponibilizar a saída para outras ações. Pode utilizar ações nas suas aplicações lógicas para executar tarefas com arquivos no seu servidor SFTP. Pode também ter outras ações utilizar a saída de ações de SFTP. Por exemplo, se recuperar regularmente ficheiros a partir do seu servidor SFTP, pode enviar por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+Em comparação com o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md), pode ler o conector do SFTP ou escrita ficheiros até 50 MB de tamanho, a menos que utilize [segmentação para lidar com mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). Para ficheiros até 1 GB de tamanho, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md). Para ficheiros maiores do que 1GB, pode usar o SFTP-SSH conector adição [segmentação para mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). 
 
-> [!NOTE]
-> Para ficheiros com mais de 50 MB e a cópia de segurança para 1 GB, utilize o [conector do SFTP-SSH](../connectors/connectors-sftp-ssh.md). O conector do SFTP suporta apenas os ficheiros que estão a 50 MB ou mais pequeno, a menos que utilize [segmentação para lidar com mensagens grandes](../logic-apps/logic-apps-handle-large-messages.md). 
+Pode usar acionadores que monitorar eventos em seu servidor SFTP e disponibilizar a saída para outras ações. Pode utilizar ações que executar diversas tarefas no seu servidor SFTP. Pode também ter outras ações na sua aplicação lógica a utilizar a saída de ações de SFTP. Por exemplo, se recuperar regularmente ficheiros a partir do seu servidor SFTP, pode enviar alertas por e-mail sobre esses arquivos e seu conteúdo com o conector do Outlook do Office 365 ou o conector do Outlook.com.
+Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
 
-* Os SFTP anfitrião endereço e a conta de credenciais do servidor
+* Os SFTP endereço e a conta de credenciais do servidor, que permitem que a aplicação de lógica aceder à sua conta do SFTP. Para utilizar o [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocolo, também tem acesso a uma chave privada SSH e a senha da chave privada SSH. 
 
-   As suas credenciais autorizar a aplicação lógica para criar uma ligação e aceder à sua conta do SFTP.
+  > [!NOTE]
+  > 
+  > O conector do SFTP suporta esses formatos de chave privados: OpenSSH, ssh.com e PuTTY
+  > 
+  > Quando estiver a criar a aplicação lógica, depois de adicionar o acionador SFTP ou a ação que pretende, terá de fornecer informações de ligação para o seu servidor SFTP. 
+  > Se estiver a utilizar uma chave privada SSH, certifique-se de que ***cópia*** a chave do seu ficheiro de chave privada, e ***cole*** essa chave os detalhes de ligação, ***manualmente não introduzir ou editar a chave***, que pode fazer com que a ligação falha. 
+  > Para obter mais informações, veja os passos mais adiante neste artigo.
 
 * Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -61,17 +67,48 @@ Pode usar acionadores que obtém respostas a partir do seu servidor SFTP e dispo
    Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
    Selecione o sinal de adição (**+**) que é apresentada e, em seguida, selecione **adicionar uma ação**.
 
-1. Forneça os detalhes necessários para a sua ligação e, em seguida, escolha **criar**.
+1. Forneça os detalhes necessários para a sua ligação.
+
+   > [!IMPORTANT] 
+   >
+   > Quando inserir a chave privada SSH a **chave privada SSH** propriedade, siga estes passos adicionais, que ajudam a tornar-se de que forneça o valor completo e correto para esta propriedade. 
+   > Uma chave inválida faz com que a ligação falha.
+   
+   Apesar de poder utilizar qualquer editor de texto, aqui estão os passos de exemplo que mostram como copiar e colar a chave ao utilizar Notepad.exe como um exemplo de corretamente.
+    
+   1. Abra o ficheiro de chave privado SSH num editor de texto. 
+   Estes passos utilizam o bloco de notas do exemplo.
+
+   1. Do bloco de notas **edite** menu, selecione **Selecionar tudo**.
+
+   1. Selecione **edite** > **cópia**.
+
+   1. No acionador SFTP ou ação que adicionou, cole a *concluída* chave que copiou para o **chave privada SSH** propriedade, que oferece suporte a várias linhas. 
+   ***Certifique-se de que cole*** a chave. ***Não introduza manualmente ou editar a chave de***.
+
+1. Quando terminar introduzir os detalhes de ligação, escolha **criar**.
 
 1. Forneça os detalhes necessários para o seu acionador selecionado ou a ação e continuar a criar o fluxo de trabalho da sua aplicação lógica.
+
+## <a name="trigger-limits"></a>Limites de Acionador
+
+O trabalho de acionadores SFTP, o sistema de ficheiros SFTP de consulta e está à procura de qualquer ficheiro que foi alterado desde a última consulta. Algumas ferramentas permitem-lhe preservar o carimbo de hora, quando os ficheiros alterados. Nestes casos, tem de desativar esta funcionalidade para que o acionador pode trabalhar. Seguem-se algumas definições comuns:
+
+| Cliente SFTP | Ação | 
+|-------------|--------| 
+| Winscp | Aceda a **opções** > **preferências** > **transferir** > **editar**  >  **Preservar timestamp** > **desativar** |
+| FileZilla | Aceda a **transferência** > **preservar os carimbos de ficheiros transferidos** > **desativar** | 
+||| 
+
+Quando um acionador localiza um novo ficheiro, o acionador verifica que o novo ficheiro é completa e não parcialmente escrito. Por exemplo, um ficheiro pode ter as alterações em curso quando o acionador verifica o servidor de ficheiros. Para evitar o retorno de um arquivo parcialmente escrito, o acionador anota o carimbo de hora para o ficheiro que tem alterações recentes, mas não retorna imediatamente esse arquivo. O acionador devolver o ficheiro apenas quando consulta o servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o acionador intervalo de consulta. 
 
 ## <a name="examples"></a>Exemplos
 
 ### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Acionador SFTP: quando um ficheiro é adicionado ou modificado
 
-Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando o acionador detetar quando um ficheiro é adicionado ou alterado num servidor SFTP. Por exemplo, que pode adicionar uma condição que verifica o conteúdo do arquivo e decide se obter esse conteúdo, com base em se esse conteúdo cumpre uma condição especificada. Por fim, pode adicionar uma ação que obtém o conteúdo do arquivo e colocar esse conteúdo numa pasta no servidor SFTP. 
+Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando um ficheiro é adicionado ou alterado num servidor SFTP. Por exemplo, pode adicionar uma condição que verifica o conteúdo do arquivo e obtém o conteúdo com base em se o conteúdo cumpre uma condição especificada. Em seguida, pode adicionar uma ação que obtém o conteúdo do arquivo e coloca esses conteúdos numa pasta no servidor SFTP. 
 
-**Exemplo de Enterprise**: pode utilizar este acionador para monitorizar uma pasta SFTP para novos ficheiros que representam as encomendas de cliente. Em seguida, pode utilizar como uma ação de SFTP **obter conteúdo do ficheiro**, para que possa obter conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
+**Exemplo de Enterprise**: pode utilizar este acionador para monitorizar uma pasta SFTP para novos ficheiros que representam as encomendas de cliente. Em seguida, pode utilizar como uma ação de SFTP **obter conteúdo do ficheiro** , de modo a obter o conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
 
 ### <a name="sftp-action-get-content"></a>Ação de SFTP: obter o conteúdo
 

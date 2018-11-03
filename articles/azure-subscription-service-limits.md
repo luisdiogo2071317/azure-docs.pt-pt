@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: byvinyal
-ms.openlocfilehash: c22f3dbc06dd43a31bf43634437c7f377dac8813
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
-ms.translationtype: MT
+ms.openlocfilehash: 702783ce581ba59b64892035eca3fb28787eec0f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457311"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958972"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais da plataforma.
@@ -145,6 +145,8 @@ A tabela seguinte fornece detalhes sobre os recursos e limites do básico, Stand
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Limites do Gateway de aplicação
+
+A tabela seguinte aplica-se para a v1, v2, padrão e SKUs do WAF, a menos que indicado de outra forma.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="network-watcher-limits"></a>Limites do observador de rede

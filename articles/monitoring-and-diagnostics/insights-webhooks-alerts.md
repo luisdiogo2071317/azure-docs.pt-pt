@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 08ba5e7cbdc041a41f1d006d69980bf6efc00101
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0f08e63d6cbf5be8667b1fd61556e3f33e31d06f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380295"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957663"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Ter um alerta de métrica clássico notificar um sistema não pertencente ao Azure através de um webhook
 Pode utilizar webhooks para encaminhar uma notificação de alerta do Azure para outros sistemas para ações de pós-processamento ou personalizados. Pode utilizar um webhook num alerta para o encaminhar para serviços que enviam mensagens SMS, para registrar bugs, para notificar a equipa através de bate-papo ou serviços de mensagens ou para várias outras ações. 
 
-Este artigo descreve como definir um webhook num alerta de métrica do Azure. Ele também mostra o payload para o HTTP POST para um webhook como fica. Para obter informações sobre o programa de configuração e o esquema de uma atividade do Azure alerta de registo (alerta em eventos), consulte [chamar um webhook num alerta de registo de atividades do Azure](insights-auditlog-to-webhook-email.md).
+Este artigo descreve como definir um webhook num alerta de métrica do Azure. Ele também mostra o payload para o HTTP POST para um webhook como fica. Para obter informações sobre o programa de configuração e o esquema de uma atividade do Azure alerta de registo (alerta em eventos), consulte [chamar um webhook num alerta de registo de atividades do Azure](monitor-alerts-unified-log-webhook.md).
 
 Alertas do Azure utilizam HTTP POST para enviar o conteúdo de alerta no formato JSON para um URI que fornece ao criar o alerta de webhook. O esquema está definido neste artigo. O URI tem de ser um ponto final HTTP ou HTTPS válido. Azure publica uma entrada por pedido, quando um alerta é ativado.
 

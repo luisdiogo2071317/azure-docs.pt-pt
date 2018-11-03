@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bf722756ed04349a06cbcb7b9686e6340e8d4b6c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038779"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958411"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizar a pesquisa no Application Insights
 A pesquisa é uma funcionalidade do [Application Insights](app-insights-overview.md) que utilizar para localizar e explorar os itens de telemetria individuais, como vistas de páginas, exceções ou pedidos da web. E pode ver os rastreios de registos e eventos que codificou tem.
 
-(Para obter consultas mais complexas com os seus dados, utilize [Analytics](app-insights-analytics-tour.md).)
+(Para obter consultas mais complexas com os seus dados, utilize [Analytics](../log-analytics/query-language/get-started-analytics-portal.md).)
 
 ## <a name="where-do-you-see-search"></a>Onde vê a pesquisa?
 
@@ -102,7 +102,7 @@ Localize todos os itens com o mesmo valor de propriedade:
 ## <a name="search-the-data"></a>Pesquisar os dados
 
 > [!NOTE]
-> Para escrever consultas mais complexas, abra [ **Analytics** ](app-insights-analytics-tour.md) da parte superior do painel de pesquisa.
+> Para escrever consultas mais complexas, abra [ **Analytics** ](../log-analytics/query-language/get-started-analytics-portal.md) da parte superior do painel de pesquisa.
 > 
 
 Pode pesquisar termos em qualquer um dos valores de propriedade. Isto é particularmente útil se tiver escrito [eventos personalizados](app-insights-api-custom-events-metrics.md) com valores de propriedade. 
@@ -164,7 +164,7 @@ Nós não iniciar sessão automaticamente os dados de POSTAGEM, mas pode usar [c
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="add"></a>Passos seguintes
-* [Escrever consultas complexas no Analytics](app-insights-analytics-tour.md)
+* [Escrever consultas complexas no Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * [Enviar registos e telemetria personalizada para o Application Insights](app-insights-asp-net-trace-logs.md)
 * [Configurar a disponibilidade e testes de capacidade de resposta](app-insights-monitor-web-app-availability.md)
 * [Resolução de problemas](app-insights-troubleshoot-faq.md)

@@ -1,5 +1,5 @@
 ---
-title: Resolução de conflitos no Azure Cosmos DB
+title: Tipos de resolução de conflito e diretivas de resolução no Azure Cosmos DB
 description: Este artigo descreve as categorias de conflito e diretivas de resolução de conflito no Azure Cosmos DB.
 services: cosmos-db
 author: markjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2f219ed6c3155e8b7d3d978116e1748f6c115fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244116"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958574"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflito e diretivas de resolução
 
@@ -20,29 +20,31 @@ Entra em conflito e resolução de conflitos de políticas são aplicáveis se a
 
 Para contas do Cosmos DB configuradas com várias regiões de escrita, podem ocorrer conflitos de atualização quando vários gravadores atualizar simultaneamente no mesmo item em várias regiões. Conflitos de atualização são classificados em três tipos:
 
-1. **Inserir conflitos** pode ocorrer quando um aplicativo insere simultaneamente dois ou mais itens com o mesmo índice exclusivo (por exemplo, a propriedade de ID) de duas ou mais regiões. Neste caso, todas as escritas podem ter êxito inicialmente em seus respectivos regiões locais, mas com base na política de resolução de conflito que escolher, apenas um item com o ID original é finalmente confirmado.
-2. **Substitua conflitos** pode ocorrer quando uma aplicação atualizar um único item em simultâneo de duas ou mais regiões.
-3. **Eliminar conflitos** pode ocorrer quando uma aplicação em simultâneo elimina um item de uma região e atualiza-o partir de qualquer outra região.
+1. **Inserir conflitos:** estes conflitos podem ocorrer quando um aplicativo insere simultaneamente dois ou mais itens com o mesmo índice exclusivo (por exemplo, a propriedade de ID) de duas ou mais regiões. Neste caso, todas as escritas podem ter êxito inicialmente em seus respectivos regiões locais, mas com base na política de resolução de conflito que escolher, apenas um item com o ID original é finalmente confirmado.
 
-## <a name="conflict-resolution-policies"></a>Políticas de resolução de conflito
+1. **Substitua conflitos:** estes conflitos podem ocorrer quando uma aplicação atualizar um único item em simultâneo de duas ou mais regiões.
 
-O cosmos DB oferece um mecanismo orientado por diretivas flexível para a resolução de conflitos de atualização. Pode selecionar as seguintes políticas de resolução de conflito de dois num contêiner de Cosmos:
+1. **Eliminar conflitos:** estes conflitos podem ocorrer quando uma aplicação em simultâneo elimina um item de uma região e atualiza-o partir de outra região.
 
-- **Última-escrita-Wins (LWW)** que, por predefinição, utiliza uma propriedade timestamp definidos pelo sistema (com base no protocolo de sincronização de hora de relógio). Em alternativa, ao utilizar a API de SQL, Cosmos DB permite-lhe especificar qualquer outra propriedade numérica personalizada (também referida como o "caminho de resolução de conflito") a ser utilizado para resolução de conflitos.  
+## <a name="conflict-resolution-policies"></a>Políticas de resolução de conflitos
 
-Se dois ou mais conflitos de itens em inserem ou substituem as operações, o item que contém o valor mais alto para o "caminho de resolução de conflito" torna-se o "vencedor". Se vários itens têm o mesmo valor numérico para o caminho de resolução de conflito, a versão de "vencedor" selecionado é determinada pelo sistema. Todas as regiões são garantidas para convergir a um único vencedor e terminam cópia de segurança com a versão idêntica do item de compromisso. Se existirem eliminar conflitos envolvidas, a versão eliminada wins-se sempre através de inserções ou conflitos de replace, independentemente do valor do caminho de resolução de conflito.
+O cosmos DB oferece um mecanismo orientado por diretivas flexível para resolver conflitos de atualização. Pode selecionar as seguintes políticas de resolução de conflito de dois num contêiner de Cosmos:
 
-> [!NOTE]
-> LWW é a política de resolução de conflito de predefinida e está disponível para o SQL, tabela, MongoDB, Cassandra e APIs do Gremlin.
+- **Última-escrita-Wins (LWW):** esta política de resolução por predefinição, utiliza uma propriedade timestamp definidos pelo sistema (com base no protocolo de sincronização de hora de relógio). Em alternativa, ao utilizar a API de SQL, o Cosmos DB permite-lhe especificar qualquer outra propriedade numérica personalizada (também referida como o "caminho de resolução de conflito") para ser usado na resolução de conflitos.  
 
-Para obter mais informações, consulte [exemplos usando LWW entram em conflito de políticas de resolução](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Se dois ou mais conflitos de itens em inserem ou substituem as operações, o item que contém o valor mais alto para o "caminho de resolução de conflito" torna-se o "vencedor". Se vários itens têm o mesmo valor numérico para o caminho de resolução de conflito, a versão de "vencedor" selecionado é determinada pelo sistema. Todas as regiões são garantidas para convergir a um único vencedor e terminam cópia de segurança com a versão idêntica do item de compromisso. Se existirem conflitos de eliminação envolvidas, a versão eliminada wins sobre qualquer um dos insert sempre ou substituir conflitos, independentemente do valor do caminho de resolução de conflito.
 
-- **Custom** esta política destina-se a semântica definida pelo aplicativo para reconciliação de conflitos. Ao definir esta política no seu contentor do Cosmos, também tem de registar um procedimento armazenado de intercalação, que é invocado automaticamente quando conflitos de atualização são detetados numa transação de base de dados no lado do servidor. O sistema fornece exatamente garantir uma vez para a execução de um procedimento de mesclagem como parte do protocolo de compromisso.  
+  > [!NOTE]
+  > Última-escrita-Wins é a política de resolução de conflito de predefinida e está disponível para contas SQL, tabela, MongoDB, Cassandra e Gremlin API.
 
-No entanto, se configurar o seu contentor com a opção de resolução personalizados, mas qualquer uma falha ao registar um procedimento de intercalação no contentor, ou se o procedimento de intercalação lança uma exceção em tempo de execução, os conflitos são escritos para a feed de entra em conflito. Seu aplicativo, em seguida, terá de resolver manualmente os conflitos no feed-conflitos. Para obter mais informações, consulte [exemplos de como utilizar a política de resolução personalizados e como utilizar os conflitos de feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Para obter mais informações, consulte [exemplos usando LWW entram em conflito de políticas de resolução](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-> [!NOTE]
-> Política de resolução de conflito personalizados só está disponível para contas da API de SQL.
+- **Personalizada:** esta política de resolução foi concebida para definida pelo aplicativo semântica para reconciliação de conflitos. Ao definir esta política no seu contentor do Cosmos, também tem de registar um procedimento de intercalação armazenado, o que é invocado automaticamente quando conflitos de atualização são detetados numa transação de base de dados no servidor. O sistema fornece exatamente garantir uma vez para a execução de um procedimento de mesclagem como parte do protocolo de compromisso.  
+
+  No entanto, se configurar o seu contentor com a opção de resolução personalizados, mas qualquer uma falha ao registar um procedimento de intercalação no contentor, ou se o procedimento de intercalação lança uma exceção em tempo de execução, os conflitos são escritos para a feed de entra em conflito. Seu aplicativo, em seguida, terá de resolver manualmente os conflitos no feed-conflitos. Para obter mais informações, consulte [exemplos de como utilizar a política de resolução personalizados e como utilizar os conflitos de feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+
+  > [!NOTE]
+  > Política de resolução de conflito personalizados só está disponível para contas da API de SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

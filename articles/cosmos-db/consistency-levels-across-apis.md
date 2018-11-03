@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: ed08b90b9e216ee8713bfe445e98144bf2ba02d4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 974531cd5907e4f69e7d064125d3e51fa4974949
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244193"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956388"
 ---
-# <a name="consistency-levels-and-cosmos-db-apis"></a>Níveis de consistência e APIs do Cosmos DB
+# <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
-Os modelos de cinco consistência são suportados nativamente pela API do SQL, que é a API de predefinição ao utilizar o Cosmos DB. Além da API de SQL, o Cosmos DB também fornece suporte nativo para APIs compatíveis do protocolo de transmissão para bases de dados populares, como o MongoDB, Apache Cassandra, Gremlin e as tabelas do Azure. Esses bancos de dados oferecem nenhuma definidas precisamente modelos de consistência nem apoiado pelo SLA garante para os níveis de consistência e oferecem, normalmente, apenas um subconjunto dos modelos de cinco consistência que o Cosmos DB oferece. Para a API de SQL, Gremlin API e API de tabela, é utilizado o nível de consistência predefinido configurado na conta do Cosmos.
+Os cinco modelos de consistência oferecidos pelo Azure Cosmos DB são suportados nativamente pela API de SQL do Cosmos DB, que é a API de predefinição ao utilizar o Cosmos DB. Além da API de SQL, o Cosmos DB também fornece suporte nativo para APIs compatíveis do protocolo de transmissão para bases de dados populares, como o MongoDB, Apache Cassandra, Gremlin e as tabelas do Azure. Esses bancos de dados não oferecem precisamente definido modelos de consistência nem as garantias apoiado pelo SLA para os níveis de consistência. Esses bancos de dados oferecem, normalmente, apenas um subconjunto dos modelos de cinco consistência oferecidos pelo Cosmos DB. Para a API de SQL, Gremlin API e API de tabela, é utilizado o nível de consistência predefinido que configurar na conta do Cosmos.
 
-A tabela seguinte mostra o mapeamento entre a consistência dos dados solicitado por um controlador de cliente de sistemas operacionais para o Apache Cassandra 4.x e invocação MongoDB 3.4 ao utilizar a API de Cassandra e a API de MongoDB, respectivamente e os níveis de consistência correspondentes do Cosmos DB.
+As secções seguintes mostram o mapeamento entre a consistência dos dados solicitado por um controlador de cliente de sistemas operacionais para o Apache Cassandra 4.x e invocação MongoDB 3.4 ao utilizar a API de Cassandra e a API de MongoDB, respectivamente e os níveis de consistência correspondentes do Cosmos DB.
 
-## <a id="cassandra-mapping"></a>Mapeamento de níveis de consistência do Apache Cassandra e o Cosmos DB
+## <a id="cassandra-mapping"></a>Mapeamento entre os níveis de consistência do Apache Cassandra e o Cosmos DB
 
-A tabela abaixo mostra o mapeamento para consistência de leitura entre o cliente do Apache Cassandra 4.x e o Cosmos DB "Padrão" um nível de consistência para ambos os uma implementação de várias regiões e única região.
+A tabela seguinte mostra o mapeamento de "consistência de leitura" entre o cliente do Apache Cassandra 4.x e o nível de consistência predefinido no Cosmos DB para implementações de várias regiões e única região.
 
 | **O Apache Cassandra 4.x** | **Cosmos DB (várias regiões)** | **Cosmos DB (única região)** |
 | - | - | - |
@@ -36,7 +36,7 @@ A tabela abaixo mostra o mapeamento para consistência de leitura entre o client
 
 ## <a id="mongo-mapping"></a>Mapeamento entre os níveis de consistência de invocação MongoDB 3.4 e o Cosmos DB
 
-A tabela abaixo mostra o mapeamento para "preocupações leitura" de invocação MongoDB 3.4 e Cosmos DB o nível de consistência "Padrão" para ambos os uma implementação de várias regiões e única região.
+A tabela seguinte mostra o mapeamento de "ler preocupações" entre invocação MongoDB 3.4 e o nível de consistência predefinido no Cosmos DB para implementações de várias regiões e única região.
 
 | **Invocação MongoDB 3.4** | **Cosmos DB (várias regiões)** | **Cosmos DB (única região)** |
 | - | - | - |

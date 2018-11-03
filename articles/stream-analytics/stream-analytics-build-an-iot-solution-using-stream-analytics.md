@@ -3,18 +3,18 @@ title: Criar uma solução de IoT com o Azure Stream Analytics
 description: Tutorial de introdução para a solução de IoT do Stream Analytics de um cenário de tollbooth
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 88c58175f4886d4796ed4e32b41d030c9ee441fc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e70a1210d44e5bfec914006afaf18eff772cac47
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986893"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978796"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Criar uma solução de IoT com o Stream Analytics
 

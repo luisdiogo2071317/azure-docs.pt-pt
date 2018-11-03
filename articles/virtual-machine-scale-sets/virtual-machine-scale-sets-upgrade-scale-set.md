@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ef611965382906e933f8d50b5dbdb3969d0b45f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740592"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979051"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 Em todo o ciclo de vida das suas aplicações, terá de modificar ou atualizar o conjunto de dimensionamento de máquina virtual. Estas atualizações podem incluir como atualizar a configuração do conjunto de dimensionamento, ou alterar a configuração da aplicação. Este artigo descreve como modificar um existente conjunto de dimensionamento com as REST APIs, o Azure PowerShell ou a CLI do Azure.
@@ -396,6 +396,26 @@ Pode ter um conjunto de dimensionamento que executa uma versão antiga do Ubuntu
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+Em alternativa, pode querer alterar a imagem que utiliza o seu conjunto de dimensionamento. Por exemplo, pode querer atualizar ou alterar uma imagem personalizada utilizada pelo seu conjunto de dimensionamento. Pode alterar a imagem do seu conjunto de dimensionamento utiliza ao atualizar a propriedade de ID de referência de imagem. A propriedade de ID de referência de imagem não faz parte de uma lista, para que pode modificar diretamente esta propriedade com um dos seguintes comandos:
+
+- O Azure PowerShell com [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) da seguinte forma:
+
+    ```powershell
+    Update-AzureRmVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+- CLI do Azure com [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+
+    ```azurecli
+    az vmss update \
+        --resource-group myResourceGroup \
+        --name myScaleSet \
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
 

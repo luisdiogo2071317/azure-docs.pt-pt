@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 08/30/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ff6978ddbf8718ad45a4265898109b7ac799d70c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 2977c3d1656bacf8ba8d34080641ea6c5cdf5bbe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468757"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957134"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerir o Centro de IoT a partir do portal do Azure 
 Além de criar e gerir aplicações de IoT Central a partir do site do Centro de IoT, também pode gerir o IoT Central do portal do Azure. Este artigo irá guiá-que é possível fazer e como fazer isso.
@@ -35,14 +35,14 @@ Agora, clique no botão "Criar" para ver o formulário que terá de preencher.
 
 ![Portal de gestão: recursos de IoT Central](media\howto-manage-iot-central-from-portal\image0c.png)
 
-Preencha todos os campos no formulário. Esse formulário é semelhante ao formulário que tem de preencher para criar aplicações a partir do site do Centro de IoT. Para saber mais sobre como preencher cada campo, pode consultar o [criar uma aplicação IoT Central](https://docs.microsoft.com/ azure/iot-central/howto-create-application) documento. 
+Preencha todos os campos no formulário. Esse formulário é semelhante ao formulário que tem de preencher para criar aplicações a partir do site do Centro de IoT. Para obter mais informações sobre como preencher cada campo, veja a [criar uma aplicação IoT Central](quick-deploy-iot-central.md) início rápido. 
 
 ![Portal de gestão: criar recursos de IoT Central](media\howto-manage-iot-central-from-portal\image1.png)  
 
 Depois de preencher todos os campos, clique no botão "Criar".
 
 ## <a name="manage-existing-iot-central-applications"></a>Gerir aplicações de IoT Central existentes
-Se já tiver uma aplicação do Azure IoT Central pode eliminá-lo, movê-lo a um grupo diferente de subscrição ou ao recurso no portal do Azure. Não é possível ver aplicações de avaliação de 7 dias no portal do Azure, uma vez que cria uma cópia de subscrição não essas versões de avaliação.
+Se já tiver uma aplicação do Azure IoT Central pode eliminá-lo, movê-lo a um grupo diferente de subscrição ou ao recurso no portal do Azure. Não é possível ver aplicações de versão de avaliação no portal do Azure, uma vez que cria uma cópia de subscrição não essas versões de avaliação.
 
 Para começar a utilizar, clique em "Todos os recursos" no menu de navegação principal à esquerda. Utilize a caixa de pesquisa escreva o nome da sua aplicação e encontrá-lo na sua lista de recursos. Em seguida, clique na aplicação Centro de IoT que pretende gerir.
 
