@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 07/09/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: d32e05e99543b30ee92ea455ae2f800b09d83661
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5db215a3bf87ac42ac832a59ce39f7e72c45527f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009295"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963358"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como um CSP, criar e gerir um aplicativo de Central de IoT do Azure em nome do seu cliente 
 
@@ -35,13 +35,13 @@ O Azure IoT Central é listado como um serviço disponível para administrar. Cl
 
 Para criar uma aplicação do Azure IoT Central, clique a **nova aplicação** mosaico. Isso irá carregar a página de criação de aplicativos. Tem de concluir todos os campos nesta página e, em seguida, escolha **criar**. Encontrar mais informações sobre cada um dos campos abaixo.
 
-![Criar a página do aplicativo para CSPs](media\howto-create-application-asCSP\image4-1.png)
+![Criar a página do aplicativo para CSPs](media\howto-create-application-asCSP\image4.png)
 
-![Criar a página do aplicativo para CSPs](media\howto-create-application-asCSP\image4-2.png)
+![Criar a página do aplicativo para CSPs](media\howto-create-application-asCSP\image4-1.png)
 
 ## <a name="payment-plan"></a>Plano de pagamento
 
-Pode criar apenas criar aplicações pagas como um CSP. Para demonstrar o Azure IoT Central para o seu cliente, pode criar uma aplicação de avaliação em separado. Saiba mais sobre as aplicações de avaliação e pagas no [do Azure IoT Central página de preços](https://azure.microsoft.com/pricing/details/iot-central/).
+Só pode criar aplicativos de pay as you go como CSP. Para demonstrar o Azure IoT Central para o seu cliente, pode criar uma aplicação de avaliação em separado. Saiba mais sobre os aplicativos de versão de avaliação e pay as you go no [do Azure IoT Central página de preços](https://azure.microsoft.com/pricing/details/iot-central/).
 
 ## <a name="application-name"></a>Nome da Aplicação
 

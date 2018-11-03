@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093990"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960927"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Deteção inteligente – anomalias de falha
 [O Application Insights](app-insights-overview.md) notifica-o automaticamente em tempo quase real se a sua aplicação web sofrerem um aumento anormal na taxa de pedidos falhados. Detetar um aumento invulgar na taxa de pedidos HTTP ou chamadas de dependência são reportadas como falhado. Para pedidos, pedidos com falhas são geralmente aqueles com códigos de resposta de 400 ou superior. Para ajudar a fazer a triagem e diagnosticar o problema, uma análise das características da falhas e telemetrias relacionadas é fornecida na notificação. Também existem ligações para o portal do Application Insights para diagnósticos adicionais. A funcionalidade não precisa nenhuma configuração nem a configuração, como ele utiliza algoritmos de machine learning para prever a taxa de falhas normal.
@@ -40,7 +40,7 @@ Aqui está um alerta de exemplo.
 Tenha em atenção que ele diz a:
 
 * A taxa de falhas em comparação comparada o comportamento normal da aplicação.
-* Quantos utilizadores são afetados – para saber quanto se preocupar.
+* Quantos utilizadores são afetados - para saber quanto se preocupar.
 * Um padrão característico associado com as falhas. Neste exemplo, há um código de resposta específica, o nome do pedido (operação) e a versão da aplicação. Que imediatamente indica onde começar a procurar no seu código. Outras possibilidades poderiam ser um sistema de operativo de cliente ou browser específico.
 * A exceção, rastreios de registos e falha de dependência (bases de dados ou outros componentes externos) que parecem ser associado com as falhas characterized.
 * Ligações diretas relevantes pesquisas sobre a telemetria no Application Insights.
@@ -147,7 +147,7 @@ Estas ferramentas de diagnóstico ajudá-lo inspecionar a telemetria da sua apli
 
 * [Explorador de métricas](app-insights-metrics-explorer.md)
 * [Explorador de pesquisa](app-insights-diagnostic-search.md)
-* [Análise - poderosa linguagem de consultas](app-insights-analytics-tour.md)
+* [Análise - poderosa linguagem de consultas](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Deteções inteligentes são totalmente automáticas. Mas talvez deseje configurar alguns alertas mais?
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08a85cea75d692573f9e9e6c4bcd8bb61e03867f
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041974"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963919"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -88,7 +88,7 @@ R: esta região está no limite de capacidade temporário. O limite está previs
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>P. O Log Analytics usa o mesmo agente como centro de segurança do Azure?
 
-R: no início de Junho de 2017, o Centro de segurança do Azure começou com o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [FAQ de migração de plataforma de centro de segurança do Azure](../security-center/security-center-platform-migration-faq.md).
+R: no início de Junho de 2017, o Centro de segurança do Azure começou com o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [FAQ de migração de plataforma de centro de segurança do Azure](../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>P. Quais verificações são efetuadas pelo AD e soluções de avaliação do SQL?
 
@@ -135,7 +135,7 @@ O log Analytics utiliza hora UTC e cada dia começa à meia-noite UTC. Se a áre
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>P. Como posso ser notificado da quando parar a recolha de dados?
 
-R: Utilize os passos descritos em [criar um novo alerta de registo](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para ser notificado quando parar a recolha de dados.
+R: Utilize os passos descritos em [criar um novo alerta de registo](../monitoring-and-diagnostics/alert-metric.md) para ser notificado quando parar a recolha de dados.
 
 Quando criar o alerta para quando para a recolha de dados, defina o:
 
@@ -231,4 +231,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Introdução ao Log Analytics](log-analytics-get-started.md) para saber mais sobre o Log Analytics e começar a trabalhar em minutos.
+* [Introdução ao Log Analytics](../azure-monitor/overview.md) para saber mais sobre o Log Analytics e começar a trabalhar em minutos.

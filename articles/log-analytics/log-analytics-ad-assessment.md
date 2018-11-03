@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c56a0239209f5c71130c9dd8173eed48f60a3b0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042075"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962780"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de verificação de estado de funcionamento do Active Directory no Log Analytics
 
@@ -53,7 +53,7 @@ Depois de adicionar a solução e é uma verificação de conclusão, resumo inf
 
 Para efetuar a verificação de estado de funcionamento contra os controladores de domínio que são membros do domínio a ser avaliada, necessitam de um agente e a conectividade para o Log Analytics através de um dos seguintes métodos suportados:
 
-1. Instalar o [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) se o controlador de domínio já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
+1. Instalar o [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) se o controlador de domínio já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
 2. Se está a ser monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não estiver integrado com o serviço Log Analytics, o controlador de domínio pode ser alojada em vários com o Log Analytics para recolher dados e reencaminhar para o serviço e ainda ser monitorizados pelo Operations Manager.  
 3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, terá de adicionar os controladores de domínio para a recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de ativar a solução na sua área de trabalho.  
 
@@ -186,4 +186,4 @@ Após a próxima agendada execuções de verificação de estado de funcionament
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para saber como analisar dados de verificação de estado de funcionamento do AD e recomendações detalhadas.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-log-search.md) para saber como analisar dados de verificação de estado de funcionamento do AD e recomendações detalhadas.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d49360fe39b0df7fc1172c3927e8725af10f927d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638212"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963885"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -103,7 +103,7 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorar o 
 
 ### <a name="configure-the-solution"></a>Configurar a solução 
 
-1. Adicionar a solução de Monitor de desempenho de rede à sua área de trabalho a partir da [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](log-analytics-add-solutions.md). 
+1. Adicionar a solução de Monitor de desempenho de rede à sua área de trabalho a partir da [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md). 
 2. Abra a área de trabalho do Log Analytics e selecione o **descrição geral** mosaico. 
 3. Selecione o **Monitor de desempenho de rede** mosaico com a mensagem *solução requer configuração adicional*.
 
@@ -251,7 +251,7 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém dispositi
 
 ## <a name="log-analytics-search"></a>Pesquisa do log Analytics 
 
-Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [de pesquisa do Log Analytics](log-analytics-log-search-new.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
+Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [de pesquisa do Log Analytics](log-analytics-log-search.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
 
 ## <a name="alerts"></a>Alertas
 

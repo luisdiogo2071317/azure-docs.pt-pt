@@ -1,6 +1,6 @@
 ---
-title: Reparametrização de um serviço de web clássico | Microsoft Docs
-description: Saiba como programaticamente reparametrização de um modelo e atualizar o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning.
+title: Reenviar um serviço web clássico | Documentos da Microsoft
+description: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning programaticamente.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,64 +15,64 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836879"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963775"
 ---
 # <a name="retrain-a-classic-web-service"></a>Voltar a preparar um Serviço Web Clássico
-O serviço Web preditiva implementou é a predefinição da classificação de ponto final. Pontos finais predefinidos são mantidos sincronizados com a formação original e a classificação de experimentações, e, por conseguinte, não é possível substituir o modelo treinado para o ponto final predefinido. Para a reparametrização do serviço web, tem de adicionar um novo ponto final para o serviço web. 
+O serviço Web preditivo implementou predefinição é o ponto final de classificação. Pontos de extremidade padrão são mantidos em sincronização com a formação original e experiências de classificação e, portanto, o modelo preparado para o ponto final predefinido não pode ser substituído. Para voltar a preparar o serviço web, tem de adicionar um novo ponto final para o serviço web. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Tem de ter de configurar uma experimentação de preparação e de uma experimentação preditiva conforme mostrado no [Machine Learning reparametrização dos modelos programáticos](retrain-models-programmatically.md). 
+Deverá ter sido configurada uma experimentação de preparação e de uma experimentação preditiva como mostrado na [Retrain Machine Learning dos modelos](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
-> A experimentação preditiva tem de ser implementada como um clássico de machine learning serviço web. 
+> A experimentação preditiva tem de ser implementada como um serviço web de aprendizagem automática de clássico. 
 > 
 > 
 
-Para obter informações adicionais sobre implementar os serviços web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
+Para obter informações adicionais em Implantando serviços da web, consulte [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Adicionar um novo ponto final
-O serviço Web preditiva que implementou contém uma predefinição a classificação de ponto final que é mantido sincronizado com a formação original e a classificação de modelo treinado experimentações. Para atualizar o seu serviço web com um novo modelo treinado, tem de criar um novo ponto final da classificação. 
+O serviço Web preditivo que implementou contém um padrão de ponto final que é mantido em sincronia com a formação original de classificação e modelo treinado de experimentações de classificação. Para atualizar o seu serviço web com um novo modelo preparado, tem de criar um novo ponto de final de classificação. 
 
-Para criar um novo ponto de final classificação, o serviço Web preditiva que pode ser atualizada com o modelo treinado:
+Para criar um novo ponto de final classificação, no serviço Web preditivo que podem ser atualizados com o modelo treinado:
 
 > [!NOTE]
-> Lembre-se de que está a adicionar o ponto final para o serviço Web preditiva, não o serviço Web de formação. Se tiver implementado corretamente uma formação e um serviço Web preditiva, deverá ver dois serviços de web separado listados. O serviço Web preditiva deve terminar com "[exp preditiva.]".
+> Certifique-se de que está a adicionar o ponto de extremidade ao serviço Web preditivo, não o serviço da Web de treinamento. Se tiver implementado um treinamento e um serviço Web preditivo corretamente, deverá ver dois serviços da web separado listados. O serviço Web preditivo deve terminar com "[exp preditiva.]".
 > 
 > 
 
-Existem duas formas na qual pode adicionar um novo ponto final para um serviço web:
+Existem duas formas na qual pode adicionar um novo ponto final a um serviço web:
 
 1. Através de programação
-2. Utilizar o portal de serviços Web do Microsoft Azure
+2. Utilizar o portal de serviços da Web do Microsoft Azure
 
-### <a name="programmatically-add-an-endpoint"></a>Através de programação adicionar um ponto final
-Pode adicionar pontos finais de classificação com o código de exemplo fornecido neste [repositório do github](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+### <a name="programmatically-add-an-endpoint"></a>Adicionar programaticamente um ponto final
+Pode adicionar pontos finais de classificação usando o código de exemplo fornecido neste [repositório do github](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
-### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Utilizar o portal de serviços Web do Microsoft Azure para adicionar um ponto final
-1. No Machine Learning Studio, a coluna de navegação esquerdo, clique em serviços Web.
+### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Utilizar o portal de serviços da Web do Microsoft Azure para adicionar um ponto final
+1. No Machine Learning Studio, na coluna de navegação esquerda, clique em serviços da Web.
 2. Na parte inferior do dashboard do serviço web, clique em **pré-visualização de pontos finais de gerir**.
 3. Clique em **Adicionar**.
-4. Escreva um nome e descrição para o novo ponto final. Selecione o nível de registo e se os dados de exemplo estão ativados. Para obter mais informações sobre o registo, consulte [ativar o registo de serviços web do Machine Learning](web-services-logging.md).
+4. Escreva um nome e descrição para o novo ponto final. Selecione o nível de registo e se os dados de exemplo estão ativados. Para obter mais informações sobre o registo, consulte [ativar o registo de serviços web Machine Learning](web-services-logging.md).
 
-## <a name="update-the-added-endpoints-trained-model"></a>Atualizar o modelo treinado do ponto final adicionado
-Para concluir o processo reparametrização, tem de atualizar o modelo treinado do novo ponto final que adicionou.
+## <a name="update-the-added-endpoints-trained-model"></a>Atualizar o modelo treinado do ponto de extremidade adicionado
+Para concluir o processo de reparametrização, tem de atualizar o modelo treinado do novo ponto final que adicionou.
 
-Se tiver adicionado o ponto final com o código de exemplo, isto inclui a localização do URL de ajuda identificado pelo *HelpLocationURL* valor no resultado.
+Se tiver adicionado o ponto final com o código de exemplo, isto inclui a localização do URL de ajuda identificado pelos *HelpLocationURL* valor na saída.
 
 Para obter o URL de caminho:
 
-1. Copie e cole o URL do seu browser.
+1. Copie e cole o URL no seu browser.
 2. Clique na ligação de recursos de atualização.
 3. Copie o URL de publicação do pedido PATCH. Por exemplo:
    
      URL DE PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
-Agora, pode utilizar o modelo treinado para atualizar o ponto final de classificação que criou anteriormente.
+Agora, pode utilizar o modelo preparado para atualizar o ponto de final de classificação que criou anteriormente.
 
 O código de exemplo seguinte mostra como utilizar o *BaseLocation*, *RelativeLocation*, *SasBlobToken*e o URL de aplicar o PATCH para atualizar o ponto final.
 
@@ -114,28 +114,28 @@ O código de exemplo seguinte mostra como utilizar o *BaseLocation*, *RelativeLo
         }
     }
 
-O *apiKey* e *endpointUrl* para a chamada pode ser obtida a partir do dashboard de ponto final.
+O *apiKey* e o *endpointUrl* para a chamada pode ser obtida a partir do dashboard de ponto final.
 
-O valor da *nome* parâmetro *recursos* deve corresponder ao nome do recurso do modelo treinado guardado na experimentação preditiva. Para obter o nome do recurso:
+O valor do *Name* parâmetro na *recursos* deve corresponder ao nome do recurso do modelo guardado preparado na experimentação preditiva. Para obter o nome do recurso:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu à esquerda, clique em **Machine Learning**.
-3. No nome, clique em sua área de trabalho e, em seguida, clique em **serviços Web**.
-4. No nome, clique em **Census modelo [preditiva exp].** .
+3. No nome, clique em sua área de trabalho e, em seguida, clique em **serviços da Web**.
+4. Em nome, clique em **recenseamento modelo [exp preditiva].** .
 5. Clique em novo ponto final que adicionou.
-6. No dashboard do ponto final, clique em **atualização recursos**.
-7. Na página de documentação de API de recursos de atualização para o serviço web, pode encontrar o **nome do recurso** em **recursos Atualizável**.
+6. No dashboard do ponto final, clique em **recursos de atualização**.
+7. Na página de documentação de API do recurso de atualização para o serviço web, pode encontrar os **nome do recurso** sob **recursos Atualizáveis**.
 
-Se o seu token SAS expirar antes de terminar a atualizar o ponto final, tem de efetuar uma ação obter com o Id da tarefa para obter um novo token.
+Se o token SAS expirar antes de terminar de atualizar o ponto final, tem de executar um GET com o Id da tarefa para obter um novo token.
 
-Quando o código foi executada com êxito, o novo ponto final deve começar a utilizar o modelo retrained em cerca de 30 segundos.
+Quando o código tenha sido executada com êxito, o novo ponto final deve começar a utilizar o modelo retrained em aproximadamente 30 segundos.
 
 ## <a name="summary"></a>Resumo
-Utilizar APIs para a reparametrização, pode atualizar o modelo treinado de um serviço Web preditiva ativar cenários, tais como:
+Com as APIs de reparametrização, pode atualizar o modelo treinado de um serviço Web preditivo permitir cenários, tais como:
 
 * Modelo periódico reparametrização com novos dados.
-* Distribuição de um modelo para clientes com o objetivo de permitir que os reparametrização do modelo utilizando os seus próprios dados.
+* Distribuição de um modelo para os clientes com o objetivo de informá-los de voltar a preparar o modelo usando seus próprios dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Resolução de problemas a reparametrização de um serviço web clássico do Azure Machine Learning](troubleshooting-retraining-models.md)
+[Resolução de problemas relativos a novas preparações de um serviço web clássico do Azure Machine Learning](troubleshooting-retraining-models.md)
 

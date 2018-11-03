@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com dados geoespaciais no Azure Cosmos DB | Documentos da Microsoft
+title: Trabalhar com dados geoespaciais na conta do Azure Cosmos DB SQL API | Documentos da Microsoft
 description: Aprenda a criar, indexar e consultar objetos espaciais com o Azure Cosmos DB e a API de SQL.
 services: cosmos-db
 author: SnehaGunda
@@ -7,18 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 11/01/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b1dcd9ba428618e1b234d76d5ad459eab0662aa
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417570"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961913"
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabalhar com dados de localização de GeoJSON no Azure Cosmos DB e dados geoespaciais
-Este artigo serve de introdução para a funcionalidade de geoespaciais no [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Depois de ler isso, será capaz de responder às seguintes perguntas:
+# <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utilizar dados de localização Geoespacial e GeoJSON com a conta do Azure Cosmos DB SQL API
+
+Este artigo é uma introdução para a funcionalidade de geoespaciais no Azure Cosmos DB. Atualmente, armazenar e aceder aos dados geoespacial é suportada pelo apenas as contas do Cosmos DB SQL API. Depois de ler este artigo, será capaz de responder às seguintes perguntas:
 
 * Como posso armazenar dados geográficos no Azure Cosmos DB?
 * Como posso consultar dados geoespaciais no Azure Cosmos DB em SQL e LINQ?
@@ -133,9 +133,6 @@ public class UserProfile
     [JsonProperty("location")]
     public Point Location { get; set; }
 
-    [JsonProperty("profiletype")]
-    public string ProfileType { get; set; }
-
     // More properties
 }
 
@@ -154,7 +151,7 @@ Se não tiver as informações de latitude e longitude, mas possuem os endereço
 Agora que já vimos uma olhada em como inserir dados geoespaciais, vamos dar uma olhada em como consultar estes dados com o Azure Cosmos DB com o SQL e LINQ.
 
 ### <a name="spatial-sql-built-in-functions"></a>Espaciais funções internas de SQL
-Azure Cosmos DB suporta as seguintes funções internas de Open Geoespacial Consortium (OGC) para consultar dados geoespaciais. Para obter mais detalhes sobre o conjunto completo de funções incorporadas em linguagem SQL, consulte [consulta do Azure Cosmos DB](sql-api-sql-query.md).
+Azure Cosmos DB suporta as seguintes funções internas de Open Geoespacial Consortium (OGC) para consultar dados geoespaciais. Para obter mais informações sobre o conjunto completo de funções incorporadas em linguagem SQL, consulte [consulta do Azure Cosmos DB](sql-api-sql-query.md).
 
 <table>
 <tr>
@@ -197,7 +194,7 @@ Funções espaciais podem ser utilizadas para executar consultas de proximidade 
       "id": "WakefieldFamily"
     }]
 
-Se incluir a indexação espacial na sua política de indexação, em seguida, "consultas de distância" serão fornecidas com eficiência por meio do índice. Para obter mais detalhes sobre indexação espacial, consulte a secção abaixo. Se não tiver um índice geográfico para caminhos especificados, ainda pode efetuar consultas espaciais especificando `x-ms-documentdb-query-enable-scan` cabeçalho do pedido com o valor definido como "true". No .NET, isso pode ser feito ao passar o opcional **FeedOptions** argumento para consultas com [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) definido como true. 
+Se incluir a indexação espacial na sua política de indexação, em seguida, "consultas de distância" serão fornecidas com eficiência por meio do índice. Para obter mais informações sobre indexação espacial, consulte a secção abaixo. Se não tiver um índice geográfico para caminhos especificados, ainda pode efetuar consultas espaciais especificando `x-ms-documentdb-query-enable-scan` cabeçalho do pedido com o valor definido como "true". No .NET, isso pode ser feito ao passar o opcional **FeedOptions** argumento para consultas com [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) definido como true. 
 
 ST_WITHIN pode ser utilizado para verificar se um ponto de reside dentro de um polígono. Normalmente os polígonos são usados para representar limites, como códigos postais, limites de estado ou atmosféricas naturais. Novamente se incluem a indexação espacial na sua política de indexação, em seguida, "dentro" consultas serão fornecidas com eficiência por meio do índice. 
 
@@ -279,7 +276,7 @@ Eis um exemplo de uma consulta LINQ que localiza todos os documentos na coleçã
 **Consulta LINQ para distância**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

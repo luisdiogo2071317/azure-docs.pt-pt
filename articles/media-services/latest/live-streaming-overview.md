@@ -13,19 +13,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378141"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962389"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
 Os seguintes componentes estão normalmente relacionados ao entregar eventos de transmissão em fluxo em direto com Media Services do Azure:
 
 * Uma câmara, que é utilizada para difundir um evento.
-* Um codificador vídeo em direto que converte sinais da câmara (ou outro dispositivo, como o laptop) para fluxos que são enviados para o serviço Lve de transmissão em fluxo. Os sinais podem também incluir SCTE 35 e Ad-indicações de publicidade. 
+* Um codificador vídeo em direto que converte sinais da câmara (ou outro dispositivo, como o laptop) para fluxos que são enviados para o serviço de transmissão em direto. Os sinais podem também incluir SCTE 35 e Ad-indicações de publicidade. 
 * O serviço de suporte de dados dos Serviços Live Streaming permite-lhe ingerir, pré-visualizar, empacotamento, gravar, encriptar e transmitir o conteúdo para seus clientes ou para uma CDN para uma maior distribuição.
 
 Este artigo fornece uma visão geral detalhada e inclui diagramas de componentes principais envolvidos na transmissão em fluxo em direto com os serviços de multimédia.

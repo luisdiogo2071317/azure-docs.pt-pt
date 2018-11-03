@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0285b9208247aa84f56d127e734e8a5e87048ac6
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044251"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961369"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origens de dados de registo de eventos Windows no Log Analytics
 Registos de eventos do Windows são uma das mais comuns [origens de dados](log-analytics-data-sources.md) para a recolha de dados através de agentes do Windows, uma vez que muitos aplicativos escrevem no registo de eventos do Windows.  Pode recolher eventos de registos standard como sistema e da aplicação, além de especificar quaisquer registos personalizados criados por aplicativos que tem de monitorizar.
@@ -40,7 +40,7 @@ Apenas do log Analytics recolhe os eventos dos registos de eventos do Windows qu
 O log Analytics recolhe cada evento que corresponde a uma gravidade selecionada de um registo de eventos monitorado, como o evento é criado.  O agente registra seu lugar em cada registo de eventos recolhidos dos.  Se o agente ficar offline durante um período de tempo, em seguida, do Log Analytics recolhe os eventos de onde pela última vez parou, mesmo que esses eventos foram criados, enquanto o agente estava offline.  Existe um potencial para esses eventos para não ser recolhidos se o registo de eventos encapsula num wrapper com eventos uncollected seja substituídos enquanto o agente estiver offline.
 
 >[!NOTE]
->O log Analytics recolhe os eventos de auditoria criados pelo SQL Server de origem *MSSQLSERVER* com o ID de evento 18453 que contém as palavras-chave - *clássico* ou *sucesso de auditoria* e palavra-chave *0xa0000000000000*.
+>O log Analytics recolhe os eventos de auditoria criados pelo SQL Server de origem *MSSQLSERVER* com o ID de evento 18453 que contém as palavras-chave - *clássico* ou *sucesso de auditoria* e palavra-chave *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Propriedades de registos de eventos do Windows
@@ -76,6 +76,6 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registos que obter
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Configurar o Log Analytics para recolher outros [origens de dados](log-analytics-data-sources.md) para análise.
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
+* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 * Uso [campos personalizados](log-analytics-custom-fields.md) para analisar os registos de eventos em campos individuais.
 * Configurar [recolha de contadores de desempenho de](log-analytics-data-sources-performance-counters.md) dos seus agentes do Windows.

@@ -8,33 +8,32 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 21464ccfbd5712b18e46a271a93232dc3ba7d3c8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 656742727b2bd85ac93211c74d82fe11d0bc0f46
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244081"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963902"
 ---
-# <a name="global-distribution---under-the-hood"></a>Distribuição global - sob definições avançadas
+# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Distribuição do Cosmos DB de global do Azure - sob definições avançadas
 
-O Azure Cosmos DB é um serviço fundamental do Azure, para que ele é implantado em todas as regiões do Azure em todo o mundo incluindo o público, soberanas, departamento de defesa (DoD) e clouds de administração pública. No Centro de dados, implementar e gerir o serviço do Azure Cosmos DB em enormes "carimbos" de máquinas, cada um deles com armazenamento local dedicado. Dentro de um centro de dados do Azure Cosmos DB é implementado em muitos clusters, cada qual potencialmente executando várias gerações de hardware. Máquinas de um cluster normalmente são distribuídas por domínios de falha de 10 a 20.
+O Azure Cosmos DB é um serviço fundamental do Azure, para que ele é implantado em todas as regiões do Azure em todo o mundo incluindo o público, soberanas, departamento de defesa (DoD) e clouds de administração pública. No Centro de dados, implementar e gerir o Azure Cosmos DB em enormes carimbos de máquinas, cada um deles com armazenamento local dedicado. Dentro de um centro de dados do Azure Cosmos DB é implementado em muitos clusters, cada qual potencialmente executando várias gerações de hardware. Máquinas de um cluster normalmente são distribuídas por domínios de falha de 10 a 20. A imagem seguinte mostra a topologia de sistema de distribuição global do Cosmos DB:
 
 ![Topologia do sistema](./media/global-dist-under-the-hood/distributed-system-topology.png)
-**topologia do sistema**
 
-Distribuição global no Azure Cosmos DB é a chave na mão: em qualquer altura, com alguns cliques ou programaticamente com uma única chamada de API cliente pode adicionar ou remover regiões geográficas, associados com a base de dados do Cosmos. Uma base de dados do Cosmos por sua vez consiste num conjunto de contentores do Cosmos. No Cosmos DB, os contentores servem como as unidades lógicas de distribuição e a escalabilidade. As coleções, tabelas e gráficos que cria são (internamente) apenas os contentores de Cosmos. Os contentores são completamente independente de esquema e fornecer um âmbito para uma consulta. Todos os dados num contentor do Cosmos é indexado automaticamente após a ingestão. Indexação automática permite aos utilizadores consultar os dados sem ter de lidar com o esquema ou preocupações de gestão de índices, especialmente num programa de configuração distribuído globalmente.  
-
-Conforme mostrado na imagem seguinte, os dados dentro de um contêiner são distribuídos duas dimensões:  
+**Distribuição global no Azure Cosmos DB é a chave na mão:** em qualquer altura, com alguns cliques ou programaticamente com uma única chamada de API, pode adicionar ou remover regiões geográficas, associados com a base de dados do Cosmos. Uma base de dados do Cosmos por sua vez consiste num conjunto de contentores do Cosmos. No Cosmos DB, os contentores servem como as unidades lógicas de distribuição e a escalabilidade. As coleções, tabelas e gráficos que cria são (internamente) apenas os contentores de Cosmos. Os contentores são completamente independente de esquema e fornecer um âmbito para uma consulta. Dados num contentor do Cosmos são indexados automaticamente após a ingestão. Indexação automática permite aos utilizadores consultar os dados sem ter de lidar com o esquema ou preocupações de gestão de índices, especialmente num programa de configuração distribuído globalmente.  
 
 - Numa determinada região, os dados dentro de um contêiner são distribuídos ao utilizar uma chave de partição, que proporcionam e geridos de forma transparente pelas partições de recursos subjacentes (distribuição local).  
+
 - Cada partição de recursos também é replicada nas regiões geográficas (distribuição global). 
 
 Quando uma aplicação com Cosmos DB de forma elástica dimensiona o débito (ou consome mais armazenamento) num contêiner de Cosmos, Cosmos DB transparente lida com operações de gestão de partição (dividir, clonar, eliminar) em todas as regiões. Independente da escala, distribuição ou falhas, o Cosmos DB continua a fornecer uma imagem de sistema único dos dados dentro de contentores, o que são distribuídos globalmente em qualquer número de regiões.  
 
-![Partições de recursos](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
-**distribuição de partições de recursos**
+Conforme mostrado na imagem seguinte, os dados dentro de um contêiner são distribuídos duas dimensões:  
 
-Fisicamente, uma partição de recursos é implementada por um grupo de réplicas, chamado de um conjunto de réplicas. Cada máquina aloja centenas de réplicas correspondente a várias partições de recursos dentro de um conjunto fixo de processos, conforme mostrado na imagem anterior. Réplicas correspondente para as partições de recursos são colocadas de forma dinâmica e balanceamento de carga em máquinas dentro de um cluster e datacenters dentro de uma região.  
+![Partições de recursos](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+
+Uma partição de recursos é implementada por um grupo de réplicas, chamado de um conjunto de réplicas. Cada máquina aloja centenas de réplicas que correspondem às várias partições de recursos dentro de um conjunto fixo de processos, conforme mostrado na imagem anterior. Réplicas correspondente para as partições de recursos são colocadas de forma dinâmica e balanceamento de carga em máquinas dentro de um cluster e datacenters dentro de uma região.  
 
 Uma réplica pertence exclusivamente a um inquilino do Azure Cosmos DB. Cada réplica aloja uma instância do Cosmos DB [motor de base de dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), que gere os recursos, bem como os índices associados. O motor de base de dados do Cosmos DB opera num sistema de tipo baseada em registo sequência atom (ARS). O motor é agnóstico para o conceito de um esquema e desfocar os limites entre os valores de estrutura e a instância de registos. O cosmos DB alcança agnosticism de esquema completo ao indexar automaticamente tudo o que após a ingestão de uma forma eficiente, que permite aos utilizadores consultar seus dados distribuídos globalmente sem ter de lidar com a gestão de índices ou esquemas.
 

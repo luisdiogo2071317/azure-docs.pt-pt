@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe1fe5d270dd8eb871301a8ec81375f35b2568da
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0083c157eab489943f94ed1453c66a5c8d2f291a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096587"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960315"
 ---
 # <a name="smart-detection-in-application-insights"></a>Deteção inteligente no Application Insights
  Deteção inteligente automaticamente avisa-o de potenciais problemas de desempenho em seu aplicativo web. Ele faz uma análise de proativa de telemetria que a aplicação envia para o [Application Insights](app-insights-overview.md). Se houver um aumento súbito do taxas de falhas ou padrões anormais no desempenho do cliente ou servidor, será criado um alerta. Esta funcionalidade não precisa nenhuma configuração. Ele funciona se a sua aplicação enviar telemetria suficiente.
@@ -57,7 +57,7 @@ Estas ferramentas de diagnóstico ajudá-lo inspecionar a telemetria da sua apli
 
 * [Explorador de métricas](app-insights-metrics-explorer.md)
 * [Explorador de pesquisa](app-insights-diagnostic-search.md)
-* [Análise - poderosa linguagem de consultas](app-insights-analytics-tour.md)
+* [Análise - poderosa linguagem de consultas](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Deteção inteligente é totalmente automática. Mas talvez deseje configurar alguns alertas mais?
 

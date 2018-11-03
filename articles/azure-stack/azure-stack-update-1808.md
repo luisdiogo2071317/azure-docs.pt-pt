@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429070"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964123"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -157,6 +157,10 @@ Esta atualização também contém atenuação para a vulnerabilidade de canal d
 - Em determinadas circunstâncias quando uma atualização necessita de atenção, o alerta correspondente pode não ser gerado. O estado preciso ainda será refletido no portal e não é afetado.
 
 ### <a name="post-update-steps"></a>Passos de pós-atualização
+
+> [!Important]  
+> Prepare-se a implementação do Azure Stack para o anfitrião de extensão. Preparar o seu sistema usando as seguintes orientações [preparar para o anfitrião de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
+
 Após a instalação desta atualização, instale as correções aplicáveis. Para obter mais informações, consulte os seguintes artigos da base de dados de conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md). 
 - [KB 4468920 – o Azure Stack correção Azure Stack correção 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 

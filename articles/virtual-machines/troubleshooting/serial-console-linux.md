@@ -1,5 +1,5 @@
 ---
-title: Consola de série de Máquina Virtual do Azure | Documentos da Microsoft
+title: Consola de série de máquina virtual do Azure para Linux | Documentos da Microsoft
 description: Consola de série de bidirecional para máquinas virtuais do Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741713"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963823"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola de série de máquina virtual para Linux
 
@@ -33,17 +33,17 @@ Para obter documentação de consola de série para VMs do Windows, consulte [co
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-* A VM em que estiver a aceder à consola de série tem de utilizar o modelo de implementação de gestão de recursos. Implementações clássicas não são suportadas. 
+- A VM em que está a aceder à consola de série tem de utilizar o modelo de implementação de gestão de recursos. Implementações clássicas não são suportadas. 
 
-* A VM em que estiver a aceder à consola de série tem de ter [diagnósticos de arranque](boot-diagnostics.md) ativada. Selecione **diagnósticos de arranque** partir do **suporte + resolução de problemas** secção.
+- A VM em que está a aceder à consola de série tem de ter [diagnósticos de arranque](boot-diagnostics.md) ativada. 
 
     ![Definições de diagnóstico de arranque](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-Tem de ter uma conta que utiliza uma consola de série a [função de contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento: 
+- Tem de ter uma conta que utiliza uma consola de série a [função de contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para a VM e o [diagnósticos de arranque](boot-diagnostics.md) conta de armazenamento: 
 
-* A VM em que estiver a aceder à consola de série tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) função da extensão de acesso VM. Selecione **Repor palavra-passe** partir do **suporte + resolução de problemas** secção. 
+    - A VM em que está a aceder à consola de série tem de ter uma conta baseada em palavra-passe. Pode criar uma com o [Repor palavra-passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) função da extensão de acesso VM. Selecione **Repor palavra-passe** partir do **suporte + resolução de problemas** secção. 
 
-* Para configurações específicas de distribuições do Linux, consulte [consola de série disponibilidade de distribuição de Linux](#serial-console-linux-distribution-availability).
+    - Para configurações específicas de distribuições do Linux, consulte [consola de série disponibilidade de distribuição de Linux](#serial-console-linux-distribution-availability).
 
 
 
@@ -51,12 +51,14 @@ Tem de ter uma conta que utiliza uma consola de série a [função de contribuin
 A consola de série para máquinas virtuais é acessível apenas através do portal do Azure:
 
   1. Abra o [Portal do Azure](https://portal.azure.com).
+
   1. No menu da esquerda, selecione **máquinas virtuais**.
+
   1. Selecione uma VM na lista. É aberta a página de descrição geral para a VM.
+
   1. Desloque para baixo para o **suporte + resolução de problemas** secção e selecione **consola de série**. Um novo painel com a consola de série abre e começa a ligação.
 
-   ![Janela de consola de série do Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Janela de consola de série do Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

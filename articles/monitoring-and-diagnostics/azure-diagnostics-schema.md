@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 2c3b2ecc1467a09ae490d23c45e7a000f4afe49a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976912"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963806"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões do esquema de configuração de extensão do Azure Diagnostics e o histórico
 Esta página de índices versões de esquema de extensão de diagnóstico do Azure fornecidos como parte do SDK do Microsoft Azure.  
@@ -29,7 +29,7 @@ Esta página de índices versões de esquema de extensão de diagnóstico do Azu
 >
 > Esta página só é relevante se estiver a utilizar um destes serviços.
 
-A extensão de diagnóstico do Azure é utilizada com outros produtos de diagnóstico do Microsoft, como o Azure Monitor, o Application Insights e o Log Analytics. Para obter mais informações, consulte [descrição de geral de ferramentas de monitorização Microsoft](monitoring-overview.md).
+A extensão de diagnóstico do Azure é utilizada com outros produtos de diagnóstico do Microsoft, como o Azure Monitor, o Application Insights e o Log Analytics. Para obter mais informações, consulte [descrição de geral de ferramentas de monitorização Microsoft](../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Versões SDK e o diagnóstico do Azure, gráfico de envio  
 

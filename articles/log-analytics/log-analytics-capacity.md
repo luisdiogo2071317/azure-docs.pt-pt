@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182625"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961947"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planear a capacidade de máquina virtual de Hyper-V com a solução de capacidade e desempenho (pré-visualização)
 
@@ -50,8 +50,8 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 | Origem Ligada | Suporte | Descrição |
 |---|---|---|
-| [Agentes do Windows](log-analytics-windows-agent.md) | Sim | A solução recolhe informações de dados de capacidade e desempenho de agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não    | A solução não recolhe informações de dados de capacidade e desempenho de agentes diretos do Linux.|
+| [Agentes do Windows](log-analytics-agent-windows.md) | Sim | A solução recolhe informações de dados de capacidade e desempenho de agentes do Windows. |
+| [Agentes do Linux](log-analytics-quick-collect-linux-computer.md) | Não    | A solução não recolhe informações de dados de capacidade e desempenho de agentes diretos do Linux.|
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Sim |A solução recolhe dados de capacidade e desempenho de agentes num grupo de gestão ligado do SCOM. Não é necessária uma conexão direta do agente do SCOM para o Log Analytics.|
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | O armazenamento do Azure não inclui dados de capacidade e desempenho.|
 
@@ -64,7 +64,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 Execute o passo seguinte para adicionar a solução de capacidade e desempenho à sua área de trabalho.
 
-- Adicionar a solução de capacidade e desempenho à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](log-analytics-add-solutions.md).
+- Adicionar a solução de capacidade e desempenho à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
@@ -138,4 +138,4 @@ A tabela seguinte disponibiliza pesquisas de registo de exemplo para dados de ca
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](log-analytics-log-search.md) para ver os dados detalhados de capacidade e desempenho.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-queries.md) para ver os dados detalhados de capacidade e desempenho.

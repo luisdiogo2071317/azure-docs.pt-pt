@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 00ce57dbff749d4ee906e0e7dae1d828ef85326f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240142"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962066"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -154,7 +154,8 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links ant
 
 ### <a name="post-update-steps"></a>Passos de pós-atualização
 
-*Não há nenhuma etapa posterior à atualização para atualização 1809.*
+> [!Important]  
+> Prepare-se a implementação do Azure Stack para o anfitrião de extensão que está ativada pelo pacote de atualização seguinte. Preparar o seu sistema usando as seguintes orientações [preparar para o anfitrião de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [Link to KB]()  

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f5db8c4e8137d9758113210ad433278eb8f5a2ee
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404074"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962134"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
 
@@ -54,8 +54,8 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 | Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não recolhe informações de agentes do Linux. |
+| [Agentes do Windows](log-analytics-agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Linux](log-analytics-quick-collect-linux-computer.md) | Não | A solução não recolhe informações de agentes do Linux. |
 | [Grupo de gestão do SCOM](log-analytics-om-agents.md) | Não | A solução não recolhe informações de agentes num grupo de gestão ligado do SCOM. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não recolhe informações do armazenamento do Azure. |
 
@@ -67,7 +67,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 Execute os seguintes passos para configurar a solução Log Analytics da atividade para as áreas de trabalho.
 
-1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md).
+1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../monitoring/monitoring-solutions.md).
 2. Configure registos de atividades para aceder à sua área de trabalho do Log Analytics.
     1. No portal do Azure, selecione a sua área de trabalho e, em seguida, clique em **registo de atividades do Azure**.
     2. Para cada subscrição, clique no nome da subscrição.  
@@ -100,5 +100,5 @@ Dados de registo de atividade só é apresentado *depois de* que configurou os s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Criar uma [alerta](log-analytics-alerts-creating.md) quando ocorre uma atividade específica.
-- Uso [pesquisa de registos](log-analytics-log-searches.md) para ver informações detalhadas de registos de atividades.
+- Criar uma [alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) quando ocorre uma atividade específica.
+- Uso [pesquisa de registos](log-analytics-log-search.md) para ver informações detalhadas de registos de atividades.

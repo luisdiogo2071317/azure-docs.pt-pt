@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af8248bb68068c20d62a2d8cc1e86fd9997a740c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258003"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962968"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>O registo de atividades do Azure para os Hubs de eventos do Stream
 Pode transmitir em fluxo a [registo de atividades do Azure](monitoring-overview-activity-logs.md) em tempo real para qualquer aplicativo, por qualquer um:
@@ -101,5 +101,5 @@ O esquema para o registo de atividades está disponível no [monitorizar a ativi
 ## <a name="next-steps"></a>Passos Seguintes
 * [Arquive o registo de atividades para uma conta de armazenamento](monitoring-archive-activity-log.md)
 * [Leia a visão geral do registo de atividades do Azure](monitoring-overview-activity-logs.md)
-* [Configurar um alerta com base num evento do registo de atividade](insights-auditlog-to-webhook-email.md)
+* [Configurar um alerta com base num evento do registo de atividade](monitor-alerts-unified-log-webhook.md)
 

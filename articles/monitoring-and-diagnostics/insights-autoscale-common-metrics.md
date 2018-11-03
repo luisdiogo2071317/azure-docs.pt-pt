@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 48c53b1b0c037e6bcfea3be49fdd2110e1e694b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2a231de3eaa67a656fb90d6498d36a226ff8622
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970707"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963069"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns do Azure Monitor dimensionamento automático
 Dimensionamento automático de Monitor do Azure permite-lhe dimensionar o número de instâncias em execução ou reduzir verticalmente, com base nos dados de telemetria (Métrica). Este documento descreve as métricas comuns que pode querer utilizar. No portal do Azure, pode escolher a métrica do recurso para reduzir horizontalmente para. No entanto, também pode escolher qualquer métrica entre um recurso diferente para reduzir horizontalmente para.
@@ -29,7 +29,7 @@ Se estiver a utilizar conjuntos de dimensionamento VM e não vir uma métrica em
 
 Se uma métrica em particular não está a ser objeto de amostragem ou transferidos com a frequência que quiser, pode atualizar a configuração de diagnósticos.
 
-Se ambos os casos anterior for VERDADEIRO, em seguida, reveja [utilize o PowerShell para ativar o diagnóstico do Azure numa máquina virtual a executar o Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) sobre o PowerShell para configurar e atualizar a extensão de diagnóstico de VM do Azure para ativar a métrica. Esse artigo também inclui um ficheiro de configuração de diagnósticos de exemplo.
+Se ambos os casos anterior for VERDADEIRO, em seguida, reveja [utilize o PowerShell para ativar o diagnóstico do Azure numa máquina virtual a executar o Windows](../virtual-machines/extensions/diagnostics-windows.md) sobre o PowerShell para configurar e atualizar a extensão de diagnóstico de VM do Azure para ativar a métrica. Esse artigo também inclui um ficheiro de configuração de diagnósticos de exemplo.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de anfitrião para o Windows baseados no Resource Manager e VMs do Linux
 As seguintes métricas ao nível do anfitrião são emitidas por padrão para VM do Azure e o VMSS em instâncias do Windows e Linux. Estas métricas descrevem a sua VM do Azure, mas são recolhidas a partir do anfitrião de VM do Azure, em vez de através do agente instalado na VM do convidado. Pode utilizar estas métricas nas regras de dimensionamento automático.

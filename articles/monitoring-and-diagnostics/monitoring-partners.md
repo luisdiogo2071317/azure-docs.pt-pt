@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 8ffeac78b809ea19163360e85d1c841c55b2364a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: eb60afc21b7f8e21c4573e46165696c3461d3613
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914623"
+ms.locfileid: "50963868"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 | Parceiros |  |  |
@@ -164,7 +164,7 @@ O Turbonomic entrega uma automação de carga de trabalho para clouds híbridas 
 
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Saiba mais sobre o Azure Monitor](monitoring-overview.md)
+* [Saiba mais sobre o Azure Monitor](../azure-monitor/overview.md)
 * [Métricas de acesso através da API REST](monitoring-rest-api-walkthrough.md)
 * [Stream o registo de atividades para um serviço de terceiros](monitoring-stream-activity-logs-event-hubs.md)
 * [Registos de diagnóstico do Stream para um serviço de terceiros](monitoring-stream-diagnostic-logs-to-event-hubs.md)

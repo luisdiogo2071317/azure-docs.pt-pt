@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 39e11f35870fa3a3573e5f1af467cfbd898a1563
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5f5bfe6c730f569f0cc902b0e0a132bfca645a45
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182149"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961692"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
@@ -212,7 +212,7 @@ Cada recomendação inclui documentação de orientação sobre por que é impor
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Recomendações de área de foco de verificação de integridade de utilização
 
-Antes de poder utilizar uma solução de verificação de estado de funcionamento no Log Analytics, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, veja [instalar uma solução de gestão](log-analytics-add-solutions.md). Depois de ser instalado, pode ver o resumo de recomendações por meio do mosaico do Center Operations Manager estado de funcionamento da verificação do sistema no **descrição geral** page de sua área de trabalho no portal do Azure.
+Antes de poder utilizar uma solução de verificação de estado de funcionamento no Log Analytics, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, veja [instalar uma solução de gestão](../monitoring/monitoring-solutions.md). Depois de ser instalado, pode ver o resumo de recomendações por meio do mosaico do Center Operations Manager estado de funcionamento da verificação do sistema no **descrição geral** page de sua área de trabalho no portal do Azure.
 
 Ver as avaliações de conformidade resumidos para sua infraestrutura e, em seguida, no teste de recomendações.
 
@@ -238,7 +238,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search-upgrade.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search-upgrade.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Pesquisar registos](log-analytics-log-searches.md) para saber como analisar dados detalhados de verificação do System Center Operations Manager estado de funcionamento e recomendações.
+- [Pesquisar registos](log-analytics-log-search.md) para saber como analisar dados detalhados de verificação do System Center Operations Manager estado de funcionamento e recomendações.

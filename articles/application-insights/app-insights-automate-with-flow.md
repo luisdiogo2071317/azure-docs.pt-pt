@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299105"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962882"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Azure Application Insights com o conector para o Microsoft Flow
 
@@ -47,7 +47,7 @@ Neste tutorial, irá aprender como criar um fluxo que utiliza o algoritmo de clu
 ### <a name="step-3-add-an-application-insights-action"></a>Passo 3: Adicionar uma ação do Application Insights
 1. Clique em **novo passo**e, em seguida, clique em **adicionar uma ação**.
 1. Procure **Azure Application Insights**.
-1. Clique em **pré-visualização de consulta do Azure Application Insights – análise de visualizar**.
+1. Clique em **pré-visualização de consulta do Azure Application Insights - Analytics visualizar**.
 
     ![Execute a janela de consulta do Analytics](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -85,7 +85,7 @@ Ao criar suas próprias consultas, certifique-se de que estão a funcionar corre
 
 1. Clique em **novo passo**e, em seguida, clique em **adicionar uma ação**.
 1. Procure **Outlook do Office 365**.
-1. Clique em **Office 365 Outlook – enviar um e-mail**.
+1. Clique em **Office 365 Outlook - enviar um e-mail**.
 
     ![Janela de seleção do Outlook do Office 365](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -125,7 +125,7 @@ Quando o fluxo é executado, os destinatários que especificou na lista de corre
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre a criação [consultas de análise](app-insights-analytics-using.md).
+- Saiba mais sobre a criação [consultas de análise](../log-analytics/query-language/get-started-queries.md).
 - Saiba mais sobre [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

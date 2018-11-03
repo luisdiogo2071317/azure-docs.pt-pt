@@ -15,28 +15,28 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 29cc2cdc13d07d97bb1da872cbf53ea5353a0e16
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: e0bc49fb3b85decb97366b62771a191702149b1a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044591"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960536"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
 ![Ícone de gestão de alertas](media/log-analytics-solution-alert-management/icon.png)
 
-A solução de gestão de alertas ajuda a analisar todos os alertas no seu repositório do Log Analytics.  Estes alertas podem proveniente de uma variedade de origens, incluindo essas origens [criado pelo Log Analytics](log-analytics-alerts.md) ou [importados a partir do Nagios ou Zabbix](log-analytics-linux-agents.md). A solução importa também alertas a partir de qualquer [ligadas a grupos de gestão do System Center Operations Manager](log-analytics-om-agents.md).
+A solução de gestão de alertas ajuda a analisar todos os alertas no seu repositório do Log Analytics.  Estes alertas podem proveniente de uma variedade de origens, incluindo essas origens [criado pelo Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) ou [importados a partir do Nagios ou Zabbix](log-analytics-quick-collect-linux-computer.md). A solução importa também alertas a partir de qualquer [ligadas a grupos de gestão do System Center Operations Manager](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 A solução funciona com quaisquer registos no repositório do Log Analytics com o tipo de **alerta**, por isso, tem de efetuar qualquer configuração é necessária para recolher estes registos.
 
-- Para os alertas do Log Analytics, [criar regras de alerta](log-analytics-alerts.md) para criar registos de alerta diretamente no repositório.
-- Para os alertas do Nagios e do Zabbix, [configurar esses servidores](log-analytics-linux-agents.md) para enviar alertas para o Log Analytics.
+- Para os alertas do Log Analytics, [criar regras de alerta](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para criar registos de alerta diretamente no repositório.
+- Para os alertas do Nagios e do Zabbix, [configurar esses servidores](log-analytics-quick-collect-linux-computer.md) para enviar alertas para o Log Analytics.
 - Para os alertas do System Center Operations Manager, [ligar o seu grupo de gestão do Operations Manager à sua área de trabalho do Log Analytics](log-analytics-om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração
-Adicionar a solução de gestão de alertas à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](log-analytics-add-solutions.md). Não há nenhuma configuração adicional.
+Adicionar a solução de gestão de alertas à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](../monitoring/monitoring-solutions.md). Não há nenhuma configuração adicional.
 
 ## <a name="management-packs"></a>Pacotes de gestão
 Se o grupo de gestão do System Center Operations Manager estiver ligado à sua área de trabalho do Log Analytics, os seguintes pacotes de gestão são instalados no System Center Operations Manager quando adicionar esta solução.  Não existe nenhuma configuração ou a manutenção dos pacotes de gestão necessário.
@@ -51,8 +51,8 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 | Origem Ligada | Suporte | Descrição |
 |:--- |:--- |:--- |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do log Analytics podem ser criadas a partir de eventos e dados de desempenho recolhidos a partir de Windows agentes. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do log Analytics podem ser criadas do eventos e dados de desempenho recolhidas pelos agentes do Linux.  Alertas do Nagios e do Zabbix são recolhidas a partir desses servidores que exigem o agente do Linux. |
+| [Agentes do Windows](log-analytics-agent-windows.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do log Analytics podem ser criadas a partir de eventos e dados de desempenho recolhidos a partir de Windows agentes. |
+| [Agentes do Linux](log-analytics-quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do log Analytics podem ser criadas do eventos e dados de desempenho recolhidas pelos agentes do Linux.  Alertas do Nagios e do Zabbix são recolhidas a partir desses servidores que exigem o agente do Linux. |
 | [Grupo de gestão do System Center Operations Manager](log-analytics-om-agents.md) |Sim |Alertas que são gerados em agentes do Operations Manager são entregues para o grupo de gestão e, depois, reencaminhadas para o Log Analytics.<br><br>Não é necessária uma conexão direta de agentes do Operations Manager ao Log Analytics. Dados de alertas são reencaminhados do grupo de gestão para o repositório do Log Analytics. |
 
 
@@ -74,7 +74,7 @@ Clique nas **gestão de alertas** mosaico para abrir o **gestão de alertas** da
 | Alertas SCOM Ativos |Todos os alertas recolhidos a partir do Operations Manager com qualquer Estado diferente de *fechado* agrupados por origem que gerou o alerta. |
 | Todos os alertas ativos |Todos os alertas com qualquer gravidade agrupados por nome do alerta. Inclui apenas alertas do Operations Manager com qualquer Estado diferente de *fechado*. |
 
-Se se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar uma [pesquisa de registos](log-analytics-log-searches.md) para dados de alertas.
+Se se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar uma [pesquisa de registos](log-analytics-log-search.md) para dados de alertas.
 
 ![Dashboard de gestão de alertas](media/log-analytics-solution-alert-management/dashboard.png)
 
@@ -123,4 +123,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para esta solu�
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Veja o artigo [Alerts in Log Analytics](log-analytics-alerts.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics.
+* Veja o artigo [Alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics.

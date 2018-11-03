@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0ca9cf0ff75ea76cd2dc203fbdb37162ed1ace34
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415267"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962763"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 
@@ -58,7 +58,7 @@ O dashboard **Utilização do Log Analytics** apresenta as informações seguint
 3. Na lista de áreas de trabalho do Log Analytics, selecione uma área de trabalho.
 4. Selecione **Utilização e custos estimados** da lista no painel esquerdo.
 5. No dashboard **Utilização e custos estimados**, pode modificar o intervalo de tempo ao selecionar **Período: últimas 24 horas** e alterar o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Veja os painéis da categoria de utilização que mostra áreas em que está interessado. Escolha um painel e clique num item no mesmo para ver mais detalhes na [Pesquisa de Registos](log-analytics-log-searches.md).<br><br> ![exemplo de kpi de utilização de dados](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Veja os painéis da categoria de utilização que mostra áreas em que está interessado. Escolha um painel e clique num item no mesmo para ver mais detalhes na [Pesquisa de Registos](log-analytics-log-search.md).<br><br> ![exemplo de kpi de utilização de dados](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. No dashboard da Pesquisa de Registos, reveja os resultados devolvidos pela pesquisa.<br><br> ![exemplo de pesquisa de registos de utilização](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a recolha de dados for superior ao esperado
@@ -78,7 +78,7 @@ A consulta seguinte utiliza uma fórmula simples para prever quando é que vão 
 
 Para alertar relativamente a volumes de dados diferentes, altere o 100 nas consultas para o número de GB para o qual quer receber o alerta.
 
-Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) (criar um novo alerta de registo) para ser notificado de quando a recolha de dados for superior ao esperado.
+Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) (criar um novo alerta de registo) para ser notificado de quando a recolha de dados for superior ao esperado.
 
 Quando criar o alerta para a primeira consulta – quando existem mais de 100 GB de dados em 24 horas –, defina:  
 
@@ -163,19 +163,19 @@ Utilize os seguintes passos para reduzir o volume de registos recolhidos:
 | Registos de eventos                 | Altere a [configuração do registo de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
 | Syslog                     | Altere a [configuração do syslog](log-analytics-data-sources-syslog.md) para: <br> - Reduzir o número de instalações recolhidas <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* e *Depuração* |
 | AzureDiagnostics           | Alterar a coleção de registo de recursos para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
-| Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
+| Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../monitoring/monitoring-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verificar se há mais nós do que o esperado
 Se estiver a utilizar o *por nó (Log Analytics)* escalão de preço, em seguida, é cobrado com base no número de nós e soluções que utiliza. Pode ver quantos nós de cada oferta estão a ser utilizados na secção *ofertas* do dashboard de utilização.<br><br> ![dashboard de utilização](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Clique em **Ver todos...** para ver a lista completa dos computadores que estão a enviar dados para a oferta selecionada.
 
-Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
+Utilize a [segmentação de soluções](../monitoring/monitoring-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Veja [Pesquisas de registos no Log Analytics](log-analytics-log-searches.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
-* Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
-* Utilize a [segmentação de soluções](../operations-management-suite/operations-management-suite-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
+* Veja [Pesquisas de registos no Log Analytics](log-analytics-log-search.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
+* Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
+* Utilize a [segmentação de soluções](../monitoring/monitoring-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 * Para configurar uma política de recolha de eventos de segurança eficaz, veja [Política de filtragem do Centro de Segurança do Azure](../security-center/security-center-enable-data-collection.md).
 * Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md).
 * Para modificar as definições da recolha de eventos, veja [configuração do registo de eventos](log-analytics-data-sources-windows-events.md).

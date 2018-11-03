@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117617"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962202"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Alertas unificadas no Azure Monitor
 
@@ -82,9 +82,9 @@ Criar uma nova regra de alerta com os seguintes três passos:
  
 Este processo de criação simplificado já não necessita de saber a origem de monitorização ou sinais que são suportados antes de selecionar um recurso do Azure. A lista de sinais disponíveis automaticamente é filtrada com base no recurso de destino que selecionou, e ele orienta por meio de definir a lógica de regra de alerta.
 
-Pode saber mais sobre como criar regras de alerta no [criar, ver e gerir alertas ao utilizar o Azure Monitor](monitor-alerts-unified-usage.md).
+Pode saber mais sobre como criar regras de alerta no [criar, ver e gerir alertas ao utilizar o Azure Monitor](alert-metric.md).
 
-Alertas estão disponíveis em todo o Azure vários serviços de monitorização. Para obter informações sobre como e quando usar cada um desses serviços, consulte [aplicações de monitorização do Azure e recursos](./monitoring-overview.md). A tabela seguinte fornece uma listagem dos tipos de regras de alerta que estão disponíveis em todo o Azure. Também apresenta o que é atualmente suportado pela experiência unificada de alerta.
+Alertas estão disponíveis em todo o Azure vários serviços de monitorização. Para obter informações sobre como e quando usar cada um desses serviços, consulte [aplicações de monitorização do Azure e recursos](../azure-monitor/overview.md). A tabela seguinte fornece uma listagem dos tipos de regras de alerta que estão disponíveis em todo o Azure. Também apresenta o que é atualmente suportado pela experiência unificada de alerta.
 
 | **Origem de monitor** | **Tipo de sinal**  | **Descrição** | 
 |-------------|----------------|-------------|
@@ -169,9 +169,9 @@ Selecione os seguintes valores na parte superior da página de alertas para abri
 
 | Valor | Descrição |
 |:---|:---|
-| Total de alertas | O número total de alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a vista de todos os alertas com nenhum filtro. |
+| Alertas totais | O número total de alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a vista de todos os alertas com nenhum filtro. |
 | Grupos inteligentes | O número total de grupos inteligentes que foram criadas a partir os alertas que correspondam aos critérios selecionados. Selecione este valor para abrir a lista de grupos inteligente na vista de todos os alertas.
-| Total de regras de alerta | O número total de regras de alerta do grupo de recursos e subscrição selecionados. Selecione este valor para abrir a vista de regras filtrado com base na subscrição selecionada e o grupo de recursos.
+| Regras de alertas totais | O número total de regras de alerta do grupo de recursos e subscrição selecionados. Selecione este valor para abrir a vista de regras filtrado com base na subscrição selecionada e o grupo de recursos.
 
 
 ### <a name="all-alerts-page"></a>Página de todos os alertas 
@@ -224,7 +224,7 @@ A página de detalhes do grupo inteligente inclui as secções seguintes.
 | Histórico | Apresenta uma lista de cada ação tomada pelo grupo de smart e quaisquer alterações efetuadas ao mesmo. Isso está limitado a alterações de estado e as alterações na associação de alerta. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-- [Saiba como utilizar a nova experiência de alertas para criar, ver e gerir alertas](monitor-alerts-unified-usage.md)
+- [Saiba como utilizar a nova experiência de alertas para criar, ver e gerir alertas](alert-metric.md)
 - [Saiba mais sobre alertas de registo na experiência de alertas](monitor-alerts-unified-log.md)
 - [Saiba mais sobre alertas de métricas na experiência de alertas](monitoring-near-real-time-metric-alerts.md)
-- [Saiba mais sobre alertas de registo de atividade na experiência de alertas](monitoring-activity-log-alerts-new-experience.md)
+- [Saiba mais sobre alertas de registo de atividade na experiência de alertas](alert-activity-log.md)

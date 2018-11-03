@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406539"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962542"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Atualizar para a pilha de cópia de segurança do Azure VM V2
 
@@ -28,8 +28,8 @@ O modelo de implementação do Resource Manager para a atualização para a pilh
 
 * Capacidade de utilizar contas de armazenamento originais de uma VM não gerida, ao restaurar. Esta capacidade existe mesmo quando a VM tem discos que são distribuídos em contas de armazenamento. Ela acelera as operações de restauro para uma grande variedade de configurações de VM.
     > [!NOTE]
-    > Esta capacidade não é igual ao substituir os discos da VM com dados de ponto de recuperação. 
-    
+    > Esta capacidade não é igual ao substituir os discos da VM com dados de ponto de recuperação.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>O que está mudando na pilha de novo?
 Atualmente, a tarefa de cópia de segurança consiste em duas fases:
@@ -55,7 +55,7 @@ Por predefinição, os instantâneos são mantidos durante sete dias. Esta funci
 * Para contas de armazenamento premium, os instantâneos tirados para contagem de pontos de recuperação imediata para o limite de 10 TB de espaço em atribuído.
 
 > [!NOTE]
-> Atualização para a pilha de cópia de segurança do Azure VM V2 para obter suporte de cópia de segurança do Azure para o [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) e máquinas virtuais com até 32 discos de dados.
+> Atualização para a pilha de cópia de segurança do Azure VM V2 para obter suporte de cópia de segurança do Azure para o [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## <a name="upgrade"></a>Atualizar
 ### <a name="the-azure-portal"></a>O portal do Azure
@@ -119,4 +119,4 @@ Por dia é obtido um instantâneo de novo. Existem sete instantâneos individuai
 Instantâneos incrementais são utilizados para discos não geridos. Para discos geridos, coleção criada por cópia de segurança do Azure utiliza instantâneos de blob e, por conseguinte, são incremental de ponto de restauro.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Como obter SSD padrão geridos pelo suporte de disco para uma máquina virtual?
-Atualização para a pilha de cópia de segurança do Azure VM V2 para obter suporte de cópia de segurança do Azure para o [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Depois de atualizar, pode também fazer backup de máquinas virtuais com até 32 discos de dados.
+Atualização para a pilha de cópia de segurança do Azure VM V2 para obter suporte de cópia de segurança do Azure para o [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).

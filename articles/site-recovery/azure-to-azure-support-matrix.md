@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: ad6bf2db44996684096deb2b351301e450d80249
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5cce3005a0058604136e05d9c3bf9700d5296bf3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747971"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964083"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -204,7 +204,7 @@ Contas de armazenamento para fins gerais V2 (camada de acesso tanto frequente ou
 ## <a name="replicated-machines---networking"></a>Máquinas replicadas - rede
 **Configuração** | **Suporte** | **Detalhes**
 --- | --- | ---
-NIC | Número máximo suportado para um tamanho de VM do Azure pecíficas | NICs são criados quando a VM é criada durante a ativação pós-falha.<br/><br/> O número de NICs na VM de ativação pós-falha depende do número de NICs na VM de origem quando a replicação foi ativada. Se adicionar ou remover um NIC depois de ativar a replicação, não afetar o número de NICs na VM replicada após a ativação pós-falha.
+NIC | Número máximo suportado para um tamanho de VM do Azure específico | NICs são criados quando a VM é criada durante a ativação pós-falha.<br/><br/> O número de NICs na VM de ativação pós-falha depende do número de NICs na VM de origem quando a replicação foi ativada. Se adicionar ou remover um NIC depois de ativar a replicação, não afetar o número de NICs na VM replicada após a ativação pós-falha.
 Balanceador de Carga de Externo | Suportadas | Associe o Balanceador de carga pré-configurada com um script de automatização do Azure num plano de recuperação.
 Balanceador de carga interno | Suportadas | Associe o Balanceador de carga pré-configurada com um script de automatização do Azure num plano de recuperação.
 Endereço IP público | Suportadas | Associar um endereço IP público existente com a NIC. Em alternativa, crie um endereço IP público e associe-ao NIC com usando um script de automatização do Azure num plano de recuperação.

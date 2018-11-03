@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5effed58ea0fab9051470a44be30fbb3a7fd7feb
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409157"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962661"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
@@ -28,7 +28,7 @@ A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log A
 A API de REST de pesquisa do Log Analytics é RESTful e pode ser acedido através da API de REST do Azure Resource Manager. Neste documento, encontrará exemplos em que a API é acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. O uso de ARMClient e o PowerShell é uma das muitas opções para acessar a API de pesquisa do Log Analytics. Com essas ferramentas, pode utilizar o Gestor de recursos do API RESTful do Azure para fazer chamadas para áreas de trabalho do Log Analytics e executar comandos de pesquisa dentro dos mesmos. A API irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados da pesquisa de muitas formas diferentes através de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](log-analytics-log-search-api.md) para obter mais informações.
+Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](log-analytics-log-search.md) para obter mais informações.
 
 ## <a name="schedules"></a>Agendas
 Uma pesquisa guardada pode ter uma ou mais agendas. O plano define a frequência com que a pesquisa é a execução e o intervalo de tempo durante o qual os critérios é identificado.
@@ -451,8 +451,7 @@ Segue-se um exemplo completo para criar um novo alerta de e-mail.  Esta ação c
     $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
     armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
 
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
+    $emailJson = "{'properties': {"Name": 'MyEmailAction', 'Versão':"1', 'gravidade":"Aviso","Type": 'Limiar de alerta',' ': {'Operador':"gt","Value": 10},"EmailNotification": {"Destinatários": ['recipient1@contoso.com','recipient2@contoso.com'],"Assunto":" Este é o assunto ", 'Anexo': 'None'}}" armclient colocar /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/ ações / $actionId /? api-version = 2015-03-20 $emailJson
 
 #### <a name="webhook-actions"></a>Ações de Webhook
 Ações de Webhook iniciar um processo chamando uma URL e, opcionalmente, fornecendo um payload de envio.  Eles são semelhantes às ações de remediação, exceto que eles se destinam-se a webhooks que pode invocar processos que não seja runbooks de automatização do Azure.  Eles fornecem também a opção adicional de fornecer um payload possível entregar o processo remoto.
@@ -511,6 +510,6 @@ Utilize o método Put com um ID de ação existente para modificar uma ação do
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilize o [API REST para realizar pesquisas de registos](log-analytics-log-search-api.md) no Log Analytics.
+* Utilize o [API REST para realizar pesquisas de registos](log-analytics-log-search.md) no Log Analytics.
 * Saiba mais sobre [alertas de registo nos alertas do azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

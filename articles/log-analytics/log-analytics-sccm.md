@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad5721ff7304629ba786b1fed308ccb05b4a5211
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418080"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962729"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Ligar o Configuration Manager ao Log Analytics
 Pode ligar o seu ambiente do System Center Configuration Manager para o Azure Log Analytics para sincronizar dados de coleção de dispositivo e fazem referência a essas coleções no Log Analytics e a automatização do Azure.  
@@ -69,7 +69,7 @@ Para adicionar a ligação do Log Analytics, o ambiente do Configuration Manager
    
 2. Sobre o **gerais** ecrã, confirme que o tiver feito as seguintes ações e que tiver os detalhes para cada item, em seguida, selecione **próxima**.
 
-   1. No portal do Azure, se registra o Configuration Manager como uma aplicação de aplicativo Web e/ou Web API e de que tem o [ID de cliente do registo](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   1. No portal do Azure, se registra o Configuration Manager como uma aplicação de aplicativo Web e/ou Web API e de que tem o [ID de cliente do registo](../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
    2. No portal do Azure, que criou uma chave secreta da aplicação para a aplicação registada no Azure Active Directory.  
    3. No portal do Azure, que forneceu a aplicação web registada com permissão para aceder ao Log Analytics.  
       ![Ligação à página geral de assistente do Log Analytics](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ Depois das coleções são importadas, pode ver quantos computadores com associa
 
 ![Grupos de computadores - separador do SCCM](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-Quando clicar em qualquer um, é aberta a pesquisa, exibindo a todos os grupos importados ou todos os computadores que pertencem a cada grupo. Usando [pesquisa de registos](log-analytics-log-searches.md), pode iniciar uma análise aprofundada de dados do Configuration Manager.
+Quando clicar em qualquer um, é aberta a pesquisa, exibindo a todos os grupos importados ou todos os computadores que pertencem a cada grupo. Usando [pesquisa de registos](log-analytics-log-search.md), pode iniciar uma análise aprofundada de dados do Configuration Manager.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisa de registos](log-analytics-log-searches.md) para ver informações detalhadas sobre os seus dados do Configuration Manager.
+* Uso [pesquisa de registos](log-analytics-log-search.md) para ver informações detalhadas sobre os seus dados do Configuration Manager.

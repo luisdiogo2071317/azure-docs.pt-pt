@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 526ba73858322ee41f649a338f22226da6af33e7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421191"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964086"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
@@ -157,13 +157,13 @@ O dashboard também fornece informações sobre o estado do conector que pode se
 
 Também é possível visualizar os incidentes sincronizados em relação aos computadores afetados, dentro da solução mapa de serviço.
 
-Mapa de serviço Deteta os componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre serviços automaticamente. Permite-lhe ver seus servidores, à medida que considerá-los – como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária que a instalação de um agente. [Saiba mais](../operations-management-suite/operations-management-suite-service-map.md).
+Mapa de serviço Deteta os componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre serviços automaticamente. Permite-lhe ver seus servidores, à medida que considerá-los – como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária que a instalação de um agente. [Saiba mais](../monitoring/monitoring-service-map.md).
 
 Se estiver a utilizar a solução mapa de serviço, pode ver os itens de suporte técnico de serviço criados nas soluções ITSM, conforme mostrado no exemplo a seguir:
 
 ![Ecrã do log Analytics](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Obter mais informações: [mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md)
+Obter mais informações: [mapa de serviço](../monitoring/monitoring-service-map.md)
 
 
 ## <a name="additional-information"></a>Informações adicionais

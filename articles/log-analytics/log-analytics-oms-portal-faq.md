@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f28a636f4df1343431762cf1eb8aec9b660f2e2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419797"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962508"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.
@@ -82,7 +82,7 @@ Gerir a maioria das definições de origem ligado na **definições avançadas**
 | Servidores Linux   | **Definições avançadas** menu para a área de trabalho. |
 | Storage do Azure     | **Definições avançadas** menu para a área de trabalho. |
 | System Center     | **Definições avançadas** menu para a área de trabalho. |
-| Office 365        | Consulte a [documentação para solução de gestão do Office 365](../operations-management-suite/oms-solution-office-365.md) para obter detalhes de configuração. |
+| Office 365        | Consulte a [documentação para solução de gestão do Office 365](../monitoring/monitoring-solution-office-365.md) para obter detalhes de configuração. |
 | Telemetria Windows | Menu de definições para a solução. Ver [Windows Analytics no portal do Azure](/windows/deployment/update/windows-analytics-azure-portal) para obter detalhes de configuração. |
 | Conector ITSM    | Ver [produtos/serviços de estabelecer ligação ITSM com o conector de gestão do serviço de TI](../log-analytics/log-analytics-itsmc-connections.md) para obter instruções sobre como ligar o seu serviço ITSM com o Log Analytics. |
 

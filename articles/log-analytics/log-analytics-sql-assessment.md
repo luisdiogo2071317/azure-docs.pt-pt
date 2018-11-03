@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: be2fd826ffa658ec04bd937036e37bf55cbf65a4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407729"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964140"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente de SQL com a solução de verificação de estado de funcionamento do SQL Server no Log Analytics
 
@@ -53,7 +53,7 @@ Depois de adicionar a solução e uma avaliação é concluído, resumo informa�
 
 Para efetuar a verificação de estado de funcionamento em relação a seus servidores do SQL Server, necessitam de um agente e a conectividade para o Log Analytics através de um dos seguintes métodos suportados:
 
-1. Instalar o [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) se o servidor já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
+1. Instalar o [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) se o servidor já não é monitorizado pelo System Center 2016 - Operations Manager ou do Operations Manager 2012 R2.
 2. Se está a ser monitorizado com o System Center 2016 - Operations Manager ou do Operations Manager 2012 R2 e o grupo de gestão não estiver integrado com o serviço Log Analytics, o servidor pode ser multihomed com o Log Analytics para recolher dados e reencaminhar para o serviço e ainda monitorizados pelo Operations Manager.  
 3. Caso contrário, se o grupo de gestão do Operations Manager está integrado com o serviço, terá de adicionar os controladores de domínio para a recolha de dados pelo serviço de seguir os passos em [adicionar computadores geridos por agente](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) depois de ativar a solução na sua área de trabalho.  
 
@@ -184,7 +184,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search-upgrade.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search-upgrade.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Pesquisar registos](log-analytics-log-searches.md) para saber como analisar dados de verificação de estado de funcionamento do SQL detalhados e recomendações.
+* [Pesquisar registos](log-analytics-log-search.md) para saber como analisar dados de verificação de estado de funcionamento do SQL detalhados e recomendações.

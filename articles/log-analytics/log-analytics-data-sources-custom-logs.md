@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 9a902aef0f4605c51e8dbbab49639997066be705
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423516"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961063"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Registos personalizados no Log Analytics
 A origem de dados de registos personalizado no Log Analytics permite-lhe recolher eventos do ficheiros de texto em computadores Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registo padrão, como o registo de eventos do Windows ou Syslog.  Depois de recolhidos, pode analisar cada registo no início de sessão campos individuais utilizando o [campos personalizados](log-analytics-custom-fields.md) recurso do Log Analytics.
@@ -182,4 +182,4 @@ Podemos usar campos personalizados para definir o *EventTime*, *código*, *estad
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Uso [campos personalizados](log-analytics-custom-fields.md) para analisar as entradas no início de sessão personalizada para campos individuais.
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-searches.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
+* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
