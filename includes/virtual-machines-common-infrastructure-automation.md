@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226738"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981691"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize as ferramentas de automatização de infraestrutura com máquinas virtuais no Azure
 Para criar e gerir máquinas virtuais do Azure (VMs) de forma consistente à escala, alguma forma de automatização é normalmente pretende-se. Existem muitas ferramentas e soluções que permitem-lhe automatizar a implementação de toda a infraestrutura do Azure e o ciclo de vida de gestão. Este artigo apresenta algumas das ferramentas de automatização de infraestruturas que pode utilizar no Azure. Essas ferramentas normalmente se adaptam a uma das abordagens seguintes:
@@ -129,9 +129,9 @@ Aprenda a:
 ## <a name="azure-devops-services"></a>Serviços de DevOps do Azure
 [Os serviços do Azure DevOps](https://www.visualstudio.com/team-services/) é um conjunto de ferramentas que ajudam a partilha e controle de código, usar compilações automatizadas e criar um pipeline de desenvolvimento (CI/CD) e a completa integração contínua. Serviços de DevOps do Azure integra-se com o Visual Studio e outros editores para simplificar a utilização. Serviços de DevOps do Azure pode também criar e configurar as VMs do Azure e, em seguida, implementar código a eles.
 
-Aprenda a:
+Saiba mais sobre:
 
-- [Criar um pipeline de integração contínua com os serviços do Azure DevOps](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Serviços do Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins
