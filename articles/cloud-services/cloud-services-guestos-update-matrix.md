@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376674"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978745"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -66,7 +66,7 @@ Lançou o SO de convidado de Abril.
 ## <a name="family-5-releases"></a>Versões de família 5
 **Windows Server 2016**
 
-.NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET framework instalado: 3.5, 4.6.2
 
 > [!NOTE]
 > A palavra-passe RDP para a família de SO 5 tem de ser um mínimo de 10 caracteres.
@@ -84,7 +84,7 @@ Lançou o SO de convidado de Abril.
 ## <a name="family-4-releases"></a>Versões de família 4
 **Windows Server 2012 R2**
 
-.NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 3.5, 4.5.1
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Lançou o SO de convidado de Abril.
 ## <a name="family-3-releases"></a>Versões da família 3
 **Windows Server 2012**
 
-.NET framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 3.5, 4.5
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ Lançou o SO de convidado de Abril.
 ## <a name="family-2-releases"></a>Versões de família 2
 **Windows Server 2008 R2 SP1**
 
-.NET framework instalado: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET framework instalado: 3.5 (inclui 2.0 e 3.0)
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |

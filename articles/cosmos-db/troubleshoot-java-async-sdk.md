@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: efa2b60ccfc6af6cfb4a46e17b13a426d4e8c9fe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249879"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958819"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Resolução de problemas ao utilizar o SDK do Java assíncrono com contas do Azure Cosmos DB SQL API
 Este artigo aborda problemas, soluções alternativas, passos de diagnóstico e ferramentas comuns ao utilizar [ADK de Async Java](sql-api-sdk-async-java.md) com contas de API de SQL do Azure Cosmos DB.
@@ -48,7 +48,7 @@ O número de abrir os arquivos ("nofile") tem de ser suficientemente grande (no 
 
 ##### <a name="snat"></a>Exaustão de porta de SNAT (PAT) do Azure
 
-Se a sua aplicação é implementada na VM do Azure, por predefinição [portas de SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) são utilizadas para estabelecer ligações para qualquer ponto de extremidade fora da sua VM. O número de ligações permitido da VM para o ponto de final do Cosmos DB é limitado pelos [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Se a aplicação é implementada numa VM do Azure sem um endereço IP público, por predefinição [portas de SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) são utilizadas para estabelecer ligações para qualquer ponto de extremidade fora da sua VM. O número de ligações permitido da VM para o ponto de final do Cosmos DB é limitado pelos [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 As portas de SNAT do Azure são utilizadas apenas quando a sua VM do Azure tem um endereço IP privado e um processo da VM tenta estabelecer uma ligação para um endereço IP público. Portanto, há duas soluções alternativas para evitar a limitação de SNAT do Azure:
     * Adicionar o ponto de final de serviço do Azure Cosmos DB para a sub-rede de VNET de VM do Azure, conforme explicado na [ponto final de serviço de VNET ativar](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Quando o ponto final de serviço é ativado, os pedidos já não são enviados de um IP público ao cosmos DB em vez disso, a VNET e identidade do sub-rede é enviada. Esta alteração poderá resultar em quedas de firewall se só são permitidos IPs públicos. Se estiver a utilizar a firewall, quando ativar o ponto final de serviço, adicionar a sub-rede para através da firewall [ACLs de VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).

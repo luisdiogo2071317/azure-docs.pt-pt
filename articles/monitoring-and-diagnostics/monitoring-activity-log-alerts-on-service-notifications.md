@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123453"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961896"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do registo de atividade nas notificações do serviço
 ## <a name="overview"></a>Descrição geral
@@ -36,7 +36,7 @@ Também pode configurar que o alerta deve ser enviado para:
 
 Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](monitoring-action-groups.md).
 
-Para obter informações sobre como configurar alertas de notificação de estado de funcionamento do serviço, utilizando modelos Azure Resource Manager, consulte [modelos do Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+Para obter informações sobre como configurar alertas de notificação de estado de funcionamento do serviço, utilizando modelos Azure Resource Manager, consulte [modelos do Resource Manager](alert-activity-log.md).
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Criar um alerta numa notificação de estado de funcionamento do serviço para um novo grupo de ação com o portal do Azure
 1. Na [portal](https://portal.azure.com), selecione **estado de funcionamento do serviço**.
@@ -70,7 +70,7 @@ Para obter informações sobre como configurar alertas de notificação de estad
 
 1. Defina uma lista de destinatários ao indicar o recetor:
 
-    a. **Nome**: introduza o nome, o alias ou o identificador do recetor.
+    a. **Nome**: introduza o nome do destinatário s, o alias ou o identificador.
 
     b. **Tipo de ação**: selecione SMS, e-mail, webhook, aplicações do Azure e muito mais.
 

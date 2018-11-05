@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094099"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960111"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 Windows fornece uma grande variedade de [contadores de desempenho](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) , como a ocupação da CPU, memória, disco e utilização de rede. Também pode definir seus próprios. [O Application Insights](app-insights-overview.md) pode mostrar esses contadores de desempenho se seu aplicativo seja executado sob o IIS num anfitrião no local ou máquina virtual para o qual tem acesso administrativo. Os gráficos de indicam os recursos disponíveis para a aplicação em direto e podem ajudar a identificar a carga desequilibrada entre instâncias de servidor.
@@ -27,7 +27,7 @@ Contadores de desempenho são apresentados no painel de servidores, que inclui u
 
 ![Contadores de desempenho comunicados no Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Contadores de desempenho não estão disponíveis para aplicações Web do Azure. Mas pode [enviar diagnósticos do Azure para o Application Insights](app-insights-azure-diagnostics.md).)
+(Contadores de desempenho não estão disponíveis para aplicações Web do Azure. Mas pode [enviar diagnósticos do Azure para o Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
 
 ## <a name="view-counters"></a>Contadores do Vista
 O painel de servidores mostra um conjunto predefinido de contadores de desempenho. 
@@ -96,7 +96,7 @@ Ou pode fazer a mesma coisa com métricas personalizadas que criou:
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho no Analytics
 Pode pesquisar e apresentar relatórios de contador de desempenho na [Analytics](app-insights-analytics.md).
 
-O **performanceCounters** esquema expõe a `category`, `counter` nome, e `instance` nome de cada contador de desempenho.  A telemetria de cada aplicativo, verá apenas os contadores para essa aplicação. Por exemplo, para ver quais contadores estão disponíveis: 
+O **performanceCounters** esquema expõe a `category`, `counter` nome, e `instance` nome de cada contador de desempenho.  A telemetria de cada aplicativo, será apresentado ver apenas os contadores para essa aplicação. Por exemplo, para ver quais contadores estão disponíveis: 
 
 ![Contadores de desempenho na análise do Application Insights](./media/app-insights-performance-counters/analytics-performance-counters.png)
 
