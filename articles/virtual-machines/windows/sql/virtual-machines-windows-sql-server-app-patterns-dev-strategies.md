@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253181"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Padrões de Aplicação e Estratégias de Desenvolvimento para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -236,7 +236,7 @@ No Azure, pode utilizar Active Directory como um diretório de nuvem autónomo p
 
 Padrão de aplicação híbrida de n camadas, pode implementar o seguinte fluxo de trabalho na ordem especificada:
 
-1. Identificar aplicativos de banco de dados empresariais que têm de ser movidas para cima para a cloud utilizando o [Microsoft Assessment and Planning (MAP) Toolkit](http://microsoft.com/map). O MAP Toolkit coleta dados de inventário e o desempenho de computadores que estiver a considerar para virtualização e fornece recomendações sobre planejamento de avaliação e de capacidade.
+1. Identificar aplicativos de banco de dados empresariais que têm de ser movidas para cima para a cloud utilizando o [Microsoft Assessment and Planning (MAP) Toolkit](https://microsoft.com/map). O MAP Toolkit coleta dados de inventário e o desempenho de computadores que estiver a considerar para virtualização e fornece recomendações sobre planejamento de avaliação e de capacidade.
 2. Planear os recursos e a configuração necessária na plataforma do Azure, como contas de armazenamento e máquinas virtuais.
 3. Configurar a conectividade de rede entre a rede empresarial no local e [rede Virtual do Azure](../../../virtual-network/virtual-networks-overview.md). Para configurar a ligação entre a rede empresarial no local e uma máquina virtual no Azure, utilize um dos seguintes dois métodos:
    

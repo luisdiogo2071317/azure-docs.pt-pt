@@ -1,6 +1,6 @@
 ---
 title: Extensão de diagnóstico do Azure 1.2 esquema de configuração
-description: APENAS relevante se estiver a utilizar o Azure SDK 2.5 com Virtual Machines do Azure, conjuntos de dimensionamento de Máquina Virtual, Service Fabric ou serviços em nuvem.
+description: Relevante apenas se estiver a utilizar o Azure SDK 2.5 com máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric ou serviços Cloud.
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
@@ -9,33 +9,33 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 8c3980231404e5c8068dbd011d20759f207d7fff
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 322cd75fe9198bae459e7c22bed794f583d13363
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937959"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260300"
 ---
-# <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração 1.2 de diagnóstico do Azure
+# <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuração de diagnóstico 1.2 do Azure
 > [!NOTE]
-> Diagnóstico do Azure é o componente utilizado para recolher os contadores de desempenho e outras estatísticas de Virtual Machines do Azure, conjuntos de dimensionamento de Máquina Virtual, Service Fabric e serviços em nuvem.  Esta página só é relevante se estiver a utilizar um destes serviços.
+> Diagnóstico do Azure é o componente utilizado para recolher contadores de desempenho e outras estatísticas de máquinas virtuais do Azure, conjuntos de dimensionamento de máquinas virtuais, Service Fabric e serviços em nuvem.  Esta página só é relevante se estiver a utilizar um destes serviços.
 >
 
-Diagnóstico do Azure é utilizado com outros produtos de diagnóstico do Microsoft Azure Monitor, Application Insights e análise de registos.
+Diagnóstico do Azure é utilizado com outros produtos de diagnóstico do Microsoft, como o Azure Monitor, o Application Insights e o Log Analytics.
 
 Este esquema define os valores possíveis que pode utilizar para inicializar as definições de diagnóstico de configuração quando o monitor de diagnóstico é iniciado.  
 
 
- Transfira a definição de esquema do ficheiro de configuração pública executando o seguinte comando do PowerShell:  
+ Transferir a definição de esquema do ficheiro de configuração pública ao executar o seguinte comando do PowerShell:  
 
 ```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
- Para obter mais informações sobre como utilizar o diagnóstico do Azure, consulte [ativar o diagnóstico na Cloud Services do Azure](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
+ Para obter mais informações sobre como utilizar o diagnóstico do Azure, consulte [ativar diagnósticos nos serviços Cloud do Azure](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
 
-## <a name="example-of-the-diagnostics-configuration-file"></a>Exemplo de ficheiro de configuração de diagnóstico  
- O exemplo seguinte mostra um ficheiro de configuração típica de diagnóstico:  
+## <a name="example-of-the-diagnostics-configuration-file"></a>Exemplo do ficheiro de configuração de diagnósticos  
+ O exemplo seguinte mostra um ficheiro de configuração de diagnósticos típico:  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -86,117 +86,117 @@ Este esquema define os valores possíveis que pode utilizar para inicializar as 
 
 ```  
 
-## <a name="diagnostics-configuration-namespace"></a>Espaço de nomes de configuração de diagnóstico  
- O espaço de nomes XML para o ficheiro de configuração de diagnóstico é:  
+## <a name="diagnostics-configuration-namespace"></a>Espaço de nomes de configuração de diagnósticos  
+ O espaço de nomes XML para o ficheiro de configuração de diagnósticos é:  
 
 ```  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 ```  
 
-## <a name="publicconfig-element"></a>Elemento PublicConfig  
- Elemento de nível superior do ficheiro de configuração de diagnóstico. A tabela seguinte descreve os elementos do ficheiro de configuração.  
+## <a name="publicconfig-element"></a>Elemento de PublicConfig  
+ Elemento de nível superior do ficheiro de configuração de diagnósticos. A tabela seguinte descreve os elementos do ficheiro de configuração.  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**WadCfg**|Necessário. Definições de configuração para os dados de telemetria a ser recolhido.|  
-|**StorageAccount**|O nome da conta do Storage do Azure para armazenar os dados. Isto também pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|O diretório na máquina virtual a ser utilizado pelo agente de monitorização para armazenar dados de eventos. Se não for definido, o diretório predefinido é utilizado:<br /><br /> Para uma função de trabalho/web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos necessários são:<br /><br /> -                      **caminho** -o diretório no sistema para ser utilizado por diagnósticos do Azure.<br /><br /> -                      **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
+|**WadCfg**|Necessário. Definições de configuração para os dados de telemetria recolha.|  
+|**StorageAccount**|O nome da conta para armazenar os dados no armazenamento do Azure. Isso também pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
+|**LocalResourceDirectory**|O diretório na máquina virtual a ser utilizado pelo agente de monitorização para armazenar dados de eventos. Se não é utilizado o conjunto, o diretório predefinido:<br /><br /> Para uma função de trabalho/web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Atributos necessários são:<br /><br /> -                      **caminho** -o diretório do sistema a ser utilizado pelo diagnóstico do Azure.<br /><br /> -                      **expandEnvironment** -controla se as variáveis de ambiente são expandidas no nome do caminho.|  
 
-## <a name="wadcfg-element"></a>Elemento WadCFG  
-Define as definições de configuração para os dados de telemetria a ser recolhido. A tabela seguinte descreve os elementos subordinados:  
-
-|Nome do elemento|Descrição|  
-|------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|Necessário. Atributos opcionais quantos são:<br /><br /> -                     **overallQuotaInMB** -a quantidade máxima de espaço no disco local que pode ser utilizada por vários tipos de dados de diagnóstico recolhidos pelo diagnósticos do Azure. O valor predefinido é 5120MB.<br /><br /> -                     **useProxyServer** -configurar diagnósticos do Azure para utilizar as definições do servidor proxy conforme definido nas definições de i/e.|  
-|**CrashDumps**|Ative a recolha de informações de falhas. Atributos opcionais quantos são:<br /><br /> -                     **containerName** -o nome do contentor do blob na sua conta do Storage do Azure a ser utilizado para armazenar informações de falhas.<br /><br /> -                     **crashDumpType** -configura diagnósticos do Azure para falhas de Mini ou completo de recolher informações de estado.<br /><br /> -                     **directoryQuotaPercentage**-configura a percentagem de **overallQuotaInMB** seja reservado para informações de falhas na VM.|  
-|**DiagnosticInfrastructureLogs**|Ative a recolha dos registos gerados por diagnósticos do Azure. Os registos de diagnóstico de infraestrutura são úteis para resolução de problemas do sistema de diagnóstico. Atributos opcionais quantos são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configura o nível de gravidade mínima dos registos recolhidos.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**Diretórios**|Permite a recolha do conteúdo de um diretório, registos de IIS não conseguiu de pedidos de acesso e/ou os registos IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**EtwProviders**|Configura a recolha de eventos do ETW de EventSource de e/ou o manifesto do ETW baseado em fornecedores.|  
-|**Métricas**|Este elemento permite-lhe gerar uma tabela de contador de desempenho que está otimizada para consultas rápidas. Cada contador de desempenho que está definida a **PerformanceCounters** elemento é armazenado na tabela de métricas para além da tabela de contador de desempenho. Atributo necessário:<br /><br /> **resourceId** -este é o ID de recurso da Máquina Virtual está a implementar o Azure Diagnostics. Obter o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **procurar** -> **grupos de recursos** -> **< nome\>**. Clique em de **propriedades** mosaico e copie o valor da **ID** campo.|  
-|**PerformanceCounters**|Permite a recolha de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Permite a recolha de registos de eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
-
-## <a name="crashdumps-element"></a>Elemento CrashDumps  
- Permite a recolha de informações de falhas. A tabela seguinte descreve os elementos subordinados:  
+## <a name="wadcfg-element"></a>Elemento de WadCFG  
+Define as configurações para os dados de telemetria recolha. A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**CrashDumpConfiguration**|Necessário. Atributo necessário:<br /><br /> **processName** -o nome do processo de que pretende que o diagnóstico do Azure para recolher as informações de falhas para.|  
-|**crashDumpType**|Configura o diagnóstico do Azure para recolher informações de mini ou falhas completa.|  
-|**directoryQuotaPercentage**|Configura a percentagem de **overallQuotaInMB** seja reservado para informações de falhas na VM.|  
+|**DiagnosticMonitorConfiguration**|Necessário. Atributos opcionais são:<br /><br /> -                     **overallQuotaInMB** -a quantidade máxima de espaço no disco local que pode ser utilizada por vários tipos de dados de diagnóstico recolhidos pelo diagnóstico do Azure. O valor predefinido é 5120MB.<br /><br /> -                     **useProxyServer** -configurar o diagnóstico do Azure para utilizar as definições do servidor proxy, conforme definido nas definições do IE.|  
+|**CrashDumps**|Ative a recolha de informações de falhas. Atributos opcionais são:<br /><br /> -                     **containerName** -o nome do contentor de BLOBs na sua conta de armazenamento do Azure a ser utilizado para armazenar despejos de memória.<br /><br /> -                     **crashDumpType** -despeja configura o diagnóstico do Azure para recolher Mini ou completo poderá falhar.<br /><br /> -                     **directoryQuotaPercentage**-configura a percentagem de **overallQuotaInMB** a reservar para informações de falhas na VM.|  
+|**DiagnosticInfrastructureLogs**|Ative a recolha de registos gerados pelo diagnóstico do Azure. Os registos de diagnóstico de infraestrutura são úteis para resolver o próprio sistema de diagnóstico. Atributos opcionais são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -configura o nível de gravidade mínimo dos registos recolhidos.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Diretórios**|Permite a recolha do conteúdo de um diretório, o IIS não conseguiu aceder aos registos de pedido e/ou registos do IIS. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**EtwProviders**|Configura a recolha de eventos do ETW do EventSource de e/ou o manifesto do ETW com base em provedores.|  
+|**Métricas**|Esse elemento permite-lhe gerar uma tabela de contador de desempenho otimizado para consultas rápidas. Cada contador de desempenho que está definido no **PerformanceCounters** elemento é armazenado na tabela de métricas para além da tabela de contador de desempenho. Atributo necessário:<br /><br /> **resourceId** -este é o ID de recurso da Máquina Virtual está a implementar o diagnóstico do Azure para. Obter o **resourceID** partir do [portal do Azure](https://portal.azure.com). Selecione **navegue** -> **grupos de recursos** -> **< nome\>**. Clique no **propriedades** mosaico e copie o valor a partir do **ID** campo.|  
+|**PerformanceCounters**|Permite a recolha de contadores de desempenho. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Permite a recolha de registos de eventos do Windows. Atributo opcional:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de dados de duração".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+
+## <a name="crashdumps-element"></a>Elemento de CrashDumps  
+ Permite a recolha de informações de falhas. A tabela seguinte descreve os elementos filho:  
+
+|Nome do elemento|Descrição|  
+|------------------|-----------------|  
+|**CrashDumpConfiguration**|Necessário. Atributo necessário:<br /><br /> **processName** -o nome do processo de que pretende que o diagnóstico do Azure para recolher um despejo de falha para.|  
+|**crashDumpType**|Configura o diagnóstico do Azure para coletar despejos de mini ou falha completa do sistema.|  
+|**directoryQuotaPercentage**|Configura a percentagem de **overallQuotaInMB** a reservar para informações de falhas na VM.|  
 
 ## <a name="directories-element"></a>Elemento de diretórios  
- Permite a recolha do conteúdo de um diretório, registos de IIS não conseguiu de pedidos de acesso e/ou os registos IIS. A tabela seguinte descreve os elementos subordinados:  
+ Permite a recolha do conteúdo de um diretório, o IIS não conseguiu aceder aos registos de pedido e/ou registos do IIS. A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
 |**Origens de dados**|Uma lista de diretórios a monitorizar.|  
-|**FailedRequestLogs**|Incluindo este elemento na configuração permite a recolha de registos sobre pedidos com falhas para uma aplicação ou site do IIS. Tem também de ativar as opções de rastreio em **sistema. Servidor Web** no **Web. config**.|  
-|**IISLogs**|Incluindo este elemento na configuração permite a recolha de registos do IIS:<br /><br /> **containerName** -o nome do contentor do blob na sua conta do Storage do Azure a ser utilizado para armazenar os registos IIS.|  
+|**FailedRequestLogs**|Incluindo esse elemento na configuração permite a recolha de registos de pedidos falhados para um aplicativo ou site do IIS. Também tem de ativar as opções de rastreamento em **system. Servidor Web** no **Web. config**.|  
+|**IISLogs**|Incluindo esse elemento na configuração permite que a coleção de registos do IIS:<br /><br /> **containerName** -o nome do contentor de BLOBs na sua conta de armazenamento do Azure a ser utilizado para armazenar os registos IIS.|  
 
 ## <a name="datasources-element"></a>Elemento de origens de dados  
- Uma lista de diretórios a monitorizar. A tabela seguinte descreve os elementos subordinados:  
+ Uma lista de diretórios a monitorizar. A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**DirectoryConfiguration**|Necessário. Atributo necessário:<br /><br /> **containerName** -o nome do contentor do blob na sua conta do Storage do Azure a ser utilizado para armazenar os ficheiros de registo.|  
+|**DirectoryConfiguration**|Necessário. Atributo necessário:<br /><br /> **containerName** -o nome do contentor de BLOBs na sua conta de armazenamento do Azure a ser utilizado para armazenar os ficheiros de registo.|  
 
-## <a name="directoryconfiguration-element"></a>Elemento DirectoryConfiguration  
- **DirectoryConfiguration** pode incluir um o **absoluto** ou **LocalResource** elemento mas não ambos. A tabela seguinte descreve os elementos subordinados:  
-
-|Nome do elemento|Descrição|  
-|------------------|-----------------|  
-|**Absoluto**|O caminho absoluto para o diretório a monitorizar. São necessários os seguintes atributos:<br /><br /> -                     **Caminho** -o caminho absoluto para o diretório a monitorizar.<br /><br /> -                      **expandEnvironment** -configura se as variáveis de ambiente no caminho são expandidas.|  
-|**LocalResource**|O caminho relativo para um recurso local para monitorizar. Os atributos necessários são:<br /><br /> -                     **Nome** -o recurso local que contém o diretório para monitorizar<br /><br /> -                     **relativePath** -o caminho relativo ao nome que contém o diretório para monitorizar|  
-
-## <a name="etwproviders-element"></a>Elemento EtwProviders  
- Configura a recolha de eventos do ETW de EventSource de e/ou o manifesto do ETW baseado em fornecedores. A tabela seguinte descreve os elementos subordinados:  
+## <a name="directoryconfiguration-element"></a>Elemento de DirectoryConfiguration  
+ **DirectoryConfiguration** podem incluir qualquer um de **absoluto** ou **LocalResource** elemento, mas não ambos. A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configura a recolha de eventos gerados a partir de [EventSource classe](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necessário:<br /><br /> **fornecedor** -o nome da classe do evento de EventSource.<br /><br /> Atributos opcionais quantos são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta do storage.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Atributo necessário:<br /><br /> **fornecedor** -o GUID do fornecedor de evento<br /><br /> Atributos opcionais quantos são:<br /><br /> - **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta do storage.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**Absoluto**|O caminho absoluto para o diretório a monitorizar. Os seguintes atributos são necessários:<br /><br /> -                     **Caminho** -o caminho absoluto para o diretório a monitorizar.<br /><br /> -                      **expandEnvironment** -configura se as variáveis de ambiente no caminho são expandidas.|  
+|**LocalResource**|O caminho relativo para um recurso local para monitorizar. Atributos necessários são:<br /><br /> -                     **Nome** -o recurso local que contém o diretório para monitorizar<br /><br /> -                     **relativePath** -o caminho relativo ao nome que contém o diretório para monitorizar|  
 
-## <a name="etweventsourceproviderconfiguration-element"></a>Elemento EtwEventSourceProviderConfiguration  
- Configura a recolha de eventos gerados a partir de [EventSource classe](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). A tabela seguinte descreve os elementos subordinados:  
-
-|Nome do elemento|Descrição|  
-|------------------|-----------------|  
-|**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar eventos|  
-|**Evento**|Atributo necessário:<br /><br /> **ID** -o id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar eventos|  
-
-## <a name="etwmanifestproviderconfiguration-element"></a>Elemento EtwManifestProviderConfiguration  
- A tabela seguinte descreve os elementos subordinados:  
+## <a name="etwproviders-element"></a>Elemento de EtwProviders  
+ Configura a recolha de eventos do ETW do EventSource de e/ou o manifesto do ETW com base em provedores. A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar eventos|  
-|**Evento**|Atributo necessário:<br /><br /> **ID** -o id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar eventos|  
+|**EtwEventSourceProviderConfiguration**|Configura a recolha de eventos gerados a partir [EventSource classe](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo necessário:<br /><br /> **fornecedor** -o nome da classe do evento EventSource.<br /><br /> Atributos opcionais são:<br /><br /> -                     **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta de armazenamento.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [tipo de dados de duração do XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Atributo necessário:<br /><br /> **fornecedor** -o GUID do provedor do evento<br /><br /> Atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** -o nível de gravidade mínimo para transferir a sua conta de armazenamento.<br /><br /> -                     **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [tipo de dados de duração do XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+
+## <a name="etweventsourceproviderconfiguration-element"></a>Elemento de EtwEventSourceProviderConfiguration  
+ Configura a recolha de eventos gerados a partir [EventSource classe](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). A tabela seguinte descreve os elementos filho:  
+
+|Nome do elemento|Descrição|  
+|------------------|-----------------|  
+|**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar os eventos em|  
+|**Evento**|Atributo necessário:<br /><br /> **ID** -o id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar os eventos em|  
+
+## <a name="etwmanifestproviderconfiguration-element"></a>Elemento de EtwManifestProviderConfiguration  
+ A tabela seguinte descreve os elementos filho:  
+
+|Nome do elemento|Descrição|  
+|------------------|-----------------|  
+|**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar os eventos em|  
+|**Evento**|Atributo necessário:<br /><br /> **ID** -o id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** -o nome da tabela para armazenar os eventos em|  
 
 ## <a name="metrics-element"></a>Elemento de métricas  
- Permite-lhe gerar uma tabela de contador de desempenho que está otimizada para consultas rápidas. A tabela seguinte descreve os elementos subordinados:  
+ Permite-lhe gerar uma tabela de contador de desempenho otimizado para consultas rápidas. A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**MetricAggregation**|Atributo necessário:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências agendadas para armazenamento arredondado para o minuto mais próximo. O valor é um [tipo de dados XML duração](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Atributo necessário:<br /><br /> **scheduledTransferPeriod** -o intervalo entre as transferências de agendada para o armazenamento, arredondado para o minuto mais próximo. O valor é um [tipo de dados de duração do XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters elemento  
- Permite a recolha de contadores de desempenho. A tabela seguinte descreve os elementos subordinados:  
+ Permite a recolha de contadores de desempenho. A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**PerformanceCounterConfiguration**|São necessários os seguintes atributos:<br /><br /> -                     **counterSpecifier** -o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de desempenho contadores no seu anfitrião execute o comando `typeperf`.<br /><br /> -                     **sampleRate** -com que frequência o contador deve ser objeto de amostragem.<br /><br /> Atributo opcional:<br /><br /> **unidade** -a unidade de medida do contador.|  
+|**PerformanceCounterConfiguration**|Os seguintes atributos são necessários:<br /><br /> -                     **counterSpecifier** -o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de desempenho contadores no seu anfitrião execute o comando `typeperf`.<br /><br /> -                     **SampleRate como sendo** -a frequência com que o contador de amostragem.<br /><br /> Atributo opcional:<br /><br /> **unidade** -a unidade de medida do contador.|  
 
-## <a name="performancecounterconfiguration-element"></a>Elemento PerformanceCounterConfiguration  
- A tabela seguinte descreve os elementos subordinados:  
-
-|Nome do elemento|Descrição|  
-|------------------|-----------------|  
-|**annotation**|Atributo necessário:<br /><br /> **displayName** -o nome a apresentar para o contador<br /><br /> Atributo opcional:<br /><br /> **região** -a região a utilizar quando se apresenta o nome do contador|  
-
-## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
- A tabela seguinte descreve os elementos subordinados:  
+## <a name="performancecounterconfiguration-element"></a>Elemento de PerformanceCounterConfiguration  
+ A tabela seguinte descreve os elementos filho:  
 
 |Nome do elemento|Descrição|  
 |------------------|-----------------|  
-|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especifique "*".|
+|**annotation**|Atributo necessário:<br /><br /> **displayName** -o nome a apresentar para o contador<br /><br /> Atributo opcional:<br /><br /> **Localidade** -a região a utilizar quando se apresenta o nome do contador|  
+
+## <a name="windowseventlog-element"></a>Elemento de WindowsEventLog  
+ A tabela seguinte descreve os elementos filho:  
+
+|Nome do elemento|Descrição|  
+|------------------|-----------------|  
+|**Origem de dados**|Os registos de eventos do Windows para recolher. Atributo necessário:<br /><br /> **nome** - a consulta de XPath que descrevem os eventos do windows a serem recolhidos. Por exemplo:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Para recolher todos os eventos, especificar "*".|

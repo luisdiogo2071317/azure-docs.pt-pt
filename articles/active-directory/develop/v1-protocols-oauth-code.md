@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870830"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237898"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações de web do Azure Active Directory utilizando o fluxo de concessão de código do OAuth 2.0
 
@@ -183,7 +183,7 @@ Uma resposta com êxito poderia ter esta aparência:
 | refresh_token |Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token para adquirir os tokens de acesso adicionais depois do token de acesso atual expira. Atualizar tokens são vida longa e pode ser utilizados para manter o acesso aos recursos por longos períodos de tempo. |
 | id_token |Um que de JSON Web Token (JWT) não assinados representam um [token de ID](id-tokens.md). Base64Url de podem aplicação decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. |
 
-Para obter mais informações sobre os JSON web tokens, consulte a [especificação do JWT IETF rascunho](http://go.microsoft.com/fwlink/?LinkId=392344).   Para saber mais sobre `id_tokens`, consulte a [v1.0 fluxo de OpenID Connect](v1-protocols-openid-connect-code.md).
+Para obter mais informações sobre os JSON web tokens, consulte a [especificação do JWT IETF rascunho](https://go.microsoft.com/fwlink/?LinkId=392344).   Para saber mais sobre `id_tokens`, consulte a [v1.0 fluxo de OpenID Connect](v1-protocols-openid-connect-code.md).
 
 ### <a name="error-response"></a>Resposta de erro
 Os erros de ponto final de emissão de token são códigos de erro HTTP, uma vez que o cliente chama o ponto final de emissão de tokens diretamente. Além do código de estado HTTP, o ponto de final de emissão de token do Azure AD também devolve um documento JSON com objetos que descrevem o erro.

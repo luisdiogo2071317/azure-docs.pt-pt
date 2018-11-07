@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714194"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261561"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Pré-requisitos gerais para a criação de uma oferta para o Azure Marketplace
 Compreenda os pré-requisitos gerais e de negócios-centrado no processo que são necessários para seguir em frente com o processo de criação da oferta.
@@ -70,7 +70,7 @@ Esta é a subscrição que irá utilizar para criar as imagens VM e passar as im
 
 ## <a name="sell-from-countries"></a>Países de "Destino de venda de entrada"
 > [!WARNING]
-> Para vender os seus serviços no Azure Marketplace, deve certificar-se de que a sua entidade registada a partir de um dos países aprovados "destino de venda-de". Esta restrição é por motivos de dividendos e tributação. Estamos ativamente à procura para expandir essa lista de países em breve, portanto, fique atento. Para obter a lista completa, consulte 1b da secção do [políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> Para vender os seus serviços no Azure Marketplace, deve certificar-se de que a sua entidade registada a partir de um dos países aprovados "destino de venda-de". Esta restrição é por motivos de dividendos e tributação. Estamos ativamente à procura para expandir essa lista de países em breve, portanto, fique atento. Para obter a lista completa, consulte 1b da secção do [políticas de participação do Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2b0377b8eb980fa07cbd8bad4a6a34a85f26464a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157943"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256753"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -145,7 +145,7 @@ Todos os registos para o modelo GUIDs são feitos por meio do Azure Marketplace 
 
 Depois de adicionar o GUID para o modelo ou no agente de utilizador e registar o GUID no CPP, todas as implementações são controladas. 
 
-1. Aplicar a [do Azure Marketplace](http://aka.ms/listonazuremarketplace) e obtenha acesso ao CPP.
+1. Aplicar a [do Azure Marketplace](https://aka.ms/listonazuremarketplace) e obtenha acesso ao CPP.
 
    * Os parceiros são necessários para [têm um perfil no CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). Está cancelá-lo para listar a oferta no Azure Marketplace ou no AppSource.
    * Parceiros podem registrar vários GUIDs.

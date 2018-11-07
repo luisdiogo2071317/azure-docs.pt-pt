@@ -3,7 +3,7 @@ title: Versão de atualização de SO no Centro de segurança do Azure | Documen
 description: Este artigo mostra-lhe como implementar a recomendação do Centro de segurança do Azure **atualizar versão do SO**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
-ms.author: terrylan
-ms.openlocfilehash: cab773412005093f8acabe9bd6e93e8740b14ece
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1898926e0488722d18a105697bead18e29e6a35d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298411"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254898"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Atualizar a versão de SO no Centro de segurança do Azure
 Para máquinas virtuais (VMs) nos serviços cloud, o Centro de segurança do Azure irá recomendar que o sistema operativo (SO) ser atualizada se existir uma versão mais recente disponível.  Funções web e de trabalho em execução na produção são monitorizadas ranhuras de serviços de cloud única.
@@ -49,7 +49,7 @@ Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Monitorização de soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – obtenha as mais recentes notícias de segurança do Azure e informações.
+* [Blogue de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – obtenha as mais recentes notícias de segurança do Azure e informações.
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png

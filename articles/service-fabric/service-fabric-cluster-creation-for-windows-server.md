@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818586"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257610"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo no Windows Server
 Pode utilizar o Azure Service Fabric para criar clusters do Service Fabric em máquinas virtuais ou computadores que executam o Windows Server. Isso significa que pode implementar e executar aplicações do Service Fabric em qualquer ambiente que contém um conjunto de computadores do Windows Server interconectadas, seja no local ou com qualquer fornecedor de cloud. O Service Fabric fornece um pacote de configuração para criar clusters do Service Fabric chamados pacote autónomo do Windows Server.
@@ -27,7 +27,7 @@ Pode utilizar o Azure Service Fabric para criar clusters do Service Fabric em m�
 Este artigo orienta-o através dos passos para criar um cluster autónomo do Service Fabric.
 
 > [!NOTE]
-> Este pacote do Windows Server autónomo está comercialmente disponível e pode ser utilizado para implementações de produção. Esse pacote pode conter os novos recursos do Service Fabric que estão em "Pré-visualização". Desloque para baixo para "[incluídas nesse pacote de funcionalidades de pré-visualização](#previewfeatures_anchor)." secção para obter a lista de funcionalidades de pré-visualização. Pode [transferir uma cópia do EULA](http://go.microsoft.com/fwlink/?LinkID=733084) agora.
+> Este pacote do Windows Server autónomo está comercialmente disponível e pode ser utilizado para implementações de produção. Esse pacote pode conter os novos recursos do Service Fabric que estão em "Pré-visualização". Desloque para baixo para "[incluídas nesse pacote de funcionalidades de pré-visualização](#previewfeatures_anchor)." secção para obter a lista de funcionalidades de pré-visualização. Pode [transferir uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora.
 > 
 > 
 
@@ -35,7 +35,7 @@ Este artigo orienta-o através dos passos para criar um cluster autónomo do Ser
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Obter suporte para o pacote de recursos de infraestrutura de serviço para o Windows Server
 * Pergunte à Comunidade sobre o pacote autónomo do Service Fabric para o Windows Server no [fórum do Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Abra um pedido para [suporte profissional para o Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Saiba mais sobre o suporte profissional da Microsoft [aqui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* Abra um pedido para [suporte profissional para o Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Saiba mais sobre o suporte profissional da Microsoft [aqui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Também pode obter suporte para este pacote como uma parte [o Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 * Para obter mais detalhes, veja [opções de suporte do Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Para recolher registos para fins de suporte, execute o [recoletor de registos de autónomo do Service Fabric](service-fabric-cluster-standalone-package-contents.md).
@@ -44,7 +44,7 @@ Este artigo orienta-o através dos passos para criar um cluster autónomo do Ser
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Transfira o pacote do Service Fabric para o Windows Server
 Para criar o cluster, utilize o pacote de recursos de infraestrutura de serviço para o Windows Server (Windows Server 2012 R2 e versões mais recentes) encontrada aqui: <br>
-[Baixe o Link - pacote de autónomo do Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Baixe o Link - pacote de autónomo do Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Obter detalhes sobre o conteúdo do pacote [aqui](service-fabric-cluster-standalone-package-contents.md).
 

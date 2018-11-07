@@ -1,6 +1,6 @@
 ---
-title: Publicar conteúdo no portal do Azure | Microsoft Docs
-description: Este tutorial explica os passos para publicar o seu conteúdo no portal do Azure.
+title: Publicar conteúdo no portal do Azure | Documentos da Microsoft
+description: Este tutorial explica-lhe os passos para publicar o seu conteúdo no portal do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: d93bfc548134f730f4fad49a37593c861d6b6cbb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71b7e724158255cc979e9a08cd14c7f4412c4382
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790308"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253402"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no portal do Azure
 > [!div class="op_single_selector"]
@@ -35,9 +35,9 @@ ms.locfileid: "33790308"
 > 
 > 
 
-Para fornecer ao seu utilizador um URL que ele possa utilizar para transmitir ou transferir o seu conteúdo, tem primeiro de publicar o elemento mediante a criação de um localizador. Os localizadores fornecem acesso aos ficheiros de recurso. Os Serviços de Multimédia do Azure suportam dois tipos de localizadores: 
+Para fornecer ao seu utilizador um URL que ele possa utilizar para transmitir ou transferir o seu conteúdo, tem primeiro de publicar o elemento mediante a criação de um localizador. Os localizadores fornecem acesso aos ficheiros de elemento. Os Serviços de Multimédia do Azure suportam dois tipos de localizadores: 
 
-* **Localizadores de transmissão em fluxo (OnDemandOrigin)**. Os localizadores de transmissão em fluxo são utilizados para transmissões em velocidade adaptável. Exemplos de transmissão em fluxo adaptável incluem Apple HTTP Live Streaming (HLS), Microsoft transmissão em fluxo uniforme e dinâmico transmissão em fluxo adaptável através de HTTP (DASH, também denominado MPEG-DASH). Para criar um localizador de transmissão em fluxo, o seu elemento tem de incluir um ficheiro .ism. Por exemplo, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
+* **Localizadores de transmissão em fluxo (OnDemandOrigin)**. Os localizadores de transmissão em fluxo são utilizados para transmissões em velocidade adaptável. Exemplos de transmissão em fluxo adaptável incluem Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming e Dynamic Adaptive Streaming over HTTP (DASH, também chamado de MPEG-DASH). Para criar um localizador de transmissão em fluxo, o seu elemento tem de incluir um ficheiro .ism. Por exemplo, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Localizadores progressivos (assinatura de acesso partilhado)**. Os localizadores progressivos são utilizados para entregar vídeos através de transferências progressivas.
 
 Para compilar um URL de transmissão em fluxo HLS, acrescente *(format=m3u8-aapl)* ao URL.
@@ -56,14 +56,14 @@ Os URLs de assinatura de acesso partilhado têm o formato seguinte:
 
     {blob container name}/{asset name}/{file name}/{shared access signature}
 
-Para obter mais informações, consulte o [fornecimento de descrição geral do conteúdo](media-services-deliver-content-overview.md).
+Para obter mais informações, consulte a [descrição geral do conteúdo de entrega](media-services-deliver-content-overview.md).
 
 > [!NOTE]
 > Os localizadores que foram criados no portal do Azure antes de março de 2015 têm uma data de expiração de dois anos.  
 > 
 > 
 
-Para atualizar uma data de expiração num localizador, utilize pode utilizar um [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou um [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259). 
+Para atualizar uma data de expiração num localizador, utilize pode utilizar um [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Quando atualiza a data de expiração de um localizador de assinatura de acesso partilhado, o URL é alterado.
@@ -90,7 +90,7 @@ São aplicáveis algumas considerações:
 
 * Confirme que o vídeo foi publicado.
 * O leitor de multimédia do portal do Azure reproduz a partir do ponto final da transmissão em fluxo predefinido. Se quiser reproduzir a partir de um ponto final da transmissão em fluxo não predefinido, selecione e copie o URL e cole-o noutro leitor. Por exemplo, pode testar o vídeo no [Leitor de Multimédia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
-* O ponto final de transmissão em fluxo partir do qual transmissão em fluxo tem de estar em execução.  
+* O ponto final de transmissão em fluxo do qual transmissão em fluxo tem de estar em execução.  
 
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

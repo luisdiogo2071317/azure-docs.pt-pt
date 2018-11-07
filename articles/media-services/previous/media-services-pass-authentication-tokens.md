@@ -1,8 +1,8 @@
 ---
-title: Transmita os tokens de autenticação para Media Services do Azure | Microsoft Docs
-description: Saiba como enviar os tokens de autenticação do cliente para o serviço de entrega de chave de Media Services do Azure
+title: Passar tokens de autenticação para serviços de multimédia do Azure | Documentos da Microsoft
+description: Saiba como enviar tokens de autenticação do cliente para o serviço de entrega de chave de serviços de multimédia do Azure
 services: media-services
-keywords: autenticação de token de proteção de conteúdos, DRM,
+keywords: autenticação de token de proteção de conteúdo, DRM,
 documentationcenter: ''
 author: dbgeorge
 manager: jasonsue
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: dwgeo
-ms.openlocfilehash: b6aca2928465b73e35ac15f01bb776b1f69add0b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 204a2122f38306f2c883436fb13397b45fd91980
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788453"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254626"
 ---
-# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passaram tokens para o serviço de entrega de chave de Media Services do Azure
-Os clientes, muitas vezes, pergunte como um leitor pode passar tokens para o serviço de entrega de chave de Media Services do Azure para fins de verificação para que o leitor pode obter a chave. Os Media Services suportam o token de web simples (SWT) e formatos JSON Web tokens (JWT). Autenticação de token é aplicada a qualquer tipo de chave, independentemente se utilizar encriptação comum ou de encriptação de envelope Advanced Encryption Standard (AES) no sistema.
+# <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam tokens para o serviço de entrega de chave de serviços de multimédia do Azure
+Os clientes costumam perguntar como um jogador pode passar tokens para o serviço de entrega de chave de serviços de multimédia do Azure para efeitos de verificação para que o jogador pode obter a chave. Serviços de multimédia suportam o simple web tokens (SWT) e formatos de JSON Web Token (JWT). Autenticação de token é aplicada a qualquer tipo de chave, independentemente de utilizar a encriptação comum ou encriptação de envelope Advanced Encryption Standard (AES) no sistema.
 
- Consoante a plataforma de destino e player, pode passar o token com o seu leitor das seguintes formas:
+ Consoante a plataforma de destino e jogador, pode passar o token com seu player das seguintes formas:
 
-- Através do cabeçalho de autorização de HTTP.
+- Por meio do cabeçalho de autorização de HTTP.
     > [!NOTE]
-    > O prefixo "Portador" é esperado pelas especificações de OAuth 2.0. Um leitor de exemplo com a configuração de token está alojado num leitor de multimédia do Azure [página demonstração](http://ampdemo.azureedge.net/). Para definir a origem de vídeo, escolha **AES (JWT Token)** ou **AES (SWT Token)**. O token é transmitido através do cabeçalho de autorização.
+    > O prefixo de "Bearer" é esperado pelas especificações de OAuth 2.0. Um player de exemplo com a configuração de token está alojado no leitor de multimédia do Azure [página de demonstração](http://ampdemo.azureedge.net/). Para definir a origem do vídeo, escolha **(JWT Token) do AES** ou **AES (SWT Token)**. O token é passado com o cabeçalho de autorização.
 
-- Através da adição de um URL de consulta parâmetro com o "token = tokenvalue."  
+- Por meio da adição de um URL de consulta parâmetro com "token = tokenvalue."  
     > [!NOTE]
-    > O prefixo "Portador" não é esperado. Porque o token é enviado através de um URL, terá de proteger a cadeia do token. Eis um exemplo código c# que mostra como fazê-lo:
+    > Não se espera que o prefixo de "Bearer". Como o token é enviado através de um URL, precisa proteger a cadeia de caracteres de token. Aqui está um C# código de exemplo que mostra como fazê-lo:
 
     ```csharp
     string armoredAuthToken = System.Web.HttpUtility.UrlEncode(authToken);
@@ -41,8 +41,8 @@ Os clientes, muitas vezes, pergunte como um leitor pode passar tokens para o ser
     Uri keyDeliveryUrlWithTokenParameter = new Uri(uriWithTokenParameter);
     ```
 
-- Através do campo de CustomData.
-Esta opção é utilizada para apenas o aquisição de licença PlayReady, através do campo de CustomData do desafio de aquisição de licença PlayReady. Neste caso, o token tem de ser existente no documento XML conforme descrito aqui:
+- Através do campo CustomData.
+Esta opção é utilizada para a aquisição de licença de PlayReady apenas, através do campo de CustomData do desafio de aquisição de licença PlayReady. Neste caso, o token deve ser dentro do documento XML, conforme descrito aqui:
 
     ```xml
     <?xml version="1.0"?>
@@ -50,9 +50,9 @@ Esta opção é utilizada para apenas o aquisição de licença PlayReady, atrav
         <Token></Token> 
     </CustomData>
     ```
-    Coloque o seu token de autenticação no elemento de Token.
+    Coloque o token de autenticação do elemento de Token.
 
-- Através de uma lista de reprodução de HTTP Live Streaming (HLS) alternativo. Se pretender configurar a autenticação de token para AES + HLS reprodução no iOS/Safari, não é uma forma pode enviar diretamente no token. Para obter mais informações sobre como alternativa a lista de reprodução para ativar este cenário, consulte este [blogue](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+- Por meio de uma lista de reprodução do HTTP Live Streaming (HLS) alternativo. Se tiver de configurar a autenticação de token para o AES + HLS reprodução no iOS/Safari, não uma maneira de enviar diretamente no token. Para obter mais informações sobre como alternativa a lista de reprodução para ativar este cenário, consulte esta [mensagem de blogue](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

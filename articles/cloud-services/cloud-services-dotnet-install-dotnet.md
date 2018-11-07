@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 3821e13fd968e458e463e90ef338da6637d8d8f2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256804"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instale o .NET em funções de serviços Cloud do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidos com o SO convidado do Azure. Pode utilizar o .NET no SO convidado para configurar as suas funções de web e de trabalho de serviço do cloud.
@@ -34,7 +34,7 @@ Para instalar o .NET em suas funções da web e de trabalho, inclua o instalador
 ## <a name="add-the-net-installer-to-your-project"></a>Adicionar o programa de instalação do .NET ao seu projeto
 Para transferir o instalador da web para o .NET Framework, escolha a versão que pretende instalar:
 
-* [Instalador da web .NET 4.7.2](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [Instalador da web .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Instalador da web .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
 Para adicionar o instalador para uma *web* função:

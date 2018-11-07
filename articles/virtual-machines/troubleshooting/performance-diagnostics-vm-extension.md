@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a759aad346e25fa42f16d9ccfdb42d9fd5b1cd38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a76b22feee84820f3acc963af70ec24669a216d7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413490"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251973"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de diagnóstico de desempenho do Azure para Windows
 
-Extensão de VM de diagnóstico de desempenho do Azure ajuda a recolher dados de diagnóstico de desempenho de VMs do Windows. A extensão executa análise e fornece um relatório de descobertas e recomendações para identificar e resolver problemas de desempenho na máquina virtual. Esta extensão instala uma ferramenta de resolução de problemas chamada [PerfInsights](http://aka.ms/perfinsights).
+Extensão de VM de diagnóstico de desempenho do Azure ajuda a recolher dados de diagnóstico de desempenho de VMs do Windows. A extensão executa análise e fornece um relatório de descobertas e recomendações para identificar e resolver problemas de desempenho na máquina virtual. Esta extensão instala uma ferramenta de resolução de problemas chamada [PerfInsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
     > Se quiser executar diagnósticos na sua VM a partir do portal do Azure para VMs não clássica, recomenda-se para utilizar a nova experiência. Para obter mais informações, consulte [diagnóstico de desempenho para máquinas virtuais do Azure](performance-diagnostics.md) 
@@ -230,7 +230,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
 ````
 
 ## <a name="information-on-the-data-captured"></a>Informações sobre os dados capturados
-A ferramenta de PerfInsights recolhe vários registos de configuração e dados de diagnóstico, dependendo do cenário selecionado. Para obter mais informações, consulte a [PerfInsights documentação](http://aka.ms/perfinsights).
+A ferramenta de PerfInsights recolhe vários registos de configuração e dados de diagnóstico, dependendo do cenário selecionado. Para obter mais informações, consulte a [PerfInsights documentação](https://aka.ms/perfinsights).
 
 ## <a name="view-and-share-the-results"></a>Ver e partilhar os resultados
 

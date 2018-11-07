@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviwer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 343782448d4b508e678108ece268f2ce57b6ac1d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 13e87ef0150924380c18c66c0362974ef599d4bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868144"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231724"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Sempre encriptado: Proteger dados confidenciais e armazenar chaves de encriptação no arquivo de certificados do Windows
 
@@ -56,7 +56,7 @@ Terá da cadeia de ligação mais tarde no tutorial. Depois de criar a base de d
 1. Clique em **bases de dados SQL** > **clínica** > **Mostrar cadeias de ligação de base de dados**.
 2. Copie a cadeia de ligação para **ADO.NET**.
    
-    ![Copie a cadeia de ligação](./media/sql-database-always-encrypted/connection-strings.png)
+    ![Copiar a cadeia de ligação](./media/sql-database-always-encrypted/connection-strings.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Ligar à base de dados com o SSMS
 Abra o SSMS e ligue ao servidor com a base de dados clínica.
@@ -64,7 +64,7 @@ Abra o SSMS e ligue ao servidor com a base de dados clínica.
 1. Abra o SQL Server Management Studio. (Clique em **Connect** > **motor de base de dados** para abrir o **ligar ao servidor** janela se não estiver aberto).
 2. Introduza o nome do servidor e as credenciais. O nome do servidor pode ser encontrado no painel da base de dados do SQL e na cadeia de ligação que copiou anteriormente. Escreva o nome de servidor completa incluindo *database.windows.net*.
    
-    ![Copie a cadeia de ligação](./media/sql-database-always-encrypted/ssms-connect.png)
+    ![Copiar a cadeia de ligação](./media/sql-database-always-encrypted/ssms-connect.png)
 
 Se o **nova regra de Firewall** é apresentada a janela, inicie sessão no Azure e permita que o SSMS crie uma nova regra de firewall para.
 
@@ -514,5 +514,5 @@ Depois de criar uma base de dados que utiliza o Always Encrypted, pode querer fa
 * [Encriptação de dados transparente](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Criptografia do SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistente sempre encriptado](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Blog sempre encriptado](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Blog sempre encriptado](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

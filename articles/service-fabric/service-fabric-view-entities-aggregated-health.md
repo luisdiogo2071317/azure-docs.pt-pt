@@ -1,6 +1,6 @@
 ---
-title: Estado de funcionamento de agregado como ver as entidades de Service Fabric do Azure | Microsoft Docs
-description: Descreve como consultar, ver e avaliar agregados estado de funcionamento as entidades do Azure Service Fabric, através de consultas de estado de funcionamento e consultas gerais.
+title: Estado de funcionamento agregado de como ver as entidades do Azure Service Fabric | Documentos da Microsoft
+description: Descreve como consultar, ver e avaliar a integridade de agregados de entidades do Azure Service Fabric, através de consultas de estado de funcionamento e consultas gerais.
 services: service-fabric
 documentationcenter: .net
 author: oanapl
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 2e5d1045edbbc3c71cb0ccff34d2ba327a98a409
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211862"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230857"
 ---
 # <a name="view-service-fabric-health-reports"></a>Ver relatórios de estado de funcionamento do Service Fabric
-Azure Service Fabric apresenta um [modelo de estado de funcionamento](service-fabric-health-introduction.md) com entidades de estado de funcionamento que componentes de sistema e watchdogs pode relatório local as condições que está a monitorizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) agrega todos os dados de estado de funcionamento para determinar se entidades estão em bom estadas.
+O Azure Service Fabric introduz um [modelo de estado de funcionamento](service-fabric-health-introduction.md) com entidades de estado de funcionamento nas quais componentes de sistema e watchdogs pode relatório local condições que está a monitorizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) agrega todos os dados de estado de funcionamento para determinar se as entidades estão em bom estadas.
 
-O cluster é preenchido automaticamente com os relatórios de estado de funcionamento enviados pelos componentes do sistema. Leia mais em [utilizar relatórios de estado de funcionamento do sistema para resolver](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
+O cluster é preenchido automaticamente com os relatórios de estado de funcionamento enviados pelos componentes de sistema. Leia mais sobre [utilizar os relatórios de estado de funcionamento do sistema para resolver](service-fabric-understand-and-troubleshoot-with-system-health-reports.md).
 
 O Service Fabric fornece várias formas de obter o estado de funcionamento agregado das entidades:
 
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização
 * Consultas de estado de funcionamento (através do PowerShell, API ou REST)
-* Geral consultas que retorno uma lista de entidades que tenham o estado de funcionamento como uma das propriedades (através do PowerShell, API ou REST)
+* Geral consulta ou retorno uma lista de entidades que tenham o estado de funcionamento como uma das propriedades (através do PowerShell, API ou REST)
 
-Para demonstrar estas opções, vamos utilizar um cluster local com cinco nós e o [fabric: / WordCount aplicação](http://aka.ms/servicefabric-wordcountapp). O **fabric: / WordCount** aplicação contém dois serviços de predefinição, um serviço com monitorização de estado do tipo `WordCountServiceType`e um serviço sem monitorização de estado do tipo `WordCountWebServiceType`. Posso alterar a `ApplicationManifest.xml` para exigir sete réplicas para o serviço de monitorização de estado e uma partição de destino. Porque existem apenas cinco nós no cluster, os componentes do sistema comunicam um aviso na partição de serviço porque está a contagem de destino.
+Para demonstrar essas opções, vamos utilizar um cluster local com cinco nós e o [fabric: / WordCount aplicação](https://aka.ms/servicefabric-wordcountapp). O **fabric: / WordCount** aplicação contém dois serviços de predefinição, um serviço com monitorização de estado do tipo `WordCountServiceType`e um serviço sem estado do tipo `WordCountWebServiceType`. Eu Alterei o `ApplicationManifest.xml` para exigir a sete réplicas para o serviço com estado e uma partição de destino. Como há apenas cinco nós no cluster, os componentes de sistema reportam um aviso na partição de serviço porque está abaixo a contagem de destino.
 
 ```xml
 <Service Name="WordCountService">
@@ -45,15 +45,15 @@ Para demonstrar estas opções, vamos utilizar um cluster local com cinco nós e
 ## <a name="health-in-service-fabric-explorer"></a>Estado de funcionamento no Service Fabric Explorer
 Service Fabric Explorer proporciona uma vista visual do cluster. Na imagem abaixo, pode ver que:
 
-* A aplicação **fabric: / WordCount** está vermelho (na erro), porque tem um evento de erro comunicado pelo **MyWatchdog** para a propriedade **disponibilidade**.
-* Um dos respetivos serviços, **fabric: / WordCount/WordCountService** for amarelo (em aviso). O serviço está configurado com sete réplicas e o cluster com cinco nós, pelo que não é possível colocar duas repicas. Apesar de não ser apresentado aqui, a partição de serviço for amarela devido a um relatório do sistema de `System.FM` indicando que `Partition is below target replica or instance count`. A partição amarela aciona o serviço amarelo.
-* O cluster é vermelho devido à aplicação vermelha.
+* O aplicativo **fabric: / WordCount** é vermelho (em erro), porque tem um evento de erro comunicado pelo **MyWatchdog** para a propriedade **disponibilidade**.
+* Um dos seus serviços, **fabric: / WordCount/WordCountService** for amarelo (num aviso). O serviço está configurado com sete réplicas e o cluster com cinco nós, pelo que não é possível colocar duas repicas. Apesar de não é apresentado aqui, a partição de serviço for amarela, devido a um relatório do sistema do `System.FM` dizendo que `Partition is below target replica or instance count`. A partição amarela aciona o serviço amarelo.
+* O cluster é vermelho devido a aplicação de vermelha.
 
-A avaliação utiliza políticas predefinidas do manifesto do cluster e o manifesto da aplicação. Estão a políticas strict e não tolerar qualquer falha.
+A avaliação utiliza políticas predefinidas do manifesto do cluster e o manifesto do aplicativo. Eles são diretivas rígidas e não tolerar qualquer falha.
 
-Vista do cluster com o Service Fabric Explorer:
+Visão do cluster com o Service Fabric Explorer:
 
-![Vista do cluster com o Service Fabric Explorer.][1]
+![Visão do cluster com o Service Fabric Explorer.][1]
 
 [1]: ./media/service-fabric-view-entities-aggregated-health/servicefabric-explorer-cluster-health.png
 
@@ -64,39 +64,39 @@ Vista do cluster com o Service Fabric Explorer:
 >
 
 ## <a name="health-queries"></a>Consultas de estado de funcionamento
-Service Fabric expõe consultas de estado de funcionamento para cada um dos suportado [tipos de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy). Pode ser acedidos através da API, através de métodos em [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), cmdlets do PowerShell e REST. Estas consultas devolvem informações de estado de funcionamento completo sobre a entidade: o estado de funcionamento agregados, eventos de estado de funcionamento da entidade, os Estados de funcionamento de subordinados (quando aplicável), avaliações mau estado de funcionamento (quando a entidade não é bom estado de funcionamento) e estatísticas de estado de funcionamento de elementos subordinados (quando aplicável).
+Service Fabric expõe consultas de estado de funcionamento para cada suportadas [tipos de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy). Podem ser acedidos através da API, através de métodos na [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), cmdlets do PowerShell e REST. Estas consultas devolvem informações de estado de funcionamento completo sobre a entidade: o estado de funcionamento agregado, eventos de estado de funcionamento da entidade, Estados de funcionamento do filho (quando aplicável), avaliações de mau estado de funcionamento (quando a entidade não está em bom estada) e as estatísticas de estado de funcionamento de filhos (quando aplicável).
 
 > [!NOTE]
-> Uma entidade de estado de funcionamento é devolvida quando for povoado completamente no arquivo de estado de funcionamento. A entidade tem de ser Active Directory (não eliminado) e tem um relatório de sistema. As entidades principais na cadeia de hierarquia também tem de ter relatórios de sistema. Se qualquer uma das seguintes condições não forem satisfeitas, o estado de funcionamento consulta devolver um [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) com [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` que mostra o motivo pelo qual a entidade não é devolvida.
+> Uma entidade de estado de funcionamento é retornada quando ele é totalmente preenchido no arquivo de estado de funcionamento. A entidade tem de estar ativo (não eliminado) e tem um relatório do sistema. Também tem de ter suas entidades pai na cadeia de hierarquia de relatórios do sistema. Se alguma dessas condições não estão cumpridas, o estado de funcionamento consulta devolver um [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) com [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound` que mostra por que a entidade não é devolvida.
 >
 >
 
-As consultas de estado de funcionamento tem de passar no identificador de entidade, que depende do tipo de entidade. As consultas de aceitar os parâmetros de política de estado de funcionamento opcionais. Se não existem políticas de estado de funcionamento forem especificadas, o [políticas de estado de funcionamento](service-fabric-health-introduction.md#health-policies) do manifesto de cluster ou aplicações são utilizadas para avaliação. Se os manifestos não contém uma definição para políticas de estado de funcionamento, as políticas de estado de funcionamento predefinida são utilizadas para avaliação. As políticas de estado de funcionamento predefinida não tolerar eventuais falhas. As consultas também aceitam filtros para devolver apenas os elementos subordinados parciais ou eventos – aqueles que respeitem os filtros especificados. Filtro de outro permite excluir as estatísticas de elementos subordinados.
+As consultas de estado de funcionamento têm de introduzir o identificador da entidade, que depende do tipo de entidade. As consultas de aceitar os parâmetros de política de estado de funcionamento opcionais. Se forem especificadas não existem políticas de estado de funcionamento, o [políticas de estado de funcionamento](service-fabric-health-introduction.md#health-policies) do manifesto do cluster ou aplicações são utilizadas para avaliação. Se os manifestos não contém uma definição para políticas de estado de funcionamento, as políticas de estado de funcionamento padrão são utilizadas para avaliação. As políticas de estado de funcionamento padrão não tolerar quaisquer falhas. As consultas também aceitam filtros para devolver apenas os filhos parciais ou eventos – aqueles que respeitam os filtros especificados. Outro filtro permite excluir as estatísticas de elementos subordinados.
 
 > [!NOTE]
-> Os filtros de saída são aplicados no lado do servidor, pelo que o tamanho da mensagem de resposta é reduzido. Recomendamos que pode utiliza os filtros de saída para limitar os dados devolvidos, em vez de aplicar os filtros do lado do cliente.
+> Os filtros de saída são aplicados no lado do servidor, para que o tamanho de resposta de mensagem é reduzido. Recomendamos que utilize os filtros de saída para limitar os dados retornados, em vez de aplica os filtros no lado do cliente.
 >
 >
 
-Estado de funcionamento de uma entidade contém:
+Estado de funcionamento da entidade contém:
 
-* O estado agregado de estado de funcionamento da entidade. Calculado pelo arquivo de estado de funcionamento com base em relatórios de estado de funcionamento da entidade, os Estados de funcionamento de subordinados (quando aplicável) e políticas de estado de funcionamento. Leia mais sobre [avaliação de estado de funcionamento da entidade](service-fabric-health-introduction.md#health-evaluation).  
+* O estado de funcionamento agregado da entidade. Calculado pelo arquivo de estado de funcionamento com base em políticas de estado de funcionamento, Estados de funcionamento do filho (quando aplicável) e relatórios de estado de funcionamento da entidade. Leia mais sobre [avaliação de estado de funcionamento da entidade](service-fabric-health-introduction.md#health-evaluation).  
 * Os eventos de estado de funcionamento na entidade.
-* A coleção de Estados de funcionamento de todos os elementos subordinados para as entidades que podem ter elementos subordinados. Estados de funcionamento contenham identificadores de entidade e o estado de funcionamento agregada. Para obter o estado de funcionamento completo para um elemento subordinado, chamar o estado de funcionamento de consulta para o tipo de entidade subordinada e atribua o identificador de subordinados.
-* As avaliações de mau estado de funcionamento que apontam para o relatório que acionou o estado da entidade, se a entidade não está em bom estada. As avaliações são recursiva, que contém as avaliações de estado de funcionamento de elementos subordinados que acionou o estado de funcionamento atual. Por exemplo, um watchdog do comunicou um erro em relação a uma réplica. O estado de funcionamento de aplicações apresenta uma mau avaliação devido a um serviço de estado de funcionamento incorreto; o serviço está danificado devido a uma partição na erro; a partição está danificada devido a uma réplica no registo de erros; a réplica está danificada devido ao relatório de estado de funcionamento de erro watchdog.
-* As estatísticas de estado de funcionamento de todos os tipos de elementos subordinados de entidades com elementos subordinados. Por exemplo, o estado de funcionamento do cluster mostra o número total de aplicações, serviços, partições, as réplicas e implementar entidades do cluster. Estado de funcionamento de serviço mostra o número total de partições e réplicas do serviço especificado.
+* A coleção de Estados de funcionamento de todos os filhos para as entidades que podem ter filhos. Os Estados de funcionamento contém identificadores de entidade e o estado de funcionamento agregado. Para obter o estado de funcionamento completo para um elemento subordinado, o estado de funcionamento de consulta, ligue para o tipo de entidade subordinada e passamos o identificador de subordinados.
+* As avaliações de mau estado de funcionamento que apontam para o relatório que disparou o estado da entidade, se a entidade não está em bom estada. As avaliações são recursiva, que contém as avaliações de estado de funcionamento de filhos que disparou o estado de funcionamento atual. Por exemplo, um watchdog comunicou um erro em relação a uma réplica. O estado de funcionamento do aplicativo mostra uma edição de avaliação de mau estado de funcionamento devido a um serviço em mau estado de funcionamento; o serviço está em mau estado de funcionamento devido a uma partição por engano; a partição está danificada devido a uma réplica num erro; a réplica está danificada devido ao relatório de estado de funcionamento de erro de watchdog.
+* As estatísticas de estado de funcionamento para todos os tipos de elementos subordinados das entidades que tem elementos subordinados. Por exemplo, o estado de funcionamento do cluster mostra o número total de aplicações, serviços, partições, réplicas e implementar entidades do cluster. Estado de funcionamento do serviço mostra o número total de partições e réplicas em serviço especificado.
 
 ## <a name="get-cluster-health"></a>Obter o estado de funcionamento do cluster
-Devolve o estado de funcionamento da entidade de cluster e contém os Estados de funcionamento das aplicações e nós (subordinados do cluster). Entrada:
+Devolve o estado de funcionamento da entidade de cluster e contém os Estados de funcionamento de aplicativos e nós (filhos do cluster). Entrada:
 
 * [Opcional] A política de estado de funcionamento do cluster utilizada para avaliar os nós e os eventos de cluster.
-* [Opcional] O estado de funcionamento política o mapeamento de aplicações, com as políticas de estado de funcionamento utilizada para substituir as políticas de manifesto de aplicação.
-* [Opcional] Filtros de eventos, nós e aplicações que especificam quais entradas são úteis e devem ser devolvidas nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos, nós e aplicações são utilizadas para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
-* [Opcional] Filtro excluir estatísticas de estado de funcionamento.
-* [Opcional] Filtro para incluir fabric: / estatísticas de estado de funcionamento do sistema nas estatísticas de estado de funcionamento. Apenas aplicável quando as estatísticas de estado de funcionamento não são excluídas. Por predefinição, as estatísticas de estado de funcionamento incluem apenas estatísticas para as aplicações de utilizador e não a aplicação de sistema.
+* [Opcional] O estado de funcionamento política mapa da aplicação, com as políticas de estado de funcionamento utilizada para substituir as políticas de manifesto do aplicativo.
+* [Opcional] Filtros de eventos, nós e aplicações que especificam qual entradas são de interesse e devem ser devolvidas o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos, nós e aplicações são utilizadas para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
+* [Opcional] Filtro para excluir as estatísticas de estado de funcionamento.
+* [Opcional] Filtro para incluir fabric: / estatísticas de estado de funcionamento do sistema nas estatísticas de estado de funcionamento. Apenas aplicável quando as estatísticas de estado de funcionamento não forem excluídas. Por predefinição, as estatísticas de estado de funcionamento incluem apenas as estatísticas de aplicativos de usuário e não a aplicação de sistema.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento do cluster, crie um `FabricClient` e chame o [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) método no respetivo **HealthManager**.
+Para obter o estado de funcionamento do cluster, crie uma `FabricClient` e chamar o [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) método no seu **HealthManager**.
 
 A seguinte chamada obtém o estado de funcionamento do cluster:
 
@@ -104,7 +104,7 @@ A seguinte chamada obtém o estado de funcionamento do cluster:
 ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthAsync();
 ```
 
-O código seguinte obtém o estado de funcionamento do cluster utilizando uma política de estado de funcionamento de cluster personalizado e os filtros para nós e aplicações. Especifica que as estatísticas de estado de funcionamento incluem o fabric: / estatísticas de sistema. Cria [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), que contém as informações de entrada.
+O código seguinte obtém o estado de funcionamento do cluster com uma política de estado de funcionamento de cluster personalizado e filtros para nós e aplicativos. Especifica que as estatísticas de estado de funcionamento incluem os recursos de infraestrutura: / estatísticas de sistema. Ele cria [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthquerydescription), que contém as informações de entrada.
 
 ```csharp
 var policy = new ClusterHealthPolicy()
@@ -136,11 +136,11 @@ ClusterHealth clusterHealth = await fabricClient.HealthManager.GetClusterHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento do cluster é [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+O cmdlet para obter o estado de funcionamento do cluster é [Get-ServiceFabricClusterHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealth). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-O estado do cluster é cinco nós, a aplicação de sistema e fabric: / WordCount configurado, tal como descrito.
+O estado do cluster é cinco nós, a aplicação de sistema e fabric: / WordCount configurada, tal como descrito.
 
-O seguinte cmdlet obtém o estado de funcionamento do cluster através de políticas de estado de funcionamento de predefinição. O estado de funcionamento agregados indica um aviso, porque os recursos de infraestrutura: / WordCount aplicação está em aviso. Tenha em atenção a como as avaliações de mau estado de funcionamento fornecem detalhes sobre as condições que acionou o estado de funcionamento agregado.
+O cmdlet seguinte obtém o estado de funcionamento do cluster ao utilizar políticas de estado de funcionamento padrão. O estado de funcionamento agregado é aviso, porque os recursos de infraestrutura: / aplicação de WordCount é num aviso. Observe como o das avaliações de mau estado de funcionamento fornecem detalhes sobre as condições que disparou o estado de funcionamento agregado.
 
 ```xml
 PS D:\ServiceFabric> Get-ServiceFabricClusterHealth
@@ -197,7 +197,7 @@ HealthStatistics        :
                           Application           : 0 Ok, 1 Warning, 0 Error
 ```
 
-O cmdlet PowerShell seguinte obtém o estado de funcionamento do cluster utilizando uma política de aplicação personalizada. -Filtra os resultados para obter apenas aplicações e os nós no erro ou aviso. Como resultado, nenhum nó é devolvidos, dado que estão todos em bom Estados. Apenas os recursos de infraestrutura: / WordCount aplicação respeita o filtro de aplicações. Porque a política personalizada Especifica a ter em consideração avisos como erros para os recursos de infraestrutura: / WordCount aplicação, a aplicação é avaliada como erro e, por isso, é o cluster.
+O cmdlet PowerShell seguinte obtém o estado de funcionamento do cluster com uma política de aplicação personalizada. Filtra os resultados para obter apenas os aplicativos e nós no erro ou aviso. Como resultado, não existem nós são retornados, como eles estão todos em bom Estados. Apenas os recursos de infraestrutura: / WordCount aplicação respeita o filtro de aplicativos. Uma vez que a política personalizada Especifica a serem considerados avisos como erros nos recursos de infraestrutura: / WordCount aplicativo, o aplicativo é avaliado como em erro e é por isso, o cluster.
 
 ```powershell
 PS D:\ServiceFabric> $appHealthPolicy = New-Object -TypeName System.Fabric.Health.ApplicationHealthPolicy
@@ -234,17 +234,17 @@ HealthEvents            : None
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento do cluster com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento do cluster com uma [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
 ## <a name="get-node-health"></a>Obter o estado de funcionamento do nó
-Devolve o estado de funcionamento da entidade de um nó e contém os eventos de estado de funcionamento comunicados no nó. Entrada:
+Devolve o estado de funcionamento de uma entidade de nó e contém os eventos de estado de funcionamento comunicados no nó. Entrada:
 
-* [Necessário] O nome de nó que identifica o nó.
+* [Necessário] O nome do nó que identifica o nó.
 * [Opcional] As definições de política de estado de funcionamento cluster utilizadas para avaliar o estado de funcionamento.
-* [Opcional] Filtros para os eventos que especificam as entradas de interesse e devem ser devolvidas nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos são utilizados para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
+* [Opcional] Filtros para os eventos que especificam qual entradas são de interesse e devem ser devolvidas o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos são utilizados para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento do nó através da API, crie um `FabricClient` e chame o [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) método no respetivo HealthManager.
+Para obter o estado de funcionamento do nó por meio da API, crie uma `FabricClient` e chamar o [GetNodeHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getnodehealthasync) método no seu HealthManager.
 
 O código seguinte obtém o estado de funcionamento do nó para o nome de nó especificado:
 
@@ -252,7 +252,7 @@ O código seguinte obtém o estado de funcionamento do nó para o nome de nó es
 NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(nodeName);
 ```
 
-O código seguinte obtém o estado de funcionamento do nó para o nome de nó especificado e passa no filtro de eventos e uma política personalizada através de [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
+O código seguinte obtém o estado de funcionamento do nó para o nome de nó especificado e passa o filtro de eventos e uma política personalizada através de [NodeHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.nodehealthquerydescription):
 
 ```csharp
 var queryDescription = new NodeHealthQueryDescription(nodeName)
@@ -265,8 +265,8 @@ NodeHealth nodeHealth = await fabricClient.HealthManager.GetNodeHealthAsync(quer
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento do nó é [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
-O seguinte cmdlet obtém o estado de funcionamento do nó ao utilizar políticas de estado de funcionamento de predefinição:
+O cmdlet para obter o estado de funcionamento do nó é [Get-ServiceFabricNodeHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnodehealth). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+O cmdlet seguinte obtém o estado de funcionamento do nó ao utilizar políticas de estado de funcionamento padrão:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNodeHealth _Node_1
@@ -288,7 +288,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 4:40:47 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-O seguinte cmdlet obtém o estado de funcionamento de todos os nós do cluster:
+O cmdlet seguinte obtém o estado de funcionamento de todos os nós do cluster:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricNode | Get-ServiceFabricNodeHealth | select NodeName, AggregatedHealthState | ft -AutoSize
@@ -303,26 +303,26 @@ _Node_0                     Ok
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento do nó com uma [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento do nó com uma [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
 ## <a name="get-application-health"></a>Obter o estado de funcionamento da aplicação
-Devolve o estado de funcionamento de uma entidade de aplicação. Contém os Estados de funcionamento da aplicação implementada e subordinados do serviço. Entrada:
+Devolve o estado de funcionamento de uma entidade de aplicação. Contém os Estados de funcionamento da aplicação implementada e filhos de serviço. Entrada:
 
 * [Necessário] O nome da aplicação (URI) que identifica a aplicação.
-* [Opcional] A política de estado de funcionamento da aplicação utilizada para substituir as políticas de manifesto de aplicação.
-* [Opcional] Filtros de eventos, serviços e aplicações implementadas que especificam quais entradas são úteis e devem ser devolvidos nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos, serviços e aplicações implementadas são utilizadas para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
-* [Opcional] Filtro excluir as estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento incluem o ok, aviso e contagem de erros para todos os elementos subordinados de aplicação: serviços de partições, réplicas, aplicações implementadas e implementar pacotes de serviços.
+* [Opcional] A política de estado de funcionamento de aplicações utilizada para substituir as políticas de manifesto do aplicativo.
+* [Opcional] Filtros para eventos, serviços e aplicações implementadas que especificam as entradas são de interesse e devem ser devolvidos o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos, serviços e aplicações implementadas são utilizadas para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
+* [Opcional] Filtro para excluir as estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento incluem o ok, aviso e contagem de erros para todos os filhos de aplicação: serviços, partições, as réplicas, aplicativos implantados e implementar pacotes de serviço.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento da aplicação, crie um `FabricClient` e chame o [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) método no respetivo HealthManager.
+Para obter o estado de funcionamento do aplicativo, criar um `FabricClient` e chamar o [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) método no seu HealthManager.
 
-O código seguinte obtém o estado de funcionamento da aplicação para o nome de aplicação especificado (URI):
+O código seguinte obtém o estado de funcionamento do aplicativo para o nome da aplicação especificado (URI):
 
 ```csharp
 ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplicationHealthAsync(applicationName);
 ```
 
-O código seguinte obtém o estado de funcionamento da aplicação para o nome de aplicação especificado (URI), com os filtros e as políticas personalizadas especificado através do [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
+O código seguinte obtém o estado de funcionamento do aplicativo para o nome da aplicação especificado (URI), com filtros e as políticas personalizadas especificado [ApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationhealthquerydescription).
 
 ```csharp
 HealthStateFilter warningAndErrors = HealthStateFilter.Error | HealthStateFilter.Warning;
@@ -351,9 +351,9 @@ ApplicationHealth applicationHealth = await fabricClient.HealthManager.GetApplic
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento da aplicação é [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+O cmdlet para obter o estado de funcionamento do aplicativo é [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-O seguinte cmdlet devolve o estado de funcionamento a **fabric: / WordCount** aplicação:
+O seguinte cmdlet devolve o estado de funcionamento da **fabric: / WordCount** aplicação:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount
@@ -421,7 +421,7 @@ HealthStatistics                :
                                   DeployedApplication   : 5 Ok, 0 Warning, 0 Error
 ```
 
-O seguinte cmdlet do PowerShell passa em políticas personalizadas. Filtra também eventos e subordinados.
+O seguinte cmdlet do PowerShell passa as políticas personalizadas. Filtra também eventos e subordinados.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth -ApplicationName fabric:/WordCount -ConsiderWarningAsError $true -ServicesFilter Error -EventsFilter Error -DeployedApplicationsFilter Error -ExcludeHealthStatistics
@@ -449,18 +449,18 @@ HealthEvents                    : None
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento de aplicação com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento de aplicação com um [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
 ## <a name="get-service-health"></a>Obter o estado de funcionamento do serviço
 Devolve o estado de funcionamento de uma entidade de serviço. Contém os Estados de funcionamento de partição. Entrada:
 
 * [Necessário] O nome do serviço (URI) que identifica o serviço.
-* [Opcional] A política de estado de funcionamento da aplicação utilizada para substituir a política de manifesto de aplicação.
-* [Opcional] Filtros de eventos e partições que especificam quais entradas são úteis e devem ser devolvidas nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos e as partições são utilizadas para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
-* [Opcional] Filtro excluir estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento mostram ok, aviso, e contagem de erros para todas as partições e réplicas do serviço.
+* [Opcional] A política de estado de funcionamento de aplicações utilizada para substituir a política de manifesto do aplicativo.
+* [Opcional] Filtros de eventos e as partições que especificam qual entradas são de interesse e devem ser devolvidas o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos e as partições são utilizadas para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
+* [Opcional] Filtro para excluir as estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento mostram ok, aviso, e contagem de erros para todas as partições e réplicas do serviço.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento do serviço através da API, crie um `FabricClient` e chame o [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) método no respetivo HealthManager.
+Para obter o estado de funcionamento do serviço por meio da API, crie uma `FabricClient` e chamar o [GetServiceHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getservicehealthasync) método no seu HealthManager.
 
 O exemplo seguinte obtém o estado de funcionamento de um serviço com o nome de serviço especificado (URI):
 
@@ -468,7 +468,7 @@ O exemplo seguinte obtém o estado de funcionamento de um serviço com o nome de
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
-O código seguinte obtém o estado de funcionamento do serviço o nome do serviço especificado (URI), especificar os filtros e a política personalizada através de [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
+O código seguinte obtém o estado de funcionamento do serviço o nome de serviço especificado (URI), especificando os filtros e a política personalizada através de [ServiceHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicehealthquerydescription):
 
 ```csharp
 var queryDescription = new ServiceHealthQueryDescription(serviceName)
@@ -481,9 +481,9 @@ ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthA
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento do serviço é [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+O cmdlet para obter o estado de funcionamento do serviço é [Get-ServiceFabricServiceHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricservicehealth). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-O seguinte cmdlet obtém o estado de funcionamento do serviço através de políticas de estado de funcionamento de predefinição:
+O cmdlet seguinte obtém o estado de funcionamento do serviço ao utilizar políticas de estado de funcionamento padrão:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricServiceHealth -ServiceName fabric:/WordCount/WordCountService
@@ -521,27 +521,27 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento do serviço com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento do serviço com uma [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
 ## <a name="get-partition-health"></a>Obter o estado de funcionamento de partição
 Devolve o estado de funcionamento de uma entidade de partição. Contém os Estados de funcionamento de réplica. Entrada:
 
 * [Necessário] A ID (GUID) que identifica a partição de partição.
-* [Opcional] A política de estado de funcionamento da aplicação utilizada para substituir a política de manifesto de aplicação.
-* [Opcional] Filtros de eventos e as réplicas que especificam quais entradas são úteis e devem ser devolvidas nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos e as réplicas são utilizadas para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
-* [Opcional] Filtro excluir estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento mostram quantos réplicas estão em ok, aviso e erro Estados.
+* [Opcional] A política de estado de funcionamento de aplicações utilizada para substituir a política de manifesto do aplicativo.
+* [Opcional] Filtros de eventos e as réplicas que especificam qual entradas são de interesse e devem ser devolvidas o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos e as réplicas são utilizadas para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
+* [Opcional] Filtro para excluir as estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento mostram o número de réplicas em ok, aviso e erro Estados.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento de partição através da API, crie um `FabricClient` e chame o [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) método no respetivo HealthManager. Para especificar os parâmetros opcionais, criar [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
+Para obter o estado de funcionamento de partição através da API, crie uma `FabricClient` e chamar o [GetPartitionHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getpartitionhealthasync) método no seu HealthManager. Para especificar os parâmetros opcionais, crie [PartitionHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.partitionhealthquerydescription).
 
 ```csharp
 PartitionHealth partitionHealth = await fabricClient.HealthManager.GetPartitionHealthAsync(partitionId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento de partição é [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+O cmdlet para obter o estado de funcionamento de partição é [Get-ServiceFabricPartitionHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricpartitionhealth). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-O seguinte cmdlet obtém o estado de funcionamento para todas as partições do **fabric: / WordCount/WordCountService** serviço e os filtros de saída Estados de funcionamento de réplica:
+O cmdlet seguinte obtém o estado de funcionamento para todas as partições do **fabric: / WordCount/WordCountService** serviço e filtra os Estados de funcionamento de réplica:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None
@@ -613,26 +613,26 @@ HealthStatistics      :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento de partição com uma [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento de partição com um [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
 ## <a name="get-replica-health"></a>Obter o estado de funcionamento de réplica
-Devolve o estado de funcionamento de uma réplica de monitorização de estado de serviço ou uma instância de serviço sem estado. Entrada:
+Devolve o estado de funcionamento de uma réplica de serviço com estado ou uma instância de serviço sem estado. Entrada:
 
-* [Necessário] O ID de ID (GUID) e a réplica da partição que identifica a réplica.
-* [Opcional] Os parâmetros de política de estado de funcionamento aplicação utilizados para substituir as políticas de manifesto de aplicação.
-* [Opcional] Filtros para os eventos que especificam as entradas de interesse e devem ser devolvidas nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos são utilizados para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
+* [Necessário] O ID de ID (GUID) e de réplica da partição que identifica a réplica.
+* [Opcional] Os parâmetros de política de estado de funcionamento aplicação utilizados para substituir as políticas de manifesto do aplicativo.
+* [Opcional] Filtros para os eventos que especificam qual entradas são de interesse e devem ser devolvidas o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos são utilizados para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento da réplica através da API, crie um `FabricClient` e chame o [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) método no respetivo HealthManager. Para especificar parâmetros avançados, utilize [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
+Para obter o estado de funcionamento de réplica por meio da API, crie uma `FabricClient` e chamar o [GetReplicaHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getreplicahealthasync) método no seu HealthManager. Para especificar parâmetros avançados, utilize [ReplicaHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.replicahealthquerydescription).
 
 ```csharp
 ReplicaHealth replicaHealth = await fabricClient.HealthManager.GetReplicaHealthAsync(partitionId, replicaId);
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento de réplica é [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+O cmdlet para obter o estado de funcionamento de réplica é [Get-ServiceFabricReplicaHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricreplicahealth). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-O seguinte cmdlet obtém o estado de funcionamento da réplica primária para todas as partições do serviço:
+O cmdlet seguinte obtém o estado de funcionamento a réplica primária para todas as partições do serviço:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
@@ -656,18 +656,18 @@ HealthEvents          :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento de réplica com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento de réplica com uma [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
 ## <a name="get-deployed-application-health"></a>Obter o estado de funcionamento da aplicação implementada
-Devolve o estado de funcionamento de uma aplicação implementada na entidade de um nó. Contém os Estados de funcionamento do pacote de serviço implementado. Entrada:
+Devolve o estado de funcionamento de um aplicativo implantado numa entidade de nó. Contém os Estados de funcionamento do pacote de serviço implementado. Entrada:
 
-* [Necessário] O nome da aplicação (URI) e o nome do nó (cadeia) que identificam a aplicação implementada.
-* [Opcional] A política de estado de funcionamento da aplicação utilizada para substituir as políticas de manifesto de aplicação.
-* [Opcional] Filtros para eventos e pacotes de serviço implementado que especificam quais entradas são úteis e devem ser devolvidas nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos e pacotes de serviço implementado são utilizadas para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
-* [Opcional] Filtro excluir estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento mostram o número de pacotes de serviços implementados em ok, aviso e erro Estados de funcionamento.
+* [Necessário] O nome da aplicação (URI) e o nome de nó (cadeia) que identificam a aplicação implementada.
+* [Opcional] A política de estado de funcionamento de aplicações utilizada para substituir as políticas de manifesto do aplicativo.
+* [Opcional] Filtros de eventos e pacotes de serviços implementados que especificam as entradas são de interesse e devem ser devolvidas o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos e pacotes de serviços implementados são utilizados para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
+* [Opcional] Filtro para excluir as estatísticas de estado de funcionamento. Se não for especificado, as estatísticas de estado de funcionamento mostram o número de pacotes de serviços implementados em ok, aviso e erro Estados de funcionamento.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento de uma aplicação implementada num nó através da API, crie um `FabricClient` e chame o [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) método no respetivo HealthManager. Para especificar os parâmetros opcionais, utilize [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
+Para obter o estado de funcionamento de um aplicativo implantado num nó por meio da API, crie uma `FabricClient` e chamar o [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) método no seu HealthManager. Para especificar os parâmetros opcionais, utilize [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription).
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -675,9 +675,9 @@ DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedA
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento da aplicação implementada é [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Para saber em que uma aplicação é implementada, execute [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e observe os subordinados de aplicação implementada.
+O cmdlet para obter o estado de funcionamento da aplicação implementada é [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Para saber em que uma aplicação é implementada, execute [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e examinar os filhos de aplicação implementada.
 
-O seguinte cmdlet obtém o estado de funcionamento a **fabric: / WordCount** aplicação implementada no **node_2**.
+O cmdlet seguinte obtém o estado de funcionamento da **fabric: / WordCount** aplicação implementada no **_Node_2**.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplicationHealth -ApplicationName fabric:/WordCount -NodeName _Node_0
@@ -715,17 +715,17 @@ HealthStatistics                   :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento da aplicação implementada com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento da aplicação implementada com um [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
-## <a name="get-deployed-service-package-health"></a>Obter o estado de funcionamento de pacote de serviço implementado
+## <a name="get-deployed-service-package-health"></a>Obter o estado de funcionamento do serviço implementado pacote
 Devolve o estado de funcionamento de uma entidade de pacote de serviço implementado. Entrada:
 
-* [Necessário] O nome da aplicação (URI), o nome do nó (cadeia) e nome do manifesto do serviço (cadeia) que identificam o pacote de serviço implementado.
-* [Opcional] A política de estado de funcionamento da aplicação utilizada para substituir a política de manifesto de aplicação.
-* [Opcional] Filtros para os eventos que especificam as entradas de interesse e devem ser devolvidas nos resultados (por exemplo, apenas, erros ou avisos e erros). Todos os eventos são utilizados para avaliar o estado de funcionamento de entidade agregado, independentemente do filtro.
+* [Necessário] O nome da aplicação (URI), o nome de nó (cadeia) e nome do manifesto do serviço (cadeia) que identificam o pacote de serviço implementado.
+* [Opcional] A política de estado de funcionamento de aplicações utilizada para substituir a política de manifesto do aplicativo.
+* [Opcional] Filtros para os eventos que especificam qual entradas são de interesse e devem ser devolvidas o resultado (por exemplo, apenas, erros ou avisos e erros). Todos os eventos são utilizados para avaliar o estado de funcionamento agregado de entidades, independentemente do filtro.
 
 ### <a name="api"></a>API
-Para obter o estado de funcionamento de um pacote de serviço implementado através da API, crie um `FabricClient` e chame o [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) método no respetivo HealthManager. Para especificar os parâmetros opcionais, utilize [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
+Para obter o estado de funcionamento de um pacote de serviço implementado por meio da API, crie uma `FabricClient` e chamar o [GetDeployedServicePackageHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedservicepackagehealthasync) método no seu HealthManager. Para especificar os parâmetros opcionais, utilize [DeployedServicePackageHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedservicepackagehealthquerydescription).
 
 ```csharp
 DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeployedServicePackageHealthAsync(
@@ -733,9 +733,9 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento do pacote de serviço implementado é [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Para ver onde uma aplicação é implementada, execute [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e observe as aplicações implementadas. Para ver qual os pacotes são numa aplicação de serviço, observe os subordinados do pacote de serviço implementado no [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) saída.
+O cmdlet para obter o estado de funcionamento do pacote de serviço implementado é [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet. Para ver onde uma aplicação é implementada, execute [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) e examinar as aplicações implementadas. Para ver qual pacotes estão num aplicativo de serviço, observe os filhos de pacote de serviço implementado no [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) saída.
 
-O seguinte cmdlet obtém o estado de funcionamento a **WordCountServicePkg** pacote do serviço do **recursos de infraestrutura: / WordCount** aplicação implementada no **node_2**. A entidade é o **System.Hosting** relatórios para ativação com êxito do pacote de serviço e o ponto de entrada e de registo do tipo de serviço com êxito.
+O cmdlet seguinte obtém o estado de funcionamento a **WordCountServicePkg** pacote de serviço da **fabric: / WordCount** aplicação implementada no **_Node_2**. A entidade tem **System.Hosting** relatórios para ativação com êxito do pacote de serviço e o ponto de entrada e de registo do tipo de serviço com êxito.
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricDeployedApplication -ApplicationName fabric:/WordCount -NodeName _Node_2 | Get-ServiceFabricDeployedServicePackageHealth -ServiceManifestName WordCountServicePkg
@@ -785,44 +785,44 @@ HealthEvents               :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o estado de funcionamento do serviço implementado pacote com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
+Pode obter o estado de funcionamento do serviço implementado pacote com um [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy) que inclui as políticas de estado de funcionamento descritas no corpo.
 
-## <a name="health-chunk-queries"></a>Consultas de segmento de estado de funcionamento
-As consultas de segmento de estado de funcionamento podem devolver subordinados de cluster de múltiplos níveis (recursivamente), por filtros de entrada. Suporta filtros avançados que permitem muita flexibilidade na escolher os subordinados a ser devolvido. Os filtros podem especificar subordinados pelo identificador exclusivo ou por outros os identificadores de grupos e/ou os Estados de funcionamento. Por predefinição, são incluídos, por oposição comandos de estado de funcionamento que incluem sempre o primeiro nível subordinados sem subordinados.
+## <a name="health-chunk-queries"></a>Consultas de segmentos de estado de funcionamento
+As consultas de segmentos de estado de funcionamento podem retornar os filhos de cluster de vários níveis (recursivamente), por filtros de entrada. Ele oferece suporte a filtros avançados que permitem uma grande flexibilidade na escolha os filhos a serem retornados. Os filtros podem especificar filhos ao identificador exclusivo ou outros identificadores de grupo e/ou os Estados de funcionamento. Por predefinição, sem subordinados estão incluídos, em vez de comandos de estado de funcionamento que incluem sempre o primeiro nível filhos.
 
-O [consultas de estado de funcionamento](service-fabric-view-entities-aggregated-health.md#health-queries) devolver apenas primeiro nível subordinados a entidade especificada por filtros necessárias. Para obter os subordinados do subordinado, tem de chamar o estado de funcionamento APIs adicional para cada entidade de interesse. Da mesma forma, para obter o estado de funcionamento de entidades específicos, tem de chamar um Estado de funcionamento API para cada entidade pretendida. A consulta de segmento avançada filtragem permite-lhe solicitar vários itens de interesse numa consulta, minimizando o tamanho da mensagem e o número de mensagens.
+O [consultas de estado de funcionamento](service-fabric-view-entities-aggregated-health.md#health-queries) devolver apenas os filhos de primeiro nível da entidade especificada por filtros necessários. Para obter os subordinados dos filhos, deve chamar as APIs de estado de funcionamento adicional para cada entidade de interesse. Da mesma forma, para obter o estado de funcionamento de entidades específicas, deve chamar um Estado de funcionamento API para cada entidade pretendida. A consulta de segmento filtragem avançada permite-lhe pedir vários itens de interesse numa consulta, minimizar o tamanho da mensagem e o número de mensagens.
 
-O valor da consulta de segmento é que pode obter o estado de funcionamento para obter mais entidades de cluster (potencialmente todos os clusters entidades começando raiz necessário) numa chamada. Pode express consulta do Estado de funcionamento complexas tais como:
+O valor da consulta de segmento é que pode obter estado de funcionamento para obter mais entidades de cluster (potencialmente todos os clusters entidades a partir de raiz necessário) numa chamada. Pode expressar consulta de estado de funcionamento complexas, tais como:
 
-* Retorno apenas as aplicações num erro de e para essas aplicações incluem todos os serviços de aviso ou erro. Para serviços devolvidos, inclui todas as partições.
-* Devolva apenas o estado de funcionamento das quatro aplicações, especificado pelos respetivos nomes.
-* Devolva apenas o estado de funcionamento das aplicações de um tipo de aplicação desejada.
-* Devolve entidades de todos os implementado num nó. Devolve todas as aplicações, todos os implementar aplicações no nó especificado e todos os pacotes de serviços implementados nesse nó.
-* Devolva todas as réplicas no registo de erros. Devolve todas as aplicações, serviços, partições e réplicas apenas no registo de erros.
-* Devolva todas as aplicações. Para um serviço especificado, inclui todas as partições.
+* Retornados apenas aplicativos num erro de e para esses aplicativos incluem todos os serviços no aviso ou erro. Para os serviços retornados, incluem todas as partições.
+* Devolva apenas o estado de funcionamento das aplicações de quatro, especificado pelo respetivos nomes.
+* Devolva apenas o estado de funcionamento das aplicações de um tipo de aplicativo desejado.
+* Devolve entidades todas implementadas num nó. Devolve todos os aplicativos, implementadas aplicativos no nó especificado e todos os pacotes de serviço implementado nesse nó.
+* Devolve todas as réplicas no erro. Devolve todas as aplicações, serviços, partições e réplicas apenas num erro.
+* Devolva todos os aplicativos. Para um serviço especificado, incluem todas as partições.
 
-Atualmente, a consulta de segmento de estado de funcionamento está exposta apenas para a entidade de cluster. Devolve um segmento de estado de funcionamento do cluster, que contém:
+Atualmente, a consulta de segmento de estado de funcionamento é exposta apenas para a entidade de cluster. Devolve um segmento de estado de funcionamento do cluster, que contém:
 
-* O estado de funcionamento de agregados de cluster.
-* A Estado de funcionamento Estado segmento a lista de nós que Respeitamos a entrada de filtros.
-* Lista segmentos de estado de funcionamento estado das aplicações que Respeitamos a entrada de filtros. Cada segmento de estado de funcionamento de aplicação contém uma lista de segmentos com todos os serviços que respeitem filtros de entrada e uma lista de segmentos com todas as aplicações implementadas respeitamos os filtros. Mesmo para os elementos subordinados de serviços e aplicações implementadas. Desta forma, todas as entidades do cluster podem potencialmente devolvidas se solicitado, de uma forma hierárquica.
+* O estado de funcionamento do cluster agregado.
+* Lista segmentos de estado de funcionamento estado de nós que respeitam os filtros de entrada.
+* Lista segmentos de estado de funcionamento estado das aplicações que respeitam os filtros de entrada. Cada segmento de estado de funcionamento do aplicativo contém uma lista de segmentos com todos os serviços que respeitam filtros de entrada e uma lista de segmentos com todas as aplicações implementadas que respeitam os filtros. Mesmo para os filhos de serviços e aplicações implementadas. Dessa forma, todas as entidades do cluster podem ser potencialmente devolvidas se solicitado, de uma forma hierárquica.
 
-### <a name="cluster-health-chunk-query"></a>Consulta de segmento de estado de funcionamento de cluster
-Devolve o estado de funcionamento da entidade de cluster e contém os segmentos de estado de funcionamento hierárquica de subordinados necessários. Entrada:
+### <a name="cluster-health-chunk-query"></a>Consulta de segmento de estado de funcionamento do cluster
+Devolve o estado de funcionamento da entidade de cluster e contém os segmentos de estado de estado de funcionamento hierárquica filhos necessária. Entrada:
 
 * [Opcional] A política de estado de funcionamento do cluster utilizada para avaliar os nós e os eventos de cluster.
-* [Opcional] O estado de funcionamento política o mapeamento de aplicações, com as políticas de estado de funcionamento utilizada para substituir as políticas de manifesto de aplicação.
-* [Opcional] Filtros para nós e aplicações que especificam quais entradas são úteis e devem ser devolvidas nos resultados. Os filtros são específicos para um entidade/grupo de entidades ou são aplicáveis a todas as entidades nesse nível. A lista de filtros pode conter um gerais de filtro de e/ou filtros para identificadores específicos para entidades Cativação devolvidos pela consulta. Se estiver vazio, o subordinado não é devolvido por predefinição.
-  Saiba mais sobre os filtros na [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) e [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). O recursivamente de pode de filtros de aplicação Especifique filtros avançados para elementos subordinados.
+* [Opcional] O estado de funcionamento política mapa da aplicação, com as políticas de estado de funcionamento utilizada para substituir as políticas de manifesto do aplicativo.
+* [Opcional] Filtros para nós e os aplicativos que especificam as entradas são de interesse e devem ser devolvidas no resultado. Os filtros são específicos para um entidade/grupo de entidades ou são aplicáveis a todas as entidades nesse nível. A lista de filtros pode conter um gerais de filtro de e/ou filtros para os identificadores específicos às entidades refinado devolvidas pela consulta. Se estiver vazio, os filhos não são devolvidos por predefinição.
+  Saiba mais sobre os filtros na [NodeHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.nodehealthstatefilter) e [ApplicationHealthStateFilter](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthstatefilter). O recursivamente do aplicativo filtros podem especificar filtros avançados para crianças.
 
-O resultado de segmento inclui os subordinados que respeitem os filtros.
+O resultado de segmentos inclui as crianças que respeitam os filtros.
 
-Atualmente, a consulta de segmento não devolve avaliações mau estado de funcionamento ou eventos de entidade. Que é possível obter informações adicionais utilizando a consulta de estado de funcionamento do cluster existente.
+Atualmente, a consulta de segmento não devolve avaliações de mau estado de funcionamento ou eventos de entidade. Que informações adicionais podem ser obtidas com a consulta de estado de funcionamento do cluster existente.
 
 ### <a name="api"></a>API
-Para obter o segmento de estado de funcionamento do cluster, crie um `FabricClient` e chame o [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) método no respetivo **HealthManager**. Pode passar no [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) para descrever as políticas de estado de funcionamento e filtros avançados.
+Para obter o segmento de estado de funcionamento do cluster, crie uma `FabricClient` e chamar o [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) método no seu **HealthManager**. Pode passar [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription) para descrever as políticas de estado de funcionamento e filtros avançados.
 
-O código seguinte obtém o segmento de estado de funcionamento do cluster com filtros avançados.
+O código seguinte obtém os segmentos de estado de funcionamento do cluster com filtros avançados.
 
 ```csharp
 var queryDescription = new ClusterHealthChunkQueryDescription();
@@ -866,9 +866,9 @@ var result = await fabricClient.HealthManager.GetClusterHealthChunkAsync(queryDe
 ```
 
 ### <a name="powershell"></a>PowerShell
-O cmdlet para obter o estado de funcionamento do cluster é [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Em primeiro lugar, ligar ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
+O cmdlet para obter o estado de funcionamento do cluster é [Get-ServiceFabricClusterChunkHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterhealthchunk). Em primeiro lugar, ligue ao cluster utilizando o [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet.
 
-O código seguinte obtém nós apenas se estiverem no registo de erros, exceto para um nó específico, o que deve sempre ser devolvido.
+O código seguinte obtém nós apenas se estiverem num erro, exceto para um nó específico, o que sempre deve ser devolvido.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -894,7 +894,7 @@ NodeHealthStateChunks        :
 ApplicationHealthStateChunks : None
 ```
 
-O seguinte cmdlet obtém os segmentos de cluster com filtros de aplicação.
+O cmdlet seguinte obtém os segmentos de cluster com os filtros de aplicativo.
 
 ```xml
 PS D:\ServiceFabric> $errorFilter = [System.Fabric.Health.HealthStateFilter]::Error;
@@ -1016,44 +1016,44 @@ ApplicationHealthStateChunks :
 ```
 
 ### <a name="rest"></a>REST
-Pode obter o segmento de estado de funcionamento de cluster com um [pedido GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) ou um [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) que inclui políticas de estado de funcionamento e filtros avançados descritos no corpo.
+Pode obter o segmento de estado de funcionamento do cluster com uma [solicitação GET](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) ou uma [pedido POST](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster) que inclui políticas de estado de funcionamento e filtros avançados descritos no corpo.
 
 ## <a name="general-queries"></a>Consultas gerais
-Consultas gerais devolvem uma lista de entidades do Service Fabric de um tipo especificado. Estes são expostos através da API (através de métodos em **FabricClient.QueryManager**), cmdlets do PowerShell e REST. Estas consultas agregar subconsultas de vários componentes. Uma delas é o [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store), que preenche o estado de funcionamento agregados para cada resultado da consulta.  
+Consultas gerais retornam uma lista de entidades do Service Fabric de um tipo especificado. Elas são expostas por meio da API (por meio de métodos **FabricClient.QueryManager**), cmdlets do PowerShell e REST. Estas consultas agregam subconsultas de vários componentes. Uma delas é o [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store), que preenche o estado de funcionamento agregado para cada resultado da consulta.  
 
 > [!NOTE]
-> As consultas gerais devolvem o estado agregado de estado de funcionamento da entidade e não contêm dados de estado de funcionamento avançado. Se uma entidade não está em bom estada, pode seguir cópias de segurança com consultas de estado de funcionamento para obter todas as respetivas informações de estado de funcionamento, incluindo eventos, Estados de funcionamento de subordinados e avaliações mau estado de funcionamento.
+> Consultas gerais devolvem o estado de funcionamento agregado da entidade e não contêm dados de estado de funcionamento avançado. Se uma entidade não está em bom estada, pode dar seguimento com consultas de estado de funcionamento para obter todas as suas informações de estado de funcionamento, incluindo eventos, Estados de funcionamento do filho e avaliações de mau estado de funcionamento.
 >
 >
 
-Se as consultas gerais devolverem um Estado de funcionamento desconhecido para uma entidade, é possível que o arquivo de estado de funcionamento não tem dados completos sobre a entidade. Também é possível que uma subconsulta para o arquivo de estado de funcionamento não foi concluída com êxito (por exemplo, Ocorreu um erro de comunicação ou o arquivo de estado de funcionamento foi limitado). Siga a cópia de segurança com uma consulta do Estado de funcionamento da entidade. Se a subconsulta encontrou erros transitórios, tais como problemas de rede, pode autenticar esta consulta de seguimento. -Pode também lhe irá fornecer mais detalhes do arquivo de estado de funcionamento sobre por que motivo não está exposta a entidade.
+Se as consultas gerais retornam um Estado de funcionamento desconhecido para uma entidade, é possível que o arquivo de estado de funcionamento não tem dados completos sobre a entidade. Também é possível que uma subconsulta para o arquivo de estado de funcionamento não foi concluída com êxito (por exemplo, Ocorreu um erro de comunicação ou o arquivo de estado de funcionamento foi limitado). Acompanhe com uma consulta de estado de funcionamento da entidade. Se a subconsulta encontrou erros transitórios, tais como problemas de rede, esta consulta seguimento pode ter êxito. Ele pode também fornecer mais detalhes do arquivo de estado de funcionamento sobre por que a entidade não está exposta.
 
 As consultas que contêm **HealthState** para entidades são:
 
-* Lista de nó: devolve os nós de lista no cluster (bloco paginado).
+* Lista de nós: devolve os nós de lista do cluster (paginada).
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Lista de aplicações: devolve a lista de aplicações no cluster (bloco paginado).
+* Lista de aplicações: devolve a lista de aplicações no cluster (paginado).
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Lista de serviço: devolve a lista de serviços de uma aplicação (bloco paginada).
+* Lista de serviço: devolve a lista de serviços num aplicativo (paginado).
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Lista de partição: devolve a lista de partições num serviço (bloco paginado).
+* Lista de partição: devolve a lista de partições num serviço (paginado).
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Lista de réplica: devolve a lista de réplicas numa partição (bloco paginada).
+* Lista de réplica: devolve a lista de réplicas numa partição (paginada).
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-ServiceFabricReplica
-* Implementar a lista de aplicações: devolve a lista de aplicações implementadas num nó.
+* Implementado a lista de aplicações: devolve a lista de aplicações implementadas num nó.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* Implementar a lista de pacote de serviço: devolve a lista de pacotes do serviço numa aplicação implementada.
+* Implementado a lista de pacotes de serviço: devolve a lista de pacotes de serviço num aplicativo implantado.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> Algumas das consultas devolvem resultados paginados. O retorno destas consultas é uma lista derivada [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não se enquadram uma mensagem, é devolvida apenas uma página e um ContinuationToken que controla onde parou a enumeração. Continue a chamar a mesma consulta e passar o token de continuação da consulta anterior para obter resultados seguintes.
+> Algumas das consultas devolvem resultados paginados. O retorno dessas consultas é uma lista derivada [PagedList<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Se os resultados não se encaixam uma mensagem, apenas uma página é devolvida e uma ContinuationToken que controla onde parou a enumeração. Continue chamar a mesma consulta e transmite o token de continuação da consulta anterior para obter resultados seguintes.
 >
 >
 
@@ -1065,7 +1065,7 @@ var applications = fabricClient.QueryManager.GetApplicationListAsync().Result.Wh
   app => app.HealthState == HealthState.Error);
 ```
 
-O seguinte cmdlet obtém os detalhes da aplicação para os recursos de infraestrutura: / aplicação WordCount. Tenha em atenção que o estado de funcionamento é em aviso.
+O cmdlet seguinte obtém os detalhes da aplicação para os recursos de infraestrutura: / aplicação WordCount. Tenha em atenção que o estado de funcionamento é no aviso.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/WordCount
@@ -1085,7 +1085,7 @@ ApplicationParameters  : { "WordCountWebService_InstanceCount" = "1";
                          [ProcessId] -tid [ThreadId]","EnvironmentBlock":"_NO_DEBUG_HEAP=1\u0000"}]" }
 ```
 
-O seguinte cmdlet obtém os serviços com um Estado de funcionamento de erro:
+O cmdlet seguinte obtém os serviços com um Estado de funcionamento de erro:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplication | Get-ServiceFabricService | where {$_.HealthState -eq "Error"}
@@ -1101,14 +1101,14 @@ ServiceStatus          : Active
 HealthState            : Error
 ```
 
-## <a name="cluster-and-application-upgrades"></a>Atualizações de cluster e da aplicação
-Durante uma atualização monitorizada do cluster e da aplicação, o Service Fabric verifica o estado de funcionamento para se certificar de que tudo permanece bom estado de funcionamento. Se uma entidade está danificada, avaliada através de políticas de estado de funcionamento configurado, a atualização se aplica a políticas de atualização específicas para determinar a ação seguinte. A atualização pode ser colocado em pausa para permitir a interação do utilizador (tais como corrigir condições de erro ou alteração de políticas), ou pode automaticamente reverter para a versão de boa anterior.
+## <a name="cluster-and-application-upgrades"></a>Atualizações de aplicações e clusters
+Durante uma atualização monitorizada do cluster e da aplicação e recursos de infraestrutura do serviço verifica o estado de funcionamento para garantir que tudo o que permanece em bom estado. Se uma entidade está danificada, avaliada através de políticas de estado de funcionamento configurado, a atualização se aplica a políticas de atualização específicas para determinar a ação seguinte. A atualização pode ser colocada em pausa para permitir a interação do usuário (como corrigir condições de erro ou alteração de políticas), ou pode automaticamente revertê-lo para a versão anterior.
 
-Durante uma *cluster* atualização, pode obter o estado de atualização do cluster. O estado de atualização inclui avaliações do mau estado de funcionamento, apontem para o que é mau estado de funcionamento do cluster. Se a atualização for revertida devido a problemas de estado de funcionamento, o estado de atualização memorizou os motivos pelos quais último mau estado de funcionamento. Esta informação pode ajudar os administradores a investigar o que aconteceu após a atualização revertida ou parado.
+Durante uma *cluster* atualização, pode obter o estado de atualização do cluster. O estado de atualização inclui avaliações de mau estado de funcionamento, que apontem para o que é mau estado de funcionamento do cluster. Se a atualização é revertida devido a problemas de estado de funcionamento, o estado de atualização se lembra os última motivos mau estado de funcionamento. Essas informações podem ajudar os administradores a investigar o que correu mal, após a atualização revertida ou parado.
 
-Da mesma forma, durante um *aplicação* atualização, as avaliações de mau estado de funcionamento estão contidas no estado de atualização da aplicação.
+Da mesma forma, durante um *aplicativo* atualização, qualquer avaliações de mau estado de funcionamento estão contidas no estado de atualização de aplicação.
 
-O seguinte mostra o estado de atualização da aplicação para um recurso de infraestrutura modificado: / aplicação WordCount. Um watchdog do comunicou um erro das suas réplicas. A atualização está a implementar porque as verificações de estado de funcionamento não são respeitadas.
+O seguinte mostra o estado de atualização de aplicação para um recurso de infraestrutura modificado: / aplicação WordCount. Um watchdog comunicou um erro das suas réplicas. A atualização está a ser porque as verificações de estado de funcionamento não estão a ser respeitadas.
 
 ```powershell
 PS C:\> Get-ServiceFabricApplicationUpgrade fabric:/WordCount
@@ -1164,10 +1164,10 @@ UpgradeReplicaSetCheckTimeout : 00:15:00
 
 Leia mais sobre o [atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md).
 
-## <a name="use-health-evaluations-to-troubleshoot"></a>Utilizar avaliações do Estado de funcionamento para resolver problemas
-Sempre que há um problema com o cluster ou de uma aplicação, veja o estado de funcionamento de cluster ou aplicação para identificar o que é incorreto. As avaliações de mau estado de funcionamento fornecem detalhes sobre o que acionou o estado de mau estado de funcionamento atual. Se for necessário, pode explorar para baixo entidades subordinado mau estado de funcionamento para identificar a causa raiz.
+## <a name="use-health-evaluations-to-troubleshoot"></a>Utilizar avaliações de estado de funcionamento para resolver problemas
+Sempre que houver um problema com o cluster ou de uma aplicação, ver o estado de funcionamento do cluster ou aplicação para identificar o que está errado. As avaliações de mau estado de funcionamento fornecem detalhes sobre o que acionou o estado de mau estado de funcionamento atual. Se for necessário, pode desagregar em entidades de subordinados danificados para identificar a causa raiz.
 
-Por exemplo, considere uma aplicação mau estado de funcionamento porque não existe um relatório de erros das suas réplicas. O cmdlet Powershell seguinte mostra as avaliações de mau estado de funcionamento:
+Por exemplo, considere um aplicativo mau estado de funcionamento porque não existe um relatório de erros em uma das suas réplicas. O cmdlet Powershell seguinte mostra as avaliações de mau estado de funcionamento:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
@@ -1234,7 +1234,7 @@ HealthEvents          :
 ```
 
 > [!NOTE]
-> As avaliações de mau estado de funcionamento mostram que o motivo primeiro a entidade é avaliado como estado de funcionamento atual. Podem existir vários outros eventos que activam este estado, mas não são refletidas nas avaliações. Para obter mais informações, desagregar as entidades de estado de funcionamento para descobrir a todos os relatórios mau estado de funcionamento do cluster.
+> As avaliações de mau estado de funcionamento mostram que o primeiro motivo a entidade é avaliado para o estado de funcionamento atual. Pode haver vários outros eventos que disparam neste estado, mas eles não são refletidas em das avaliações. Para obter mais informações, desagregar para as entidades de estado de funcionamento para descobrir todos os relatórios de mau estado de funcionamento do cluster.
 >
 >
 
@@ -1243,8 +1243,8 @@ HealthEvents          :
 
 [Adicionar relatórios de estado de funcionamento personalizados do Service Fabric](service-fabric-report-health.md)
 
-[Como comunicar e verifique o estado de funcionamento do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Como comunicar e verificar o estado de funcionamento do serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Monitorizar e diagnosticar os serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Monitorizar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização da aplicação de Service Fabric](service-fabric-application-upgrade.md)

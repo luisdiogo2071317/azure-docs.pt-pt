@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052092"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238799"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar o U-SQL com o SDK do Azure Data Lake U-SQL
 
@@ -36,7 +36,7 @@ O SDK do Data Lake U-SQL requer as seguintes dependências:
 
     ![Ferramentas do Data Lake para Visual Studio SDK do Windows 10 de execução local](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Instale [Data Lake Tools para Visual Studio](http://aka.ms/adltoolsvs). Pode encontrar o Visual C++ e o Windows SDK previamente incluídas em pacotes de ficheiros em C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Neste caso, o compilador de local do U-SQL não é possível localizar as dependências automaticamente. Tem de especificar o caminho de CppSDK para ele. Pode copiar os ficheiros para outra localização ou utilizá-la como está.
+    - Instale [Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs). Pode encontrar o Visual C++ e o Windows SDK previamente incluídas em pacotes de ficheiros em C:\Program Files (x86) \Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. Neste caso, o compilador de local do U-SQL não é possível localizar as dependências automaticamente. Tem de especificar o caminho de CppSDK para ele. Pode copiar os ficheiros para outra localização ou utilizá-la como está.
 
 ## <a name="understand-basic-concepts"></a>Compreender os conceitos básicos
 
@@ -351,8 +351,8 @@ LocalRunHelper pública ([TextWriter messageOutput = null])
 |InputDir|cadeia|Diretório de dados de entrada|
 |MessagePath|cadeia|Caminho do arquivo de despejo de mensagem|
 |OutputDir|cadeia|Diretório de dados de saída|
-|Paralelismo|Int|Paralelismo para executar a álgebra|
-|ParentPid|Int|PID do pai no qual o serviço monitoriza para sair, definido como 0 ou negativos para ignorar|
+|Paralelismo|int|Paralelismo para executar a álgebra|
+|ParentPid|int|PID do pai no qual o serviço monitoriza para sair, definido como 0 ou negativos para ignorar|
 |ResultPath|cadeia|Caminho do ficheiro de informação de estado de resultado|
 |RuntimeDir|cadeia|Diretório de tempo de execução|
 |ScriptPath|cadeia|Onde encontrar o script|

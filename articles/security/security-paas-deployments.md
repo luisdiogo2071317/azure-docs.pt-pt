@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036512"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262187"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -151,7 +151,7 @@ Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram 
 ## <a name="monitor-the-performance-of-your-applications"></a>Monitorizar o desempenho das suas aplicações
 A monitorização é o ato de recolha e análise de dados para determinar o desempenho, o estado de funcionamento e a disponibilidade da sua aplicação. Uma estratégia de monitorização efetiva ajuda-o a compreender o funcionamento em detalhe dos componentes da sua aplicação. Ele ajuda a aumentar o tempo de atividade ao notificá-lo dos problemas críticos para que possa resolver antes que se tornem problemas. Ele também ajuda a detetar anomalias que possam estar relacionados à segurança.
 
-Uso [do Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) para monitorizar a disponibilidade, desempenho e utilização da sua aplicação, se está alojado na cloud ou no local. Ao utilizar o Application Insights, pode rapidamente identificar e diagnosticar erros em seu aplicativo sem esperar por um utilizador para comunicá-las. Com as informações que recolher, pode fazer escolhas informadas sobre a manutenção e as melhorias da aplicação.
+Uso [do Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) para monitorizar a disponibilidade, desempenho e utilização da sua aplicação, se está alojado na cloud ou no local. Ao utilizar o Application Insights, pode rapidamente identificar e diagnosticar erros em seu aplicativo sem esperar por um utilizador para comunicá-las. Com as informações que recolher, pode fazer escolhas informadas sobre a manutenção e as melhorias da aplicação.
 
 O Application Insights tem um vasto conjunto ferramentas para interagir com os dados que recolhe. O Application Insights armazena os dados num repositório comum. Pode tirar partido de funcionalidades partilhadas como alertas, dashboards e a análise detalhada graças à linguagem de consulta do Log Analytics.
 

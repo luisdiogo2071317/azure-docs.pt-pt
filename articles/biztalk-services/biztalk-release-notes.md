@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576475"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253436"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão para serviços BizTalk do Azure
 
@@ -188,7 +188,7 @@ Considere um cenário em que usar comportamentos com base no nome para identific
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Pontes continuam a processar mensagens, mesmo quando a base de dados SQL está offline
 Os pontes de serviços do BizTalk continuam a processar mensagens durante algum tempo, mesmo que o Microsoft Azure SQL Database (que armazena as informações em execução, como os artefactos implementados e pipelines), está offline. Isso ocorre porque os serviços do BizTalk usa os artefactos em cache e a configuração de ponte.
-Se não pretender que o pontes de processar mensagens quando a base de dados SQL está offline, pode utilizar os cmdlets do PowerShell dos serviços BizTalk para parar ou suspender o serviço BizTalk. Ver [amostra de gestão de serviço do Azure BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329019) para os cmdlets do Windows PowerShell gerir as operações.  
+Se não pretender que o pontes de processar mensagens quando a base de dados SQL está offline, pode utilizar os cmdlets do PowerShell dos serviços BizTalk para parar ou suspender o serviço BizTalk. Ver [amostra de gestão de serviço do Azure BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=329019) para os cmdlets do Windows PowerShell gerir as operações.  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>Ler a mensagem XML no componente de código personalizado de uma ponte inclui um caráter BOM extra
 Considere um cenário em que queira ler uma mensagem XML dentro do código personalizado de uma ponte. Se usar o System.Text.Encoding.UTF8.GetString(bytes) de API do .NET um caráter BOM extra está incluído na saída no início da mensagem. Então, se não quiser que a saída inclui o caráter BOM extra, tem de utilizar ```System.IO.StreamReader().ReadToEnd()```.

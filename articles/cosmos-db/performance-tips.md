@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: a805294ecb416d18f3ce13981d26a7d25cd5a204
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432856"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256175"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -25,7 +25,7 @@ ms.locfileid: "47432856"
 > * [.NET](performance-tips.md)
 > 
 
-O Azure Cosmos DB é uma rápida e flexível base de dados distribuída que se dimensiona de forma totalmente integrada com o débito e latência garantida. Não é necessário fazer alterações de arquitetura principais ou escrever código complexo para dimensionar a sua base de dados com o Azure Cosmos DB. Aumentar e reduzir verticalmente é tão fácil quanto efetuar uma única chamada de API ou [chamada de método do SDK](set-throughput.md#set-throughput-sdk). No entanto, porque o Azure Cosmos DB é acessado por meio de chamadas de rede há otimizações de lado do cliente, pode fazer para alcançar o desempenho de pico quando utilizar o [SDK de .NET de SQL](documentdb-sdk-dotnet.md).
+O Azure Cosmos DB é uma rápida e flexível base de dados distribuída que se dimensiona de forma totalmente integrada com o débito e latência garantida. Não é necessário fazer alterações de arquitetura principais ou escrever código complexo para dimensionar a sua base de dados com o Azure Cosmos DB. Aumentar e reduzir verticalmente é tão fácil quanto efetuar uma única chamada à API. Para obter mais informações, consulte [como aprovisionar o débito de contentores](how-to-provision-container-throughput.md) ou [como aprovisionar o débito de base de dados](how-to-provision-database-throughput.md). No entanto, porque o Azure Cosmos DB é acessado por meio de chamadas de rede há otimizações de lado do cliente, pode fazer para alcançar o desempenho de pico quando utilizar o [SDK de .NET de SQL](documentdb-sdk-dotnet.md).
 
 Portanto, se está perguntando "como posso melhorar o desempenho da minha base de dados?" Considere as seguintes opções:
 
@@ -118,7 +118,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
     Reduzir a frequência da coleta de lixo pode ajudar em alguns casos. No .NET, defina [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) como true.
 6. **Implementar o término em intervalos de RetryAfter**
 
-    Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos são limitados. Se otimizado, o aplicativo cliente deve término na limitação para o intervalo entre tentativas de servidor especificado. Respeitar o término garante que passe uma quantidade mínima de espera de tempo entre as repetições. O suporte de política de repetição está incluído na versão 1.8.0 e superior do SQL [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), versão 1.9.0 e acima da [node. js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md), e todas as versões suportadas do [.NET Core](sql-api-sdk-dotnet-core.md) SDKs. Para obter mais informações, consulte [exceder reservado limites de débito](request-units.md#RequestRateTooLarge) e [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos são limitados. Se otimizado, o aplicativo cliente deve término na limitação para o intervalo entre tentativas de servidor especificado. Respeitar o término garante que passe uma quantidade mínima de espera de tempo entre as repetições. O suporte de política de repetição está incluído na versão 1.8.0 e superior do SQL [.NET](sql-api-sdk-dotnet.md) e [Java](sql-api-sdk-java.md), versão 1.9.0 e acima da [node. js](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md), e todas as versões suportadas do [.NET Core](sql-api-sdk-dotnet-core.md) SDKs. Para obter mais informações, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
     Com a versão 1.19 e versões posterior do SDK do .NET, existe um mecanismo para registar informações de diagnóstico adicionais e resolução de problemas de latência, como mostrado no exemplo a seguir. Pode iniciar a cadeia de diagnóstico para pedidos que têm uma latência de leitura superior. A cadeia de caracteres de diagnóstico capturada lhe ajudarão a compreender o número de vezes que observa 429s para uma determinada solicitação.
     ```csharp

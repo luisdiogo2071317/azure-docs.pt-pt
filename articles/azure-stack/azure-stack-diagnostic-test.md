@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 1726b7d1ac6a4c39e7a8dab733644d01e5f3381e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: af601005c7c8bd8fa7fe335879991caa34187927
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957512"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236980"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Executar um teste de validação para o Azure Stack
 
@@ -73,7 +73,7 @@ Valida o estado do Azure Stack. O cmdlet comunica o estado do seu software e har
 | BackupShareCredential   | PSCredential    | Não       | ND      |
 
 
-O cmdlet Test-AzureStack suporta os parâmetros comuns: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre parâmetros comuns](http://go.microsoft.com/fwlink/?LinkID=113216). 
+O cmdlet Test-AzureStack suporta os parâmetros comuns: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable e OutVariable. Para obter mais informações, consulte [sobre parâmetros comuns](https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### <a name="examples-of-test-azurestack"></a>Exemplos de teste AzureStack
 

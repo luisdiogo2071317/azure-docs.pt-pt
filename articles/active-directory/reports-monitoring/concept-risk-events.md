@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/14/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fe5bcce06ef02bae75bf9fdaf5702a99f485885c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: e4aa4a87bec8f737405c90bb42bdb5fc60cb379a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056919"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233002"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -75,7 +75,7 @@ Este tipo de evento de risco identifica dois inícios de sessão provenientes de
 
 O algoritmo ignora "positivos falsos óbvios" que contribuem para as condições de deslocação impossível, como as VPNs e localizações regularmente utilizadas por outros utilizadores na organização. O sistema tem um período de aprendizagem inicial de 14 dias durante o qual ele aprende o comportamento de início de sessão de um novo utilizador. 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Início de sessão a partir de localizações desconhecidas
+### <a name="sign-in-from-unfamiliar-locations"></a>Início de sessão de localizações desconhecidas
 
 Este tipo de evento de risco considera após o início de sessão de localizações (IP, Latitude / Longitude e o ASN) para determinar as localizações de novo / familiarizadas. O sistema armazena informações sobre localizações anteriores, utilizado por um utilizador e considera esses locais "familiares". O evento de risco é acionado quando o início de sessão ocorre a partir de uma localização que não ainda esteja na lista de localizações familiares. O sistema tem um período de aprendizagem inicial de 30 dias, durante o qual não sinaliza quaisquer novas localizações como localizações desconhecidas. O sistema também ignora os inícios de sessão de dispositivos familiares e localizações geograficamente próximas uma localização familiar. 
 
@@ -145,7 +145,7 @@ Deslocação impossível, normalmente, é um bom indicador de que um hacker cons
 > [!TIP]
 > Pode reduzir a quantidade de Falso-positivos reportados para este tipo de evento de risco, configurando [localizações com nome](../active-directory-named-locations.md). 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Início de sessão a partir de localizações desconhecidas
+### <a name="sign-in-from-unfamiliar-locations"></a>Início de sessão de localizações desconhecidas
 
 Localizações desconhecidas podem fornecer uma indicação forte que um invasor é capaz de utilizar uma identidade roubada. FALSO-positivos podem ocorrer quando um utilizador está em uma viagem, está a experimentar um novo dispositivo ou está a utilizar uma VPN novo. Como resultado destas falsos positivos, é o nível de risco para este tipo de evento **médio**.
 
@@ -155,7 +155,7 @@ Este evento de risco identifica os endereços IP, não os dispositivos de utiliz
 
 Recomendamos que contacte o utilizador e analisar todos os dispositivos do utilizador. Também é possível que o dispositivo pessoal de um utilizador está infetado, ou conforme mencionado anteriormente, essa outra pessoa estava a utilizar um dispositivo infetado do mesmo endereço IP que o utilizador. Dispositivos infetados com freqüência infetados com malware que ainda não tenham sido identificadas pelo software de antivírus e também pode indicar como os hábitos de usuário incorretos que podem ter causado o dispositivo ser infectados.
 
-Para obter mais informações sobre como infeções de software maligno de endereço, consulte a [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+Para obter mais informações sobre como infeções de software maligno de endereço, consulte a [Malware Protection Center](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inícios de sessão de endereços IP com atividade suspeita

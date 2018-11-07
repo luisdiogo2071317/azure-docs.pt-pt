@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 3e7af4039ca5cd8aaadc36d3f87900e2127af7ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423005"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255664"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
@@ -142,7 +142,7 @@ Fale com o seu Gestor de conta ou o parceiro do Azure para começar a utilizar.
 | Fornecedor de Soluções Cloud (CSP) | Comunicar com o seu fornecedor |
 | Azure Sponsorship | [Portal de patrocínio](https://www.microsoftazuresponsorships.com/) |
 
-Se estiver a gerir IT para uma grande organização, recomendamos que leia [estrutura empresarial do Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e o [enterprise TI white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (. pdf download, apenas em inglês).
+Se estiver a gerir IT para uma grande organização, recomendamos que leia [estrutura empresarial do Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e o [enterprise TI white paper](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (. pdf download, apenas em inglês).
 
 #### <a name="EA"></a> Modos de exibição no Portal do Azure de custos do contrato Enterprise da pré-visualização 
 

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211898"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232176"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurar a recuperação de desastres do Active Directory e DNS
 
@@ -44,7 +44,7 @@ Pode utilizar o Site Recovery para proteger a máquina virtual que aloja o contr
 O controlador de domínio que é replicado utilizando a recuperação de Site é utilizado para [ativação pós-falha de teste](#test-failover-considerations). Certifique-se de que cumpre os seguintes requisitos:
 
 1. O controlador de domínio é um servidor de catálogo global.
-2. O controlador de domínio deve ser o proprietário de função FSMO para as funções que são necessários durante uma ativação pós-falha de teste. Caso contrário, estas funções terão de ser [confiscada](http://aka.ms/ad_seize_fsmo) após a ativação pós-falha.
+2. O controlador de domínio deve ser o proprietário de função FSMO para as funções que são necessários durante uma ativação pós-falha de teste. Caso contrário, estas funções terão de ser [confiscada](https://aka.ms/ad_seize_fsmo) após a ativação pós-falha.
 
 ### <a name="configure-vm-network-settings"></a>Configurar as definições de rede VM
 Para a máquina virtual que aloja o controlador de domínio ou DNS, no Site Recovery, configurar as definições de rede sob o **computação e rede** definições da máquina virtual replicada. Isto garante que a máquina virtual está ligada à rede correta após a ativação pós-falha.
@@ -93,7 +93,7 @@ Maioria dos aplicativos exige a presença de um controlador de domínio ou um se
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>Remover as referências a outros controladores de domínio
-Quando iniciar uma ativação pós-falha de teste, não inclua todos os controladores de domínio na rede de teste. Para remover as referências a outros controladores de domínio existentes no seu ambiente de produção, poderá ter de [obter funções de diretório Active Directory de FSMO](http://aka.ms/ad_seize_fsmo) e fazer [limpeza de metadados](https://technet.microsoft.com/library/cc816907.aspx) de ausentes controladores de domínio .
+Quando iniciar uma ativação pós-falha de teste, não inclua todos os controladores de domínio na rede de teste. Para remover as referências a outros controladores de domínio existentes no seu ambiente de produção, poderá ter de [obter funções de diretório Active Directory de FSMO](https://aka.ms/ad_seize_fsmo) e fazer [limpeza de metadados](https://technet.microsoft.com/library/cc816907.aspx) de ausentes controladores de domínio .
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>Problemas causados pelas proteções de Virtualização
@@ -180,7 +180,7 @@ Se forem satisfeitas as condições anteriores, é provável que o controlador d
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    Para obter mais informações, consulte [desabilitar o requisito de que um servidor de catálogo global estejam disponíveis para validar os inícios de sessão do utilizador](http://support.microsoft.com/kb/241789).
+    Para obter mais informações, consulte [desabilitar o requisito de que um servidor de catálogo global estejam disponíveis para validar os inícios de sessão do utilizador](https://support.microsoft.com/kb/241789).
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS e controlador de domínio em máquinas diferentes
 

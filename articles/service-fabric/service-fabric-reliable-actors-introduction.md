@@ -1,6 +1,6 @@
 ---
-title: Descrição geral de Reliable Actors de recursos de infraestrutura de serviço | Microsoft Docs
-description: Introdução ao modelo de programação Reliable Actors do Service Fabric.
+title: Descrição geral dos Reliable Actors de recursos de infraestrutura do serviço | Documentos da Microsoft
+description: Introdução ao modelo de programação dos Reliable Actors do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: d0de7e7596fb7fabbc4061709816111a7a4ad827
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213049"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258066"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Introdução aos Reliable Actors do Service Fabric
-Reliable Actors é uma estrutura de aplicação de Service Fabric com base no [Ator Virtual](http://research.microsoft.com/en-us/projects/orleans/) padrão. A API de Atores fiável fornece um único thread modelo de programação incorporado nas garantias de escalabilidade e fiabilidade fornecidas pelo Service Fabric.
+Reliable Actors é uma estrutura de aplicação do Service Fabric com base na [Ator Virtual](https://research.microsoft.com/en-us/projects/orleans/) padrão. A API de Atores fiáveis fornece um thread único modelo de programação criado sobre as garantias de escalabilidade e confiabilidade fornecidas pelo Service Fabric.
 
-## <a name="what-are-actors"></a>Quais são Atores?
-Um ator é uma unidade isolada, independentemente da computação e de estado de execução de thread único. O [padrão de ator](https://en.wikipedia.org/wiki/Actor_model) é um modelo computacional para sistemas em simultâneo ou distribuídos no qual um grande número destas atores pode ser executados em simultâneo e independentemente entre si. Actors possam comunicar entre si e podem criar mais de atores.
+## <a name="what-are-actors"></a>Quais são os Atores?
+Um ator é uma unidade de isolado, independente de computação e o estado de execução de thread único. O [padrão de ator](https://en.wikipedia.org/wiki/Actor_model) é um modelo de computacional para sistemas simultâneos ou distribuídos no qual um grande número destes atores pode executar em simultâneo e independentemente uns dos outros. Atores podem comunicar entre si e é possível criar mais de atores.
 
-### <a name="when-to-use-reliable-actors"></a>Quando utilizar Reliable Actors
-Serviço de recursos de infraestrutura Reliable Actors é uma implementação do padrão de conceção de atores. Tal como acontece com quaisquer padrão de conceção de software, a decisão se deve utilizar um padrão específico é efetuada com base em se pretende ou não um software design problema encaixa padrão.
+### <a name="when-to-use-reliable-actors"></a>Quando utilizar a Reliable Actors
+Reliable Actors do Service Fabric é uma implementação do padrão de design de ator. Tal como acontece com qualquer padrão de design de software, a decisão se deve utilizar um padrão específico é feita com base no problema de design de um software de se pretende ou não se encaixa o padrão.
 
-Embora o ator padrão de design pode ser uma boa ajustar a um número de cenários, tendo em conta as restrições de padrão e a arquitetura que implementar têm de ser efetuado cuidados e problemas de sistemas distribuídos. Como orientação geral, considere o padrão de ator para modelar o seu cenário ou um problema se:
+Embora o padrão de design de ator pode ser uma boa ajustar a uma série de problemas de sistemas distribuídos e cenários, cuidadosos consideração das restrições do padrão e a estrutura de implementação têm de ser feita. Como orientação geral, considere o padrão de ator para modelar o seu cenário ou um problema se:
 
-* O espaço de problema envolve um grande número (milhares ou mais) de pequenas, independentes e isoladas unidades de estado e a lógica.
-* Pretende trabalhar com objetos único thread que não necessitam de significativa interação de componentes externos, incluindo a consultar o estado através de um conjunto de atores.
-* As instâncias de ator não irão bloquear os chamadores com atrasos imprevisíveis ao emitir operações de e/s.
+* Seu espaço de problema envolve um grande número (milhares ou mais) de pequenos, de forma independentes e isoladas unidades de estado e lógica.
+* Pretende trabalhar com objetos de thread único que não exigem significativa interação de componentes externos, incluindo consultas de estado entre um conjunto de atores.
+* As instâncias de ator não bloquear chamadores com atrasos imprevisíveis através da emissão de operações de e/s.
 
-## <a name="actors-in-service-fabric"></a>Atores nos recursos de infraestrutura de serviço
-No Service Fabric, atores são implementados no framework Reliable Actors: uma arquitetura de aplicações baseados no padrão de ator incorporada de [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Cada serviço de Atores fiável que escreve é realmente uma particionadas, com monitorização de estado fiável serviço.
+## <a name="actors-in-service-fabric"></a>Actors no Service Fabric
+No Service Fabric, atores são implementados no framework Reliable Actors: uma estrutura de aplicações com base padrão de ator embutida no início da [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md). Cada serviço Reliable Actor que escrever é, na verdade, um particionado e com monitorização de estado Reliable Service.
 
-Cada ator está definido como uma instância de um tipo de ator idêntico para a forma como objeto .NET é uma instância de um tipo .NET. Por exemplo, poderá existir um tipo de ator que implementa a funcionalidade de um cálculo e podem existir muitas atores desse tipo que estão distribuídos em vários nós de um cluster. Cada essa ator é identificado de forma exclusiva por um ID de actor.
+Cada ator é definido como uma instância de um tipo de ator, idêntica à forma como um objeto .NET é uma instância de um tipo .NET. Por exemplo, pode haver um tipo de ator implementa a funcionalidade de uma calculadora e pode haver vários atores desse tipo que são distribuídas em vários nós num cluster. Cada tal ator é exclusivamente identificado por um ID de ator.
 
-## <a name="actor-lifetime"></a>Duração de ator
-Atores do Service Fabric são virtuais, o que significa que os respetivos duração não está associada a respetiva representação dentro da memória. Como resultado, não é necessário ser explicitamente criado ou destruído. O tempo de execução Reliable Actors ativa automaticamente um tempo de ator primeiro recebe um pedido para esse ID de actor. Se um ator não for utilizado por um período de tempo, o tempo de execução Reliable Actors libertação da memória-recolhe o objeto de memória. Também mantém os dados de conhecimento da existência de ator deve têm de ser reativados mais tarde. Para obter mais detalhes, consulte [coleção de ciclo de vida e libertação da memória de Ator](service-fabric-reliable-actors-lifecycle.md).
+## <a name="actor-lifetime"></a>Tempo de vida de ator
+Atores do Service Fabric são virtuais, o que significa que o seu tempo de vida não está ligado à sua representação na memória. Como resultado, não terão de ser explicitamente criado ou destruída. O tempo de execução do Reliable Actors ativa automaticamente uma hora de ator o primeiro que recebe um pedido para esse ID de ator. Se um ator não for utilizado durante um período de tempo, o tempo de execução do Reliable Actors lixo-recolhe o objeto na memória. Também mantém dados de conhecimento da existência do ator ele precisa ser reativado mais tarde. Para obter mais detalhes, consulte [coleção de ciclo de vida e libertação da memória de Ator](service-fabric-reliable-actors-lifecycle.md).
 
-Esta abstração da duração de ator virtual acarreta alguns avisos como resultado de modelo de ator virtual e, na realidade a implementação de Reliable Actors deviates por vezes deste modelo.
+Essa abstração de tempo de vida de ator virtual apresenta algumas limitações, como resultado do modelo de ator virtual e, na verdade a implementação de Reliable Actors desvia às vezes deste modelo.
 
-* Um ator é ativada automaticamente (fazendo com que um objeto de ator para ser construído) na primeira vez que é enviada uma mensagem para um ID de actor. Após um determinado período de tempo, o objeto de atores é memória libertada. No futuro, com o ID de actor novamente, faz com que um novo objeto de atores a ser criada. O estado de um ator outlives duração do objeto quando armazenada no Gestor de estado.
-* Chamar qualquer método de ator para um ID de actor ativa essa ator. Por este motivo, os tipos de ator ter o respetivo construtor chamado implicitamente pelo runtime. Por conseguinte, código de cliente não é possível transmitir parâmetros para o construtor do tipo de ator, embora parâmetros podem ser transmitidos para o construtor de ator pelo serviço próprio. O resultado é que os atores podem ser construídos num Estado inicializado parcialmente do tempo de que outros métodos são denominados no mesmo, se o ator necessitar de parâmetros de inicialização do cliente. Não há nenhum ponto de entrada único para a ativação de um ator do cliente.
-* Embora Reliable Actors implicitamente criar objetos de ator; Tem a capacidade de eliminar explicitamente um ator e o respetivo estado.
+* Um ator é ativado automaticamente (fazendo com que um objeto de ator a construção) na primeira vez que é enviada uma mensagem ao seu ID de ator. Após um determinado período de tempo, o objeto de ator é coletado pelo lixo. No futuro, com o ID de actor novamente, faz com que um novo objeto de ator a construção. Estado de um ator outlives tempo de vida do objeto quando armazenada no Gestor de estado.
+* Chamar qualquer método de ator um ID de actor ativa essa ator. Por esse motivo, os tipos de ator tem seu construtor chamado implicitamente pelo tempo de execução. Por conseguinte, código de cliente não é possível transmitir parâmetros ao construtor do tipo de ator, embora parâmetros podem ser passados ao construtor do ator pelo próprio serviço. O resultado é que os atores podem ser construídos num Estado parcialmente inicializado no momento, os outros métodos são chamados se o ator necessitar de parâmetros de inicialização do cliente. Não existe nenhum ponto de entrada única para a ativação de um ator do cliente.
+* Embora o Reliable Actors implicitamente criar objetos de ator; Tem a capacidade de excluir explicitamente um ator e seu estado.
 
 ## <a name="distribution-and-failover"></a>Distribuição e ativação pós-falha
-Para fornecer escalabilidade e fiabilidade, o Service Fabric distribui atores em todo o cluster e migra-los automaticamente de nós de falha para bom estado de funcionamento diferentes, conforme necessário. Esta é uma abstração através de um [particionadas, com monitorização de estado de serviço fiável](service-fabric-concepts-partitioning.md). Distribuição, escalabilidade, fiabilidade e ativação pós-falha automática são todos fornecido em virtude o facto de atores em execução no interior de um serviço fiável com monitorização de estado chamado o *serviço de Atores*.
+Para fornecer escalabilidade e confiabilidade, o Service Fabric distribui atores em todo o cluster e migra-os automaticamente de nós com falha para bom estado de funcionamento dos conforme necessário. Esta é uma abstração através de um [Reliable Service com monitorização de estado, particionada](service-fabric-concepts-partitioning.md). Distribuição, a escalabilidade, confiabilidade e a ativação pós-falha automática são todos desde que o fato de que os atores são executados dentro de um serviço com estado fiável chamado os *serviço de Ator*.
 
-Atores estão distribuídos as partições do serviço de Atores e essas partições são distribuídas por nós num cluster de Service Fabric. Cada partição de serviço contém um conjunto de atores. O Service Fabric gere distribuição e a ativação pós-falha das partições de serviço.
+Atores são distribuídos pelas partições do serviço de Ator e nessas partições são distribuídas por nós no cluster do Service Fabric. Cada partição de serviço contém um conjunto de atores. O Service Fabric gere e ativação pós-falha das partições do serviço de distribuição.
 
-Por exemplo, um serviço de atores com nove partições implementadas em três nós com a colocação de partição de ator predefinido teria de ser distribuído thusly:
+Por exemplo, um serviço de ator com nove partições implementada em três nós usando o posicionamento de partição de ator padrão teria de ser distribuído tratamento:
 
 ![Distribuição do Reliable Actors][2]
 
-A estrutura de Ator gere as definições de intervalo de esquema e a chave de partição para si. Isto simplifica algumas opções, mas também acarreta tidos em consideração:
+A estrutura de Ator faz a gestão de definições de intervalo de esquema e a chave de partição para. Isso simplifica algumas opções, mas também carrega tidos em consideração:
 
-* Reliable Services permite-lhe escolher um esquema de criação de partições, o intervalo de chaves (ao utilizar um esquema de criação de partições de intervalo) e contagem de partição. Reliable Actors está restringida ao intervalo de criação de partições de esquema (o esquema de Int64 uniforme) e necessita de utilizar o intervalo de chave completo Int64.
-* Por predefinição, atores aleatoriamente são colocados em partições, resultando em distribuição uniforme.
-* Porque atores aleatoriamente são colocados, deve ser esperada operações de ator poder requerem sempre a comunicação de rede, incluindo a serialização e a anulação da serialização de dados de chamada de método, incorrer em overhead e latência.
-* Cenários avançados, é possível controlo ator partição colocação utilizando Int64 ator IDs que mapeiam para partições específicas. No entanto, fazê-lo, por isso, pode resultar numa distribuição desequilibrada de atores em partições.
+* Reliable Services permite-lhe escolher um esquema de particionamento, o intervalo de chaves (ao utilizar um intervalo de esquema de particionamento) e contagem de partição. Reliable Actors é restrito para o intervalo de esquema (o esquema de Int64 uniforme) de criação de partições e requer que utiliza o intervalo de chave de Int64 completo.
+* Por predefinição, os atores aleatoriamente são colocados em partições, resultando em distribuição uniforme.
+* Porque atores aleatoriamente são colocados, deve esperar que as operações de ator sempre irão necessitar de comunicação de rede, incluindo a serialização e desserialização de dados de chamada de método, latência e sobrecarga.
+* Em cenários avançados, é possível colocação de partição do controle ator utilizando Int64 ator IDs que mapeiam para partições específicas. No entanto, ao fazê-lo por isso, pode resultar numa distribuição desequilibrada de atores em várias partições.
 
-Para obter mais informações sobre como os serviços de atores se partições, consulte [conceitos de criação de partições de atores](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
+Para obter mais informações sobre como os serviços de atores são particionados, consulte [conceitos de criação de partições para atores](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
 ## <a name="actor-communication"></a>Comunicação de ator
-Interações de ator são definidas numa interface que é partilhada por ator que implementa a interface e o cliente que obtém um proxy para um ator através da interface do mesma. Como esta interface é utilizada para invocar métodos de atores de forma assíncrona, a cada método de interface tem de ser Task-returning.
+Interações de ator são definidas numa interface que é partilhada por ator que implementa a interface e o cliente que obtém um proxy para um ator através da mesma interface. Como essa interface é usada para invocar métodos de ator de forma assíncrona, cada método na interface tem de ser que retornam Task.
 
-Invocações de método e as respetivas respostas basicamente resultam em pedidos de rede no cluster, por isso, os argumentos e os tipos de resultados das tarefas que devolvem tem de ser serializáveis por plataforma. Em particular, têm de ser [contrato de dados serializáveis](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Invocações de método e suas respostas, por fim, resultam em pedidos de rede no cluster, por isso, os argumentos e os tipos de resultado das tarefas que elas retornam precisam ser serializáveis pela plataforma. Em particular, têm de ser [contrato de dados serializáveis](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 ### <a name="the-actor-proxy"></a>O proxy de ator
-O cliente Reliable Actors API fornece comunicação entre um cliente de ator e uma instância de atores. Para comunicar com um ator, um cliente cria um objeto de proxy de ator que implementa a interface de atores. O cliente interage com o ator invocando métodos no objeto de proxy. O proxy de ator pode ser utilizado para comunicação cliente-para-ator e ator-ator.
+A API do cliente de Reliable Actors fornece comunicação entre uma instância de ator e um cliente de ator. Para comunicar com um ator, um cliente cria um objeto de proxy de ator que implementa a interface de ator. O cliente interage com o ator pela invocação de métodos no objeto proxy. O proxy de ator pode ser utilizado para comunicação de cliente para o ator e ator-ator.
 
 ```csharp
 // Create a randomly distributed actor ID
@@ -99,54 +99,54 @@ myActor.DoWorkAsync().get();
 ```
 
 
-Tenha em atenção que as duas peças de informações utilizadas para criar o objeto de proxy de ator são o ID de actor e o nome da aplicação. O ID de actor identifica exclusivamente o ator, enquanto o nome da aplicação identifica o [aplicação de Service Fabric](service-fabric-reliable-actors-platform.md#application-model) onde o ator está implementado.
+Tenha em atenção que os dois conjuntos de informações utilizadas para criar o objeto de proxy de ator são o ID de ator e o nome da aplicação. O ID de actor identifica exclusivamente o ator, enquanto o nome da aplicação identifica os [aplicação do Service Fabric](service-fabric-reliable-actors-platform.md#application-model) em que o ator é implementado.
 
-O `ActorProxy`(c#) / `ActorProxyBase`classe (Java) do lado do cliente efetua a resolução necessária para localizar o ator por ID e a abrir um canal de comunicação com o mesmo. Também tentar para localizar o ator nos casos de falhas de comunicação e as ativações pós-falha. Como resultado, a entrega de mensagens com as seguintes características:
+O `ActorProxy`(C#) / `ActorProxyBase`classe (Java) no lado do cliente efetua a resolução necessária para localizar o ator por ID e abrir um canal de comunicação com o mesmo. Também voltar a tentar para localizar o ator no caso de falhas de comunicação e ativações pós-falha. Como resultado, a entrega de mensagens com as seguintes características:
 
 * Entrega de mensagens é melhor esforço.
-* Atores poderão receber mensagens duplicadas do mesmo cliente.
+* Atores poderão receber mensagens duplicadas a partir do mesmo cliente.
 
 ## <a name="concurrency"></a>Simultaneidade
-O tempo de execução Reliable Actors fornece um modelo de acesso baseado em ative simples para aceder aos métodos de atores. Isto significa que não mais do que um thread pode estar ativo no interior do código de um objeto de ator em qualquer altura. Acesso baseado em ative simplifica bastante a sistemas simultâneos que não necessitam de mecanismos de sincronização para acesso a dados. Isto também significa que os sistemas têm de ser concebidos com considerações especiais sobre a natureza de acesso único thread de cada instância de atores.
+O tempo de execução do Reliable Actors fornece um modelo de acesso baseado em vez de simples para aceder aos métodos de ator. Isso significa que não mais do que um thread pode estar ativo dentro do código de um objeto de ator em qualquer altura. Acesso baseado em vez de simplifica bastante a sistemas em simultâneo como não há necessidade de mecanismos de sincronização para acesso a dados. Isso também significa sistemas têm de ser concebidos com considerações especiais sobre a natureza de acesso de thread único de cada instância de ator.
 
-* Uma instância de ator único não consegue processar mais do que um pedido de cada vez. Uma instância de ator pode causar um estrangulamento do débito se é esperado para processar pedidos em simultâneo.
-* Atores podem criar um impasse em si se existir um pedido de circular entre duas atores enquanto um pedido externo é feito para um de atores em simultâneo. O tempo de execução de ator do tempo em chamadas de atores e automaticamente acionar uma excepção para o autor da chamada para interromper situações de impasse possíveis.
+* Uma instância única de ator não consegue processar mais do que um pedido de cada vez. Uma instância de ator pode causar um gargalo se espera-se para processar pedidos em simultâneo.
+* Atores poderá sofrer deadlock entre si se houver um pedido de circular entre dois atores enquanto um pedido externo é feito para um dos atores em simultâneo. O runtime de ator automaticamente o tempo limite em chamadas de ator e lançar uma exceção ao autor da chamada para interromper a situações de deadlock possíveis.
 
 ![Comunicação do Reliable Actors][3]
 
-### <a name="turn-based-access"></a>Acesso baseado em vez
-Uma vez consiste na execução de um método de ator em resposta a um pedido de outros clientes ou de atores concluída ou a execução de conclua de uma [temporizador/lembrete](service-fabric-reliable-actors-timers-reminders.md) chamada de retorno. Apesar destes métodos e as chamadas de retorno são assíncronas, o tempo de execução de Atores não intercalação-los. Uma vez tem de ser totalmente concluída antes de vez nova é permitido. Por outras palavras, uma ator método ou temporizador/lembrete chamada de retorno que está atualmente em execução tem de ser totalmente concluída antes de uma nova chamada para um método ou chamada de retorno é permitida. Uma chamada de retorno ou método é considerada como tiver concluído a se a execução foi devolvida do método ou chamada de retorno e a tarefa devolvida pelo método ou chamada de retorno foi concluída. É importante, que realçam que esse concorrência com base em ative é respeitada mesmo através de métodos diferentes, os temporizadores e chamadas de retorno.
+### <a name="turn-based-access"></a>Acesso baseado em vez de
+Uma vez consiste na execução completa de um método de ator em resposta a um pedido de outros atores ou clientes ou a execução completa de um [temporizador/lembrete](service-fabric-reliable-actors-timers-reminders.md) retorno de chamada. Embora esses métodos e os retornos de chamada são assíncronos, o tempo de execução de Atores de intercalação não-los. Uma folheada tem de ser totalmente concluída antes de uma nova folheada é permitida. Em outras palavras, um retorno de método ou temporizador/lembrete ator que está sendo executado tem de ser totalmente concluído antes de uma nova chamada para um método ou retorno de chamada é permitido. Um método ou uma chamada de retorno é considerada como terminar se a execução tem retornado do método ou retorno de chamada e o task retornado pelo método ou retorno de chamada foi concluída. Vale a pena enfatizando que a simultaneidade turnos é respeitada mesmo entre diferentes métodos, temporizadores e retornos de chamada.
 
-O tempo de execução de Atores impõe concorrência com base em ative por adquirir um bloqueio por ator no início de uma vez e libertação do bloqueio no final da ativar. Assim, com base em vez de concorrência é imposta numa base por ator e não através de atores. Métodos de ator e chamadas de retorno de temporizador/lembrete podem ser executado em simultâneo em nome de atores diferentes.
+O tempo de execução de Atores impõe simultaneidade turnos ao adquirir um bloqueio por ator no início de uma vez e liberar o bloqueio no final da ativar. Portanto, com base em vez de simultaneidade é imposta numa base por ator e não em todos os atores. Em nome de atores diferentes, métodos de ator e retornos de chamada do timer/lembrete podem executar em simultâneo.
 
-O exemplo a seguir ilustra os conceitos acima. Considere um tipo de ator que implementa os dois métodos assíncronos (diga, *método1* e *método2*), um temporizador e um lembrete. O diagrama abaixo mostra um exemplo de uma linha cronológica para a execução destas métodos e as chamadas de retorno em nome de dois atores (*ActorId1* e *ActorId2*) que pertence a este tipo de atores.
+O exemplo a seguir ilustra os conceitos acima. Considere um tipo de ator implementa dois métodos assíncronos (por exemplo, *Method1* e *Method2*), um temporizador e um lembrete. O diagrama abaixo mostra um exemplo de uma linha do tempo para a execução desses métodos e os retornos de chamada em nome de duas atores (*ActorId1* e *ActorId2*) que pertence a este tipo de ator.
 
-![Simultaneidade de com base em vez de tempo de execução de Atores fiável e acesso][1]
+![Simultaneidade de turnos de tempo de execução de Atores fiável e de acesso][1]
 
-Este diagrama segue estes convenções de:
+Este diagrama segue essas convenções:
 
-* Cada linha vertical apresenta o fluxo lógico da execução de um método ou uma chamada de retorno em nome do actor um determinado.
-* Os eventos marcado como em cada linha vertical ocorrerem por ordem cronológica, com mais recentes eventos ocorridos abaixo antigos.
-* Cores diferentes são utilizadas para linhas cronológicas correspondente atores diferentes.
-* Realce é utilizado para indicar a duração para o qual o bloqueio por ator está contido em nome de um método ou chamada de retorno.
+* Cada linha vertical mostra o fluxo lógico de execução de um método ou uma chamada de retorno em nome de um ator específico.
+* Ocorrerem os eventos marcados em cada linha vertical em ordem cronológica, com novos eventos que ocorrem abaixo os mais antigos.
+* Cores diferentes são usadas para linhas cronológicas correspondentes aos atores diferentes.
+* Realce é utilizado para indicar a duração para o qual o bloqueio por ator é mantido em nome de um método ou uma chamada de retorno.
 
 Alguns pontos importantes a considerar:
 
-* Enquanto *método1* está a executar em nome de *ActorId2* em resposta ao pedido de cliente *xyz789*, outro pedido de cliente (*abc123*) chega que também requer *método1* para ser executado por *ActorId2*. No entanto, a execução do segundo *método1* não começa até que a execução anterior foi concluída. Da mesma forma, um lembrete registada por *ActorId2* desencadeado enquanto *método1* está a ser executado em resposta ao pedido de cliente *xyz789*. A chamada de retorno lembrete é executada apenas depois de ambas as execuções de *método1* estiverem concluídas. Tudo isto acontece devido a concorrência com base em vez que está a ser imposta para *ActorId2*.
-* Da mesma forma, com base em vez de concorrência também é imposta para *ActorId1*, conforme demonstrado pela execução do *método1*, *método2*e a chamada de retorno de temporizador em nome de *ActorId1* decorrer de uma forma de série.
-* A execução do *método1* em nome de *ActorId1* sobrepõe-se a execução em nome de *ActorId2*. Isto acontece porque a simultaneidade baseado em ative é imposta apenas dentro de um ator e não através de atores.
-* Em algumas das execuções de chamada de retorno/método, o `Task`(c#) / `CompletableFuture`(Java) devolvida pelo depois de concluída chamada de retorno/método depois do método devolve. Em alguns outros recursos, a operação assíncrona já foi concluída dentro do tempo que devolve a método/chamada de retorno. Em ambos os casos, o bloqueio por ator for lançado depois de método/chamada de retorno devolve tanto concluída a operação assíncrona.
+* Embora *Method1* está em execução em nome de *ActorId2* em resposta à solicitação do cliente *xyz789*, outro pedido de cliente (*abc123*) chega de que também requer *Method1* para ser executado por *ActorId2*. No entanto, a segunda execução de *Method1* não começa até que tenha terminado a execução anterior. Da mesma forma, um lembrete registrados pelo *ActorId2* desencadeado ao *Method1* está a ser executado em resposta à solicitação do cliente *xyz789*. O retorno de chamada de lembrete é executado somente depois de ambas as execuções de *Method1* estiverem concluídas. Tudo isso é devido a simultaneidade de turnos imposta na *ActorId2*.
+* Da mesma forma, com base em vez de simultaneidade também é imposta para o *ActorId1*, conforme demonstrado pela execução de *Method1*, *Method2*e o retorno de chamada do timer em nome  *ActorId1* acontecendo de forma serial.
+* Execução de *Method1* em nome de *ActorId1* sobrepõe-se com sua execução em nome de *ActorId2*. Isso é porque com base em vez de simultaneidade é imposta apenas dentro de um ator e não em todos os atores.
+* Em algumas das execuções método/retorno de chamada, o `Task`(C#) / `CompletableFuture`(Java) devolvido pela conclusão do método/retorno de chamada após o método retorna. Em alguns outros, a operação assíncrona já foi concluída no período de que método/retorno de chamada retorna. Em ambos os casos, o bloqueio por ator é lançado apenas depois do método/retorno de chamada retorna e a operação assíncrona for concluída.
 
 ### <a name="reentrancy"></a>Reentrada
-O tempo de execução de Atores permite reentrancy por predefinição. Isto significa que, se um método de ator de *Ator A* chama um método no *Ator B*, que por sua vez, chama outro método no *Ator A*, que método pode ser executada. Isto acontece porque faz parte do mesmo contexto de lógica de cadeia de chamadas. Todas as chamadas de temporizador e lembrete começar a utilizar o contexto de chamada lógico novo. Consulte o [reentrancy Reliable Actors](service-fabric-reliable-actors-reentrancy.md) para obter mais detalhes.
+O tempo de execução de Atores permite reentrância, por predefinição. Isso significa que, se um método de ator de *Ator uma* chama um método na *B de Ator*, que por sua vez, chama outro método no *Ator A*, que o método tem permissão para executar. Isso é porque ele faz parte do mesmo contexto de cadeia de chamadas lógicas. Todas as chamadas de temporizador e lembrete começam com o novo contexto de chamadas lógicas. Consulte a [reentrada dos Reliable Actors](service-fabric-reliable-actors-reentrancy.md) para obter mais detalhes.
 
-### <a name="scope-of-concurrency-guarantees"></a>Âmbito de garantias de concorrência
-O tempo de execução de Atores fornece estes garantias de concorrência em situações em que controla a invocação de um destes métodos. Por exemplo, fornece estes garantias para as invocações de método que são efetuadas em resposta a um pedido de cliente, bem como para chamadas de retorno de temporizador e lembretes. No entanto, se o código de ator invoca diretamente estes métodos fora dos mecanismos de fornecidos pelo tempo de execução de Atores, em seguida, o tempo de execução não é possível fornecer quaisquer garantias de concorrência. Por exemplo, se o método é invocado no contexto de algumas tarefas que não esteja associado a tarefa devolvida através dos métodos de ator, em seguida, o tempo de execução não é possível fornecer garantias de concorrência. Se o método é invocado a partir de um thread que o ator cria no seu próprio, em seguida, o tempo de execução também não é possível fornecer garantias de concorrência. Por conseguinte, para efetuar operações em segundo plano, atores devem utilizar [temporizadores de ator e lembretes de ator](service-fabric-reliable-actors-timers-reminders.md) que Respeitamos a concorrência com base em ativar.
+### <a name="scope-of-concurrency-guarantees"></a>Âmbito de garantias de simultaneidade
+O tempo de execução de Atores fornece essas garantias de simultaneidade em situações em que controla a invocação dos seguintes métodos. Por exemplo, ele fornece essas garantias para as invocações de método que são realizadas em resposta a um pedido de cliente, bem como para retornos de chamada do timer e lembrete. No entanto, se o código de ator diretamente invoca esses métodos fora dos mecanismos fornecidos pelo tempo de execução de Atores, o tempo de execução não fornece quaisquer garantias de simultaneidade. Por exemplo, se o método é invocado no contexto de uma tarefa que não esteja associado com o task retornado pelos métodos de ator, em seguida, o tempo de execução não é possível fornecer garantias de simultaneidade. Se o método é invocado a partir de um thread que o ator cria por si, em seguida, o tempo de execução também não é possível fornecer garantias de simultaneidade. Portanto, para efetuar operações em segundo plano, atores devem usar [temporizadores de ator e lembretes de ator](service-fabric-reliable-actors-timers-reminders.md) que respeitamos turnos de simultaneidade.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Introdução ao criar o primeiro serviço Reliable Actors:
-   * [Introdução a Reliable Actors no .NET](service-fabric-reliable-actors-get-started.md)
-   * [Introdução a Reliable Actors em Java](service-fabric-reliable-actors-get-started-java.md)
+Comece criando seu primeiro serviço do Reliable Actors:
+   * [Introdução ao Reliable Actors no .NET](service-fabric-reliable-actors-get-started.md)
+   * [Introdução ao Reliable Actors em Java](service-fabric-reliable-actors-get-started-java.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png

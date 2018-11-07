@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60605e7bdeeef32889bc0ac104fa34bd66d4444d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962882"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256430"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar processos de Azure Application Insights com o conector para o Microsoft Flow
 
@@ -34,7 +34,7 @@ Pode adicionar ações adicionais também. Microsoft Flow torna a centenas de a�
 Neste tutorial, irá aprender como criar um fluxo que utiliza o algoritmo de cluster automática de análise para atributos de grupo nos dados de um aplicativo web. O fluxo envia automaticamente os resultados por correio eletrónico, apenas um exemplo de como pode usar o Microsoft Flow e o Application Insights Analytics juntos. 
 
 ### <a name="step-1-create-a-flow"></a>Passo 1: Criar um fluxo
-1. Inicie sessão no [Microsoft Flow](http://flow.microsoft.com)e, em seguida, selecione **meus fluxos**.
+1. Inicie sessão no [Microsoft Flow](https://flow.microsoft.com)e, em seguida, selecione **meus fluxos**.
 1. Clique em **criar um fluxo do zero**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Passo 2: Criar um acionador para o fluxo

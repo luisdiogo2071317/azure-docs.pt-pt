@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577339"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233019"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Expanda o seu negócio no marketplace 
 Depois de publicar a oferta no AppSource ou no Azure Marketplace, pode utilizar a sua listagem como um ponto de partida para atividades conjuntas de (GTM) de go-to-market com a Microsoft. Impulsionar o tráfego para a sua oferta do Marketplace e estimulante oportunidades potenciais do Marketplace, por exemplo, são ótimas formas de acelerar o crescimento da sua empresa. 
@@ -229,7 +229,7 @@ Para promover a sua aplicação ou uma oferta e aceder a mais benefícios e recu
 
 | Benefícios | Recursos |
 |:--- |:--- |
-| Utilize os seus benefícios de núcleo | Como parte do Microsoft Partner Network, recebe um conjunto de benefícios centrais que pode ajudar a poupar tempo e dinheiro. Os benefícios podem também ajudar a reforçar as capacidades, melhor servir clientes e criar ligações para atingir seu potencial de negócios.<br>Para obter mais informações sobre os benefícios de core, visite [principais benefícios e requisitos](http://partner.microsoft.com/membership/core-benefits). |
+| Utilize os seus benefícios de núcleo | Como parte do Microsoft Partner Network, recebe um conjunto de benefícios centrais que pode ajudar a poupar tempo e dinheiro. Os benefícios podem também ajudar a reforçar as capacidades, melhor servir clientes e criar ligações para atingir seu potencial de negócios.<br>Para obter mais informações sobre os benefícios de core, visite [principais benefícios e requisitos](https://partner.microsoft.com/membership/core-benefits). |
 | Obter a competência Cloud Platform | Obter a competência ajuda-o destaque-se entre outros parceiros da Microsoft. Obter a competência também ajuda-o a demonstrar a experiência técnica e o sucesso dos clientes no mercado. Competência é um pré-requisito para muitos programas de parceiro de chave, como a venda conjunta.<br> Para obter mais informações sobre a competência Cloud Platform, visite [competência Cloud Platform](https://partner.microsoft.com/membership/cloud-platform-competency). |
 | Tornar-se de venda conjunta preparado para o IP | Pode ser elegível para o programa de venda conjunta de IP pronto, que permite que colabore diretamente com vendedores da Microsoft e outros parceiros em oportunidades de clientes de destino e o planejamento de contas. Sua solução se torna visível aos vendedores da Microsoft no catálogo de solução do vendedor. Vendedores da Microsoft são recompensados de colaboração e a ganhar com.<br> Para obter mais informações sobre o programa de venda conjunta pronto, incluindo os requisitos de elegibilidade, visite [promover seu negócio](https://partner.microsoft.com/reach-customers/promote-your-business). |
 

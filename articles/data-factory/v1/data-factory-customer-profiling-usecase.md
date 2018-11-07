@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b60e4f3547e049dc35c08ce115bdfcbbf6ebb18a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056229"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259824"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de Utilização - Criação de Perfis de Cliente
-O Azure Data Factory é um dos vários serviços utilizados para implementar o Cortana Intelligence Suite de Aceleradores de solução.  Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso simples de utilização para ajudar a começar com a compreensão de como o Azure Data Factory pode resolver problemas comuns de análise.
+O Azure Data Factory é um dos vários serviços utilizados para implementar o Cortana Intelligence Suite de Aceleradores de solução.  Para obter mais informações sobre o Cortana Intelligence, visite [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Neste documento, descrevemos um caso simples de utilização para ajudar a começar com a compreensão de como o Azure Data Factory pode resolver problemas comuns de análise.
 
 ## <a name="scenario"></a>Cenário
 A Contoso é uma empresa de jogos que cria jogos para várias plataformas: consolas, dispositivos de mão mantido e computadores pessoais (PCs) de jogos. Como leitores de reproduzir esses jogos, grande volume de dados de log é produzido que controla os padrões de utilização, o estilo de jogos e as preferências do utilizador.  Quando combinado com demográficos, regionais e dados de produto, Contoso pode efetuar a análise para obter orientações sobre como melhorar a experiência dos jogadores e compras de destino-los para atualizações e no jogo. 

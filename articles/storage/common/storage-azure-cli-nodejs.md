@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979333"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258719"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Utilizar a CLI clássica do Azure com o armazenamento do Azure
 
@@ -122,7 +122,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ```
 
 ## <a name="create-and-manage-blobs"></a>Criar e gerir blobs
-Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Esta secção assume que já está familiarizado com os conceitos de armazenamento de Blobs do Azure. Para obter informações detalhadas, consulte [introdução ao armazenamento de Blobs do Azure com .NET](../blobs/storage-dotnet-how-to-use-blobs.md) e [conceitos do serviço Blob](http://msdn.microsoft.com/library/azure/dd179376.aspx).
+Armazenamento de Blobs do Azure é um serviço para armazenar grandes quantidades de dados não estruturados, como texto ou dados binários, que podem ser acedidos em qualquer local no mundo através de HTTP ou HTTPS. Esta secção assume que já está familiarizado com os conceitos de armazenamento de Blobs do Azure. Para obter informações detalhadas, consulte [introdução ao armazenamento de Blobs do Azure com .NET](../blobs/storage-dotnet-how-to-use-blobs.md) e [conceitos do serviço Blob](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 
 ### <a name="create-a-container"></a>Criar um contentor
 Todos os BLOBs no armazenamento do Azure tem de ser num contentor. Pode criar um contentor privada com o `azure storage container create` comando:
@@ -137,7 +137,7 @@ azure storage container create mycontainer
 >
 
 ### <a name="upload-a-blob-into-a-container"></a>Carregar um blob para um contentor
-O Blob Storage do Azure suporta blobs de blocos e blobs de páginas. Para obter mais informações, consulte [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+O Blob Storage do Azure suporta blobs de blocos e blobs de páginas. Para obter mais informações, consulte [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 
 Para carregar blobs para um contentor, pode utilizar o `azure storage blob upload`. Por predefinição, este comando carrega os ficheiros locais para um blob de blocos. Para especificar o tipo para o blob, pode utilizar o `--blobtype` parâmetro.
 

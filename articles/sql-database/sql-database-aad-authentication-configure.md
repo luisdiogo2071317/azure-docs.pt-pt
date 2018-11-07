@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e0cc8759de6e204ec419053a70d263e21ca0dcf6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 75108853929ea514a6b8660388d71736e74013e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868638"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234736"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerir a autenticação do Azure Active Directory com o SQL
 
@@ -202,7 +202,7 @@ Para obter mais informações sobre os comandos da CLI, veja [SQL - az sql](http
 Em todos os computadores de cliente, a partir do qual os seus aplicativos ou os utilizadores ligam à base de dados do Azure SQL ou o Azure SQL Data Warehouse com identidades do Azure AD, tem de instalar o seguinte software:
 
 - .NET framework 4.6 ou posterior a partir [ https://msdn.microsoft.com/library/5a4x27ek.aspx ](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-- O Azure Active Directory Authentication Library para SQL Server (**ADALSQL. DLL**) está disponível em vários idiomas (x86 e amd64) do Centro de download na [Microsoft Active Directory Authentication Library para Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+- O Azure Active Directory Authentication Library para SQL Server (**ADALSQL. DLL**) está disponível em vários idiomas (x86 e amd64) do Centro de download na [Microsoft Active Directory Authentication Library para Microsoft SQL Server](https://www.microsoft.com/download/details.aspx?id=48742).
 
 Pode satisfazer estes requisitos por:
 
@@ -249,14 +249,14 @@ CREATE USER [appName] FROM EXTERNAL PROVIDER;
 > [!TIP]
 > Não é possível criar diretamente um utilizador de um Azure Active Directory que não seja o Azure Active Directory que está associado a sua subscrição do Azure. No entanto, os membros de outros diretórios do Active Directory que são importados os utilizadores no Active Directory associados (conhecido como utilizadores externos) podem ser adicionados a um grupo do Active Directory no inquilino do Active Directory. Ao criar um utilizador de base de dados contida para esse grupo do AD, os utilizadores do Active Directory externo conseguirem aceder à base de dados SQL.
 
-Para obter mais informações sobre a criação de contidos bases de dados de utilizadores com base em identidades do Azure Active Directory, consulte [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
+Para obter mais informações sobre a criação de contidos bases de dados de utilizadores com base em identidades do Azure Active Directory, consulte [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx).
 
 > [!NOTE]
 > Remover o administrador do Azure Active Directory para o servidor SQL do Azure impede que qualquer utilizador de autenticação do Azure AD ligar ao servidor. Se necessário, inutilizável utilizadores do Azure AD podem ser removidos manualmente por um administrador de base de dados SQL.
 > [!NOTE]
 > Se receber um **o tempo limite da ligação excedido**, poderá ter de definir o `TransparentNetworkIPResolution` parâmetro da cadeia de ligação para false. Para obter mais informações, consulte [problema de tempo limite de ligação com o .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
-Quando cria um base de dados do utilizador, o que o utilizador recebe a **CONNECT** permissão e pode ligar a esse banco de dados como um membro dos **público** função. Inicialmente as permissões apenas disponíveis para o utilizador são todas as permissões concedidas para o **público** de função ou todas as permissões concedidas a todos os grupos do Azure AD, que são membros de. Depois de aprovisionar um utilizador de base de dados contidas com base no AD do Azure, pode conceder ao utilizador permissões adicionais, da mesma forma como pode conceder permissão a qualquer outro tipo de utilizador. Normalmente, conceder permissões a funções de base de dados e adicionar utilizadores às funções. Para obter mais informações, consulte [Noções básicas de permissão do motor de base de dados](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para obter mais informações sobre as funções de base de dados SQL especiais, consulte [gerir bases de dados e inícios de sessão na base de dados do Azure SQL](sql-database-manage-logins.md).
+Quando cria um base de dados do utilizador, o que o utilizador recebe a **CONNECT** permissão e pode ligar a esse banco de dados como um membro dos **público** função. Inicialmente as permissões apenas disponíveis para o utilizador são todas as permissões concedidas para o **público** de função ou todas as permissões concedidas a todos os grupos do Azure AD, que são membros de. Depois de aprovisionar um utilizador de base de dados contidas com base no AD do Azure, pode conceder ao utilizador permissões adicionais, da mesma forma como pode conceder permissão a qualquer outro tipo de utilizador. Normalmente, conceder permissões a funções de base de dados e adicionar utilizadores às funções. Para obter mais informações, consulte [Noções básicas de permissão do motor de base de dados](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para obter mais informações sobre as funções de base de dados SQL especiais, consulte [gerir bases de dados e inícios de sessão na base de dados do Azure SQL](sql-database-manage-logins.md).
 Uma conta de utilizador de domínio federado que é importada para um domínio gerido como um utilizador externo, tem de utilizar a identidade de domínio gerido.
 
 > [!NOTE]
@@ -354,7 +354,7 @@ Para obter mais informações, consulte [Blog de segurança do SQL Server](https
 
 ### <a name="sqlcmd"></a>sqlcmd
 
-As seguintes instruções, ligar através da versão 13.1 de sqlcmd, que está disponível a partir da [Centro de transferências](http://go.microsoft.com/fwlink/?LinkID=825643).
+As seguintes instruções, ligar através da versão 13.1 de sqlcmd, que está disponível a partir da [Centro de transferências](https://go.microsoft.com/fwlink/?LinkID=825643).
 
 ```cmd
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

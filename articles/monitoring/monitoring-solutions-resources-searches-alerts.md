@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 154dedaf5e657803417e1bb113489c49f8879a26
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 4955c535cd033a1e4a5825303133eb2bd3eecd25
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914590"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260334"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -27,7 +27,7 @@ ms.locfileid: "50914590"
 > Esta é a documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.   
 
 
-[Soluções de gestão](monitoring-solutions.md) normalmente, irá incluir [pesquisas guardadas](../log-analytics/log-analytics-log-search.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../log-analytics/log-analytics-alerts.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../resource-manager-template-walkthrough.md) para que possam ser incluídos na [soluções de gestão](monitoring-solutions-creating.md).
+[Soluções de gestão](monitoring-solutions.md) normalmente, irá incluir [pesquisas guardadas](../log-analytics/log-analytics-queries.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../log-analytics/log-analytics-alerts.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../resource-manager-template-walkthrough.md) para que possam ser incluídos na [soluções de gestão](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure](monitoring-solutions-creating.md)  
@@ -54,9 +54,9 @@ A tabela seguinte lista a versão de API para o recurso utilizado neste exemplo.
 
 
 ## <a name="saved-searches"></a>Pesquisas Guardadas
-Incluem [pesquisas guardadas](../log-analytics/log-analytics-log-search.md) numa solução para permitir que os utilizadores para consultar os dados recolhidos pela sua solução.  Pesquisas de guardado, são apresentados em **pesquisas guardadas** no portal do Azure.  Uma pesquisa guardada também é necessária para cada alerta.   
+Incluem [pesquisas guardadas](../log-analytics/log-analytics-queries.md) numa solução para permitir que os utilizadores para consultar os dados recolhidos pela sua solução.  Pesquisas de guardado, são apresentados em **pesquisas guardadas** no portal do Azure.  Uma pesquisa guardada também é necessária para cada alerta.   
 
-[A pesquisa guardada do log Analytics](../log-analytics/log-analytics-log-search.md) recursos têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
+[A pesquisa guardada do log Analytics](../log-analytics/log-analytics-queries.md) recursos têm um tipo de `Microsoft.OperationalInsights/workspaces/savedSearches` e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

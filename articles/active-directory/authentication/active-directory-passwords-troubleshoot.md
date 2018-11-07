@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321803"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233631"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Resolver problemas de reposição de palavra-passe self-service
 
@@ -99,7 +99,7 @@ Está a ter um problema com a reposição de palavra-passe self-service (SSPR) d
 | Código | Nome ou mensagem | Descrição |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619: "uma restrição impede que a palavra-passe a ser alterado para um serviço atual especificado." | Este evento ocorre quando o serviço de repetição de escrita de palavra-passe tenta definir uma palavra-passe no diretório no local que não cumpre a idade de palavra-passe, histórico, complexidade ou requisitos de filtragem do domínio. <br> <br> Se tiver uma antiguidade mínima da palavra-passe e tiver alterado recentemente a palavra-passe nessa janela de tempo, não pode alterar a palavra-passe novamente até atingir a idade especificada no seu domínio. Para fins de teste, a idade mínima deve ser definida como 0. <br> <br> Se tiver requisitos de histórico de palavras-passe ativados, tem de selecionar uma palavra-passe não foi utilizada nos últimos *N* vezes, onde *N* é a definição de histórico de palavras-passe. Se selecionar uma palavra-passe que foi utilizada nos últimos *N* exceder o tempo, em seguida, verá uma falha em vez disso. Para fins de teste, o histórico de palavras-passe deve ser definido como 0. <br> <br> Se tiver requisitos de complexidade de palavra-passe, todos eles são impostos quando o utilizador tentou alterar ou repor uma palavra-passe. <br> <br> Se tiver filtros de palavra-passe ativados e um usuário seleciona uma palavra-passe que não cumpre os critérios de filtragem, em seguida, a reposição ou falha da operação de alteração. |
-| 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controle de política de palavra-passe LDAP. | Este problema ocorre se o controlo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está ativado nos DCs. Para utilizar a funcionalidade de repetição de escrita de palavra-passe, tem de ativar o controlo. Para fazer isso, os controladores de domínio tem de ser no Windows Server 2008 (com o SP mais recente) ou posterior. Se seus controladores de domínio são no 2008 (pré-R2), também tem de aplicar correção [KB2386717](http://support.microsoft.com/kb/2386717). |
+| 6329 | MMS(3040): admaexport.cpp(2837): O servidor não contém o controle de política de palavra-passe LDAP. | Este problema ocorre se o controlo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) não está ativado nos DCs. Para utilizar a funcionalidade de repetição de escrita de palavra-passe, tem de ativar o controlo. Para fazer isso, os controladores de domínio tem de ser no Windows Server 2008 (com o SP mais recente) ou posterior. Se seus controladores de domínio são no 2008 (pré-R2), também tem de aplicar correção [KB2386717](https://support.microsoft.com/kb/2386717). |
 | HR 8023042 | Motor de sincronização devolveu um erro hr = 80230402, mensagem = uma tentativa de obter um objeto falhou porque existem entradas duplicadas com a mesma âncora. | Este erro ocorre quando o mesmo ID de utilizador está ativado em vários domínios. Um exemplo é se estiver a sincronizar as florestas de contas e recursos e ter o mesmo ID de utilizador presente e habilitado em cada floresta. <br> <br> Este erro também pode ocorrer se usar um atributo de âncora exclusivos, como um alias ou UPN e dois usuários compartilham esse mesmo atributo de âncora. <br> <br> Para resolver este problema, certifique-se de que não tem quaisquer utilizadores duplicados dentro dos domínios e que utiliza um atributo de âncora exclusivo para cada utilizador. |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se a origem do evento é PasswordResetService
@@ -215,7 +215,7 @@ Recomendamos que efetue este passo apenas depois de tentar as duas primeiras eta
 > Se tiver personalizado as regras de sincronização de out-of-the-box, *o backup deles antes de continuar com a atualização e, em seguida, voltá-los manualmente depois de terminar.*
 >
 
-1. Baixe a versão mais recente do Azure AD Connect do [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Baixe a versão mais recente do Azure AD Connect do [Microsoft Download Center](https://go.microsoft.com/fwlink/?LinkId=615771).
 1. Uma vez que já tenha instalado o Azure AD Connect, terá de efetuar uma atualização in-loco para atualizar a instalação do Azure AD Connect para a versão mais recente.
 1. Executar o pacote transferido e siga na tela instruções para atualizar a sua máquina do Azure AD Connect.
 
@@ -261,7 +261,7 @@ O Azure AD Connect requer o Active Directory **Repor palavra-passe** permissão 
 
 Se tiver alguma pergunta geral sobre o Azure AD e de reposição de palavra-passe self-service, pode perguntar à Comunidade para obter assistência sobre a [fóruns do Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Membros da Comunidade incluem engenheiros, gerentes de produto, MVPs e outros profissionais de TI.
 
-## <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
+## <a name="contact-microsoft-support"></a>Contacte o suporte da Microsoft
 
 Se não conseguir encontrar a resposta a um problema, a nossas equipas de suporte estão sempre disponíveis para ajudá-lo ainda mais.
 

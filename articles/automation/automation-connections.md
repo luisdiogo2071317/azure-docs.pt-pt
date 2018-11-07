@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dbf816d4fd0d9f6044ebeea9a23a60adcc5bc8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044608"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261218"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ativos de ligação na automatização do Azure
 
 Um recurso de ligação da automatização contém as informações necessárias para ligar a uma aplicação ou serviço externo a partir de um runbook ou configuração DSC. Isto pode incluir as informações necessárias para autenticação, como um nome de utilizador e palavra-passe, além das informações de ligação, como um URL ou uma porta. O valor de uma conexão é manter todas as propriedades para ligar a uma determinada aplicação num recurso em vez de criar diversas variáveis. O utilizador pode editar os valores de uma ligação num único local, e pode passar o nome de uma ligação para um runbook ou configuração DSC num único parâmetro. As propriedades de uma ligação podem ser acedidas no runbook ou configuração DSC com o **Get-AutomationConnection** atividade. 
 
-Quando cria uma ligação, tem de especificar um *tipo de ligação*. O tipo de ligação é um modelo que define um conjunto de propriedades. A ligação define valores para cada propriedade definida no seu tipo de ligação. Tipos de ligação são adicionados ao automatização do Azure em módulos de integração ou criados com o [do Azure da API de automação](http://msdn.microsoft.com/library/azure/mt163818.aspx) se o módulo de integração inclui um tipo de ligação e é importado para sua conta de automatização. Caso contrário, terá de criar um ficheiro de metadados para especificar um tipo de ligação de automatização.  Para obter mais informações sobre isso, consulte [módulos de integração](automation-integration-modules.md).  
+Quando cria uma ligação, tem de especificar um *tipo de ligação*. O tipo de ligação é um modelo que define um conjunto de propriedades. A ligação define valores para cada propriedade definida no seu tipo de ligação. Tipos de ligação são adicionados ao automatização do Azure em módulos de integração ou criados com o [do Azure da API de automação](https://msdn.microsoft.com/library/azure/mt163818.aspx) se o módulo de integração inclui um tipo de ligação e é importado para sua conta de automatização. Caso contrário, terá de criar um ficheiro de metadados para especificar um tipo de ligação de automatização.  Para obter mais informações sobre isso, consulte [módulos de integração](automation-integration-modules.md).  
 
 >[!NOTE]
 >Os elementos seguros na automatização do Azure incluem as credenciais, certificados, ligações e variáveis encriptadas. Esses ativos são encriptados e armazenados na automatização do Azure com uma chave exclusiva que é gerada para cada conta de automatização. Esta chave é armazenada no Key Vault. Antes de armazenar um recurso seguro, a chave é carregada a partir do Key Vault e, em seguida, utilizada para encriptar o elemento.
@@ -70,7 +70,7 @@ A função na tabela seguinte é utilizada para aceder a ligações num Python2 
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>Para criar uma nova ligação com o Windows PowerShell
 
-Criar uma nova ligação com o Windows PowerShell através da [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. Este cmdlet tem um parâmetro denominado **ConnectionFieldValues** que espera que um [tabela de hash](http://technet.microsoft.com/library/hh847780.aspx) definir valores para cada uma das propriedades definidas pelo tipo de ligação.
+Criar uma nova ligação com o Windows PowerShell através da [New-AzureRmAutomationConnection](/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet. Este cmdlet tem um parâmetro denominado **ConnectionFieldValues** que espera que um [tabela de hash](https://technet.microsoft.com/library/hh847780.aspx) definir valores para cada uma das propriedades definidas pelo tipo de ligação.
 
 Se estiver familiarizado com a automação [conta Run As](automation-sec-configure-azure-runas-account.md) para autenticar runbooks com o principal de serviço, o script do PowerShell, fornecido como uma alternativa para criar a conta Run As no portal, cria uma nova ligação recurso com os seguintes comandos de exemplo.  
 
@@ -84,7 +84,7 @@ Pode utilizar o script para criar o recurso de ligação, porque quando criar a 
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Utilizar uma ligação num runbook ou configuração DSC
 
-Recupera uma ligação num runbook ou configuração DSC com o **Get-AutomationConnection** cmdlet.  Não é possível utilizar o [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) atividade.  Esta atividade obtém os valores dos campos diferentes na ligação e devolve-los como um [tabela de hash](http://go.microsoft.com/fwlink/?LinkID=324844) que, em seguida, podem ser utilizadas com os comandos apropriados no runbook ou configuração DSC.
+Recupera uma ligação num runbook ou configuração DSC com o **Get-AutomationConnection** cmdlet.  Não é possível utilizar o [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) atividade.  Esta atividade obtém os valores dos campos diferentes na ligação e devolve-los como um [tabela de hash](https://go.microsoft.com/fwlink/?LinkID=324844) que, em seguida, podem ser utilizadas com os comandos apropriados no runbook ou configuração DSC.
 
 ### <a name="textual-runbook-sample"></a>Exemplo de textual runbook
 

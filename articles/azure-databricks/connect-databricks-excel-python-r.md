@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: 6c8d0c9f5471395d1552b896b4d411dcad0a280f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2a59d5788898fae23345d179fb037f11599f912e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421140"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230398"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Ligar ao Azure Databricks a partir do Excel, Python ou R
 
@@ -102,7 +102,7 @@ Depois de ter os dados no seu livro do Excel, pode efetuar operações de análi
 Nesta secção, vai utilizar uma linguagem de R IDE para dados de referência disponíveis no Azure Databricks. Antes de começar, tem de ter o seguinte instalado no computador.
 
 * Um IDE para a linguagem R. Este artigo utiliza o RStudio para ambiente de trabalho. Pode instalá-lo partir [download do R Studio](https://www.rstudio.com/products/rstudio/download/).
-* Se utilizar o r Studio para a área de trabalho como seu IDE, também instalar a partir do Microsoft R Client [ http://aka.ms/rclient/ ](http://aka.ms/rclient/). 
+* Se utilizar o r Studio para a área de trabalho como seu IDE, também instalar a partir do Microsoft R Client [ http://aka.ms/rclient/ ](https://aka.ms/rclient/). 
 
 Abra o RStudio e siga os passos abaixo:
 

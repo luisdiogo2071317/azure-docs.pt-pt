@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524547"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231368"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações altamente disponíveis com RA-GRS
 
@@ -149,7 +149,7 @@ Outra consideração é como lidar com várias instâncias de um aplicativo e o 
 
 Tem três opções principais para a monitorização a frequência de repetições na região primária para determinar quando mudar para a região secundária e altere o aplicativo seja executado no modo só de leitura.
 
-*   Adicionar um manipulador para o [ **repetir** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) eventos no [ **OperationContext** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) solicita que passar para o armazenamento de objeto – este é o método apresentado neste artigo e utilizado no exemplo que acompanha este artigo. Esses eventos são disparados sempre que o cliente tenta repetir um pedido, permitindo-lhe controlar a frequência com que o cliente encontra erros não permanente de um ponto final primário.
+*   Adicionar um manipulador para o [ **repetir** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) eventos no [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) solicita que passar para o armazenamento de objeto – este é o método apresentado neste artigo e utilizado no exemplo que acompanha este artigo. Esses eventos são disparados sempre que o cliente tenta repetir um pedido, permitindo-lhe controlar a frequência com que o cliente encontra erros não permanente de um ponto final primário.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -160,7 +160,7 @@ Tem três opções principais para a monitorização a frequência de repetiçõ
     };
     ```
 
-*   Na [ **Evaluate** ](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) método uma política de repetição personalizada, pode executar código personalizado sempre que uma nova tentativa ocorre. Para além de gravação quando uma nova tentativa ocorre, isso também lhe dá a oportunidade de modificar seu comportamento de repetição.
+*   Na [ **Evaluate** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) método uma política de repetição personalizada, pode executar código personalizado sempre que uma nova tentativa ocorre. Para além de gravação quando uma nova tentativa ocorre, isso também lhe dá a oportunidade de modificar seu comportamento de repetição.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6469ff9c59c87bc6735e795195866b0aaf211246
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388199"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262136"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guia para criar uma imagem de máquina virtual para o Azure Marketplace
 Este artigo **passo 2**, explica como preparar os discos rígidos virtuais (VHDs) irá implementar no Azure Marketplace. Os VHDs constituem os alicerces do SKU. O processo é diferente dependendo se está a fornecer um SKU baseado em Linux ou Windows. Este artigo aborda os dois cenários. Este processo pode ser executado em paralelo com [criação e registo de contas][link-acct-creation].
@@ -148,11 +148,11 @@ Para transferir um ficheiro de ambiente de trabalho remoto para um computador lo
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-Podem encontrar mais informações sobre RDP no MSDN no artigo [ligar a uma VM do Azure com RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+Podem encontrar mais informações sobre RDP no MSDN no artigo [ligar a uma VM do Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 **Configurar uma VM e criar o SKU**
 
-Depois do sistema de operativo que VHD tiver sido transferido, utilize o Hyper-v e configurar uma VM para começar a criar o SKU. Os passos detalhados podem ser encontrados em ligação do TechNet seguinte: [instalar o Hyper-v e configurar uma VM](http://technet.microsoft.com/library/hh846766.aspx).
+Depois do sistema de operativo que VHD tiver sido transferido, utilize o Hyper-v e configurar uma VM para começar a criar o SKU. Os passos detalhados podem ser encontrados em ligação do TechNet seguinte: [instalar o Hyper-v e configurar uma VM](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 escolher o tamanho do VHD correto
 O sistema de operativo VHD do Windows na imagem de VM deverá ser criado como um VHD de formato fixo de 128 GB.  
@@ -433,7 +433,7 @@ Seguem-se os passos para gerar o URL de SAS com a CLI clássica do Azure
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Transferir a CLI clássica do Azure da [aqui](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Também pode encontrar ligações diferentes para **[Windows](http://aka.ms/webpi-azure-cli)** e  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Transferir a CLI clássica do Azure da [aqui](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Também pode encontrar ligações diferentes para **[Windows](https://aka.ms/webpi-azure-cli)** e  **[MAC OS](https://aka.ms/mac-azure-cli)**.
 
 2.  Depois de transferida, instale o
 

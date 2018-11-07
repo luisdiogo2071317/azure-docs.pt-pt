@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 27bec2b7fa53e7564841e6f89be7e4d81a9b9f1a
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913041"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259127"
 ---
 # <a name="views-in-management-solutions-preview"></a>Modos de exibição em soluções de gestão (pré-visualização)
 > [!NOTE]
@@ -90,7 +90,7 @@ Tenha em atenção que pode copiar o recurso de toda a vista do seu ficheiro de 
 * Variáveis devem ser definidas na solução e utilizadas nas propriedades adequadas.
 
 ### <a name="log-analytics-api-version"></a>Versão de API de análise do registo
-Todos os recursos do Log Analytics definidos num modelo do Resource Manager de ter uma propriedade **apiVersion** que define a versão da API deve usar o recurso.  Esta versão é diferente das vistas com consultas que usam o [legados e a linguagem de consulta atualizado](../log-analytics/log-analytics-log-search.md).  
+Todos os recursos do Log Analytics definidos num modelo do Resource Manager de ter uma propriedade **apiVersion** que define a versão da API deve usar o recurso.  Esta versão é diferente das vistas com consultas que usam o [legados e a linguagem de consulta atualizado](../log-analytics/log-analytics-queries.md).  
 
  A seguinte tabela especifica as versões de API do Log Analytics para exibições em áreas de trabalho de legado e atualizadas: 
 

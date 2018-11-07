@@ -1,6 +1,6 @@
 ---
-title: O ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs
-description: Os passos necessários para executar os seus projetos de ciência de dados
+title: O ciclo de vida do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+description: Os passos necessários para executar seus projetos de ciência de dados
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: dca71a13db33f44fed551e4791625c5667cfdc21
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 611793297559c99ffa46f7c0266ed6865eb650fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234277"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do processo de ciência de dados de equipa
 
-O processo de ciência de dados de equipa (TDSP) fornece um ciclo de vida recomendado que pode utilizar para estruturar seus projetos de ciência de dados. O ciclo de vida descreve os passos, do início ao fim, que projetos siga, normalmente, quando estes são executados. Se utilizar outro ciência de dados do ciclo de vida, tais como cruzada da indústria processo padrão para extração de dados [(CRISP-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), deteção de dados de conhecimento em bases de dados [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), ou o processo personalizado da organização , pode continuar a utilizar o TDSP baseado em tarefas. 
+O Team Data Science Process (TDSP) fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados. Se utilizar outro ciência de dados ciclo de vida, como o Cross setor processo padrão para Data Mining [(CRISP-DM)](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), deteção de dados de conhecimento em bases de dados [(KDD)](https://wikipedia.org/wiki/Data_mining#Process), ou seu processo de personalizados da organização , pode continuar a utilizar o TDSP baseado em tarefas. 
 
-Este ciclo de vida foi concebido para projetos de ciência de dados que foram concebidos para são enviados como parte das aplicações inteligentes. Estas aplicações implementar machine learning ou artificial intelligence modelos para Análise Preditiva. Projetos de ciência de dados exploratórias e projetos de análise ad hoc também podem beneficiar da utilização deste processo. Mas para os projetos, alguns dos passos aqui descritos poderão não ser necessária. 
+Este ciclo de vida foi concebido para os projetos de ciência de dados que se destinam a são fornecidos como parte de aplicações inteligentes. Esses aplicativos implementarem modelos de aprendizagem ou inteligência artificial de automática para Análise Preditiva. Projetos de ciência de dados exploratório e projetos de análise ad hoc também podem se beneficiar da utilização deste processo. Mas, relativamente aos projetos, algumas das etapas descritas aqui podem não ser necessários. 
 
-O ciclo de vida TDSP é constituído por cinco fases principais que são executados iteratively. Estas fases incluem:
+O ciclo de vida do TDSP é composto por cinco fases principais que é executado de maneira iterativa. Estas fases incluem:
 
-   1. [Compreensão de negócio](lifecycle-business-understanding.md)
-   2. [Aquisição de dados e a compreensão](lifecycle-data.md)
-   3. [Modelação](lifecycle-modeling.md)
+   1. [Compreensão empresarial](lifecycle-business-understanding.md)
+   2. [Aquisição de dados e compreensão](lifecycle-data.md)
+   3. [Modelagem](lifecycle-modeling.md)
    4. [Implementação](lifecycle-deployment.md)
-   5. [Aceitação de cliente](lifecycle-acceptance.md)
+   5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Eis uma representação visual do ciclo de vida TDSP: 
+Esta é uma representação visual de ciclo de vida do TDSP: 
 
-![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![Ciclo de vida do TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
-O ciclo de vida TDSP é modelado como uma sequência de passos iterated que fornecem orientações sobre as tarefas necessárias para utilizar modelos preditivos. Implementar os modelos preditivos no ambiente de produção que pretende utilizar para criar aplicações inteligentes. O objetivo deste ciclo de vida do processo é continuar a mover um projeto de ciência de dados para um ponto final do engagement encriptado. Ciência de dados é um exercício na investigação e deteção. A capacidade de comunicar tarefas a sua equipa e os seus clientes através de um conjunto bem definido de artefactos que utilizam modelos padronizados ajuda a evitar desentendimentos. Também é utilizar estes modelos aumenta a probabilidade da conclusão com êxito de um projeto de ciência de dados complexas.
+O ciclo de vida do TDSP é modelado como uma seqüência de etapas repetitivo que fornecer orientações sobre as tarefas necessárias para utilizar modelos de previsão. Implementar modelos de previsão no ambiente de produção que planeia utilizar para criar as aplicações inteligentes. O objetivo deste ciclo de vida do processo é a mudar de um projeto de ciência de dados para um ponto de final de envolvimento clara. Ciência de dados é um exercício em pesquisa e deteção. A capacidade de comunicar tarefas para a sua equipa e os seus clientes através de um conjunto bem definido de artefactos que empregam modelos padronizados ajuda a evitar confusões. Também usá-los aumenta a probabilidade da conclusão com êxito de um projeto de ciência de dados complexos.
 
-Para cada fase, podemos fornecer as seguintes informações:
+Para cada estágio, fornecemos as seguintes informações:
 
    * **Objetivos**: os objetivos específicos.
-   * **Como fazê-lo**: uma descrição das tarefas específicas e orientações sobre como conclui-los.
-   * **Artefactos**: A concentrarem e o suporte para produzi-los.
+   * **Como fazê-lo**: uma descrição das tarefas específicas e obter orientações sobre como concluí-las.
+   * **Artefactos**: os resultados finais e o suporte para produzi-los.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Fornecemos instruções completa ponto-a-ponto que demonstram todos os passos no processo de cenários específicos. O [instruções de exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com ligações e descrições em miniatura. As instruções mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
+Fornecemos orientações passo a passo de completa-a-ponto, que demonstram todas as etapas do processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](http://aka.ms/datascienceprocess).
+Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](https://aka.ms/datascienceprocess).

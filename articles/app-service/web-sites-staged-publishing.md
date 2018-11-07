@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257838"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
 
-Ao implementar a aplicação web, aplicação web no Linux, back-end móvel e aplicação de API para [serviço de aplicações](http://go.microsoft.com/fwlink/?LinkId=529714), pode implementar num bloco de implementação separados em vez do bloco de produção predefinido ao executar o **padrão** ou **Premium** escalão do plano de serviço de aplicações. Blocos de implementação são aplicações, na verdade, em direto com os seus próprios nomes de anfitrião. Elementos de conteúdo e de configuração da aplicação podem ser trocados entre duas ranhuras de implementação, incluindo o bloco de produção. Implementar a aplicação para um bloco de implementação tem as seguintes vantagens:
+Ao implementar a aplicação web, aplicação web no Linux, back-end móvel e aplicação de API para [serviço de aplicações](https://go.microsoft.com/fwlink/?LinkId=529714), pode implementar num bloco de implementação separados em vez do bloco de produção predefinido ao executar o **padrão** ou **Premium** escalão do plano de serviço de aplicações. Blocos de implementação são aplicações, na verdade, em direto com os seus próprios nomes de anfitrião. Elementos de conteúdo e de configuração da aplicação podem ser trocados entre duas ranhuras de implementação, incluindo o bloco de produção. Implementar a aplicação para um bloco de implementação tem as seguintes vantagens:
 
 * Pode validar alterações da aplicação num bloco de implementação de teste antes de a colocar com o bloco de produção.
 * Implementar uma aplicação para um bloco de primeiro e colocar em produção assegura que todas as instâncias do slot são preparadas antes de serem colocadas em produção. Esta ação elimina o tempo de inatividade, quando implementar a sua aplicação. O redirecionamento de tráfego é totalmente integrado, e não existem pedidos são ignorados como resultado de operações de troca. Este fluxo de trabalho completo pode ser automatizado através da configuração [comutação automática](#Auto-Swap) quando a validação de pré-troca de não é necessária.

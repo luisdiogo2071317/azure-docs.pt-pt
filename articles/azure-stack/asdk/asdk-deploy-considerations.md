@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719448"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238631"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Implementação de pilha do Azure, considerações de planeamento
 Antes de implementar o Azure Stack Development Kit (ASDK), certifique-se de que o computador de anfitrião de kit de desenvolvimento cumpre os requisitos descritos neste artigo.
@@ -82,7 +82,7 @@ Se implementar através da opção do AD FS, tem de voltar a implementar o Azure
 ### <a name="azure-active-directory-accounts"></a>Contas do Azure Active Directory
 Para implementar o Azure Stack, utilizando uma conta do Azure AD, tem de preparar uma conta do Azure AD antes de executar a script do PowerShell de implementação. Esta conta torna-se o Administrador Global do inquilino do Azure AD. É utilizado para aprovisionar e delegar principais de serviço para todos os serviços do Azure Stack que interagem com o Azure Active Directory e a Graph API e aplicações. Também é utilizado como o proprietário da subscrição do fornecedor do padrão (que é possível alterar mais tarde). Pode iniciar sessão portal de administrador do sistema do Azure Stack com esta conta.
 
-1. Crie uma conta do Azure AD que é o administrador de diretórios para, pelo menos, um Azure AD. Se já tiver uma conta, pode utilizá-la. Caso contrário, pode criar uma gratuitamente na [ https://azure.microsoft.com/free/ ](http://azure.microsoft.com/pricing/free/) (na China, visite <http://go.microsoft.com/fwlink/?LinkID=717821> em vez disso). Se pretender mais tarde [registar o Azure Stack com o Azure](asdk-register.md), também tem de ter uma subscrição no recentemente criada a conta.
+1. Crie uma conta do Azure AD que é o administrador de diretórios para, pelo menos, um Azure AD. Se já tiver uma conta, pode utilizá-la. Caso contrário, pode criar uma gratuitamente na [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (na China, visite <http://go.microsoft.com/fwlink/?LinkID=717821> em vez disso). Se pretender mais tarde [registar o Azure Stack com o Azure](asdk-register.md), também tem de ter uma subscrição no recentemente criada a conta.
    
     Guarde estas credenciais para ser utilizado como o administrador de serviços. Esta conta pode configurar e gerir nuvens de recursos, contas de utilizador, planos de inquilino, quotas e preços. No portal, pode criar nuvens de sites, nuvens privadas de máquinas virtuais, criar planos e gerir subscrições do utilizador.
 1. Crie conta de utilizador de pelo menos um teste no seu Azure AD para que pode entrar para o kit de desenvolvimento como um inquilino.

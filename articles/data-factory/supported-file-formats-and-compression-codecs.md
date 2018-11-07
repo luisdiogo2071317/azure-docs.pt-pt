@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6cab6559cb38b7d6d1dc2105b694acbcac85108c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444617"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262051"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -434,7 +434,7 @@ Se quiser analisar os ficheiros ORC ou escrever os dados em formato ORC, defina 
 ```
 
 > [!IMPORTANT]
-> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros ORC **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenha em atenção os seguintes pontos:
@@ -478,7 +478,7 @@ Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet,
 ```
 
 > [!IMPORTANT]
-> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros Parquet **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Para copiar capacitados pelo Runtime de integração autoalojado por exemplo, entre no local e na cloud armazena os dados, se não estiver a copiar ficheiros Parquet **como-é**, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador do Runtime de integração. Um runtime de integração de 64 bits requer um JRE de 64 bits. Pode encontrar ambas as versões [aqui](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Tenha em atenção os seguintes pontos:

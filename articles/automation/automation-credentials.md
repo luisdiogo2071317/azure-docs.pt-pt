@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 07452a97ba16d7745d48e210dd90ce077be64683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585345"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233444"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credencial na automatização do Azure
 
-Um recurso de credencial da automatização contém um objeto que contém credenciais de segurança, como um nome de utilizador e palavra-passe. Configurações de Runbooks e DSC podem utilizar os cmdlets que aceitem um objeto PSCredential para autenticação, ou eles podem extrair o nome de utilizador e palavra-passe do objeto PSCredential para fornecer a alguma aplicação ou serviço que requer autenticação. As propriedades das credenciais são armazenadas em segurança na automatização do Azure e podem ser acedidas no runbook ou configuração DSC com o [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) atividade.
+Um recurso de credencial da automatização contém um objeto que contém credenciais de segurança, como um nome de utilizador e palavra-passe. Configurações de Runbooks e DSC podem utilizar os cmdlets que aceitem um objeto PSCredential para autenticação, ou eles podem extrair o nome de utilizador e palavra-passe do objeto PSCredential para fornecer a alguma aplicação ou serviço que requer autenticação. As propriedades das credenciais são armazenadas em segurança na automatização do Azure e podem ser acedidas no runbook ou configuração DSC com o [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) atividade.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -53,7 +53,7 @@ As atividades na tabela seguinte são utilizadas para aceder a credenciais num r
 
 | Atividades | Descrição |
 |:--- |:--- |
-| Get-AutomationPSCredential |Obtém uma credencial que deve utilizar num runbook ou configuração DSC. Devolve um [System.Management.Automation.PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) objeto. |
+| Get-AutomationPSCredential |Obtém uma credencial que deve utilizar num runbook ou configuração DSC. Devolve um [System.Management.Automation.PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential) objeto. |
 
 > [!NOTE]
 > Deve evitar utilizar variáveis no parâmetro – Name de Get-AutomationPSCredential, uma vez que isso pode dificultar a deteção de dependências entre runbooks ou configurações de DSC e recursos de credencial em tempo de design.
@@ -94,7 +94,7 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 ## <a name="using-a-powershell-credential"></a>Utilizar uma credencial do PowerShell
 
-Recupera um recurso de credencial num runbook ou configuração DSC com o **Get-AutomationPSCredential** atividade. Isso retorna um [objeto PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) que pode utilizar com uma atividade ou um cmdlet que requer um parâmetro de PSCredential. Também pode obter as propriedades do objeto de credencial a utilizar individualmente. O objeto tem uma propriedade para o nome de utilizador e a palavra-passe segura, ou pode utilizar o **GetNetworkCredential** método para retornar um [NetworkCredential](http://msdn.microsoft.com/library/system.net.networkcredential.aspx) objeto que fornecerá uma versão não segura dos palavra-passe.
+Recupera um recurso de credencial num runbook ou configuração DSC com o **Get-AutomationPSCredential** atividade. Isso retorna um [objeto PSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) que pode utilizar com uma atividade ou um cmdlet que requer um parâmetro de PSCredential. Também pode obter as propriedades do objeto de credencial a utilizar individualmente. O objeto tem uma propriedade para o nome de utilizador e a palavra-passe segura, ou pode utilizar o **GetNetworkCredential** método para retornar um [NetworkCredential](https://msdn.microsoft.com/library/system.net.networkcredential.aspx) objeto que fornecerá uma versão não segura dos palavra-passe.
 
 ### <a name="textual-runbook-sample"></a>Exemplo de textual runbook
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: af3e2ad623d8d7bfafe676411f9ae3fbee78aab8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714337"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255273"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Pré-requisitos técnicos para a criação de uma imagem de máquina virtual para o Azure Marketplace
 Leia o processo cuidadosamente antes de começar e compreender onde e por que cada passo é realizado. Tanto quanto possível, deve preparar informações da sua empresa e outros dados, transferir as ferramentas necessárias, e/ou criar componentes técnicos antes de iniciar o processo de criação da oferta. Estes itens devem ficar claros da revisão deste artigo.  
@@ -30,7 +30,7 @@ Deve ter os seguintes itens prontos antes de iniciar o processo:
 * Dependendo do sistema operativo tiver como objetivo, instalar o [cmdlets do Azure PowerShell](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/WindowsAzurePowershellGet.3f.3f.3fnew.appids) ou [ferramenta de interface de linha de comandos do Linux](https://go.microsoft.com/fwlink/?LinkId=253472&clcid=0x409) do [transferências do Azure](https://azure.microsoft.com/downloads/) página.
 * Instale o Explorador de armazenamento do Azure do CodePlex.
 * Transfira e instale a ferramenta de teste de certificação para o Azure Certified:
-  * [http://go.microsoft.com/fwlink/?LinkID=526913](http://go.microsoft.com/fwlink/?LinkID=526913). Precisa de um computador baseado no Windows para executar a ferramenta de certificação. Se não tiver um computador baseado em Windows disponível, pode executar a ferramenta com uma VM baseada no Windows no Azure.
+  * [http://go.microsoft.com/fwlink/?LinkID=526913](https://go.microsoft.com/fwlink/?LinkID=526913). Precisa de um computador baseado no Windows para executar a ferramenta de certificação. Se não tiver um computador baseado em Windows disponível, pode executar a ferramenta com uma VM baseada no Windows no Azure.
 
 ## <a name="platforms-supported"></a>Plataformas suportadas
 Pode desenvolver VMs baseadas no Azure no Windows ou Linux. Alguns elementos do processo de publicação – por exemplo, criar um compatível com o Azure disco rígido virtual (VHD) - utilizar diferentes ferramentas e os passos, dependendo do sistema operativo que está a utilizar:  

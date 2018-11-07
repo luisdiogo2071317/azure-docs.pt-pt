@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 123005a32315ba3972ed4f1c1784d3ac9460b101
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 32cebecbb9185250d7d295eab3074a76dcd6a8b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958955"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240499"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente ao utilizar os Hubs de eventos
 Diagnóstico do Azure fornece formas flexíveis para coletar métricas e registos provenientes de máquinas de virtuais de serviços cloud (VMs) e transferir os resultados para o armazenamento do Azure. A partir do intervalo de tempo de Março de 2016 (SDK 2.9), pode enviar diagnósticos para origens de dados personalizados e transferir dados de caminho mais utilizado em segundos, utilizando [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -70,7 +70,7 @@ Por predefinição, diagnóstico do Azure sempre envia registos e métricas para
 
 Neste exemplo, o URL do hub de eventos está definido como o espaço de nomes totalmente qualificado do hub de eventos: espaço de nomes de Hubs de eventos + "/" + nome do hub de eventos.  
 
-O hub de eventos URL é apresentado no [portal do Azure](http://go.microsoft.com/fwlink/?LinkID=213885) no dashboard do Hubs de eventos.  
+O hub de eventos URL é apresentado no [portal do Azure](https://go.microsoft.com/fwlink/?LinkID=213885) no dashboard do Hubs de eventos.  
 
 O **Sink** nome pode ser definido para qualquer cadeia de caracteres válida, desde que o mesmo valor é usado de maneira consistente em todo o ficheiro de configuração.
 

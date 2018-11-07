@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: 3c198ea44953c0b2e72a544cd0e83b6592d9a81f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0b38c6895421b43d6f80e0c34cc23b379a673559
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032084"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261949"
 ---
 # <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Definir políticas de segurança no Centro de segurança ou no Azure Policy
 
@@ -37,7 +37,7 @@ O Centro de Segurança cria automaticamente uma política de segurança predefin
 - Atribuir políticas em subscrições e grupos de gestão, que podem representar uma organização completa ou uma unidade de negócio dentro da organização.
 - Monitorizar a conformidade com as políticas.
 
-Para obter mais informações sobre o Azure Policy, veja [Criar e gerir políticas para impor a conformidade](../azure-policy/create-manage-policy.md).
+Para obter mais informações sobre o Azure Policy, veja [Create and manage policies to enforce compliance (Criar e gerir políticas para impor a conformidade)](../azure-policy/create-manage-policy.md).
 
 Uma política do Azure é composta pelos seguintes componentes:
 
@@ -125,6 +125,6 @@ Neste artigo, aprendeu a configurar as políticas de segurança no Centro de Seg
 * [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md) (Monitorizar soluções de parceiros com o Centro de Segurança do Azure): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Ganhar visibilidade em todo o inquilino para o Centro de Segurança do Azure](security-center-management-groups.md): saiba como configurar grupos de gestão para o Centro de Segurança do Azure. 
 * [Azure Security Center FAQ](security-center-faq.md) (FAQ do Centro de Segurança do Azure): obtenha respostas às perguntas mais frequentes sobre como utilizar o serviço.
-* [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre publicações no blogue acerca da segurança e conformidade do Azure.
+* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): encontre publicações no blogue acerca da segurança e conformidade do Azure.
 
 Para saber mais sobre o Azure Policy, veja [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)

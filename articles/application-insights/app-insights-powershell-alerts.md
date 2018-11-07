@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: e7e0f6747beea43b55ae1a20da44cde3c070cd89
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 678a31b8c07b21e4bb2c43b8e8bc286d66ee4bab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091377"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233750"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 Pode automatizar a configuração do [alertas](app-insights-alerts.md) na [Application Insights](app-insights-overview.md).
@@ -35,7 +35,7 @@ Se ainda não utilizou o PowerShell com a sua subscrição do Azure antes de:
 
 Instale o módulo Azure Powershell na máquina em que pretende executar os scripts.
 
-* Instale [Microsoft Web Platform Installer (v5 ou superior)](http://www.microsoft.com/web/downloads/platform.aspx).
+* Instale [Microsoft Web Platform Installer (v5 ou superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Utilize-o para instalar o Microsoft Azure Powershell
 
 ## <a name="connect-to-azure"></a>Ligar ao Azure
@@ -118,7 +118,7 @@ A mesma regra pode ser utilizada para a métrica comunicada ao utilizar o [parâ
 | `performanceCounter.requests_per_sec.value` |Taxa de pedidos do ASP.NET |Classificação de todos os pedidos da aplicação por segundo do ASP.NET. |
 | `remoteDependencyFailed.durationMetric.count` |Falhas de dependência |Contagem de chamadas falhadas efetuadas pela aplicação de servidor para recursos externos. |
 | `request.duration` |Tempo de resposta do servidor |Tempo entre a receção de um pedido HTTP e a conclusão do envio da resposta. |
-| `request.rate` |Taxa do pedido |Classificação de todos os pedidos à aplicação por segundo. |
+| `request.rate` |Taxa do pedido |Taxa de todos os pedidos para a aplicação por segundo. |
 | `requestFailed.count` |Pedidos falhados |Número de pedidos HTTP que resultaram num código de resposta > = 400 |
 | `view.count` |Visualizações da página |Contagem de pedidos de utilizador do cliente para uma página da web. Tráfego sintético é filtrado. |
 | {o nome métrico personalizado} |{O seu nome de métrica} |O valor de métrica comunicado pelo [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) ou no [parâmetro de medições de uma chamada de controlo](app-insights-api-custom-events-metrics.md#properties). |

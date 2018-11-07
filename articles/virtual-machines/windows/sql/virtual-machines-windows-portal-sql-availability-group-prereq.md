@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371490"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253079"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em máquinas virtuais do Azure
 
@@ -35,7 +35,7 @@ O diagrama seguinte ilustra o que criar no tutorial.
 
 ## <a name="review-availability-group-documentation"></a>Consulte a documentação do grupo de disponibilidade
 
-Este tutorial parte do princípio de que tem uma noção básica dos grupos de disponibilidade Always On do SQL Server. Se não estiver familiarizado com essa tecnologia, consulte [descrição geral de grupos de Disponibilidade AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+Este tutorial parte do princípio de que tem uma noção básica dos grupos de disponibilidade Always On do SQL Server. Se não estiver familiarizado com essa tecnologia, consulte [descrição geral de grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## <a name="create-an-azure-account"></a>Crie uma conta Azure
@@ -349,7 +349,7 @@ Agora que tiver terminado de configurar o Active Directory e os objetos de utili
 
 ## <a name="create-sql-server-vms"></a>Criar VMs do SQL Server
 
-Crie três máquinas virtuais adicionais. A solução requer duas máquinas virtuais com instâncias do SQL Server. Terceira máquina virtual irá funcionar como um testemunho. Windows Server 2016 pode utilizar um [testemunho de nuvem](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), no entanto, para manter a consistência com sistemas operativos anteriores neste documento usa uma máquina virtual para um testemunho.  
+Crie três máquinas virtuais adicionais. A solução requer duas máquinas virtuais com instâncias do SQL Server. Terceira máquina virtual irá funcionar como um testemunho. Windows Server 2016 pode utilizar um [testemunho de nuvem](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), no entanto, para manter a consistência com sistemas operativos anteriores neste documento usa uma máquina virtual para um testemunho.  
 
 Antes de continuar, considere as seguintes decisões de design.
 
@@ -483,7 +483,7 @@ O método de abrir as portas depende da solução de firewall que utilizar. A se
 1. No primeiro servidor de SQL **começar** ecrã, inicie **Firewall do Windows com segurança avançada**.
 2. No painel esquerdo, selecione **regras de entrada**. No painel da direita, clique em **nova regra**.
 3. Para **tipo de regra**, escolha **porta**.
-4. Para a porta, especifique **TCP** e escreva os números de porta adequado. Veja o exemplo seguinte:
+4. Para a porta, especifique **TCP** e escreva os números de porta adequado. Veja o seguinte exemplo:
 
    ![Firewall do SQL](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/35-tcpports.png)
 

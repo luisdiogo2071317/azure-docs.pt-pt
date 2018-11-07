@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421139"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258821"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Submeter tarefas HPC de um computador no local para um cluster HPC Pack implementado no Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ Configurar um computador de cliente no local para submeter tarefas para uma [Mic
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Passo 1: Instalar e configurar os componentes web no nó principal
 Para ativar uma interface REST submeter tarefas ao cluster através de HTTPS, certifique-se de que os componentes web do HPC Pack estão configurados no nó principal HPC Pack. Se ainda não estiverem instalados, primeiro de instalar os componentes web executando o arquivo de instalação HpcWebComponents.msi. Em seguida, configurar os componentes ao executar o script do HPC PowerShell **Set-HPCWebComponents.ps1**.
 
-Para obter procedimentos detalhados, consulte [instalar os componentes Web do Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
+Para obter procedimentos detalhados, consulte [instalar os componentes Web do Microsoft HPC Pack](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Determinados modelos de início rápido do Azure para os clusters do HPC Pack instalar e configurar os componentes web automaticamente.
@@ -169,7 +169,7 @@ Para verificar a configuração, tente tarefas em execução no cluster no Azure
 1. Para ver os resultados da tarefa que é submetido, clique o ID da tarefa e, em seguida, clique em **tarefas da vista** para ver a saída do comando (sob **saída**).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Também pode submeter tarefas ao cluster do Azure com o [API de REST do HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Também pode submeter tarefas ao cluster do Azure com o [API de REST do HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Se quiser enviar trabalhos de cluster de um cliente Linux, veja o exemplo de Python a [SDK do HPC Pack 2012 R2 e o código de exemplo](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

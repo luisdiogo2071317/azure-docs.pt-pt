@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585701"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258957"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Descrição geral de anfitrião do processador de eventos de Hubs de eventos do Azure
 
 Os Hubs de eventos do Azure é um serviço de ingestão de telemetria poderosa que pode ser utilizado para transmissão milhões de eventos um custo reduzido. Este artigo descreve como consumir eventos ingeridos com o *anfitrião do processador de eventos* (EPH); um agente de consumidor inteligente que simplifica a gestão dos pontos de verificação, leasing e os leitores dos eventos paralela.  
 
-A chave ser dimensionada para os Hubs de eventos é a idéia de consumidores particionadas. Em comparação com o [consumidores concorrentes](http://msdn.microsoft.com/library/dn568101.aspx) padrão, o padrão de consumidor particionado permite criar uma escala elevada, removendo o afunilamento de contenção e promovendo o paralelismo de ponto a ponto.
+A chave ser dimensionada para os Hubs de eventos é a idéia de consumidores particionadas. Em comparação com o [consumidores concorrentes](https://msdn.microsoft.com/library/dn568101.aspx) padrão, o padrão de consumidor particionado permite criar uma escala elevada, removendo o afunilamento de contenção e promovendo o paralelismo de ponto a ponto.
 
 ## <a name="home-security-scenario"></a>Cenário de segurança inicial
 
@@ -111,12 +111,12 @@ Propriedade de uma partição para uma instância EPH (ou um consumidor) é cont
 
 | **Nome do grupo de consumidores** | **ID de partição** | **Nome de anfitrião (proprietário)** | **Tempo de concessão (ou propriedade) adquirido** | **Desvio na partição (ponto de verificação)** |
 | --- | --- | --- | --- | --- |
-| $Predefinição | 0 | Consumidor\_VM3 | 2018-04-15T01:23:45 | 156 |
-| $Predefinição | 1 | Consumidor\_VM4 | 2018-04-15T01:22:13 | 734 |
-| $Predefinição | 2 | Consumidor\_VM0 | 2018-04-15T01:22:56 | 122 |
+| $Default | 0 | Consumidor\_VM3 | 2018-04-15T01:23:45 | 156 |
+| $Default | 1 | Consumidor\_VM4 | 2018-04-15T01:22:13 | 734 |
+| $Default | 2 | Consumidor\_VM0 | 2018-04-15T01:22:56 | 122 |
 | : |   |   |   |   |
 | : |   |   |   |   |
-| $Predefinição | 15 | Consumidor\_VM3 | 2018-04-15T01:22:56 | 976 |
+| $Default | 15 | Consumidor\_VM3 | 2018-04-15T01:22:56 | 976 |
 
 Aqui, cada anfitrião adquire a propriedade de uma partição para um determinado período de tempo (a duração da concessão). Se uma falha de anfitrião (VM encerra), em seguida, a concessão expira. Outros anfitriões tentarem obter a propriedade da partição e dos anfitriões for concluída com êxito. Este processo repõe a concessão na partição com um novo proprietário. Desta forma, apenas um único leitor ao mesmo tempo pode ler a partir de qualquer determinada partição dentro de um grupo de consumidores.
 

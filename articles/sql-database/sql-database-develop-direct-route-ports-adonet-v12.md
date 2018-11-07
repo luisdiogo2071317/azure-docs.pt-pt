@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 89802722e9e848b5cd5ede952287d5c934c142c3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 594d181a5452317267157415bdaf68f572f0f0af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351324"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260028"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além do 1433 para ADO.NET 4.5
 Este tópico descreve o comportamento de ligação de base de dados do Azure SQL para clientes que utilizam o ADO.NET 4.5 ou posterior. 
@@ -48,7 +48,7 @@ Certifique-se de que a porta de intervalos de 11000 11999 e 14000-14999 no seu c
 * Em particular, as portas no intervalo tem de ser gratuitas a qualquer bloqueadores de saída.
 * Na sua VM do Azure, o **Firewall do Windows com segurança avançada** controla as definições de porta.
   
-  * Pode utilizar o [interface do usuário da firewall](http://msdn.microsoft.com/library/cc646023.aspx) para adicionar uma regra para que especifique a **TCP** como o protocolo, juntamente com um intervalo de portas com a sintaxe **11000 11999**.
+  * Pode utilizar o [interface do usuário da firewall](https://msdn.microsoft.com/library/cc646023.aspx) para adicionar uma regra para que especifique a **TCP** como o protocolo, juntamente com um intervalo de portas com a sintaxe **11000 11999**.
 
 ## <a name="version-clarifications"></a>Esclarecimentos de versão
 Esta secção esclarece os monikers que se referem às versões do produto. Ele também apresenta algumas emparelhamentos de versões entre produtos.
@@ -65,9 +65,9 @@ Esta secção esclarece os monikers que se referem às versões do produto. Ele 
 
 
 ## <a name="related-links"></a>Ligações relacionadas
-* ADO.NET 4.6 foi lançado no dia 20 de Julho de 2015. Um anúncio do blogue da equipa do .NET está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 foi lançado em 15 de Agosto de 2012. Um anúncio do blogue da equipa do .NET está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
-  * Uma mensagem de blogue sobre ADO.NET 4.5.1 está disponível [aqui](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4.6 foi lançado no dia 20 de Julho de 2015. Um anúncio do blogue da equipa do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
+* ADO.NET 4.5 foi lançado em 15 de Agosto de 2012. Um anúncio do blogue da equipa do .NET está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
+  * Uma mensagem de blogue sobre ADO.NET 4.5.1 está disponível [aqui](https://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
 
 * ® Controlador Microsoft ODBC 17 para SQL Server® - Windows, Linux e macOS https://www.microsoft.com/download/details.aspx?id=56567
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869317"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240397"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Instância gerida de replicação de base de dados SQL
 
@@ -77,7 +77,7 @@ Suporta:
 ## <a name="configure-publishing-and-distribution-example"></a>Configurar o exemplo de publicação e distribuição
 
 1. [Criar uma instância de gerida de base de dados do Azure SQL](sql-database-managed-instance-create-tutorial-portal.md) no portal.
-2. [Criar uma conta de armazenamento do Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho.
+2. [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho.
 
    Certifique-se de que copie as chaves de armazenamento. Ver [ver e copiar chaves de acesso de armazenamento](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Suporta:
 
    Nos scripts de exemplo abaixo, substitua `<Publishing_DB>` com o nome desta base de dados.
 
-4. Crie um utilizador de base de dados com a autenticação de SQL para o distribuidor. Ver, [criar utilizadores de base de dados](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilize uma palavra-passe segura.
+4. Crie um utilizador de base de dados com a autenticação de SQL para o distribuidor. Ver, [criar utilizadores de base de dados](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilize uma palavra-passe segura.
 
    Nos scripts de exemplo abaixo, utilize `<SQL_USER>` e `<PASSWORD>` com esta conta do SQL Server da base de dados utilizador e palavra-passe.
 
-5. [Ligue-se para a instância gerida da base de dados SQL](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Ligue-se para a instância gerida da base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Execute a consulta seguinte para adicionar o distribuidor e a base de dados de distribuição.
 
@@ -197,4 +197,4 @@ Não são suportadas as seguintes funcionalidades:
 
 ## <a name="see-also"></a>Consultar Também
 
-- [O que é uma instância gerida?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [O que é uma instância gerida?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

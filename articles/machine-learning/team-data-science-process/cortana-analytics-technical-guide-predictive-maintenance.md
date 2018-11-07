@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 04e0a694d3e8d978a21417e728feabf32f85299f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 28900c39e658a2a8c66b2ded6f2d70b50bf17e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394600"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231526"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico para o modelo de solução do Cortana Intelligence para manutenção preditiva no espaço aéreo e outros negócios
 
@@ -39,7 +39,7 @@ Os objetivos deste artigo são:
 - Mostre como modificar o modelo de solução.  
 
 > [!TIP]
-> Pode transferir e imprimir um [versão em PDF deste artigo](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> Pode transferir e imprimir um [versão em PDF deste artigo](https://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
@@ -47,7 +47,7 @@ Os objetivos deste artigo são:
 ![Arquitetura de manutenção preditiva](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 Ao implementar a solução, ativa a serviços do Azure no Cortana Analytics Suite (incluindo o Hub de eventos, o Stream Analytics, o HDInsight, o Data Factory e o Machine Learning). O diagrama de arquitetura mostra como a manutenção preditiva para aeronáutica modelo de solução é construída. Pode investigar estes serviços no portal do Azure ao clicar nas mesmas no diagrama de modelo de solução criado com a implementação da solução (exceto para o HDInsight, o que é aprovisionada a pedido quando as atividades do pipeline relacionados são necessárias para executar e são eliminar posteriormente).
-Transferir uma [obter a versão do diagrama](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
+Transferir uma [obter a versão do diagrama](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 As secções seguintes descrevem as partes da solução.
 
@@ -67,7 +67,7 @@ O [Hub de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) se
 Uso [do Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer análise em tempo real no fluxo de entrada do quase a [Hub de eventos do Azure](#azure-event-hub) serviço. Em seguida, publicar os resultados um [Power BI](https://powerbi.microsoft.com) dashboard, bem como arquivar eventos de entrada de todos os não processados para o [armazenamento do Azure](https://azure.microsoft.com/services/storage/) serviço para processamento posterior pelo [do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)serviço.
 
 ### <a name="hdinsight-custom-aggregation"></a>Agregação personalizada do HDInsight
-Execute [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (orquestrados pelo Azure Data Factory) com o HDInsight para fornecer agregações sobre os eventos não processados arquivados usando o serviço Azure Stream Analytics.
+Execute [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts (orquestrados pelo Azure Data Factory) com o HDInsight para fornecer agregações sobre os eventos não processados arquivados usando o serviço Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Fazer previsões sobre a vida útil remanescente (RUL) de um motor de aeronave através dos dados recebidos com [serviço do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestrado pelo Azure Data Factory). 
@@ -122,22 +122,22 @@ Esta secção descreve as informações necessárias [pipelines e atividades](..
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
-Dois dos pipelines nesta fábrica de contenham [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts utilizados para particionar e agregar os dados. Quando observado, os scripts estão localizados no [armazenamento do Azure](https://azure.microsoft.com/services/storage/) conta criada durante a configuração. É de sua localização: maintenancesascript\\\\script\\\\hive\\ \\ (ou https://[Your solução name].blob.core.windows.net/maintenancesascript).
+Dois dos pipelines nesta fábrica de contenham [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts utilizados para particionar e agregar os dados. Quando observado, os scripts estão localizados no [armazenamento do Azure](https://azure.microsoft.com/services/storage/) conta criada durante a configuração. É de sua localização: maintenancesascript\\\\script\\\\hive\\ \\ (ou https://[Your solução name].blob.core.windows.net/maintenancesascript).
 
-Semelhante à [do Azure Stream Analytics](#azure-stream-analytics-1) consultas, o [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts têm um conhecimento implícito sobre o formato de dados de entrada e tem de ser alterados com base no seu formato de dados.
+Semelhante à [do Azure Stream Analytics](#azure-stream-analytics-1) consultas, o [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) scripts têm um conhecimento implícito sobre o formato de dados de entrada e tem de ser alterados com base no seu formato de dados.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Isso [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade - um [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) coloca o script para particionar os dados [armazenamento do Azure](https://azure.microsoft.com/services/storage/) durante a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) tarefa.
+Isso [pipeline](../../data-factory/concepts-pipelines-activities.md) contém uma única atividade - um [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa um [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) coloca o script para particionar os dados [armazenamento do Azure](https://azure.microsoft.com/services/storage/) durante a [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) tarefa.
 
-O [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa de criação de partições é ***AggregateFlightInfo.hql***
+O [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa de criação de partições é ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
 Isso [pipeline](../../data-factory/concepts-pipelines-activities.md) contém várias atividades, cujo resultado final é as previsões com a pontuação da [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação associada com este modelo de solução.
 
 Atividades incluídas são:
 
-* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa uma [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para efetuar agregações e "feature Engineering" necessário para o [máquina do Azure Aprendizagem](https://azure.microsoft.com/services/machine-learning/) experimentar.
-  O [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa de criação de partições é ***PrepareMLInput.hql***.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade usando um [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) que executa uma [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para efetuar agregações e "feature Engineering" necessário para o [máquina do Azure Aprendizagem](https://azure.microsoft.com/services/machine-learning/) experimentar.
+  O [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script para esta tarefa de criação de partições é ***PrepareMLInput.hql***.
 * [Cópia](https://msdn.microsoft.com/library/azure/dn835035.aspx) atividade que move os resultados a partir do [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) atividade para um único [armazenamento do Azure](https://azure.microsoft.com/services/storage/) blob acedido pela [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) atividade.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) chamadas de atividade a [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) experimentação, com resultados colocar num único [armazenamento do Azure](https://azure.microsoft.com/services/storage/) blob.
 
@@ -241,5 +241,5 @@ Certifique-se de que pare o gerador de dados quando não estiver a utilizar a so
 As seguintes duas ferramentas estão disponíveis para o ajudar a compreender melhor os custos totais envolvidos em execução a manutenção preditiva para aeronáutica de solução de modelo na sua subscrição:
 
 * [Microsoft Azure Estimator a ferramenta Cost (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Ferramenta de estimador de custos do Microsoft Azure (ambiente de trabalho)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Ferramenta de estimador de custos do Microsoft Azure (ambiente de trabalho)](https://www.microsoft.com/download/details.aspx?id=43376)
 

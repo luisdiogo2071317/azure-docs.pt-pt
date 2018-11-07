@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857980"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262017"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Tutorial do reencaminhamento do WCF do Azure
 
@@ -35,7 +35,7 @@ Os últimos três passos descrevem como criar uma aplicação cliente, configur�
 
 Para concluir este tutorial, irá precisar do seguinte:
 
-* [Microsoft Visual Studio 2015 ou superior](http://visualstudio.com). Este tutorial utiliza o Visual Studio 2017.
+* [Microsoft Visual Studio 2015 ou superior](https://visualstudio.com). Este tutorial utiliza o Visual Studio 2017.
 * Uma conta ativa do Azure. Se não tiver uma, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Criar um espaço de nomes de serviço
@@ -55,7 +55,7 @@ O contrato de serviço Especifica quais as operações (a terminologia do servi�
 
 3. Instale o pacote NuGet do Service Bus. Este pacote adiciona automaticamente referências para as bibliotecas do Service Bus, bem como o **System.ServiceModel** do WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o espaço de nomes que permite o acesso através de programação às funcionalidades básicas do WCF. O Service Bus utiliza muitos dos objetos e atributos de WCF para definir os contratos de serviço.
 
-    No Solution Explorer, clique com o botão direito no projeto e, em seguida, clique em **gerir pacotes NuGet...** . Clique no separador **Procurar** e, em seguida, procure **WindowsAzure.ServiceBus**. Certifique-se de que o nome do projeto está selecionado na caixa **Versões**. Clique em **Instalar** e aceite os termos de utilização.
+    No Solution Explorer, clique com o botão direito no projeto e, em seguida, clique em **gerir pacotes NuGet...** . Clique no separador Procurar e, em seguida, procure **WindowsAzure.ServiceBus**. Certifique-se de que o nome do projeto está selecionado na caixa **Versões**. Clique em **Instalar** e aceite os termos de utilização.
 
     ![][3]
 4. No Explorador de Soluções, faça duplo clique no ficheiro Program.cs para abri-lo no editor, caso não esteja ainda aberto.
@@ -81,7 +81,7 @@ O contrato de serviço Especifica quais as operações (a terminologia do servi�
     ```
 
    > [!NOTE]
-   > Normalmente, o espaço de nomes do contrato de serviço contém um esquema de nomenclatura que inclui a informação da versão. Ao incluir a informação de versão no espaço de nomes de contrato de serviço, tal permite que os serviços possam isolar as alterações mais importantes, através da definição de um novo contrato de serviço com um novo espaço de nomes e a sua exposição num novo ponto final. Desta forma, os clientes podem continuar a utilizar o contrato de serviço anterior sem ter de ser atualizado. A informação de versão pode consistir numa data ou número de compilação. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](http://go.microsoft.com/fwlink/?LinkID=180498). Para este tutorial, o esquema de nomenclatura do espaço de nomes de contrato de serviço não contém informação da versão.
+   > Normalmente, o espaço de nomes do contrato de serviço contém um esquema de nomenclatura que inclui a informação da versão. Ao incluir a informação de versão no espaço de nomes de contrato de serviço, tal permite que os serviços possam isolar as alterações mais importantes, através da definição de um novo contrato de serviço com um novo espaço de nomes e a sua exposição num novo ponto final. Desta forma, os clientes podem continuar a utilizar o contrato de serviço anterior sem ter de ser atualizado. A informação de versão pode consistir numa data ou número de compilação. Para obter mais informações, consulte o artigo [Controlo de Versões do Serviço](https://go.microsoft.com/fwlink/?LinkID=180498). Para este tutorial, o esquema de nomenclatura do espaço de nomes de contrato de serviço não contém informação da versão.
    >
    >
 8. Dentro do `IEchoContract` interface, declare um método para a operação única a `IEchoContract` contrato expõe na interface e aplique o `OperationContractAttribute` de atributo para o método que deseja expor como parte do contrato público de reencaminhamento do WCF, da seguinte forma:

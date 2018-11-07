@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: ce1e3818edea6e0fdaedd33b6ec0c3214f475340
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 80208c83c96ba78db052017c2baa3bc0db63953f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048561"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258855"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança ao nível de linha com as Coleções de Área de Trabalho do Power BI
 
@@ -35,7 +35,7 @@ Para tirar partido da RLS, é importante que compreender três conceitos princip
 
 ### <a name="example"></a>Exemplo
 
-No restante deste artigo, fornecemos um exemplo de RLS de criação e, em seguida, consumimos o mesmo dentro de uma aplicação incorporada. Nosso exemplo utiliza a [exemplo de análise de revenda](http://go.microsoft.com/fwlink/?LinkID=780547) ficheiro PBIX.
+No restante deste artigo, fornecemos um exemplo de RLS de criação e, em seguida, consumimos o mesmo dentro de uma aplicação incorporada. Nosso exemplo utiliza a [exemplo de análise de revenda](https://go.microsoft.com/fwlink/?LinkID=780547) ficheiro PBIX.
 
 ![Relatório de vendas de exemplo](media/row-level-security/scenario-2.png)
 
@@ -87,7 +87,7 @@ Agora, os filtros podem circular também da tabela de vendas para o **Item** tab
 1. **Arquivo** -> **opções e definições** -> **funcionalidades de pré-visualização** -> **Permitir filtragem cruzada em ambas as direções para o DirectQuery** .
 2. **Arquivo** -> **opções e definições** -> **DirectQuery** -> **permitir medidas não restritas no modo de DirectQuery**.
 
-Para saber mais sobre a filtragem cruzada bidirecional, transfira o [filtragem cruzada bidirecional no Power BI Desktop e no SQL Server Analysis Services 2016](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) White Paper.
+Para saber mais sobre a filtragem cruzada bidirecional, transfira o [filtragem cruzada bidirecional no Power BI Desktop e no SQL Server Analysis Services 2016](https://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) White Paper.
 
 Isso conclui todo o trabalho que precisa ser feito no Power BI Desktop, mas há um mais trabalho que precisa ser feito para tornar a RLS regras que definimos o trabalho no Power BI Embedded. Os utilizadores são autenticados e autorizados pela sua aplicação e tokens de aplicação são utilizados para conceder acesso a esse utilizador a um relatório do Power BI Embedded específico. Power BI Embedded não tem quaisquer informações específicas sobre quem é seu usuário. Para a RLS funcionar, terá de passar algum contexto adicional como parte do seu token de aplicação:
 

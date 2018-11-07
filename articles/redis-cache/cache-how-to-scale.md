@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 91a2b112000e970b73420abaa26efc7de1caa626
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054175"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261460"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Como dimensionar a Cache de Redis do Azure
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e as funcionalidades. Depois de criar uma cache, pode aumentar o tamanho e o escalão de preço da cache se alteram os requisitos da sua aplicação. Este artigo mostra-lhe como dimensionar a sua cache com o portal do Azure e ferramentas como o Azure PowerShell e CLI do Azure.
@@ -81,7 +81,7 @@ Para dimensionar as instâncias de Cache de Redis do Azure com a CLI do Azure, c
 Para obter mais informações sobre o dimensionamento com a CLI do Azure, consulte [alterar as definições de uma Cache de Redis existente](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Escala usando MAML
-Para dimensionar a sua Cache de Redis do Azure instâncias com o [bibliotecas de gestão do Azure (MAML) da Microsoft](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chamar os `IRedisOperations.CreateOrUpdate` método e passe o novo tamanho a `RedisProperties.SKU.Capacity`.
+Para dimensionar a sua Cache de Redis do Azure instâncias com o [bibliotecas de gestão do Azure (MAML) da Microsoft](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chamar os `IRedisOperations.CreateOrUpdate` método e passe o novo tamanho a `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {

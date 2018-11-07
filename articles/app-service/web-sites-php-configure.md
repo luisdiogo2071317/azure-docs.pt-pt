@@ -13,18 +13,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 39c40482017ae0c0dedcfb1b65ff3767c4e45169
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999193"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230840"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configurar o PHP em aplicações Web do serviço de aplicações do Azure
 
 ## <a name="introduction"></a>Introdução
 
-Este guia mostra-lhe como configurar o tempo de execução do PHP incorporado para aplicações Web no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714), forneça um runtime PHP personalizado e ativar extensões. Para utilizar o serviço de aplicações, inscreva-se para o [avaliação gratuita]. Para obter o máximo partido neste guia, deve primeiro criar uma aplicação web PHP no serviço de aplicações.
+Este guia mostra-lhe como configurar o tempo de execução do PHP incorporado para aplicações Web no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714), forneça um runtime PHP personalizado e ativar extensões. Para utilizar o serviço de aplicações, inscreva-se para o [avaliação gratuita]. Para obter o máximo partido neste guia, deve primeiro criar uma aplicação web PHP no serviço de aplicações.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 

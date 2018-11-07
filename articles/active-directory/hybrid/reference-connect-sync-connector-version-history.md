@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cbafe7fcdf2ccd515dfec5554c93bec9c7f3537a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4e8e6a6bbe5ece856c1524ca4c2fc46f0cb9137e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243168"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231044"
 ---
 # <a name="connector-version-release-history"></a>Histórico de Versões do Conector
 Os conectores do Forefront Identity Manager (FIM) e o Microsoft Identity Manager (MIM) são atualizados com frequência.
@@ -33,7 +33,7 @@ Este tópico lista todas as versões dos conectores que foram lançadas.
 
 Links relacionados:
 
-* [Transferir conectores mais recente](http://go.microsoft.com/fwlink/?LinkId=717495)
+* [Transferir conectores mais recente](https://go.microsoft.com/fwlink/?LinkId=717495)
 * [Conector LDAP genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) documentação de referência
 * [Conector do SQL genérico](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) documentação de referência
 * [Conector de serviços Web](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) documentação de referência

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d7a9da4ac3560e67a6f7bc8b79a7c2dd37995d4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021851"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258015"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criar uma tarefa de importação para o serviço importar/exportar do Azure
 
@@ -35,7 +35,7 @@ A criação de uma tarefa de importação para o serviço de importação/export
 
 Os passos para preparar unidades para uma tarefa de importação são os mesmos, se criar o jobvia o portal ou através da API REST.
 
-Segue-se uma breve descrição geral da preparação da unidade. Consulte a [referência de ExportTool de importação de Azure](storage-import-export-tool-how-to-v1.md) para obter instruções completas. Pode baixar a ferramenta de importação/exportação do Azure [aqui](http://go.microsoft.com/fwlink/?LinkID=301900).
+Segue-se uma breve descrição geral da preparação da unidade. Consulte a [referência de ExportTool de importação de Azure](storage-import-export-tool-how-to-v1.md) para obter instruções completas. Pode baixar a ferramenta de importação/exportação do Azure [aqui](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 A preparação de sua unidade envolve:
 

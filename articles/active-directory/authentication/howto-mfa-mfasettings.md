@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: bae31b245cb83821490564c60f67e88898af06b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233291"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -363,8 +363,8 @@ Quando os utilizadores inscreverem suas contas para o Azure multi-factor Authent
 |:--- |:--- |
 | Ligar para telefone |Coloca uma chamada de voz automatizada. O utilizador a chamada e prime # no teclado do telefone para autenticar. O número de telefone não é sincronizado para o Active Directory no local. |
 | Mensagem de texto para telefone |Envia uma mensagem de texto que contém um código de verificação. É pedido ao utilizador para introduzir o código de verificação na interface de início de sessão. Este processo é denominado SMS unidirecional. SMS bidirecional significa que o utilizador tem texto de volta um código em particular. SMS bidirecional é preterida e não suportada após a 14 de Novembro de 2018. Os utilizadores que estão configurados para SMS bidirecionais estão automaticamente no modo _chamada para o telefone_ verificação nesse momento.|
-| Notificação através de aplicação móvel |Envia uma notificação push para o seu telefone ou dispositivo registado. O utilizador vê a notificação e seleciona **Verifique se** para concluir a verificação. A aplicação Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| Código de verificação da aplicação móvel |A aplicação Microsoft Authenticator gera um novo código de verificação OATH cada 30 segundos. O utilizador introduz o código de verificação a interface de início de sessão. A aplicação Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| Notificação através de aplicação móvel |Envia uma notificação push para o seu telefone ou dispositivo registado. O utilizador vê a notificação e seleciona **Verifique se** para concluir a verificação. A aplicação Microsoft Authenticator está disponível para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Código de verificação da aplicação móvel |A aplicação Microsoft Authenticator gera um novo código de verificação OATH cada 30 segundos. O utilizador introduz o código de verificação a interface de início de sessão. A aplicação Microsoft Authenticator está disponível para [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), e [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Ativar e desativar os métodos de verificação
 

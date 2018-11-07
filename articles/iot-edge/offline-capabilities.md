@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d84df3e5e0b961b8a53044102f99205ee0fe9896
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914112"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235637"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Compreender as capacidades offline expandidas para dispositivos do IoT Edge, módulos e dispositivos de subordinado (pré-visualização)
 
@@ -46,7 +46,7 @@ O exemplo seguinte mostra como um cenário de IoT Edge opera no modo offline:
 
 ## <a name="restrictions-and-limits"></a>Restrições e limites
 
-As capacidades offline expandidas descritas neste artigo estão disponíveis no [IoT Edge versão 1.0.2 ou superior](https://github.com/Azure/azure-iotedge/releases). Versões anteriores com um subconjunto de funcionalidades offline. Existente do IoT Edge dispositivos que não têm recursos offline expandidos não podem ser atualizados, alterando a versão de tempo de execução, mas têm de ser reconfigurados com uma nova identidade de dispositivo do IoT Edge para obter esses recursos. 
+As capacidades offline expandidas descritas neste artigo estão disponíveis no [IoT Edge versão 1.0.4 ou superior](https://github.com/Azure/azure-iotedge/releases). Versões anteriores com um subconjunto de funcionalidades offline. Existente do IoT Edge dispositivos que não têm recursos offline expandidos não podem ser atualizados, alterando a versão de tempo de execução, mas têm de ser reconfigurados com uma nova identidade de dispositivo do IoT Edge para obter esses recursos. 
 
 O suporte offline expandido está disponível em todas as regiões onde o IoT Hub está disponível, com exceção do E.U.A. leste e Europa Ocidental. 
 
@@ -56,34 +56,7 @@ Dispositivos IoT Edge e os respetivos dispositivos atribuídos filho podem funci
 
 ## <a name="set-up-an-edge-device"></a>Configurar um dispositivo do Edge
 
-Para qualquer dispositivo IoT Edge que pretende executar durante longos períodos offline e configure o runtime do IoT Edge para comunicar através de MQTT. 
-
 Para um dispositivo IoT Edge expandir as suas capacidades offline expandidas para dispositivos de IoT filho, precisa declarar as relações principal-subordinado no portal do Azure.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>Defina o protocolo a montante para MQTT
-
-Configure o hub do Edge e o agente do Edge para comunicar com MQTT como o protocolo a montante. Esse protocolo é declarado usando variáveis de ambiente no manifesto de implantação. 
-
-No portal do Azure, pode aceder a definições de módulo de agente do Edge e hub do Edge ao selecionar o **configurar definições de Runtime do Edge avançadas** botão ao definir módulos para uma implementação. Para ambos os módulos, crie uma variável de ambiente chamada **UpstreamProtocol** e defina seu valor como **MQTT**. 
-
-O modelo de implementação, JSON, variáveis de ambiente são declaradas como mostrado no exemplo a seguir: 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Atribuir dispositivos de subordinados
 

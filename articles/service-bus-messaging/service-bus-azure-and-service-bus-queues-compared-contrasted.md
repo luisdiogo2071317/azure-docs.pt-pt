@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f48e9a5600dca1e13d6ee94a675d5bc824915118
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393966"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261065"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do Service Bus - comparação e contraste
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas disponibilizadas atualmente pelo Microsoft Azure: filas do Service Bus e filas de armazenamento. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -70,7 +70,7 @@ Esta seção compara alguns dos recursos fundamentais colocação em fila fornec
 | Garantia de ordenação |**Não** <br/><br>Para obter mais informações, consulte a nota primeiro na secção "Additional Information".</br> |**Sim - First-In-First-Out (FIFO)**<br/><br>(com o uso de sessões de mensagens) |
 | Garantia de entrega |**Pelo-menos-uma vez** |**Pelo-menos-uma vez**<br/><br/>**Na maioria-única** |
 | Suporte de operação atômica |**Não** |**Sim**<br/><br/> |
-| Comportamento de recebimento |**Não limitativos**<br/><br/>(é concluída imediatamente não se for encontrada nenhuma mensagem nova) |**Bloqueio com/sem tempo limite**<br/><br/>(oferece consulta longa, ou o ["Técnica Comet"](http://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Não limitativos**<br/><br/>(através da utilização de .NET API gerenciada apenas) |
+| Comportamento de recebimento |**Não limitativos**<br/><br/>(é concluída imediatamente não se for encontrada nenhuma mensagem nova) |**Bloqueio com/sem tempo limite**<br/><br/>(oferece consulta longa, ou o ["Técnica Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Não limitativos**<br/><br/>(através da utilização de .NET API gerenciada apenas) |
 | API em estilo de push |**Não** |**Sim**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e **OnMessage** sessões .NET API. |
 | Receber modo |**Pré-visualização & da concessão** |**Pré-visualização e de bloqueio**<br/><br/>**Receber e eliminar** |
 | Modo de acesso exclusivo |**Com base na concessão** |**Com base em bloqueio** |

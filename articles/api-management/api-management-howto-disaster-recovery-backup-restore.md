@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 683efc6f772337754fc21a1e486d35b7f92e8f81
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0dc7e8836f1e6a11c44f5e0f337015cac53a92d4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428254"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252807"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre com o serviço backup e restaurar na gestão de API do Azure
 
@@ -38,7 +38,7 @@ Este guia mostra como autenticar os pedidos do Azure Resource Manager e como faz
 ## <a name="authenticating-azure-resource-manager-requests"></a>Pedidos de autenticação do Azure Resource Manager
 
 > [!IMPORTANT]
-> A API REST para cópia de segurança e restauro utiliza o Azure Resource Manager e tem um mecanismo de autenticação diferentes que as APIs REST para gerir as entidades de gestão de API. Os passos nesta secção descrevem como autenticar os pedidos do Azure Resource Manager. Para obter mais informações, consulte [pedidos de autenticação do Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+> A API REST para cópia de segurança e restauro utiliza o Azure Resource Manager e tem um mecanismo de autenticação diferentes que as APIs REST para gerir as entidades de gestão de API. Os passos nesta secção descrevem como autenticar os pedidos do Azure Resource Manager. Para obter mais informações, consulte [pedidos de autenticação do Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Todas as tarefas que fazer em recursos com o Azure Resource Manager tem de ser autenticadas com o Azure Active Directory com os seguintes passos:
 
@@ -212,7 +212,7 @@ Confira os seguintes recursos para diferente orientações passo a passo do proc
 
 * [Replicar contas de gestão de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 * [Automatizando cópia de segurança de gestão de API e restauro com o Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
-* [Gestão de API do Azure: Cópia de segurança e restauro de configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+* [Gestão de API do Azure: Cópia de segurança e restauro de configuração](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   *a abordagem mais, Stuart não coincide com as diretrizes oficiais, mas é interessante.*
 
 [Backup an API Management service]: #step1

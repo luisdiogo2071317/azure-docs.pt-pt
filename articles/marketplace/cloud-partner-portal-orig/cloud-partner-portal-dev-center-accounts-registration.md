@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bdcd1d0cc9f9979d898410180d364716b344d641
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810520"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254473"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta do Microsoft Developer
 ====================================
@@ -133,7 +133,7 @@ O Microsoft Developer Center é utilizado para registar as informações da empr
 
    ![Registo de pagamento](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
-10. Reveja as suas informações de conta e confirme que tudo está correta. Leia e aceite os termos e condições do [contrato de publicador do Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Selecione a caixa para indicar que li e Aceito estes termos.
+10. Reveja as suas informações de conta e confirme que tudo está correta. Leia e aceite os termos e condições do [contrato de publicador do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560). Selecione a caixa para indicar que li e Aceito estes termos.
 
 11. Selecione **concluir** para confirmar o seu registo. Uma mensagem de confirmação é enviada para o seu endereço de e-mail.
 

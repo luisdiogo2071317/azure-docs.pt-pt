@@ -2,25 +2,25 @@
 title: Utilizar o Caffe para aprendizagem profunda distribuída no Azure HDInsight Spark
 description: Utilizar o Caffe para aprendizagem profunda distribuída no Azure HDInsight Spark
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: a7873996d83dbc79b4d44c58bd964c274f9c7709
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255934"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utilizar o Caffe para aprendizagem profunda distribuída no Azure HDInsight Spark
 
 
 ## <a name="introduction"></a>Introdução
 
-Aprendizagem profunda está a afetar a tudo, desde cuidados de saúde para transporte para fabricação e muito mais. As empresas estão transformando para resolver problemas difíceis, como de aprendizagem profunda [classificação de imagens](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [reconhecimento de fala](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), reconhecimento de objeto e tradução do computador. 
+Aprendizagem profunda está a afetar a tudo, desde cuidados de saúde para transporte para fabricação e muito mais. As empresas estão transformando para resolver problemas difíceis, como de aprendizagem profunda [classificação de imagens](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), [reconhecimento de fala](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), reconhecimento de objeto e tradução do computador. 
 
 Existem [muitas estruturas populares](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), incluindo [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, etc. Caffe é uma das arquiteturas de rede neural de (imperativo) não simbólico mais famosas e amplamente usada em muitas áreas, incluindo a visão do computador. Além disso, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combina Caffe com o Apache Spark, caso em que aprendizagem profunda pode ser facilmente utilizado num cluster do Hadoop existente. Pode utilizar a aprendizagem profunda, juntamente com os pipelines de ETL do Spark, reduzindo a complexidade de sistema e latência para a aprendizagem automática da solução completa.
 
