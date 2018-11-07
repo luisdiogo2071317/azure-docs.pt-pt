@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236589"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253453"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrar para a versão mais recente do serviço Azure Machine Learning 
 
@@ -38,7 +38,7 @@ A seguinte tabela e artigo explicam o que pode fazer com os seus ativos existent
 |Imagens registadas|Não|Voltar a criar a imagem do Docker de implantação numa nova área de trabalho.|
 |Serviços web implementados|Não|Nenhum. Eles ainda funcionarão como-é <br/>ou [implementá-las novamente com a versão mais recente](#services).|
 |Experimentação e <br/>Contas de gestão de modelo|Não|[Criar uma área de trabalho](#resources) em vez disso.|
-|Aprendizagem automática CLI e SDK|Não|Utilizar a nova [CLI](reference-azure-machine-learning-cli.md) e [SDK](http://aka.ms/aml-sdk) para projetos novos.|
+|Aprendizagem automática CLI e SDK|Não|Utilizar a nova [CLI](reference-azure-machine-learning-cli.md) e [SDK](https://aka.ms/aml-sdk) para projetos novos.|
 
 
 Saiba mais sobre [o que foi alterado nesta versão](overview-what-happened-to-workbench.md)?
@@ -52,7 +52,7 @@ Saiba mais sobre [o que foi alterado nesta versão](overview-what-happened-to-wo
 
 Recursos, tais como as contas de experimentação, as contas de gestão de modelo e machine learning de computação ambientes não podem ser migrados para a versão mais recente do serviço Azure Machine Learning. Consulte a [linha cronológica](overview-what-happened-to-workbench.md#timeline) no quanto seus ativos continuarão a funcionar.
 
-Comece com a versão mais recente através da criação de uma área de trabalho do serviço do Azure Machine Learning no [portal do Azure](quickstart-get-started.md). Dashboard de área de trabalho do portal é suportado em navegadores Edge, Chrome e Firefox.
+Comece com a versão mais recente através da criação de uma área de trabalho do serviço do Azure Machine Learning no [portal do Azure](quickstart-get-started.md). O dashboard de área de trabalho do portal é suportado apenas nos browsers Edge, Chrome e Firefox.
 
 Esta nova área de trabalho é o recurso de serviço de nível superior e permite-lhe utilizar todas as funcionalidades mais recentes do serviço Azure Machine Learning. Saiba mais sobre isso [área de trabalho e arquitetura](concept-azure-machine-learning-architecture.md).
 
@@ -62,7 +62,7 @@ Esta nova área de trabalho é o recurso de serviço de nível superior e permit
 
 Em vez de ter seus projetos numa área de trabalho na cloud, os projetos são agora diretórios no seu computador local na versão mais recente. Ver um diagrama do [arquitetura mais recente](concept-azure-machine-learning-architecture.md). 
 
-Para continuar a utilizar o diretório de local que contém os ficheiros e os scripts, especifique o nome do diretório no ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) comando do Python ou com o comando da CLI "anexar de projeto de ml az".
+Para continuar a utilizar o diretório de local que contém os ficheiros e os scripts, especifique o nome do diretório no ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) comando do Python ou com o comando da CLI "anexar de projeto de ml az".
 
 Por exemplo:
 ```python

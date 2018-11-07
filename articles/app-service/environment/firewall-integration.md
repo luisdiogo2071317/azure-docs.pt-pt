@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093625"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251581"
 ---
 # <a name="locking-down-an-app-service-environment"></a>O bloqueio de um ambiente de serviço de aplicações
 
@@ -28,7 +28,7 @@ Há um número de dependências de entrada que tenha um ASE. Não é possível e
 
 As dependências de saída do ASE quase que totalmente são definidas com FQDNs, que não têm endereços estáticos por trás delas. A falta de endereços estáticos significa que grupos de segurança de rede (NSGs) não pode ser utilizados para bloquear o tráfego de saída do ASE. Os endereços são alterados com frequência suficiente uma não é possível configurar regras com base na resolução atual e usá-lo para criar NSGs. 
 
-A solução para proteger os endereços de saída está em utilização de um dispositivo de firewall que pode controlar o tráfego de saída com base nos nomes de domínio. A equipe de rede do Azure tem de colocar um novo dispositivo de rede em pré-visualização, chamado de Firewall do Azure. O Firewall do Azure é capaz de restrição de saída HTTP e o tráfego HTTPS com base no nome DNS de destino.  
+A solução para proteger os endereços de saída está em utilização de um dispositivo de firewall que pode controlar o tráfego de saída com base nos nomes de domínio. Firewall do Azure pode restringir o tráfego de HTTP e HTTPS de saída com base no FQDN do destino.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configurar a Firewall do Azure com o seu ASE 
 
@@ -36,11 +36,11 @@ Os passos para bloquear a saída do ASE com o Firewall do Azure são:
 
 1. Crie uma Firewall do Azure na VNet em que o seu ASE está ou será. [Documentação do Azure do Firewall](https://docs.microsoft.com/azure/firewall/)
 2. Na IU de Firewall do Azure, selecione a etiqueta de FQDN de ambiente de serviço de aplicações
-3. Criar uma tabela de rotas com os endereços de gestão do [endereços de gestão do ambiente de serviço de aplicações]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) com um salto seguinte da Internet. As entradas de tabela de rota são necessárias para evitar problemas de encaminhamento assimétricos. 
-4. Adicione rotas para as dependências de endereço IP indicadas abaixo nas dependências de endereço IP com um salto seguinte da Internet. 
-5. Adicionar uma rota à sua tabela de rota para 0.0.0.0/0 com o salto seguinte a ser a sua aplicação de rede de Firewall do Azure
-6. Criar pontos finais de serviço para o SQL do Azure e o armazenamento do Azure da sub-rede do ASE
-7. Atribuir a tabela de rotas que criou para a sub-rede do ASE  
+3. Criar uma tabela de rotas com os endereços de gestão do [endereços de gestão do ambiente de serviço de aplicações]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) com um salto seguinte da Internet. As entradas de tabela de rota são necessárias para evitar problemas de encaminhamento assimétricos.
+4. Adicione rotas para as dependências de endereço IP indicadas abaixo nas dependências de endereço IP com um salto seguinte da Internet.
+5. Adicione uma rota à sua tabela de rotas para 0.0.0.0/0 com o salto seguinte a ser a Firewall do Azure.
+6. Crie pontos finais de serviço para a sub-rede do ASE SQL do Azure e o armazenamento do Azure.
+7. Atribua a tabela de rotas que criou para a sub-rede do ASE.
 
 ## <a name="application-traffic"></a>Tráfego de aplicativo 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715020"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252977"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guia de pós-produção das ofertas de máquina virtual no Azure Marketplace
 Este artigo explica como pode atualizar uma oferta de máquina de virtual em direto no Azure Marketplace. Ele orienta pelo processo de adicionar um ou mais novos SKUs para uma oferta existente. Ele também o orienta pelo processo de remoção de uma oferta de máquina de virtual em direto ou SKU do Marketplace.
@@ -30,7 +30,7 @@ Depois de um oferta/SKU é transitado para o [portal do Azure](http://portal.azu
 * **Identificador do SKU**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicione um SKU**.
 * **Espaço de nomes do publicador**: no portal de publicação do, aceda a **máquinas virtuais** > **passo a passo** > **diga-nos sobre a sua empresa**(encontrado em "Passo 2 registar a sua empresa") > **espaço de nomes do publicador** > **espaço de nomes**.
 
-Depois da oferta/SKU está listado na [Marketplace](http://azure.microsoft.com/marketplace), não é possível alterar as seguintes caixas de texto:
+Depois da oferta/SKU está listado na [Marketplace](https://azure.microsoft.com/marketplace), não é possível alterar as seguintes caixas de texto:
 
 * **Identificador da oferta**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **imagens de VM** > **oferecem identificador**.
 * **Identificador do SKU**: no portal de publicação do, aceda a **máquinas virtuais** e selecione a sua oferta. Em seguida, clique em **SKUS** > **adicione um SKU**.
@@ -208,7 +208,7 @@ Para adicionar um novo SKU na oferta em direto, siga estes passos:
 1. Inicie sessão para o [portal de publicação](https://publish.windowsazure.com).
 2. Vá para o **máquinas virtuais** separador e selecione a sua oferta.
 3. No menu à esquerda, clique nas **SKUS** separador. Em seguida, clique em **adicione um SKU**. 
-4. Na caixa de diálogo, introduza um **identificador do SKU** em minúsculas. Selecione o **traga seu próprio modelo de faturação de licença (BYOL)** caixa de verificação se pretender publicar o novo SKU com um modelo de faturação de BYOL. Caso contrário, desmarque a caixa de verificação. Clique na marca de escala para criar um novo SKU. Se não escolher o modelo de faturação de BYOL, o modelo de faturação é automaticamente definido para a cada hora. Se pretender que a versão de avaliação gratuita de 30 dias para o modelo de faturação por hora, selecione **um mês** para **é uma avaliação gratuita disponível?** Caso contrário, selecione **versão de avaliação não**. (**é uma avaliação gratuita disponível? ** aparece apenas se não selecionou BYOL ao criar o novo SKU.)
+4. Na caixa de diálogo, introduza um **identificador do SKU** em minúsculas. Selecione o **traga seu próprio modelo de faturação de licença (BYOL)** caixa de verificação se pretender publicar o novo SKU com um modelo de faturação de BYOL. Caso contrário, desmarque a caixa de verificação. Clique na marca de escala para criar um novo SKU. Se não escolher o modelo de faturação de BYOL, o modelo de faturação é automaticamente definido para a cada hora. Se pretender que a versão de avaliação gratuita de 30 dias para o modelo de faturação por hora, selecione **um mês** para **é uma avaliação gratuita disponível?** Caso contrário, selecione **versão de avaliação não**. (**é uma avaliação gratuita disponível?**  aparece apenas se não selecionou BYOL ao criar o novo SKU.)
 
    > [!IMPORTANT]
    > **Ocultar este SKU do Marketplace, uma vez que sempre deve ser adquirido através de um modelo de solução** deve ser **Sim** *apenas* se está aprovada para publicar um modelo de solução. Caso contrário, esta opção deve ser sempre **não**.

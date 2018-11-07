@@ -3,19 +3,19 @@ title: Corrigir um ramo de registo fora de erro de memória no Azure HDInsight
 description: Corrigi um ramo de registo fora de erro de memória no HDInsight. O cenário de cliente é uma consulta em muitas tabelas grandes.
 keywords: sem definições de ramo de registo de erros, OOM, de memória
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 1ef4d8fa85a983c736fad73b652d8614c9a96ae5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 90bf59dd7733864c345bbbb59b6236ae7b9a9c36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109856"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248317"
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>Corrigir um ramo de registo fora de erro de memória no Azure HDInsight
 
@@ -99,7 +99,7 @@ O **hive.auto.convert.join.noconditionaltask** hive-site ficheiro foi definido c
         </description>
       </property>
 
-É provável que a associação de mapa foi a causa do espaço de área dinâmica para dados Java nosso de erro de memória. Conforme explicado na mensagem de blogue [definições de memória de Yarn do Hadoop no HDInsight](http://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando Tez motor de execução é utilizado o heap espaço utilizado, na verdade, pertence ao contentor Tez. Ver a imagem seguinte, que descreve a memória de contentor do Tez.
+É provável que a associação de mapa foi a causa do espaço de área dinâmica para dados Java nosso de erro de memória. Conforme explicado na mensagem de blogue [definições de memória de Yarn do Hadoop no HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), quando Tez motor de execução é utilizado o heap espaço utilizado, na verdade, pertence ao contentor Tez. Ver a imagem seguinte, que descreve a memória de contentor do Tez.
 
 ![Diagrama de memória de contentor do Tez: Hive fora do erro de memória](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

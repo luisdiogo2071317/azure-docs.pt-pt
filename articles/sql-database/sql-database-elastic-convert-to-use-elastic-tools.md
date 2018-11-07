@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5039e299df30df4d49f24430af4b44837d65c44
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166381"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251598"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar bases de dados existentes para aumentar horizontalmente
 Gerencie facilmente sua aumentadas horizontalmente em partição horizontal bases de dados existentes com as ferramentas de base de dados de base de dados do Azure SQL (por exemplo, o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md)). Comece por converter um conjunto existente de bases de dados para utilizar o [Gestor de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md). 
@@ -162,7 +162,7 @@ Utilize a ferramenta de dividir / unir para mover dados de ou para um modelo do 
 Para obter informações sobre os padrões da arquitetura de dados comuns de aplicações de base de dados de software como um serviço (Saas) de multi-inquilino, consulte [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database (Padrões de estrutura para Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure)](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e pedidos de funcionalidades
-Para fazer perguntas, use o [fórum de base de dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de funcionalidades, adicioná-los para o [fórum de comentários de base de dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para fazer perguntas, use o [fórum de base de dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para pedidos de funcionalidades, adicioná-los para o [fórum de comentários de base de dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
