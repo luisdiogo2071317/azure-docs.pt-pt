@@ -1,5 +1,5 @@
 ---
-title: Reiniciar uma VM num laboratório no Azure DevTest Labs | Microsoft Docs
+title: Reiniciar uma VM num laboratório no Azure DevTest Labs | Documentos da Microsoft
 description: Saiba como reiniciar uma máquina virtual no Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 24a17ce09bee1097b0418ad4e20990d359b3e084
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0c11f5f43e0ea96a0b4bc9b4ecec30850c39b023
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231979"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Reiniciar uma VM num laboratório no Azure DevTest Labs
-Pode rapidamente e facilmente reiniciar uma máquina virtual no DevTest Labs seguindo os passos neste artigo. Considere o seguinte antes de reiniciar uma VM:
+Pode rapidamente e facilmente reiniciar uma máquina virtual no DevTest Labs, seguindo os passos neste artigo. Considere o seguinte antes de reiniciar uma VM:
 
-- Tem de executar a VM para a funcionalidade de reinício esteja ativado.
-- Se um utilizador estiver ligado a uma VM em execução quando ele efetuar um reinício, estes têm restabeleça a ligação à VM depois de iniciar uma cópia de segurança.
-- Se está a ser aplicado um artefacto quando reiniciar a VM, receberá um aviso que o artefacto não pode ser aplicado. 
+- Tem de executar a VM para a funcionalidade de reinício seja ativado.
+- Se um utilizador estiver ligado a uma VM em execução ao executar um reinício, eles devem voltar a ligar à VM depois de iniciar a cópia de segurança.
+- Se um artefato está a ser aplicado ao reiniciar a VM, receberá um aviso de que o artefacto poderá não ser aplicado. 
 
     ![Aviso ao reiniciar ao aplicar artefactos](./media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png)
 
 
    > [!NOTE]
-   > Se a VM estagnou ao aplicar um artefacto, pode utilizar a funcionalidade VM de reinício como uma forma de potencial para resolver o problema.
+   > Se a VM tenha sido paralisado ao aplicar um artefato, pode utilizar a funcionalidade VM de reinício como uma possível maneira de resolver o problema.
    >
    >
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Passos para reiniciar uma VM num laboratório no Azure DevTest Labs
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
-1. Na lista de laboratórios, selecione o laboratório que inclua a VM que pretende reiniciar.  
-1. No painel esquerdo, selecione **My máquinas de virtuais**. 
+1. Na lista de laboratórios, selecione o laboratório que inclui a VM que pretende reiniciar.  
+1. No painel esquerdo, selecione **minhas máquinas de virtuais**. 
 1. Na lista de VMs, selecione uma VM em execução.
-1. Na parte superior do painel de gestão de VM, selecione **reiniciar**.  
+1. Na parte superior do painel de gestão da VM, selecione **reiniciar**.  
 
     ![Reinicie o botão VM](./media/devtest-lab-restart-vm/devtest-lab-restart-vm.png)
 
-1. Monitorizar o estado de reinício, selecionando o **notificações** na parte superior direito da janela.
+1. Monitorizar o estado do reinício, selecionando o **notificações** na parte superior direita da janela.
 
-    ![Visualizar o estado de reinício de VM](./media/devtest-lab-restart-vm/devtest-lab-restart-notification.png)
+    ![Visualizar o estado relativamente ao reinício VM](./media/devtest-lab-restart-vm/devtest-lab-restart-notification.png)
 
-Também pode reiniciar uma VM em execução, selecionando o botão de reticências (…) na lista de **My máquinas de virtuais**.
+Também pode reiniciar uma VM em execução ao selecionar o botão de reticências (...) na lista de **minhas máquinas de virtuais**.
 
-![Reiniciar a VM através de reticências](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
+![Reinicie a VM através de reticências](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Depois de ser reiniciado, poderá restabelecer a ligação à VM selecionando **Connect** no respetivo painel de gestão.
-* Explorar o [Galeria de modelo de início rápido DevTest Labs Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Samples)
+* Depois de ser reiniciado, pode voltar a ligar à VM selecionando **Connect** sobre o seu painel de gestão.
+* Explorar o [Galeria de modelos de início rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a99375ae961e9239e5e8ea86db8b1b9b002b10c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526968"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231016"
 ---
 # <a name="storage-analytics"></a>Análise de Armazenamento
 
@@ -169,7 +169,7 @@ As seguintes ações realizadas por análise de armazenamento são a cobrar:
 Se tiver configurado uma política de retenção de dados, não é cobradas para a eliminação de transações quando a análise de armazenamento elimina dados antigos de registo e as métricas. No entanto, a eliminação de transações de um cliente é a cobrar. Para obter mais informações sobre as políticas de retenção, consulte [definir uma política de retenção de dados de análise de armazenamento](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Noções básicas sobre pedidos faturáveis
-Cada solicitação feita ao serviço de uma conta de armazenamento está sujeito a faturação ou não faturável. Análise de armazenamento de registos cada pedidos individuais efetuados para um serviço, incluindo uma mensagem de estado que indica como o pedido foi processado. Da mesma forma, a análise de armazenamento armazena as métricas para um serviço e as operações de API do serviço, incluindo as percentagens e a contagem de determinadas mensagens de estado. Juntos, esses recursos podem ajudar a analisar seus pedidos faturáveis, fazer melhorias na sua aplicação e diagnosticar problemas com os pedidos aos seus serviços. Para obter mais informações sobre a faturação, consulte [Noções básicas sobre faturação do Azure Storage - largura de banda, transações e capacidade](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Cada solicitação feita ao serviço de uma conta de armazenamento está sujeito a faturação ou não faturável. Análise de armazenamento de registos cada pedidos individuais efetuados para um serviço, incluindo uma mensagem de estado que indica como o pedido foi processado. Da mesma forma, a análise de armazenamento armazena as métricas para um serviço e as operações de API do serviço, incluindo as percentagens e a contagem de determinadas mensagens de estado. Juntos, esses recursos podem ajudar a analisar seus pedidos faturáveis, fazer melhorias na sua aplicação e diagnosticar problemas com os pedidos aos seus serviços. Para obter mais informações sobre a faturação, consulte [Noções básicas sobre faturação do Azure Storage - largura de banda, transações e capacidade](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 Ao analisar os dados de análise de armazenamento, pode utilizar as tabelas a [operações com sessão iniciada da análise de armazenamento e as mensagens de estado](https://msdn.microsoft.com/library/azure/hh343260.aspx) tópico para determinar que pedidos são a cobrar. Em seguida, pode comparar os dados de métricas para as mensagens de estado para ver se foram bem cobrados por uma solicitação específica e registos. Também pode utilizar as tabelas no tópico anterior para investigar a disponibilidade para um serviço de armazenamento ou a operação de API individual.
 

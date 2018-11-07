@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667452"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238080"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
@@ -35,7 +35,7 @@ O diagrama ilustra o que criar no tutorial.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O tutorial parte do princípio de que tem uma compreensão básica do SQL Server grupos de Disponibilidade AlwaysOn. Se precisar de mais informações, veja [descrição geral de grupos de Disponibilidade AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+O tutorial parte do princípio de que tem uma compreensão básica do SQL Server grupos de Disponibilidade AlwaysOn. Se precisar de mais informações, veja [descrição geral de grupos de Disponibilidade AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 A tabela seguinte lista os pré-requisitos que tem de concluir antes de começar este tutorial:
 
@@ -43,8 +43,8 @@ A tabela seguinte lista os pré-requisitos que tem de concluir antes de começar
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Dois servidores SQL | -Num conjunto de disponibilidade do Azure <br/> -Num único domínio <br/> -Com a funcionalidade de Clustering de ativação pós-falha instalada |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partilha de ficheiros de testemunho de cluster |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta do domínio |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta do domínio |  
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server | Conta de domínio |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de serviço do SQL Server Agent | Conta de domínio |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Abrir portas de firewall | – O SQL Server: **1433** para a instância predefinida <br/> -Ponto final de espelhamento: **5022** ou qualquer porta disponível <br/> -Carga de grupo de disponibilidade balanceador sonda de estado de funcionamento de endereço IP: **59999** ou qualquer porta disponível <br/> -Cluster core sonda Balanceador de carga IP endereço estado de funcionamento: **58888** ou qualquer porta disponível |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Adicionar a funcionalidade de Clustering de ativação pós-falha | Esta funcionalidade necessitam de ambos os servidores SQL |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Conta de domínio de instalação | -Administrador local em cada servidor de SQL <br/> -Membro da função de servidor fixa sysadmin do SQL Server para cada instância do SQL Server  |
@@ -119,7 +119,7 @@ Adicione outro SQL Server para o cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Adicionar uma partilha de ficheiros de quórum do cluster
 
-Neste exemplo o cluster do Windows utiliza uma partilha de ficheiros para criar um quórum de cluster. Este tutorial utiliza um quórum de nós e maioria de partilha de ficheiros. Para obter mais informações, consulte [Noções sobre configurações de quórum num Cluster de ativação pós-falha](http://technet.microsoft.com/library/cc731739.aspx).
+Neste exemplo o cluster do Windows utiliza uma partilha de ficheiros para criar um quórum de cluster. Este tutorial utiliza um quórum de nós e maioria de partilha de ficheiros. Para obter mais informações, consulte [Noções sobre configurações de quórum num Cluster de ativação pós-falha](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Ligar ao servidor de membro de testemunho de partilha de ficheiros com uma sessão de área de trabalho remoto.
 
@@ -168,7 +168,7 @@ Em seguida, configure o quórum do cluster.
 1. No **selecionar testemunho de quórum**, clique em **configurar um testemunho de partilha de ficheiros**.
 
    >[!TIP]
-   >Windows Server 2016 suporta um testemunho de nuvem. Se escolher este tipo de testemunho, não é necessário um ficheiro de testemunho de partilha. Para obter mais informações, consulte [implementar um testemunho de nuvem para um Cluster de ativação pós-falha](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial utiliza um testemunho de partilha de ficheiros, que é suportado pelos sistemas operacionais anteriores.
+   >Windows Server 2016 suporta um testemunho de nuvem. Se escolher este tipo de testemunho, não é necessário um ficheiro de testemunho de partilha. Para obter mais informações, consulte [implementar um testemunho de nuvem para um Cluster de ativação pós-falha](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial utiliza um testemunho de partilha de ficheiros, que é suportado pelos sistemas operacionais anteriores.
 
 1. No **configurar testemunho de partilha de ficheiros**, escreva o caminho para a partilha que criou. Clique em **Seguinte**.
 
@@ -515,7 +515,7 @@ Para testar a ligação:
 A ligação de SQLCMD liga-se automaticamente para qualquer instância do SQL Server aloja a réplica primária.
 
 > [!TIP]
-> Certifique-se de que a porta especificada está aberta na firewall de ambos os servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou Editar regra de Firewall](http://technet.microsoft.com/library/cc753558.aspx).
+> Certifique-se de que a porta especificada está aberta na firewall de ambos os servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou Editar regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

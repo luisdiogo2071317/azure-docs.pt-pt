@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247797"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241094"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um recurso com o Media Encoder Standard com .NET 
 As tarefas de codificação são uma das operações de processamento mais comuns nos Serviços de Multimédia. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Ao codificar, pode usar o codificador de multimédia incorporada de serviços de multimédia. Também pode usar um codificador fornecido por um parceiro de serviços de multimédia; codificadores de terceiros estão disponíveis através do Azure Marketplace. 
 
-Este artigo mostra como utilizar o .NET para codificar seus ativos com o Media Encoder Standard (MES). Codificador de multimédia Standard está configurado com um dos pré-visualizando codificadores descrito [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Este artigo mostra como utilizar o .NET para codificar seus ativos com o Media Encoder Standard (MES). Codificador de multimédia Standard está configurado com um dos pré-visualizando codificadores descrito [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 É recomendado que sempre codificar seus arquivos de origem para uma conjunto de MP4 de velocidade de transmissão adaptável e, em seguida, converter o conjunto para o formato desejado, com o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md). 
 
@@ -39,7 +39,7 @@ Se o elemento de saída estiver armazenamento encriptado, é necessário configu
 [Formatos e codecs do](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>Predefinições MES
-Codificador de multimédia Standard está configurado com um dos pré-visualizando codificadores descrito [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Codificador de multimédia Standard está configurado com um dos pré-visualizando codificadores descrito [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saído
 Ao codificar um elemento de entrada (ou ativos) com MES, obtém um recurso de saída a bem-sucedida codificar de conclusão dessa tarefa. O elemento de saída contém vídeo, áudio, miniaturas, manifesto, etc. com base no que utiliza a predefinição de codificação.

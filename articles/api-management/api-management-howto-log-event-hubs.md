@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 496928697af069f773e47974129bb7d3de3e1cbc
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: a8cda04ccc39e53962ec8c4b57d24df539f38825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37886976"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233903"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos nos Hubs de eventos do Azure na gestão de API do Azure
 Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. Os Event Hubs atuam como a "porta de entrada" para um pipeline de eventos, e quando dados são recolhidos para um hub de eventos, podem ser transformado e armazenados em qualquer fornecedor de análises em tempo real ou adaptadores de criação de batches/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
@@ -33,7 +33,7 @@ Para obter passos detalhados sobre como criar um hub de eventos e obter cadeias 
 ## <a name="create-an-api-management-logger"></a>Criar um agente de gestão de API
 Agora que tiver um Hub de eventos, a próxima etapa é configurar uma [Logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) na sua gestão de API de serviço para que possa registar eventos para o Hub de eventos.
 
-Agentes de gestão de API são configurados utilizando o [API do REST de gestão de API](http://aka.ms/smapi). Antes de utilizar a API REST pela primeira vez, reveja os [pré-requisitos](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) e certifique-se de que tenha [ativado o acesso à API REST do](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
+Agentes de gestão de API são configurados utilizando o [API do REST de gestão de API](https://aka.ms/smapi). Antes de utilizar a API REST pela primeira vez, reveja os [pré-requisitos](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#Prerequisites) e certifique-se de que tenha [ativado o acesso à API REST do](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
 
 Para criar um agente de log, fazer um pedido HTTP PUT enviado utilizando o modelo de URL seguinte:
 

@@ -2,19 +2,19 @@
 title: Personalizar Clusters do HDInsight com ações de script - Azure
 description: Saiba como personalizar clusters do HDInsight com ação de Script.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6c4652e65f0f320063d989f97a5428510913005b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105929"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230806"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters do HDInsight baseado em Windows com ação de Script
 **Ação de script** pode ser usado para invocar [scripts personalizados](hdinsight-hadoop-script-actions.md) durante o processo de criação de cluster para a instalação de software adicional num cluster.
@@ -279,7 +279,7 @@ O exemplo a seguir demonstra como instalar o Spark num cluster de HDInsight com 
 5. Prima **F5** para executar a aplicação.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Suporte para o software de código aberto utilizada nos clusters do HDInsight
-O serviço do Microsoft Azure HDInsight é uma plataforma flexível que lhe permite criar aplicações de macrodados na cloud através de um ecossistema de tecnologias de open source formado em torno do Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de código-fonte aberto, como discutido no **o âmbito de suporte** secção a <a href="http://azure.microsoft.com/support/faq/" target="_blank">site FAQ de suporte do Azure</a>. O serviço HDInsight fornece um nível adicional de suporte para alguns dos componentes, conforme descrito abaixo.
+O serviço do Microsoft Azure HDInsight é uma plataforma flexível que lhe permite criar aplicações de macrodados na cloud através de um ecossistema de tecnologias de open source formado em torno do Hadoop. O Microsoft Azure fornece um nível geral de suporte para tecnologias de código-fonte aberto, como discutido no **o âmbito de suporte** secção a <a href="https://azure.microsoft.com/support/faq/" target="_blank">site FAQ de suporte do Azure</a>. O serviço HDInsight fornece um nível adicional de suporte para alguns dos componentes, conforme descrito abaixo.
 
 Existem dois tipos de componentes de código-fonte aberto que estão disponíveis no serviço HDInsight:
 

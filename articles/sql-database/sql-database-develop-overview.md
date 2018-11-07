@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 06/20/2018
-ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063596"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241604"
 ---
 # <a name="sql-database-application-development-overview"></a>Descrição geral da programação de aplicativo da linha de base de dados SQL
 Este artigo explica as considerações básicas que um programador deve conhecer ao escrever códigos para ligar à base de dados SQL do Azure.
@@ -61,7 +61,7 @@ Quando ocorre um erro transitório ao ligar à Base de Dados SQL, o seu código 
 
 ## <a name="managing-connections"></a>Gerir ligações
 * Na sua lógica de ligação de cliente, substitua o tempo limite predefinido para 30 segundos.  A predefinição de 15 segundos é demasiado curta para ligações que dependem da Internet.
-* Se estiver a utilizar um [conjunto de ligações](http://msdn.microsoft.com/library/8xx3tyca.aspx), certifique-se de que fecha a ligação assim que o seu programa não estiver a utilizá-la ativamente e não estiver a preparar-se para reutilizá-la.
+* Se estiver a utilizar um [conjunto de ligações](https://msdn.microsoft.com/library/8xx3tyca.aspx), certifique-se de que fecha a ligação assim que o seu programa não estiver a utilizá-la ativamente e não estiver a preparar-se para reutilizá-la.
 
 ## <a name="network-considerations"></a>Considerações de rede
 * No computador que aloja o seu programa cliente, certifique-se de que a firewall permite a comunicação TCP de saída na porta 1433.  Obter mais informações: [configurar uma firewall de base de dados do Azure SQL](sql-database-configure-firewall-settings.md).

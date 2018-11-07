@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236726"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>O serviço importar/exportar do Azure: Perguntas mais frequentes 
 Seguem-se perguntas e respostas que possa ter quando utiliza o serviço importar/exportar do Azure para transferir dados para o armazenamento do Azure. As perguntas e respostas estão organizadas pelas seguintes categorias:
@@ -131,7 +131,7 @@ Tamanho do Blob de página máximo é 1TB.
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Importar/exportar do Azure suporta a encriptação AES-256?
 O serviço importar/exportar do Azure utiliza a encriptação do bitlocker de AES-128 por predefinição. Pode alterar isto para AES-256 criptografando manualmente com o bitlocker antes dos dados são copiados. 
 
-- Se utilizar [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), segue-se um comando de exemplo
+- Se utilizar [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), segue-se um comando de exemplo
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```

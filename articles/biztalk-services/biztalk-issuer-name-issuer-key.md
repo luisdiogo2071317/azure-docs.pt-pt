@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628652"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238714"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Nome e Chave do Emissor
 
@@ -84,17 +84,17 @@ Nome de emissor do Service Bus e a chave do emissor são utilizados pelos servi�
 ## <a name="next"></a>Seguinte
 Tópicos de serviços BizTalk do Azure adicionais:
 
-* [Instalar o SDK dos serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Tutoriais: Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Instalar o SDK dos serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Tutoriais: Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Consultar Também
-* [Como: utilizar o serviço de gestão de ACS para configurar identidades de serviço](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [Serviços BizTalk: Programador, básico, Standard e Premium gráfico de edições](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Os serviços BizTalk: aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Serviços BizTalk: Gráfico de Estado de Aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Serviços BizTalk: Cópia de segurança e Restauro](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Como: utilizar o serviço de gestão de ACS para configurar identidades de serviço](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Serviços BizTalk: Programador, básico, Standard e Premium gráfico de edições](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Os serviços BizTalk: aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [Serviços BizTalk: Gráfico de Estado de Aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Serviços BizTalk: Cópia de segurança e Restauro](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Serviços BizTalk: limitação](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

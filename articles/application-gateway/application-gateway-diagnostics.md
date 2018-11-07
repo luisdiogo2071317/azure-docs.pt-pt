@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963837"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237202"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -337,7 +337,7 @@ As métricas são uma funcionalidade para determinados recursos do Azure, onde p
 
    Pode filtrar um por base de conjunto de back-end para mostrar os anfitriões em bom estado/mau estado de funcionamento de um conjunto de back-end específicas.
 
-Navegue para um gateway de aplicação, em **monitorização** clique em **métricas**. Para ver os valores disponíveis, selecione o **MÉTRICA** na lista pendente.
+Navegue para um gateway de aplicação, em **monitorização** clique em **métricas**. Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
 
 Na imagem seguinte, verá um exemplo com três métricas apresentadas nos últimos 30 minutos:
 
@@ -380,7 +380,7 @@ Para compreender melhor os webhooks e como pode usá-los com alertas, visite [co
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Visualizar o contador e registos de eventos utilizando [do Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md).
-* [Visualizar o registo de atividades do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) postagem de blog.
+* [Visualizar o registo de atividades do Azure com o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) postagem de blog.
 * [Ver e analisar registos de atividades do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) postagem de blog.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

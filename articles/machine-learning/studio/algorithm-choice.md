@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959211"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262306"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
 
@@ -121,7 +121,7 @@ Alguns algoritmos de aprendizagem assumem pressupostos específicos sobre a estr
 | [floresta de decisão](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [Uganda de decisão](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Requisitos de espaço de memória baixa |
 | [árvore de decisões elevada](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Requisitos de espaço de memória de grandes dimensões |
-| [rede neural](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [rede neural](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Personalização adicional é possível](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [perceptron média](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [máquina de vetor com suporte](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Vale a conjuntos de recursos grandes |
 | [máquina de vetor com suporte aprofundado localmente](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Vale a conjuntos de recursos grandes |
@@ -130,7 +130,7 @@ Alguns algoritmos de aprendizagem assumem pressupostos específicos sobre a estr
 | [Regressão logística](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [Uganda de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Requisitos de espaço de memória baixa |
-| [rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Personalização adicional é possível](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Ver as propriedades do método de classe dois selecionado |
 | **Regressão** | | | | | |
 | [Linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ Alguns algoritmos de aprendizagem assumem pressupostos específicos sobre a estr
 | [floresta de decisão](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [árvore de decisões elevada](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Requisitos de espaço de memória de grandes dimensões |
 | [floresta rápida quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuições em vez de ponto de previsões |
-| [rede neural](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Personalização adicional é possível](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [rede neural](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Personalização adicional é possível](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente registos linear. Para prever as contagens |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Para prever a ordem de classificação |
 | **Deteção de anomalias** | | | | | |
@@ -190,7 +190,7 @@ Uma vez que um espaço de recurso pode ser subdividido em arbitrariamente em peq
 As redes neurais são cérebro inspirada que abordam os algoritmos de aprendizagem [várias classes](https://msdn.microsoft.com/library/azure/dn906030.aspx), [duas classes](https://msdn.microsoft.com/library/azure/dn905947.aspx), e [regressão](https://msdn.microsoft.com/library/azure/dn905924.aspx) problemas. Eles são fornecidos numa variedade infinita, mas as redes neurais dentro do Azure Machine Learning são todas de forma de gráficos acíclicos direcionados. Isso significa que os recursos de entrada são transmitidos para a frente (nunca para trás) numa seqüência de camadas antes de a ser transformado em saídas. Em cada camada, entradas são ponderadas em várias combinações, somadas e passadas para a próxima camada. Esta combinação de cálculos simples resulta na capacidade de saber tendências de limites e os dados de classe sofisticada, aparentemente por mágica. Redes em camadas muitos desse tipo efetuar a "deep learning" que alimenta o tech reporting tanto e de ficção.
 
 Este desempenho elevado não é gratuitos, no entanto. As redes neurais podem demorar muito tempo para preparar, especialmente para grandes conjuntos de dados com muitos recursos. Também têm mais parâmetros do que a maioria dos algoritmos, o que significa que o varrimento de parâmetro expande o tempo de treinamento muito.
-E para essas overachievers que pretendam [especificar sua própria estrutura de rede](http://go.microsoft.com/fwlink/?LinkId=402867), as possibilidades são inexhaustible.
+E para essas overachievers que pretendam [especificar sua própria estrutura de rede](https://go.microsoft.com/fwlink/?LinkId=402867), as possibilidades são inexhaustible.
 
 ![Limites aprenderam através de redes neurais][6]
 ***os limites aprendidos através de redes neurais podem ser complexa e irregular***

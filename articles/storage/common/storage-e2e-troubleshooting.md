@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054340"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262323"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Resolução de problemas de ponto a ponto com métricas de armazenamento do Azure e o Registro em log, o AzCopy e o analisador de mensagens
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ Para resolver problemas de aplicativos cliente usando o armazenamento do Microso
   
     Ver [monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md) para obter informações sobre como configurar a monitorização no portal do Azure.
 * **AzCopy**. Os registos do servidor do armazenamento do Azure são armazenados como blobs, pelo que pode utilizar o AzCopy para copiar os blobs de registo para um diretório local para análise com o Microsoft Message Analyzer. Ver [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md) para obter mais informações sobre o AzCopy.
-* **Microsoft Message Analyzer**. Analisador de mensagens é uma ferramenta que consome os ficheiros de registo e apresenta dados de registo num formato visual que torna mais fácil para os dados de registo de grupo, pesquisa e filtro em conjuntos útil que pode usar para analisar os erros e problemas de desempenho. Ver [operacional Guia do analisador de mensagens Microsoft](http://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o analisador de mensagens.
+* **Microsoft Message Analyzer**. Analisador de mensagens é uma ferramenta que consome os ficheiros de registo e apresenta dados de registo num formato visual que torna mais fácil para os dados de registo de grupo, pesquisa e filtro em conjuntos útil que pode usar para analisar os erros e problemas de desempenho. Ver [operacional Guia do analisador de mensagens Microsoft](https://technet.microsoft.com/library/jj649776.aspx) para obter mais informações sobre o analisador de mensagens.
 
 ## <a name="about-the-sample-scenario"></a>Sobre o cenário de exemplo
 Para este tutorial, vamos examinar um cenário em que as métricas de armazenamento do Azure indica uma taxa de baixa percentagem de êxito para uma aplicação que chama o armazenamento do Azure. A métrica de taxa de baixa percentagem de êxito (mostrado como **PercentSuccess** no [portal do Azure](https://portal.azure.com) e nas tabelas métricas) controla as operações que tenha êxito, mas que retornam um código de estado HTTP é maior do que 299. Nos ficheiros de registo de armazenamento do lado do servidor, estas operações são registadas com o estado da transação **ClientOtherErrors**. Para obter mais detalhes sobre a métrica de baixa percentagem de êxito, consulte [as métricas apresentam PercentSuccess baixa ou entradas do log analytics tem operações com o estado de transação de ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -51,7 +51,7 @@ Para o nosso cenário de exemplo, uma vez que Estabelecemos que a métrica de ta
 ### <a name="some-causes-of-400-range-errors"></a>Algumas causas dos erros de intervalo de 400
 Os exemplos abaixo apresenta uma amostra de alguns erros de intervalo de 400 para pedidos relativos a armazenamento de Blobs do Azure e suas causas possíveis. Qualquer um desses erros, bem como erros no intervalo de 300 e o intervalo de 500, pode contribuir com uma taxa de baixa percentagem de êxito.
 
-Tenha em atenção que as listas abaixo estão longe de ser concluída. Ver [Status e códigos de erro](http://msdn.microsoft.com/library/azure/dd179382.aspx) no MSDN para obter detalhes sobre os erros gerais de armazenamento do Azure e sobre erros específicos de cada um dos serviços de armazenamento.
+Tenha em atenção que as listas abaixo estão longe de ser concluída. Ver [Status e códigos de erro](https://msdn.microsoft.com/library/azure/dd179382.aspx) no MSDN para obter detalhes sobre os erros gerais de armazenamento do Azure e sobre erros específicos de cada um dos serviços de armazenamento.
 
 **Exemplos de código 404 (não encontrado) de estado**
 
@@ -79,7 +79,7 @@ Neste tutorial, vamos utilizar Message Analyzer para trabalhar com três tipos d
 * O **registo de rastreio de rede HTTP**, que recolhe dados sobre HTTP/HTTPS solicitação e resposta de dados, incluindo para operações de armazenamento do Azure. Neste tutorial, iremos gerar o rastreio de rede por meio do analisador de mensagens.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurar o registo do lado do servidor e as métricas
-Em primeiro lugar, precisamos configurar o registo de armazenamento do Azure e as métricas, para que tenhamos que os dados da aplicação cliente para analisar. Pode configurar o registo e as métricas de diversas formas - através da [portal do Azure](https://portal.azure.com), com o PowerShell, ou por meio de programação. Ver [ativar as métricas de armazenamento e visualização de dados de métricas](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [ativar o registo de armazenamento e acesso a dados de registo](http://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registo e as métricas.
+Em primeiro lugar, precisamos configurar o registo de armazenamento do Azure e as métricas, para que tenhamos que os dados da aplicação cliente para analisar. Pode configurar o registo e as métricas de diversas formas - através da [portal do Azure](https://portal.azure.com), com o PowerShell, ou por meio de programação. Ver [ativar as métricas de armazenamento e visualização de dados de métricas](https://msdn.microsoft.com/library/azure/dn782843.aspx) e [ativar o registo de armazenamento e acesso a dados de registo](https://msdn.microsoft.com/library/azure/dn782840.aspx) no MSDN para obter detalhes sobre como configurar o registo e as métricas.
 
 **Através do portal do Azure**
 
@@ -124,7 +124,7 @@ Para começar a utilizar com o PowerShell para o Azure, veja [como instalar e co
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Configurar o registo do lado do cliente de .NET
-Para configurar o registo do lado do cliente para um aplicativo .NET, ative o diagnóstico de .NET no ficheiro de configuração do aplicativo (Web. config ou App. config). Ver [lado do cliente de registo com a biblioteca de cliente de armazenamento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [lado do cliente de registo com o Microsoft Azure Storage SDK para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
+Para configurar o registo do lado do cliente para um aplicativo .NET, ative o diagnóstico de .NET no ficheiro de configuração do aplicativo (Web. config ou App. config). Ver [lado do cliente de registo com a biblioteca de cliente de armazenamento de .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [lado do cliente de registo com o Microsoft Azure Storage SDK para Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) no MSDN para obter detalhes.
 
 O registo do lado do cliente inclui informações detalhadas sobre como o cliente prepara a solicitação e recebe e processa a resposta.
 
@@ -160,7 +160,7 @@ Para este tutorial, recolher e guardar um rastreio de rede pela primeira vez no 
 > 
 > 
 
-Ver [usando os recursos de rastreio de rede](http://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
+Ver [usando os recursos de rastreio de rede](https://technet.microsoft.com/library/jj674819.aspx) no Technet para obter mais detalhes.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Rever os dados de métricas no portal do Azure
 Depois de seu aplicativo tiver sido executado durante um período de tempo, pode rever os gráficos de métricas que são apresentados no [portal do Azure](https://portal.azure.com) para observar como o serviço de desempenho.
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 O AzCopy é disponível para download no [transferências do Azure](https://azure.microsoft.com/downloads/) página. Para obter detalhes sobre como utilizar o AzCopy, veja [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md).
 
-Para obter mais informações sobre como transferir os registos do lado do servidor, consulte [registo de armazenamento de transferir dados de registo](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Para obter mais informações sobre como transferir os registos do lado do servidor, consulte [registo de armazenamento de transferir dados de registo](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Utilizar o Microsoft Message Analyzer para analisar dados de registo
-Microsoft Message Analyzer é uma ferramenta para capturar, exibição e análise de tráfego, eventos e outras mensagens de sistema ou aplicativo em cenários de resolução de problemas e diagnóstico de mensagens de protocolo. Analisador de mensagens também permite-lhe carregar, Agregar e analisar dados de registo e guardar ficheiros de rastreio. Para obter mais informações sobre o analisador de mensagens, consulte [operacional Guia do analisador de mensagens Microsoft](http://technet.microsoft.com/library/jj649776.aspx).
+Microsoft Message Analyzer é uma ferramenta para capturar, exibição e análise de tráfego, eventos e outras mensagens de sistema ou aplicativo em cenários de resolução de problemas e diagnóstico de mensagens de protocolo. Analisador de mensagens também permite-lhe carregar, Agregar e analisar dados de registo e guardar ficheiros de rastreio. Para obter mais informações sobre o analisador de mensagens, consulte [operacional Guia do analisador de mensagens Microsoft](https://technet.microsoft.com/library/jj649776.aspx).
 
 Analisador de mensagens inclui recursos para o armazenamento do Azure que o ajudam a analisar servidor, cliente e registos de rede. Nesta seção, abordaremos como usar essas ferramentas para resolver o problema de baixa percentagem de êxito nos registos de armazenamento.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Baixe e instale o Message Analyzer e dos recursos de armazenamento do Azure
-1. Baixe [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) da Microsoft Centro de transferências e execute o instalador.
+1. Baixe [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) da Microsoft Centro de transferências e execute o instalador.
 2. Inicie o analisador de mensagens.
 3. Partir do **ferramentas** menu, selecione **Gestor do Asset Intelligence**. Na **Gestor do Asset Intelligence** caixa de diálogo, selecione **Downloads**, em seguida, filtre por **armazenamento do Azure**. Verá os recursos de armazenamento do Azure, conforme mostrado na imagem abaixo.
 4. Clique em **sincronização de todos os itens exibidos** para instalar os recursos de armazenamento do Azure. Os recursos disponíveis incluem:
@@ -231,7 +231,7 @@ Em primeiro lugar, determine o intervalo de tempo que esteja interessado na revi
 
 Se ainda terá uma grande quantidade de dados de registo, em seguida, pode pretender especificar uma sessão de filtro para filtrar os dados de registo antes de carregá-lo. Na **filtro de sessão** caixa, selecione a **biblioteca** botão para escolher um filtro predefinido; por exemplo, escolha **Global tempo filtro I** do armazenamento do Azure filtros a filtrar num intervalo de tempo. Em seguida, pode editar os critérios de filtro para especificar o iniciais e finais timestamp durante o intervalo que pretende ver. Também pode filtrar num código de estado específico; Por exemplo, pode optar por carregar apenas entradas de registo em que o código de estado é 404.
 
-Para obter mais informações sobre como importar dados de registo para o Microsoft Message Analyzer, consulte [obter dados de mensagem](http://technet.microsoft.com/library/dn772437.aspx) no TechNet.
+Para obter mais informações sobre como importar dados de registo para o Microsoft Message Analyzer, consulte [obter dados de mensagem](https://technet.microsoft.com/library/dn772437.aspx) no TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Utilize o ID do pedido de cliente para correlacionar dados de ficheiro de registo
 Biblioteca de cliente de armazenamento do Azure gera automaticamente um ID de pedido de cliente exclusivos para cada solicitação. Este valor é escrito para o registo de cliente, o registo de servidor e o rastreio de rede, para que possa utilizá-lo para correlacionar dados em todos os três logs no analisador de mensagens. Ver [ID de pedido de cliente](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) para obter mais informações sobre o cliente pedir ID.
@@ -337,7 +337,7 @@ Utilizar os dados mostrados nos layouts de exibição desses dois separadores, p
 Sabe o endereço do blob que gerou o erro 404, pode investigar mais. Se pesquisar as entradas de registo para outras mensagens associadas a operações no mesmo blob, pode verificar se o cliente eliminado anteriormente a entidade.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Analisar outros tipos de erros de armazenamento
-Agora que está familiarizado com o Message Analyzer para analisar os seus dados de registo, pode analisar os outros tipos de erros de utilizar a vista de layouts, as regras de cor e a pesquisa/filtragem. As tabelas a seguir lista alguns problemas que poderá encontrar e os critérios de filtro, pode usar para localizá-los. Para obter mais informações sobre a construção de filtros e o idioma de filtragem do Message Analyzer, consulte [dados de filtragem de mensagens](http://technet.microsoft.com/library/jj819365.aspx).
+Agora que está familiarizado com o Message Analyzer para analisar os seus dados de registo, pode analisar os outros tipos de erros de utilizar a vista de layouts, as regras de cor e a pesquisa/filtragem. As tabelas a seguir lista alguns problemas que poderá encontrar e os critérios de filtro, pode usar para localizá-los. Para obter mais informações sobre a construção de filtros e o idioma de filtragem do Message Analyzer, consulte [dados de filtragem de mensagens](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Para investigar... | Utilize a expressão de filtro... | Expressão aplica-se ao registo (cliente, servidor, rede, todos os) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Agora que está familiarizado com o Message Analyzer para analisar os seus dados
 Para obter mais informações sobre os cenários de resolução de problemas ponto a ponto no armazenamento do Azure, veja estes recursos:
 
 * [Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
-* [Análise de Armazenamento](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Análise de Armazenamento](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitorizar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Transferir dados com o Utilitário de Linha de Comandos AzCopy](storage-use-azcopy.md)
-* [Guia de operação do analisador de mensagens da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
+* [Guia de operação do analisador de mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)

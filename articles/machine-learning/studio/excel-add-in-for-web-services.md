@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095813"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229360"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Suplemento do Excel para serviços da web do Azure Machine Learning Studio
 Excel torna mais fácil chamar serviços web diretamente sem a necessidade de escrever qualquer código.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Passos para utilizar um serviço da web existentes no livro
 
-1. Abra o [ficheiro do Excel de exemplo](http://aka.ms/amlexcel-sample-2), que contém o suplemento do Excel e os dados sobre passageiros ao Titanic. 
+1. Abra o [ficheiro do Excel de exemplo](https://aka.ms/amlexcel-sample-2), que contém o suplemento do Excel e os dados sobre passageiros ao Titanic. 
  
 > [!NOTE]
 > Verá que a lista dos serviços Web para o ficheiro e relacionados na parte inferior uma caixa de verificação para "Prever automático". Se ativar auto-prever as previsões de **todos os** seus serviços serão atualizado sempre de que existe uma alteração nas entradas. Se a opção estiver desmarcada terá de clicar em "Prever All" para a atualização. Para ativar a auto-prever num ir do nível de serviço para o passo 6.
@@ -85,7 +85,7 @@ Obtenha a chave de API do web Service. Quando efetuar esta ação depende se pub
 ## <a name="sharing-your-workbook"></a>O livro de partilha
 Se guardar o livro, a chave de API/principal para os serviços da web que adicionou também é guardada. Isso significa que apenas devem partilhar a pasta de trabalho com indivíduos que confia.
 
-Faça as suas questões na secção seguinte comentário ou no nosso [fórum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Faça as suas questões na secção seguinte comentário ou no nosso [fórum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

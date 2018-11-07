@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6dddbdbc781869ef6a3c1a0a707eeb83941b92a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634868"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239326"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure
 
@@ -504,7 +504,7 @@ No Gestor de recursos do Azure, não precisa de um grupo de recursos do Azure pa
 
 No Gestor de recursos do Azure, pode instalar vários SAP (SID Identificador) ASCS/SCS instâncias de sistema num cluster. Instâncias de múltiplos SID são possíveis devido ao suporte para vários endereços IP para cada Balanceador de carga interno do Azure.
 
-Para utilizar o modelo de implementação clássica do Azure, siga os procedimentos descritos [SAP NetWeaver no Azure: instâncias de Clustering SAP ASCS/SCS ao utilizar o Clustering de ativação pós-falha do Windows Server no Azure com o SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
+Para utilizar o modelo de implementação clássica do Azure, siga os procedimentos descritos [SAP NetWeaver no Azure: instâncias de Clustering SAP ASCS/SCS ao utilizar o Clustering de ativação pós-falha do Windows Server no Azure com o SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > Recomendamos vivamente que utilize o modelo de implementação Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implementação clássica. Saiba mais sobre o Azure [modelos de implementação][virtual-machines-azure-resource-manager-architecture-benefits-arm].   

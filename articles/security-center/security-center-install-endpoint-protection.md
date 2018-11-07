@@ -3,7 +3,7 @@ title: Gerir problemas de proteção de ponto final com o Centro de segurança d
 description: Saiba como gerir problemas de proteção de ponto final no Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2017
-ms.author: terrylan
-ms.openlocfilehash: a3ac23f3874b85da9c0641264ca6f9c55a7b0515
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 834e6f2519fe745004894f3791591a3d0aa5757c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300008"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229446"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerir problemas de proteção de ponto final com o Centro de segurança do Azure
 Centro de segurança do Azure monitoriza o estado de proteção antimalware e os relatórios isso o painel de problemas de proteção de ponto final. Centro de segurança destaca os problemas, como ameaças detetadas e proteção insuficiente, que pode tornar as máquinas virtuais (VMs) e os computadores vulneráveis a ameaças de antimalware. Ao utilizar as informações em **problemas do Endpoint protection**, pode identificar um plano para resolver quaisquer problemas identificados.
@@ -110,7 +110,7 @@ Para saber mais sobre o Centro de segurança, consulte os seguintes documentos:
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Monitorização de soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e de conformidade.
+* [Blogue de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e de conformidade.
 
 <!--Image references-->
 [1]:./media/security-center-install-endpoint-protection/compute.png

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298210"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240890"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar a máquina de Virtual de ciência de dados Windows no Azure
 Máquina Virtual de ciência de dados (DSVM) a Microsoft é uma imagem de máquina virtual (VM) do Windows Azure. Ele tem pré-instalado e configurado com várias ferramentas que são utilizadas para análise de dados e machine learning. As ferramentas seguintes estão incluídas:
@@ -186,7 +186,7 @@ Várias ferramentas do Azure são instaladas na VM:
 * **Microsoft Azure PowerShell** é uma ferramenta que é utilizada para administrar os recursos do Azure na linguagem de script do PowerShell. Também é instalado na sua VM. 
 
 ### <a name="power-bi"></a>Power BI
-O **Power BI Desktop** está instalado para o ajudar a criar dashboards e visualizações. Utilize esta ferramenta para extrair os dados de diferentes origens, para criar os seus dashboards e relatórios e publique-os para a cloud. Para obter mais informações, consulte a [Power BI](http://powerbi.microsoft.com) site. Pode encontrar a área de trabalho do Power BI sobre as **iniciar** menu. 
+O **Power BI Desktop** está instalado para o ajudar a criar dashboards e visualizações. Utilize esta ferramenta para extrair os dados de diferentes origens, para criar os seus dashboards e relatórios e publique-os para a cloud. Para obter mais informações, consulte a [Power BI](https://powerbi.microsoft.com) site. Pode encontrar a área de trabalho do Power BI sobre as **iniciar** menu. 
 
 > [!NOTE]
 > Precisa de uma conta do Microsoft Office 365 para aceder ao Power BI. 
@@ -228,7 +228,7 @@ O [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/pla
 * Explore as ferramentas na VM de ciência de dados ao selecionar o **iniciar** menu.
 * Saiba mais sobre serviços do Azure Machine Learning e Bancada de trabalho, visitando o produto [página de início rápido e tutoriais](../service/index.yml). 
 * Navegue para **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para exemplos que utilizam a biblioteca de pacotes RevoScaleR no R que suporta as análises de dados à escala empresarial.  
-* Leia o artigo [dez coisas que pode fazer na máquina Virtual de ciência de dados](http://aka.ms/dsvmtenthings).
+* Leia o artigo [dez coisas que pode fazer na máquina Virtual de ciência de dados](https://aka.ms/dsvmtenthings).
 * Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](../team-data-science-process/index.yml).
 * Visite o [Galeria de IA do Azure](http://gallery.cortanaintelligence.com) para machine learning e os dados analytics de exemplo que utilizam o Azure Machine Learning e os dados relacionados de serviços no Azure. Também fornecemos um ícone para esta galeria sobre o **iniciar** menu e o ambiente de trabalho da máquina virtual.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810954"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257212"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Publicar uma oferta do Cortana Intelligence com o Portal de parceiro de Cloud
 
@@ -29,7 +29,7 @@ Este artigo descreve como publicar uma oferta do Cortana Intelligence com o Port
 
 O Portal de parceiros da Cloud suporta o acesso baseado em funções para o portal, que permite que os colaboradores colaborar em publicar uma oferta. Para obter mais informações, consulte [gerir utilizadores do Portal Cloud](./cloud-partner-portal-manage-users.md).
 
-Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma das pessoas com \"proprietário\" função precisam concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/), [declaraçãodeprivacidadedaMicrosoft](http://www.microsoft.com/privacystatement/default.aspx), e [contrato do programa do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma das pessoas com \"proprietário\" função precisam concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/), [declaraçãodeprivacidadedaMicrosoft](https://www.microsoft.com/privacystatement/default.aspx), e [contrato do programa do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Para começar a criar uma oferta de Cortana Inteligence
 
@@ -208,7 +208,7 @@ Dois tipos de experiências de avaliação podem permitir que parceiros no AppSo
         - [Execução de varejo POP AFS](https://appsource.microsoft.com/product/web-apps/afs.fa9fc926-3bc3-43dd-becd-3ef41b52c10b?tab=Overview)
         - [Os serviços dos cidadãos AvePoint](https://appsource.microsoft.com/product/web-apps/avepoint.7738ac97-fd40-4ed3-aaab-327c3e0fe0b3?tab=Overview). (Esta aplicação fornece uma experiência organizada com caminhos claras para um conjunto de pessoas fidedignas do utilizador selecionado.)
 
-     - Test Drive
+     - Versão de Teste
         - A (ou seu parceiro) solução ou um subconjunto de ele pode ser empacotado com modelos do Azure Resource Manager que pode criar uma instância de AppSource e. AppSource pode gerir a aplicação numa subscrição de parceiro com o tempo de boxing e manter o conjunto de quentes/frias de instâncias, etc.
         - Podemos fornecer modelos e o código de exemplo para ajudá-lo a se escolher esta opção.
 
@@ -216,7 +216,7 @@ Dois tipos de experiências de avaliação podem permitir que parceiros no AppSo
 
         - [Otimização de inventário de Neal Analytics](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- O **pedido para versão de avaliação** (**versões de avaliação do parceiro por um instrutor / PLT**) opção exige que os clientes preencher um formulário de informações de contacto para seguimento de parceiro. O parceiro acompanha e fornece uma demonstração ou de avaliação da aplicação. Para obter mais informações, consulte [instruções de experiência de avaliação do AppSource](http://aka.ms/trialexperienceforwebapps) vídeo para obter uma descrição de geral de alto nível.
+- O **pedido para versão de avaliação** (**versões de avaliação do parceiro por um instrutor / PLT**) opção exige que os clientes preencher um formulário de informações de contacto para seguimento de parceiro. O parceiro acompanha e fornece uma demonstração ou de avaliação da aplicação. Para obter mais informações, consulte [instruções de experiência de avaliação do AppSource](https://aka.ms/trialexperienceforwebapps) vídeo para obter uma descrição de geral de alto nível.
 
 >[!Note]
 >Os dados mostram que **versões de avaliação do cliente por um instrutor** tem uma maior geração de oportunidades potencial que **versões de avaliação do parceiro levou**.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4f1e0c14d3a835b9f6d739511186bdcc19917a7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230998"
 ---
 # <a name="install-azure-backup-server-v2"></a>Instalar o servidor de cópia de segurança do Azure v2
 
@@ -103,7 +103,7 @@ Para adicionar um volume na consola do administrador:
 
   Se pretender adicionar um disco, o disco tem de pertencer a um grupo de proteção que tem o armazenamento legado. Pode utilizar estes discos apenas para estes grupos de proteção. Se o servidor de cópia de segurança não tiver origens com proteção legada, o disco não está listado.
 
-  Para obter mais informações sobre como adicionar discos, consulte [adicionar discos para aumentar o armazenamento legado](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Não é possível dar um disco um nome amigável.
+  Para obter mais informações sobre como adicionar discos, consulte [adicionar discos para aumentar o armazenamento legado](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). Não é possível dar um disco um nome amigável.
 
 
 ### <a name="assign-workloads-to-volumes"></a>Atribuir cargas de trabalho a volumes
@@ -160,7 +160,7 @@ Para criar um grupo de proteção:
 
   ![Página de atribuição de armazenamento do disco de revisão](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-6.png)
 
-  Volumes de armazenamento baseiam-se a alocação de volume da carga de trabalho (definido com o PowerShell) e o armazenamento disponível. Pode alterar os volumes de armazenamento ao selecionar outros volumes no menu pendente. Se alterar o valor para **armazenamento de destino**, o valor de **armazenamento em disco disponível** dinamicamente as alterações para refletir os valores sob **espaço livre** e ** Sob aprovisionamento espaço**.
+  Volumes de armazenamento baseiam-se a alocação de volume da carga de trabalho (definido com o PowerShell) e o armazenamento disponível. Pode alterar os volumes de armazenamento ao selecionar outros volumes no menu pendente. Se alterar o valor para **armazenamento de destino**, o valor de **armazenamento em disco disponível** dinamicamente as alterações para refletir os valores sob **espaço livre** e  **Sob aprovisionamento espaço**.
 
   Se as origens de dados cresça conforme planejado, o valor para o **espaço sob aprovisionamento** coluna na **armazenamento em disco disponível** reflete a quantidade de armazenamento adicional necessário. Utilize este valor para o ajudar a planear as suas necessidades de armazenamento de cópias de segurança fluídas. Se o valor for zero, não existem potenciais problemas com o armazenamento no futuro próximo. Se o valor é um número diferente de zero, não tem armazenamento suficiente atribuído (com base na sua política de proteção e o tamanho dos dados dos seus membros protegidos).
 
@@ -175,13 +175,13 @@ A atualização dos grupos de proteção para utilizar o armazenamento de cópia
 
 1. No System Center 2016 DPM Administrator Console, selecione o **proteção** funcionalidade. Na **membro do grupo de proteção** listar, o membro com o botão direito e, em seguida, selecione **parar proteção do membro**.
 
-  ![Parar proteção do membro](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![Parar proteção do membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. Na **remover do grupo** diálogo caixa, reveja o espaço em disco utilizado e o espaço livre disponível no agrupamento de armazenamento. A predefinição é deixar os pontos de recuperação no disco e permitir que os mesmos expirem, conforme a política de retenção associada. Selecione **OK**.
 
   Se pretender devolver imediatamente o espaço em disco utilizado para o pool de armazenamento livre, selecione o **Eliminar réplica no disco** caixa de verificação para eliminar os dados de cópia de segurança (e pontos de recuperação) associados a esse membro.
 
-  ![Remover da caixa de diálogo de grupo](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Remover da caixa de diálogo de grupo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Crie um grupo de proteção que utiliza o armazenamento de cópia de segurança Moderno. Inclua as origens de dados não protegidas.
 
@@ -194,7 +194,7 @@ Para adicionar armazenamento em disco:
 
 1. No System Center 2016 DPM Administrator Console, selecione **gerenciamento** > **armazenamento de disco** > **adicionar**.
 
-  ![Adicionar a caixa de diálogo de armazenamento em disco](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Adicionar a caixa de diálogo de armazenamento em disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. Na **adicionar armazenamento no disco** caixa de diálogo, selecione **adicione discos**.
 

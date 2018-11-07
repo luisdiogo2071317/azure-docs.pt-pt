@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 43e2b2b7f398e8adce0760678c6f0a5208c24c34
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d485195b868b6cbca587c736ac02663491742cdb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240533"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236879"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de erro de serviços de multimédia do Azure
 Ao utilizar os serviços de multimédia do Microsoft Azure, poderá receber códigos de erro HTTP do serviço consoante problemas como tokens de autenticação expirar a ações que não são suportadas nos serviços de multimédia. Segue-se uma lista de **códigos de erro HTTP** que podem ser devolvidos por serviços de multimédia e as possíveis causas para eles.  
@@ -117,7 +117,7 @@ Para lidar com este erro, recomendamos que utilize a lógica de repetição de t
 > 
 
 ## <a name="see-also"></a>Consultar Também
-[Códigos de erro de gestão dos serviços de multimédia](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Códigos de erro de gestão dos serviços de multimédia](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

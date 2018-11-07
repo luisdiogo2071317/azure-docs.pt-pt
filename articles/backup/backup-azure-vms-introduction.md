@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286657"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232465"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planear a sua infraestrutura de cópias de segurança de VMs no Azure
 Este artigo fornece desempenho e sugestões de recursos para o ajudar a planear a sua infraestrutura de cópia de segurança de VM. Também define os aspetos fundamentais do serviço de cópia de segurança; esses aspectos podem ser fundamentais para determinar sua arquitetura, planejamento de capacidade e agendamento. Se tiver [preparar o ambiente](backup-azure-arm-vms-prepare.md), o planejamento é a próxima etapa antes de começar [para fazer uma cópia de segurança de VMs](backup-azure-arm-vms.md). Se precisar de mais informações sobre máquinas virtuais do Azure, consulte a [documentação das máquinas virtuais](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -146,7 +146,7 @@ Faturação não inicia até concluir a primeira cópia de segurança com êxito
 A faturação de uma máquina virtual especificada será interrompido apenas se a proteção é parada e todos os dados de cópia de segurança é eliminada. Quando parar a proteção e não há nenhuma tarefa de cópia de segurança Active Directory, o tamanho do último backup bem-sucedido de VM torna-se o tamanho de instância protegida utilizado para a fatura mensal.
 
 ## <a name="questions"></a>Tem dúvidas?
-Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
+Se tiver dúvidas ou se houver alguma funcionalidade que gostaria de ver incluída, [envie-nos comentários](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Fazer uma cópia de segurança das máquinas virtuais](backup-azure-arm-vms.md)

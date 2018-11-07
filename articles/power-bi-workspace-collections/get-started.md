@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: b565955abaae44efe20291a6e46b57a5fec941d1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046563"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233410"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introdução às Coleções de Áreas de Trabalho do Microsoft Power BI
 
@@ -79,7 +79,7 @@ Depois de ter criado a sua coleção da área de trabalho, terá de criar uma á
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>Criar conjuntos de dados e relatórios do Power BI para incorporar numa aplicação com o Power BI Desktop
 
-Agora que já criou uma instância do Power BI para a aplicação e tem **Chaves de Acesso**, tem de criar os conjuntos de dados do Power BI e os relatórios que quer incorporar. Os conjuntos de dados e os relatórios podem ser criados com o **Power BI Desktop**. Pode transferir o [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). Em alternativa, para começar rapidamente, pode transferir o [PBIX de exemplo de análise de revenda](http://go.microsoft.com/fwlink/?LinkID=780547).
+Agora que já criou uma instância do Power BI para a aplicação e tem **Chaves de Acesso**, tem de criar os conjuntos de dados do Power BI e os relatórios que quer incorporar. Os conjuntos de dados e os relatórios podem ser criados com o **Power BI Desktop**. Pode transferir o [Power BI Desktop gratuitamente](https://go.microsoft.com/fwlink/?LinkId=521662). Em alternativa, para começar rapidamente, pode transferir o [PBIX de exemplo de análise de revenda](https://go.microsoft.com/fwlink/?LinkID=780547).
 
 > [!NOTE]
 > Para saber mais sobre como utilizar **Power BI Desktop**, consulte o artigo [Introdução ao Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).

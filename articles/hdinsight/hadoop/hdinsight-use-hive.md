@@ -3,19 +3,19 @@ title: O que é o Apache Hive e o HiveQL - Azure HDInsight
 description: Apache Hive é um sistema de armazém de dados para o Hadoop. Pode consultar os dados armazenados no Hive com o HiveQL, que semelhante para o Transact-SQL. Neste documento, saiba como utilizar o Hive e o HiveQL com o Azure HDInsight.
 keywords: hiveql, o que é o hive, hiveql do hadoop, como utilizar o hive, saiba o hive, o que é o hive
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 9f22766b0ecbaff027cf4b495624f892d4339d17
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249370"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241111"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é o Apache Hive e o HiveQL no HDInsight do Azure?
 
@@ -70,7 +70,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive também oferece suporte a custom **serializador/desserializadores (SerDe)** para dados complexos ou forma irregular. Para obter mais informações, consulte a [como utilizar um SerDe de JSON personalizado com o HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) documento.
+Hive também oferece suporte a custom **serializador/desserializadores (SerDe)** para dados complexos ou forma irregular. Para obter mais informações, consulte a [como utilizar um SerDe de JSON personalizado com o HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) documento.
 
 Para obter mais informações sobre formatos de ficheiro suportados do Hive, consulte o [(idioma de manuais https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -106,7 +106,7 @@ Ramo de registo também pode ser estendido por meio **as funções definidas pel
 
 * [Utilizar uma definidas pelo utilizador função c# com o Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Como adicionar uma função personalizada de definidas pelo utilizador do Hive ao HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Como adicionar uma função personalizada de definidas pelo utilizador do Hive ao HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 * [Um exemplo do Hive a função definida pelo utilizador para converter formatos de data/hora para Hive timestamp](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 

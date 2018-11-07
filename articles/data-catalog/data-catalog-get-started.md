@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406316"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238493"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introdução ao Catálogo de Dados do Azure
 O Catálogo de Dados do Azure é um serviço em nuvem totalmente gerido que funciona como um sistema de registo e um sistema de deteção de recursos de dados empresariais. Para obter uma descrição detalhada, veja [O que é o Catálogo de Dados do Azure](data-catalog-what-is-data-catalog.md).
@@ -96,7 +96,7 @@ A base de dados Adventure Works suporta cenários de processamento de transaçõ
 Para instalar a base de dados de exemplo Adventure Works:
 
 1. Transfira [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661), no CodePlex.
-2. Para restaurar a base de dados no seu computador, siga as instruções em [Restore a Database Backup by using SQL Server Management Studio (Restaurar uma Cópia de Segurança de Base de Dados com o SQL Server Management Studio)](http://msdn.microsoft.com/library/ms177429.aspx) ou estes passos:
+2. Para restaurar a base de dados no seu computador, siga as instruções em [Restore a Database Backup by using SQL Server Management Studio (Restaurar uma Cópia de Segurança de Base de Dados com o SQL Server Management Studio)](https://msdn.microsoft.com/library/ms177429.aspx) ou estes passos:
    1. Abra o SQL Server Management Studio e ligue ao Motor de Base de Dados do SQL Server.
    2. Clique com o botão direito do rato em **Bases de Dados** e clique em **Restaurar Base de Dados**.
    3. Em **Restaurar Base de Dados**, clique na opção **Dispositivo** para **Origem** e clique em **Procurar**.

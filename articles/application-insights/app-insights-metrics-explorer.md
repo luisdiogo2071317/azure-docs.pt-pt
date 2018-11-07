@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 99ace7be05f186ac920aa9671946389e95e3a3a6
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cc9b3bd1d038bd8aa9c01e806e5448824011bc93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958122"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240754"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Explorar métricas no Application Insights
 Métricas no [Application Insights] [ start] são valores de medida e contagens de eventos que são enviadas em telemetria da sua aplicação. Ajudam a detetar problemas de desempenho e ver as tendências na forma como a aplicação está a ser utilizada. Há uma grande variedade de métricas padrão e também pode criar seus próprios eventos e métricas personalizadas.
@@ -180,7 +180,7 @@ Para ser notificado por correio eletrónico dos valores invulgares de qualquer m
 Se pretender que os dados exportados continuamente para que pode processá-lo externamente, considere utilizar [exportação contínua](app-insights-export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
-Se pretender que as exibições ainda mais avançadas dos seus dados, pode [exportar para o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+Se pretender que as exibições ainda mais avançadas dos seus dados, pode [exportar para o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Análise
 [Análise](app-insights-analytics.md) é uma maneira mais versátil para analisar a sua telemetria, através de uma linguagem de consulta poderosa. Utilize-o se pretender combinar, os resultados de métricas de computação ou executar uma análise profunda de desempenho recente da sua aplicação. 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 6695e17ec3dd9bf9ebeeb44b34e9688d3e5a1625
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249752"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240278"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Descrição geral e comparação do Azure no codificadores de multimédia a pedido
 ## <a name="encoding-overview"></a>Descrição geral da codificação
@@ -51,7 +51,7 @@ Este artigo fornece uma breve descrição geral de demanda codificadores de mult
 [Formatos e codecs do](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Predefinições
-Codificador de multimédia Standard está configurado com uma das configurações predefinidas de codificador descritas [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Codificador de multimédia Standard está configurado com uma das configurações predefinidas de codificador descritas [aqui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saído
 Os metadados de entrada de codificadores é descrito [aqui](media-services-input-metadata-schema.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579620"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236696"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Criar uma conta do Microsoft Developer
 Este artigo orienta-o através da criação da conta necessárias e o processo de registo para se tornar um Microsoft Developer aprovados para o Azure Marketplace.
@@ -69,7 +69,7 @@ O Microsoft Developer Center é utilizado para registar as informações da empr
 >
 >
 
-| Perfil do desenvolvedor | Para iniciar o draft | Testes | Publicar gratuitamente e o modelo de solução | Publicar comercial |
+| Perfil do desenvolvedor | Para iniciar o draft | de teste | Publicar gratuitamente e o modelo de solução | Publicar comercial |
 | --- | --- | --- | --- | --- |
 | Registo de empresa |Tem de ter |Tem de ter |Tem de ter |Tem de ter |
 | ID de perfil do imposto |Opcional |Opcional |Opcional |Tem de ter |
@@ -98,7 +98,7 @@ O Microsoft Developer Center é utilizado para registar as informações da empr
     ![desenho](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **"Destino de venda-de" países:** para vender os seus serviços no Azure Marketplace, a sua entidade registada tem de ser um dos países aprovados "destino de venda-de" acima. Esta restrição é por motivos de dividendos e tributação. Estamos ativamente à procura para expandir essa lista de países em breve, portanto, fique atento. Para obter mais informações, consulte a [políticas de participação do Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **"Destino de venda-de" países:** para vender os seus serviços no Azure Marketplace, a sua entidade registada tem de ser um dos países aprovados "destino de venda-de" acima. Esta restrição é por motivos de dividendos e tributação. Estamos ativamente à procura para expandir essa lista de países em breve, portanto, fique atento. Para obter mais informações, consulte a [políticas de participação do Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
 5. Selecione o "tipo de conta" como **empresa** e, em seguida, clique nas **próxima** botão.
@@ -127,7 +127,7 @@ O Microsoft Developer Center é utilizado para registar as informações da empr
 9. Introduza as suas informações de pagamento para pagar para a sua conta. Se tiver um código promocional, que abrange o custo do Registro, pode inserir que aqui. Caso contrário, fornece suas informações de cartão de crédito (ou o PayPal em mercados suportados). Quando tiver terminado, clique em **próxima** mover para o **"Ecrã de revisão"**.
 
     ![desenho](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Rever as informações de conta e confirme que tudo está correta. Em seguida, leia e aceite os termos e condições do [contrato de publicador do Microsoft Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560). Selecione a caixa para indicar que li e Aceito estes termos.
+10. Rever as informações de conta e confirme que tudo está correta. Em seguida, leia e aceite os termos e condições do [contrato de publicador do Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560). Selecione a caixa para indicar que li e Aceito estes termos.
 11. Clique em **concluir** para confirmar o seu registo. Nós enviaremos uma mensagem de confirmação para o seu endereço de e-mail.
 12. Se estiver a planear publicar ofertas apenas gratuitas, clique em **aceda ao Portal de publicação do Azure Marketplace** e pode avançar para a seção 3 deste documento [registar a sua conta no portal de publicação](#3-register-your-account-in-the-publishing-portal).
 

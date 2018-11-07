@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004920"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232652"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Ligar funções de serviços do Azure na nuvem a um controlador de domínio do AD alojado no Azure de personalizado
 Vamos primeiro configurar uma rede Virtual (VNet) no Azure. Em seguida, vamos adicionar um controlador de domínio do Active Directory (alojada numa máquina Virtual do Azure) para a VNet. Em seguida, podemos irá adicionar as funções de serviço cloud existentes para a VNet previamente criada, em seguida, ligá-los para o controlador de domínio.
@@ -95,7 +95,7 @@ Para iniciar sessão na VM, pode obter o ficheiro RDP através do PowerShell, ut
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Uma vez que tem sessão iniciada na VM, configurar a sua máquina Virtual como um controlador de domínio do AD basta seguir o guia passo a passo [como configurar seu controlador de domínio do AD do cliente](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Uma vez que tem sessão iniciada na VM, configurar a sua máquina Virtual como um controlador de domínio do AD basta seguir o guia passo a passo [como configurar seu controlador de domínio do AD do cliente](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## <a name="add-your-cloud-service-to-the-virtual-network"></a>Adicionar o seu serviço Cloud para a rede Virtual
 Em seguida, terá de adicionar a sua implementação do serviço cloud para a nova VNet. Para fazer isso, modifique seu cscfg de serviço cloud adicionando as secções relevantes ao seu cscfg usando o Visual Studio ou o editor da sua preferência.

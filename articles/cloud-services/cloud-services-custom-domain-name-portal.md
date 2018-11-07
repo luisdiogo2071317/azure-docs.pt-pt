@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e339d50a379015d7aebe19b25127e9804d8efc52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044820"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237252"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurar um nome de domínio personalizado para um serviço cloud do Azure
 Quando cria um serviço em nuvem, o Azure atribui-lo a um subdomínio de **cloudapp.net**. Por exemplo, se o seu serviço Cloud com o nome "contoso", os utilizadores serão capazes de aceder à sua aplicação numa URL como http://contoso.cloudapp.net. O Azure também atribui um endereço IP virtual.
@@ -36,7 +36,7 @@ Já compreende o que são CNAME e registros? [Atalhos anteriores a explicação]
 <p/>
 
 > [!TIP]
-> Comece a trabalhar mais rapidamente – utilizar o Azure nova [instruções](http://support.microsoft.com/kb/2990804)!  Faz a associação de um nome de domínio personalizado e de comunicação proteger (SSL) com serviços Cloud do Azure ou Web sites do Azure muito simples.
+> Comece a trabalhar mais rapidamente – utilizar o Azure nova [instruções](https://support.microsoft.com/kb/2990804)!  Faz a associação de um nome de domínio personalizado e de comunicação proteger (SSL) com serviços Cloud do Azure ou Web sites do Azure muito simples.
 > 
 > 
 
