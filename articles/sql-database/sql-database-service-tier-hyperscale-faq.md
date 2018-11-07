@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 31f61a1d6dee19ada60a1024a235f6329d7d5ca0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377819"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242165"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -253,7 +253,7 @@ Sim. Provenientes de diferentes origens de dados diferente do SQL Server requer 
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>O que são fornecidas SLAS para uma base de dados de Hiperescala
 
-Em geral, não é oferecido qualquer SLA durante a pré-visualização pública. No entanto, a Hiperescala fornece o mesmo nível de elevada disponibilidade com ofertas atuais da BD SQL. Ver [SLA](http://azure.microsoft.com/support/legal/sla/).
+Em geral, não é oferecido qualquer SLA durante a pré-visualização pública. No entanto, a Hiperescala fornece o mesmo nível de elevada disponibilidade com ofertas atuais da BD SQL. Ver [SLA](https://azure.microsoft.com/support/legal/sla/).
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>As cópias de segurança da base de dados geridas para mim pelo serviço de base de dados do Azure SQL
 

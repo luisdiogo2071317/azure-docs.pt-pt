@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d8e469289f72fe892ea7c3da99972e6326c75eb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982046"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242541"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Como criar uma VM do Linux clássica com a CLI clássica do Azure
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Este tópico descreve como criar uma máquina virtual (VM) do Linux com a CLI cl
 * Adicionar a VM ao conjunto de disponibilidade ou localização
 
 > [!IMPORTANT]
-> Se pretender que a VM para utilizar uma rede virtual para que possam ligar à mesma diretamente por nome de anfitrião ou configuração de ligações entre locais, certifique-se de que especificar a rede virtual, ao criar a VM. Uma VM pode ser configurada para associar uma rede virtual apenas quando criar a VM. Para obter detalhes sobre redes virtuais, consulte [descrição geral de rede Virtual do Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> Se pretender que a VM para utilizar uma rede virtual para que possam ligar à mesma diretamente por nome de anfitrião ou configuração de ligações entre locais, certifique-se de que especificar a rede virtual, ao criar a VM. Uma VM pode ser configurada para associar uma rede virtual apenas quando criar a VM. Para obter detalhes sobre redes virtuais, consulte [descrição geral de rede Virtual do Azure](https://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 
