@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0ca988fba91cd1d4a97ca376a6f3ff45fae214ac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: af638c01121aa3a7f1d533cd8b50403f909d6b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418981"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235620"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Criar um balanceador de carga público com um modelo
 
@@ -34,7 +34,7 @@ ms.locfileid: "50418981"
 
 ## <a name="deploy-the-template-by-using-click-to-deploy"></a>Implementar o modelo com a função clique para implementar
 
-O modelo de exemplo disponível no repositório público utiliza um ficheiro de parâmetros com os valores predefinidos utilizados para gerar o cenário descrito acima. Para implementar este modelo com a função clique para implementar, siga [esta ligação](http://go.microsoft.com/fwlink/?LinkId=544801), clique em **Implementar no Azure**, substitua os valores de parâmetro predefinidos, se necessário, e siga as instruções apresentadas no portal.
+O modelo de exemplo disponível no repositório público utiliza um ficheiro de parâmetros com os valores predefinidos utilizados para gerar o cenário descrito acima. Para implementar este modelo com a função clique para implementar, siga [esta ligação](https://go.microsoft.com/fwlink/?LinkId=544801), clique em **Implementar no Azure**, substitua os valores de parâmetro predefinidos, se necessário, e siga as instruções apresentadas no portal.
 
 ## <a name="deploy-the-template-by-using-powershell"></a>Implementar o modelo com o PowerShell
 

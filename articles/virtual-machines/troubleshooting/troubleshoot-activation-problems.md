@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235280"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Windows Azure
 
@@ -45,9 +45,9 @@ Em geral, os problemas de ativação de VM do Azure ocorrerem se a VM do Windows
 ## <a name="solution"></a>Solução
 
 >[!NOTE]
->Se estiver a utilizar uma VPN de site a site e imposição de túnel, veja [rotas personalizadas do Azure de utilização para ativar a ativação do KMS com túnel forçado](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
+>Se estiver a utilizar uma VPN de site a site e imposição de túnel, veja [rotas personalizadas do Azure de utilização para ativar a ativação do KMS com túnel forçado](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->Se estiver a utilizar o ExpressRoute e tiver uma rota padrão publicadas, consulte [VM do Azure pode falhar ao ativar através do ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
+>Se estiver a utilizar o ExpressRoute e tiver uma rota padrão publicadas, consulte [VM do Azure pode falhar ao ativar através do ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>Passo 1 configurar a chave de configuração de cliente KMS apropriada (para Windows Server 2016 e Windows Server 2012 R2)
 
@@ -125,7 +125,7 @@ Sim.
  
 ### <a name="what-happens-if-windows-activation-period-expires"></a>O que acontece em caso de expiração do período de ativação do Windows? 
  
-Quando o período de tolerância expirou e o Windows ainda não se encontra ativado, o Windows Server 2008 R2 e versões posteriores do Windows irão mostrar notificações adicionais como ativar o Azure. O papel de parede da área de trabalho fica preta e atualização do Windows instalará a segurança e apenas as atualizações críticas, mas as atualizações não opcionais. Consulte a secção de notificações na parte inferior a [condições de licenciamento](http://technet.microsoft.com/library/ff793403.aspx) página.   
+Quando o período de tolerância expirou e o Windows ainda não se encontra ativado, o Windows Server 2008 R2 e versões posteriores do Windows irão mostrar notificações adicionais como ativar o Azure. O papel de parede da área de trabalho fica preta e atualização do Windows instalará a segurança e apenas as atualizações críticas, mas as atualizações não opcionais. Consulte a secção de notificações na parte inferior a [condições de licenciamento](https://technet.microsoft.com/library/ff793403.aspx) página.   
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 Se precisar de ajuda, ainda [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

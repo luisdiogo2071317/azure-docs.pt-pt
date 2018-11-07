@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8ef8241e9f0f6223b29fa29f7a5803f57f4d6203
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 90e03c66717cafc1cd33f4629e88aba8e76c2c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415003"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245747"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode solucionar erros encontrados ao utilizar o Azure Backup com informações listadas na tabela abaixo.
 
 | Detalhes do erro | Solução |
 | --- | --- |
-| Não foi possível executar a operação visto que a VM já não existe. -Pare a proteção de máquina virtual sem eliminar dados de cópia de segurança. Obter mais detalhes em http://go.microsoft.com/fwlink/?LinkId=808124 |Isto acontece quando a VM principal é eliminada, mas a política de cópia de segurança continua à procura de uma VM para criar cópias de segurança. Para corrigir este erro: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço cloud]<br>(OR)</li><li> Pare a proteção de máquina virtual com ou sem eliminar os dados de cópia de segurança. [Obter mais detalhes](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Não foi possível executar a operação visto que a VM já não existe. -Pare a proteção de máquina virtual sem eliminar dados de cópia de segurança. Obter mais detalhes em http://go.microsoft.com/fwlink/?LinkId=808124 |Isto acontece quando a VM principal é eliminada, mas a política de cópia de segurança continua à procura de uma VM para criar cópias de segurança. Para corrigir este erro: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço cloud]<br>(OR)</li><li> Pare a proteção de máquina virtual com ou sem eliminar os dados de cópia de segurança. [Obter mais detalhes](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | A operação de instantâneo falhou devido a nenhuma conectividade de rede na máquina virtual - Certifique-se de que a VM tem acesso à rede. Para o instantâneo tenha êxito, o IP de datacenter do Azure da lista branca intervalos ou configurar um servidor proxy para acesso à rede. Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkId=800034. Se já estiver a utilizar o servidor proxy, certifique-se de que as definições do servidor proxy estão configuradas corretamente | Ocorre quando negar a conectividade de internet de saída na máquina virtual. A extensão de instantâneo VM requer ligação à internet para tirar um instantâneo de discos subjacentes. [Consulte a secção sobre como corrigir falhas de instantâneo devido a acesso à rede bloqueado](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine). |
 | Agente da VM não consegue comunicar com o serviço de cópia de segurança do Azure. – Certifique-se a VM tem conectividade de rede e o agente da VM está em execução e mais recentes. Para obter mais informações, consulte o artigo, http://go.microsoft.com/fwlink/?LinkId=800034. |Este erro é apresentado se existe um problema com o agente da VM ou o acesso de rede para a infraestrutura do Azure é bloqueado de alguma forma. [Saiba mais](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup) sobre a depuração de segurança de VM de problemas de instantâneos.<br> Se o agente da VM não está a causar problemas, reinicie a VM. Um Estado incorreto da VM pode causar problemas e reiniciar a VM repõe o estado. |
 | VM está no estado de aprovisionamento falhado - reinicie a VM e certifique-se de que a VM está em execução ou encerrada. | Este erro ocorre quando uma das falhas de extensões leva o estado da VM para estar no Estado com falhas de aprovisionamento. Ir para a lista de extensões e ver se existe uma extensão com falha, removê-lo e tente reiniciar a máquina virtual. Se todas as extensões estão no estado de execução, verifique se o serviço de agente VM está em execução. Caso contrário, reinicie o serviço de agente VM. |
@@ -28,7 +28,7 @@ Pode solucionar erros encontrados ao utilizar o Azure Backup com informações l
 | Pode copiar o instantâneo da máquina virtual, devido a insuficiente espaço livre na conta de armazenamento - Certifique-se de que a conta de armazenamento tem espaço livre equivalente aos dados presentes nos discos de armazenamento premium ligados à máquina virtual | Em caso de VMs do premium na pilha de cópia de segurança de VM V1, podemos copiar o instantâneo para a conta de armazenamento. Isso é certificar-se de que o tráfego de gestão de cópia de segurança, que funciona em instantâneo, não limita o número de IOPS disponíveis para a aplicação utilizando os discos premium. A Microsoft recomenda que atribuir apenas 50% (17,5 TB) de espaço de conta de armazenamento total para que o serviço de cópia de segurança do Azure, pode copiar o instantâneo de conta e a transferência de dados do armazenamento a partir desta localização copiada na conta de armazenamento para o cofre. | 
 | Não é possível executar a operação porque o agente da VM não está a responder |Este erro é apresentado se existe um problema com o agente da VM ou o acesso de rede para a infraestrutura do Azure é bloqueado de alguma forma. Para VMs do Windows, verifique o estado de serviço do agente VM nos serviços e se o agente é apresentado em programas no painel de controlo. Experimente remover o programa a partir do controlo de painel e volte a instalar o agente, conforme mencionado [abaixo](#vm-agent). Depois de reinstalar o agente, acione uma cópia de segurança ad hoc para verificar. |
 | Falha na operação de extensão de serviços de recuperação. -Verifique se o agente mais recente da máquina virtual se encontra presente na máquina virtual e serviço de agente está em execução. Repita a operação de cópia de segurança. Se a operação de cópia de segurança falhar, contacte o suporte da Microsoft. |Este erro é apresentado quando o agente da VM está desatualizado. Consulte a secção "Atualizar o agente da VM" abaixo para atualizar o agente da VM. |
-| Máquina virtual não existe. -Certifique-se de que a máquina virtual existe ou selecione uma máquina virtual diferente. |Ocorre quando a VM principal é eliminada, mas a política de cópia de segurança continua a ter um aspeto de uma VM criar cópias de segurança. Para corrigir este erro: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço cloud]<br>(OR)<br></li><li>Pare a proteção da máquina virtual sem eliminar os dados de cópia de segurança. [Obter mais detalhes](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| Máquina virtual não existe. -Certifique-se de que a máquina virtual existe ou selecione uma máquina virtual diferente. |Ocorre quando a VM principal é eliminada, mas a política de cópia de segurança continua a ter um aspeto de uma VM criar cópias de segurança. Para corrigir este erro: <ol><li> Recriar a máquina virtual com o mesmo nome e o mesmo nome de grupo de recursos [nome do serviço cloud]<br>(OR)<br></li><li>Pare a proteção da máquina virtual sem eliminar os dados de cópia de segurança. [Obter mais detalhes](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Falha na execução de comando. -Outra operação está atualmente em curso neste item. Aguarde até que a operação anterior seja concluída e, em seguida, repita a operação. |Está a executar uma tarefa de cópia de segurança existente e uma nova tarefa não é possível iniciar até que seja concluída a tarefa atual. |
 | Copiar VHDs a partir de serviços de recuperação cofre excedeu o limite de tempo-repita a operação dentro de alguns minutos. Se o problema persistir, contacte o Suporte da Microsoft. | Ocorre se existir um erro transitório no lado de armazenamento, ou se o serviço de cópia de segurança não receber a conta de armazenamento suficiente IOPS para transferir dados para o cofre, dentro do período de tempo limite. Certifique-se seguir a [melhores práticas quando configurar as suas VMs](backup-azure-vms-introduction.md#best-practices). Mover a sua VM para outra conta de armazenamento que não é carregada e repita a tarefa de cópia de segurança.|
 | Cópia de segurança falhou com um erro interno - repita a operação dentro de alguns minutos. Se o problema persistir, contacte Support da Microsoft |Pode receber este erro por dois motivos: <ol><li> Existe um problema transitório ao aceder ao armazenamento de VM. Verifique os [site do Estado do Azure](https://azure.microsoft.com/status/) para ver se existem problemas de computação, armazenamento ou funcionamento em rede na região. Assim que o problema for resolvido, repita a tarefa de cópia de segurança. <li>A VM original foi eliminada e não é possível efetuar o ponto de recuperação. Para manter os dados de cópia de segurança para uma VM eliminada, mas remova os erros de cópia de segurança: desproteger a VM e escolha a opção para manter os dados. Esta ação para a tarefa de cópia de segurança agendada e as mensagens de erro recorrentes. |
@@ -82,18 +82,18 @@ Normalmente, o agente da VM já está presente nas VMs que são criadas a partir
 
 Para VMs do Windows:
 
-* Transfira e instale o [MSI do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa de privilégios de Administrador para concluir a instalação.
-* Para máquinas de virtuais de clássico, [Atualize a propriedade VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. Este passo não é necessário para as máquinas virtuais do Resource Manager.
+* Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Precisa de privilégios de Administrador para concluir a instalação.
+* Para máquinas de virtuais de clássico, [Atualize a propriedade VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. Este passo não é necessário para as máquinas virtuais do Resource Manager.
 
 Para VMs do Linux:
 
 * Instale a versão mais recente do agente a partir do repositório de distribuição. Para obter detalhes sobre o nome do pacote, consulte a [repositório de agente do Linux](https://github.com/Azure/WALinuxAgent).
-* Para VMs clássicas, [utilizar a entrada do blog para atualizar a propriedade da VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)e verificar a instalação do agente. Este passo não é necessário para as máquinas virtuais do Resource Manager.
+* Para VMs clássicas, [utilizar a entrada do blog para atualizar a propriedade da VM](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)e verificar a instalação do agente. Este passo não é necessário para as máquinas virtuais do Resource Manager.
 
 ### <a name="updating-the-vm-agent"></a>Atualizar o Agente da VM
 Para VMs do Windows:
 
-* Para atualizar o agente da VM, reinstalar o [binários do agente da VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que não existem operações de cópia de segurança ocorrem durante a atualização do agente de VM.
+* Para atualizar o agente da VM, reinstalar o [binários do agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Antes de atualizar o agente, certifique-se de que não existem operações de cópia de segurança ocorrem durante a atualização do agente de VM.
 
 Para VMs do Linux:
 
@@ -135,7 +135,7 @@ Como todas as extensões, a extensão de cópia de segurança precisa de acesso 
 * As operações de cópia de segurança (como o instantâneo do disco) podem falhar
 * Apresentar o estado da operação de cópia de segurança pode falhar
 
-A necessidade de resolução de endereços públicos da internet tem sido articulada [aqui](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Terá de verificar as configurações de DNS para a VNET e certifique-se de que os URIs de Azure pode ser resolvido.
+A necessidade de resolução de endereços públicos da internet tem sido articulada [aqui](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Terá de verificar as configurações de DNS para a VNET e certifique-se de que os URIs de Azure pode ser resolvido.
 
 Assim que a resolução de nomes é feita corretamente, acesso a IPs do Azure também tem de ser fornecido. Para desbloquear o acesso para a infraestrutura do Azure, siga um destes passos:
 

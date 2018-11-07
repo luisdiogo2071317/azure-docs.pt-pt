@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cc172e35e8964fad3b1a1410d1f1f3240c423ab3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3370767947399b167f4f1c81b57d8f92edfa0c4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810424"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242692"
 ---
 <a name="delete-an-offer-or-sku-from-azure-marketplace"></a>Eliminar uma oferta ou SKU do Azure Marketplace
 ==========================================
 
 Pode decidir, por várias razões, remover a sua oferta do Marketplace. A Remoção da Oferta impede que novos clientes possam comprar ou implementar a sua oferta, mas não afeta os clientes existentes.
-A Extinção da Oferta é o processo de extinção do serviço e/ou contrato de licenciamento entre si e os seus clientes existentes. Documentação de orientação e as políticas relacionadas com a remoção e extinção da oferta são regidas pelos [contrato de publicador do Microsoft Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560) (consulte a seção
+A Extinção da Oferta é o processo de extinção do serviço e/ou contrato de licenciamento entre si e os seus clientes existentes. Documentação de orientação e as políticas relacionadas com a remoção e extinção da oferta são regidas pelos [contrato de publicador do Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (consulte a seção
 7) e o [políticas de participação](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (consulte a secção 6.2). Fala este artigo sobre os diferentes suportado elimina cenários e os passos que pode seguir para eles.
 
 <a name="delete-a-live-sku-from-azure-marketplace"></a>Eliminar um SKU em direto do Azure Marketplace

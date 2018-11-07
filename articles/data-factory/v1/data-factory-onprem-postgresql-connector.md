@@ -1,6 +1,6 @@
 ---
-title: Mover dados de PostgreSQL utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba mais sobre como mover dados de base de dados PostgreSQL utilizando o Azure Data Factory.
+title: Mover dados do PostgreSQL com o Azure Data Factory | Documentos da Microsoft
+description: Saiba mais sobre como mover dados de base de dados do PostgreSQL com o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,43 +14,43 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 189adf27795172bb08b52af1a9e3428d854a50a0
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7357b609909c3db0bc42d58cb2cd32436c864f66
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046735"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235875"
 ---
-# <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados de PostgreSQL utilizando o Azure Data Factory
+# <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](data-factory-onprem-postgresql-connector.md)
 > * [Versão 2 (versão atual)](../connector-postgresql.md)
 
 > [!NOTE]
-> Este artigo aplica-se a versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte o artigo [conector PostgreSQL no V2](../connector-postgresql.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [conector de PostgreSQL no V2](../connector-postgresql.md).
 
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de uma base de dados de PostgreSQL no local. Baseia-se no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma descrição geral do movimento de dados com a atividade de cópia.
+Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para mover dados de uma base de dados do PostgreSQL no local. Ele se baseia no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, que apresenta uma visão geral do movimento de dados com a atividade de cópia.
 
-Pode copiar dados de um arquivo de dados PostgreSQL no local para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados suportados como sinks pela atividade de cópia, consulte [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Atualmente, a fábrica de dados suporta mover dados a partir de uma base de dados PostgreSQL para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para uma base de dados PostgreSQL. 
+Pode copiar dados de um arquivo de dados do PostgreSQL no local para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados suportados como sinks a atividade de cópia, veja [arquivos de dados suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats). O Data factory suporta, atualmente, mover dados de uma base de dados do PostgreSQL para outros arquivos de dados, mas não para mover dados de outros arquivos de dados para uma base de dados PostgreSQL. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O serviço de fábrica de dados suporta a ligar a origens de PostgreSQL no local utilizando o Data Management Gateway. Consulte [mover dados entre localizações no local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para saber mais sobre o Data Management Gateway e instruções passo a passo sobre como configurar o gateway.
+Serviço do Data Factory suporta a ligação a origens de PostgreSQL no local com o Data Management Gateway. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para saber mais sobre o Gateway de gestão de dados e instruções passo a passo sobre como configurar o gateway.
 
-É necessário gateway, mesmo se uma VM do IaaS do Azure está alojada a base de dados PostgreSQL. Pode instalar o gateway na VM do IaaS do mesmo como o arquivo de dados ou numa VM diferente, desde que o gateway consiga estabelecer ligação à base de dados.
+Gateway é necessário mesmo se a base de dados do PostgreSQL está hospedado numa VM de IaaS do Azure. Pode instalar o gateway na mesma VM de IaaS, como o arquivo de dados ou numa VM diferente, desde que o gateway consiga estabelecer ligação à base de dados.
 
 > [!NOTE]
-> Consulte [resolver problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para dicas sobre/gateway de ligação de resolução de problemas relacionados com problemas.
+> Ver [resolver problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para obter sugestões sobre resolução de problemas do gateway de ligação/problemas relacionados com.
 
 ## <a name="supported-versions-and-installation"></a>Versões suportadas e instalação
-Para o Data Management Gateway para ligar à base de dados PostgreSQL, instale o [Ngpsql data provider para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) com a versão entre 2.0.12 e 3.1.9 no mesmo sistema que o Data Management Gateway. PostgreSQL versão 7.4 e posterior é suportado.
+Para o Data Management Gateway ligar à base de dados do PostgreSQL, instalar o [Ngpsql o fornecedor de dados para o PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) com a versão 2.0.12 mezi 3.1.9 no mesmo sistema, como o Data Management Gateway. PostgreSQL versão 7.4 e acima é suportada.
 
 ## <a name="getting-started"></a>Introdução
-Pode criar um pipeline com uma atividade de cópia move os dados de um arquivo de dados PostgreSQL no local utilizando ferramentas diferentes/APIs. 
+Pode criar um pipeline com uma atividade de cópia que move os dados de um arquivo de dados do PostgreSQL no local através de APIs/ferramentas diferentes. 
 
-- A forma mais fácil de criar um pipeline que consiste em utilizar o **Assistente para copiar**. Consulte [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para instruções rápidas sobre como criar um pipeline com o Assistente de cópia de dados. 
-- Também pode utilizar as ferramentas seguintes para criar um pipeline: 
+- A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Ver [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados. 
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: 
     - Portal do Azure
     - Visual Studio
     - Azure PowerShell
@@ -58,78 +58,78 @@ Pode criar um pipeline com uma atividade de cópia move os dados de um arquivo d
     - API .NET
     - API REST
 
-     Consulte [tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+     Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
-Se utilizar as ferramentas ou APIs, execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados do sink:
+Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink:
 
-1. Criar **serviços ligados** associar dados de entrada e de saída armazena à fábrica de dados.
-2. Criar **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
-3. Criar um **pipeline** com uma atividade de cópia executa um conjunto de dados como entrada e um conjunto de dados como resultado. 
+1. Crie **serviços ligados** para ligar a dados de entrada e saídos armazena à fábrica de dados.
+2. Crie **conjuntos de dados** para representar os dados de entrada e saídos da operação de cópia. 
+3. Criar uma **pipeline** com uma atividade de cópia que usa um conjunto de dados como entrada e um conjunto de dados como uma saída. 
 
-Quando utilizar o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e o pipeline) são criadas automaticamente para si. Ao utilizar ferramentas/APIs (exceto .NET API), é possível definir estas entidades do Data Factory, utilizando o formato JSON.  Para um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados PostgreSQL no local, consulte [exemplo JSON: copiar dados de PostgreSQL para Blob do Azure](#json-example-copy-data-from-postgresql-to-azure-blob) secção deste artigo. 
+Quando utiliza o assistente, definições de JSON para estas entidades do Data Factory (serviços ligados, conjuntos de dados e pipeline) são criadas automaticamente para. Ao utilizar ferramentas/APIs (exceto a .NET API), define essas entidades do Data Factory com o formato JSON.  Para obter um exemplo com definições de JSON para entidades do Data Factory que são utilizadas para copiar dados de um arquivo de dados do PostgreSQL no local, veja [exemplo de JSON: copiar dados do PostgreSQL para BLOBs do Azure](#json-example-copy-data-from-postgresql-to-azure-blob) seção deste artigo. 
 
-As secções seguintes fornecem detalhes sobre as propriedades JSON que são utilizados para definir entidades do Data Factory específicas para um arquivo de dados PostgreSQL:
+As secções seguintes fornecem detalhes sobre as propriedades JSON, que são utilizadas para definir entidades do Data Factory específicas para um arquivo de dados do PostgreSQL:
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
-A tabela seguinte fornece uma descrição para os elementos JSON específicos do serviço de PostgreSQL ligado.
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+A tabela seguinte fornece uma descrição para elementos JSON específicos ao serviço de PostgreSQL ligado.
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo tem de ser definida: **OnPremisesPostgreSql** |Sim |
+| tipo |A propriedade de tipo deve ser definida como: **OnPremisesPostgreSql** |Sim |
 | servidor |Nome do servidor PostgreSQL. |Sim |
 | base de dados |Nome da base de dados PostgreSQL. |Sim |
-| Esquema |Nome do esquema na base de dados. O nome de esquema é maiúsculas e minúsculas. |Não |
+| esquema |Nome do esquema na base de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados PostgreSQL. Os valores possíveis são: anónimo, básico e Windows. |Sim |
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação básica ou do Windows. |Não |
-| palavra-passe |Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. |Não |
-| gatewayName |Nome do gateway que o serviço fábrica de dados deve utilizar para ligar à base de dados de PostgreSQL no local. |Sim |
+| palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
+| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do PostgreSQL no local. |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
-Para uma lista completa das secções & Propriedades disponíveis para definir os conjuntos de dados, consulte o [criar conjuntos de dados](data-factory-create-datasets.md) artigo. As secções, tais como a estrutura, a disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [criar conjuntos de dados](data-factory-create-datasets.md) artigo. Seções, como a estrutura, disponibilidade e a política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
 
-A secção de typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no arquivo de dados. Os typeProperties secção para o conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados PostgreSQL) tem as seguintes propriedades:
+A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados no arquivo de dados. Os typeProperties secção para o conjunto de dados do tipo **RelationalTable** (que inclui o conjunto de dados do PostgreSQL) tem as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tableName |Nome da tabela na instância da base de dados PostgreSQL pelo serviço ligado refere-se. TableName é maiúsculas e minúsculas. |Não (se **consulta** de **RelationalSource** especificado) |
+| tableName |Nome da tabela na instância da base de dados PostgreSQL pelo serviço ligado refere-se. O tableName diferencia maiúsculas de minúsculas. |Não (se **consulta** dos **RelationalSource** for especificado) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
-Para uma lista completa das secções & Propriedades disponíveis para definir as atividades, consulte o [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição e de saída, tabelas e política estão disponíveis para todos os tipos de atividades.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição, entrada e saída de tabelas e a política estão disponíveis para todos os tipos de atividades.
 
-Enquanto, propriedades disponíveis na secção typeProperties da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, podem variam consoante os tipos de origens e sinks.
+Ao passo que, propriedades disponíveis na secção typeProperties da atividade variar de acordo com cada tipo de atividade. Para a atividade de cópia, elas variam consoante os tipos de origens e sinks.
 
-Quando a origem é do tipo **RelationalSource** (que inclui PostgreSQL), na secção typeProperties, estão disponíveis as seguintes propriedades:
+Quando a origem é do tipo **RelationalSource** (que inclui o PostgreSQL), as seguintes propriedades estão disponíveis na secção typeProperties:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler os dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **tableName** de **dataset** especificado) |
+| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: `"query": "select * from \"MySchema\".\"MyTable\""`. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 > [!NOTE]
-> Os nomes de tabela e esquema são maiúsculas e minúsculas. Coloque-os na `""` (aspas) na consulta.  
+> Nomes de tabela e esquema diferenciam maiúsculas de minúsculas. Coloque-as no `""` (as aspas duplas) na consulta.  
 
 **Exemplo:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemplo JSON: copiar dados de PostgreSQL para Blob do Azure
-Neste exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Estes mostram como copiar dados de base de dados PostgreSQL para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) utilizando a atividade de cópia no Azure Data Factory.   
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemplo de JSON: copiar dados do PostgreSQL para BLOBs do Azure
+Este exemplo fornece definições de JSON de exemplo que pode utilizar para criar um pipeline com [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md) ou [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados de base de dados PostgreSQL para armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos sinks indicados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a atividade de cópia no Azure Data Factory.   
 
 > [!IMPORTANT]
-> Este exemplo fornece fragmentos JSON. Não inclui instruções passo a passo para criação da fábrica de dados. Consulte [mover dados entre localizações no local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo.
+> Este exemplo fornece trechos JSON. Não inclui instruções passo a passo para criar a fábrica de dados. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para obter instruções passo a passo.
 
-O exemplo tem as seguintes entidades de fábrica de dados:
+O exemplo possui as seguintes entidades do data factory:
 
 1. Um serviço ligado do tipo [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 2. Um serviço ligado do tipo [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. Uma entrada [dataset](data-factory-create-datasets.md) do tipo [RelationalTable](data-factory-onprem-postgresql-connector.md#dataset-properties).
-4. Uma saída [dataset](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. O [pipeline](data-factory-create-pipelines.md) com atividade de cópia que utiliza [RelationalSource](data-factory-onprem-postgresql-connector.md#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. Entrada [conjunto de dados](data-factory-create-datasets.md) do tipo [RelationalTable](data-factory-onprem-postgresql-connector.md#dataset-properties).
+4. Uma saída [conjunto de dados](data-factory-create-datasets.md) do tipo [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. O [pipeline](data-factory-create-pipelines.md) com a atividade de cópia que utiliza [RelationalSource](data-factory-onprem-postgresql-connector.md#copy-activity-properties) e [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-O exemplo copia dados a partir de um resultado de consulta na base de dados PostgreSQL para um blob a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas secções seguintes exemplos.
+O exemplo copia dados de um resultado de consulta na base de dados do PostgreSQL para um blob a cada hora. As propriedades JSON utilizadas nestes exemplos são descritas nas seções a seguir os exemplos.
 
-Como primeiro passo, configure o data management gateway. As instruções são no [mover dados entre localizações no local e nuvem](data-factory-move-data-between-onprem-and-cloud.md) artigo.
+Como primeiro passo, configure o gateway de gestão de dados. As instruções estão no [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo.
 
-**PostgreSQL serviço ligado:**
+**Serviço ligado do PostgreSQL:**
 
 ```json
 {
@@ -165,7 +165,7 @@ Como primeiro passo, configure o data management gateway. As instruções são n
 
 O exemplo assume que criou uma tabela "MyTable" PostgreSQL e contém uma coluna chamada "timestamp" para dados de séries de tempo.
 
-Definição `"external": true` informa o serviço fábrica de dados que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade no factory de dados.
+Definição `"external": true` informa o serviço Data Factory, que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
 ```json
 {
@@ -190,9 +190,9 @@ Definição `"external": true` informa o serviço fábrica de dados que o conjun
 }
 ```
 
-**Conjunto de dados de saída do Blob do Azure:**
+**Conjunto de dados de Blobs do Azure:**
 
-Dados são escritos num blob novo a cada hora (frequência: hora, intervalo: 1). O nome de ficheiro e caminho de pasta para o blob dinamicamente são avaliados com base na hora de início do setor que está a ser processado. O caminho da pasta utiliza ano, mês, dia e em partes de horas a hora de início.
+Os dados são escritos para um blob novo a cada hora (frequência: hora, intervalo: 1). O nome de ficheiro e caminho de pasta para o blob dinamicamente são avaliados com base na hora de início do setor que está a ser processado. O caminho da pasta utiliza ano, mês, dia e partes de horas da hora de início.
 
 ```json
 {
@@ -252,7 +252,7 @@ Dados são escritos num blob novo a cada hora (frequência: hora, intervalo: 1).
 
 **Pipeline com atividade de cópia:**
 
-O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e de saída e está agendada para execução por hora. No pipeline de definição de JSON, o **origem** tipo está definido como **RelationalSource** e **sink** tipo está definido como **BlobSink**. A consulta de SQL Server especificada para o **consulta** propriedade seleciona os dados da tabela public.usstates na base de dados PostgreSQL.
+O pipeline contém uma atividade de cópia que está configurado para utilizar os conjuntos de dados de entrada e saídos e é agendada para ser executada uma vez por hora. No pipeline de definição de JSON, o **origem** tipo está definido como **RelationalSource** e **sink** tipo está definido como **BlobSink**. A consulta SQL especificada para o **consulta** propriedade seleciona os dados da tabela public.usstates na base de dados PostgreSQL.
 
 ```json
 {
@@ -297,62 +297,62 @@ O pipeline contém uma atividade de cópia que está configurado para utilizar o
     }
 }
 ```
-## <a name="type-mapping-for-postgresql"></a>Mapeamento de tipos para PostgreSQL
-Tal como mencionado no [atividades de movimentos de dados](data-factory-data-movement-activities.md) artigo atividade de cópia executa conversões de tipo automática dos tipos de origem para sink tipos com a seguinte abordagem de passo 2:
+## <a name="type-mapping-for-postgresql"></a>Mapeamento do tipo de PostgreSQL
+Conforme mencionado na [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo atividade de cópia executa conversões de tipos automáticas de tipos de origem para o sink de tipos com a seguinte abordagem de passo 2:
 
-1. Converter de tipos de origens de nativo para o tipo .NET
-2. Converter o tipo de sink nativo do tipo .NET
+1. Converter entre tipos de origem nativas para o tipo de .NET
+2. Converter de tipo de .NET para o tipo de sink nativo
 
-Ao mover dados para PostgreSQL, os seguintes mapeamentos são utilizados do tipo PostgreSQL para tipo .NET.
+Ao mover dados para o PostgreSQL, os seguintes mapeamentos de servem do tipo de PostgreSQL para o tipo .NET.
 
-| Tipo de base de dados PostgreSQL | PostgresSQL aliases | Tipo de .NET framework |
+| Tipo de base de dados PostgreSQL | Aliases de PostgresSQL | Tipo de .NET framework |
 | --- | --- | --- |
 | abstime | |Datetime | &nbsp;
-| bigint |int8 |Int64 |
+| bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte [], cadeia | &nbsp;
-| bit variando [(n)] |varbit |Byte [], cadeia |
+| bit [(n)] | |Byte [], cadeia de caracteres | &nbsp;
+| bit variado [(n)] |varbit |Byte [], cadeia de caracteres |
 | boolean |Bool |Booleano |
-| Caixa | |Byte [], cadeia |&nbsp;
-| bytea | |Byte [], cadeia |&nbsp;
+| Caixa | |Byte [], cadeia de caracteres |&nbsp;
+| bytea | |Byte [], cadeia de caracteres |&nbsp;
 | caráter [(n)] |char [(n)] |Cadeia |
-| caráter vários [(n)] |varchar [(n)] |Cadeia |
+| caráter variados [(n)] |varchar [(n)] |Cadeia |
 | CID | |Cadeia |&nbsp;
 | CIDR | |Cadeia |&nbsp;
-| Círculo | |Byte [], cadeia |&nbsp;
-| data | |Datetime |&nbsp;
+| Círculo | |Byte [], cadeia de caracteres |&nbsp;
+| date | |Datetime |&nbsp;
 | daterange | |Cadeia |&nbsp;
 | precisão dupla |FLOAT8 |Valor de duplo |
-| inet | |Byte [], cadeia |&nbsp;
+| inet | |Byte [], cadeia de caracteres |&nbsp;
 | intarry | |Cadeia |&nbsp;
 | int4range | |Cadeia |&nbsp;
 | int8range | |Cadeia |&nbsp;
 | inteiro |int, int4 |Int32 |
-| intervalo [campos] [(p)] | |Timespan |&nbsp;
+| intervalo de [campos] [(p)] | |Timespan |&nbsp;
 | json | |Cadeia |&nbsp;
 | jsonb | |Byte[] |&nbsp;
-| Linha | |Byte [], cadeia |&nbsp;
-| lseg | |Byte [], cadeia |&nbsp;
-| macaddr | |Byte [], cadeia |&nbsp;
-| dinheiro | |Decimal |&nbsp;
-| numérica [(p, s)] |decimal [(p, s)] |Decimal |
+| Linha | |Byte [], cadeia de caracteres |&nbsp;
+| lseg | |Byte [], cadeia de caracteres |&nbsp;
+| macaddr | |Byte [], cadeia de caracteres |&nbsp;
+| dinheiro | |decimal |&nbsp;
+| numérico [(p, s)] |decimal [(p, s)] |decimal |
 | numrange | |Cadeia |&nbsp;
 | OID | |Int32 |&nbsp;
-| caminho | |Byte [], cadeia |&nbsp;
+| caminho | |Byte [], cadeia de caracteres |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| Ponto de | |Byte [], cadeia |&nbsp;
-| polígono | |Byte [], cadeia |&nbsp;
+| Ponto de | |Byte [], cadeia de caracteres |&nbsp;
+| Polígono | |Byte [], cadeia de caracteres |&nbsp;
 | real |FLOAT4 |Único |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | série |serial4 |Int32 |
 | texto | |Cadeia |&nbsp;
 
-## <a name="map-source-to-sink-columns"></a>Origem de mapa para sink colunas
-Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem em colunas no conjunto de dados do sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Origem do mapa para colunas de sink
+Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem para colunas no conjunto de dados de sink, veja [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="repeatable-read-from-relational-sources"></a>Repetíveis leitura a partir de origens relacionais
-Quando armazena a cópia de dados de dados relacionais, manter a repetibilidade em mente para evitar resultados inesperados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a política de repetição para um conjunto de dados para que um setor será novamente executado quando ocorre uma falha. Quando um setor é voltar a executar qualquer forma, tem de certificar-se de que os mesmos dados é a leitura não independentemente um setor é executado o número de vezes. Consulte [Repeatable ler a partir de origens relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+## <a name="repeatable-read-from-relational-sources"></a>Leitura passível de repetição de fontes relacionais
+Quando armazena a cópia de dados de dados relacionais, tenha a capacidade de repetição em mente para evitar resultados indesejados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a política de repetição para um conjunto de dados para que um setor será novamente executado quando ocorre uma falha. Quando um setor será novamente executado de qualquer forma, terá de certificar-se de que os mesmos dados é de leitura não questão número de vezes que um setor é executado. Ver [Repeatable ler a partir de origens relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
-## <a name="performance-and-tuning"></a>Desempenho e a otimização
-Consulte [desempenho de atividade de cópia & otimização guia](data-factory-copy-activity-performance.md) para saber mais sobre fatores determinantes esse desempenho impacto de movimento de dados (atividade de cópia) no Azure Data Factory e várias formas para otimizar o mesmo.
+## <a name="performance-and-tuning"></a>Desempenho e Otimização
+Ver [desempenho de atividade de cópia e guia de ajuste](data-factory-copy-activity-performance.md) para saber mais sobre os fatores chave a que um impacto no desempenho de movimento de dados (atividade de cópia) no Azure Data Factory e diversas maneiras para otimizá-lo.
