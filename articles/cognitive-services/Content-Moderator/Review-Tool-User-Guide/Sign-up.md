@@ -1,6 +1,6 @@
 ---
-title: Inscreva-se Moderator conteúdo | Microsoft Docs
-description: Na página de inscrição Moderator conteúdo, pode inscrever-se com uma conta Microsoft ou criar uma conta no Moderator conteúdo web site.
+title: Inscreva-se o Content Moderator | Documentos da Microsoft
+description: Na página de inscrição Content Moderator, pode inscrever-se com uma conta Microsoft ou criar uma conta no site do Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,19 +9,19 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: sajagtap
-ms.openlocfilehash: c7d1c1e01dfc31383bfd25c2f577a271cbe5d02b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cd477a630178754e84fe67bbf3225b6b7e450ba5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351379"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237949"
 ---
-# <a name="sign-up-for-content-moderator"></a>Inscrever-se no Moderator conteúdo #
-Navegue para o [Moderator conteúdo inscrever-se](http://contentmoderator.cognitive.microsoft.com/Account/Signup) página. Pode inscrever-se com a sua conta Microsoft ou criar uma conta no Moderator conteúdo web site.
+# <a name="sign-up-for-content-moderator"></a>Inscreva-se para o Content Moderator #
+Navegue para o [Content Moderator Inscreva-se](https://contentmoderator.cognitive.microsoft.com/Account/Signup) página. Pode inscrever-se com sua conta Microsoft ou criar uma conta no site do Content Moderator.
 
 ![Inscrever-se](images/0-signup-1.PNG)
 
 ## <a name="name-your-team"></a>Nome da sua equipa ##
 Forneça um nome para a sua equipa de revisão. Opcionalmente, pode convidar os seus colegas para associar a sua equipa.
 
-![Criar agrupamento](images/1-Team-Name.PNG)
+![Criar equipa](images/1-Team-Name.PNG)

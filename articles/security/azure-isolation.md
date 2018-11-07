@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579852"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239054"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolamento na Cloud pública do Azure
 ##  <a name="introduction"></a>Introdução
@@ -91,7 +91,7 @@ RBAC do Azure tem três funções básicas que se aplicam a todos os tipos de re
 
 - **Leitor** pode ver os recursos do Azure existentes.
 
-![Controlo de Acesso Baseado em Funções do Azure](./media/azure-isolation/azure-isolation-fig3.png)
+![Controlo de acesso baseado em função do Azure](./media/azure-isolation/azure-isolation-fig3.png)
 
 O restante das funções do RBAC do Azure permitem a gestão de recursos específicos do Azure. Por exemplo, a função de contribuinte de Máquina Virtual permite ao utilizador criar e gerir máquinas virtuais. Ele não dá-lhes acesso a rede Virtual do Azure ou a sub-rede que a máquina virtual se liga a.
 
@@ -111,7 +111,7 @@ Outras funcionalidades do Azure Active Directory incluem:
 - [O Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) fornece um serviço de gestão de identidade global altamente disponível para aplicações voltadas para consumidores que se dimensionam até centenas de milhões de identidades. Pode ser integrado entre plataformas móveis e Web. Os consumidores podem iniciar sessão todas as suas aplicações através de experiências personalizáveis através das respetivas contas de redes sociais existentes ou criando credenciais.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolamento de administradores do Microsoft e a eliminação de dados
-A Microsoft leva medidas fortes para proteger os dados de acesso inadequado ou utilizar por pessoas não autorizadas. Esses processos e controlos operacionais são apoiados pela [termos dos Online Services](http://aka.ms/Online-Services-Terms), que oferecem os compromissos contratuais que regem o acesso aos seus dados.
+A Microsoft leva medidas fortes para proteger os dados de acesso inadequado ou utilizar por pessoas não autorizadas. Esses processos e controlos operacionais são apoiados pela [termos dos Online Services](https://aka.ms/Online-Services-Terms), que oferecem os compromissos contratuais que regem o acesso aos seus dados.
 
 -   Engenheiros da Microsoft não tem predefinição acesso aos seus dados na cloud. Em vez disso, é-lhes concedida acesso, em supervisão de gerenciamento, apenas quando necessário. Esse acesso é cuidadosamente controlado com sessão iniciado e revogado quando já não for necessário.
 
@@ -119,7 +119,7 @@ A Microsoft leva medidas fortes para proteger os dados de acesso inadequado ou u
 
 Serviços de negócios com certificações auditadas, tais como a ISO/IEC 27001 regularmente são verificados por firmas de auditoria credenciadas, que efetuar auditorias de amostra para atestar que o acesso, apenas para fins comerciais legítimos e Microsoft. Sempre pode acessar seus próprios dados de cliente a qualquer momento e por qualquer motivo.
 
-Se eliminar quaisquer dados, o Microsoft Azure elimina os dados, incluindo quaisquer cópias em cache ou cópia de segurança. Para os serviços de dentro do âmbito, que a eliminação irá ocorrer dentro de 90 dias após o fim do período de retenção. (Serviços de dentro do âmbito são definidos na secção de termos de processamento de dados do nosso [termos dos Online Services](http://aka.ms/Online-Services-Terms).)
+Se eliminar quaisquer dados, o Microsoft Azure elimina os dados, incluindo quaisquer cópias em cache ou cópia de segurança. Para os serviços de dentro do âmbito, que a eliminação irá ocorrer dentro de 90 dias após o fim do período de retenção. (Serviços de dentro do âmbito são definidos na secção de termos de processamento de dados do nosso [termos dos Online Services](https://aka.ms/Online-Services-Terms).)
 
 Se uma unidade de disco utilizada para armazenamento sofre uma falha de hardware, é segura [apagados ou destruído](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) antes de Microsoft retorna para o fabricante para substituição ou a reparação. Os dados na unidade são substituídos para garantir que os dados não podem ser recuperados por qualquer meio.
 

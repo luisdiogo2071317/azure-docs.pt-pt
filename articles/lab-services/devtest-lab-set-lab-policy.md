@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666844"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255186"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerir todas as políticas para um laboratório no Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Os laboratórios DevTest do Azure permite-lhe controlar o custo e minimize o des
 ## <a name="set-allowed-virtual-machine-sizes"></a>Conjunto de tamanhos de máquina virtual permitido
 A política para definir os tamanhos VM permitidos ajuda a minimizar o desperdício de laboratório, permitindo-lhe especificar os tamanhos de VM são permitidos no laboratório. Se esta política estiver ativada, apenas os tamanhos de VM desta lista podem ser utilizados para criar VMs.
 
-1. Na [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório e, em seguida, selecione **Konfigurace a zásady**.
+1. Na [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório e, em seguida, selecione **Konfigurace a zásady**.
 
     ![O laboratório configuração e políticas de acesso](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

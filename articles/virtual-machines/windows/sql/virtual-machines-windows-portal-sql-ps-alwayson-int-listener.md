@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381800"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228220"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais Always On grupo serviços de escuta disponibilidade - Resource Manager
 Este tópico mostra como:
@@ -41,7 +41,7 @@ Tópicos relacionados incluem:
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
 ## <a name="configure-the-windows-firewall"></a>Configurar a Firewall do Windows
-Configure a Firewall do Windows para permitir o acesso do SQL Server. As regras de firewall permitam ligações de TCP para o uso de portas por instância do SQL Server e a sonda de serviço de escuta. Para obter instruções detalhadas, consulte [configurar uma Firewall do Windows para acesso ao motor de base de dados](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Crie uma regra de entrada para a porta do SQL Server e para a porta de sonda.
+Configure a Firewall do Windows para permitir o acesso do SQL Server. As regras de firewall permitam ligações de TCP para o uso de portas por instância do SQL Server e a sonda de serviço de escuta. Para obter instruções detalhadas, consulte [configurar uma Firewall do Windows para acesso ao motor de base de dados](https://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Crie uma regra de entrada para a porta do SQL Server e para a porta de sonda.
 
 Se estiver a restrição do acesso com um grupo de segurança de rede do Azure, certifique-se de que as regras de permissão incluem os endereços de IP da VM do SQL Server back-end e o Balanceador de carga IP flutuante endereços para o serviço de escuta de AG e o endereço IP de núcleo de cluster, se aplicável.
 
@@ -110,7 +110,7 @@ A porta de front-end é a porta que aplicações utilizam para ligar à instânc
 > Para grupos de disponibilidade do SQL Server, cada endereço IP requer uma porta de sonda específico. Por exemplo, se um endereço IP num Balanceador de carga utiliza a porta de sonda 59999, outros endereços IP no balanceador de carga que podem utilizar a porta de sonda 59999.
 
 * Para obter informações sobre os limites de Balanceador de carga, veja **IP de front-end privado por Balanceador de carga** sob [limites de rede - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
-* Para obter informações sobre os limites do grupo de disponibilidade, consulte [restrições (grupos de disponibilidade)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
+* Para obter informações sobre os limites do grupo de disponibilidade, consulte [restrições (grupos de disponibilidade)](https://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
 O script a seguir adiciona um novo endereço IP a um balanceador de carga existente. O ILB utiliza a porta do serviço de escuta para a porta de front-end de balanceamento de carga. Esta porta pode ser a porta que o SQL Server está a escutar. Para as instâncias de padrão do SQL Server, a porta é 1433. Regra para um grupo de disponibilidade de balanceamento de carga requer um IP flutuante (devolução direta do servidor), para a porta de back-end é o mesmo que a porta de front-end. Atualize as variáveis para o seu ambiente. 
 
@@ -188,7 +188,7 @@ Para testar a ligação:
 A ligação de SQLCMD liga-se automaticamente para qualquer instância do SQL Server aloja a réplica primária. 
 
 > [!NOTE]
-> Certifique-se de que a porta especificada está aberta na firewall de ambos os servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que utiliza. Ver [adicionar ou Editar regra de Firewall](http://technet.microsoft.com/library/cc753558.aspx) para obter mais informações. 
+> Certifique-se de que a porta especificada está aberta na firewall de ambos os servidores SQL. Ambos os servidores exigem uma regra de entrada para a porta TCP que utiliza. Ver [adicionar ou Editar regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx) para obter mais informações. 
 > 
 > 
 
@@ -205,9 +205,9 @@ Para obter mais informações, consulte [grupo de disponibilidade configurar Alw
 ## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 Utilize os seguintes cmdlets do PowerShell para criar um balanceador de carga interno para máquinas virtuais do Azure.
 
-* [Novo-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt619450.aspx) cria um balanceador de carga. 
-* [Novo-AzureRMLoadBalancerFrontendIpConfig](http://msdn.microsoft.com/library/mt603510.aspx) cria uma configuração de IP Front-end para um balanceador de carga. 
-* [Novo-AzureRmLoadBalancerRuleConfig](http://msdn.microsoft.com/library/mt619391.aspx) cria uma configuração de regra para um balanceador de carga. 
-* [Novo-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) cria uma configuração de conjuntos de endereços de back-end para um balanceador de carga. 
-* [Novo-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) cria uma configuração de pesquisa para um balanceador de carga.
-* [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) remove um balanceador de carga a partir de um grupo de recursos do Azure.
+* [Novo-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt619450.aspx) cria um balanceador de carga. 
+* [Novo-AzureRMLoadBalancerFrontendIpConfig](https://msdn.microsoft.com/library/mt603510.aspx) cria uma configuração de IP Front-end para um balanceador de carga. 
+* [Novo-AzureRmLoadBalancerRuleConfig](https://msdn.microsoft.com/library/mt619391.aspx) cria uma configuração de regra para um balanceador de carga. 
+* [Novo-AzureRmLoadBalancerBackendAddressPoolConfig](https://msdn.microsoft.com/library/mt603791.aspx) cria uma configuração de conjuntos de endereços de back-end para um balanceador de carga. 
+* [Novo-AzureRmLoadBalancerProbeConfig](https://msdn.microsoft.com/library/mt603847.aspx) cria uma configuração de pesquisa para um balanceador de carga.
+* [Remove-AzureRmLoadBalancer](https://msdn.microsoft.com/library/mt603862.aspx) remove um balanceador de carga a partir de um grupo de recursos do Azure.

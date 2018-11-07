@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: ccb3c6b1349576c0fa91066f4e98f0a53f5bef45
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319602"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248763"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurar o acesso condicional no local com o registo de dispositivos do Azure Active Directory
 
@@ -51,7 +51,7 @@ Estas capacidades estão disponíveis para os clientes que comprarem uma licenç
 * Licença para o Azure Active Directory Premium
 * Windows Server 2012 R2 serviços de Federação, configurada para SSO para o Azure AD
 * Proxy de aplicações Web do Windows Server 2012 R2 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(transferir o Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(transferir o Azure AD Connect)](https://www.microsoft.com/download/details.aspx?id=47594)
 * Domínio verificado
 
 ## <a name="known-issues-in-this-release"></a>Problemas conhecidos nesta versão

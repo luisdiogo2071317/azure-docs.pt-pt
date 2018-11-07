@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159913"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246757"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos expandidos na base de dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ Este tópico explica como a implementação de eventos expandidos na base de dad
 
 Informações adicionais sobre eventos expandidos, para a base de dados do Azure SQL e o Microsoft SQL Server, estão disponíveis em:
 
-- [Início rápido: Eventos expandidos no SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Eventos expandidos](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Início rápido: Eventos expandidos no SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Eventos expandidos](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este tópico pressupõe que já tenha algum conhecimento de:
 
 - [O serviço de base de dados SQL do Azure](https://azure.microsoft.com/services/sql-database/).
-- [Eventos expandidos](http://msdn.microsoft.com/library/bb630282.aspx) no Microsoft SQL Server.
+- [Eventos expandidos](https://msdn.microsoft.com/library/bb630282.aspx) no Microsoft SQL Server.
 
 - A maior parte da nossa documentação sobre eventos expandidos aplica-se para o SQL Server e base de dados SQL.
 
@@ -69,10 +69,10 @@ Tópicos relacionados fornecem dois exemplos de código:
 ## <a name="transact-sql-differences"></a>Diferenças do Transact-SQL
 
 
-- Quando executar o [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) comando no SQL Server, utilize o **ON SERVER** cláusula. Mas, na base de dados SQL utiliza a **no banco de dados** cláusula em vez disso.
+- Quando executar o [CREATE EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) comando no SQL Server, utilize o **ON SERVER** cláusula. Mas, na base de dados SQL utiliza a **no banco de dados** cláusula em vez disso.
 
 
-- O **no banco de dados** cláusula também se aplica ao [eventos ALTER sessão](http://msdn.microsoft.com/library/bb630368.aspx) e [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) comandos Transact-SQL.
+- O **no banco de dados** cláusula também se aplica ao [eventos ALTER sessão](https://msdn.microsoft.com/library/bb630368.aspx) e [DROP EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx) comandos Transact-SQL.
 
 
 - Uma prática recomendada é incluir a opção de sessão do evento de **STARTUP_STATE = ON** no seu **CREATE EVENT SESSION** ou **eventos ALTER sessão** instruções.
@@ -80,7 +80,7 @@ Tópicos relacionados fornecem dois exemplos de código:
 
 ## <a name="new-catalog-views"></a>Novas exibições de catálogo
 
-A funcionalidade de eventos expandidos é suportada por várias [modos de exibição de catálogo](http://msdn.microsoft.com/library/ms174365.aspx). Exibições de catálogo falar sobre *metadados ou definições* de sessões de eventos criados pelo utilizador na base de dados atual. As vistas não devolver informações sobre as instâncias de sessões de evento do Active Directory.
+A funcionalidade de eventos expandidos é suportada por várias [modos de exibição de catálogo](https://msdn.microsoft.com/library/ms174365.aspx). Exibições de catálogo falar sobre *metadados ou definições* de sessões de eventos criados pelo utilizador na base de dados atual. As vistas não devolver informações sobre as instâncias de sessões de evento do Active Directory.
 
 | Nome de<br/>Vista de catálogo | Descrição |
 |:--- |:--- |
@@ -92,9 +92,9 @@ A funcionalidade de eventos expandidos é suportada por várias [modos de exibi�
 
 No Microsoft SQL Server, semelhante exibições de catálogo têm nomes que incluem *.server\_*  em vez de *.database\_*. O padrão de nome é como **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Novas exibições de gerenciamento dinâmico [(DMVs)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Base de dados SQL do Azure tem [vistas de gestão dinâmica (DMVs)](http://msdn.microsoft.com/library/bb677293.aspx) que suportam eventos expandidos. DMVs falar sobre *Active Directory* sessões de eventos.
+Base de dados SQL do Azure tem [vistas de gestão dinâmica (DMVs)](https://msdn.microsoft.com/library/bb677293.aspx) que suportam eventos expandidos. DMVs falar sobre *Active Directory* sessões de eventos.
 
 | Nome da DMV | Descrição |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 Seguem-se os destinos que podem capturar os resultados de suas sessões de evento na base de dados SQL:
 
-- [Destino de memória intermédia de anel](http://msdn.microsoft.com/library/ff878182.aspx) -brevemente contém dados de eventos na memória.
-- [Destino de contador do evento](http://msdn.microsoft.com/library/ff878025.aspx) -contagens de todos os eventos que ocorrem durante uma sessão de eventos expandidos.
-- [Destino de ficheiro de evento](http://msdn.microsoft.com/library/ff878115.aspx) -escreve buffers completas para um contentor de armazenamento do Azure.
+- [Destino de memória intermédia de anel](https://msdn.microsoft.com/library/ff878182.aspx) -brevemente contém dados de eventos na memória.
+- [Destino de contador do evento](https://msdn.microsoft.com/library/ff878025.aspx) -contagens de todos os eventos que ocorrem durante uma sessão de eventos expandidos.
+- [Destino de ficheiro de evento](https://msdn.microsoft.com/library/ff878115.aspx) -escreve buffers completas para um contentor de armazenamento do Azure.
 
-O [rastreio de eventos para Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) API não está disponível para eventos expandidos na base de dados SQL.
+O [rastreio de eventos para Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) API não está disponível para eventos expandidos na base de dados SQL.
 
 ## <a name="restrictions"></a>Restrições
 
@@ -195,8 +195,8 @@ O **o ficheiro de evento** destino poderá deparar-se a latência de rede ou fal
 - [Cmdlets de armazenamento do Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Com o Azure PowerShell com armazenamento do Azure](../storage/common/storage-powershell-guide-full.md) -oferece informações abrangentes sobre o PowerShell e o serviço de armazenamento do Azure.
 - [Como utilizar o armazenamento de Blobs do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CRIAR a sessão do evento (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CRIAR a sessão do evento (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Mensagens do blogue de Jonathan Kehayias ' Acerca de eventos expandidos no Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Outros tópicos de exemplo de código para eventos expandidos estão disponívei
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

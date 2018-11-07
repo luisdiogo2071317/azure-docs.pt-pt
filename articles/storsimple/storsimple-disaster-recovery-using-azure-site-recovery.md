@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666943"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249273"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação após desastre automatizada com o Azure Site Recovery para partilhas de ficheiros alojadas no StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -43,7 +43,7 @@ Implementar uma solução de recuperação de desastres num único clique que ut
    - Partilhas de ficheiros alojadas em volumes configurados no dispositivo de armazenamento StorSimple
    - [Cofre de serviços do Azure Site Recovery](../site-recovery/site-recovery-vmm-to-vmm.md) criado numa subscrição do Microsoft Azure
 
-Além disso, se o seu site de recuperação é o Azure, execute o [ferramenta de avaliação de preparação de máquinas virtuais do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs para garantir que sejam compatíveis com as VMs do Azure e o Azure Site Recovery services.
+Além disso, se o seu site de recuperação é o Azure, execute o [ferramenta de avaliação de preparação de máquinas virtuais do Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs para garantir que sejam compatíveis com as VMs do Azure e o Azure Site Recovery services.
 
 Para evitar problemas (que podem resultar em custos de superiores), certifique-se de que cria a StorSimple Cloud Appliance, a conta de automatização e o armazenamento de latência conta (s) na mesma região.
 
@@ -81,7 +81,7 @@ Este passo requer a preparação do ambiente de servidor de ficheiros no local, 
 
 1. Instale o agente de VM em cada uma das VMs do servidor de ficheiros. Isto é necessário para que possam executar scripts de automatização do Azure na ativação pós-falha nas VMs.
    
-   1. [Transferir o agente](http://aka.ms/vmagentwin) para `C:\\Users\\<username>\\Downloads`.
+   1. [Transferir o agente](https://aka.ms/vmagentwin) para `C:\\Users\\<username>\\Downloads`.
    1. Abra o Windows PowerShell no modo de administrador (executar como administrador) e, em seguida, introduza o seguinte comando para navegar para a localização de transferência:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -168,16 +168,16 @@ Pode criar um plano de recuperação no ASR para automatizar o processo de ativa
 1. Na conta de automatização, clique em **variáveis** &gt; **adicionar uma variável** e adicione as seguintes variáveis. Pode optar por encriptar estes recursos. Estas variáveis são o plano de recuperação específico. Se planear a recuperação, que irá criar no próximo passo, nome é TestPlan, em seguida, as variáveis devem ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e assim por diante.
 
    - **BaseUrl**: url do Azure Resource Manager para a cloud do Azure. Obter usando **Get-AzureRmEnvironment | Nome de Select-Object, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName* **- ResourceGroupName**: grupo do Azure Resource Manager com o recurso do StorSimple.
-   - *RecoveryPlanName* **- nome do gerente podem**: recurso The StorSimple com o dispositivo StorSimple.
-   - *RecoveryPlanName* **- DeviceName**: O dispositivo StorSimple que tem de efetuar a ativação pós-falha.
-   - *RecoveryPlanName* **- DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na **dispositivos** separador, na secção de StorSimple Device Manager &gt; **definições** &gt; **Rede** &gt; **definições de DNS** grupo).
-   - *RecoveryPlanName* **- VolumeContainers**: uma cadeia de caracteres separados por vírgulas dos contentores de volumes presentes no dispositivo que tem de ser falhou mais; por exemplo: volcon1 volcon2, volcon3.
-   - *RecoveryPlanName* **- TargetDeviceName**: O StorSimple Cloud Appliance em que os contentores estão a efetuar a ativação pós-falha.
-   - *RecoveryPlanName* **- TargetDeviceIpAddress**: O endereço IP do dispositivo de destino (isso pode ser encontrado na **Máquina Virtual** secção &gt; **definições** grupo &gt; **funcionamento em rede** separador).
-   - *RecoveryPlanName* **- StorageAccountName**: O nome da conta de armazenamento na qual o script (que tem para executar na ativação pós-falha VM) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha algum espaço para armazenar o script temporariamente.
-   - *RecoveryPlanName* **- StorageAccountKey**: A chave de acesso para a conta de armazenamento acima.
-   - *RecoveryPlanName* **- VMGUIDS**: após a proteger uma VM, do Azure Site Recovery atribui cada VM uma ID exclusiva que dá os detalhes da sobre a VM. Para obter o VMGUID, selecione o **serviços de recuperação** separador e clique em **Item protegido** &gt; **grupos de proteção** &gt;  **Máquinas** &gt; **propriedades**. Se tiver várias VMs, em seguida, adicione os GUIDs como uma cadeia separada por vírgulas.
+   - * RecoveryPlanName ***- ResourceGroupName**: grupo do Azure Resource Manager com o recurso do StorSimple.
+   - * RecoveryPlanName ***- nome do gerente podem**: recurso The StorSimple com o dispositivo StorSimple.
+   - * RecoveryPlanName ***- DeviceName**: O dispositivo StorSimple que tem de efetuar a ativação pós-falha.
+   - * RecoveryPlanName ***- DeviceIpAddress**: O endereço IP do dispositivo (isso pode ser encontrado na **dispositivos** separador, na secção de StorSimple Device Manager &gt; **definições** &gt; **Rede** &gt; **definições de DNS** grupo).
+   - * RecoveryPlanName ***- VolumeContainers**: uma cadeia de caracteres separados por vírgulas dos contentores de volumes presentes no dispositivo que tem de ser falhou mais; por exemplo: volcon1 volcon2, volcon3.
+   - * RecoveryPlanName ***- TargetDeviceName**: O StorSimple Cloud Appliance em que os contentores estão a efetuar a ativação pós-falha.
+   - * RecoveryPlanName ***- TargetDeviceIpAddress**: O endereço IP do dispositivo de destino (isso pode ser encontrado na **Máquina Virtual** secção &gt; **definições** grupo &gt; **funcionamento em rede** separador).
+   - * RecoveryPlanName ***- StorageAccountName**: O nome da conta de armazenamento na qual o script (que tem para executar na ativação pós-falha VM) será armazenado. Isso pode ser qualquer conta de armazenamento que tenha algum espaço para armazenar o script temporariamente.
+   - * RecoveryPlanName ***- StorageAccountKey**: A chave de acesso para a conta de armazenamento acima.
+   - * RecoveryPlanName ***- VMGUIDS**: após a proteger uma VM, do Azure Site Recovery atribui cada VM uma ID exclusiva que dá os detalhes da sobre a VM. Para obter o VMGUID, selecione o **serviços de recuperação** separador e clique em **Item protegido** &gt; **grupos de proteção** &gt;  **Máquinas** &gt; **propriedades**. Se tiver várias VMs, em seguida, adicione os GUIDs como uma cadeia separada por vírgulas.
 
     Por exemplo, se o nome do plano de recuperação é fileServerpredayRP, em seguida, sua **variáveis**, **ligações** e **certificados** separador deverá aparecer da seguinte forma depois de adicionar todos os recursos.
 
@@ -289,7 +289,7 @@ Consulte a [solução de DR de diretório do Active Directory](../site-recovery/
 
 #### <a name="to-perform-a-planned-failover"></a>Para efetuar uma ativação pós-falha planeada
 1. No portal do Azure, selecione **serviços de recuperação** cofre &gt; **planos de recuperação (recuperação de sites)** &gt; **recoveryplan_name** criado para o servidor de ficheiros de VM.
-1. No painel de plano de recuperação, clique em **mais** &gt; **ativação pós-falha planeada**.  
+1. No painel de plano de recuperação, clique em **mais** &gt; **ativação pós-falha planeada**.
 
    ![Plano de recuperação](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. Sobre o **confirmar a ativação de pós-falha planeadas** painel, selecione a origem e a localizações dos destinos e a rede de destino selecione e clique no ícone de verificação ✓ para iniciar o processo de ativação pós-falha.
@@ -301,7 +301,7 @@ Durante uma ativação pós-falha não planeada, os volumes do StorSimple com at
 
 #### <a name="to-perform-a-failover"></a>Para efetuar uma ativação pós-falha
 1. No portal do Azure, selecione **serviços de recuperação** cofre &gt; **planos de recuperação (recuperação de sites)** &gt; **recoveryplan_name** criado para o servidor de ficheiros de VM.
-1. No painel de plano de recuperação, clique em **mais** &gt; **ativação pós-falha**.  
+1. No painel de plano de recuperação, clique em **mais** &gt; **ativação pós-falha**.
 1. Sobre o **confirmar ativação pós-falha** painel, selecione a origem e localizações de destino.
 1. Selecione **encerrar máquinas virtuais e sincronizar os dados mais recentes** para especificar que o Site Recovery deve tentar encerrar a máquina virtual protegida e sincronizar os dados para que a versão mais recente dos dados irá efetuar a ativação pós-falha.
 1. Após a ativação pós-falha, as máquinas virtuais estão no estado de confirmação pendente. Clique em **consolidação** para consolidar a ativação pós-falha.
@@ -312,7 +312,7 @@ Durante uma reativação pós-falha, contentores de volumes do StorSimple são a
 
 #### <a name="to-perform-a-failback"></a>Para executar uma reativação pós-falha
 1. No portal do Azure, selecione **serviços de recuperação** cofre &gt; **planos de recuperação (recuperação de sites)** &gt; **recoveryplan_name** criado para o servidor de ficheiros de VM.
-1. No painel de plano de recuperação, clique em **mais** &gt; **ativação pós-falha planeada**.  
+1. No painel de plano de recuperação, clique em **mais** &gt; **ativação pós-falha planeada**.
 1. Escolha as localizações de origem e destino, selecione a sincronização de dados apropriado e opções de criação de VM.
 1. Clique em **OK** botão para iniciar o processo de reativação pós-falha.
    
@@ -321,10 +321,10 @@ Durante uma reativação pós-falha, contentores de volumes do StorSimple são a
 ## <a name="best-practices"></a>Melhores práticas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Avaliação de preparação de planejamento e capacidade
 #### <a name="hyper-v-site"></a>Site Hyper-V
-Utilize o [ferramenta Planeador de capacidade de utilizador](http://www.microsoft.com/download/details.aspx?id=39057) para estruturar o servidor, armazenamento e infraestrutura de rede para o seu ambiente de réplica do Hyper-V.
+Utilize o [ferramenta Planeador de capacidade de utilizador](https://www.microsoft.com/download/details.aspx?id=39057) para estruturar o servidor, armazenamento e infraestrutura de rede para o seu ambiente de réplica do Hyper-V.
 
 #### <a name="azure"></a>Azure
-Pode executar o [ferramenta de avaliação de preparação de máquinas virtuais do Azure](http://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs para garantir que sejam compatíveis com as VMs do Azure e serviços de recuperação de Site do Azure. A ferramenta de avaliação de preparação verifica as configurações de VM e avisa quando as configurações são incompatíveis com o Azure. Por exemplo, emite um aviso se uma unidade c: é maior do que 127 GB.
+Pode executar o [ferramenta de avaliação de preparação de máquinas virtuais do Azure](https://azure.microsoft.com/downloads/vm-readiness-assessment/) em VMs para garantir que sejam compatíveis com as VMs do Azure e serviços de recuperação de Site do Azure. A ferramenta de avaliação de preparação verifica as configurações de VM e avisa quando as configurações são incompatíveis com o Azure. Por exemplo, emite um aviso se uma unidade c: é maior do que 127 GB.
 
 Planeamento da capacidade é constituído por, pelo menos, dois processos importantes:
 

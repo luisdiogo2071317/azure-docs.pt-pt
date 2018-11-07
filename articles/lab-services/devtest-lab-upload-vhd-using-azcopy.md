@@ -1,6 +1,6 @@
 ---
-title: Carregar o ficheiro VHD para o Azure DevTest Labs utilizando o AzCopy | Microsoft Docs
-description: Carregar o ficheiro VHD a conta de armazenamento do laboratório utilizando o AzCopy
+title: Carregar o ficheiro VHD para o Azure DevTest Labs com o AzCopy | Documentos da Microsoft
+description: Carregar o ficheiro VHD para a conta de armazenamento do laboratório com o AzCopy
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e35686e7ba7c2e88d62930082d39856673a661b6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 482bfe41ebfec7353466f7e243e9e767caee7828
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33787984"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228288"
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Carregar o ficheiro VHD a conta de armazenamento do laboratório utilizando o AzCopy
+# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Carregar o ficheiro VHD para a conta de armazenamento do laboratório com o AzCopy
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-No Azure DevTest Labs, os ficheiros VHD podem ser utilizados para criar imagens personalizadas, que são utilizadas para aprovisionar as máquinas virtuais. Os seguintes passos guiá-lo utilizando o utilitário de linha de comandos do AzCopy para carregar um ficheiro VHD para a conta de armazenamento de um laboratório. Depois de carregar o ficheiro VHD, o [passos secção](#next-steps) lista alguns artigos que mostram como criar uma imagem personalizada do ficheiro VHD carregado. Para obter mais informações sobre discos e VHDs no Azure, consulte [sobre discos e VHD para as máquinas virtuais](../virtual-machines/linux/about-disks-and-vhds.md)
+No Azure DevTest Labs, ficheiros VHD podem ser utilizados para criar imagens personalizadas, que são utilizadas para aprovisionar máquinas virtuais. Os seguintes passos guiá-lo através da utilização do utilitário de linha de comandos do AzCopy para carregar um ficheiro VHD para a conta de armazenamento do laboratório. Depois de carregar o ficheiro VHD, o [próximos passos secção](#next-steps) apresenta uma lista de alguns artigos que mostram como criar uma imagem personalizada a partir do ficheiro VHD carregado. Para obter mais informações acerca dos discos e VHDs no Azure, consulte [acerca dos discos e VHDs para máquinas virtuais](../virtual-machines/linux/about-disks-and-vhds.md)
 
 > [!NOTE] 
 >  
-> O AzCopy é um utilitário da linha de comandos só de Windows.
+> O AzCopy é um utilitário de linha de comandos do Windows só.
 
-## <a name="step-by-step-instructions"></a>Instruções passo-a-passo
+## <a name="step-by-step-instructions"></a>Instruções passo a passo
 
-Os seguintes passos guiá-lo através do carregar um ficheiro VHD para utilizar o Azure DevTest Labs [AzCopy](http://aka.ms/downloadazcopy). 
+Os seguintes passos guiá-lo por meio de carregar um ficheiro VHD para utilizar o Azure DevTest Labs [AzCopy](https://aka.ms/downloadazcopy). 
 
-1. Obter o nome do laboratório conta do storage no portal do Azure:
+1. Obter o nome da conta de armazenamento do laboratório com o portal do Azure:
 
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 
@@ -45,35 +45,35 @@ Os seguintes passos guiá-lo através do carregar um ficheiro VHD para utilizar 
 
 1. No painel do laboratório, selecione **configuração**. 
 
-1. No laboratório **configuração** painel, selecione **imagens personalizadas (VHDs)**.
+1. O laboratório **Configuration** painel, selecione **imagens personalizadas (VHDs)**.
 
-1. No **imagens personalizadas** painel, selecione **+ adicionar**. 
+1. Sobre o **imagens personalizadas** painel, selecione **+ adicionar**. 
 
-1. No **imagem personalizada** painel, selecione **VHD**.
+1. Sobre o **Custom image** painel, selecione **VHD**.
 
-1. No **VHD** painel, selecione **carregar um VHD com o PowerShell**.
+1. Sobre o **VHD** painel, selecione **carregar um VHD com o PowerShell**.
 
     ![Carregar o VHD com o PowerShell](./media/devtest-lab-upload-vhd-using-azcopy/upload-image-using-psh.png)
 
-1. O **carregar uma imagem através do PowerShell** painel mostra uma chamada para o **Add-AzureVhd** cmdlet. O primeiro parâmetro (*destino*) contém o URI para um contentor do blob (*carrega*) no seguinte formato:
+1. O **carregue uma imagem com o PowerShell** painel apresenta uma chamada para o **Add-AzureVhd** cmdlet. O primeiro parâmetro (*destino*) contém o URI para um contentor de BLOBs (*carrega*) no seguinte formato:
 
     ```
     https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...
     ``` 
 
-1. Anote o URI completo porque é utilizado em passos posteriores.
+1. Anote o URI completo que é utilizada em passos posteriores.
 
-1. Carregar o ficheiro VHD utilizando o AzCopy:
+1. Carregar o ficheiro VHD com o AzCopy:
  
-1. [Transfira e instale a versão mais recente do AzCopy](http://aka.ms/downloadazcopy).
+1. [Transfira e instale a versão mais recente do AzCopy](https://aka.ms/downloadazcopy).
 
-1. Abra uma janela de comandos e navegue para o diretório de instalação do AzCopy. Opcionalmente, pode adicionar a localização de instalação do AzCopy para o caminho do sistema. Por predefinição, o AzCopy é instalado ao diretório seguinte:
+1. Abra uma janela de comando e navegue para o diretório de instalação do AzCopy. Opcionalmente, pode adicionar a localização de instalação do AzCopy ao caminho do sistema. Por predefinição, o AzCopy estiver instalado no diretório seguinte:
 
     ```command-line
     %ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
     ```
 
-1. Utilizar a conta chave e BLOBs de contentor de armazenamento URI, execute o seguinte comando na linha de comandos. O *vhdFileName* . o valor tem de ser entre aspas. O processo de carregamento de um ficheiro VHD pode ser demorado, consoante o tamanho do ficheiro VHD e a velocidade da ligação.   
+1. Utilizar a conta BLOBs e a chave de contentor de armazenamento de URI, execute o seguinte comando no prompt de comando. O *vhdFileName* valor tem de ser aspas. O processo de carregamento de um ficheiro VHD pode ser demorado, dependendo do tamanho do ficheiro VHD e sua velocidade da ligação.   
 
     ```command-line
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
@@ -81,5 +81,5 @@ Os seguintes passos guiá-lo através do carregar um ficheiro VHD para utilizar 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar uma imagem personalizada no Azure DevTest Labs de um ficheiro VHD utilizando o portal do Azure](devtest-lab-create-template.md)
-- [Criar uma imagem personalizada no Azure DevTest Labs de um ficheiro VHD utilizando o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+- [Criar uma imagem personalizada no Azure DevTest Labs, de um ficheiro VHD com o portal do Azure](devtest-lab-create-template.md)
+- [Criar uma imagem personalizada no Azure DevTest Labs, de um ficheiro VHD com o PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

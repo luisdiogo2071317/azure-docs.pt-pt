@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345112"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261165"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure
 
@@ -130,7 +130,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 
 2. Selecione **Ilimitado** para poder especificar a chave de partição, em seguida, clique em **OK** para concluir.
 
-    Se for utilizada uma chave de partição quando criar uma coleção, depois de concluída a criação, o valor da chave de partição não pode ser alterado na coleção. Para obter informações sobre definições de chaves de partição, veja [Estruturar a criação de partições](partition-data.md#designing-for-partitioning).
+    Se for utilizada uma chave de partição quando criar uma coleção, depois de concluída a criação, o valor da chave de partição não pode ser alterado na coleção.
 
     ![Chave de partição](./media/storage-explorer/partitionkey.png)
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032993"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252229"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 
@@ -132,7 +132,7 @@ Para receber informações detalhadas sobre a instalação, utilize o **-verboso
 
 Runbooks, pode utilizar qualquer uma das atividades e cmdlets definidos nos módulos que estão instalados no seu ambiente de automatização do Azure. Estes módulos não são implementados automaticamente em computadores no local, tem das instalar manualmente. A exceção é o módulo do Azure, o que é instalado por padrão e fornece acesso a cmdlets para todos os serviços do Azure e as atividades para a automatização do Azure.
 
-Como é a principal finalidade da funcionalidade do Runbook Worker híbrido gerir recursos locais, é mais provável que precisa instalar os módulos que suportam esses recursos. Para obter informações sobre como instalar os módulos do Windows PowerShell, consulte [instalar módulos](http://msdn.microsoft.com/library/dd878350.aspx). 
+Como é a principal finalidade da funcionalidade do Runbook Worker híbrido gerir recursos locais, é mais provável que precisa instalar os módulos que suportam esses recursos. Para obter informações sobre como instalar os módulos do Windows PowerShell, consulte [instalar módulos](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Tem de ser num local referenciado por módulos que estão instalados os **PSModulePath** variável de ambiente para que a função de trabalho híbrida pode importá-los automaticamente. Para obter mais informações, consulte [modificar o caminho de instalação PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 

@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888137"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242879"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Ambiente de desenvolvimento do Azure Machine Learning 
 
@@ -59,7 +59,7 @@ Recomendamos [Visual Studio Code](https://code.visualstudio.com/), pois ele forn
 
 ## <a name="data-science-virtual-machine"></a>Máquina Virtual de Ciência de Dados
 
-A Máquina Virtual de ciência de dados (DSVM) é uma combinação de ambientes de anteriores. É uma VM na plataforma do Azure com o Jupyter Notebooks, Visual Studio Code e o SDK do Azure Machine Learning pré-instalado. Criar a VM é mais complexo do que blocos de notas do Azure, mas menos complexa do que a configuração de uma máquina do zero. Uma vez que o software necessário está pré-instalado na imagem VM, pode começar a experimentar com o Azure Machine Learning rapidamente quando a VM tiver sido criada.
+A Máquina Virtual de ciência de dados (DSVM) é uma combinação de ambientes de anteriores. É uma VM na plataforma do Azure com o Jupyter Notebooks, Visual Studio Code e o SDK do Azure Machine Learning pré-instalado. Uma vez que o software necessário está pré-instalado na imagem VM, pode começar a experimentar com o Azure Machine Learning rapidamente quando a VM tiver sido criada.
 
 A DSVM permite-lhe selecionar os recursos de computação que necessários, como a CPU, GPU e memória. Ele também é previamente instalado com outros editores como PyCharm, bem como software, como o TensorFlow, Keras e PyTorch popular de aprendizagem. Se o software que necessário não estiver instalado, pode instalá-lo por conta própria.
 

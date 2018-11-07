@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382744"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248316"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure que estejam a executar com o Azure Resource Manager. Um grupo de disponibilidade necessita de um balanceador de carga quando são de instâncias do SQL Server em máquinas virtuais do Azure. O Balanceador de carga armazena o endereço IP para o serviço de escuta do grupo de disponibilidade. Se a um grupo de disponibilidade se estende por várias regiões, cada região tem um balanceador de carga.
@@ -120,7 +120,7 @@ A sonda define como o Azure verifica quais das instâncias do SQL Server atualme
 4.  Clique em **OK**. 
 
 > [!NOTE]
-> Certifique-se de que a porta especificada está aberta na firewall de ambas as instâncias do SQL Server. Ambas as instâncias requerem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou Editar regra de Firewall](http://technet.microsoft.com/library/cc753558.aspx). 
+> Certifique-se de que a porta especificada está aberta na firewall de ambas as instâncias do SQL Server. Ambas as instâncias requerem uma regra de entrada para a porta TCP que utiliza. Para obter mais informações, consulte [adicionar ou Editar regra de Firewall](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -276,7 +276,7 @@ Depois de configurar o grupo de disponibilidade para utilizar o novo endereço I
 Se um grupo de disponibilidade participa de um grupo de disponibilidade distribuída, o Balanceador de carga tem uma regra adicional. Esta regra armazena a porta usada pelo serviço de escuta do grupo de disponibilidade distribuída.
 
 >[!IMPORTANT]
->Este passo aplica-se apenas se o grupo de disponibilidade participa de um [grupo de disponibilidade distribuída](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+>Este passo aplica-se apenas se o grupo de disponibilidade participa de um [grupo de disponibilidade distribuída](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
 
 1. Em cada servidor que participa no grupo de disponibilidade distribuída, crie uma regra de entrada sobre o serviço de escuta de grupo de disponibilidade distribuída a porta TCP. Em muitos exemplos, documentação utiliza 5022. 
 
@@ -289,7 +289,7 @@ Se um grupo de disponibilidade participa de um grupo de disponibilidade distribu
    |**Nome** |Um nome para identificar a regra para o grupo de disponibilidade distribuída de balanceamento de carga. 
    |**Endereço IP de front-end** |Utilize o mesmo endereço IP de front-end como o grupo de disponibilidade.
    |**Protocolo** |TCP
-   |**Porta** |5022 - a porta para o [serviço de escuta de ponto final de grupo de disponibilidade distribuída](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Pode ser qualquer porta disponível.  
+   |**Porta** |5022 - a porta para o [serviço de escuta de ponto final de grupo de disponibilidade distribuída](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Pode ser qualquer porta disponível.  
    |**Porta de back-end** | 5022 - utilize o mesmo valor como **porta**.
    |**Conjunto back-end** |O conjunto que contém as máquinas virtuais com as instâncias do SQL Server. 
    |**Sonda de estado de funcionamento** |Escolha a sonda que criou.

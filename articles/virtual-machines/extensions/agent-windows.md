@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428560"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253997"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Descrição geral do agente da Máquina Virtual do Azure
 O agente de Máquina Virtual do Microsoft Azure (agente de VM) é um processo leve e seguro que gere a interação da máquina virtual (VM) com o controlador de malha do Azure. O agente da VM tem uma função primária na ativação e execução de extensões de máquina virtual do Azure. Extensões de VM ativar a configuração de pós-implementação de VM, como instalar e configurar o software. Extensões de VM também ativar funcionalidades de recuperação como a reposição de palavra-passe administrativa de uma VM. Sem o agente da VM do Azure, não não possível executar as extensões de VM.
@@ -60,7 +60,7 @@ Para inicializar uma VM tem de ter o PA instalado na VM, no entanto o WinGA não
 Se não tiver os agentes instalados, é possível utilizar alguns serviços do Azure, tais como cópia de segurança do Azure ou de segurança do Azure. Estes serviços necessitam de uma extensão para ser instalado. Se tiver implementado uma VM sem o WinGA, pode instalar a versão mais recente do agente mais tarde.
 
 ### <a name="manual-installation"></a>Instalação manual
-O agente da VM do Windows pode ser instalado manualmente com um pacote de instalador do Windows. Instalação manual pode ser necessária quando cria uma imagem VM personalizada que é implementada no Azure. Para instalar manualmente o agente de VM do Windows, [transferir o instalador do agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789).
+O agente da VM do Windows pode ser instalado manualmente com um pacote de instalador do Windows. Instalação manual pode ser necessária quando cria uma imagem VM personalizada que é implementada no Azure. Para instalar manualmente o agente de VM do Windows, [transferir o instalador do agente de VM](https://go.microsoft.com/fwlink/?LinkID=394789).
 
 O agente da VM pode ser instalado clicando duas vezes o ficheiro de instalador do Windows. Para uma instalação automatizada ou autônoma do agente VM, execute o seguinte comando:
 

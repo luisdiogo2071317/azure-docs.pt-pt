@@ -10,18 +10,18 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 71d79ac34c4797cceb8374d65afb6fd7662f1c21
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 053e571b6285cd405ea17f43fec1d3ea99732070
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456184"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235586"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>O que é o serviço de migração de base de dados do Azure?
 O serviço de migração de base de dados do Azure é um serviço completamente gerido criado para permitir migrações totalmente integradas de várias origens de base de dados para plataformas de dados do Azure com o período de indisponibilidade mínimo (migrações online).
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Migrar bases de dados para o Azure com ferramentas familiares
-O serviço de migração de base de dados do Azure integra-se algumas das funcionalidades das nossas ferramentas e serviços existentes. Fornece aos clientes com uma solução abrangente e de elevada disponibilidade. O serviço utiliza a [Assistente de migração de dados](http://aka.ms/dma) para gerar relatórios de avaliação que fornecem recomendações para o orientar as alterações necessárias antes de efetuar uma migração. Cabe-lhe para efetuar quaisquer atualizações necessárias. Quando estiver pronto para iniciar o processo de migração, o serviço de migração de base de dados do Azure executa todas as etapas necessárias. Pode disparar e esquecer seus projetos de migração com tranquilidade, sabendo que o processo tira partido das melhores práticas, conforme determinado pela Microsoft.
+O serviço de migração de base de dados do Azure integra-se algumas das funcionalidades das nossas ferramentas e serviços existentes. Fornece aos clientes com uma solução abrangente e de elevada disponibilidade. O serviço utiliza a [Assistente de migração de dados](https://aka.ms/dma) para gerar relatórios de avaliação que fornecem recomendações para o orientar as alterações necessárias antes de efetuar uma migração. Cabe-lhe para efetuar quaisquer atualizações necessárias. Quando estiver pronto para iniciar o processo de migração, o serviço de migração de base de dados do Azure executa todas as etapas necessárias. Pode disparar e esquecer seus projetos de migração com tranquilidade, sabendo que o processo tira partido das melhores práticas, conforme determinado pela Microsoft.
 
 > [!NOTE]
 > Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no críticas para a empresa (pré-visualização) escalão de preço.

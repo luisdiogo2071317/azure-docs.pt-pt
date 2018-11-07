@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 332ad288230654eb70e7b6ead862ed57a1cf52f7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9c37eb064fb12ff548763a9c70a2e79219113b67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155138"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227370"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de hash de palavras-passe com o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de palavras-passe necessária para a autenticação NT LAN Manager (NTLM) e Kerberos com os Serviços de Domínio do Azure AD. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -53,7 +53,7 @@ Este processo de alteração de palavras-passe faz com que os hashes de palavras
 ### <a name="enable-ntlm-and-kerberos-password-hash-generation-for-a-cloud-only-user-account"></a>Ativar a geração de hashes de palavras-passe NTLM e Kerberos para uma conta de utilizador apenas na cloud
 Seguem-se as instruções que tem de fornecer aos utilizadores, para que possam alterar as respetivas palavras-passe:
 
-1. Aceda à página do [Painel de Acesso do Azure AD](http://myapps.microsoft.com) para a sua organização.
+1. Aceda à página do [Painel de Acesso do Azure AD](https://myapps.microsoft.com) para a sua organização.
 
     ![Iniciar o painel de acesso do Azure AD](./media/active-directory-domain-services-getting-started/access-panel.png)
 

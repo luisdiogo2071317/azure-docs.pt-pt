@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9188e7a8dc5364592772b95c302c59a16bfad2be
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754074"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236958"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o secure LDAP (LDAPS) para um domínio gerido do Azure AD Domain Services
 Este artigo mostra como pode permitir proteger Lightweight Directory Access Protocol (LDAPS) para o seu domínio gerido do Azure AD Domain Services. LDAP seguro também é conhecido como "acesso protocolo LDAP (Lightweight Directory) através de Secure Sockets Layer (SSL) / Transport Layer Security (TLS)".
@@ -45,7 +45,7 @@ Adquira um certificado válido pelas seguintes diretrizes, antes de ativar o LDA
 
 1. **Emissor fidedigno** -o certificado tem de ser emitido por uma autoridade confiável pelos computadores conectando-se o domínio gerido com o secure LDAP. Esta autoridade pode ser uma autoridade de certificação pública (AC) ou uma AC empresarial fidedigno para estes computadores.
 2. **Tempo de vida** -o certificado tem de ser válido para, pelo menos, de 3 a 6 meses seguintes. Acesso de Secure LDAP ao seu domínio gerido é interrompido quando o certificado expirar.
-3. **Nome do requerente** -o nome do requerente do certificado tem de ser o nome do seu domínio gerido. Por exemplo, se o seu domínio com o nome 'contoso100.com', nome do requerente do certificado tem de ser 'contoso100.com'. 
+3. **Nome do requerente** -o nome do requerente do certificado tem de ser o domínio gerido. Por exemplo, se o seu domínio com o nome 'contoso100.com', nome do requerente do certificado tem de ser 'contoso100.com'. Defina o nome DNS (nome alternativo do requerente) como um nome com carateres universais para o seu domínio gerido.
 4. **Utilização de chave** -o certificado tem de ser configurado para o seguinte utiliza - as assinaturas de Digital e cifragem de chaves.
 5. **Objetivo do certificado** -o certificado tem de ser válido para autenticação de servidor SSL.
 
@@ -83,7 +83,7 @@ No seu computador Windows, abra uma nova janela do PowerShell como **administrad
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 No exemplo anterior, substitua 'contoso100.com' com o nome de domínio DNS do seu domínio gerido. Por exemplo, se tiver criado um domínio gerido, chamado 'contoso100.onmicrosoft.com', substitua 'contoso100.com' no atributo assunto 'contoso100.onmicrosoft.com' e '*. contoso100.com' no atributo DnsName com "*. contoso100.onmicrosoft.com').

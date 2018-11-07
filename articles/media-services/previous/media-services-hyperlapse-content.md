@@ -1,6 +1,6 @@
 ---
-title: Ficheiros Hyperlapse de multimédia com Hyperlapse de multimédia do Azure | Microsoft Docs
-description: Hyperlapse de multimédia do Azure cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara. Este tópico mostra como utilizar o indexador de suporte de dados.
+title: Ficheiros de Hyperlapse de multimédia com Hyperlapse de multimédia do Azure | Documentos da Microsoft
+description: Hyperlapse de multimédia do Azure cria vídeos com time lapse uniformes de conteúdo primeira pessoa ou ação câmara. Este tópico mostra como utilizar o indexador de multimédia.
 services: media-services
 documentationcenter: ''
 author: asolanki
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: ed64a616538ed4699abc03225a2dcf27d164521f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242590"
 ---
-# <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Ficheiros Hyperlapse de multimédia com Hyperlapse de multimédia do Azure
-Hyperlapse de multimédia do Azure é um suporte de dados de processador (MP) que cria uniforme vídeos passado o tempo do conteúdo primeira pessoa ou ação câmara.  O colateral baseado na nuvem para [Microsoft Research Pro de Hyperlapse ambiente de trabalho e móvel de Hyperlapse baseada no telefone](http://aka.ms/hyperlapse), Microsoft Hyperlapse de Media Services do Azure utiliza a grande escala do processamento do suporte de dados do Azure suporte de dados serviços plataforma horizontalmente dimensionar e parallelize em massa Hyperlapse de processamento.
+# <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Ficheiros de Hyperlapse de multimédia com Hyperlapse de multimédia do Azure
+Hyperlapse de multimédia do Azure é um suporte de dados de processador (MP) que cria vídeos com time lapse uniformes de conteúdo de primeira pessoa ou ação câmara.  O colateral baseado na nuvem para [Hyperlapse Pro de área de trabalho e Hyperlapse Mobile baseado no telefone do Microsoft Research](https://aka.ms/hyperlapse), Microsoft Hyperlapse para serviços de multimédia do Azure utiliza o dimensionamento em massa de processamento do suporte de dados do Azure suporte de dados serviços plataforma horizontalmente dimensionar e colocar em paralelo em massa Hyperlapse de processamento.
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse foi concebida para funcionar melhor no conteúdo da primeira pessoa com uma câmara mover. Embora filmagens de câmaras ainda podem continuarão a funcionar, o desempenho e a qualidade do processador de multimédia de Hyperlapse de suporte de dados do Azure, não poderá ser garantidos para outros tipos de conteúdo.
+> Microsoft Hyperlapse foi projetado para funcionar melhor em primeira pessoa conteúdo com uma câmera de movimentação. Embora ainda podem funcionar filmagens de câmaras ainda, o desempenho e qualidade do processador de multimédia de Hyperlapse de multimédia do Azure não podem ser garantidas para outros tipos de conteúdo.
 > 
 > 
 
-Um Hyperlapse de multimédia do Azure tarefa demora como um ficheiro de recurso MP4, MOV ou WMV juntamente com um ficheiro de configuração que especifica quais frames de vídeo devem ter passado o tempo e a que velocidade de entrada (por exemplo, 10 000 primeiro enquadra-se em 2 x).  O resultado é um rendition stabilized e passado o tempo do vídeo de entrada.
+Um Hyperlapse de multimédia do Azure tarefa aceita como entrada um arquivo de recurso MP4, MOV ou WMV, juntamente com um ficheiro de configuração que especifica quais fotogramas do vídeo devem ser com time lapse e a velocidade de que (por exemplo, 10 000 primeiro enquadra-se em 2 x).  O resultado é uma representação estabilizada e com time lapse e do vídeo de entrada.
 
-## <a name="hyperlapse-an-asset"></a>Um recurso de Hyperlapse
-Primeiro terá de carregar o ficheiro de entrada pretendido para Media Services do Azure.  Para saber mais sobre os conceitos envolvidos carregar e gerir conteúdo, leia o [artigo gestão de conteúdos](media-services-portal-vod-get-started.md).
+## <a name="hyperlapse-an-asset"></a>Hyperlapse um recurso
+Primeiro terá de carregar o ficheiro de entrada desejado para serviços de multimédia do Azure.  Para saber mais sobre os conceitos envolvidos com o carregamento e a gestão de conteúdo, veja a [artigo de gerenciamento de conteúdo](media-services-portal-vod-get-started.md).
 
-### <a id="configuration"></a>Predefinição de configuração de Hyperlapse
-Assim que o conteúdo estiver na sua conta de Media Services, terá de construir a predefinição de configuração.  A tabela seguinte explica os campos especificados de utilizador:
+### <a id="configuration"></a>Configuração predefinida de configuração para o Hyperlapse
+Assim que o conteúdo estiver na sua conta de Media Services, terá de construir sua configuração predefinida de configuração.  A tabela seguinte explica os campos especificado pelo utilizador:
 
 | Campo | Descrição |
 | --- | --- |
-| StartFrame |A frame no qual o processamento de Microsoft Hyperlapse deve começar. |
-| NumFrames |O número de fotogramas processar |
-| Velocidade |O fator com a qual acelerar o vídeo de entrada. |
+| StartFrame |O quadro no qual deve começar o processamento de Microsoft Hyperlapse. |
+| NumFrames |O número de quadros para processar |
+| Velocidade |O fator com a qual a acelerar o vídeo de entrada. |
 
-Segue-se um exemplo de um ficheiro de configuração compatível nos XML e JSON:
+Segue-se um exemplo de um ficheiro de configuração compatível em XML e JSON:
 
-**Predefinição XML:**
+**Configuração predefinida XML:**
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -58,7 +58,7 @@ Segue-se um exemplo de um ficheiro de configuração compatível nos XML e JSON:
     </Preset>
 ```
 
-**Predefinição JSON:**
+**Configuração predefinida JSON:**
 ```json
     {
         "Version":1.0,
@@ -75,14 +75,14 @@ Segue-se um exemplo de um ficheiro de configuração compatível nos XML e JSON:
     }
 ```
 
-### <a id="sample_code"></a> Hyperlapse Microsoft com o SDK .NET do AMS
-O método seguinte carrega um ficheiro de suporte de dados como um recurso e cria uma tarefa com o processador de multimédia de Hyperlapse de suporte de dados do Azure.
+### <a id="sample_code"></a> Microsoft Hyperlapse com o SDK de .NET do AMS
+O método seguinte carrega um ficheiro de suporte de dados como um recurso e cria uma tarefa com o processador de multimédia de Hyperlapse de multimédia do Azure.
 
 > [!NOTE]
-> Já deverá ter um CloudMediaContext no âmbito com o nome "contexto" para este código para trabalhar.  Para obter mais informações, leia o [artigo gestão de conteúdos](media-services-dotnet-get-started.md).
+> Já deverá ter um CloudMediaContext no âmbito com o nome "contexto" para este código funcione.  Para obter mais informações, leia os [artigo de gerenciamento de conteúdo](media-services-dotnet-get-started.md).
 > 
 > [!NOTE]
-> O argumento de cadeia "hyperConfig" deve ser uma configuração de compatível da configuração predefinida no JSON ou XML, tal como descrito acima.
+> O argumento de cadeia de caracteres "hyperConfig" deve ser uma configuração compatível predefinida em JSON ou XML, conforme descrito acima.
 > 
 > 
 
@@ -213,7 +213,7 @@ O método seguinte carrega um ficheiro de suporte de dados como um recurso e cri
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Ligações relacionadas
-[Descrição geral da análise de serviços de multimédia do Azure](media-services-analytics-overview.md)
+[Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
 
 [Demonstrações de análise de multimédia do Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

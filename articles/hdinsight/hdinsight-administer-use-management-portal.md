@@ -1,24 +1,24 @@
 ---
-title: Gira clusters Hadoop de baseados em Windows no HDInsight com o portal do Azure
-description: Saiba como administrar o serviço do HDInsight. Criar um cluster do HDInsight, abra o console interativo do JavaScript e abra a consola de comandos do Hadoop.
+title: Gerir clusters do Apache Hadoop baseado em Windows no HDInsight com o portal do Azure
+description: Saiba como administrar o serviço do HDInsight. Criar um cluster do HDInsight, abra o console interativo do JavaScript e abra a consola de comandos do Apache Hadoop.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 67138b9e98818f5d106c73cef027d0eb2515e9a8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970282"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233920"
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gira clusters Hadoop de baseados em Windows no HDInsight com o portal do Azure
+# <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Apache Hadoop baseado em Windows no HDInsight com o portal do Azure
 
-Utilizar o [portal do Azure][azure-portal], pode criar clusters do Hadoop de baseados em Windows no Azure HDInsight, alterar a palavra-passe de utilizador do Hadoop e ativar o protocolo RDP (Remote Desktop) para poder acessar o comando de Hadoop consola no cluster.
+Utilizar o [portal do Azure][azure-portal], pode criar clusters do Apache Hadoop baseado em Windows no Azure HDInsight, alterar a palavra-passe de utilizador do Hadoop e ativar o protocolo RDP (Remote Desktop) para poder acessar o Hadoop consola de comandos no cluster.
 
 As informações neste artigo aplica-se apenas a clusters do HDInsight baseado em janela. Para obter informações sobre como gerir clusters baseados em Linux, consulte [Hadoop gerir clusters no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md).
 
@@ -34,7 +34,7 @@ Antes de começar este artigo, tem de ter o seguinte:
 * **Conta de armazenamento do Azure** -An HDInsight cluster utiliza um contentor de armazenamento de Blobs do Azure como o sistema de ficheiros predefinido. Para obter mais informações sobre como o armazenamento de Blobs do Azure fornece uma experiência totalmente integrada com os clusters do HDInsight, consulte [utilize armazenamento de Blobs do Azure com o HDInsight](hdinsight-hadoop-use-blob-storage.md). Para obter detalhes sobre como criar uma conta de armazenamento do Azure, consulte [como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Abra o Portal
-1. Inicie sessão no [ https://portal.azure.com ](https://portal.azure.com).
+1. Inicie sessão em [https://portal.azure.com](https://portal.azure.com).
 2. Depois de abrir o portal, pode:
 
    * Clique em **criar um recurso** no menu à esquerda para criar um novo cluster:
@@ -67,7 +67,7 @@ HDInsight funciona com componentes de uma ampla gama de Hadoop. Para obter a lis
 Não é suportada a instalação de software personalizada no cluster, utilizando a conexão de área de trabalho remoto. Deve evitar armazenar todos os ficheiros em unidades do nó principal, como eles serão perdidos se precisar de voltar a criar os clusters. Recomendamos que o serviço de armazenamento de ficheiros no armazenamento de Blobs do Azure. Armazenamento de BLOBs é persistente.
 
 ## <a name="list-and-show-clusters"></a>Listar e Mostrar clusters
-1. Inicie sessão no [ https://portal.azure.com ](https://portal.azure.com).
+1. Inicie sessão em [https://portal.azure.com](https://portal.azure.com).
 2. Clique em **Clusters do HDInsight** no menu à esquerda.
 3. Clique no nome do cluster. Se a lista de cluster for longa, pode utilizar o filtro no topo da página.
 4. Faça duplo clique num cluster a partir da lista para mostrar os detalhes.
@@ -328,7 +328,7 @@ As credenciais para o cluster que indicou durante a criação do seu conceder ac
     Os valores predefinidos para expira em é uma semana.
 
    > [!NOTE]
-   > Também pode utilizar o HDInsight .NET SDK para ativar o ambiente de trabalho remoto num cluster. Utilize o **EnableRdp** método no objeto de cliente do HDInsight, da seguinte forma: **cliente. EnableRdp (clustername, localização, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desativar o ambiente de trabalho remoto no cluster, pode utilizar **cliente. DisableRdp (clustername, localização)**. Para obter mais informações sobre esses métodos, consulte [referência do SDK de .NET de HDInsight](http://go.microsoft.com/fwlink/?LinkId=529017). Isto é aplicável apenas para clusters do HDInsight em execução no Windows.
+   > Também pode utilizar o HDInsight .NET SDK para ativar o ambiente de trabalho remoto num cluster. Utilize o **EnableRdp** método no objeto de cliente do HDInsight, da seguinte forma: **cliente. EnableRdp (clustername, localização, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**. Da mesma forma, para desativar o ambiente de trabalho remoto no cluster, pode utilizar **cliente. DisableRdp (clustername, localização)**. Para obter mais informações sobre esses métodos, consulte [referência do SDK de .NET de HDInsight](https://go.microsoft.com/fwlink/?LinkId=529017). Isto é aplicável apenas para clusters do HDInsight em execução no Windows.
    >
    >
 

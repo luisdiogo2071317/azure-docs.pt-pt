@@ -1,6 +1,6 @@
 ---
-title: Fase de aceitação de cliente do ciclo de vida o processo de ciência de dados de equipa - Azure | Microsoft Docs
-description: Os objetivos, tarefas e materiais a entregar para a fase de aceitação de cliente dos seus projetos de ciência de dados
+title: Fase de aceitação do cliente do ciclo de vida do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+description: As metas, tarefas e resultados finais para a fase de aceitação do cliente dos seus projetos de ciência de dados
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 82819ab59d9bab6f256cd01a376f62ac8dac26b3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9dd3ab8c9451ecfe6b095b52f5af083a7c7e9550
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837145"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232764"
 ---
 # <a name="customer-acceptance"></a>Aceitação do cliente
 
-Este artigo descreve os objetivos, tarefas e materiais a entregar associada a fase de aceitação de cliente da equipa de dados de ciência processo (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar seus projetos de ciência de dados. O ciclo de vida destaca as fases principais que projetos normalmente executar, muitas vezes, iteratively:
+Este artigo descreve os objetivos, tarefas e resultados associados a fase de aceitação do cliente do Team Data Science Process (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
-   1. **Compreensão de negócio**
-   2. **Aquisição de dados e a compreensão**
-   3. **Modelação**
+   1. **Compreensão empresarial**
+   2. **Aquisição de dados e compreensão**
+   3. **Modelagem**
    4. **Implementação**
-   5. **Aceitação de cliente**
+   5. **Aceitação do cliente**
 
-Eis uma representação visual do ciclo de vida TDSP: 
+Esta é uma representação visual de ciclo de vida do TDSP: 
 
-![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![Ciclo de vida do TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goal"></a>Objetivo
-**Finalizar a concentrarem projeto**: Confirme que o pipeline, o modelo e os respetivos implementação num ambiente de produção satisfazem objetivos do cliente.
+**Finalizar os resultados finais**: Confirme que o pipeline, o modelo e a implantação num ambiente de produção satisfazem os objetivos do cliente.
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
-Existem duas tarefas principais resolvidas nesta fase:
+Existem duas tarefas principais abordadas neste estágio:
 
-   * **Validação de sistema**: Confirme que o modelo implementado e o pipeline satisfazer as necessidades do cliente.
-   * **Projeto mão-desativar**: entregam o projeto para a entidade que vai executar o sistema na produção.
+   * **Validação do sistema**: Confirme que o modelo implementado e o pipeline atendem às necessidades do cliente.
+   * **Transição paraoperações de projeto**: passá o projeto para a entidade que vai ser executado o sistema na produção.
 
-O cliente deve validar se o sistema cumpre as suas necessidades de negócio e de que responde a questões com precisão aceitável para implementar o sistema para a produção para utilização por aplicações do seu cliente. Toda a documentação está finalizada e revista. O projeto é entregar-desativar para a entidade responsável pelas operações. Esta entidade pode ser, por exemplo, um IT ou equipa de ciência de dados de cliente ou um agente do cliente que é responsável pela execução do sistema em produção. 
+O cliente deve validar que o sistema atenda às suas necessidades de negócios e que responde as perguntas com a precisão aceitável para implantar o sistema para a produção para utilização pela aplicação de seu cliente. Toda a documentação é finalizada e revista. O projeto é entregue inicial para a entidade responsável por operações. Esta entidade pode ser, por exemplo, uma TI ou equipa de ciência de dados do cliente ou com um agente do cliente que é responsável por executar o sistema em produção. 
 
 ## <a name="artifacts"></a>Artefactos
-O artefacto principal produzido nesta fase final é o **sair relatório do projeto do cliente**. Este relatório técnico contém todos os detalhes do projeto que são úteis para saber mais sobre como operar o sistema. TDSP fornece um [sair relatório](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) modelo. Pode utilizar o modelo como está, ou pode personalizá-lo para as necessidades do cliente específico. 
+O artefacto principal produzido nesse estágio final é o **sair do relatório do projeto do cliente**. Este relatório técnico contém todos os detalhes do projeto que são úteis para saber mais sobre como operar o sistema. TDSP fornece uma [sair do relatório](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Exit%20Report.md) modelo. Pode utilizar o modelo como está, ou pode personalizá-lo para as necessidades do cliente específico. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Seguem-se ligações para cada passo no ciclo de vida do TDSP:
+Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
 
-   1. [Compreensão de negócio](lifecycle-business-understanding.md)
-   2. [Aquisição de dados e a compreensão](lifecycle-data.md)
-   3. [Modelação](lifecycle-modeling.md)
+   1. [Compreensão empresarial](lifecycle-business-understanding.md)
+   2. [Aquisição de dados e compreensão](lifecycle-data.md)
+   3. [Modelagem](lifecycle-modeling.md)
    4. [Implementação](lifecycle-deployment.md)
-   5. [Aceitação de cliente](lifecycle-acceptance.md)
+   5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos instruções completa ponto-a-ponto que demonstram todos os passos no processo de cenários específicos. O [instruções de exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com ligações e descrições em miniatura. As instruções mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
+Fornecemos orientações passo a passo de completa-a-ponto, que demonstram todas as etapas do processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](http://aka.ms/datascienceprocess).
+Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](https://aka.ms/datascienceprocess).

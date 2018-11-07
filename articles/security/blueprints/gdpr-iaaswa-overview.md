@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 509c33f2774e2d16bb8a96c50d1fb53962578dee
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f5f04fdaa12c716b21bafcc0abccc719428fe791
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242080"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-gdpr"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS para GDPR
 
 ## <a name="overview"></a>Descrição geral
 O Regulamento de proteção de dados (GDPR) geral contém muitos requisitos sobre a recolher, armazenar e usar informações pessoais, incluindo como as organizações a identificarem e proteger dados pessoais, acomodar os requisitos de transparência, detetar e comunicar violações de dados pessoais e o pessoal de privacidade train e outros funcionários. O GDPR oferece maior controle sobre seus dados pessoais de indivíduos e impõe obrigações de novo vários de organizações que recolhem, processarem ou analisar os dados pessoais. O GDPR impõe as regras de novo em organizações que oferecem bens e serviços a pessoas localizadas na União Europeia (UE), ou que recolha e analisam dados associados a residentes da UE. O GDPR aplica-se, independentemente de onde está localizada a uma organização.
 
-A Microsoft criou o Azure com as políticas de privacidade para salvaguardar os dados na cloud, incluindo as categorias de dados pessoais identificados pelo GDPR e medidas de segurança líderes do setor. Da Microsoft [termos contratuais](http://aka.ms/Online-Services-Terms) consolidar Microsoft para os requisitos de processadores.
+A Microsoft criou o Azure com as políticas de privacidade para salvaguardar os dados na cloud, incluindo as categorias de dados pessoais identificados pelo GDPR e medidas de segurança líderes do setor. Da Microsoft [termos contratuais](https://aka.ms/Online-Services-Terms) consolidar Microsoft para os requisitos de processadores.
 
 Este Azure no Security and Compliance Blueprint fornece orientações para implementar uma infraestrutura como um ambiente de serviço (IaaS) adequado para um simple aplicativo de web de acesso à Internet. Esta solução demonstra maneiras em que os clientes podem satisfazer os requisitos específicos de segurança e conformidade o gdpr e serve como uma base para os clientes criar e configurar suas próprias soluções de aplicação web IaaS no Azure. Os clientes podem utilizar esta arquitetura de referência e siga da Microsoft [processo de quatro etapas](https://aka.ms/gdprebook) na sua jornada para conformidade com o GDPR:
 1. Detetar: Identifica os dados pessoais que existem e a respetiva localização.

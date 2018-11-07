@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 90d810916599db50249a3e2ec677046c5af42a09
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005854"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238187"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>O que é o modelo de serviço em nuvem e como empacotá-lo?
 Um serviço em nuvem é criado a partir de três componentes, a definição de serviço *(. csdef)*, a configuração de serviço *(. cscfg)* e um pacote de serviço *(. cspkg)*. Ambas as **servicedefinition. Csdef** e **ServiceConfig.cscfg** ficheiros são baseados em XML e descrever a estrutura de serviço em nuvem e de configuração; coletivamente chamados o modelo. O **ServicePackage.cspkg** é um ficheiro zip que é gerado a partir do **servicedefinition. Csdef** e entre outras coisas, contém todos os com base em binário dependências necessárias. O Azure cria um serviço em nuvem, tanto o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -144,7 +144,7 @@ O ficheiro de configuração de serviço não é empacotado com o aplicativo, ma
 Pode consultar o [esquema de configuração do serviço](https://msdn.microsoft.com/library/azure/ee758710.aspx) para melhor compreender o esquema XML utilizado aqui, no entanto, aqui está uma explicação rápida dos elementos:
 
 **instâncias**  
-Configura o número de instâncias para a função em execução. Para impedir que o seu serviço cloud potencialmente ficarem indisponíveis durante as atualizações, recomenda-se que implemente mais de uma instância de suas funções com acesso à web. Ao implementar mais de uma instância, é a cumprir as diretrizes a [do Azure de computação ao nível do contrato serviço (SLA)](http://azure.microsoft.com/support/legal/sla/), que garante a conectividade externa de 99,95% para as funções de acesso à Internet quando dois ou mais instâncias de função são implementada para um serviço.
+Configura o número de instâncias para a função em execução. Para impedir que o seu serviço cloud potencialmente ficarem indisponíveis durante as atualizações, recomenda-se que implemente mais de uma instância de suas funções com acesso à web. Ao implementar mais de uma instância, é a cumprir as diretrizes a [do Azure de computação ao nível do contrato serviço (SLA)](https://azure.microsoft.com/support/legal/sla/), que garante a conectividade externa de 99,95% para as funções de acesso à Internet quando dois ou mais instâncias de função são implementada para um serviço.
 
 **ConfigurationSettings**  
 Configura as definições para as instâncias em execução para uma função. O nome do `<Setting>` elementos têm de corresponder as definições de configuração no ficheiro de definição do serviço.

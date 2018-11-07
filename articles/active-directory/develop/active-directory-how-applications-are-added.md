@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577235"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241502"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
 
@@ -69,7 +69,7 @@ Como objetos de aplicativo, os principais de serviço também podem ser criados 
 
 * Quando os utilizadores iniciam sessão a uma aplicação de terceiros integradas no Azure AD
   * Durante o início de sessão, é pedido aos utilizadores para conceder permissão à aplicação para aceder ao seu perfil e outras permissões. A primeira pessoa para dar consentimento faz com que um principal de serviço que representa o aplicativo a ser adicionado ao diretório.
-* Quando os utilizadores iniciam sessão ao Microsoft online services como [do Office 365](http://products.office.com/)
+* Quando os utilizadores iniciam sessão ao Microsoft online services como [do Office 365](https://products.office.com/)
   * Quando subscreve o Office 365 ou iniciar uma versão de avaliação, uma ou mais principais de serviço são criados no diretório que representa os vários serviços que são utilizados para fornecer todas as funcionalidades associadas do Office 365.
   * Alguns serviços do Office 365 como o SharePoint criar principais de serviço de forma contínua para permitir a comunicação segura entre componentes, incluindo fluxos de trabalho.
 * Quando um administrador adiciona uma aplicação da Galeria de aplicações (isso também irá criar um objeto de aplicativo subjacente)

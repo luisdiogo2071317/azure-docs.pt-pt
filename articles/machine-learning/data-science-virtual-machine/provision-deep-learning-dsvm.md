@@ -1,6 +1,6 @@
 ---
-title: Aprovisionar uma profunda aprendizagem Máquina Virtual de ciência de dados no Azure | Microsoft Docs
-description: Configurar e criar uma profunda Learning dados ciência de Máquina Virtual no Azure para análise e machine learning.
+title: Aprovisionar uma Máquina Virtual de ciência de dados no Azure de aprendizagem profunda | Documentos da Microsoft
+description: Configurar e criar uma profunda de aprendizagem máquina ciência de dados Virtual no Azure para análise e machine learning.
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -13,77 +13,77 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169946"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229667"
 ---
-# <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionar uma profunda aprendizagem Máquina Virtual no Azure 
+# <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionar uma Máquina Virtual no Azure de aprendizagem profunda 
 
-O profunda de aprendizagem Máquina Virtual (DLVM) é uma variante especial configurada do populares [máquinas de virtuais de ciência de dados](http://aka.ms/dsvm) (DSVM) torna mais fácil de utilizar a VM com base em GPU instâncias rapidamente modelos learning profunda de preparação. É suportada com o Windows 2016 ou o DSVM Ubuntu como base. O DLVM partilha as mesmas imagens da VM principal e, por conseguinte, todos os o conjunto de ferramentas avançado que está disponível no DSVM. 
+O Deep Learning Virtual Machine (DLVM) é uma variante especialmente configurada das populares [máquina de Virtual de ciência de dados](https://aka.ms/dsvm) (DSVM) para que seja mais fácil de usar a VM baseada em GPU instâncias para modelos de aprendizagem profunda de formação rapidamente. É suportado com o Windows 2016 ou o DSVM em Ubuntu como base. O DLVM compartilha as mesmo imagens de VM de núcleo e, portanto, todo o conjunto de ferramentas avançado que está disponível no DSVM. 
 
-O DLVM contém várias ferramentas para AI incluindo edições GPU de arquiteturas populares learning profunda Microsoft cognitivos Toolkit, TensorFlow, Keras, Caffe2, Chainer; ferramentas para adquirir e imagem previamente processo, textual dados, as ferramentas para dados ciência modelação e desenvolvimento de atividades tais como Microsoft R Server Developer Edition, Anaconda Python, blocos de notas do Jupyter para Python e R, IDEs para Python e R, o SQL Server e muitas outras bases de dados ferramentas de ML e ciência de dados. 
+O DLVM contém várias ferramentas de IA, inclusive edições de GPU de estruturas de aprendizagem profunda populares, como o Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; ferramentas para adquirir e pré-processar imagem, dados textuais, ferramentas de ciência modelação e desenvolvimento para atividades de dados, como o Microsoft R Server Developer Edition, Anaconda Python, blocos de notas do Jupyter para o Python e R, IDEs Python e R, SQL e muitos outros a bases de dados Ciência de dados e as ferramentas de ML. 
 
-## <a name="create-your-deep-learning-virtual-machine"></a>Criar a ligação avançada de aprendizagem Máquina Virtual
-Eis os passos para criar uma instância da máquina de Virtual profunda do Learning: 
+## <a name="create-your-deep-learning-virtual-machine"></a>Criar a sua máquina Virtual de aprendizagem profunda
+Eis os passos para criar uma instância do Deep Learning Virtual Machine: 
 
 1. Navegue para a máquina virtual listagem no [portal do Azure](https://portal.azure.com/#create/microsoft-ads.dsvm-deep-learningtoolkit
 ).
-2. Selecione o **criar** na parte inferior para ser levados num assistente.![ dlvm criar](./media/dlvm-provision-wizard.PNG)
-3. O assistente utilizado para criar o DLVM requer **entradas** para cada um do **quatro passos** enumerado à direita desta figura. Seguem-se as entradas necessárias para configurar cada um destes passos:
+2. Selecione o **Create** na parte inferior para ser levados num assistente.![ dlvm criar](./media/dlvm-provision-wizard.PNG)
+3. O assistente utilizado para criar o DLVM requer **entradas** para cada um da **quatro passos** enumerado à direita da figura. Seguem-se as entradas necessárias para configurar cada um destes passos:
    
    1. **Noções básicas**
       
       1. **Nome**: nome do seu servidor de ciência de dados que está a criar.
-      2. **Selecione o tipo de SO para a VM de aprendizagem profunda**: Escolha Windows ou Linux (para Windows 2016 e DSVM base Ubuntu Linux)
-      2. **Nome de utilizador**: id de início de sessão de conta de administrador.
+      2. **Selecione o tipo de SO para a VM de aprendizagem profunda**: Escolha Windows ou Linux (para Windows 2016 e DSVM base do Ubuntu Linux)
+      2. **Nome de utilizador**: id de início de sessão da conta de administrador.
       3. **Palavra-passe**: palavra-passe da conta de administrador.
-      4. **Subscrição**: Se tiver mais do que uma subscrição, selecione aquele no qual a máquina está a ser criado e cobrados.
+      4. **Subscrição**: Se tiver mais de uma subscrição, selecione aquele no qual a máquina está a ser criado e faturadas.
       5. **Grupo de recursos**: pode criar uma nova ou utilize um **vazio** grupo de recursos do Azure existente na sua subscrição.
-      6. **Localização**: selecione o Centro de dados que é mais adequado. Normalmente, é o Centro de dados que contém a maioria dos seus dados ou se mais próxima da sua localização física para acesso de rede mais rápido. 
+      6. **Localização**: selecionar o Datacenter mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. 
       
 > [!NOTE]
-> O DLVM suporta todos os NC e ND série instâncias de VM para a GPU. Quando aprovisionar o DLVM, tem de escolher uma das localizações no Azure que tenha GPUs. Verifique o [produtos do Azure por região página](https://azure.microsoft.com/regions/services/) página para as localizações disponíveis e procure **NC série**, **NCv2 série**, **NCv3 série** , ou **ND série** em **computação**. 
+> O DLVM suporta todos os NC e ND série instâncias de GPU VM. Quando o DLVM de aprovisionamento, tem de escolher uma das localizações no Azure com GPUs. Verifique os [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) página para as localizações disponíveis e procure **série NC**, **série NCv2**, **série NCv3** , ou **série ND** sob **computação**. 
 
-   2. **Definições**: selecione uma da série de NC (NC, NCv2, NCv3) ou série de ND tamanhos de máquina virtual para a GPU que cumpra os requisitos funcionais e restrições de custo. Crie uma conta de armazenamento para a VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Definições**: selecione um da série NC (NCv3 NC, a NCv2,) ou série ND tamanhos de máquinas virtuais GPU que se adequa ao requisito funcional e restrições de custo. Crie uma conta de armazenamento para a sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Resumo**: Certifique-se de que todas as informações que introduziu estão corretas.
-   5. **Comprar**: clique em **comprar** para iniciar o aprovisionamento. É fornecida uma ligação para os termos da transação. A VM não tem quaisquer taxas adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
+   5. **Compre**: clique em **comprar** para iniciar o aprovisionamento. Receberá uma ligação para os termos da transação. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
 
 > [!NOTE]
-> O aprovisionamento deve demorar cerca de 10 a 20 minutos. O estado de aprovisionamento da é apresentado no portal do Azure.
+> O aprovisionamento deve demorar cerca de 10 a 20 minutos. O estado do provisionamento é apresentado no portal do Azure.
 > 
 
 
-## <a name="how-to-access-the-deep-learning-virtual-machine"></a>Como aceder a máquina de Virtual Learning profunda
+## <a name="how-to-access-the-deep-learning-virtual-machine"></a>Como acessar o Deep Learning Virtual Machine
 
 ### <a name="windows-edition"></a>Edição do Windows
-Depois da VM é criada, pode ambiente de trabalho remoto para a mesma utilizando as credenciais de conta de administrador que configurou no precedente **Noções básicas** secção. 
+Depois da VM é criada, o ambiente de trabalho remoto, pode nela, usando as credenciais da conta de administrador que configurou no anterior **Noções básicas** secção. 
 
 ### <a name="linux-edition"></a>Edição do Linux
 
-Depois de criada a VM, pode iniciar sessão-lo através de SSH. Utilizar as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface de shell de texto. No cliente aWindows, pode transferir uma ferramenta de cliente SSH como [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (X Windows sistema), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente X2Go.
+Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No cliente aWindows, pode baixar uma ferramenta de cliente SSH, como [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
 
 > [!NOTE]
-> O cliente X2Go efetuar melhor no nosso teste de reencaminhamento de X11. Recomendamos que utilize o cliente X2Go para uma interface gráfica do ambiente de trabalho.
+> O cliente de X2Go executada melhor do que no nosso teste de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.
 > 
 > 
 
-#### <a name="installing-and-configuring-x2go-client"></a>Instalar e configurar o cliente X2Go
-O DLVM Linux já está a ser aprovisionado com o servidor de X2Go e pronto para aceitar ligações de cliente. Para se ligar no ambiente de trabalho de gráfico de VM com Linux, execute o seguinte procedimento no cliente:
+#### <a name="installing-and-configuring-x2go-client"></a>Instalar e configurar o cliente de X2Go
+O DLVM Linux já está a ser aprovisionado com o servidor de X2Go e pronto para aceitar ligações de cliente. Para ligar-se na área de trabalho de gráfico de VM do Linux, execute o seguinte procedimento no cliente:
 
-1. Transferir e instalar o cliente X2Go para a sua plataforma de cliente de [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Executar o cliente X2Go e selecione **nova sessão**. É aberta uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
-   * **Separador sessões**:
+1. Transferir e instalar o cliente de X2Go para a sua plataforma de cliente do [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+2. Executar o cliente de X2Go e selecione **nova sessão**. Ele abre uma janela de configuração com vários separadores. Introduza os seguintes parâmetros de configuração:
+   * **Separador de sessão**:
      * **Anfitrião**: O nome de anfitrião ou endereço IP da sua VM de ciência de dados do Linux.
      * **Início de sessão**: nome de utilizador na VM do Linux.
-     * **Porta SSH**: deixe-22, o valor predefinido.
-     * **Tipo de sessão**: Altere o valor para **XFCE**. Atualmente a DSVM Linux só suporta o ambiente de trabalho XFCE.
-   * **Separador de suporte de dados**: pode desativar o suporte de som e cliente impressão se não pretender utilizá-los.
-   * **Pastas partilhadas**: Se pretender que diretórios das suas máquinas de cliente instaladas na VM do Linux, adicione os diretórios de máquina do cliente que pretende partilhar com a VM neste separador.
+     * **Porta SSH**: deixá-lo em 22, o valor predefinido.
+     * **Tipo de sessão**: Altere o valor para **XFCE**. Atualmente a DSVM do Linux só suporta o ambiente de trabalho XFCE.
+   * **Guia de suporte de dados**: pode desativar o suporte para som e cliente impressão se não precisar usá-los.
+   * **Pastas compartilhadas**: Se pretender que diretórios das suas máquinas de cliente montadas na VM do Linux, adicione os diretórios de máquina de cliente que pretende partilhar com a VM neste separador.
 
-Depois de iniciar sessão para a VM ao utilizar o cliente SSH ou de ambiente de trabalho gráfico XFCE através do cliente X2Go, está pronto para começar a utilizar as ferramentas que estão instaladas e configuradas na VM. No XFCE, pode ver os atalhos de menu de aplicações e ícones do ambiente de trabalho para muitas das ferramentas.
+Depois de iniciar sessão na VM com o cliente SSH ou de uma área de trabalho gráfica do XFCE por meio do cliente de X2Go, está pronto para começar a utilizar as ferramentas que são instaladas e configuradas na VM. No XFCE, pode ver atalhos no menu aplicações e ícones para muitas das ferramentas.
 
-Assim que a VM é criada e aprovisionada, estará pronto começar a utilizar as ferramentas que estão instaladas e configuradas no mesmo. Existem mosaicos de menu de início e de ambiente de trabalho ícones de muitas das ferramentas. 
+Assim que a VM é criada e provisionada, está pronto para começar a utilizar as ferramentas de que estão instaladas e configuradas no mesmo. Existem mosaicos do menu Iniciar e ícones para muitas das ferramentas. 

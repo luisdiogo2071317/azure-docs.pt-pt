@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238354"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -59,7 +59,7 @@ Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo
 
     Para teste AES ou CENC (Widevine e/ou PlayReady) encriptados conteúdo, pode utilizar [leitor de multimédia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Certifique-se de que clicar em "Opções avançadas" e verifique as opções de encriptação.
 
-    Se pretender testar conteúdo do FairPlay encriptado, utilize [player este teste](http://aka.ms/amtest). O jogador suporta Widevine, PlayReady, e encriptação de chave de não FairPlay DRMs, bem como AES-128. Tem de escolher o navegador certo para testar diferentes DRMs: Chrome/Opera/Firefox para Widevine, MS. o Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
+    Se pretender testar conteúdo do FairPlay encriptado, utilize [player este teste](https://aka.ms/amtest). O jogador suporta Widevine, PlayReady, e encriptação de chave de não FairPlay DRMs, bem como AES-128. Tem de escolher o navegador certo para testar diferentes DRMs: Chrome/Opera/Firefox para Widevine, MS. o Edge/IE11 para PlayReady, Safari no macOS para FairPlay.
 
 3. Proteger o serviço de Token (STS), que emite o JSON Web Token (JWT) como token de acesso para acesso a recursos back-end. Pode utilizar os serviços de entrega de licença do AMS como o recurso de back-end. Tem um STS para definir o seguinte:
 
@@ -149,7 +149,7 @@ O exemplo mostra como:
 
 2. Crie um StreamingLocator que está configurado para transmitir um recurso de encriptados. 
 
-  Por exemplo, pode definir StreamingLocator.StreamingPolicyName para a política de "Predefined_MultiDrmCencStreaming". Esta política indica que pretende que sejam geradas e definidas no localizador duas chaves de conteúdo (envelope e CENC). Por conseguinte, são aplicadas as encriptação de envelope, do PlayReady e do Widevine (a chave é entregue ao cliente para reprodução, com base nas licenças DRM configuradas). Se desejar encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
+  Por exemplo, pode definir StreamingLocator.StreamingPolicyName para a política de "Predefined_MultiDrmCencStreaming". Esta política indica que pretende que sejam geradas e definidas no localizador duas chaves de conteúdo (envelope e CENC). Por conseguinte, são aplicadas as encriptação de envelope, do PlayReady e do Widevine (a chave é entregue ao cliente para reprodução, com base nas licenças DRM configuradas). Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
 
 3. Crie um token de teste.
 
@@ -168,8 +168,8 @@ Como e onde obter JWT token antes de o utilizar para a licença de pedido ou a c
 1. Para a produção, tem de ter um Secure Token serviços (STS) (serviço web) que emite o token JWT mediante um pedido HTTPS. Para teste, poderia usar o código mostrado na **GetTokenAsync** método definido na [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Leitor terá de fazer um pedido, após um utilizador é autenticado, para o STS para esse token e atribua-a como o valor do token. Pode utilizar o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Para obter um exemplo de execução do STS, com a chave simétrica e assimétrica, consulte [ http://aka.ms/jwt ](http://aka.ms/jwt). 
-* Para obter um exemplo de um player com base no leitor de multimédia do Azure com esse token JWT, consulte [ http://aka.ms/amtest ](http://aka.ms/amtest) (expandir a ligação de "player_settings" para ver a entrada de token).
+* Para obter um exemplo de execução do STS, com a chave simétrica e assimétrica, consulte [ http://aka.ms/jwt ](https://aka.ms/jwt). 
+* Para obter um exemplo de um player com base no leitor de multimédia do Azure com esse token JWT, consulte [ http://aka.ms/amtest ](https://aka.ms/amtest) (expandir a ligação de "player_settings" para ver a entrada de token).
 
 ### <a name="question"></a>Pergunta
 

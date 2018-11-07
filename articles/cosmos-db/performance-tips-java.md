@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: d8d05335b62d292bf61dbd3f3d565093b21f9253
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c6c63b7b66114a8c35986b443bda78442b8edd7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237745"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Sugestões de desempenho para o Azure Cosmos DB e Java
 
@@ -25,7 +25,7 @@ ms.locfileid: "45574849"
 > * [.NET](performance-tips.md)
 > 
 
-O Azure Cosmos DB é uma rápida e flexível base de dados distribuída que se dimensiona de forma totalmente integrada com o débito e latência garantida. Não é necessário fazer alterações de arquitetura principais ou escrever código complexo para dimensionar a sua base de dados com o Azure Cosmos DB. Aumentar e reduzir verticalmente é tão fácil quanto efetuar uma única chamada de API ou [chamada de método do SDK](set-throughput.md#set-throughput-java). No entanto, porque o Azure Cosmos DB é acessado por meio de chamadas de rede há otimizações de lado do cliente, pode fazer para alcançar o desempenho de pico quando utilizar o [SDK de Java SQL](documentdb-sdk-java.md).
+O Azure Cosmos DB é uma rápida e flexível base de dados distribuída que se dimensiona de forma totalmente integrada com o débito e latência garantida. Não é necessário fazer alterações de arquitetura principais ou escrever código complexo para dimensionar a sua base de dados com o Azure Cosmos DB. Aumentar e reduzir verticalmente é tão fácil quanto efetuar uma única chamada à API. Para obter mais informações, consulte [como aprovisionar o débito de contentores](how-to-provision-container-throughput.md) ou [como aprovisionar o débito de base de dados](how-to-provision-database-throughput.md). No entanto, porque o Azure Cosmos DB é acessado por meio de chamadas de rede há otimizações de lado do cliente, pode fazer para alcançar o desempenho de pico quando utilizar o [SDK de Java SQL](documentdb-sdk-java.md).
 
 Portanto, se está perguntando "como posso melhorar o desempenho da minha base de dados?" Considere as seguintes opções:
 
@@ -93,7 +93,8 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 
 5. **Implementar o término em intervalos de getRetryAfterInMilliseconds**
 
-    Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos são limitados. Se otimizado, o aplicativo cliente deve término na limitação para o intervalo entre tentativas de servidor especificado. Respeitar o término garante que passe uma quantidade mínima de espera de tempo entre as repetições. O suporte de política de repetição está incluído na versão 1.8.0 e superior do [SDK de Java](documentdb-sdk-java.md). Para obter mais informações, consulte [exceder reservado limites de débito](request-units.md#RequestRateTooLarge) e [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+    Durante os testes de desempenho, deve aumentar a carga até que uma pequena taxa de pedidos são limitados. Se otimizado, o aplicativo cliente deve término na limitação para o intervalo entre tentativas de servidor especificado. Respeitar o término garante que passe uma quantidade mínima de espera de tempo entre as repetições. O suporte de política de repetição está incluído na versão 1.8.0 e superior do [SDK de Java](documentdb-sdk-java.md). Para obter mais informações, consulte [getRetryAfterInMilliseconds](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client_exception.getretryafterinmilliseconds).
+
 6. **Aumentar horizontalmente o seu cliente e carga de trabalho**
 
     Se estiver a testar em níveis de débito elevado (> 50 000 RU/s), a aplicação cliente pode se tornar o afunilamento devido a máquina capping horizontalmente na utilização da CPU ou de rede. Se atingir este ponto, pode continuar a enviar por push ainda mais a conta do Azure Cosmos DB, aumente horizontalmente as suas aplicações de cliente em vários servidores.

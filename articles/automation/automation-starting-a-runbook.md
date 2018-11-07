@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00143ab1f4aaba0f700e084d9225570c28713d0d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42054354"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252348"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Iniciar um runbook na automatização do Azure
 A tabela seguinte ajuda-o a determinar o método para iniciar um runbook na automatização do Azure mais adequada ao seu cenário específico. Este artigo inclui detalhes sobre como iniciar um runbook com o portal do Azure e com o Windows PowerShell. Obter detalhes sobre os outros métodos são fornecidos em outras documentações que pode aceder a partir das ligações abaixo.
@@ -66,7 +66,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Se o runbook necessitar de parâmetros, tem de fornecê-los como um [hashtable](http://technet.microsoft.com/library/hh847780.aspx) onde a chave da tabela hash corresponde ao nome do parâmetro e o valor é o valor do parâmetro. O exemplo seguinte mostra como iniciar um runbook com dois parâmetros de cadeia denominados FirstName e LastName, um número inteiro denominado RepeatCount e um parâmetro booleano denominado Show. Para obter mais informações sobre parâmetros, consulte [parâmetros do Runbook](#Runbook-parameters) abaixo.
+Se o runbook necessitar de parâmetros, tem de fornecê-los como um [hashtable](https://technet.microsoft.com/library/hh847780.aspx) onde a chave da tabela hash corresponde ao nome do parâmetro e o valor é o valor do parâmetro. O exemplo seguinte mostra como iniciar um runbook com dois parâmetros de cadeia denominados FirstName e LastName, um número inteiro denominado RepeatCount e um parâmetro booleano denominado Show. Para obter mais informações sobre parâmetros, consulte [parâmetros do Runbook](#Runbook-parameters) abaixo.
 
 ```
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

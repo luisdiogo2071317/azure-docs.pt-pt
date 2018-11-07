@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: de0b3a51ae7c7cca91366b955c5fa74963d95d27
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 420d061b34734c7b5997f5cdd58fe7faaee9cb82
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211677"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236761"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha de uma máquina virtual para o Azure
 
@@ -22,7 +22,7 @@ Poderá receber um dos seguintes erros durante o processo de ativação pós-fal
 
 Recuperação de sites não foi possível criar um com falha através de máquina virtual no Azure. Isso pode acontecer devido a uma das seguintes razões:
 
-* Não existe uma quota suficiente disponível para criar a máquina virtual: pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](http://aka.ms/getazuresupport) para aumentar a quota.
+* Não existe uma quota suficiente disponível para criar a máquina virtual: pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](https://aka.ms/getazuresupport) para aumentar a quota.
 
 * Está a tentar máquinas de virtuais de ativação pós-falha de famílias de tamanhos diferentes no mesmo conjunto de disponibilidade. Certifique-se de que escolha mesma família de tamanho para todas as máquinas virtuais no mesmo conjunto de disponibilidade. Alterar tamanho acedendo a definições de computação e rede da máquina virtual e, em seguida, repita a ativação pós-falha.
 
@@ -30,7 +30,7 @@ Recuperação de sites não foi possível criar um com falha através de máquin
 
 ## <a name="failover-failed-with-error-id-28092"></a>Falha na ativação pós-falha com o ID do erro 28092
 
-Recuperação de sites não foi possível criar uma interface de rede para a máquina virtual com ativação pós-falha. Certifique-se de que tem quota suficiente disponível para criar interfaces de rede na subscrição. Pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](http://aka.ms/getazuresupport) para aumentar a quota. Se tiver quota suficiente, em seguida, pode ser um intermitente emitir, repita a operação. Se o problema persistir, mesmo após as repetições, em seguida, deixe um comentário no final deste documento.  
+Recuperação de sites não foi possível criar uma interface de rede para a máquina virtual com ativação pós-falha. Certifique-se de que tem quota suficiente disponível para criar interfaces de rede na subscrição. Pode verificar a quota disponível ao aceder à subscrição -> utilização e quotas. Pode abrir um [novo pedido de suporte](https://aka.ms/getazuresupport) para aumentar a quota. Se tiver quota suficiente, em seguida, pode ser um intermitente emitir, repita a operação. Se o problema persistir, mesmo após as repetições, em seguida, deixe um comentário no final deste documento.  
 
 ## <a name="failover-failed-with-error-id-70038"></a>Falha na ativação pós-falha com o ID do erro 70038
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 00ce57dbff749d4ee906e0e7dae1d828ef85326f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962066"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257195"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -39,7 +39,7 @@ Este artigo descreve o conteúdo do pacote de atualização de 1809. O pacote de
 
 Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 
-- Com esta versão, configurações de suporta sistemas de 4 a 16 nós integrado do Azure Stack. Pode utilizar o [Planeador de capacidade do Azure Stack](http://aka.ms/azstackcapacityplanner) para ajudar no seu planeamento da capacidade do Azure Stack e a configuração.
+- Com esta versão, configurações de suporta sistemas de 4 a 16 nós integrado do Azure Stack. Pode utilizar o [Planeador de capacidade do Azure Stack](https://aka.ms/azstackcapacityplanner) para ajudar no seu planeamento da capacidade do Azure Stack e a configuração.
 
 - <!--  2712869   | IS  ASDK -->  **Cliente de syslog do Azure Stack (disponibilidade geral)** este cliente permite que o reencaminhamento de auditorias, alertas e registos de segurança relacionados com a infraestrutura do Azure Stack para um syslog segurança ou de servidor de informações e eventos (SIEM) software de gestão externamente em relação ao Azure Stack. Agora, o cliente de syslog suporta especificando a porta em que o servidor syslog está a escutar.
 

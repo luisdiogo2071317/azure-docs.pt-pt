@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: c9c3383719ed8001167a6dce42d2df3e58b6ca74
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0da4626943a7223b24baac80121b5da0062c0d73
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161969"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237082"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de memória intermédia para eventos expandidos na base de dados SQL em anel
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Pretende um exemplo de código completo para a forma mais fácil rápida para coletar e reportar informações para um evento expandido durante um teste. A meta mais fácil para os dados de evento expandido é o [destino de memória intermédia em anel](http://msdn.microsoft.com/library/ff878182.aspx).
+Pretende um exemplo de código completo para a forma mais fácil rápida para coletar e reportar informações para um evento expandido durante um teste. A meta mais fácil para os dados de evento expandido é o [destino de memória intermédia em anel](https://msdn.microsoft.com/library/ff878182.aspx).
 
 Este tópico apresenta um exemplo de código Transact-SQL que:
 
@@ -50,8 +50,8 @@ Este tópico apresenta um exemplo de código Transact-SQL que:
 * SQL Server Management Studio (ssms.exe), o ideal é que a última versão atualização mensal. 
   Pode baixar o ssms.exe mais recentes do:
   
-  * Tópico intitulado [transferir o SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [Uma ligação direta para o download.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Tópico intitulado [transferir o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [Uma ligação direta para o download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Exemplo de código
 
@@ -353,6 +353,6 @@ Outros tópicos de exemplo de código para eventos expandidos estão disponívei
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

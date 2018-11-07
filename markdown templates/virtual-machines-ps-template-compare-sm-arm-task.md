@@ -10,11 +10,11 @@ Pay attention to spacing and indents. They affect formatting.
 
 <!--replace this with Properties and Tags sections. These are required sections. See "article-metadata.md" in under the "contributor-guide" folder in your repo. Attributes in each section can be placed on separate lines to make them easier to read and check-->
 
-# <a name="use-azure-powershell-to-task"></a>Utilizar o Azure PowerShell [tarefa]
-Este artigo mostra como [tarefas], utilizando os comandos do módulo do Azure e o módulo do Azure Resource Manager. Destina-se para o ajudar a saber os novos comandos, bem como migrar os scripts existentes para os novos comandos.
+# <a name="use-azure-powershell-to-task"></a>Utilizar o Azure PowerShell para [tarefa]
+Este artigo mostra como [tarefas], utilizar comandos do módulo do Azure e o módulo do Azure Resource Manager. Isso se destina a ajudar a aprender os novos comandos, bem como migrar os scripts existentes para os novos comandos.
 
 ## <a name="prerequisite-install-a-recent-version-of-azure-powershell"></a>Pré-requisito: Instalar uma versão recente do PowerShell do Azure
-Se não tiver o feito, instale, pelo menos, a versão de [número de versão] do Azure PowerShell no computador local. Se utilizar uma versão anterior, não terá a cmdlets do Azure Resource Manager descritos neste artigo. Para obter mais detalhes, veja:
+Se ainda não fez isso, instale, pelo menos, a versão [número da versão] do Azure PowerShell no seu computador local. Se utilizar uma versão anterior, ele não terá de cmdlets do Azure Resource Manager descritos neste artigo. Para obter mais detalhes, veja:
 
 * [Como instalar e configurar o Azure PowerShell](install-configure-powershell.md) para obter instruções sobre como configurar o Azure PowerShell.
 * [Com o Windows PowerShell com o Resource Manager](powershell-azure-resource-manager.md) para Noções básicas sobre como utilizar o Gestor de recursos.
@@ -25,7 +25,7 @@ Se não tiver o feito, instale, pelo menos, a versão de [número de versão] do
 > 
 
 ## <a name="command-comparison"></a>Comparação de comando
-Isto [tabela | Secção] mostra a sintaxe do comando.
+Isso [tabela | Secção] mostra a sintaxe de comando.
 
 <!--[optional image - to use an image in this article, add a folder with the same name as the article file name without extension, inside the Media folder of the repo. Use only this folder to store the images. Don't attempt to use a common folder to share images you want to use in more than 1 file.]
 Then, use the following syntax to add a reference to the image in your article:
@@ -34,7 +34,7 @@ Then, use the following syntax to add a reference to the image in your article:
 
 <!--if a command string uses variables, define the variables first, using the  following construction. In some cases the variable is straightforward and doesn't need much explanation. But parameters such as location and size can benefit from brief explanation or listing all accepted values:--> 
 
-Estes exemplos de comando utilizam as seguintes variáveis:
+Estes exemplos de comandos, utilize as seguintes variáveis:
 
 $FriendlyName"<Describe value>"
 
@@ -46,17 +46,17 @@ $FriendlyName"<Describe value>"
 
 <!--if it makes more sense to present this one command block after the other instead of a table, use this. Otherwise, delete-->
 
-[Frase breve introdução sobre o comando. Omita se realmente nada para indicar. Porém, se utiliza abordagens, tais um pipeline, que explicam]:
+[Frase curta introdução sobre o comando. Omita se realmente nada a dizer. Mas se utilizar a essas abordagens um pipeline, explique que]:
 
     [command string]
 
 ## <a name="script-examples"></a>Exemplos de script
-Eis um exemplo que utiliza [nomes de cmdlet)] para [tarefa]. Inclui comandos que:
+Eis um exemplo que usa [nomes de cmdlet)] para [tarefas]. Ele inclui comandos que:
 
 * [verbo curto, utilizações, tem, é, etc]
 * [verbo curto seguinte] 
 
-<!--include this statement if it uses variables that weren't introduced earlier--> It includes the following variables:
+<!--include this statement if it uses variables that weren't introduced earlier--> Ele inclui as seguintes variáveis:
 
 * [variável 1]
 * [variável 2]
@@ -94,8 +94,8 @@ Eis um exemplo que utiliza [nomes de cmdlet)] para [tarefa]. Inclui comandos que
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
-    [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)-->
+    [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Documentação de virtual machines](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Documentação das máquinas virtuais](https://msdn.microsoft.com/library/azure/jj156003.aspx)
 

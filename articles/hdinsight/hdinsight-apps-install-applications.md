@@ -1,24 +1,24 @@
 ---
-title: Instalar aplicações do Hadoop de terceiros no Azure HDInsight
+title: Instalar aplicações de terceiros no Azure HDInsight
 description: Saiba como instalar aplicações do Hadoop de terceiros no Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: c50bd7c314c88c0950478cc3068d9a5873b65263
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 71c371594a0ee2b2b8e976fffb7641ccb6b72c0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996968"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261796"
 ---
-# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Hadoop de terceiros no Azure HDInsight
+# <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicações do Apache Hadoop de terceiros no Azure HDInsight
 
-Saiba como instalar uma aplicação do Hadoop de terceiros no Azure HDInsight. Para obter instruções sobre como instalar a sua própria aplicação, veja [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
+Saiba como instalar uma aplicação do Apache Hadoop de terceiros no Azure HDInsight. Para obter instruções sobre como instalar a sua própria aplicação, veja [Instalar aplicações do HDInsight personalizadas](hdinsight-apps-install-custom-applications.md).
 
 Uma aplicação do HDInsight é um aplicativo que os utilizadores podem instalar num cluster do HDInsight. Estas aplicações podem ser desenvolvidas pela Microsoft, por fornecedores independentes de software (ISV) ou por si.  
 
@@ -27,13 +27,18 @@ A lista seguinte mostra as aplicações publicadas:
 * **Plataforma de informações de AtScale** transforma o seu cluster do HDInsight num servidor OLAP de escalamento horizontal. O aplicativo permite que consulta milhares de milhões de linhas de dados de forma interativa usando as ferramentas de BI do Microsoft Excel, Power BI, Tableau Software para QlikView.
 * **O cask CDAP para HDInsight** fornece a primeira plataforma de integração unificada para macrodados que reduz o tempo de produção de aplicações de dados de data lakes em 80%. Esta aplicação apenas suporta clusters Standard HBase 3.4.
 * **DATAIKU DDS no HDInsight** permite aos profissionais de dados para criar protótipos, criar e implementar serviços altamente específicos que transformam dados não processados em predições de negócio com impacto.
+* **Datameer** é uma plataforma escalonável self-service para preparar, explorar, e que regem os dados para análise acelera a transformar dados multisource complexos em informações valiosas de pronto a utilizar, fornecendo o insights rápidos e inteligentes num escala empresarial.
 * **H2O Artificial Intelligence para o HDInsight (Beta)** Sparkling Water da H2O oferece suporte aos seguintes algoritmos distribuídos: GLM, Bayes Ingênua, distribuídas Random floresta, máquina aumentam a gradação, redes Neurais profundas, K-means, o PCA, de aprendizagem profunda Modelos de classificação baixos generalizados, deteção de anomalias e Autoencoders.
-* **O Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) é um armazém de dados empresariais com tecnologia Apache Kylin e o Apache Hadoop; fornece frações de segundos consultar latência num conjunto de dados de grande escala e simplifica a análise de dados do os utilizadores empresariais e os analistas. 
+* **O Kyligence Analytics Platform** Kyligence Analytics Platform (KAP) é um armazém de dados empresariais com tecnologia Apache Kylin e o Apache Hadoop; fornece subsecond consultar latência num conjunto de dados de grande escala e simplifica a análise de dados do os utilizadores empresariais e os analistas. 
 * **Preparação de dados de autoatendimento a Adaptive**
 * **Servidor de tarefas do Spark para o Executor do Spark de KNIME** servidor de tarefas do Spark para o Executor do Spark de KNIME é utilizada para ligar a plataforma de análise de KNIME a clusters do HDInsight.
+* **Starburst Presto** Presto é um rápidas e dimensionável distribuído motor de consulta SQL. Criado para a separação de armazenamento e computação, Presto é perfeito para consultar dados no armazenamento do Azure Data Lake, bases de dados do armazenamento de Blobs do Azure, SQL e NoSQL e outras origens de dados.
 * O **Recoletor de dados de Streamsets para o HDnsight** fornece um ambiente de desenvolvimento integrado com todas as funcionalidades (IDE) que lhe permite estruturar, testar, implementa e gerir qualquer para qualquer pipelines de ingestão que misturam fluxo e lote de dados e incluem uma variedade de transformações no fluxo — tudo isto sem ter de escrever código personalizado. 
+* **Striim** (pronuncia-se de "stream") é um ponto-a-ponto de transmissão em fluxo integração de dados + plataforma de informações, permitindo contínua ingestão, processamento e análise de fluxos de dados diferentes.
 * **[Trifacta](http://www.trifacta.com/)**  permite que os engenheiros de dados e analistas explorar e preparar os dados de diversos dos dias de hoje com a utilização de machine learning para fornecer uma experiência de usuário de progresso, o fluxo de trabalho e a arquitetura de forma mais eficiente.
+* **Plataforma de dados de UNIFI** é um conjunto integrado de forma totalmente integrada de ferramentas de dados de gestão personalizada criadas para oferecer ao usuário de negócios para lidar com os desafios de dados essa receita incremental de unidade, reduzir os custos ou complexidade operacional. 
 * **O WANdisco Fusion HDI aplicação** permite conectividade contínua de consistente a dados à medida que muda independentemente de onde está localizado. Ele fornece acesso aos seus dados em qualquer altura e em qualquer lugar com nenhum tempo de inatividade e sem interrupção.
+* **Waterline** cataloga, organiza e rege dados através de ia para dados de autotag com termos de negócios. Catálogo de alfabetizada do waterline corporativos é um componente de sucesso críticos, para análises de autoatendimento, conformidade e governação e iniciativas de gestão de TI.
 
 As instruções fornecidas neste artigo utilizam o portal do Azure. Também pode exportar o modelo Azure Resource Manager a partir do portal ou obter uma cópia do modelo do Resource Manager de fornecedores e utilizar o Azure PowerShell e CLI clássica do Azure para implementar o modelo.  Ver [criar clusters Hadoop no HDInsight com modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 

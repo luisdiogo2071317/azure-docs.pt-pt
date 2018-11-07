@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: fbfb52b758089acf65f89c62f716d46d62b0f289
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 794c2cf6c52ead465d35d3d551cfe76e87c06787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233825"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237609"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introdução à entrega de conteúdos a pedido com REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -460,7 +460,7 @@ O código a seguir pedidos de id do codificador.
 ### <a name="create-a-job"></a>Criar uma tarefa
 Cada tarefa pode ter uma ou mais tarefas, dependendo do tipo de processamento que deseja realizar. Através da API REST, pode criar tarefas e suas tarefas relacionadas em uma das seguintes formas: tarefas podem ser definidos inline por meio da propriedade de navegação de tarefas em entidades de tarefa ou por meio do processamento em lote OData. O SDK dos serviços de suporte de dados utiliza o processamento em lotes. No entanto, para a legibilidade dos exemplos de código neste artigo, as tarefas são definidos inline. Para obter informações sobre o processamento em lotes, consulte [Open Data Protocol (OData) de processamento de Batch](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-O exemplo seguinte mostra-lhe como criar e publicar uma tarefa com uma que tarefa definida para codificar um vídeo numa resolução específico e qualidade. A seguinte secção de documentação contém a lista de todos os [suas configurações predefinidas de tarefas](http://msdn.microsoft.com/library/mt269960) suportada pelo processador do Media Encoder Standard.  
+O exemplo seguinte mostra-lhe como criar e publicar uma tarefa com uma que tarefa definida para codificar um vídeo numa resolução específico e qualidade. A seguinte secção de documentação contém a lista de todos os [suas configurações predefinidas de tarefas](https://msdn.microsoft.com/library/mt269960) suportada pelo processador do Media Encoder Standard.  
 
 **Pedido de HTTP**
 

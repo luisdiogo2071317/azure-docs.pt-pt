@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ab338964a67991c0e97bf218f8aa004e0e5dfe38
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418251"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248474"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Resolver problemas relacionados com cópias de segurança lentas de ficheiros e pastas no Azure Backup
 Este artigo fornece orientações de resolução de problemas para o ajudar a diagnosticar a causa do desempenho de cópia de segurança lenta de ficheiros e pastas quando estiver usando a cópia de segurança do Azure. Quando utiliza o agente de cópia de segurança do Azure para fazer backup de arquivos, o processo de cópia de segurança poderá demorar mais do que esperado. Este atraso pode ser causado por uma ou mais dos seguintes procedimentos:
@@ -23,7 +23,7 @@ Este artigo fornece orientações de resolução de problemas para o ajudar a di
 * [O agente de cópia de segurança está em execução numa máquina virtual do Azure (VM).](#cause3)  
 * [Está fazendo o backup de um grande número (milhões) de ficheiros.](#cause4)
 
-Antes de iniciar a resolução de problemas, recomendamos que transfira e instale o [agente de cópia de segurança do Azure mais recente](http://aka.ms/azurebackup_agent). Podemos fazer atualizações frequentes para o agente de cópia de segurança para corrigir diversos problemas, adicionar recursos e melhorar o desempenho.
+Antes de iniciar a resolução de problemas, recomendamos que transfira e instale o [agente de cópia de segurança do Azure mais recente](https://aka.ms/azurebackup_agent). Podemos fazer atualizações frequentes para o agente de cópia de segurança para corrigir diversos problemas, adicionar recursos e melhorar o desempenho.
 
 Também recomendamos que reveja os [FAQ do serviço de cópia de segurança do Azure](backup-azure-backup-faq.md) para se certificar de que não está a experienciar qualquer um dos problemas comuns de configuração.
 

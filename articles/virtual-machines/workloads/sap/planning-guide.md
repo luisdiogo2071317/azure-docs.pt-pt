@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430345"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262408"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Máquinas de virtuais de planeamento e implementação para o SAP NetWeaver do Azure
 
@@ -1259,7 +1259,7 @@ Experiência de implementações de SAP nos últimos dois anos ensinado-nos algu
 >
 > * [Configurar o RAID de Software no Linux][virtual-machines-linux-configure-raid]
 > * [Configurar LVM numa VM do Linux no Azure][virtual-machines-linux-configure-lvm]
-> * [Segredos do armazenamento do Azure e otimizações de e/s do Linux](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Segredos do armazenamento do Azure e otimizações de e/s do Linux](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
 >
 
@@ -1316,7 +1316,7 @@ Georreplicação do Azure funciona localmente em cada VHD numa VM e não é repl
 > Para definir o automontar, consulte a documentação de linha de comandos executável diskpart.exe aqui:
 >
 > * [Opções de linha de comandos DiskPart](https://technet.microsoft.com/library/bb490893.aspx)
-> * [Automontar](http://technet.microsoft.com/library/cc753703.aspx)
+> * [Automontar](https://technet.microsoft.com/library/cc753703.aspx)
 >
 > A janela de linha de comandos do Windows deve ser aberta como administrador.
 >

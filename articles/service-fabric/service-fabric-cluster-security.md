@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541909"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240601"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança de cluster do Service Fabric
 Um cluster do Azure Service Fabric é um recurso que é proprietário. É da responsabilidade do cliente para proteger os seus clusters para ajudar a impedir que os utilizadores não autorizados a ligar aos mesmos. Um cluster seguro é especialmente importante quando estiver a executar cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se o cluster expõe os pontos finais de gestão para a internet pública, usuários anônimos podem ligar à mesma. Sem segurança de clusters não é suportado para cargas de trabalho de produção. 
@@ -85,7 +85,7 @@ Os utilizadores que são atribuídos a função de administrador tem acesso tota
 Defina o cliente de administrador e usuário funções quando criar o cluster. Atribua funções, fornecendo identidades separadas (por exemplo, ao utilizar certificados ou o Azure AD) para cada tipo de função. Para obter mais informações sobre as definições de controlo de acesso predefinido e como alterar as predefinições, veja [controlo de acesso baseado em funções para clientes do Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificados X.509 e o Service Fabric
-Certificados digitais de X.509 normalmente são utilizados para autenticar clientes e servidores. Também são utilizados para encriptar e assinar digitalmente mensagens. O Service Fabric utiliza certificados X.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais de X.509, consulte [trabalhar com certificados](http://msdn.microsoft.com/library/ms731899.aspx). Utilizar [Key Vault](../key-vault/key-vault-get-started.md) para gerir os certificados para clusters do Service Fabric no Azure.
+Certificados digitais de X.509 normalmente são utilizados para autenticar clientes e servidores. Também são utilizados para encriptar e assinar digitalmente mensagens. O Service Fabric utiliza certificados X.509 para proteger um cluster e fornecer recursos de segurança do aplicativo. Para obter mais informações sobre certificados digitais de X.509, consulte [trabalhar com certificados](https://msdn.microsoft.com/library/ms731899.aspx). Utilizar [Key Vault](../key-vault/key-vault-get-started.md) para gerir os certificados para clusters do Service Fabric no Azure.
 
 Alguns aspetos importantes a considerar:
 
@@ -109,7 +109,7 @@ Alguns outros aspetos a considerar:
 
 * O **assunto** campo pode ter vários valores. Cada valor é o prefixo uma inicialização para indicar o tipo de valor. Normalmente, é a inicialização **CN** (para *nome comum*), por exemplo, **CN = www.contoso.com**. 
 * O **assunto** campo pode estar em branco. 
-* Se o opcional **nome alternativo do requerente** campo é preenchido, tem de ter o nome comum do certificado e uma entrada por SAN. Estes são introduzidos como **nome de DNS** valores. Para saber como gerar os certificados que tenham SANs, veja [como adicionar um nome alternativo do requerente a um certificado de secure LDAP](http://support.microsoft.com/kb/931351).
+* Se o opcional **nome alternativo do requerente** campo é preenchido, tem de ter o nome comum do certificado e uma entrada por SAN. Estes são introduzidos como **nome de DNS** valores. Para saber como gerar os certificados que tenham SANs, veja [como adicionar um nome alternativo do requerente a um certificado de secure LDAP](https://support.microsoft.com/kb/931351).
 * O valor do **fins se destina** campo do certificado deve incluir um valor adequado, tal como **autenticação de servidor de** ou **autenticação de cliente**.
 
 ### <a name="application-certificates-optional"></a>Certificados de aplicação (opcionais)

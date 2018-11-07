@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 8f32e84e5381a548ada2c5ad393e16c65b17379e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957187"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231388"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
-Este artigo mostra-lhe como utilizar o FTP ou FTPS para implementar a aplicação web, o back-end de aplicação móvel ou a aplicação API [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
+Este artigo mostra-lhe como utilizar o FTP ou FTPS para implementar a aplicação web, o back-end de aplicação móvel ou a aplicação API [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 O ponto de extremidade FTP/S para a sua aplicação já está ativo. Nenhuma configuração é necessária ativar a implementação de FTP/S.
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: bea59f0d1ce1d1f3813c0b39a57b1f4e726fe2a5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098160"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247301"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ de definições e roaming de dados
 Este artigo responde a algumas perguntas que os administradores de TI podem ter sobre as definições e sincronização de dados de aplicações.
@@ -37,7 +37,7 @@ Este artigo responde a algumas perguntas que os administradores de TI podem ter 
 * *Facilidade de funcionalidades de acesso*, como o tema de alto contraste, o Narrador e Lupa.
 * *Outras definições do Windows*, tais como definições de mouse.
 
-**Os dados da aplicação**: Windows Universal apps podem escrever dados de definições para uma pasta de roaming e todos os dados gravados para esta pasta automaticamente serão sincronizados. Cabe-lhe para o desenvolvimento de aplicações individuais como conceber uma aplicação para tirar partido desta capacidade. Para obter mais detalhes sobre como desenvolver uma aplicação Windows Universal, que utiliza o roaming, consulte a [API do armazenamento de appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [appdata do Windows 8 blog de desenvolvedores de roaming](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
+**Os dados da aplicação**: Windows Universal apps podem escrever dados de definições para uma pasta de roaming e todos os dados gravados para esta pasta automaticamente serão sincronizados. Cabe-lhe para o desenvolvimento de aplicações individuais como conceber uma aplicação para tirar partido desta capacidade. Para obter mais detalhes sobre como desenvolver uma aplicação Windows Universal, que utiliza o roaming, consulte a [API do armazenamento de appdata](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e o [appdata do Windows 8 blog de desenvolvedores de roaming](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Que conta é utilizada para sincronização de definições?
 No Windows 8.1, a sincronização de definições sempre utilizadas contas da Microsoft de consumidor. Os utilizadores empresariais tinham a capacidade de ligar uma conta Microsoft à conta de domínio do Active Directory para obter acesso à sincronização de definições. No Windows 10, isso ligado funcionalidade está a ser substituída com uma estrutura de conta primária/secundária de conta da Microsoft.

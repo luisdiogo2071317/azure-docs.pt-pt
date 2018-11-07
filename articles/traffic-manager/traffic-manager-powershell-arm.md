@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139480"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237932"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Com o PowerShell para gerir o Gestor de tráfego
 
@@ -178,7 +178,7 @@ Cada perfil do Traffic Manager Especifica um único método de encaminhamento de
 Pontos de extremidade aninhados são configurados no perfil de principal, com um tipo de ponto final específico, 'NestedEndpoints'. Ao especificar os pontos de extremidade aninhados:
 
 * O ponto final tem de ser especificado utilizando o parâmetro de "targetResourceId"
-* Se for utilizado o método de encaminhamento de tráfego de "Performance", 'EndpointLocation' é necessário. Caso contrário, é opcional. O valor tem de ser um [nome da região do Azure válida](http://azure.microsoft.com/regions/).
+* Se for utilizado o método de encaminhamento de tráfego de "Performance", 'EndpointLocation' é necessário. Caso contrário, é opcional. O valor tem de ser um [nome da região do Azure válida](https://azure.microsoft.com/regions/).
 * O 'Peso' e 'Priority' são opcionais, como para pontos finais do Azure.
 * O parâmetro de "MinChildEndpoints" é opcional. O valor predefinido é '1'. Se o número de pontos finais disponíveis cai abaixo deste limiar, o perfil de principal considera o perfil de subordinados "degradado" e diverts tráfego para os pontos finais no perfil de principal.
 
