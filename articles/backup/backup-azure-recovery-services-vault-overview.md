@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: 697245a6465fc15c943acefa4b820982fbaecb55
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 38190cc613ea9d3723cc3f0f563842e8416689aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241349"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral de cofres de serviços de recuperação
 
@@ -29,13 +29,13 @@ Os cofres dos serviços de recuperação baseiam-se no modelo do Azure Resource 
 
 - **Recursos para ajudar a proteger os dados da cópia de segurança aprimorados**: com serviços de recuperação, cópia de segurança do Azure fornece capacidades de segurança para proteger cópias de segurança na cloud. Os recursos de segurança Certifique-se pode proteger as suas cópias de segurança e recuperar com segurança de dados, mesmo que os servidores de produção e cópia de segurança sejam comprometidos. [Saiba mais](backup-azure-security-feature.md)
 
-- **Monitorização central para seu ambiente de TI híbrido**: cofres dos serviços de recuperação com, pode monitorizar não apenas sua [VMs IaaS do Azure](backup-azure-manage-vms.md) , mas também sua [recursos no local](backup-azure-manage-windows-server.md#manage-backup-items) partir de um portal central. [Saiba mais](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Monitorização central para seu ambiente de TI híbrido**: cofres dos serviços de recuperação com, pode monitorizar não apenas sua [VMs IaaS do Azure](backup-azure-manage-vms.md) , mas também sua [recursos no local](backup-azure-manage-windows-server.md#manage-backup-items) partir de um portal central. [Saiba mais](https://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
 - **Controlo de acesso baseado em funções (RBAC)**: RBAC fornece controlo de gestão de acesso detalhado no Azure. [O Azure fornece várias funções incorporadas](../role-based-access-control/built-in-roles.md), e o Azure Backup tem três [funções incorporadas para gerir pontos de recuperação](backup-rbac-rs-vault.md). Os cofres dos serviços de recuperação são compatíveis com o RBAC, que restringe a cópia de segurança e restaurar o acesso para o conjunto definido de funções de utilizador. [Saiba mais](backup-rbac-rs-vault.md)
 
-- **Proteger todas as configurações das máquinas virtuais Azure**: protegem os cofres dos serviços de recuperação baseados no Resource Manager VMs, incluindo os discos Premium, o Managed Disks e VMs encriptadas. Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação dá-lhe a oportunidade de atualizar as VMs com base no Service Manager para VMs baseadas no Resource Manager. Durante a atualização do cofre, pode reter os pontos de recuperação VM baseada no Service Manager e configure a proteção para as VMs (Resource Manager-ativado) atualizadas. [Saiba mais](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
+- **Proteger todas as configurações das máquinas virtuais Azure**: protegem os cofres dos serviços de recuperação baseados no Resource Manager VMs, incluindo os discos Premium, o Managed Disks e VMs encriptadas. Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação dá-lhe a oportunidade de atualizar as VMs com base no Service Manager para VMs baseadas no Resource Manager. Durante a atualização do cofre, pode reter os pontos de recuperação VM baseada no Service Manager e configure a proteção para as VMs (Resource Manager-ativado) atualizadas. [Saiba mais](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Restauro imediato para IaaS VMs**: cofres dos serviços de recuperação a utilizar, pode restaurar ficheiros e pastas a partir de uma VM de IaaS sem restaurar a VM inteira, que permite que os tempos de restauro mais rápidos. Restauro imediato para IaaS VMs está disponível para VMs do Linux e Windows. [Saiba mais](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Restauro imediato para IaaS VMs**: cofres dos serviços de recuperação a utilizar, pode restaurar ficheiros e pastas a partir de uma VM de IaaS sem restaurar a VM inteira, que permite que os tempos de restauro mais rápidos. Restauro imediato para IaaS VMs está disponível para VMs do Linux e Windows. [Saiba mais](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gerir os cofres de serviços de recuperação no portal
 Criação e gestão dos cofres de serviços de recuperação no portal do Azure é fácil porque o serviço de cópia de segurança integra-se noutros serviços do Azure. Esta integração significa que pode criar ou gerir um cofre dos serviços de recuperação *no contexto do serviço de destino*. Por exemplo, para ver os pontos de recuperação para uma VM, selecione a sua VM e clique em **cópia de segurança** no menu de operações.

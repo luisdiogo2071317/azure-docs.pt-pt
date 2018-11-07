@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d7de20e1de91e37b2437091e6d7503e2cb2a4590
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230306"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246536"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 
@@ -75,18 +75,11 @@ Qualquer pessoa com uma subscrição do Azure pode criar e utilizar cofres de ch
 
 Este administrador iria fornecer URIs aos programadores para os contactar a partir das suas aplicações e iria fornecer também ao respetivo administrador de segurança as informações de utilização da chave de registo. 
 
-![Descrição geral do cofre de chave do Azure][1]
+! [Descrição geral do Cofre de chaves do Azure] [1]
 
 Os programadores também podem gerir as chaves diretamente, com APIs. Para obter mais informações, consulte o [manual do programador da chave](key-vault-developers-guide.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para consultar um tutorial de introdução para um administrador, veja [Introdução ao Azure Key Vault](key-vault-get-started.md).
-
-Para obter mais informações sobre o registo de utilização do Key Vault, veja [Registo do Azure Key Vault](key-vault-logging.md).
-
-Para obter mais informações sobre a utilização de chaves e segredos com o Azure Key Vault, veja [Sobre chaves, segredos e certificados](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
-
-<!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-O Cofre de Chaves do Azure chave está disponível na maior parte das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).
+Saiba como [proteger o seu Cofre](key-vault-secure-your-key-vault.md) 
+ <!--Image references--> [1]:./media/key-vault-whatis/AzureKeyVault_overview.png Azure Key Vault está disponível na maioria das regiões. Para obter mais informações, consulte a [página de preços do Cofre de Chaves](https://azure.microsoft.com/pricing/details/key-vault/).

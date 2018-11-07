@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573816"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259756"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Ver a tendência de custo mensal estimado laboratório no Azure DevTest Labs
 A funcionalidade de gestão de custos do DevTest Labs ajuda-o a controlar o custo do seu laboratório. Este artigo ilustra como utilizar o **tendência de custo mensal estimado** gráfico para ver estimado custo até à data o calendário do mês atual e o custo previsto do mês final para o mês de calendário atual. Este artigo também mostra como gerenciar melhor os custos de laboratório, definindo gastos metas e limiares que, quando alcançado, o acionador DevTest Labs para relatar os resultados para.
@@ -27,7 +27,7 @@ A funcionalidade de gestão de custos do DevTest Labs ajuda-o a controlar o cust
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>Visualizar o gráfico de tendência de custo estimado mensal
 Para ver o gráfico de tendência de custo estimado mensal, siga estes passos: 
 
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista. (Seu laboratório já pode ser mostrado no Dashboard sob **todos os recursos**).
 1. Na lista de laboratórios, selecione o laboratório pretendido.  
 1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.   

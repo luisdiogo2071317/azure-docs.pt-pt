@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386693"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242030"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com AzCopy no Linux
 
@@ -357,7 +357,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Quando copiar um blob sem – opção de cópia de sincronização, uma [cópia do lado do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
+Quando copiar um blob sem – opção de cópia de sincronização, uma [cópia do lado do servidor](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 ### <a name="copy-single-blob-across-storage-accounts"></a>Copiar blob único em contas de armazenamento
 
@@ -369,7 +369,7 @@ azcopy \
     --dest-key <key2>
 ```
 
-Quando copiar um blob sem – opção de cópia de sincronização, uma [cópia do lado do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
+Quando copiar um blob sem – opção de cópia de sincronização, uma [cópia do lado do servidor](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 ### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Copiar blob único na região secundária para a região primária
 
@@ -488,7 +488,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Quando copiar um ficheiro em partilhas de ficheiros, um [cópia do lado do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
+Quando copiar um ficheiro em partilhas de ficheiros, um [cópia do lado do servidor](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 ### <a name="copy-from-file-share-to-blob"></a>Copiar de partilha de ficheiros para o blob
 
@@ -500,7 +500,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Quando copiar um ficheiro de partilha de ficheiros para o blob, um [cópia do lado do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
+Quando copiar um ficheiro de partilha de ficheiros para o blob, um [cópia do lado do servidor](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 ### <a name="copy-from-blob-to-file-share"></a>Copiar do blob para a partilha de ficheiros
 
@@ -512,7 +512,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Quando copiar um ficheiro do blob para a partilha de ficheiros, um [cópia do lado do servidor](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
+Quando copiar um ficheiro do blob para a partilha de ficheiros, um [cópia do lado do servidor](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) operação é executada.
 
 ### <a name="synchronously-copy-files"></a>Forma síncrona copiar ficheiros
 Pode especificar o `--sync-copy` opção para copiar dados de armazenamento de ficheiros para o armazenamento de ficheiros, do armazenamento de ficheiros para o armazenamento de BLOBs e armazenamento de Blobs do armazenamento de ficheiros forma síncrona. O AzCopy é executado esta operação ao transferir os dados de origem à memória local e, em seguida, carregá-lo para o destino. Neste caso, aplica-se custos de saída padrão.
@@ -715,10 +715,10 @@ Para obter mais informações sobre o Armazenamento do Azure e o AzCopy, veja os
 ### <a name="azure-storage-blog-posts"></a>Postagens de blog de armazenamento do Azure:
 * [Apresentamos o AzCopy no Linux pré-visualização](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Introdução ao pré-visualização de biblioteca do movimento de dados de armazenamento do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introdução cópia síncrona e o tipo de conteúdo personalizado](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Anunciamos a disponibilidade geral de 3.0 AzCopy e a versão de pré-visualização do AzCopy 4.0 com suporte de tabela e ficheiro](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Otimizado para cenários de cópia em grande escala](http://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy: Suporte para armazenamento georredundante com acesso de leitura](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Transferir dados com o modo reiniciável e o SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Blob de cópia entre conta a utilizar](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Carregar/transferir ficheiros para os Blobs do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Introdução cópia síncrona e o tipo de conteúdo personalizado](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Anunciamos a disponibilidade geral de 3.0 AzCopy e a versão de pré-visualização do AzCopy 4.0 com suporte de tabela e ficheiro](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Otimizado para cenários de cópia em grande escala](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Suporte para armazenamento georredundante com acesso de leitura](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy: Transferir dados com o modo reiniciável e o SAS token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Blob de cópia entre conta a utilizar](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Carregar/transferir ficheiros para os Blobs do Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 547943b04fdfb03a3eccf12a66772992f7fa6212
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 478228ccb12fbfe3ca527bf4d16af05735b7ba92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249378"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238544"
 ---
 # <a name="azure-operational-security-overview"></a>Descrição geral da segurança operacionais do Azure
 
@@ -51,7 +51,7 @@ Para obter mais informações, consulte a [tabela de componentes de cópia de se
 
 ### <a name="site-recovery"></a>Site Recovery
 
-[O Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade do negócio ao orquestrar a replicação de máquinas no local físico e virtual para o Azure ou para um site secundário. Se o site primário não estiver disponível, efetuar a ativação pós-falha para a localização secundária, para que os utilizadores podem continuar a trabalhar. Efetuar a ativação pós-falha quando os sistemas estiverem a funcionar novamente. Centro de segurança do Azure Utilize para efetuar mais a deteção de ameaças inteligente e eficiente.
+[O Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) proporciona continuidade do negócio ao orquestrar a replicação de máquinas no local físico e virtual para o Azure ou para um site secundário. Se o site primário não estiver disponível, efetuar a ativação pós-falha para a localização secundária, para que os utilizadores podem continuar a trabalhar. Efetuar a ativação pós-falha quando os sistemas estiverem a funcionar novamente. Centro de segurança do Azure Utilize para efetuar mais a deteção de ameaças inteligente e eficiente.
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 

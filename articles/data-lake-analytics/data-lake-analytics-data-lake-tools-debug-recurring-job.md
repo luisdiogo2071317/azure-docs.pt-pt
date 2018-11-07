@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
-ms.openlocfilehash: 33c3b91e7bf9fa64e3ba3f98a9396045753d0c2a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045699"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260045"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Resolver problemas de uma tarefa periódica anormal
 
-Este artigo mostra como usar [do Azure Data Lake Tools para Visual Studio](http://aka.ms/adltoolsvs) para resolver problemas relacionados com tarefas periódicas. Saiba mais sobre o pipeline e tarefas periódicas a partir da [blogue do Azure Data Lake e Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+Este artigo mostra como usar [do Azure Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs) para resolver problemas relacionados com tarefas periódicas. Saiba mais sobre o pipeline e tarefas periódicas a partir da [blogue do Azure Data Lake e Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
 Tarefas periódicas normalmente compartilham a mesma lógica de consulta e os dados de entrada semelhantes. Por exemplo, imagine que tem uma tarefa periódica em execução a cada manhã de segunda-feira às 8h00 para a contagem de utilizadores ativos de semanal da semana passada. Os scripts para estas tarefas partilham um modelo de script que contém a lógica de consulta. As entradas para estas tarefas são os dados de utilização para a última semana. Partilhar a mesma lógica de consulta e uma entrada semelhante, normalmente, significa que o desempenho destas tarefas é estável e semelhantes. Se um dos seus trabalhos recorrentes, de repente, executa anormalmente, falha ou muito mais lento, pode querer:
 
@@ -39,7 +39,7 @@ Por meio **ferramentas** > **Data Lake** > **vista de tarefas**, pode colar o UR
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Caso 2: Que tem o pipeline para a tarefa periódica, mas não o URL
 
-No Visual Studio, é possível abrir o Browser de Pipeline através do Explorador de servidores > sua conta do Azure Data Lake Analytics > **Pipelines**. (Se não conseguir encontrar este nó no Explorador de servidores [baixar Plug mais recente-in](http://aka.ms/adltoolsvs).) 
+No Visual Studio, é possível abrir o Browser de Pipeline através do Explorador de servidores > sua conta do Azure Data Lake Analytics > **Pipelines**. (Se não conseguir encontrar este nó no Explorador de servidores [baixar Plug mais recente-in](https://aka.ms/adltoolsvs).) 
 
 ![Selecionar o nó de Pipelines](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

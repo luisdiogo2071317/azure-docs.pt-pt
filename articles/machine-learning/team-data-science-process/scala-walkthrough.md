@@ -1,6 +1,6 @@
 ---
-title: Ciência de dados utilizando Scala e o Spark no Azure | Microsoft Docs
-description: Como utilizar o Scala para tarefas de aprendizagem máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark.
+title: Ciência de dados com o Scala e Spark no Azure | Documentos da Microsoft
+description: Como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16e4af4dd7f5c2bd14d70cc28225dfc750ce3bea
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b90603490af851d9b7ca735b00ee7d6ca5d53951
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838515"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233529"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
-Este artigo mostra como utilizar o Scala para tarefas de aprendizagem máquina supervisionados com os Spark dimensionáveis MLlib Spark ML pacotes e num cluster do Azure HDInsight Spark. Explica como as tarefas que constituem o [processo de ciência de dados](http://aka.ms/datascienceprocess): ingestão de dados e exploração, visualização, funcionalidade engenharia, modelação e consumo de modelo. Os modelos no artigo incluem regressão linear e logística da, florestas aleatórias e árvores elevada de gradação (GBTs), para além das duas supervisionado tarefas de machine learning:
+Este artigo mostra-lhe como utilizar o Scala para tarefas de aprendizado de máquina supervisionados com os Spark dimensionáveis MLlib e Spark ML pacotes num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](https://aka.ms/datascienceprocess): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e aumentou a gradação árvores (GBTs), além de dois supervisionado tarefas de machine learning:
 
-* Problema de regressão: predição da quantidade de sugestão ($) para uma viagem taxi
-* Classificação do binária: previsão de sugestão ou nenhuma sugestão (1/0) para uma viagem taxi
+* Problema de regressão: previsão da quantidade de tip ($) para uma viagem de táxis
+* Classificação binária: previsão de sugestão ou nenhuma sugestão (1/0) para uma viagem de táxis
 
-O processo de modelação requer formação e avaliação num conjunto de dados de teste e métricas de precisão relevantes. Neste artigo, pode saber como armazenar estes modelos no Blob storage do Azure e como Pontuar e avaliar o seu desempenho preditivo. Este artigo abrange também os tópicos mais avançados de como otimizar modelos através da utilização de varrimento de validação cruzada e hyper parâmetro. Os dados utilizados são uma amostra de 2013 NYC taxi viagem e fare conjunto de dados está disponível no GitHub.
+O processo de modelagem requer formação e avaliação num conjunto de dados de teste e métricas de precisão relevantes. Neste artigo, pode saber como armazenar esses modelos no armazenamento de Blobs do Azure e como proceder à sua classificação e avaliar seu desempenho de previsão. Este artigo também abrange os tópicos mais avançados de como otimizar modelos utilizando varrimento de validação cruzada e de hyper-parâmetro. Os dados utilizados são um exemplo do 2013 NYC táxis viagem e Europeia conjunto de dados disponível no GitHub.
 
-[Scala](http://www.scala-lang.org/), uma linguagem baseada na máquina virtual de Java, integra conceitos de linguagem orientado para objetos e funcional. É um idioma dimensionável, que é adequado para o processamento distribuído na nuvem e é executada em clusters do Spark do Azure.
+[Scala](http://www.scala-lang.org/), uma linguagem com base na máquina de virtual de Java, integra-se os conceitos de linguagem funcional e orientada a objeto. É uma linguagem dimensionável, que é adequado para processamento distribuído na cloud sendo executada em clusters do Spark do Azure.
 
-[O Spark](http://spark.apache.org/) é uma arquitetura de processamento paralelo open source que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e efetuar análises sofisticadas. Capacidades de cálculo distribuído dentro da memória do Spark tornam uma boa opção para algoritmos iterativos na computações de machine learning e do graph. O [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) pacote fornece um conjunto de alto nível APIs desenvolvidas fotogramas que podem ajudar a criarem e otimizar prático de machine learning pipelines de dados uniforme. [MLlib](http://spark.apache.org/mllib/) biblioteca de dimensionável de aprendizagem do Spark, que capacidades de modelação para este ambiente distribuído.
+[Spark](http://spark.apache.org/) é uma arquitetura de processamento paralelo de código-fonte aberto que suporta o processamento dentro da memória para melhorar o desempenho de aplicações de análise de macrodados. O motor de processamento do Spark foi concebido para velocidade, facilidade de utilização e análise sofisticadas. Recursos de computação distribuída de dentro da memória do Spark tornam uma boa opção para algoritmos iterativos em cálculos de machine learning e do graph. O [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) pacote fornece um conjunto uniforme de APIs de alto nível criadas sobre quadros que podem ajudá-lo a criarem e otimizar o prático de machine learning pipelines de dados. [MLlib](http://spark.apache.org/mllib/) é a biblioteca de aprendizagem dimensionável do Spark, que apresenta capacidades de modelação para este ambiente distribuído.
 
-[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é a oferta do Spark open source alojado no Azure. Também inclui suporte para blocos de notas do Jupyter Scala no cluster do Spark e pode executar consultas interativas do Spark SQL para transformar, filtrar e visualizar dados armazenados no Blob storage do Azure. Os fragmentos de código Scala neste artigo que fornecem as soluções e mostram rastreia relevante para visualizar os dados executam nos blocos de notas do Jupyter instalados nos clusters do Spark. Os passos de modelação nos seguintes tópicos tem o código que mostra como preparar, avaliar, guardar e consumir cada tipo de modelo.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é a oferta alojado no Azure, do Spark de código-fonte aberto. Também inclui suporte para blocos de notas do Jupyter Scala no cluster do Spark e pode executar consultas interativas do Spark SQL para transformar, filtrar e visualizar os dados armazenados no armazenamento de Blobs do Azure. Executam os trechos de código Scala neste artigo que fornecem as soluções e mostram os gráficos para visualizar os dados relevantes em blocos de notas do Jupyter instalados nos clusters do Spark. Os passos de modelação nos seguintes tópicos tem código que mostra como treinar, avaliar, guardar e consumir cada tipo de modelo.
 
-Os passos de configuração e o código neste artigo são para o Azure HDInsight 3.4 Spark 1.6. No entanto, o código neste artigo e no [notas do Jupyter Scala](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) são genéricas e deve trabalhar em qualquer cluster do Spark. Os passos de configuração e gestão de cluster podem ser ligeiramente diferentes do que é mostrado neste artigo, se não estiver a utilizar o Spark do HDInsight.
+Os passos de configuração e o código neste artigo são para o Azure HDInsight 3.4 Spark 1.6. No entanto, o código neste artigo e, no [Scala de notas do Jupyter](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) são genéricos e devem trabalhar em qualquer cluster do Spark. Os passos de configuração e gestão de cluster podem ser ligeiramente diferentes do que é mostrado neste artigo, se não estiver a utilizar o Spark do HDInsight.
 
 > [!NOTE]
-> Para um tópico mostra-lhe como utilizar o Python, em vez de Scala para concluir tarefas para um processo de ciência de dados ponto-a-ponto, consulte [ciência de dados com o Spark no Azure HDInsight](spark-overview.md).
+> Para um tópico que lhe mostra como utilizar o Python, em vez de Scala executar tarefas de um processo de ciência de dados ponto-a-ponto, consulte [ciência de dados com o Spark no Azure HDInsight](spark-overview.md).
 > 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Precisa de uma subscrição do Azure. Se já tiver um, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Precisa de um cluster do Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos seguintes. Para criar um cluster, consulte as instruções no [introdução: criar o Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Definir o tipo de cluster e a versão de **selecionar tipo de Cluster** menu.
+* Precisa de uma subscrição do Azure. Se ainda não tiver um, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos seguintes. Para criar um cluster, consulte as instruções em [começar a utilizar: criar o Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Definir o tipo de cluster e a versão da **selecionar o tipo de Cluster** menu.
 
 ![Configuração de tipo de cluster do HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -53,45 +53,45 @@ Os passos de configuração e o código neste artigo são para o Azure HDInsight
 > 
 > 
 
-Para obter uma descrição dos dados do NYC taxi viagem e obter instruções sobre como executar código a partir de um bloco de notas do Jupyter no cluster do Spark, consulte as secções relevantes [descrição geral de ciência de dados com o Spark no Azure HDInsight](spark-overview.md).  
+Para obter uma descrição dos dados de viagens de táxis de NYC e obter instruções sobre como executar o código a partir de um bloco de notas do Jupyter no cluster do Spark, consulte as secções relevantes [descrição geral de ciência de dados com o Spark no Azure HDInsight](spark-overview.md).  
 
-## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Executar código Scala a partir de um bloco de notas do Jupyter no cluster do Spark
-Pode iniciar um bloco de notas do Jupyter do portal do Azure. Localizar o cluster do Spark no seu dashboard e, em seguida, clique nele para introduzir a página de gestão para o cluster. Em seguida, clique em **Dashboards de clusters**e, em seguida, clique em **bloco de notas do Jupyter** para abrir o bloco de notas associado ao cluster do Spark.
+## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Executar o código de Scala a partir de um bloco de notas do Jupyter no cluster do Spark
+Pode iniciar um bloco de notas do Jupyter no portal do Azure. Localize o cluster do Spark no seu dashboard e, em seguida, clique nele para inserir a página de gestão para o seu cluster. Em seguida, clique em **Dashboards de clusters**e, em seguida, clique em **bloco de notas do Jupyter** para abrir o bloco de notas associado ao cluster do Spark.
 
-![Dashboard de cluster e blocos de notas do Jupyter](./media/scala-walkthrough/spark-jupyter-on-portal.png)
+![Dashboard de clusters e blocos de notas do Jupyter](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
-Também pode aceder aos blocos de notas do Jupyter no https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Substitua *clustername* com o nome do cluster. Terá da palavra-passe para a sua conta de administrador aceder os blocos de notas do Jupyter.
+Também pode acessar os blocos de notas do Jupyter em https://&lt;clustername&gt;.azurehdinsight.net/jupyter. Substitua *clustername* com o nome do cluster. Terá da palavra-passe para a sua conta de administrador acessar os blocos de notas do Jupyter.
 
-![Ir para blocos de notas do Jupyter utilizando o nome do cluster](./media/scala-walkthrough/spark-jupyter-notebook.png)
+![Vá para blocos de notas do Jupyter com o nome do cluster](./media/scala-walkthrough/spark-jupyter-notebook.png)
 
-Selecione **Scala** para ver um diretório com alguns exemplos de blocos de notas prepackaged que utilizam a API do PySpark. Amostras de exploração de modelação e classificação utilizando Scala.ipynb bloco de notas que contém o código para este conjunto de tópicos de Spark não está disponível na [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
+Selecione **Scala** para ver um diretório com alguns exemplos de blocos de notas previamente incluídas em pacotes que utilizam a API do PySpark. A exploração, modelação e classificação usando Scala.ipynb bloco de notas que contém o código de exemplo para este conjunto de tópicos de Spark está disponível no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/Scala).
 
-Pode carregar o bloco de notas diretamente a partir do GitHub para o servidor de notas do Jupyter no cluster do Spark. Na sua home page do Jupyter, clique em de **carregar** botão. No Explorador de ficheiros, cole o URL de GitHub (conteúdo em bruto) do bloco de notas Scala e, em seguida, clique em **abra**. O bloco de notas Scala está disponível no seguinte URL:
+Pode carregar o bloco de notas diretamente a partir do GitHub para o servidor de bloco de notas do Jupyter no cluster do Spark. Na sua home page de Jupyter, clique nas **carregar** botão. No Explorador de ficheiros, cole o URL do GitHub (conteúdo não processado) do Scala notebook e, em seguida, clique em **aberto**. O bloco de notas Scala está disponível no seguinte URL:
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Configuração: Contextos de predefinição Spark e o Hive, magia de Spark e bibliotecas de Spark
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Programa de configuração: Contextos do Spark de configuração predefinida e do Hive, magia do Spark e bibliotecas de Spark
 ### <a name="preset-spark-and-hive-contexts"></a>Configuração predefinida contextos do Spark e do Hive
     # SET THE START TIME
     import java.util.Calendar
     val beginningTime = Calendar.getInstance().getTime()
 
 
-Os kernels Spark que são fornecidos com blocos de notas do Jupyter tem predefinido contextos. Não precisa de definir explicitamente o Spark ou contextos de ramo de registo antes de começar a trabalhar com a aplicação estiver a desenvolver. Os contextos predefinidos são:
+Os kernels do Spark que são fornecidos com blocos de notas do Jupyter tem a configuração predefinida contextos. Não precisa de definir explicitamente o Spark ou contextos de ramo de registo antes de começar a trabalhar com a aplicação estiver a desenvolver. Os contextos predefinidos são:
 
 * `sc` para SparkContext
 * `sqlContext` para HiveContext
 
-### <a name="spark-magics"></a>O Spark magia
-O kernel do Spark fornece algumas predefinidas "magia", que são comandos especiais que pode chamar com `%%`. Dois destes comandos são utilizados os seguintes exemplos de código.
+### <a name="spark-magics"></a>Magia de Spark
+O kernel de Spark fornece alguns predefinidas "magia", que são comandos especiais que pode chamar com `%%`. Dois desses comandos são utilizados nos exemplos de código a seguir.
 
-* `%%local` Especifica que o código em linhas subsequentes será executado localmente. O código tem de ser código Scala válido.
-* `%%sql -o <variable name>` executa uma consulta do Hive contra `sqlContext`. Se o `-o` parâmetro é transmitido, o resultado da consulta é continuado no `%%local` Scala contexto como um intervalo de dados de Spark.
+* `%%local` Especifica que o código nas linhas subsequentes será executado localmente. O código tem de ser um código Scala válido.
+* `%%sql -o <variable name>` executa uma consulta do Hive em `sqlContext`. Se o `-o` parâmetro é transmitido, o resultado da consulta é mantido no `%%local` Scala contexto como um Spark data frame.
 
-Para obter mais informações sobre os kernels para blocos de notas do Jupyter e os respetivos predefinida "magics" que tem de chamar com `%%` (por exemplo, `%%local`), consulte [clusters Kernels disponíveis para blocos de notas do Jupyter com o HDInsight Spark Linux no HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
+Para obter mais informações sobre os kernels para blocos de notas do Jupyter e seus predefinidos "magics" que chamar com `%%` (por exemplo, `%%local`), consulte [Kernels disponíveis para blocos de notas do Jupyter com o HDInsight Spark Linux clusters no HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Bibliotecas de importação
-Importe o Spark, MLlib e outras bibliotecas, terá de utilizando o seguinte código.
+Importe o Spark MLlib e outras bibliotecas que precisará utilizando o código a seguir.
 
     # IMPORT SPARK AND JAVA LIBRARIES
     import org.apache.spark.sql.SQLContext
@@ -128,21 +128,21 @@ Importe o Spark, MLlib e outras bibliotecas, terá de utilizando o seguinte cód
 
 
 ## <a name="data-ingestion"></a>Ingestão de dados
-O primeiro passo no processo de ciência de dados é para a ingestão de dados que pretende analisar. Coloque os dados de origens externas ou sistemas em que reside no seu ambiente de exploração e modelação de dados. Neste artigo, os dados de inserção que são um exemplo de 0.1% associados do taxi viagem e fare ficheiro (armazenado como um ficheiro de .tsv). O ambiente de exploração e modelação de dados é Spark. Esta secção contém o código para concluir a seguinte série de tarefas:
+A primeira etapa no processo de ciência de dados é ingerir os dados que pretende analisar. Colocar os dados de fontes externas ou sistemas em que reside no seu ambiente de exploração e modelação de dados. Neste artigo, os dados, ingerir são um exemplo de 0,1% associado do ficheiro de viagem e Europeia de táxis (armazenado como um ficheiro. tsv). O ambiente de exploração e modelação de dados é o Spark. Esta secção contém o código para concluir a seguinte série de tarefas:
 
 1. Definir caminhos de diretório para o armazenamento de dados e o modelo.
-2. Leia o conjunto de dados de entrada (armazenada como um ficheiro de .tsv).
-3. Definir um esquema para os dados e apagar os dados.
-4. Criar um intervalo de dados apagado e -lo em cache na memória.
-5. Registe os dados como uma tabela temporária no SQLContext.
-6. A tabela de consulta e importar os resultados para um intervalo de dados.
+2. Leia no conjunto de dados de entrada (armazenado como um ficheiro. tsv).
+3. Definir um esquema para os dados e limpar os dados.
+4. Criar um quadro de dados limpo e cache na memória.
+5. Registre-se os dados como uma tabela temporária na kontext SQLContext.
+6. Consultar a tabela e importe os resultados para um quadro de dados.
 
-### <a name="set-directory-paths-for-storage-locations-in-azure-blob-storage"></a>Definir caminhos de diretório para localizações de armazenamento de Blob storage do Azure
-Spark pode ler e escrever no Blob storage do Azure. Pode utilizar o Spark para processar qualquer um dos seus dados existentes e, em seguida, armazenar os resultados novamente no armazenamento de Blobs.
+### <a name="set-directory-paths-for-storage-locations-in-azure-blob-storage"></a>Definir caminhos de diretório para localizações de armazenamento no armazenamento de Blobs do Azure
+Spark pode ler e escrever no armazenamento de Blobs do Azure. Pode utilizar o Spark para processar qualquer um dos seus dados existentes e, em seguida, armazenar os resultados novamente no armazenamento de Blobs.
 
-Para guardar modelos ou ficheiros no Blob storage, tem de especificar corretamente o caminho. Referência de contentor predefinido ligado ao cluster do Spark utilizando um caminho que comece com `wasb:///`. Outras localizações de referência utilizando `wasb://`.
+Para guardar modelos ou ficheiros no armazenamento de BLOBs, terá de especificar corretamente o caminho. Referenciar o contentor predefinido ligado para o cluster do Spark ao utilizar um caminho que começa com `wasb:///`. Referenciar outros locais ao utilizar `wasb://`.
 
-O exemplo de código seguinte especifica a localização dos dados de entrada a ser lido e o caminho para o Blob storage que está ligado ao cluster do Spark onde será guardado o modelo.
+O código de exemplo seguinte especifica a localização de dados de entrada para ser lida e o caminho para o armazenamento de BLOBs que está ligado ao cluster do Spark onde o modelo será guardado.
 
     # SET PATHS TO DATA AND MODEL FILE LOCATIONS
     # INGEST DATA AND SPECIFY HEADERS FOR COLUMNS
@@ -154,7 +154,7 @@ O exemplo de código seguinte especifica a localização dos dados de entrada a 
     val modelDir = "wasb:///user/remoteuser/NYCTaxi/Models/";
 
 
-### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-to-the-schema"></a>Importar dados, crie um RDD e definir um intervalo de dados, de acordo com o esquema
+### <a name="import-data-create-an-rdd-and-define-a-data-frame-according-to-the-schema"></a>Importar dados, criar um RDD e definir um quadro de dados, de acordo com o esquema
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
 
@@ -232,8 +232,8 @@ O exemplo de código seguinte especifica a localização dos dados de entrada a 
 
 Tempo para executar a célula: 8 segundos.
 
-### <a name="query-the-table-and-import-results-in-a-data-frame"></a>A tabela de consulta e importar os resultados num intervalo de dados
-Em seguida, consultar a tabela para fare, passenger e dados de sugestão; filtrar dados danificados e distantes; e imprimir várias linhas.
+### <a name="query-the-table-and-import-results-in-a-data-frame"></a>Consultar a tabela e importar os resultados num quadro de dados
+Em seguida, consultar a tabela para Europeia, passageiros e dados da tip; filtrar os dados danificados e distantes. e imprimir várias linhas.
 
     # QUERY THE DATA
     val sqlStatement = """
@@ -251,37 +251,37 @@ Em seguida, consultar a tabela para fare, passenger e dados de sugestão; filtra
 
 **Saída:**
 
-| fare_amount | passenger_count | tip_amount | tipped |
+| fare_amount | passenger_count | tip_amount | colocado para |
 | --- | --- | --- | --- |
 |        13.5 |1.0 |2.9 |1.0 |
 |        16.0 |2.0 |3.4 |1.0 |
 |        10.5 |2.0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Exploração de dados e visualização
-Depois de resolver os dados Spark, o próximo passo no processo de ciência de dados é obter uma compreensão mais aprofundada dos dados através de exploração e visualização. Nesta secção, examine os dados de taxi utilizando as consultas SQL. Em seguida, importe os resultados para um intervalo de dados para desenhar as variáveis de destino e potenciais funcionalidades para o visual inspeção ao utilizar a funcionalidade de auto-visualização do Jupyter.
+Depois de colocar os dados no Spark, a próxima etapa no processo de ciência de dados é obter uma compreensão mais aprofundada dos dados por meio de exploração e visualização. Nesta seção, examinar os dados de táxis utilizando consultas SQL. Em seguida, importe os resultados para um quadro de dados para desenhar as variáveis de destino e os recursos potenciais para inspeção visual ao utilizar a funcionalidade de visualização de auto do Jupyter.
 
-### <a name="use-local-and-sql-magic-to-plot-data"></a>Magic SQL e de utilização local a representar dados
-Por predefinição, o resultado de qualquer fragmento de código que executa a partir de um bloco de notas do Jupyter está disponível no contexto de sessão que é mantida em nós de trabalho. Se pretender guardar uma viagem para os nós de trabalho para cada cálculo e se todos os dados que precisa para o cálculo está disponível localmente no nó de servidor Jupyter (que é o nó principal), pode utilizar o `%%local` magic para executar o fragmento de código no servidor do Jupyter.
+### <a name="use-local-and-sql-magic-to-plot-data"></a>Utilizar o local e "SQL Magic" para representar dados
+Por predefinição, a saída de qualquer trecho de código que executar a partir de um bloco de notas do Jupyter está disponível dentro do contexto da sessão que é mantido em nós de trabalho. Se desejar salvar uma viagem para os nós de trabalho para cada cálculo e, se todos os dados que precisa para a computação de que está disponível localmente no nó de servidor de Jupyter (que é o nó principal), pode utilizar o `%%local` mágica para executar o fragmento de código no Jupyter servidor.
 
-* **Magic SQL** (`%%sql`). O kernel do HDInsight Spark suporta consultas de HiveQL de fácil inline contra SQLContext. O (`-o VARIABLE_NAME`) argumento persistir o resultado da consulta SQL como moldura Pandas dados no servidor do Jupyter. Isto significa que terá de estar disponível no modo de local.
-* `%%local` **Magic**. O `%%local` magic executa o código localmente no servidor do Jupyter, o que é o nó principal do cluster do HDInsight. Normalmente, utiliza `%%local` mágica em conjunto com o `%%sql` mágica com o `-o` parâmetro. O `-o` parâmetro seria manter o resultado da consulta SQL localmente e, em seguida, `%%local` magic acionaria o seguinte conjunto de fragmento de código para executar localmente o resultado das consultas de SQL Server que é localmente persistente.
+* **"SQL Magic"** (`%%sql`). O kernel de Spark do HDInsight suporta consultas HiveQL inline fácil kontext SQLContext. O (`-o VARIABLE_NAME`) argumento persistir o resultado da consulta SQL como um quadro de dados de Pandas no servidor do Jupyter. Isso significa que estará disponível no modo de local.
+* `%%local` **Magic**. O `%%local` mágica executa o código localmente no servidor do Jupyter, o que é o nó principal do cluster do HDInsight. Normalmente, utiliza `%%local` mágica em conjunto com o `%%sql` mágico com o `-o` parâmetro. O `-o` parâmetro persistir o resultado da consulta SQL localmente e, em seguida, `%%local` mágica dispararia o próximo conjunto de Trecho de código para executar localmente em relação a saída das consultas SQL que é mantida localmente.
 
-### <a name="query-the-data-by-using-sql"></a>Consultar os dados utilizando o SQL Server
-Esta consulta obtém as viagens taxi pela quantidade de fare, a contagem de passenger e a quantidade de sugestão.
+### <a name="query-the-data-by-using-sql"></a>Consultar os dados com o SQL
+Esta consulta obtém as viagens de táxis pela quantidade de Europeia, a contagem de passageiros e Gorjeta.
 
     # RUN THE SQL QUERY
     %%sql -q -o sqlResults
     SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
 
-No seguinte código, o `%%local` magic cria um período de dados local, sqlResults. Pode utilizar sqlResults para desenhar utilizando matplotlib.
+No código a seguir, o `%%local` mágica cria um quadro de dados local, sqlResults. Pode usar sqlResults a representar usando matplotlib.
 
 > [!TIP]
-> Local magic é utilizada várias vezes neste artigo. Se o conjunto de dados for grande, de exemplo, para criar um intervalo de dados que pode caber na memória local.
+> Magic de local é utilizado várias vezes neste artigo. Se o seu conjunto de dados é grande, de exemplo, para criar um quadro de dados que cabem na memória local.
 > 
 > 
 
-### <a name="plot-the-data"></a>Representar os dados
-Pode desenhar utilizando código Python após o intervalo de dados no contexto local como moldura Pandas dados.
+### <a name="plot-the-data"></a>Os dados de desenho
+Pode desenhar com o código de Python depois do quadro de dados no contexto local como um quadro de dados Pandas.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
     %%local
@@ -291,7 +291,7 @@ Pode desenhar utilizando código Python após o intervalo de dados no contexto l
     sqlResults
 
 
- O kernel do Spark automaticamente visualiza o resultado das consultas SQL (HiveQL) depois de executar o código. Pode escolher entre vários tipos de visualizações:
+ O kernel de Spark visualiza automaticamente a saída de consultas SQL (HiveQL) depois de executar o código. Pode escolher entre vários tipos de visualizações:
 
 * Tabela
 * Circular
@@ -299,7 +299,7 @@ Pode desenhar utilizando código Python após o intervalo de dados no contexto l
 * Área
 * Barra
 
-Eis o código para representar os dados:
+Aqui está o código para desenhar os dados:
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
@@ -333,23 +333,23 @@ Eis o código para representar os dados:
 
 **Saída:**
 
-![Sugestão quantidade histograma](./media/scala-walkthrough/plot-tip-amount-histogram.png)
+![Histograma da quantidade de sugestão](./media/scala-walkthrough/plot-tip-amount-histogram.png)
 
-![Quantidade de sugestão por contagem de passenger](./media/scala-walkthrough/plot-tip-amount-by-passenger-count.png)
+![Gorjeta por contagem de passageiros](./media/scala-walkthrough/plot-tip-amount-by-passenger-count.png)
 
-![Quantidade de sugestão pela quantidade de fare](./media/scala-walkthrough/plot-tip-amount-by-fare-amount.png)
+![Gorjeta pela quantidade de Europeia](./media/scala-walkthrough/plot-tip-amount-by-fare-amount.png)
 
-## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>Criar funcionalidades e funcionalidades de transformação e, em seguida, de dados de entrada para as funções de modelação de preparação
-Para funções de modelação de árvore do Spark ML e o MLlib, terá de preparar o destino e funcionalidades utilizando uma variedade de técnicas, tais como a discretização, indexação, acesso frequente uma codificação e vectorization. Eis os procedimentos a seguir nesta secção:
+## <a name="create-features-and-transform-features-and-then-prep-data-for-input-into-modeling-functions"></a>Criar recursos e funcionalidades de transformação e, em seguida, de preparação de dados de entrada para as funções de modelagem
+Para funções de modelagem com base na árvore de Spark ML e MLlib, terá de preparar o destino e funcionalidades utilizando uma variedade de técnicas, como discretização, indexação, frequente de uma codificação e vetorização. Aqui estão os procedimentos a seguir nesta secção:
 
-1. Criar uma nova funcionalidade por **discretização** horas para o tráfego de registos de tempo.
-2. Aplicar **frequente de uma codificação e indexação** categórico funcionalidades.
-3. **Exemplo e o conjunto de dados de divisão** em frações de formação e teste.
-4. **Especifique a variável de formação e funcionalidades**e, em seguida, criar indexada ou frequente de um codificado formação e testar entrado ponto identificado resiliente distribuídas conjuntos de dados (RDDs) ou pacotes de dados.
-5. Automaticamente **categorizar e vectorize funcionalidades e destinos** para utilizar como entradas para modelos de machine learning.
+1. Criar um novo recurso por **discretização** registos de tempo de horas no tráfego.
+2. Aplicam-se **indexação e a codificação de um-hot** às funcionalidades categóricas.
+3. **De exemplo e dividir o conjunto de dados** em frações de preparação e teste.
+4. **Especificar a variável de treinamento e recursos**e, em seguida, criar indexada ou frequente de um codificado de treinamento e teste de entrada ponto etiquetado resiliente distribuído conjuntos de dados (RDDs) ou os quadros de dados.
+5. Automaticamente **categorizar e vectorize recursos e destinos** para utilizar como entradas para modelos de aprendizagem automática.
 
-### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Criar uma nova funcionalidade de discretização horas para registos de tempo de tráfego
-Este código mostra-lhe como criar uma nova funcionalidade de discretização horas para registos de tempo de tráfego e como colocar em cache da moldura de dados resultante na memória. Onde frames RDDs e os dados são utilizados repetidamente, colocação em cache leva a melhorada os tempos de execução. Em conformidade, irá cache RDDs e pacotes de dados em várias fases nos seguintes procedimentos.
+### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Criar um novo recurso por horas de discretização em registos de tempo de tráfego
+Este código mostra como criar um novo recurso por horas de discretização em registos de tempo de tráfego e como armazenar em cache o quadro de dados resultante na memória. Onde os quadros de dados e RDDs são usados repetidamente, colocação em cache o leva a mais tempos de execução. Da mesma forma, armazenar em cache RDDs e quadros de dados em vários estágios nos seguintes procedimentos.
 
     # CREATE FOUR BUCKETS FOR TRAFFIC TIMES
     val sqlStatement = """
@@ -369,14 +369,14 @@ Este código mostra-lhe como criar uma nova funcionalidade de discretização ho
     taxi_df_train_with_newFeatures.count()
 
 
-### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>A indexação e acesso frequente uma codificação de funcionalidades categórico
-A modelação e prever as funções do MLlib requerem funcionalidades com dados de entrada categórico para ser incluída num índice ou codificado antes de utilizar. Esta secção mostra como o índice ou codificar categórico funcionalidades para a entrada para as funções de modelação.
+### <a name="indexing-and-one-hot-encoding-of-categorical-features"></a>Indexação e a codificação de frequente de um dos recursos categóricos
+A Modelagem e prever as funções de MLlib necessitam de funcionalidades com dados categóricos de entrada a ser indexados ou codificada antes de utilizar. Esta secção mostra como índice ou codificar categóricas funcionalidades de entrada para as funções de modelagem.
 
-Terá de índice ou codificar seus modelos de diversas formas, consoante o modelo. Por exemplo, modelos de regressão logística da e linear necessitam de acesso frequente uma codificação. Por exemplo, uma funcionalidade com três categorias pode ser expandida para três colunas de funcionalidade. Cada coluna iria conter 0 ou 1 consoante a categoria de uma observação. MLlib fornece o [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) função para acesso frequente uma codificação. Neste codificador mapeia uma coluna de índices de etiqueta a uma coluna de vetores de binários no máximo um único um valor. Com esta codificação, algoritmos de esperam numéricos funcionalidades importantes, como regressão logística da, podem ser aplicados às funcionalidades categórico.
+Terá de índice ou codificar seus modelos de diversas formas, consoante o modelo. Por exemplo, modelos de regressão logística e linear exigem frequente de uma codificação. Por exemplo, uma funcionalidade com três categorias pode ser expandida para três colunas de funcionalidades. Cada coluna iria conter 0 ou 1 consoante a categoria de uma observação. MLlib fornece a [OneHotEncoder](http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) função para acesso frequente uma codificação. Este codificador mapeia uma coluna de índices de etiqueta a uma coluna de vetores de binários no máximo um único um valor. Com essa codificação, os algoritmos que esperam recursos com valores numéricos, como a regressão logística, podem ser aplicados às funcionalidades categóricas.
 
-Aqui transformar apenas quatro variáveis para mostrar os exemplos que são as cadeias de carateres. Também pode indexar outras variáveis, como o dia da semana, representadas pelo numérico valores, como categórico variáveis.
+Aqui transformar apenas quatro variáveis para mostrar os exemplos, que são cadeias de caracteres. Também pode indexar outras variáveis, como o dia da semana, representados pelos valores numéricos, como variáveis categóricas.
 
-Para indexação, utilize `StringIndexer()`e para acesso frequente uma codificação, utilize `OneHotEncoder()` funções no MLlib. Eis o código para o índice e codificar categórico funcionalidades:
+Para a indexação, utilize `StringIndexer()`e para acesso frequente uma codificação, utilizam `OneHotEncoder()` as funções das MLlib. Aqui está o código para indexar e codificar funcionalidades categóricas:
 
     # CREATE INDEXES AND ONE-HOT ENCODED VECTORS FOR SEVERAL CATEGORICAL FEATURES
 
@@ -417,10 +417,10 @@ Para indexação, utilize `StringIndexer()`e para acesso frequente uma codifica�
 
 Tempo para executar a célula: 4 segundos.
 
-### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Exemplo e dividir o conjunto de dados em frações de formação e teste
-Este código cria uma amostra aleatória dos dados (25%, neste exemplo). Embora não seja necessária para este exemplo, porque o tamanho do conjunto de dados da amostragem, o artigo mostra como pode apresentar exemplos para que saibam como utilizá-la para os seus próprios problemas quando necessário. Quando os exemplos são grandes, isto permite poupar tempo significativo enquanto preparar modelos. Em seguida, divida o exemplo para uma parte de formação (75%, neste exemplo) e uma parte de teste (25%, neste exemplo) para utilizar na classificação e modelação de regressão.
+### <a name="sample-and-split-the-data-set-into-training-and-test-fractions"></a>Exemplo e dividir o conjunto de dados em frações de preparação e teste
+Este código cria uma amostragem aleatória dos dados (25%, neste exemplo). Embora não seja necessária para este exemplo devido ao tamanho do conjunto de dados de amostragem, o artigo mostra-lhe como pode apresentar exemplos para que saiba como usá-lo para seus próprios problemas quando necessário. Quando os exemplos são grandes, isso pode economizar um tempo significativo enquanto formar modelos. Em seguida, o exemplo ser dividido numa parte de treinamento (75%, neste exemplo) e uma parte de teste (25%, neste exemplo), para classificação e modelação de regressão.
 
-Adicione um número aleatório (entre 0 e 1) para cada linha (numa coluna "rand") que pode ser utilizada para selecionar subconjuntos de validação de validação cruzada durante a preparação.
+Adicione um número aleatório (entre 0 e 1) a cada linha (numa coluna de "rand") que pode ser utilizada para selecionar os subconjuntos de validação cruzada durante o treinamento.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -456,10 +456,10 @@ Adicione um número aleatório (entre 0 e 1) para cada linha (numa coluna "rand"
 
 Tempo para executar a célula: 2 segundos.
 
-### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Especifique a variável de formação e funcionalidades e, em seguida, criar indexada ou frequente de um codificado formação e testar com a etiqueta de fotogramas RDDs ponto ou dados de entrada
-Esta secção contém o código que mostra como indexar os dados de texto categórico como um tipo de dados do ponto de identificados e, codificar, pelo que pode utilizá-lo a dar formação e testar regressão logística da MLlib e outros modelos de classificação. Os objetos de ponto identificados são RDDs que estejam formatados de uma forma que é necessário como dados de entrada pela maioria dos algoritmos no MLlib do machine learning. A [denominado ponto](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) está associado a um vetor local, em ou disperso, com uma etiqueta/resposta.
+### <a name="specify-training-variable-and-features-and-then-create-indexed-or-one-hot-encoded-training-and-testing-input-labeled-point-rdds-or-data-frames"></a>Especificar a variável de treinamento e recursos e, em seguida, criar indexada ou frequente de um codificado preparação e teste rotulado como quadros de dados ou RDDs de ponto de entrada
+Esta secção contém código que mostra como indexar dados categóricos texto como um tipo de dados do ponto de etiquetadas e codificá-lo para que possa utilizá-lo a dar formação e teste de regressão logística de MLlib e outros modelos de classificação. Objetos point etiquetadas são RDDs são formatados de forma que é necessária, como dados de entrada, pela maioria dos algoritmos no MLlib de machine learning. R [rotulado como ponto de](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) é um vetor local, densa ou disperso, associado com uma etiqueta/resposta.
 
-Neste código, especifique a variável (dependentes) de destino e as funcionalidades a utilizar para formação modelos. Em seguida, criar indexada ou frequente de um codificado formação e testar com a etiqueta de fotogramas RDDs ponto ou dados de entrada.
+Nesse código, especifique a variável (dependente) de destino e os recursos para utilizar para preparar modelos. Em seguida, criar indexada ou frequente de um codificado preparação e teste rotulado como quadros de dados ou RDDs de ponto de entrada.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -499,13 +499,13 @@ Neste código, especifique a variável (dependentes) de destino e as funcionalid
 
 Tempo para executar a célula: 4 segundos.
 
-### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Categorizar e vectorize funcionalidades e destinos para utilizar como entradas para modelos de machine learning automaticamente
-Utilize o Spark ML a categorização de destino e funcionalidades para utilizar nas funções de modelação de árvore. O código de conclusão duas tarefas:
+### <a name="automatically-categorize-and-vectorize-features-and-targets-to-use-as-inputs-for-machine-learning-models"></a>Categorizar e vectorize metas para utilizar como entradas para modelos de machine learning e de recursos automaticamente
+Utilize o Spark ML para categorizar o destino e funcionalidades para utilizar nas funções de modelagem com base na árvore. O código for concluído duas tarefas:
 
-* Cria um destino de binário para classificação, atribuir um valor de 0 ou 1 para cada ponto de dados entre 0 e 1 utilizando um valor de limiar de 0,5.
-* Automaticamente categoriza funcionalidades. Se o número de valores distintos de numérico para qualquer funcionalidade for inferior a 32, essa funcionalidade foi categorizada.
+* Cria um destino de binário para classificação, atribuindo um valor de 0 ou 1 para cada ponto de dados entre 0 e 1 utilizando um valor de limite de 0,5.
+* Categoriza automaticamente os recursos. Se o número de valores numéricos distintos para qualquer funcionalidade for inferior a 32, essa funcionalidade é categorizada.
 
-Eis o código para estas duas tarefas.
+Aqui está o código para essas duas tarefas.
 
     # CATEGORIZE FEATURES AND BINARIZE THE TARGET FOR THE BINARY CLASSIFICATION PROBLEM
 
@@ -536,23 +536,23 @@ Eis o código para estas duas tarefas.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prever se deve ser paga uma sugestão
-Nesta secção, é criar três tipos de modelos de classificação binária para prever ou não deve ser paga uma sugestão:
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Modelo de classificação binária: prever se uma dica deve ser pago
+Nesta secção, vai criar três tipos de modelos de classificação binária para prever se ou não deve ser pago uma dica:
 
-* A **modelo de regressão logística da** ao utilizar o Spark ML `LogisticRegression()` função
-* A **modelo de classificação de floresta aleatório** ao utilizar o Spark ML `RandomForestClassifier()` função
-* A **gradação modelo de classificação de árvore aumento** utilizando o MLlib `GradientBoostedTrees()` função
+* R **modelo de regressão logística** ao utilizar o Spark ML `LogisticRegression()` função
+* R **modelo de classificação de floresta aleatório** ao utilizar o Spark ML `RandomForestClassifier()` função
+* R **gradação adaptativo modelo de classificação de árvore** utilizando o MLlib `GradientBoostedTrees()` função
 
-### <a name="create-a-logistic-regression-model"></a>Criar um modelo de regressão logística da
-Em seguida, crie um modelo de regressão logística ao utilizar o Spark ML `LogisticRegression()` função. Criar o modelo de criação de código de uma série de passos:
+### <a name="create-a-logistic-regression-model"></a>Criar um modelo de regressão logística
+Em seguida, crie um modelo de regressão logística ao utilizar o Spark ML `LogisticRegression()` função. Criar o modelo de criação de código numa série de passos:
 
 1. **Preparar o modelo** dados com um conjunto de parâmetros.
-2. **Avalie o modelo** num conjunto de dados de teste com a métrica.
-3. **Guarde o modelo** no armazenamento de BLOBs para consumo futuro.
-4. **O modelo de pontuação** contra dados de teste.
-5. **Desenhar os resultados** com recetor operativo curvas característica (ROC).
+2. **Avaliar o modelo** num conjunto de dados de teste com a métrica.
+3. **Guarde o modelo** no armazenamento de BLOBs para futuro consumo.
+4. **O modelo de pontuação** em relação a dados de teste.
+5. **Os resultados de desenho** com receptor curvas de característica (multiclasse mediante) a funcionar.
 
-Eis o código para estes procedimentos:
+Aqui está o código para estes procedimentos:
 
     # CREATE A LOGISTIC REGRESSION MODEL
     val lr = new LogisticRegression().setLabelCol("tipped").setFeaturesCol("features").setMaxIter(10).setRegParam(0.3).setElasticNetParam(0.8)
@@ -572,7 +572,7 @@ Eis o código para estes procedimentos:
     val filename = modelDir.concat(modelName).concat(datestamp)
     lrModel.save(filename);
 
-Carregar, Pontuar e guardar os resultados.
+Carregar, classificação e salvar os resultados.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -600,9 +600,9 @@ Carregar, Pontuar e guardar os resultados.
 
 **Saída:**
 
-ROC em dados de teste = 0.9827381497557599
+Cor MULTICLASSE em dados de teste = 0.9827381497557599
 
-Utilize o Python nos pacotes de dados do locais Pandas para desenhar a curva ROC.
+Utilizar o Python em quadros de dados do locais Pandas para desenhar a curva cor MULTICLASSE.
 
     # QUERY THE RESULTS
     %%sql -q -o sqlResults
@@ -638,10 +638,10 @@ Utilize o Python nos pacotes de dados do locais Pandas para desenhar a curva ROC
 
 **Saída:**
 
-![Sugestão ou nenhum curva ROC de sugestão](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
+![Sugestão ou sem curva cor MULTICLASSE de sugestão](./media/scala-walkthrough/plot-roc-curve-tip-or-not.png)
 
-### <a name="create-a-random-forest-classification-model"></a>Criar um modelo de classificação de floresta aleatório
-Em seguida, crie um modelo de classificação de floresta aleatório ao utilizar o Spark ML `RandomForestClassifier()` funcionar e, em seguida, avalie o modelo em dados de teste.
+### <a name="create-a-random-forest-classification-model"></a>Criar um modelo de classificação aleatória de floresta
+Em seguida, criar um modelo de classificação aleatória floresta com o Spark ML `RandomForestClassifier()` de função e, em seguida, avaliar o modelo em dados de teste.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -671,10 +671,10 @@ Em seguida, crie um modelo de classificação de floresta aleatório ao utilizar
 
 **Saída:**
 
-ROC em dados de teste = 0.9847103571552683
+Cor MULTICLASSE em dados de teste = 0.9847103571552683
 
 ### <a name="create-a-gbt-classification-model"></a>Criar um modelo de classificação GBT
-Em seguida, crie um modelo de classificação GBT através do MLlib `GradientBoostedTrees()` funcionar e, em seguida, avalie o modelo em dados de teste.
+Em seguida, crie um modelo de classificação GBT através da utilização do MLlib `GradientBoostedTrees()` de função e, em seguida, avaliar o modelo em dados de teste.
 
     # TRAIN A GBT CLASSIFICATION MODEL BY USING MLLIB AND A LABELED POINT
 
@@ -727,13 +727,13 @@ Em seguida, crie um modelo de classificação GBT através do MLlib `GradientBoo
 
 **Saída:**
 
-Área em curva ROC: 0.9846895479241554
+Área em curva cor MULTICLASSE: 0.9846895479241554
 
 ## <a name="regression-model-predict-tip-amount"></a>Modelo de regressão: prever a quantidade de sugestão
-Nesta secção, permite criar dois tipos de modelos de regressão para prever a quantidade de sugestão:
+Nesta secção, vai criar dois tipos de modelos de regressão para prever a quantidade de dica:
 
-* A **modelo de regressão linear regularized** ao utilizar o Spark ML `LinearRegression()` função. Irá guardar o modelo e avaliar o modelo em dados de teste.
-* A **os aumentos gradiente modelo de regressão de árvore** ao utilizar o Spark ML `GBTRegressor()` função.
+* R **modelo de regressão linear regularized** ao utilizar o Spark ML `LinearRegression()` função. Irá guardar o modelo e avaliar o modelo em dados de teste.
+* R **aumentam a gradação modelo de regressão de árvore** ao utilizar o Spark ML `GBTRegressor()` função.
 
 ### <a name="create-a-regularized-linear-regression-model"></a>Criar um modelo de regressão linear regularized
     # RECORD THE START TIME
@@ -812,7 +812,7 @@ Tempo para executar a célula: 13 segundos.
 
 R-sqr em dados de teste = 0.5960320470835743
 
-Em seguida, consultar os resultados do teste como um intervalo de dados e utilizar AutoVizWidget e matplotlib para visualizá-lo.
+Em seguida, consultar os resultados do teste como um quadro de dados e utilize AutoVizWidget e matplotlib para visualizá-la.
 
     # RUN A SQL QUERY
     %%sql -q -o sqlResults
@@ -825,14 +825,14 @@ Em seguida, consultar os resultados do teste como um intervalo de dados e utiliz
     # CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, AND SO ON)
     sqlResults
 
-O código cria um intervalo de dados locais da saída de consulta e rastreia os dados. O `%%local` magic cria um período de dados local, `sqlResults`, que pode ser utilizado para desenhar com matplotlib.
+O código cria um quadro de dados local a partir da saída da consulta e desenha os dados. O `%%local` mágica cria um quadro de dados local, `sqlResults`, que pode ser usado para desenhar com matplotlib.
 
 > [!NOTE]
-> Este magic Spark sido utilizada várias vezes neste artigo. Se a quantidade de dados for grande, deve de exemplo para criar um intervalo de dados que pode caber na memória local.
+> Essa mágica de Spark é utilizada várias vezes neste artigo. Se a quantidade de dados é grande, deve de exemplo para criar um quadro de dados que cabem na memória local.
 > 
 > 
 
-Crie rastreia utilizando Python matplotlib.
+Crie gráficos com Python matplotlib.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
@@ -852,12 +852,12 @@ Crie rastreia utilizando Python matplotlib.
 
 **Saída:**
 
-![Sugestão quantidade: real vs previsto](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Sugestão quantidade: real vs. prevista](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Criar um modelo de regressão GBT
-Criar um modelo de regressão GBT ao utilizar o Spark ML `GBTRegressor()` funcionar e, em seguida, avalie o modelo em dados de teste.
+Criar um modelo de regressão GBT com o Spark ML `GBTRegressor()` de função e, em seguida, avaliar o modelo em dados de teste.
 
-[Árvores elevada de gradação](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) são ensembles de árvores de decisões. GBTs preparar árvores de decisões iteratively para minimizar a uma função de perda. Pode utilizar GBTs para regressão e classificação. Pode processar categórico funcionalidades, não necessitam de dimensionamento de funcionalidade e podem capturar nonlinearities e interações de funcionalidade. Também pode utilizar-lhes uma definição de classificação de várias classes.
+[Árvores de aumentou a gradação](http://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) são árvores de árvores de decisões. GBTs treinar árvores de decisão iterativamente para minimizar a uma função de perda. Pode usar GBTs para classificação e regressão. Pode manipular recursos categóricos, não requerem o dimensionamento do recurso e podem capturar nonlinearities e interações de funcionalidade. Também pode usá-los numa configuração de classificação de várias classes.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -885,23 +885,23 @@ Criar um modelo de regressão GBT ao utilizar o Spark ML `GBTRegressor()` funcio
 
 **Saída:**
 
-Teste R-sqr é: 0.7655383534596654
+É de teste. o R-sqr: 0.7655383534596654
 
-## <a name="advanced-modeling-utilities-for-optimization"></a>Utilitários de modelação avançadas para a otimização
-Nesta secção, é utilizar utilitários de aprendizagem máquina que os programadores frequentemente a utilizar para a otimização de modelo. Especificamente, pode otimizar a modelos de machine learning três formas diferentes, utilizando varrimento de parâmetro e validação cruzada:
+## <a name="advanced-modeling-utilities-for-optimization"></a>Utilitários de modelação avançada para Otimização
+Nesta secção, vai utilizar utilitários de aprendizado de máquina que os desenvolvedores utilizam com frequência para a otimização de modelo. Especificamente, pode otimizar modelos de machine learning três formas diferentes com varrimento de parâmetro e a validação cruzada:
 
-* Dividir os dados em conjuntos de formação e validação, otimizar o modelo utilizando hyper parâmetro varrimento num conjunto de formação e avaliar num conjunto de validação (regressão linear)
-* Otimizar o modelo utilizando a validação cruzada e hyper varrimento utilizando a função de CrossValidator do Spark ML (classificação binária) parâmetro
-* Otimizar o modelo utilizando o código de validação cruzada e varrimento de parâmetro personalizado para utilizar qualquer do machine learning função e o parâmetro de conjunto (regressão linear)
+* Dividir os dados em conjuntos de formação e a validação, otimizar o modelo usando varrimento de hyper-parâmetro num conjunto de formação e avaliar num conjunto de validação (regressão linear)
+* Otimizar o modelo com a validação cruzada e hyper varrimento através CrossValidator função do Spark ML (classificação binária) parâmetro
+* Otimizar o modelo com o código de validação cruzada e varrimento de parâmetro personalizado para utilizar qualquer conjunto de função e o parâmetro (regressão linear) de aprendizagem automática
 
-**Validação cruzada** é uma técnica que avalia o quão bem um modelo preparado num conjunto conhecido de dados será generalizar para prever as funcionalidades de conjuntos de dados em que esta não foi preparada. A ideia geral atrás esta técnica é que um modelo está preparado num conjunto de dados de dados conhecidos e, em seguida, a precisão do seu predições é testada em relação a um conjunto de dados independente. Uma implementação comum é a dividir um conjunto de dados em *k*-subconjuntos de validação e, em seguida, preparar o modelo em round-robin em todos os um elemento de subconjuntos de validação.
+**A validação cruzada** é uma técnica que avalie o quão bem um modelo de formação num conjunto conhecido de dados generalizará para prever as funcionalidades dos conjuntos de dados no qual ele não foi preparado. A idéia geral por trás dessa técnica é que é preparado um modelo num conjunto de dados de dados conhecidos e, em seguida, a precisão das previsões de seu é testada em relação a um conjunto de dados independente. Uma implementação comum é dividir um conjunto de dados em *k*-é dobrada a e, em seguida, preparar o modelo de uma forma round robin, em apenas uma dos subconjuntos.
 
-**Otimização de Hyper-parâmetro** é o problema de escolher um conjunto de hyper-parâmetros para um algoritmo de aprendizagem, normalmente, com o objetivo de otimizar uma medida de desempenho o algoritmo um conjunto de dados independente. Um parâmetro hyper é um valor que tem de especificar fora o procedimento de formação do modelo. Pressupostos sobre os valores de parâmetros hyper podem afetar a flexibilidade e a precisão do modelo. Árvores de decisões tem hyper-parâmetros, por exemplo, como a profundidade pretendida e o número de leaves na árvore. Tem de definir um prazo de penalidade misclassification para uma máquina de vetor de suporte (SVM).
+**Otimização de Hyper-parâmetro** é o problema de escolher um conjunto de hiper parâmetros para um algoritmo de aprendizagem, geralmente com o objetivo de otimizar uma medida de desempenho do algoritmo num conjunto de dados independente. Um hyper-parâmetro é um valor que tem de especificar fora o procedimento de treinamento de modelo. Suposições sobre valores de parâmetro de hyper podem afetar a flexibilidade e a precisão do modelo. Árvores de decisões têm hiper parâmetros, por exemplo, como a profundidade desejada e o número de folhas na árvore. Tem de definir um prazo de penalidade misclassification para uma máquina de vetor com suporte (SVM).
 
-Uma forma comum de efetuar a otimização de parâmetro hyper consiste em utilizar uma pesquisa de grelha, também designado por um **paramétrico parâmetro**. Numa pesquisa grelha, uma pesquisa exaustiva é efetuada através de valores de um subconjunto especificado o parâmetro hyper do espaço de para um algoritmo de aprendizagem. Validação cruzada pode fornecer uma métrica de desempenho para ordenar os resultados ideal produzidos pelo algoritmo de pesquisa de grelha. Se utilizar varrimento de hyper-parâmetro de validação cruzada, pode ajudar a problemas de limite, como overfitting um modelo de dados de preparação. Desta forma, o modelo mantém a capacidade para aplicar o conjunto de dados a partir da qual os dados de formação foi extraídos geral.
+Uma forma comum de executar a otimização de hyper-parâmetro é usar uma pesquisa de grade, também designada por um **varrimentos**. Numa pesquisa de grade, uma pesquisa exaustiva é executada por meio dos valores de um determinado subconjunto do espaço de hyper-parâmetro para um algoritmo de aprendizagem. A validação cruzada pode fornecer uma métrica de desempenho para classificar os resultados ideais, produzidos pelo algoritmo de pesquisa de grade. Se usar varrimento de hyper-parâmetro de validação cruzada, pode ajudar a problemas de limite, como a overfitting um modelo de dados de treinamento. Dessa forma, o modelo mantém a capacidade para aplicar ao conjunto geral de dados a partir da qual os dados de treinamento foi extraídos.
 
 ### <a name="optimize-a-linear-regression-model-with-hyper-parameter-sweeping"></a>Otimizar um modelo de regressão linear com hyper-parâmetro varrimento
-Em seguida, dividir dados em conjuntos de formação e validação, utilize hyper-parâmetro varrimento num conjunto de formação para otimizar o modelo e avaliar num conjunto de validação (regressão linear).
+Em seguida, dividir os dados em conjuntos de formação e a validação, utilize hyper-parâmetro varrimento num conjunto de treinamento para otimizar o modelo e avaliar num conjunto de validação (regressão linear).
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -942,10 +942,10 @@ Em seguida, dividir dados em conjuntos de formação e validação, utilize hype
 
 **Saída:**
 
-Teste R-sqr é: 0.6226484708501209
+É de teste. o R-sqr: 0.6226484708501209
 
-### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Otimizar o modelo de classificação binária através da utilização de varrimento de validação cruzada e hyper parâmetro
-Esta secção mostra como otimizar um modelo de classificação binária através da utilização de varrimento de validação cruzada e hyper parâmetro. Esta opção utiliza o Spark ML `CrossValidator` função.
+### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Otimizar o modelo de classificação binário, utilizando a validação cruzada e de hyper-parâmetro de varrimento
+Esta secção mostra-lhe como otimizar um modelo de classificação binária utilizando varrimento de validação cruzada e de hyper-parâmetro. Esta opção utiliza o Spark ML `CrossValidator` função.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -986,10 +986,10 @@ Esta secção mostra como otimizar um modelo de classificação binária atravé
 
 **Saída:**
 
-Tempo para executar a célula: 33 segundos.
+Tempo para executar a célula: e 33 segundos.
 
-### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Otimizar o modelo de regressão, utilizando o código de validação cruzada e varrimento de parâmetro personalizado
-Em seguida, otimizar o modelo utilizando código personalizado e identificar os melhores parâmetros de modelo ao utilizar o critério de maior precisão. Em seguida, crie o modelo final, avalie o modelo em dados de teste e guarde o modelo no Blob storage. Por fim, carregar o modelo, dados de teste de pontuação e avaliar exatidão.
+### <a name="optimize-the-linear-regression-model-by-using-custom-cross-validation-and-parameter-sweeping-code"></a>Otimizar o modelo de regressão linear com o código de validação cruzada e varrimento de parâmetro personalizado
+Em seguida, otimizar o modelo utilizando código personalizado e identificar os melhores parâmetros de modelo ao utilizar o critério de precisão mais elevada. Em seguida, crie o modelo final, avaliar o modelo em dados de teste e guardar o modelo no armazenamento de Blobs. Por fim, carregar o modelo, classificar os dados de teste e avaliar a precisão.
 
     # RECORD THE START TIME
     val starttime = Calendar.getInstance().getTime()
@@ -1103,10 +1103,10 @@ Em seguida, otimizar o modelo utilizando código personalizado e identificar os 
 
 Tempo para executar a célula: 61 segundos.
 
-## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Consumir os modelos de aprendizagem máquina incorporadas do Spark automaticamente com o Scala
-Para obter uma descrição geral de tópicos que descrevem as tarefas que compõem o processo de ciência de dados no Azure, consulte [o processo de ciência de dados de equipa](http://aka.ms/datascienceprocess).
+## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Consumir modelos de aprendizagem de máquina criados com o Spark automaticamente com o Scala
+Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [Team Data Science Process](https://aka.ms/datascienceprocess).
 
-[Instruções do processo de ciência de dados de equipa](walkthroughs.md) descreve outras instruções ponto-a-ponto que demonstram os passos no processo de ciência de dados de agrupamento para cenários específicos. As instruções também mostram como combinar as ferramentas de nuvem e no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente.
+[Orientações passo a passo do processo de ciência de dados de equipa](walkthroughs.md) descreve outras instruções ponto a ponto que demonstram os passos no Team Data Science Process para cenários específicos. A instruções passo a passo também mostram como combinar as ferramentas de nuvem e no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente.
 
-[Pontuar modelos de incorporadas do Spark machine learning](spark-model-consumption.md) mostra-lhe como utilizar o Scala código para carregar e Pontuar novos conjuntos de dados com modelos de machine learning incorporada no Spark e guardou no Blob storage do Azure automaticamente. Pode seguir as instruções fornecidas não existe e simplesmente substitua o código de Python com o Scala código neste artigo para consumo automatizado.
+[Classificar modelos de aprendizagem criados com o Spark](spark-model-consumption.md) mostra-lhe como utilizar o Scala código para carregar e Pontuar novos conjuntos de dados com modelos do machine learning criados no Spark e guardado no armazenamento de Blobs do Azure automaticamente. Pode seguir as instruções fornecidas aqui e simplesmente substituir o código de Python com o Scala código neste artigo para consumo automatizado.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046495"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261154"
 ---
 # <a name="analyze-hadoop-logs"></a>Analisar os registos de Hadoop
 
@@ -59,7 +59,7 @@ Há muitas ferramentas disponíveis para o acesso a dados nestas tabelas:
 * Power Query para Excel
 
 #### <a name="use-power-query-for-excel"></a>Utilize o Power Query para Excel
-Power Query pode ser instalada a partir [Microsoft Power Query para Excel](http://www.microsoft.com/en-us/download/details.aspx?id=39379). Consulte a página de download para os requisitos de sistema.
+Power Query pode ser instalada a partir [Microsoft Power Query para Excel](https://www.microsoft.com/en-us/download/details.aspx?id=39379). Consulte a página de download para os requisitos de sistema.
 
 **Utilize o Power Query para abrir e analise o registo de serviço**
 
@@ -83,7 +83,7 @@ Power Query pode ser instalada a partir [Microsoft Power Query para Excel](http:
 Agora, pode utilizar o Excel para filtrar e ordenar conforme necessário. Convém incluir outras colunas (por exemplo, a mensagem) para analisar detalhadamente problemas quando estes ocorrem, mas selecionando e as colunas descritas acima de agrupamento fornecem uma visão decente do que está acontecendo com os serviços do Hadoop. A mesma idéia pode ser aplicada às tabelas setuplog e hadoopinstalllog.
 
 #### <a name="use-visual-studio"></a>Utilizar o Visual Studio
-**Use o Visual Studio**
+**Utilizar o Visual Studio**
 
 1. Abra o Visual Studio.
 2. Do **View** menu, clique em **Cloud Explorer**. Ou clique simplesmente **CTRL +\, CTRL + X**.

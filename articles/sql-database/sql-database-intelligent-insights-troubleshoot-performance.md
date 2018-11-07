@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353871"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230041"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -167,7 +167,7 @@ Como um pagelatch é um mecanismo de controle interno da base de dados SQL, ele 
 
 É um método para manipular a contenção de bloqueio temporário substituir uma chave de índice seqüencial com uma chave nonsequential para distribuir uniformemente os inserções num intervalo de índice. Normalmente, uma coluna à esquerda no índice distribui a carga de trabalho proporcionalmente. Outro método a considerar é o particionamento de tabela. A criação de um hash de esquema com uma coluna calculada numa tabela particionada de particionamento é uma abordagem comum para mitigar a contenção de bloqueio temporário excessiva. No caso de contenção de e/s de pagelatch, apresentando índices ajuda a mitigar este problema de desempenho. 
 
-Para obter mais informações, consulte [diagnosticar e resolver bloquear temporariamente a contenção no SQL Server](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (download do PDF).
+Para obter mais informações, consulte [diagnosticar e resolver bloquear temporariamente a contenção no SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (download do PDF).
 
 ## <a name="missing-index"></a>Índice em falta
 

@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720128"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236011"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicações e início de sessão único com o Azure Active Directory?
 Início de sessão único significa ser capaz de aceder a todas as aplicações e recursos de que precisa para fazer negócios, ao iniciar sessão apenas uma vez com uma conta de utilizador único. Depois de iniciar sessão, pode aceder a todos os aplicativos que necessita sem ter que está a ser necessária para autenticar (por exemplo, escreva uma palavra-passe) uma segunda vez.
@@ -102,7 +102,7 @@ O [Galeria de aplicações do Azure Active Directory](https://azure.microsoft.co
 Eis algumas sugestões para encontrar aplicações pelas quais capacidades suportam:
 
 * O Azure AD suporta automática provisionamento e desprovisionamento para todas as aplicações "Em destaque" a [Galeria de aplicações do Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/).
-* Uma lista de aplicações federadas que suportam especificamente único início de sessão federado utilizando um protocolo, tais como SAML, WS-Federation, ou OpenID Connect podem ser encontrada [aqui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* Uma lista de aplicações federadas que suportam especificamente único início de sessão federado utilizando um protocolo, tais como SAML, WS-Federation, ou OpenID Connect podem ser encontrada [aqui](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Depois de encontrar seu aplicativo, pode começar a utilizar, seguindo as instruções passo a passo na Galeria de aplicações e no portal do Azure para ativar o início de sessão único.
 

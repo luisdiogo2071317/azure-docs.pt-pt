@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116147"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231826"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migração de Contoso: realojar a uma aplicação no local numa VM do Azure e a instância gerida do SQL da base de dados
 
@@ -366,7 +366,7 @@ Após a ativação pós-falha para o Azure, a Contoso quer ser capaz de ligar as
 Os administradores da Contoso também é necessário verificar esses itens quando executam uma ativação pós-falha:
 
 - Não deve haver nenhuma atualização do Windows pendentes na VM quando é acionada uma ativação pós-falha. Se as atualizações do Windows estão pendentes, os utilizadores Contoso não é possível iniciar sessão para a máquina virtual até que a atualização esteja concluída.
-- Após a ativação pós-falha, os administradores devem verificar **diagnósticos de arranque** para ver uma captura de ecrã da VM. Se eles não é possível ver o diagnóstico de arranque, deve verificar que a VM está em execução e, em seguida, reveja [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Após a ativação pós-falha, os administradores devem verificar **diagnósticos de arranque** para ver uma captura de ecrã da VM. Se eles não é possível ver o diagnóstico de arranque, deve verificar que a VM está em execução e, em seguida, reveja [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>Passo 5: Replicar as VMs no local para o Azure
 

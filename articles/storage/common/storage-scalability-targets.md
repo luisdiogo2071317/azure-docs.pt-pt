@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a49ad2546babe8bef6b52be1d8a2dbaceec94003
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 758871537b89a9c010cfaddf324e2208f9846afb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391811"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241331"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Alvos de Dimensionamento e Desempenho do Armazenamento do Azure
 ## <a name="overview"></a>Descrição geral
 Este artigo descreve os tópicos de escalabilidade e desempenho do armazenamento do Azure. Para obter um resumo dos outros limites do Azure, veja [subscrição do Azure e limites do serviço, Quotas e restrições](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
-> Todas as contas de armazenamento executam na nova topologia de rede simples e suportam os destinos de escalabilidade e desempenho descritos neste artigo, independentemente de quando foram criadas. Para obter mais informações sobre a arquitetura de rede simples de armazenamento do Azure e na escalabilidade, consulte [armazenamento do Microsoft Azure: A altamente disponível serviço armazenamento na Cloud com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+> Todas as contas de armazenamento executam na nova topologia de rede simples e suportam os destinos de escalabilidade e desempenho descritos neste artigo, independentemente de quando foram criadas. Para obter mais informações sobre a arquitetura de rede simples de armazenamento do Azure e na escalabilidade, consulte [armazenamento do Microsoft Azure: A altamente disponível serviço armazenamento na Cloud com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 > 
 
 > [!IMPORTANT]
@@ -63,5 +63,5 @@ Com o Azure File Sync, tentamos tanto quanto possível para conceber para utiliz
 * [Subscrição do Azure e limites do serviço, Quotas e restrições](../../azure-subscription-service-limits.md)
 * [Replicação de armazenamento do Azure](../storage-redundancy.md)
 * [Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure](../storage-performance-checklist.md)
-* [Armazenamento do Microsoft Azure: Um Cloud altamente disponível, serviço de armazenamento com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [Armazenamento do Microsoft Azure: Um Cloud altamente disponível, serviço de armazenamento com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

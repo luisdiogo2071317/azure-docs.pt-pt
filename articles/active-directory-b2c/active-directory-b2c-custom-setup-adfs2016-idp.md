@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945727"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219329"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -64,6 +64,7 @@ Pode definir uma conta ADFS como um fornecedor de afirmações ao adicioná-la p
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ Abra um browser e navegue para o URL. Certifique-se de que digite a URL correta 
 9. Selecione **Adicionar regra**.  
 10. Na **modelo de regra de afirmação**, selecione **enviar atributos LDAP como afirmações**.
 11. Fornecer um **nome da regra de afirmação**. Para o **arquivo de atributos**, selecione **selecione Active Directory**, adicione as seguintes declarações, em seguida, clique em **concluir** e **OK**.
+
+    | Attrubute LDAP | Tipo de afirmação de saída |
+    | -------------- | ------------------- |
+    | Nome do Principal do utilizador | userPricipalName |
+    | Apelido | family_name |
+    | Fornecido nome | given_name |
+    | Endereço do correio electrónico | e-mail |
+    | Nome a apresentar | nome |
+    
 12.  Com base no seu tipo de certificado, poderá ter de definir o algoritmo HASH. A janela Propriedades de confiança (demonstração de B2C) da parte da entidade confiadora, selecione o **avançadas** separador e altere a **algoritmo hash seguro** para `SHA-1` ou `SHA-256`e clique em **Ok**.  
 13. No Gestor de servidor, selecione **ferramentas**e, em seguida, selecione **gestão de ADFS**.
 14. Selecione a confiança de entidade confiadora que criou, selecione **atualização de metadados de Federação**e, em seguida, clique em **atualização**. 

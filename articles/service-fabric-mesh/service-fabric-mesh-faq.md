@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b32af29a123ce4d070e1bb68b5a43ba6d0d2c5e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501972"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218479"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Malha de recursos de infraestrutura do serviço perguntas mais frequentes
 O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes. Este artigo tem respostas para perguntas freqüentes.
@@ -27,24 +27,50 @@ Faça perguntas, receba respostas dos engenheiros da Microsoft e reportar proble
 
 **O que é o custo de participar na pré-visualização?**
 
-Não existem custos para a implementação de aplicações ou contentores para pré-visualização de malha. No entanto é encorajado a eliminar os recursos a implementar e não deixá-los em execução, a menos que são ativamente testá-lo.
+Não existem custos para implementar aplicações ou contentores para a pré-visualização de malha atualmente. No entanto, Encorajamo-lo para eliminar os recursos a implementar e não deixá-los em execução, a menos que está testando intensamente o-los.
 
 **Existe um limite de quota do número de núcleos e RAM?**
 
-Sim, as quotas para cada subscrição são:
+Sim, as quotas para cada subscrição estão definidas da seguinte forma:
 
 - Número de aplicativos - 5 
-- Número de núcleos por aplicação – 12 
+- Núcleos por aplicação – 12 
 - Total de RAM por aplicação – 48 GB 
-- Número de pontos de extremidade de rede e entrada – 5  
-- Número de Volumes do Azure podem anexar - 10 
+- Pontos de extremidade de rede e entrada – 5  
+- Volumes do Azure que pode anexar - 10 
 - Número de réplicas do serviço – 3 
-- O contentor maior, que pode implementar está limitado a 4 núcleos, 16 GB de RAM.
+- O contentor maior, que pode implementar está limitado a 4 núcleos, 16GB de RAM.
 - Pode alocar núcleos parciais para os contentores em incrementos de 0,5 núcleos até um máximo de 6 núcleos.
 
-**Pode deixar meu aplicativo em execução durante a noite?**
+**O tempo que pode deixar os meu aplicativo implementado?**
 
-Sim, pode, no entanto, é incentivadas a eliminar os recursos a implementar e não deixá-los em execução, a menos que são ativamente testá-lo. Esta política podem ser alterados no futuro e os recursos podem ser eliminados se eles estão a ser usado indevidamente.
+Atualmente, limitada a vida útil de um aplicativo em dois dias. Trata-se para maximizar a utilização dos núcleos livres alocado para a pré-visualização. Como resultado, só são permitidas para execução de uma determinada continuamente para 48 horas, após o qual serão eliminados pelo sistema. Se vir que isso aconteça, pode validar que o sistema encerrá-lo ao executar um `az mesh app show` comando na CLI do Azure e a verificar se ela retornar `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+Por exemplo: 
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
 
 ## <a name="supported-container-os-images"></a>Imagens de contentor suportados SO
 As seguintes imagens de sistema operacional de contentor podem ser utilizadas quando a implementação de serviços.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215434"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261711"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gerir os controladores de dispositivo do StorSimple
 
@@ -117,7 +117,7 @@ Execute os seguintes passos para repor o dispositivo do Microsoft Azure StorSimp
    
     `Reset-HcsFactoryDefault`
    
-    Para repor a um único controlador em vez disso, utilize o [reposição-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet com o `-scope` parâmetro.)
+    Para repor a um único controlador em vez disso, utilize o [reposição-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) cmdlet com o `-scope` parâmetro.)
    
     O sistema será reiniciado várias vezes. Será notificado quando a reposição foi concluída com êxito. Consoante o modelo de sistema, pode demorar 45 a 60 minutos para um dispositivo 8100 e 60 a 90 minutos para um 8600 concluir este processo.
    

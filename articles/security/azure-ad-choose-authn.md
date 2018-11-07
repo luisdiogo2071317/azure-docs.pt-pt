@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388063"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238918"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação correta para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -68,6 +68,18 @@ A secção seguinte ajuda-o a decidir que método de autenticação é adequado 
 ## <a name="decision-tree"></a>Árvore de decisões
 
 ![Árvore de decisão de autenticação do Azure AD](media/azure-ad/azure-ad-authn-image1.png)
+
+Detalhes sobre perguntas de decisão:
+
+1. O Azure AD pode lidar com início de sessão para utilizadores sem depender de componentes no local para verificar as palavras-passe.
+2. O Azure AD pode passá sessão do utilizador para um fornecedor de autenticação confiável, como AD FS da Microsoft.
+3. Se precisar de aplicar políticas de segurança ao nível do utilizador do Active Directory, tais como conta expirou, desativado conta, palavra-passe expirada, conta bloqueada e horas de início de sessão em todos os utilizadores início de sessão, Azure AD requer alguns componentes no local.
+4. Início de sessão recursos sem suporte original pelo Azure AD:
+   * Inicie sessão com smart cards ou certificados.
+   * Inicie sessão com o servidor de MFA no local.
+   * Inicie sessão com o 3º solução de autenticação de terceiros.
+   * Solução de autenticação de múltiplos sites no local.
+5. O Azure AD Identity Protection requer a sincronização de Hash de palavra-passe, independentemente de qual método de início de sessão que escolher, para fornecer o relatório de "Utilizadores com fuga de credenciais". As organizações podem ativação pós-falha para sincronização de Hash de palavra-passe, se o método de início de sessão principal falha e configurado antes do evento de falha.
 
 ## <a name="detailed-considerations"></a>Considerações detalhadas
 
@@ -207,4 +219,4 @@ No mundo de hoje, as ameaças estão presentes 24 horas por dia e são fornecido
 
 [Introdução ao](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) com o Azure AD e implementar a solução de autenticação correta para sua organização.
 
-Se estiver pensando em migrar do federado para autenticação da cloud, saiba mais sobre [alterar o método de início de sessão](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Para ajudar a planear e implementar a migração, utilize [estes planos de implantação do projeto](http://aka.ms/deploymentplans).
+Se estiver pensando em migrar do federado para autenticação da cloud, saiba mais sobre [alterar o método de início de sessão](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Para ajudar a planear e implementar a migração, utilize [estes planos de implantação do projeto](https://aka.ms/deploymentplans).

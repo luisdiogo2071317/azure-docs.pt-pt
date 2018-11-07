@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049954"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259926"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicar um anúncio a um laboratório no Azure DevTest Labs
 
@@ -35,7 +35,7 @@ A funcionalidade de anúncio destina-se a ser utilizado para notificações temp
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Etapas para lançar um anúncio num laboratório existente
 
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista. (Seu laboratório já pode ser mostrado no Dashboard sob **todos os recursos**).
 1. Na lista de laboratórios, selecione o laboratório em que pretende publicar um anúncio.  
 1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.  
@@ -70,7 +70,7 @@ Quando já não pretende mostrar este anúncio aos utilizadores de laboratório,
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Passos para que os utilizadores vejam um anúncio
 
-1. Partir do [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
+1. Partir do [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
 
 1. Se o laboratório tem um anúncio publicado para o mesmo, o aviso de informações é mostrado na parte superior da página de descrição geral do laboratório. Este aviso de informações é o título de anúncio que foi especificado quando o anúncio foi criado.
 

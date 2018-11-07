@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ae212bebf5a34e9a80f49a750735137d7a8814be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213372"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232669"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre para VMs do Azure após a migração para o Azure 
+# <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurar a recuperação após desastre de VMs do Azure após a migração para o Azure 
 
 
 Utilize este artigo depois [migrar máquinas no local para VMs do Azure](tutorial-migrate-on-premises-to-azure.md) utilizando o [Site Recovery](site-recovery-overview.md) serviço. Este artigo ajuda-o a preparar as VMs do Azure para configurar a recuperação após desastre para uma região secundária do Azure, com o Site Recovery.
@@ -32,7 +32,7 @@ Antes de configurar a recuperação após desastre, certifique-se de que a migra
 O Azure [agente da VM](../virtual-machines/extensions/agent-windows.md) tem de estar instalado na VM, para que o Site Recovery pode replicá-la.
 
 
-1. Para instalar o agente da VM em VMs que executam o Windows, transfira e execute o [instalador do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). São necessários privilégios de administrador na VM para concluir a instalação.
+1. Para instalar o agente da VM em VMs que executam o Windows, transfira e execute o [instalador do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). São necessários privilégios de administrador na VM para concluir a instalação.
 2. Para instalar o agente da VM em VMs que executem o Linux, instale a versão mais recente [agente Linux](../virtual-machines/extensions/agent-linux.md). São necessários privilégios de administrador para concluir a instalação. É recomendável que instalar a partir do seu repositório de distribuição. Não é recomendada a instalação do agente de VM com Linux diretamente a partir do GitHub. 
 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: jroth
-ms.openlocfilehash: 0119c6642d68db6a90af07395882e620b1af08c6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258134"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Diretrizes de desempenho para o SQL Server em máquinas de virtuais do Azure
 
@@ -166,7 +166,7 @@ Para as VMs que suportam o armazenamento Premium (séries DS, série DSv2 e sér
     ![Ficheiros de registo de dados do SQL e cópia de segurança](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 * Ative páginas bloqueadas reduzir a e/s e qualquer atividade de paginação. Para obter mais informações, consulte [ativar a bloquear páginas na opção de memória (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
-* Se estiver a executar o SQL Server 2012, instale o Service Pack 1 a atualização cumulativa 10. Esta atualização contém a correção para um mau desempenho e/s ao executar select na instrução de tabela temporária no SQL Server 2012. Para obter informações, consulte esta [artigo da base de dados de conhecimento](http://support.microsoft.com/kb/2958012).
+* Se estiver a executar o SQL Server 2012, instale o Service Pack 1 a atualização cumulativa 10. Esta atualização contém a correção para um mau desempenho e/s ao executar select na instrução de tabela temporária no SQL Server 2012. Para obter informações, consulte esta [artigo da base de dados de conhecimento](https://support.microsoft.com/kb/2958012).
 
 * Considere a compactação de quaisquer arquivos de dados durante a transferência de entrada/saída do Azure.
 

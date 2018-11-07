@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5a36c239e296d6f393c49932f1a369d8aae80b83
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311109"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244462"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gerir e personalizar os serviços de Federação do Active Directory com o Azure AD Connect
 Este artigo descreve como gerir e personalizar os serviços de Federação do Active Directory (AD FS) com o Azure Active Directory (Azure AD) Connect. Ele também inclui outras tarefas de AD FS comuns que poderá ter de fazer para uma configuração completa de um farm do AD FS.
@@ -81,7 +81,7 @@ Configurar o ID de início de sessão alternativo para o AD FS consiste em dois 
 
     ![Aviso de ausentes KB no 2012R2](./media/how-to-connect-fed-management/kbwarning.png)
 
-    Para retificar a configuração em caso de KB em falta, instale o necessários [KB2919355](http://go.microsoft.com/fwlink/?LinkID=396590) e, em seguida, reparar a confiança utilizando [reparar AAD e confiança do AD FS](#repairthetrust).
+    Para retificar a configuração em caso de KB em falta, instale o necessários [KB2919355](https://go.microsoft.com/fwlink/?LinkID=396590) e, em seguida, reparar a confiança utilizando [reparar AAD e confiança do AD FS](#repairthetrust).
 
 > [!NOTE]
 > Para obter mais informações sobre alternateID e os passos para configurar manualmente, leia [configurar ID de início de sessão alternativo](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
