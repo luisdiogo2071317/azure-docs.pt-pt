@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338812"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244870"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)
 
@@ -118,7 +118,7 @@ Pode acessar a DSVM em Ubuntu com três métodos:
 
 ### <a name="ssh"></a>SSH
 
-Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No Windows, pode baixar uma ferramenta de cliente SSH, como [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
+Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No Windows, pode transferir uma ferramenta de cliente SSH, como o [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
 
 > [!NOTE]
 > O cliente de X2Go executada melhor do que em testes de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.
@@ -233,7 +233,7 @@ Para conda, deve sempre especificar o nome do ambiente (_py35_ ou _raiz_):
 
 Se estiver numa interface gráfica ou ter o conjunto de cópia de segurança de reencaminhamento de X11, pode digitar **pycharm** para iniciar o IDE de Python PyCharm. Pode utilizar os editores de texto padrão. Além disso, pode usar Spyder, um IDE de Python que é fornecida com distribuições Anaconda Python. Spyder necessita de uma área de trabalho gráfica ou X11 reencaminhamento. Um atalho para Spyder é fornecido no desktop.s gráfica
 
-### <a name="jupyter-notebook"></a>O bloco de notas do Jupyter
+### <a name="jupyter-notebook"></a>Jupyter Notebook
 A distribuição de Anaconda também vem com um bloco de notas do Jupyter, um ambiente para partilhar código e análise. O bloco de notas do Jupyter é acedido através do JupyterHub. Iniciar sessão com o seu nome de utilizador local do Linux e a palavra-passe.
 
 O servidor de bloco de notas do Jupyter foi previamente configurado com o Python 2, 3 de Python e kernels do R. Há um ícone de área de trabalho com o nome "Bloco de notas Jupyter" para iniciar o browser para aceder ao servidor de bloco de notas. Se estiver na VM através do cliente de SSH ou X2Go, também pode visitar [ https://localhost:8000/ ](https://localhost:8000/) para aceder ao servidor de bloco de notas do Jupyter.
@@ -429,6 +429,6 @@ Eis como pode continuar a sua aprendizagem e a exploração:
 
 * O [ciência de dados na máquina de Virtual de ciência de dados para Linux](linux-dsvm-walkthrough.md) instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux aprovisionados aqui. 
 * Explore as várias ferramentas de ciência de dados na VM de ciência de dados por experimentar as ferramentas descritas neste artigo. Também pode executar *dsvm-mais-info* no shell na máquina virtual para uma introdução básica e ponteiros para obter mais informações sobre as ferramentas instaladas na VM.  
-* Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](http://aka.ms/tdsp).
+* Aprenda a criar soluções de análise de ponto-a-ponto sistematicamente utilizando o [Team Data Science Process](https://aka.ms/tdsp).
 * Visite o [Galeria de IA do Azure](https://gallery.azure.ai/) para machine learning e os dados analytics exemplos que utilizam os serviços de IA do Azure.
 

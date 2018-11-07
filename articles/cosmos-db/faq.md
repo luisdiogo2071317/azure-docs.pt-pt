@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 554718f0bb465ca757fc4dcf6c22d3b0dd80f2fb
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3f0bf2c6c58afbbf9a1256fa5901591e535fe20c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251095"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250769"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ do Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Noções básicas do Azure do Cosmos DB
@@ -36,7 +36,7 @@ Azure Cosmos DB é uma boa opção para o novo web, móvel, jogos e aplicações
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Como é que o Azure Cosmos DB oferece um desempenho previsível?
 R [unidades de pedido](request-units.md) (RU) é a medida de débito no Azure Cosmos DB. Um débito de 1 RU corresponde ao débito do GET de um documento de 1 KB. Cada operação no Azure Cosmos DB, incluindo leituras, escritas, consultas SQL e execuções de procedimentos armazenados, têm um valor de RU determinístico com base no débito necessário para concluir a operação. Em vez de pensar no CPU, memória e e/s e como elas cada afetam o débito da sua aplicação, pode pensar em termos de uma única medida de RU.
 
-Pode reservar cada contentor do Azure Cosmos DB com um débito aprovisionado em termos de RUs de débito por segundo. Para aplicativos de qualquer escala, pode referenciar pedidos individuais para medir os respetivos valores de RU e aprovisionar um contentor para processar o total de unidades de pedido em todos os pedidos. Também pode aumentar verticalmente ou horizontalmente o débito do seu contentor conforme as necessidades da sua aplicação evoluem. Para obter mais informações sobre unidades de pedido e para ajudar a determinar o seu contentor necessita, veja [estimar as necessidades de débito](request-units.md#estimating-throughput-needs) e tente a [Calculadora de débito](https://www.documentdb.com/capacityplanner). O termo *contentor* aqui refere-se para uma coleção da API de SQL, a graph API do Gremlin, a coleção da API do MongoDB e a tabela de API de tabela. 
+Pode reservar cada contentor do Azure Cosmos DB com um débito aprovisionado em termos de RUs de débito por segundo. Para aplicativos de qualquer escala, pode referenciar pedidos individuais para medir os respetivos valores de RU e aprovisionar um contentor para processar o total de unidades de pedido em todos os pedidos. Também pode aumentar verticalmente ou horizontalmente o débito do seu contentor conforme as necessidades da sua aplicação evoluem. Para obter mais informações sobre unidades de pedido e para ajudar a determinar o seu contentor precisa, experimente o [Calculadora de débito](https://www.documentdb.com/capacityplanner). O termo *contentor* aqui refere-se para uma coleção da API de SQL, a graph API do Gremlin, a coleção da API do MongoDB e a tabela de API de tabela. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Como é que o Azure Cosmos DB suporta vários modelos de dados, como a chave/valor, em colunas, documentos e gráficos?
 
@@ -462,7 +462,7 @@ O custo de RU baseia-se no conjunto de dados de trabalho do transversal e não o
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>O que é o dimensionamento máximo que uma base de dados pode ter na API do Gremlin do Azure Cosmos DB? 
 
-O Azure Cosmos DB faz uso de [criação de partições horizontais](partition-data.md) automaticamente endereço aumento nos requisitos de armazenamento e débito. A capacidade máxima de armazenamento e débito de uma carga de trabalho é determinada pelo número de partições que estão associadas uma dada coleção. No entanto, uma coleção da Gremlin API tem um conjunto específico de diretrizes para garantir uma experiência de desempenho adequado à escala. Para obter mais informações e melhores práticas, consulte [melhores práticas de criação de partições](partition-data.md#best-practices-when-choosing-a-partition-key) documento. 
+O Azure Cosmos DB faz uso de [criação de partições horizontais](partition-data.md) automaticamente endereço aumento nos requisitos de armazenamento e débito. A capacidade máxima de armazenamento e débito de uma carga de trabalho é determinada pelo número de partições que estão associadas uma dada coleção. No entanto, uma coleção da Gremlin API tem um conjunto específico de diretrizes para garantir uma experiência de desempenho adequado à escala. Para obter mais informações sobre a criação de partições e as melhores práticas, consulte [criação de partições no Azure Cosmos DB](partition-data.md) artigo. 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Como posso proteger contra ataques de injeção usando drivers de Gremlin? 
 

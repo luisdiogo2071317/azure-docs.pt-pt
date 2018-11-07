@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 81c88c90ff24cb5e0ab143237fb08678067ea993
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311711"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247284"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial: Integrar uma única floresta do AD com a sincronização de hash de palavra-passe (PHS)
 
@@ -189,7 +189,7 @@ Agora, precisamos criar um inquilino do Azure AD para que o pode sincronizar os 
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Criar um administrador global no Azure AD
 Agora que temos um inquilino do Azure AD, iremos criar uma conta de administrador global.  Esta conta é utilizada para criar a conta de conector do Azure AD durante a instalação do Azure AD Connect.  A conta de conector do Azure AD é utilizada para gravar informações para o Azure AD.   Para criar o administrador global conta efetue o seguinte.
 
-1.  Sob **Manage**, selecione **utilizadores**.</br>
+1.  Em **Gerir**, selecione **Utilizadores**.</br>
 ![Criar](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecione **todos os utilizadores** e, em seguida, selecione **+ novo utilizador**.
 3.  Forneça um nome e o nome de utilizador para este utilizador. Este será o Administrador Global do inquilino. Também queira fazer a **função de diretório** para **Administrador Global.** Também pode mostrar a palavra-passe temporária. Quando tiver terminado, selecione **criar**.</br>
@@ -218,13 +218,13 @@ Agora iremos confirmar que os utilizadores que tínhamos no nosso diretório no 
 
 1. Navegue para o [portal do Azure](https://portal.azure.com) e inicie sessão com uma conta que tenha uma subscrição do Azure.
 2. No lado esquerdo, selecione **do Azure Active Directory**
-3. Sob **Manage**, selecione **utilizadores**.
+3. Em **Gerir**, selecione **Utilizadores**.
 4. Certifique-se de que consegue ver os novos usuários no nosso inquilino</br>
 ![Sincronização](media/tutorial-password-hash-sync/synch1.png)</br>
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar início de sessão com um dos nossos usuários
 
-1.  Navegue para [http://myapps.microsoft.com](http://myapps.microsoft.com)
+1.  Navegue para [http://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inicie sessão com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de início de sessão com o seguinte formato: (user@domain.onmicrosoft.com). Utilizar a mesma palavra-passe que o utilizador utiliza para iniciar sessão no local.</br>
 ![Certifique-se](media/tutorial-password-hash-sync/verify1.png)</br>
 

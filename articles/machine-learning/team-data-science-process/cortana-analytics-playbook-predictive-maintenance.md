@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 611896dc9428092a76a891168b48f6962d760e60
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093216"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254575"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -431,13 +431,13 @@ O Microsoft Azure oferece os percursos de aprendizagem para os conceitos básico
 |:-------------------|--------------|
 | [Percurso de aprendizagem do PdM usando árvores e florestas de Random](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Público | 
 | [Percurso de aprendizagem do PdM com aprendizagem profunda](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Público |
-| [Programador AI no Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
-| [Instituição de ensino do Microsoft AI](http://aischool.microsoft.com/learning-paths) | Público |
+| [Programador AI no Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Público |
+| [Instituição de ensino do Microsoft AI](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizagem de IA do Azure do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [Aprendizagem do LinkedIn](http://www.linkedin.com/learning) | Público |
 | [Webinars do Youtube de IA da Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Show de IA da Microsoft](http://channel9.msdn.com/Shows/AI-Show) | Público |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Parceiros |
-| [Rede de parceiros da Microsoft](http://learningportal.microsoft.com) | Parceiros |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | Parceiros |
+| [Rede de parceiros da Microsoft](https://learningportal.microsoft.com) | Parceiros |
 
 Além disso, MOOCS gratuitas (cursos abertos massivos online) em IA estão online oferecidas por instituições académicas como Stanford e MIT e outras empresas de instituições de ensino.

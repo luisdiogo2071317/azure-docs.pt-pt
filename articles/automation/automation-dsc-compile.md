@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fae415d158a9fced0c63078cd09c0cc070c88372
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ca3c29101e17a7970ba782b5c49267bf9f18482e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630006"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257161"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações de DSC na configuração de estado de automatização do Azure
 
@@ -171,7 +171,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
 ## <a name="configurationdata"></a>ConfigurationData
 
-**ConfigurationData** permite que separe estrutural configuração a partir de qualquer configuração específicos do ambiente ao utilizar o PowerShell DSC. Ver [separar "O que" a "Where" no PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para saber mais sobre **ConfigurationData**.
+**ConfigurationData** permite que separe estrutural configuração a partir de qualquer configuração específicos do ambiente ao utilizar o PowerShell DSC. Ver [separar "O que" a "Where" no PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para saber mais sobre **ConfigurationData**.
 
 > [!NOTE]
 > Pode usar **ConfigurationData** ao compilar a configuração de estado de automatização do Azure com o Azure PowerShell, mas não no portal do Azure.

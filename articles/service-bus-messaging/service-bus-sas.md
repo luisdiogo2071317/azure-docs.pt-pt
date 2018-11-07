@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857878"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254592"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso do Service Bus com assinaturas de acesso partilhado
 
@@ -57,7 +57,7 @@ Quando cria um espaço de nomes do Service Bus, uma regra de política com o nom
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configuração para a autenticação de assinatura de acesso partilhado
 
-Pode configurar o [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) regra em espaços de nomes do Service Bus, filas ou tópicos. Configurar uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) num barramento de serviço de subscrição não é atualmente suportada, mas pode utilizar as regras configuradas num espaço de nomes ou tópico para proteger o acesso a subscrições. Para obter um exemplo de trabalho que ilustra este procedimento, consulte a [autenticação de utilizar o acesso à assinatura partilhado (SAS) com subscrições do Service Bus](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) exemplo.
+Pode configurar o [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) regra em espaços de nomes do Service Bus, filas ou tópicos. Configurar uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) num barramento de serviço de subscrição não é atualmente suportada, mas pode utilizar as regras configuradas num espaço de nomes ou tópico para proteger o acesso a subscrições. Para obter um exemplo de trabalho que ilustra este procedimento, consulte a [autenticação de utilizar o acesso à assinatura partilhado (SAS) com subscrições do Service Bus](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) exemplo.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -102,7 +102,7 @@ Se conhecer ou se suspeitar que uma chave fica comprometida e tem de revogar as 
 
 Os cenários descritos da seguinte forma incluem a configuração de regras de autorização, geração de tokens SAS e autorização de cliente.
 
-Para um completo exemplo funcional de um aplicativo de Service Bus que ilustra a autorização de SAS de configuração e utilizações, consulte [autenticação de assinatura de acesso partilhado com o Service Bus](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Um exemplo relacionado que ilustra o uso de regras de autorização de SAS configuradas em espaços de nomes ou tópicos para proteger as subscrições do Service Bus está disponível aqui: [autenticação a utilizar acesso assinatura partilhado (SAS) com as assinaturas do barramento de serviço](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+Para um completo exemplo funcional de um aplicativo de Service Bus que ilustra a autorização de SAS de configuração e utilizações, consulte [autenticação de assinatura de acesso partilhado com o Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Um exemplo relacionado que ilustra o uso de regras de autorização de SAS configuradas em espaços de nomes ou tópicos para proteger as subscrições do Service Bus está disponível aqui: [autenticação a utilizar acesso assinatura partilhado (SAS) com as assinaturas do barramento de serviço](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Regras de autorização de acesso partilhado de acesso numa entidade
 

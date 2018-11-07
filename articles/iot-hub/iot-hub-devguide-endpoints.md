@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452671"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251445"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referência - pontos finais do IoT Hub
 
@@ -57,7 +57,7 @@ A lista seguinte descreve os pontos de extremidade:
 
 * **Pontos finais de serviço**. Cada hub IoT expõe um conjunto de pontos finais para a sua solução de back-end comunicar com os seus dispositivos. Com uma exceção, estes pontos finais são expostos apenas com o [AMQP](https://www.amqp.org/) protocolo. O ponto final de invocação de método é exposto através do protocolo HTTPS.
   
-  * *Receber mensagens dispositivo-para-cloud*. Este ponto final é compatível com [os Hubs de eventos do Azure](http://azure.microsoft.com/documentation/services/event-hubs/). Um serviço de back-end pode utilizá-lo para ler os [mensagens dispositivo-para-cloud](iot-hub-devguide-messages-d2c.md) enviados pelos seus dispositivos. Pode criar pontos finais personalizados no seu hub IoT para além deste ponto final incorporado.
+  * *Receber mensagens dispositivo-para-cloud*. Este ponto final é compatível com [os Hubs de eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/). Um serviço de back-end pode utilizá-lo para ler os [mensagens dispositivo-para-cloud](iot-hub-devguide-messages-d2c.md) enviados pelos seus dispositivos. Pode criar pontos finais personalizados no seu hub IoT para além deste ponto final incorporado.
   
   * *Enviar mensagens da cloud para dispositivo e receber confirmações de entrega*. Estes pontos finais ativar a sua solução de back-end enviar fiável [mensagens da cloud para dispositivo](iot-hub-devguide-messages-c2d.md)e para receber o confirmações de expiração ou entrega correspondente.
   

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 160172b25f4bcdb04ac9f9649bca6b08e0be1b0d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 1706364ca0281240b5b887bea219620c7b4add5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269077"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246842"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de gestão de API de colocação em cache
-Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="CachingPolicies"></a> Políticas de colocação em cache  
   
@@ -121,7 +121,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |variar-por-developer-groups|Definido como `true` a respostas de cache por função de utilizador.|Sim||  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
 -   **Âmbitos de política:** API, a operação, a produtos  
@@ -193,7 +193,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |duração|Tempo de vida das entradas em cache, especificados em segundos.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** saída    
 -   **Âmbitos de política:** API, a operação, a produtos  
@@ -237,7 +237,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |nome da variável|Nome da [variável de contexto](api-management-policy-expressions.md#ContextVariables) o valor looked cópia de segurança será atribuído ao, se a pesquisa é efetuada com êxito. Se a pesquisa resulta num erro, a variável será atribuída o valor do `default-value` atributo ou `null`, se o `default-value` atributo for omitido.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada, saída, back-end, no caso de erro  
 -   **Âmbitos de política:** global, API, a operação, a produtos  
@@ -279,7 +279,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |valor|O valor a ser colocados em cache.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada, saída, back-end, no caso de erro  
 -   **Âmbitos de política:** global, API, a operação, a produtos  
@@ -316,7 +316,7 @@ O `cache-remove-value` elimina um item em cache identificado pela respetiva chav
 |key|A chave do valor armazenado em cache a ser removido do cache.|Sim|N/A|  
   
 #### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .  
   
 -   **As secções de política:** entrada, saída, back-end, no caso de erro  
 -   **Âmbitos de política:** global, API, a operação, a produtos  

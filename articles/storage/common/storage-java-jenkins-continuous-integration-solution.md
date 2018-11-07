@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 040f7ef8d9b50998ac2b84ed9d4e3712f4ed5835
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735567"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246876"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins
 
@@ -117,7 +117,7 @@ Os passos seguintes mostram para configurar uma etapa de compilação para trans
 1. Na **crie** secção de configuração da tarefa, selecione **Adicionar passo de compilação** e selecione **transferir a partir do armazenamento de Blobs do Azure**.
 2. Para **nome da conta de armazenamento**, selecione a conta de armazenamento a utilizar.
 3. Para **nome do contentor**, especifique o nome do contentor que tem os blobs que pretende transferir. Pode utilizar variáveis de ambiente.
-4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\***  especificaria todos os blobs cujos nomes começam com **projeto**.
+4. Para **nome do Blob**, especifique o nome do blob. Pode utilizar variáveis de ambiente. Além disso, pode utilizar um asterisco como caráter universal depois de especificar o letter(s) inicial do nome do blob. Por exemplo, **project\*** especificaria todos os blobs cujos nomes começam com **projeto**.
 5. [Opcional] Para **caminho de transferência**, especifique o caminho na máquina do Jenkins em que pretende transferir ficheiros do armazenamento de Blobs do Azure. Variáveis de ambiente também podem ser utilizadas. (Se não fornecer um valor para **caminho de transferência**, os ficheiros de armazenamento de Blobs do Azure serão transferidos para a área de trabalho da tarefa.)
 
 Se tiver outros itens que pretende transferir a partir do armazenamento de Blobs do Azure, pode criar passos de compilação adicional.
@@ -129,7 +129,7 @@ Esta seção fornece uma descrição geral dos componentes do serviço de Blobs.
 
 * **Conta de Armazenamento**: todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Uma conta de armazenamento é o mais alto nível do espaço de nomes para aceder a blobs. Uma conta pode conter um número ilimitado de contentores, desde que seu tamanho total é de menos de 100 TB.
 * **Contentor**: um contentor fornece um agrupamento de um conjunto de blobs. Todos os blobs tem de estar num contentor. Uma conta pode conter um número ilimitado de contentores. Um contentor pode armazenar um número ilimitado de blobs.
-* **Blob**: um ficheiro de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no armazenamento do Azure: blobs de bloco e de página. A maioria dos arquivos são blobs de blocos. Um único blob de blocos pode ser até 200 GB de tamanho. Este tutorial utiliza os blobs de blocos. Blobs de páginas, outro tipo de blob, podem ser até 1 TB de tamanho e são mais eficiente quando intervalos de bytes num arquivo são modificados com frequência. Para obter mais informações sobre blobs, veja [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Blob**: um ficheiro de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no armazenamento do Azure: blobs de bloco e de página. A maioria dos arquivos são blobs de blocos. Um único blob de blocos pode ser até 200 GB de tamanho. Este tutorial utiliza os blobs de blocos. Blobs de páginas, outro tipo de blob, podem ser até 1 TB de tamanho e são mais eficiente quando intervalos de bytes num arquivo são modificados com frequência. Para obter mais informações sobre blobs, veja [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato de URL**: os Blobs são endereçáveis através do formato de URL seguinte:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -149,6 +149,6 @@ Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os c
 * [Armazenamento do Azure SDK para Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/) (Referência do SDK do Cliente do Armazenamento do Azure)
 * [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blogue da Equipa de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blogue da Equipa de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 
 Para obter mais informações, visite [Azure para programadores Java](/java/azure).

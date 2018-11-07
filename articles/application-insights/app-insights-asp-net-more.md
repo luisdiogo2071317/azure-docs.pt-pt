@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5d46b446a71d75a20cc4771b651fbf107db31358
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a1244076efe1c920a23f29de9d25ab6845747fe4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958446"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245856"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Mais telemetria do Application Insights
 Depois de ter [adicionado o Application Insights ao seu código ASP.NET](app-insights-asp-net.md), existem algumas coisas que pode fazer para obter ainda mais telemetria. 
 
 | Ação | O que obtém|
 |---|---|
-|(Servidores IIS) [Instalar o Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(As aplicações web do azure) No painel de controlo do Azure para a aplicação web, abra o painel do Application Insights.| [**Contadores de desempenho**](app-insights-performance-counters.md)<br/>[**Exceções** ](app-insights-asp-net-exceptions.md) - detalhadas rastreios de pilha<br/>[**Dependências**](app-insights-asp-net-dependencies.md)|
+|(Servidores IIS) [Instalar o Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(As aplicações web do azure) No painel de controlo do Azure para a aplicação web, abra o painel do Application Insights.| [**Contadores de desempenho**](app-insights-performance-counters.md)<br/>[**Exceções** ](app-insights-asp-net-exceptions.md) - detalhadas rastreios de pilha<br/>[**Dependências**](app-insights-asp-net-dependencies.md)|
 |[Adicione o fragmento do JavaScript às suas páginas web](app-insights-javascript.md)|[Página desempenho](app-insights-usage-overview.md), exceções do browser, desempenho de AJAX. Telemetria personalizada do lado do cliente.|
 |[Criar testes web de disponibilidade](app-insights-monitor-web-app-availability.md)|Obtenha alertas se o seu site ficar indisponível|
 |[Certifique-se de buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) é gerado pelo MSBuild|[Criar anotações em gráficos de métricas](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)

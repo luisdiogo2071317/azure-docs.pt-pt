@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 9e94357216690438446a738400c979d12f387df6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb1d26082fe4fbbd14b2b77f54d1bc7697b3538d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471089"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227965"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Receber eventos de Hubs de Eventos do Azure com o .NET Framework
 
 ## <a name="introduction"></a>Introdução
 
-Os Event Hubs são um serviço que processa grandes quantidades de dados de eventos (telemetria) em aplicações e dispositivos ligados. Depois de recolher os dados para os Event Hubs, pode armazená-los utilizando um cluster de armazenamento ou transformá-los utilizando um fornecedor de análise em tempo real. Esta capacidade de processamento e recolha de eventos de grande escala é um componente importante das arquiteturas das aplicações modernas, incluindo a Internet das Coisas (IoT). Para uma visão geral detalhada dos Hubs de eventos, consulte [descrição geral dos Hubs de eventos](event-hubs-about.md) e [funcionalidades dos Hubs de eventos](event-hubs-features.md).
+Os Event Hubs são um serviço que processa grandes quantidades de dados de eventos (telemetria) em aplicações e dispositivos ligados. Depois de recolher os dados para os Event Hubs, pode armazená-los utilizando um cluster de armazenamento ou transformá-los utilizando um fornecedor de análise em tempo real. Esta capacidade de processamento e recolha de eventos de grande escala é um componente importante das arquiteturas das aplicações modernas, incluindo a Internet das Coisas (IoT). Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
 
-Este tutorial mostra como escrever uma aplicação de consola do .NET Framework que recebe mensagens de um hub de eventos com o [anfitrião do processador de eventos](event-hubs-event-processor-host.md). O [anfitrião do processador de eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica a receção de eventos provenientes dos hubs de eventos ao gerir pontos de verificação persistentes e receções em paralelo desses hubs de eventos. Com o anfitrião de processador de eventos, pode dividir eventos por vários recetores, mesmo se estiverem alojados em nós diferentes. Este exemplo mostra como utilizar o anfitrião do processador de eventos para um recetor único. O [processamento de eventos aumentados horizontalmente] [ Scale out Event Processing with Event Hubs] exemplo mostra como utilizar o anfitrião do processador de eventos com vários recetores.
+Este tutorial mostra como escrever uma aplicação de consola do .NET Framework que recebe mensagens de um hub de eventos com o [anfitrião do processador de eventos](event-hubs-event-processor-host.md). O [Anfitrião do Processador de Eventos](event-hubs-event-processor-host.md) é uma classe do .NET que simplifica a receção de eventos provenientes dos hubs de eventos ao gerir pontos de verificação persistentes e receções em paralelo desses hubs de eventos. Se utilizar o Anfitrião do Processador de Eventos, pode dividir eventos por múltiplos recetores, mesmo se estiverem alojados em nós diferentes. Este exemplo mostra como utilizar o Anfitrião do Processador de Eventos para um único recetor. O [processamento de eventos aumentados horizontalmente] [ Scale out Event Processing with Event Hubs] exemplo mostra como utilizar o anfitrião do processador de eventos com vários recetores.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
-* [Microsoft Visual Studio 2017 ou superior](http://visualstudio.com).
+* [Microsoft Visual Studio 2017 ou superior](https://visualstudio.com).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
-O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md), em seguida, continuar com os seguintes passos neste tutorial.
+O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento descrito [neste artigo](event-hubs-create.md) e, em seguida, continue com os passos seguintes deste tutorial.
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -113,7 +113,7 @@ No Visual Studio, crie um novo projeto de Aplicação de Ambiente de Trabalho do
     
       Esta classe é chamada pelo **EventProcessorHost** para processar eventos recebidos do hub de eventos. A classe `SimpleEventProcessor` utiliza um cronómetro para chamar periodicamente o método de ponto de verificação no contexto do **EventProcessorHost**. Este processamento garante que, se o recetor for reiniciado, não perde mais do que cinco minutos de trabalho de processamento.
 
-## <a name="update-the-main-method-to-use-simpleeventprocessor"></a>Atualizar o método Main para utilizar SimpleEventProcessor
+## <a name="update-the-main-method-to-use-simpleeventprocessor"></a>Atualize o método Principal para utilizar SimpleEventProcessor
 
 1. Na classe **Program**, adicione a seguinte declaração `using` na parte superior do ficheiro:
     
@@ -151,7 +151,7 @@ Parabéns! Recebeu agora mensagens de um hub de eventos com o Anfitrião do Proc
 
 
 > [!NOTE]
-> Este tutorial utiliza uma única instância do [EventProcessorHost](event-hubs-event-processor-host.md). Para aumentar o débito, recomendamos que execute várias instâncias [EventProcessorHost](event-hubs-event-processor-host.md), conforme mostrado na [processamento de eventos aumentados horizontalmente](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) exemplo. Nesses casos, várias instâncias coordenam-se automaticamente entre si para balancear a carga dos eventos recebidos. 
+> Este tutorial utiliza uma única instância do [EventProcessorHost](event-hubs-event-processor-host.md). Para aumentar o débito, recomendamos que execute várias instâncias do [EventProcessorHost](event-hubs-event-processor-host.md), como mostrado no exemplo de [Processamento de eventos aumentados horizontalmente](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3). Nesses casos, as várias instâncias coordenam-se automaticamente entre si para equilibrarem a carga dos eventos recebidos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste início rápido, criou o aplicativo do .NET Framework que recebeu mensagens a partir de um hub de eventos. Para saber como enviar eventos para um hub de eventos com o .NET Framework, consulte [enviar eventos do hub de eventos - .NET Framework](event-hubs-dotnet-framework-getstarted-send.md).

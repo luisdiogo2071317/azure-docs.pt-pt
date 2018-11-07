@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b8102c4f98c2627f85946b71a69e88eb02f92bc4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362026"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257787"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -112,7 +112,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre o Service Bus, consulte os artigos seguintes:
 
-* [Introdução ao Azure Service Bus Premium (mensagem de blogue)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introdução ao Azure Service Bus Premium (mensagem de blogue)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introdução ao Azure Premium do Service Bus) (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Descrição geral do Service Bus](service-bus-messaging-overview.md)
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
