@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de PostgreSQL utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados de PostgreSQL aos arquivos de dados dependente suportados através da utilização de uma atividade de cópia no pipeline Azure Data Factory.
+title: Copiar dados do PostgreSQL com o Azure Data Factory | Documentos da Microsoft
+description: Saiba como copiar dados do PostgreSQL para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,54 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 6279e088b8abd574bbd8ef6488d986d42c91123c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1c321d96efc7af387fb30b6ed608eb871cb7de5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046059"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230500"
 ---
-# <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados de PostgreSQL através da utilização do Azure Data Factory
+# <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados do PostgreSQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Versão atual](connector-postgresql.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados PostgreSQL. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados PostgreSQL. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de base de dados PostgreSQL para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados da base de dados do PostgreSQL para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, este conector PostgreSQL suporta PostgreSQL **versão 7.4 e acima**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se a base de dados PostgreSQL não está acessível publicamente, terá de configurar um tempo de execução de integração Self-hosted. Para saber mais sobre tempos de execução automática alojada integração, consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo. O tempo de execução de integração fornece um controlador PostgreSQL incorporado a partir da versão 3.7, por conseguinte, não precisa de instalar manualmente quaisquer controladores.
+Se a sua base de dados do PostgreSQL não está acessível ao público, terá de configurar um Runtime de integração autoalojado. Para saber mais sobre os runtimes de integração autoalojado, veja [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo. O Runtime de integração fornece um driver de PostgreSQL incorporado a partir da versão 3.7, portanto não precisa de instalar manualmente a qualquer driver.
 
-Para a versão de resposta a incidentes Self-hosted menor 3.7, tem de instalar o [Ngpsql data provider para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) com a versão entre 2.0.12 e 3.1.9 na máquina de tempo de execução de integração.
+Para obter a versão de Runtime de integração autoalojado inferior à 3.7, tem de instalar o [Ngpsql o fornecedor de dados para o PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) com a versão 2.0.12 mezi 3.1.9 na máquina do Runtime de integração.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector PostgreSQL.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do PostgreSQL.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço de PostgreSQL ligada:
+As seguintes propriedades são suportadas para o serviço PostgreSQL ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **PostgreSql** | Sim |
-| connectionString | Uma cadeia de ligação de ODBC para ligar à base de dados do Azure para PostgreSQL. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração Self-hosted ou Runtime de integração do Azure (se o arquivo de dados acessível publicamente). Se não for especificado, utiliza a predefinição de Runtime de integração do Azure. |Não |
+| tipo | A propriedade de tipo deve ser definida como: **PostgreSql** | Sim |
+| connectionString | Uma cadeia de ligação de ODBC para ligar à base de dados do Azure para PostgreSQL. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
-Uma cadeia de ligação típico é `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Propriedades que pode ser definidas por seu incidente:
+É uma cadeia de ligação típica `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Mais de propriedades que pode ser definido por seu caso:
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |:--- |
-| EncryptionMethod (IT)| Utiliza o método de controlador para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo, `ValidateServerCertificate=<0/1/6>;`| 0 (sem encriptação) **(predefinida)** / 1 (SSL) / 6 (RequestSSL) | Não |
-| ValidateServerCertificate (VSC) | Determina se o controlador valida o certificado que é enviado pelo servidor de base de dados quando estiver ativada a encriptação SSL (método de encriptação = 1). Por exemplo, `ValidateServerCertificate=<0/1>;`| 0 (desativado) **(predefinida)** / 1 (ativado) | Não |
+| EncryptionMethod (EM)| O método o driver usa para encriptar os dados enviados entre o driver e o servidor de base de dados. Por exemplo, `ValidateServerCertificate=<0/1/6>;`| 0 (sem encriptação) **(predefinição)** / 1 (SSL) / 6 (RequestSSL) | Não |
+| ValidateServerCertificate (VSC) | Determina se o driver valida o certificado que é enviado pelo servidor de base de dados quando estiver ativada a encriptação SSL (método de encriptação = 1). Por exemplo, `ValidateServerCertificate=<0/1>;`| 0 (desativado) **(predefinição)** / 1 (ativado) | Não |
 
 **Exemplo:**
 
@@ -83,7 +83,7 @@ Uma cadeia de ligação típico é `Server=<server>;Database=<database>;Port=<po
 }
 ```
 
-Se estava a utilizar o serviço PostgreSQL ligado com o seguinte payload, ainda é suportado como-é, enquanto são sugeridos para utilizar um novo passa.
+Se estivesse usando o serviço ligado do PostgreSQL com a carga seguinte, ainda é suportado como-é, ao passo que são sugeridas para utilizar o novo daqui em diante.
 
 **Payload anterior:**
 
@@ -111,13 +111,13 @@ Se estava a utilizar o serviço PostgreSQL ligado com o seguinte payload, ainda 
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados PostgreSQL.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados PostgreSQL.
 
-Para copiar dados de PostgreSQL, defina a propriedade de tipo do conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados do PostgreSQL, defina a propriedade de tipo de conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **RelationalTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela na base de dados PostgreSQL. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -139,19 +139,19 @@ Para copiar dados de PostgreSQL, defina a propriedade de tipo do conjunto de dad
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem PostgreSQL.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas por origem do PostgreSQL.
 
 ### <a name="postgresql-as-source"></a>PostgreSQL como origem
 
-Para copiar dados de PostgreSQL, defina o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do PostgreSQL, defina o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 > [!NOTE]
-> Os nomes de tabela e esquema são maiúsculas e minúsculas. Coloque-os na `""` (aspas) na consulta.
+> Nomes de tabela e esquema diferenciam maiúsculas de minúsculas. Coloque-as no `""` (as aspas duplas) na consulta.
 
 **Exemplo:**
 
@@ -185,11 +185,11 @@ Para copiar dados de PostgreSQL, defina o tipo de origem na atividade de cópia 
 ]
 ```
 
-## <a name="data-type-mapping-for-postgresql"></a>Tipo de dados de mapeamento para PostgreSQL
+## <a name="data-type-mapping-for-postgresql"></a>Tipo de dados de mapeamento para o PostgreSQL
 
-Quando copiar dados de PostgreSQL, os seguintes mapeamentos são utilizados PostgreSQL tipos de dados para tipos de dados intermédio do Azure Data Factory. Consulte [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Quando copiar dados do PostgreSQL, os seguintes mapeamentos são utilizados entre tipos de dados do PostgreSQL para tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
-| Tipo de dados PostgreSQL | PostgresSQL aliases | Tipo de dados intermédio de fábrica de dados |
+| Tipo de dados do PostgreSQL | Aliases de PostgresSQL | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |:--- |
 | `abstime` |&nbsp; |`String` |
 | `bigint` | `int8` | `Int64` |
@@ -238,4 +238,4 @@ Quando copiar dados de PostgreSQL, os seguintes mapeamentos são utilizados Post
 | `xid` |&nbsp; |`Int32` |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

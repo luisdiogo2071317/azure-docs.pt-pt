@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 111976cd684561f5bc63b92f09a20470fe3036d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 89ca7a5fa13696856bed108e4cbf7462b536b4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606651"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246621"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instalar atualização 0.6 em sua matriz Virtual StorSimple
 
@@ -27,7 +27,7 @@ ms.locfileid: "38606651"
 
 Este artigo descreve os passos necessários para instalar a atualização 0.6 na sua matriz Virtual StorSimple através da IU da web local e através do portal do Azure. Aplicar as atualizações de software ou correções para manter a sua matriz Virtual StorSimple atualizados.
 
-Antes de aplicar uma atualização, recomendamos que levar os volumes ou compartilhamentos offline no anfitrião primeiro e, em seguida, o dispositivo. Isso minimiza qualquer possibilidade de Corrupção de dados. Depois dos volumes ou compartilhamentos estiverem offline, também deve reservar um manual cópia de segurança do dispositivo.
+Antes de aplicar uma atualização, recomendamos que levar os volumes ou compartilhamentos offline no anfitrião primeiro e, em seguida, o dispositivo. Isto minimiza qualquer possibilidade de danos em dados. Depois dos volumes ou compartilhamentos estiverem offline, também deve reservar um manual cópia de segurança do dispositivo.
 
 > [!IMPORTANT]
 > - Atualização 0.6 corresponde à **10.0.10293.0** versão de software no seu dispositivo. Para obter informações sobre o que há de novo nesta atualização, aceda a [notas de versão para atualização 0.6](storsimple-virtual-array-update-06-release-notes.md).
@@ -57,7 +57,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para transferir a atualização ou a correção
 
-1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Se estiver a utilizar o catálogo Microsoft Update pela primeira vez neste computador, clique em **instalar** quando lhe for pedido para instalar o suplemento do catálogo Microsoft Update.
 

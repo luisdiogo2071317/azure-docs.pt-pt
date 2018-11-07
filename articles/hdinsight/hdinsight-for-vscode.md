@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 5cf3a18dc01ba5670e73aa93cb6c9aab2d5de660
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f8bd1f1181cbd592782ce1126d5d61b5f257ca08
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378624"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234753"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
-Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code (código de VS) para criar e submeter tarefas de lote do Hive, consultas interativas do Hive e PySpark scripts. As ferramentas do HDInsight do Azure pode ser instaladas nas plataformas suportadas pelo código VS. que incluem o Windows, o Linux e o macOS. Pode encontrar os pré-requisitos para plataformas diferentes.
+Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code (VS Code) para criar e submeter tarefas de lote do Apache Hive, consultas interativas do Apache Hive e PySpark scripts. As ferramentas do HDInsight do Azure pode ser instaladas nas plataformas suportadas pelo código VS. que incluem o Windows, o Linux e o macOS. Pode encontrar os pré-requisitos para plataformas diferentes.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -83,7 +83,7 @@ Antes de pode enviar scripts para clusters do HDInsight a partir do código de V
 
         ![Inicie sessão no instruções para outro ambiente](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
-    Quando estiver ligado, o nome da sua conta do Azure é mostrado na barra de estado no canto inferior esquerdo da janela do VS Code. 
+    Quando estiver ligado, o nome da sua conta do Azure é mostrado na barra de estado no canto inferior esquerdo da janela do VS Code. 
 
     > [!NOTE]
     > Devido a um problema conhecido de autenticação do Azure, terá de abrir um browser no modo privado ou navegação anónima. Se a sua conta do Azure tem dois fatores ativadas, recomendamos utilizar a autenticação de telefone em vez da autenticação do PIN.
@@ -102,7 +102,7 @@ Antes de pode enviar scripts para clusters do HDInsight a partir do código de V
 
 <h3 id="linkcluster">Para ligar um cluster</h3>
 
-Pode ligar um cluster do normal com o nome de utilizador do Ambari gerida, também ligar um cluster de hadoop de segurança com o nome de utilizador de domínio (como: user1@contoso.com).
+Pode ligar um cluster do normal, utilizando um nome de utilizador do Apache ambari destina geridos ou ligar um cluster de Hadoop seguro do pacote de segurança de Enterprise utilizando um nome de utilizador de domínio (como: user1@contoso.com).
 1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um Cluster**.
 
    ![comando de cluster de ligação](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -121,12 +121,12 @@ Pode ligar um cluster do normal com o nome de utilizador do Ambari gerida, tamb�
 4. Também pode desassociar um cluster ao inserir **HDInsight: desassociar um Cluster** da paleta de comandos.
 
 
-### <a name="to-link-a-generic-livy-endpoint"></a>Para ligar um ponto de extremidade genérico do livy
+### <a name="to-link-a-generic-apache-livy-endpoint"></a>Para ligar um ponto de extremidade genérico do Apache Livy
 
 1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um Cluster**.
 2. Selecione **ponto final do Livy genérico**.
-3. Introduza o ponto de extremidade genérico do livy, por exemplo: http://10.172.41.42:18080.
-4. Selecione **básica** quando a autorização para o ponto de extremidade genérico livy, caso contrário, tem de selecionar **nenhum**.
+3. Introduza o ponto de extremidade genérico do Livy, por exemplo: http://10.172.41.42:18080.
+4. Selecione **básica** quando a autorização para o ponto de extremidade genérico Livy, caso contrário, tem de selecionar **nenhum**.
 5. Nome de utilizador de entrada quando selecione **básica** no step4.
 6. Entrada palavra-passe quando selecione **básica** no step4.
 7. O ponto de extremidade genérico do livy ligado com êxito.
@@ -142,7 +142,7 @@ Para testar a ligação, pode listar os seus clusters do HDInsight:
 
 2. O editor de scripts com o botão direito e, em seguida, selecione **HDInsight: Cluster de lista** no menu de contexto. 
 
-3. Os clusters do Hive e do Spark constar da **saída** painel.
+3. Os clusters do HDInsight são apresentados no **saída** painel.
 
     ![Definir uma configuração de cluster predefinido](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -160,7 +160,7 @@ Para testar a ligação, pode listar os seus clusters do HDInsight:
 
 2. Introduza **HDInsight: definir o ambiente do Azure**.
 
-3. Selecione uma forma do Azure e AzureChina como sua participação de início de sessão predefinido.
+3. Selecione um ambiente, como "Azure" ou "AzureChina" como a entrada de início de sessão predefinida.
 
 4. Enquanto isso, a ferramenta já salvou sua entrada de início de sessão predefinida na **. VSCode\settings.json**. Também atualizá-la diretamente nesse arquivo de configuração. 
 
@@ -181,7 +181,7 @@ Com as ferramentas do HDInsight para o VS Code, pode submeter consultas do Hive 
     ```
 4. O editor de scripts com o botão direito, selecione **HDInsight: interativas do Hive** para submeter a consulta ou utilize o atalho **Ctrl + Alt + I**. Selecione **HDInsight: lote do Hive** submeta o script ou usar o atalho **Ctrl + Alt + H**. 
 
-5. Selecione o cluster quando precisa. As ferramentas permitem-lhe também submeter um bloco de código em vez de todo o ficheiro de script através do menu de contexto. Logo depois, os resultados da consulta são apresentados num novo separador.
+5. Selecione o cluster se ainda não especificou um cluster de predefinição. As ferramentas permitem-lhe também submeter um bloco de código em vez de todo o ficheiro de script através do menu de contexto. Após alguns instantes, os resultados da consulta são apresentados num novo separador.
 
    ![Resultado do Hive interativo](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -191,7 +191,7 @@ Com as ferramentas do HDInsight para o VS Code, pode submeter consultas do Hive 
 
 ## <a name="submit-interactive-pyspark-queries"></a>Submeter consultas interativas do PySpark
 
-### <a name="to-submit-interactive-pyspark-queries-to-spark-clusters"></a>Para enviar consultas interativas do PySpark para clusters do Spark.
+### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>Para enviar consultas interativas do PySpark para clusters do HDInsight Spark.
 
 1. Crie uma nova pasta de trabalho e um novo ficheiro de script com a extensão. PY se ainda não tivê-los.
 
@@ -211,7 +211,7 @@ Com as ferramentas do HDInsight para o VS Code, pode submeter consultas do Hive 
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Realce esses scripts. Em seguida, o editor de scripts com o botão direito e selecione **HDInsight: interativo do PySpark**, ou utilize o atalho **Ctrl + Alt + I**.
+4. Realce este script. Em seguida, o editor de scripts com o botão direito e selecione **HDInsight: interativo do PySpark**, ou utilize o atalho **Ctrl + Alt + I**.
 
 5. Se ainda não instalou o **Python** extensão no VS Code, selecione a **instalar** botão conforme mostrado na ilustração seguinte:
 
@@ -326,10 +326,10 @@ Observe que a pasta de .vscode também pode submeter um ficheiro, é adicionado 
     | pyFiles | Arquivos de Python a serem usados nesta sessão | Lista de cadeia de caracteres |
     | ficheiros | arquivos a serem usados nesta sessão | Lista de cadeia de caracteres |
     | driverMemory | Quantidade de memória a utilizar para o processo de driver | cadeia |
-    | driverCores | Número de núcleos para utilizar para o processo de driver | Int |
+    | driverCores | Número de núcleos para utilizar para o processo de driver | int |
     | executorMemory | Quantidade de memória a utilizar por processo de executor | cadeia |
-    | executorCores | Número de núcleos para utilizar para cada executor | Int |
-    | numExecutors | Número de executores para iniciar a esta sessão | Int |
+    | executorCores | Número de núcleos para utilizar para cada executor | int |
+    | numExecutors | Número de executores para iniciar a esta sessão | int |
     | arquivos compactados | Arquivos compactados a ser utilizado nesta sessão | Lista de cadeia de caracteres |
     | fila | O nome da fila YARN para o qual submetido | cadeia |
     | nome | O nome desta sessão | cadeia |
@@ -340,7 +340,7 @@ Observe que a pasta de .vscode também pode submeter um ficheiro, é adicionado 
 
     | nome | descrição | tipo | 
     | :- | :- | :- | 
-    | ID | O id de sessão | Int | 
+    | ID | O id de sessão | int | 
     | appId | O id de aplicação desta sessão |  Cadeia |
     | appInfo | As informações detalhadas de aplicação | Mapa de chave = valor |
     | registo | As linhas de registo | lista de cadeias de caracteres |

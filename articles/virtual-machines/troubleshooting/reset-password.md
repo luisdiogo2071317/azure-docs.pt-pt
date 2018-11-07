@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 37b02b657278782ea82f3eb129335793a0b5c98d
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d96d75f4f2623476f7af4e6eea930c1f2c503e3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414601"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226918"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>Como repor o Linux palavra-passe local em VMs do Azure
 
@@ -104,6 +104,6 @@ Não é possível iniciar sessão VM e receberá uma mensagem que indica que a p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Resolver problemas de VM do Azure ao anexar o disco do SO a outra VM do Azure](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
+* [Resolver problemas de VM do Azure ao anexar o disco do SO a outra VM do Azure](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)
 
 * [CLI do Azure: Como eliminar e voltar a implementar uma VM a partir de VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)

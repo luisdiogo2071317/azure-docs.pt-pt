@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.component: common
-ms.openlocfilehash: c6256fc209a4ffa5308dc3b24794f8295c57f4ef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4ec0d4058c512ce420cd6e1bdc393b8043dbf1b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521783"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232565"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
 
@@ -54,10 +54,10 @@ As especificações de tamanho de VM do Azure estão listadas na [tamanhos de m�
 #### <a name="disk-sizes"></a>Tamanhos de disco
 Existem cinco tipos de discos que podem ser utilizados com a VM e cada uma tem específicos IOPs e débito limites. Leve em consideração estes limites ao escolher o tipo de disco para a sua VM com base nas necessidades da sua aplicação em termos de capacidade, desempenho, escalabilidade e cargas de pico.
 
-| Tipo de discos Premium  | P10   | P20   | P30            | P40            | P50            | 
+| Tipo de discos Premium  | P10   | P20   | P30            | P40            | P50            | 
 |:-------------------:|:-----:|:-----:|:--------------:|:--------------:|:--------------:|
-| Tamanho do disco           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
-| IOPs por disco       | 500   | 2300  | 5000           | 7500           | 7500           | 
+| Tamanho do disco           | 128 GB| 512 GB| 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| IOPs por disco       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | Débito por disco | 100 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo |
 
 Consoante a carga de trabalho, determine se os discos de dados adicionais são necessários para a sua VM. Pode anexar vários discos de dados persistentes para a VM. Se for necessário, pode do stripe em todos os discos para aumentar a capacidade e desempenho do volume. (Veja o que é a repartição de disco [aqui](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) Se utilizar discos de dados de armazenamento Premium do stripe [espaços de armazenamento][4], deve configurá-la com uma coluna para cada disco que é utilizado. Caso contrário, o desempenho geral do volume repartido pode ser menor do que o esperado devido a distribuição desigual de tráfego em todos os discos. Para VMs do Linux, pode utilizar o *mdadm* utilitário para o mesmo. Consulte o artigo [configurar o RAID de Software no Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obter detalhes.
@@ -94,14 +94,14 @@ Para preparar os VHDs para migração, terá de:
 
 * Uma subscrição do Azure, uma conta de armazenamento e um contentor nessa conta de armazenamento para o qual pode copiar o VHD. Tenha em atenção que a conta de armazenamento de destino pode ser uma conta de armazenamento Standard ou Premium, consoante os requisitos.
 * Uma ferramenta para generalizar o VHD, se planeja criar várias instâncias VM a partir do mesmo. Por exemplo, sysprep para Windows ou virt-sysprep para Ubuntu.
-* Uma ferramenta para carregar o ficheiro VHD para a conta de armazenamento. Ver [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md) ou utilize um [Explorador de armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Este guia descreve a copiar o VHD com a ferramenta de AzCopy.
+* Uma ferramenta para carregar o ficheiro VHD para a conta de armazenamento. Ver [transferir dados com o utilitário de linha de comandos do AzCopy](storage-use-azcopy.md) ou utilize um [Explorador de armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/03/11/windows-azure-storage-explorers-2014.aspx). Este guia descreve a copiar o VHD com a ferramenta de AzCopy.
 
 > [!NOTE]
 > Se escolher a opção de cópia síncrona com o AzCopy, para um desempenho ideal, copie o VHD, executando uma dessas ferramentas a partir de uma VM do Azure que está na mesma região que a conta de armazenamento de destino. Se estiver a copiar um VHD a partir de uma VM do Azure numa região diferente, o desempenho poderá ser mais lento.
 >
 > Para copiar uma grande quantidade de dados através de largura de banda limitada, considere [com o serviço importar/exportar do Azure para transferir dados para armazenamento de BLOBs](../storage-import-export-service.md); Isto permite-lhe transferir os dados pelo envio de unidades de disco rígido num Datacenter do Azure. Pode utilizar o serviço importar/exportar do Azure para copiar dados para uma conta de armazenamento standard apenas. Quando os dados estiverem na sua conta de armazenamento standard, pode utilizar o [API do Blob de cópia](https://msdn.microsoft.com/library/azure/dd894037.aspx) ou AzCopy para transferir os dados à sua conta de armazenamento premium.
 >
-> Tenha em atenção que o Microsoft Azure só suporta ficheiros VHD de tamanho fixo. Ficheiros VHDX ou VHDs dinâmicos não são suportadas. Se tiver um VHD dinâmico, pode convertê-la para a utilização de tamanho fixo de [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) cmdlet.
+> Tenha em atenção que o Microsoft Azure só suporta ficheiros VHD de tamanho fixo. Ficheiros VHDX ou VHDs dinâmicos não são suportadas. Se tiver um VHD dinâmico, pode convertê-la para a utilização de tamanho fixo de [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) cmdlet.
 >
 >
 
@@ -123,7 +123,7 @@ Veja a seguir vamos analisar estas 3 cenários de preparação do VHD.
 Se estiver a carregar um VHD que vai ser utilizado para criar várias instâncias de VM do Azure genéricas, tem primeiro de generalizar VHD com um utilitário de sysprep. Isto aplica-se a um VHD que está no local ou na cloud. Sysprep remove todas as informações específicas da máquina do VHD.
 
 > [!IMPORTANT]
-> Tirar um instantâneo ou a VM de cópia de segurança antes de a generalizar a ele. Sysprep em execução irá parar e desalocar a instância VM. Siga os passos abaixo para sysprep um VHD do SO Windows. Tenha em atenção que executar o comando Sysprep irá solicitar-lhe encerrar a máquina virtual. Para obter mais informações sobre o Sysprep, consulte [visão geral do Sysprep](http://technet.microsoft.com/library/hh825209.aspx) ou [referência técnica de Sysprep](http://technet.microsoft.com/library/cc766049.aspx).
+> Tirar um instantâneo ou a VM de cópia de segurança antes de a generalizar a ele. Sysprep em execução irá parar e desalocar a instância VM. Siga os passos abaixo para sysprep um VHD do SO Windows. Tenha em atenção que executar o comando Sysprep irá solicitar-lhe encerrar a máquina virtual. Para obter mais informações sobre o Sysprep, consulte [visão geral do Sysprep](https://technet.microsoft.com/library/hh825209.aspx) ou [referência técnica de Sysprep](https://technet.microsoft.com/library/cc766049.aspx).
 >
 >
 
@@ -163,7 +163,7 @@ Precisará localizar a chave de conta de contentor caminho e o armazenamento, pa
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Opção 1: Copiar um VHD com o AzCopy (cópia assíncrona)
 Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependendo do tamanho dos VHDs, isto pode demorar tempo. Não se esqueça de verificar os limites de entrada/saída de conta de armazenamento ao utilizar esta opção. Ver [metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.
 
-1. Transfira e instale o AzCopy a partir daqui: [versão mais recente do AzCopy](http://aka.ms/downloadazcopy)
+1. Transfira e instale o AzCopy a partir daqui: [versão mais recente do AzCopy](https://aka.ms/downloadazcopy)
 2. Abra o PowerShell do Azure e vá para a pasta onde o AzCopy é instalado.
 3. Utilize o seguinte comando para copiar o ficheiro VHD da "Origem" para "Destino".
 
@@ -257,7 +257,7 @@ Um exemplo <Uri> pode ser ***"https://storagesample.blob.core.windows.net/mycont
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opção 2: Utilizar o AzCopy para carregar o ficheiro. vhd
 Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependendo do tamanho dos VHDs, isto pode demorar tempo. Não se esqueça de verificar os limites de entrada/saída de conta de armazenamento ao utilizar esta opção. Ver [metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.
 
-1. Transfira e instale o AzCopy a partir daqui: [versão mais recente do AzCopy](http://aka.ms/downloadazcopy)
+1. Transfira e instale o AzCopy a partir daqui: [versão mais recente do AzCopy](https://aka.ms/downloadazcopy)
 2. Abra o PowerShell do Azure e vá para a pasta onde o AzCopy é instalado.
 3. Utilize o seguinte comando para copiar o ficheiro VHD da "Origem" para "Destino".
 

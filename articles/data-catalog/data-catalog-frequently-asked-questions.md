@@ -8,12 +8,12 @@ ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409189"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231469"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas mais frequentes sobre o catálogo de dados do Azure
 Este artigo fornece respostas para perguntas freqüentes relacionadas com o serviço de catálogo de dados do Azure.
@@ -68,7 +68,7 @@ Para registar os seus dados no catálogo de dados:
 As propriedades específicas diferem de origem de dados à origem de dados, mas, em geral, o serviço de publicação do catálogo de dados extrai as seguintes informações:
 
 * Nome do elemento
-* Tipo de Recurso
+* Tipo de recurso
 * Descrição do recurso
 * Nomes de atributo/colunas
 * Tipos de dados de atributo/colunas
@@ -99,7 +99,7 @@ Pode eliminar um objeto do catálogo de dados, selecionando o objeto no portal e
 Um especialista é uma pessoa que tem um ponto de vista informado sobre um objeto de dados. Um objeto pode ter muitos especialistas. Um especialista não precisa de ser o "proprietário" para um objeto, mas é simplesmente a alguém que sabe como os dados podem e devem ser utilizados.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Como posso partilhar informações com a equipa do catálogo de dados se eu encontrar problemas?
-Para reportar problemas, compartilhar informações e fazer perguntas, vá para o [fórum do catálogo de dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Para reportar problemas, compartilhar informações e fazer perguntas, vá para o [fórum do catálogo de dados do Azure](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>O catálogo funciona com outra origem de dados que estou interessado em?
 Estamos a trabalhar ativamente sobre como adicionar mais origens de dados no catálogo de dados. Se quiser ver uma origem de dados específicos suportada, sugeri-lo (ou o suporte de voz, se já tiver sido sugerido) ao aceder a [catálogo de dados nos fóruns de comentários do Azure](https://feedback.azure.com/forums/906052-data-catalog).
@@ -127,4 +127,4 @@ Selecione os recursos de dados no catálogo de dados e, em seguida, clique nas *
 Para atualizar os metadados para os recursos de dados que já estão registados no catálogo, simplesmente volte a registar a origem de dados que contém os ativos. Todas as alterações na origem de dados, como colunas a ser adicionadas ou removidas de tabelas ou vistas, são atualizadas no catálogo, mas qualquer anotações fornecidas pelos utilizadores são retidas.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Minha pergunta não respondida aqui. Onde posso ir para obter respostas?
-Vá para o [fórum do catálogo de dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Perguntas mais frequentes lá encontrarão seu caminho aqui.
+Vá para o [fórum do catálogo de dados do Azure](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Perguntas mais frequentes lá encontrarão seu caminho aqui.

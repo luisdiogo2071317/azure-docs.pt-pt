@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 38df214cad01062100c9ae5c045f9d2589b0041a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234838"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidade de diagnóstico dos Reliable Services com Monitorização de Estado
 A classe de Azure Service Fabric com estado fiável serviços StatefulServiceBase emite [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) eventos que podem ser usados para depurar o serviço, fornecer informações sobre como o tempo de execução está a funcionar e ajudar a resolver problemas.
@@ -27,7 +27,7 @@ A classe de Azure Service Fabric com estado fiável serviços StatefulServiceBas
 ## <a name="eventsource-events"></a>Eventos de EventSource
 O nome de EventSource para a classe StatefulServiceBase de serviços fiáveis com monitoração de estado é "Microsoft-ServiceFabric-serviços". Eventos a partir desta origem de eventos são apresentados no [eventos de diagnóstico](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) janela quando o serviço está a ser [depurado no Visual Studio](service-fabric-debugging-your-application.md).
 
-São exemplos de ferramentas e tecnologias que ajudam na recolha de e/ou ver eventos de EventSource [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)e o [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+São exemplos de ferramentas e tecnologias que ajudam na recolha de e/ou ver eventos de EventSource [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md)e o [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Eventos
 | Nome do evento | ID do Evento | Nível | Descrição do evento |

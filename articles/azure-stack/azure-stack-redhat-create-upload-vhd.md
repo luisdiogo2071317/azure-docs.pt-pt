@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 932b4c80912fa516a08c18cd581f96b5ea91e1dc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054610"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232312"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparar uma máquina de virtual baseada em Red Hat para o Azure Stack
 
@@ -30,7 +30,7 @@ Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red H
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina de virtual baseada em Red Hat a partir do Gestor de Hyper-V
 
-Esta secção assume que já tem um ficheiro ISO a partir do site da Red Hat e instalado na imagem RHEL para um disco rígido virtual (VHD). Para obter mais informações sobre como utilizar o Gestor de Hyper-V para instalar uma imagem de sistema operativo, consulte [instalar a função Hyper-V e configurar uma Máquina Virtual](http://technet.microsoft.com/library/hh846766.aspx).
+Esta secção assume que já tem um ficheiro ISO a partir do site da Red Hat e instalado na imagem RHEL para um disco rígido virtual (VHD). Para obter mais informações sobre como utilizar o Gestor de Hyper-V para instalar uma imagem de sistema operativo, consulte [instalar a função Hyper-V e configurar uma Máquina Virtual](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="rhel-installation-notes"></a>Observações de instalação do RHEL
 
@@ -638,7 +638,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
     c. Defina o BIOS para arrancar a partir do CD.
 
-1. Inicie a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
+1. Inicia a máquina virtual. Quando o guia de instalação for apresentada, prima **separador** para configurar as opções de arranque.
 
 1. ENTER `inst.ks=<the location of the kickstart file>` no final das opções de inicialização e prima **Enter**.
 

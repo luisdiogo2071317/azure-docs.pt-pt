@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 783522997a752c4eac575316983bc6ef853c3f43
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526917"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237779"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Criar tabelas escaláveis e de desempenho
 
@@ -121,7 +121,7 @@ O exemplo seguinte mostra um design de tabela simples para armazenar as entidade
 </table>
 
 
-Até agora, estes dados parece ser semelhantes a uma tabela na base de dados relacional com as diferenças principais sendo as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo utilizador, tal como **FirstName** ou **idade** tem um tipo de dados, como integer ou string, tal como uma coluna na base de dados relacional. Embora ao contrário de na base de dados relacional, a natureza de esquema do serviço tabela significa que uma propriedade não precisa ter os mesmo tipo em cada entidade de dados. Para armazenar tipos de dados complexos numa única propriedade, tem de utilizar um formato serializado como JSON ou XML. Para obter mais informações sobre os tipos de dados do serviço, como suporte de tabela, intervalos de datas suportados, as regras de nomenclatura e restrições de tamanho, consulte [Noções básicas sobre o modelo de dados do serviço de tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Até agora, estes dados parece ser semelhantes a uma tabela na base de dados relacional com as diferenças principais sendo as colunas obrigatórias e a capacidade de armazenar vários tipos de entidade na mesma tabela. Além disso, cada uma das propriedades definidas pelo utilizador, tal como **FirstName** ou **idade** tem um tipo de dados, como integer ou string, tal como uma coluna na base de dados relacional. Embora ao contrário de na base de dados relacional, a natureza de esquema do serviço tabela significa que uma propriedade não precisa ter os mesmo tipo em cada entidade de dados. Para armazenar tipos de dados complexos numa única propriedade, tem de utilizar um formato serializado como JSON ou XML. Para obter mais informações sobre os tipos de dados do serviço, como suporte de tabela, intervalos de datas suportados, as regras de nomenclatura e restrições de tamanho, consulte [Noções básicas sobre o modelo de dados do serviço de tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Sua escolha de **PartitionKey** e **RowKey** é fundamental para o design da tabela de bom. Todas as entidades armazenadas numa tabela tem de ter uma combinação única de **PartitionKey** e **RowKey**. Tal como acontece com as chaves numa tabela de base de dados relacional, o **PartitionKey** e **RowKey** valores são indexados para criar um índice em cluster para ativar look-ups rápidas. No entanto, o serviço de tabela não cria índices secundários, então **PartitionKey** e **RowKey** são as únicas propriedades indexadas. Alguns dos padrões descritos em [padrões de design de tabela](table-storage-design-patterns.md) ilustrar como pode contornar esta limitação aparente.  
 
@@ -132,7 +132,7 @@ O nome de conta, o nome da tabela, e **PartitionKey** em conjunto identificam a 
 
 No serviço tabela, um nó individual dos serviços de um ou mais concluir as partições e as escalas de serviço por dinamicamente balanceamento de carga partições entre nós. Se for um nó sob carga, o serviço de tabela pode *dividir* o intervalo de partições atendidos por esse nó em diferentes nós; quando o tráfego diminua, o serviço pode *intercalação* os intervalos de partição de nós silencioso num único nó.  
 
-Para obter mais informações sobre os detalhes internos do serviço tabela e, em particular, como o serviço gere as partições, consulte o documento [armazenamento do Microsoft Azure: A altamente disponível serviço armazenamento na Cloud com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Para obter mais informações sobre os detalhes internos do serviço tabela e, em particular, como o serviço gere as partições, consulte o documento [armazenamento do Microsoft Azure: A altamente disponível serviço armazenamento na Cloud com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Transações do grupo de entidade
 No serviço tabela, transações de grupo de entidades (EGTs) são o mecanismo interno apenas para a realização de atualizações atómicas em múltiplas entidades. EGTs são, às vezes, também denominados *do batch transações*. EGTs só pode funcionar em entidades armazenadas na mesma partição (ou seja, partilham a mesma chave de partição numa determinada tabela). Portanto, sempre que necessitar de comportamento transacional atómico em múltiplas entidades, certifique-se de que essas entidades estão na mesma partição. Isto é, muitas vezes, um motivo para manter os vários tipos de entidade na mesma tabela (e partição) e não a utilizar várias tabelas para tipos de entidade diferentes. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneas para processamento, é importante certificar-se de que esses EGTs não funciona em entidades que são comuns em EGTs; caso contrário, o processamento pode ser atrasado.
@@ -152,7 +152,7 @@ A tabela seguinte descreve alguns dos valores chave estar ciente de quando está
 | Tamanho do **RowKey** |A cadeia de caracteres até 1 KB de tamanho |
 | Tamanho de uma transação de grupos de entidades |Uma transação pode incluir até 100 entidades e a carga tem de ser inferior a 4 MB de tamanho. Uma vez, um EGT só pode atualizar uma entidade. |
 
-Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ## <a name="cost-considerations"></a>Considerações de custos
 Armazenamento de tabelas está relativamente mais barato, mas deve incluir estimativas de custo de utilização da capacidade e a quantidade de transações como parte de sua avaliação de qualquer solução de serviço de tabela. No entanto, em muitos cenários, a armazenar dados desnormalizados ou duplicados para melhorar o desempenho ou escalabilidade da sua solução é uma abordagem válida. Para obter mais informações sobre preços, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).  

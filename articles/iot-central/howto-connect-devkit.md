@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cca475f552495a42aabc60faf0bd57382f148120
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958586"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255732"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -69,7 +69,7 @@ Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir do *
 #### <a name="to-prepare-the-devkit-device"></a>Para preparar o dispositivo DevKit:
 
 
-1. Baixe o firmware do Azure IoT Central previamente criado mais recente para o MXChip do [versões](http://aka.ms/iotcentral-docs-MXChip-releases) página no GitHub.
+1. Baixe o firmware do Azure IoT Central previamente criado mais recente para o MXChip do [versões](https://aka.ms/iotcentral-docs-MXChip-releases) página no GitHub.
 1. Ligue o dispositivo de DevKit ao seu computador de desenvolvimento com um cabo USB. No Windows, uma janela do Explorador de ficheiros é aberto numa unidade mapeada para o armazenamento no dispositivo DevKit. Por exemplo, poderia ser chamada a unidade **AZ3166 (d)**.
 1. Arrastar o **iotCentral.bin** ficheiro para a janela de unidade. Quando a cópia estiver concluída, o dispositivo é reiniciado com o novo firmware.
 

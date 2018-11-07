@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 932e7447c59c7e9d8322a0e85b0843b0e836b840
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 262d2511879047d1723d3b15c4c107b80ba1c297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095517"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250345"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights com o PowerShell
 Este artigo mostra-lhe como automatizar a criação e atualização das [Application Insights](app-insights-overview.md) recursos automaticamente, com a gestão de recursos do Azure. Pode, por exemplo, tal como parte de um processo de compilação. Juntamente com o recurso do Application Insights básico, pode criar [testes web de disponibilidade](app-insights-monitor-web-app-availability.md), configure a [alertas](app-insights-alerts.md), defina o [preços esquema](app-insights-pricing.md)e criar outros recursos do Azure .
@@ -30,7 +30,7 @@ Se ainda não utilizou o PowerShell com a sua subscrição do Azure antes de:
 
 Instale o módulo Azure Powershell na máquina em que pretende executar os scripts:
 
-1. Instale [Microsoft Web Platform Installer (v5 ou superior)](http://www.microsoft.com/web/downloads/platform.aspx).
+1. Instale [Microsoft Web Platform Installer (v5 ou superior)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Usá-lo para instalar o Microsoft Azure Powershell.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Criar um modelo Azure Resource Manager
@@ -448,6 +448,6 @@ Outros artigos de automatização:
 * [Configurar alertas](app-insights-powershell-alerts.md)
 * [Criar testes web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights (Enviar o Diagnóstico do Azure para o Application Insights)](app-insights-powershell-azure-diagnostics.md)
-* [Implementar no Azure a partir do GitHub](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Implementar no Azure a partir do GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Criar notas de versão](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638211"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235977"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informações sobre distribuições não aprovadas
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ Imagens VHD no Azure tem de ter um tamanho virtual alinhado para 1 MB.  Normalme
 
 * O VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd tem um tamanho virtual não suportado de 21475270656 bytes. O tamanho tem de ser um número inteiro (em MB).
 
-Neste caso, redimensione a VM utilizando a consola de Gestor de Hyper-V ou o [VHD de redimensionamento](http://technet.microsoft.com/library/hh848535.aspx) cmdlet do PowerShell.  Se não está a executar num ambiente Windows, recomendamos que utilize `qemu-img` para converter (se necessário) e redimensione o VHD.
+Neste caso, redimensione a VM utilizando a consola de Gestor de Hyper-V ou o [VHD de redimensionamento](https://technet.microsoft.com/library/hh848535.aspx) cmdlet do PowerShell.  Se não está a executar num ambiente Windows, recomendamos que utilize `qemu-img` para converter (se necessário) e redimensione o VHD.
 
 > [!NOTE]
 > Há uma [erro conhecido no qemu img](https://bugs.launchpad.net/qemu/+bug/1490611) versões > = 2.2.1 do buildship que resulta num VHD formatado incorretamente. Foi corrigido o problema em QEMU 2.6. Recomendamos a utilização `qemu-img` 2.2.0 ou inferior, ou 2.6 ou superior.
@@ -125,7 +125,7 @@ Neste caso, redimensione a VM utilizando a consola de Gestor de Hyper-V ou o [VH
 
 Os controladores de serviços de integração do Linux (LIS) para o Hyper-V e do Azure são enviados diretamente para o kernel do Linux a montante. Número de distribuições que incluem uma versão de kernel de Linux recente (por exemplo, 3.x) já a tiver estes controladores disponíveis ou caso contrário, fornece versões backported esses Drivers com os kernels.  Estes controladores estão constantemente a ser atualizados no kernel do montante com novas correções e funcionalidades, para que, sempre que possível, recomendamos a execução um [apoiadas pelo distribuição](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) que inclui estas correções e atualizações.
 
-Se estiver a executar uma variante do Red Hat Enterprise Linux versões 6.0 para 6.3, em seguida, terá de instalar o [controladores mais recentes do LIS para Hyper-V](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partir do RHEL 6.4 + (e derivados) os controladores LIS já estão incluídos com o kernel e por isso, não existem pacotes de instalação adicionais são necessários.
+Se estiver a executar uma variante do Red Hat Enterprise Linux versões 6.0 para 6.3, em seguida, terá de instalar o [controladores mais recentes do LIS para Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partir do RHEL 6.4 + (e derivados) os controladores LIS já estão incluídos com o kernel e por isso, não existem pacotes de instalação adicionais são necessários.
 
 Se um kernel personalizado for necessário, recomendamos uma versão recente do kernel (como 3.8 +). Para as distribuições ou fornecedores que mantêm os seus próprios kernel, terá backport regularmente os controladores LIS do kernel a montante para o kernel personalizado.  Mesmo se já estiver a executar uma versão de kernel relativamente recente, é altamente recomendável manter o controle de qualquer a montante correções nos controladores LIS e backport-las conforme necessário. As localizações dos ficheiros de origem do driver LIS estão especificadas na [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) ficheiros na árvore de origem do kernel do Linux:
 ```

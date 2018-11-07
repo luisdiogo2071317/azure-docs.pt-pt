@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3af84e0659d1d62079c239ad6e650d31c9f9a6f1
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 5ea8718b90a82e904f54e5569d36f27146ffe5f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125362"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253164"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerir recomendações de segurança no Centro de segurança do Azure
 Este documento explica como utilizar as recomendações no Centro de segurança do Azure para o ajudar a proteger os seus recursos do Azure.
@@ -90,7 +90,7 @@ Utilize a tabela abaixo como referência para ajudar a compreender as recomenda�
 | [Ativar a auditoria e a deteção de ameaças em servidores SQL](security-center-enable-auditing-on-sql-servers.md) |Recomenda-se que ative a deteção de ameaças e auditoria para servidores SQL do Azure. (Apenas para serviços do SQL do azure. Não inclui SQL em execução nas suas máquinas virtuais.) |
 | [Ativar a auditoria e a deteção de ameaças nas bases de dados SQL](security-center-enable-auditing-on-sql-databases.md) |Recomenda-se que ative a deteção de ameaças e auditoria para bases de dados SQL do Azure. (Apenas para serviços do SQL do azure. Não inclui SQL em execução nas suas máquinas virtuais.) |
 | [Ativar a encriptação de dados transparente nas bases de dados SQL](security-center-enable-transparent-data-encryption.md) |Recomenda-se de que ativar a encriptação para bases de dados SQL. (Apenas serviço SQL do azure.) |
-| [Ativar o Agente de VM](security-center-enable-vm-agent.md) |Permite-lhe ver as VMs que necessitam do Agente de VM. O agente da VM deve ser instalado em VMs para aprovisionar análise de patch, a análise de linha de base e programas de antimalware. O Agente de VM é instalado por predefinição em VMs que são implementadas a partir do Azure Marketplace. O artigo [VM Agent and Extensions – Part 2 (Agente de VM e Extensões – Parte 2)](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornece informações sobre como instalar o Agente de VM. |
+| [Ativar o Agente de VM](security-center-enable-vm-agent.md) |Permite-lhe ver as VMs que necessitam do Agente de VM. O agente da VM deve ser instalado em VMs para aprovisionar análise de patch, a análise de linha de base e programas de antimalware. O Agente de VM é instalado por predefinição em VMs que são implementadas a partir do Azure Marketplace. O artigo [VM Agent and Extensions – Part 2 (Agente de VM e Extensões – Parte 2)](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) fornece informações sobre como instalar o Agente de VM. |
 | [Aplicar encriptação de discos](security-center-apply-disk-encryption.md) |Recomenda-se que encripte os discos da VM com o Azure Disk Encryption (VMs Windows e Linux). A encriptação é recomendada para o SO e os volumes de dados na sua VM. |
 | [Disponibilizar detalhes de contacto de segurança](security-center-provide-security-contact-details.md) |Recomenda que fornecer segurança de informações de contacto para cada uma das suas subscrições. Informações de contacto são um e-mail endereço e número de telefone. As informações são utilizadas para contactá-lo se a nossa equipa de segurança Descubra que os recursos estão comprometidos. |
 | [Atualizar a versão do SO](security-center-update-os-version.md) |Recomenda-se de que Atualize a versão do sistema operativo (SO) do serviço em nuvem para a versão mais recente disponível para sua família de SO.  Para saber mais sobre os serviços Cloud, veja a [descrição geral dos serviços de Cloud](../cloud-services/cloud-services-choose-me.md). |
@@ -140,7 +140,7 @@ Neste documento, foram introduzidas para recomendações de segurança no Centro
 * [Gerir e responder a alertas de segurança no Centro de segurança do Azure](security-center-managing-and-responding-alerts.md) – Saiba como gerir e responder a alertas de segurança.
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png

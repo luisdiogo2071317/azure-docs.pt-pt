@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295742"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256634"
 ---
 # <a name="security-policy-settings"></a>Definições da política de segurança
 Este artigo fornece uma descrição geral da segurança, definições de política no Centro de segurança.
@@ -56,4 +56,4 @@ Neste artigo, aprendeu sobre as políticas de segurança no Centro de segurança
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md): saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 - [Segurança de dados do Centro de segurança do Azure](security-center-data-security.md): Saiba como o Centro de segurança gere e protege os dados.
 * [Azure Security Center FAQ](security-center-faq.md) (FAQ do Centro de Segurança do Azure): obtenha respostas às perguntas mais frequentes sobre como utilizar o serviço.
-* [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): Obtenha as mais recentes notícias de segurança do Azure e informações.
+* [Blogue de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): Obtenha as mais recentes notícias de segurança do Azure e informações.

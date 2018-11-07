@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 403ac2fd0ab497239350c8b4a68a6b6f53bb24b4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c79a44422944fd2049c47a6729a86d063dbcd15e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963919"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232346"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -158,7 +158,7 @@ R. Não, não é atualmente possível ler a partir de tabelas arbitrárias ou de
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>P. O que os endereços IP é que a utilização de serviço do Log Analytics? Como garantir que a minha firewall permite apenas tráfego para o serviço do Log Analytics?
 
-R. O serviço Log Analytics se baseia no Azure. Endereços de IP de análise de registo estão no [intervalos de IP do Microsoft Azure Datacenter](http://www.microsoft.com/download/details.aspx?id=41653).
+R. O serviço Log Analytics se baseia no Azure. Endereços de IP de análise de registo estão no [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
 Como as implementações de serviço são feitas, alterar os endereços IP reais do serviço do Log Analytics. Os nomes DNS para permitir através da firewall estão documentados em [requisitos de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -170,7 +170,7 @@ O tráfego para o Log Analytics utiliza o circuito de ExpressRoute de peering p�
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>P. Existe uma forma simple e fácil de mover uma área de trabalho do Log Analytics existente para outra subscrição de área de trabalho/Azure Log Analytics?
 
-R. O `Move-AzureRmResource` cmdlet permite-lhe mover uma área de trabalho do Log Analytics bem como uma conta de automatização de uma subscrição do Azure para outra. Para obter mais informações, consulte [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+R. O `Move-AzureRmResource` cmdlet permite-lhe mover uma área de trabalho do Log Analytics bem como uma conta de automatização de uma subscrição do Azure para outra. Para obter mais informações, consulte [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Esta alteração também pode ser feita no portal do Azure.
 

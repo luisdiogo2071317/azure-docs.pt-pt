@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: abf581430f7cf7020145b0217c387b8c2fc4f795
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979408"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257804"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados. 
@@ -297,7 +297,7 @@ A tabela seguinte resume o suporte de partição e o número de gravadores de sa
 | Tipo de saída | Suporte de criação de partições | Chave de partição  | Vários autores de saída | 
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Sim | Utilize {date} e tokens de {time} no padrão do prefixo do caminho. Escolha o formato de data, como aaaa/MM/DD, aaaa/MM/AAAA, DD-MM-AAAA. HH é utilizada para o formato de hora. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). | 
-| Base de Dados SQL do Azure | Sim | Com base na cláusula PARTITION BY na consulta | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). | 
+| Base de Dados SQL do Azure | Sim | Com base na cláusula PARTITION BY na consulta | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). Para saber mais sobre a obtenção da, melhor escrever o desempenho de taxa de transferência quando está carregando dados na base de dados do SQL Azure, visite [saída de Azure Stream Analytics para a base de dados do Azure SQL](stream-analytics-sql-output-perf.md). | 
 | Armazenamento de Blobs do Azure | Sim | Utilize {date} e tokens de {time} a partir de seus campos de evento no padrão de caminho. Escolha o formato de data, como aaaa/MM/DD, aaaa/MM/AAAA, DD-MM-AAAA. HH é utilizada para o formato de hora. Como parte do [pré-visualização](https://aka.ms/ASApreview1), a saída de BLOBs pode ser particionada por um atributo único evento personalizado {fieldname} ou {datetime:\<especificador >}. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). | 
 | Hub de Eventos do Azure | Sim | Sim | Varia consoante o alinhamento da partição.</br> Quando a saída de chave de partição igualmente está alinhada com a montante () consulta passo anterior, o número de gravadores de Hub de eventos é o mesmo número de saída de partições do Hub de eventos. Cada writer usa do EventHub [EventHubSender classe](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. </br> Quando o resultado da chave de partição não está alinhada com a montante () consulta passo anterior, o número de gravadores de Hub de eventos é igual ao número de partições nesse passo anterior. Cada writer usa EventHubClient [SendBatchAsync classe](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) para enviar eventos para todas as partições de saída. |
 | Power BI | Não | Nenhuma | Não aplicável. | 
@@ -306,6 +306,8 @@ A tabela seguinte resume o suporte de partição e o número de gravadores de sa
 | Fila de barramento de serviço do Azure | Sim | Automaticamente escolhido. O número de partições se baseia a [SKU de barramento de serviço e o tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.| Mesmo que o número de partições na fila de saída. |
 | Azure Cosmos DB | Sim | Utilize o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se a cláusula PARTITION BY na consulta. | Segue-se a criação de partições entrada para [totalmente em paralelo consultas](stream-analytics-scale-jobs.md). |
 | Funções do Azure | Não | Nenhuma | Não aplicável. | 
+
+Se o adaptador de saída não for particionado, falta de dados de uma partição de entrada fará com que um atraso até ao montante de chegada tardia do tempo.  Nesses casos, a saída é intercalada com um único gravador que poderá provocar afunilamentos no seu pipeline. Para saber mais sobre a política de chegada tardia, visite [considerações de ordem de eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 O Azure Stream Analytics utiliza lotes de tamanho variável, para processar eventos e escrita para saídas. Normalmente, o mecanismo de Stream Analytics não escreve uma mensagem por vez e utiliza lotes para uma eficiência. Quando a entrada e a taxa de eventos de saída é alta, ele usa lotes maiores. Quando a taxa de saída é baixa, ele usa lotes mais pequenos para manter a latência baixa. 

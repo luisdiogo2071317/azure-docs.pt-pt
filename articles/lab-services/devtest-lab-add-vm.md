@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ce95a2177260e97113fd5e639671075eb6ad40cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e86568da7f3d607c90e42e09a61ced9993c4d744
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215021"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254048"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma VM a um laboratório no Azure DevTest Labs
 Se já tiver [criado a sua primeira VM](devtest-lab-create-first-vm.md), provavelmente fez isso de um pré-carregados [imagem do marketplace](devtest-lab-configure-marketplace-images.md). Agora, se pretender adicionar VMs subsequentes para seu laboratório, pode também escolher uma *base* ou seja, um um [imagem personalizada](devtest-lab-create-template.md) ou uma [fórmula](devtest-lab-manage-formulas.md). Este tutorial explica-lhe utilizar o portal do Azure para adicionar uma VM a um laboratório no DevTest Labs.
@@ -27,7 +27,7 @@ Se já tiver [criado a sua primeira VM](devtest-lab-create-first-vm.md), provave
 Este artigo também mostra como gerir os artefactos para uma VM no seu laboratório.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Passos para adicionar uma VM a um laboratório no Azure DevTest Labs
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório em que pretende criar a VM.  
 1. O laboratório **descrição geral** painel, selecione **+ adicionar**.  
@@ -69,7 +69,7 @@ Ao criar uma VM, pode adicionar artefactos existentes. Cada um deles inclui arte
 
 Para saber como criar artefactos, consulte o artigo [Aprenda a criar seu próprio artefactos para utilização com o DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista.
 1. Na lista de laboratórios, selecione o laboratório que contém a VM com a qual pretende trabalhar.  
 1. Selecione **minhas máquinas virtuais**.

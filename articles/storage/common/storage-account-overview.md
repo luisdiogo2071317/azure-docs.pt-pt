@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638431"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255767"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -107,7 +107,7 @@ Armazenamento do Azure oferece opções diferentes para aceder aos dados de blob
 Os escalões de acesso disponíveis são:
 
 > [!NOTE]
-> O [escalão de acesso de Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponível em pré-visualização limitada, como uma conta de armazenamento localmente redundante (LRS) nas regiões Europa do Norte, E.u.a. Leste 2, E.u.a. Central e E.u.a. oeste. Para saber como se registar na pré-visualização, veja [introdução ao armazenamento de Blobs do Azure Premium](http://aka.ms/premiumblob).
+> O [escalão de acesso de Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponível em pré-visualização limitada, como uma conta de armazenamento localmente redundante (LRS) nas regiões Europa do Norte, E.u.a. Leste 2, E.u.a. Central e E.u.a. oeste. Para saber como se registar na pré-visualização, veja [introdução ao armazenamento de Blobs do Azure Premium](https://aka.ms/premiumblob).
 
 * O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são um pouco mais. Novas contas de armazenamento são criadas de acesso frequente escalão por predefinição.
 * O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser um pouco mais dispendioso do que a aceder aos dados na camada frequente.
@@ -189,7 +189,7 @@ Para obter mais informações sobre a API de REST de armazenamento do Azure, con
 > [!IMPORTANT]
 > Os blobs encriptados através de encriptação do lado do cliente armazenam os metadados relacionados com a encriptação com o blob. Se copiar um blob com encriptação do lado do cliente, certifique-se de que a operação de cópia preserva os metadados do blob e, especialmente, os metadados relacionados com a encriptação. Se copiar um blob sem os metadados de encriptação, não poderá obter novamente o conteúdo do mesmo. Para obter mais informações acerca dos metadados relacionados com a encriptação, veja [Encriptação do Lado do Cliente do Armazenamento do Azure](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Serviço importar/exportar do Azure
+### <a name="azure-importexport-service"></a>Serviço Importar/Exportar do Azure
 
 Se tiver uma grande quantidade de dados a importar para a sua conta de armazenamento, considere o serviço importar/exportar do Azure. O serviço importar/exportar é utilizado para importar com segurança grandes quantidades de dados para o armazenamento de Blobs do Azure e ficheiros do Azure ao envio de unidades de disco num Datacenter do Azure. 
 

@@ -12,12 +12,12 @@ ms.author: daleche
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a34745c5586fa90d3e167bb3be22e93dfa83b7af
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 99c7e73bb133349ef1c14295a49f278d64a15226
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041735"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257964"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Resolver problemas de ligação à base de dados do Azure SQL
 Quando a ligação à base de dados do Azure SQL falhar, receberá [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que o ajuda a resolver problemas de conectividade da base de dados do Azure SQL. Ele introduz [as causas comuns](#cause) dos problemas de ligação, recomenda [uma ferramenta de resolução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identidade do problema e fornece passos de resolução de problemas para resolver [transitório erros](#troubleshoot-transient-errors) e [persistentes ou não transitórias erros](#troubleshoot-persistent-errors). 
@@ -79,8 +79,8 @@ Se a aplicação de forma permanente falhar ligar à base de dados do Azure SQL,
 4. Verifique o estado de funcionamento do serviço no dashboard. Se acha que há uma falha regional, consulte [recuperar a partir de um período de indisponibilidade](sql-database-disaster-recovery.md) para obter passos para recuperar para uma nova região.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Pesquisar a documentação no Microsoft Azure](http://azure.microsoft.com/search/documentation/)
-* [Ver as atualizações mais recentes para o serviço de base de dados do Azure SQL](http://azure.microsoft.com/updates/?service=sql-database)
+* [Pesquisar a documentação no Microsoft Azure](https://azure.microsoft.com/search/documentation/)
+* [Ver as atualizações mais recentes para o serviço de base de dados do Azure SQL](https://azure.microsoft.com/updates/?service=sql-database)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Descrição geral do desenvolvimento de banco de dados SQL](sql-database-develop-overview.md)

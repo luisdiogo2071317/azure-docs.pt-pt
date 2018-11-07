@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: b68e65bdcefcabb2804b259cff45e0a8719f7ab7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d650e0d8b76af8d6bdef5aeadf821e3d8f6d1c79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870521"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241876"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de funcionalidades: base de dados de SQL do Azure e do SQL Server 
 
@@ -26,7 +26,7 @@ Base de dados SQL do Azure partilha uma base de código comum com o SQL Server. 
 A Microsoft continua a adicionar funcionalidades à base de dados do Azure SQL. Visite a página de atualizações de serviço Web do Azure para as atualizações mais recentes com estes filtros:
 
 * Filtrado para o [serviço da Base de Dados SQL](https://azure.microsoft.com/updates/?service=sql-database).
-* Filtrado para [anúncios](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de Disponibilidade Geral (DG) para funcionalidades de Base de Dados SQL.
+* Filtrado para [anúncios](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) de Disponibilidade Geral (DG) para funcionalidades de Base de Dados SQL.
 
 ## <a name="sql-server-feature-support-in-azure-sql-database"></a>Suporte de funcionalidades do SQL Server na base de dados do Azure SQL
 
@@ -42,7 +42,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Cópias de segurança automáticas](sql-database-automated-backups.md) | Sim | Sim |
 | [(Forçar o plano) de otimização automática](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sim](sql-database-automatic-tuning.md)| [Sim](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [(Índices) de otimização automática](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sim](sql-database-automatic-tuning.md)| Não |
-| [Studio de dados do Azure](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Sim | Sim |
+| [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Sim | Sim |
 | [Ficheiro BACPAC (exportação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sim - veja [exportação da base de dados SQL](sql-database-export.md) | Não |
 | [Ficheiro BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sim - veja [importar da base de dados SQL](sql-database-import.md) | Não |
 | [Comando de cópia de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Não, apenas iniciada pelo sistema de cópias de segurança automáticas - veja [cópias de segurança automatizadas](sql-database-automated-backups.md) | Cópias de segurança automáticas iniciadas pelo sistema e o utilizador iniciou as cópias de segurança apenas de cópia - veja [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -128,7 +128,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim |
 | [PowerShell do SQL Server](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não, consulte [eventos expandidos](sql-database-xevent-db-diff-from-svr.md) | Sim |
-| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim - [replicação com o SQL Database Managed Instance - pré-visualização pública](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim - [replicação com o SQL Database Managed Instance - pré-visualização pública](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) |
 | [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sim | Sim |
 | [Funções armazenadas do sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

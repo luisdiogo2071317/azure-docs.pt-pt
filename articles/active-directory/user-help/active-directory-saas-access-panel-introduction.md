@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719992"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239848"
 ---
 # <a name="what-is-the-myapps-portal"></a>O que é o portal MyApps?
 
@@ -137,7 +137,7 @@ Se for um administrador do Azure e tem sessão iniciada portal do Azure, utiliza
 Para testar num *diferentes* utilizador da conta, efetue o seguinte:
 
 1. No canto superior direito do portal do Azure ou o portal MyApps, selecione **terminar sessão**. 
-2. Vá para o [MyApps portal](http://myapps.microsoft.com).
+2. Vá para o [MyApps portal](https://myapps.microsoft.com).
 3. Na página de início de sessão, escreva o nome de utilizador e palavra-passe para a conta no seu diretório que pretende testar.
 
 

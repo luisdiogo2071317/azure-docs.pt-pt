@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026165"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240176"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Vários inquilinos no Azure Stack
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026165"
 
 Pode configurar o Azure Stack para dar suporte aos usuários a partir de múltiplos inquilinos do Azure Active Directory (Azure AD) para utilizar os serviços no Azure Stack. Por exemplo, considere o seguinte cenário:
 
- - É o administrador de serviço de contoso.onmicrosoft.com, onde o Azure Stack está instalado.
- - Maria é o administrador do diretório de fabrikam.onmicrosoft.com, onde estão localizados os utilizadores convidados. 
- - Empresa de Mary recebe serviços IaaS e PaaS da sua empresa e tem de permitir que os utilizadores do diretório de convidado (fabrikam.onmicrosoft.com) iniciar sessão e utilizar recursos do Azure Stack contoso.onmicrosoft.com.
+- É o administrador de serviço do contoso.onmicrosoft.com, onde o Azure Stack está instalado.
+- Maria é o administrador do diretório de fabrikam.onmicrosoft.com, onde estão localizados os utilizadores convidados.
+- Empresa de Mary recebe serviços IaaS e PaaS da sua empresa e tem de permitir que os utilizadores do diretório de convidado (fabrikam.onmicrosoft.com) iniciar sessão e utilizar recursos do Azure Stack contoso.onmicrosoft.com.
 
 Este guia fornece os passos necessários para configurar vários inquilinos no Azure Stack, no contexto deste cenário. Neste cenário, e a Maria tem de concluir os passos para permitir que os utilizadores da Fabrikam para iniciar sessão e consumir serviços de implementação do Azure Stack no Contoso.  
 
@@ -50,6 +51,8 @@ Existem alguns pré-requisitos para levar em conta antes de configurar vários i
 Nesta secção, irá configurar o Azure Stack para permitir inícios de sessão da Fabrikam do Azure AD directory inquilinos.
 
 Carregar o inquilino de diretório de convidado (Fabrikam) para o Azure Stack através da configuração do Azure Resource Manager para aceitar os utilizadores e principais do inquilino do diretório de convidado de serviço.
+
+O administrador de serviço de contoso.onmicrosoft.com executa os seguintes comandos.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Configurar o diretório de convidado
 
-Depois de concluir os passos no diretório do Azure Stack, Mary tem de fornecer o consentimento para aceder ao diretório de convidado do Azure Stack e registar o Azure Stack com o diretório de convidado. 
+Uma vez o administrador do Azure Stack / operador tiver ativado o diretório da Fabrikam a ser utilizado com o Azure Stack, Mary deve ser registrados do Azure Stack com o inquilino do diretório da Fabrikam.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>Registar o Azure Stack com o diretório de convidado
 
-Assim que o administrador do diretório de convidado tiverem dado consentimento para o Azure Stack aceder ao diretório da Fabrikam, Mary deve registrar o Azure Stack com o inquilino do diretório da Fabrikam.
+O administrador do diretório da Fabrikam a Maria executa os seguintes comandos no fabrikam.onmicrosoft.com de diretório convidado.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Se o administrador do Azure Stack instalar novos serviços ou atualizações no futuro, terá de executar este script novamente.
 >
 > Execute este script novamente em qualquer altura para verificar o estado das aplicações no seu diretório do Azure Stack.
-> 
+>
 > Se percebeu problemas com a criação de VMs em Managed Disks (introduzido na atualização 1808), uma nova **fornecedor de recursos de disco** foi adicionado, exigir que este script para ser executada novamente.
 
 ### <a name="direct-users-to-sign-in"></a>Direcionar os utilizadores para iniciar sessão
 
 Agora que e Mary tem concluído os passos para o diretório de inclusão Mary, Mary pode direcionar o Fabrikam os utilizadores iniciem sessão.  A Fabrikam utilizadores (ou seja, os utilizadores com o sufixo de fabrikam.onmicrosoft.com) iniciarem sessão, visite a página https://portal.local.azurestack.external.  
 
-Maria direcionará qualquer [principais externos](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os utilizadores no diretório Fabrikam sem o sufixo de fabrikam.onmicrosoft.com) para iniciar sessão com https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se não utilizar este URL, eles são enviados para o seu diretório padrão (Fabrikam) e recebem um erro que diz o que seu administrador não permitiu.
+Maria direcionará qualquer [principais externos](../role-based-access-control/rbac-and-directory-admin-roles.md) no diretório Fabrikam (ou seja, os utilizadores no diretório Fabrikam sem o sufixo de fabrikam.onmicrosoft.com) para iniciar sessão com https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se eles não utilizarem este URL, eles são enviados para o seu diretório padrão (Fabrikam) e recebem um erro que diz o que seu administrador não tiver dado consentimento.
 
 ## <a name="disable-multi-tenancy"></a>Desativar a vários inquilinos
 

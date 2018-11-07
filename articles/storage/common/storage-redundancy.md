@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954492"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240975"
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -39,7 +39,7 @@ A tabela seguinte fornece uma rápida visão geral do escopo da durabilidade e d
 | Uma interrupção de toda a região                                                                                     | Não                              | Não                               | Sim                                  | Sim                                  |
 | Acesso de leitura aos seus dados (numa região remota, georreplicado) em caso de indisponibilidade de toda a região | Não                              | Não                               | Não                                   | Sim                                  |
 | Concebido para fornecer \_ \_ durabilidade dos objetos ao longo de um determinado ano                                          | pelo menos, 99,999999999% (11 9 s) | pelo menos, 99.9999999999% (12 9 s) | pelo menos 99,99999999999999% (16 9 s) | pelo menos 99,99999999999999% (16 9 s) |
-| Tipos de conta de armazenamento suportadas                                                                   | Blob de GPv2, GPv1,                | GPv2, GPv1 (através do PowerShell, CLI do Azure ou recurso de API do fornecedor)                             | Blob de GPv2, GPv1,                     | Blob de GPv2, GPv1,                     |
+| Tipos de conta de armazenamento suportadas                                                                   | Blob de GPv2, GPv1,                | GPv2                             | Blob de GPv2, GPv1,                     | Blob de GPv2, GPv1,                     |
 | SLA de disponibilidade para solicitações de leitura | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,99% (99,9% para o escalão de acesso esporádico) |
 | SLA de disponibilidade para pedidos de escrita | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) | Pelo menos, 99,9% (99% para o escalão de acesso esporádico) |
 
@@ -68,5 +68,5 @@ Se alterar o GRS para LRS, não existe nenhum custo adicional, mas os dados repl
 - [Armazenamento georredundante (GRS): replicação de inter-regional do armazenamento do Azure](storage-redundancy-grs.md)
 - [Azure destinos de escalabilidade e desempenho de armazenamento](storage-scalability-targets.md)
 - [Conceber aplicações de elevada disponibilidade com o armazenamento RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-- [Armazenamento do Microsoft Azure redundância acesso de leitura e de opções de armazenamento georredundante ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [Artigo SOSP – Storage do Azure: Um cloud altamente disponível, serviço de armazenamento com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Armazenamento do Microsoft Azure redundância acesso de leitura e de opções de armazenamento georredundante ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Artigo SOSP – Storage do Azure: Um cloud altamente disponível, serviço de armazenamento com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

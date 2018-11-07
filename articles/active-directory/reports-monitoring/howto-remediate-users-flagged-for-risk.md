@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578905"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255784"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Remediar utilizadores sinalizados para risco no portal do Azure Active Directory
 
@@ -61,9 +61,9 @@ Reveja as informações apresentadas aí. Deverá repor a palavra-passe de todas
 
 Execute as ações seguintes para ajudar a retificar as contas afetadas e a proteger o seu ambiente:
 
-1.  [Valide](http://aka.ms/MFAValid) as informações corretas para a autenticação multifator e a reposição personalizada de palavras-passe. 
-2.  [Ative](http://aka.ms/MFAuth) a autenticação multifator para todos os utilizadores. 
-3.  Ao utilizar este [script de remediação](http://aka.ms/remediate) em todas as contas afetadas, pode realizar automaticamente os passos abaixo: 
+1.  [Valide](https://aka.ms/MFAValid) as informações corretas para a autenticação multifator e a reposição personalizada de palavras-passe. 
+2.  [Ative](https://aka.ms/MFAuth) a autenticação multifator para todos os utilizadores. 
+3.  Ao utilizar este [script de remediação](https://aka.ms/remediate) em todas as contas afetadas, pode realizar automaticamente os passos abaixo: 
 
     a. Repor a palavra-passe para proteger a conta e abortar as sessões ativas.
 
@@ -87,10 +87,10 @@ Execute as ações seguintes para ajudar a retificar as contas afetadas e a prot
 
 Além disso, deve:
 
-- Ler e implementar estas [orientações](http://aka.ms/fixaccount) relativamente à abordagem a atividades invulgares. 
-- [Ativar o pipeline de auditoria](http://aka.ms/improvesecurity) para ajudar a analisar a atividade nos seus inquilinos. Depois de concluído, o arquivo de auditoria começa a ser preenchido com todos os registos de atividade. Nesta fase, também pode tirar partido da funcionalidade [Search and Investigation do Security and Compliance Center](http://aka.ms/sccsearch). 
-- Utilize este [script](http://aka.ms/mailboxaudit1) para ativar a auditoria das caixas de correio em todas as suas contas de correio. 
-- Reveja as permissões de delegado e as regras de reencaminhamento de todas as caixas de correio de correio. Pode utilizar este [script do PowerShell](http://aka.ms/delegateforwardrules) para realizar esta tarefa. 
+- Ler e implementar estas [orientações](https://aka.ms/fixaccount) relativamente à abordagem a atividades invulgares. 
+- [Ativar o pipeline de auditoria](https://aka.ms/improvesecurity) para ajudar a analisar a atividade nos seus inquilinos. Depois de concluído, o arquivo de auditoria começa a ser preenchido com todos os registos de atividade. Nesta fase, também pode tirar partido da funcionalidade [Search and Investigation do Security and Compliance Center](https://aka.ms/sccsearch). 
+- Utilize este [script](https://aka.ms/mailboxaudit1) para ativar a auditoria das caixas de correio em todas as suas contas de correio. 
+- Reveja as permissões de delegado e as regras de reencaminhamento de todas as caixas de correio de correio. Pode utilizar este [script do PowerShell](https://aka.ms/delegateforwardrules) para realizar esta tarefa. 
 
 
 

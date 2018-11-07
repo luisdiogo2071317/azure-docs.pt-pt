@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 56fadde5694dbd298c812db258105e03b7d23d45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a6fdfec4c4c95ba47f17efeb0dc87521a86c03c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996745"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244989"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
 
@@ -27,7 +27,7 @@ O **a folha de referência do Azure Machine Learning algoritmo** ajuda a escolhe
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Transferência: Cábula do algoritmo de aprendizagem
 
-**Baixe a folha de referência rápida aqui: [Machine Learning Trapacear algoritmos (11 x 17 pol.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Baixe a folha de referência rápida aqui: [Machine Learning Trapacear algoritmos (11 x 17 pol.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
 ![Do Machine learning cábula do algoritmo: Saiba como escolher um algoritmo de Machine Learning.][cheat-sheet]
 

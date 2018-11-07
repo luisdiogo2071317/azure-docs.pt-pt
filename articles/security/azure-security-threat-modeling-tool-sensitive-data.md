@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301466"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262374"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados confidenciais | Atenuações 
 | Produtos/serviços | Artigo |
@@ -28,7 +28,7 @@ ms.locfileid: "43301466"
 | **Aplicação Web** | <ul><li>[Certifique-se de que o conteúdo confidencial não está em cache no navegador](#cache-browser)</li><li>[Encriptar secções dos arquivos de configuração da aplicação Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desativar explicitamente o atributo de autocompletar HTML em formulários confidenciais e de entradas](#autocomplete-input)</li><li>[Certifique-se de que os dados confidenciais apresentados no ecrã de utilizador está oculto](#data-mask)</li></ul> | 
 | **Base de Dados** | <ul><li>[Máscara de dados dinâmica de implementar para limitar os utilizadores de exposição não privilegiado de dados confidenciais](#dynamic-users)</li><li>[Certifique-se de que as senhas são armazenadas no formato de hash de Salt](#salted-hash)</li><li>[ Certifique-se de que os dados confidenciais nas colunas de base de dados são encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados são encriptadas](#backup)</li></ul> | 
 | **API Web** | <ul><li>[Certifique-se de que os dados confidenciais relevantes para a Web API não são armazenados no armazenamento do navegador](#api-browser)</li></ul> | 
-| Azure DocumentDB | <ul><li>[Encriptar dados confidenciais armazenados no Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
+| DB de documentos do Azure | <ul><li>[Encriptar dados confidenciais armazenados no Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite de fidedignidade da VM IaaS do Azure** | <ul><li>[Utilizar o Azure Disk Encryption para encriptar discos utilizados por máquinas virtuais](#disk-vm)</li></ul> | 
 | **Limite de fidedignidade do Service Fabric** | <ul><li>[Encriptar os segredos em aplicações do Service Fabric](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Execute a Modelagem de segurança e utilizar unidades de negócios ou várias onde for necessário](#modeling-teams)</li><li>[Minimizar o acesso para partilhar recursos em entidades críticas](#entities)</li><li>[Treinar os usuários sobre os riscos associados a funcionalidade de partilha do Dynamics CRM e boas práticas de segurança](#good-practices)</li><li>[Incluir uma regra de padrões de desenvolvimento proscribing que mostra os detalhes de configuração na gestão de exceções](#exception-mgmt)</li></ul> | 
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [MSDN: atributo de autocompletar](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [usando o preenchimento automático em HTML](http://msdn.microsoft.com/library/ms533032.aspx), [vulnerabilidade de limpeza de HTML](http://technet.microsoft.com/security/bulletin/MS10-071), [preenchimento automático., novamente?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Referências**              | [MSDN: atributo de autocompletar](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [usando o preenchimento automático em HTML](https://msdn.microsoft.com/library/ms533032.aspx), [vulnerabilidade de limpeza de HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [preenchimento automático., novamente?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Passos** | O atributo de autocompletar Especifica se um formulário deve ter a conclusão automática ativada ou desativada. Quando o preenchimento automático está ativado, o navegador concluir automaticamente valores com base nos valores que o utilizador introduziu antes. Por exemplo, quando um novo nome e a palavra-passe é introduzida num formulário e o formulário é submetido, o browser pede-se a palavra-passe deve ser salvos. Posteriormente, quando o formulário é exibido, o nome e a palavra-passe são preenchidos automaticamente ou são concluídas, como o nome é introduzido. Um invasor com acesso local foi possível obter a palavra-passe de texto não encriptado da cache do navegador. Por predefinição o preenchimento automático está ativado e explicitamente devem ser desativada. |
 
 ### <a name="example"></a>Exemplo
@@ -246,7 +246,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure DocumentDB | 
+| **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |

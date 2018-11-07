@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: df6499410da3ae67715ade29dbc3cc4146fc2265
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171406"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231996"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Como utilizar entidades negatable com um modelo de aprendiz de conversação
 
@@ -23,7 +23,7 @@ Este tutorial demonstra a propriedade "negatable" de entidades.
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização do tutorial de 5](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+[![Pré-visualização do tutorial de 5](https://aka.ms/cl-tutorial-05-preview)](https://aka.ms/blis-tutorial-05)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial requer que o bot tutorial geral está em execução

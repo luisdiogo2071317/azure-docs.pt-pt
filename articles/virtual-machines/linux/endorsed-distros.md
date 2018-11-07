@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 80a165c4533f555dce2d86f044f3caa328761123
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b39ae6b5546e9504b9f37504c486c941ab034399
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645752"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250004"
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux em distribuições apoiadas pelo Azure
 Os parceiros fornecem imagens do Linux no Azure Marketplace. Estamos a trabalhar com várias comunidades do Linux para adicionar ainda mais tipos à lista de distribuição apoiadas pelo. Entretanto, para as distribuições que não estão disponíveis no mercado, pode sempre colocar seu próprio Linux, seguindo as diretrizes em [criar e carregar um disco rígido virtual que contém o sistema operativo Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -38,9 +38,9 @@ O agente Azure Linux já pré-instaladas nas imagens do Azure Marketplace e est�
 | CentOS |CentOS 6.3 + 7.0 + |CentOS 6.3: [LIS transferir](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4 +: no kernel |Pacote: [repositório](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>O código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |No kernel |O código-fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9 +, 8.2 + |No kernel |Pacote: no repositório em "waagent" <br/>O código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| Oracle Linux |6.4+, 7.0+ |No kernel |Pacote: no repositório em "WALinuxAgent" <br/>O código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Oracle Linux |6.4+, 7.0+ |No kernel |Pacote: no repositório em "WALinuxAgent" <br/>O código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | Red Hat Enterprise Linux |RHEL 6.7 +, 7.1 + |No kernel |Pacote: no repositório em "WALinuxAgent" <br/>O código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
-| SUSE Linux Enterprise |SLES/SLES para SAP<br>11 SP4<br>12 SP1 +<br>15|No kernel |Pacote:<p> para 11 na [ferramentas de nuvem:](https://build.opensuse.org/project/show/Cloud:Tools) repositório<br>para 12 incluída no módulo de "Nuvem pública" em "python-azure-agent"<br/>O código-fonte: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| SUSE Linux Enterprise |SLES/SLES para SAP<br>11 SP4<br>12 SP1 +<br>15|No kernel |Pacote:<p> para 11 na [ferramentas de nuvem:](https://build.opensuse.org/project/show/Cloud:Tools) repositório<br>para 12 incluída no módulo de "Nuvem pública" em "python-azure-agent"<br/>O código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE salto 42.2 + |No kernel |Pacote: [ferramentas de nuvem:](https://build.opensuse.org/project/show/Cloud:Tools) repositório em "python-azure-agent" <br/>O código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04 +  **<sup>1</sup>** |No kernel |Pacote: no repositório em "walinuxagent" <br/>O código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 

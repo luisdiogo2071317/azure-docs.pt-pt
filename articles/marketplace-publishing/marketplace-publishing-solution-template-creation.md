@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0e1c049596b5231ad72590fc17a73cd5aa457e4d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 4a72f11b55d1c315a9dce62de3e6d23c340baa51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057030"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232866"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guia para criar um modelo de solução para o Azure Marketplace
 Depois de concluir o passo 1, [criação e registo de contas][link-acct-creation], podemos orientada da criação de um modelo de solução compatível com o Azure em [pré-requisitos técnicos para a criação de um modelo de solução](marketplace-publishing-solution-template-creation-prerequisites.md). Agora podemos irá guiá-lo através dos passos para criar um modelo de solução para várias VMs no [Portal de publicação] [ link-pubportal] para o Azure Marketplace.
@@ -62,7 +62,7 @@ Poderá também estar interessado nestes artigos relacionados:
 * Imagens de VM: [sobre imagens de máquinas virtuais no Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 * Extensões de VM: [extensões de VM do Azure e funcionalidades](../virtual-machines/extensions/features-windows.md)
 * O Azure Resource Manager: [criação de modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [exemplos do modelos simples](https://github.com/rjmax/ArmExamples)
-* Limita a conta de armazenamento: [como Monitor para a limitação de conta de armazenamento de](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [o armazenamento Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
+* Limita a conta de armazenamento: [como Monitor para a limitação de conta de armazenamento de](https://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) e [o armazenamento Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png

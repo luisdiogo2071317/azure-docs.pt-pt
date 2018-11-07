@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313664"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247709"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de controlo de acesso para a sua solução de identidade híbrida
 Quando uma organização é conceber a sua solução de identidade híbrida, também podem utilizar esta oportunidade para rever os requisitos de acesso para os recursos que eles estiverem planejando para disponibilizá-lo para os utilizadores. O acesso a dados em várias quatro todos os pilares da identidade, que são:
@@ -34,7 +34,7 @@ Quando uma organização é conceber a sua solução de identidade híbrida, tam
 As secções que se seguem abordará autenticação e autorização em mais detalhes, administração, e auditoria fazem parte do ciclo de vida de identidade híbrida. Leia [determinar as tarefas de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) para obter mais informações sobre estas capacidades.
 
 > [!NOTE]
-> Leia [os quatro pilares da identidade - gestão de identidades na idade de TI híbrida](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para obter mais informações sobre cada uma dessas pilares.
+> Leia [os quatro pilares da identidade - gestão de identidades na idade de TI híbrida](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) para obter mais informações sobre cada uma dessas pilares.
 > 
 > 
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 04e2e32de90283da2563395f8b24dbb4b1dab888
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782282"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241764"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
 
@@ -49,13 +49,13 @@ Aqui estão algumas considerações sobre quando utilizar uma conta de armazenam
 * **Ficheiros públicos em contas de armazenamento que não estão ligados a um cluster** expor permissões só de leitura aos ficheiros no sistema de arquivos.
   
   > [!NOTE]
-  > Sistemas de ficheiros públicos permitem-lhe obter uma lista de todos os ficheiros disponíveis no sistema de ficheiros e aceder aos metadados. Sistemas de ficheiros públicos permitem-lhe aceder aos ficheiros apenas se souber o URL exato. Para obter mais informações, consulte [restringir o acesso a contentores e blobs](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (as regras para contentores e blobs funcionam da mesma tona ficheiros e o sistema de ficheiros).
+  > Sistemas de ficheiros públicos permitem-lhe obter uma lista de todos os ficheiros disponíveis no sistema de ficheiros e aceder aos metadados. Sistemas de ficheiros públicos permitem-lhe aceder aos ficheiros apenas se souber o URL exato. Para obter mais informações, consulte [restringir o acesso a contentores e blobs](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (as regras para contentores e blobs funcionam da mesma tona ficheiros e o sistema de ficheiros).
  
 * **Sistemas de ficheiros privados em contas de armazenamento que não estão ligados a um cluster** não permitir aceder a ficheiros no sistema de arquivos, a menos que define a conta de armazenamento, ao submeter as tarefas de WebHCat. Razões para esta restrição são explicados neste artigo.
 
 As contas de armazenamento que estão definidas no processo de criação e as chaves são armazenadas no *%HADOOP_HOME%/conf/core-site.xml* em nós do cluster. O comportamento padrão do HDInsight é utilizar as contas de armazenamento definidas no *core-site* ficheiro. Pode modificar esta definição através do [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
-Várias tarefas de WebHCat, incluindo Hive, MapReduce, transmissão em fluxo do Hadoop e Pig, podem conter uma descrição das contas do Storage e metadados. (Essa abordagem funciona atualmente para o Pig com contas de armazenamento, mas não para os metadados.) Para obter mais informações, consulte [Utilizar um Cluster do HDInsight com Contas do Storage e Metastores Alternativos](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Várias tarefas de WebHCat, incluindo Hive, MapReduce, transmissão em fluxo do Hadoop e Pig, podem conter uma descrição das contas do Storage e metadados. (Essa abordagem funciona atualmente para o Pig com contas de armazenamento, mas não para os metadados.) Para obter mais informações, consulte [Utilizar um Cluster do HDInsight com Contas do Storage e Metastores Alternativos](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 ## <a id="benefits"></a>Vantagens do Armazenamento do Azure
 

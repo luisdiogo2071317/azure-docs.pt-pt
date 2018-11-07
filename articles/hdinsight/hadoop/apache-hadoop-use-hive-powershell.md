@@ -2,19 +2,19 @@
 title: Utilizar o Hive do Hadoop com o PowerShell no HDInsight - Azure
 description: Utilize o PowerShell para executar consultas do Hive no Hadoop no HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 16caee1b04b8fb3ae2e83b8105b802e121092f60
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051781"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257872"
 ---
 # <a name="run-hive-queries-using-powershell"></a>Executar consultas do Hive com o PowerShell
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -83,7 +83,7 @@ Os passos seguintes demonstram como utilizar estes cmdlets para executar uma tar
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > Para obter mais informações sobre **cadeias de caracteres aqui**, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">usando o Windows PowerShell aqui cadeias de caracteres</a>.
+   > Para obter mais informações sobre **cadeias de caracteres aqui**, consulte <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">usando o Windows PowerShell aqui cadeias de caracteres</a>.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

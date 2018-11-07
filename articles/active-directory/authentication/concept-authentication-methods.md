@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: d8d7850e7d5253cfec4431fed3e09f4007995494
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378929"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249698"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -122,7 +122,7 @@ A Microsoft recomenda a utilização de uma conta de e-mail que não requer que 
 
 A aplicação Microsoft Authenticator oferece um nível adicional de segurança para o seu trabalho do Azure AD ou a conta escolar ou a sua conta Microsoft.
 
-A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 > [!NOTE]
 > Os utilizadores não terão a opção para registar a aplicação móvel quando efetuar o registo para a reposição de palavra-passe self-service. Em vez disso, os utilizadores podem registar a sua aplicação móvel [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) ou a pré-visualização de registo de informações de segurança por [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).

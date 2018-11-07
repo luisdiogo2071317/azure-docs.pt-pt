@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124121"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255844"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
 Saiba como configurar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança do Azure com estas instruções.
@@ -211,7 +211,7 @@ Neste artigo, aprendeu a utilizar o monitoramento de integridade de ficheiros (F
 * [Gerir e responder a alertas de segurança](security-center-managing-and-responding-alerts.md)– Saiba como gerir e responder a alertas de segurança.
 * [Monitorizar soluções de parceiros](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [FAQ do Centro de segurança](security-center-faq.md)– encontre as perguntas mais frequentes sobre como utilizar o serviço.
-* [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – Obtenha as notícias e informações mais recentes de segurança do Azure.
+* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Obtenha as notícias e informações mais recentes de segurança do Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

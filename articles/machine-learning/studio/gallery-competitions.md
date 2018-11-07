@@ -1,6 +1,6 @@
 ---
-title: Competitions de AI galeria do Azure | Microsoft Docs
-description: Detete competitions na Galeria de AI do Azure.
+title: Competições de Galeria de IA do Azure | Documentos da Microsoft
+description: Descubra competições na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,44 +15,44 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 54ca22d9a3e685f6ae1e1454569bab9d058ce4fe
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242353"
 ---
-# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Detetar competitions na Galeria de AI do Azure
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Detetar competições na Galeria de IA do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence Competitions
-**[Competitions](https://gallery.cortanaintelligence.com/competitions)**  fornecer e extraordinária oportunidade compitam com a Comunidade de cientistas de dados para resolver problemas complexos utilizando Cortana Intelligence Suite.
+## <a name="cortana-intelligence-competitions"></a>Competições do Cortana Intelligence
+**[Competições](https://gallery.cortanaintelligence.com/competitions)**  fornecem uma oportunidade interessante para competir com a Comunidade de cientistas de dados para resolver problemas complexos com o Cortana Intelligence Suite.
 
-Para obter respostas a perguntas mais frequentes sobre Competitions, consulte [Microsoft Cortana Intelligence Competitions FAQ](competition-faq.md).
+Para obter respostas a perguntas mais frequentes sobre competições, consulte [FAQ de competições do Microsoft Cortana Intelligence](competition-faq.md).
 
 ## <a name="discover"></a>Descobrir
-O **[Competitions](https://gallery.cortanaintelligence.com/competitions)** página ([aka.ms/CIComp](http://aka.ms/CIComp)) apresenta uma lista dos competitions mais populares.
+O **[competições](https://gallery.cortanaintelligence.com/competitions)** página ([aka.ms/CIComp](https://aka.ms/CIComp)) apresenta uma lista das competições mais populares.
 
-![Selecione Competitions na home page da Galeria](./media/gallery-competitions/select-competitions-in-gallery.png)
+![Selecione competições a partir da home page da Galeria](./media/gallery-competitions/select-competitions-in-gallery.png)
 
  
- Clique em **ver todos os** para ver todos os competitions.
-Nesta página, pode procurar todos os competitions na galeria. Também pode pesquisar ao selecionar os critérios de filtro no lado esquerdo da página e entrar termos de pesquisa na parte superior.
+ Clique em **ver todas as** para ver todas as competições.
+Nesta página, pode procurar todas as competições na galeria. Também pode pesquisar ao selecionar os critérios de filtro à esquerda da página e inserir termos de pesquisa na parte superior.
 
- Clique em qualquer concorrência para abrir a página de detalhes de concorrência e ler mais informações. Nesta página pode comente, fornecer comentários ou fazer perguntas através da secção de comentários. Ainda pode partilhar com amigos ou colegas utilizando as capacidades de partilha de LinkedIn e o Twitter. Também pode enviar por e-mail uma hiperligação para a concorrência para convidar outros utilizadores para ver a página.
+ Clique em concorrência para abrir a página de detalhes da concorrência e ler mais informações. Nesta página pode comentar, fornecer comentários ou fazer perguntas através da secção de comentários. Até pode compartilhar com amigos ou de colegas com os recursos de partilha do LinkedIn e Twitter. Também pode enviar um e-mail uma ligação para a competição em convidar outros utilizadores para ver a página.
 
-![Partilhar este item com amigos](./media/gallery-how-to-use-contribute-publish/share-links.png)
+![Compartilhar este item com amigos](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Adicionar os seus comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Adicione os seus próprios comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
 
-## <a name="enter-a-competition"></a>Introduza uma concorrência
-Se as leis de concorrência estiver aberto, o estado na página de detalhes é **Active Directory**. Para introduzir a concorrência, clique em **introduza concorrência** e receberão instruções sobre os recursos que necessita e os passos, precisa de tomar.
+## <a name="enter-a-competition"></a>Introduza uma competição
+Se a competição está aberta, o estado na página de detalhes é **Active Directory**. Para entrar na competição, clique em **introduzir concorrência** e terá a chance obter instruções sobre os recursos necessários e os passos que precisa de tomar.
 
-![Concorrência está ativa](media/gallery-competitions/open-competition.png)
+![Competição está ativa](media/gallery-competitions/open-competition.png)
 
-Se as leis de concorrência foi concluída, em seguida, é apresentada uma lista de winners.
+Se a competição foi concluída, é apresentada uma lista de vencedores.
 
-**[COLOCAR-ME PARA THE GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[IR PARA A GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

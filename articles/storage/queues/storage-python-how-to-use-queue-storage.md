@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 8779b067c33ce76cd60b020e2952bcbccf0dd944
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054582"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230415"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como utilizar o Armazenamento de filas do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -128,7 +128,7 @@ queue_service.delete_queue('taskqueue')
 Agora que aprendeu as noções básicas do armazenamento de filas, siga estas ligações para saber mais.
 
 * [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)
-* [API REST dos Serviços do Armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)
+* [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355)
 * [Blogue da Equipa de Armazenamento do Azure]
 * [Armazenamento do Microsoft Azure SDK para Python]
 

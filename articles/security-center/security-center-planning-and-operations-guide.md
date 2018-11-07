@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 454cfc97aa203d5de7b00f47e1f87fd0aed0d28a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158794"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255954"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de operações e planeamento do Centro de Segurança do Azure
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança de informações e administradores de nuvem cujas organizações estejam a planear utilizar o Centro de Segurança do Azure.
@@ -126,7 +126,7 @@ As políticas de segurança definem a configuração pretendida para as suas car
 
 As políticas do Centro de Segurança contêm os componentes seguintes:
 - [Recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): aprovisionamento de agente e definições de recolha de dados.
-- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): um [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina que controlos são monitorizados e recomendados pelo centro de segurança ou da utilização do Azure Policy para criar definições novas, definir políticas adicionais e atribuir políticas vários grupos de gestão.
+- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): um [Azure Policy](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina que controlos são monitorizados e recomendados pelo centro de segurança ou da utilização do Azure Policy para criar definições novas, definir políticas adicionais e atribuir políticas vários grupos de gestão.
 - [Notificações por e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contactos de segurança e definições de notificação.
 - [Escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing): seleção de preço gratuito ou standard, que determina quais as funcionalidades do Centro de Segurança que estão disponíveis para os recursos no âmbito (pode ser especificado para subscrições, grupos de recursos e áreas de trabalho).
 
@@ -262,5 +262,5 @@ Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para sab
 * [Monitorização de estado de funcionamento de segurança no Centro de Segurança do Azure](security-center-monitoring.md) – Saiba como monitorizar o estado de funcionamento dos seus recursos do Azure.
 * [Monitorizar soluções de parceiros com o Centro de Segurança do Azure](security-center-partner-solutions.md) – Saiba como monitorizar o estado de funcionamento das suas soluções de parceiros.
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
 

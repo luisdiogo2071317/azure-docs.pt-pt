@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252552"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Como utilizar entradas alternativas
 
@@ -23,7 +23,7 @@ Este tutorial mostra como utilizar o campo "entradas alternativo" para entrada d
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização do tutorial 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Pré-visualização do tutorial 8](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial requer que o bot tutorial geral está em execução
@@ -134,7 +134,7 @@ Vamos adicionar entradas alternativas para a primeira caixa de diálogo:
 2. Clique para selecionar a opção 'o que é a meteorologia' no painel esquerdo:
     1. Na entrada alternativa de adicionar, introduza 'previsão meteorológica'.
     2. Introduza "será-lo de chuva?"
-    3. Clique em enviar alterações.
+    3. Clique em submeter as alterações.
 4. Clique para selecionar 'denver' no painel esquerdo:
     1. Na entrada alternativa de adicionar, introduza "de denver'.
     2. Introduza 'Previsão de austin'.

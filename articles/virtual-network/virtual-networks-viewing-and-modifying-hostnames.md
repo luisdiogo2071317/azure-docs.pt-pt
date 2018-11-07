@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 4a836e0f5e47d6ef91e11fd1a0076859b54ed8e6
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: afd5361774af3379dc0d4054509e318e8263dcc5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243032"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250191"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Ver e modificar os nomes de anfitrião
 Para permitir que as instâncias da função a ser referenciado por nome de anfitrião, tem de definir o valor para o nome de anfitrião no ficheiro de configuração do serviço para cada função. Fazer isso adicionando o nome de anfitrião pretendido para o **vmName** atributo da **função** elemento. O valor do **vmName** atributo é utilizado como base para o nome de anfitrião de cada instância de função. Por exemplo, se **vmName** é *webrole* e há três instâncias de função, os nomes de anfitrião das instâncias será *webrole0*, *webrole1*, e *webrole2*. Não é necessário especificar um nome de anfitrião para máquinas virtuais no ficheiro de configuração, porque o nome de anfitrião para uma máquina virtual é preenchido com base no nome da máquina virtual. Para obter mais informações sobre como configurar um serviço do Microsoft Azure, consulte [esquema de configuração de serviço do Azure (. cscfg ficheiro)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
@@ -58,7 +58,7 @@ Pode modificar o nome de anfitrião para qualquer máquina virtual ou instância
 
 [Esquema de configuração de serviço do Azure (. cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
-[Esquema de configuração de rede Virtual do Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Esquema de configuração de rede Virtual do Azure](https://go.microsoft.com/fwlink/?LinkId=248093)
 
 [Especifique as definições de DNS usando arquivos de configuração de rede](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 

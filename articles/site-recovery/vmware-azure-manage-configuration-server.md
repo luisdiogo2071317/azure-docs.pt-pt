@@ -1,18 +1,18 @@
 ---
 title: Gerir o servidor de configuração para VMware e de recuperação de desastres do servidor físico com o Azure Site Recovery | Documentos da Microsoft
-description: Este artigo descreve como gerir um servidor de configuração existente para recuperação após desastre de VMs de VMware e servidores físicos para o Azure com RecoveryS de Site do Azure.
+description: Este artigo descreve como gerir um servidor de configuração existente para recuperação após desastre de VMs de VMware e servidores físicos no Azure com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215145"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219494"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gerir o servidor de configuração para VMs de VMware
 
@@ -137,10 +137,10 @@ Execute update rollups para atualizar o servidor de configuração. As atualiza�
 - Se executar 9.7, 9.8, 9.9 ou 9.10, pode atualizar diretamente para 9.11.
 - Se executar 9.6 ou anterior e pretende atualizar para o 9.11, primeiro tem de atualizar para versão 9.7. antes de 9.11.
 
-Links para update rollups para o atualizar para todas as versões do servidor de configuração estão disponíveis no [página de atualizações de wiki](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Links para update rollups para o atualizar para todas as versões do servidor de configuração estão disponíveis no [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 
 > [!IMPORTANT]
-> A cada nova versão "n" de um Azure Site Recovery componenet que é lançado, todas as versões anteriores ao ' n-4' é considerado sem suporte. É sempre aconselhável atualizar para versões mais recentes disponíveis.
+> A cada nova versão "n" de um Azure Site Recovery componente que for lançado, todas as versões anteriores ao ' n-4' é considerado sem suporte. É sempre aconselhável atualizar para versões mais recentes disponíveis.
 
 Atualize o servidor da seguinte forma:
 

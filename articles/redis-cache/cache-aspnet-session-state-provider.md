@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: wesmc
-ms.openlocfilehash: 047d23184ccf640dd6510faca9f508eef0dc50cb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: e007b23b6e4a55e2a939994e8f95d01fc24cc529
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241583"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Fornecedor de Estado da Sessão ASP.NET para a Cache de Redis do Azure
 A Cache de Redis do Azure fornece um fornecedor de estado de sessão que pode utilizar para armazenar a sua sessão estado dentro da memória cache de Redis em vez de uma base de dados do SQL Server. Para utilizar o fornecedor de estado de sessão colocação em cache, comece por configurar a cache e, em seguida, configure a sua aplicação de ASP.NET para a cache com o pacote NuGet de estado de sessão Cache de Redis.
@@ -94,11 +94,11 @@ Configurar os atributos com os valores do seu painel de cache no portal do Micro
 * **retryTimeoutInMilliseconds** – operações que não sejam repetidas durante este intervalo, especificado em milissegundos. Da primeira repetição ocorre após 20 milissegundos e, em seguida, as tentativas ocorrem a cada segundo até que o intervalo de retryTimeoutInMilliseconds expira. Imediatamente após este intervalo, a operação será repetida uma vez final. Se a operação continuar a falhar, a exceção é lançada volta ao chamador, consoante a definição de throwOnError. O valor predefinido é 0, o que significa que não existem repetições.
 * **databaseId** – Especifica qual banco de dados a utilizar para dados de saída da cache. Se não for especificado, é utilizado o valor predefinido de 0.
 * **applicationName** – as chaves são armazenadas no redis como `{<Application Name>_<Session ID>}_Data`. Este esquema de nomeação permite que vários aplicativos compartilhem a mesma instância de Redis. Este parâmetro é opcional e se não fornecer um valor predefinido é utilizado.
-* **connectionTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de connectTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de connectTimeout de 5000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de syncTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de syncTimeout de 1000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **connectionTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de connectTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de connectTimeout de 5000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](https://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de syncTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de syncTimeout de 1000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** -esta definição permite-lhe especificar a serialização personalizada de conteúdo de sessão que é enviado ao Redis. O tipo especificado tem de implementar `Microsoft.Web.Redis.ISerializer` e tem de declarar o construtor sem parâmetros público. Por predefinição `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` é utilizado.
 
-Para obter mais informações sobre estas propriedades, veja o anúncio de mensagem de blogue original em [apresentamos o estado de fornecedor de sessão ASP.NET para Redis](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Para obter mais informações sobre estas propriedades, veja o anúncio de mensagem de blogue original em [apresentamos o estado de fornecedor de sessão ASP.NET para Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 
 Não se esqueça de comentar a secção de fornecedor de estado de sessão de padrão InProc na Web. config.
 

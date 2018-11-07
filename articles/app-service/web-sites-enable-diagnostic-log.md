@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365259"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231628"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 ## <a name="overview"></a>Descrição geral
-O Azure disponibiliza diagnósticos incorporados para ajudar a depurar uma [aplicação do serviço de aplicações web](http://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, saiba como ativar o registo de diagnósticos e adicionar instrumentação à sua aplicação, bem como aceder às informações registadas pelo Azure.
+O Azure disponibiliza diagnósticos incorporados para ajudar a depurar uma [aplicação do serviço de aplicações web](https://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, saiba como ativar o registo de diagnósticos e adicionar instrumentação à sua aplicação, bem como aceder às informações registadas pelo Azure.
 
 Este artigo utiliza a [portal do Azure](https://portal.azure.com), Azure PowerShell e a Interface de linha de comandos do Azure (CLI do Azure) para trabalhar com registos de diagnóstico. Para obter informações sobre como trabalhar com registos de diagnóstico com o Visual Studio, consulte [resolução de problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -37,10 +37,10 @@ Pode ativar ou desativar os seguintes tipos de registos:
 
 * **Detalhadas de registo de erro** -erro informações detalhadas de códigos de estado HTTP que indicam uma falha (código de estado 400 ou superior). Pode conter informações que podem ajudar a determinar o motivo pelo qual o servidor devolveu o código de erro.
 * **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. É útil se está a tentar aumentar o desempenho do site ou isolar o que está a causar um erro HTTP específico a ser devolvido.
-* **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o [formato de ficheiro de registo expandido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
+* **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 
 ### <a name="application-diagnostics"></a>Application diagnostics
-Diagnóstico de aplicação permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) classe para registar informações no registo de diagnóstico de aplicação. Por exemplo:
+Diagnóstico de aplicação permite-lhe capturar informações produzidas por um aplicativo web. As aplicações ASP.NET podem utilizar o [Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) classe para registar informações no registo de diagnóstico de aplicação. Por exemplo:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ Segue-se a estrutura de diretório que os registos são armazenados em:
 * **Registos de aplicações** -/LogFiles/aplicação /. Esta pasta contém um ou mais ficheiros de texto que contém informações produzidas pelo registo de aplicações.
 * **Falha de rastreios de pedido** -/ LogFiles/W3SVC # # # /. Esta pasta contém um arquivo XSL e um ou mais arquivos XML. Certifique-se de que baixe o arquivo XSL no mesmo diretório como o ficheiro (s) o XML como o arquivo XSL fornece funcionalidade de formatação e filtrar o conteúdo dos ficheiros pelo XML quando visualizado no Internet Explorer.
 * **Registos de erros de detalhadas** -/LogFiles/DetailedErrors /. Esta pasta contém um ou mais arquivos. htm que fornecem informações abrangentes para quaisquer erros HTTP que ocorreram.
-* **Os registos do servidor da Web** -/LogFiles/http/RawLogs. Esta pasta contém uma ou mais ficheiros de texto formatado utilizando o [formato de ficheiro de registo expandido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Os registos do servidor da Web** -/LogFiles/http/RawLogs. Esta pasta contém uma ou mais ficheiros de texto formatado utilizando o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Logs de implantação** -/ LogFiles/Git. Esta pasta contém registos gerados pelos processos de implantação interna utilizados por aplicações web do Azure, bem como registos para implementações do Git. Também pode encontrar registos de implementação em D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ Para filtrar os tipos de registo específicos, como HTTP, utilize o **-caminho**
 Para ver uma lista de caminhos disponíveis, utilize o parâmetro - ListPath.
 
 > [!NOTE]
-> Se não tiver instalado o Azure PowerShell, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Se não tiver instalado o Azure PowerShell, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -264,7 +264,7 @@ Rastreios de pedido falhado são armazenados nos arquivos XML chamados **. XML d
 Registos de erros detalhados são documentos HTML que fornecem informações mais detalhadas sobre os erros HTTP que ocorreram. Uma vez que eles são simplesmente os documentos HTML, eles podem ser exibidos num navegador da web.
 
 ### <a name="web-server-logs"></a>Registos de servidores Web
-Os registos do servidor web são formatados com o [formato de ficheiro de registo expandido de W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Estas informações podem ser lidos com um editor de texto ou analisado com o uso, como utilitários [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
+Os registos do servidor web são formatados com o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Estas informações podem ser lidos com um editor de texto ou analisado com o uso, como utilitários [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Os registos produzidos por aplicações web do Azure não suportam o **s-computername**, **s-ip**, ou **cs-version** campos.
@@ -274,7 +274,7 @@ Os registos do servidor web são formatados com o [formato de ficheiro de regist
 ## <a name="nextsteps"></a> Passos seguintes
 * [Como monitorizar aplicações Web](web-sites-monitor.md)
 * [Resolução de problemas de aplicações web do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analisar registos de aplicações web no HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analisar registos de aplicações web no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Se pretender começar a utilizar o App Service do Azure antes de se inscrever numa conta do Azure, aceda a [Experimentar o App Service](https://azure.microsoft.com/try/app-service/), onde pode criar de imediato uma aplicação Web de arranque de curta duração no App Service. Sem cartões de crédito; sem compromissos.

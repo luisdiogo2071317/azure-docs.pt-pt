@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339955"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254524"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure Stack
 Há várias coisas que precisa saber se estiver familiarizado com a administração do Azure Stack. Esta orientação fornece uma descrição geral da sua função como um operador do Azure Stack e o que precisa dizer aos utilizadores para os mesmos para se tornar produtivos rapidamente.
@@ -81,7 +81,7 @@ Existem algumas considerações de conta que deve estar atento ao gerir o Azure 
  
 Pode utilizar o [portal de administrador](azure-stack-manage-portals.md) ou o PowerShell para gerir o Azure Stack. A forma mais fácil de aprender os conceitos básicos é através do portal. Se pretender utilizar o PowerShell, existem passos de preparação. Deve [instale](azure-stack-powershell-install.md) PowerShell, [transferir](azure-stack-powershell-download.md) módulos adicionais, e [configurar](azure-stack-powershell-configure-admin.md) PowerShell.
 
-O Azure Stack utiliza o Azure Resource Manager como seu mecanismo de implantação, gerenciamento e organização subjacente. Se for para gerir o Azure Stack e ajudar a dar suporte aos usuários, deve aprender sobre o Resource Manager. Consulte a [introdução ao Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) White Paper.
+O Azure Stack utiliza o Azure Resource Manager como seu mecanismo de implantação, gerenciamento e organização subjacente. Se for para gerir o Azure Stack e ajudar a dar suporte aos usuários, deve aprender sobre o Resource Manager. Consulte a [introdução ao Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) White Paper.
 
 ## <a name="your-typical-responsibilities"></a>Suas responsabilidades típicas
 

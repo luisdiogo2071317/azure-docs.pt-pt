@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228985"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
 
@@ -50,7 +50,7 @@ Por vezes, pode ser difícil encontrar os recursos no [portal do Azure]. Para to
 
 O **definições** separador é onde pode atualizar a versão de runtime das funções utilizada pela sua aplicação de função. Também é onde pode gerir as chaves de anfitrião utilizadas para restringir o acesso HTTP para todas as funções alojadas pela aplicação de funções.
 
-As funções suportam alojamento de consumo e planos de alojamento de serviço de aplicações. Para obter mais informações, consulte [escolher o plano de serviço correto para as funções do Azure](functions-scale.md). Para melhor previsibilidade no plano de consumo, o funções permite limitar a utilização da plataforma definindo uma quota de utilização diária, em segundos de gigabytes. Assim que a quota de utilização diária é atingida, a function app é parada. Uma aplicação de função parada como resultado de atingir o quota de gastos pode ser ativada novamente no mesmo contexto como estabelecer o diário de quota de gastos. Consulte a [funções do Azure, página de preços](http://azure.microsoft.com/pricing/details/functions/) para obter detalhes sobre a faturação.   
+As funções suportam alojamento de consumo e planos de alojamento de serviço de aplicações. Para obter mais informações, consulte [escolher o plano de serviço correto para as funções do Azure](functions-scale.md). Para melhor previsibilidade no plano de consumo, o funções permite limitar a utilização da plataforma definindo uma quota de utilização diária, em segundos de gigabytes. Assim que a quota de utilização diária é atingida, a function app é parada. Uma aplicação de função parada como resultado de atingir o quota de gastos pode ser ativada novamente no mesmo contexto como estabelecer o diário de quota de gastos. Consulte a [funções do Azure, página de preços](https://azure.microsoft.com/pricing/details/functions/) para obter detalhes sobre a faturação.   
 
 ## <a name="platform-features-tab"></a>Guia de funcionalidades de plataforma
 

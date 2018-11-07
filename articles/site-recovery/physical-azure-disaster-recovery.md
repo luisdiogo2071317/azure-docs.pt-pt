@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 13ce074f8ec22bc80ee5c56f2127b3a5b4d788bf
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4f4a61ad0c1b1fcab4773dcc16c5e22053c4158d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215400"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230891"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação após desastre para o Azure para servidores físicos no local
 
@@ -23,7 +23,7 @@ Este tutorial mostra-lhe como configurar a recuperação após desastre de servi
 
 > [!div class="checklist"]
 > * Configurar os pré-requisitos do Azure e no local
-> * Criar um cofre dos serviços de recuperação para o Site Recovery 
+> * Criar um cofre dos Serviços de Recuperação para o Site Recovery 
 > * Configurar a origem e ambientes de replicação de destino
 > * Criar uma política de replicação
 > * Ativar a replicação para um servidor
@@ -51,7 +51,7 @@ Antes de começar, tenha em atenção que:
 
 ### <a name="set-up-an-azure-account"></a>Configurar uma conta do Azure
 
-Obter um Microsoft [conta do Azure](http://azure.microsoft.com/).
+Obter um Microsoft [conta do Azure](https://azure.microsoft.com/).
 
 - Pode começar com uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 - Saiba mais sobre [os preços da recuperação de Site](site-recovery-faq.md#pricing)e obtenha [os detalhes dos preços](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -157,10 +157,10 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em **infraestrutura do Site Recovery** > **políticas de replicação** > **+ política de replicação**.
-2. Na **criar política de replicação**, especifique um nome de política.
-3. Na **limiar RPO**, especifique o limite (RPO) da objetivo de ponto de recuperação. Este valor Especifica a frequência com que são criados pontos de recuperação de dados. Será gerado um alerta se a replicação contínua exceder este limite.
-4. Na **retenção do ponto de recuperação**, especifique o intervalo de tempo (em horas) é a janela de retenção para cada ponto de recuperação. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela. É suportada até a retenção de 24 horas para máquinas replicadas para o armazenamento premium e 72 horas para o armazenamento standard.
+1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** > **+Política de Replicação**.
+2. Em **Criar política de replicação**, especifique um nome de política.
+3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Este valor Especifica a frequência com que são criados pontos de recuperação de dados. Será gerado um alerta se a replicação contínua exceder este limite.
+4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. As VMs replicadas podem ser recuperadas para qualquer ponto numa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.
 5. Na **frequência de instantâneos consistentes com a aplicação**, especifique com que frequência (em minutos) pontos de recuperação que contêm instantâneos consistentes com aplicações serão criados. Clique em **OK** para criar a política.
 
     ![Política de replicação](./media/physical-azure-disaster-recovery/replication-policy.png)

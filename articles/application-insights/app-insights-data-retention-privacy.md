@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86b7b87c8cc11be5c4f2c8892905bb6e6800e729
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958887"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245703"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -108,9 +108,9 @@ A Microsoft utiliza os dados apenas para fornecer o serviço para.
 * Não. Seu aplicativo pode executar em qualquer lugar e em seu próprio anfitriões no local ou na Cloud.
 
 ## <a name="how-secure-is-my-data"></a>Quão seguros são meus dados?
-O Application Insights é um serviço do Azure. As políticas de segurança descritas a [white paper de segurança do Azure, privacidade e conformidade](http://go.microsoft.com/fwlink/?linkid=392408).
+O Application Insights é um serviço do Azure. As políticas de segurança descritas a [white paper de segurança do Azure, privacidade e conformidade](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Os dados são armazenados em servidores do Microsoft Azure. Para as contas no Portal do Azure, as restrições de conta estão descritas no [documento de segurança do Azure, privacidade e conformidade](http://go.microsoft.com/fwlink/?linkid=392408).
+Os dados são armazenados em servidores do Microsoft Azure. Para as contas no Portal do Azure, as restrições de conta estão descritas no [documento de segurança do Azure, privacidade e conformidade](https://go.microsoft.com/fwlink/?linkid=392408).
 
 O acesso aos seus dados pela equipa da Microsoft é restrito. Podemos aceder aos seus dados apenas com a sua autorização e se é necessário suportar a utilização do Application Insights. 
 

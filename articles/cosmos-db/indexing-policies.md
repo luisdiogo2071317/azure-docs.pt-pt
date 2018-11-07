@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054677"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237592"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como funciona o Azure Cosmos DB indexa dados?
 
@@ -323,7 +323,7 @@ Pode escolher se pretende que a coleção para indexar automaticamente todos os 
 
 Com a indexação automática desativada, pode adicionar ainda seletivamente apenas os documentos específicos para o índice. Por outro lado, pode deixar a indexação automática e seletivamente optar por excluir documentos específicos. Indexação/desativar as configurações são úteis quando tem apenas um subconjunto de documentos que tem de ser consultado.
 
-O exemplo a seguir mostra como incluir um documento explicitamente ao utilizar o [SDK de .NET API de SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) e o [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) propriedade.
+O exemplo a seguir mostra como incluir um documento explicitamente ao utilizar o [SDK de .NET API de SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) e o [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) propriedade.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Quando seria são efetuadas alterações de política de indexação a suas cole
 ## <a name="performance-tuning"></a>Otimização do desempenho
 As APIs de SQL fornecem informações sobre as métricas de desempenho, como o armazenamento de índice utilizado e o custo de débito (unidades de pedido) para cada operação. Pode usar essas informações para comparar várias políticas de indexação e para o ajuste de desempenho.
 
-Para verificar a quota de armazenamento e a utilização de uma coleção, execute uma **HEAD** ou **obter** pedido em relação ao recurso de coleção. Em seguida, Inspecione o **x-ms-pedido-quota** e o **x-ms-pedido-utilização** cabeçalhos. No SDK do .NET, o [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades no [ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) conter estes valores correspondentes.
+Para verificar a quota de armazenamento e a utilização de uma coleção, execute uma **HEAD** ou **obter** pedido em relação ao recurso de coleção. Em seguida, Inspecione o **x-ms-pedido-quota** e o **x-ms-pedido-utilização** cabeçalhos. No SDK do .NET, o [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades no [ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) conter estes valores correspondentes.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ Para verificar a quota de armazenamento e a utilização de uma coleção, execu
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Para medir a sobrecarga de indexação de cada operação de escrita (criar, atualizar ou eliminar), Inspecione o **x-ms--de encargos de pedidos** cabeçalho (ou o equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) propriedade no [ ResourceResponse < T\> ](http://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de pedido são consumidas por essas operações.
+Para medir a sobrecarga de indexação de cada operação de escrita (criar, atualizar ou eliminar), Inspecione o **x-ms--de encargos de pedidos** cabeçalho (ou o equivalente [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) propriedade no [ ResourceResponse < T\> ](https://msdn.microsoft.com/library/dn799209.aspx) no SDK do .NET) para medir o número de unidades de pedido são consumidas por essas operações.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

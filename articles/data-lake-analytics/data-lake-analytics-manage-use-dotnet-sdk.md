@@ -9,12 +9,12 @@ ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 96b449e372417298ee3517d6a45c245d440a01c2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: fc732065f328f653082286508db74cc29107854e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047396"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232013"
 ---
 # <a name="manage-azure-data-lake-analytics-a-net-app"></a>Gerir uma aplicação .NET do Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -24,7 +24,7 @@ Este artigo descreve como gerir contas do Azure Data Lake Analytics, origens de 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Visual Studio 2015, Visual Studio 2013 atualização 4 ou Visual Studio 2012 com Visual C++ instalado**.
-* **SDK do Microsoft Azure para .NET versão 2.5 ou superior**.  Instale-lo através do [Instalador de plataforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
+* **SDK do Microsoft Azure para .NET versão 2.5 ou superior**.  Instale-lo através do [Instalador de plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx).
 * **Pacotes de NuGet necessárias**
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
@@ -218,7 +218,7 @@ if (adlaClient.Account.Exists(rg, adla))
 Atualmente, o Data Lake Analytics suporta as seguintes origens de dados:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Conta de armazenamento do Azure](../storage/common/storage-introduction.md)
+* [Conta de Armazenamento do Azure](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Ligar a uma conta de armazenamento do Azure
 

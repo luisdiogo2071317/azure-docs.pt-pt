@@ -1,6 +1,6 @@
 ---
-title: Conteúdo de sincronização a partir de uma pasta de cloud App Service do Azure
-description: Saiba como implementar a aplicação no App Service do Azure através de sincronização de conteúdo da pasta de nuvem.
+title: Sincronização de conteúdo de uma pasta de cloud para o serviço de aplicações do Azure
+description: Saiba como implementar a aplicação no App Service do Azure através de sincronização de conteúdo de uma pasta de cloud.
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -13,55 +13,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 3781010c74daa51c92813db85ee03eaa4c02a4cf
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 3796f5c8956b633a4789baaf31a439746dc96b96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233592"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233767"
 ---
-# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Conteúdo de sincronização a partir de uma pasta de cloud App Service do Azure
-Este artigo mostra-lhe como sincronizar o seu conteúdo [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 
+# <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronização de conteúdo de uma pasta de cloud para o serviço de aplicações do Azure
+Este artigo mostra-lhe como sincronizar o conteúdo do seu [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 
 
-Tem a alimentação ligada a implementação de sincronização de conteúdo a pedido pelo App Service [motor de implementação do Kudu](https://github.com/projectkudu/kudu/wiki). Pode, trabalhar com o código da aplicação e o conteúdo numa pasta designada de nuvem e, em seguida, sincronizar para o serviço de aplicações com clique do botão para um. Sincronização conteúda utiliza o servidor de compilação do Kudu. 
+A implementação de sincronização de conteúdo a pedido com tecnologia do serviço de aplicações [motor de implementação Kudu](https://github.com/projectkudu/kudu/wiki). Pode, trabalhar com o código de aplicação e o conteúdo numa pasta designada de nuvem e, em seguida, sincronizadas com o serviço de aplicações com o clique de um botão. Sincronização de conteúdo utiliza o servidor de compilação Kudu. 
 
-## <a name="enable-content-sync-deployment"></a>Ativar a implementação de conteúdo de sincronização
+## <a name="enable-content-sync-deployment"></a>Ativar a implementação de sincronização de conteúdo
 
-Para ativar a sincronização de conteúdo, navegue para a página da aplicação do serviço de aplicações no [portal do Azure](https://portal.azure.com).
+Para ativar a sincronização de conteúdo, navegue até à página da aplicação do serviço de aplicações na [portal do Azure](https://portal.azure.com).
 
-No menu à esquerda, clique em **Centro de implementação** > **OneDrive** ou **Dropbox** > **autorizar**. Siga as instruções de autorização. 
+No menu à esquerda, clique em **Deployment Center** > **OneDrive** ou **Dropbox** > **autorizar**. Siga as instruções de autorização. 
 
 ![](media/app-service-deploy-content-sync/choose-source.png)
 
-Basta autorizar com o OneDrive ou Dropbox uma vez. Se já estiver autorizado, basta clicar **continuar**. Pode alterar a conta do OneDrive ou Dropbox autorizada clicando **alterar conta**.
+Apenas terá de autorizar com o OneDrive ou Dropbox, uma vez. Se já estiver autorizado, basta clicar **continuar**. Pode alterar a conta do OneDrive ou Dropbox autorizada clicando **alterar conta**.
 
 ![](media/app-service-deploy-content-sync/continue.png)
 
-No **configurar** página, selecione a pasta que pretende sincronizar. Esta pasta é criada no seguinte caminho de conteúdo designado no OneDrive ou Dropbox. 
+Na **configurar** página, selecione a pasta que pretende sincronizar. Esta pasta é criada no seguinte caminho de conteúdo designado no OneDrive ou Dropbox. 
    
 * **OneDrive**: `Apps\Azure Web Apps`
 * **Dropbox**: `Apps\Azure`
 
 Quando terminar, clique em **continuar**.
 
-No **resumo** página, verifique as suas opções e clique em **concluir**.
+Na **resumo** página, verifique as suas opções e clique em **concluir**.
 
 ## <a name="synchronize-content"></a>Sincronizar o conteúdo
 
-Quando pretender sincronizar o conteúdo na sua pasta de nuvem com o serviço de aplicações, volte atrás para o **Centro de implementação** página e clique em **sincronização**.
+Quando quiser sincronizar o conteúdo na sua pasta de cloud com o serviço de aplicações, volte para o **Deployment Center** página e clique em **sincronização**.
 
 ![](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
-   > Devido às diferenças subjacentes nas APIs, **OneDrive para empresas** não é suportado neste momento. 
+   > Devido às diferenças subjacentes nas APIs, **OneDrive para empresas** não é suportada neste momento. 
    > 
    > 
 
-## <a name="disable-content-sync-deployment"></a>Desativar a implementação de conteúdo de sincronização
+## <a name="disable-content-sync-deployment"></a>Desativar a implementação de sincronização de conteúdo
 
-Para desativar a sincronização de conteúdo, navegue para a página da aplicação do serviço de aplicações no [portal do Azure](https://portal.azure.com).
+Para desativar a sincronização de conteúdo, navegue até à página da aplicação do serviço de aplicações na [portal do Azure](https://portal.azure.com).
 
-No menu à esquerda, clique em **Centro de implementação** > **OneDrive** ou **Dropbox** > **desligar**.
+No menu à esquerda, clique em **Deployment Center** > **OneDrive** ou **Dropbox** > **desligar**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
 
@@ -70,4 +70,4 @@ No menu à esquerda, clique em **Centro de implementação** > **OneDrive** ou *
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Implementar a partir do repositório de Git local](app-service-deploy-local-git.md)
+> [Implemente a partir do repositório de Git local](app-service-deploy-local-git.md)

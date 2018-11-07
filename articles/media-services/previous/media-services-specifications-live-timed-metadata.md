@@ -1,6 +1,6 @@
 ---
-title: Media Services do Azure - sinalização excedeu o tempo limite metadados na transmissão em fluxo em direto | Microsoft Docs
-description: Esta especificação descreve dois modos que são suportados pelos Media Services para metadados excedeu o tempo limite sinalização dentro de transmissão em fluxo em direto. Isto inclui suporte para metadados excedeu o tempo limite genérico sinais, bem como SCTE 35 sinalização para inserção de splice do ad.
+title: Serviços de multimédia do Azure - sinalização metadados temporizados na transmissão em direto | Documentos da Microsoft
+description: Essa especificação descreve dois modos que são suportados pelos serviços de multimédia de sinalização metadados temporizados na transmissão em direto. Isto inclui suporte para sinais de metadados temporizados genérica, bem como SCTE 35 sinalização para inserção de fusão de publicidade.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,133 +14,133 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: 2e736872dc3e471af7c5b3f758516910a02067fe
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 827153300b9cab4ea805689b1e103bea1b334ec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790525"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249579"
 ---
-# <a name="signaling-timed-metadata-in-live-streaming"></a>Sinalização excedeu o tempo limite metadados na transmissão em fluxo em direto
+# <a name="signaling-timed-metadata-in-live-streaming"></a>Assinalar metadados temporizados na transmissão em direto
 
 
 ## <a name="1-introduction"></a>1 Introdução 
-Para facilitar a inserção de anúncios ou eventos personalizados num leitor de cliente, muitas vezes, broadcasters disponibilizar utilização dos metadados excedeu o tempo limite incorporados o vídeo. Para ativar estes cenários, os Media Services fornecem suporte para o transporte de metadados excedeu o tempo limite, juntamente com o suporte de dados do ponto de inserção do canal de transmissão em fluxo em direto para a aplicação de cliente.
-Esta especificação destaca dois modos que são suportados pelos Media Services para metadados excedeu o tempo limite no direta sinais de transmissão em fluxo:
+Para facilitar a inserção de anúncios ou eventos personalizados num leitor de cliente, emissoras, muitas vezes, faça uso de metadados temporizados incorporado no vídeo. Para ativar estes cenários, os Media Services fornecem suporte para o transporte de metadados temporizados juntamente com o suporte de dados, do ponto de ingestão do canal de transmissão em fluxo em direto para a aplicação cliente.
+Esta especificação contornos dois modos que são suportados pelos serviços de multimédia para os metadados temporizados dentro do live sinais de transmissão em fluxo:
 
-1. [SCTE-35] sinalização que heeds práticas recomendadas descritas por [SCTE 67]
+1. [SCTE-35] sinalizando que heeds as práticas recomendadas descritas por [SCTE 67]
 
-2. Uma genérica excedeu o tempo limite metadados sinalização modo, mensagens que não são [SCTE-35]
+2. Excedeu o tempo limite a um genérico metadados modo, para as mensagens que não são de sinalização [SCTE-35]
 
 ### <a name="12-conformance-notation"></a>1.2 a notação de conformidade de
-As palavras de chave "tem de", "Não tem", "REQUIRED", "SHALL", "Deverá NOT", "SHOULD", "Deve NOT", "Recomendado", "Poderá" e "Opcional" neste documento estão a ser interpretados conforme descrito em RFC 2119
+As palavras-chave "tem", "Não deve", "Obrigatório", "SHALL", "Não deve", "SHOULD", "Não deve", "Recomendados", "Mai" e "Opcional" neste documento devem ser interpretados conforme descrito em RFC 2119
 
-### <a name="13-terms-used"></a>1.3 termos utilizados
+### <a name="13-terms-used"></a>1.3 termos de utilizados
 
 | Termo              | Definição                                                                                                                                                                                                                       |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tempo de apresentação | O tempo que um evento é apresentado um Visualizador de mensagens em fila. O tempo representa o momento em que a linha cronológica de suporte de dados que um visualizador deverá ver o evento. Por exemplo, o tempo de apresentação de uma mensagem de comando de splice_info() SCTE 35 é o splice_time(). |
-| Hora da chegada de      | O tempo que chega uma mensagem de evento. A hora é normalmente distinta desde o momento de apresentação do evento, uma vez que as mensagens de eventos são enviadas antes do tempo de apresentação do evento.                                     |
-| Controlar disperso      | controlar o suporte de dados que não seja contínuo e é o tempo sincronizado com um registo principal ou de controlo.                                                                                                                                    |
-| Origem            | O serviço de transmissão em fluxo de Media Services do Azure                                                                                                                                                                                                |
-| Receptor de canal      | Serviço de transmissão em fluxo em direto de suporte de dados do Azure                                                                                                                                                                                           |
-| HLS               | Protocolo Apple HTTP em direto de transmissão em fluxo                                                                                                                                                                                               |
+| Tempo de apresentação | O tempo que um evento é apresentado a um Visualizador de mensagens em fila. O tempo representa o momento em que a linha cronológica de suporte de dados que um visualizador veria o evento. Por exemplo, o tempo de apresentação de uma mensagem de comando de splice_info() SCTE 35 é o splice_time(). |
+| Hora da chegada      | O tempo que uma mensagem de evento é recebido. O tempo é normalmente distinto desde o momento de apresentação do evento, uma vez que as mensagens de eventos são enviadas antes do tempo a apresentação do evento.                                     |
+| Track disperso      | controlar o suporte de dados que não é contínuo e é hora sincronizada com um Roteiro de encarregado de educação ou controle.                                                                                                                                    |
+| Origem            | O serviço de transmissão em fluxo de multimédia do Azure                                                                                                                                                                                                |
+| Sink de canal      | O suporte de dados do Azure em serviço de transmissão em direto                                                                                                                                                                                           |
+| HLS               | Protocolo Apple HTTP Live Streaming                                                                                                                                                                                               |
 | TRAÇO              | Dynamic adaptável de transmissão em fluxo através de HTTP                                                                                                                                                                                             |
-| Uniforme            | Protocolo de transmissão em fluxo uniforme                                                                                                                                                                                                        |
-| MPEG2 TS          | Fluxos de 2 de transporte MPEG                                                                                                                                                                                                         |
-| RTMP              | Protocolo de suporte em tempo real                                                                                                                                                                                                    |
-| uimsbf            | Número inteiro não assinado, mais significativas bit primeiro.                                                                                                                                                                                    |
+| Suave            | Protocolo de transmissão em fluxo uniforme                                                                                                                                                                                                        |
+| MPEG2-TS          | Fluxos de 2 de transporte MPEG                                                                                                                                                                                                         |
+| RTMP              | Protocolo de multimídia em tempo real                                                                                                                                                                                                    |
+| uimsbf            | Número inteiro sem sinal, mais significativas bit pela primeira vez.                                                                                                                                                                                    |
 
 -----------------------
 
-## <a name="2-timed-metadata-ingest"></a>A inserção de metadados excedeu o tempo limite de 2
-## <a name="21-rtmp-ingest"></a>2.1 de inserção RTMP
-RTMP suporta sinais excedeu o tempo limite de metadados enviados como AMF rectângulos mensagens incorporadas no fluxo RTMP. As mensagens de rectângulos poderão ser enviadas algum tempo antes do evento real ou inserção de splice ad tem de ocorrer. Para suportar este cenário, a hora real do segmento ou splice é enviada numa mensagem cure. Para obter mais informações, consulte [AMF0].
+## <a name="2-timed-metadata-ingest"></a>Ingestão de metadados temporizados 2
+## <a name="21-rtmp-ingest"></a>2.1 de ingestão RTMP
+RTMP suporta sinais de metadados temporizados enviados como mensagens de indicação AMF incorporadas dentro do fluxo RTMP. As mensagens de indicação podem ser enviadas algum tempo antes do evento real ou a inserção de fusão ad tem de ocorrer. Para suportar este cenário, o tempo em questão da fusão ou segmento é enviado na mensagem de remediar. Para obter mais informações, consulte [AMF0].
 
-A tabela seguinte descreve o formato de payload da mensagem AMF será ingestão de Media Services.
+A tabela seguinte descreve o formato do payload da mensagem AMF que será ingerir dos serviços de multimédia.
 
-O nome da mensagem AMF pode ser utilizado para diferenciar vários fluxos de eventos do mesmo tipo.  Mensagens de [SCTE-35], o nome da mensagem AMF tem de ser "onAdCue" conforme recomendado nas [SCTE 67].  Quaisquer campos não listados abaixo têm de ser ignorados, para que inovação esta estrutura não está inibida no futuro.
+O nome da mensagem AMF pode ser utilizado para diferenciar vários fluxos de eventos do mesmo tipo.  Para mensagens de [SCTE-35], o nome da mensagem AMF tem de ser "onAdCue" conforme recomendado nas [SCTE 67].  Quaisquer campos não listados abaixo têm de ser ignorados, para que a inovação deste design não é inibida no futuro.
 
 ### <a name="signal-syntax"></a>Sintaxe de sinal
-Para o modo simple de RTMP, os Media Services suportam uma única mensagem rectângulos AMF chamada "onAdCue" com o seguinte formato:
+Para o modo simple de RTMP, serviços de multimédia suportam uma única mensagem de indicação AMF chamada "onAdCue" com o seguinte formato:
 
 ### <a name="simple-mode"></a>Modo Simple
 
-| Nome do campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
+| Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| rectângulos        | Cadeia     | Necessário | A mensagem de evento.  Deverá ser "SpliceOut" para designar um modo simple splice.                                              |
-| ID         | Cadeia     | Necessário | Um identificador exclusivo que descreva o splice ou segmento. Identifica esta instância da mensagem                            |
-| Duração   | Number     | Necessário | A duração do splice. As unidades são fracional segundos.                                                                |
-| elapsed    | Number     | Opcional | Quando o sinal está a ser repetido para suportar otimizar, este campo deverá ser a quantidade de tempo de apresentação que tem decorridos desde a splice começou. As unidades são fracional segundos. Quando utilizar o modo simple, este valor não deve exceder original durante o splice.                                                  |
-| hora       | Number     | Necessário | Deverá ser o tempo de splice, hora de apresentação. As unidades são fracional segundos.                                     |
+| indicação        | Cadeia     | Necessário | A mensagem de evento.  Deve ser "SpliceOut" para designar um modo simple fusão.                                              |
+| ID         | Cadeia     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem                            |
+| duração   | Number     | Necessário | Durante o processo de fusão. As unidades são segundos fracionais.                                                                |
+| elapsed    | Number     | Opcional | Quando o sinal é que está a ser repetido para oferecer suporte à Sintonize, este campo deve ser a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. Ao utilizar o modo simple, este valor não deve exceder o período original da fusão.                                                  |
+| hora       | Number     | Necessário | Será o momento da fusão, em tempo de apresentação. As unidades são segundos fracionais.                                     |
 
 ---------------------------
 
 ### <a name="scte-35-mode"></a>Modo de SCTE 35
 
-| Nome do campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
+| Nome do Campo | Tipo de campo | Necessário? | Descrições                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| rectângulos        | Cadeia     | Necessário | A mensagem de evento.  Mensagens de [SCTE-35], tem de ser o base64 (IETF RFC 4648) binário codificado splice_info_section() para que as mensagens sejam enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].                                              |
-| tipo       | Cadeia     | Necessário | Um URN ou um URL que identifica o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0".  Mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].  |
-| ID         | Cadeia     | Necessário | Um identificador exclusivo que descreva o splice ou segmento. Identifica esta instância da mensagem.  As mensagens com semântica equivalente deverá ter o mesmo valor.|
-| Duração   | Number     | Necessário | A duração do evento ou ad splice-segmento, se conhecida. Se desconhecido, o valor deve ser 0.                                                                 |
-| elapsed    | Number     | Opcional | Quando o sinal de ad [SCTE-35] está a ser repetido para otimizar o, este campo deverá ser a quantidade de tempo de apresentação que tem decorridos desde a splice começou. As unidades são fracional segundos. No modo de [SCTE-35], este valor pode exceder a duração especificada original do splice ou segmento.                                                  |
-| hora       | Number     | Necessário | O tempo de apresentação do evento ou ad splice.  A hora de apresentação e a duração devem alinhar com pontos de acesso de fluxo (SAP) do tipo 1 ou 2, tal como definido em [ISO-14496-12] Annex I. Saída HLS, a hora e a duração devem alinhar com os limites de segmento. A hora de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não sobrepor. As unidades são fracional segundos.
+| indicação        | Cadeia     | Necessário | A mensagem de evento.  Para mensagens de [SCTE-35], tem de ser o base64 (4648 de RFC da IETF) binário codificado splice_info_section() mensagens a serem enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].                                              |
+| tipo       | Cadeia     | Necessário | Um URN ou um URL, identificando o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0".  Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].  |
+| ID         | Cadeia     | Necessário | Um identificador exclusivo que descrevem a fusão ou segmento. Identifica esta instância da mensagem.  As mensagens com uma semântica equivalente deverá ter o mesmo valor.|
+| duração   | Number     | Necessário | A duração do evento ou ad fusão-segmento, se conhecidos. Se desconhecido, o valor deve ser 0.                                                                 |
+| elapsed    | Number     | Opcional | Quando o sinal de ad [SCTE-35] está a ser repetido para Prepare-se, este campo deve ter a quantidade de tempo de apresentação que tiver sido decorrido desde a fusão início. As unidades são segundos fracionais. No modo de [SCTE-35], este valor pode exceder a duração especificada original da fusão ou segmento.                                                  |
+| hora       | Number     | Necessário | A hora de apresentação do evento ou ad fusão.  O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. Saída HLS, de tempo e a duração devem alinhar com os limites de segmento. O tempo de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não se podem sobrepor. As unidades são segundos fracionais.
 
 ---------------------------
 
 #### <a name="211-cancelation-and-updates"></a>2.1.1 cancelamento e atualizações
 
-As mensagens podem ser canceladas ou atualizadas enviando várias mensagens com o mesmo tempo de apresentação e o mesmo ID. O tempo de apresentação e o ID de identificam de forma exclusiva o evento, não sendo a última mensagem recebida por um período de tempo de apresentação específico que satisfaça as restrições de pré-agregação de a mensagem que é alterada. O evento atualizado substitui as mensagens anteriormente recebidas. A restrição de pré-agregação é de quatro segundos. Mensagens recebidas, pelo menos, quatro segundos antes do tempo de apresentação serão exigirão a tomada.
+As mensagens podem ser canceladas ou atualizadas através do envio de várias mensagens com o mesmo tempo de apresentação e o mesmo ID. O tempo de apresentação e o ID de identificam de forma exclusiva o evento e a última mensagem recebida por um período de apresentação específico que cumpre as restrições de pré-roll é a mensagem de ação. O evento atualizado substitui todas as mensagens recebidas anteriormente. A restrição de pré-agregação de é de quatro segundos. Serão influenciadas mensagens recebidas, pelo menos, quatro segundos antes do tempo de apresentação.
 
-## <a name="22-fragmented-mp4-ingest-smooth-streaming"></a>2.2 fragmentados MP4 de inserção (transmissão em fluxo uniforme)
-Consulte [FMP4 em DIRETO] para a ingestão dos requisitos de fluxo em direto. As secções seguintes fornecem detalhes sobre a inserção de metadados de apresentação excedeu o tempo limite.  Metadados de apresentação excedeu o tempo limite é ingeridos como um controlar disperso, o que está definido na ambas em direto do manifesto caixa (consulte MS SSTR) e a caixa de filmes ('moov').  Cada fragmento disperso é composta por uma caixa de fragmento de filmes ('moof') e a caixa de dados do suporte de dados ('mdat'), em que a caixa 'mdat' é a mensagem binária.
+## <a name="22-fragmented-mp4-ingest-smooth-streaming"></a>2.2 fragmentados de MP4 de ingestão (transmissão em fluxo uniforme)
+Consulte [LIVE-FMP4] para ingerir os requisitos de transmissão em direto. As secções seguintes fornecem informações detalhadas acerca de ingestão de metadados temporizados apresentação.  Metadados de apresentação temporizados são ingeridos como um Roteiro disperso, o que é definido em ambos os Live caixa do servidor de manifesto (consulte MS SSTR) e a caixa de filmes ('moov').  Cada fragmento disperso consiste numa caixa de fragmento de filmes ('moof") e o suporte de dados Data Box ('mdat"), onde a caixa de 'mdat' está a mensagem binária.
 
-#### <a name="221-live-server-manifest-box"></a>2.2.1 caixa de manifesto do servidor em direto
-A controlar dispersa tem de ser declarado na caixa de manifesto do servidor em direto com uma \<textstream\> entrada e tem de ter os seguintes atributos definir:
+#### <a name="221-live-server-manifest-box"></a>2.2.1 caixa de manifesto do servidor ao vivo
+A faixa dispersa tem de ser declarada na caixa de manifesto de servidor ao vivo com um \<textstream\> entrada e ele tem de ter os seguintes atributos definido:
 
-| **Nome do atributo** | **Tipo de campo** | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                 |
+| **Nome de atributo** | **Tipo de campo** | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                 |
 |--------------------|----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| systemBitrate      | Number         | Necessário      | TEM de ser "0", que indica que um registo com velocidade de transmissão desconhecido, a variável.                                                                                                                                                                                                 |
-| parentTrackName    | Cadeia         | Necessário      | TEM de ser o nome de controlar o principal, para que os códigos de tempo de controlar dispersa são escala temporal alinhado. Controlar o principal não pode ser um controlar disperso.                                                                                                                    |
-| manifestOutput     | Booleano        | Necessário      | TEM de ser "verdadeiro", para indicar que a controlar dispersa será incorporado no manifesto de cliente uniforme.                                                                                                                                                               |
-| Subtipo            | Cadeia         | Necessário      | TEM de ser o caráter quatro o código de "Dados".                                                                                                                                                                                                                         |
-| Esquema             | Cadeia         | Necessário      | TEM de ser um URN ou um URL que identifica o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0". Mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. |
-| TrackName          | Cadeia         | Necessário      | TEM de ser o nome de controlar o disperso. O trackName pode ser utilizada para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo têm de ter um nome exclusivo de controlar.                                                                           |
-| escala temporal          | Number         | Opcional      | TEM de ser a escala temporal de controlar o principal.                                                                                                                                                                                                                      |
+| systemBitrate      | Number         | Necessário      | TEM de ser "0", que indica uma faixa com velocidade de transmissão desconhecida, a variável.                                                                                                                                                                                                 |
+| parentTrackName    | Cadeia         | Necessário      | TEM de ser o nome da faixa principal, para que os códigos de tempo de dispersas track são escala temporal alinhado. A faixa de principal não pode ser um Roteiro disperso.                                                                                                                    |
+| manifestOutput     | Booleano        | Necessário      | TEM de ser "true", para indicar que a faixa dispersa será incorporada no manifesto do cliente Smooth.                                                                                                                                                               |
+| Subtipo            | Cadeia         | Necessário      | DEVE ser "Dados de" código de quatro caracteres.                                                                                                                                                                                                                         |
+| Esquema             | Cadeia         | Necessário      | TEM de ser um URN ou URL identificando o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0". Para mensagens de [SCTE-35], tem de ser "urn: scte:scte35:2013a:bin" para que as mensagens sejam enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. |
+| TrackName          | Cadeia         | Necessário      | TEM de ser o nome da faixa dispersa. O trackName pode ser utilizado para diferenciar vários fluxos de eventos com o mesmo esquema. Cada fluxo de eventos exclusivo tem de ter um nome exclusivo.                                                                           |
+| escala temporal          | Number         | Opcional      | TEM de ser a escala temporal da faixa principal.                                                                                                                                                                                                                      |
 
 -------------------------------------
 
-### <a name="222-movie-box"></a>2.2.2 caixa de filmes
+### <a name="222-movie-box"></a>2.2.2 caixa de filme
 
-A caixa de filmes ('moov') segue a em direto manifesto caixa servidor como parte do cabeçalho do fluxo para um registo disperso.
+A caixa de filmes ('moov') segue Live manifesto caixa servidor como parte do cabeçalho do stream para uma faixa dispersa.
 
-A caixa 'moov' deve conter um **TrackHeaderBox ('tkhd')** caixa como definido em [ISO-14496-12] com as seguintes restrições:
+A caixa "moov" deve conter uma **TrackHeaderBox ('tkhd')** caixa conforme definido na [ISO-14496-12] com as seguintes restrições:
 
 | **Nome do campo** | **Tipo de campo**          | **Necessário?** | **Descrição**                                                                                                |
 |----------------|-------------------------|---------------|----------------------------------------------------------------------------------------------------------------|
-| Duração       | número inteiro sem sinal de 64 bits | Necessário      | DEVE ser 0, uma vez que a caixa de controlar tem zero exemplos e a duração total de exemplos na caixa de controlar é 0. |
+| duração       | número inteiro não assinado de 64 bits | Necessário      | DEVE ser 0, uma vez que a caixa de controle tem zero exemplos e a duração total dos exemplos na caixa de controle é 0. |
 -------------------------------------
 
-A caixa 'moov' deve conter um **HandlerBox ('hdlr')** como definido em [ISO-14496-12] com as seguintes restrições:
+A caixa "moov" deve conter uma **HandlerBox ('hdlr')** conforme definido na [ISO-14496-12] com as seguintes restrições:
 
 | **Nome do campo** | **Tipo de campo**          | **Necessário?** | **Descrição**   |
 |----------------|-------------------------|---------------|-------------------|
-| handler_type   | número inteiro sem sinal de 32 bits | Necessário      | DEVE ser 'meta'. |
+| handler_type   | número inteiro sem sinal de 32 bits | Necessário      | DEVE ser "metadados". |
 -------------------------------------
 
-A caixa 'stsd' deve conter uma caixa MetaDataSampleEntry com um nome de codificação, como definido em [ISO-14496-12].  Por exemplo, para mensagens de SCTE 35 o nome de codificação deve ser 'scte'.
+A caixa "stsd" deve conter uma caixa de MetaDataSampleEntry com um nome de codificação, tal como definido em [ISO-14496-12].  Por exemplo, para mensagens de SCTE 35 o nome de codificação deve ser 'scte'.
 
-### <a name="223-movie-fragment-box-and-media-data-box"></a>2.2.3 caixa de fragmento de filmes e a caixa de dados do suporte de dados
+### <a name="223-movie-fragment-box-and-media-data-box"></a>2.2.3 caixa de fragmento de filme e suporte de dados Data Box
 
-Fragmentos de controlar dispersa consistem de uma caixa de fragmento de filmes ('moof') e uma caixa de dados do suporte de dados ('mdat').
+Fragmentos de controlar dispersas consistem numa caixa de fragmento de filmes ('moof") e uma caixa de dados de suporte de dados ('mdat').
 
-A caixa de MovieFragmentBox ('moof') tem de conter um **TrackFragmentExtendedHeaderBox ('uuid')** caixa como definido em [MS-SSTR] com os seguintes campos:
+A caixa de MovieFragmentBox ('moof') tem de conter um **TrackFragmentExtendedHeaderBox ('uuid')** caixa conforme definido na [MS-SSTR] com os seguintes campos:
 
 | **Nome do campo**         | **Tipo de campo**          | **Necessário?** | **Descrição**                                                                               |
 |------------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------|
-| fragment_absolute_time | número inteiro sem sinal de 64 bits | Necessário      | TEM de ser a hora da chegada do evento. Este valor Alinha a mensagem com o registo principal.   |
-| fragment_duration      | número inteiro sem sinal de 64 bits | Necessário      | TEM de ser a duração do evento. A duração pode ser zero para indicar que a duração é desconhecida. |
+| fragment_absolute_time | número inteiro não assinado de 64 bits | Necessário      | TEM de ser o tempo de chegada do evento. Este valor se Alinha a mensagem com o controle pai.   |
+| fragment_duration      | número inteiro não assinado de 64 bits | Necessário      | TEM de ser a duração do evento. A duração pode ser zero para indicar que a duração é desconhecida. |
 
 ------------------------------------
 
@@ -150,37 +150,37 @@ A caixa de MediaDataBox ('mdat') tem de ter o seguinte formato:
 | **Nome do campo**          | **Tipo de campo**                   | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |-------------------------|----------------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | versão                 | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | Determina o formato do conteúdo da caixa de 'mdat'. Versões não reconhecidas serão ignoradas. Atualmente a única versão suportada é 1.                                                                                                                                                                                                                                                                                                                                                      |
-| ID                      | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | Identifica esta instância da mensagem. As mensagens com semântica equivalente deverá ter o mesmo valor; ou seja, qualquer caixa de mensagem de um evento com o mesmo id de processamento é suficiente.                                                                                                                                                                                                                                                                                                            |
-| presentation_time_delta | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | A soma de fragment_absolute_time, especificada a TrackFragmentExtendedHeaderBox e o presentation_time_delta tem de ser o tempo de apresentação do evento. A hora de apresentação e a duração devem alinhar com pontos de acesso de fluxo (SAP) do tipo 1 ou 2, tal como definido em [ISO-14496-12] Annex I. Saída HLS, a hora e a duração devem alinhar com os limites de segmento. A hora de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não sobrepor. |
-| message                 | matriz de bytes                       | Necessário      | A mensagem de evento. Mensagens de [SCTE-35], a mensagem é splice_info_section() binário, embora [SCTE 67] recomenda outra coisa. Mensagens de [SCTE-35], tem de ser splice_info_section() para que as mensagens sejam enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. Mensagens de [SCTE-35], o binário splice_info_section() é o payload da caixa de 'mdat' e não é codificado em base64.                                                            |
+| ID                      | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | Identifica esta instância da mensagem. Mensagens com uma semântica equivalente deverá ter o mesmo valor; ou seja, qualquer caixa de mensagem de um evento com o mesmo id de processamento é suficiente.                                                                                                                                                                                                                                                                                                            |
+| presentation_time_delta | número inteiro sem sinal de 32 bits (uimsbf) | Necessário      | A soma de fragment_absolute_time, especificada a TrackFragmentExtendedHeaderBox e o presentation_time_delta tem de ser o tempo de apresentação do evento. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. Saída HLS, de tempo e a duração devem alinhar com os limites de segmento. O tempo de apresentação e a duração de mensagens de eventos diferentes no mesmo fluxo de eventos não se podem sobrepor. |
+| message                 | matriz de bytes                       | Necessário      | A mensagem de evento. Para mensagens de [SCTE-35], a mensagem é o splice_info_section() binária, embora [SCTE 67] recomenda outra coisa. Para mensagens de [SCTE-35], tem de ser splice_info_section() mensagens a serem enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67]. Para mensagens de [SCTE-35], o binário splice_info_section() é o payload da caixa de 'mdat' e não é codificado em base64.                                                            |
 
 ------------------------------
 
 
-### <a name="224-cancelation-and-updates"></a>2.2.4 cancelamento e atualizações
-As mensagens podem ser canceladas ou atualizadas enviando várias mensagens com o mesmo tempo de apresentação e o mesmo ID.  O tempo de apresentação e o ID de identificar exclusivamente o evento. A última mensagem recebida para uma hora de apresentação específico que satisfaça as restrições de pré-agregação, é a mensagem que é alterada. A mensagem atualizada substitui as mensagens anteriormente recebidas.  A restrição de pré-agregação é de quatro segundos. Mensagens recebidas, pelo menos, quatro segundos antes do tempo de apresentação serão exigirão a tomada. 
+### <a name="224-cancelation-and-updates"></a>2.2.4 cancelamento de e atualizações
+As mensagens podem ser canceladas ou atualizadas através do envio de várias mensagens com o mesmo tempo de apresentação e o mesmo ID.  O tempo de apresentação e o ID de identificam de forma exclusiva o evento. A última mensagem recebida por um período de apresentação específico que cumpre as restrições de pré-implementação, é a mensagem de ação. A mensagem atualizada substitui todas as mensagens recebidas anteriormente.  A restrição de pré-agregação de é de quatro segundos. Serão influenciadas mensagens recebidas, pelo menos, quatro segundos antes do tempo de apresentação. 
 
 
-## <a name="3-timed-metadata-delivery"></a>Entrega de 3 metadados excedeu o tempo limite
+## <a name="3-timed-metadata-delivery"></a>3 atingiu o tempo de entrega de metadados
 
-Dados de fluxo de eventos são opaco aos Media Services. Os Media Services passa simplesmente três informações entre o ponto final de inserção e o ponto final de cliente. As seguintes propriedades são entregues para o cliente, em conformidade com [SCTE 67] e/ou o cliente para transmissão em fluxo do protocolo:
+Dados de fluxo de eventos são opacos para serviços de multimédia. Serviços de multimédia simplesmente passa três partes de informações entre o ponto final de ingestão e o ponto de extremidade do cliente. As seguintes propriedades são entregues ao cliente, em conformidade com [SCTE 67] e/ou o cliente do protocolo de streaming:
 
-1.  Esquema – um URN ou um URL que identifica o esquema da mensagem.
+1.  Esquema – um URN ou o URL de identificar o esquema da mensagem.
 
-2.  Apresentação hora – a apresentação do evento a linha cronológica de suporte de dados.
+2.  Hora de apresentação – o tempo de apresentação do evento na linha do tempo de suporte de dados.
 
 3.  Duração – a duração do evento.
 
-4.  ID – um identificador exclusivo opcional para o evento.
+4.  ID – um identificador exclusivo do opcional para o evento.
 
 5.  Mensagem – os dados do evento.
 
 
-## <a name="31-smooth-streaming-delivery"></a>3.1 entrega de transmissão em fluxo uniforme
+## <a name="31-smooth-streaming-delivery"></a>3.1 entrega de transmissão em fluxo uniforme de
 
-Consulte a controlar dispersa lidar com os detalhes na [MS-SSTR].
+Consulte a controlar dispersa processar detalhes na [MS-SSTR].
 
-#### <a name="smooth-client-manifest-example"></a>Exemplo de manifesto do cliente uniforme
+#### <a name="smooth-client-manifest-example"></a>Exemplo de manifesto do cliente Smooth
 ~~~ xml
 <?xml version=”1.0” encoding=”utf-8”?>
 <SmoothStreamingMedia MajorVersion=”2” MinorVersion=”0” TimeScale=”10000000” IsLive=”true” Duration=”0”
@@ -221,21 +221,21 @@ Consulte a controlar dispersa lidar com os detalhes na [MS-SSTR].
 ~~~ 
 
 ## <a name="32--apple-hls-delivery"></a>3.2 Apple HLS entrega
-Metadados excedeu o tempo limite para a Apple HTTP Live Streaming (HLS) podem ser incorporado nas listas de reprodução de segmento dentro de uma tag M3U personalizada.  Camada da aplicação pode analisar as listas de reprodução de M3U e processar M3U etiquetas. Media Services do Azure irá incorpore metadados excedeu o tempo limite na tag EXT-X-RECTÂNGULOS definido em [HLS].  A tag de EXT-X-RECTÂNGULOS é atualmente utilizada por DynaMux para mensagens do tipo ADI3.  Para suportar mensagens de SCTE 35 SCTE 35 e não, defina os atributos da tag EXT-X-RECTÂNGULOS como definido abaixo:
+Metadados temporizados para Apple HTTP Live Streaming (HLS) podem ser incorporado na lista de reprodução do segmento numa marca de M3U personalizada.  A camada de aplicativo pode analisar a lista de reprodução M3U e processar M3U etiquetas. Serviços de multimédia do Azure irá incorporar metadados temporizados na marca de EXT-X-indicação definida em [HLS].  A marca X-EXT-indicação está atualmente utilizada por DynaMux para mensagens do tipo ADI3.  Para oferecer suporte a mensagens de SCTE 35 SCTE 35 e não, defina os atributos da etiqueta EXT-X-indicação como definido abaixo:
 
-| **Nome do atributo** | **Tipo**                      | **Necessário?**                             | **Descrição**                                                                                                                                                                                                                                                                      |
+| **Nome de atributo** | **Tipo**                      | **Necessário?**                             | **Descrição**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| RECTÂNGULOS                | cadeia delimitada por aspas                 | Necessário                                  | A mensagem codificada como uma cadeia base64, conforme descrito em [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). [SCTE-35] mensagens, este é o splice_info_section() codificado em base64.                                                                                                |
-| TIPO               | cadeia delimitada por aspas                 | Necessário                                  | Um URN ou um URL que identifica o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0". Mensagens de [SCTE-35], o tipo aceita o valor de especial "scte35".                                                                                                                                |
-| ID                 | cadeia delimitada por aspas                 | Necessário                                  | Um identificador exclusivo para o evento. Se o ID não for especificado, quando a mensagem é ingerida, os Media Services do Azure irá gerar um id exclusivo.                                                                                                                                          |
+| INDICAÇÃO                | cadeia de caracteres com aspas                 | Necessário                                  | A mensagem codificada como uma cadeia base64, conforme descrito em [IETF RFC 4648](http://tools.ietf.org/html/rfc4648). Para mensagens de [SCTE-35], este é o splice_info_section() codificada em base64.                                                                                                |
+| TIPO               | cadeia de caracteres com aspas                 | Necessário                                  | Um URN ou um URL, identificando o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0". Para mensagens de [SCTE-35], o tipo usa o valor especial "scte35".                                                                                                                                |
+| ID                 | cadeia de caracteres com aspas                 | Necessário                                  | Um identificador exclusivo para o evento. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.                                                                                                                                          |
 | DURAÇÃO           | número de ponto flutuante decimal | Necessário                                  | A duração do evento. Se desconhecido, o valor deve ser 0. As unidades são factional segundos.                                                                                                                                                                                           |
-| DECORRIDO            | número de ponto flutuante decimal | Opcional, mas necessário para numa janela deslizante | Quando o sinal está a ser repetido para suportar uma janela deslizante de apresentação, este campo tem de ser a quantidade de tempo de apresentação que decorreu, uma vez que o evento começou. As unidades são fracional segundos. Este valor pode exceder a duração especificada original do splice ou segmento. |
-| HORA               | número de ponto flutuante decimal | Necessário                                  | O tempo de apresentação do evento. As unidades são fracional segundos.                                                                                                                                                                                                                    |
+| DECORRIDOS            | número de ponto flutuante decimal | Opcional, mas necessário para a janela deslizante | Quando o sinal é que está a ser repetido para oferecer suporte a uma janela deslizante de apresentação, este campo tem de ser a quantidade de tempo de apresentação que tiver sido decorrido, uma vez que o evento começou. As unidades são segundos fracionais. Este valor pode exceder a duração especificada original da fusão ou segmento. |
+| HORA               | número de ponto flutuante decimal | Necessário                                  | O tempo de apresentação do evento. As unidades são segundos fracionais.                                                                                                                                                                                                                    |
 
 
-A camada de aplicação do leitor HLS irá utilizar o tipo para identificar o formato da mensagem, descodificar a mensagem, aplicar os conversões de tempo necessário e processar o evento.  Os eventos são tempo sincronizado na lista de reprodução de segmento de controlar principal, de acordo com o carimbo de eventos.  Estes forem inseridos antes do segmento mais próximo (#EXTINF tag).
+A camada de aplicação de leitor HLS irá utilizar o tipo para identificar o formato da mensagem, decodificar a mensagem, aplique as conversões de tempo necessário e processar o evento.  Os eventos são sincronizado na lista de reprodução da segmento do controle pai, de momento, de acordo com o carimbo de hora do evento.  Eles são inseridos antes do mais próximo segmento (etiqueta #EXTINF).
 
-#### <a name="hls-segment-playlist-example"></a>Exemplo de listas de reprodução de segmento HLS
+#### <a name="hls-segment-playlist-example"></a>Exemplo de lista de reprodução do segmento HLS
 ~~~
 #EXTM3U
 #EXT-X-VERSION:4
@@ -266,48 +266,48 @@ Fragments(video=480000000,format=m3u8-aapl)
 …
 ~~~
 
-#### <a name="hls-message-handling"></a>Processamento de mensagens HLS
+#### <a name="hls-message-handling"></a>Manipulação de mensagens de HLS
 
-Eventos são indicados na lista de reprodução de segmento de controlar cada áudio e vídeo. A posição da etiqueta EXT-X-RECTÂNGULOS deve sempre ser imediatamente antes dos primeiro HLS segmentar (para splice terminar ou iniciar de segmento) ou imediatamente após os último HLS segmentar (para splice na ou fim de segmento) que os respetivos atributos de hora e a duração referir-se, conforme requerido pelo [ HLS].
+Eventos são sinalizados na lista de reprodução da segmento de cada faixa de áudio e vídeo. A posição da etiqueta EXT-X-indicação sempre tem de ser imediatamente antes dos primeiro HLS segmentar (para unir horizontalmente ou início de segmento) ou imediatamente após os último HLS segmentar (para unir no ou fim do segmento), para que se referem seus atributos de tempo e a duração, conforme requerido pelo [ HLS].
 
-Quando uma janela deslizante de apresentação está ativada, a tag de EXT-X-RECTÂNGULOS deve ser repetida de com frequência suficiente que o splice ou segmento sempre totalmente descrito na lista de reprodução segmento e o atributo DECORRIDO tem de ser utilizado para indicar a quantidade de tempo a splice ou tem de segmento foi Active Directory, conforme exigido pelo [HLS].
+Quando uma janela deslizante de apresentação está ativada, a marca X-EXT-indicação deve ser repetida de com frequência suficiente que o fusão ou segmento sempre é totalmente descrito na lista de reprodução da segmento e o atributo DECORRIDO deve ser usado para indicar a quantidade de tempo a fusão ou segmento tem foi Active Directory, conforme exigido pelo [HLS].
 
-Quando uma janela deslizante de apresentação está ativada, as etiquetas de EXT-X-RECTÂNGULOS são removidas da lista de reprodução de segmento quando o tempo de suporte de dados que consultarem foi revertida fora da janela deslizante de apresentação.
+Quando uma janela deslizante de apresentação está ativada, as etiquetas de EXT-X-indicação são removidas da lista de reprodução do segmento, quando o tempo de suporte de dados que dizem respeito ao foi revertida fora da janela deslizante de apresentação.
 
-## <a name="33--dash-delivery"></a>3.3 entrega de TRAÇO
-[DASH] fornece três maneiras de sinal eventos:
+## <a name="33--dash-delivery"></a>3.3 entrega de DASH
+[DASH] oferece três formas de eventos de sinal:
 
-1.  Eventos indicados no MPD
-2.  Eventos indicado na banda em representação (utilizando a caixa de mensagem de evento ('emsg')
+1.  Eventos sinalizados no MPD
+2.  Eventos sinalizado em banda na representação (usando a caixa de mensagem de evento ("emsg")
 3.  Uma combinação de 1 e 2
 
-Eventos indicados no MPD são úteis para VOD de transmissão em fluxo porque os clientes tenham acesso a todos os eventos, imediatamente quando é transferido o MPD. A solução na banda é útil para a transmissão em direto porque os clientes não têm de transferir o MPD novamente. Relativamente à segmentação de baseados no tempo, o cliente determina o URL do segmento seguinte adicionando a duração e o carimbo do segmento atual. Se o pedido que falhar, o cliente assume uma descontinuidade e transfere o MPD, mas continua caso contrário, a transmissão em fluxo sem a transferir o MPD.
+Eventos sinalizados no MPD são úteis para transmissão em fluxo VOD porque os clientes tenham acesso a todos os eventos, imediatamente quando o MPD é transferida. A solução em banda é útil para transmissão em direto porque os clientes não precisam de transferir o MPD novamente. Para segmentação baseados no tempo, o cliente determina o URL para o segmento seguinte ao adicionar a duração e o timestamp do segmento atual. Se que pedido falhar, o cliente pressupõe uma descontinuidade e transfere o MPD, mas caso contrário, continua a transmissão em fluxo sem baixar o MPD.
 
-Media Services do Azure irá não ambas sinalização no MPD e sinalização utilizando a caixa de mensagem de evento na banda.
+Serviços de multimédia do Azure fará ambos os sinalização no MPD e sinalização usando a caixa de mensagem de evento em banda.
 
-#### <a name="mpd-signaling"></a>Sinalização MPD
+#### <a name="mpd-signaling"></a>Sinalização de MPD
 
-Eventos serão indicados no MPD utilizando o elemento EventStream, que aparece no elemento período.
+Eventos sinalizará no MPD usando o elemento de EventStream, que aparece dentro do elemento de período.
 
 O elemento de EventStream tem os seguintes atributos:
 
-| **Nome do atributo** | **Tipo**                | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                   |
+| **Nome de atributo** | **Tipo**                | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | string                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto do servidor em direto. O valor deve ser um URN ou um URL que identifica o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0".                                                                |
-| valor              | string                  | Opcional      | Um valor de cadeia de carateres adicional utilizado pelos proprietários do esquema de personalizar a semântica de mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor tem de ser definido para o nome do fluxo de eventos (trackName para uniforme de inserção ou nome de mensagem AMF para RTMP de inserção). |
-| escala temporal          | número inteiro sem sinal de 32 bits | Necessário      | Escala de temporal, no ticks por segundo, das horas e os campos de duração na caixa de 'emsg'.                                                                                                                                                                                                       |
+| scheme_id_uri      | cadeia                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0".                                                                |
+| valor              | cadeia                  | Opcional      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor tem de ser definido para o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir). |
+| Escala temporal          | número inteiro sem sinal de 32 bits | Necessário      | Escala da temporal, em tiques por segundo, os tempos e campos de duração na caixa 'emsg'.                                                                                                                                                                                                       |
 
 
-Zero ou mais elementos de eventos estão contidos no elemento EventStream e têm os seguintes atributos:
+Zero ou mais elementos de evento estão contidos dentro do elemento de EventStream e têm os seguintes atributos:
 
-| **Nome do atributo**  | **Tipo**                | **Necessário?** | **Descrição**                                                                                                                                                                                                             |
+| **Nome de atributo**  | **Tipo**                | **Necessário?** | **Descrição**                                                                                                                                                                                                             |
 |---------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| presentation_time   | número inteiro sem sinal de 64 bits | Opcional      | TEM de ser o suporte de dados de tempo de apresentação do evento relativo para o início do período de. A hora de apresentação e a duração devem alinhar com pontos de acesso de fluxo (SAP) do tipo 1 ou 2, tal como definido em [ISO-14496-12] Annex I. |
-| Duração            | número inteiro sem sinal de 32 bits | Opcional      | A duração do evento. Isto tem de ser omitido se a duração é desconhecida.                                                                                                                                                 |
-| ID                  | número inteiro sem sinal de 32 bits | Opcional      | Identifica esta instância da mensagem. As mensagens com semântica equivalente deverá ter o mesmo valor. Se o ID não for especificado, quando a mensagem é ingerida, os Media Services do Azure irá gerar um id exclusivo.             |
-| Valor de elemento do evento | string                  | Necessário      | A mensagem de evento como uma cadeia base64, conforme descrito em [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
+| presentation_time   | número inteiro não assinado de 64 bits | Opcional      | TEM de ser o suporte de dados de tempo de apresentação do evento relativo ao início do período. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I. |
+| duração            | número inteiro sem sinal de 32 bits | Opcional      | A duração do evento. Isso tem de ser omitido se a duração é desconhecida.                                                                                                                                                 |
+| ID                  | número inteiro sem sinal de 32 bits | Opcional      | Identifica esta instância da mensagem. As mensagens com uma semântica equivalente deverá ter o mesmo valor. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.             |
+| Valor do elemento do evento | cadeia                  | Necessário      | A mensagem de evento como uma cadeia base64, conforme descrito em [IETF RFC 4648](http://tools.ietf.org/html/rfc4648).                                                                                                                   |
 
-#### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>Sintaxe de XML e o exemplo para DASH manifestam Signaling (MPD)
+#### <a name="xml-syntax-and-example-for-dash-manifest-mpd-signaling"></a>Sintaxe do XML e de exemplo para DASH manifesto Signaling (MPD)
 
 ~~~ xml
 <!-- XML Syntax -->
@@ -343,14 +343,14 @@ Zero ou mais elementos de eventos estão contidos no elemento EventStream e têm
 ~~~
 
 >[!NOTE]
->Tenha em atenção que presentationTime é o tempo de apresentação do evento, não a hora da chegada da mensagem.
+>Tenha em atenção que presentationTime é o tempo de apresentação do evento, não o tempo de chegada da mensagem.
 >
 
-### <a name="431-in-band-event-message-box-signaling"></a>4.3.1 na banda eventos sinalização de caixa de mensagens
-Um fluxo de eventos na banda requer MPD ter um elemento de InbandEventStream ao nível do Adaptation definido.  Este elemento tem um atributo obrigatório schemeIdUri e o atributo escala temporal opcional, que também são apresentados de eventos a caixa de mensagem ('emsg').  Caixas de mensagem de evento com identificadores de esquema que não estão definidas no MPD não devem estar presentes. Se um cliente DASH Deteta uma caixa de mensagem de eventos com um esquema que não está definido no MPD, o cliente espera é ignorá-lo.
-A caixa de mensagem de evento ('emsg') fornece sinalização genérico eventos relacionados com a hora de apresentação do suporte de dados. Se estiver presente, qualquer caixa 'emsg' deverá ser colocada antes de qualquer caixa 'moof'.
+### <a name="431-in-band-event-message-box-signaling"></a>4.3.1 em banda eventos sinalização de caixa de mensagem
+Um fluxo de eventos em banda requer MPD ter um elemento de InbandEventStream ao nível do conjunto de adaptação.  Este elemento tem um atributo obrigatório schemeIdUri e o atributo de escala temporal opcional, que também são apresentados no caso a caixa de mensagem ('emsg').  Caixas de mensagens de eventos com os identificadores de esquema que não estão definidas no MPD não devem estar presentes. Se um cliente DASH Deteta uma caixa de mensagem de evento com um esquema que não está definido no MPD, o cliente é esperado para ignorá-lo.
+A caixa de mensagem de evento ("emsg") fornece a sinalização de eventos genéricos relacionados com o tempo de apresentação do suporte de dados. Se estiver presente, qualquer caixa 'emsg' deverá ser colocada antes de qualquer caixa 'moof'.
 
-### <a name="dash-event-message-box-emsg"></a>Caixa de mensagem de evento DASH 'emsg'
+### <a name="dash-event-message-box-emsg"></a>Caixa de mensagem de evento de travessão 'emsg'
 ~~~
 Box Type: `emsg’
 Container: Segment
@@ -375,49 +375,49 @@ Os campos do DASHEventMessageBox são definidos abaixo:
 
 | **Nome do campo**          | **Tipo de campo**          | **Necessário?** | **Descrição**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | string                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto do servidor em direto. O valor deve ser um URN ou um URL que identifica o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0". [SCTE-35] mensagens, esta ação demora o valor especial "urn: scte:scte35:2013a:bin", embora [SCTE 67] recomenda outra coisa. |
-| Valor                   | string                  | Necessário      | Um valor de cadeia de carateres adicional utilizado pelos proprietários do esquema de personalizar a semântica de mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor será definido para o nome do fluxo de eventos (trackName para uniforme de inserção ou nome de mensagem AMF para RTMP de inserção).                                                                  |
-| escala temporal               | número inteiro sem sinal de 32 bits | Necessário      | Escala de temporal, no ticks por segundo, das horas e os campos de duração na caixa de 'emsg'.                                                                                                                                                                                                                                                                        |
-| Presentation_time_delta | número inteiro sem sinal de 32 bits | Necessário      | O suporte de dados apresentação intervalo de tempo do tempo de apresentação do evento e o tempo de apresentação mais antigo neste segmento. A hora de apresentação e a duração devem alinhar com pontos de acesso de fluxo (SAP) do tipo 1 ou 2, tal como definido em [ISO-14496-12] Annex I.                                                                                            |
+| scheme_id_uri           | cadeia                  | Necessário      | Identifica o esquema da mensagem. O esquema está definido para o valor do atributo de esquema na caixa de manifesto de servidor ao vivo. O valor deve ser um URN ou um URL, identificando o esquema de mensagem; Por exemplo, "urn: exemplo: sinalização: 1.0". Para mensagens de [SCTE-35], isso leva o valor especial "urn: scte:scte35:2013a:bin", embora [SCTE 67] recomenda outra coisa. |
+| Valor                   | cadeia                  | Necessário      | Um valor de cadeia de caracteres adicionais utilizado pelos proprietários do esquema para personalizar a semântica da mensagem. Para diferenciar os vários fluxos de eventos com o mesmo esquema, o valor será definido como o nome do fluxo de eventos (trackName para uniforme de ingestão ou o nome de mensagem AMF para RTMP ingerir).                                                                  |
+| Escala temporal               | número inteiro sem sinal de 32 bits | Necessário      | Escala da temporal, em tiques por segundo, os tempos e campos de duração na caixa 'emsg'.                                                                                                                                                                                                                                                                        |
+| Presentation_time_delta | número inteiro sem sinal de 32 bits | Necessário      | O suporte de dados apresentação intervalo de tempo do tempo de apresentação do evento e a primeira hora de apresentação esse segmento. O tempo de apresentação e a duração devem alinhar com pontos de acesso de Stream (SAP) do tipo 1 ou 2, conforme definido na [ISO-14496-12] Annex I.                                                                                            |
 | event_duration          | número inteiro sem sinal de 32 bits | Necessário      | A duração do evento ou 0xFFFFFFFF para indicar uma duração de desconhecido.                                                                                                                                                                                                                                                                                          |
-| Id                      | número inteiro sem sinal de 32 bits | Necessário      | Identifica esta instância da mensagem. As mensagens com semântica equivalente deverá ter o mesmo valor. Se o ID não for especificado, quando a mensagem é ingerida, os Media Services do Azure irá gerar um id exclusivo.                                                                                                                                                    |
-| Message_data            | matriz de bytes              | Necessário      | A mensagem de evento. Mensagens [SCTE-35], os dados da mensagem são splice_info_section() binário, embora [SCTE 67] recomenda outra coisa.                                                                                                                                                                                                                                 |
+| Id                      | número inteiro sem sinal de 32 bits | Necessário      | Identifica esta instância da mensagem. As mensagens com uma semântica equivalente deverá ter o mesmo valor. Se o ID não for especificado, quando a mensagem é ingerida, serviços de multimédia do Azure irá gerar um id exclusivo.                                                                                                                                                    |
+| Message_data            | matriz de bytes              | Necessário      | A mensagem de evento. Para mensagens de [SCTE-35], os dados da mensagem são o splice_info_section() binária, embora [SCTE 67] recomenda outra coisa.                                                                                                                                                                                                                                 |
 
-### <a name="332-dash-message-handling"></a>3.3.2 TRAÇO processamento de mensagens
+### <a name="332-dash-message-handling"></a>3.3.2 travessão processamento de mensagens
 
-Eventos são indicados na banda, na caixa 'emsg', para a atividade de áudio e vídeo.  O sinalização ocorre para segmentar todos os pedidos para o qual o presentation_time_delta é 15 segundos ou menos. Quando uma janela deslizante de apresentação está ativada, mensagens de eventos são removidas a MPD quando a soma do tempo e a duração da mensagem de evento são inferior à hora dos dados de suporte de dados no manifesto.  Por outras palavras, as mensagens de evento são removidas do manifesto quando o tempo de suporte de dados para o qual Consulte foi revertido fora da janela deslizante de apresentação.
+Eventos são sinalizados em banda, na caixa "emsg", para as faixas de áudio e vídeos.  A sinalização ocorre para segmentar todos os pedidos para o qual o presentation_time_delta é 15 segundos ou menos. Quando uma janela deslizante de apresentação está ativada, as mensagens de eventos são removidas do MPD, quando a soma do tempo e a duração da mensagem de evento são inferior ao tempo dos dados de suporte de dados no manifesto.  Em outras palavras, as mensagens de eventos são removidas do manifesto quando o tempo de suporte de dados que dizem respeito foi revertida fora da janela deslizante de apresentação.
 
-## <a name="4-scte-35-ingest"></a>4 SCTE-35 de inserção
+## <a name="4-scte-35-ingest"></a>Ingestão de 4 SCTE-35
 
-[SCTE-35] mensagens são ingeridas em formato binário, utilizando o esquema **"urn: scte:scte35:2013a:bin"** para uniforme inserção e o tipo **"scte35"** para RTMP de inserção. Para facilitar a conversão de temporização [SCTE-35], que se baseia no MPEG-2 transporte fluxo apresentação tempo carimbos (PTS), um mapeamento entre PTS (pts_time + pts_adjustment o splice_time()) e a linha cronológica de suporte de dados é fornecido pelo (de tempo de apresentação de eventos o campo de fragment_absolute_time para uniforme ingestão e o campo de hora para RTMP de inserção). O mapeamento é necessário porque o valor PTS 33 bits faz através de aproximadamente a cada 26.5 horas.
+Mensagens de [SCTE-35] são ingeridas no formato binário, utilizando o esquema **"urn: scte:scte35:2013a:bin"** para uniforme de ingestão e o tipo **"scte35"** para RTMP de ingestão. Para facilitar a conversão de tempo de [SCTE-35], que se baseia em MPEG-2 transporte stream apresentação tempo carimbos (PTS), um mapeamento entre PTS (pts_time + pts_adjustment do splice_time()) e a linha cronológica de suporte de dados é fornecido pelo (de tempo de apresentação do evento o campo de fragment_absolute_time para uniforme de ingestão e o campo de tempo para RTMP ingerir). O mapeamento é necessário porque o valor PTS 33 bits é agregado ao longo de aproximadamente a cada 26.5 horas.
 
-Ingestão da transmissão em fluxo uniforme requer que a caixa de dados do suporte de dados ('mdat') tem de conter o **splice_info_section()** definida na tabela 8-1 [SCTE-35]. Para RTMP de inserção, o atributo rectângulos da mensagem AMF é definido para o base64encoded **splice_info_section()**. Quando as mensagens têm o formato descrito acima, são enviadas para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].
+Ingestão de transmissão em fluxo uniforme requer que a caixa de dados de suporte de dados ('mdat') tem de conter o **splice_info_section()** definida na tabela 8-1, de [SCTE-35]. Para RTMP de ingestão, o atributo de indicação da mensagem AMF está definido como o base64encoded **splice_info_section()**. Quando as mensagens têm o formato descrito acima, eles são enviados para HLS, uniforme, Dash clientes e em conformidade com [SCTE 67].
 
 
 ## <a name="5-references"></a>5 referências
 
-**[SCTE-35]**  ANSI/SCTE 35 2013a – programa Digital inserção Cueing mensagem de cabo, 2013a
+**[SCTE-35]**  ANSI/SCTE 35 2013a – programa Digital inserção Cueing mensagem para o cabo, 2013a
 
-**[SCTE 67]**  ANSI/SCTE 67 2014 – recomendado prática para SCTE 35: programa Digital inserção Cueing mensagem para cabo
+**[SCTE 67]**  ANSI/SCTE 67 2014 – recomendado prática para SCTE 35: mensagem de Cueing de inserção de programa Digital de cabo
 
-**[DASH]**  ISO/IEC 23009-1 2014 – tecnologia de informações – Dynamic através de HTTP (DASH) – parte 1 de transmissão em fluxo adaptável: formatos de descrição e o segmento de apresentação de suporte de dados, 2nd edition
+**[DASH]**  ISO/IEC 23009-1 2014 – tecnologia da informação – dinâmico através de HTTP (DASH) – parte 1 de transmissão em fluxo adaptável: formatos de descrição e o segmento de apresentação de suporte de dados, 2ª edição
 
-**[HLS]**  ["HTTP em direto de transmissão em fluxo", draft-pantos-http-live-streaming-14, 14 de Outubro de 2014](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
+**[HLS]**  ["HTTP transmissão em direto", draft-pantos-http-live-streaming-14, 14 de Outubro de 2014](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 
-**[MS-SSTR]**  ["Microsoft uniforme transmissão em fluxo de protocolo", 15 de Maio de 2014](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+**[MS-SSTR]**  ["Microsoft Smooth Streaming protocolo", 15 de Maio de 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 **[AMF0]**  ["AMF0 de formato de mensagem de ação"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[FMP4 EM DIRETO]**  [Especificação de inserção de Media Services do azure Live MP4 fragmentados](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
+**[LIVE FMP4]**  [Especificação de ingestão de MP4 fragmentado em direto de serviços de multimédia do azure](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
-**[ISO-14496-12]**  ISO/IEC 14496-12: formato, quarta 2012 edição-07-15 de ficheiros de suporte de dados base parte 12 ISO.
+**[ISO-14496-12]**  ISO/IEC 14496-12: ficheiro de multimédia de base de parte 12 ISO formato, quarta edição 2012 a 07-15.
 
-**[RTMP]**  ["Do adobe em tempo real mensagens protocolo", 21 de Dezembro de 2012](https://www.adobe.com/devnet/rtmp.html) 
+**[RTMP]**  ["Da adobe em tempo real protocolo de mensagens", 21 de Dezembro de 2012](https://www.adobe.com/devnet/rtmp.html) 
 
 ------------------------------------------
 
 ## <a name="next-steps"></a>Passos Seguintes
-Vista dos Media Services percursos de aprendizagem.
+Serviços de multimédia de modo de exibição percursos de aprendizagem.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

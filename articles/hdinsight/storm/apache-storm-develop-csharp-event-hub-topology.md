@@ -2,19 +2,19 @@
 title: Processar eventos dos Hubs de eventos com o Storm - Azure HDInsight
 description: Saiba como processar os dados dos Hubs de eventos do Azure com uma topologia de Storm em c#, criada no Visual Studio, utilizando as ferramentas do HDInsight para Visual Studio.
 services: hdinsight,notification hubs
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: cda21c5b0d06335b13ba1aff0e9113544ca11c80
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0eb283eda04d4123e0c05d2c48663a5aca88ebc4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414204"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249562"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de eventos do Azure com o Storm no HDInsight (c#)
 
@@ -115,7 +115,7 @@ Pode baixar uma versão completa do projeto que criou neste tutorial de [GitHub]
 
 * Uma [hub de eventos do Azure](../../event-hubs/event-hubs-create.md).
 
-* O [SDK .NET do Azure](http://azure.microsoft.com/downloads/).
+* O [SDK .NET do Azure](https://azure.microsoft.com/downloads/).
 
 * O [ferramentas do HDInsight para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 

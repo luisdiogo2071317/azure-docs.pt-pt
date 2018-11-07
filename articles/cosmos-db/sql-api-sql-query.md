@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 766a2a9a2b71d9cd013f26b843d413d7603ab1fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 22b31e7df4e11f8f98877a8497b533203dcc26b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051362"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233308"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar dados do Azure Cosmos DB com consultas SQL
 
@@ -2405,13 +2405,13 @@ O exemplo seguinte mostra como utilizar o queryDocuments na API do servidor de J
 
 ## <a id="References"></a>Referências
 1. [Introdução ao Azure Cosmos DB][introduction]
-2. [Especificação de Cosmos DB SQL do Azure](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Especificação de Cosmos DB SQL do Azure](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Exemplos do Azure Cosmos DB .NET](https://github.com/Azure/azure-documentdb-net)
 4. [Níveis de consistência do Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [http://json.org/](http://json.org/)
 7. Especificação de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
+8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
 9. Técnicas de avaliação de consulta para grandes bancos de dados [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Processamento de consultas no banco de dados relacional paralela sistemas, IEEE Computer sociedade Press, 1994
 11. Tan lu, Ooi, processamento de consultas no banco de dados relacional paralela sistemas, IEEE Computer sociedade Press, 1994.

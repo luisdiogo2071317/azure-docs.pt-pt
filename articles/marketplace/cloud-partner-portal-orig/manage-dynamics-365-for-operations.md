@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f2e0c7b335b09a0d2b8b8399e807a354ec8e4282
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810395"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245091"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Como criar o Dynamics 365 para operações oferecem através do portal de parceiro de Cloud
 
 Portal de publicação fornece acesso baseado em funções no portal, permitindo que vários indivíduos possam colaborar em direção à publicação de uma oferta. Ver [gerir utilizadores do Portal Cloud](./cloud-partner-portal-manage-users.md) para obter mais informações.
 
-Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma das pessoas com \"proprietário\" função precisam concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/), [declaraçãodeprivacidadedaMicrosoft](http://www.microsoft.com/privacystatement/default.aspx), e [contrato do programa do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma das pessoas com \"proprietário\" função precisam concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/), [declaraçãodeprivacidadedaMicrosoft](https://www.microsoft.com/privacystatement/default.aspx), e [contrato do programa do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="how-to-create-a-new-dynamics-365-for-operations-offer"></a>Como criar um novo do Dynamics 365 para operações da oferta
 
@@ -108,7 +108,7 @@ Em primeiro lugar é detalhes da sua oferta.
 
 ### <a name="listing-details"></a>Detalhes da lista
 
-![Ecrã de detalhes vitrine](./media/publish_d365_new_offer/storefront_details.png)
+![ecrã de detalhes vitrine](./media/publish_d365_new_offer/storefront_details.png)
 
 1. **Setores** -verificar um máximo de dois setores entre as opções de determinado.
 2. **Categorias** -verificar um máximo de três categorias entre as opções de determinado.

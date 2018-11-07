@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 55133310fe9f1bab1c1beb798a04d016919898e1
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 23e7ec45f4f1bdfdeeabff11a63c976f4df605d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300176"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248610"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regras de Alerta Personalizadas no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a criar regras de alerta personalizadas no Centro de Segurança do Azure.
@@ -87,4 +87,4 @@ Neste documento, aprendeu a criar uma regra de alerta personalizada no Centro de
 * [Compreender os alertas de segurança no Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Saiba mais sobre os diferentes tipos de alertas de segurança.
 * [Guia de Resolução de Problemas do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Saiba como resolver problemas comuns no Centro de Segurança.
 * [Centro de Segurança do Azure FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md). Encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de Segurança do Azure](http://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+* [Blogue de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/). Encontre mensagens do blogue acerca da segurança e conformidade do Azure.

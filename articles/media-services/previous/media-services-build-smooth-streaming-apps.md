@@ -1,6 +1,6 @@
 ---
-title: Tutorial de aplicação da loja Windows de transmissão em fluxo uniforme | Microsoft Docs
-description: Saiba como utilizar Media Services do Azure para criar uma aplicação da loja Windows c# com o controlo de um MediaElement de XML para transmissão em fluxo uniforme reprodução conteúdo.
+title: Tutorial de aplicação da Windows Store de transmissão em fluxo uniforme | Documentos da Microsoft
+description: Saiba como utilizar os serviços de multimédia do Azure para criar um C# aplicação da Windows Store com um controle MediaElement do XML de reproduzir conteúdo de Stream uniforme.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,87 +14,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: f55e8aa652d65ea751a77742fa5823b09d9ee87b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e46ff880ff94abb2de2a9bef1464df0f6ac78fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788936"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250803"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como criar uma aplicação da loja Windows de transmissão em fluxo de uniforme
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como criar um Smooth Streaming de aplicativos da Windows Store
 
-O uniforme de transmissão em fluxo cliente SDK para Windows 8 permite aos programadores criarem aplicações da loja Windows que podem reproduzir o conteúdo a pedido e em direto transmissão em fluxo uniforme. Para além de reprodução básica de conteúdos de transmissão em fluxo uniforme, o SDK também fornece funcionalidades avançadas, como o Microsoft PlayReady proteção, restrição de nível de qualidade, em direto DVR, a sequência de áudio mudar, à escuta de atualizações de estado (por exemplo, alterações de nível de qualidade) e eventos de erro e assim sucessivamente. Para mais informações sobre as funcionalidades suportadas, consulte o [notas de versão](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Para obter mais informações, consulte [Player Framework para o Windows 8](http://playerframework.codeplex.com/). 
+O Smooth Streaming cliente SDK para Windows 8 permite aos desenvolvedores criar aplicativos da Windows Store que podem reproduzir o conteúdo a pedido e live Smooth Streaming. Além da reprodução básica do conteúdo de transmissão em fluxo uniforme, o SDK também fornece recursos avançados, como o Microsoft PlayReady proteção, restrição de nível de qualidade, Live DVR, transmissão de áudio mudar, à escuta de atualizações de estado (como alterações no nível de qualidade) e eventos de erro e assim por diante. Para obter mais informações dos recursos suportados, consulte a [notas de versão](http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Para obter mais informações, consulte [Player Framework para Windows 8](http://playerframework.codeplex.com/). 
 
 Este tutorial contém quatro lições:
 
-1. Criar uma aplicação de arquivo de transmissão em fluxo de uniforme básica
-2. Adicionar uma barra do controlo de deslize para controlar o progresso de suporte de dados
-3. Selecione os fluxos de transmissão em fluxo uniforme
-4. Selecione a atividade de transmissão em fluxo uniforme
+1. Criar uma aplicação básica de Smooth Streaming Store
+2. Adicionar uma barra de controlo de deslize para controlar o progresso de suporte de dados
+3. Selecione fluxos de transmissão em fluxo uniforme
+4. Selecione as faixas de transmissão em fluxo uniforme
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!NOTE]
-> Versão de projetos de loja Windows 8.1 e anterior não são suportadas no Visual Studio 2017.  Para obter mais informações, veja [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Segmentação e Compatibilidade de Plataformas do Visual Studio 2017)
+> Versão de projetos de Store do Windows 8.1 e anterior não são suportadas no Visual Studio 2017.  Para obter mais informações, veja [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Segmentação e Compatibilidade de Plataformas do Visual Studio 2017)
 
 * Windows 8 de 32 bits ou 64 bits.
-* Versões de Visual Studio 2012 através de 2015.
-* [Uniforme Microsoft transmissão em fluxo cliente SDK para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
+* Versões do Visual Studio 2012 até 2015.
+* [Smooth Streaming SDK de cliente para o Windows 8 da Microsoft](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
-A solução concluída para cada lesson pode ser transferida a partir de exemplos de código do programador MSDN (galeria de códigos): 
+A solução concluída para cada lição pode ser transferida a partir de exemplos de código do MSDN Developer (galeria de código): 
 
-* [Lesson 1](http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) - um uniforme simples Windows 8 Media Player, transmissão em fluxo 
-* [Lesson 2](http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) - um uniforme simples Windows 8 Media Player com uma barra do controlo de deslize de transmissão em fluxo controlo, 
-* [Lesson 3](http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) - um uniforme do Windows 8 leitor de multimédia com a seleção de fluxo, transmissão em fluxo  
-* [Lesson 4](http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) - um uniforme do Windows 8 leitor de multimédia com a seleção de controlar de transmissão em fluxo.
+* [Lição 1](https://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f) – um uniforme de simples do Windows 8, o leitor de multimédia de transmissão em fluxo 
+* [Lição 2](https://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a) – um uniforme de 8 simples do Windows Media Player com uma barra de controlo de deslize de transmissão em fluxo controle, 
+* [Lição 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) – um uniforme do Windows 8 com a seleção do Stream, o leitor de multimédia de transmissão em fluxo  
+* [Lição 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) – um uniforme do Windows 8 com a seleção de controlar o leitor de multimédia de transmissão em fluxo.
 
-## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lesson 1: Criar uma aplicação de arquivo de transmissão em fluxo de uniforme básica
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lição 1: Criar uma aplicação básica de Smooth Streaming Store
 
-Este lesson, criará uma aplicação da loja do Windows com um MediaElement o controlo de transmissão em fluxo uniforme de reproduzir conteúdo.  A aplicação em execução tem o seguinte:
+Nesta lição, irá criar um aplicativo da Windows Store com um controle MediaElement para reproduzir Stream Smooth conteúdo.  A aplicação em execução é semelhante a:
 
-![Exemplo de aplicação da loja de Windows de transmissão em fluxo uniforme][PlayerApplication]
+![Exemplo de aplicação de Smooth Streaming Windows Store][PlayerApplication]
 
-Para obter mais informações sobre o desenvolvimento das aplicações da loja Windows, consulte [desenvolver excelente aplicações para Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx). Este lesson contém os seguintes procedimentos:
+Para obter mais informações sobre como desenvolver aplicativos da Windows Store, consulte [desenvolver Ótimos aplicativos para Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). Nesta lição contém os seguintes procedimentos:
 
-1. Criar um projeto de loja Windows
-2. Estruturar a interface de utilizador (XAML)
-3. Modificar o ficheiro code-behind
+1. Criar um projeto da Windows Store
+2. Design da interface do usuário (XAML)
+3. Modificar o código por trás do ficheiro
 4. Compilar e testar a aplicação
 
-**Para criar um projeto de loja Windows**
+**Para criar um projeto da Windows Store**
 
-1. Execute o Visual Studio; são suportadas versões 2012 através de 2015.
+1. Executar o Visual Studio; são suportadas versões 2012 até 2015.
 2. No menu **FICHEIRO**, clique em **Novo** e, em seguida, clique em **Projeto**.
-3. Caixa de diálogo novo projeto, escreva ou selecione os seguintes valores:
+3. Na caixa de diálogo novo projeto, escreva ou selecione os seguintes valores:
 
 | Nome | Valor |
 | --- | --- |
-| Grupo de modelo |Instalado/modelos/Visual c# / da loja Windows |
+| Grupo de modelo |Instalado/modelos/Visual C#Windows Store |
 | Modelo |Aplicação em branco (XAML) |
 | Nome |SSPlayer |
 | Localização |C:\SSTutorials |
 | Nome da solução |SSPlayer |
-| Criar o diretório para a solução |(selecionado) |
+| Criar diretório para a solução |(selecionado) |
 
 1. Clique em **OK**.
 
-**Para adicionar uma referência para o SDK do cliente de transmissão em fluxo uniforme**
+**Adicionar uma referência para o SDK do cliente de transmissão em fluxo uniforme**
 
-1. A partir do Explorador de soluções, faça duplo clique **SSPlayer**e, em seguida, clique em **Adicionar referência**.
+1. No Explorador de soluções, clique com botão direito **SSPlayer**e, em seguida, clique em **Add Reference**.
 2. Escreva ou selecione os seguintes valores:
 
 | Nome | Valor |
 | --- | --- |
-| Grupo de referência |Extensões do Windows |
-| Referência |Selecione uniforme Microsoft cliente SDK transmissão em fluxo para o Windows 8 e o Microsoft Visual C++ Runtime pacote |
+| Grupo de referência |Windows/extensões |
+| Referência |Selecione Smooth Streaming SDK de cliente para o Windows 8 e o pacote do Microsoft Visual C++ Runtime da Microsoft |
 
 1. Clique em **OK**. 
 
-Depois de adicionar as referências, tem de selecionar a plataforma especificada (x64 ou x86), adicionar referências não irão funcionar para a configuração de plataforma Any CPU.  No Explorador de soluções, verá amarelo aviso marca estas adicionada referências.
+Depois de adicionar as referências, tem de selecionar a plataforma de destino (x64 ou x86), a adição de referências não funcionará para configuração de plataforma de qualquer CPU.  No solution explorer, verá adicionado de marca de aviso amarelo para estas referências.
 
-**Para estruturar a interface de utilizador de leitor**
+**Para o design da interface do usuário player**
 
-1. No Explorador de soluções, faça duplo clique **MainPage.xaml** para abri-lo na vista de estrutura.
-2. Localize o **&lt;grelha&gt;** e **&lt;/Grid&gt;** etiquetas o ficheiro XAML e cole o seguinte código entre duas etiquetas:
+1. No Explorador de soluções, faça duplo clique em **mainpage. XAML** abri-la no modo de exibição design.
+2. Localize a **&lt;grelha&gt;** e **&lt;/Grid&gt;** com as etiquetas, o arquivo XAML e cole o seguinte código entre as duas etiquetas:
 
          <Grid.RowDefinitions>
 
@@ -139,27 +139,27 @@ Depois de adicionar as referências, tem de selecionar a plataforma especificada
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
    
-   O controlo de MediaElement é utilizado para suportes de dados de reprodução. O controlo de deslize com o nome sliderProgress será utilizado no lesson seguinte para controlar o progresso de suporte de dados.
-3. Prima **CTRL + G** para guardar o ficheiro.
+   O controle MediaElement é utilizado para reproduzir multimédia. O controlo de deslize com o nome sliderProgress será utilizado na próxima lição para controlar o progresso de suporte de dados.
+3. Prima **CTRL + S** para guardar o ficheiro.
 
-O controlo de MediaElement não suporta a transmissão em fluxo uniforme conteúdo out-of-box. Para ativar o suporte de transmissão em fluxo uniforme, tem de registar o processador de fluxo de bytes de transmissão em fluxo uniforme através da extensão de nome de ficheiro e tipo de MIME.  Para registar, pode utilizar o método MediaExtensionManager.RegisterByteStremHandler do espaço de nomes Windows.Media.
+O controle MediaElement não suporta a transmissão em fluxo uniforme conteúdo out-of-box. Para ativar o suporte de transmissão em fluxo uniforme, deve registrar o manipulador de fluxo de bytes de transmissão em fluxo uniforme por extensão de nome de ficheiro e o tipo MIME.  Para registar, utilize o método MediaExtensionManager.RegisterByteStremHandler do namespace do botão.
 
-Neste ficheiro XAML, alguns processadores de eventos estão associados com os controlos.  Tem de definir os processadores de eventos.
+Nesse arquivo XAML, alguns manipuladores de eventos estão associados com os controles.  Deve definir esses manipuladores de eventos.
 
-**Para modificar o ficheiro code-behind**
+**Para modificar o código por trás do ficheiro**
 
-1. A partir do Explorador de soluções, faça duplo clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. Na parte superior do ficheiro, adicione o seguinte utilizando a instrução:
+1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. Na parte superior do ficheiro, adicione o seguinte usando a instrução:
    
         using Windows.Media;
-3. No início do **MainPage** classe, adicione o seguinte membro de dados:
+3. No início da **MainPage** de classe, adicione o seguinte membro de dados:
    
          private MediaExtensionManager extensions = new MediaExtensionManager();
-4. No final de **MainPage** construtor, adicione as seguintes duas linhas:
+4. No final da **MainPage** construtor, adicione as duas linhas seguintes:
    
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
-5. No final de **MainPage** classe, cole o seguinte código:
+5. No final da **MainPage** de classe, cole o seguinte código:
    
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
@@ -203,52 +203,52 @@ Neste ficheiro XAML, alguns processadores de eventos estão associados com os co
          }
          # endregion
 
-O processador de eventos sliderProgress_PointerPressed é definido aqui.  Existem mais funciona para funcionar, que vai ser abordada o seguinte lesson deste tutorial.
-6. Prima **CTRL + G** para guardar o ficheiro.
+O manipulador de eventos de sliderProgress_PointerPressed é definido aqui.  Existem mais funciona para o fazer para que isso funcione, que será abordada na próxima deste tutorial.
+6. Prima **CTRL + S** para guardar o ficheiro.
 
-A terminar o ficheiro code-behind deverá ter o seguinte aspeto:
+A concluir que o código por trás do ficheiro deve ter o seguinte aspeto:
 
-![Codeview no Visual Studio do uniforme de transmissão em fluxo aplicação da loja Windows][CodeViewPic]
+![Codeview no aplicativo do Visual Studio de Smooth Streaming Windows Store][CodeViewPic]
 
 **Para compilar e testar a aplicação**
 
-1. Do **criar** menu, clique em **do Configuration Manager**.
-2. Alteração **plataforma do Active Directory solução** para corresponder à sua plataforma de desenvolvimento.
+1. Do **CRIE** menu, clique em **Configuration Manager**.
+2. Alteração **plataforma de solução Active Directory** para corresponder à sua plataforma de desenvolvimento.
 3. Prima **F6** para compilar o projeto. 
 4. Prima **F5** para executar a aplicação.
-5. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduza outro. 
-6. Clique em **definir origem**. Porque **automática reproduzir** está ativada por predefinição, o suporte de dados deverá reproduzir automaticamente.  Pode controlar o suporte de dados utilizando o **reproduzir**, **pausa** e **parar** botões.  Pode controlar o volume de suporte de dados utilizando o controlo de deslize vertical.  No entanto o controlo de deslize horizontal para controlar o progresso de suporte de dados ainda não está totalmente implementado. 
+5. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduzir um diferente. 
+6. Clique em **definir a origem**. Uma vez **reprodução automática** está ativada por predefinição, o suporte de dados deverá reproduzir automaticamente.  Pode controlar o suporte de dados através da **reproduzir**, **colocar em pausa** e **parar** botões.  Pode controlar o volume de suporte de dados com o controlo de deslize vertical.  No entanto o controlo de deslize horizontal para controlar o progresso de suporte de dados ainda não está completamente implementado. 
 
-Concluiu lesson1.  Este lesson, utiliza um controlo MediaElement para reproduzir o conteúdo de transmissão em fluxo uniforme.  Lesson seguinte, irá adicionar um controlo de deslize para controlar o progresso do conteúdo de transmissão em fluxo uniforme.
+Concluiu lesson1.  Nesta lição, usar um controle MediaElement para reproduzir conteúdo de transmissão em fluxo uniforme.  Na próxima lição, irá adicionar um controlo de deslize para controlar o progresso do conteúdo de transmissão em fluxo uniforme.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Lesson 2: Adicionar uma barra do controlo de deslize para controlar o progresso de suporte de dados
+## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Lição 2: Adicionar uma barra de controlo de deslize para controlar o progresso de suporte de dados
 
-Lesson 1, criou uma aplicação da loja do Windows com o controlo de um MediaElement XAML para reproduzir conteúdo de multimédia de transmissão em fluxo uniforme.  Se trata de algumas funções de suporte de dados básicas, como iniciar, parar e colocar em pausa.  Este lesson, irá adicionar um controlo de barra do controlo de deslize para a aplicação.
+Lição 1, criou um aplicativo da Windows Store com um controle XAML MediaElement para reproduzir conteúdo de multimédia de transmissão em fluxo uniforme.  Trata de algumas funções de suporte de dados básicas, como o início, stop e pause.  Nesta lição, irá adicionar um controle da barra de controlo de deslize para a aplicação.
 
-Neste tutorial, utilizaremos um temporizador para atualizar a posição do controlo de deslize com base na posição atual do controlo MediaElement.  O início de controlo de deslize e de fim tempo que também têm de ser atualizadas em caso de conteúdos em direto.  Isto pode ser melhor processado o evento de atualização de origem adaptável.
+Neste tutorial, utilizamos um temporizador para atualizar a posição de controlo de deslize com base na posição atual do controle MediaElement.  O início de controlo de deslize e de fim também tempo precisem de atualização em caso de conteúdos em direto.  Isso pode ser melhor Tratado no evento de atualização de origem adaptável.
 
-Origens de suportes de dados são objetos geram dados de suporte de dados.  A resolução de origem assuma uma sequência de URL ou byte e cria a origem de suporte de dados adequado para esse conteúdo.  A resolução de origem é a forma de padrão para as aplicações criar as origens de suportes de dados. 
+Origens de suportes de dados são objetos que geram dados de suporte de dados.  O Resolvedor de origem considera um fluxo de URL ou bytes e cria a origem de mídia apropriada para esse conteúdo.  O Resolvedor de origem é a forma padrão para as aplicações criar origens de suportes de dados. 
 
-Este lesson contém os seguintes procedimentos:
+Nesta lição contém os seguintes procedimentos:
 
-1. Registar o processador de transmissão em fluxo uniforme 
-2. Adicionar os processadores de eventos ao nível do Gestor de origem adaptável
-3. Adicionar os processadores de eventos ao nível da origem adaptável
-4. Adicionar processadores de eventos de MediaElement
-5. Adicionar controlo de deslize barra código relacionado
+1. Registrar o manipulador de transmissão em fluxo uniforme 
+2. Adicione os manipuladores de eventos ao nível do Gestor de origem adaptável
+3. Adicione os manipuladores de eventos de nível de origem adaptável
+4. Adicionar manipuladores de eventos do MediaElement
+5. Adicionar controlo de deslize de barra código relacionadas
 6. Compilar e testar a aplicação
 
-**Para registar o processador de fluxo de bytes de transmissão em fluxo uniforme e passar o propertyset**
+**Para se registrar o manipulador de fluxo de bytes de transmissão em fluxo uniforme e passar o propertyset**
 
-1. No Explorador de soluções, com o botão direito clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. No início do ficheiro, adicione o seguinte utilizando a instrução:
+1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. No início do ficheiro, adicione o seguinte usando a instrução:
 
         using Microsoft.Media.AdaptiveStreaming;
 3. No início da classe MainPage, adicione os seguintes membros de dados:
 
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
-4. Dentro do **MainPage** construtor, adicione o seguinte código após o **isto. Inicializar Components();**  linha e o registo de código linhas escritas o lesson anterior:
+4. Dentro de **MainPage** construtor, adicione o seguinte código após o **isso. Inicializar Components();**  o registo e de linha de código linhas escritas na lição anterior:
 
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
@@ -256,7 +256,7 @@ Este lesson contém os seguintes procedimentos:
         // Sets property key value to AdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
-5. Dentro do **MainPage** construtor, modifique os dois métodos de RegisterByteStreamHandler para adicionar o estabelecido parâmetros:
+5. Dentro do **MainPage** construtor, modifique os dois métodos de RegisterByteStreamHandler para adicionar o estipulado parâmetros:
 
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
          // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
@@ -273,15 +273,15 @@ Este lesson contém os seguintes procedimentos:
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
-6. Prima **CTRL + G** para guardar o ficheiro.
+6. Prima **CTRL + S** para guardar o ficheiro.
 
-**Para adicionar o processador de eventos ao nível do Gestor de origem adaptável**
+**Para adicionar o manipulador de eventos ao nível do Gestor de origem adaptável**
 
-1. No Explorador de soluções, com o botão direito clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. Dentro do **MainPage** classe, adicione o seguinte membro de dados:
+1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. Dentro de **MainPage** de classe, adicione o seguinte membro de dados:
    
      privada AdaptiveSource adaptiveSource = null;
-3. No final de **MainPage** classe, adicione o processador de eventos seguintes:
+3. No final da **MainPage** de classe, adicione o seguinte manipulador de eventos:
    
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
@@ -291,19 +291,19 @@ Este lesson contém os seguintes procedimentos:
          }
 
          # endregion Adaptive Source Manager Level Events
-4. No final de **MainPage** construtor, adicione a seguinte linha para subscrever o evento de abrir origem adaptável:
+4. No final da **MainPage** construtor, adicione a seguinte linha para subscrever o evento aberto de origem adaptável:
    
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
-5. Prima **CTRL + G** para guardar o ficheiro.
+5. Prima **CTRL + S** para guardar o ficheiro.
 
-**Para adicionar processadores de eventos ao nível de origem adaptável**
+**Para adicionar manipuladores de eventos de nível de origem adaptável**
 
-1. No Explorador de soluções, com o botão direito clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. Dentro do **MainPage** classe, adicione o seguinte membro de dados:
+1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. Dentro de **MainPage** de classe, adicione o seguinte membro de dados:
    
      privada AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   privada manifestObject manifesto;
-3. No final de **MainPage** classe, adicione os seguinte processadores de eventos:
+3. No final da **MainPage** de classe, adicione os manipuladores de eventos seguintes:
 
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
@@ -326,7 +326,7 @@ Este lesson contém os seguintes procedimentos:
          }
 
          # endregion Adaptive Source Level Events
-4. No final de **mediaElement AdaptiveSourceOpened** método, adicione o seguinte código para subscrever os eventos:
+4. No final da **mediaElement AdaptiveSourceOpened** método, adicione o seguinte código para subscrever os eventos:
    
          adaptiveSource.ManifestReadyEvent +=
 
@@ -337,14 +337,14 @@ Este lesson contém os seguintes procedimentos:
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
-5. Prima **CTRL + G** para guardar o ficheiro.
+5. Prima **CTRL + S** para guardar o ficheiro.
 
-Estão disponíveis os mesmos eventos no adaptável origem do Configuration Manager nível, que pode ser utilizada para processamento de funcionalidade comuns a todos os elementos de suporte de dados na aplicação. Cada AdaptiveSource inclui os seus próprios eventos e todos os eventos de AdaptiveSource irão ser cascaded em AdaptiveSourceManager.
+Os mesmos eventos estão disponíveis na origem adaptável Manager nível, que pode ser usado para lidar com a funcionalidade comum a todos os elementos de multimédia na aplicação. Cada AdaptiveSource inclui seus próprios eventos e todos os eventos de AdaptiveSource irão ser cascaded em AdaptiveSourceManager.
 
-**Para adicionar processadores de eventos do elemento de suporte de dados**
+**Para adicionar manipuladores de eventos de elemento de multimédia**
 
-1. No Explorador de soluções, com o botão direito clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. No final de **MainPage** classe, adicione os seguinte processadores de eventos:
+1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. No final da **MainPage** de classe, adicione os manipuladores de eventos seguintes:
 
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
@@ -366,29 +366,29 @@ Estão disponíveis os mesmos eventos no adaptável origem do Configuration Mana
          }
 
          # endregion Media Element Event Handlers
-3. No final de **MainPage** construtor, adicione o seguinte código ao índice para os eventos:
+3. No final da **MainPage** construtor, adicione o seguinte código para dolní Index Je aos eventos:
 
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
-4. Prima **CTRL + G** para guardar o ficheiro.
+4. Prima **CTRL + S** para guardar o ficheiro.
 
-**Para adicionar a barra do controlo de deslize relacionados com o código**
+**Para adicionar a barra de controlo de deslize relacionados com o código**
 
-1. No Explorador de soluções, com o botão direito clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. No início do ficheiro, adicione o seguinte utilizando a instrução:
+1. No Explorador de soluções, o botão direito do rato clique em **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. No início do ficheiro, adicione o seguinte usando a instrução:
       
         using Windows.UI.Core;
-3. Dentro do **MainPage** classe, adicione os seguintes membros de dados:
+3. Dentro de **MainPage** de classe, adicione os seguintes membros de dados:
    
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
-4. No final de **MainPage** construtor, adicione o seguinte código:
+4. No final da **MainPage** construtor, adicione o seguinte código:
    
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
-5. No final de **MainPage** classe, adicione o seguinte código:
+5. No final da **MainPage** , adicione o seguinte código:
 
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
@@ -473,7 +473,7 @@ Estão disponíveis os mesmos eventos no adaptável origem do Configuration Mana
          # endregion sliderMediaPlayer
       
 >[!NOTE]
->CoreDispatcher é utilizada para efetuar alterações ao thread da IU a partir do Thread de IU não. Em caso de congestionamento no thread do emissor, o programador pode optar por utilizar dispatcher fornecida pelo elemento de IU he/she pretende atualizar.  Por exemplo:
+>CoreDispatcher é utilizado para fazer alterações para o thread de interface do Usuário do Thread de interface do Usuário não. Em caso de estrangulamento no dispatcher thread, o desenvolvedor pode optar por usar dispatcher fornecida pelo elemento de interface do Usuário, ele pretende atualizar.  Por exemplo:
    
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
@@ -481,38 +481,38 @@ Estão disponíveis os mesmos eventos no adaptável origem do Configuration Mana
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
-6. No final de **mediaElement_AdaptiveSourceStatusUpdated** método, adicione o seguinte código:
+6. No final da **mediaElement_AdaptiveSourceStatusUpdated** método, adicione o seguinte código:
 
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
-7. No final de **MediaOpened** método, adicione o seguinte código:
+7. No final da **MediaOpened** método, adicione o seguinte código:
 
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
-8. Prima **CTRL + G** para guardar o ficheiro.
+8. Prima **CTRL + S** para guardar o ficheiro.
 
 **Para compilar e testar a aplicação**
 
 1. Prima **F6** para compilar o projeto. 
 2. Prima **F5** para executar a aplicação.
-3. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduza outro. 
-4. Clique em **definir origem**. 
-5. Teste a barra do controlo de deslize.
+3. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduzir um diferente. 
+4. Clique em **definir a origem**. 
+5. Teste a barra de controlo de deslize.
 
-Concluiu lesson 2.  Este lesson adicionou um controlo de deslize para a aplicação. 
+Ter concluído a lição 2.  Nesta lição adicionou um controlo de deslize à aplicação. 
 
-## <a name="lesson-3-select-smooth-streaming-streams"></a>Lesson 3: Selecione fluxos de transmissão em fluxo uniforme
-Transmissão em fluxo uniforme é com capacidade para transmitir o conteúdo com vários controla áudio de idioma que podem ser selecionados, os visualizadores autorizados.  Este lesson, irá ativar visualizadores autorizados selecionar fluxos. Este lesson contém os seguintes procedimentos:
+## <a name="lesson-3-select-smooth-streaming-streams"></a>Lição 3: Selecionar fluxos de transmissão em fluxo uniforme
+A transmissão em fluxo uniforme é capaz de transmitir conteúdo com várias faixas áudio de idioma que são selecionáveis pelos visualizadores.  Nesta lição, irá ativar visualizadores selecionar fluxos. Nesta lição contém os seguintes procedimentos:
 
-1. Modificar o ficheiro XAML
-2. Modificar o ficheiro de behand de código
+1. Modifique o arquivo XAML.
+2. Modifique o arquivo de behand de código.
 3. Compilar e testar a aplicação
 
-**Para modificar o ficheiro XAML**
+**Para modificar o arquivo XAML.**
 
-1. A partir do Explorador de soluções, faça duplo clique **MainPage.xaml**e, em seguida, clique em **estruturador de vistas**.
-2. Localizar &lt;Grid.RowDefinitions&gt;e modificar o RowDefinitions, para que se pareça com:
+1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **estruturador de vistas**.
+2. Localize &lt;Grid.RowDefinitions&gt;e modificar o RowDefinitions, para que eles se parece com:
    
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
@@ -521,7 +521,7 @@ Transmissão em fluxo uniforme é com capacidade para transmitir o conteúdo com
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
-3. Dentro do &lt;grelha&gt;&lt;/Grid&gt; etiquetas, adicione o seguinte código para definir um controlo de listbox, pelo que os utilizadores podem ver a lista de fluxos disponíveis e selecione fluxos:
+3. Dentro de &lt;grade&gt;&lt;/Grid&gt; etiquetas, adicione o seguinte código para definir um controlo de caixa de listagem, para que os utilizadores podem ver a lista de fluxos disponíveis e selecione fluxos:
 
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
@@ -546,12 +546,12 @@ Transmissão em fluxo uniforme é com capacidade para transmitir o conteúdo com
                 </ListBox>
             </StackPanel>
          </Grid>
-4. Prima **CTRL + G** para guardar as alterações.
+4. Prima **CTRL + S** para guardar as alterações.
 
-**Para modificar o ficheiro code-behind**
+**Para modificar o código por trás do ficheiro**
 
-1. A partir do Explorador de soluções, faça duplo clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. No interior do espaço de nomes SSPlayer, adicione uma nova classe:
+1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. Dentro do espaço de nomes SSPlayer, adicione uma nova classe:
    
         #region class Stream
    
@@ -603,7 +603,7 @@ Transmissão em fluxo uniforme é com capacidade para transmitir o conteúdo com
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
-4. Na classe MainPage, adicione a região seguinte:
+4. Dentro da classe MainPage, adicione a região seguinte:
    
         #region stream selection
         ///<summary>
@@ -740,13 +740,13 @@ Transmissão em fluxo uniforme é com capacidade para transmitir o conteúdo com
             }
         }
         #endregion stream selection
-5. Localizar o método mediaElement_ManifestReady, acrescentar o seguinte código no final da função:
+5. Localize o método mediaElement_ManifestReady, acrescente o seguinte código no final da função:
    
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
    
-    Por isso, quando o manifesto MediaElement estiver pronto, o código obtém uma lista das sequências disponíveis e preenche a caixa de listagem de IU com a lista.
-6. Na classe MainPage, localize a IU de botões de região de eventos de clique e, em seguida, adicione a seguinte definição de função:
+    Então, quando MediaElement manifesto estiver pronto, o código obtém uma lista de fluxos de disponíveis e preenche a caixa de listagem da interface do Usuário com a lista.
+6. Dentro da classe MainPage, localize a interface do Usuário botões clique a região de eventos e, em seguida, adicione a seguinte definição de função:
    
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
@@ -763,23 +763,23 @@ Transmissão em fluxo uniforme é com capacidade para transmitir o conteúdo com
 
 1. Prima **F6** para compilar o projeto. 
 2. Prima **F5** para executar a aplicação.
-3. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduza outro. 
-4. Clique em **definir origem**. 
-5. O idioma predefinido é audio_eng. Tente alternar entre audio_eng e audio_es. Everytime, selecionar um novo fluxo, tem de clicar no botão de envio.
+3. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduzir um diferente. 
+4. Clique em **definir a origem**. 
+5. O idioma predefinido é audio_eng. Tente alternar entre audio_eng e audio_es. Sempre que, selecionar um novo fluxo, tem de clicar no botão Enviar.
 
-Concluiu lesson 3.  Este lesson, adicione a funcionalidade para escolher fluxos.
+Ter concluído a lição 3.  Nesta lição, adicionar a funcionalidade para escolher fluxos.
 
-## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lesson 4: Controla a transmissão em fluxo uniforme de selecione
-Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheiros de vídeo codificados com níveis diferentes de qualidade (bit taxas) e as resoluções. Este lesson, irá ativar os utilizadores selecionem controla. Este lesson contém os seguintes procedimentos:
+## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lição 4: Selecione faixas de transmissão em fluxo uniforme
+Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheiros de vídeo codificados com níveis de qualidade diferente (taxas de bits) e as resoluções. Nesta lição, irá permitir aos usuários selecionar roteiros. Nesta lição contém os seguintes procedimentos:
 
-1. Modificar o ficheiro XAML
-2. Modificar o ficheiro de behand de código
+1. Modifique o arquivo XAML.
+2. Modifique o arquivo de behand de código.
 3. Compilar e testar a aplicação
 
-**Para modificar o ficheiro XAML**
+**Para modificar o arquivo XAML.**
 
-1. A partir do Explorador de soluções, faça duplo clique **MainPage.xaml**e, em seguida, clique em **estruturador de vistas**.
-2. Localize o &lt;grelha&gt; etiqueta com o nome **gridStreamAndBitrateSelection**, acrescentar o seguinte código no final da etiqueta:
+1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **estruturador de vistas**.
+2. Localize a &lt;grade&gt; etiqueta com o nome **gridStreamAndBitrateSelection**, acrescente o seguinte código no final da etiqueta:
    
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
@@ -795,12 +795,12 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
-3. Prima **CTRL + G** ao guardar as alterações de putador
+3. Prima **CTRL + S** para guardar as alterações de he
 
-**Para modificar o ficheiro code-behind**
+**Para modificar o código por trás do ficheiro**
 
-1. A partir do Explorador de soluções, faça duplo clique **MainPage.xaml**e, em seguida, clique em **Vista código**.
-2. No interior do espaço de nomes SSPlayer, adicione uma nova classe:
+1. No Explorador de soluções, clique com botão direito **mainpage. XAML**e, em seguida, clique em **View Code**.
+2. Dentro do espaço de nomes SSPlayer, adicione uma nova classe:
    
         #region class Track
         public class Track
@@ -841,7 +841,7 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
 3. No início da classe MainPage, adicione as seguintes definições de variável:
    
         private List<Track> availableTracks;
-4. Na classe MainPage, adicione a região seguinte:
+4. Dentro da classe MainPage, adicione a região seguinte:
    
         #region track selection
         /// <summary>
@@ -939,11 +939,11 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
             }
         }
         #endregion track selection
-5. Localizar o método mediaElement_ManifestReady, acrescentar o seguinte código no final da função:
+5. Localize o método mediaElement_ManifestReady, acrescente o seguinte código no final da função:
    
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
-6. Na classe MainPage, localize a IU de botões de região de eventos de clique e, em seguida, adicione a seguinte definição de função:
+6. Dentro da classe MainPage, localize a interface do Usuário botões clique a região de eventos e, em seguida, adicione a seguinte definição de função:
    
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
@@ -960,11 +960,11 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
 
 1. Prima **F6** para compilar o projeto. 
 2. Prima **F5** para executar a aplicação.
-3. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduza outro. 
-4. Clique em **definir origem**. 
-5. Por predefinição, todas as controla do fluxo de vídeo estão selecionadas. Para testar as alterações de taxa de bits, pode selecionar a taxa de bits mais baixa disponível e, em seguida, selecione a velocidade de bits mais elevada disponível. Tem de clicar em submeter após cada alteração.  Pode ver as alterações de qualidade do vídeo.
+3. Na parte superior da aplicação, pode utilizar o URL de transmissão em fluxo uniforme predefinido ou introduzir um diferente. 
+4. Clique em **definir a origem**. 
+5. Por predefinição, todas as faixas de fluxo de vídeo estão selecionadas. Para testar as alterações de taxa de bits, pode selecionar a taxa de bits mais baixa disponível e, em seguida, selecione a taxa de bits mais elevada disponível. Tem de clicar em enviar após cada alteração.  Pode ver as alterações de qualidade de vídeo.
 
-Concluiu lesson 4.  Este lesson, adicione a funcionalidade para escolher controla.
+Ter concluído a Lição 4.  Nesta lição, adicionar a funcionalidade para escolher os roteiros.
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -973,8 +973,8 @@ Concluiu lesson 4.  Este lesson, adicione a funcionalidade para escolher control
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="other-resources"></a>Outros recursos:
-* [Como criar uma aplicação de uniforme JavaScript de 8 Windows de transmissão em fluxo com funcionalidades avançadas](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
-* [Uniforme transmissão em fluxo descrição geral técnica do](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
+* [Como criar uma aplicação de Smooth Streaming da Windows 8 JavaScript com funcionalidades avançadas](http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx)
+* [Smooth Streaming visão geral técnica do](http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview)
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png

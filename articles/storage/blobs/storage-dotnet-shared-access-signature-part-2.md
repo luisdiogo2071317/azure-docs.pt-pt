@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400400"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240703"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Partilhado assinaturas de acesso, parte 2: Criar e utilizar um SAS com armazenamento de BLOBs
 
@@ -591,5 +591,5 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 * [Assinaturas de acesso partilhado, parte 1: Compreender o modelo SAS](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Gerir o acesso de leitura anónimo a contentores e blobs](storage-manage-access-to-resources.md)
-* [Delegar acesso com uma assinatura de acesso partilhado (REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Apresentando o SAS da fila e de tabela](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Delegar acesso com uma assinatura de acesso partilhado (REST API)](https://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Apresentando o SAS da fila e de tabela](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

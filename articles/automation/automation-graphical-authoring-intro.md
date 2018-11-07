@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233682"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Gráfico de criação na automatização do Azure
 
@@ -48,7 +48,7 @@ Controlo da biblioteca é onde seleciona [atividades](#activities) para adiciona
 |:--- |:--- |
 | Cmdlets |Inclui todos os cmdlets que pode ser utilizados no runbook. Cmdlets são organizados por módulo. Todos os módulos que instalou na sua conta de automatização estão disponíveis. |
 | Runbooks |Inclui os runbooks na conta de automatização. Estes runbooks podem ser adicionados à tela para ser usado como runbooks subordinados. São apresentados apenas os runbooks do mesmo tipo de principal como o runbook que está a ser editado; para o gráfico são apresentados runbooks apenas baseada no PowerShell de runbooks, enquanto para runbooks de fluxo de trabalho de PowerShell gráfico são mostrados apenas PowerShell fluxo de trabalho baseada em runbooks. |
-| Elementos |Inclui a [recursos de automatização](http://msdn.microsoft.com/library/dn939988.aspx) na sua conta de automatização que pode ser utilizada no runbook. Quando adiciona um recurso a um runbook, ele adiciona uma atividade de fluxo de trabalho que obtém o recurso selecionado. No caso de recursos de variável, pode selecionar se pretende adicionar uma atividade para obter a variável ou definir a variável. |
+| Elementos |Inclui a [recursos de automatização](https://msdn.microsoft.com/library/dn939988.aspx) na sua conta de automatização que pode ser utilizada no runbook. Quando adiciona um recurso a um runbook, ele adiciona uma atividade de fluxo de trabalho que obtém o recurso selecionado. No caso de recursos de variável, pode selecionar se pretende adicionar uma atividade para obter a variável ou definir a variável. |
 | Controlo do Runbook |Inclui atividades de controlo do runbook que podem ser utilizadas no runbook atual. R *junção* usa várias entradas e aguarda até que concluíram antes de continuar o fluxo de trabalho. R *código* uma ou mais linhas de código do PowerShell ou o fluxo de trabalho do PowerShell, dependendo do tipo de runbook gráfico de execuções de atividades. Pode utilizar esta atividade de código personalizado ou para a funcionalidade que é difícil de atingir com outras atividades. |
 
 ### <a name="configuration-control"></a>Controlo de configuração
@@ -191,7 +191,7 @@ Crie uma ligação entre duas atividades, selecionando a atividade de origem e c
 
 Selecione a ligação para configurar as respetivas propriedades no painel de configuração. Isto inclui o tipo de ligação, o que é descrito na tabela a seguir:
 
-| Tipo de ligação | Descrição |
+| Tipo de Ligação | Descrição |
 |:--- |:--- |
 | Pipeline |A atividade de destino é executada uma vez para cada objeto de saída da atividade de origem. A atividade de destino não é executado se a atividade de origem resulta em nenhuma saída. Saída da atividade de origem está disponível como um objeto. |
 | Sequence |A atividade de destino é executada apenas uma vez. Ele recebe uma matriz de objetos da atividade de origem. Saída da atividade de origem está disponível como uma matriz de objetos. |
@@ -336,7 +336,7 @@ Criado por qualquer atividade que não tem uma ligação de saída de dados são
 
 ## <a name="powershell-expressions"></a>Expressões de PowerShell
 
-Uma das vantagens da criação de gráficos é fornecer-lhe a capacidade de criar um runbook com o mínimo de conhecimento do PowerShell. Atualmente, precisa saber um pouco do PowerShell, embora para preencher determinados [valores de parâmetros](#activities) e para definição [ligação condições](#links-and-workflow). Esta seção fornece uma introdução rápida para expressões de PowerShell para os utilizadores que talvez não esteja familiarizados com ele. Todos os detalhes do PowerShell estão disponíveis em [Scripting com o Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
+Uma das vantagens da criação de gráficos é fornecer-lhe a capacidade de criar um runbook com o mínimo de conhecimento do PowerShell. Atualmente, precisa saber um pouco do PowerShell, embora para preencher determinados [valores de parâmetros](#activities) e para definição [ligação condições](#links-and-workflow). Esta seção fornece uma introdução rápida para expressões de PowerShell para os utilizadores que talvez não esteja familiarizados com ele. Todos os detalhes do PowerShell estão disponíveis em [Scripting com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### <a name="powershell-expression-data-source"></a>Origem de dados de expressão do PowerShell
 Pode utilizar uma expressão do PowerShell como uma origem de dados para preencher o valor de uma [parâmetro de atividade](#activities) com os resultados de algum código do PowerShell. Isto pode ser uma única linha de código que execute alguma função simple ou várias linhas que realizar alguma lógica complexa. Qualquer saída de um comando que não está atribuído a uma variável é a saída para o valor do parâmetro.
@@ -414,7 +414,7 @@ Pode participar em várias condições com um [operador lógico](https://technet
 
 ### <a name="hashtables"></a>Tabelas hash
 
-[Tabelas hash](http://technet.microsoft.com/library/hh847780.aspx) são pares de nome/valor que são úteis para retornar um conjunto de valores. Propriedades para determinadas atividades podem esperar que uma tabela de hash, em vez de um valor simples. Também poderá ver como a hashtable referido como um dicionário.
+[Tabelas hash](https://technet.microsoft.com/library/hh847780.aspx) são pares de nome/valor que são úteis para retornar um conjunto de valores. Propriedades para determinadas atividades podem esperar que uma tabela de hash, em vez de um valor simples. Também poderá ver como a hashtable referido como um dicionário.
 
 Criar uma tabela de hash com a seguinte sintaxe. Uma tabela de hash pode conter qualquer número de entradas, mas cada um é definido por um nome e valor.
 

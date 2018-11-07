@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155954"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234209"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de palavras-passe para o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de credenciais necessários para a autenticação NTLM (NT LAN Manager) e Kerberos para sincronizar com os Serviços de Domínio do Azure AD. Assim que a sincronização de credenciais estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -50,7 +50,7 @@ Um inquilino do Azure AD sincronizado é definido para sincronizar com o diretó
 ### <a name="install-or-update-azure-ad-connect"></a>Instalar ou atualizar o Azure AD Connect
 Instale a versão mais recente recomendada do Azure AD Connect num computador associado a um domínio. Se tiver uma instância existente do programa de configuração do Azure AD Connect, terá de atualizá-la para utilizar a versão mais recente do Azure AD Connect. Para evitar problemas/erros conhecidos que possam já ter sido corrigidos, utilize sempre a versão mais recente do Azure AD Connect.
 
-**[Transferir o Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Transferir o Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Versão recomendada: **1.1.614.0** - publicada em 5 de setembro de 2017.
 

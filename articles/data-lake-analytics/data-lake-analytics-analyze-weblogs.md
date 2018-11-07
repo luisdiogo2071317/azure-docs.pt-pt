@@ -9,19 +9,19 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 5d25aed196dd6b4ce92ae1cf18e556d1c32295d3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246468"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analisar registos de sites com o Azure Data Lake Analytics
 Saiba como analisar registos de sites com o Data Lake Analytics, especialmente em descobrir que Referenciadores encontrou erros quando tentou visitar o Web site.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Visual Studio 2015 ou Visual Studio 2013**.
-* **[Data Lake Tools para Visual Studio](http://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools para Visual Studio](https://aka.ms/adltoolsvs)**.
 
     Depois de instalar o Data Lake Tools para Visual Studio, verá uma **Data Lake** item no **ferramentas** menu no Visual Studio:
 

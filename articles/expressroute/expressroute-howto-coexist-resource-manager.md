@@ -6,14 +6,14 @@ author: charwen
 manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162347"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243816"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar ligações coexistentes ExpressRoute e de Site a Site com o PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,9 @@ A configuração de ligações de Rede de VPNs e ExpressRoute coexistentes tem v
 * Pode configurar uma Rede de VPNs como um caminho de ativação pós-falha para o ExpressRoute. 
 * Em alternativa, pode utilizar a Rede de VPNs para se ligar a sites que não estão ligados através do ExpressRoute. 
 
-São abrangidos neste artigo os passos para configurar ambos os cenários. Este artigo aplica-se ao modelo de implementação do Resource Manager e utiliza o PowerShell. Também pode configurar estes cenários através do Portal do Azure, embora a documentação ainda não está disponível.
+São abrangidos neste artigo os passos para configurar ambos os cenários. Este artigo aplica-se ao modelo de implementação do Resource Manager e utiliza o PowerShell. Também pode configurar estes cenários com o portal do Azure, embora a documentação ainda não está disponível. Pode configurar um gateway pela primeira vez. Normalmente, irá incorrer em sem períodos de indisponibilidade ao adicionar um novo gateway ou a ligação de gateway.
+
+
 
 >[!NOTE]
 >Se pretender criar uma Rede de VPNs através de um circuito do ExpressRoute, veja [este artigo](site-to-site-vpn-over-microsoft-peering.md).
@@ -209,7 +211,7 @@ Se tiver uma rede virtual que tenha apenas um gateway de rede virtual (digamos, 
 5. Nesta fase, já tem uma rede virtual sem quaisquer gateways. Para criar gateways novos e configurar as ligações, siga os passos na secção anterior.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Para adicionar uma configuração ponto a site para o gateway de VPN
-Pode seguir os passos abaixo para adicionar a configuração Ponto a Site para o seu gateway de VPN numa configuração de coexistência.
+Pode seguir os passos abaixo para adicionar a configuração de ponto a Site para o gateway de VPN numa configuração de coexistência.
 
 1. Adicione um conjunto de endereços de Cliente de VPN.
 
@@ -224,7 +226,8 @@ Pode seguir os passos abaixo para adicionar a configuração Ponto a Site para o
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 Para obter mais informações sobre VPNs Ponto a Site, veja [Configurar uma ligação Ponto a Site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).

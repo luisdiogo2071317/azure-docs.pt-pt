@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: d6491ea1fd46d1dbd3d258a79a8d8e932173dae5
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912293"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234719"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre o armazenamento de discos para VMs do Windows do Azure
 
@@ -51,8 +51,9 @@ Quando cria uma máquina virtual a partir de uma imagem, o Azure cria um disco d
 
 Pode adicionar discos de dados a uma máquina virtual em qualquer altura, ao **anexar** o disco à máquina virtual. Pode utilizar um VHD que carregou ou copiados para a sua conta de armazenamento ou utilizar um VHD vazio que o Azure cria para. Anexar um disco de dados, associa o ficheiro VHD com a VM, colocando uma concessão no VHD para que não pode ser eliminada do armazenamento, enquanto ainda estiver a ser ligado.
 
-
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
+
+Para tamanhos de pré-visualização, consulte nosso [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para saber em que regiões estão disponíveis.
 
 ## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Uma última Recomendação: utilização TRIM com discos standard não geridos
 

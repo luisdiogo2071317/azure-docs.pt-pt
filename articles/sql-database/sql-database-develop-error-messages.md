@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/31/2018
-ms.openlocfilehash: 233e6e9bccd8729cd61514f2855799cf3d22d72b
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 71a23e982f1e4ae5609d4f9a160cd1861e043ea1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914673"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251820"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: erros de ligação e outros problemas de base de dados
 
@@ -45,7 +45,7 @@ Para obter exemplos de código da lógica de repetição, consulte:
 * [Bibliotecas de ligação para base de dados SQL e SQL Server](sql-database-libraries.md) 
 * [Ações para corrigir erros de ligação e erros transitórios na base de dados SQL](sql-database-connectivity-issues.md)
 
-Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível no [SQL Server ligação agrupamento (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível no [SQL Server ligação agrupamento (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### <a name="transient-fault-error-codes"></a>Códigos de erro de falhas transitórias
 Os seguintes erros estão transitórios e devem ser repetidos na lógica do aplicativo: 
@@ -94,8 +94,8 @@ Tópicos relacionados:
 
 | Código de erro | Gravidade | Descrição |
 | ---:| ---:|:--- |
-| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |ID do recurso: %d. O limite de %s para a base de dados é %d e foi atingido. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |ID do recurso: %d. A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Para mais informações, consulte [http://go.microsoft.com/fwlink/?LinkId=267637](https://go.microsoft.com/fwlink/?LinkId=267637). Caso contrário, volte a tentar novamente mais tarde.<br/><br/>O ID de recurso indica o recurso que atingiu o limite. Para threads de trabalho, o ID de recurso = 1. Para as sessões, o ID de recurso = 2.<br/><br/>Para obter mais informações sobre este erro e como resolvê-lo, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |A base de dados atingiu a quota de tamanho. Particione ou elimine dados, remova índices ou consulte a documentação para encontrar possíveis resoluções. |
 | 40549 |16 |A sessão foi terminada porque tem uma transação de longa execução. Tente encurtar a transação. |
 | 40550 |16 |A sessão foi terminada porque obteve muito muitos bloqueios. Tente ler ou modificar algumas linhas numa única transação. |
@@ -109,7 +109,7 @@ Para criar e utilizar os conjuntos elásticos relacionados com os seguintes erro
 | Código de erro | Gravidade | Descrição | Ação corretiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |O conjunto elástico atingiu o limite de armazenamento. A utilização do armazenamento para o conjunto elástico não pode exceder (%d) MBs. A tentar gravar dados num banco de dados quando for atingido o limite de armazenamento do conjunto elástico. |Considere aumentar as DTUs de e/ou adicionar armazenamento para o conjunto elástico se possível para aumentar o limite de armazenamento, reduzir o armazenamento utilizado pelas bases de dados individuais dentro do conjunto elástico ou remover bases de dados do conjunto elástico. |
-| 10929 | 16 |A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Ver [ http://go.microsoft.com/fwlink/?LinkId=267637 ](http://go.microsoft.com/fwlink/?LinkId=267637) para obter assistência. Caso contrário, volte a tentar novamente mais tarde. DTU / mínimo de vCore por base de dados; DTU / máximo de vCore por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados do conjunto elástico tentou exceder o limite do conjunto. |Considere aumentar o DTUs ou vCores do conjunto elástico se possível, para aumentar o limite de trabalho ou remover bases de dados do conjunto elástico. |
+| 10929 | 16 |A garantia mínima %s é %d, limite máximo é %d e a utilização atual da base de dados é %d. No entanto, o servidor está atualmente demasiado ocupado para suportar solicitações que ultrapassarem %d para esta base de dados. Ver [ http://go.microsoft.com/fwlink/?LinkId=267637 ](https://go.microsoft.com/fwlink/?LinkId=267637) para obter assistência. Caso contrário, volte a tentar novamente mais tarde. DTU / mínimo de vCore por base de dados; DTU / máximo de vCore por base de dados. O número total de trabalhadores simultâneos (pedidos) em todas as bases de dados do conjunto elástico tentou exceder o limite do conjunto. |Considere aumentar o DTUs ou vCores do conjunto elástico se possível, para aumentar o limite de trabalho ou remover bases de dados do conjunto elástico. |
 | 40844 | 16 |Base de dados "%ls" no servidor "%ls" é uma base de dados de edição de "%ls" num conjunto elástico e não pode ter uma relação de cópia contínua.  |N/A |
 | 40857 | 16 |Conjunto elástico não encontrado para o servidor: '%ls', nome do conjunto elástico: "%ls". Conjunto elástico especificado não existe no servidor especificado. | Forneça um nome de conjunto elástico válido. |
 | 40858 | 16 |Conjunto elástico "%ls" já existe no servidor: "%ls". Conjunto elástico especificado já existe no servidor lógico especificado. | Forneça o nome do novo conjunto elástico. |

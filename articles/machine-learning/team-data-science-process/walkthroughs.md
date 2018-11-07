@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: deguhath
-ms.openlocfilehash: 4ac07d9d56862f315f7ef1f68fdecad1af700dbf
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 86024316344ccbce87f48adbc0598c94e61c5e6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395025"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253572"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Orientações passo a passo do processo de ciência de dados de equipa em execução
 
@@ -47,5 +47,5 @@ Para uma discussão sobre os principais componentes que compõem o processo de c
 
 Para uma discussão sobre o ciclo de vida do processo de ciência de dados de equipa que pode utilizar para estruturar os seus projetos de ciência de dados, consulte [ciclo de vida do processo de ciência de dados de equipa](lifecycle.md). O ciclo de vida descreve os passos, do início ao fim, que projetos seguem, normalmente, quando forem executados. 
 
-Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [processo de ciência de dados](http://aka.ms/datascienceprocess). 
+Para uma descrição geral dos tópicos que lhe mostram as tarefas que compõem o processo de ciência de dados no Azure, consulte [processo de ciência de dados](https://aka.ms/datascienceprocess). 
 

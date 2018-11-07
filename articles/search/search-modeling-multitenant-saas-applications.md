@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364279"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232386"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicações SaaS multi-inquilino e Azure Search
 Uma aplicação multi-inquilino é aquele que fornece as mesmas serviços e recursos para qualquer número de inquilinos que não é possível ver ou partilhar os dados de qualquer outro inquilino. Este documento discute as estratégias de isolamento de inquilino para aplicações multi-inquilino criadas com o Azure Search.
 
 ## <a name="azure-search-concepts"></a>Conceitos de pesquisa do Azure
-Como uma solução de pesquisa-como-serviço, o Azure Search permite aos desenvolvedores adicionar experiências de pesquisa avançadas às aplicações sem gerir qualquer infraestrutura ou se tornar um especialista na obtenção de informações. Dados são carregados para o serviço e, em seguida, armazenados na cloud. Com simples pedidos à API de pesquisa do Azure, os dados podem, em seguida, ser modificados e pesquisados. Uma descrição geral do serviço pode ser encontrada na [este artigo](http://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante compreender alguns conceitos no Azure Search.
+Como uma solução de pesquisa-como-serviço, o Azure Search permite aos desenvolvedores adicionar experiências de pesquisa avançadas às aplicações sem gerir qualquer infraestrutura ou se tornar um especialista na obtenção de informações. Dados são carregados para o serviço e, em seguida, armazenados na cloud. Com simples pedidos à API de pesquisa do Azure, os dados podem, em seguida, ser modificados e pesquisados. Uma descrição geral do serviço pode ser encontrada na [este artigo](https://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante compreender alguns conceitos no Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Serviços de pesquisa, índices, campos e documentos
 Ao utilizar o Azure Search, um assina um *serviço de pesquisa*. Como os dados serem carregados para o Azure Search, ele é armazenado numa *índice* dentro do serviço de pesquisa. Pode haver um número de índices num único serviço. Para utilizar os conceitos familiares de bases de dados, o serviço de pesquisa pode ser likened para uma base de dados enquanto os índices dentro de um serviço podem ser likened às tabelas numa base de dados.
@@ -126,7 +126,7 @@ Esse método pode ser utilizado para alcançar a funcionalidade de contas de uti
 > 
 
 ## <a name="next-steps"></a>Passos Seguintes
-O Azure Search é uma opção atraente para muitos aplicativos, [Leia mais sobre as capacidades robustas do serviço](http://aka.ms/whatisazsearch). Ao avaliar os vários padrões de design para aplicações multi-inquilino, considere a [vários escalões de preço](https://azure.microsoft.com/pricing/details/search/) e respetivos [limites de serviço](search-limits-quotas-capacity.md) para melhor ajustar o Azure Search, de acordo com as aplicações cargas de trabalho e arquiteturas de todos os tamanhos.
+O Azure Search é uma opção atraente para muitos aplicativos, [Leia mais sobre as capacidades robustas do serviço](https://aka.ms/whatisazsearch). Ao avaliar os vários padrões de design para aplicações multi-inquilino, considere a [vários escalões de preço](https://azure.microsoft.com/pricing/details/search/) e respetivos [limites de serviço](search-limits-quotas-capacity.md) para melhor ajustar o Azure Search, de acordo com as aplicações cargas de trabalho e arquiteturas de todos os tamanhos.
 
 Dúvidas sobre os cenários de multi-inquilino e Azure Search podem ser direcionadas para azuresearch_contact@microsoft.com.
 

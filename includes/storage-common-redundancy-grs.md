@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
-ms.openlocfilehash: 922f4d5dd8c71bc9365523b1d539d1b0754fff15
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580944"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219856"
 ---
 Armazenamento georredundante (GRS) foi concebido para proporcionar, pelo menos, 99,99999999999999% (16 9 s) a durabilidade dos objetos ao longo de um determinado ano ao replicar os seus dados para uma região secundária que está situada a centenas de quilómetros de distância da região primária. Se a sua conta de armazenamento tiver GRS ativada, em seguida, seus dados são duráveis mesmo em caso de uma falha regional completa ou um desastre no qual a região primária não é recuperável.
 
 Se optar por GRS, tem duas opções relacionadas à sua escolha:
 
 * GRS replica os dados para outro centro de dados numa região secundária, mas que os dados estão disponíveis para ser só de leitura se a Microsoft iniciará uma ativação pós-falha dos principais para a região secundária. 
-* Armazenamento georredundante com acesso de leitura (RA-GRS) baseia-se em GRS. RA-GRS replica os dados para outro centro de dados numa região secundária e também fornece-lhe a opção de ler a partir da região secundária. Com RA-GRS, pode ler a partir do secundário, independentemente se a Microsoft inicie uma ativação pós-falha do primário para o secundário. 
+* Armazenamento georredundante com acesso de leitura (RA-GRS) baseia-se em GRS. RA-GRS replica os dados para outro centro de dados numa região secundária e também fornece-lhe a opção de ler a partir da região secundária. Com o RA-GRS, pode ler a partir da região secundária, independentemente se a Microsoft inicie uma ativação pós-falha dos principais para a região secundária. 
 
 Para uma conta de armazenamento com o GRS ou RA-GRS ativada, todos os dados pela primeira vez é replicado com armazenamento localmente redundante (LRS). Uma atualização em primeiro lugar tem o compromisso para a localização primária e replicados utiliza o LRS. A atualização, em seguida, é replicada de forma assíncrona para a região secundária com GRS. Quando os dados são escritos para a localização secundária, também são replicado dentro desse local utiliza o LRS. 
 
@@ -29,6 +29,6 @@ Regiões primárias e secundárias gerir réplicas em domínios de falha e domí
 Tenha em consideração esses pontos ao decidir que opção de replicação a utilizar:
 
 * Armazenamento com redundância de zona (ZRS) fornece elevada disponibilidade com a replicação síncrona e pode ser uma opção melhor para alguns cenários que o GRS ou RA-GRS. Para obter mais informações sobre ZRS, veja [ZRS](../articles/storage/common/storage-redundancy-zrs.md).
-* Uma vez que a replicação assíncrona envolve um atraso, em caso de desastre regional é possível que as alterações que ainda não tem sido replicadas para a região secundária serão perdidas se não é possível recuperar os dados da região primária.
-* Com a GRS, a réplica não está disponível, a menos que a Microsoft inicie a ativação pós-falha para a região secundária. Se o Microsoft iniciar uma ativação pós-falha para a região secundária, que será leu e acesso de escrita a esses dados após a ativação pós-falha foi concluída. Para obter mais informações, consulte [orientações sobre a recuperação após desastre](../articles/storage/common/storage-disaster-recovery-guidance.md).
+* Replicação assíncrona envolve um atraso a partir do momento em que dados são escritos para a região primária, quando ele é replicado para a região secundária. Em caso de desastre regional, as alterações que ainda não tiverem sido replicadas para a região secundária podem ser perdidas se esses dados não podem ser recuperados da região primária.
+* Com a GRS, a réplica não está disponível para leitura ou acesso de escrita, a menos que a Microsoft inicie uma ativação pós-falha para a região secundária. No caso de uma ativação pós-falha, vai ter de leitura e escrita acesso a esses dados após a ativação pós-falha foi concluída. Para obter mais informações, consulte [orientações sobre a recuperação após desastre](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * Se seu aplicativo precisar ler a partir da região secundária, ative o RA-GRS.

@@ -1,6 +1,6 @@
 ---
-title: A indexação de ficheiros de suporte de dados com o indexador de Media Services do Azure
-description: Indexador de suporte de dados do Azure permite-lhe para que o conteúdo dos seus ficheiros de suporte de dados pesquisáveis e para gerar um transcript de texto completo para captioning fechada e as palavras-chave. Este tópico mostra como utilizar o indexador de suporte de dados.
+title: Indexar os ficheiros de multimédia com o indexador de multimédia do Azure
+description: O indexador de multimédia do Azure permite-lhe para tornar o conteúdo dos seus ficheiros multimédia pesquisáveis e gerar uma transcrição de texto completo para as legendas de áudio e palavras-chave fechado. Este tópico mostra como utilizar o indexador de multimédia.
 services: media-services
 documentationcenter: ''
 author: Asolanki
@@ -14,46 +14,46 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: adsolank;juliako;johndeu
-ms.openlocfilehash: 320d8cfa21c36e0f0d751d29d461a0023ab563e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7366ab573360e046ae112a32c32b292ebaeb8178
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788908"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228560"
 ---
-# <a name="indexing-media-files-with-azure-media-indexer"></a>A indexação de ficheiros de suporte de dados com o indexador de Media Services do Azure
-Indexador de suporte de dados do Azure permite-lhe para que o conteúdo dos seus ficheiros de suporte de dados pesquisáveis e para gerar um transcript de texto completo para captioning fechada e as palavras-chave. Pode processar um ficheiro de multimédia ou vários num lote.  
+# <a name="indexing-media-files-with-azure-media-indexer"></a>Indexar os ficheiros de multimédia com o indexador de multimédia do Azure
+O indexador de multimédia do Azure permite-lhe para tornar o conteúdo dos seus ficheiros multimédia pesquisáveis e gerar uma transcrição de texto completo para as legendas de áudio e palavras-chave fechado. Pode processar um ficheiro de multimédia ou vários num lote.  
 
 > [!IMPORTANT]
-> Quando indexação conteúdo, certifique-se de que utiliza ficheiros de suporte de dados com reconhecimento de voz simples (sem leitores de música em segundo plano, ruído, efeitos ou hiss microfone). Alguns exemplos de conteúdo apropriado: registadas reuniões, lectures ou apresentações. O seguinte conteúdo poderá não ser adequado para indexação: filmes, mostra TV, qualquer caráter com áudio misto e efeitos de som, mal registadas conteúdo com o ruído de fundo (hiss).
+> Quando precisa de indexar conteúdo, certifique-se utilizar ficheiros de suporte de dados que tenham clara de voz (sem música em segundo plano, ruído, efeitos ou hiss microfone). Alguns exemplos de conteúdo apropriado são: registadas reuniões, palestras ou apresentações. O seguinte conteúdo pode não ser adequado para indexação: filmes, programas de TV, qualquer coisa com áudio misto e efeitos sonoros, mal registadas conteúdo com o barulho de fundo (hiss).
 > 
 > 
 
-Uma tarefa de indexação pode gerar as saídas seguintes:
+Uma tarefa de indexação pode gerar os seguintes resultados:
 
-* Fechado ficheiros legenda nos seguintes formatos: **SAMI**, **TTML**, e **WebVTT**.
+* Fechado ficheiros de legendas nos seguintes formatos: **SAMI**, **TTML**, e **WebVTT**.
   
-    Ficheiros de legendas incluem uma etiqueta chamada Recognizability, as pontuações uma tarefa de indexação com base na forma como reconhecível o reconhecimento de voz as vídeo de origem.  Pode utilizar o valor de Recognizability nos ficheiros de saída do ecrã de Facilidade de utilização. Uma pontuação baixa tal significa fracas resultados de indexação devido a qualidade de áudio.
+    Ficheiros com legendagem incluem uma etiqueta denominada Recognizability, quais as classificações de uma tarefa de indexação com base na conversão de voz no vídeo de origem como reconhecível.  Pode utilizar o valor de Recognizability para ficheiros de saída de tela para facilidade de utilização. Uma pontuação baixa significaria resultados de indexação fraco devido a qualidade do áudio.
 * Ficheiro de palavra-chave (XML).
-* Áudio indexação ficheiro blob (AIB) para utilização com o SQL server.
+* Áudio a indexação de ficheiro blob (AIB) para utilização com o SQL server.
   
-    Para obter mais informações, consulte [utilizando ficheiros de AIB com indexador de suporte de dados do Azure e o SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
+    Para obter mais informações, consulte [usando arquivos de AIB com o indexador de multimédia do Azure e o SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/).
 
-Este artigo mostra como criar tarefas de indexação para **um recurso de índice** e **vários ficheiros de índice**.
+Este artigo mostra como criar tarefas de indexação **um recurso de índice** e **vários ficheiros de índice**.
 
-As atualizações mais recentes do indexador de suporte de dados do Azure, consulte [blogues de Media Services](#preset).
+Para as atualizações mais recentes do indexador de multimédia do Azure, consulte [blogs de serviços de multimédia](#preset).
 
-## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Utilizar ficheiros de configuração e de manifesto para tarefas de indexação
-Pode especificar mais detalhes para as tarefas de indexação através da utilização de uma configuração de tarefas. Por exemplo, pode especificar que os metadados para utilizar para o ficheiro de suporte de dados. Estes metadados é utilizado pelo motor de idioma para expandir o vocabulário e melhora consideravelmente a precisão de reconhecimento de voz.  Também são capazes de especificar os ficheiros de saída pretendidas.
+## <a name="using-configuration-and-manifest-files-for-indexing-tasks"></a>Usando arquivos de configuração e de manifesto para tarefas de indexação
+Pode especificar mais detalhes para as suas tarefas de indexação ao utilizar uma configuração de tarefas. Por exemplo, pode especificar quais metadados a utilizar para o ficheiro de suporte de dados. Estes metadados é utilizado pelo mecanismo de idioma para expandir o vocabulário e melhora consideravelmente a precisão de reconhecimento de voz.  Também são capazes de especificar os ficheiros de saída desejada.
 
-Também pode processar vários ficheiros de suporte de dados em simultâneo utilizando um ficheiro de manifesto.
+Também pode processar vários ficheiros de suporte de dados ao mesmo tempo utilizando um ficheiro de manifesto.
 
-Para obter mais informações, consulte [tarefas da configuração predefinida para o indexador de suporte de dados do Azure](https://msdn.microsoft.com/library/dn783454.aspx).
+Para obter mais informações, consulte [tarefas configuração predefinida para o Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ## <a name="index-an-asset"></a>Um recurso de índice
 O método seguinte carrega um ficheiro de suporte de dados como um recurso e cria uma tarefa para o elemento de índice.
 
-Não se for especificado nenhum ficheiro de configuração, o ficheiro de multimédia é indexado com todas as definições predefinidas.
+Se não for especificado nenhum ficheiro de configuração, o ficheiro de multimédia é indexado com todas as configurações padrão.
 
 ```csharp
     static bool RunIndexingJob(string inputMediaFilePath, string outputFolder, string configurationFile = "")
@@ -146,23 +146,23 @@ Não se for especificado nenhum ficheiro de configuração, o ficheiro de multim
 
 <!-- __ -->
 ### <a id="output_files"></a>Ficheiros de saída
-Por predefinição, uma tarefa de indexação gera os seguintes ficheiros de saída. Os ficheiros são armazenados no elemento de saída primeiro.
+Por predefinição, uma tarefa de indexação gera os seguintes ficheiros de saída. Os ficheiros são armazenados no recurso de saída primeiro.
 
-Quando existe mais do que um ficheiro de suporte de dados de entrada, o indexador gera um ficheiro de manifesto para as saídas da tarefa, com o nome 'JobResult.txt'. Para cada ficheiro de suporte de dados de entrada, o AIB resultante, SAMI, TTML, WebVTT e ficheiros de palavra-chave, são sequencialmente numerados e com o nome de utilizar o "Alias".
+Quando existe mais do que um ficheiro de suporte de dados de entrada, o indexador gera um arquivo de manifesto para as saídas de tarefas, com o nome 'JobResult.txt'. Para cada ficheiro de suporte de dados de entrada, o AIB resultante, SAMI, TTML, WebVTT e arquivos de palavra-chave, são sequencialmente numerados e nomeados usando o "Alias".
 
 | Nome de ficheiro | Descrição |
 | --- | --- |
-| **InputFileName.aib** |Ficheiro de blob de indexação áudio. <br/><br/> Ficheiro de áudio indexar o Blob (AIB) é um ficheiro binário que pode ser pesquisado no Microsoft SQL server utilizando a pesquisa em texto completo.  O ficheiro AIB é mais poderoso que os ficheiros de legenda simples, porque contém alternativas para cada palavra, permitindo uma experiência de pesquisa muito mais rica. <br/> <br/>Requer a instalação do Suplemento SQL Server do indexador num máquina com Microsoft SQL server 2008 ou posterior. Pesquisar AIB com o Microsoft SQL pesquisa de texto completo do servidor fornece mais exatos resultados de pesquisa que a procura os ficheiros de legendas gerados pelo WAMI. Isto acontece porque o AIB contém alternativas do word que som semelhantes, enquanto que os ficheiros de legendas contenham a palavra mais elevada de confiança para cada segmento de áudio. Se procurar palavras ditas upmost importância, em seguida, é recomendado para utilizar o AIB em conjunto com o Microsoft SQL Server.<br/><br/> Para transferir o suplemento do, clique em <a href="http://aka.ms/indexersql">suplemento do SQL do Azure Media indexador</a>. <br/><br/>Também é possível utilizar outros motores de busca como o Apache Lucene/Solr para simplesmente o vídeo com base na legenda fechada e os ficheiros XML de palavra-chave de índice, mas tal resultará em menos exatos resultados da pesquisa. |
-| **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |Fechado ficheiros de legenda (CC) nos formatos SAMI, TTML e WebVTT.<br/><br/>Podem ser utilizadas para tornar o ficheiros de áudio e vídeos acessível para pessoas com hearing disability.<br/><br/>Fechado de legenda de ficheiros incluem uma etiqueta chamada <b>Recognizability</b> que pontua uma tarefa de indexação com base na forma como reconhecível o reconhecimento de voz as vídeo de origem.  Pode utilizar o valor de <b>Recognizability</b> nos ficheiros de saída do ecrã de Facilidade de utilização. Uma pontuação baixa tal significa fracas resultados de indexação devido a qualidade de áudio. |
-| **InputFileName.kw.xml<br/>InputFileName.info** |Palavra-chave e as informações de ficheiros. <br/><br/>Ficheiro de palavra-chave é um ficheiro XML que contém as palavras-chave extraídas do conteúdo reconhecimento de voz, com frequência e informações de deslocamento. <br/><br/>O ficheiro de informações é um ficheiro de texto simples que contém informações granulares sobre cada termo reconhecido. A primeira linha é especial e contém a classificação de Recognizability. Cada linha subsequente é uma lista separada por separador dos seguintes dados: iniciar o tempo, a hora de fim, word/frase, confiança. Os tempos são indicados em segundos e a confiança é fornecida como um número entre 0-1. <br/><br/>Linha de exemplo: "1.20 1.45 word 0.67" <br/><br/>Estes ficheiros podem ser utilizados para um número de objetivos, como, por exemplo, para efetuar análises de reconhecimento de voz, ou expostos a motores de pesquisa, tais como o Bing, Google ou do Microsoft SharePoint para tornar os ficheiros de suporte de dados mais detetável ou até mesmo utilizados para fornecer os anúncios mais relevantes. |
-| **JobResult.txt** |Manifesto de saída, presente apenas quando a indexação de vários ficheiros, que contém as seguintes informações:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Erro</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
+| **InputFileName.aib** |Arquivo de BLOBs de indexação áudio. <br/><br/> Arquivo de áudio BLOBs de indexação (AIB) é um arquivo binário que pode ser pesquisado no Microsoft SQL server utilizando a pesquisa em texto completo.  O ficheiro AIB é mais poderoso do que os ficheiros de legendas simples, porque contém alternativas para cada palavra, permitindo uma experiência de pesquisa muito mais sofisticada. <br/> <br/>Requer a instalação do Suplemento SQL de indexador num máquina com Microsoft SQL server 2008 ou posterior. Pesquisar AIB com o Microsoft SQL pesquisa de texto completo do servidor fornece os resultados da pesquisa mais precisos que a procura os ficheiros de legendagem de áudio gerados pelo WAMI. Isto acontece porque o AIB contém alternativas de palavras que soam de forma semelhantes, ao passo que os ficheiros de legendagem de áudio contêm a palavra mais alta de confiança para cada segmento do áudio. Se procurar por palavras faladas é de importância upmost, em seguida, é recomendado para utilizar o conjunto AIB com o Microsoft SQL Server.<br/><br/> Para transferir o suplemento, clique em <a href="https://aka.ms/indexersql">suplemento de SQL de indexador de multimédia do Azure</a>. <br/><br/>Também é possível utilizar outros mecanismos de pesquisa, como Apache Lucene/Solr, simplesmente indexar o vídeo com base na legendagem de áudio e arquivos XML de palavra-chave, mas isso resultará em menos precisos resultados da pesquisa. |
+| **InputFileName.smi**<br/>**InputFileName.ttml**<br/>**InputFileName.vtt** |Arquivos de legenda (CC) fechado em formatos SAMI TTML e WebVTT.<br/><br/>Eles podem ser usados para tornar os arquivos de áudio e vídeo acessível para pessoas portadoras de deficiência auditivas.<br/><br/>Ficheiros de legendas fechados incluem uma etiqueta denominada <b>Recognizability</b> pontua que uma tarefa de indexação com base na conversão de voz no vídeo de origem como reconhecível.  Pode usar o valor de <b>Recognizability</b> para ficheiros de saída de tela para facilidade de utilização. Uma pontuação baixa significaria resultados de indexação fraco devido a qualidade do áudio. |
+| **InputFileName.kw.xml<br/>InputFileName.info** |Palavra-chave e as informações de ficheiros. <br/><br/>Ficheiro de palavra-chave é um arquivo XML que contém palavras-chave extraído do conteúdo de discurso, com frequência e informações de deslocamento. <br/><br/>Ficheiro de informações é um ficheiro de texto simples que contém informações granulares sobre cada termo reconhecido. A primeira linha é especial e contém a pontuação de Recognizability. Cada linha subsequente é uma lista separada de separador dos seguintes dados: iniciar o tempo, a hora de fim, a palavra/expressão, confiança. Os tempos são indicados em segundos e a confiança é fornecida como um número entre 0-1. <br/><br/>Linha de exemplo: "1.20 1.45 palavra 0,67" <br/><br/>Estes ficheiros podem ser utilizados para diversas finalidades, como, realizar análises de voz, ou expostos a mecanismos de pesquisa, como o Bing, Google ou Microsoft SharePoint para tornar os ficheiros de multimédia mais detetável, ou até mesmo utilizadas para disponibilizar os anúncios mais relevantes. |
+| **JobResult.txt** |Manifesto de saída, presente somente quando a indexação de vários ficheiros, que contém as seguintes informações:<br/><br/><table border="1"><tr><th>InputFile</th><th>Alias</th><th>MediaLength</th><th>Erro</th></tr><tr><td>a.mp4</td><td>Media_1</td><td>300</td><td>0</td></tr><tr><td>b.mp4</td><td>Media_2</td><td>0</td><td>3000</td></tr><tr><td>c.mp4</td><td>Media_3</td><td>600</td><td>0</td></tr></table><br/> |
 
-Se não estiver todos os ficheiros de suporte de dados de entrada são indexados com êxito, a tarefa de indexação falha com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
+Se não todos os ficheiros de suporte de dados de entrada são indexados com êxito, a tarefa de indexação falha com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
 
 ## <a name="index-multiple-files"></a>Vários ficheiros de índice
-O método seguinte carrega vários ficheiros de suporte de dados como um recurso e cria uma tarefa de todos os estes ficheiros batch do índice.
+O seguinte método carrega vários ficheiros de suporte de dados como um recurso e cria uma tarefa para todos esses arquivos num lote de índice.
 
-Um ficheiro de manifesto com a extensão ".lst" se encontra criada e de carregamento para o elemento. O ficheiro de manifesto contém a lista de todos os ficheiros de recurso. Para obter mais informações, consulte [tarefas da configuração predefinida para o indexador de suporte de dados do Azure](https://msdn.microsoft.com/library/dn783454.aspx).
+Um arquivo de manifesto com a extensão ".lst" é criado e carregado no elemento. O ficheiro de manifesto contém a lista de todos os arquivos de recurso. Para obter mais informações, consulte [tarefas configuração predefinida para o Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -239,38 +239,38 @@ Um ficheiro de manifesto com a extensão ".lst" se encontra criada e de carregam
     }
 ```
 
-### <a name="partially-succeeded-job"></a>Tarefa parcialmente criada com êxito
-Se não estiver todos os ficheiros de suporte de dados de entrada são indexados com êxito, a tarefa de indexação irá falhar com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
+### <a name="partially-succeeded-job"></a>Tarefa parcialmente com êxito
+Se não todos os ficheiros de suporte de dados de entrada são indexados com êxito, a tarefa de indexação irá falhar com o código de erro 4000. Para obter mais informações, consulte [códigos de erro](#error_codes).
 
-As saídas mesmas (como as tarefas com êxito) são geradas. Pode consultar o ficheiro de manifesto de saída para saber quais os ficheiros de entrada são falhou, de acordo com os valores da coluna de erro. Para os ficheiros de entrada que falharam, AIB resultante, SAMI, TTML, WebVTT e palavra-chave ficheiros não serão gerados.
+As mesmas saídas (como tarefas com êxito) são geradas. Pode consultar o ficheiro de manifesto de saída para saber quais os ficheiros de entrada são falha, de acordo com os valores de coluna de erro. Para ficheiros de entrada que falhou, AIB resultante, SAMI, TTML, WebVTT e palavra-chave arquivos não serão gerados.
 
-### <a id="preset"></a> Predefinição de tarefas para o indexador de Media Services do Azure
-O processamento do indexador de suporte de dados do Azure pode ser personalizado, fornecendo uma tarefa opcional juntamente com a tarefa da configuração predefinida.  O seguinte descreve o formato do xml configuração.
+### <a id="preset"></a> Predefinição de tarefas para o indexador de multimédia do Azure
+O processamento do indexador de multimédia do Azure pode ser personalizado, fornecendo uma configuração predefinida juntamente com a tarefa de tarefas opcionais.  A seguir descreve o formato esse XML de configuração.
 
 | Nome | Requerer | Descrição |
 | --- | --- | --- |
-| **input** |false |Ficheiros de recurso que pretende índice.</p><p>Indexador de suporte de dados do Azure suporta os seguintes formatos de ficheiro do suporte de dados: MP4 WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Pode especificar o nome de ficheiro (s) no **nome** ou **lista** atributo o **entrada** elemento (tal como mostrado abaixo). Se não especificar o ficheiro de recurso para o índice, é selecionado o ficheiro principal. Não se for definido nenhum ficheiro de elemento principal, o primeiro ficheiro no recurso de entrada está indexado.</p><p>Para especificar explicitamente o nome de ficheiro de recurso, efetue:<br/>`<input name="TestFile.wmv">`<br/><br/>Também pode indexar vários ficheiros de elemento de uma só vez (até 10 ficheiros). Para efetuar este procedimento:<br/><br/><ol class="ordered"><li><p>Criar um ficheiro de texto (o ficheiro de manifesto) e atribua-lhe uma extensão de .lst. </p></li><li><p>Adicione uma lista de todos os nomes de ficheiro de recurso no seu elemento de entrada para este ficheiro de manifesto. </p></li><li><p>Adicione ficheiros de thanifest (carregamento) para o elemento.  </p></li><li><p>Especifique o nome do ficheiro de manifesto do atributo de lista de entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: Se adicionar mais do que 10 ficheiros para o ficheiro de manifesto, a tarefa de indexação falhará com o código de erro 2006. |
-| **metadata** |false |Metadados para os ficheiros de recurso especificado utilizados para vocabulário Adaptation.  É útil para preparar o indexador para reconhecer palavras vocabulário não padrão, tais como os substantivos adequado.<br/>`<metadata key="..." value="..."/>` <br/><br/>Pode fornecer **valores** para predefinidas **chaves**. Atualmente são suportadas as seguintes chaves:<br/><br/>"title" e "Descrição" - utilizado para adaptation vocabulário para otimizar a linguagem de modelo para o seu trabalho e melhorar a precisão de reconhecimento de voz.  Os valores de seed pesquisas de Internet para localizar texto contexto relevante documentos, utilizando os conteúdos para aumentar o dicionário interno durante a sua tarefa Indexing.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
-| **Funcionalidades** <br/><br/> Adicionar a versão 1.2. Atualmente, a única funcionalidade suportada é o reconhecimento de voz ("ASR"). |false |A funcionalidade de reconhecimento de voz tem as seguintes chaves de definições:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>A linguagem natural para ser reconhecido no ficheiro multimedia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista de valores separados por ponto e vírgula dos formatos de legenda saída pretendida (se aplicável)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Um sinalizador booleano que especifica se é ou não um ficheiro AIB necessário (para utilização com o SQL Server e o cliente indexador IFilter).  Para obter mais informações, consulte <a href="http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">utilizando ficheiros de AIB com indexador de suporte de dados do Azure e o SQL Server</a>.</p></td><td><p>TRUE; FALSO</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booleano que especifica se pretende ou não um ficheiro XML de palavra-chave é necessário.</p></td><td><p>TRUE; FALSO. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booleano que especifica se deve ou não forçar completas legendas (independentemente do nível de confiança).  </p><p>Predefinição é false, caso em que palavras e expressões que têm um menos do que o nível de confiança de 50% são omitidos das saídas da legenda final e substituídos por nas reticências ("...").  Nas reticências são úteis para auditoria e controlo de qualidade de legenda.</p></td><td><p>TRUE; FALSO. </p></td></tr></table> |
+| **input** |false |Ficheiros de recurso que deseja indexar.</p><p>O indexador de multimédia do Azure suporta os seguintes formatos de arquivo de multimédia: MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Pode especificar o nome de ficheiro (s) no **name** ou **lista** atributo do **entrada** elemento (conforme mostrado abaixo). Se não especificar qual arquivo de recurso para o índice, o ficheiro principal é escolhido. Não se for definido nenhum ficheiro de ativo primário, o primeiro arquivo no recurso de entrada é indexado.</p><p>Para especificar explicitamente o nome do arquivo de recurso, fazer:<br/>`<input name="TestFile.wmv">`<br/><br/>Também pode indexar vários ficheiros de elemento ao mesmo tempo (até 10 ficheiros). Para efetuar este procedimento:<br/><br/><ol class="ordered"><li><p>Crie um ficheiro de texto (ficheiro de manifesto) e dê a ele uma extensão de .lst. </p></li><li><p>Adicione uma lista de todos os nomes de arquivo de recurso no seu recurso de entrada para este ficheiro de manifesto. </p></li><li><p>Adicione (carregar) thanifest ficheiro para o elemento.  </p></li><li><p>Especifique o nome do ficheiro de manifesto no atributo de lista da entrada.<br/>`<input list="input.lst">`</li></ol><br/><br/>Nota: Se adicionar mais do que 10 ficheiros para o arquivo de manifesto, a tarefa de indexação irá falhar com o código de erro de 2006. |
+| **metadata** |false |Metadados para o ficheiro ou ficheiros de ativo especificado utilizados para adaptação de vocabulário.  Útil para preparar o indexador para reconhecerem as palavras de vocabulário não padrão, tais como nomes próprios.<br/>`<metadata key="..." value="..."/>` <br/><br/>Pode fornecer **valores** para predefinidas **chaves**. Atualmente são suportadas as seguintes chaves:<br/><br/>"title" e "Descrição" - utilizado para adaptação de vocabulário para ajustar a linguagem de modelam para o seu trabalho e melhorar a precisão de reconhecimento de voz.  Os valores de efetuar o seeding pesquisas da Internet para encontrar os documentos de texto relevante contextualmente, usando o conteúdo para aumentar o dicionário interno para a duração da sua tarefa de indexação.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
+| **Funcionalidades** <br/><br/> Adicionado na versão 1.2. Atualmente, a única funcionalidade suportada é o reconhecimento de fala ("ASR"). |false |A funcionalidade de reconhecimento de voz tem as seguintes chaves de definições:<table><tr><th><p>Chave</p></th>        <th><p>Descrição</p></th><th><p>Valor de exemplo</p></th></tr><tr><td><p>Idioma</p></td><td><p>Linguagem natural a ser reconhecida no ficheiro multimédia.</p></td><td><p>Inglês, espanhol</p></td></tr><tr><td><p>CaptionFormats</p></td><td><p>uma lista delimitada por vírgulas dos formatos de legendas de saída desejada (se houver)</p></td><td><p>ttml;sami;webvtt</p></td></tr><tr><td><p>GenerateAIB</p></td><td><p>Um sinalizador booleano que especifica se é ou não um ficheiro AIB necessário (para utilização com o SQL Server e o cliente IFilter indexador).  Para obter mais informações, consulte <a href="https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/">usando arquivos de AIB com o indexador de multimédia do Azure e o SQL Server</a>.</p></td><td><p>TRUE; FALSO</p></td></tr><tr><td><p>GenerateKeywords</p></td><td><p>Um sinalizador booleano que especifica se é ou não é necessário um ficheiro XML de palavra-chave.</p></td><td><p>TRUE; FALSO. </p></td></tr><tr><td><p>ForceFullCaption</p></td><td><p>Um sinalizador booleano que especifica se deve ou não forçar legendas completas (independentemente do nível de confiança).  </p><p>Padrão é false, caso em que palavras e expressões que têm um nível de confiança de 50% de inferior são omitidos das saídas de legenda final e substituídos por reticências (...").  As reticências são úteis para controle de qualidade de legenda e auditoria.</p></td><td><p>TRUE; FALSO. </p></td></tr></table> |
 
 ### <a id="error_codes"></a>Códigos de erro
-No caso de um erro, o indexador de suporte de dados do Azure devem reportar fazer uma cópia de um dos códigos de erro seguinte:
+No caso de um erro, o indexador de multimédia do Azure devem reportar fazer uma cópia de um dos seguintes códigos de erro:
 
 | Código | Nome | Razões possíveis |
 | --- | --- | --- |
 | 2000 |Configuração inválida |Configuração inválida |
-| 2001 |Recursos de entrada inválidos |Falta a entrada ativos ou elemento vazio. |
-| 2002 |Manifesto inválido |O manifesto está vazio ou manifest contém itens inválidos. |
+| 2001 |Recursos de entrada inválidos |Recursos de entrada ou elemento vazio em falta. |
+| 2002 |Manifesto inválido |Manifesto está vazio ou manifesto contém itens inválidos. |
 | 2003 |Falha ao transferir o ficheiro de multimédia |URL inválido no ficheiro de manifesto. |
-| 2004 |Protocolo não suportado |Não é suportado o protocolo do URL de suporte de dados. |
+| 2004 |Protocolo não suportado |Não é suportado o protocolo do URL de multimédia. |
 | 2005 |Tipo de ficheiro não suportado |Tipo de ficheiro do suporte de dados de entrada não é suportado. |
-| 2006 |Demasiados ficheiros de entrada |Existem mais de 10 ficheiros no manifesto de entrada. |
-| 3000 |Falha ao descodificar o ficheiro de multimédia |Codec de suporte de dados não suportado <br/>ou<br/> Ficheiros de suporte de dados danificada <br/>ou<br/> Nenhuma sequência de áudio no suporte de dados de entrada. |
-| 4000 |A indexação de batch parcialmente foi concluída com êxito |Alguns dos ficheiros de suporte de dados de entrada não ser indexados. Para obter mais informações, consulte <a href="#output_files">ficheiros de saída</a>. |
-| outro |Erros internos |Contacte a equipa de suporte. indexer@microsoft.com |
+| 2006 |Demasiados ficheiros de entrada |Há mais de 10 ficheiros no manifesto de entrada. |
+| 3000 |Falha ao descodificar ficheiro de multimédia |Codec de suporte de dados não suportado <br/>ou<br/> Ficheiro de multimédia danificada <br/>ou<br/> Sem transmissão de áudio no suporte de dados de entrada. |
+| 4000 |Indexação do batch foi parcialmente bem-sucedido |Alguns dos ficheiros de suporte de dados de entrada são falha ser indexados. Para obter mais informações, consulte <a href="#output_files">ficheiros de saída</a>. |
+| outro |Erros internos |Entre em contato com a equipa de suporte. indexer@microsoft.com |
 
 ## <a id="supported_languages"></a>Idiomas suportados
-Atualmente, são suportados os idiomas inglês e espanhol. Para obter mais informações, consulte [a mensagem de blogue de versão v1.2](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
+Atualmente, são suportados os idiomas inglês e espanhol. Para obter mais informações, consulte [a mensagem de blogue de lançamento de versão 1.2](https://azure.microsoft.com/blog/2015/04/13/azure-media-indexer-spanish-v1-2/).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -279,9 +279,9 @@ Atualmente, são suportados os idiomas inglês e espanhol. Para obter mais infor
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Ligações relacionadas
-[Descrição geral da análise de serviços de multimédia do Azure](media-services-analytics-overview.md)
+[Descrição geral da análise dos serviços de multimédia do Azure](media-services-analytics-overview.md)
 
-[Utilizar AIB ficheiros com o indexador de Media Services do Azure e do SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
+[Usando arquivos AIB com o indexador de multimédia do Azure e o SQL Server](https://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)
 
-[A indexação de ficheiros de suporte de dados pré-visualização do indexador 2 Media Services do Azure](media-services-process-content-with-indexer2.md)
+[Indexe ficheiros multimédia com a pré-visualização de 2 de indexador de multimédia do Azure](media-services-process-content-with-indexer2.md)
 

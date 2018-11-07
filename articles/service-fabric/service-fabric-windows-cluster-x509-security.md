@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 8383d6afa4b6029aca3978c53eec1865d1d8c8ea
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721845"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228577"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteger um cluster autónomo no Windows com certificados X.509
 Este artigo descreve como proteger a comunicação entre os vários nós do seu cluster autónomo do Windows. Também descreve como autenticar clientes que se ligam a este cluster, utilizando certificados X.509. Autenticação garante que apenas os utilizadores autorizados podem aceder ao cluster e as aplicações implementadas e efetuar tarefas de gestão. Segurança do certificado deve ser ativada no cluster, quando o cluster é criado.  
@@ -257,7 +257,7 @@ Se estiver a utilizar arquivos de emissor, nenhuma atualização de configuraç�
 ## <a name="acquire-the-x509-certificates"></a>Adquirir os certificados X.509
 Para proteger a comunicação dentro do cluster, tem primeiro de obter certificados X.509 para os nós do cluster. Além disso, para limitar a ligação a este cluster para máquinas/utilizadores autorizados, terá de obter e instalar certificados para as máquinas de cliente.
 
-Para clusters que executam cargas de trabalho de produção, utilize um [autoridade de certificação (AC)](https://en.wikipedia.org/wiki/Certificate_authority)-assinado certificado X.509 para proteger o cluster. Para obter mais informações sobre como obter estes certificados, consulte [como obter um certificado](http://msdn.microsoft.com/library/aa702761.aspx).
+Para clusters que executam cargas de trabalho de produção, utilize um [autoridade de certificação (AC)](https://en.wikipedia.org/wiki/Certificate_authority)-assinado certificado X.509 para proteger o cluster. Para obter mais informações sobre como obter estes certificados, consulte [como obter um certificado](https://msdn.microsoft.com/library/aa702761.aspx).
 
 Para os clusters que utiliza para fins de teste, pode optar por utilizar um certificado autoassinado.
 

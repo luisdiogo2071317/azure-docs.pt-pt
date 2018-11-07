@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214417"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230296"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Cópia de segurança e Restauro
 
@@ -132,18 +132,18 @@ Se a base de dados de controlo é eliminado e as necessidades de base de dados r
 </table>
 
 ## <a name="next"></a>Seguinte
-Para criar serviços BizTalk do Azure, aceda a [os serviços BizTalk: aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicações, veja [BizTalk Services do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para criar serviços BizTalk do Azure, aceda a [os serviços BizTalk: aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280). Para começar a criar aplicações, veja [BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Consultar Também
-* [Serviço de cópia de segurança do BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Restaurar o serviço BizTalk a partir de cópia de segurança](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [Serviços BizTalk: Programador, básico, Standard e Premium gráfico de edições](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [Os serviços BizTalk: aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [Serviços BizTalk: Gráfico de Estado de Aprovisionamento](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [Serviços BizTalk: limitação](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [Serviços BizTalk: Nome e Chave do Emissor](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Serviço de cópia de segurança do BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Restaurar o serviço BizTalk a partir de cópia de segurança](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [Serviços BizTalk: Programador, básico, Standard e Premium gráfico de edições](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [Os serviços BizTalk: aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [Serviços BizTalk: Gráfico de Estado de Aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [Serviços BizTalk: limitação](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [Serviços BizTalk: Nome e Chave do Emissor](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395734"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250922"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina Virtual Windows dados ciência
 
@@ -64,9 +64,9 @@ Eis o aspeto de configuração do ambiente personalizado no Visual Studio.
 
 ![Configuração PTVS](./media/vm-do-ten-things/PTVSSetup.png)
 
-Consulte a [documentação das PTVS](http://aka.ms/ptvsdocs) para obter mais detalhes sobre como criar ambientes do Python.
+Consulte a [documentação das PTVS](https://aka.ms/ptvsdocs) para obter mais detalhes sobre como criar ambientes do Python.
 
-Agora são configuradas para criar um novo projeto de Python. Navegue para **arquivo** -> **New** -> **projeto** -> **Python** e selecione o tipo de Aplicação de Python que está a criar. Pode configurar o ambiente do Python para o projeto atual para a versão pretendida (Python 2.7 ou 3.6) ao clicar com o botão direito a **ambientes do Python**, ao selecionar **ambientes do Python Adicionar/remover**e, em seguida, Escolher o ambiente pretendido. Pode encontrar mais informações sobre como trabalhar com a PTVS no produto [documentação](http://aka.ms/ptvsdocs).
+Agora são configuradas para criar um novo projeto de Python. Navegue para **arquivo** -> **New** -> **projeto** -> **Python** e selecione o tipo de Aplicação de Python que está a criar. Pode configurar o ambiente do Python para o projeto atual para a versão pretendida (Python 2.7 ou 3.6) ao clicar com o botão direito a **ambientes do Python**, ao selecionar **ambientes do Python Adicionar/remover**e, em seguida, Escolher o ambiente pretendido. Pode encontrar mais informações sobre como trabalhar com a PTVS no produto [documentação](https://aka.ms/ptvsdocs).
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Utilizar um bloco de notas do Jupyter para explorar e modelar os seus dados com o Python ou R
 O bloco de notas do Jupyter é um ambiente poderoso que fornece um baseada no browser "IDE" para modelação e exploração de dados. Pode utilizar o Python 2, 3 de Python ou R (código-fonte aberto e o Microsoft R Server) num bloco de notas do Jupyter.
@@ -806,7 +806,7 @@ Seguem-se os passos de por-cumpre para aceder ao Azure Cosmos DB da DSVM:
 
 1. O SDK de Python do Azure Cosmos DB já está instalado no DSVM (executar ```pip install pydocumentdb --upgrade``` da linha de comandos para atualizar)
 2. Criar uma conta do Azure Cosmos DB e bases de dados de [portal do Azure](https://portal.azure.com)
-3. Transferir "Do Azure Cosmos DB Migration Tool" a partir [aqui](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) e extrair para um diretório à sua escolha
+3. Transferir "Do Azure Cosmos DB Migration Tool" a partir [aqui](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) e extrair para um diretório à sua escolha
 4. Importar dados JSON (dados volcano) armazenados num [blob público](https://cahandson.blob.core.windows.net/samples/volcano.json) para o Cosmos DB com parâmetros de comando a seguir para a ferramenta de migração (dtui.exe do diretório onde instalou a ferramenta de migração do Cosmos DB). Introduza a localização de origem e de destino com estes parâmetros:
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

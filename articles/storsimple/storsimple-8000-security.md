@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fb8c3fe9dd5ca207e4ae37faf9a5a1c4edfffc63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908344"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233818"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança do StorSimple
 
@@ -35,7 +35,7 @@ A solução Microsoft Azure StorSimple é composta por quatro componentes princi
 * **Serviço StorSimple Device Manager alojado no Microsoft Azure** – o serviço de gestão que utiliza para configurar e aprovisionar o dispositivo StorSimple.
 * **Dispositivo StorSimple** – um dispositivo físico instalado no seu datacenter. Todos os anfitriões e clientes que geram dados ligar ao dispositivo StorSimple e o dispositivo gere os dados e move-o para a cloud do Azure conforme adequado.
 * **Os clientes/anfitriões ligados ao dispositivo** – os clientes na sua infraestrutura de que se ligam ao dispositivo StorSimple e geram dados de que precisam ser protegido.
-* **Armazenamento na nuvem** – a localização na cloud do Azure, onde os dados são armazenados.
+* **Armazenamento na cloud** – A localização na cloud do Azure onde os dados são armazenados.
 
 As secções seguintes descrevem os recursos de segurança do StorSimple que ajudam a proteger a cada um desses componentes e os dados armazenados nos mesmos. Ele também inclui uma lista de perguntas que possa ter sobre segurança do Microsoft Azure StorSimple e as respostas correspondentes.
 
@@ -43,9 +43,9 @@ As secções seguintes descrevem os recursos de segurança do StorSimple que aju
 
 O serviço StorSimple Device Manager é um serviço de gestão alojado no Microsoft Azure e utilizado para gerir todos os dispositivos do StorSimple que sua organização tiver obtido. Pode aceder ao serviço de Gestor de dispositivos do StorSimple, utilizando as credenciais organizacionais para iniciar sessão no portal do Azure através de um navegador da web.
 
-Acesso ao serviço StorSimple Device Manager requer que sua organização tenha uma subscrição do Azure, que inclui o StorSimple. A subscrição controla as funcionalidades que pode aceder no portal do Azure. Se sua organização não tiver uma subscrição do Azure e pretender saber mais sobre as mesmas, veja [Inscreva-se para o Azure como uma organização](../active-directory/fundamentals/sign-up-organization.md).
+Acesso ao serviço StorSimple Device Manager requer que sua organização tenha uma subscrição do Azure, que inclui o StorSimple. A subscrição controla as funcionalidades a que pode aceder no portal do Azure. Se sua organização não tiver uma subscrição do Azure e pretender saber mais sobre as mesmas, veja [Inscreva-se para o Azure como uma organização](../active-directory/fundamentals/sign-up-organization.md).
 
-Uma vez que o serviço StorSimple Device Manager está alojado no Azure, é protegida pelos recursos de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecida pelo Microsoft Azure, vá para o [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+Uma vez que o serviço StorSimple Device Manager está alojado no Azure, é protegida pelos recursos de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
 ## <a name="storsimple-device-protection"></a>Proteção de dispositivos do StorSimple
 
@@ -53,7 +53,7 @@ O dispositivo StorSimple é um dispositivo de armazenamento híbrida no local qu
 
 Apenas autorizados StorSimple, os dispositivos têm permissão para associar o serviço StorSimple Device Manager que criou na sua subscrição do Azure. Para autorizar um dispositivo, tem de registá-lo com o serviço StorSimple Device Manager, fornecendo a chave de registo do serviço. A chave de registo do serviço é uma chave aleatória de 128 bits gerada no portal do Azure.
 
-![Chave de registo do serviço](./media/storsimple-security/ServiceRegistrationKey.png)
+![chave de registo do serviço](./media/storsimple-security/ServiceRegistrationKey.png)
 
 Para saber como obter uma chave de registo do serviço, aceda a [passo 2: obter a chave de registo do serviço](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
@@ -121,7 +121,7 @@ Para obter mais informações sobre o StorSimple Snapshot Manager, aceda a [o qu
 Recomendamos que utilize as seguintes diretrizes para ajudar a garantir que as palavras-passe do StorSimple são fortes e bem protegida:
 
 * Altere as palavras-passe a cada três meses. Alterar as palavras-passe é imposta anualmente.
-* Utilize palavras-passe seguras. Para obter mais informações, aceda a [criar palavras-passe mais fortes e protegê-los](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Utilize palavras-passe seguras. Para obter mais informações, aceda a [criar palavras-passe mais fortes e protegê-los](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Sempre utilizem senhas diferentes para mecanismos de acesso diferentes; cada uma das palavras-passe que especificar deve ser exclusiva.
 * Não partilhe as palavras-passe com qualquer pessoa que não está autorizado a aceder ao dispositivo StorSimple.
 * Não falar sobre uma palavra-passe à frente de outras pessoas ou sugestão em conta o formato de uma palavra-passe.
@@ -166,7 +166,7 @@ A chave de encriptação de dados do serviço e o certificado de encriptação d
 
 O dispositivo StorSimple gere dados armazenando-os em escalões localmente e na cloud, dependendo da frequência de utilização. Todas as máquinas de host que estão ligadas ao dispositivo enviam dados para o dispositivo, o que, em seguida, move os dados para a cloud, conforme apropriado. Dados são transferidos do dispositivo para a cloud em segurança através da Internet. Cada dispositivo tem um destino de iSCSI que analisa todos os volumes partilhados nesse dispositivo. Todos os dados são encriptados antes de ser enviada para o armazenamento na nuvem. 
 
-![Chave de encriptação de armazenamento na nuvem](./media/storsimple-security/CloudStorageEncryption.png)
+![chave de encriptação de armazenamento na nuvem](./media/storsimple-security/CloudStorageEncryption.png)
 
 Para ajudar a garantir a segurança e integridade dos dados movidos para a cloud, o StorSimple permite-lhe definir as chaves de encriptação de armazenamento na cloud da seguinte forma:
 
@@ -215,9 +215,9 @@ O Gestor de dispositivos StorSimple físicos e virtuais de série recolhe as inf
 - Utilizadores que podem aceder os dados que residem nas partilhas de. Uma lista de utilizadores que podem aceder os dados de partilha é apresentada e pode ser visualizada. Esta lista também é eliminada quando as partilhas é eliminado. Isto aplica-se apenas para as matrizes virtuais do StorSimple.
  * Para ver a lista de utilizador que pode aceder ou eliminar uma partilha, siga os passos em [gerir partilhas na matriz Virtual StorSimple](storsimple-virtual-array-manage-shares.md)
 
-Para obter mais informações, consulte a política de Microsoft Privacy ao [Centro de fidedignidade](https://www.microsoft.com/trustcenter).
+Para obter mais informações, reveja a política de privacidade da Microsoft no [Centro de Fidedignidade](https://www.microsoft.com/trustcenter).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 Seguem-se algumas perguntas e respostas sobre a segurança e o Microsoft Azure StorSimple.
 

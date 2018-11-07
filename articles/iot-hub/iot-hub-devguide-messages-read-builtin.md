@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: e43d00fde0f76efa4398865757c44d94592b8291
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 02ea4b94f8d1442360bebb36fdbba13d973f8555
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585516"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242420"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
-Por predefinição, as mensagens são roteadas para o ponto de final de serviço com acesso à incorporado (**mensagens/eventos**) que é compatível com [dos Hubs de eventos](http://azure.microsoft.com/documentation/services/event-hubs/
+Por predefinição, as mensagens são roteadas para o ponto de final de serviço com acesso à incorporado (**mensagens/eventos**) que é compatível com [dos Hubs de eventos](https://azure.microsoft.com/documentation/services/event-hubs/
 ). Este ponto final está apenas exposto a utilizar atualmente o [AMQP](https://www.amqp.org/) protocolo na porta 5671. Um IoT hub expõe as propriedades seguintes para que possa controlar compatível com o Event Hub mensagens ponto final incorporado **mensagens/eventos**.
 
 | Propriedade            | Descrição |

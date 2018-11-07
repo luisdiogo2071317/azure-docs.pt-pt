@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696936"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230874"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Folhas de referência rápida de consulta do Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Escolha a partir de um download de tamanho de letra ou tamanho A3.
 
 ## <a name="letter-sized-cheat-sheets"></a>Tamanho de letra com dicas
 
-Transfira o [dicas de consulta de tamanho de letra do Azure Cosmos DB](http://go.microsoft.com/fwlink/?LinkId=623215) se pretende imprimir em papel de tamanho de letra (8,5 "x 11").
+Transfira o [dicas de consulta de tamanho de letra do Azure Cosmos DB](https://go.microsoft.com/fwlink/?LinkId=623215) se pretende imprimir em papel de tamanho de letra (8,5 "x 11").
 
 ![Azure Cosmos DB consulta com dicas - letra em tamanho normal, com consultas de API de SQL, JavaScript, API de MongoDB, Gremlin API e API de tabela e as funções](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

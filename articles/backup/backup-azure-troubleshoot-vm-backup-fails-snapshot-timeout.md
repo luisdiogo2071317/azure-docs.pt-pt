@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 25c9cbcaf852aa07bcbe4f71bf69de366d4dbb87
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754040"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260504"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -153,7 +153,7 @@ O agente da VM pode ter sido corrompido ou o serviço pode ter sido parado. Rein
 1. Determine se o serviço de agente de convidado do Windows está em execução nos serviços de VM (Services. msc). Tente reiniciar o serviço de agente de convidado do Windows e iniciar a cópia de segurança.    
 2. Se o serviço de agente de convidado do Windows não está visível nos serviços, no painel de controlo, aceda a **programas e funcionalidades** para determinar se o serviço de agente de convidado do Windows está instalado.
 4. Se o agente convidado do Windows é apresentada no **programas e funcionalidades**, desinstale o agente convidado do Windows.
-5. Transferir e instalar o [mais recente versão do agente do MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tem de ter direitos de administrador para concluir a instalação.
+5. Transferir e instalar o [mais recente versão do agente do MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tem de ter direitos de administrador para concluir a instalação.
 6. Certifique-se de que os serviços do agente de convidado do Windows são apresentadas nos serviços.
 7. Execute uma cópia de segurança a pedido:
     * No portal, selecione **cópia de segurança agora**.

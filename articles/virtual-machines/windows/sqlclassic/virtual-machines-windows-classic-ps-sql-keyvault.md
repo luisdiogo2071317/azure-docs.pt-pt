@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 203b3f79e5cca93557b3aa69c5774570c9e57022
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e5e156166ec9e085cf7a3c2dcb72aa9e87bbadf1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719540"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244950"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurar a integração do Cofre de chaves do Azure para o SQL Server em máquinas virtuais do Azure (clássico)
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "38719540"
 > 
 
 ## <a name="overview"></a>Descrição geral
-Existem vários recursos de criptografia do SQL Server, tais como [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [encriptação de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), e [encriptação de cópia de segurança](https://msdn.microsoft.com/library/dn449489.aspx). Esses formulários de criptografia requerem a gerir e armazenar as chaves criptográficas que utilizar para a encriptação. O serviço do Azure Key Vault (AKV) foi concebido para melhorar a segurança e gestão destas chaves numa localização segura e de elevada disponibilidade. O [conector do SQL Server](http://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server para utilizar estas chaves do Azure Key Vault.
+Existem vários recursos de criptografia do SQL Server, tais como [encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [encriptação de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx), e [encriptação de cópia de segurança](https://msdn.microsoft.com/library/dn449489.aspx). Esses formulários de criptografia requerem a gerir e armazenar as chaves criptográficas que utilizar para a encriptação. O serviço do Azure Key Vault (AKV) foi concebido para melhorar a segurança e gestão destas chaves numa localização segura e de elevada disponibilidade. O [conector do SQL Server](https://www.microsoft.com/download/details.aspx?id=45344) permite que o SQL Server para utilizar estas chaves do Azure Key Vault.
 
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager.

@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 68754f85347fe6bc075af513580697d1e7a83c18
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386592"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247420"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Como utilizar os Hubs de notificação do Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Pode acessar todas as funcionalidades dos Hubs de notificação a partir de um back-end Java/PHP/Python/Ruby com a interface REST do Hub de notificação, conforme descrito no artigo do MSDN [APIs de REST dos Hubs de notificação](http://msdn.microsoft.com/library/dn223264.aspx).
+Pode acessar todas as funcionalidades dos Hubs de notificação a partir de um back-end Java/PHP/Python/Ruby com a interface REST do Hub de notificação, conforme descrito no artigo do MSDN [APIs de REST dos Hubs de notificação](https://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
 > Esta é uma implementação de referência de exemplo para implementar o envia de notificação no Python e não é o SDK Python do Hub de notificações suportados oficialmente.
@@ -47,7 +47,7 @@ Pode seguir a [tutorial de introdução](notification-hubs-windows-store-dotnet-
 > 
 
 ## <a name="client-interface"></a>Interface do cliente
-A interface principal do cliente pode fornecer os mesmos métodos que estão disponíveis no [.NET SDK dos Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx). Essa interface permite-lhe traduzir diretamente a todos os tutoriais e exemplos está disponíveis neste site e que tenham feito parte da Comunidade na internet.
+A interface principal do cliente pode fornecer os mesmos métodos que estão disponíveis no [.NET SDK dos Notification Hubs](https://msdn.microsoft.com/library/jj933431.aspx). Essa interface permite-lhe traduzir diretamente a todos os tutoriais e exemplos está disponíveis neste site e que tenham feito parte da Comunidade na internet.
 
 Pode encontrar todo o código disponível na [exemplo de wrapper do REST do Python].
 
@@ -64,7 +64,7 @@ Para enviar uma notificação de alerta do Windows:
 ## <a name="implementation"></a>Implementação
 Se ainda não o fez, siga os [tutorial de introdução] a cópia de segurança para a última seção em que precisa implementar o back-end.
 
-Todos os detalhes para implementar um invólucro REST completo podem ser encontrados no [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Esta secção descreve a implementação de Python das principais etapas necessárias para aceder a pontos finais REST dos Hubs de notificação e enviar notificações
+Todos os detalhes para implementar um invólucro REST completo podem ser encontrados no [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Esta secção descreve a implementação de Python das principais etapas necessárias para aceder a pontos finais REST dos Hubs de notificação e enviar notificações
 
 1. Analisar a cadeia de ligação
 2. Gerar o token de autorização
@@ -96,7 +96,7 @@ Esta é a classe principal de implementar o cliente, cujos construtor analisa a 
 
 
 ### <a name="create-security-token"></a>Criar token de segurança
-Os detalhes da criação do token de segurança estão disponíveis [aqui](http://msdn.microsoft.com/library/dn495627.aspx).
+Os detalhes da criação do token de segurança estão disponíveis [aqui](https://msdn.microsoft.com/library/dn495627.aspx).
 Adicionar o seguinte métodos para o **NotificationHub** classe para criar o token com base no URI do pedido atual e as credenciais extraídas da cadeia de ligação.
 
     @staticmethod
@@ -148,7 +148,7 @@ Utilize primeiro, vou definir uma classe que representa uma notificação.
 
 Esta classe é um contentor para um corpo de notificação nativo ou um conjunto de propriedades de uma notificação de modelo, um conjunto de cabeçalhos, que contém o formato (plataforma nativa ou modelo) e propriedades específicas da plataforma (como propriedade de expiração da Apple e cabeçalhos WNS).
 
-Consulte a [documentação de APIs de REST dos Hubs de notificação](http://msdn.microsoft.com/library/dn495827.aspx) e formatos das plataformas de notificação específicos para todas as opções disponíveis.
+Consulte a [documentação de APIs de REST dos Hubs de notificação](https://msdn.microsoft.com/library/dn495827.aspx) e formatos das plataformas de notificação específicos para todas as opções disponíveis.
 
 Agora com essa classe, escrever o envio métodos de notificação dentro dos **NotificationHub** classe.
 

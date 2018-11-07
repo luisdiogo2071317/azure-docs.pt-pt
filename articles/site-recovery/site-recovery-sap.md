@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211728"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247760"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação após desastre para uma implementação de aplicação SAP NetWeaver com várias camada
 
@@ -150,7 +150,7 @@ Pode implementar os scripts mais utilizados do Azure Site Recovery para a sua co
 
 1.  No portal do Azure, selecione o Cofre de serviços de recuperação.
 2.  Selecione o plano de recuperação que criou para aplicações SAP.
-3.  Selecione **ativação pós-falha de teste**.
+3.  Selecione **Ativação Pós-falha de Teste**.
 4.  Para iniciar o processo de ativação pós-falha de teste, selecione o ponto de recuperação e a rede virtual do Azure.
 5.  Quando o ambiente secundário está ativo, realizar validações.
 6.  Quando validações forem concluídas, para limpar o ambiente de ativação pós-falha, selecione **ativação pós-falha de teste de limpeza**.
@@ -161,11 +161,11 @@ Para obter mais informações, consulte [ativação pós-falha de teste para o A
 
 1.  No portal do Azure, selecione o Cofre de serviços de recuperação.
 2.  Selecione o plano de recuperação que criou para aplicações SAP.
-3.  Selecione **ativação pós-falha**.
+3.  Selecione **Ativação pós-falha**.
 4.  Para iniciar o processo de ativação pós-falha, selecione o ponto de recuperação.
 
 Para obter mais informações, consulte [ativação pós-falha no Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre a criação de uma solução de recuperação após desastre para implementações do SAP NetWeaver utilizando a recuperação de Site, consulte o white paper que pode ser baixado [SAP NetWeaver: criar uma solução de recuperação após desastre com o Azure Site Recovery](http://aka.ms/asr-sap). O white paper aborda recomendações para várias arquiteturas SAP, apresenta uma lista de aplicativos suportados e tipos de VM para o SAP no Azure e descreve as opções do plano de teste para a sua solução de recuperação após desastre.
+* Para saber mais sobre a criação de uma solução de recuperação após desastre para implementações do SAP NetWeaver utilizando a recuperação de Site, consulte o white paper que pode ser baixado [SAP NetWeaver: criar uma solução de recuperação após desastre com o Azure Site Recovery](https://aka.ms/asr-sap). O white paper aborda recomendações para várias arquiteturas SAP, apresenta uma lista de aplicativos suportados e tipos de VM para o SAP no Azure e descreve as opções do plano de teste para a sua solução de recuperação após desastre.
 * Saiba mais sobre [replicar outras cargas de trabalho](site-recovery-workload.md) utilizando a recuperação de Site.

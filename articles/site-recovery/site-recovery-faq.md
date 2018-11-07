@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: a8c7df4ba1cd919a23fc45ee165584cd9a85afed
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ff560715f9c6aff8f50d3b20db1f3e79f3527113
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211320"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257304"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo contém perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique o [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -99,7 +99,7 @@ Sim, [pode ser utilizado o ExpressRoute](concepts-expressroute-with-site-recover
 Sua conta de utilizador do Azure tem de ter determinado [permissões](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) para ativar a replicação de uma nova máquina virtual para o Azure.
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Pode replicar máquinas virtuais de 2.ª geração do Hyper-V para o Azure?
-Sim. Recuperação de sites converte de geração 2 para a geração 1 durante a ativação pós-falha. Na reativação pós-falha da máquina é convertida novamente para a geração 2. [Leia mais](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Sim. Recuperação de sites converte de geração 2 para a geração 1 durante a ativação pós-falha. Na reativação pós-falha da máquina é convertida novamente para a geração 2. [Leia mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 ### <a name="if-i-replicate-to-azure-how-do-i-pay-for-azure-vms"></a>Se replicar para o Azure como posso pagar as VMs do Azure?
 Durante a replicação normal, os dados são replicados para o armazenamento do Azure com redundância geográfica e não precisa de pagar quaisquer custos de máquina virtual IaaS do Azure, fornecendo uma vantagem significativa. Quando executar uma ativação pós-falha para o Azure, a Recuperação de Sites cria automaticamente máquinas virtuais de IaaS do Azure e, depois disso, serão cobrados os recursos de computação que consumir no Azure.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 300b94aea0c06092a5fb6bdecd49771ef1cd517d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714012"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234192"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>Obter pré-aprovados por meio do programa Microsoft Azure Certified
 Este artigo fornece instruções sobre como se tornar Microsoft Azure Certified para que possa publicar a sua solução no Azure Marketplace e ser elegível para benefícios de marketing. Para uma visão geral detalhada do programa Microsoft Azure Certified e seus benefícios, visite [ http://azure.com/certified ](http://azure.com/certified).
@@ -34,7 +34,7 @@ Este artigo fornece instruções sobre como se tornar Microsoft Azure Certified 
 3. Se estiver a trabalhar com um Gestor de conta de parceiro ou um Gestor de parceiro de DX, peça-lhe para nomear sua solução para o Azure Certified programar ou vá para o [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) página da Web, preencha o formulário de aplicação e introduza o e-mail do seu Gestor de conta de parceiro ou o Gestor de parceiros DX no campo de patrocinador contacto da Microsoft.
 
 > [!IMPORTANT]
-> **Países de "Destino de venda-de"** – para vender os seus serviços no Microsoft Azure Marketplace, suas necessidades de entidade registado para ser a partir de um dos países aprovados "destino de venda-de". Esta restrição é por motivos de dividendos e tributação. Estamos ativamente à procura para expandir essa lista de países em breve, portanto, fique atento. Para obter a lista completa, consulte 1b da secção do [políticas de participação do Azure Marketplace](http://go.microsoft.com/fwlink/?LinkID=526833).
+> **Países de "Destino de venda-de"** – para vender os seus serviços no Microsoft Azure Marketplace, suas necessidades de entidade registado para ser a partir de um dos países aprovados "destino de venda-de". Esta restrição é por motivos de dividendos e tributação. Estamos ativamente à procura para expandir essa lista de países em breve, portanto, fique atento. Para obter a lista completa, consulte 1b da secção do [políticas de participação do Azure Marketplace](https://go.microsoft.com/fwlink/?LinkID=526833).
 
 
 ## <a name="next-step"></a>Passo seguinte
