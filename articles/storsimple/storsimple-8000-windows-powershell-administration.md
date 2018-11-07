@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665689"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228390"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -159,7 +159,7 @@ A tabela seguinte mostra um resumo de todas as tarefas de gestão comuns e fluxo
 
 No Windows PowerShell para StorSimple, a ajuda do cmdlet está disponível. Uma versão online e atualizada dessa ajuda também está disponível, que pode ser usado para atualizar a ajuda no seu sistema.
 
-Obter ajuda nessa interface é semelhante do Windows PowerShell e a maioria dos cmdlets relacionados com a ajuda funcionará. Pode encontrar ajuda para o Windows PowerShell online na Biblioteca TechNet: [Scripting com o Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=108518).
+Obter ajuda nessa interface é semelhante do Windows PowerShell e a maioria dos cmdlets relacionados com a ajuda funcionará. Pode encontrar ajuda para o Windows PowerShell online na Biblioteca TechNet: [Scripting com o Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
 
 Segue-se uma breve descrição dos tipos de ajuda para esta interface do Windows PowerShell, incluindo como atualizar a ajuda.
 

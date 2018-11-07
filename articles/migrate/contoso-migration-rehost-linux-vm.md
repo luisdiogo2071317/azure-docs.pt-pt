@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 54daea1108b98b316e1ead3b9035c1b65745dd19
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4845fdbbfa4dfabf53b1f7e747668cf7f5108eb7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114129"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232713"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração de Contoso: realojar a uma aplicação do Linux no local para VMs do Azure
 
@@ -196,7 +196,7 @@ Após a ativação pós-falha para o Azure, a Contoso quer ser capaz de ligar as
 
 - Para aceder a VMs do Azure através da internet, permitem SSH no Linux VM no local antes da migração.  Ubuntu isso pode ser concluído com o seguinte comando: **Sudo apt-get ssh instalar -y**.
 - Depois de executarem a migração (ativação pós-falha), pode verificar **diagnósticos de arranque** para ver uma captura de ecrã da VM.
-- Se não funcionar, precisam de verificar se a VM está em execução e revisá-los [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Se não funcionar, precisam de verificar se a VM está em execução e revisá-los [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 **Precisa de mais ajuda?**

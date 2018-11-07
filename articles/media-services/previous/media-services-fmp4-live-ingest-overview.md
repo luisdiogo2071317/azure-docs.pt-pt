@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443533"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228883"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação de ingestão de MP4 fragmentado em direto dos serviços de multimédia do Azure
 Essa especificação descreve o protocolo e o formato fragmentado com base em MP4 em direto transmissão em fluxo para ingestão de para serviços de multimédia do Azure. Os Media Services fornecem um serviço de transmissão em fluxo em direto que os clientes podem utilizar para transmitir em fluxo eventos em direto e transmissão de conteúdo em tempo real ao utilizar o Azure como a plataforma na cloud. Este documento também discute as melhores práticas para a criação altamente redundantes e robustos em direto de mecanismos de ingestão.
@@ -38,7 +38,7 @@ O diagrama seguinte mostra a arquitetura de alto nível do serviço de transmiss
 ![ingestão de fluxo][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato de Bitstream – ISO 14496-12 real de MP4 fragmentado
-O formato de transmissão em direto de ingestão discutidos neste documento se baseia em [ISO-14496-12]. Para obter uma explicação detalhada de fragmentados formato MP4 e extensões tanto para ficheiros de vídeo a pedido e ingestão de transmissão em fluxo em direto, consulte [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+O formato de transmissão em direto de ingestão discutidos neste documento se baseia em [ISO-14496-12]. Para obter uma explicação detalhada de fragmentados formato MP4 e extensões tanto para ficheiros de vídeo a pedido e ingestão de transmissão em fluxo em direto, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Definições do formato de ingestão em direto
 A lista seguinte descreve as definições que se aplicam ao live ingerir para os serviços de multimédia do Azure de formato especial:
@@ -68,7 +68,7 @@ Eis os requisitos detalhados:
 1. O codificador não deve utilizar o `Events()` substantivo, conforme descrito em 9.2 in [1] para a ingestão em direto para os serviços multimédia.
 1. Se o pedido de HTTP POST termina ou exceder o tempo limite com um erro TCP antes do final da transmissão em fluxo, o codificador deve emitir um novo pedido POST utilizando uma nova ligação e siga os requisitos anteriores. Além disso, o codificador deve reenviar os anteriores dois fragmentos de MP4 para cada faixa no fluxo e retomar sem introduzir uma descontinuidade na linha da tempo de suporte de dados. Reenviar os últimos dois fragmentos de MP4 para cada faixa garante que não existe nenhuma perda de dados. Em outras palavras, se um fluxo contém um áudio e uma faixa de vídeo e o atual pedido POST falha, o codificador deve voltar a ligar e reenviar os dois últimos fragmentos para a faixa de áudio, que anteriormente foram enviados com sucesso, e os dois últimos fragmentos do vídeo controle, que foram anteriormente enviado com sucesso, para garantir que não existe nenhuma perda de dados. O codificador deve manter uma memória intermédia "reencaminhar" dos fragmentos de suporte de dados, que reenviar quando voltar a ser ligado.
 
-## <a name="5-timescale"></a>5. escala temporal
+## <a name="5-timescale"></a>5. Escala temporal
 [[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) descreve a utilização de escala temporal para **SmoothStreamingMedia** (secção 2.2.2.1), **StreamElement** (secção 2.2.2.3), **StreamFragmentElement** ( Secção 2.2.2.6), e **LiveSMIL** (secção 2.2.7.3.1). Se o valor de escala temporal não estiver presente, o valor predefinido utilizado é 10,000,000 (10 MHz). Embora a especificação de formato de transmissão em fluxo uniforme não bloqueia a utilização de outros valores de escala temporal, a maioria das implementações do codificador utilizar esta predefinição valor (10 MHz) para gerar a transmissão em fluxo uniforme ingestão de dados. Devido ao [empacotamento dinâmico do suporte de dados do Azure](media-services-dynamic-packaging-overview.md) funcionalidade, recomendamos que utilize uma escala temporal de 90 KHz para fluxos de vídeo e 44.1 KHz ou 48.1 KHz para fluxos de áudio. Se os valores de escala temporal diferentes são utilizados para várias transmissões em fluxo, a escala ao nível do fluxo temporal têm de ser enviada. Para obter mais informações, consulte [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. Definição de "stream"
@@ -123,7 +123,7 @@ Nesta secção, vamos abordar cenários de ativação pós-falha do serviço. Ne
 ## <a name="8-encoder-failover"></a>8. Ativação pós-falha do codificador
 Ativação pós-falha do codificador é o segundo tipo de cenário de ativação pós-falha que precisa ser resolvidos para entrega de transmissão em fluxo em direto de ponto-a-ponto. Neste cenário, a condição de erro ocorre no lado do codificador. 
 
-![ativação pós-falha do codificador][image5]
+![Ativação pós-falha do codificador][image5]
 
 As expectativas seguintes aplicam-se do ponto de extremidade de ingestão em direto quando ocorre a ativação pós-falha de codificador:
 
@@ -137,7 +137,7 @@ As expectativas seguintes aplicam-se do ponto de extremidade de ingestão em dir
 ## <a name="9-encoder-redundancy"></a>9. Redundância do codificador
 Para determinados eventos críticos em direto que a pedido ainda maior disponibilidade e qualidade da experiência, recomendamos que utilize codificadores ativo-ativo para obter uma ativação pós-falha totalmente integrada sem perda de dados.
 
-![redundância do codificador][image6]
+![Redundância do codificador][image6]
 
 Conforme ilustrado neste diagrama, dois grupos de codificadores enviar por push duas cópias de cada fluxo ao mesmo tempo para o serviço em direto. Esta configuração é suportada porque os serviços de multimédia pode filtrar os fragmentos duplicados com base em timestamp de ID e o fragmento de fluxo. O resultante em fluxo em direto e de arquivo é uma única cópia de todos os fluxos, que é a melhor possível agregação de duas origens. Por exemplo, num caso extremo hipotético, desde que haja um codificador (não tem de ser o mesmo) em execução em qualquer determinado ponto no tempo para cada fluxo, o fluxo resultante em direto do serviço é contínuo sem perda de dados. 
 
@@ -146,7 +146,7 @@ Os requisitos para este cenário são quase o mesmo que os requisitos no caso de
 ## <a name="10-service-redundancy"></a>10. Redundância de serviços
 Para a distribuição global altamente redundante, às vezes, tem de ter cópia de segurança em várias regiões para lidar com desastres regionais. Os clientes expandindo a topologia de "Redundância do codificador", podem optar por ter uma implementação de serviço redundante numa região diferente da que está ligado com o segundo conjunto de codificadores. Os clientes também podem trabalhar com um fornecedor de rede de entrega de conteúdos para implementar um Gestor de tráfego Global na frente as implementações de duas serviço perfeitamente encaminhar o tráfego de cliente. Os requisitos para os codificadores são os mesmos que o caso de "Redundância do codificador". A única exceção é que o segundo conjunto de codificadores tem de ser apontado em direto para outro ponto final de ingestão. O diagrama seguinte mostra esta configuração:
 
-![redundância de serviços][image7]
+![Redundância de serviços][image7]
 
 ## <a name="11-special-types-of-ingestion-formats"></a>11. Tipos especiais de formatos de ingestão
 Esta seção discute tipos especiais de formatos de ingestão em direto que foram criados para lidar com cenários específicos.

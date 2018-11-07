@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24ab8e5171ebb33a5f3be5c6bf08e361fff4e4cc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959550"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230925"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Instrumentar aplicações Web no tempo de execução com o Application Insights
 
@@ -78,7 +78,7 @@ O Application Insights JavaScript SDK está agora injetado em cada página Web.
 Se a aplicação estiver alojada num servidor de IIS, ative o Application Insights com o Monitor de Estado.
 
 1. No seu servidor Web de IIS, inicie sessão com credenciais de administrador.
-2. Se o Monitor de Estado do Application Insights ainda não estiver instalado, transfira e execute o [Instalador do Monitor de estado](http://go.microsoft.com/fwlink/?LinkId=506648) (ou execute o [Instalador de Plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e pesquise no Monitor de Estado do Application Insights).
+2. Se o Monitor de Estado do Application Insights ainda não estiver instalado, transfira e execute o [Instalador do Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648) (ou execute o [Instalador de Plataforma Web](https://www.microsoft.com/web/downloads/platform.aspx) e pesquise no Monitor de Estado do Application Insights).
 3. No Monitor de Estado, selecione a aplicação Web instalada ou o Web site que pretende monitorizar. Inicie sessão com as credenciais do Azure.
 
     Configure o recurso onde pretende ver os resultados no portal do Application Insights. (Normalmente, é melhor criar um novo recurso. Selecione um recurso existente se já tiver [testes Web][availability] ou [monitorização de cliente][client] para esta aplicação.) 

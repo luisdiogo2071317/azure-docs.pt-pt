@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945982"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234465"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer cópia de segurança de um servidor do Exchange para o Azure Backup com o System Center 2012 R2 DPM
 Este artigo descreve como configurar um servidor do System Center 2012 R2 Data Protection Manager (DPM) para criar cópias de segurança um servidor Exchange do Microsoft Azure backup.  
 
 ## <a name="updates"></a>Atualizações
-Para registar com êxito o servidor DPM com cópia de segurança do Azure, tem de instalar o update rollup mais recente para o System Center 2012 R2 DPM e a versão mais recente do agente de cópia de segurança do Azure. Obter o update rollup mais recente a partir da [catálogo Microsoft](http://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
+Para registar com êxito o servidor DPM com cópia de segurança do Azure, tem de instalar o update rollup mais recente para o System Center 2012 R2 DPM e a versão mais recente do agente de cópia de segurança do Azure. Obter o update rollup mais recente a partir da [catálogo Microsoft](https://catalog.update.microsoft.com/v7/site/Search.aspx?q=System%20Center%202012%20R2%20Data%20protection%20manager).
 
 > [!NOTE]
 > Para os exemplos neste artigo, versão 2.0.8719.0 do agente de cópia de segurança do Azure está instalado e Update Rollup 6 está instalado no System Center 2012 R2 DPM.

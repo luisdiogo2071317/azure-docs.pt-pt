@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810291"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228900"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Técnico de aplicação SaaS guia de publicação
 ===========================================
@@ -34,7 +34,7 @@ Para uma descrição geral de todas as outras ofertas do Marketplace, consulte a
 
 Portal de publicação fornece acesso baseado em funções no portal, permitindo que várias pessoas colaborar em direção à publicação de uma oferta. Para obter mais informações, consulte [gerir utilizadores](./cloud-partner-portal-manage-users.md). 
 
-Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma das pessoas com *proprietário* função precisam concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](http://www.microsoft.com/privacystatement/default.aspx), e [ProgramAgreement do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Antes de uma oferta pode ser publicada em nome de um fabricante de contas, uma das pessoas com *proprietário* função precisam concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx), e [ProgramAgreement do Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Criar uma oferta
@@ -50,7 +50,7 @@ A oferta da aplicação SaaS consiste em cinco seções, descritas na tabela a s
 |--------------------|-------------------------------------------------------------------------------------------------------------------------------|
 | Definições da oferta     | Ajuda a definir um nome exclusivo e o ID da aplicação SaaS                                                                         |
 | Informações técnicas     | Ajuda a configurar o tipo de solução de SaaS e forneça os detalhes de ligação para a sua aplicação                            |
-| Test Drive         | Secção opcional que permite-lhe definir um serviço que permitirá aos clientes testar a sua oferta antes de eles adquirem-la. |
+| Versão de Teste         | Secção opcional que permite-lhe definir um serviço que permitirá aos clientes testar a sua oferta antes de eles adquirem-la. |
 | Vitrine detalhes | Contém o marketing, legal, gestão de oportunidades potenciais e seções de listagem:   <br/> -A seção de Marketing permite-lhe introduzir a descrição e logotipos necessários para a oferta para ser apresentado corretamente no portal de utilizador do marketplace.  <br/> -A gestão de oportunidades potenciais permite-lhe definir um local para onde redirecionar as oportunidades potenciais de utilizador final geradas no portal de utilizador final do Azure Marketplace.  <br/> -A seção Legal permite-lhe introduzir a política de privacidade e termos de uso documentos legais.  |
 | Contacto            | Permite-lhe introduzir informações de contacto de suporte da oferta.                                                                  |
 |  |  |
@@ -94,7 +94,7 @@ Se for uma aplicação SaaS que está no Azure Marketplace e pretende permitir c
 Para obter mais informações sobre como ligar a sua aplicação SaaS, veja [SaaS - venda através do Azure](./cloud-partner-portal-saas-offer-subscriptions.md).
 
 
-### <a name="test-drive"></a>Test Drive
+### <a name="test-drive"></a>Versão de Teste
 
 A criação de uma experiência de avaliação para os seus clientes é uma prática recomendada, certifique-se de que podem comprar com confiança. As opções de avaliação disponíveis, Test-Drive é leva a mais uma forma eficaz de geração de alta qualidade e leva de conversão maior deles.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa7d0f98f8119ad34e0764423e99af4564f20387
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311928"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242998"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades de serviço de sincronização do Azure AD Connect
 A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
@@ -30,7 +30,7 @@ A funcionalidade de sincronização do Azure AD Connect tem dois componentes:
 
 Este tópico explica como as seguintes funcionalidades do **serviço de sincronização do Azure AD Connect** de trabalho e como pode configurá-las a com o Windows PowerShell.
 
-Estas definições são configuradas através da [módulo Azure Active Directory para Windows PowerShell](https://aka.ms/aadposh). Baixe e instale-o separadamente do Azure AD Connect. Os cmdlets documentados neste tópico foram introduzidos no [versão de Março de 2016 (compilação 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou não produzem o mesmo resultado, em seguida, certifique-se de que executar a versão mais recente.
+Estas definições são configuradas através da [módulo Azure Active Directory para Windows PowerShell](https://aka.ms/aadposh). Baixe e instale-o separadamente do Azure AD Connect. Os cmdlets documentados neste tópico foram introduzidos no [versão de Março de 2016 (compilação 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou não produzem o mesmo resultado, em seguida, certifique-se de que executar a versão mais recente.
 
 Para ver a configuração no diretório do Azure AD, execute `Get-MsolDirSyncFeatures`.  
 ![Get-MsolDirSyncFeatures result](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -59,7 +59,7 @@ As seguintes definições são configuradas pelo Azure AD Connect e não pode se
 | DirectoryExtensions |[Sincronização do Azure AD Connect: extensões de diretório](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permite que um atributo ser colocado em quarentena quando ele é um duplicado de outro objeto em vez de todo o objeto a falhar durante a exportação. |
 | Sincronização hash de palavra-passe |[Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
-|Autenticação pass-through|[Utilizador inicie sessão com a autenticação de pass-through do Azure Active Directory](how-to-connect-pta.md)|
+|Autenticação pass-through|[Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Pré-visualização: Repetição de escrita de grupo](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Não são atualmente suportados. |
 

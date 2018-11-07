@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249056"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262204"
 ---
 # <a name="azure-database-security-overview"></a>Descrição geral da segurança da base de dados do Azure
 
@@ -35,7 +35,7 @@ A Microsoft fornece outras formas de encriptar dados da empresa:
 
 Auditoria de base de dados SQL do Azure permite que as empresas a registo de eventos para uma auditoria registo no armazenamento do Azure. A Auditoria da Base de Dados SQL também pode ser integrada no Microsoft Power BI para facilitar a leitura detalhada de relatórios e análises.
 
-Bases de dados SQL do Azure podem ser totalmente protegidos para satisfazer mais normas ou requisitos de segurança, incluindo a HIPAA, ISO 27001/27002 e PCI DSS nível 1. A lista atual de certificações de conformidade de segurança está disponível na [site do Microsoft Azure Trust Center](http://azure.microsoft.com/support/trust-center/services/).
+Bases de dados SQL do Azure podem ser totalmente protegidos para satisfazer mais normas ou requisitos de segurança, incluindo a HIPAA, ISO 27001/27002 e PCI DSS nível 1. A lista atual de certificações de conformidade de segurança está disponível na [site do Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/services/).
 
 Este artigo explica as noções básicas de proteger bases de dados SQL do Microsoft Azure para dados relacionais, estruturados e tabulares. Em particular, este artigo irá ajudá-lo a começar a utilizar recursos para proteger dados, controlar o acesso e a monitorização proativa.
 
@@ -44,7 +44,7 @@ Este artigo explica as noções básicas de proteger bases de dados SQL do Micro
 Base de dados SQL ajuda a proteger os seus dados ao fornecer encriptação:
 
 - Para dados em movimento através de [Transport Layer Security (TLS)](https://support.microsoft.com/kb/3135244).
-- Para dados em descanso através da [encriptação de dados transparente](http://go.microsoft.com/fwlink/?LinkId=526242).
+- Para dados em descanso através da [encriptação de dados transparente](https://go.microsoft.com/fwlink/?LinkId=526242).
 - Para os dados em utilização por meio [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 Para outras formas de encriptar os seus dados, considere:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2018
 ms.author: yurid
-ms.openlocfilehash: 6261f78b4943afdbf74236bc40bea6db5cc62329
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159389"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262119"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Compreender os alertas de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a compreender os vários tipos de alertas de segurança e informações relacionadas que estão disponíveis no Centro de Segurança do Azure. Para obter mais informações sobre como gerir alertas e incidentes, veja [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -204,4 +204,4 @@ Neste artigo, obteve informações sobre os vários tipos de alertas de seguran�
 * [Capacidades de deteção do Centro de Segurança do Azure](security-center-detection-capabilities.md)
 * [Guia de operações e planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md): encontre as perguntas mais frequentes acerca de como utilizar o serviço.
-* [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/): encontre mensagens do blogue acerca da segurança e conformidade do Azure.
+* [Blogue de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/): encontre mensagens do blogue acerca da segurança e conformidade do Azure.

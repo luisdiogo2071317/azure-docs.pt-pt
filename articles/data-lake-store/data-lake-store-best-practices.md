@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391900"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255153"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar a geração 1 de armazenamento do Azure Data Lake
 
@@ -27,7 +27,7 @@ Neste artigo, ficará a conhecer as melhores práticas e considerações para tr
 
 Ofertas de geração 1 de armazenamento do Azure Data Lake POSIX controlos de acesso e detalhadas de auditoria para os utilizadores do Azure Active Directory (Azure AD), grupos e principais de serviço. Esses controles de acesso podem ser definidos para ficheiros e pastas existentes. Os controlos de acesso também podem ser utilizados para criar padrões que podem ser aplicados a novos ficheiros ou pastas. Quando as permissões estão definidas para pastas existentes e os objetos subordinados, as permissões têm de ser propagada recursivamente em cada objeto. Se houver um grande número de ficheiros, propagar as permissões pode demorar muito tempo. O tempo necessário pode variar entre objetos de 30 a 50 processados por segundo. Por conseguinte, adequadamente a planear os grupos de utilizador e a estrutura de pasta. Caso contrário, pode causar problemas e atrasos inesperados quando trabalha com os seus dados. 
 
-Suponha que tem uma pasta com 100 000 objetos filho. Se analisar o limite inferior do 30 objetos processados por segundo atualizar a permissão para a pasta inteira pode demorar uma hora. Obter mais detalhes sobre as ACLs de geração 1 do Data Lake armazenamento estão disponíveis em [controlo de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Para um melhor desempenho em atribuir recursivamente ACLs, pode usar a ferramenta de linha de comandos do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação de recursiva aplicarem rapidamente as ACLs para milhões de ficheiros. A ferramenta está disponível para Linux e Windows e o [documentação](https://github.com/Azure/data-lake-adlstool) e [downloads](http://aka.ms/adlstool-download) para esta ferramenta pode ser encontrada no GitHub. Esses aprimoramentos de desempenho mesmo podem ser ativados por suas próprias ferramentas escritas com a geração de 1 de armazenamento do Data Lake [.NET](data-lake-store-data-operations-net-sdk.md) e [Java](data-lake-store-get-started-java-sdk.md) SDKs.
+Suponha que tem uma pasta com 100 000 objetos filho. Se analisar o limite inferior do 30 objetos processados por segundo atualizar a permissão para a pasta inteira pode demorar uma hora. Obter mais detalhes sobre as ACLs de geração 1 do Data Lake armazenamento estão disponíveis em [controlo de acesso no Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Para um melhor desempenho em atribuir recursivamente ACLs, pode usar a ferramenta de linha de comandos do Azure Data Lake. A ferramenta cria vários threads e lógica de navegação de recursiva aplicarem rapidamente as ACLs para milhões de ficheiros. A ferramenta está disponível para Linux e Windows e o [documentação](https://github.com/Azure/data-lake-adlstool) e [downloads](https://aka.ms/adlstool-download) para esta ferramenta pode ser encontrada no GitHub. Esses aprimoramentos de desempenho mesmo podem ser ativados por suas próprias ferramentas escritas com a geração de 1 de armazenamento do Data Lake [.NET](data-lake-store-data-operations-net-sdk.md) e [Java](data-lake-store-get-started-java-sdk.md) SDKs.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Utilizar grupos de segurança em comparação com utilizadores individuais 
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7007b1406dbcfab3af4700418ac2ce07b9e521c0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d967112fc1e3630148a419c980813159e9334eb3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407438"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243543"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implementar localmente a acelerador de soluções de monitorização remota
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como implementar o acelerador de solução de monitoriza�
 
 Para implementar os serviços do Azure utilizados pelo acelerador de solução de monitorização remota, precisa de uma subscrição do Azure Active Directory.
 
-Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](http://azure.microsoft.com/pricing/free-trial/).
+Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Para concluir a implementação de local, terá das seguintes ferramentas instaladas no seu computador de desenvolvimento local:
 

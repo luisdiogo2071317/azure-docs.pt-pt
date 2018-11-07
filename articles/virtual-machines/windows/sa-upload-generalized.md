@@ -1,6 +1,6 @@
 ---
-title: Carregar um VHD para criar várias VMs no Azure de generalize | Microsoft Docs
-description: Carregar um VHD generalizado para uma conta de armazenamento do Azure para criar uma VM do Windows para utilizar com o modelo de implementação Resource Manager.
+title: Carregar um VHD para criar várias VMs no Azure de generalize | Documentos da Microsoft
+description: Carregar um VHD generalizado para uma conta de armazenamento do Azure para criar uma VM do Windows para utilizar com o modelo de implementação do Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,51 +16,51 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: be2ec6df33f5756dc080195bfad32e0c9079453c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 199343fce4774ea643bc22c879efc6717aa0a510
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603205"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244734"
 ---
-# <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carregar um VHD generalizado Azure para criar uma nova VM
+# <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Carregar um VHD generalizado para o Azure para criar uma nova VM
 
-Este tópico aborda a carregar um disco generalizado não gerido para uma conta de armazenamento e, em seguida, criar uma nova VM com o disco foi carregado. Uma imagem VHD generalizada tenha tido todas as informações da sua conta pessoal removidas utilizando Sysprep. 
+Este tópico abrange carregar um disco não gerido generalizado para uma conta de armazenamento e, em seguida, criar uma nova VM com o disco carregado. Uma imagem VHD generalizada teve que todas as suas informações de conta pessoal removidas com o Sysprep. 
 
-Se pretender criar uma VM a partir de um VHD numa conta do storage especializado, consulte [criar uma VM a partir de um VHD especializado](sa-create-vm-specialized.md).
+Se quiser criar uma VM a partir de um VHD especializado numa conta de armazenamento, veja [criar uma VM a partir de um VHD especializado](sa-create-vm-specialized.md).
 
-Este tópico abrange a utilização de contas de armazenamento, mas recomendamos que os clientes mover utilizando discos geridos em vez disso. Para uma passagem completa sobre como preparar, carregar e criar uma nova VM com discos geridos, consulte [criar uma nova VM a partir de um VHD generalizado carregada para o Azure utilizando discos geridos](upload-generalized-managed.md).
+Este tópico explica como utilizar contas de armazenamento, mas recomendamos que os clientes mudem para utilizar discos geridos em vez disso. Para obter uma descrição completa dos como preparar, carregar e criar uma nova VM com discos geridos, consulte [criar uma nova VM a partir de um VHD generalizado carregada para o Azure com o Managed Disks](upload-generalized-managed.md).
 
 
 
 ## <a name="prepare-the-vm"></a>Preparar a VM
 
-Um VHD generalizado tenha tido todas as informações da sua conta pessoal removidas utilizando Sysprep. Se tenciona utilizar o VHD como uma imagem para criar novas VMs do, deve:
+Um VHD generalizado teve que todas as suas informações de conta pessoal removidas com o Sysprep. Se pretende usar o VHD como uma imagem para criar VMs novas a partir de, deve:
   
   * [Preparar um VHD do Windows para carregar para o Azure](prepare-for-upload-vhd-image.md). 
-  * Generalize a máquina virtual utilizando o Sysprep
+  * Generalizar a máquina virtual com o Sysprep
 
-### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalize a máquina virtual do Windows com o Sysprep
-Esta secção mostra como generalize a máquina virtual do Windows para utilização como uma imagem. Sysprep remove todas as informações pessoais da conta, entre outras coisas e prepara a máquina para ser utilizado como uma imagem. Para obter detalhes sobre o Sysprep, consulte [como Sysprep de utilização: uma introdução](http://technet.microsoft.com/library/bb457073.aspx).
+### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Generalizar uma máquina de virtual do Windows com o Sysprep
+Esta secção mostra-lhe como generalizar a máquina virtual do Windows para utilização como uma imagem. O Sysprep remove todas as suas informações de conta pessoal, entre outras coisas, e prepara a máquina para ser utilizada como uma imagem. Para mais detalhes sobre o Sysprep, veja [Como utilizar o Sysprep: uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
-Certifique-se as funções de servidor em execução na máquina são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+Certifique-se de que as funções de servidor em execução na máquina são suportadas pelo Sysprep. Para obter mais informações, consulte [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 > [!IMPORTANT]
-> Se estiver a executar o Sysprep antes de carregar o VHD para o Azure pela primeira vez, certifique-se de que tem [preparado VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar o Sysprep. 
+> Se estiver a executar o Sysprep antes de carregar o VHD para o Azure pela primeira vez, certifique-se de que tem [preparou a sua VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) antes de executar Sysprep. 
 > 
 > 
 
-1. Iniciar sessão para a máquina virtual do Windows.
-2. Abra a janela de linha de comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e, em seguida, execute `sysprep.exe`.
-3. No **ferramenta de preparação de sistema** caixa de diálogo, selecione **introduza sistema Out-of-Box experiência (OOBE)** e certifique-se de que o **Generalize** caixa de verificação está selecionada.
-4. No **as opções de encerramento**, selecione **encerramento**.
+1. Inicie sessão para a máquina virtual do Windows.
+2. Abra a janela da Linha de Comandos como administrador. Altere o diretório para **%windir%\system32\sysprep**e, em seguida, execute `sysprep.exe`.
+3. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
+4. Na **opções de encerramento**, selecione **encerramento**.
 5. Clique em **OK**.
    
-    ![Iniciar o Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Quando tiver concluído o Sysprep, encerrar a máquina virtual. 
+    ![Inicie Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
+6. Quando o Sysprep estiver concluído, encerra a máquina virtual. 
 
 > [!IMPORTANT]
-> Não reinicie a VM até terminar carregar o VHD para o Azure ou criar uma imagem da VM. Se, acidentalmente, a VM obtém reiniciada, execute o Sysprep para generalizá-lo novamente.
+> Não reinicie a VM até terminar de carregar o VHD para o Azure ou criar uma imagem da VM. Se, acidentalmente, a VM é reiniciada, execute o Sysprep para generalizá-lo novamente.
 > 
 > 
 
@@ -70,26 +70,26 @@ Certifique-se as funções de servidor em execução na máquina são suportadas
 Carrega o VHD para uma conta de armazenamento do Azure.
 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-Se ainda não tiver o PowerShell na versão 1.4 ou superior instalado, leia [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
+Se ainda não tiver o PowerShell versão 1.4 ou superior instalado, leia [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-1. Abra o Azure PowerShell e inicie sessão na sua conta do Azure. Será apresentada uma janela de pop-up para introduzir as credenciais da conta do Azure.
+1. Abra o Azure PowerShell e inicie sessão na sua conta do Azure. É aberta uma janela de pop-up para introduzir as credenciais da conta do Azure.
    
     ```powershell
     Connect-AzureRmAccount
     ```
-2. Obter a IDs de subscrição para as subscrições disponíveis.
+2. Obter os IDs de subscrição para as subscrições disponíveis.
    
     ```powershell
     Get-AzureRmSubscription
     ```
-3. Definir a subscrição correta com o ID da subscrição. Substitua `<subscriptionID>` com o ID da subscrição correta.
+3. Definir a subscrição correta com o ID de subscrição. Substitua `<subscriptionID>` com o ID da subscrição correta.
    
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
     ```
 
 ### <a name="get-the-storage-account"></a>Obter a conta de armazenamento
-Necessita de uma conta de armazenamento no Azure para armazenar a imagem VM carregada. Pode utilizar uma conta de armazenamento existente ou crie um novo. 
+Precisa de uma conta de armazenamento no Azure para armazenar a imagem VM carregada. Pode utilizar uma conta de armazenamento existente ou crie um novo. 
 
 Para mostrar as contas de armazenamento disponíveis, escreva:
 
@@ -101,19 +101,19 @@ Se pretender utilizar uma conta de armazenamento existente, avance para o [carre
 
 Se precisar de criar uma conta de armazenamento, siga estes passos:
 
-1. Tem o nome do grupo de recursos onde a conta de armazenamento deve ser criada. Para obter todos os grupos de recursos que estão na sua subscrição, escreva:
+1. É necessário o nome do grupo de recursos onde a conta de armazenamento deve ser criada. Para obter todos os grupos de recursos que estão na sua subscrição, escreva:
    
     ```powershell
     Get-AzureRmResourceGroup
     ```
 
-    Para criar um grupo de recursos denominado **myResourceGroup** no **EUA oeste** região, escreva:
+    Para criar um grupo de recursos chamado **myResourceGroup** no **E.U.A. oeste** região, escreva:
 
     ```powershell
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Criar uma conta de armazenamento com o nome **mystorageaccount** neste grupo de recursos utilizando o [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
+2. Criar uma conta de armazenamento com o nome **mystorageaccount** neste grupo de recursos, utilizando o [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet:
    
     ```powershell
     New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -122,7 +122,7 @@ Se precisar de criar uma conta de armazenamento, siga estes passos:
  
 ### <a name="start-the-upload"></a>Iniciar o carregamento 
 
-Utilize o [adicionar AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet para carregar a imagem para um contentor na sua conta de armazenamento. Neste exemplo carrega o ficheiro **myVHD.vhd** de `"C:\Users\Public\Documents\Virtual hard disks\"` para uma conta de armazenamento com o nome **mystorageaccount** no **myResourceGroup** grupo de recursos. O ficheiro será colocado no contentor com o nome **mycontainer** e o novo nome de ficheiro será **myUploadedVHD.vhd**.
+Utilize o [Add-AzureRmVhd](/powershell/module/azurerm.compute/add-azurermvhd) cmdlet para carregar a imagem para um contentor na sua conta de armazenamento. Este exemplo carrega o ficheiro **myVHD.vhd** partir `"C:\Users\Public\Documents\Virtual hard disks\"` para uma conta de armazenamento com o nome **mystorageaccount** no **myResourceGroup** grupo de recursos. O ficheiro será colocado no contentor com o nome **mycontainer** e o novo nome de ficheiro serão **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -132,7 +132,7 @@ Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
 ```
 
 
-Se tiver êxito, receberá uma resposta semelhante a isto:
+Se tiver êxito, receberá uma resposta que é semelhante a este:
 
 ```powershell
 MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
@@ -146,16 +146,16 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
 ```
 
-Dependendo da sua ligação de rede e o tamanho do ficheiro VHD, este comando pode demorar algum tempo para concluir.
+Dependendo da sua ligação de rede e o tamanho do ficheiro VHD, este comando pode demorar algum tempo a concluir.
 
 
 ## <a name="create-a-new-vm"></a>Criar uma nova VM 
 
-Agora, pode utilizar o VHD foi carregado para criar uma nova VM. 
+Agora, pode utilizar o VHD carregado para criar uma nova VM. 
 
-### <a name="set-the-uri-of-the-vhd"></a>Definir o URI do VHD
+### <a name="set-the-uri-of-the-vhd"></a>Defina o URI do VHD
 
-O URI para o VHD utilizar está no formato: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**. vhd. Neste exemplo, o VHD com o nome **myVHD** é na conta de armazenamento **mystorageaccount** no contentor **mycontainer**.
+O URI para o VHD utilizar está no formato: https://**mystorageaccount**.blob.core.windows.net/**mycontainer**/**MyVhdName**. vhd. Neste exemplo, o VHD com o nome **myVHD** é na conta de armazenamento **mystorageaccount** no contêiner **mycontainer**.
 
 ```powershell
 $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vhd"
@@ -165,14 +165,14 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
 Criar a vNet e sub-rede do [rede virtual](../../virtual-network/virtual-networks-overview.md).
 
-1. Crie a sub-rede. O exemplo seguinte cria uma sub-rede designada **mySubnet** no grupo de recursos **myResourceGroup** com o prefixo de endereço de **10.0.0.0/24**.  
+1. Crie a sub-rede. O exemplo seguinte cria uma sub-rede denominada **mySubnet** no grupo de recursos **myResourceGroup** com o prefixo de endereço de **10.0.0.0/24**.  
    
     ```powershell
     $rgName = "myResourceGroup"
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Criar a rede virtual. O exemplo seguinte cria uma rede virtual denominada **myVnet** no **EUA oeste** localização com o prefixo do endereço de **10.0.0.0/16**.  
+2. Criar a rede virtual. O exemplo seguinte cria uma rede virtual denominada **myVnet** no **E.U.A. oeste** localização com o prefixo de endereço de **10.0.0.0/16**.  
    
     ```powershell
     $location = "West US"
@@ -181,7 +181,7 @@ Criar a vNet e sub-rede do [rede virtual](../../virtual-network/virtual-networks
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
 
-### <a name="create-a-public-ip-address-and-network-interface"></a>Criar uma interface de rede e o endereço IP pública
+### <a name="create-a-public-ip-address-and-network-interface"></a>Criar uma interface de rede e endereço IP pública
 Para ativar a comunicação com a máquina virtual na rede virtual, é necessário um [endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) e uma interface de rede.
 
 1. Crie um endereço IP público. Este exemplo cria um endereço IP público com o nome **myPip**. 
@@ -191,7 +191,7 @@ Para ativar a comunicação com a máquina virtual na rede virtual, é necessár
     $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
         -AllocationMethod Dynamic
     ```       
-2. Criar o NIC. Este exemplo cria um NIC com o nome **myNic**. 
+2. Criar a NIC. Este exemplo cria um NIC com o nome **myNic**. 
    
     ```powershell
     $nicName = "myNic"
@@ -200,9 +200,9 @@ Para ativar a comunicação com a máquina virtual na rede virtual, é necessár
     ```
 
 ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Criar o grupo de segurança de rede e uma regra RDP
-Para conseguir iniciar sessão na sua VM através de RDP, tem de ter uma regra de segurança que permite o acesso RDP na porta 3389. 
+Para poder iniciar sessão na sua VM através de RDP, terá de ter uma regra de segurança que permite o acesso RDP na porta 3389. 
 
-Este exemplo cria um NSG denominado **myNsg** que contenha uma regra denominada **myRdpRule** que permite tráfego RDP de através da porta 3389. Para obter mais informações sobre NSGs, consulte [a abertura de portas para uma VM no Azure utilizando o PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Este exemplo cria um NSG com o nome **myNsg** que contém uma regra denominada **myRdpRule** que permite tráfego RDP pela porta 3389. Para obter mais informações sobre NSGs, consulte [abrir portas para uma VM no Azure com o PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ```powershell
 $nsgName = "myNsg"
@@ -218,14 +218,14 @@ $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $loc
 
 
 ### <a name="create-a-variable-for-the-virtual-network"></a>Criar uma variável para a rede virtual
-Crie uma variável para a rede virtual foi concluída. 
+Crie uma variável para a rede virtual concluída. 
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="create-the-vm"></a>Crie a VM
-O script do PowerShell seguinte mostra como configurar as configurações de máquina virtual e utilizar a imagem VM carregada como origem para a nova instalação.
+O script do PowerShell seguinte mostra como configurar as configurações de máquina virtual e utilizar a imagem VM carregada como origem para a instalação de novo.
 
 
 
@@ -283,7 +283,7 @@ O script do PowerShell seguinte mostra como configurar as configurações de má
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>Certifique-se de que a VM foi criada
-Quando terminar, deverá ver a VM criada recentemente o [portal do Azure](https://portal.azure.com) em **procurar** > **máquinas virtuais**, ou utilizando os seguintes comandos do PowerShell:
+Quando terminar, deverá ver a VM criada recentemente na [portal do Azure](https://portal.azure.com) sob **procurar** > **máquinas virtuais**, ou utilizando o PowerShell seguinte comandos:
 
 ```powershell
     $vmList = Get-AzureRmVM -ResourceGroupName $rgName
@@ -291,6 +291,6 @@ Quando terminar, deverá ver a VM criada recentemente o [portal do Azure](https:
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para gerir a sua nova máquina virtual com o Azure PowerShell, consulte [gerir máquinas virtuais utilizando o Azure Resource Manager e o PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Para gerir a sua nova máquina virtual com o Azure PowerShell, veja [gerir máquinas virtuais utilizando o Azure Resource Manager e PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

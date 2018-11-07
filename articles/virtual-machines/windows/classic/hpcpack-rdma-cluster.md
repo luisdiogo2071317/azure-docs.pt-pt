@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 52338cc21e46b544c2abb79cd7094615c837a2e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345242"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233784"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>Configurar um cluster Windows RDMA com HPC Pack para executar aplicações MPI
 Configurar um cluster RDMA do Windows no Azure com o [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) e [tamanhos de VM de HPC com capacidade RDMA](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) para executar aplicações paralelas de Message Passing Interface (MPI). Ao configurar nós com capacidade RDMA, com base no Windows Server num cluster HPC Pack, aplicações MPI comunicar-se com eficiência através de uma baixa latência, rede de alto débito do Azure que é baseado na tecnologia de acesso (RDMA) de memória direta remoto.
@@ -51,19 +51,19 @@ Seguem-se as considerações e os passos para expandir com capacidade RDMA para 
     Transferir o pacote de instalação do HPC Pack do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Para requisitos e instruções para preparar uma implementação de rajada do Azure, consulte [períodos de rajada de instâncias de trabalho do Azure com o Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 2. **Configurar um certificado de gestão na subscrição do Azure**
    
-    Configure um certificado para proteger a ligação entre o nó principal e o Azure. Para opções e procedimentos, consulte [cenários para configurar o certificado de gestão do Azure para o HPC Pack](http://technet.microsoft.com/library/gg481759.aspx). Para implementações de teste, o HPC Pack instala um padrão Microsoft HPC Azure certificado de gestão pode carregar rapidamente a sua subscrição do Azure.
+    Configure um certificado para proteger a ligação entre o nó principal e o Azure. Para opções e procedimentos, consulte [cenários para configurar o certificado de gestão do Azure para o HPC Pack](https://technet.microsoft.com/library/gg481759.aspx). Para implementações de teste, o HPC Pack instala um padrão Microsoft HPC Azure certificado de gestão pode carregar rapidamente a sua subscrição do Azure.
 3. **Criar um novo serviço cloud e uma conta de armazenamento**
    
     Utilize o portal do Azure para criar um serviço em nuvem (clássico) e uma conta de armazenamento (clássico) para a implementação. Crie estes recursos numa região em que o tamanho de série H, A8 ou A9 que pretende utilizar está disponível. Ver [produtos do Azure por região](https://azure.microsoft.com/regions/services/).
 
 4. **Criar um modelo de nó do Azure**
    
-    Utilize o Assistente de modelo do nó de criação no Gestor de clusters HPC. Para obter os passos, consulte [criar um modelo de nó do Azure](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) no "Passos para implementar o Azure nós com o Microsoft HPC Pack".
+    Utilize o Assistente de modelo do nó de criação no Gestor de clusters HPC. Para obter os passos, consulte [criar um modelo de nó do Azure](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) no "Passos para implementar o Azure nós com o Microsoft HPC Pack".
    
     Para testes iniciais, sugerimos que configurar uma política de disponibilidade manual no modelo.
 5. **Adicionar nós ao cluster**
    
-    Utilize o nó Assistente para adicionar no Gestor de clusters HPC. Para obter mais informações, consulte [adicionar nós do Azure para o Cluster do Windows HPC](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
+    Utilize o nó Assistente para adicionar no Gestor de clusters HPC. Para obter mais informações, consulte [adicionar nós do Azure para o Cluster do Windows HPC](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
    
     Ao especificar o tamanho de nós, selecione um dos tamanhos de instância com capacidade RDMA.
    
@@ -76,7 +76,7 @@ Seguem-se as considerações e os passos para expandir com capacidade RDMA para 
     Selecione os nós e utilize o **iniciar** ação no Gestor de clusters de HPC. Quando o aprovisionamento estiver concluído, selecione os nós e utilizar o **colocar Online** ação no Gestor de clusters de HPC. Os nós estão prontos para executar tarefas.
 7. **Submeter tarefas ao cluster**
    
-   Utilize ferramentas de submissão de tarefa HPC Pack para executar tarefas de cluster. Ver [pacote HPC da Microsoft: gestão de tarefas](http://technet.microsoft.com/library/jj899585.aspx).
+   Utilize ferramentas de submissão de tarefa HPC Pack para executar tarefas de cluster. Ver [pacote HPC da Microsoft: gestão de tarefas](https://technet.microsoft.com/library/jj899585.aspx).
 8. **Parar (desaprovisionamento) os nós**
    
    Quando tiver terminado de tarefas em execução, colocar offline os nós e utilizar o **parar** ação no Gestor de clusters de HPC.

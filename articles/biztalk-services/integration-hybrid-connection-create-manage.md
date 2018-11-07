@@ -1,5 +1,5 @@
 ---
-title: Criar e gerir ligações híbridas | Microsoft Docs
+title: Criar e gerir ligações híbridas | Documentos da Microsoft
 description: Saiba como criar uma ligação híbrida, a ligação de gerir e instalar o Gestor de ligações híbridas. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26628853"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232985"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Criar e Gerir Ligações Híbridas
 
@@ -29,45 +29,45 @@ ms.locfileid: "26628853"
 >[!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="overview-of-the-steps"></a>Descrição geral dos passos
-1. Criar uma ligação híbrida introduzindo o **nome de anfitrião** ou **FQDN** do recurso no local na sua rede privada.
-2. Ligar a aplicações web do Azure ou mobile apps do Azure para a ligação híbrida.
+1. Criar uma ligação híbrida, introduzindo os **nome de anfitrião** ou **FQDN** do recurso no local na sua rede privada.
+2. Uma ligação a aplicações web do Azure ou aplicações móveis do Azure para a ligação híbrida.
 3. Instalar o Gestor de ligações híbridas no seu recurso no local e ligue-se para a ligação híbrida específico. O portal do Azure fornece uma experiência de clique único para instalar e ligar.
-4. Gerir ligações híbridas e as respetivas chaves de ligação.
+4. Gerir ligações híbridas e as chaves de ligação.
 
 Este tópico lista estes passos. 
 
 > [!IMPORTANT]
-> É possível definir um ponto final da ligação híbrida para um endereço IP. Se utilizar um endereço IP, poderá ou poderá não atingir o recurso no local, dependendo do seu cliente. A ligação híbrida depende do cliente efetuar uma pesquisa de DNS. Na maioria dos casos, o **cliente** é o código da aplicação. Se o cliente não efetua uma pesquisa de DNS (está a tentar resolver o endereço IP, como se fosse um nome de domínio (x.x.x. x)), em seguida, o tráfego não é enviado através da ligação híbrida.
+> É possível definir um ponto de final de ligação híbrida para um endereço IP. Se utilizar um endereço IP, pode ou não é possível atingir o recurso no local, dependendo do seu cliente. A ligação híbrida depende do cliente a fazer uma pesquisa de DNS. Na maioria dos casos, o **cliente** é o código da aplicação. Se o cliente não efetua uma pesquisa de DNS (ele não tentará resolver o endereço IP, como se fosse um nome de domínio (x.x.x. x)), em seguida, o tráfego não é enviado através da ligação híbrida.
 > 
-> Por exemplo (pseudocode), é possível definir **10.4.5.6** como o anfitrião no local:
+> Por exemplo (pseudocódigo), define **10.4.5.6** como seu host de locais:
 > 
-> **Funciona da seguinte cenário:**  
+> **O seguinte cenário funciona:**  
 > `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
 > 
-> **Não utilizar o seguinte cenário:**  
+> **O seguinte cenário não funciona:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 > 
 > 
 
 ## <a name="CreateHybridConnection"></a>Criar uma ligação híbrida
-É possível criar uma ligação híbrida no [as ligações híbridas do serviço de aplicação do Azure](../app-service/app-service-hybrid-connections.md) **ou** utilizando [APIs REST do BizTalk Services](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
+Pode ser criada uma ligação híbrida [ligações híbridas do Azure App Service](../app-service/app-service-hybrid-connections.md) **ou** usando [APIs de REST de serviços do BizTalk](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Adicionais
-* Podem ser criadas várias ligações híbridas. Consulte o [BizTalk Services: gráfico de edições](biztalk-editions-feature-chart.md) para o número de ligações permitido. 
+* É possível criar várias ligações híbridas. Consulte a [os serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) para o número de ligações permitido. 
 * Cada ligação híbrida é criada com um par de cadeias de ligação: esse chaves de envio e no local que ESCUTAM as chaves de aplicação. Cada par tem um site primário e uma chave secundária. 
 
-## <a name="LinkWebSite"></a>Ligar a aplicação móvel ou aplicação de Web do App Service do Azure
-Para ligar uma aplicação Web ou aplicação móvel no App Service do Azure para uma ligação híbrida existente, selecione **utilizar uma ligação híbrida existente** no painel ligações híbridas. 
+## <a name="LinkWebSite"></a>Ligue a sua aplicação Web do serviço de aplicações do Azure ou a aplicação móvel
+Para ligar uma aplicação Web ou aplicação móvel no serviço de aplicações do Azure a uma ligação híbrida existente, selecione **utilizar uma ligação híbrida existente** no painel de ligações híbridas. 
 <!-- See [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md). -->
 
 ## <a name="InstallHCM"></a>Instalar o Gestor de ligações híbridas no local
-Depois de criar uma ligação híbrida, instale o Gestor de ligações híbridas no recurso no local. Pode ser transferido das suas aplicações web do Azure ou a partir do seu BizTalk Service. 
+Depois de criar uma ligação híbrida, instale o Gestor de ligações híbridas no recurso no local. Pode ser transferido a partir de aplicações web do Azure ou de seu BizTalk Service. 
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
  
-[Ligações híbridas do serviço de aplicação do Azure](../app-service/app-service-hybrid-connections.md) também é um boa recursos.
+[Ligações híbridas do serviço de aplicações Azure](../app-service/app-service-hybrid-connections.md) também é um bom recurso.
 
 <!--
 You can also download the Hybrid Connection Manager MSI file and copy the file to your on-premises resource. Specific steps:
@@ -87,40 +87,40 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
   * Windows Server 2012 R2
 * Depois de instalar o Gestor de ligações híbridas, ocorre o seguinte: 
   
-  * A ligação híbrida alojada no Azure é automaticamente configurada para utilizar a cadeia de ligação de aplicação principal. 
+  * A ligação híbrida alojada no Azure é automaticamente configurada para utilizar a cadeia de ligação principal do aplicativo. 
   * O recurso no local é automaticamente configurado para utilizar a cadeia de ligação no local primário.
-* O Gestor de ligações híbridas tem de utilizar uma cadeia de ligação válido no local para autorização. As Web Apps do Azure ou Mobile Apps, tem de utilizar uma cadeia de ligação de aplicação válida para autorização.
-* Pode dimensionar as ligações híbridas instalando outra instância do Gestor de ligações híbridas noutro servidor. Configure o serviço de escuta no local para utilizar o mesmo endereço como o primeiro serviço de escuta no local. Nesta situação, o tráfego é distribuído aleatoriamente (o round robin) entre os serviços de escuta do Active Directory no local. 
+* O Gestor de ligações híbridas tem de utilizar uma cadeia de ligação no local válido para autorização. As aplicações Web do Azure ou das aplicações móveis, tem de utilizar uma cadeia de ligação de aplicação válida para autorização.
+* Pode dimensionar as ligações híbridas através da instalação de outra instância do Gestor de ligações híbridas noutro servidor. Configure o serviço de escuta no local para utilizar o mesmo endereço como o primeiro serviço de escuta no local. Nesta situação, o tráfego é distribuído aleatoriamente (round robin) entre os serviços de escuta do Active Directory no local. 
 
 ## <a name="ManageHybridConnection"></a>Gerir ligações híbridas
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Ligações híbridas do serviço de aplicação do Azure](../app-service/app-service-hybrid-connections.md) também é um boa recursos.
+[Ligações híbridas do serviço de aplicações Azure](../app-service/app-service-hybrid-connections.md) também é um bom recurso.
 
 #### <a name="copyregenerate-the-hybrid-connection-strings"></a>Cópia/voltar a gerar as cadeias de ligação híbrida
 
 [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)] 
 
-[Ligações híbridas do serviço de aplicação do Azure](../app-service/app-service-hybrid-connections.md) também é um boa recursos.
+[Ligações híbridas do serviço de aplicações Azure](../app-service/app-service-hybrid-connections.md) também é um bom recurso.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Política de grupo de utilização para controlar os recursos no local utilizados por uma ligação híbrida
-1. Transferir o [modelos administrativos do Gestor de ligações híbridas](http://www.microsoft.com/download/details.aspx?id=42963).
+1. Transfira o [modelos administrativos do Gestor de ligações híbridas](https://www.microsoft.com/download/details.aspx?id=42963).
 2. Extraia os ficheiros.
-3. No computador que modifica a política de grupo, faça o seguinte:  
+3. No computador que modifica a diretiva de grupo, faça o seguinte:  
    
-   * Copiar o. Ficheiros ADMX para o *%WINROOT%\PolicyDefinitions* pasta.
+   * Copiar o. Arquivos ADMX para o *%WINROOT%\PolicyDefinitions* pasta.
    * Copiar o. ADML ficheiros para o *%WINROOT%\PolicyDefinitions\en-us* pasta.
 
-Depois de copiar, pode utilizar o Editor de políticas de grupo para alterar a política.
+Depois de o copiar, pode utilizar o Editor de diretiva de grupo para alterar a política.
 
 ## <a name="next"></a>Seguinte
 [Descrição geral de ligações híbridas](integration-hybrid-connection-overview.md)
 
-## <a name="see-also"></a>Veja Também
-[API REST para gerir os BizTalk Services no Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+## <a name="see-also"></a>Consultar Também
+[API REST para Gerir os BizTalk Services no Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [Serviços BizTalk: Gráfico de Edições](biztalk-editions-feature-chart.md)  
-[Criar um BizTalk Service](biztalk-provision-services.md)  
+[Criar um Serviço BizTalk](biztalk-provision-services.md)  
 [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png

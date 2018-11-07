@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: a6c3314a981b46aa6f1cbca1f34392d1e1ae6c9a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6ea237c406a9d09b500a12755cd1fa99bb7d41cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431649"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234430"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Cache de Redis do fornecedor de Cache de saída do ASP.NET para o Azure
 O fornecedor de Cache de saída de Redis é um mecanismo de armazenamento fora do processo para dados de cache de saída. Estes dados são especificamente para respostas HTTP completas (cache de saída de página). O fornecedor se conecta o nova saída cache fornecedor ponto de extensibilidade que foi introduzido no ASP.NET 4.
@@ -89,8 +89,8 @@ Configurar os atributos com os valores do seu painel de cache no portal do Micro
   * Por predefinição, a porta não SSL está desativada para as novas caches. Especifica verdadeiro para esta definição utilizar a porta SSL. Para obter mais informações sobre como ativar a porta não SSL, consulte a [portas de acesso](cache-configure.md#access-ports) secção a [configurar uma cache](cache-configure.md) tópico.
 * **databaseId** – especificado qual banco de dados a utilizar para a cache de dados de saída. Se não for especificado, é utilizado o valor predefinido de 0.
 * **applicationName** – as chaves são armazenadas no redis como `<AppName>_<SessionId>_Data`. Este esquema de nomeação permite que vários aplicativos compartilhem a mesma chave. Este parâmetro é opcional e se não fornecer um valor predefinido é utilizado.
-* **connectionTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de connectTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de connectTimeout de 5000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de syncTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de syncTimeout de 1000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **connectionTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de connectTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de connectTimeout de 5000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](https://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – esta definição permite-lhe substituir a definição de syncTimeout no cliente stackexchange. redis. Se não for especificado, é utilizada a predefinição de syncTimeout de 1000. Para obter mais informações, consulte [modelo de configuração stackexchange. redis](https://go.microsoft.com/fwlink/?LinkId=398705).
 
 Adicione uma diretiva OutputCache para cada página para o qual pretende colocar em cache a saída.
 
@@ -98,7 +98,7 @@ Adicione uma diretiva OutputCache para cada página para o qual pretende colocar
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-No anterior exemplo, os dados de página em cache permanecem na cache durante 60 segundos e uma versão diferente da página é colocado em cache para cada combinação de parâmetro. Para obter mais informações sobre a diretiva OutputCache, consulte [ @OutputCache ](http://go.microsoft.com/fwlink/?linkid=320837).
+No anterior exemplo, os dados de página em cache permanecem na cache durante 60 segundos e uma versão diferente da página é colocado em cache para cada combinação de parâmetro. Para obter mais informações sobre a diretiva OutputCache, consulte [ @OutputCache ](https://go.microsoft.com/fwlink/?linkid=320837).
 
 Assim que estas etapas são realizadas, seu aplicativo está configurado para utilizar o fornecedor de Cache de saída de Redis.
 

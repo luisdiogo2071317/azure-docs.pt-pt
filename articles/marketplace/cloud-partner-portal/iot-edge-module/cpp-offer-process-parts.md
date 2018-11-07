@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 11/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 68c58c16d7083182d412adb6ed0d243a3291cc42
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5b4d4471d9c77b5d13dfd5f8c2e9394b1c2d2a87
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431557"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242558"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>Descrição geral da publicação da oferta de módulo do IoT Edge
 
-Este artigo descreve o processo de publicação e as partes principais de uma oferta de módulo do IoT Edge. Utilize este artigo como um ponto de partida para publicar a sua oferta para publicação para o [do Azure Marketplace](https://azuremarketplace.microsoft.com).
+<table> <tr> <td>Esta secção explica como publicar uma nova oferta de módulo do Azure IoT Edge da Microsoft <a href="https://azuremarketplace.microsoft.com">do Azure Marketplace</a>. Módulo do IoT Edge é um contentor de compatível com o Docker tornou-se para ser executada num dispositivo IoT Edge. Módulos do IoT Edge do Azure são a menor unidade de computação gerenciada pelo IoT Edge e podem conter serviços do Azure ou o código de solução personalizada. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 
 ## <a name="publishing-process"></a>Processo de publicação
 
@@ -44,7 +44,7 @@ Os artigos seguintes cobrem as principais partes de uma oferta de módulo do IoT
 - [Pré-requisitos](./cpp-prerequisites.md) <br>Este artigo lista as técnicas e requisitos de negócio antes de poder criar ou publicar um módulo do IoT Edge oferecem.
 - [Preparar o ativos técnicos do módulo do IoT Edge](./cpp-create-technical-assets.md) <br>Este artigo descreve como preparar os recursos técnicos para o módulo do IoT Edge. Estes recursos tem de cumprir todos os critérios de técnicos necessários para o módulo do IoT Edge pode ser publicado no Azure Marketplace.
 - [Criar uma oferta de módulo do IoT Edge](./cpp-create-offer.md) <br>Este artigo lista os passos necessários para criar um novo IoT Edge módulo oferta entrada utilizando o [Cloud Partner Portal](https://cloudpartner.azure.com).
-- [Publicar oferta de módulo do IoT Edge](./cpp-publish-offer.md)<br> Este artigo descreve como submeter a oferta para publicação no Azure Marketplace.
+- [Publicar uma oferta de módulo do IoT Edge](./cpp-publish-offer.md)<br> Este artigo descreve como submeter a oferta para publicação no Azure Marketplace.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

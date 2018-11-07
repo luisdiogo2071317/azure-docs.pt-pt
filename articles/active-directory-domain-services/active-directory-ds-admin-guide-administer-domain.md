@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dab1547ca17acaeda3cb168d78b342661ebe4615
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157624"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230483"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administrar um domínio gerido pelos Serviços de Domínio do Azure Active Directory
 Este artigo mostra-lhe como administrar um domínio gerido dos serviços de domínio do Azure Active Directory (AD).
@@ -63,7 +63,7 @@ A primeira etapa é configurar uma máquina virtual do Windows Server que está 
 ### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>Administrar domínio gerido remotamente a partir de um computador cliente (por exemplo, o Windows 10)
 As instruções neste uso de artigo uma máquina virtual do Windows Server para administrar o AAD-DS o domínio gerido. No entanto, também pode optar por usar uma máquina de virtual de cliente (por exemplo, o Windows 10) do Windows para fazer isso.
 
-Pode [instalar ferramentas de administração remota de servidor (FARS)](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) numa máquina de virtual de cliente do Windows ao seguir as instruções no TechNet.
+Pode [instalar ferramentas de administração remota de servidor (FARS)](https://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) numa máquina de virtual de cliente do Windows ao seguir as instruções no TechNet.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Tarefa 2 – ferramentas de administração do Active Directory da instalação na máquina virtual
 Conclua os seguintes passos para instalar as ferramentas de administração do Active Directory na máquina de virtual associado a um domínio. Consulte o Technet para obter mais informações [informações sobre como instalar e utilizar ferramentas de administração remota do servidor](https://technet.microsoft.com/library/hh831501.aspx).

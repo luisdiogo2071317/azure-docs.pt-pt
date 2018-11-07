@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
 ms.component: disks
-ms.openlocfilehash: 401b8ebaa119f146cfcea0f948221c92e8bc6eb9
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: cd2f73b3fb2a8a3d80586063566fe66c37c26c67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713878"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243458"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Metas de escalabilidade e desempenho para discos VM no Windows
 
@@ -23,6 +23,8 @@ ms.locfileid: "39713878"
 Ver [tamanhos de VM do Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para obter mais detalhes.
 
 ## <a name="managed-virtual-machine-disks"></a>Discos da máquina virtual gerida
+
+Tamanhos marcados com um asterisco estão atualmente em pré-visualização. Consulte nossos [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) para saber em que regiões estão disponíveis.
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
@@ -34,4 +36,3 @@ Ver [tamanhos de VM do Windows](../../virtual-machines/windows/sizes.md?toc=%2fa
 ## <a name="see-also"></a>Consulte também
 
 [Subscrição do Azure e limites, quotas e limitações do serviço (Azure subscription and service limits, quotas, and constraints)](https://docs.microsoft.com/azure/azure-subscription-service-limits)
-

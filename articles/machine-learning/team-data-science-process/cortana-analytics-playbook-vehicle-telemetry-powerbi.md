@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421054"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262286"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instruções de configuração do veículo telemetria Analytics solução modelo Power BI dashboard
 Este links de menu para os capítulos deste manual de comunicação: 
@@ -30,7 +30,7 @@ As apresentações de solução de análise de telemetria de veículos, como os 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Implementar o [análise Telemétrica de veículos](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) solução. 
-* [Instalar o Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Instalar o Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 * Obter um [subscrição do Azure](https://azure.microsoft.com/pricing/free-trial/). Se não tiver uma subscrição do Azure, comece com a subscrição gratuita do Azure.
 * Abra uma conta do Power BI.
 
@@ -68,7 +68,7 @@ Depois de concluída a implementação, siga as instruções de operação manua
 
    ![Power BI início de sessão janela](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/5-sign-into-powerbi.png)
    
-1. Selecione **aceitar**. A aplicação começa a ser executada.
+1. Selecione **Aceitar**. A aplicação começa a ser executada.
 
    ![Permissões de dashboard do Power BI](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-powerbi-dashboard-permissions.png)
 
@@ -348,7 +348,7 @@ Criado com êxito o dashboard em tempo real. À medida que continua a executar C
 
 ### <a name="configure-power-bi-reports"></a>Configurar relatórios do Power BI
 
-1. Abra o arquivo de designer **ConnectedCarsPbiReport.pbix** ao utilizar o Power BI Desktop. Se ainda não tiver, instale o Power BI Desktop a partir da [instalação do Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331) Web site.
+1. Abra o arquivo de designer **ConnectedCarsPbiReport.pbix** ao utilizar o Power BI Desktop. Se ainda não tiver, instale o Power BI Desktop a partir da [instalação do Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331) Web site.
 
 1. Selecione **editar consultas**.
 

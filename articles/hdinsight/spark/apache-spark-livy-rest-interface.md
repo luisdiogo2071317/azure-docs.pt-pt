@@ -2,19 +2,19 @@
 title: Utilizar o Spark do Livy para submeter tarefas ao cluster do Spark no Azure HDInsight
 description: Saiba como utilizar a API de REST do Apache Spark para submeter tarefas do Spark remotamente a um cluster do HDInsight do Azure.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: 677c7d27d34725b75c5dfed70cc377735f5d7d61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045217"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236828"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utilize a API de REST do Apache Spark para submeter as tarefas remotas para um cluster do Spark do HDInsight
 
@@ -152,9 +152,9 @@ Execute os seguintes passos:
    
     A última linha da saída mostra que o batch foi eliminado com êxito. Também eliminar uma tarefa, enquanto está em execução, interrompe a tarefa. Se eliminar uma tarefa que foi concluída com êxito ou caso contrário, ele elimina completamente as informações de tarefa.
 
-## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Com o Spark do Livy em clusters do HDInsight 3.5
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Atualizações à configuração do Livy a partir da versão do HDInsight 3.5
 
-Cluster do HDInsight 3.5, por padrão, Desabilita o uso de caminhos de ficheiro local para aceder aos ficheiros de dados de exemplo ou jars. Nós o encorajamos a utilizar o `wasb://` caminho em vez disso, para aceder a jars ou dados de exemplo ficheiros do cluster. Se pretender utilizar o caminho local, tem de atualizar a configuração de Ambari em conformidade. Para tal:
+HDInsight 3.5 clusters e acima, por predefinição, desativar a utilização de caminhos de ficheiro local para aceder aos ficheiros de dados de exemplo ou jars. Nós o encorajamos a utilizar o `wasb://` caminho em vez disso, para aceder a jars ou dados de exemplo ficheiros do cluster. Se pretender utilizar o caminho local, tem de atualizar a configuração de Ambari em conformidade. Para tal:
 
 1. Aceda ao portal do Ambari do cluster. A interface do Usuário da Web de Ambari está disponível no seu cluster do HDInsight em https://**CLUSTERNAME**. azurehdidnsight.net, em que CLUSTERNAME é o nome do cluster.
 

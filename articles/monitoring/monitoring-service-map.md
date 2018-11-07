@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: ad696168674e0c04c457c06a81d4e723981eee47
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914758"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252926"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
@@ -277,7 +277,7 @@ O **atualizações de máquinas** painel apresenta os dados da solução de gere
 ![Painel de controlo de alterações de máquina](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
-Dados de inventário de computador e o processo de mapa de serviço estão disponíveis para [pesquisa](../log-analytics/log-analytics-log-search.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
+Dados de inventário de computador e o processo de mapa de serviço estão disponíveis para [pesquisa](../log-analytics/log-analytics-queries.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
 
 Um registo é gerado por hora para cada computador exclusivo e o processo, além dos registos que são gerados quando um processo ou o computador inicia ou é integrado com o mapa de serviço. Estes registos têm as propriedades nas tabelas seguintes. Os campos e os valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso de máquina na API ServiceMap do Azure Resource Manager. Os campos e os valores nos eventos ServiceMapProcess_CL mapeiam os campos do recurso de processo na API ServiceMap do Azure Resource Manager. O campo de ResourceName_s corresponda o campo de nome do recurso de Gestor de recursos correspondente. 
 
@@ -504,7 +504,7 @@ Para obter mais informações sobre a recolha de dados e a utilização, consult
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [pesquisas de registos](../log-analytics/log-analytics-log-search.md) no Log Analytics para obter os dados recolhidos pelo mapa de serviço.
+Saiba mais sobre [pesquisas de registos](../log-analytics/log-analytics-queries.md) no Log Analytics para obter os dados recolhidos pelo mapa de serviço.
 
 
 ## <a name="troubleshooting"></a>Resolução de problemas

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d12ca26fb2aa5abddcf44b2e634b2f08b1fb01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696255"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235705"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma instrução de suporte interno a um laboratório no Azure DevTest Labs
 
@@ -31,7 +31,7 @@ Pode facilmente desativar ou editar uma declaração de suporte, depois de já n
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>Passos para adicionar uma declaração de suporte a um laboratório existente
 
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista. (Seu laboratório já pode ser mostrado no Dashboard sob **todos os recursos**).
 1. Na lista de laboratórios, selecione o laboratório em que pretende adicionar uma declaração de suporte.  
 1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.  
@@ -55,7 +55,7 @@ Quando já não pretende mostrar esta mensagem de suporte aos utilizadores de la
 
 ## <a name="steps-for-users-to-view-the-support-message"></a>Passos para os utilizadores ver a mensagem de suporte
 
-1. Partir do [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
+1. Partir do [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório.
 
 1. O laboratório **descrição geral** área, selecione **suporte interno**.  
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 907175ac341632d2ba0048ab486392b949f83626
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058803"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231571"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Como utilizar o Armazenamento de filas do Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -153,7 +153,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Próximos Passos
 Agora que aprendeu as noções básicas do armazenamento de filas, siga estas ligações para saber mais sobre tarefas de armazenamento mais complexas.
 
-* Visite o [blogue da equipa de armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* Visite o [blogue da equipa de armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * Visite o [Azure SDK para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) repositório no GitHub
 
 Para obter uma comparação entre o Azure Queue Service discutidos neste artigo e discutidos de filas do Azure Service Bus a [como utilizar filas do Service Bus](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) artigo, consulte [filas do Azure e filas do Service Bus - comparação e Contraste](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

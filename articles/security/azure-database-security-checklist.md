@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: db976fb61c5659fbdcb7ba30aa4f619d52d441c4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402512"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252399"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança de base de dados do Azure
 
@@ -34,7 +34,7 @@ Estas incluem:
 -   Utilize a gestão de acesso
 -   Encriptação de dados
 -   Auditoria da Base de Dados SQL
--   Deteção de ameaças da base de dados SQL
+-   Deteção de ameaças da Base de Dados SQL
 
 ## <a name="introduction"></a>Introdução
 A computação em nuvem requer novos paradigmas de segurança que não estão familiarizadas para muitos utilizadores da aplicação, os administradores de banco de dados e programadores. Como resultado, algumas organizações são reticentes quanto ao implementar uma infraestrutura de nuvem para gestão de dados devido a riscos de segurança percetível. No entanto, grande parte esta preocupação pode ser minimizada por meio de uma melhor compreensão dos recursos de segurança incorporada no Microsoft Azure e base de dados do Microsoft Azure SQL.
@@ -47,7 +47,7 @@ Recomendamos que leia os [práticas recomendadas de segurança de base de dados 
 | ------------ | -------- |
 |**Proteger os dados**||
 | <br> Encriptação em trânsito/Motion| <ul><li>[Segurança de camada de transporte](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), para a encriptação de dados quando estiver se movendo dados para as redes.</li><li>Base de dados requer uma comunicação segura de clientes com base na [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protocolo por TLS (Transport Layer Security).</li></ul> |
-|<br>Encriptação inativa| <ul><li>[Encriptação de dados transparente](http://go.microsoft.com/fwlink/?LinkId=526242), quando os dados Inativos são armazenados fisicamente em qualquer formato digital.</li></ul>|
+|<br>Encriptação inativa| <ul><li>[Encriptação de dados transparente](https://go.microsoft.com/fwlink/?LinkId=526242), quando os dados Inativos são armazenados fisicamente em qualquer formato digital.</li></ul>|
 |**Controlar o acesso**||  
 |<br> Acesso à Base de Dados | <ul><li>[Autenticação](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) autenticação (Azure Active Directory Authentication) AD utiliza identidades geridas pelo Azure Active Directory.</li><li>[Autorização](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) conceder aos utilizadores o mínimo de privilégios necessários.</li></ul> |
 |<br>Acesso à aplicação| <ul><li>[Segurança ao nível da linha](https://msdn.microsoft.com/library/dn765131) (através de política de segurança, ao mesmo tempo, restringir o acesso ao nível da linha com base no contexto de identidade, a função ou a execução de um utilizador).</li><li>[Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (através de permissão e de política, limita a exposição de dados confidenciais ao mascará-los para utilizadores sem privilégios)</li></ul>|

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040870"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249205"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Coleções de área de trabalho do BI Power FAQ
 
@@ -61,7 +61,7 @@ Consulte a nossa documentação de serviço para obter detalhes sobre como utili
 Sim. Pode utilizar a sua subscrição do Azure existente para aprovisionar e utilizar o serviço de coleções de área de trabalho do Microsoft Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>Meu pelo utilizador final do aplicativo precisa de uma licença do Power BI?
-Não. Os utilizadores finais do seu aplicativo não são necessários para comprar ou a subscrição do Power BI em separado para acessar as visualizações de dados na aplicação. No modelo de coleções de área de trabalho do Power BI, como o fornecedor do aplicativo, é faturado para o serviço através do medidor de consumo do Azure. Consulte a [página de preço e licenciamento](http://go.microsoft.com/fwlink/?LinkId=760527).
+Não. Os utilizadores finais do seu aplicativo não são necessários para comprar ou a subscrição do Power BI em separado para acessar as visualizações de dados na aplicação. No modelo de coleções de área de trabalho do Power BI, como o fornecedor do aplicativo, é faturado para o serviço através do medidor de consumo do Azure. Consulte a [página de preço e licenciamento](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Como funciona a autenticação de utilizador com as coleções de área de trabalho do Power BI?
 O serviço de coleções de área de trabalho do Power BI utiliza os Tokens de aplicação para autenticação e autorização em vez da autenticação explícita do utilizador final. No modelo de Token de aplicação, o seu aplicativo gere a autenticação e autorização para os utilizadores finais. Em seguida, quando necessário, a aplicação cria
@@ -80,7 +80,7 @@ Os desenvolvedores/funcionários a trabalhar ou criar a sua aplicação tem de t
 Pode visitar o [página de documentação de coleções de área de trabalho do Power BI](get-started.md). Pode manter-se atualizado sobre este serviço, visite o [blogue do Power BI](https://powerbi.microsoft.com/blog/) ou visitando o Centro de programadores do Power BI em dev.powerbi.com. Também pode fazer perguntas no [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi).
 
 ## <a name="how-do-i-get-started"></a>Como posso começar?
-Pode começar a utilizar gratuitamente agora! Se tiver uma subscrição do Azure, pode agora aprovisionar coleções de área de trabalho do Power BI no portal do Azure diretamente. Também pode criar sua [conta gratuita do Azure](https://azure.microsoft.com/free/). Depois de ter aprovisionado o serviço de coleções de área de trabalho do Power BI, pode facilmente usar APIs de REST do Power BI diretamente, ou utilizar o SDK, disponível de desenvolvedor [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472). São fornecidos exemplos de como aproveitar o SDK de desenvolvedor.
+Pode começar a utilizar gratuitamente agora! Se tiver uma subscrição do Azure, pode agora aprovisionar coleções de área de trabalho do Power BI no portal do Azure diretamente. Também pode criar sua [conta gratuita do Azure](https://azure.microsoft.com/free/). Depois de ter aprovisionado o serviço de coleções de área de trabalho do Power BI, pode facilmente usar APIs de REST do Power BI diretamente, ou utilizar o SDK, disponível de desenvolvedor [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). São fornecidos exemplos de como aproveitar o SDK de desenvolvedor.
 
 ## <a name="see-also"></a>Consulte também
 

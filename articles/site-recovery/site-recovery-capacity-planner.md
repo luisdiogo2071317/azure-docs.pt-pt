@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211422"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261881"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planear a capacidade para a recuperação de desastres da VM de Hyper-V 
 
@@ -43,7 +43,7 @@ Pode executar a ferramenta em dois modos:
 
 
 ## <a name="run-the-quick-planner"></a>Executar o planeador de rápida
-1. Transfira e abra [Planeador de capacidade de recuperação de Site](http://aka.ms/asr-capacity-planner-excel). Precisa executar macros. Quando lhe for pedido, faça as seleções para edição de enable e conteúdo.
+1. Transfira e abra [Planeador de capacidade de recuperação de Site](https://aka.ms/asr-capacity-planner-excel). Precisa executar macros. Quando lhe for pedido, faça as seleções para edição de enable e conteúdo.
 
 2. Na **selecionar um tipo de planner** caixa de listagem, selecione **Planner rápida**.
 
@@ -81,7 +81,7 @@ Pode executar a ferramenta em dois modos:
 
 ## <a name="run-the-detailed-planner"></a>Executar o planeador de detalhadas
 
-1. Transfira e abra [Planeador de capacidade de recuperação de Site](http://aka.ms/asr-capacity-planner-excel). Precisa executar macros. Quando lhe for pedido, faça as seleções para edição de enable e conteúdo.
+1. Transfira e abra [Planeador de capacidade de recuperação de Site](https://aka.ms/asr-capacity-planner-excel). Precisa executar macros. Quando lhe for pedido, faça as seleções para edição de enable e conteúdo.
 
 2. Na **selecionar um tipo de planner**, selecione **Planner detalhadas** da caixa de listagem.
 

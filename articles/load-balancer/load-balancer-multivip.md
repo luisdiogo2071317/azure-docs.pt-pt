@@ -1,11 +1,9 @@
 ---
-title: Mutiple VIPs num serviço em nuvem
-description: Descrição geral dos multiVIP e como definir vários VIPs num serviço em nuvem
+title: Vários conjuntos de VIPs para um serviço cloud
+description: Descrição geral de um multiVIP e como configurar vários VIPs num serviço cloud
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,43 +11,43 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b6b7b0b2d7a7f33facaf72bbd2d7937364770673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03ecb44f3d561ff720939d0605d342b299194ef2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23855202"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218802"
 ---
-# <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurar vários VIPs num serviço em nuvem
+# <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurar vários VIPs para um serviço em nuvem
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
-Pode aceder a serviços em nuvem do Azure através da Internet pública, utilizando um endereço IP fornecido pelo Azure. Este endereço IP público é referido como um VIP (virtual IP), uma vez que está associada ao balanceador de carga do Azure e não a Máquina Virtual (VM) instâncias do serviço em nuvem. Pode aceder a qualquer instância VM dentro de um serviço em nuvem através da utilização de um único VIP.
+Pode acessar serviços cloud do Azure através da Internet pública utilizando um endereço IP fornecido pelo Azure. Este endereço IP público é referido como um VIP (virtual IP), uma vez que ele está vinculado ao balanceador de carga do Azure e não a Máquina Virtual (VM) instâncias no serviço cloud. Pode acessar qualquer instância VM num serviço cloud utilizando um único VIP.
 
-No entanto, existem cenários em que poderá ser necessário mais do que um VIP como uma entrada de apontar para o mesmo serviço de nuvem. Por exemplo, o serviço em nuvem pode alojar vários sites que requeiram conectividade SSL com a porta predefinida 443, como cada site é alojada para um cliente diferente ou inquilino. Neste cenário, tem de ter um público destinado ao endereço IP diferente para cada site. O diagrama abaixo mostra uma típica web do multi-inquilino de alojamento com uma necessidade para vários certificados SSL na mesma porta pública.
+No entanto, existem cenários em que poderá ter mais do que um VIP como uma entrada de apontar para o mesmo serviço cloud. Por exemplo, o seu serviço cloud pode alojar vários Web sites que requerem conectividade SSL a utilizar a porta padrão 443, como cada site é hospedado para outro cliente ou inquilino. Neste cenário, tem de ter um destinado ao endereço IP público diferente para cada Web site. O diagrama abaixo ilustra uma típica com a necessidade de vários certificados SSL na mesma porta pública de alojamento na web multi-inquilino.
 
-![Cenário de várias VIP SSL](./media/load-balancer-multivip/Figure1.png)
+![Cenário de vários VIP SSL](./media/load-balancer-multivip/Figure1.png)
 
-No exemplo acima, todos os VIPs utilizam a mesma porta pública (443) e o tráfego é redirecionado para um ou VMs de uma porta privada exclusiva para o endereço IP interno do serviço em nuvem que aloja todos os Web sites com balanceamento de carga mais.
-
-> [!NOTE]
-> Outra situação exigir a utilização de vários VIPs está a alojar vários escuta de grupo de disponibilidade SQL AlwaysOn no mesmo conjunto de máquinas virtuais.
-
-VIPs são dinâmicas por predefinição, o que significa que o endereço IP real atribuído para o serviço em nuvem pode alterar ao longo do tempo. Para impedir que a acontecer, pode reservar um VIP para o seu serviço. Para saber mais sobre VIPs reservadas, consulte o artigo [reservado de IP público](../virtual-network/virtual-networks-reserved-public-ip.md).
+No exemplo acima, todos os VIPs utilizam a mesma porta pública (443) e o tráfego será redirecionado para uma ou com balanceamento de carga mais VMs numa porta privada exclusiva para o endereço IP interno do serviço em nuvem que aloja os Web sites.
 
 > [!NOTE]
-> Consulte [preços do endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/) para obter informações sobre preços em VIPs e IPs reservados.
+> Outra situação exigir a utilização de vários VIPs está a alojar várias escutas de grupo de Disponibilidade AlwaysOn do SQL no mesmo conjunto de máquinas virtuais.
 
-Pode utilizar o PowerShell para verificar os VIPs utilizados pelos seus serviços em nuvem, bem como adicionar e remover VIPs, associar um VIP para um ponto final e configurar um VIP específico de balanceamento de carga.
+VIPs são dinâmicas por predefinição, o que significa que o endereço IP real atribuído ao serviço cloud pode mudar ao longo do tempo. Para evitar que aconteça, pode reservar um VIP para o seu serviço. Para saber mais sobre VIPs reservadas, consulte [IP públicos reservados](../virtual-network/virtual-networks-reserved-public-ip.md).
+
+> [!NOTE]
+> Veja [preços de endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses/) para obter informações sobre preços em VIPs e IPs reservados.
+
+Pode utilizar o PowerShell para verificar os VIPs utilizados pelo seu serviço cloud, bem como adicionar e remover VIPs, associar um VIP para um ponto final e configurar um VIP específico de balanceamento de carga.
 
 ## <a name="limitations"></a>Limitações
 
-Neste momento, a funcionalidade de várias VIP é limitada para os seguintes cenários:
+Neste momento, a funcionalidade de vários VIP está limitada para os cenários seguintes:
 
-* **Apenas IaaS**. Só pode ativar várias VIP para serviços em nuvem que contêm as VMs. Não é possível utilizar várias VIP em cenários de PaaS com instâncias de função.
-* **PowerShell apenas**. Só pode gerir várias VIP utilizando o PowerShell.
+* **IaaS apenas**. Apenas pode ativar várias VIP para serviços em nuvem que contêm as VMs. Não é possível utilizar várias VIP em cenários de PaaS com instâncias de função.
+* **PowerShell apenas**. Só pode gerir várias VIP com o PowerShell.
 
-Estas limitações são temporárias e podem ser alterados em qualquer altura. Certifique-se de que revê esta página para verificar as alterações futuras.
+Essas limitações são temporárias e podem ser alterados em qualquer altura. Certifique-se de rever esta página para verificar as alterações futuras.
 
 ## <a name="how-to-add-a-vip-to-a-cloud-service"></a>Como adicionar um VIP para um serviço em nuvem
 Para adicionar um VIP ao seu serviço, execute o seguinte comando do PowerShell:
@@ -58,7 +56,7 @@ Para adicionar um VIP ao seu serviço, execute o seguinte comando do PowerShell:
 Add-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 ```
 
-Este comando apresenta um resultado semelhante ao seguinte exemplo:
+Este comando apresenta um resultado semelhante ao exemplo seguinte:
 
     OperationDescription OperationId                          OperationStatus
     -------------------- -----------                          ---------------
@@ -72,18 +70,18 @@ Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 ```
 
 > [!IMPORTANT]
-> Apenas é possível remover um VIP, se este não tem pontos finais associados ao mesmo.
+> Só é possível remover um VIP se ele não tem pontos finais associados a ele.
 
 
 ## <a name="how-to-retrieve-vip-information-from-a-cloud-service"></a>Como obter informações de VIP a partir de um serviço em nuvem
-Para obter os VIPs associados um serviço em nuvem, execute o seguinte script do PowerShell:
+Para obter os VIPs associados a um serviço em nuvem, execute o seguinte script do PowerShell:
 
 ```powershell
 $deployment = Get-AzureDeployment -ServiceName myService
 $deployment.VirtualIPs
 ```
 
-O script apresenta um resultado semelhante ao seguinte exemplo:
+O script exibe um resultado semelhante ao exemplo seguinte:
 
     Address         : 191.238.74.148
     IsDnsProgrammed : True
@@ -105,15 +103,15 @@ O script apresenta um resultado semelhante ao seguinte exemplo:
 
 Neste exemplo, o serviço em nuvem tem 3 VIPs:
 
-* **O Vip1** é VIP predefinido, sabe que porque o valor para IsDnsProgrammedName está definido como true.
-* **Vip2** e **Vip3** não são utilizados como não têm quaisquer endereços IP. Só irá ser utilizadas se associar um ponto final para o VIP.
+* **Vip1** é o VIP predefinido, sabe que uma vez que o valor para IsDnsProgrammedName é definido como true.
+* **Vip2** e **Vip3** não são utilizados como não têm quaisquer endereços IP. Só irá ser utilizados se associar um ponto final para o VIP.
 
 > [!NOTE]
-> A subscrição só será cobrada por VIPs adicionais assim que estiverem associados um ponto final. Para obter mais informações sobre preços, consulte [preços do endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
+> Sua assinatura apenas será cobrada para VIPs Extras assim que estiverem associados um ponto de extremidade. Para obter mais informações sobre os preços, consulte [preços de endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## <a name="how-to-associate-a-vip-to-an-endpoint"></a>Como associar um VIP para um ponto final
 
-Para associar um VIP num serviço em nuvem para um ponto final, execute o seguinte comando do PowerShell:
+Para associar um VIP num serviço cloud para um ponto de extremidade, execute o seguinte comando do PowerShell:
 
 ```powershell
 Get-AzureVM -ServiceName myService -Name myVM1 |
@@ -121,7 +119,7 @@ Get-AzureVM -ServiceName myService -Name myVM1 |
     Update-AzureVM
 ```
 
-O comando cria um ponto final associado para o VIP chamado *Vip2* na porta *80*e associa-VM com o nome *myVM1* num serviço em nuvem com o nome *myService* utilizando *TCP* na porta *8080*.
+O comando cria um ponto de extremidade associado para o VIP chamado *Vip2* na porta *80*e associa-a VM com o nome *myVM1* num serviço cloud com o nome *myService* usando *TCP* na porta *8080*.
 
 Para verificar a configuração, execute o seguinte comando do PowerShell:
 
@@ -130,7 +128,7 @@ $deployment = Get-AzureDeployment -ServiceName myService
 $deployment.VirtualIPs
 ```
 
-O resultado semelhante ao seguinte exemplo:
+O resultado será semelhante ao seguinte exemplo:
 
     Address         : 191.238.74.148
     IsDnsProgrammed : True
@@ -152,7 +150,7 @@ O resultado semelhante ao seguinte exemplo:
 
 ## <a name="how-to-enable-load-balancing-on-a-specific-vip"></a>Como ativar um VIP específico de balanceamento de carga
 
-Pode associar um VIP único com várias máquinas virtuais para fins de balanceamento de carga. Por exemplo, tiver um serviço em nuvem com o nome *myService*e duas máquinas virtuais com o nome *myVM1* e *myVM2*. E o serviço de nuvem tem vários VIPs, um com o nome *Vip2*. Se pretender certificar-se de que todo o tráfego para a porta *81* no *Vip2* é equilibrados entre *myVM1* e *myVM2* na porta *8181* , execute o seguinte script do PowerShell:
+Pode associar um VIP único com várias máquinas virtuais para fins de balanceamento de carga. Por exemplo, tem um serviço em nuvem com o nome *myService*e duas máquinas virtuais com o nome *myVM1* e *myVM2*. E o seu serviço cloud tem múltiplos VIPs, um com o nome *Vip2*. Se pretender certificar-se de que todo o tráfego para a porta *81* nos *Vip2* seja balanceada entre *myVM1* e *myVM2* na porta *8181* , execute o seguinte script do PowerShell:
 
 ```powershell
 Get-AzureVM -ServiceName myService -Name myVM1 |
@@ -164,20 +162,20 @@ Get-AzureVM -ServiceName myService -Name myVM2 |
     Update-AzureVM
 ```
 
-Também pode atualizar o Balanceador de carga a utilizar um VIP diferentes. Por exemplo, se executar o comando do PowerShell abaixo, irá alterar o conjunto para utilizar um VIP Vip1 com o nome de balanceamento de carga:
+Também pode atualizar o Balanceador de carga para utilizar um VIP diferente. Por exemplo, se executar o comando do PowerShell abaixo, irá alterar o conjunto para utilizar um VIP com o nome Vip1 de balanceamento de carga:
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -VirtualIPName Vip1
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 
 [Análise de registos para balanceamento de carga do Azure](load-balancer-monitor-log.md)
 
-[Internet destinado ao balanceador descrição geral de carga](load-balancer-internet-overview.md)
+[Descrição de geral do Internet destinado ao load balancer](load-balancer-internet-overview.md)
 
-[Começar a utilizar na Internet com o Balanceador de carga](load-balancer-get-started-internet-arm-ps.md)
+[Começar a funcionar com o Balanceador de carga com acesso à Internet](load-balancer-get-started-internet-arm-ps.md)
 
-[Descrição geral da rede virtual](../virtual-network/virtual-networks-overview.md)
+[Virtual Network Overview](../virtual-network/virtual-networks-overview.md) (Descrição Geral da Rede Virtual)
 
 [APIs REST do IP reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)

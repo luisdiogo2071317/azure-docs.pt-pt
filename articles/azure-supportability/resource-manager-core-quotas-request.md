@@ -7,18 +7,18 @@ ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1be05ac7216a65922927b94d1cc4ba2a893433b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037271"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250990"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Pedidos de aumento de quota de vCPU de Gestor de recursos
 
 Quotas de vCPU de Gestor de recursos são aplicadas ao nível de região e o nível de família de SKU.
-Obter mais informações sobre como as quotas são aplicadas no [subscrição do Azure e limites do serviço](http://aka.ms/quotalimits) página.
-Para obter mais informações sobre famílias de SKU, pode comparar o custo e desempenho no [preços de máquinas virtuais](http://aka.ms/pricingcompute) página.
+Obter mais informações sobre como as quotas são aplicadas no [subscrição do Azure e limites do serviço](https://aka.ms/quotalimits) página.
+Para obter mais informações sobre famílias de SKU, pode comparar o custo e desempenho no [preços de máquinas virtuais](https://aka.ms/pricingcompute) página.
 
 Para pedir um aumento, siga as instruções abaixo para criar um pedido de suporte através do Azure "utilização + quotas" painel disponível no Portal do Azure. 
 
@@ -28,7 +28,7 @@ Para pedir um aumento, siga as instruções abaixo para criar um pedido de supor
 
    ![Subscrições](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. Selecione a subscrição que tem uma quota maior.
+2. Selecione a subscrição que precisa de uma quota maior.
 
    ![Selecionar subscrição](./media/resource-manager-core-quotas-request/select-subscription.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Melhores Práticas do Serviço de Aplicações do Azure
-description: Saiba as melhores práticas e resolução de problemas do App Service do Azure.
+description: Aprenda as melhores práticas e resolução de problemas do serviço de aplicações do Azure.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7c5eb6190d4a4cdfa47779d2c4d7aadac5a2fb80
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27868323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240635"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Melhores Práticas do Serviço de Aplicações do Azure
-Este artigo resume as melhores práticas para utilizar [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
+Este artigo resume as melhores práticas para utilizar [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
 
-## <a name="colocation"></a>Colocalização
-Quando os recursos do Azure composição uma solução como uma aplicação web e uma base de dados estão localizados em regiões diferentes, pode ter os seguintes efeitos:
+## <a name="colocation"></a>Partilha de localização
+Quando os recursos do Azure compor uma solução como uma aplicação web e uma base de dados estão localizados em regiões diferentes, ele pode ter os seguintes efeitos:
 
-* Uma maior latência de comunicação entre recursos
-* Transferência de custos monetários de dados de saída por várias regiões conforme indicado no [do Azure de página de preços](https://azure.microsoft.com/pricing/details/data-transfers).
+* Maior latência na comunicação entre os recursos
+* Custos monetários para dados de saída de transferência entre regiões conforme indicado no [do Azure de página de preços](https://azure.microsoft.com/pricing/details/data-transfers).
 
-A colocalização na mesma região é melhor para composição uma solução como uma aplicação web e uma conta de armazenamento ou base de dados utilizado para reter dados ou conteúdo de recursos do Azure. Quando a criação dos recursos, certifique-se de que estão na mesma região do Azure, a menos que tenha um motivo específico à empresa ou estrutura para os mesmos não deve ser. Pode mover uma aplicação de serviço de aplicações para a mesma região que a base de dados utilizando o [funcionalidade de clonagem do serviço de aplicações](app-service-web-app-cloning.md) atualmente disponível para aplicações plano do Premium App Service.   
+A colocalização na mesma região é melhor para compor uma solução como uma aplicação web e uma conta de armazenamento ou base de dados utilizada para armazenar o conteúdo ou dados de recursos do Azure. Quando criar recursos, certifique-se de que estão na mesma região do Azure, a menos que tenha um motivo específico à empresas ou design de não ser. Pode mover uma aplicação de serviço de aplicações para a mesma região que a sua base de dados utilizando o [funcionalidade de clonagem de serviço de aplicações](app-service-web-app-cloning.md) atualmente disponível para aplicações de plano de serviço de aplicações Premium.   
 
-## <a name="memoryresources"></a>Quando as aplicações consumir mais memória do que o previsto
-Quando Repare uma aplicação consome mais memória do que esperado como indicados através da recomendações de monitorização ou serviços, considere o [funcionalidade aplicação serviço Autorrecuperação](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Uma das opções para a funcionalidade de recuperação automática está a demorar ações personalizadas com base num limiar de memória. Ações span espetro de notificações por e-mail para investigação através do Estado da memória no-a-lugar para cima mitigação ao reciclar o processo de trabalho. Autorrecuperação pode ser configurado através da Web. config e através de uma interface de utilizador amigável conforme descrito neste blogue para o [extensão de Site de suporte de serviço de aplicação](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
+## <a name="memoryresources"></a>Quando aplicações consumam mais memória do que o esperado
+Quando que uma aplicação consome mais memória do que o esperado, como indicado por meio de recomendações de monitorização ou serviços específico, considere a [funcionalidade de recuperação automática do serviço de aplicações](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites). Uma das opções para a funcionalidade de recuperação automática está a demorar ações personalizadas com base no limite de memória. Ações abrangem o espetro de notificações por e-mail para investigação por meio de despejo de memória de atenuação no lugar ao reciclar o processo de trabalho. Recuperação automática pode ser configurado por meio da Web. config bem como através de uma interface do usuário amigável conforme descrito nesta mensagem de blogue para o [extensão de Site de suporte de serviço de aplicações](https://azure.microsoft.com/blog/additional-updates-to-support-site-extension-for-azure-app-service-web-apps).   
 
-## <a name="CPUresources"></a>Quando as aplicações consumir mais CPU que o previsto
-Quando uma aplicação consome CPU mais que o esperado ou picos de CPU repetidos experiências indicados através da recomendações de monitorização ou serviços, considere como aumentar verticalmente ou aumentar horizontalmente o plano de serviço de aplicações. Se a aplicação com monitorização de estado, como aumentar verticalmente é a única opção, enquanto se a aplicação está fora do dimensionamento, sem monitorização de estado dá-lhe mais flexibilidade e a maior possibilidade de escala. 
+## <a name="CPUresources"></a>Quando aplicativos consumam mais CPU do que o esperado
+Quando observar um aplicativo consome mais CPU do que o esperado ou experiências repetidos picos de CPU como indicado por meio de recomendações de monitorização ou serviços específico, considere aumentar ou reduzir horizontalmente o plano do serviço de aplicações. Se seu aplicativo for com monitoração de estado, o aumento vertical é a única opção, enquanto se seu aplicativo estiver fora sem monitoração de estado, dimensionamento dá-lhe mais flexibilidade e mais alto potencial de dimensionamento. 
 
-Para obter mais informações sobre aplicações "sem monitorização de estado" de "com monitorização de estado" vs pode ver este vídeo: [planeamento de uma aplicação de várias camadas dimensionável ponto-a-ponto na aplicação do Microsoft Azure Web](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, consulte [dimensionar uma aplicação Web no App Service do Azure](web-sites-scale.md).  
+Para obter mais informações sobre os aplicativos "sem monitoração de estado" de "com monitoração de estado" vs pode ver este vídeo: [planeamento de uma aplicação de várias camadas dimensionável ponto-a-ponto no Microsoft Azure Web App](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para obter mais informações sobre as opções de dimensionamento e o dimensionamento automático do serviço de aplicações, consulte [dimensionar uma aplicação Web no serviço de aplicações do Azure](web-sites-scale.md).  
 
-## <a name="socketresources"></a>Quando os recursos de socket ficam esgotados
-Um motivo comum esgotar os ligações de TCP de saída é a utilização de bibliotecas de cliente, que não estão implementados reutilizar ligações TCP ou quando não é utilizado um protocolo de nível mais elevado, como HTTP - Keep-Alive. Consulte a documentação para cada uma das bibliotecas referenciadas pelas aplicações no seu plano do App Service para garantir que estão configurados ou acedidos no seu código para reutilização eficiente de ligações de saída. Siga também as orientações de documentação de biblioteca para criação adequada e a versão ou a limpeza para evitar a fuga de dados de ligações. Enquanto essas investigações bibliotecas de cliente estão em curso, pode ser atenuado impacto ao aumentar horizontalmente a várias instâncias.
+## <a name="socketresources"></a>Quando os recursos de soquete são esgotados
+Um motivo comum para esgotar ligações de saída de TCP é a utilização das bibliotecas de cliente, que não é implementado para reutilizar conexões TCP, ou quando não é utilizado um protocolo de alto nível, como HTTP - Keep-Alive. Reveja a documentação para cada uma das bibliotecas referenciadas pelas aplicações no seu plano de serviço de aplicações para garantir que eles são configurados ou acessados no seu código para reutilização eficiente de ligações de saída. Siga também as diretrizes de documentação da biblioteca para criação adequada e a versão ou a limpeza para evitar a fuga de ligações. Enquanto tais investigações de bibliotecas de cliente estão em curso, o impacto pode ser mitigado ao aumentar horizontalmente para várias instâncias.
 
-### <a name="nodejs-and-outgoing-http-requests"></a>NODE.js e pedidos de http de saída
-Ao trabalhar com o Node.js e muitos pedidos de http de saída, lidar com HTTP - Keep-Alive, é importante. Pode utilizar o [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` pacote para o facilitar no seu código.
+### <a name="nodejs-and-outgoing-http-requests"></a>NODE. js e os pedidos de http enviados
+Ao trabalhar com o node. js e muitos pedidos de http de saída, é importante lidar com HTTP - Keep-Alive. Pode utilizar o [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` pacote para tornar mais fácil no seu código.
 
-Processar sempre o `http` resposta, mesmo se o fizer nada do processador. Se não processar a resposta corretamente, a aplicação obtém bloqueada, eventualmente, porque não existem mais sockets estão disponíveis.
+Processar sempre o `http` resposta, mesmo se não fazer nada no manipulador. Se não processar a resposta corretamente, a aplicação fica bloqueada, eventualmente, porque não existem soquetes mais disponíveis.
 
-Por exemplo, quando trabalhar com o `http` ou `https` pacote:
+Por exemplo, ao trabalhar com o `http` ou `https` pacote:
 
 ```
 var request = https.request(options, function(response) {
@@ -56,19 +56,19 @@ var request = https.request(options, function(response) {
 });
 ```
 
-Se estiver a executar no App Service no Linux num computador com vários núcleos, outro procedimento recomendado é utilizar PM2 iniciar vários processos de Node.js para executar a aplicação. Pode fazê-lo especificando um comando de arranque para o contentor.
+Se estiver a executar no serviço de aplicações no Linux numa máquina com vários núcleos, outra prática recomendada é usar PM2 para iniciar vários processos de node. js para executar seu aplicativo. Pode fazê-lo ao especificar um comando de arranque para o seu contentor.
 
-Por exemplo, para iniciar a quatro instâncias:
+Por exemplo, para começar a quatro instâncias:
 
 ```
 pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ```
 
 ## <a name="appbackup"></a>Quando a aplicação criar cópias de segurança começa a falhar
-As duas razões mais comuns são por que motivo de falha de cópia de segurança de aplicação: definições de armazenamento inválido e a configuração de base de dados inválido. Estas falhas acontecer, normalmente, quando existem alterações a recursos de armazenamento ou base de dados ou alterações como aceder a estes recursos (por exemplo, as credenciais atualizados para a base de dados selecionado nas definições de cópia de segurança). Normalmente, as cópias de segurança com base numa agenda e necessitam de acesso a armazenamento (para exportar os ficheiros de cópia de segurança) e bases de dados (para copiar e ler conteúdo sejam incluídos na cópia de segurança). O resultado da não consegue aceder a estes recursos seria falhas de cópia de segurança consistente. 
+Os dois motivos mais comuns, por que está a falha de cópia de segurança de aplicação: definições de armazenamento inválido e a configuração de base de dados inválido. Estas falhas normalmente ocorrem quando há alterações aos recursos de armazenamento ou base de dados ou as alterações para saber como aceder a estes recursos (por exemplo, credenciais atualizadas para a base de dados selecionada nas definições de cópia de segurança). Normalmente, as cópias de segurança executam numa agenda e necessitam de acesso a bancos de dados e de armazenamento (para produzir os ficheiros de cópia de segurança) (para copiar e ler o conteúdo a serem incluídos na cópia de segurança). O resultado da falha ao aceder a qualquer um destes recursos seria falha de cópia de segurança consistente. 
 
-Quando ocorrem falhas de cópia de segurança, reveja os resultados mais recentes para compreender qual o tipo de falha está a acontecer. Para falhas de acesso de armazenamento, rever e atualizar as definições de armazenamento utilizadas na configuração de cópia de segurança. Para falhas de acesso de base de dados, rever e atualizar as cadeias de ligações como parte das definições da aplicação; em seguida, avance para atualizar a configuração de cópia de segurança para incluir corretamente necessários bases de dados. Para obter mais informações sobre cópias de segurança da aplicação, consulte [cópia de segurança numa aplicação web no App Service do Azure](web-sites-backup.md).
+Quando ocorrem falhas de cópia de segurança, reveja os resultados mais recentes para compreender o tipo de falha que está acontecendo. Para falhas de acesso de armazenamento, rever e atualizar as definições de armazenamento utilizadas na configuração de cópia de segurança. Para falhas de acesso de base de dados, rever e atualizar suas cadeias de caracteres de ligações como parte das definições da aplicação; em seguida, avance para atualizar a configuração de cópia de segurança para incluir corretamente as bases de dados necessárias. Para obter mais informações sobre cópias de segurança de aplicação, consulte [cópia de segurança numa aplicação web no App Service do Azure](web-sites-backup.md).
 
-## <a name="nodejs"></a>Quando as novas aplicações Node.js são implementadas para o App Service do Azure
-Destina-se a configuração predefinida do serviço de aplicações do Azure para aplicações Node.js a melhor as necessidades de aplicações mais comuns. Se a configuração para a sua aplicação Node.js seria beneficiar da otimização personalizada para melhorar o desempenho ou a otimizar a utilização de recursos para recursos de CPU/memória/rede, consulte [melhores práticas e guia de resolução de problemas para aplicações de nó na aplicação do Azure Serviço](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Este artigo descreve as definições do iisnode poderá ter de configurar para a sua aplicação Node.js, descreve os vários cenários ou problemas que a aplicação pode ser enfrentam e mostra como resolver estes problemas.
+## <a name="nodejs"></a>Quando novas de node. js aplicações são implementadas no serviço de aplicações do Azure
+Configuração de padrão do serviço de aplicações do Azure para aplicações node. js destina-se que melhor se adapte às necessidades das aplicações mais comuns. Se a configuração para a sua aplicação node. js beneficiariam com a otimização personalizadas para melhorar o desempenho ou otimizar a utilização de recursos para os recursos de CPU/memória/rede, consulte [melhores práticas e guia de resolução de problemas para as aplicações de nó nas aplicações do Azure Serviço](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Este artigo descreve as definições do iisnode, poderá ter de configurar para a sua aplicação node. js, descreve os vários cenários ou problemas que a sua aplicação possa estar a deparar e mostra como resolver estes problemas.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437112"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263292"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 
@@ -97,7 +97,7 @@ Estes são alguns dos recursos suportados no premium armazenamento ativado VMs:
     Pode utilizar os discos standard e premium na mesma VM de armazenamento Premium. Com o armazenamento Premium, pode aprovisionar uma VM e anexar vários discos de dados persistentes para a VM. Se for necessário, para aumentar a capacidade e desempenho do volume, pode do stripe em seus discos.
 
     > [!NOTE]
-    > Se da faixa de discos de dados de armazenamento premium, utilizando [espaços de armazenamento](http://technet.microsoft.com/library/hh831739.aspx), configurar espaços de armazenamento com 1 coluna para cada disco que utiliza. Caso contrário, o desempenho geral do volume repartido pode ser mais baixo de que o esperado devido a distribuição desigual de tráfego em todos os discos. Por predefinição, no Gestor de servidores, pode configurar colunas para até 8 discos. Se tiver mais de 8 discos, utilize o PowerShell para criar o volume. Especifique o número de colunas manualmente. Caso contrário, a IU do Gestor de servidor continua a utilizar 8 colunas, mesmo que tenha mais discos. Por exemplo, se tiver 32 discos num conjunto único stripe, especifica colunas de 32. Para especificar o número de colunas, além do disco virtual utiliza a [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) cmdlet do PowerShell, utilize o *NumberOfColumns* parâmetro. Para obter mais informações, consulte [descrição geral dos espaços de armazenamento](http://technet.microsoft.com/library/hh831739.aspx) e [FAQs de espaços de armazenamento](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Se da faixa de discos de dados de armazenamento premium, utilizando [espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx), configurar espaços de armazenamento com 1 coluna para cada disco que utiliza. Caso contrário, o desempenho geral do volume repartido pode ser mais baixo de que o esperado devido a distribuição desigual de tráfego em todos os discos. Por predefinição, no Gestor de servidores, pode configurar colunas para até 8 discos. Se tiver mais de 8 discos, utilize o PowerShell para criar o volume. Especifique o número de colunas manualmente. Caso contrário, a IU do Gestor de servidor continua a utilizar 8 colunas, mesmo que tenha mais discos. Por exemplo, se tiver 32 discos num conjunto único stripe, especifica colunas de 32. Para especificar o número de colunas, além do disco virtual utiliza a [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) cmdlet do PowerShell, utilize o *NumberOfColumns* parâmetro. Para obter mais informações, consulte [descrição geral dos espaços de armazenamento](https://technet.microsoft.com/library/hh831739.aspx) e [FAQs de espaços de armazenamento](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Se estiver a utilizar contas de armazenamento premium para discos não geridos e
 ### <a name="premium-storage-disk-limits"></a>Limites de disco de armazenamento Premium
 Quando aprovisiona um disco de armazenamento premium, o tamanho do disco determina o máximo IOPS e débito (largura de banda). O Azure oferece oito GA tipos de discos de armazenamento premium: P4 (discos geridos apenas), P6 (discos geridos apenas), P10, P15 (discos geridos apenas), P20, P30, P40 e P50. Bem como três tamanhos de disco de pré-visualização: P60 P70 e P80. Cada tipo de disco de armazenamento premium tem limites específicos de IOPS e débito. Limites para os tipos de disco são descritas na tabela a seguir:
 
-| Tipo de discos Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Tamanhos marcados com um asterisco estão atualmente em pré-visualização.
+
+| Tipo de discos Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Tamanho do disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 giB (1 TiB) | 2048 giB (2 TiB)| 4095 giB (4 TiB)| 8192 giB (8 TiB)| 16,384 giB (TiB de 16)| 32.767 giB (32 TiB)|
 | IOPs por disco       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12,500          | 15 000             | 20,000             |
@@ -237,7 +239,7 @@ Os limites seguintes aplicam-se para instantâneos de blob de armazenamento prem
 
 Para manter cópias georredundantes de sua instantâneos, pode copiar instantâneos de uma conta de armazenamento premium para uma conta de armazenamento standard com redundância geográfica com o AzCopy ou Blob de cópia. Para obter mais informações, consulte [transferir dados com o utilitário de linha de comandos do AzCopy](../articles/storage/common/storage-use-azcopy.md) e [Blob de cópia](/rest/api/storageservices/Copy-Blob).
 
-Para obter informações detalhadas sobre como efetuar operações de REST em relação a blobs de páginas numa conta de armazenamento premium, consulte [operações de serviço com o armazenamento do Azure Premium de BLOBs](http://go.microsoft.com/fwlink/?LinkId=521969).
+Para obter informações detalhadas sobre como efetuar operações de REST em relação a blobs de páginas numa conta de armazenamento premium, consulte [operações de serviço com o armazenamento do Azure Premium de BLOBs](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### <a name="managed-disks"></a>Managed disks
 
@@ -267,12 +269,12 @@ As distribuições de Linux seguintes foram validadas para armazenamento Premium
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 necessário](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a nota na secção seguinte* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a nota na secção seguinte* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 necessário](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a nota na secção seguinte* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a nota na secção seguinte* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK c /[LIS 4.1](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK c /[LIS 4.1](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK c /[LIS 4.1](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK c /[LIS 4.1](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Controladores LIS para OpenLogic CentOS

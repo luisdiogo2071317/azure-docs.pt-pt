@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
-ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 11/6/2018
+ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158997"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238331"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -84,14 +84,40 @@ O SDK do Azure Machine Learning utiliza o ficheiro de configuração da área de
 
 Blocos de notas e máquinas de virtuais de ciência de dados de Azure (DSVMs) do Azure são configurados para trabalhar com o serviço Azure Machine Learning. Estes ambientes incluem os componentes necessários, como o SDK do Azure Machine Learning.
 
+### <a name="azure-notebooks"></a>Azure Notebooks
+
 - Blocos de notas do Azure é um serviço de bloco de notas do Jupyter na cloud do Azure.
-- A máquina de Virtual de ciência de dados é uma imagem personalizada de máquina virtual (VM), concebida para o trabalho de ciência de dados. Ele inclui:
-  - Ferramentas populares
-  - Ambientes de desenvolvimento integrado (IDEs)
-  - Como o Jupyter Notebooks, PyCharm e Tensorflow pacotes
 - Ainda precisará um ficheiro de configuração de área de trabalho para utilizar estes ambientes.
 
 Para obter um exemplo do uso de blocos de notas do Azure com o serviço Azure Machine Learning, consulte [introdução ao serviço Azure Machine Learning](quickstart-get-started.md).
+
+### <a name="data-science-virtual-machines"></a>Máquinas Virtuais de Ciência de Dados
+
+- A máquina de Virtual de ciência de dados é uma imagem personalizada de máquina virtual (VM), concebida para o trabalho de ciência de dados. Ele inclui:
+  - Ferramentas de ciência de dados populares
+  - Ambientes de desenvolvimento integrado (IDEs), por exemplo, PyCharm e o RStudio
+  - Pacotes como blocos de notas do Jupyter e Tensorflow
+
+A DSVM vem com vários ambientes de Anaconda já instalados. Para utilizar o SDK de Python do Azure Machine Learning sem qualquer instalação do pacote, abra um prompt de comando/shell e utilize um dos seguintes comandos para ativar o ambiente:
+
+* Sobre o __Ubuntu__ DSVM, utilize este comando:
+
+    ```shell
+    conda activate py36
+    ```
+
+* Sobre o __Windows__ DSVM, utilize este comando:
+
+    ```shell
+    conda activate AzureML
+    ```
+
+Uma vez neste ambiente, imediatamente pode importar o SDK do Azure Machine Learning na ferramenta de compilação da sua preferência, sem instalar o pacote.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 Para obter mais informações sobre as máquinas de virtuais de ciência de dados, consulte [máquinas de virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
