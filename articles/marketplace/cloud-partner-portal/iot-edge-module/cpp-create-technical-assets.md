@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7f9dfee447cddc771e0e88ca5be04018b51dba2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a4117b41700446770e10ef799967ae4a43db342d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431659"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227761"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparar seu módulo do IoT Edge ativos técnicos
 
@@ -45,7 +45,7 @@ O módulo do IoT Edge tem de suportar uma das seguintes opções de plataforma.
 Suporte todas as plataformas de camada 1 suportadas pelo IoT Edge (como registadas no [suporte do Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Recomendamos esta opção, porque fornece uma melhor experiência de cliente. Módulos este critério de reunião serão seja apresentados. Tem de um módulo com esta opção de plataforma:
 
 - Fornecer um `latest` etiqueta e uma etiqueta de versão (por exemplo, `1.0.1`) que são criadas com o GitHub de etiquetas de manifestos [ferramenta manifesto](https://github.com/estesp/manifest-tool).
-- Utilize o [a guia Marketplace](./cpp-marketplace-tab.md) para adicionar uma ligação para [compatível do IoT Edge, dispositivos certificados](http://aka.ms/iot-edge-certified). Esta ligação é resolvido para `http://aka.ms/iot-edge-certified`, dispositivos certificados para um Web site em que os clientes podem navegue ou procure. Este Web site também é conhecido como o [certificação do Azure IoT Edge](https://catalog.azureiotsolutions.com/) catálogo de dispositivos.
+- Utilize o [a guia Marketplace](./cpp-marketplace-tab.md) para adicionar uma ligação para [compatível do IoT Edge, dispositivos certificados](https://aka.ms/iot-edge-certified). Esta ligação é resolvido para `http://aka.ms/iot-edge-certified`, dispositivos certificados para um Web site em que os clientes podem navegue ou procure. Este Web site também é conhecido como o [certificação do Azure IoT Edge](https://catalog.azureiotsolutions.com/) catálogo de dispositivos.
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Um subconjunto de plataformas de camada 1 suportadas pelo IoT Edge
   

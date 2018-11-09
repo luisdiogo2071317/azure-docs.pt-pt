@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e91f75299dddf0ac173499a531ea959292082a9f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931383"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246553"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Como repor o serviço de ambiente de trabalho remoto ou a palavra-passe de início de sessão numa VM do Windows criada com o modelo de implementação clássico
 > [!IMPORTANT]
-> O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../../resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Também pode [realizar estes passos para as VMs criadas com o modelo de implementação do Resource Manager](../reset-rdp.md).
+> O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e Clássico](../../../resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação clássica. A Microsoft recomenda que as implementações mais novas utilizem o modelo Resource Manager. Também pode [realizar estes passos para as VMs criadas com o modelo de implementação do Resource Manager](../reset-rdp.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Se o **write-host** comando apresenta **verdadeiro**, o agente da VM está instalado. Se for exibido **False**, consulte as instruções e um link para download na [agente da VM e extensões – parte 2](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) mensagem de blogue do Azure.
+Se o **write-host** comando apresenta **verdadeiro**, o agente da VM está instalado. Se for exibido **False**, consulte as instruções e um link para download na [agente da VM e extensões – parte 2](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) mensagem de blogue do Azure.
 
 Se criou a máquina virtual com o portal, verifique se `$vm.GetInstance().ProvisionGuestAgent` devolve **True**. Caso contrário, pode configurá-lo ao utilizar este comando:
 
@@ -108,7 +108,7 @@ Se a extensão de acesso de VM do Azure não responde e não conseguir repor a p
 
 [Extensões VM do Azure e funcionalidades](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Ligar a uma máquina virtual do Azure com RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Ligar a uma máquina virtual do Azure com RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Resolver problemas de ligações de ambiente de trabalho remoto a uma máquina virtual baseada no Windows Azure](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

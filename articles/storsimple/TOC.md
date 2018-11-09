@@ -61,6 +61,7 @@
 
 ## Descrição geral
 ### [Qual é a solução?](storsimple-overview.md)
+### [Comparar as opções de transferência de dados](storsimple-8000-choose-storage-solution.md)
 ### [Mapa de aprendizagem do StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerações de segurança](storsimple-8000-security.md)
 ### [Disponibilidade por regiões](storsimple-regions.md)
@@ -183,7 +184,7 @@
 #### [A partir de dispositivos das séries 5000/7000](storsimple-8000-migration-options.md)
 ##### [Para dispositivos da série 8000 do StorSimple](storsimple-8000-migrate-from-5000-7000.md)
 ##### [Para o Azure File Sync](storsimple-5000-7000-afs-migration.md)
-#### [A partir de outros dispositivos de armazenamento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
+#### [A partir de outros dispositivos de armazenamento](https://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### Atualizar
 #### [Instalar Atualização 5 - atual](storsimple-8000-install-update-5.md)
@@ -248,8 +249,8 @@
 ## [Preços](https://azure.microsoft.com/pricing/details/storsimple/)
 ## [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=storsimple)
-## [Blogue de suporte](http://blogs.msdn.com/b/storsimple/)
-## [Notificações de terceiros](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Blogue de suporte](https://blogs.msdn.com/b/storsimple/)
+## [Notificações de terceiros](https://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 

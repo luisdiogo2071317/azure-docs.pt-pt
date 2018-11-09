@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023908"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238510"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação do Serviço de Aplicações do Azure, das Máquinas Virtuais, do Service Fabric e dos Serviços Cloud
 
@@ -47,7 +47,7 @@ A tabela seguinte compara as capacidades do Serviço de Aplicações, dos Servi�
 | Suporte de WebMatrix |X | |X | | |
 | Acesso a serviços, como Service Bus, Armazenamento e Base de Dados SQL |X |X |X |X | |
 | Alojar a camada Web ou a camada dos serviços Web de uma arquitetura com várias camadas |X |X |X |X | |
-| Alojar a camada média de uma arquitetura com várias camadas |X |X |X |X |As aplicações Web do Serviço de Aplicações podem alojar facilmente uma camada intermédia da API REST e a funcionalidade [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode alojar trabalhos de processamento em segundo plano. Pode executar o WebJobs num site dedicado para obter escalabilidade independente para a camada. |
+| Alojar a camada média de uma arquitetura com várias camadas |X |X |X |X |As aplicações Web do Serviço de Aplicações podem alojar facilmente uma camada intermédia da API REST e a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) pode alojar trabalhos de processamento em segundo plano. Pode executar o WebJobs num site dedicado para obter escalabilidade independente para a camada. |
 | Suporte integrado para MySQL como serviço |X |X | | | |
 | Suporte para ASP.NET, ASP clássico, Node.js, PHP, Python |X |X |X |X |O Service Fabric suporta a criação de front-ends da Web através de [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) ou a implementação de qualquer tipo de aplicação (Node.js, Java, etc.) como [executável convidado](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Aumentar horizontalmente para várias instâncias sem reimplementar |X |X |X |X |As Máquinas Virtuais podem ser aumentadas horizontalmente para várias instâncias, mas os serviços que estão em execução nas mesmas têm de ser escritos de forma a suportar esse aumento horizontal. Tem de configurar um balanceador de carga para encaminhar os pedidos entre as máquinas e certifique-se de que tem mais de uma instância de VM no [conjunto de disponibilidade](../virtual-machines/windows/manage-availability.md). |

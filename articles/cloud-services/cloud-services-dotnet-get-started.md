@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003118"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242131"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [SQL Database](http://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
+Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [SQL Database](https://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
 
 O tutorial mostra como compilar e executar a aplicação localmente, como implementá-la no Azure e executá-la na cloud e como compilá-la do zero. Pode começar por compilar do zero e, posteriormente, realizar os passos de teste e implementação, se preferir.
 
@@ -36,7 +36,7 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 A aplicação utiliza o [padrão de trabalho centrado em filas](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
 ## <a name="alternative-architecture-web-apps-and-webjobs"></a>Arquitetura alternativa: Aplicações Web e WebJobs
-Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end nas [Aplicações Web do Azure](/azure/app-service/) e utilizar a funcionalidade [WebJobs](http://go.microsoft.com/fwlink/?LinkId=390226) do back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [Comparação de máquinas virtuais, Cloud Services e Web Sites do Azure](../app-service/choose-web-site-cloud-service-vm.md).
+Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end nas [Aplicações Web do Azure](/azure/app-service/) e utilizar a funcionalidade [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) do back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [Comparação de máquinas virtuais, Cloud Services e Web Sites do Azure](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>O que irá aprender
 * Como ativar o computador para a programação do Azure instalando o Azure SDK.
@@ -71,7 +71,7 @@ Quando um utilizador carrega uma imagem, o front-end em execução numa função
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>Transferir e executar a solução concluída
-1. Transfira e deszipe a [solução concluída](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
+1. Transfira e deszipe a [solução concluída](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
 2. Inicie o Visual Studio.
 3. No menu **Ficheiro**, escolha **Abrir Projeto**, navegue para onde transferiu a solução e, em seguida, abra o ficheiro da solução.
 4. Prima CTRL+SHIFT+B para compilar a solução.
@@ -81,7 +81,7 @@ Quando um utilizador carrega uma imagem, o front-end em execução numa função
 6. Se estiver a utilizar o Visual Studio 2015 ou superior, altere a cadeia de ligação do SQL Server no ficheiro *Web.config* da aplicação do projeto ContosoAdsWeb e no ficheiro*ServiceConfiguration.Local.cscfg* do projeto ContosoAdsCloudService. Em cada caso, altere “(localdb)\v11.0” para “(localdb)\MSSQLLocalDB”.
 7. Prima CTRL+F5 para executar a aplicação.
 
-    Quando executa localmente um projeto do serviço em nuvem, o Visual Studio invoca automaticamente o *emulador de computação* do Azure e o *emulador de armazenamento* do Azure. O emulador de computação utiliza os recursos do computador para simular os ambientes da função da Web e da função de trabalho. O emulador de armazenamento utiliza uma base de dados [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx) para simular o armazenamento na nuvem do Azure.
+    Quando executa localmente um projeto do serviço em nuvem, o Visual Studio invoca automaticamente o *emulador de computação* do Azure e o *emulador de armazenamento* do Azure. O emulador de computação utiliza os recursos do computador para simular os ambientes da função da Web e da função de trabalho. O emulador de armazenamento utiliza uma base de dados [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) para simular o armazenamento na nuvem do Azure.
 
     Quando executar um projeto do serviço em nuvem pela primeira vez, demorará um minuto ou mais até que os emuladores arranquem. Quando o arranque dos emuladores estiver concluído, o browser predefinido é aberto na home page da aplicação.
 
@@ -311,7 +311,7 @@ A definição `<Instances>` especifica o número de máquinas virtuais em que o 
 >
 
 ## <a name="create-the-application-from-scratch"></a>Criar a aplicação do zero
-Se ainda não transferiu [a aplicação concluída](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faça-o agora. Deverá copiar os ficheiros do projeto transferido para o novo projeto.
+Se ainda não transferiu [a aplicação concluída](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), faça-o agora. Deverá copiar os ficheiros do projeto transferido para o novo projeto.
 
 A criação da aplicação de Anúncios da Contoso envolve os seguintes passos:
 
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework utilizando uma classe DbContext. Uma exceção é o método HttpPost `Create`, que carrega um ficheiro e guarda-o no Blob Storage. A conversão de modelos fornece um objeto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) para o método.
+A maior parte do código do controlador é típica para trabalhar com um modelo de dados do Entity Framework utilizando uma classe DbContext. Uma exceção é o método HttpPost `Create`, que carrega um ficheiro e guarda-o no Blob Storage. A conversão de modelos fornece um objeto [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) para o método.
 
 ```csharp
 [HttpPost]
@@ -766,8 +766,8 @@ A aplicação Anúncios da Contoso foi intencionalmente mantida simples para um 
 
 Apresentamos a seguir algumas aplicações de exemplo do serviço em nuvem que demonstram mais práticas de codificação do mundo real, das menos complexas à mais complexas:
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). É semelhante no conceito aos Anúncios da Contoso, mas implementa mais funcionalidades e mais práticas de codificação do mundo real.
-* [Aplicação de Várias Camadas do Serviço em Nuvem do Azure com Tabelas, Filas e Blobs](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Apresenta as tabelas do Storage do Azure, bem como os blobs e as filas. Com base na versão anterior do Azure SDK para .NET, serão necessárias algumas modificações para trabalhar com a versão atual.
+* [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). É semelhante no conceito aos Anúncios da Contoso, mas implementa mais funcionalidades e mais práticas de codificação do mundo real.
+* [Aplicação de Várias Camadas do Serviço em Nuvem do Azure com Tabelas, Filas e Blobs](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Apresenta as tabelas do Storage do Azure, bem como os blobs e as filas. Com base na versão anterior do Azure SDK para .NET, serão necessárias algumas modificações para trabalhar com a versão atual.
 
 Para obter informações gerais sobre como desenvolver para a nuvem, consulte [Compilar Aplicações na Nuvem Reais com o Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 

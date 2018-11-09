@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f50be01d067032b1143a80e56ccb5d49d899d4d6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246672"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Compreender um reinício do sistema para VM do Azure
 
@@ -108,7 +108,7 @@ Durante o encerramento pode ser o mais curto cinco minutos, mas pode ser bastant
 
 **Limita a exceder a e/s**
 
-As VMs podem ser temporariamente encerradas quando os pedidos de e/s consistentemente são limitados porque o volume de operações de e/s por segundo (IOPS) excede os limites de e/s para o disco. (O armazenamento de disco standard está limitado a 500 IOPS.) Para atenuar este problema, utilize a repartição de disco ou configurar o espaço de armazenamento dentro do convidado VM, consoante a carga de trabalho. Para obter detalhes, consulte [configurar as VMs do Azure para otimizar o desempenho de armazenamento](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+As VMs podem ser temporariamente encerradas quando os pedidos de e/s consistentemente são limitados porque o volume de operações de e/s por segundo (IOPS) excede os limites de e/s para o disco. (O armazenamento de disco standard está limitado a 500 IOPS.) Para atenuar este problema, utilize a repartição de disco ou configurar o espaço de armazenamento dentro do convidado VM, consoante a carga de trabalho. Para obter detalhes, consulte [configurar as VMs do Azure para otimizar o desempenho de armazenamento](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 Limites de IOPS superior estão disponíveis através do armazenamento Premium do Azure com até 80 000 IOPS. Para obter mais informações, consulte [High-Performance Premium Storage](../windows/premium-storage.md).
 

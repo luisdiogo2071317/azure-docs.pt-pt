@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 74bbaeeee390952bf42407a53684bc33a7cfc543
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242778"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249868"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas de base de dados elásticas
 Este documento apresenta a a experiência do desenvolvedor para o [biblioteca de clientes de bases de dados elásticas](sql-database-elastic-database-client-library.md) , ajudando a executar uma aplicação de exemplo. A aplicação de exemplo cria uma aplicação fragmentada simples e explora os principais capacidades da funcionalidade ferramentas de base de dados elásticas da base de dados do Azure SQL. Ele se concentra em casos de utilização [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md), [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md), e [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como a Java. 
@@ -67,7 +67,7 @@ Para adicionar a biblioteca de cliente para o seu próprio projeto Maven, adicio
 
 ## <a name="elastic-database-tools-for-net"></a>Ferramentas de bases de dados elásticas para .NET 
 ### <a name="prerequisites"></a>Pré-requisitos
-* Visual Studio 2012 ou posterior com c#. Baixe uma versão gratuita na [transferências do Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
+* Visual Studio 2012 ou posterior com c#. Baixe uma versão gratuita na [transferências do Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou posterior. Para obter a versão mais recente, consulte [instalar NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### <a name="download-and-run-the-sample-app"></a>Transfira e execute a aplicação de exemplo
@@ -95,13 +95,13 @@ Parabéns! Ter criado e execute a sua primeira aplicação em partição horizon
 > 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Principais partes do código de exemplo
-* **Gerenciamento de partições horizontais e partição horizontal mapeia**: O código ilustra como trabalhar com partições horizontais, intervalos e mapeamentos no *ShardManagementUtils.cs* ficheiro. Para obter mais informações, consulte [aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais](http://go.microsoft.com/?linkid=9862595).  
+* **Gerenciamento de partições horizontais e partição horizontal mapeia**: O código ilustra como trabalhar com partições horizontais, intervalos e mapeamentos no *ShardManagementUtils.cs* ficheiro. Para obter mais informações, consulte [aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais](https://go.microsoft.com/?linkid=9862595).  
 
-* **Encaminhamento dependente de dados**: encaminhamento de transações para a partição horizontal direita mostra a *DataDependentRoutingSample.cs* ficheiro. Para obter mais informações, consulte [encaminhamento dependente de dados](http://go.microsoft.com/?linkid=9862596). 
+* **Encaminhamento dependente de dados**: encaminhamento de transações para a partição horizontal direita mostra a *DataDependentRoutingSample.cs* ficheiro. Para obter mais informações, consulte [encaminhamento dependente de dados](https://go.microsoft.com/?linkid=9862596). 
 
-* **Consultando a várias partições horizontais**: consultas entre partições horizontais é ilustrada na *MultiShardQuerySample.cs* ficheiro. Para obter mais informações, consulte [consultas de vários fragmentos](http://go.microsoft.com/?linkid=9862597).
+* **Consultando a várias partições horizontais**: consultas entre partições horizontais é ilustrada na *MultiShardQuerySample.cs* ficheiro. Para obter mais informações, consulte [consultas de vários fragmentos](https://go.microsoft.com/?linkid=9862597).
 
-* **Adicionar partições horizontais vazias**: A adição iterativo de novas partições horizontais de vazias é realizada pelo código dos *CreateShardSample.cs* ficheiro. Para obter mais informações, consulte [aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais](http://go.microsoft.com/?linkid=9862595).
+* **Adicionar partições horizontais vazias**: A adição iterativo de novas partições horizontais de vazias é realizada pelo código dos *CreateShardSample.cs* ficheiro. Para obter mais informações, consulte [aumentar horizontalmente de bases de dados com o Gestor de mapas de partições horizontais](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações de dimensionamento flexível
 * **A divisão de uma partição horizontal existente**: A capacidade de dividir as partições horizontais é fornecida pela ferramenta de divisão / intercalação. Para obter mais informações, consulte [mover dados entre bases de dados de cloud aumentadas horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
@@ -119,12 +119,12 @@ Para obter informações sobre preços, consulte [base de dados SQL os detalhes 
 Para obter mais informações sobre ferramentas de base de dados elásticas, consulte os artigos seguintes:
 
 * Exemplos de código: 
-  * Ferramentas de base de dados elástica ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
-  * [Ferramentas de bases de dados elásticas para SQL do Azure - integração de Entity Framework](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+  * Ferramentas de base de dados elástica ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * [Ferramentas de bases de dados elásticas para SQL do Azure - integração de Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Elasticidade de fragmentos no Centro de scripts](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [anúncio de escala elástica](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 * O Channel 9: [dimensionamento elástico vídeo de descrição geral](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Fórum de discussão: [fórum de base de dados do Azure SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Fórum de discussão: [fórum de base de dados do Azure SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Para medir o desempenho: [contadores de desempenho para o Gestor de mapas de partições horizontais](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
