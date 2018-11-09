@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887569"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282786"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas e limites do serviço Batch
 
@@ -45,17 +45,27 @@ Se planeja executar cargas de trabalho de produção no Batch, se pretender aume
 
 Se tiver criado uma conta do Batch com o modo de alocação de conjuntos definido como **subscrição do utilizador**, as quotas são aplicadas de forma diferente. Neste modo, as VMs do Batch e outros recursos são criados diretamente na sua subscrição quando é criado um conjunto. As quotas de núcleos do Azure Batch não são aplicáveis a uma conta criada neste modo. Em vez disso, as quotas na sua subscrição para regionais de núcleos de computação e outros recursos são aplicados. Saiba mais sobre estas quotas no [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>Limites de tamanho do conjunto
+
+| **Recurso** | **Limite Máximo** |
+| --- | --- |
+| **Nós de computação em [conjunto de comunicação entre nós ativada](batch-mpi.md)**  ||
+| Modo de alocação do conjunto de serviço do batch | 100 |
+| Modo de alocação de conjuntos de subscrição de batch | 80 |
+| **Nós de computação em [conjunto criado com a imagem de VM personalizada](batch-custom-images.md)**<sup>1</sup> ||
+| Nós dedicados | 2000 |
+| Nós de baixa prioridade | 1000 |
+
+<sup>1</sup> para agrupamentos que são ativada a comunicação entre nós nota.
+
 ## <a name="other-limits"></a>Outros limites
 
 | **Recurso** | **Limite Máximo** |
 | --- | --- |
-| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 x número de núcleos do nó |
-| [Aplicativos](batch-application-packages.md) por conta do Batch |20 |
-| Pacotes de aplicação por aplicação |40 |
+| [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação | 4 x número de núcleos do nó |
+| [Aplicativos](batch-application-packages.md) por conta do Batch | 20 |
+| Pacotes de aplicação por aplicação | 40 |
 | Duração de tarefa máximo | 7 dias<sup>1</sup> |
-| Nós de computação em [conjunto de comunicação entre nós ativada](batch-mpi.md) | 100 |
-| Dedicada de nós de computação [conjunto criado com a imagem de VM personalizada](batch-custom-images.md) | 2500 |
-| Nós de computação de baixa prioridade [conjunto criado com a imagem de VM personalizada](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> a duração máxima de uma tarefa, quando é adicionado à tarefa para quando for concluída, é de 7 dias. As tarefas concluídas mantêm-se indefinidamente. Os dados de tarefas não concluídas dentro da duração máxima não estão acessíveis.
 
@@ -115,7 +125,7 @@ Os conjuntos do batch na configuração da Máquina Virtual implementada numa re
 * 1 [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * 1 [Balanceador de carga](../load-balancer/load-balancer-overview.md)
 
-Esses recursos são alocados na subscrição que contém a rede virtual fornecida durante a criação de conjunto do Batch. Estes recursos estão limitados da subscrição [quotas de recursos](../azure-subscription-service-limits.md). Se planear implementações de grande pool numa rede virtual, verifique as quotas a subscrição para esses recursos. Se for necessário, pedir um aumento no portal do Azure, selecionando **ajuda + suporte**.
+Esses recursos são alocados na subscrição que contém a rede virtual fornecida durante a criação de conjunto do Batch. Estes recursos estão limitados pelas [quotas de recursos](../azure-subscription-service-limits.md) da subscrição. Se planear implementações de grande pool numa rede virtual, verifique as quotas a subscrição para esses recursos. Se for necessário, pedir um aumento no portal do Azure, selecionando **ajuda + suporte**.
 
 
 ## <a name="related-topics"></a>Tópicos relacionados

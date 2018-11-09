@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 9e75068a1e05f12c7b887b601777227902f15ed8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5dd1926496351f5bbfe8e5b3e4d1e0b68e82d272
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238580"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283398"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
 
@@ -29,13 +29,13 @@ Quando novos itens são adicionados ao contêiner ou se o débito aprovisionado 
 
 ## <a name="physical-partitions"></a>Partições físicas
 
-Um contentor do Cosmos é dimensionado ao distribuir os dados e o débito num grande número de partições lógicas. Internamente, uma ou mais partições lógicas estão mapeadas para uma **partição de recursos** que consiste num conjunto de réplicas, também conhecido como um conjunto de réplicas. Cada conjunto de réplicas aloja uma instância do motor de base de dados do Cosmos. Um conjunto de réplicas torna os dados armazenados na partição de recursos durável, de elevada disponibilidade e consistente. Uma partição de recursos oferece suporte a uma quantidade fixa, máxima de armazenamento e RUs. Cada réplica que inclui a partição de recursos herda a quota de armazenamento. E todas as réplicas de uma partição de recursos coletivamente suportam a taxa de transferência alocada para a partição de recursos. A imagem seguinte mostra como lógica partições são mapeadas para as partições de recursos que são distribuídas globalmente:
+Um contentor do Cosmos é dimensionado ao distribuir os dados e o débito num grande número de partições lógicas. Internamente, uma ou mais partições lógicas estão mapeadas para uma **partição de recursos** que consiste num conjunto de réplicas, também conhecido como um conjunto de réplicas. Cada conjunto de réplicas aloja uma instância do motor de base de dados do Cosmos. Um conjunto de réplicas torna os dados armazenados na partição de recursos durável, de elevada disponibilidade e consistente. Uma partição de recursos oferece suporte a uma quantidade fixa, máxima de armazenamento e RUs. Cada réplica que inclui a partição de recursos herda a quota de armazenamento. E todas as réplicas de uma partição de recursos coletivamente suportam a taxa de transferência alocada para a partição de recursos. A imagem seguinte mostra como lógica partições são mapeadas para as partições físicas que são distribuídas globalmente:
 
 ![Criação de partições de Cosmos DB do Azure](./media/partition-data/logical-partitions.png)
 
-Débito aprovisionado para um contentor é dividido igualmente entre as partições de recursos. Por isso uma estrutura de chave de partição que não a distribuir uniformemente os pedidos de débito pode criar partições de "acesso frequentes". Partições muito ativas podem resultar na utilização de limitação de velocidade e ineficiente do débito aprovisionado.
+Débito aprovisionado para um contentor é dividido igualmente entre as partições físicas. Por isso uma estrutura de chave de partição que não a distribuir uniformemente os pedidos de débito pode criar partições de "acesso frequentes". Partições muito ativas podem resultar na utilização de limitação de velocidade e ineficiente do débito aprovisionado.
 
-Ao contrário das partições lógicas, as partições de recursos são uma implementação interna do sistema. Não é possível controlar seu tamanho, posicionamento, a contagem ou o mapeamento entre as partições lógicas e as partições de recursos. No entanto, pode controlar o número de partições lógicas e a distribuição de dados e débito, escolhendo a chave de partição correta.
+Ao contrário das partições lógicas, as partições físicas são uma implementação interna do sistema. Não é possível controlar seu tamanho, posicionamento, a contagem ou o mapeamento entre as partições lógicas e as partições físicas. No entanto, pode controlar o número de partições lógicas e a distribuição de dados e débito, escolhendo a chave de partição correta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

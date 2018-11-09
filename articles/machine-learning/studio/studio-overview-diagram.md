@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 2f3d96908cbcb68ff01a6e43696a119bf21d02ce
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226570"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagrama de descrição geral das funcionalidades do Machine Learning Studio
 O diagrama da **Descrição geral das funcionalidades do Microsoft Azure Machine Learning Studio** dá-lhe uma descrição geral de alto nível sobre como pode utilizar o Machine Learning Studio para desenvolver um modelo de análise preditiva e operacionalizá-lo na nuvem do Azure.
@@ -39,7 +39,7 @@ Este diagrama demonstra como todas essas peças encaixam.
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>Transferir o diagrama de descrição geral do Machine Learning Studio
 Transfira o diagrama da **Descrição geral das funcionalidades do Microsoft Azure Machine Learning Studio** e obtenha uma vista de alto nível das funcionalidades do Machine Learning Studio. Para o ter à mão, pode imprimir o diagrama no tamanho de tabloide (11 x 17 pol.).
 
-**Transfira o diagrama aqui: [Descrição geral das funcionalidades do Microsoft Azure Machine Learning Studio](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Transfira o diagrama aqui: [Descrição geral das funcionalidades do Microsoft Azure Machine Learning Studio](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 
 ![Descrição geral das funcionalidades do Microsoft Azure Machine Learning Studio][studio-overview]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 2190978b2583b2f5d8a1b10431c65fd24fe6842d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050768"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228152"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Atualizar o seu cluster do Azure Service Fabric autónomo no Windows Server 
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ Pode atualizar o seu cluster para a nova versão apenas se estiver a utilizar um
 Dois fluxos de trabalho distintos podem atualizar o seu cluster para a versão mais recente ou uma versão suportada do Service Fabric. Um fluxo de trabalho destina-se a clusters que tem conectividade para transferir a versão mais recente automaticamente. O outro fluxo de trabalho destina-se a clusters que não tem ligação para transferir a versão mais recente do Service Fabric.
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Atualizar clusters que tem conectividade para transferir o código e a configuração mais recente
-Utilize estes passos para atualizar o cluster para uma versão suportada, se os nós do cluster tem conectividade de internet para o [Microsoft Download Center](http://download.microsoft.com).
+Utilize estes passos para atualizar o cluster para uma versão suportada, se os nós do cluster tem conectividade de internet para o [Microsoft Download Center](https://download.microsoft.com).
 
-Para os clusters que tem conectividade para o [Microsoft Download Center](http://download.microsoft.com), Microsoft verifica periodicamente a disponibilidade de novas versões de Service Fabric.
+Para os clusters que tem conectividade para o [Microsoft Download Center](https://download.microsoft.com), Microsoft verifica periodicamente a disponibilidade de novas versões de Service Fabric.
 
 Quando uma nova versão do Service Fabric está disponível, o pacote é transferido localmente para o cluster e provisionado para atualização. Além disso, para informar o cliente dessa nova versão, o sistema mostra um aviso de estado de funcionamento do cluster explícito que é semelhante ao seguinte:
 
@@ -106,7 +106,7 @@ Quando vir o aviso de estado de funcionamento do cluster, efetue o seguinte:
     Depois de corrigir os problemas que resultaram na reversão, inicie novamente a atualização ao seguir os mesmos passos conforme descrito anteriormente.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Atualizar clusters que tenham *sem conectividade* para transferir o código e a configuração mais recente
-Utilize estes passos para atualizar o cluster para uma versão suportada, se os nós do cluster não tem ligação à internet para o [Microsoft Download Center](http://download.microsoft.com).
+Utilize estes passos para atualizar o cluster para uma versão suportada, se os nós do cluster não tem ligação à internet para o [Microsoft Download Center](https://download.microsoft.com).
 
 > [!NOTE]
 > Se estiver a executar um cluster que não está ligado à internet, terá de monitorizar o blogue da equipa do Service Fabric para saber mais sobre novas versões. O sistema não mostra um aviso de estado de funcionamento do cluster para o alertar de novas versões.  
