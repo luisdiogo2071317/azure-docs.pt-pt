@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.date: 2/1/2018
 ms.openlocfilehash: 0d0274b88a15688106f185ede87f576443bdadb0
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51229360"
