@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39995ca44573fe50bf0c2a2510c2c19fb227ff1d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389943"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241128"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>O que é a Web Language Model API? (Pré-visualização)
 
 > [!IMPORTANT]
-> A pré-visualização do Web Language Model foi desativada a 9 de agosto de 2018. Recomendamos que utilize [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
+> A pré-visualização do Web Language Model foi desativada a 9 de agosto de 2018. Recomendamos que utilize os [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
 
 A Microsoft Web Language Model API é um serviço cloud baseado em REST que fornece ferramentas topo de gama para processamento de linguagem natural. Com esta API, a sua aplicação pode tirar partido do poder dos macrodados através de modelos de linguagem preparados com base no corpora à escala da Web recolhido pelo Bing no mercado en-US.
 
@@ -50,6 +50,6 @@ A Web Language Model API suporta quatro operações de pesquisa:
 
 O documento seguinte fornece detalhes sobre o desenvolvimento destes modelos de linguagem e deve ser citado nas publicações de investigação que utilizam este serviço:
 
-- [Descrição geral do Microsoft Web N-gram Corpus e Aplicações](http://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
+- [Descrição geral do Microsoft Web N-gram Corpus e Aplicações](https://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
 
 Clique [aqui](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0) para obter uma lista atualizada de documentos que citam este trabalho.

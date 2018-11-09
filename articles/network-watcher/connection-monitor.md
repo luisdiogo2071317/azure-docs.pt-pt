@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639032"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093045"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
 
@@ -30,6 +30,7 @@ A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, com
 > [!div class="checklist"]
 > * Criar duas VMs
 > * Monitorizar a comunicação entre as VMs com a capacidade de monitor de ligação do Observador de Rede
+> * Gerar alertas em métricas de Monitor de Ligação
 > * Diagnosticar um problema de comunicação entre duas VMs e aprender a resolvê-lo
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -55,7 +56,7 @@ Crie duas VMs.
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Criar novo** e introduza **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**.|
+    |Localização| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, selecione **Extensões**. Selecione **Adicionar extensão** e selecione **Agente do Observador de Rede para Windows**, conforme mostra a imagem seguinte:
@@ -120,6 +121,19 @@ Crie um monitor de ligação para monitorizar a comunicação através da porta 
     | AVG. ROUND-TRIP          | Permite-lhe saber o tempo de ida e volta para estabelecer a ligação, em milissegundos. O monitor de ligação sonda a ligação a cada 60 segundos, para que possa monitorizar a latência ao longo do tempo.                                         |
     | Saltos                     | O monitor de ligação permite-lhe saber os saltos entre os dois pontos finais. Neste exemplo, a ligação é entre duas VMs na mesma rede virtual, pelo que existe apenas um salto, para o endereço IP 10.0.0.5. Se qualquer sistema existente ou rotas personalizadas encaminharem o tráfego entre as VMs através de um gateway VPN, ou aplicação virtual de rede, por exemplo, são listados saltos adicionais.                                                                                                                         |
     | ESTADO                   | As marcas de verificação verdes em cada ponto final informam que cada ponto final está em bom estado de funcionamento.    ||
+
+## <a name="generate-alerts"></a>Gerar alertas
+
+Os alertas são criados por regras de alerta no Azure Monitor e podem executar automaticamente consultas guardadas ou pesquisa de registos personalizadas em intervalos regulares. Um alerta gerado pode executar automaticamente uma ou mais ações, por exemplo, para notificar alguém ou iniciar outro processo. Ao definir uma regra de alerta, o recurso que segmenta determina a lista de métricas disponíveis que pode utilizar para gerar alertas.
+
+1. No portal do Azure, selecione o serviço **Monitorizar** e, em seguida, selecione **Alertas** > **Nova regra de alerta**.
+2. Clique em **Selecionar destino** e, em seguida, selecione os recursos que pretende alcançar. Selecione **Subscrição** e defina o **Tipo de recurso** para filtrar o Monitor de Ligação que pretende utilizar.
+
+    ![ecrã de alerta com o destino selecionado](./media/connection-monitor/set-alert-rule.png)
+1. Assim que tiver selecionado um recurso de destino, selecione **Adicionar critérios**. O Observador de Rede tem [métricas nas quais pode criar alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Defina os **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
+
+    ![página de alerta com sinais selecionados](./media/connection-monitor/set-alert-signals.png)
+1. Preencha os detalhes do alerta, como o nome da regra de alerta, a descrição e a gravidade. Também pode adicionar um grupo de ação ao alerta para automatizar e personalizar a resposta de alerta.
 
 ## <a name="view-a-problem"></a>Ver um problema
 

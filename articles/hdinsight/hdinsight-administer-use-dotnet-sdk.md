@@ -1,22 +1,22 @@
 ---
-title: Gira clusters Hadoop no HDInsight com o SDK de .NET - Azure
-description: Saiba como executar tarefas administrativas para os clusters do Hadoop no HDInsight com o SDK de .NET do HDInsight.
+title: Gerir clusters do Apache Hadoop no HDInsight com o SDK de .NET - Azure
+description: Saiba como executar tarefas administrativas para os clusters do Apache Hadoop no HDInsight com o SDK de .NET do HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110804"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037767"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Hadoop no HDInsight com o .NET SDK
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gerir clusters do Apache Hadoop no HDInsight com o .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Saiba como gerir clusters do HDInsight através de [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
@@ -142,12 +142,12 @@ O funcionalidade de dimensionamento do cluster permite-lhe alterar o número de 
 
 O impacto de alterar o número de nós de dados para cada tipo de cluster suportada pelo HDInsight:
 
-* Hadoop
+* Apache Hadoop
   
     Pode facilmente aumentar o número de nós de trabalho num cluster do Hadoop que está a ser executado sem afetar todas as tarefas em execução ou pendentes. Também podem ser submetidas a novas tarefas enquanto a operação estiver em curso. Falhas numa operação de dimensionamento são processadas corretamente para que o cluster está sempre deixado no estado funcional.
   
     Quando um cluster do Hadoop é reduzido, reduzindo o número de nós de dados, alguns dos serviços do cluster são reiniciados. Isso faz com que tudo em execução e tarefas pendentes a falhar após a conclusão da operação de dimensionamento. Pode, no entanto, volte a submeter as tarefas depois de concluída a operação.
-* HBase
+* Apache HBase
   
     Pode facilmente adicionar ou remover nós ao cluster do HBase durante a execução. Servidores regionais são balanceadas automaticamente dentro de alguns minutos a concluir a operação de dimensionamento. No entanto, também manualmente pode balancear servidores regionais iniciando sessão no nó principal do cluster e executar os seguintes comandos a partir de uma janela de linha de comandos:
   
@@ -156,7 +156,7 @@ O impacto de alterar o número de nós de dados para cada tipo de cluster suport
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     Pode facilmente adicionar ou remover nós de dados ao seu cluster do Storm, enquanto estiver em execução. Mas, após a conclusão bem-sucedida da operação de dimensionamento, terá de reequilibrar a topologia.
   
@@ -192,9 +192,9 @@ Clusters do HDInsight tem os seguintes serviços da web HTTP (todos estes servi�
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* O Apache Oozie
+* Apache Templeton
 
 Por predefinição, estes serviços são concedidos para o acesso. Pode revogar/conceder o acesso. Para revogar:
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 Ver [exemplos de executar o Hadoop MapReduce no HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Para submeter tarefas do Hive** 
+**Para submeter tarefas do Apache Hive** 
 
 Ver [executar consultas do Hive com o .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Para submeter tarefas do Pig**
+**Para submeter tarefas do Apache Pig**
 
 Ver [tarefas de executar o Pig com o .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Submeter tarefas Sqoop**
+**Submeter tarefas do Apache Sqoop**
 
 Ver [utilizar o Sqoop com o HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Submeter tarefas de Oozie**
+**Submeter tarefas do Apache Oozie**
 
 Ver [Oozie de utilização com o Hadoop para definir e executar um fluxo de trabalho no HDInsight](hdinsight-use-oozie-linux-mac.md).
 

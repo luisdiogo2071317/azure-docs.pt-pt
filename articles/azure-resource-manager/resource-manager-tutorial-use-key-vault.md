@@ -10,27 +10,27 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/10/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 601d022917adc71ff3a3c728c7b674ae47a632c4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645478"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238483"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
 
 Saiba como obter valores secretos do Azure Key Vault e transmiti-los como parâmetros durante a implementação do Resource Manager. O valor nunca está exposto porque só faz referência ao respetivo ID do Cofre de Chaves. Para obter mais informações, veja [Utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação](./resource-manager-keyvault-parameter.md)
 
-Neste tutorial, vai criar uma máquina virtual e alguns recursos dependentes com o mesmo modelo utilizado no [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). A palavra-passe de administrador da máquina virtual é obtida a partir do Azure Key Vault.
+No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Neste tutorial, vai personalizar o modelo para obter a palavra-passe de administrador de uma máquina virtual do Azure Key Vault.
 
 Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Preparar o Key Vault
-> * Abrir um modelo de início rápido
+> * Abrir um modelo de Início Rápido
 > * Editar o ficheiro de parâmetros
 > * Implementar o modelo
 > * Validar a implementação
@@ -42,13 +42,19 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para concluir este artigo, precisa de:
 
-* [Visual Studio Code](https://code.visualstudio.com/) com [extensão Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) com [extensão Ferramentas do Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Eis um exemplo para gerar uma palavra-passe:
 
-## <a name="prepare-the-key-vault"></a>Preparar o Cofre de Chaves
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
+
+## <a name="prepare-the-key-vault"></a>Preparar o Key Vault
 
 Nesta secção, vai utilizar um modelo do Resource Manager para criar um Cofre de Chaves e um segredo. Este modelo:
 
-* Cria um Cofre de Chaves com a propriedade **enabledForTemplateDeployment** ativa. Esta propriedade tem de ser verdadeira antes de o processo de implementação do modelo poder aceder aos segredos definidos neste Cofre de Chaves.
+* Criar um Key Vault com a propriedade `enabledForTemplateDeployment` ativada. Esta propriedade tem de ser verdadeira antes de o processo de implementação do modelo poder aceder aos segredos definidos neste Cofre de Chaves.
 * Adiciona um segredo ao Cofre de Chaves.  O segredo armazena a palavra-passe de administrador da máquina virtual.
 
 Se, como o utilizador para implementar o modelo de máquina virtual, não for o proprietário ou o contribuidor do Cofre de Chaves, o Proprietário ou o Contribuidor do Cofre de Chaves deve conceder-lhe o acesso à permissão Microsoft.KeyVault/vaults/deploy/action para o Cofre de Chaves. Para obter mais informações, veja [Utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação](./resource-manager-keyvault-parameter.md)
@@ -58,7 +64,9 @@ O modelo precisa do ID de objeto de utilizador do Azure AD para configurar permi
 1. Execute o comando seguinte do Azure PowerShell ou da CLI do Azure.  
 
     ```azurecli-interactive
-    az ad user show --upn-or-object-id "<Your User Principle Name>" --query "objectId"
+    echo "Enter your email address that is associated with your Azure subscription):" &&
+    read upn &&
+    az ad user show --upn-or-object-id $upn --query "objectId" &&
     openssl rand -base64 32
     ```
     ```azurepowershell-interactive
@@ -95,21 +103,21 @@ Para criar um Cofre de Chaves:
     ```json
     "enabledForTemplateDeployment": true,
     ```
-    `enabledForTemplateDeployment` é uma propriedade do Cofre de Chaves. Esta propriedade tem de ser verdadeira antes de poder obter os segredos a partir deste Cofre de Chaves durante a implementação. 
+    `enabledForTemplateDeployment` é uma propriedade do Cofre de Chaves. Esta propriedade tem de ser verdadeira antes de poder obter os segredos a partir deste Cofre de Chaves durante a implementação.
 6. Navegue para a linha 89. Esta é a definição do segredo do Cofre de Chaves.
 7. Selecione **Eliminar** na parte inferior da página. Não efetue alterações.
 8. Verifique se forneceu todos os valores, conforme mostrado na captura de ecrã anterior, e clique em **Comprar** na parte inferior da página.
 9. Selecione o ícone de campainha (notificação) na parte superior da página para abrir o painel **Notificações**. Aguarde até o recurso ser implementado com êxito.
-8. Selecione **Ir para o grupo de recursos** no painel **Notificações**. 
-9. Selecione o nome do Cofre de Chaves para abri-lo.
-10. Selecione **Políticas de acesso** no painel esquerdo. O seu nome (Active Directory) deve ser apresentado, caso contrário, não tem permissão para aceder ao cofre de chaves.
-11. Selecione **Clicar para mostrar as políticas de acesso avançadas**. Verifique se a opção **Ativar o acesso ao Azure Resource Manager para implementação de modelos** está selecionada. Trata-se de outra condição para o Cofre de Chaves funcionar.
+10. Selecione **Ir para o grupo de recursos** no painel **Notificações**. 
+11. Selecione o nome do Cofre de Chaves para abri-lo.
+12. Selecione **Políticas de acesso** no painel esquerdo. O seu nome (Active Directory) deve ser apresentado, caso contrário, não tem permissão para aceder ao cofre de chaves.
+13. Selecione **Clicar para mostrar as políticas de acesso avançadas**. Verifique se a opção **Ativar o acesso ao Azure Resource Manager para implementação de modelos** está selecionada. Trata-se de outra condição para o Cofre de Chaves funcionar.
 
-    ![Políticas de acesso de integração de Cofres de Chaves de modelos do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)    
-12. Selecione **Propriedades** no painel esquerdo.
-13. Faça uma cópia do **ID do Recurso**. Vai precisar deste ID quando implementar a máquina virtual.  O formato do ID do Recurso é:
+    ![Políticas de acesso de integração de Cofres de Chaves de modelos do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-key-vault-access-policies.png)
+14. Selecione **Propriedades** no painel esquerdo.
+15. Faça uma cópia do **ID do Recurso**. Vai precisar deste ID quando implementar a máquina virtual.  O formato do ID do Recurso é:
 
-    ```
+    ```json
     /subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
     ```
 
@@ -124,8 +132,17 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Selecione **Abrir** para abrir o ficheiro. Trata-se do mesmo cenário utilizado no [Tutorial: Criar modelos do Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-4. Selecione **Ficheiro**>**Guardar Como** para guardar uma cópia do ficheiro no computador local, com o nome **azuredeploy.json**.
-5. Repita os passos 1 a 4 para abrir o URL seguinte e, em seguida, guarde o ficheiro como **azuredeploy.parameters.json**.
+4. Existem cinco recursos definidos pelo modelo:
+
+    * `Microsoft.Storage/storageAccounts`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    É útil ter alguma compreensão básica do modelo antes de personalizá-lo.
+5. Selecione **Ficheiro**>**Guardar Como** para guardar uma cópia do ficheiro no computador local, com o nome **azuredeploy.json**.
+6. Repita os passos 1 a 4 para abrir o URL seguinte e, em seguida, guarde o ficheiro como **azuredeploy.parameters.json**.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
@@ -190,7 +207,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, obteve um segredo do Azure Key Vault e utilizou-o na sua implementação de modelo.  Para saber como criar modelos ligados, veja:
+Neste tutorial, obteve um segredo do Azure Key Vault e utilizou-o na sua implementação do modelo.  Para saber como criar modelos ligados, veja:
 
 > [!div class="nextstepaction"]
 > [Criar modelos ligados](./resource-manager-tutorial-create-linked-templates.md)

@@ -4,21 +4,21 @@ description: Utilize o Azure Blueprints para criar, definir e implementar artefa
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647277"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092132"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e Atribuir um Azure Blueprint no portal
 
-Compreender como criar e atribuir esquemas no Azure permite a uma organização definir padrões comuns de consistência e desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
+Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
 > [!div class="checklist"]
 > - Criar um novo esquema e adicionar vários artefactos suportados
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Neste exemplo, vai criar um novo esquema com o nome “MyBlueprint” para configurar as atribuições de função e política para a subscrição, adicionar um novo grupo de recursos e criar uma atribuição de função e o modelo do Resource Manager no novo grupo de recursos.
 
-1. Inicie o serviço Azure Blueprint no portal do Azure. Para tal, clique em **Todos os serviços** e procure e selecione **Política** no painel esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
 
 1. Selecione **Definições do Esquema** na página à esquerda e clique no botão **+ Criar Esquema** na parte superior da página.
 
@@ -58,7 +58,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 1. Adicione a atribuição de política à subscrição: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...**  diretamente sob **Subscrição**. Selecione “Atribuição de Política” para _Tipo de artefacto_. Altere _Tipo_ para “Incorporado” e, em _Pesquisar_ introduza “etiqueta”. Clique fora da caixa _Pesquisar_ para filtrar os resultados. Selecione “Aplicar etiqueta e valor predefinido aos grupos de recursos” ao clicar na opção. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
-1. Clique na linha de atribuição de política “Aplicar etiqueta e valor predefinido aos grupos de recursos”. É apresentada a janela com os parâmetros para o artefacto como parte da definição do esquema e que permite definir os parâmetros para todas as atribuições (**parâmetros estáticos**) com base neste esquema, em vez de o fazer durante a atribuição (**parâmetros dinâmicos**). Neste exemplo, é desejável que se utilizem **parâmetros dinâmicos** durante a atribuição do esquema, assim, deixe as predefinições como estão e clique em **Cancelar**.
+1. Clique na linha de atribuição de política “Aplicar etiqueta e valor predefinido aos grupos de recursos”. É apresentada a janela com os parâmetros para o artefacto como parte da definição do esquema e que permite definir os parâmetros para todas as atribuições (**parâmetros estáticos**) com base neste esquema, em vez de o fazer durante a atribuição (**parâmetros dinâmicos**). Este exemplo utiliza **parâmetros dinâmicos** durante a atribuição do esquema, por isso, deixe as predefinições como estão e clique em **Cancelar**.
 
 1. Adicione o grupo de recursos à subscrição: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...** em **Subscrição**. Selecione “Grupo de Recursos” para _Tipo de artefacto_. Deixe os campos _Nome do Grupo de Recursos_ e _Localização_ em branco, mas garanta que a caixa de verificação está marcada em cada propriedade para torná-los **parâmetros dinâmicos**. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
@@ -111,7 +111,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Artefacto – Modelo do Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Repare que cada artefacto tem “_x_ de _y_ parâmetros preenchidos” na coluna _Parâmetros_. Os **parâmetros dinâmicos** serão definidos durante cada atribuição do esquema.
+1. O esquema concluído deve ter um aspeto semelhante ao seguinte. Repare que cada artefacto tem “_x_ de _y_ parâmetros preenchidos” na coluna _Parâmetros_. Os **parâmetros dinâmicos** são definidos durante cada atribuição do esquema.
 
    ![Esquema concluído](./media/create-blueprint-portal/completed-blueprint.png)
 
@@ -119,7 +119,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
 ## <a name="edit-a-blueprint"></a>Editar um esquema
 
-Em [Criar um esquema](#create-a-blueprint), não foi fornecida uma Descrição nem a atribuição de função foi adicionada ao novo grupo de recursos. Ambos podem ser corrigidos, ao executar os seguintes passos:
+Em [Criar um esquema](#create-a-blueprint), não foi fornecida uma Descrição nem a atribuição da função foi adicionada ao grupo de recursos novo. Ambas as situações podem ser corrigidas com os passos abaixo:
 
 1. Selecione **Definições do Esquema** na página à esquerda.
 
@@ -129,7 +129,7 @@ Em [Criar um esquema](#create-a-blueprint), não foi fornecida uma Descrição n
 
 1. Clique em **Seguinte: Artefactos** na parte inferior da página ou no separador **Artefactos** na parte superior da página.
 
-1. Adicione a atribuição de função sob o grupo de recursos: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...**  diretamente sob a entrada **ResourceGroup**. Selecione “Atribuição de Função” para _Tipo de artefacto_. Em _Função_, selecione “Proprietário” e desmarque o campo _Adicionar Utilizador, Aplicação ou Grupo_ e procure e selecione um utilizador, aplicação ou grupo a adicionar. Este será um **parâmetro estático** e será utilizado em cada atribuição deste esquema. Clique em **Adicionar** para adicionar este artefacto ao esquema.
+1. Adicione a atribuição de função sob o grupo de recursos: clique com o botão esquerdo do rato na linha **+ Adicionar artefacto...**  diretamente sob a entrada **ResourceGroup**. Selecione “Atribuição de Função” para _Tipo de artefacto_. Em _Função_, selecione “Proprietário” e desmarque o campo _Adicionar Utilizador, Aplicação ou Grupo_ e procure e selecione um utilizador, aplicação ou grupo a adicionar. Este artefacto utiliza um **parâmetro estático** que é o mesmo em cada atribuição deste esquema. Clique em **Adicionar** para adicionar este artefacto ao esquema.
 
    ![Artefacto – Atribuição de Função 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -163,7 +163,7 @@ Após a publicação de um esquema, poderá atribuí-lo a uma subscrição. Atri
 1. Na página **Atribuir Esquema**, selecione no menu pendente **Subscrição** as subscrições nas quais quer implementar este esquema.
 
    > [!NOTE]
-   > Será criada uma atribuição para cada subscrição selecionada, o que permite fazer alterações posteriormente numa atribuição de subscrição individual, sem forçar alterações nas restantes subscrições selecionadas.
+   > É criada uma atribuição para cada subscrição selecionada, o que permite fazer alterações posteriormente numa atribuição de subscrição individual, sem forçar alterações nas restantes subscrições selecionadas.
 
 1. Em **Nome Atribuído**, indique um nome exclusivo para esta atribuição.
 
@@ -180,7 +180,7 @@ Após a publicação de um esquema, poderá atribuí-lo a uma subscrição. Atri
 1. Para “ResourceGroup”, indique um **Nome** como “StorageAccount” e uma **Localização** como “EUA Leste 2” no menu pendente.
 
    > [!NOTE]
-   > Para cada artefacto que foi adicionado sob o grupo de recursos durante a definição do esquema, esse artefacto é apresentado com avanço para ficar alinhado com o grupo de recursos ou com o objeto com o qual será implementado. Os artefactos que não aceitam parâmetros ou não têm parâmetros definidos na atribuição serão apresentados apenas para informações contextuais.
+   > Para cada artefacto que foi adicionado sob o grupo de recursos durante a definição do esquema, esse artefacto é apresentado com avanço para ficar alinhado com o grupo de recursos ou com o objeto com o qual é implementado. Os artefactos que não aceitam parâmetros ou não têm parâmetros para serem definidos na atribuição são apresentados apenas para informações contextuais.
 
 1. No modelo do Azure Resource Manager, “StorageAccount” selecione “Standard_GRS” para o parâmetro **storageAccountType**.
 
@@ -205,7 +205,7 @@ Agora que o esquema foi atribuído a uma subscrição, verifique o progresso da 
 
 ## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
-Os esquemas podem ser removidos de uma subscrição se já não forem necessários ou tiverem sido substituídos por esquemas mais recentes com padrões, políticas e designs atualizados. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, siga estes passos:
+Se já não precisar de um esquema, remova a atribuição do mesmo de uma subscrição. O esquema pode ter sido substituído por outro mais recente com padrões, políticas e designs atualizados. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, siga estes passos:
 
 1. Selecione **Esquemas Atribuídos** na página à esquerda.
 
@@ -220,7 +220,7 @@ Os esquemas podem ser removidos de uma subscrição se já não forem necessári
 1. Clique com o botão direito no esquema que quer eliminar e selecione **Eliminar Esquema** e, em seguida, clique em **Sim** na caixa de diálogo de confirmação.
 
 > [!NOTE]
-> Este método de eliminação de esquema também eliminará todas as **Versões publicadas** do esquema selecionado. Para eliminar uma única versão, abra o esquema, clique no separador **Versões publicadas**, selecione e clique na versão que quer eliminar e, em seguida, clique em **Eliminar Esta Versão**. Além disso, um esquema com atribuições não pode ser eliminado até que todas as atribuições de esquemas tenham sido eliminadas.
+> Este método de eliminação de esquemas também elimina todas as **Versões publicadas** do esquema selecionado. Para eliminar uma única versão, abra o esquema, clique no separador **Versões publicadas**, selecione e clique na versão que quer eliminar e, em seguida, clique em **Eliminar Esta Versão**. Além disso, um esquema com atribuições não pode ser eliminado até que todas as atribuições de esquemas tenham sido eliminadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

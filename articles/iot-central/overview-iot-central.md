@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628781"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158147"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>O que é o Azure IoT Central?
 
-O Microsoft Azure IoT Central é uma solução de IoT completamente gerida de software como serviço, que facilita a criação de produtos que ligam aos universos físicos e digitais. Pode dar vida à sua visão de produto ligado, ao:
+O Azure IoT Central é uma solução de IoT completamente gerida de software como serviço, que facilita a criação de produtos que ligam aos universos físicos e digitais. Pode dar vida à sua visão de produto ligado, ao:
 
 - Efetuar a derivação de novas informações de dispositivos ligados para oferecer melhores produtos e experiências aos seus clientes.
 - Criar novas oportunidades de negócio para a sua organização.
@@ -65,11 +65,11 @@ Como construtor, utilize o Azure IoT Central para criar uma solução de IoT per
 - Uma aplicação baseada na cloud que recebe a telemetria dos seus dispositivos e permite-lhe gerir esses dispositivos.
 - Vários dispositivos que executam o código personalizado ligado à sua aplicação baseada na cloud.
 
-Pode implementar rapidamente uma nova aplicação do Azure IoT Central e, em seguida, personalizá-la de acordo com os seus requisitos específicos, diretamente no browser. Como construtor do Azure IoT Central, pode utilizar as ferramentas baseadas na Web para criar um _modelo de dispositivo_ para os dispositivos que ligam à sua aplicação. Um modelo de dispositivo é o esquema partilhado por todos os dispositivos criados a partir desse modelo. Um modelo de dispositivo define as caraterísticas e o comportamento de um tipo de dispositivo, como:
+Pode implementar rapidamente uma nova aplicação do Azure IoT Central e, em seguida, personalizá-la de acordo com os seus requisitos específicos, diretamente no browser. Como construtor do Azure IoT Central, pode utilizar as ferramentas baseadas na Web para criar um _modelo de dispositivo_ para os dispositivos que ligam à sua aplicação. Um modelo de dispositivo é o esquema de um modelo de dispositivo. Todos os dispositivos criados com o mesmo modelo de dispositivo partilham o modelo. Um modelo de dispositivo define as caraterísticas e o comportamento de um tipo de dispositivo, como:
 
 - A telemetria que envia.
 - As propriedades de negócio que um operador pode modificar.
-- As propriedades dos dispositivos que são definidas por um dispositivo e que são só de leitura na aplicação.
+- As propriedades dos dispositivos que são definidas por um dispositivo e são só de leitura na aplicação.
 - Os limiares aos quais a aplicação responde.
 - As definições que determinam o comportamento do dispositivo.
 

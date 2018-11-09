@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 9fb955b6bce5b3d40def095180326fdc9aed33b1
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241264"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -75,7 +75,7 @@ Não precisa separar de licenciamento para a proteção de VMware/Hyper-V.
 
 ### <a name="which-dpm-versions-are-supported"></a>As versões do DPM que são suportadas?
 
-Versões suportadas do DPM estão resumidas na [matriz de suporte](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Recomendamos que instale as atualizações mais recentes do DPM e execute o [versão mais recente](http://aka.ms/azurebackup_agent) do agente de cópia de segurança do Azure no servidor do DPM.
+Versões suportadas do DPM estão resumidas na [matriz de suporte](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Recomendamos que instale as atualizações mais recentes do DPM e execute o [versão mais recente](https://aka.ms/azurebackup_agent) do agente de cópia de segurança do Azure no servidor do DPM.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Pode registar o servidor para diversos cofres?
 

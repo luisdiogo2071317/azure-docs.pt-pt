@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456818"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159014"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: Utilizar o portal do Azure para começar a trabalhar com o Azure Machine Learning
 
-Neste início rápido, vai utilizar o portal do Azure para criar uma área de trabalho do Azure Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. 
+Neste início rápido, vai utilizar o portal do Azure para criar uma área de trabalho do Azure Machine Learning. Esta área de trabalho é o pilar na cloud que utiliza para experimentar, preparar e implementar modelos de machine learning com Machine Learning. Este início rápido utiliza recursos na cloud e não requer qualquer instalação. Para configurar o seu próprio servidor de blocos de notas do Jupyter em vez disso, veja [Início Rápido: utilizar o Python para começar a utilizar o Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Juntamente com dois blocos de notas, verá um ficheiro `config.json`. Este fiche
 
 Selecione `01.run-experiment.ipynb` para abrir o bloco de notas.
 
-Para executar as células uma de cada vez, utilize `Shift`+`Enter`. Ou selecione `Cells` > `Run All` para executar o bloco de notas completo. Quando vir um asterisco [*] junto de uma célula, significa que está em execução. Após o código para essa célula terminar, é apresentado um número.
+Para executar as células uma de cada vez, utilize `Shift`+`Enter`. Ou selecione `Cells` > `Run All` para executar o bloco de notas completo. Quando vir um asterisco [*] junto de uma célula, significa que está em execução. Após o código para essa célula terminar, é apresentado um número. 
 
-Pode ser pedido que inicie sessão. Copie o código na mensagem. Em seguida, selecione a ligação e cole o código na nova janela. Certifique-se de que não copia um espaço antes ou depois do código. Inicie sessão com a mesma conta utilizada no portal do Azure.
-
- ![Iniciar sessão](./media/quickstart-get-started/login.png)
-
-No bloco de notas, a segunda célula lê a partir do `config.json` para ligar à sua área de trabalho.
-```
-ws = Workspace.from_config()
-```
-
-A terceira célula de código começa uma experimentação com o nome "my-first-experiment." Utilize este nome para procurar informações sobre a execução na sua área de trabalho.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-Na última célula do bloco de notas, observe os valores que foram escritos num ficheiro de registo.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-Pode ver estes valores na sua área de trabalho após a execução do código.
+Depois de concluir a execução de todas as células no bloco de notas, pode ver os valores registados na sua área de trabalho.
 
 ## <a name="view-logged-values"></a>Ver valores registados
 
@@ -121,11 +98,11 @@ Veja as informações sobre a execução que acabou de efetuar. Desloque a pági
 
  ![Ligação do histórico de execuções](./media/quickstart-get-started/report.png)
 
-Verá os gráficos que foram criados automaticamente dos valores registados.  
+Verá os gráficos que foram criados automaticamente dos valores registados. Sempre que registar vários valores com o mesmo parâmetro de nome, é automaticamente gerado um desenho.
 
    ![Ver histórico](./media/quickstart-get-started/plots.png)
 
-Uma vez que o código para obter uma estimativa do pi utiliza valores aleatórios, os seus gráficos irão mostrar valores diferentes.
+Uma vez que o código para obter uma estimativa do pi utiliza valores aleatórios, os seus gráficos irão mostrar valores diferentes.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 

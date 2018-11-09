@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883929"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139100"
 ---
 # <a name="integrate-speech-service"></a>Integrar o serviço de Voz
 O [serviço de Voz](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) permite-lhe utilizar um pedido simples para receber áudio e devolve objetos JSON de predição de LUIS. Neste artigo, vai transferir e utilizar um projeto C# no Visual Studio para verbalizar uma expressão para um microfone e receber informações de predição de LUIS. O projeto utiliza o pacote [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, já incluído como referência. 
@@ -39,7 +39,7 @@ Esta aplicação contém intenções, entidades e expressões relacionadas com o
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Adicionar entidade pré-compilada de KeyPhrase
-Depois de importar a aplicação, selecione **Entidades** e, em seguida, **Gerir entidades pré-compiladas**. Adicione a entidade **KeyPhrase**. A entidade KeyPhrase extrai assuntos-chave da expressão.
+Depois de importar a aplicação, selecione **Entidades** e, em seguida, **Adicionar entidade pré-compilada**. Adicione a entidade **KeyPhrase**. A entidade KeyPhrase extrai assuntos-chave da expressão.
 
 ## <a name="train-and-publish-the-app"></a>Preparar e publicar a aplicação
 1. Na barra de navegação superior direita, selecione o botão **Preparar** para preparar a aplicação LUIS.

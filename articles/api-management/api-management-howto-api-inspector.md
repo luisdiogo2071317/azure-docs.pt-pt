@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ff3dde8ac95b678866ba6f5216ba23357b067765
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057332"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415887"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Depurar as suas APIs com o rastreio de pedidos
 
@@ -34,18 +34,19 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
++ Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Rastrear uma chamada
 
+![Rastreio da API](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
+
 1. Selecione **APIs**.
 2. Clique em **API da Conferência de Demonstração** na lista de API.
-3. Selecione a operação **GetSpeakers**.
-4. Mude para o separador **Teste**.
+3. Mude para o separador **Teste**.
+4. Selecione a operação **GetSpeakers**.
 5. Certifique-se de que inclui um cabeçalho de HTTP chamado **Ocp-Apim-Trace** com o valor definido para **verdadeiro**.
-
-    ![Cabeçalho de rastreamento da API](media/api-management-howto-api-inspector/api-management-tracing-header.png)
 
     > [!NOTE]
     > Se Ocp-Apim-Subscription-Key não estiver preenchido automaticamente, pode obtê-lo ao ir ao Portal do Programador e expor as chaves na página de perfil.
@@ -57,9 +58,9 @@ Neste tutorial, ficará a saber como:
     Na secção **Entrada**, pode ver o pedido original de Gestão de API recebido pelo autor da chamada e todas as políticas aplicadas ao pedido, incluindo as políticas de definição de cabeçalho e de limitação de taxas adicionadas no passo 2.
 
     Na secção **back-end**, pode ver os pedidos de Gestão de API enviados para o back-end de API e a resposta que recebeu.
-    
+
     Na secção **saída**, pode ver todas as políticas aplicadas à resposta antes de devolver ao autor da chamada.
- 
+
     > [!TIP]
     > Cada passo mostra também o tempo decorrido desde que o pedido é recebido através da Gestão de API.
 

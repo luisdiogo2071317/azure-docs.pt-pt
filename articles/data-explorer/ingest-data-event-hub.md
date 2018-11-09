@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: efaf551d134d339205d40966cb84f41b408559bd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3350c222cced036af6319cee166c53da0b14f2a9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394183"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210453"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início Rápido: Ingerir dados do Hub de Eventos para o Azure Data Explorer
 
@@ -27,7 +27,7 @@ Além de uma subscrição do Azure, precisa do seguinte para concluir este iníc
 
 * [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
 
-* [Uma aplicação de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que gere dados
+* [Uma aplicação de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que gera dados e envia-os para um hub de eventos
 
 * [Visual Studio 2017 Versão 15.3.2 ou superior](https://www.visualstudio.com/vs/) para executar a aplicação de exemplo
 
@@ -37,9 +37,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
-Neste início rápido, vai gerar dados de exemplo e enviá-los para um hub de eventos. O primeiro passo é criar um hub de eventos. Pode fazê-lo através de um modelo do Azure Resource Manager (ARM) no portal do Azure.
+Neste início rápido, vai gerar dados de exemplo e enviá-los para um hub de eventos. O primeiro passo é criar um hub de eventos. Pode fazê-lo através de um modelo do Azure Resource Manager no portal do Azure.
 
-1. Selecione o botão seguinte para iniciar a implementação.
+1. Utilize o botão seguinte para iniciar a implementação. Recomendamos que abra a ligação noutro separador ou janela, para que possa seguir o resto dos passos neste artigo.
 
     [![Implementar no Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -69,13 +69,15 @@ Neste início rápido, vai gerar dados de exemplo e enviá-los para um hub de ev
 
 1. Selecione **Comprar**, que reconhece que está a criar recursos na sua subscrição.
 
-1. Selecione **Notificações** na barra de ferramentas (o ícone da campainha) para monitorizar o processo de aprovisionamento. Poderá demorar alguns minutos até que a implementação seja bem-sucedida, mas pode avançar para o passo seguinte agora.
+1. Selecione **Notificações** na barra de ferramentas para monitorizar o processo de aprovisionamento. Poderá demorar alguns minutos até que a implementação seja bem-sucedida, mas pode avançar para o passo seguinte agora.
+
+    ![Notificações](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Criar uma tabela de destino no Azure Data Explorer
 
 Agora, vai criar uma tabela no Azure Data Explorer, para onde os Hubs de Eventos vão enviar os dados. Cria a tabela no cluster e na base de dados aprovisionada em **Pré-requisitos**.
 
-1. No portal do Azure, no seu cluster, selecione **Consulta**.
+1. No portal do Azure, navegue para o cluster e, em seguida, selecione **Consulta**.
 
     ![Ligação da aplicação de consulta](media/ingest-data-event-hub/query-explorer-link.png)
 
@@ -92,11 +94,11 @@ Agora, vai criar uma tabela no Azure Data Explorer, para onde os Hubs de Eventos
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Este comando mapeia os dados JSON recebidos para os nomes de coluna e tipos de dados utilizados ao criar a tabela.
+    Este comando mapeia os dados JSON recebidos para os nomes de coluna e tipos de dados da tabela (TestTable).
 
 ## <a name="connect-to-the-event-hub"></a>Ligar ao hub de eventos
 
-Agora, ligue ao hub de eventos a partir do Azure Data Explorer, para que os dados que fluem para o hub de eventos sejam transmitidos à tabela de teste.
+Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação está no lugar, os dados que fluem para o hub de eventos são transmitidos para a tabela de teste que criou anteriormente neste artigo.
 
 1. Selecione **Notificações** na barra de ferramentas para verificar se a implementação do hub de eventos foi concluída com êxito.
 
@@ -118,27 +120,27 @@ Agora, ligue ao hub de eventos a partir do Azure Data Explorer, para que os dado
     | Espaço de nomes do hub de eventos | Um nome de espaço de nomes exclusivo | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | Hub de eventos | *test-hub* | O hub de eventos que criou. |
     | Grupo de consumidores | *test-group* | O grupo de consumidores definido no hub de eventos que criou. |
+    | Tabela de destino | Deixe o campo **Os meus dados incluem informações de encaminhamento** não selecionado. | Existem duas opções para o encaminhamento: *estático* e *dinâmico*. Neste início rápido, vai utilizar encaminhamento estático (o predefinido), onde especifica o nome da tabela, o formato de ficheiro e o mapeamento. Também pode utilizar o encaminhamento dinâmico, onde os dados incluem as informações necessárias de encaminhamento. |
     | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
     | Formato de dados | *JSON* | São suportados os formatos JSON e CSV. |
-    | Mapeamento de colunas | *TestMapping* | O mapeamento que criou em **TestDatabase**. |
-
-    Neste início rápido, vai utilizar *encaminhamento estático* no hub de eventos, onde especifica o nome da tabela, o formato de ficheiro e o mapeamento. Também pode utilizar o encaminhamento dinâmico, onde a sua aplicação define estas propriedades.
+    | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**.|
+    | | |
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de ligação
 
-Quando executa a aplicação para gerar dados de exemplo, precisa da cadeia de ligação para o espaço de nomes do hub de eventos.
+Quando executa a [aplicação de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) listada nos Pré-requisitos, precisa da cadeia de ligação para o espaço de nomes do hub de eventos.
 
 1. No espaço de nomes do hub de eventos que criou, selecione **Políticas de acesso partilhado** e, em seguida, **RootManageSharedAccessKey**.
 
     ![Políticas de acesso partilhado](media/ingest-data-event-hub/shared-access-policies.png)
 
-1. Copie **Cadeia de ligação - chave primária**.
+1. Copie **Cadeia de ligação - chave primária**. Cole na próxima secção.
 
     ![Cadeia de ligação](media/ingest-data-event-hub/connection-string.png)
 
 ## <a name="generate-sample-data"></a>Gerar dados de exemplo
 
-Agora que o Azure Data Explorer e o hub de eventos etsão ligados, utilize a aplicação de exemplo que transferiu para gerar dados.
+Agora que o Azure Data Explorer e o hub de eventos estão ligados, utilize a [aplicação de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que transferiu para gerar dados.
 
 1. Abra a solução de aplicação de exemplo no Visual Studio.
 
@@ -156,20 +158,22 @@ Agora que o Azure Data Explorer e o hub de eventos etsão ligados, utilize a apl
 
 ## <a name="review-the-data-flow"></a>Rever o fluxo de dados
 
+Com a aplicação de geração de dados, agora pode ver o fluxo dos dados do hub de eventos para a tabela no seu cluster.
+
 1. No portal do Azure, no seu hub de eventos, verá o pico de atividade enquanto a aplicação está em execução.
 
     ![Gráfico do hub de eventos](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Volte à aplicação e pare-a depois de atingir a mensagem 99.
+1. Volte à aplicação de exemplo e pare-a depois de atingir a mensagem 99.
 
-1. Execute a consulta seguinte na base de dados de teste para verificar quantas mensagens chegaram à base de dados até ao momento.
+1. Para verificar quantas mensagens chegaram à base de dados até ao momento, execute a consulta seguintes na base de dados de teste.
 
     ```Kusto
     TestTable
     | count
     ```
 
-1. Execute a consulta seguinte para ver o conteúdo das mensagens.
+1. Para ver o conteúdo das mensagens, execute a consulta seguinte.
 
     ```Kusto
     TestTable

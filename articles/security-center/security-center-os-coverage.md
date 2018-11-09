@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319987"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240431"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e funcionalidades suportadas pelo centro de segurança do Azure
 
@@ -80,16 +80,16 @@ As VMs em execução num serviço cloud também são suportadas. Funções web e
 |Configurações de segurança|✔|✔|✔|✔|
 |Antimalware|✔|✔|X|X|
 |Acesso JIT da VM|✔|X|✔|X|
-|Controlos de aplicações adaptáveis|✔ (apenas Azure)|X|X|X|
+|Controlos de aplicações adaptáveis|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Encriptação de disco|✔|X|✔|X|
 |Implantação de terceiros|✔|X|✔|X|
 |NSGs|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Deteção de ameaças Filess|✔|✔|X|X|
 |Mapa de rede|✔|X|✔|X|
-|Sistema de proteção de rede adaptável|✔|X|✔|X|
+|Controlos de rede adaptável|✔|X|✔|X|
 
-* Estas funcionalidades são suportadas atualmente em pré-visualização pública.
+\* Estas funcionalidades são suportadas atualmente em pré-visualização pública.
 
 
 ## <a name="supported-paas-features"></a>Recursos de PaaS suportados
@@ -103,26 +103,17 @@ As VMs em execução num serviço cloud também são suportadas. Funções web e
 |Blob storage contas *|✔| ✔|
 |Serviços aplicacionais|✔| ✔|
 |Serviços em nuvem|✔| X|
-|Cache de Redis|✔| X|
-|O Service fabric|✔| X|
-|Automatização do Azure|✔| X|
-|Data Lake |✔| X|
-|Key Vault|✔| X|
-|Do Service bus|✔| X|
-|Análise do Stream|✔| X|
-|Batch|✔| X|
-|Aplicações lógicas|✔| X|
 |Vnets|✔| ND|
 |Sub-redes|✔| ND|
 |NICs|✔| ✔|
 |NSGs|✔| ND|
 |Subscrição|✔| ✔|
 
-* Estas funcionalidades são suportadas atualmente em pré-visualização pública.
+\* Estas funcionalidades são suportadas atualmente em pré-visualização pública.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Guia de operações e planeamento do Centro de segurança do Azure](security-center-planning-and-operations-guide.md) – Saiba como planear e compreender as considerações de conceção para adoção do Centro de segurança do Azure
 - [Alertas de segurança por tipo no Centro de segurança do Azure](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Saiba mais sobre a análise comportamental de máquinas virtuais e de falha de análise de informação de memória no Centro de segurança
 - [Azure Security Center FAQ (FAQ do Centro de Segurança do Azure)](security-center-faq.md) – Encontre as perguntas mais frequentes acerca de como utilizar o serviço
-- [Blogue de segurança do Azure](http://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e de conformidade
+- [Blogue de segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) – encontre mensagens do Blogue acerca da segurança do Azure e de conformidade

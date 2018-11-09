@@ -1,8 +1,21 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: cf8c6f07eb38487dd29624b15be3637536be92fc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134370"
+---
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-As funções utiliza uma conta para fins gerais no armazenamento do Azure para manter o estado e outras informações sobre as suas funções. Criar uma conta do storage para fins gerais no grupo de recursos que criou utilizando o [criar conta de armazenamento az](/cli/azure/storage/account#create) comando.
+As Funções utilizam uma conta de Armazenamento do Microsoft Azure para fins gerais, para guardar as informações de estado das funções, entre outras. Crie uma conta de armazenamento para fins gerais no grupo de recursos que criou, ao utilizar o comando [az storage account create](/cli/azure/storage/account#create).
 
-No comando seguinte, substitua o nome de uma conta de armazenamento globalmente exclusivo onde vir o `<storage_name>` marcador de posição. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
+No comando seguinte, substitua o nome da conta de armazenamento globalmente único onde vir o marcador de posição `<storage_name>`. Os nomes das contas do Storage devem ter entre 3 e 24 carateres de comprimento e apenas podem conter números e letras minúsculas.
 
 ```azurecli-interactive
 az storage account create --name <storage_name> --location westeurope --resource-group myResourceGroup --sku Standard_LRS

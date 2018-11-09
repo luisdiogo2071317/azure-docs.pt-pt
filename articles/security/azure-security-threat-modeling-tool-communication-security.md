@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301559"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247386"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança de comunicação | Atenuações 
 | Produtos/serviços | Artigo |
@@ -113,7 +113,7 @@ ms.locfileid: "43301559"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | EnvironmentType - Azure |
 | **Referências**              | [Impor HTTPS no serviço de aplicações do Azure](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **Passos** | <p>Embora o Azure permite já HTTPS para os serviços de aplicações do Azure com um certificado de caráter universal para o domínio *. azurewebsites.net, ele não impor HTTPS. Visitantes podem continuar a aceder a aplicação através de HTTP, que pode comprometer a segurança da aplicação e, portanto, HTTPS tem de ser impostas explicitamente. Aplicativos ASP.NET MVC devem utilizar o [RequireHttps filtro](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) que força uma solicitação HTTP não segura para ser enviado através de HTTPS.</p><p>Em alternativa, pode servir-se o URL Rewrite module, que está incluído no serviço de aplicações do Azure para impor HTTPS. URL Rewrite module permite aos programadores definir as regras que são aplicadas aos pedidos de entrada antes dos pedidos são entregues à sua aplicação. Regras de reescrita de URLs são definidas num arquivo Web. config armazenado na raiz do aplicativo</p>|
+| **Passos** | <p>Embora o Azure permite já HTTPS para os serviços de aplicações do Azure com um certificado de caráter universal para o domínio *. azurewebsites.net, ele não impor HTTPS. Visitantes podem continuar a aceder a aplicação através de HTTP, que pode comprometer a segurança da aplicação e, portanto, HTTPS tem de ser impostas explicitamente. Aplicativos ASP.NET MVC devem utilizar o [RequireHttps filtro](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) que força uma solicitação HTTP não segura para ser enviado através de HTTPS.</p><p>Em alternativa, pode servir-se o URL Rewrite module, que está incluído no serviço de aplicações do Azure para impor HTTPS. URL Rewrite module permite aos programadores definir as regras que são aplicadas aos pedidos de entrada antes dos pedidos são entregues à sua aplicação. Regras de reescrita de URLs são definidas num arquivo Web. config armazenado na raiz do aplicativo</p>|
 
 ### <a name="example"></a>Exemplo
 O exemplo a seguir contém uma regra básica de reescrita de URLs que força todo o tráfego de entrada para utilizar HTTPS
@@ -156,7 +156,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | SQL Azure  |
 | **Atributos**              | Versão do SQL - V12 |
-| **Referências**              | [Melhores práticas em Writing Secure cadeias de ligação para base de dados SQL](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
+| **Referências**              | [Melhores práticas em Writing Secure cadeias de ligação para base de dados SQL](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
 | **Passos** | <p>Todas as comunicações entre a base de dados SQL e um aplicativo cliente são encriptadas utilizando Secure Sockets Layer (SSL) em todos os momentos. Base de dados SQL não suporta ligações não encriptadas. Para validar certificados com o código da aplicação ou de ferramentas, explicitamente solicitar uma ligação encriptada e não confiar nos certificados de servidor. Se o seu código da aplicação ou ferramentas não pedem uma ligação encriptada, eles ainda receberá ligações encriptadas</p><p>No entanto, não pode validar os certificados de servidor e, portanto, estará suscetíveis a ataques de "homem no meio". Para validar certificados com o código de aplicativo do ADO.NET, defina `Encrypt=True` e `TrustServerCertificate=False` na cadeia de ligação de base de dados. Para validar certificados através do SQL Server Management Studio, abra a caixa ligar ao servidor caixa de diálogo. Clique em criptografar conexão no separador Propriedades de ligação</p>|
 
 ## <a id="encrypted-sqlserver"></a>Forçar a comunicação encriptado para o SQL server

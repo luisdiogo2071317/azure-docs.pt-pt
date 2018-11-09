@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Utilizar Python para traduzir texto – API de Texto do Microsoft Translator'
+title: 'Guia de Início Rápido: Traduzir texto, Python - API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai traduzir texto de um idioma para outro através da API de Texto do Microsoft Translator com Python em menos de 10 minutos.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945354"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085993"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início Rápido: Utilizar a API de Texto do Microsoft Translator para traduzir uma cadeia com Python
 
@@ -114,7 +114,7 @@ response = request.json()
 O último passo é imprimir os resultados. Este fragmento de código simplifica os resultados ao ordenar as chaves, definir o avanço e declarar separadores de itens e chaves.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Juntar tudo

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393303"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247777"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas mais frequentes do Azure Machine Learning: faturação, capacidades, limitações e suporte
 Seguem-se algumas perguntas mais frequentes (FAQ) e as respostas correspondentes sobre o Azure Machine Learning, um serviço cloud para desenvolver modelos preditivos e operacionalizar soluções através de serviços Web. Estas FAQ respondem a perguntas sobre como utilizar o serviço, o que inclui o modelo de faturação, as capacidades, as limitações e o suporte.
 
 **Tem alguma pergunta que não encontre aqui?**
 
-O Azure Machine Learning tem um fórum no MSDN, onde os membros da comunidade de ciência de dados podem fazer perguntas sobre o Azure Machine Learning. O fórum é monitorizado pela equipa do Azure Machine Learning. Aceda ao [Fórum do Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para procurar as respostas ou para publicar uma nova pergunta.
+O Azure Machine Learning tem um fórum no MSDN, onde os membros da comunidade de ciência de dados podem fazer perguntas sobre o Azure Machine Learning. O fórum é monitorizado pela equipa do Azure Machine Learning. Aceda ao [Fórum do Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) para procurar as respostas ou para publicar uma nova pergunta.
 
 ## <a name="general-questions"></a>Perguntas gerais
 **O que é o Azure Machine Learning?**
@@ -123,7 +123,7 @@ Pode saber mais sobre a capacidade de entrada de imagem na referência [Importar
 ### <a name="modules"></a>Módulos
 **O algoritmo, a origem de dados, o formato de dados ou a operação de transformação de dados que procuro não está no Azure Machine Learning Studio. Quais são as minhas opções?**
 
-Pode visitar o [fórum de comentários dos utilizadores](http://go.microsoft.com/fwlink/?LinkId=404231) para ver os pedidos de funcionalidades que estamos a acompanhar. Adicione o seu voto a um pedido se já tiver sido pedida uma funcionalidade que procura. Se a capacidade que está à procura não existir, crie um pedido novo. Também pode ver o estado do seu pedido neste fórum. Estamos a controlar com mais atenção esta lista e a atualizar frequentemente o estado de disponibilidade das funcionalidades. Além disso, pode utilizar o suporte incorporado para R e Python para criar transformações personalizadas conforme necessário.
+Pode visitar o [fórum de comentários dos utilizadores](https://go.microsoft.com/fwlink/?LinkId=404231) para ver os pedidos de funcionalidades que estamos a acompanhar. Adicione o seu voto a um pedido se já tiver sido pedida uma funcionalidade que procura. Se a capacidade que está à procura não existir, crie um pedido novo. Também pode ver o estado do seu pedido neste fórum. Estamos a controlar com mais atenção esta lista e a atualizar frequentemente o estado de disponibilidade das funcionalidades. Além disso, pode utilizar o suporte incorporado para R e Python para criar transformações personalizadas conforme necessário.
 
 **Posso usar o meu código existente no Machine Learning Studio?**
 
@@ -182,7 +182,7 @@ Atualmente, só pode utilizar R para criar novos módulos personalizados.
 ### <a name="r-module"></a>Módulo de R
 **Os pacotes R estão disponíveis no Machine Learning Studio?**
 
-O Machine Learning Studio suporta mais de 400 pacotes CRAN R hoje e esta é a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Além disso, veja [Extend your experiment with R (Expandir a sua experiência com R) ](extend-your-experiment-with-r.md) para saber como obter esta lista manualmente. Se o pacote que pretende não estiver nesta lista, indique-o no [fórum de comentários dos utilizadores](http://go.microsoft.com/fwlink/?LinkId=404231).
+O Machine Learning Studio suporta mais de 400 pacotes CRAN R hoje e esta é a [lista atual](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) de todos os pacotes incluídos. Além disso, veja [Extend your experiment with R (Expandir a sua experiência com R) ](extend-your-experiment-with-r.md) para saber como obter esta lista manualmente. Se o pacote que pretende não estiver nesta lista, indique-o no [fórum de comentários dos utilizadores](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **É possível criar um módulo R personalizado?**
 
@@ -312,7 +312,7 @@ Também pode encontrar formação em [Microsoft Virtual Academy](http://www.micr
 
 Para obter suporte técnico para o Azure Machine Learning, aceda a [Suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Machine Learning**.
 
-O Azure Machine Learning também tem um fórum comunitário no MSDN, onde pode fazer perguntas sobre o Azure Machine Learning. O fórum é monitorizado pela equipa do Azure Machine Learning. Aceda ao [Azure Forum (Fórum do Azure)](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+O Azure Machine Learning também tem um fórum comunitário no MSDN, onde pode fazer perguntas sobre o Azure Machine Learning. O fórum é monitorizado pela equipa do Azure Machine Learning. Aceda ao [Azure Forum (Fórum do Azure)](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Perguntas sobre faturação
 **Como funciona a faturação do Machine Learning?**

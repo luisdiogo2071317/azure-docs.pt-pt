@@ -1,24 +1,24 @@
 ---
-title: Ativação pós-falha e reativação pós-falha de VM de Hyper-V replicadas no Azure com o Site Recovery | Microsoft Docs
-description: Saiba como proceder a uma ativação pós-falha de VM de Hyper-V para o Azure e a uma reativação pós-falha para o site no local com o Azure Site Recovery
+title: Fazer a ativação pós-falha e a reativação pós-falha de VMs de Hyper-V durante a recuperação após desastre para o Azure com o Azure Site Recovery | Microsoft Docs
+description: Saiba como fazer a ativação pós-falha e a reativação pós-falha de VMs de Hyper-V durante a recuperação após desastre para o Azure com o serviço Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076988"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210521"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Ativação pós-falha e reativação pós-falha de VM de Hyper-V replicadas no Azure
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicadas no Azure
 
-Este tutorial descreve como proceder à ativação pós-falha de uma VM de Hyper-V para o Azure. Depois de proceder à ativação pós-falha, irá proceder à reativação pós-falha para o seu site no local quando estiver disponível. Neste tutorial, ficará a saber como:
+Este tutorial descreve como proceder à ativação pós-falha de uma VM de Hyper-V para o Azure. Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para o seu site no local quando estiver disponível. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Verificar as propriedades da VM de Hyper-V para cumprir os requisitos do Azure

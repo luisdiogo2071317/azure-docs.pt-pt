@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d8ece15e7e8fa3b74fbefc78aea65683229712ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38700905"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246774"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Introdução aos Notification Hubs utilizando o Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ Como o Google Play e o FCM (Firebase Cloud Messaging) não estão disponíveis n
 ## <a name="prerequisites"></a>Pré-requisitos
 Este tutorial requer:
 
-* SDK Android (partimos do princípio que utiliza o Android Studio), que pode transferir a partir do <a href="http://go.microsoft.com/fwlink/?LinkId=389797">site do Android</a>
+* SDK Android (partimos do princípio que utiliza o Android Studio), que pode transferir a partir do <a href="https://go.microsoft.com/fwlink/?LinkId=389797">site do Android</a>
 * [SDK Android do Baidu Push]
 
 > [!NOTE]
@@ -475,7 +475,7 @@ Normalmente, as notificações push são enviadas num serviço de back-end como 
 Para ser mais simples, este tutorial utiliza uma aplicação de consola como demonstração sobre como enviar uma notificação com o SDK .NET. No entanto, recomendamos o tutorial [Utilizar Hubs de Notificação para notificações push a utilizadores](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) como passo seguinte para enviar notificações de um back-end do ASP.NET. 
 
 Seguem-se diferentes abordagens para enviar notificações:
-* **Interface REST**: pode suportar notificações em qualquer plataforma de back-end utilizando a [Interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **Interface REST**: pode suportar notificações em qualquer plataforma de back-end utilizando a [Interface REST](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **SDK .NET dos Notification Hubs do Microsoft Azure**: no Gestor de Pacotes Nuget para Visual Studio, execute [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js**: [como utilizar os Hubs de Notificação do Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 * **Aplicações Móveis**: para obter um exemplo de como enviar notificações de um back-end das Aplicações Móveis do Serviço de Aplicações do Azure integrado aos Hubs de Notificação, veja [Add push notifications to your mobile app (Adicionar notificações push à sua aplicação móvel)](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f4de10c29364ab96f54e5d07e9c416a2beb038f6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380213"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420375"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 
@@ -74,7 +74,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Selecione **Descrição geral** > **Essentials** > Copie a **Chave de Instrumentação** da sua aplicação.
 
-   ![Formulário de recurso novo do App Insights](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![Formulário de recurso novo do App Insights](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. Adicione o script seguinte a ``hello_world.html`` antes da etiqueta de fecho ``</head>``:
 
@@ -98,7 +98,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 1. Agora, pode reabrir a página **Descrição geral** do Application Insights no portal do Azure, onde obteve a sua chave de instrumentação, para ver detalhes sobre a aplicação que se encontra em execução. Os quatro gráficos predefinidos na página de descrição geral estão confinados aos dados da aplicação do lado do servidor. Uma vez que estamos a instrumentar as interações do lado do cliente/browser com o SDK JavaScript, esta vista específica não se aplica, a menos que também tenhamos um SDK do lado do servidor instalado.
 
-2. Clique no ![ícone do Mapa da Aplicação](./media/app-insights-nodejs-quick-start/006.png) **Analytics**.  Esta ação abre o **Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Para ver dados relacionados com os pedidos do browser do lado do cliente, execute a seguinte consulta:
+2. Clique no ![ícone do Mapa da Aplicação](media/app-insights-website-monitoring/006.png) **Analytics**.  Esta ação abre o **Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Para ver dados relacionados com os pedidos do browser do lado do cliente, execute a seguinte consulta:
 
     ```kusto
     // average pageView duration by name

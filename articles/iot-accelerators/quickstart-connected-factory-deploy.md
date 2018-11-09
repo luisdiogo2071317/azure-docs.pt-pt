@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144518"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139019"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Início Rápido: Experimentar uma solução com base na cloud para gerir os meus dispositivos IoT industriais
 
@@ -32,13 +32,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Ao implementar o acelerador de soluções na sua subscrição do Azure, tem de definir algumas opções de configuração.
 
-Inicie sessão em [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) com as credenciais da conta do Azure.
+Navegue para [Aceleradores de soluções do Microsoft Azure IoT](https://www.azureiotsolutions.com) e inicie sessão com as credenciais da sua conta do Azure.
 
-Clique em **Experimentar Agora** no mosaico **Fábrica Ligada**.
+Clique no mosaico **Fábrica Ligada**. Na página **Fábrica Ligada**, clique em **Experimente Agora**:
 
-![Escolher a Fábrica Ligada](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Experimente agora](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-Na página **Criar solução de Fábrica Ligada**, introduza um **Nome da solução** exclusivo para o acelerador de soluções de Fábrica Ligada. Este nome é o nome do grupo de recursos do Azure que contém todos os recursos do acelerador de soluções. Neste início rápido, vamos atribuir o nome **MyDemoConnectedFactory**.
+Na página **Criar solução de Fábrica Ligada**, introduza um **Nome da solução** exclusivo para o acelerador de soluções de Fábrica Ligada. Este nome é o nome do grupo de recursos do Azure que contém todos os recursos do acelerador de soluções. Este início rápido utiliza o nome **MyDemoConnectedFactory**.
 
 Selecione a **Subscrição** e a **Região** que quer utilizar para implementar o acelerador de soluções. Normalmente, pode escolher a região mais próxima para si. Neste início rápido, estamos a utilizar **Visual Studio Enterprise** e **E.U.A. Leste**. Tem de ser um [administrador global ou de utilizador](iot-accelerators-permissions.md) na subscrição.
 
@@ -66,7 +66,7 @@ A vista predefinida é o *dashboard*. Para navegar para outras áreas do portal,
 
 [![Dashboard de soluções](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-Pode utilizar o dashboard para gerir os seus dispositivos IoT industriais. A solução Fábrica Ligada utiliza uma hierarquia para mostrar uma configuração de fábrica global. No nível superior da hierarquia está a empresa que contém uma ou mais fábricas, sendo que cada fábrica contém linhas de produção e cada linha de produção é constituída por estações. Em cada nível, pode ver OEEs e KPIs, publicar nós novos para telemetria e responder a alarmes.
+Pode utilizar o dashboard para gerir os seus dispositivos IoT industriais. A solução Fábrica Ligada utiliza uma hierarquia para mostrar uma configuração de fábrica global. O nível superior da hierarquia é a empresa que contém uma ou mais fábricas. Cada fábrica contém linhas de produção, e cada linha de produção é constituída por estações. Em cada nível, pode ver OEEs e KPIs, publicar nós novos para telemetria e responder a alarmes.
 
 No dashboard, pode ver:
 
@@ -137,7 +137,7 @@ Clique num dos alarmes, no menu pendente **Escolher ação**, selecione **Alerta
 
 Para analisar mais aprofundadamente os dados do alarme, clique no gráfico no painel Alarmes.
 
-Estes alarmes são gerados por regras que estão especificadas num ficheiro de configuração do acelerador da solução. Estas regras podem gerar alarmes quando os valores de OEE ou KPI ou do Nó OPC UA excedem o respetivo limiar configurado.
+Estes alarmes são gerados por regras que estão especificadas num ficheiro de configuração do acelerador da solução. Estas regras podem gerar alarmes quando os valores de OEE ou KPI ou do Nó OPC UA excedem um limiar. Pode definir este valor de limiar.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

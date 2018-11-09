@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465955"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417298"
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -35,6 +35,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
++ Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
@@ -83,6 +84,9 @@ Os programadores têm de subscrever primeiro um produto para obter acesso à API
 2. Navegue para o separador **APIs**.
 3. Clique em **+ Adicionar**.
 4. Escolha uma API e clique em **Selecionar**.
+
+> [!TIP]
+> Pode criar ou atualizar a subscrição do utilizador para um *Produto*, com chaves de subscrição personalizadas [através da API REST](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) ou do comando do PowerShell.
 
 ## <a name="next-steps"></a>Passos seguintes
 

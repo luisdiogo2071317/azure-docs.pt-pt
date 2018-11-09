@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094433"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413677"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger a sua API 
 
@@ -39,9 +39,11 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
++ Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
++ Compreender o [conceito das políticas da Gestão de API do Azure](api-management-howto-policies.md).
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
- 
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>Transformar uma API para remover os cabeçalhos de resposta
@@ -57,21 +59,22 @@ Para ver a resposta original:
 
 1. Na sua instância de serviço APIM, selecione **APIs** (sob **GESTÃO DE APIS**).
 2. Clique em **API da Conferência de Demonstração** na lista de API.
-3. Selecione a operação **GetSpeakers**.
-4. Clique no separador **Teste**, na parte superior do ecrã.
-5. Prima o botão **Enviar**, na parte inferior do ecrã. 
+3. Clique no separador **Teste**, na parte superior do ecrã.
+4. Selecione a operação **GetSpeakers**.
+5. Prima o botão **Enviar**, na parte inferior do ecrã.
 
-    Como pode ver, a resposta original tem o seguinte aspeto:
+A resposta original deve ter o seguinte aspeto:
 
-    ![Políticas](./media/transform-api/original-response.png)
+![Políticas](./media/transform-api/original-response.png)
 
 ### <a name="set-the-transformation-policy"></a>Definir a política de transformação
+
+![Definir política de saída](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
 1. Selecione **API da Conferência de Demonstração**.
 2. Na parte superior do ecrã, selecione o separador **Design**.
 3. Selecione **Todas as operações**.
-4. Na janela **Processamento de saída**, clique no triângulo (junto ao lápis) e selecione **Editor de código**.
-     ![Editar política](./media/set-edit-policies/set-edit-policies01.png)
+4. Na secção **Processamento de saída**, clique no ícone**</>**.
 5. Posicione o cursor no interior do elemento **&lt;saída&gt;**.
 6. Na janela direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho de HTTP** duas vezes (para inserir dois fragmentos de política).
 
@@ -82,8 +85,8 @@ Para ver a resposta original:
         <set-header name="X-AspNet-Version" exists-action="delete" />
 
     ![Políticas](./media/transform-api/set-policy.png)
-8. Clique no botão **Guardar**.
 
+8. Clique no botão **Guardar**.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Substituir os URLs originais no corpo de resposta da API pelos URLs de gateway de APIM
 
@@ -94,8 +97,8 @@ Esta secção mostra como ocultar os URLs originais que aparecem no corpo da res
 Para ver a resposta original:
 
 1. Selecione **API da Conferência de Demonstração**.
-2. Selecione a operação **GetSpeakers**.
-3. Clique no separador **Teste**, na parte superior do ecrã.
+2. Clique no separador **Teste**, na parte superior do ecrã.
+3. Selecione a operação **GetSpeakers**.
 4. Prima o botão **Enviar**, na parte inferior do ecrã. 
 
     Como pode ver, a resposta original tem o seguinte aspeto:
@@ -107,7 +110,7 @@ Para ver a resposta original:
 1. Selecione **API da Conferência de Demonstração**.
 2. Selecione **Todas as operações**.
 3. Na parte superior do ecrã, selecione o separador **Design**.
-4. Na janela **Processamento de saída**, clique no triângulo (junto ao lápis) e selecione **Editor de código**.
+4. Na secção **Processamento de saída**, clique no ícone**</>**.
 5. Posicione o cursor no interior do elemento **&lt;saída&gt;**.
 6. Na janela direita, em **Políticas de transformação**, clique em **+ Localizar e substituir a cadeia no corpo**.
 7. Modifique o código **find-and-replace** (no elemento de **\<saída\>**) para substituir o URL para que corresponda ao seu gateway de APIM. Por exemplo:
@@ -118,13 +121,14 @@ Para ver a resposta original:
 
 Esta secção mostra como adicionar proteção à API de back-end através da configuração de limites de taxas. Por exemplo, poderá limitar um número de chamadas à API para que não seja sobreutilizada pelos programadores. Neste exemplo, o limite está definido para 3 chamadas por cada 15 segundos, para cada ID de subscrição. Após os 15 segundos, um programador pode tentar chamar a API novamente.
 
+![Definir a política de entrada](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+
 1. Selecione **API da Conferência de Demonstração**.
 2. Selecione **Todas as operações**.
 3. Na parte superior do ecrã, selecione o separador **Design**.
-4. Na janela **Processamento de entrada**, clique no triângulo (junto ao lápis) e selecione **Editor de código**.
-5. Posicione o cursor no interior do elemento **&lt;entrada&gt;**.
-6. Na janela direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamadas por chave**.
-7. Modifique o código **rate-limit-by-key** (no elemento de **\<entrada\>**) para o seguinte código:
+4. Na secção **Processamento de entrada**, clique no ícone**</>**.5. Posicione o cursor no interior do elemento **&lt;entrada&gt;**.
+5. Na janela direita, em **Políticas de restrição de acesso**, clique em **+ Limitar taxa de chamadas por chave**.
+6. Modifique o código **rate-limit-by-key** (no elemento de **\<entrada\>**) para o seguinte código:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -156,8 +160,8 @@ O resto desta secção testa as transformações de política que definiu neste 
 ### <a name="test-the-stripped-response-headers"></a>Testar os cabeçalhos de resposta removidos
 
 1. Selecione **API da Conferência de Demonstração**.
-2. Clique na operação **GetSpeakers**.
-3. Selecione o separador **Teste**.
+2. Selecione o separador **Teste**.
+3. Clique na operação **GetSpeakers**.
 4. Prima **Enviar**.
 
     Como pode ver, os cabeçalhos foram removidos:
@@ -167,8 +171,8 @@ O resto desta secção testa as transformações de política que definiu neste 
 ### <a name="test-the-replaced-url"></a>Testar o URL substituído
 
 1. Selecione **API da Conferência de Demonstração**.
-2. Clique na operação **GetSpeakers**.
-3. Selecione o separador **Teste**.
+2. Selecione o separador **Teste**.
+3. Clique na operação **GetSpeakers**.
 4. Prima **Enviar**.
 
     Como pode ver, o URL foi substituído.
@@ -178,11 +182,12 @@ O resto desta secção testa as transformações de política que definiu neste 
 ### <a name="test-the-rate-limit-throttling"></a>Testar o limite de taxa (limitação)
 
 1. Selecione **API da Conferência de Demonstração**.
-2. Clique na operação **GetSpeakers**.
-3. Selecione o separador **Teste**.
+2. Selecione o separador **Teste**.
+3. Clique na operação **GetSpeakers**.
 4. Prima **Enviar** três vezes seguidas.
 
     Depois de enviar o pedido 3 vezes, obterá a resposta **429 Demasiados pedidos**.
+
 5. Aguarde 15 segundos e prima **Enviar** novamente. Neste momento, deve obter uma resposta **200 OK**.
 
     ![Limitação](./media/transform-api/test-throttling.png)
@@ -190,8 +195,6 @@ O resto desta secção testa as transformações de política que definiu neste 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Passos seguintes
 

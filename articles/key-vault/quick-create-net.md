@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604183"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230936"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do .NET
 
@@ -25,7 +25,7 @@ Neste início rápido, siga os passos necessários para que uma aplicação Web 
 > * Armazene um segredo no cofre de chaves.
 > * Obter um segredo do cofre de chaves.
 > * Criar uma aplicação Web do Azure.
-> * Ative uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para a aplicação Web.
+> * Ative uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para a aplicação Web.
 > * Conceda as permissões exigidas para a aplicação ler dados do cofre de chaves.
 
 Antes de continuarmos, leia os [conceitos básicos](key-vault-whatis.md#basic-concepts).
@@ -33,7 +33,7 @@ Antes de continuarmos, leia os [conceitos básicos](key-vault-whatis.md#basic-co
 >[!NOTE]
 >O Key Vault é um repositório central para armazenar segredos de forma programática. Mas para tal, primeiro as aplicações e os utilizadores têm de autenticar para o Key Vault, ou seja, apresentar um segredo. Para seguir as melhores práticas de segurança, este primeiro segredo tem de ser trocado periodicamente. 
 >
->Com as [identidades geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md), as aplicações executadas no Azure recebem uma identidade gerida automaticamente pelo Azure. Isto ajuda a resolver o *problema de introdução do segredo*, para que os utilizadores e as aplicações possam seguir as melhores práticas e não precisem de se preocupar sobre trocar o primeiro segredo.
+>Com as [identidades de serviço geridas para os recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md), as aplicações executadas no Azure recebem uma identidade gerida automaticamente pelo Azure. Isto ajuda a resolver o *problema de introdução do segredo*, para que os utilizadores e as aplicações possam seguir as melhores práticas e não precisem de se preocupar sobre trocar o primeiro segredo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

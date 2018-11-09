@@ -4,17 +4,17 @@ description: Este artigo explica os passos para ativar a extensão do Resource G
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: df01a57cda063e301efbc4d99f3bac8dbb4b2e66
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054171"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086816"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Executar a primeira consulta do Resource Graph com a CLI do Azure
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Para ativar a CLI do Azure para consultar o Azure Resource Graph, tem de adicionar a extensão. Esta extensão funciona onde quer que a CLI do Azure possa ser utilizada, incluindo [bash no Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (autónomo e no portal), a [imagem do Docker da CLI do Azure](https://hub.docker.com/r/microsoft/azure-cli/), ou instalada localmente.
 
-1. Garanta que está instalada a CLI do Azure mais recente (no mínimo, a **2.0.45**). Se não estiver ainda instalada, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Certifique-se que está instalada a CLI do Azure mais recente (no mínimo, a **2.0.45**). Se não estiver ainda instalado, siga [estas instruções](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. No ambiente da CLI do Azure à escolha, importe-a com o seguinte comando:
 
@@ -49,7 +49,7 @@ Para ativar a CLI do Azure para consultar o Azure Resource Graph, tem de adicion
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
-Agora que a extensão da CLI do Azure foi adicionada ao ambiente escolhido, é altura de experimentar uma consulta do Resource Graph simples. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de Recurso** de cada recurso.
+Com a extensão da CLI do Azure adicionada ao seu ambiente escolhido, é altura de experimentar uma consulta simples do Resource Graph. A consulta devolverá os cinco primeiros recursos do Azure com o **Nome** e o **Tipo de Recurso** de cada recurso.
 
 1. Execute a primeira consulta do Azure Resource Graph com a extensão `graph` e o comando `query`:
 

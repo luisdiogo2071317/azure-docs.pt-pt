@@ -8,21 +8,21 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 10/30/2018
 ms.author: barbkess
 ms.reviewer: arvinh
-ms.openlocfilehash: 820c6a5cb0bf5fb2d98d27c171c1276866082700
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 577be6669442befec0c14a275505e2eebed72611
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716190"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418097"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestão de aplicações com o Microsoft Azure Active Directory
 
-O Microsoft Azure Active Directory (Microsoft Azure AD) proporciona um acesso seguro e totalmente integrado à cloud e às aplicações no local. Os utilizadores podem iniciar sessão uma vez para aceder ao Office 365 e a outras aplicações empresariais da Microsoft, a milhares de aplicações de software como um serviço (SaaS), a aplicações no local e a aplicações de linha de negócio (LOB). Reduza os custos administrativos ao automatizar o aprovisionamento de utilizadores. Utilize a autenticação multifator e políticas de acesso condicional para disponibilizar o acesso seguro às aplicações.
+O Microsoft Azure Active Directory (Microsoft Azure AD) proporciona um acesso seguro e totalmente integrado à cloud e às aplicações no local. Os utilizadores podem iniciar sessão uma vez para aceder ao Office 365 e a outras aplicações empresariais da Microsoft, aplicações de software como um serviço (SaaS), a aplicações no local e a aplicações de linha de negócio (LOB). Reduza os custos administrativos ao automatizar o aprovisionamento de utilizadores. Utilize a autenticação multifator e políticas de acesso condicional para disponibilizar o acesso seguro às aplicações.
 
-![Aplicações federadas através do Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
+![Aplicações federadas através do Azure AD](media/what-is-application-management/app-management-overview.png)
 
 ## <a name="why-manage-applications-with-a-cloud-solution"></a>Por que razão deve gerir as aplicações com uma solução na cloud?
 
@@ -40,5 +40,5 @@ O SSO melhora a segurança. *Sem o início de sessão único*, os administradore
 Com o Microsoft Azure AD, pode monitorizar inícios de sessão em aplicações por meio de relatórios que tiram partido das ferramentas de Monitorização de Eventos e Incidentes de Segurança (SIEM). Pode aceder aos relatórios no portal ou em APIs. Por meio da programação de auditoria, defina quem tem acesso às suas aplicações e remova o acesso de utilizadores inativos por meio de revisões de acesso.
 
 ## <a name="manage-costs"></a>Gerir os custos
-Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complicação de gerir a sua infraestrutura no local. O Microsoft Azure AD também proporciona acesso de gestão personalizada às aplicações, o que poupa o tempo dos administradores e utilizadores. O início de sessão único elimina palavras-passe específicas da aplicação, o que reduz os custos relacionados com a reposição da palavra-passe e a perda de produtividade ao obter as palavras-passe.
+Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complicação de gerir a sua infraestrutura no local. O Microsoft Azure AD também proporciona acesso de gestão personalizada às aplicações, o que poupa o tempo dos administradores e utilizadores. O início de sessão único elimina as palavras-passe específicas da aplicação. Esta capacidade de iniciar sessão uma vez reduz os custos relacionados com a reposição da palavra-passe e a perda de produtividade ao obter as palavras-passe.
 

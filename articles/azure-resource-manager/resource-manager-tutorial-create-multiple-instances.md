@@ -10,22 +10,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 1cfccdf644b1748a96f7638e574c66eace8d113a
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 14dd76e60f615bce4e5b5aa52e6237615071779c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456665"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241928"
 ---
-# <a name="tutorial-create-multiple-resource-instances-using-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: criar várias instâncias de recursos com modelos do Resource Manager
 
-Saiba como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. No último tutorial, modificou um modelo existente para criar uma conta de Armazenamento do Microsoft Azure encriptada. Neste tutorial, modificará o mesmo modelo para criar três instâncias de contas de armazenamento.
+Saiba como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
 
 > [!div class="checklist"]
-> * Abrir um modelo de início rápido
+> * Abrir um modelo de Início Rápido
 > * Editar o modelo
 > * Implementar o modelo
 
@@ -39,7 +39,7 @@ Para concluir este artigo, precisa de:
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-O modelo utilizado neste início rápido chama-se [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/). O modelo define um recurso de conta de Armazenamento do Azure.
+Os [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/) são um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste início rápido chama-se [Criar uma conta de armazenamento padrão](https://azure.microsoft.com/resources/templates/101-storage-account-create/). O modelo define um recurso de conta de Armazenamento do Azure.
 
 1. No Visual Studio Code, selecione **Ficheiro**>**Abrir Ficheiro**.
 2. em **Nome de ficheiro**, cole o seguinte URL:
@@ -48,20 +48,21 @@ O modelo utilizado neste início rápido chama-se [Criar uma conta de armazename
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
 3. Selecione **Abrir** para abrir o ficheiro.
-4. Selecione **Ficheiro**>**Guardar Como** para guardar o ficheiro como **azuredeploy.json** no computador local.
+4. Existe um recurso “Microsoft.Storage/storageAccounts” definido no modelo. Compare o modelo à [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). É útil ter alguma compreensão básica do modelo antes de personalizá-lo.
+5. Selecione **Ficheiro**>**Guardar Como** para guardar o ficheiro como **azuredeploy.json** no computador local.
 
 ## <a name="edit-the-template"></a>Editar o modelo
 
-O objetivo deste tutorial é utilizar a iteração de recursos para criar três contas de armazenamento.  O modelo de exemplo apenas cria uma conta de armazenamento. 
+O exemplo existente cria uma conta de armazenamento. Personaliza o modelo para criar três contas de armazenamento.  
 
 No Visual Studio Code, efetue as seguintes quatro alterações:
 
-![Criar várias instâncias do Azure Resource Manager](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
+![O Azure Resource Manager cria várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
-1. Adicione um elemento `copy` à definição do recurso de conta de armazenamento. No elemento de cópia, especifique o número de iterações e um nome para este ciclo. O valor tem de ser um número inteiro positivo e não pode ser mais de 800.
-2. A função `copyIndex()` devolve a iteração atual no ciclo. `copyIndex()` é baseado em zero. Para deslocar o valor de índice, pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)*.
+1. Adicione um elemento `copy` à definição do recurso de conta de armazenamento. No elemento de cópia, especifique o número de iterações e uma variável para este ciclo. O valor tem de ser um número inteiro positivo e não pode ser mais de 800.
+2. A função `copyIndex()` devolve a iteração atual no ciclo. Utilize o índice como o prefixo do nome. `copyIndex()` é baseado em zero. Para deslocar o valor de índice, pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)*.
 3. Elimine o elemento **variables**, dado que já não é utilizado.
-4. Elimine o elemento **outputs**.
+4. Elimine o elemento **outputs**. Já não é necessário.
 
 O modelo completo assemelha-se a:
 

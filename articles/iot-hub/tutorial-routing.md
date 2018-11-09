@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946942"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416890"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o Hub IoT
 
@@ -268,7 +268,9 @@ Vai encaminhar mensagens para diferentes recursos com base nas propriedades anex
 
 ### <a name="routing-to-a-storage-account"></a>Encaminhar para uma conta de armazenamento 
 
-Agora configure o encaminhamento para a conta de armazenamento. Vá para o painel Encaminhamento de Mensagens e, em seguida, adicione uma rota. Ao adicionar a rota, defina um novo ponto final para a rota. Depois de o configurar, as mensagens com a propriedade **nível** definida como **armazenamento** são automaticamente escritas para uma conta de armazenamento.
+Agora configure o encaminhamento para a conta de armazenamento. Vá para o painel Encaminhamento de Mensagens e, em seguida, adicione uma rota. Ao adicionar a rota, defina um novo ponto final para a rota. Depois de o configurar, as mensagens com a propriedade **nível** definida como **armazenamento** são automaticamente escritas para uma conta de armazenamento. 
+
+Os dados são escritos no blob de armazenamento no formato Avro.
 
 1. No [portal do Azure](https://portal.azure.com), clique em**Grupos de Recursos** e selecione o grupo de recursos. Este tutorial utiliza **ContosoResources**. 
 
@@ -286,9 +288,19 @@ Agora configure o encaminhamento para a conta de armazenamento. Vá para o paine
 
 6. Clique em **Escolher um contentor**, será apresentada a lista das suas contas de armazenamento. Selecione a que configurou nos passos de preparação. Este tutorial utiliza **contosostorage**. Mostra uma lista de contentores nessa conta de armazenamento. Selecione o contentor que configurou nos passos de preparação. Este tutorial utiliza **contosoresults**. Clique em **Selecionar**. Volta ao painel **Adicionar ponto final**. 
 
-7. Utilize as predefinições no resto dos campos. Clique em **Criar** para criar o ponto final de armazenamento e adicioná-lo à rota. Volta ao painel **Adicionar uma rota**.
+7. Para efeitos deste tutorial, utilize as predefinições no resto dos campos. 
 
-8.  Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para o contentor de armazenamento que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
+   > [!NOTE]
+   > Pode definir o formato do nome de blob com o **Formato do nome de ficheiro blob**. A predefinição é `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. O formato tem de conter {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH}, and {mm} por qualquer ordem. 
+   > 
+   > Por exemplo, ao utilizar o formato de nome de ficheiro blob predefinido, se o nome do hub for ContosoTestHub e a data/hora for 30 de outubro de 2018 à 10:56, o nome do blob ficará assim: `ContosoTestHub/0/2018/10/30/10/56`.
+   > 
+   > Os blobs são escritos no formato Avro.
+   >
+
+8. Clique em **Criar** para criar o ponto final de armazenamento e adicioná-lo à rota. Volta ao painel **Adicionar uma rota**.
+
+9. Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para o contentor de armazenamento que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
 
    **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial utiliza **StorageRoute**.
 
@@ -368,17 +380,17 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
 
    Clique em **Criar**.
 
-1. Agora, vá para a Aplicação Lógica. A forma mais fácil de aceder à Aplicação Lógica é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial utiliza **ContosoResources**) e, em seguida, selecionar a Aplicação Lógica na lista de recursos. É apresentada a página Estruturador de Aplicações Lógicas (poderá ter de deslocar o ecrã para a direita para ver a página completa). Na página Estruturador de Aplicações Lógicas, desloque o ecrã para baixo até ver o mosaico que indica **Aplicação Lógica em Branco +** e clique nele. 
+2. Agora, vá para a Aplicação Lógica. A forma mais fácil de aceder à Aplicação Lógica é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial utiliza **ContosoResources**) e, em seguida, selecionar a Aplicação Lógica na lista de recursos. É apresentada a página Estruturador de Aplicações Lógicas (poderá ter de deslocar o ecrã para a direita para ver a página completa). Na página Estruturador de Aplicações Lógicas, desloque o ecrã para baixo até ver o mosaico que indica **Aplicação Lógica em Branco +** e clique nele. 
 
-1. É apresentada uma lista de conectores. Selecione **Service Bus**. 
+3. É apresentada uma lista de conectores. Selecione **Service Bus**. 
 
    ![Captura de ecrã que mostra a lista de conectores.](./media/tutorial-routing/logic-app-connectors.png)
 
-1. É apresentada uma lista de acionadores. Selecione **Service Bus – Quando uma mensagem é recebida numa fila (concluir automaticamente)**. 
+4. É apresentada uma lista de acionadores. Selecione **Service Bus – Quando uma mensagem é recebida numa fila (concluir automaticamente)**. 
 
    ![Captura de ecrã que mostra a lista de acionadores do Service Bus.](./media/tutorial-routing/logic-app-triggers.png)
 
-1. No ecrã seguinte, preencha o Nome da Ligação. Este tutorial utiliza **ContosoConnection**. 
+5. No ecrã seguinte, preencha o Nome da Ligação. Este tutorial utiliza **ContosoConnection**. 
 
    ![Captura de ecrã que mostra como configurar a ligação para a fila do Service Bus.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -386,21 +398,21 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
    
    ![Captura de ecrã que mostra como configurar a ligação.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-1. No ecrã seguinte, selecione o nome da fila na lista pendente (este tutorial utiliza **contososbqueue**). Pode utilizar as predefinições no resto dos campos. 
+6. No ecrã seguinte, selecione o nome da fila na lista pendente (este tutorial utiliza **contososbqueue**). Pode utilizar as predefinições no resto dos campos. 
 
    ![Captura de ecrã que mostra as opções da fila.](./media/tutorial-routing/logic-app-queue-options.png)
 
-1. Agora, configure a ação para enviar um e-mail quando é recebida uma mensagem na fila. No Estruturador de Aplicações Lógicas, clique em **+Novo passo** para adicionar um passo e, em seguida, clique em**Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. No ecrã de acionadores, selecione **Outlook do Office 365 – Enviar um e-mail**.  
+7. Agora, configure a ação para enviar um e-mail quando é recebida uma mensagem na fila. No Estruturador de Aplicações Lógicas, clique em **+Novo passo** para adicionar um passo e, em seguida, clique em**Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. No ecrã de acionadores, selecione **Outlook do Office 365 – Enviar um e-mail**.  
 
    ![Captura de ecrã que mostra as opções do Office 365.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-1. Em seguida, inicie sessão na sua conta Office 365 para configurar a ligação. Especifique os endereços de e-mail dos destinatários. Especifique também o assunto e escreva a mensagem para apresentar no corpo ao destinatário. Para fins de teste, introduza o seu próprio endereço de e-mail para o destinatário.
+8. Em seguida, inicie sessão na sua conta Office 365 para configurar a ligação. Especifique os endereços de e-mail dos destinatários. Especifique também o assunto e escreva a mensagem para apresentar no corpo ao destinatário. Para fins de teste, introduza o seu próprio endereço de e-mail para o destinatário.
 
    Clique em **Adicionar conteúdo dinâmico** para mostrar o conteúdo da mensagem que pode incluir. Selecione **Conteúdo** – incluirá a mensagem no e-mail. 
 
    ![Captura de ecrã que mostra as opções de e-mail da aplicação lógica.](./media/tutorial-routing/logic-app-send-email.png)
 
-1. Clique em **Guardar**. Em seguida, feche o Estruturador de Aplicações Lógicas.
+9. Clique em **Guardar**. Em seguida, feche o Estruturador de Aplicações Lógicas.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurar o Azure Stream Analytics
 
@@ -410,7 +422,7 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
 1. No [portal do Azure](https://portal.azure.com), clique em **Criar um recurso** > **Internet das Coisas** > **Tarefa do Stream Analytics**.
 
-1. Introduza as seguintes informações para a tarefa.
+2. Introduza as seguintes informações para a tarefa.
 
    **Nome da tarefa**: o nome da tarefa. O nome tem de ser globalmente exclusivo. Este tutorial utiliza **contosoJob**.
 
@@ -420,13 +432,13 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    ![Captura de ecrã que mostra como criar a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-1. Clique em **Criar** para criar a tarefa. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial utiliza **ContosoResources**. Selecione o grupo de recursos e, em seguida, clique na tarefa de Stream Analytics na lista de recursos. 
+3. Clique em **Criar** para criar a tarefa. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial utiliza **ContosoResources**. Selecione o grupo de recursos e, em seguida, clique na tarefa de Stream Analytics na lista de recursos. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada à tarefa do Stream Analytics
 
-1. Em **Topologia da Tarefa**, clique em **Entradas**.
+4. Em **Topologia da Tarefa**, clique em **Entradas**.
 
-1. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. No ecrã apresentado, preencha os campos seguintes:
+5. No painel **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de entrada**: este tutorial utiliza **contosoinputs**.
 
@@ -444,13 +456,13 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    ![Captura de ecrã que mostra como configurar a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-1. Clique em **Guardar**.
+6. Clique em **Guardar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída à tarefa do Stream Analytics
 
 1. Em **Topologia da Tarefa**, clique em **Saídas**.
 
-1. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
+2. No painel **Saídas**, clique em **Adicionar** e selecione **Power BI**. No ecrã apresentado, preencha os campos seguintes:
 
    **Alias de saída**: o alias exclusivo da saída. Este tutorial utiliza **contosooutputs**. 
 
@@ -460,25 +472,25 @@ Para ver os dados numa visualização do Power BI, configure primeiro uma taref
 
    Aceite as predefinições no resto dos campos.
 
-1. Clique em **Autorizar**e inicie sessão na sua conta do Power BI.
+3. Clique em **Autorizar**e inicie sessão na sua conta do Power BI.
 
    ![Captura de ecrã que mostra como configurar as saídas para a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-1. Clique em **Guardar**.
+4. Clique em **Guardar**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta da tarefa do Stream Analytics
 
 1. Em **Topologia de Tarefas**, clique em **Consulta**.
 
-1. Substitua `[YourInputAlias]` pelo alias de entrada da tarefa. Este tutorial utiliza **contosoinputs**.
+2. Substitua `[YourInputAlias]` pelo alias de entrada da tarefa. Este tutorial utiliza **contosoinputs**.
 
-1. Substitua `[YourOutputAlias]` pelo alias de saída da tarefa. Este tutorial utiliza **contosooutputs**.
+3. Substitua `[YourOutputAlias]` pelo alias de saída da tarefa. Este tutorial utiliza **contosooutputs**.
 
    ![Captura de ecrã que mostra como configurar a consulta para a tarefa do Stream Analytics.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-1. Clique em **Guardar**.
+4. Clique em **Guardar**.
 
-1. Feche o painel Consulta. Esta ação leva-o de volta à vista de recursos no grupo de recursos. Clique na tarefa do Stream Analytics. Este tutorial denomina-o **contosoJob**.
+5. Feche o painel Consulta. Esta ação leva-o de volta à vista de recursos no grupo de recursos. Clique na tarefa do Stream Analytics. Este tutorial denomina-o **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
@@ -520,7 +532,7 @@ Se tudo estiver configurado corretamente, neste momento, deverá ver os seguinte
    * A Aplicação Lógica que obtém a mensagem da fila do Service Bus está a funcionar corretamente.
    * O conector da Aplicação Lógica para o Outlook está a funcionar corretamente. 
 
-1. No [portal do Azure](https://portal.azure.com), clique em**Grupos de recursos** e selecione o seu Grupo de Recursos. Este tutorial utiliza **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs** e selecione o Contentor. Este tutorial utiliza **contosoresults**. Deverá ver uma pasta e poderá pesquisar através dos diretórios até ver um ou mais ficheiros. Abra um desses ficheiros; contêm as entradas encaminhadas para a conta de armazenamento. 
+2. No [portal do Azure](https://portal.azure.com), clique em**Grupos de recursos** e selecione o seu Grupo de Recursos. Este tutorial utiliza **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs** e selecione o Contentor. Este tutorial utiliza **contosoresults**. Deverá ver uma pasta e poderá pesquisar através dos diretórios até ver um ou mais ficheiros. Abra um desses ficheiros; contêm as entradas encaminhadas para a conta de armazenamento. 
 
    ![Captura de ecrã que mostra os ficheiros resultantes no armazenamento.](./media/tutorial-routing/results-in-storage.png)
 
@@ -534,35 +546,35 @@ Agora com a aplicação ainda em execução, configure a visualização do Power
 
 1. Inicie sessão na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
-1. Aceda a **Áreas de Trabalho** e selecione a área de trabalho que definiu quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **A Minha Área de Trabalho**. 
+2. Aceda a **Áreas de Trabalho** e selecione a área de trabalho que definiu quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **A Minha Área de Trabalho**. 
 
-1. Clique em **Conjuntos de dados**.
+3. Clique em **Conjuntos de dados**.
 
    Deverá ver o conjunto de dados que especificou quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **contosodataset**. (Pode demorar 5 a 10 minutos para que o conjunto de dados seja apresentado na primeira vez.)
 
-1. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
+4. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
 
    ![Captura de ecrã que mostra a área de trabalho do Power BI com Ações e o ícone de relatório realçados.](./media/tutorial-routing/power-bi-actions.png)
 
-1. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
+5. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
 
-   a. Na página de criação do relatório, adicione um gráfico de linhas ao clicar no ícone de gráfico de linhas.
+   * Na página de criação do relatório, adicione um gráfico de linhas ao clicar no ícone de gráfico de linhas.
 
    ![Captura de ecrã que mostra as visualizações e os campos.](./media/tutorial-routing/power-bi-visualizations-and-fields.png)
 
-   b. No painel **Campos**, expanda a tabela que especificou quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **contosotable**.
+   * No painel **Campos**, expanda a tabela que especificou quando criou a saída da tarefa do Stream Analytics. Este tutorial utiliza **contosotable**.
 
-   c. Arraste **EventEnqueuedUtcTime** para **Eixo** no painel **Visualizações**.
+   * Arraste **EventEnqueuedUtcTime** para **Eixo** no painel **Visualizações**.
 
-   d. Arraste **temperatura** para **Valores**.
+   * Arraste **temperatura** para **Valores**.
 
    É criado um gráfico de linhas. O eixo X apresenta a data e hora no fuso horário UTC. O eixo Y apresenta a temperatura do sensor.
 
-1. Crie outro gráfico de linhas para mostrar a humidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga os mesmos passos acima e coloque **EventEnqueuedUtcTime** no eixo X e **humidade** no eixo Y.
+6. Crie outro gráfico de linhas para mostrar a humidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga os mesmos passos acima e coloque **EventEnqueuedUtcTime** no eixo X e **humidade** no eixo Y.
 
    ![Captura de ecrã que mostra o relatório do Power BI final com os dois gráficos.](./media/tutorial-routing/power-bi-report.png)
 
-1. Clique em **Guardar** para guardar o relatório.
+7. Clique em **Guardar** para guardar o relatório.
 
 Poderá ver os dados em ambos os gráficos. Significado:
 
@@ -595,7 +607,6 @@ Para remover o grupo de recursos, utilize o comando [Remove-AzureRmResourceGroup
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a utilizar o encaminhamento de mensagens para encaminhar mensagens do Hub IoT para diferentes destinos ao realizar as seguintes tarefas.  
@@ -615,5 +626,3 @@ Avance para o tutorial seguinte para aprender a gerir o estado de um dispositivo
 
 > [!div class="nextstepaction"]
 [Configure os seus dispositivos a partir de um serviço de back-end](tutorial-device-twins.md)
-
- <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

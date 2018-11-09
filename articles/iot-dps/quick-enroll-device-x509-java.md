@@ -1,6 +1,6 @@
 ---
 title: Este início rápido mostra como inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos do Azure com Java | Microsoft Docs
-description: Neste início rápido, vai inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos do Hub IoT do Azure com Java
+description: Este início rápido utiliza inscrições em grupo e individuais. Neste início rápido, vai inscrever dispositivos X.509 no Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure com Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205770"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412776"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Java
 
@@ -31,7 +31,7 @@ Embora o SDK do serviço Java funcione em computadores Windows e Linux, este art
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale o [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Instale o [Java SE Development Kit 8](https://aka.ms/azure-jdks).
 * Instale o [Maven 3](https://maven.apache.org/download.cgi). Pode verificar a sua versão atual do Maven ao executar:
 
     ```cmd/sh
