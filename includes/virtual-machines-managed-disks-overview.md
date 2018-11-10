@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 40396462cc568a4ad7dea798fc30d72dcd75fd07
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737250"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51209107"
 ---
 # <a name="azure-managed-disks-overview"></a>Descrição geral do Managed Disks do Azure
 
@@ -69,7 +69,7 @@ Vamos dar uma olhada mais de perto essas opções.
 
 Seguem-se disponível para um disco gerido premium os tamanhos de disco:
 
-| **SDD Premium gerido <br>tipo de disco** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **SSD Premium gerido <br>tipo de disco** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamanho do Disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 giB (1 TiB) | 2.048 giB (2 TiB) | 4095 giB (4 TiB) | 8.192 giB (8 TiB) | 16,384 giB (TiB de 16) | 32.767 giB (TiB) |
 

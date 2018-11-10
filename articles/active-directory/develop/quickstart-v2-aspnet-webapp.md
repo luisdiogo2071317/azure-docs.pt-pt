@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 4035e93b8eed0a7bc1dd0cddbc42f41e9c26f333
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831505"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218870"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início Rápido: adicionar início de sessão com a Microsoft a uma aplicação Web ASP.NET
 
@@ -31,17 +31,29 @@ Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode i
 ![Como funciona a aplicação de exemplo gerada por este início rápido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registar a sua aplicação e transferir a aplicação do início rápido
+> ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
+> Tem duas opções para iniciar a aplicação de início rápido:
+> * [Express] [Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Opção 2: registar e configurar manualmente a aplicação e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registar e configurar a aplicação e o exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
+>
+> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Introduza um nome para a sua aplicação e clique em **Registar**.
+> 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
+>
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
-> 
-> 1. Aceda ao [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Introduza um nome para a sua aplicação, certifique-se de que a opção **Guided Setup** (Configuração Assistida) está desmarcada e clique em **Create** (Criar).
-> 1. Clique em `Add Platform` e selecione `Web`.
-> 1. Certifique-se de que a caixa **Permitir Fluxo Implícito** está *marcada*.
-> 1. Em **URLs de redirecionamento**, introduza `https://localhost:44368/`.
-> 1. Desloque a página até ao fim e clique em **Guardar**.
+> Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
+>
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
+> 1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização)** > **Novo registo**.
+> 1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
+>      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `ASPNET-Quickstart`.
+>      - Adicione `https://localhost:44368/` no **URL de Resposta** e clique em **Registar**.
+Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão Implícita** e, em seguida, selecione **Guardar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
@@ -60,15 +72,23 @@ Neste início rápido, vai ficar a saber como uma aplicação Web ASP.NET pode i
 
 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Edite o ficheiro **Web.config** e substitua `Enter_the_Application_Id_here` pelo ID de Aplicação da aplicação que acabou de registar:
+1. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
+    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
-    
-> [!div class="sxs-lookup" renderon="portal"]
-> [!IMPORTANT]
-> Se a sua aplicação for uma *aplicação de inquilino único* (que visa contas apenas neste diretório), no ficheiro **Web.config**, localize o valor para `Tenant` e substitua `common` pelo **Id do inquilino** ou **Nome do inquilino** (por exemplo, contoso.microsoft.com). Pode obter o nome do inquilino na **página de descrição geral**.
+
+> [!div renderon="docs"]
+> Em que:
+> - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
+> - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
+>   - Se a sua aplicação suportar **Apenas a minha organização**, substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
+>
+> > [!TIP]
+> > Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
 
 ## <a name="more-information"></a>Mais informações
 

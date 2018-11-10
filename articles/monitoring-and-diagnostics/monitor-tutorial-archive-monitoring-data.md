@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409495"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961519"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arquivar os dados de métricas e de registos do Azure com o Armazenamento do Azure
 
@@ -42,7 +42,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui](../storage/common/storage-create-storage-account.md).
+Primeiro, tem de configurar uma conta de armazenamento na qual os dados de monitorização serão arquivados. Para tal, [siga os passos aqui](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Encaminhar registos da subscrição para a conta de armazenamento
 
@@ -198,4 +198,4 @@ Neste tutorial, aprendeu a configurar os dados de monitorização do seu ambient
 Para tirar mais proveito dos seus dados e obter informações adicionais, envie-os também para o Log Analytics.
 
 > [!div class="nextstepaction"]
-> [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md)
+> [Introdução ao Log Analytics](../log-analytics/log-analytics-queries.md)

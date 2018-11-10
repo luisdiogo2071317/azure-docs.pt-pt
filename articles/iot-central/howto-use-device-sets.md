@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731988"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004124"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilize conjuntos de dispositivo na aplicação do Azure IoT Central
 
-Este artigo descreve como, como um operador, para utilizar o dispositivo conjuntos na sua aplicação do Microsoft Azure IoT Central.
+Este artigo descreve como, como um operador, para utilizar o dispositivo conjuntos na sua aplicação do Azure IoT Central.
 
-Um conjunto de dispositivos é uma lista de dispositivos que são agrupados em conjunto, porque todos eles correspondem a critérios especificados. Dispositivo define ajuda que gere, visualizar, analisar e dispositivos à escala através do agrupamento de dispositivos em grupos mais pequenos e lógicos. Por exemplo, crie uma lista de todos os dispositivos de ar-condicionado em Seattle para permitir que o técnico de Seattle localizar todos os dispositivos para a qual ela é responsável. Este artigo mostra-lhe como criar e configurar conjuntos de dispositivo.
+Um conjunto de dispositivos é uma lista de dispositivos que são agrupados em conjunto, porque todos eles correspondem a critérios especificados. Dispositivo define ajuda que gere, visualizar, analisar e dispositivos à escala através do agrupamento de dispositivos em grupos mais pequenos e lógicos. Por exemplo, crie uma lista de todos os dispositivos de ar-condicionado em Seattle para permitir que o técnico de Seattle localizar todos os dispositivos para os quais o técnico é responsável. Este artigo mostra-lhe como criar e configurar conjuntos de dispositivo.
 
 ## <a name="create-a-device-set"></a>Criar um conjunto de dispositivos
 
@@ -73,7 +73,7 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
         ![Escolha a grelha](media/howto-use-device-sets/image8.png)
 
     1. Dê sua grelha de um **Title**.
-    1. Selecione as colunas a serem apresentados ao escolher o botão de definições. No painel que aparece, escolha a coluna que apresentar e selecione a seta para a direita para selecioná-lo.
+    1. Selecione as colunas a serem apresentados ao escolher **Adicionar/remover**. No painel que aparece, escolha a coluna que apresentar e selecione a seta para a direita para selecioná-lo.
     1. Escolha **OK**.
     1. Escolha **Guardar**.
 
@@ -101,9 +101,10 @@ Para adicionar um mapa de localização para o dispositivo define dashboard tem 
 
 2. Atribua um título e escolha a propriedade de localização que tenha configurado anteriormente como parte de sua propriedade do dispositivo.
 3. Guardar e verá o mapa de mosaico a apresentar a localização dos seus dispositivos no conjunto de dispositivos.
-4. Agora, quando um operador visualiza o dashboard de conjuntos de dispositivo, ela pode ver todos os mosaicos que configurou incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante! 
+4. Agora quando um operador vê o dispositivo define o dashboard, o operador pode ver todos os mosaicos que configurou, incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante! 
     
-[!NOTE] Será capaz de redimensionar o mapa para seu tamanho desejado. Clicar num pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode clicar em pop-up para ir para a página de propriedades do dispositivo.  
+> [!NOTE] 
+> Será capaz de redimensionar o mapa para seu tamanho desejado. Clicar num pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode clicar em pop-up para ir para a página de propriedades do dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o seu conjunto de dispositivos

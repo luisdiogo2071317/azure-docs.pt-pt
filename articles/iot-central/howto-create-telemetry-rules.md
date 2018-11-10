@@ -3,21 +3,21 @@ title: Criar e gerir regras de telemetria na sua aplicação do Azure IoT Centra
 description: Regras de telemetria do Centro de IoT do Azure permitem-lhe monitorizar os seus dispositivos em tempo real e invocar ações, tal como enviar um e-mail quando a regra for acionada automaticamente.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729333"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005738"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
-*Este artigo aplica-se para operadores, criadores e administradores.*
+*Este artigo aplica-se a operadores, construtores e administradores.*
 
 Pode utilizar o Azure IoT Central para monitorizar remotamente os seus dispositivos ligados. Regras de centro de IoT do Azure permitem-lhe monitorizar os seus dispositivos em tempo real e automaticamente invocar ações, tal como enviar um e-mail ou acionar o Microsoft Flow. Em apenas alguns cliques, pode definir a condição para a qual monitorizar os dados de dispositivo e configure a ação correspondente. Este artigo explica como criar regras para monitorizar a telemetria enviada pelo dispositivo.
 
@@ -87,9 +87,9 @@ Esta secção mostra como configurar as ações a tomar quando a regra é dispar
 
    ![Configurar ação](media\howto-create-telemetry-rules\Configure_Action.png)
 
-1. Para guardar a regra, escolha **guardar**. A regra for executada dentro de alguns minutos e inicia a monitorização de envio de telemetria para seu aplicativo. Quando a condição especificada na regra corresponde, a regra for acionada a ação de e-mail configurado.
+1. Para guardar a regra, escolha **guardar**. A regra for executada dentro de alguns minutos e inicia a monitorização de envio de telemetria para seu aplicativo. Quando for cumprida a condição especificada na regra, a regra for acionada a ação de e-mail configurado.
 
-1. Escolher **feito** para sair do **Editar modelo** modo.
+1. Selecione **Concluído** para sair do modo **Editar Modelo**.
 
 Pode adicionar outras ações para a regra, como o Microsoft Flow e webhooks. Pode adicionar até 5 ações por regra.
 

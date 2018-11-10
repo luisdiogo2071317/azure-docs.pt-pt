@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406282"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036042"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -32,7 +32,7 @@ Os conectores são agentes leves que residem no local e facilitam a ligação de
 
 ## <a name="requirements-and-deployment"></a>Requisitos e Implantações.
 
-Para implementar o Proxy de aplicações com êxito, terá de, pelo menos, um conector, mas recomendamos dois ou mais para maior resiliência. Instale o conector no Windows Server 2012 R2 ou 2016 numa máquina. O conector tem de conseguir comunicar com o serviço de Proxy de aplicações, bem como as aplicações no local que publicar. 
+Para implementar o Proxy de aplicações com êxito, terá de, pelo menos, um conector, mas recomendamos dois ou mais para maior resiliência. Instale o conector no Windows Server 2012 R2 ou 2016 numa máquina. O conector tem de conseguir comunicar com o serviço de Proxy de aplicações, bem como as aplicações no local que publicar. Proxy de aplicações também requer o TLS 1.2 em execução no sistema operacional subjacente. Para alterar para TLS 1.2, siga os passos em [ativar o TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Embora seja o conteúdo do Azure AD Connect, este procedimento é o mesmo para todos os clientes .NET.
 
 Para obter mais informações sobre os requisitos de rede para o servidor do conector, consulte [introdução ao Proxy da aplicação e instalar um conector](application-proxy-enable.md).
 

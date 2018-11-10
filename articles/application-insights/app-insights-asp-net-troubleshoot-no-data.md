@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3fa41f894e3228310bae6a9407cfcc426c27bfdc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963723"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228543"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -141,7 +141,7 @@ CORREÇÃO:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * Na [dashboard inicial do Microsoft Azure](https://portal.azure.com), ver o mapa de estado de funcionamento do serviço. Se existirem algumas indicações de alerta, aguarde até que eles tem devolvido para OK e, em seguida, feche e volte a abrir o painel de aplicações do Application Insights.
-* Verifique também [nosso blogue de estado](http://blogs.msdn.com/b/applicationinsights-status/).
+* Verifique também [nosso blogue de estado](https://blogs.msdn.com/b/applicationinsights-status/).
 * Fez escrever qualquer código para o [SDK do lado do servidor](app-insights-api-custom-events-metrics.md) que podem ser alteradas a chave de instrumentação na `TelemetryClient` instâncias ou na `TelemetryContext`? Ou fez escrever um [configuração de filtro ou amostragem](app-insights-api-filtering-sampling.md) que poderá ser filtragem horizontalmente muito?
 * Se editou o applicationinsights. config, verifique com cuidado a configuração do [TelemetryInitializers e TelemetryProcessors](app-insights-api-filtering-sampling.md). Um tipo chamado incorretamente ou um parâmetro pode fazer com que o SDK para enviar dados não.
 
@@ -167,7 +167,7 @@ Dados de desempenho (CPU, a taxa de e/s e assim por diante) está disponível pa
 * Windows Server 2008: Certifique-se de que instalou as seguintes atualizações: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>Usei para ver os dados, mas foi parado
-* Verifique os [blog de estado](http://blogs.msdn.com/b/applicationinsights-status/).
+* Verifique os [blog de estado](https://blogs.msdn.com/b/applicationinsights-status/).
 * Ter atingido a quota mensal de pontos de dados? Abra o preço e definições/Quota para descobrir. Nesse caso, pode atualizar o seu plano ou pagar por capacidade adicional. Consulte a [esquema de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Não vejo todos os dados que eu estou esperando
