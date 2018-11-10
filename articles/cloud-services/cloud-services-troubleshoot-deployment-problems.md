@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095002"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226945"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Resolver problemas de implementação do serviço de nuvem
 Quando implementar um pacote de aplicação de serviço cloud do Azure, pode obter informações sobre a implementação a partir da **propriedades** painel no portal do Azure. Pode utilizar os detalhes neste painel para o ajudar a resolver problemas relacionados com o serviço em nuvem, e pode fornecer estas informações para o suporte do Azure ao abrir um novo pedido de suporte.
@@ -50,7 +50,7 @@ Serviço de recuperação ocorre automaticamente quando o Azure Deteta nós de p
 2. Na **propriedades** painel do portal do Azure, reveja as informações e determinar se recuperação do serviço ocorreu durante o tempo que observou que a Reciclagem de funções.
 
 Funções também haverá Reciclagem aproximadamente uma vez por mês durante o SO anfitrião e atualizações de SO convidado.  
-Para obter mais informações, consulte a mensagem de blogue [função instância é reiniciado devido a atualizações do SO](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Para obter mais informações, consulte a mensagem de blogue [função instância é reiniciado devido a atualizações do SO](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: eu não é possível fazer uma alternância de VIP e receber um erro
 Uma alternância de VIP não é permitida se uma atualização de implementação está em curso. Implementação de atualizações podem ocorrer automaticamente quando:
@@ -68,14 +68,14 @@ Para saber se uma atualização automática está a impedir a fazer uma alternâ
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Uma instância de função está executando loop entre iniciado, a inicializar, ocupado e parado
 Esta condição poderá indicar um problema com o código, o pacote ou o ficheiro de configuração da aplicação. Nesse caso, deverá conseguir ver o estado de alteração de intervalos de poucos minutos e o portal do Azure pode dizer algo como **reciclar**, **ocupado**, ou **inicializar**. Isto indica que há algo errado com a aplicação que é manter a instância de função a execução.
 
-Para obter mais informações sobre como resolver problemas para este problema, consulte a mensagem de blogue [dados de diagnóstico de computação do Azure PaaS](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) e [problemas comuns que causam as funções reciclem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Para obter mais informações sobre como resolver problemas para este problema, consulte a mensagem de blogue [dados de diagnóstico de computação do Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) e [problemas comuns que causam as funções reciclem](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## <a name="problem-my-application-stopped-working"></a>Problema: O meu aplicativo deixou de funcionar
 1. No portal do Azure, clique na instância de função.
 2. Na **propriedades** painel do portal do Azure, considere as seguintes condições para resolver o problema:
    * Se a instância de função recentemente tiver parado (pode verificar o valor de **abortadas**), foi possível atualizar a implementação. Espere para ver se a instância de função continua a funcionar no seu próprio.
    * Se a instância de função for **ocupado**, verifique o código da aplicação para ver se o [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) evento é processado. Poderá ter de adicionar ou corrigir algum código que manipula esse evento.
-   * Pesquisar os dados de diagnóstico e resolução de problemas de cenários na mensagem de blogue [dados de diagnóstico de computação do Azure PaaS](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+   * Pesquisar os dados de diagnóstico e resolução de problemas de cenários na mensagem de blogue [dados de diagnóstico de computação do Azure PaaS](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]
 > Se a Reciclagem de seu serviço cloud, repor as propriedades para a implementação, com eficiência apagar as informações para o problema original.
@@ -85,4 +85,4 @@ Para obter mais informações sobre como resolver problemas para este problema, 
 ## <a name="next-steps"></a>Passos Seguintes
 Ver mais [artigos de resolução de problemas](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) para serviços em nuvem.
 
-Para saber como resolver problemas de função do serviço cloud, utilizando dados de diagnóstico do computador de PaaS do Azure, veja [série de blogue de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Para saber como resolver problemas de função do serviço cloud, utilizando dados de diagnóstico do computador de PaaS do Azure, veja [série de blogue de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

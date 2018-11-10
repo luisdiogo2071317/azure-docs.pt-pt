@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: e10bd04f37951f93db8af083692b7a2fe25ac9b7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348617"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227353"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Instalar atualização 1.1 em sua matriz Virtual StorSimple
 
@@ -27,7 +27,7 @@ ms.locfileid: "39348617"
 
 Este artigo descreve os passos necessários para instalar a atualização 1.1 em sua matriz Virtual StorSimple através da IU da web local e através do portal do Azure.
 
-Aplicar as atualizações de software ou correções para manter a sua matriz Virtual StorSimple atualizados. Antes de aplicar uma atualização, recomendamos que levar os volumes ou compartilhamentos offline no anfitrião primeiro e, em seguida, o dispositivo. Isso minimiza qualquer possibilidade de Corrupção de dados. Depois dos volumes ou compartilhamentos estiverem offline, também deve reservar um manual cópia de segurança do dispositivo.
+Aplicar as atualizações de software ou correções para manter a sua matriz Virtual StorSimple atualizados. Antes de aplicar uma atualização, recomendamos que levar os volumes ou compartilhamentos offline no anfitrião primeiro e, em seguida, o dispositivo. Isto minimiza qualquer possibilidade de danos em dados. Depois dos volumes ou compartilhamentos estiverem offline, também deve reservar um manual cópia de segurança do dispositivo.
 
 > [!IMPORTANT]
 > - Atualização 1.1 corresponde à **10.0.10307.0** versão de software no seu dispositivo. Para obter informações sobre o que há de novo nesta atualização, aceda a [notas de versão para atualizar 1.1](storsimple-virtual-array-update-11-release-notes.md).
@@ -66,7 +66,7 @@ Execute os seguintes passos para transferir 1.1 de atualização do catálogo Mi
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para transferir a atualização ou a correção
 
-1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Se estiver a utilizar o catálogo Microsoft Update pela primeira vez neste computador, clique em **instalar** quando lhe for pedido para instalar o suplemento do catálogo Microsoft Update.
 

@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1fa31b23aa8df73b13e73da80096596bf1ce2db3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093305"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005755"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
 Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho. 
@@ -23,7 +23,7 @@ Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (M
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="mpp-architecture-components"></a>Componentes de arquitetura MPP
-O SQL Data Warehouse tira partido de um aumento horizontal de arquitetura para distribuir o processamento de computacional de dados em vários nós. A unidade de escala é uma abstração da potência de computação que é conhecida como uma unidade do armazém de dados. SQL Data Warehouse separa a computação do armazenamento que permite dimensionar computação independentemente dos dados no seu sistema.
+O SQL Data Warehouse tira partido de um aumento horizontal de arquitetura para distribuir o processamento de computacional de dados em vários nós. A unidade de escala é uma abstração da potência de computação que é conhecida como um [unidade do armazém de dados](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Data Warehouse separa a computação do armazenamento que permite dimensionar computação independentemente dos dados no seu sistema.
 
 ![Arquitetura do SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

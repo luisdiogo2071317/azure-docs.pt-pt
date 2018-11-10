@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7d11d238b921c63d1d2317371da07d8e49e8ac9d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301977"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228628"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: atualizar do DirSync
 O Azure AD Connect é o sucessor do DirSync. Encontrará neste tópico as forma de atualizar a partir do DirSync. Estes passos não funcionam para atualizar a partir de outra versão do Azure AD Connect ou a partir do Azure AD Sync.
 
-Antes de começar a instalar o Azure AD Connect, certifique-se de que [transferiu o Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) e concluiu os pré-requisitos indicados em [Azure AD Connect: Hardware e pré-requisitos](how-to-connect-install-prerequisites.md). Em particular, pretende ler sobre o seguinte, uma vez que estas áreas são diferentes do DirSync:
+Antes de começar a instalar o Azure AD Connect, certifique-se de que [transferiu o Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e concluiu os pré-requisitos indicados em [Azure AD Connect: Hardware e pré-requisitos](how-to-connect-install-prerequisites.md). Em particular, pretende ler sobre o seguinte, uma vez que estas áreas são diferentes do DirSync:
 
 * A versão necessária do .Net and PowerShell. É necessário que estejam versões mais recentes no servidor do que era necessário no DirSync.
 * A configuração de servidor proxy. Se utilizar um servidor proxy para a Internet, esta definição tem de ser configurada antes de atualizar. O DirSync utilizou sempre o servidor proxy configurado para o utilizador que o instalava; em vez disso, o Azure AD Connect utiliza definições do computador.

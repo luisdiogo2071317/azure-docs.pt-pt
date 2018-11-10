@@ -1,6 +1,6 @@
 ---
-title: Criar filtros com Media Services do Azure de serviços de REST API | Microsoft Docs
-description: Este tópico descreve como criar filtros para que o cliente possa utilizar a secções específicas do fluxo de um fluxo. Os Media Services cria manifestos dinâmicos para alcançar esta seletiva de transmissão em fluxo.
+title: REST API dos serviços de criar filtros com o suporte de dados do Azure | Documentos da Microsoft
+description: Este tópico descreve como criar filtros para que o cliente possa utilizar secções específicas do fluxo de um fluxo. Serviços de multimédia cria os manifestos dinâmicos para alcançar este seletiva de transmissão em fluxo.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,44 +14,44 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 396abe0801d76af3820d302d40d2fc076754741b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 50becbe517e98802c9a3af91b86f845df05378a7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790280"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227523"
 ---
-# <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com Media Services do Azure REST API dos serviços
+# <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com suporte de dados do Azure REST API dos serviços
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-dynamic-manifest.md)
 > * [REST](media-services-rest-dynamic-manifest.md)
 > 
 > 
 
-A partir da versão 2.17, os Media Services permite-lhe definir os filtros para os elementos. Estes filtros são regras de lado do servidor que permitem que os seus clientes de optar por efetuar ações como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo todo), ou especifique apenas um subconjunto de áudio e vídeos renditions que processa (em vez do dispositivo do cliente todos os os renditions que estão associados com o elemento). Esta filtragem dos seus ativos é arquivado através de **manifesto dinâmica**s que são criados após o pedido do cliente para um vídeo de fluxo com base em filtros especificados.
+A partir da versão 2.17, serviços de multimédia permite-lhe definir os filtros para os seus ativos. Estes filtros são regras de lado do servidor que permitem que os clientes podem optar por fazer coisas como: reprodução apenas uma secção de um vídeo (em vez de reproduzir o vídeo inteiro), ou especifique apenas um subconjunto de representações de áudio e vídeos que o dispositivo do seu cliente pode manipular (em vez de todas as representações que estão associadas a com elemento). Esta filtragem de seus ativos é arquivado por meio **dinâmica manifestar**s que são criados mediante solicitação do seu cliente para transmitir um vídeo com base nos filtros especificados.
 
-Para obter mais informações relacionadas com filtros e manifesto dinâmico, consulte [dinâmico manifestos descrição geral](media-services-dynamic-manifest-overview.md).
+Para obter mais informações relacionadas com filtros e de manifesto dinâmico, consulte [descrição geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md).
 
-Este artigo mostra como utilizar REST APIs para criar, atualizar e eliminar os filtros. 
+Este artigo mostra como utilizar as APIs REST para criar, atualizar e eliminar filtros. 
 
-## <a name="types-used-to-create-filters"></a>Tipos de utilizados para criar filtros
-Quando criar os filtros, são utilizados os seguintes tipos:  
+## <a name="types-used-to-create-filters"></a>Tipos utilizados para criar filtros
+Os seguintes tipos são utilizados durante a criação de filtros:  
 
-* [filtro](https://docs.microsoft.com/rest/api/media/operations/filter)
+* [Filtro](https://docs.microsoft.com/rest/api/media/operations/filter)
 * [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect e FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 >[!NOTE]
 
->Ao aceder a entidades nos Media Services, tem de definir campos de cabeçalho específicos e os valores no seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST de serviços de suporte de dados](media-services-rest-how-to-use.md).
+>Ao aceder a entidades nos serviços de multimédia, tem de definir campos de cabeçalho específicas e os valores nos seus pedidos HTTP. Para obter mais informações, consulte [programa de configuração para o desenvolvimento de API de REST do Media Services](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
-Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 ## <a name="create-filters"></a>Criar filtros
-### <a name="create-global-filters"></a>Criar filtros global
+### <a name="create-global-filters"></a>Criar filtros globais
 Para criar um filtro global, utilize os seguintes pedidos HTTP:  
 
 #### <a name="http-request"></a>Pedido de HTTP
@@ -157,8 +157,8 @@ Corpo do pedido
     . . . 
 
 ## <a name="list-filters"></a>Lista de filtros
-### <a name="get-all-global-filters-in-the-ams-account"></a>Obter todos os global **filtro**s na conta de AMS
-Para listar os filtros, utilize o seguinte HTTP pedidos: 
+### <a name="get-all-global-filters-in-the-ams-account"></a>Obtenha tudo global **filtro**s na conta do AMS
+Para listar os filtros, utilize o seguinte HTTP de pedidos: 
 
 #### <a name="http-request"></a>Pedido de HTTP
     GET https://media.windows.net/API/Filters HTTP/1.1 
@@ -170,7 +170,7 @@ Para listar os filtros, utilize o seguinte HTTP pedidos:
     x-ms-version: 2.17 
     Host: media.windows.net 
 
-### <a name="get-assetfilters-associated-with-an-asset"></a>Obter **AssetFilter**s associado um recurso
+### <a name="get-assetfilters-associated-with-an-asset"></a>Obtenha **AssetFilter**s associados com um recurso
 #### <a name="http-request"></a>Pedido de HTTP
     GET https://media.windows.net/API/Assets('nb%3Acid%3AUUID%3A536e555d-1500-80c3-92dc-f1e4fdc6c592')/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -195,9 +195,9 @@ Para listar os filtros, utilize o seguinte HTTP pedidos:
 
 
 ## <a name="update-filters"></a>Filtros de atualização
-Utilize a intercalação, PUT ou PATCH para atualizar um filtro com novos valores de propriedade.  Para obter mais informações sobre estas operações, consulte [PATCH, colocar, intercalar](http://msdn.microsoft.com/library/dd541276.aspx).
+Utilize intercalação, PUT ou PATCH para atualizar um filtro com novos valores de propriedade.  Para obter mais informações sobre estas operações, consulte [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
-Se atualizar um filtro, pode demorar até dois minutos para o ponto final de transmissão em fluxo atualizar as regras. Se o conteúdo tiver sido servido com este filtro (e colocados em cache no proxies e CDN caches), ao atualizar este filtro pode resultar em falhas de leitor. Limpe a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro diferente.  
+Se atualizar um filtro, pode demorar até dois minutos para o ponto final de transmissão em fluxo atualizar as regras. Se o conteúdo tiver sido servido com este filtro (e armazenado em cache em proxies e CDN caches), a atualizar este filtro pode resultar em falhas de player. Limpe a cache depois de atualizar o filtro. Se esta opção não for possível, considere utilizar um filtro de diferente.  
 
 ### <a name="update-global-filters"></a>Filtros de atualização global
 Para atualizar um filtro global, utilize os seguintes pedidos HTTP: 
@@ -280,7 +280,7 @@ Corpo do pedido:
 
 
 ## <a name="delete-filters"></a>Eliminar filtros
-### <a name="delete-global-filters"></a>Eliminar filtros global
+### <a name="delete-global-filters"></a>Eliminar filtros globais
 Para eliminar um filtro global, utilize os seguintes pedidos HTTP:
 
 #### <a name="http-request"></a>Pedido de HTTP
@@ -307,20 +307,20 @@ Para eliminar um AssetFilter local, utilize os seguintes pedidos HTTP:
     x-ms-version: 2.17 
     Host: media.windows.net 
 
-## <a name="build-streaming-urls-that-use-filters"></a>Criar URLs que utilizam filtros de transmissão em fluxo
-Para obter informações sobre como publicar e fornecer os recursos, consulte [entrega de conteúdos para clientes descrição-geral](media-services-deliver-content-overview.md).
+## <a name="build-streaming-urls-that-use-filters"></a>Criar a URLs que utilizam filtros de transmissão em fluxo
+Para obter informações sobre como publicar e entregar os seus recursos, consulte [entrega de conteúdos para os clientes descrição-geral](media-services-deliver-content-overview.md).
 
-Os exemplos seguintes mostram como adicionar filtros para os URLs de transmissão em fluxo.
+Os exemplos seguintes mostram como adicionar filtros a suas URLs de transmissão em fluxo.
 
 **MPEG DASH** 
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
-**Apple HTTP Live transmissão em fluxo (HLS) V4**
+**Apple HTTP Live Streaming (HLS) V4**
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
 
-**Apple HTTP Live transmissão em fluxo (HLS) V3**
+**Apple HTTP Live Streaming (HLS) V3**
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 
@@ -336,5 +336,5 @@ Os exemplos seguintes mostram como adicionar filtros para os URLs de transmissã
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consultar Também
-[Descrição geral de manifestos dinâmica](media-services-dynamic-manifest-overview.md)
+[Descrição geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
 

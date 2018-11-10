@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987618"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228136"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisar ficheiros de áudio e vídeos
 
@@ -25,20 +25,29 @@ Serviços de multimédia do Azure v3 permite-lhe extrair informações a partir 
 Para analisar seu conteúdo com configurações predefinidas do serviços de multimédia v3, crie uma **transformar** e submeter um **tarefa** que usa um destas predefinições: **AudioAnalyzerPreset** ou **VideoAnalyzerPreset**. O seguinte artigo demonstra como usar **VideoAnalyzerPreset**: [Tutorial: analisar vídeos com os serviços de multimédia do Azure](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
-> Quando utilizar um configurações predefinidas de vídeo ou áudio Analyzer, utilize o portal do Azure para definir a sua conta ter 10 unidades reservadas de multimédia S3. Para obter mais informações, consulte [Dimensionar processamento de multimédia](../previous/media-services-scale-media-processing-overview.md).
+> Quando utilizar uma predefinição do Analisador de Vídeo ou Áudio, utilize o portal do Azure para definir a sua conta para ter 10 Unidades Reservadas de Multimédia S3. Para obter mais informações, veja [Dimensionar o processamento de multimédia](../previous/media-services-scale-media-processing-overview.md).
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+## <a name="built-in-presets"></a>Configurações predefinidas incorporadas
 
-**AudioAnalyzerPreset** permite-lhe extrair várias informações de áudio de um arquivo de áudio ou vídeo. A saída inclui um ficheiro JSON (com as informações) e um arquivo VTT para a transcrição de áudio. Esta configuração predefinida aceita uma propriedade que especifica o idioma do ficheiro de entrada na forma de um [BCP47](https://tools.ietf.org/html/bcp47) cadeia de caracteres. As informações de áudio incluem:
+Serviços de multimédia suportam atualmente pré-visualizando o analisador interno seguinte:  
+
+|**Nome da configuração predefinida**|**Cenário**|**Detalhes**|
+|---|---|---|
+|**AudioAnalyzerPreset**|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio único.<br/>Também pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região" (por exemplo, "en-US"). A lista de idiomas suportados são "en-US", "en-GB", "es-ES", "es-MX", "fr-FR", it-IT, ja-JP, "pt-BR", "zh-CN".|
+|**VideoAnalyzerPreset**|Análise de áudio e vídeo|Extrai informações (metadados avançados) de áudio e vídeo e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações de áudio ao processar um ficheiro de vídeo. Para obter mais informações, consulte [analisar vídeo](analyze-videos-tutorial-with-api.md).|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+A configuração predefinida permite-lhe extrair várias informações de áudio de um arquivo de áudio ou vídeo. A saída inclui um ficheiro JSON (com as informações) e um arquivo VTT para a transcrição de áudio. Esta configuração predefinida aceita uma propriedade que especifica o idioma do ficheiro de entrada na forma de um [BCP47](https://tools.ietf.org/html/bcp47) cadeia de caracteres. As informações de áudio incluem:
 
 * Transcrição de áudio – uma transcrição das palavras faladas carimbos de data. São suportados vários idiomas
 * Orador indexação – um mapeamento dos oradores e as palavras faladas correspondentes
 * Análise de sentimentos de voz – a saída de análise de sentimentos efetuada numa transcrição de áudio
 * Palavras-chave – palavras-chave que são extraídas de transcrição de áudio.
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** permite-lhe extrair várias informações de áudio e vídeo de um ficheiro de vídeo. A saída inclui um ficheiro JSON (com as informações), um arquivo VTT para a transcrição de vídeo e uma coleção de miniaturas. Esta configuração predefinida também aceita um [BCP47](https://tools.ietf.org/html/bcp47) cadeia de caracteres (que representa o idioma do vídeo) como uma propriedade. As informações de vídeo incluem todas as informações de áudio mencionadas acima e os seguintes itens adicionais:
+A configuração predefinida permite-lhe extrair várias informações de áudio e vídeo de um ficheiro de vídeo. A saída inclui um ficheiro JSON (com as informações), um arquivo VTT para a transcrição de vídeo e uma coleção de miniaturas. Esta configuração predefinida também aceita um [BCP47](https://tools.ietf.org/html/bcp47) cadeia de caracteres (que representa o idioma do vídeo) como uma propriedade. As informações de vídeo incluem todas as informações de áudio mencionadas acima e os seguintes itens adicionais:
 
 * Controlo de face – o tempo durante o qual rostos estão presentes no vídeo. Cada rosto tem um id de rostos e um conjunto correspondente de miniaturas
 * Texto visual – o texto que é detetado por meio de reconhecimento ótico de carateres. O texto é tempo carimbadas e também utilizado para extrair as palavras-chave (além de transcrição áudio)

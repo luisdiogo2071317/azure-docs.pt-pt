@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 18f52c7b15bf22b363309cbdf1a060b3ab89d93d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 21f030f692065357f5ab8d23aa6940fecfdeefc1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958542"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004871"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Recolher contadores de desempenho de aplicações do Linux no Log Analytics 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -170,4 +170,4 @@ Depois de configurar o agente do Log Analytics para Linux enviar dados para o Lo
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho](log-analytics-data-sources-performance-counters.md) agentes de Linux.
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

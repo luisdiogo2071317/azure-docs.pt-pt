@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: f5b3aa81a9a87d4dea45e4b2fefd58b1e8b04620
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: MT
+ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957612"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005058"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
@@ -32,7 +32,7 @@ Dados de registo recolhidos pelo Azure Monitor são armazenados numa área de tr
 
 ## <a name="log-queries"></a>Consultas de registo
 
-Precisa de uma consulta de log para obter todos os dados do Log Analytics.  Esteja [análise de dados no portal](log-analytics-log-search-portals.md), [configura uma regra do alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) para ser notificado de uma determinada condição ou ao obter dados com o [API do Log Analytics](https://dev.loganalytics.io/), irá utilizar uma consulta para especificar os dados que pretende.  Este artigo descreve como as consultas de registo são usadas no Log Analytics e fornece os conceitos que deve compreender antes de criar um.
+Precisa de uma consulta de log para obter todos os dados do Log Analytics.  Esteja [análise de dados no portal](log-analytics-log-search-portals.md), [configura uma regra do alerta](../monitoring-and-diagnostics/alert-metric.md) para ser notificado de uma determinada condição ou ao obter dados com o [API do Log Analytics](https://dev.loganalytics.io/), irá utilizar uma consulta para especificar os dados que pretende.  Este artigo descreve como as consultas de registo são usadas no Log Analytics e fornece os conceitos que deve compreender antes de criar um.
 
 
 

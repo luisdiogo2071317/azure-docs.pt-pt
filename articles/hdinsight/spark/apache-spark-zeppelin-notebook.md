@@ -2,19 +2,19 @@
 title: Utilizar blocos de notas do Zeppelin com o cluster do Apache Spark no Azure HDInsight
 description: Instruções passo a passo sobre como utilizar blocos de notas do Zeppelin com clusters do Apache Spark no HDInsight do Azure.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b4c79ada0a243d50aad64600de6dfdfebd59b9da
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364868"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005841"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utilizar blocos de notas do Zeppelin com o cluster do Apache Spark no Azure HDInsight
 

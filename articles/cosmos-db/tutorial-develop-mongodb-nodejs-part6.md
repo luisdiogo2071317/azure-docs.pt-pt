@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/17/2018
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: a1705913e1656901d0a87a3cebb2eb69a6c7ad63
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698592"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740575"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Criar uma aplicação MongoDB com o Angular e o Azure Cosmos DB - Parte 6: Adicionar funções Post, Put e Delete à aplicação
 
@@ -88,13 +88,13 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
     });
     ```
 
-5. Execute a aplicação para confirmar que está tudo a funcionar. No Visual Studio Code, guarde todas as alterações, clique em no botão **Depurar** ![ícone de Depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png), no lado esquerdo, clique no botão **Iniciar Depuração** ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Execute a aplicação para confirmar que está tudo a funcionar. No Visual Studio Code, guarde todas as alterações, selecione o botão **Depurar** ![ícone de Depuração no Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png), no lado esquerdo, selecione o botão **Iniciar Depuração** ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Agora, regresse ao browser e prima F12, na maioria dos computadores, para abrir o separador Ferramentas do programador e Rede. Navegue para [http://localhost:3000](http://localhost:3000) para ver as chamadas efetuadas através da rede.
 
     ![Separador Redes no Chrome que mostra a atividade de rede](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. Clique no botão **Adicionar Hero Novo** para adicionar um hero novo. Introduza o ID "999", o nome "Pedro" e a indicação "Olá" e, em seguida, clique em **Guardar**. Deverá ver, no separador Rede, que enviou um pedido POST para um hero novo. 
+7. Selecione o botão **Adicionar Hero Novo** para adicionar um hero novo. Introduza o ID “999”, o nome “Pedro” e a indicação “Olá” e, em seguida, selecione **Guardar**. Deverá ver, no separador Rede, que enviou um pedido POST para um hero novo. 
 
     ![Separador Rede no Chrome que mostra a atividade de rede para as funções Get e Post](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -173,17 +173,17 @@ Antes de iniciar esta parte do tutorial, certifique-se de que concluiu os passos
     };
     ```
 
-4. Agora que atualizámos o código, clique no botão **Reiniciar** ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) no Visual Studio Code.
+4. Agora que atualizámos o código, selecione o botão **Reiniciar** ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) no Visual Studio Code.
 
-5. Atualize a página do browser e clique no botão **Adicionar novo hero**. Adicione um hero novo com o ID "9", o nome "Starlord" e a indicação "Hi". Clique no botão **Guardar** para guardar o hero novo.
+5. Atualize a página do browser e selecione o botão **Adicionar novo hero**. Adicione um hero novo com o ID "9", o nome "Starlord" e a indicação "Hi". Selecione o botão **Guardar** para guardar o hero novo.
 
-6. Agora, selecione o hero **Starlord**, mude a indicação de “Hi” para “Bye” e clique no botão **Guardar**. 
+6. Agora, selecione o hero **Starlord**, mude a indicação de “Olá” para “Tchau” e, em seguida, selecione o botão **Guardar**. 
 
     Agora pode selecionar o ID no separador Rede para mostrar o payload. Pode ver, no payload, que a indicação está agora definida como “Bye”.
 
     ![Aplicação heroes e separador Rede que mostra o payload](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    Também pode eliminar um dos heroes na IU e ver quanto tempo é que a operação delete demora a ser concluída. Experimente ao clicar no botão "Eliminar" no hero com o nome "Fred".
+    Também pode eliminar um dos heroes na IU e ver quanto tempo é que a operação delete demora a ser concluída. Experimente ao selecionar o botão “Eliminar” no hero com o nome “Pedro".
 
     ![Aplicação heroes e separador Rede que mostra o tempo que demora a concluir as funções](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

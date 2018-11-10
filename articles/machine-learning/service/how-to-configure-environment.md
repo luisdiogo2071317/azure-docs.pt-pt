@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 11/6/2018
-ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.openlocfilehash: b95b62ab2c51fec93870e3f5593d53a599f3dad2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238331"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218955"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -98,19 +98,11 @@ Para obter um exemplo do uso de blocos de notas do Azure com o serviço Azure Ma
   - Ambientes de desenvolvimento integrado (IDEs), por exemplo, PyCharm e o RStudio
   - Pacotes como blocos de notas do Jupyter e Tensorflow
 
-A DSVM vem com vários ambientes de Anaconda já instalados. Para utilizar o SDK de Python do Azure Machine Learning sem qualquer instalação do pacote, abra um prompt de comando/shell e utilize um dos seguintes comandos para ativar o ambiente:
+A DSVM vem com vários ambientes de Anaconda já instalados. Para utilizar o SDK de Python do Azure Machine Learning sem qualquer instalação do pacote, abra uma janela de linha de comandos e ativar o seguinte ambiente.
 
-* Sobre o __Ubuntu__ DSVM, utilize este comando:
-
-    ```shell
-    conda activate py36
-    ```
-
-* Sobre o __Windows__ DSVM, utilize este comando:
-
-    ```shell
-    conda activate AzureML
-    ```
+```shell
+conda activate AzureML
+```
 
 Uma vez neste ambiente, imediatamente pode importar o SDK do Azure Machine Learning na ferramenta de compilação da sua preferência, sem instalar o pacote.
 

@@ -1,25 +1,18 @@
 ---
 title: Descrição geral do encaminhamento de conteúdo baseado em URL | Microsoft Docs
 description: Esta página fornece uma descrição geral do encaminhamento de conteúdo baseado em URL do Gateway de Aplicação, da configuração UrlPathMap e da regra PathBasedRouting.
-documentationcenter: na
 services: application-gateway
 author: vhorne
 manager: jpconnock
-editor: ''
-ms.assetid: 4409159b-e22d-4c9a-a103-f5d32465d163
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 11/7/2018
 ms.author: victorh
-ms.openlocfilehash: f6108b5ac628b8bc2c1d74dcc871f96115094859
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: bc123307a3cc3a5040e93e517c60604dc75fc7e7
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770343"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218428"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 
@@ -70,7 +63,7 @@ O elemento urlPathMap é utilizado para especificar padrões de Caminho para map
 ```
 
 > [!NOTE]
-> PathPattern: esta definição é uma lista de padrões de caminho para fazer correspondências. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A cadeia introduzida na ferramenta de correspondência de caminhos não inclui texto depois do primeiro ? ou #, sendo que esses carateres não são aqui permitidos.
+> PathPattern: esta definição é uma lista de padrões de caminho para fazer correspondências. Cada um deles tem de começar com / e o único local onde "*" é permitido é no fim depois de "/". A cadeia introduzida na ferramenta de correspondência do caminho não inclui qualquer texto depois do primeiro? ou, # sendo que esses carateres não são permitidas aqui. Caso contrário, são permitidas quaisquer carateres permitidos num URL PathPattern.
 
 Pode dar saída a um [modelo do Resource Manager através do encaminhamento baseado em URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) para obter mais informações.
 
@@ -99,6 +92,6 @@ Fragmento da regra PathBasedRouting:
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Depois de saber mais sobre o encaminhamento de conteúdo baseado em URL, aceda a [Criar um gateway de aplicação com encaminhamento baseado em URL](application-gateway-create-url-route-portal.md) para criar um gateway de aplicação com regras de encaminhamento do URL.

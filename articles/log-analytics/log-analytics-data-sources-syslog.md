@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5247edc02a62f67755ce818645f66f616c5266ce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 132935371a1b4f52892ae2fb956407079906e79a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962406"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004907"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origens de dados do syslog no Log Analytics
 Syslog é um protocolo de registo de eventos que é comum para Linux.  Aplicativos enviará as mensagens que podem ser armazenadas no computador local ou entregues a um recoletor de Syslog.  Quando é instalado o agente do OMS para Linux, este configura o daemon de Syslog local para encaminhar mensagens para o agente.  O agente, em seguida, envia a mensagem para o Log Analytics, onde é criado um registo de correspondente no repositório do OMS.  
@@ -207,6 +207,6 @@ A tabela seguinte fornece exemplos diferentes de consultas de registo que obter 
 | Syslog &#124; resumir AggregatedValue = count () por instalação |Registos de contagem de Syslog por instalação. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
 * Uso [campos personalizados](log-analytics-custom-fields.md) para analisar dados de registos de syslog em campos individuais.
 * [Configurar os agentes do Linux](log-analytics-quick-collect-linux-computer.md) para recolher outros tipos de dados.

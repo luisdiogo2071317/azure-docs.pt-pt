@@ -9,14 +9,14 @@ ms.reviewer: sngun
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c1fb4c27f897e3c0952ed6419e167613ac8204f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a06e7e6159953bfeffa966759d29b91bbcbafd37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223496"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739214"
 ---
-# <a name="query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Consultar dados de uma conta da API para Cassandra do Azure Cosmos DB
+# <a name="tutorial-query-data-from-an-azure-cosmos-db-cassandra-api-account"></a>Tutorial: consultar dados de uma conta da API para Cassandra do Azure Cosmos DB
 
 Este tutorial mostra como consultar dados de uma conta da API para Cassandra do Azure Cosmos DB através de uma aplicação Java. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) e consulta dados de utilizador, como o ID de utilizador, o nome de utilizador e a cidade do utilizador. 
 
@@ -28,59 +28,65 @@ Este tutorial abrange as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Este artigo pertence a um tutorial com várias partes. Antes de começar, certifique-se de que conclui os passos anteriores para [criar a conta, o keyspace e a tabela da API para Cassandra](create-cassandra-api-account-java.md) e [carregar dados de exemplo para a tabela](cassandra-api-load-data.md). 
+* Este artigo pertence a um tutorial com várias partes. Antes de começar, certifique-se de que conclui os passos anteriores para criar a conta, o keyspace e a tabela da API para Cassandra e [carrega os dados de exemplo para a tabela](cassandra-api-load-data.md). 
 
 ## <a name="query-data"></a>Consultar dados
 
-Abra o ficheiro `UserRepository.java` na pasta `src\main\java\com\azure\cosmosdb\cassandra`. Anexe o seguinte bloco de código. Este código disponibiliza três funções: consultar todos os utilizadores na base de dados, consultar um utilizador específico filtrado por ID de utilizador e eliminar uma tabela. 
+Utilize os seguintes passos para consultar dados da sua conta de API para Cassandra:
 
-```java
-/**
-* Select all rows from user table
-*/
-public void selectAllUsers() {
+1. Abra o ficheiro `UserRepository.java` na pasta `src\main\java\com\azure\cosmosdb\cassandra`. Anexe o seguinte bloco de código. Este código fornece três métodos: 
 
-    final String query = "SELECT * FROM uprofile.user";
-    List<Row> rows = session.execute(query).all();
+   * Para consultar todos os utilizadores na base de dados
+   * Para consultar um utilizador específico, filtrado por ID de utilizador
+   * Para eliminar uma tabela.
 
-    for (Row row : rows) {
-       LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-    }
-}
+   ```java
+   /**
+   * Select all rows from user table
+   */
+   public void selectAllUsers() {
 
-/**
-* Select a row from user table
-*
-* @param id user_id
-*/
-public void selectUser(int id) {
-    final String query = "SELECT * FROM uprofile.user where user_id = 3";
-    Row row = session.execute(query).one();
+     final String query = "SELECT * FROM uprofile.user";
+     List<Row> rows = session.execute(query).all();
 
-    LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
-}
+     for (Row row : rows) {
+        LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+     }
+   }
 
-/**
-* Delete user table.
-*/
-public void deleteTable() {
-   final String query = "DROP TABLE IF EXISTS uprofile.user";
-   session.execute(query);
-}
-```
+   /**
+   * Select a row from user table
+   *
+   * @param id user_id
+   */
+   public void selectUser(int id) {
+      final String query = "SELECT * FROM uprofile.user where user_id = 3";
+      Row row = session.execute(query).one();
 
-Abra o ficheiro `UserProfile.java` na pasta `src\main\java\com\azure\cosmosdb\cassandra`. Esta classe contém o método principal que chama os métodos createKeyspace, createTable e inserir dados definidos anteriormente. Agora, anexe o código seguinte, que consulta todos os utilizadores ou um utilizador específico:
+      LOGGER.info("Obtained row: {} | {} | {} ", row.getInt("user_id"), row.getString("user_name"), row.getString("user_bcity"));
+   }
 
-```java
-LOGGER.info("Select all users");
-repository.selectAllUsers();
+   /**
+   * Delete user table.
+   */
+   public void deleteTable() {
+     final String query = "DROP TABLE IF EXISTS uprofile.user";
+     session.execute(query);
+   }
+   ```
 
-LOGGER.info("Select a user by id (3)");
-repository.selectUser(3);
+2. Abra o ficheiro `UserProfile.java` na pasta `src\main\java\com\azure\cosmosdb\cassandra`. Esta classe contém o método principal que chama os métodos createKeyspace, createTable e inserir dados definidos anteriormente. Agora, anexe o código seguinte, que consulta todos os utilizadores ou um utilizador específico:
 
-LOGGER.info("Delete the users profile table");
-repository.deleteTable();
-```
+   ```java
+   LOGGER.info("Select all users");
+   repository.selectAllUsers();
+
+   LOGGER.info("Select a user by id (3)");
+   repository.selectUser(3);
+
+   LOGGER.info("Delete the users profile table");
+   repository.deleteTable();
+   ```
 
 ## <a name="run-the-java-app"></a>Executar a aplicação Java
 1. Abra uma linha de comandos ou janela de terminal. Cole o seguinte bloco de código. 

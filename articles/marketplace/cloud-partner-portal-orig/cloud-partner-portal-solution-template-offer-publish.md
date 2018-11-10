@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ded952ac6418ae3d9916b3ae8b8dbacb0c9c5a84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: MT
+ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810488"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219414"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicar um modelo de solução no Azure Marketplace
 
@@ -91,7 +91,9 @@ Um SKU aparece na oferta principal no Azure Marketplace e é exibido como sua pr
     - Definições da oferta
     - SKUs
     - Marketplace
-    - Suporte a que cada vista contém um conjunto de campos para que possa preencher. Necessário campos são indicados com um asterisco vermelho (\*)
+    - Suporte
+
+Cada vista contém um conjunto de campos para que possa preencher. Necessário campos são indicados com um asterisco vermelho (\*)
 
 ## <a name="to-configure-offer-settings"></a>Para configurar as definições da oferta
 

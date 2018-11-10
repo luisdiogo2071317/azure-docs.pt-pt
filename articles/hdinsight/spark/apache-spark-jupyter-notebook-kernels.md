@@ -3,19 +3,19 @@ title: Kernels para o bloco de notas do Jupyter nos clusters do Spark no Azure H
 description: Saiba mais sobre os kernels do PySpark, PySpark3 e Spark para o bloco de notas do Jupyter disponível com clusters do Spark no HDInsight do Azure.
 keywords: Bloco de notas do jupyter no spark, spark do jupyter
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 98c9f260b4be1e335e22b5c68a76e9ffb7316236
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.author: hrasheed
+ms.openlocfilehash: d3694d49256b9844f6e3a76ce83f53be4b42ca48
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697871"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006095"
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Kernels para o bloco de notas do Jupyter nos clusters do Spark no Azure HDInsight 
 
@@ -79,7 +79,7 @@ Aqui estão alguns benefícios de usar os kernels novo com o bloco de notas do J
    | ajuda |`%%help` |Gera uma tabela de todos os a magia disponíveis com o exemplo e uma descrição |
    | informações |`%%info` |Informações de sessão de saídas para o ponto de final atual do Livy |
    | configurar |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |Configura os parâmetros para a criação de uma sessão. O sinalizador force (-f) é obrigatório se a sessão já foi criada, que garante que a sessão é removida e recriada. Examinar [/sessions POST de Livy corpo do pedido](https://github.com/cloudera/livy#request-body) para obter uma lista de parâmetros válidos. Parâmetros devem ser passados como uma cadeia de caracteres do JSON e tem de ser na próxima linha posterior a mágica, conforme mostrado na coluna de exemplo. |
-   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o kontext sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é mantido no % % contexto Python local como uma [Pandas](http://pandas.pydata.org/) dataframe. |
+   | SQL |`%%sql -o <variable name>`<br> `SHOW TABLES` |Executa uma consulta do Hive contra o kontext sqlContext. Se o `-o` parâmetro é transmitido, o resultado da consulta é mantido no % % contexto Python local como uma [Pandas](http://pandas.pydata.org/) dataframe. |
    | local |`%%local`<br>`a=1` |Todo o código nas linhas subsequentes é executado localmente. Código tem de ser código Python2 válido até mesmo, independentemente do kernel que estiver a utilizar. Assim, mesmo se tiver selecionado **PySpark3** ou **Spark** kernels ao criar o bloco de notas, se usar o `%%local` mágica numa célula, essa célula tem apenas de ter código de Python2 válido.... |
    | registos |`%%logs` |Devolve os registos para a sessão atual do Livy. |
    | delete |`%%delete -f -s <session number>` |Elimina uma sessão específica do ponto de extremidade Livy atual. Não é possível eliminar a sessão iniciada para o kernel propriamente dito. |

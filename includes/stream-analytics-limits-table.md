@@ -7,5 +7,5 @@
 | Número máximo de funções por tarefa |60 |Existe um limite restritivo de 60 funções por tarefa do Stream Analytics. |
 | Número máximo de unidades de transmissão em fluxo por tarefa |120 |Existe um limite restritivo de 120 unidades de transmissão em fluxo de mensagens em fila por tarefa do Stream Analytics. |
 | Número máximo de tarefas por região |1500 |Cada subscrição pode ter até 1500 tarefas por região geográfica. |
-| MB do blob dos dados de referência | 100 | Os blobs dos dados de referência não podem ser maiores do que 100 MB. |
+| MB do blob dos dados de referência | 300 | Blobs de dados de referência não podem ser superiores a 300 MB. |
 

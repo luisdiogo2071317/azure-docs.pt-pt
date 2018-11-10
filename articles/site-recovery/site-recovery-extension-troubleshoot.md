@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215043"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227489"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Resolver problemas com o agente do Azure Site Recovery
 
@@ -64,7 +64,7 @@ O agente da VM pode ter sido corrompido ou o serviço pode ter sido parado. Rein
 1. Determinar se o "Windows serviço de agente convidado do Azure" está em execução nos serviços de VM (Services. msc). Tente reiniciar o "Windows serviço de agente convidado do Azure".    
 2. Se o serviço de agente de convidado do Windows Azure não está visível nos serviços, no painel de controlo, aceda a **programas e funcionalidades** para determinar se o serviço de agente de convidado do Windows está instalado.
 4. Se o agente de convidado do Windows Azure é apresentado na **programas e funcionalidades**, desinstale o agente convidado do Windows.
-5. Transferir e instalar o [mais recente versão do agente do MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tem de ter direitos de administrador para concluir a instalação.
+5. Transferir e instalar o [mais recente versão do agente do MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Tem de ter direitos de administrador para concluir a instalação.
 6. Certifique-se de que os serviços do agente de convidado do Windows Azure é apresentado nos serviços.
 7. Reinicie a tarefa de proteção.
 

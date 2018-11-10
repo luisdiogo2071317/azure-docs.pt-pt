@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 555bf95367ab0d3e6c4afe09edb6777899400dd8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344673"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227829"
 ---
 # <a name="asdk-administration-basics"></a>Noções básicas de administração de ASDK 
 Há várias coisas que precisa saber se estiver familiarizado com a administração do Azure Stack Development Kit (ASDK). Esta orientação fornece uma descrição geral da sua função como um operador do Azure Stack no ambiente de avaliação e como garantir que os utilizadores de teste pode tornar-se produtivos rapidamente.
@@ -43,7 +43,7 @@ Existem algumas considerações de conta que deve estar atento ao gerir o Azure 
 ## <a name="what-tools-do-i-use-to-manage"></a>Que ferramentas posso utilizar para gerir?
 Pode utilizar o [Portal do Azure Stack administrador](https://adminportal.local.azurestack.external) ou o PowerShell para gerir o Azure Stack. A forma mais fácil de aprender os conceitos básicos é através do portal. Se pretender utilizar o PowerShell, tem de instalar [PowerShell para o Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) e [transferir as ferramentas do Azure Stack a partir do GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).
 
-O Azure Stack utiliza o Azure Resource Manager como seu mecanismo de implantação, gerenciamento e organização subjacente. Se for para gerir o Azure Stack e ajudar a dar suporte aos usuários, deve aprender sobre o Azure Resource Manager. Pode saber mais, leia os [introdução ao documento técnico do Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
+O Azure Stack utiliza o Azure Resource Manager como seu mecanismo de implantação, gerenciamento e organização subjacente. Se for para gerir o Azure Stack e ajudar a dar suporte aos usuários, deve aprender sobre o Azure Resource Manager. Pode saber mais, leia os [introdução ao documento técnico do Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
 ## <a name="your-typical-responsibilities"></a>Suas responsabilidades típicas
 Os seus utilizadores pretendem utilizar os serviços. Da sua perspectiva, sua função principal é disponibilizar esses serviços a eles. Usando o ASDK, pode saber quais os serviços para oferecer e como tornar os serviços disponíveis por [criação de planos, ofertas e quotas](asdk-offer-services.md). Também terá de adicionar os itens no Marketplace, como imagens de máquina virtual. A maneira mais fácil é [transferir itens do marketplace](asdk-marketplace-item.md) do Azure para o Azure Stack.

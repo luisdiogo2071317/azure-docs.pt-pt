@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 2fd6d556e908c47baf3c58c46172c0684b66cdd9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3d39e752e874b6b0c6fbdf678d6eddda0b0d9404
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394273"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226553"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Instruções de ciência de dados HDInsight Spark com PySpark e Scala no Azure
 
@@ -44,7 +44,7 @@ Ver [avançada de exploração de dados e modelagem com o Spark](spark-advanced-
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Prever gorjetas para táxis com o Scala Spark do Azure
 
-O [utilizar Scala spark no Azure](scala-walkthrough.md) estas instruções utilizam dados a partir de Nova Iorque capotados para prever se uma dica é pago e o intervalo de quantidades esperado ser paga. Ele mostra como utilizar o Scala para supervisionadas do machine learning tarefas com o Spark do machine learning biblioteca (MLlib) e pacotes de SparkML num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](http://aka.ms/datascienceprocess): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores de elevada gradação.
+O [utilizar Scala spark no Azure](scala-walkthrough.md) estas instruções utilizam dados a partir de Nova Iorque capotados para prever se uma dica é pago e o intervalo de quantidades esperado ser paga. Ele mostra como utilizar o Scala para supervisionadas do machine learning tarefas com o Spark do machine learning biblioteca (MLlib) e pacotes de SparkML num cluster do Azure HDInsight Spark. Ele explica as tarefas que constituem a [processo de ciência de dados](https://aka.ms/datascienceprocess): ingestão de dados e exploração, visualização, engenharia de funcionalidades, modelação e consumo do modelo. Modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores de elevada gradação.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

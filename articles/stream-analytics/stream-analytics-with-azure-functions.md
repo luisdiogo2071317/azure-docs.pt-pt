@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985816"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978005"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Executar Funções do Azure a partir de tarefas do Azure Stream Analytics 
 
@@ -196,6 +196,13 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
    Este comando deve imprimir o valor para a chave especificada:
 
    ![Captura de ecrã da saída da Cache de Redis do Azure](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## <a name="error-handling-and-retries"></a>Processamento de erros e tentativas
+Se ocorrer uma falha ao enviar eventos para as Funções do Azure, o Stream Analytics tentará novamente concluir a operação com êxito. No entanto, existem algumas falhas para as quais não são executadas tentativas, que são as seguintes:
+
+ 1. HttpRequestExceptions
+ 2. Entidade do Pedido Demasiado Grande (código de erro http 413)
+ 3. ApplicationExceptions
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

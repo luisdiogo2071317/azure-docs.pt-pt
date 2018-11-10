@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 40d1f73f4aed3f3f35f3f5c9de951e9b9fd271bc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963324"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006027"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -34,9 +34,6 @@ Pode obter eventos de seu registo de atividades no portal do Azure, CLI, cmdlets
 
 > [!NOTE]
 >  [Os alertas mais recentes](monitoring-overview-unified-alerts.md) oferece uma experiência aprimorada quando criar e gerir atividade regras de alerta de registo.  [Saiba mais](alert-activity-log.md).
-
-Ver o vídeo seguinte, apresentando o registo de atividades.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorias no registo de atividades
@@ -70,7 +67,7 @@ Aqui estão algumas das coisas que pode fazer com o registo de atividades:
 No portal do Azure, pode ver o registo de atividades em vários locais:
 * O **registo de atividades** que pode aceder ao procurar o registo de atividade em **todos os serviços** no painel de navegação esquerdo.
 * **Monitor** aparece por predefinição no painel de navegação esquerdo. O registo de atividade é uma seção do Azure Monitor.
-* Todos os recursos **recursos**, por exemplo, o painel de configuração para uma Máquina Virtual. O registo de atividades é ser uma das secções na maior parte desses painéis de recursos e clicar no mesmo automaticamente filtra os eventos para aqueles relacionados a esse recurso específico.
+* A maioria dos **recursos**, por exemplo, o painel de configuração para uma Máquina Virtual. O registo de atividades é uma seção na maioria dos painéis de recursos e clicar no mesmo automaticamente filtra os eventos para aqueles relacionados a esse recurso específico.
 
 No portal do Azure, pode filtrar o registo de atividades por estes campos:
 * Período de tempo - a hora de início e fim para eventos.
@@ -84,11 +81,9 @@ No portal do Azure, pode filtrar o registo de atividades por estes campos:
 * Evento iniciado por ' - ' o "chamador", ou o utilizador que executou a operação.
 * Abra pesquisa - esta é uma caixa de pesquisa de texto em aberto que procura essa cadeia de caracteres em todos os campos em todos os eventos.
 
-Depois de definir um conjunto de filtros, pode guardá-lo como uma consulta que é mantida entre sessões, se alguma vez precisar de realizar a mesma consulta com esses filtros aplicados novamente no futuro. Também pode afixar uma consulta ao dashboard do Azure para sempre manter um olho nos eventos específicos.
+Depois de definir um conjunto de filtros, pode afixar uma consulta ao dashboard do Azure para sempre manter um olho nos eventos específicos.
 
-Clicar em "Aplicar" executa a consulta e mostrar todos os eventos correspondentes. Clicar em qualquer evento na lista mostra o resumo do evento, bem como o JSON completa não processado do evento.
-
-Para ainda mais potência, pode clicar a **pesquisa de registos** ícone, que exibe os dados de registo de atividades no [solução Log Analytics, atividade do Log Analytics](../log-analytics/log-analytics-activity.md). O painel de registo de atividades oferece uma experiência de pesquisa/filtro básico em registos, mas o Log Analytics permite-lhe dinamizar, consultar e visualize os seus dados de formas mais eficientes.
+Para ainda mais potência, pode clicar a **Logs** ícone, que exibe os dados de registo de atividades no [solução Log Analytics, atividade do Log Analytics](../log-analytics/log-analytics-activity.md). O painel de registo de atividades oferece uma experiência de pesquisa/filtro básico em registos, mas o Log Analytics permite-lhe dinamizar, consultar e visualize os seus dados de formas mais eficientes.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exportar o registo de atividades com um perfil de registo
 R **perfil de registo** controla a forma como o registo de atividades é exportado. Utilizar um perfil de registo, pode configurar:
@@ -114,14 +109,14 @@ Pode usar um armazenamento conta ou event hub espaço de nomes que não esteja n
 Estas definições podem ser configuradas através da opção de "Exportação" no painel do registo de atividades no portal do. Eles também podem ser configurados por meio de programação [utilizando a API de REST do Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), cmdlets do PowerShell, ou a CLI. Uma subscrição só pode ter um perfil de registo.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configurar perfis de registo no portal do Azure
-Pode transmitir o registo de atividade para um Hub de eventos ou armazená-los numa conta de armazenamento ao utilizar a opção de "Exportação" no portal do Azure.
+Pode transmitir o registo de atividade para um Hub de eventos ou armazená-los numa conta de armazenamento ao utilizar a opção de "Exportar para Hub de eventos" no portal do Azure.
 
 1. Navegue para **registo de atividades** utilizando o menu no lado esquerdo do portal.
 
-    ![Navegue até ao registo de atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Clique nas **exportar** botão na parte superior do painel.
+    ![Navegue até ao registo de atividades no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Clique nas **exportar para o Hub de eventos** botão na parte superior do painel.
 
-    ![Botão de exportação no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Botão de exportação no portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. No painel que aparece, pode selecionar:  
   * regiões para o qual pretende exportar eventos
   * a conta de armazenamento para o qual pretende guardar os eventos

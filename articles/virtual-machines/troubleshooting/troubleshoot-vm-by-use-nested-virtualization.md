@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 425aa26c07675d57de6892adb5792eb5573f94b1
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747988"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005603"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Resolver um problema de VM do Azure ao utilizar a virtualização aninhada no Azure
 
@@ -101,7 +101,7 @@ Para montar o problema VM, VM entra em ação tem de cumprir os seguintes pré-r
 
 11. Selecione **anexar um disco rígido virtual mais tarde**.
 
-    ![a imagem sobre a anexar uma opção posteriormente disco rígido Virtual](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![a imagem sobre a anexar uma opção posteriormente disco rígido Virtual](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Selecione **concluir** quando a VM é criada.
 
@@ -109,11 +109,11 @@ Para montar o problema VM, VM entra em ação tem de cumprir os seguintes pré-r
 
 14. Selecione **controlador IDE 0**, selecione **rígido**e, em seguida, clique em **Add**.
 
-    ![a imagem sobre adiciona o novo disco rígido](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![a imagem sobre adiciona o novo disco rígido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. Na **disco rígido físico**, selecione o disco do problema VM anexado à VM do Azure. Se não vir quaisquer discos listados, verifique se o disco é definido como offline utilizando a gestão de discos.
 
-    ![a imagem sobre monta o disco](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![a imagem sobre monta o disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Selecione **Apply** (Aplicar) e **OK**.
@@ -130,11 +130,11 @@ Para montar o problema VM, VM entra em ação tem de cumprir os seguintes pré-r
 
 3.  Aceda a **todos os recursos**, procure o nome do disco e, em seguida, selecione o disco.
 
-     ![a imagem sobre pesquisa o disco](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![a imagem sobre pesquisa o disco](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Clique em **criar VM**.
 
-     ![a imagem sobre cria vm a partir do disco](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![a imagem sobre cria vm a partir do disco](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Também pode utilizar o Azure PowerShell para criar a VM a partir do disco. Para obter mais informações, consulte [criar a nova VM a partir de um disco existente com o PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 
