@@ -1,6 +1,6 @@
 
 # Azure Resiliency
-## [Página de funcionalidades do Azure Resiliency (Azure Resiliency feature page)](http://azure.microsoft.com/features/resiliency)
+## [Página de funcionalidades do Azure Resiliency (Azure Resiliency feature page)](https://azure.microsoft.com/features/resiliency)
 ## [Conceber aplicações resilientes para o Azure (Design resilient applications for Azure)](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # Elevada Disponibilidade
@@ -50,10 +50,10 @@
 #### [Recuperação após desastre geográfica do Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
 
 ### Gateway de VPN
-#### [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+#### [Criar um gateway de rede virtual com redundância entre zonas](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 ### ExpressRoute
-#### [Criar um gateway de rede virtual com redundância de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+#### [Criar um gateway de rede virtual com redundância entre zonas](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Recuperação Após Desastre
 ## [Utilizar o Azure Site Recovery (Use Azure Site Recovery)](https://docs.microsoft.com/azure/site-recovery/)

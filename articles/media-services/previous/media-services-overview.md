@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cc6cb768e9403a09ea09309e0ffd85ce9012cb41
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c3d9b0660ab7803fc0c2696ded7bbffa90e07a5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352091"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211609"
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure 
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Versão 2 – GA](media-services-overview.md)
-> * [Versão 3 – Pré-visualização](../latest/media-services-overview.md)
+> * [Versão 2](media-services-overview.md)
+> * [Versão 3](../latest/media-services-overview.md)
 
 Os Serviços de Multimédia do Microsoft Azure (AMS) são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Os Serviços de Multimédia são baseados nas APIs REST, que permitem carregar, armazenar, codificar e empacotar de forma segura conteúdos de vídeo ou áudio, para o envio de transmissão em fluxo, tanto a pedido como em direto, para vários clientes (por exemplo, TV, PC e dispositivos móveis).
 

@@ -1,20 +1,19 @@
 ---
-title: Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos replicados no Azure com o Site Recovery | Microsoft Docs
-description: Saiba como fazer a ativação pós-falha de VMs do VMware e de servidores físicos para o Azure e a reativação pós-falha para o site no local com o Azure Site Recovery
-services: site-recovery
+title: Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos durante a recuperação após desastre para o Azure com o Site Recovery | Microsoft Docs
+description: Saiba como fazer a ativação pós-falha de VMs do VMware e de servidores físicos para o Azure e a reativação pós-falha para o site no local durante a recuperação após desastre para o Azure com o Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457077"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215349"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Fazer a ativação pós-falha e a reativação pós-falha de VMs do VMware e de servidores físicos replicados no Azure
 

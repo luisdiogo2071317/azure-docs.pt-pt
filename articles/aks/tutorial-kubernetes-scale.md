@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5ffe7b4c7830500e5eeeeb61c57730d9a0d9df47
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920743"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414187"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Dimensionar aplicações no Serviço Kubernetes do Azure (AKS)
 
@@ -71,7 +71,13 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Dimensionar pods automaticamente
 
-O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods numa implementação, consoante a utilização da CPU ou de outras métricas selecionadas. O [Servidor de Métricas][metrics-server] é utilizado para proporcionar a utilização de recursos a Kubernetes. Para instalar o Servidor de Métricas, clone o repositório GitHub do `metrics-server` e instale as definições do recurso de exemplo. Para ver os conteúdos destas definições de YAML, consulte [Servidor de Métricas para Kuberenetes 1.8+][metrics-server-github].
+O Kubernetes suporta [dimensionamento automático horizontal de pods][kubernetes-hpa] para ajustar o número de pods numa implementação, consoante a utilização da CPU ou de outras métricas selecionadas. O [Servidor de Métricas][metrics-server] é utilizado para fornecer a utilização de recursos ao Kubernetes e é implementado automaticamente em clusters do AKS da versão 1.10 e superior. Para ver a versão do cluster AKS, utilize o comando [az aks show][az-aks-show], conforme mostrado no exemplo seguinte:
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+```
+
+Se a versão do cluster AKS for inferior a *1.10*, instale o Servidor de Métricas; caso contrário, ignore este passo. Clone o repositório GitHub do `metrics-server` e instale as definições do recurso de exemplo. Para ver os conteúdos destas definições de YAML, consulte [Servidor de Métricas para Kuberenetes 1.8+][metrics-server-github].
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
@@ -112,7 +118,7 @@ Se criou o seu cluster Kubernetes com os comandos no tutorial anterior, tem um n
 O exemplo seguinte aumenta o número de nós para três no cluster do Kubernetes denominado *myAKSCluster*. O comando demora poucos minutos a concluir.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
 O resultado é semelhante a:
@@ -160,3 +166,4 @@ Avance para o próximo tutorial para saber como atualizar a aplicação no Kuber
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show
