@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72eaa17e78086a4e5338bb3198ef7471c44b785f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235043"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344094"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Subscrever eventos através do portal
 
@@ -45,6 +45,16 @@ Para criar uma subscrição do Event Grid para qualquer suportadas [origens de e
 1. Fornece detalhes adicionais sobre a subscrição de evento, como o ponto final para manipulação de eventos e um nome de subscrição.
 
    ![Fornecer detalhes da subscrição](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. Para ativar mensagens mortas e personalizar as políticas de repetição, selecione **funcionalidades adicionais**.
+
+   ![Selecionar funcionalidades adicionais](./media/subscribe-through-portal/select-additional-features.png)
+
+1. Selecione um contentor a utilizar para armazenar os eventos que não são fornecidos e definir como as repetições são enviadas.
+
+   ![Ativar mensagens não entregues e tente novamente](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. Quando terminar, selecione **Criar**.
 
 ## <a name="create-subscription-on-resource"></a>Criar subscrição no recurso
 

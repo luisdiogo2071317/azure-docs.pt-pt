@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
-ms.openlocfilehash: e75b6bbd688ae6e4422d5caba160095763e84994
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 5086c831f45fd9c8e411fb02b21d03795d747c8a
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185623"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514184"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução aos dispositivos duplos (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -39,9 +39,17 @@ Para concluir este tutorial, precisa do seguinte:
 > Os pacotes *pip* para `azure-iothub-service-client` e `azure-iothub-device-client` estão atualmente disponíveis apenas para o SO Windows. Para Linux/Mac OS, veja as secções específicas de SO Linux e Mac na publicação [Prepare your development environment for Python][lnk-python-devbox] (Preparar o seu ambiente de desenvolvimento para Python).
 > 
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>Obter cadeia de ligação do IoT hub
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-the-service-app"></a>Criar a aplicação de serviço
 Nesta secção, vai criar uma aplicação de consola Python que adiciona os metadados de localização para o dispositivo duplo associado com seu **{Id de dispositivo}**. Ele consulta, em seguida, os dispositivos duplos armazenados no hub IoT selecionar os dispositivos localizados em Redmond e, em seguida, aqueles que estiverem a comunicar uma conexão por celular.

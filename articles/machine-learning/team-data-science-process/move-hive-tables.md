@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 7ed861a58b82435f9f50a5798ff821fcd6020096
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c1cbd523b8c74bf1221dc47b832c35e9119493a9
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394138"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346291"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure
-Este tópico apresenta genéricas consultas do Hive que criam tabelas do Hive e carregar dados do armazenamento de Blobs do Azure. Também são disponibilizadas algumas orientações sobre a criação de partições de tabelas do Hive e sobre como utilizar o otimizada linhas em colunas (ORC) formatação para melhorar o desempenho de consulta.
 
-Isso **menu** ligações para tópicos que descrevem como ingerir dados nos ambientes de destino onde os dados podem ser armazenados e processados durante o Team Data Science Process (TDSP).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+Este artigo apresenta genéricas consultas do Hive que criam tabelas do Hive e carregar dados do armazenamento de Blobs do Azure. Também são disponibilizadas algumas orientações sobre a criação de partições de tabelas do Hive e sobre como utilizar o otimizada linhas em colunas (ORC) formatação para melhorar o desempenho de consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem:

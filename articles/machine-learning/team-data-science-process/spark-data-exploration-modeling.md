@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: e6115abbb2cd122dfd35710b5232a308b48dfd71
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 34b5d052a31eb0185a54d3f54a5af8ba90d857eb
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394929"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346682"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-Estas instruções utilizam o Spark do HDInsight para fazer a exploração de dados e classificação binária e regressão tarefas de modelagem de uma amostra do NYC táxis viagem e se comportarão de conjunto de dados de 2013.  Ele explica-lhe os passos para o [processo de ciência de dados](http://aka.ms/datascienceprocess)ponto-a- ponto, utilizar um cluster do HDInsight Spark para blobs de processamento e do Azure para armazenar os dados e os modelos. O processo explora e visualiza dados trazidos de um Blob de armazenamento do Azure e, em seguida, prepara os dados para criar modelos preditivos. Estes modelos são de compilação usando o Kit de ferramentas do Spark MLlib para efetuar tarefas de modelagem de classificação binária e regressão.
+Estas instruções utilizam o Spark do HDInsight para fazer a exploração de dados e classificação binária e regressão tarefas de modelagem de uma amostra do NYC táxis viagem e se comportarão de conjunto de dados de 2013.  Ele explica-lhe os passos para o [processo de ciência de dados](https://aka.ms/datascienceprocess)ponto-a- ponto, utilizar um cluster do HDInsight Spark para blobs de processamento e do Azure para armazenar os dados e os modelos. O processo explora e visualiza dados trazidos de um Blob de armazenamento do Azure e, em seguida, prepara os dados para criar modelos preditivos. Estes modelos são de compilação usando o Kit de ferramentas do Spark MLlib para efetuar tarefas de modelagem de classificação binária e regressão.
 
 * O **classificação binária** tarefa é prever se ou não uma dica é pago para a viagem. 
 * O **regressão** tarefa é prever a quantidade de sugestão com base em outros recursos de dica. 

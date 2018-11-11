@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963052"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514779"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Desvantagens de desempenho e disponibilidade para vários níveis de consistência no Azure Cosmos DB
 
@@ -33,20 +33,6 @@ Bases de dados distribuídas depender de replicação para elevada disponibilida
 - Para o mesmo número de unidades de pedido, a sessão, prefixo consistente e níveis de consistência eventual fornecem o débito em comparação com a forte e estagnação limitada de leitura de aproximadamente 2 X.
 
 - Para um determinado tipo de operação de escrita como inserir, substituir, upsert, eliminar, etc., o débito de escrita para unidades de pedido é idêntico para todos os níveis de consistência.
-
-## <a name="consistency-levels-and-durability"></a>Níveis de consistência e durabilidade
-
-Antes de uma operação de escrita é reconhecida para o cliente, os dados de maneira duradoura consolidados por um quórum de réplicas na região que aceita as operações de escrita. Além disso, se o contentor estiver configurado com a política de indexação consistente, o índice é atualizado também de forma síncrona, replicado e maneira duradoura consolidado pelo quórum de réplicas, antes da confirmação de operação de escrita é enviada ao cliente.
-
-A tabela seguinte resume a janela de perda de dados potenciais em caso de desastre regional para as contas do Cosmos que abrangem várias regiões.
-
-| **Nível de consistência** | **Janela potencial de perda de dados em caso de desastre regional** |
-| - | - |
-| Forte | Zero |
-| Estagnação Limitada | Limitado à "janela de envelhecimento" que configura na conta do Cosmos. |
-| Sessão | Até 5 segundos |
-| Prefixo Consistente | Até 5 segundos |
-| Eventual | Até 5 segundos |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9f76b38139cccedb97c6026f0e0efa14d0dbc8c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 596a9e4e3e1d24bdcab561a7238548d418ac0581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42062099"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243578"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Tutorial: Copiar dados de armazenamento de BLOBs para base de dados SQL com o Data Factory
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ A Atividade de Cópia executa o movimento de dados no Azure Data Factory. Utiliz
 ## <a name="prerequisites-for-the-tutorial"></a>Pré-requisitos para o tutorial
 Antes de começar este tutorial, tem de ter os seguintes pré-requisitos:
 
-* **Subscrição do Azure**.  Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Consulte a [avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) artigo para obter detalhes.
+* **Subscrição do Azure**.  Se não tiver uma subscrição, pode criar uma conta gratuita em apenas alguns minutos. Consulte a [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) artigo para obter detalhes.
 * **Conta de armazenamento do Azure**. Utilize o armazenamento de BLOBs como um **origem** do arquivo de dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para obter os passos para criar uma.
 * **Base de Dados SQL do Azure**. Utilizar uma base de dados SQL do Azure como um **destino** do arquivo de dados neste tutorial. Se não tiver uma base de dados SQL do Azure que pode utilizar o tutorial, veja [como criar e configurar uma base de dados do SQL Azure](../../sql-database/sql-database-get-started.md) para criar um.
 * **SQL Server 2012 Maio de 2014 ou o Visual Studio 2013**. Utilize o SQL Server Management Studio ou o Visual Studio para criar uma base de dados de exemplo e ver os dados de resultado na base de dados.  
@@ -65,7 +65,7 @@ Precisa do nome da conta e chave de conta da sua conta de armazenamento do Azure
 5. Clique em **cópia** botão (imagem), junto a **nome da conta de armazenamento** texto caixa e save/colá-lo em algum lugar (por exemplo: num ficheiro de texto).
 6. Repita o passo anterior para copiar ou tome nota da **chave1**.
 
-    ![Chave de acesso ao armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
+    ![Chave de acesso de armazenamento](media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/storage-access-key.png)
 7. Fechar todos os painéis clicando **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Recolher do SQL server, base de dados, os nomes de utilizador

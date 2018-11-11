@@ -16,31 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 575e17f214561bde06b70bf87c4895ae379659f2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837468"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344727"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importar os seus dados de preparação para o Azure Machine Learning Studio a partir de várias origens de dados
-Para utilizar os seus dados no Machine Learning Studio para desenvolver e formar uma solução de Análise Preditiva, pode: 
 
-* carregar dados a partir de um **ficheiro local** antes do tempo do disco rígido para criar um módulo de conjunto de dados na sua área de trabalho
-* aceder a dados de um dos vários **origens de dados online** durante a execução de sua experiência com o [importar dados] [ import-data] módulo 
-* utilizar dados do outro Azure Machine learning **experimentar** guardado como um conjunto de dados
-* utilizar dados de uma local **base de dados do SQL Server**
+Para utilizar os seus dados no Machine Learning Studio para desenvolver e formar uma solução de Análise Preditiva, pode utilizar dados a partir de: 
 
-Cada uma destas opções é descrita em um dos tópicos no menu abaixo. Estes tópicos mostram-lhe como importar dados esses dados de várias origens para utilizar no Machine Learning Studio. 
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+* R [ **ficheiro local** ](import-data-from-local-file.md) -carregar os dados locais antes do tempo do disco rígido para criar um módulo de conjunto de dados na sua área de trabalho
+* [**Origens de dados online** ](import-data-from-online-sources.md) -utilize o [importar dados] [ import-data] módulo para aceder a dados a partir de uma das várias origens online durante a execução de sua experiência
+* [**Experimentação do Studio de aprendizagem da máquina** ](import-data-from-an-experiment.md) -usar dados que foi guardados como um conjunto de dados no Machine Learning Studio
+* [**Base de dados do SQL Server no local** ](use-data-from-an-on-premises-sql-server.md) -utilizar dados a partir de uma base de dados do SQL Server no local sem ter de copiar manualmente os dados
 
 > [!NOTE]
 > Um número de conjuntos de dados de exemplo estão disponíveis no Machine Learning Studio, que pode utilizar para os dados de treinamento. Para obter informações sobre elas, consulte [utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio](use-sample-datasets.md)).
 > 
 > 
 
-Este tópico introdutório também aborda como obter dados pronto para utilização no Machine Learning Studio e descreve quais formatos de dados e os tipos de dados são compatíveis. 
+Este artigo introdutório também aborda como obter dados pronto para utilização no Machine Learning Studio e descreve quais formatos de dados e os tipos de dados são compatíveis.
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 

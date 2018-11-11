@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801017"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344489"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Proteger serviços da web do Azure Machine Learning com SSL
 
@@ -53,9 +53,8 @@ Quando pedir um certificado, tem de fornecer o nome de domínio completamente qu
 > [!TIP]
 > Se a autoridade de certificação não é possível fornecer o certificado e chave, como ficheiros PEM codificado, pode utilizar um utilitário como [OpenSSL](https://www.openssl.org/) para alterar o formato.
 
-> [!IMPORTANT]
-> Certificados autoassinados devem ser usados apenas para desenvolvimento. Eles não devem ser usados na produção. Se utilizar um certificado autoassinado, consulte a [consumindo serviços da web com certificados autoassinados](#self-signed) secção para obter instruções específicas.
-
+> [!WARNING]
+> Certificados autoassinados devem ser usados apenas para desenvolvimento. Eles não devem ser usados na produção. Certificados autoassinados podem causar problemas no seu cliente de aplicativos. Para obter mais informações, consulte a documentação para as bibliotecas de rede utilizadas na sua aplicação de cliente.
 
 ## <a name="enable-ssl-and-deploy"></a>Ativar o SSL e implementar
 
@@ -119,91 +118,8 @@ Em seguida, tem de atualizar o DNS para apontar para o serviço web.
 
   Atualize o DNS no separador "Configuração" das "Endereço IP público" do cluster AKS conforme mostrado na imagem. Pode encontrar o endereço IP público como um dos tipos de recursos criados no grupo de recursos que contém os nós de agente do AKS e outros recursos de rede.
 
-  ![O serviço do Azure Machine Learning: protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![O serviço do Azure Machine Learning: protegendo serviços da web com SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)Self-
 
-## <a name="consume-authenticated-services"></a>Consumir serviços autenticados
+## <a name="next-steps"></a>Passos Seguintes
 
-### <a name="how-to-consume"></a>Como consumir 
-+ **Para o ACI e o AKS**: 
-
-  Para serviços da web ACI e o AKS, saiba como consumir os serviços da web nestes artigos:
-  + [Como implementar no ACI](how-to-deploy-to-aci.md)
-
-  + [Como implementar no AKS](how-to-deploy-to-aks.md)
-
-+ **Para FPGA**:  
-
-  Os exemplos seguintes demonstram como consumir um serviço FPGA autenticado em Python e c#.
-  Substitua `authkey` com a chave primária ou secundária que foi retornada quando o serviço foi implementado.
-
-  Exemplo de Python:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  Exemplo do c#:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>Definir o cabeçalho de autorização
-Outros clientes gRPC podem autenticar pedidos ao definir um cabeçalho de autorização. A abordagem geral é criar um `ChannelCredentials` objeto que combina `SslCredentials` com `CallCredentials`. Isso é adicionado ao cabeçalho de autorização do pedido. Para obter mais informações sobre como implementar o suporte para os cabeçalhos de específicos, consulte [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
-
-Os exemplos seguintes demonstram como definir o cabeçalho em c# e Go:
-
-+ Utilizar c# para definir o cabeçalho:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Utilize o Go para definir o cabeçalho:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>Consumir serviços com certificados autoassinados
-
-Existem duas formas de ativar o cliente para autenticação num servidor protegido por um certificado autoassinado:
-
-* No sistema cliente, defina o `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` variável de ambiente no sistema de cliente para apontar para o ficheiro de certificado.
-
-* Ao construir um `SslCredentials` de objeto, transmita os conteúdos do ficheiro de certificado para o construtor.
-
-Utilizando um dos métodos faz com que o gRPC utilizar o certificado como o certificado de raiz.
-
-> [!IMPORTANT]
-> gRPC não aceita certificados não fidedignos. Utilizando um certificado não fidedigno irá falhar com um `Unavailable` código de estado. Os detalhes da falha contêm `Connection Failed`.
+Saiba como [Consume implementado um modelo de ML como um serviço web](how-to-consume-web-service.md).

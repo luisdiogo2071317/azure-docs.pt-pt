@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945965"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244951"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>O que é o serviço Azure Machine Learning (pré-visualização)?
 
@@ -48,7 +48,7 @@ Pode gerir os modelos implementados e controlar várias execuções à medida qu
 O serviço Azure Machine Learning consegue gerar e otimizar automaticamente um modelo.
 Para obter um exemplo, veja [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: preparar automaticamente um modelo de classificação com o Azure Automated Machine Learning).
 
-Ao utilizar o <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> do Azure Machine Learning para Python, juntamente com pacotes Python de open source, pode criar e preparar modelos de machine learning e aprendizagem aprofundada de alta precisão numa área de trabalho do serviço do Azure Machine Learning.
+Ao utilizar o <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> do Azure Machine Learning para Python, juntamente com pacotes Python de open source, pode criar e preparar modelos de machine learning e aprendizagem aprofundada de alta precisão numa área de trabalho do serviço do Azure Machine Learning.
 Pode escolher de entre vários componentes de machine learning disponíveis em pacotes Python de open source, como os seguintes:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -59,7 +59,7 @@ Pode escolher de entre vários componentes de machine learning disponíveis em p
 
 Depois de ter um modelo, pode utilizá-lo para criar um contentor (por exemplo, o Docker) que pode ser implementado localmente para fins de teste e, em seguida, como um serviço Web de produção no [Azure Container Instances](how-to-deploy-to-aci.md) ou no [Azure Kubernetes Service](how-to-deploy-to-aks.md).
 
-Em seguida, pode gerir os modelos implementados através do [portal do Azure](https://portal.azure.com/) ou da [extensão da CLI do Azure Machine Learning](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
+Em seguida, pode gerir os modelos implementados através do [portal do Azure](https://portal.azure.com/) ou da [extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 Pode avaliar as métricas do modelo, voltar a preparar e implementar novas versões do modelo, tudo enquanto controla as experimentações do modelo.
 
 Para começar a utilizar o serviço Azure Machine Learning, veja os [Passos seguintes](#next-steps) que estão abaixo.
@@ -85,6 +85,8 @@ Se não for um subscritor, pode [abrir uma conta do Azure gratuitamente](https:/
 - Siga o tutorial completo, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) (Preparar um modelo de classificação de imagens com o Azure Machine Learning), para saber como preparar e implementar modelos com o serviço Azure Machine Learning
 
 - Para obter informações sobre como dar permissão ao Azure Machine Learning para gerar e otimizar automaticamente o seu modelo, veja [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: preparar automaticamente um modelo de classificação com o Azure Automated Machine Learning)
+
+- Saiba mais sobre [pipelines de aprendizagem automática](/azure/machine-learning/service/concept-ml-pipelines) para criar, otimizar e gerir cenários da aprendizagem automática.
 
 - Para uma visão aprofundada e técnica do serviço, veja [Arquitetura e conceitos do serviço Azure Machine Learning](concept-azure-machine-learning-architecture.md)
 

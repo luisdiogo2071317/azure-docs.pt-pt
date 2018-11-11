@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 11/10/2018
 ms.author: daveba
-ms.openlocfilehash: b73a79676be559ad491bd7bb16691369dd8fa271
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f0d207bb5db8d27765c608f07a9d2ed9dc2f08dd
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158636"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515000"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurar identidades geridas para recursos do Azure numa VM com o portal do Azure
 
@@ -33,12 +33,6 @@ Neste artigo, saiba como ativar e desativar o sistema e de identidades geridas a
 
 - Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md).
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de controlo de acesso baseado em funções do Azure seguintes:
-
-    > [!NOTE]
-    > Nenhum adicionais do Azure AD directory as atribuições de funções necessárias.
-
-    - [Contribuinte de máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para ativar e remover atribuído de sistema de identidade gerida de uma VM do Azure.
 
 ## <a name="system-assigned-managed-identity"></a>Atribuído ao sistema de identidade gerida
 
@@ -46,7 +40,9 @@ Nesta secção, saiba como ativar e desativar a identidade gerida atribuído de 
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>Ativar a identidade gerida atribuído ao sistema durante a criação de uma VM
 
-Para ativar a identidade gerida atribuído ao sistema durante a criação de uma VM, no **gerenciamento** separador a **identidade** secção, mude **identidade de serviço gerida** para  **No**.  
+Para ativar a identidade gerida atribuído de sistema numa VM durante sua criação, a conta tem do [contribuinte de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) atribuição de função.  Não existem adicionais do Azure atribuições de funções de diretório do AD são necessárias.
+
+- Sob o **gerenciamento** separador o **identidade** secção, mude **identidade de serviço gerida** para **no**.  
 
 ![Ativar a identidade do sistema atribuídos durante a criação da VM](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
 
@@ -58,7 +54,7 @@ Veja os inícios Rápidos seguintes para criar uma VM:
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>Ativar a identidade gerida atribuído de sistema numa VM existente
 
-Para ativar a identidade gerida atribuído de sistema numa VM que foi originalmente aprovisionada sem ele:
+Para ativar a identidade gerida atribuído de sistema numa VM que foi originalmente aprovisionada sem ele, a conta tem do [contribuinte de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) atribuição de função.  Não existem adicionais do Azure atribuições de funções de diretório do AD são necessárias.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém a VM.
 
@@ -69,6 +65,8 @@ Para ativar a identidade gerida atribuído de sistema numa VM que foi originalme
    ![Captura de ecrã de página de configuração](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Remover sistema atribuído a identidade gerida de uma VM
+
+Para remover o sistema atribuído a identidade gerida de uma VM, a conta tem do [contribuinte de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) atribuição de função.  Não existem adicionais do Azure atribuições de funções de diretório do AD são necessárias.
 
 Se tiver uma Máquina Virtual que já não tem atribuído o sistema de identidade gerida:
 
@@ -86,12 +84,16 @@ Se tiver uma Máquina Virtual que já não tem atribuído o sistema de identidad
 
 ### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>Atribuir uma identidade de utilizador atribuída durante a criação de uma VM
 
+Para atribuir uma identidade de utilizador atribuído a uma VM, a conta tem do [contribuinte de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [operador de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) atribuições de funções. Não existem adicionais do Azure atribuições de funções de diretório do AD são necessárias.
+
 Atualmente, o portal do Azure não suporta a atribuição de uma identidade gerida atribuído ao utilizador durante a criação de uma VM. Em vez disso, consulte um dos seguintes artigos de início rápido de criação de VM para primeiro criar uma VM e, em seguida, avance para a secção seguinte para obter detalhes sobre uma identidade gerida atribuído ao utilizador a atribuir à VM:
 
 - [Criar uma máquina virtual do Windows com o portal do Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Criar uma máquina virtual Linux com o portal do Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-vm"></a>Atribuir uma identidade gerida atribuído ao utilizador a uma VM existente
+
+Para atribuir uma identidade de utilizador atribuído a uma VM, a conta tem do [contribuinte de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [operador de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) atribuições de funções. Não existem adicionais do Azure atribuições de funções de diretório do AD são necessárias.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém a VM.
 2. Navegue para a VM e clique em pretendido **identidade**, **atribuída ao utilizador** e, em seguida  **\+adicionar**.
@@ -103,6 +105,8 @@ Atualmente, o portal do Azure não suporta a atribuição de uma identidade geri
     ![Adicionar identidade gerida atribuído ao utilizador a VM](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-vm"></a>Remover uma identidade gerida atribuído ao utilizador a partir de uma VM
+
+Para remover uma identidade atribuído ao utilizador a partir de uma VM, a conta tem do [contribuinte de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) atribuição de função. Não existem adicionais do Azure atribuições de funções de diretório do AD são necessárias.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure que contém a VM.
 2. Navegue para a VM e clique em pretendido **identidade**, **atribuída ao utilizador**, o nome do atribuído ao utilizador gerido identidade que pretende eliminar e, em seguida, clique em **remover** (clique em  **Sim** no painel de confirmação).

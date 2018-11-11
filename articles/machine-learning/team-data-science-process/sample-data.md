@@ -1,6 +1,6 @@
 ---
-title: Dados em contentores de Blobs do Azure SQL Server, de exemplo e tabelas de ramo de registo | Microsoft Docs
-description: Como explorar os dados armazenados em várias enviromnents do Azure.
+title: Dados em contentores de Blobs do Azure, SQL Server, de exemplo e tabelas do Hive | Documentos da Microsoft
+description: Como explorar os dados armazenados em vários enviromnents do Azure.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 0efd754936b67611a747c6c5756de92443a937e4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 60431578ba8b5c740fe5e1124dcdad32c3cb2ede
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838004"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344093"
 ---
-# <a name="heading"></a>Dados em contentores de Blobs do Azure SQL Server, de exemplo e tabelas de ramo de registo
-Ligações neste documento para artigos que abrangem como dados que estão armazenados das três localizações do Azure diferentes de exemplo:
+# <a name="heading"></a>Dados de exemplo no Azure, contentores, SQL Server, de BLOBs e tabelas do Hive
 
-* **Dados de contentor do blob do Azure** é objeto de amostragem por transferindo-a através de programação e, em seguida, fazendo a amostragem-lo com o código de Python de exemplo.
-* **Dados do SQL Server** é convertidas utilizando o SQL Server e a linguagem de programação do Python. 
-* **Os dados da tabela de Hive** é convertidas utilizando consultas do Hive.
+Os seguintes artigos descrevem como dados de exemplo que são armazenados em um dos três diferentes localizações do Azure:
 
-O seguinte **menu** ligações para tópicos que descrevem como dados de cada um destes ambientes de armazenamento do Azure de exemplo. 
+* [**Os dados de contentor de Blobs do Azure** ](sample-data-blob.md) são objeto de amostragem por baixá-lo por meio de programação e, em seguida, fazendo a amostragem-lo com o código Python de exemplo.
+* [**Dados do SQL Server** ](sample-data-sql-server.md) são objeto de amostragem com SQL e a linguagem de programação de Python. 
+* [**Dados da tabela de Hive** ](sample-data-hive.md) são objeto de amostragem com consultas do Hive.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Esta tarefa de amostragem é um passo de [processo de ciência de dados de equipa (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+**Por que dados de exemplo?**
 
-**Dados de exemplo por que motivo?**
-
-Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa ideia baixo-sample os dados para reduzir para um tamanho mais pequeno, mas representativo e mais fácil gerir. Isto facilita a compreensão de dados, exploração e engenharia da funcionalidade. A função no processo de análise do Cortana é permitir o rápido fazer o protótipo das funções de processamento de dados e modelos de machine learning.
+Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, a exploração e a engenharia de funcionalidades. Sua função no Cortana Analytics Process é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
 

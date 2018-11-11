@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968078"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515357"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o seu investimento na cloud com o Azure Cost Management
 
@@ -186,10 +186,6 @@ Para obter mais informações, consulte [quais são as reservas do Azure?](../bi
 Se já tiver licenças do Windows Server ou SQL Server das implementações no local, pode utilizar o programa benefício híbrido do Azure para guardar no Azure. Com o benefício do Windows Server, cada licença abrange o custo do sistema operacional (até duas máquinas de virtuais) e só paga os custos de computação base. Pode utilizar licenças existentes do SQL Server para poupar até 55 por cento nas opções de base de dados SQL baseada em vCore. as opções incluem o SQL Server em máquinas virtuais do Azure e SQL Server Integration Services.
 
 Para obter mais informações, consulte [Calculadora de poupanças do benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Alocação monetária
-
-Os clientes que se um contrato Enterprise, podem criar um compromisso monetário à cabeça com a Microsoft. Além de fornecer uma forma simples de alocar orçamentos a recursos na cloud, compromissos monetários permitem reduzidas taxas no Azure. Taxa de reduções podem levar à redução significativa de custos para a sua organização.
 
 ### <a name="other-resources"></a>Outros recursos
 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 3b1abe60fc81ae0316e2d0552a1750129171ff5f
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817029"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345458"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de ou para a geração 1 de armazenamento do Azure Data Lake com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +44,6 @@ Especificamente, este conector do Azure Data Lake Store suporta:
 > Para obter instruções para utilizar o conector do Azure Data Lake Store, consulte [carregar dados para o Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->Quando utiliza a ferramenta de cópia de dados para criar o pipeline de cópia ou utilizar a interface do Usuário do ADF para executar o teste de Pastas/navegar de ligação durante a criação, ela exige a permissão de principal de serviço ou MSI sendo concedido ao nível de raiz. Tempo, a execução de atividade de cópia pode trabalhar enquanto a permissão é concedida aos dados a copiar. Pode ignorar as operações de criação, se precisar de limitar a permissão.
 
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o Azure Data lake Store.
 
@@ -79,6 +76,9 @@ Para utilizar autenticação do principal de serviço, registe-se uma entidade d
 > Certifique-se de que conceder a service principal permissão adequada no Azure Data Lake Store:
 >- **Como origem**, no Explorador de dados -> acesso, pelo menos a conceder **leitura + execução** permissão para listar e copie os arquivos na pasta/subpastas, ou **leitura** permissão para copiar um ficheiro único; e optar por Adicionar ao **esta pasta e todos os filhos** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Nenhum requisito no controle de conta de nível de acesso (IAM).
 >- **Como sink**, no Explorador de dados -> acesso, pelo menos a conceder **escrita + execução** permissão para criar itens subordinados numa pasta e escolha adicionar ao **esta pasta e todos os filhos** para recursiva e Adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no controlo de acesso (IAM), conceder, pelo menos, **leitor** função para detetar a região do Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store e associar na Store de Lake dados de serviço como o exemplo seguinte ligado.
+
+>[!NOTE]
+>Quando utiliza **ferramenta de dados de cópia** para criar o pipeline de cópia ou utilize **interface do Usuário do ADF** para executar o teste de Pastas/navegar de ligação durante a criação, ele requer a permissão de principal de serviço que está a ser concedido **no nível de raiz com permissão de "Executar"** por ordem para listar pastas a partir de raiz. Tempo, a execução de atividade de cópia pode trabalhar enquanto a permissão é concedida aos dados a copiar. Pode ignorar as operações de criação, se precisar de limitar a permissão.
 
 São suportadas as seguintes propriedades:
 
@@ -128,6 +128,9 @@ Para utilizar identidades geridas para a autenticação de recursos do Azure:
 >- **Como origem**, no Explorador de dados -> acesso, pelo menos a conceder **leitura + execução** permissão para listar e copie os arquivos na pasta/subpastas, ou **leitura** permissão para copiar um ficheiro único; e optar por Adicionar ao **esta pasta e todos os filhos** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Nenhum requisito no controle de conta de nível de acesso (IAM).
 >- **Como sink**, no Explorador de dados -> acesso, pelo menos a conceder **escrita + execução** permissão para criar itens subordinados numa pasta e escolha adicionar ao **esta pasta e todos os filhos** para recursiva e Adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no controlo de acesso (IAM), conceder, pelo menos, **leitor** função para detetar a região do Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store e associar na Store de Lake dados de serviço como o exemplo seguinte ligado.
 
+>[!NOTE]
+>Quando utiliza **ferramenta de dados de cópia** para criar o pipeline de cópia ou utilize **interface do Usuário do ADF** para executar o teste de Pastas/navegar de ligação durante a criação, ele requer a permissão sendo concedida **na raiz nível com a permissão de "Executar"** por ordem para listar pastas a partir de raiz. Tempo, a execução de atividade de cópia pode trabalhar enquanto a permissão é concedida aos dados a copiar. Pode ignorar as operações de criação, se precisar de limitar a permissão.
+
 No Azure Data Factory, não terá de especificar quaisquer propriedades além das informações gerais do Data Lake Store no serviço ligado.
 
 **Exemplo:**
@@ -159,7 +162,7 @@ Para copiar dados de/para o Azure Data Lake Store, defina a propriedade de tipo 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **AzureDataLakeStoreFile** |Sim |
-| folderPath | Caminho para a pasta na Store de Lake dados. Não é suportado o filtro de carateres universais. Exemplo: rootfolder/subpasta / |Sim |
+| folderPath | Caminho para a pasta na Store de Lake dados. Não é suportado o filtro de carateres universais. Se não for especificado, ele aponta para a raiz. Exemplo: rootfolder/subpasta / |Não |
 | fileName | **Filtro de nome ou o caráter universal** para o ficheiro ou ficheiros sob o "folderPath" especificado. Se não especificar um valor para esta propriedade, o conjunto de dados aponta para todos os ficheiros na pasta. <br/><br/>Para o filtro, permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"fileName": "*.csv"`<br/>-Exemplo 2: `"fileName": "???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape.<br/><br/>Quando o nome de ficheiro não está especificado para um conjunto de dados de saída e **preserveHierarchy** não seja especificado no sink de atividade, a atividade de cópia gera automaticamente o nome de ficheiro com o seguinte formato: "*dados. [ id de execução da atividade GUID]. [GUID se FlattenHierarchy]. [formato se configurado]. [compressão se configurado]* ". Um exemplo é "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |Não |
 | Formato | Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ou gerar arquivos com um formato específico, os seguintes tipos de formato de ficheiro são suportados: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Json](supported-file-formats-and-compression-codecs.md#json-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format) secções. |Não (apenas para o cenário de cópia binária) |
 | Compressão | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Tipos suportados são: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis suportados são: **Optimal** e **Fastest**. |Não |

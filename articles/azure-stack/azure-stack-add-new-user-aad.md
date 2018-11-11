@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240125"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adicionar uma nova conta de inquilino do Azure Stack no Azure Active Directory
 
@@ -65,7 +65,7 @@ Se não tiver uma subscrição do Azure, não é possível utilizar o portal do 
 > 
 
 1. Instalar o [Assistente de início de sessão para os profissionais de TI RTW Microsoft Online Services](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Instalar o [módulo Azure Active Directory para Windows PowerShell (versão de 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297) e abri-lo.
+2. Instalar o [módulo Azure Active Directory para Windows PowerShell (versão de 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) e abri-lo.
 3. Execute os seguintes cmdlets:
 
     ```powershell

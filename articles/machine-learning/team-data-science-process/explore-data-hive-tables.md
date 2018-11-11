@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 79d40617ae4f9cd83d04cad213e5d8fd76b03876
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 84bc7ee08c6c98e76c3814f8a59dfa300db9d22d
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056078"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344583"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorar dados em tabelas do Hive com consultas do Hive
-Este documento fornece scripts de Hive de exemplo que são utilizadas para explorar dados em tabelas do Hive num cluster do HDInsight Hadoop.
 
-O seguinte procedimento **menu** ligações para tópicos que descrevem como utilizar ferramentas para explorar os dados de vários ambientes de armazenamento.
+Este artigo fornece os scripts de Hive de exemplo que são utilizadas para explorar dados em tabelas do Hive num cluster do HDInsight Hadoop.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+Esta tarefa é um passo na [Team Data Science Process](overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem:

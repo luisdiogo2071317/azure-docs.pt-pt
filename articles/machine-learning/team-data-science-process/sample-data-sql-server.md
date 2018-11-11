@@ -1,5 +1,5 @@
 ---
-title: Exemplo de dados no SQL Server no Azure | Microsoft Docs
+title: Exemplo de dados no SQL Server no Azure | Documentos da Microsoft
 description: Dados de exemplo no SQL Server no Azure
 services: machine-learning
 documentationcenter: ''
@@ -15,85 +15,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 74dcef9e927fc537cba56b03fcbfb9528c952ad0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7852a0fc548980227723c9f6a259c63367159201
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837876"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346244"
 ---
 # <a name="heading"></a>Dados de exemplo no SQL Server no Azure
-Este artigo mostra como os dados armazenados no SQL Server no Azure de exemplo através do SQL Server ou a linguagem de programação do Python. Também mostra como mover amostras de dados no Azure Machine Learning ao guardá-lo para um ficheiro, carregá-lo para um blob do Azure e, em seguida, ao ler para o Azure Machine Learning Studio.
 
-A amostragem de Python utiliza o [pyodbc](https://code.google.com/p/pyodbc/) biblioteca ODBC para ligar ao SQL Server no Azure e o [Pandas](http://pandas.pydata.org/) biblioteca para a amostragem.
+Este artigo mostra como os dados armazenados no SQL Server no Azure de exemplo usando a linguagem de programação Python ou SQL. Ele também mostra como mover dados de amostras para o Azure Machine Learning ao salvá-lo para um ficheiro, carregá-lo para um blob do Azure e, em seguida, lê-lo para o Azure Machine Learning Studio.
+
+A amostragem de Python utiliza a [pyodbc](https://code.google.com/p/pyodbc/) biblioteca ODBC para estabelecer ligação ao SQL Server no Azure e o [Pandas](http://pandas.pydata.org/) biblioteca para fazer a amostragem.
 
 > [!NOTE]
-> O código de SQL de exemplo neste documento assume que os dados no SQL Server no Azure. Se não estiver, consulte [mover dados para o SQL Server no Azure](move-sql-server-virtual-machine.md) artigo para obter instruções sobre como mover os dados para o SQL Server no Azure.
+> O código de SQL de exemplo neste documento parte do princípio de que os dados estão num SQL Server no Azure. Se não estiver, consulte [mover dados para o SQL Server no Azure](move-sql-server-virtual-machine.md) artigo para obter instruções sobre como mover seus dados para o SQL Server no Azure.
 > 
 > 
 
-O seguinte **menu** ligações para artigos que descrevem como dados de vários ambientes de armazenamento de exemplo. 
+**Por que os dados de exemplo?**
+Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, a exploração e a engenharia de funcionalidades. Sua função do [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é permitir a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-**Os dados de exemplo por que motivo?**
-Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa ideia baixo-sample os dados para reduzir para um tamanho mais pequeno, mas representativo e mais fácil gerir. Isto facilita a compreensão de dados, exploração e engenharia da funcionalidade. A função no [processo de ciência de dados de equipa (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) é permitir o rápido fazer o protótipo das funções de processamento de dados e modelos de machine learning.
+## <a name="SQL"></a>Com o SQL
+Esta secção descreve vários métodos com o SQL para executar a amostragem aleatória simple relativamente aos dados na base de dados. Escolha um método com base no tamanho dos dados e sua distribuição.
 
-Esta tarefa de amostragem é um passo de [processo de ciência de dados de equipa (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Os dois itens seguintes mostram como usar `newid` no SQL Server para executar a amostragem. O método que escolher depende aleatórios como pretende que o exemplo seja (pk_id no código de exemplo a seguir é considerado como uma chave primária gerado automaticamente).
 
-## <a name="SQL"></a>Utilizar o SQL Server
-Esta secção descreve vários métodos com o SQL Server para executar a amostragem aleatória simple contra os dados na base de dados. Escolha um método com base no seu tamanho de dados e a distribuição da mesma.
-
-Os dois itens seguintes mostram como utilizar `newid` no SQL Server para executar a amostragem. O método que escolher depende aleatórias como pretende amostra a ser (pk_id no seguinte código de exemplo é pressupõe-se que uma chave primária gerado automaticamente).
-
-1. Amostra aleatória menos strict
+1. Menos rígida amostra aleatória
    
         select  * from <table_name> where <primary_key> in 
         (select top 10 percent <primary_key> from <table_name> order by newid())
-2. Amostra aleatória mais 
+2. Amostra mais aleatória 
    
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Tablesample pode ser utilizado para os dados, bem como de amostragem. Isto pode ser uma abordagem de melhor se o tamanho de dados for grande (assumindo que não estão correlacionados dados em diferentes páginas) e para a consulta estar concluída num tempo razoável.
+Tablesample pode ser utilizado para também os dados de amostragem. Isto pode ser uma abordagem melhor se o tamanho dos dados é grande (partindo do princípio que não estão correlacionados a dados em diferentes páginas) e para a consulta estar concluída no período de tempo razoável.
 
     SELECT *
     FROM <table_name> 
     TABLESAMPLE (10 PERCENT)
 
 > [!NOTE]
-> Pode explorar e gerar funcionalidades a partir destes amostras de dados armazenando-os numa nova tabela
+> Pode explorar e gerar recursos a partir destes dados de amostras armazenando-os numa nova tabela
 > 
 > 
 
-### <a name="sql-aml"></a>A ligar ao Azure Machine Learning
-Pode utilizar as consultas de exemplo acima diretamente no Azure Machine Learning [importar dados] [ import-data] módulo para os dados no momento de exemplo para baixo e colocá-lo para uma experimentação do Azure Machine Learning. Uma captura de ecrã da utilização do módulo leitor para ler os dados da amostras é mostrada aqui:
+### <a name="sql-aml"></a>Ligar ao Azure Machine Learning
+Pode utilizar diretamente as consultas de exemplo acima no Azure Machine Learning [importar dados] [ import-data] módulo para dimensionar os dados em tempo real e colocá-lo numa experimentação do Azure Machine Learning. Uma captura de ecrã com o reader module para ler os dados de amostras é mostrada aqui:
 
 ![leitor sql][1]
 
-## <a name="python"></a>Utilizando a linguagem de programação de Python
-Esta secção demonstra utilizando o [pyodbc biblioteca](https://code.google.com/p/pyodbc/) para estabelecer um ODBC ligar a uma base de dados do SQL server no Python. A cadeia de ligação de base de dados é o seguinte: (substitua servername, dbname, nome de utilizador e palavra-passe com a sua configuração):
+## <a name="python"></a>Utilizar a linguagem de programação
+Esta secção demonstra como utilizar o [pyodbc biblioteca](https://code.google.com/p/pyodbc/) para estabelecer um ODBC ligar a uma base de dados do SQL server em Python. A cadeia de ligação de base de dados é o seguinte: (substitua servername, dbname, nome de utilizador e palavra-passe com a sua configuração):
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-O [Pandas](http://pandas.pydata.org/) biblioteca no Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação do Python. O seguinte código lê um exemplo de 0.1% dos dados de uma tabela na base de dados SQL do Azure para dados de Pandas:
+O [Pandas](http://pandas.pydata.org/) biblioteca em Python fornece um conjunto avançado de estruturas de dados e ferramentas de análise de dados para manipulação de dados para a programação de Python. O código seguinte lê um exemplo de 0,1% dos dados de uma tabela na base de dados SQL do Azure numa dados Pandas:
 
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
 
-Agora, pode trabalhar com os dados na moldura de dados de Pandas amostras. 
+Agora, pode trabalhar com dados amostrados na estrutura de dados Pandas. 
 
-### <a name="python-aml"></a>A ligar ao Azure Machine Learning
-Pode utilizar o seguinte código de exemplo para guardar os dados de objeto de amostragem para baixo para um ficheiro e carregá-la para um blob do Azure. Os dados no blob podem ler diretamente para uma experimentação do Azure Machine Learning utilizando o [importar dados] [ import-data] módulo. Os passos são os seguintes: 
+### <a name="python-aml"></a>Ligar ao Azure Machine Learning
+Pode utilizar o seguinte código de exemplo para guardar os dados de objeto de amostragem de baixo para um ficheiro e carregá-lo para um blob do Azure. Os dados no blob podem ser lido diretamente numa experimentação do Azure Machine Learning com o [importar dados] [ import-data] módulo. Os passos são os seguintes: 
 
-1. Escrever o intervalo de dados pandas num ficheiro local
+1. Escrever o quadro de dados de pandas num ficheiro local
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
-2. Carregar ficheiro local para o blob do Azure
+2. Carregar ficheiro local para BLOBs do Azure
    
         from azure.storage import BlobService
         import tables
@@ -114,12 +111,12 @@ Pode utilizar o seguinte código de exemplo para guardar os dados de objeto de a
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Ler dados de Blobs do Azure utilizando o Azure Machine Learning [importar dados] [ import-data] módulo, conforme mostrado no ecrã o seguinte, copie:
+3. Ler dados de Blobs do Azure com o Azure Machine Learning [importar dados] [ import-data] módulo, conforme mostrado na captura de ecrã seguinte:
 
 ![blob de leitor][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>O processo de ciência de dados de equipa no exemplo de ação
-Para instruções um utilizando um conjunto de dados público, veja um exemplo do processo de ciência de dados de equipa [processo de ciência de dados de equipa em ação: utilizar o SQL Server](sql-walkthrough.md).
+Para instruções um usando um conjunto de dados público, veja um exemplo do processo de ciência de dados de equipa [processo de ciência de dados de equipa em ação: utilizar o SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

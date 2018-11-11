@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: bca1e609570d9ea0dee9845969de8bb4b29cc1ff
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 97283b75b24cbdaf40e7dffd05d9826ce7e88af4
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056235"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344914"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Criar características para dados num cluster do Hadoop com consultas do Hive
 Este documento mostra como criar características para dados armazenados num cluster do Azure HDInsight Hadoop com consultas do Hive. Estas consultas do Hive utilizam embedded Hive User-Defined funções (UDFs), os scripts para os quais são fornecidos.
@@ -29,9 +29,7 @@ As operações necessárias para criar recursos podem ser elevado consumo de mem
 
 Exemplos de consultas que são apresentados são específicos para o [dados de viagens de táxis NYC](http://chriswhong.com/open-data/foil_nyc_taxi/) cenários também são fornecidos na [repositório do GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Estas consultas já tem o esquema de dados especificado e estão prontas para serem submetidas para executar. Na seção final, os parâmetros que utilizadores podem sintonizar para que o desempenho das consultas do Hive pode ser melhorado também são discutidos.
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-Isso **menu** ligações para tópicos que descrevem como criar características para dados em vários ambientes. Esta tarefa é um passo na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Esta tarefa é um passo na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este artigo pressupõe que tem:

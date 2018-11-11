@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 11/08/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: dc03f49a684bfeb43ffd8bac9f551a67f034a04f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c829b8d6fedaabfb9b43c6352c8188128cf36701
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042882"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51333781"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 
@@ -30,13 +30,11 @@ Controladores de NVIDIA CUDA para NC, a NCv2, NCv3 e VMs de série ND (opcionais
 
 ### <a name="nvidia-grid-drivers"></a>Controladores de GRID da NVIDIA
 
-Microsoft redistribui programas de instalação de controladores de NVIDIA GRID NV e as VMs da série NVv2 utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs do Azure NV, apenas em distribuições listadas na tabela seguinte. Estes controladores incluem licenças de Software GPU Virtual GRADE no Azure.
+Microsoft redistribui programas de instalação de controladores de NVIDIA GRID NV e as VMs da série NVv2 utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs do Azure NV, apenas em sistemas operativos listados na tabela seguinte. Estes controladores incluem licenças de Software GPU Virtual GRADE no Azure. Não é necessário configurar um servidor de licenças de software de vGPU NVIDIA.
 
 | Distribuição | Controlador |
 | --- | -- |
 | Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 ou 7.4<br/><br/>Baseada em centOS 7.3 ou 7.4 | NVIDIA GRID 6.2, ramo de controlador R390|
-
-
 
 > [!WARNING] 
 > A instalação de software de terceiros em produtos Red Hat pode afetar os termos de suporte do Red Hat. Veja o [Red Hat Knowledgebase](https://access.redhat.com/articles/1067) (Base de Dados de Conhecimento do Red Hat).

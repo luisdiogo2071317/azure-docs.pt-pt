@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336860"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345005"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>O Azure Active Directory B2C: Modificar o início de sessão cópia de segurança para adicionar nova afirmações e configurar intervenção do utilizador.
 
@@ -277,8 +277,8 @@ Verificar e-mail está ativada por predefinição no `<TechnicalProfile Id="Loca
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Adicione a nova afirmação aos fluxos para inícios de sessão de conta de redes sociais, alterando os TechnicalProfiles listados abaixo. Estes são utilizados por inícios de sessão de conta social federado para escrever e ler os dados de utilizador utilizando o alternativeSecurityId como o localizador.
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+Se a sua política suporta contas de redes sociais, adicione a nova afirmação aos fluxos para inícios de sessão de conta de redes sociais, alterando os perfis técnicos listados abaixo. Essas declarações são usadas por inícios de sessão de conta de redes sociais para recolher e escrever dados do usuário.
+
+1. Localize o perfil técnico **SelfAsserted Social** e adicione a declaração de saída. A ordem das declarações na **OutputClaims** controla a ordem em que o Azure AD B2C processa as afirmações no ecrã. Por exemplo, `<OutputClaim ClaimTypeReferenceId="city" />`.
+2. Localize o perfil técnico **AAD UserWriteUsingAlternativeSecurityId** e adicione a declaração de persistência. Por exemplo, `<PersistedClaim ClaimTypeReferenceId="city" />`.
+3. Localize o perfil técnico **AAD UserReadUsingAlternativeSecurityId** e adicione a declaração de saída. Por exemplo, `<OutputClaim ClaimTypeReferenceId="city" />`.

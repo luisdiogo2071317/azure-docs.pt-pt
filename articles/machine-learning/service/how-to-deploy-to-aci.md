@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429468"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345051"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Implementar serviços web no Azure Container Instances 
 
@@ -48,9 +48,12 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="configure-an-image"></a>Configurar uma imagem
 
 Configure a imagem do Docker que é utilizada para armazenar todos os arquivos de modelo.
-1. Criar um script de classificação (score.py) [a utilizar estas instruções](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Criar um script de classificação (score.py) [a utilizar estas instruções](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Crie um ficheiro de ambiente (myenv.yml) [a utilizar estas instruções](tutorial-deploy-models-with-aml.md#create-environment-file) 
+    > [!IMPORTANT]
+    > O script de classificação recebe dados enviados a partir de clientes e o transmite para o modelo para a classificação. Documente a estrutura de dados que o script e o modelo de esperam. Ter esta documentação facilita as coisas durante a criação de um cliente para consumir o serviço web.
+
+1. Crie um ficheiro de ambiente (myenv.yml) [a utilizar estas instruções](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Utilize esses dois arquivos para configurar a imagem do Docker no Python com o SDK da seguinte forma:
 
@@ -217,8 +220,7 @@ Este método fornece mais controle sobre a criação e nomeação de componentes
 
 Agora pode testar o serviço web.
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>Testar o serviço web
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>Testar o serviço web
 
 O serviço web é o mesmo, independentemente da que foi utilizado o método.  Para obter previsões de indisponibilidade, utilize o `run` método do serviço.  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba como [implementar no serviço Kubernetes do Azure](how-to-deploy-to-aks.md) para uma implementação de escala maior. 
+* Saiba como [Consume implementado um modelo de ML como um serviço web](how-to-consume-web-service.md).
+* Saiba como [implementar no serviço Kubernetes do Azure](how-to-deploy-to-aks.md) para uma implementação de escala maior. 

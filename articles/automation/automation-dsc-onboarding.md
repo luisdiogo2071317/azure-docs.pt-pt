@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 554c575f338ebaa415ed21be8dc8b27eb79c3c0c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634409"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244530"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gestão de configuração de estado de automatização do Azure
 
@@ -150,9 +150,9 @@ Pode facilmente adicionar máquinas de virtuais de Amazon Web Services para gere
 
 Máquinas do Windows no local e máquinas do Windows em nuvens não pertencente ao Azure (por exemplo, o Amazon Web Services) também podem ser integrado à configuração de estado de automatização do Azure, desde que eles tenham acesso de saída à internet, através de alguns passos simples:
 
-1. Certifique-se a versão mais recente do [WMF 5](http://aka.ms/wmf5latest) está instalado nas máquinas que pretende integrar a configuração de estado de automatização do Azure.
+1. Certifique-se a versão mais recente do [WMF 5](https://aka.ms/wmf5latest) está instalado nas máquinas que pretende integrar a configuração de estado de automatização do Azure.
 1. Siga as instruções na secção seguinte [ **geração DSC metaconfigurations** ](#generating-dsc-metaconfigurations) para gerar uma pasta que contém o metaconfigurations DSC necessários.
-1. Aplicam-se remotamente o metaconfiguration de PowerShell DSC para as máquinas que pretende carregar. **A este comando é executado a partir de máquina tem de ter a versão mais recente do [WMF 5](http://aka.ms/wmf5latest) instalado**:
+1. Aplicam-se remotamente o metaconfiguration de PowerShell DSC para as máquinas que pretende carregar. **A este comando é executado a partir de máquina tem de ter a versão mais recente do [WMF 5](https://aka.ms/wmf5latest) instalado**:
 
    ```powershell
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
@@ -190,7 +190,7 @@ Máquinas do Linux no local, máquinas Linux no Azure e máquinas do Linux não 
     Set-DscLocalConfigurationManager -CimSession $Session -Path C:\Users\joe\Desktop\DscMetaConfigs
     ```
 
-A este comando é executado a partir de máquina tem de ter a versão mais recente do [WMF 5](http://aka.ms/wmf5latest) instalado.
+A este comando é executado a partir de máquina tem de ter a versão mais recente do [WMF 5](https://aka.ms/wmf5latest) instalado.
 
 1. Se não é possível aplicar o metaconfigurations DSC de PowerShell remotamente, para cada máquina do Linux para carregar, copie o metaconfiguration correspondente a essa máquina a partir da pasta no passo 5 para o computador Linux. Em seguida, chamar `SetDscLocalConfigurationManager.py` localmente em cada máquina Linux pretende integrar a configuração de estado de automatização do Azure:
 
@@ -207,7 +207,7 @@ Para carregar genericamente qualquer máquina à configuração de estado de aut
 
 ### <a name="using-a-dsc-configuration"></a>Utilizar uma configuração de DSC
 
-1. Abra o VSCode (ou seu editor favorito) como um administrador numa máquina no seu ambiente local. A máquina tem de ter a versão mais recente do [WMF 5](http://aka.ms/wmf5latest) instalado.
+1. Abra o VSCode (ou seu editor favorito) como um administrador numa máquina no seu ambiente local. A máquina tem de ter a versão mais recente do [WMF 5](https://aka.ms/wmf5latest) instalado.
 1. Copie o seguinte script localmente. Este script contém uma configuração de DSC de PowerShell para criar metaconfigurations e um comando para iniciar a criação de metaconfiguration.
 
 > [!NOTE]

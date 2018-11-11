@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 43713cd4d217f2b43a0966f4de4f3573d4ef9b09
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: a0c7dcf848bfe6e5128117169a48adfbf9483f9b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979544"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346767"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps
 
@@ -535,7 +535,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*Horas*> | Sim | Número inteiro | O número positivo ou negativo de horas a adicionar | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -577,7 +577,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*minutos*> | Sim | Número inteiro | O número positivo ou negativo de minutos a adicionar | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -649,7 +649,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*segundos*> | Sim | Número inteiro | O número positivo ou negativo de segundos a adicionar | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -692,7 +692,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificado para adicionar | 
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -1129,7 +1129,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*destinationTimeZone*> | Sim | Cadeia | O nome para o fuso horário de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -1172,7 +1172,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*sourceTimeZone*> | Sim | Cadeia | O nome para o fuso de horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
 | <*destinationTimeZone*> | Sim | Cadeia | O nome para o fuso horário de destino. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -1214,7 +1214,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*sourceTimeZone*> | Sim | Cadeia | O nome para o fuso de horário de origem. Para obter mais informações, consulte [IDs de fuso horário](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -1802,7 +1802,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -1896,7 +1896,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificada para subtrair | 
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -1938,7 +1938,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificada para subtrair | 
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -3056,7 +3056,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -3087,7 +3087,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -3118,7 +3118,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. |
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -3295,7 +3295,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*Timestamp*> | Sim | Cadeia | A cadeia que contém o carimbo de hora | 
 | <*intervalo*> | Sim | Número inteiro | O número de unidades de tempo especificada para subtrair | 
 | <*timeUnit*> | Sim | Cadeia | A unidade de tempo para utilizar com o *intervalo*: "Segunda", "Minuto", "Hour", "Day", "Week", "Mês", "Ano" | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 
@@ -3350,7 +3350,7 @@ take([<collection>], <count>)
 Estes exemplos obtém o número especificado de itens da frente destas coleções:
 
 ```
-take('abcde`, 3)
+take('abcde', 3)
 take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
@@ -3921,7 +3921,7 @@ Opcionalmente, pode especificar um formato diferente com a <*formato*> parâmetr
 
 | Parâmetro | Necessário | Tipo | Descrição | 
 | --------- | -------- | ---- | ----------- | 
-| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddT:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
+| <*Formato*> | Não | Cadeia | De qualquer um [especificador de formato único](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou uma [padrão de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). É o formato padrão para o período de tempo ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (AAAA-MM-ddTHH:mm:ss:fffffffK), que está em conformidade com [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e preserva as informações de fuso horário. | 
 ||||| 
 
 | Valor de retorno | Tipo | Descrição | 

@@ -1,6 +1,6 @@
 ---
-title: Aquisição de dados e a fase de compreender o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs
-description: Os objetivos, tarefas e materiais a entregar para a aquisição de dados e a fase de compreensão dos seus projetos de ciência de dados
+title: Aquisição de dados e o nível de compreensão de ciclo de vida do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+description: As metas, tarefas e resultados finais para a aquisição de dados e a fase de compreensão dos seus projetos de ciência de dados
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,75 +15,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: af295b5fb0afca03f33f65fd3b0a9fb5b8165bba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3d80759b401dc8c3514736a3de20af5d7b2fe63c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837315"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242318"
 ---
 # <a name="data-acquisition-and-understanding"></a>Aquisição e compreensão de dados
 
-Este artigo descreve os objetivos, tarefas e materiais a entregar associada à aquisição de dados e a fase de compreensão de equipa dados ciência processo (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar seus projetos de ciência de dados. O ciclo de vida destaca as fases principais que projetos normalmente executar, muitas vezes, iteratively:
+Este artigo descreve os objetivos, tarefas e resultados finais associados à aquisição de dados e a fase de compreensão de Team Data Science Process (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
-   1. **Compreensão de negócio**
-   2. **Aquisição de dados e a compreensão**
-   3. **Modelação**
+   1. **Compreensão empresarial**
+   2. **Aquisição de dados e compreensão**
+   3. **Modelagem**
    4. **Implementação**
-   5. **Aceitação de cliente**
+   5. **Aceitação do cliente**
 
-Eis uma representação visual do ciclo de vida TDSP: 
+Esta é uma representação visual de ciclo de vida do TDSP: 
 
-![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![Ciclo de vida do TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Objetivos
-* Produz um conjunto de dados limpo, de alta qualidade cuja relação para as variáveis de destino é compreendida. Localize o conjunto de dados no ambiente de análise adequado para está pronto para o modelo.
-* Desenvolva uma arquitetura de solução do pipeline de dados que é atualizada e pontuações regularmente os dados.
+* Produza um conjunto de dados limpo de alta qualidade cuja relação com as variáveis de destino é compreendida. Localize o conjunto de dados no ambiente de análise adequadas para que está pronto para o modelo.
+* Desenvolva uma arquitetura de solução do pipeline de dados que é atualizada e pontua os dados regularmente.
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
-Existem três tarefas principais resolvidas nesta fase:
+Existem três tarefas principais abordadas neste estágio:
 
-   * **Os dados de inserção** para o ambiente de análise de destino.
-   * **Explorar os dados** para determinar se a qualidade de dados é suficiente responder à pergunta. 
-   * **Configurar um pipeline de dados** Pontuar novos ou regularmente atualizada dados.
+   * **Incorporar os dados** para o ambiente de análise de destino.
+   * **Explorar os dados** para determinar se a qualidade de dados é adequada para responder à pergunta. 
+   * **Configure um pipeline de dados** Pontuar novos ou regularmente de dados atualizados.
 
-### <a name="ingest-the-data"></a>Ingestão de dados
-Defina o processo de mover os dados a partir de localizações de origem para as localizações de destino em que executa operações de análise, tal como a formação e predições. Para detalhes técnicos e as opções sobre como mover os dados com vários serviços de dados do Azure, consulte [carregar dados para ambientes de armazenamento para análise](ingest-data.md). 
+### <a name="ingest-the-data"></a>Incorporar os dados
+Configure o processo para mover os dados a partir de localizações de origem para as localizações de destino em que executa operações de análise, como a formação e previsões. Para obter detalhes técnicos e opções mover os dados com vários serviços de dados do Azure, consulte [carregar dados para ambientes de armazenamento para análise](ingest-data.md). 
 
 ### <a name="explore-the-data"></a>Explorar os dados
-Antes de preparar seus modelos, tem de desenvolver uma compreensão som dos dados. Conjuntos de dados do mundo real, muitas vezes, são inúteis, estão em falta valores ou tem um anfitrião de outros discrepâncias. Pode utilizar o resumo de dados e de visualização para a qualidade dos seus dados de auditoria e forneça as informações necessárias processar os dados antes de ser preparado para a modelação. Este processo é frequentemente iterativo.
+Antes de treinar seus modelos, tem de desenvolver uma compreensão som dos dados. Conjuntos de dados do mundo real, muitas vezes, são "ruidosas", estão em falta valores ou tem uma série de outras discrepâncias. Pode utilizar o resumo de dados e visualização para a qualidade dos seus dados de auditoria e fornecer as informações necessárias processar os dados antes de ele está pronto para modelagem. Muitas vezes, é um processo iterativo.
 
-TDSP fornece um utilitário automatizado, denominado [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), para ajudar a visualizar os dados e preparar os relatórios de resumo de dados. Recomendamos que inicie com IDEAR primeiro para explorar os dados para o ajudar a desenvolver compreensão inicial de dados interativamente sem codificação. Em seguida, pode escrever código personalizado para e a visualização de exploração de dados. Para obter orientações sobre a limpeza de dados, consulte [tarefas para preparar os dados para melhorado machine learning](prepare-data.md).  
+TDSP fornece um utilitário automatizado, chamado [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), para ajudar a visualizar os dados e preparar os relatórios de resumo de dados. Recomendamos que comece com IDEAR primeiro para explorar os dados para ajudar a desenvolver a compreensão de dados inicial interativamente com nenhuma codificação. Em seguida, pode escrever código personalizado para exploração de dados e visualização. Para obter orientações sobre a limpeza de dados, consulte [tarefas para preparar dados para avançada do machine learning](prepare-data.md).  
 
-Depois de estiver satisfeito com a qualidade dos dados cleansed, o passo seguinte é compreender melhor os padrões que são inerentes nos dados. Isto ajuda a escolha e desenvolver um modelo preditivo adequado para o destino. Procure para provas como boa ligação de dados é o destino. Em seguida, determine se existe dados suficientes para avançar com os passos de modelação. Novamente, este processo é frequentemente iterativo. Poderá ter de encontrar novas origens de dados com dados mais exatas ou mais relevantes para aumentar o conjunto de dados inicialmente identificado na fase anterior. 
+Depois que estiver satisfeito com a qualidade dos dados limpos, a próxima etapa é compreender melhor os padrões inerentes aos dados. Isso ajuda a escolher e desenvolver um modelo preditivo apropriado para seu destino. Vista de olhos para evidências para saber como bem ligado os dados é o destino. Em seguida, determine se há dados suficientes para seguir em frente com os passos seguintes de modelagem. Novamente, esse processo geralmente é iterativo. Poderá ter de encontrar novas origens de dados com dados mais precisos ou mais relevantes para aumentar o conjunto de dados inicialmente identificado na fase anterior. 
 
-### <a name="set-up-a-data-pipeline"></a>Configurar um pipeline de dados
-Para além de ingestão inicial e a limpeza dos dados, normalmente, tem de definir um processo para pontuar novos dados ou atualizar os dados regularmente como parte de um processo de aprendizagem em curso. Pode fazê-lo ao definir um pipeline de dados ou o fluxo de trabalho. O [mover dados de uma instância do SQL Server no local para a base de dados do Azure SQL com o Azure Data Factory](move-sql-azure-adf.md) artigo fornece um exemplo de como configurar um pipeline com [do Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+### <a name="set-up-a-data-pipeline"></a>Configure um pipeline de dados
+Para além da ingestão inicial e a limpeza dos dados, normalmente, tem de configurar um processo para classificar dados novos ou atualizar os dados regularmente como parte de um processo de aprendizado em curso. Pode fazê-lo ao configurar um pipeline de dados ou o fluxo de trabalho. O [mover dados de uma instância do SQL Server no local para a base de dados do Azure SQL com o Azure Data Factory](move-sql-azure-adf.md) artigo apresenta um exemplo de como configurar um pipeline com [do Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
-Nesta fase, pode desenvolve uma arquitetura de solução do pipeline de dados. Desenvolver o pipeline em paralelo com a próxima fase do projeto de ciência de dados. Consoante as necessidades de negócio e as restrições dos sistemas de existentes para o qual está a ser integrada esta solução, o pipeline pode ser um dos seguintes: 
+Nesta fase, vai desenvolver uma arquitetura de solução do pipeline de dados. Desenvolva o pipeline em paralelo com a próxima fase do projeto de ciência de dados. Dependendo das necessidades da sua empresa e as restrições de seus sistemas existentes no qual está a ser integrada esta solução, o pipeline pode ser um dos seguintes: 
 
-   * Com base em batch
+   * Com base no batch
    * Transmissão em fluxo ou em tempo real 
-   * Uma versão híbrida 
+   * Um híbrido 
 
 ## <a name="artifacts"></a>Artefactos
-Seguem-se a concentrarem nesta fase:
+Seguem-se os resultados finais neste estágio:
 
-   * [Relatório de qualidade de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): este relatório inclui resumos de dados, as relações entre cada atributo e de destino, classificação variável e muito mais. O [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) ferramenta fornecida como parte da TDSP rapidamente pode gerar este relatório em qualquer conjunto de dados em tabela, como um ficheiro CSV ou uma tabela relacional. 
-   * **Arquitetura de solução**: arquitetura da solução pode ser um diagrama ou descrição dos seus dados de pipeline que utilizam para executar a classificação ou predições em novos dados depois de ter criado um modelo. Também contém o pipeline de reparametrização do seu modelo com base em novos dados. Armazene documentos no [projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) diretório quando utilizar o modelo de estrutura de diretório TDSP.
-   * **Decisão de ponto de verificação**: antes de começar a funcionalidade completa de engenharia e criação de modelo, pode reevaluate o projeto para determinar se o valor esperado é suficiente para continuar a pursing-lo. Pode, por exemplo, estar pronto para continuar, tem de recolher mais dados ou abandonar o projeto como os dados não existe responder à pergunta.
+   * [Relatório de qualidade de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): este relatório inclui resumos de dados, as relações entre cada atributo e de destino, classificação de variável e muito mais. O [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) ferramenta fornecida como parte do TDSP rapidamente pode gerar este relatório em qualquer conjunto de dados em tabela, como um ficheiro CSV ou uma tabela relacional. 
+   * **Arquitetura da solução**: A arquitetura da solução pode ser um diagrama ou descrição dos seus dados de pipelines que utilizam para executar a classificação ou previsões de indisponibilidade de novos dados depois de criar um modelo. Também contém o pipeline para voltar a preparar seu modelo com base nos dados de novo. Store o documento no [projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) diretório quando utilizar o modelo de estrutura de diretório do TDSP.
+   * **Decisão de ponto de verificação**: antes de iniciar a engenharia de funcionalidades completo e criação de modelo, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a pursing-lo. Pode, por exemplo, estar pronto para continuar, tem de recolher mais dados, ou abandonar o projeto, como os dados não existem para responder à pergunta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Seguem-se ligações para cada passo no ciclo de vida do TDSP:
+Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
 
-   1. [Compreensão de negócio](lifecycle-business-understanding.md)
-   2. [Aquisição de dados e a compreensão](lifecycle-data.md)
-   3. [Modelação](lifecycle-modeling.md)
+   1. [Compreensão empresarial](lifecycle-business-understanding.md)
+   2. [Aquisição de dados e compreensão](lifecycle-data.md)
+   3. [Modelagem](lifecycle-modeling.md)
    4. [Implementação](lifecycle-deployment.md)
-   5. [Aceitação de cliente](lifecycle-acceptance.md)
+   5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos instruções completa ponto-a-ponto que demonstram todos os passos no processo de cenários específicos. O [instruções de exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com ligações e descrições em miniatura. As instruções mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
+Fornecemos orientações passo a passo de completa-a-ponto, que demonstram todas as etapas do processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](http://aka.ms/datascienceprocess).
+Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](https://aka.ms/datascienceprocess).

@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318202"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346325"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Como implementar modelos de serviço do Azure Machine Learning no serviço Kubernetes do Azure
 
@@ -63,6 +63,9 @@ Serviço Kubernetes do Azure utiliza imagens do Docker. Para criar a imagem, uti
 1. Para configurar a imagem, tem de criar um script de classificação e o ficheiro de ambiente. Para obter um exemplo de criar o ficheiro de script e de ambiente, consulte as secções seguintes do exemplo de classificação de imagem:
 
     * [Criar um script de classificação (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
+
+        > [!IMPORTANT]
+        > O script de classificação recebe dados enviados a partir de clientes e o transmite para o modelo para a classificação. Documente a estrutura de dados que o script e o modelo de esperam. Ter esta documentação facilita as coisas durante a criação de um cliente para consumir o serviço web.
 
     * [Crie um ficheiro de ambiente (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -190,3 +193,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Saiba como [Consume implementado um modelo de ML como um serviço web](how-to-consume-web-service.md).

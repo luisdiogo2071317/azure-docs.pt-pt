@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: bdbf0b74b6e851e0dd84ff5d9aafb84d878d8ea2
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 4885693abd8c6b66f8e68d83a8d6a2db3b0ed438
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542079"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344132"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copiar dados do Amazon Simple Storage Service com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,7 +94,7 @@ Para copiar dados do Amazon S3, defina a propriedade de tipo de conjunto de dado
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **AmazonS3Object** |Sim |
-| bucketName | O nome do registo de S3. Não é suportado o filtro de carateres universais. |Sim |
+| bucketName | O nome do registo de S3. Não é suportado o filtro de carateres universais. |Sim para a atividade de cópia/Lookup, não para a atividade GetMetadata |
 | key | O **filtro de nome ou o caráter universal** da chave de objeto de S3 sob o bucket especificado. Aplica-se apenas quando a propriedade de "prefixo" não está especificada. <br/><br/>O filtro de caráter universal só é suportado para a parte do nome de ficheiro, mas não faz parte de pasta. Permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual).<br/>-Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Utilize `^` para se o seu nome de ficheiro real tem carateres universais ou esse caractere de escape dentro de escape. |Não |
 | prefixo | Prefixo para a chave de objeto de S3. Objetos cujas chaves iniciados com este prefixo estão selecionados. Aplica-se apenas quando a propriedade "key" não está especificada. |Não |
 | versão | A versão do objeto, S3, se o controlo de versões de S3 está ativado. |Não |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214091"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244343"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
@@ -34,7 +34,7 @@ Se replicar VMs de VMware ou servidores físicos Windows/Linux para o Azure, pod
 3. Tenha em atenção o ID do servidor VMM.
 4. Desassociação políticas de replicação de nuvens no servidor do VMM que pretende remover.  Na **infraestrutura do Site Recovery** > **para o System Center VMM** >  **políticas de replicação**, faça duplo clique a política associada. A cloud com o botão direito > **Disassociate**.
 5. Elimine o servidor do VMM ou o nó ativo. Na **infraestrutura do Site Recovery** > **para o System Center VMM** > **servidores VMM**, com o botão direito do servidor > **eliminar** .
-6. Se o servidor do VMM estava num estado desligado, em seguida, transfira e execute o [script de limpeza](http://aka.ms/asr-cleanup-script-vmm) no servidor do VMM. Abra o PowerShell com o **executar como administrador** opção, para alterar a diretiva de execução para o âmbito de predefinição (LocalMachine). No script, especifique o ID do servidor VMM que pretende remover. O script remove o registo e informações do servidor de emparelhamento na cloud.
+6. Se o servidor do VMM estava num estado desligado, em seguida, transfira e execute o [script de limpeza](https://aka.ms/asr-cleanup-script-vmm) no servidor do VMM. Abra o PowerShell com o **executar como administrador** opção, para alterar a diretiva de execução para o âmbito de predefinição (LocalMachine). No script, especifique o ID do servidor VMM que pretende remover. O script remove o registo e informações do servidor de emparelhamento na cloud.
 5. Execute o script de limpeza em qualquer servidor VMM secundário.
 6. Execute o script de limpeza em qualquer outros passivos VMM nós de cluster que tenham o fornecedor instalado.
 7. Desinstale o fornecedor manualmente no servidor do VMM. Se tiver um cluster, remova de todos os nós.

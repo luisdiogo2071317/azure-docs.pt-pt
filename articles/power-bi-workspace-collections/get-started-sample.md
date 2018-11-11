@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044442"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246689"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introdução ao exemplo de coleções de área de trabalho do Power BI
 
@@ -26,9 +26,9 @@ Com o **coleções de área de trabalho do Microsoft Power BI**, pode integrar r
 
 Antes de continuarmos, pretende guardar os seguintes recursos: eles ajudá-lo ao integrar o relatórios do Power BI em suas próprias aplicações e a aplicação de exemplo demasiado.
 
-* [Aplicação de web de área de trabalho de exemplo](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Aplicação de web de área de trabalho de exemplo](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referência da API de coleções de área de trabalho do BI Power](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI SDK de .NET ](http://go.microsoft.com/fwlink/?LinkId=746472) (disponível por meio do NuGet)
+* [Power BI SDK de .NET ](https://go.microsoft.com/fwlink/?LinkId=746472) (disponível por meio do NuGet)
 * [Exemplo de incorporação de relatório de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Antes de continuarmos, pretende guardar os seguintes recursos: eles ajudá-lo ao
 
 Vamos guiá-lo ao configurar o ambiente de desenvolvimento do Visual Studio para acessar os componentes necessários para executar a aplicação de exemplo.
 
-1. Transfira e deszipe o [coleções de área de trabalho do Power BI - integrar um relatório numa aplicação web](http://go.microsoft.com/fwlink/?LinkId=761493) exemplo no GitHub.
+1. Transfira e deszipe o [coleções de área de trabalho do Power BI - integrar um relatório numa aplicação web](https://go.microsoft.com/fwlink/?LinkId=761493) exemplo no GitHub.
 2. Open **PowerBI-embedded.sln** no Visual Studio. Poderá ter de executar o **pacote de atualização** comando na consola do Gestor de pacotes NuGet para atualizar os pacotes utilizados nesta solução.
 3. Compilar a solução.
 4. Executar o **ProvisionSample** aplicação de consola. A aplicação de consola de exemplo, provisionar uma área de trabalho e importa um ficheiro PBIX.
@@ -51,7 +51,7 @@ Vamos guiá-lo ao configurar o ambiente de desenvolvimento do Visual Studio para
 8. Copie e guarde o recém-criado **ID da área de trabalho** para utilizar mais adiante neste artigo. Depois do **ID da área de trabalho** é criado, pode encontrá-lo a **portal do Azure**.
 
     ![ID da área de trabalho no portal do Azure](media/get-started-sample/workspace-id.png)
-9. Para importar um ficheiro PBIX para sua **área de trabalho**, selecione a opção **6. Ficheiro de importação de ambiente de trabalho do PBIX numa área de trabalho existente**. Se não tiver um PBIX útil de ficheiros, pode transferir o [PBIX de exemplo de análise de revenda](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Para importar um ficheiro PBIX para sua **área de trabalho**, selecione a opção **6. Ficheiro de importação de ambiente de trabalho do PBIX numa área de trabalho existente**. Se não tiver um PBIX útil de ficheiros, pode transferir o [PBIX de exemplo de análise de revenda](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. Se lhe for pedido, introduza um nome amigável para a sua **conjunto de dados**.
 
 Deverá ver uma resposta como:
@@ -83,7 +83,7 @@ O exemplo de aplicação web é um aplicativo de exemplo que processa os relató
     ```
 3. Executar o **EmbedSample** aplicação web.
 
-Depois de executar o **EmbedSample** aplicativo web, o painel de navegação à esquerda deve conter um **relatórios** menu. Para ver o relatório que importou, expanda **relatórios**e clique num relatório. Se tiver importado os [PBIX de exemplo de análise de revenda](http://go.microsoft.com/fwlink/?LinkID=780547), aplicação web de exemplo teria o seguinte aspeto:
+Depois de executar o **EmbedSample** aplicativo web, o painel de navegação à esquerda deve conter um **relatórios** menu. Para ver o relatório que importou, expanda **relatórios**e clique num relatório. Se tiver importado os [PBIX de exemplo de análise de revenda](https://go.microsoft.com/fwlink/?LinkID=780547), aplicação web de exemplo teria o seguinte aspeto:
 
 ![Barra de navegação à esquerda do exemplo na aplicação de exemplo](media/get-started-sample/sample-left-nav.png)
 
