@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2c7857cd787e9298e94def5341d61238c5bb3a78
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 00b093b5567d85e7f12373020dfaa5f3ca7b0530
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321178"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514405"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com o portal e o dispositivo .NET
 
@@ -25,7 +25,8 @@ ms.locfileid: "49321178"
 Neste tutorial, irá aprender:
 
 1. como criar uma identidade de módulo no portal. 
-1. como utilizar o SDK de dispositivo .NET para atualizar o módulo duplo a partir do dispositivo.
+
+2. como utilizar o módulo duplo a partir do seu dispositivo de atualização do SDK de dispositivo de .NET.
 
 > [!NOTE]
 > Para informações sobre os SDKs do Azure IoT que pode utilizar para criar quer as aplicações a executar em dispositivos, quer a sua solução de back-end, veja [Azure IoT SDKs][lnk-hub-sdks].
@@ -36,21 +37,17 @@ Para concluir este tutorial, precisa do seguinte:
 * Visual Studio 2015 ou Visual Studio 2017.
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-## <a name="create-a-device-identity-in-the-portal"></a>Criar uma identidade do dispositivo no portal
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-Agora, já tem o seu Hub IoT. Abra o [portal](https://portal.azure.com) e navegue para o seu Hub IoT. Clique em Dispositivos IoT e, em seguida, clique em Adicionar para criar uma identidade do dispositivo. Atribua-lhe o nome **MyFirstDevice**. 
+### <a name="retrieve-connection-string-for-iot-hub"></a>Obter cadeia de ligação do IoT hub
 
-  ![Criar a identidade de dispositivo][8]
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-Depois de guardar, na lista de identidades do dispositivo, pode constatar que a identidade MyFirstDevice foi criada com êxito.
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registar um novo dispositivo no IoT hub
 
-  ![Id de dispositivo criado][11]
-
-Agora, clique na linha. Irá ver os detalhes do dispositivo.
-
-  ![Detalhes do dispositivo][10]
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>Criar uma identidade de módulo no portal
 
@@ -173,14 +170,11 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, vej
 
 
 <!-- Images. -->
-[8]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-device-id.JPG
-[9]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
-[10]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-details.JPG
-[11]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-id-created.JPG
-[12]:./media\iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
-[13]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
-[14]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[9]:./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
+[12]:./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
+[13]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
+[14]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

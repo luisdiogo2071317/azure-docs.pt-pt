@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2c82007092f9ff93086d5caaf188f6922f4a8aea
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086187"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515380"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -29,7 +29,7 @@ As ferramentas de funções do Azure fornece as seguintes vantagens:
 * Programe e implemente as funções do c# compiladas previamente. Funções previamente está a fornecem um desempenho de arranque a frio melhor que funções de baseada em script do c#. 
 * As suas funções em c# de código enquanto tem todos os benefícios de desenvolvimento do Visual Studio. 
 
-Este artigo mostra-lhe como utilizar as ferramentas de funções do Azure para Visual Studio 2017 para desenvolver as suas funções em c#. Também irá aprender a publicar o seu projeto para o Azure como um assembly do .NET.
+Este artigo fornece detalhes sobre como usar as ferramentas de funções do Azure para Visual Studio 2017 para desenvolver C# funções e publique-os para o Azure. Antes de ler este artigo, deverá concluir os [início rápido das funções para o Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Não misture o desenvolvimento local com o desenvolvimento de portais na mesma function app. Quando publicar a partir de um projeto local para uma aplicação de funções, o processo de implantação substitui quaisquer funções que desenvolveu no portal.
@@ -81,6 +81,9 @@ O modelo de projeto cria um projeto c#, instala o `Microsoft.NET.Sdk.Functions` 
 * **Host. JSON**: permite-lhe configurar o anfitrião de funções. Estas definições aplicam-se tanto ao executar localmente e no Azure. Para obter mais informações, consulte [referência de Host. JSON](functions-host-json.md).
 
 * **Settings**: mantém as definições utilizadas ao executar as funções localmente. Estas definições não são utilizadas pelo Azure, elas são usadas pelos [ferramentas de núcleo de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar as definições da aplicação para variáveis necessárias para as suas funções. Adicione um novo item para o **valores** matriz para cada ligação exigida pelos enlaces de funções no seu projeto. Para obter mais informações, consulte [arquivo de configurações Local](functions-run-local.md#local-settings-file) no artigo de ferramentas de núcleo de funções do Azure.
+
+    >[!IMPORTANT]
+    >Porque o ficheiro Settings pode conter segredos, deve exclui-lo de seu controle de origem do projeto. O **copiar para diretório de saída** definição para este ficheiro deve ser sempre **copiar se for mais recente**. 
 
 Para obter mais informações, consulte [projeto de biblioteca de classes de funções](functions-dotnet-class-library.md#functions-class-library-project).
 
@@ -186,7 +189,7 @@ Para saber mais sobre como utilizar as ferramentas de núcleo de funções do Az
 
 Quaisquer configurações adicionadas no Settings tem de ser adicionadas também para a aplicação de funções no Azure. Estas definições não são carregadas automaticamente quando publica o projeto.
 
-A maneira mais fácil para carregar as definições necessárias para a aplicação de funções no Azure é usar o **gerir as definições da aplicação...**  ligação que é apresentada depois de publicar seu projeto com êxito. 
+A maneira mais fácil para carregar as definições necessárias para a aplicação de funções no Azure é usar o **gerir as definições da aplicação...**  ligação que é apresentada depois de publicar seu projeto com êxito.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -194,11 +197,13 @@ Esta ação apresenta os **as definições da aplicação** caixa de diálogo pa
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Local** representa um valor de definição no arquivo Settings, e **remoto** é a definição atual na aplicação de função no Azure.  Escolher **Adicionar definição** para criar uma nova definição de aplicação. Utilize o **inserir o valor a partir de locais** link para copiar um valor de definição para o **remoto** campo. As alterações pendentes são escritos para o arquivo de configurações local e a aplicação de função quando seleciona **OK**.
+
 Também pode gerir as definições da aplicação de uma das seguintes outras formas:
 
 * [No portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Utilizar o `--publish-local-settings` publicar opção nas ferramentas de núcleo de funções do Azure](functions-run-local.md#publish).
-* [Com a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Com a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>Funções de monitorização
 

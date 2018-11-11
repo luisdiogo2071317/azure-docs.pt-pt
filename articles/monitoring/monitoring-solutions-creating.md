@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a942e1c783b460f07626e398f91f980db7634581
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259649"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282055"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -54,11 +54,11 @@ Se necessitar de dados que não são acessíveis através de qualquer uma das or
 Deve definir todas as consultas que acredita que serão úteis para os utilizadores, mesmo que eles não são utilizados por quaisquer vistas ou alertas.  Estes vão estar disponíveis a eles como pesquisas guardadas no portal e também pode incluir os mesmos num [parte de visualização de lista de consultas](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) na vista personalizada.
 
 ### <a name="alerts"></a>Alertas
-[Alertas do Log Analytics](../log-analytics/log-analytics-alerts.md) identificar problemas através de [pesquisas de registos](#log-searches) relativamente aos dados no repositório.  Eles ou notificar o utilizador ou executam automaticamente uma ação em resposta. Deve identificar diferentes condições de alerta para a sua aplicação e incluir regras de alerta correspondentes no seu ficheiro de solução.
+[Alertas do Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identificar problemas através de [pesquisas de registos](#log-searches) relativamente aos dados no repositório.  Eles ou notificar o utilizador ou executam automaticamente uma ação em resposta. Deve identificar diferentes condições de alerta para a sua aplicação e incluir regras de alerta correspondentes no seu ficheiro de solução.
 
 Se o problema potencialmente pode ser corrigido com um processo automatizado, normalmente, irá criar um runbook na automatização do Azure para realizar essa correção.  Os serviços mais do Azure podem ser geridos com [cmdlets](/powershell/azure/overview) que o runbook poderia aproveitar para fazer essa funcionalidade.
 
-Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
+Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../monitoring-and-diagnostics/alert-metric.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
 
 ### <a name="views"></a>Vistas
 Vistas no Log Analytics são utilizadas para visualizar dados do repositório do Log Analytics.  Cada solução normalmente irá conter uma única vista com um [mosaico](../log-analytics/log-analytics-view-designer-tiles.md) que é apresentado no dashboard principal do usuário.  A vista pode conter qualquer número de [partes de visualização](../log-analytics/log-analytics-view-designer-parts.md) para fornecer visualizações diferentes dos dados recolhidos para o usuário.

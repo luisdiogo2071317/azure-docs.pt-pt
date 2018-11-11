@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: b8102c4f98c2627f85946b71a69e88eb02f92bc4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257787"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279886"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -21,7 +21,7 @@ Este artigo aborda algumas perguntas mais frequentes sobre o Microsoft Azure Ser
 
 ## <a name="general-questions-about-azure-service-bus"></a>Perguntas gerais sobre o Azure Service Bus
 ### <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
-[O Azure Service Bus](service-bus-messaging-overview.md) é uma plataforma de cloud de mensagens assíncronas que lhe permite enviar dados entre sistemas desacoplados. A Microsoft oferece esse recurso como um serviço, o que significa que não é necessário alojar algum do seu próprio hardware para usá-lo.
+[O Azure Service Bus](service-bus-messaging-overview.md) é uma plataforma de cloud de mensagens assíncronas que lhe permite enviar dados entre sistemas desacoplados. A Microsoft oferece esse recurso como um serviço, o que significa que não é necessário alojar o seu próprio hardware usá-lo.
 
 ### <a name="what-is-a-service-bus-namespace"></a>O que é um espaço de nomes do Service Bus?
 R [espaço de nomes](service-bus-create-namespace-portal.md) fornece um contentor de âmbito para abordar os recursos do Service Bus na sua aplicação. Criar um espaço de nomes, é necessário utilizar o Service Bus e é uma das primeiras etapas na introdução.
@@ -77,6 +77,9 @@ Por predefinição, para qualquer cloud service Microsoft define uma quota de ut
 Embora a Microsoft se reserva o direito de desativar uma conta de cliente que foi excedido o respetivas quotas de utilização num determinado mês, as notificações de email são enviadas e várias tentativas são feitas em contato com um cliente antes de efetuar qualquer ação. Os clientes que exceda destas quotas são ainda responsáveis pelos custos que excederem as quotas.
 
 Tal como acontece com outros serviços no Azure, do Service Bus impõe um conjunto de quotas específicos para garantir que existe uma utilização razoável de recursos. Pode encontrar mais detalhes sobre estas quotas no [descrição geral de quotas do Service Bus][Quotas overview].
+
+### <a name="how-to-handle-messages-of-size--1-mb"></a>Como lidar com mensagens de tamanho > 1 MB?
+Serviços de mensagens do Service Bus (filas e tópicos/subscrições) permitem que a aplicação para enviar mensagens de tamanho de até 256 KB (escalão standard) ou 1 MB (o escalão premium). Se estiver lidando com mensagens de tamanho superior a 1 MB, usar o padrão de verificação de afirmação descrito em [nesta mensagem de blogue](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelo APIs de barramento de serviço do Azure e respetivas ações sugeridas?

@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c5f11cbb12b727f5f308d7a71c51706fa8ec373f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576980"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277091"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilizar a CLI do HDFS com o Data Lake Storage Gen2
 
-Pré-visualização da geração 2 do armazenamento do Azure Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se tiver um cluster do HDInsight anexado ou executar uma tarefa de Apache Spark com o Azure Databricks para realizar análises em dados armazenados na geração 2 de armazenamento do Azure Data Lake pode utilizar a interface de linha de comandos (CLI) para recuperar e manipular os dados carregados. O restante deste artigo descreve as opções de ter enquanto estiver a [equipa de armazenamento do Azure está a trabalhar sobre como adicionar suporte para o Explorador de armazenamento do Azure e o portal do Azure](https://azure.microsoft.com/roadmap/).
+Pré-visualização da geração 2 do armazenamento do Azure Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Se tiver um cluster do HDInsight anexado ou executar uma tarefa de Apache Spark com o Azure Databricks para realizar análises em dados armazenados numa conta de armazenamento do Azure, pode utilizar a interface de linha de comandos (CLI) para recuperar e manipular os dados carregados.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>CLI do HDFS com o HDInsight
 
 O HDInsight fornece acesso ao sistema de ficheiros distribuído que está ligado localmente aos nós de computação. Este sistema de ficheiros pode ser acedido através da utilização da shell que interage diretamente com o HDFS e outros sistemas de ficheiros que suporta o Hadoop. Seguem-se os comandos comumente utilizados e os links para recursos úteis.
 
 >[!IMPORTANT]
->A faturação do cluster do HDInsight tem início quando o cluster é criado e termina quando é eliminado. A faturação é rateada por minuto, para que deve sempre eliminar o cluster quando já não está a ser utilizado (Saiba como [eliminar um cluster](../../hdinsight/hdinsight-delete-cluster.md)). No entanto, os dados armazenados na geração 2 de armazenamento do Azure Data Lake persiste mesmo depois de um cluster do HDInsight é eliminado.
+>Faturação do cluster do HDInsight é iniciado depois de um cluster é criado e termina quando o cluster é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado. Para saber como eliminar um cluster, consulte nosso [artigo sobre o tópico](../../hdinsight/hdinsight-delete-cluster.md). No entanto, os dados armazenados numa conta de armazenamento com o Data Lake Storage Gen2 ativada persistir até mesmo depois de eliminar um cluster do HDInsight.
 
 Para obter uma lista de arquivos ou diretórios:
 

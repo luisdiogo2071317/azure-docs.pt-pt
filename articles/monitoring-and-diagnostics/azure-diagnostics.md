@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 752a0262503550b9995ac76f648a132429203cce
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961437"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278332"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>O que é a extensão de diagnóstico do Azure
 A extensão de diagnóstico do Azure é um agente no Azure que permite a recolha de dados de diagnóstico num aplicativo implantado. Pode utilizar a extensão de diagnóstico de várias origens diferentes. Atualmente suportados são Web do serviço de Cloud do Azure (clássico) e funções de trabalho, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e o Service Fabric. Outros serviços do Azure têm métodos de diagnóstico diferentes. Ver [descrição geral da monitorização no Azure](../azure-monitor/overview.md).
@@ -60,7 +60,7 @@ Ver [histórico de versões do diagnóstico do Azure e o esquema](azure-diagnost
 Escolha qual serviço está a tentar recolher diagnósticos em e utilize os seguintes artigos para começar a utilizar. Utilize as ligações de gerais de diagnóstico do Azure para referência para tarefas específicas.
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Serviços cloud com o diagnóstico do Azure
-* Se utilizar o Visual Studio, consulte [Use o Visual Studio para rastrear um aplicativo de serviços Cloud](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para começar a utilizar. Caso contrário, consulte
+* Se utilizar o Visual Studio, consulte [Use o Visual Studio para rastrear um aplicativo de serviços Cloud](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) para começar a utilizar. Caso contrário, consulte
 * [Como monitorizar serviços em nuvem com o diagnóstico do Azure](../cloud-services/cloud-services-how-to-monitor.md)
 * [Configurar o diagnóstico do Azure numa aplicação de serviços Cloud](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
@@ -71,8 +71,8 @@ Para tópicos mais avançados, consulte
 * [Utilize o PowerShell para configurar diagnósticos nos serviços Cloud](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>Virtual Machines
-* Se utilizar o Visual Studio, consulte [Use o Visual Studio para máquinas virtuais do Azure de rastreio](../vs-azure-tools-debug-cloud-services-virtual-machines.md) para começar a utilizar. Caso contrário, consulte
-* [Configurar o diagnóstico do Azure numa máquina Virtual do Azure](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
+* Se utilizar o Visual Studio, consulte [Use o Visual Studio para máquinas virtuais do Azure de rastreio](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) para começar a utilizar. Caso contrário, consulte
+* [Configurar o diagnóstico do Azure numa máquina Virtual do Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
 Para tópicos mais avançados, consulte
 

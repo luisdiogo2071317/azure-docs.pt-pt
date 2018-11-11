@@ -15,19 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0594b9b40fdf8647f99946a31dbb47a95c9694ac
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985372"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300358"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Playbook de solução de análise de telemetria de veículos
-Este links de menu para os capítulos deste manual de comunicação: 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
-
-## <a name="overview"></a>Descrição geral
 Superutilizadores computadores terem sido movidos para fora do laboratório e estão agora estacionados na garages. Eles são agora a ser colocados na vanguarda automóveis que contêm uma infinidade sensores. Esses sensores lhes dar a capacidade de controlar e monitorizar milhões de eventos a cada segundo. Até 2020, a maioria destes veículos será ligada à Internet. Explorar este mundo de dados fornece maior segurança, confiabilidade, e então, originando uma melhor experiência. A Microsoft faz isso sonhar numa realidade com o Cortana Intelligence.
 
 O Cortana Intelligence é uma totalmente geridas de macrodados e de análises avançadas que pode utilizar para transformar os seus dados em ações inteligentes. O modelo de solução de análise de telemetria do Cortana Intelligence veículo demonstra como concessionários de automóveis, os fabricantes de automóveis e as companhias conseguem obter em tempo real e informações preditivas sobre o estado de funcionamento do veículo e orientar hábitos.
@@ -54,3 +50,8 @@ Esta solução acessa duas origens de dados diferentes:
 * **Simulated sinais de veículos e diagnóstico**: o vehicle telematics simulator emite informações de diagnóstico e sinais que correspondem ao estado do veículo e o padrão de condução num determinado ponto no tempo. 
 * **Catálogo de veículos**: este conjunto de dados de referência mapeia os números de VIN a modelos.
 
+## <a name="next-steps"></a>Próximos Passos
+
+Para explorar ainda mais esta solução, consulte [playbook de solução de análise de telemetria Vehicle: aprofunde-se na solução](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md).
+
+Para saber como configurar os relatórios do Power BI e dashboards para esta solução, veja [instruções de configuração do dashboard de solução de análise do veículo telemetria modelo Power BI](cortana-analytics-playbook-vehicle-telemetry-powerbi.md).

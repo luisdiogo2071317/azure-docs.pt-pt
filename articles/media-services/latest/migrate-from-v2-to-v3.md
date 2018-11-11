@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247692"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287545"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -45,7 +45,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 * Apresenta o conceito de [transforma](transforms-jobs-concept.md) para processamento de tarefas baseada em ficheiros. Uma transformação pode ser utilizada para configurações de compilação reutilizáveis, para criar modelos do Azure Resource Manager e isolar as definições de processamento entre vários clientes ou inquilinos.
 * Pode ter um elemento [StreamingLocators vários](streaming-locators-concept.md) cada uma com diferentes configurações de empacotamento dinâmico e a encriptação dinâmica.
 * [Proteção de conteúdo](content-key-policy-concept.md) oferece suporte a recursos com múltiplos principais.
-* Pode transmitir em fluxo eventos em direto, que são muito até 24 horas.
+* Pode transmitir em fluxo eventos em direto que estão até 24 horas longas quando utilizar os serviços de mídia à transcodificação uma contribuição de velocidade de transmissão única para alimentar num fluxo de saída que tenha múltiplas velocidades de transmissão.
 * Novo baixa latência em direto a suporte de transmissão em fluxo LiveEvents.
 * Pré-visualização do LiveEvent suporta o empacotamento dinâmico e a encriptação dinâmica. Isto permite que a proteção de conteúdo no empacotamento de pré-visualização, bem como DASH e HLS.
 * LiveOutput é mais simples de usar do que a entidade de programa nas v2 APIs. 

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 71e5ae2a6b486873df147e7c2c0518e1c47b09c7
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914010"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280352"
 ---
 # <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar a sincronização de dados SQL para sincronizar dados entre a base de dados do Azure SQL e SQL Server no local
 
@@ -129,7 +129,7 @@ Sobre o **configurar no local** página, efetue os seguintes procedimentos:
 
     Se escolheu **criar um novo agente**, efetue os seguintes procedimentos:
 
-   1. Transferir o software cliente do agente de sincronização da ligação fornecida e instalá-lo no computador onde está localizado o SQL Server.
+   1. Transferir o software cliente do agente de sincronização da ligação fornecida e instalá-lo no computador onde está localizado o SQL Server. Também pode transferir o agente de sincronização de dados diretamente a partir [agente de sincronização de dados do SQL Azure](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > Terá de abrir a porta de saída TCP 1433 na firewall para permitir que o agente do cliente comunicar com o servidor.
@@ -253,35 +253,7 @@ Depois de exportar uma base de dados como um `.bacpac` de ficheiro e importe-o p
 
 ## <a name="faq-about-the-client-agent"></a>FAQ sobre o agente do cliente
 
-### <a name="why-do-i-need-a-client-agent"></a>Por que razão necessito de um agente de cliente
-
-O serviço de sincronização de dados SQL comunica com bancos de dados do SQL Server por meio do agente de cliente. Esta funcionalidade de segurança impede uma comunicação direta com bases de dados protegido por uma firewall. Quando o serviço de sincronização de dados SQL comunica com o agente, ele faz então usando encriptados ligações e um token de exclusivo ou *chave de agente*. As bases de dados do SQL Server autenticar-se o agente utilizando a chave de cadeia de caracteres e o agente de conexão. Esse design fornece um alto nível de segurança para os seus dados.
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Quantas instâncias do agente local pode ser executado a interface do Usuário
-
-Pode ser executada apenas uma instância da interface do Usuário.
-
-### <a name="how-can-i-change-my-service-account"></a>Como posso alterar minha conta de serviço
-
-Depois de instalar um agente de cliente, a única forma de alterar a conta de serviço é desinstalá-lo e instalar um novo agente de cliente com a nova conta de serviço.
-
-### <a name="how-do-i-change-my-agent-key"></a>Como posso alterar a minha chave de agente
-
-Uma chave de agente só pode ser utilizada uma vez por um agente. Ele não pode ser reutilizado quando remova e volte a instalar um novo agente, nem pode ser utilizado por múltiplos agentes. Se precisar de criar uma nova chave para um agente existente, tem de ser-se de que a mesma chave é registada com o agente do cliente e com o serviço de sincronização de dados SQL.
-
-### <a name="how-do-i-retire-a-client-agent"></a>Como posso desativar um agente de cliente
-
-Para imediatamente, invalidar ou extinguir um agente, voltar a gerar a chave no portal do mas não enviá-lo na IU do agente. Regenerar uma chave invalida a chave anterior deixou se o agente correspondente está online ou offline.
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Como faço para mover um agente de cliente para outro computador
-
-Se quiser executar o agente local num computador diferente que atualmente em, efetue os seguintes procedimentos:
-
-1. Instale o agente no computador pretendido.
-2. Inicie sessão no portal de sincronização de dados SQL e voltar a gerar uma chave de agente para o novo agente.
-3. Utilize de IU o novo agente para submeter a nova chave de agente.
-4. Aguarde enquanto o agente do cliente transfere a lista de bases de dados no local que foram registados anteriormente.
-5. Forneça credenciais de base de dados para todas as bases de dados que são apresentados como inacessível. Esses bancos de dados tem de ser acessíveis a partir do novo computador no qual o agente está instalado.
+Para perguntas mais frequentes sobre o agente do cliente, consulte [FAQ do agente](sql-database-data-sync-agent.md#agent-faq).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: ab7689cb18dcd11926abc2e9806885b1072e3886
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960179"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278094"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arquivar registos de diagnóstico do Azure
 
@@ -26,7 +26,7 @@ Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerSh
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, precisa [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) ao qual pode arquivar os seus registos de diagnóstico. É altamente recomendável que não use uma conta de armazenamento existente que tenha outros, não monitorizar dados armazenados na mesma, para que pode controlar melhor acesso a dados de monitorização. No entanto, se também são arquivar o registo de atividades e métricas de diagnóstico para uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para os seus registos de diagnóstico para manter todos os dados de monitorização numa localização central.
+Antes de começar, precisa [criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) ao qual pode arquivar os seus registos de diagnóstico. É altamente recomendável que não use uma conta de armazenamento existente que tenha outros, não monitorizar dados armazenados na mesma, para que pode controlar melhor acesso a dados de monitorização. No entanto, se também são arquivar o registo de atividades e métricas de diagnóstico para uma conta de armazenamento, talvez faça sentido usar essa conta de armazenamento para os seus registos de diagnóstico para manter todos os dados de monitorização numa localização central.
 
 > [!NOTE]
 >  Atualmente não pode arquivar dados a um armazenamento de conta que, por trás de uma rede virtual protegida.
@@ -161,7 +161,7 @@ No ficheiro PT1H.json cada evento é armazenado na matriz "registos", seguindo e
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Transfira blobs para análise](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Transfira blobs para análise](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Registos de diagnóstico do Stream para um espaço de nomes de Hubs de eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Arquivar registos do Azure Active Directory com o Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Leia mais sobre os registos de diagnóstico](monitoring-overview-of-diagnostic-logs.md)

@@ -7,20 +7,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 04e2e32de90283da2563395f8b24dbb4b1dab888
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 8c79107a0081b1c7478ffe8ceb44ec67e1f618c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241764"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283670"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utilizar a pré-visualização do Azure Data Lake Storage Gen2 com clusters do HDInsight do Azure
 
-Para analisar dados num cluster do HDInsight, pode armazenar os dados em qualquer combinação de armazenamento do Azure, Gen1 de armazenamento do Azure Data Lake ou pré-visualização do Azure Data Lake Storage geração 2. Todas as opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem perda de dados de utilizador.
+Para analisar dados num cluster do HDInsight, pode armazenar os dados em qualquer combinação de armazenamento de Blobs do Azure, armazenamento de Blobs do Azure com o Azure Data Lake armazenamento Gen2 pré-visualização ativada ou Gen1 de armazenamento do Azure Data Lake. Todas as opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem perda de dados de utilizador.
 
-O Hadoop suporta uma noção do sistema de ficheiros predefinido. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação de cluster do HDInsight, pode especificar um contentor de BLOBs no armazenamento do Azure ou o armazenamento do Azure Data Lake como sistema de ficheiros predefinido. Em alternativa com o HDInsight 3.5, pode selecionar o armazenamento do Azure ou o armazenamento do Azure Data Lake como o sistema de ficheiros predefinido com algumas exceções.
+O Hadoop suporta uma noção do sistema de ficheiros predefinido. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação de cluster do HDInsight, pode especificar um contentor de BLOBs no armazenamento do Azure ou o espaço de nomes hierárquico oferecidos pela geração 2 de armazenamento do Data Lake como o sistema de ficheiros predefinido. Em alternativa com o HDInsight 3.5, pode selecionar um contentor ou o espaço de nomes hierárquico como o sistema de ficheiros predefinido com algumas exceções.
 
-Neste artigo, ficará a saber como a geração 2 de armazenamento do Azure Data Lake funciona com clusters do HDInsight. Para obter mais informações sobre como criar um cluster do HDInsight, consulte [configurar o HDInsight clusters com o armazenamento do Azure Data Lake com o Hadoop, Spark, Kafka e muito mais](quickstart-create-connect-hdi-cluster.md).
+Neste artigo, ficará a saber como a geração 2 de armazenamento do Data Lake funciona com clusters do HDInsight. Para obter mais informações sobre como criar um cluster do HDInsight, consulte [configurar o HDInsight clusters com o armazenamento do Azure Data Lake com o Hadoop, Spark, Kafka e muito mais](quickstart-create-connect-hdi-cluster.md).
 
 O armazenamento do Azure é uma solução de armazenamento para fins gerais robusta que se integra perfeitamente no HDInsight. HDInsight pode utilizar o armazenamento do Azure Data Lake como sistema de ficheiros predefinido para o cluster. Através de uma interface de system (HDFS) de ficheiros distribuído Hadoop, o conjunto completo de componentes no HDInsight pode operar diretamente em ficheiros no armazenamento do Azure Data Lake.
 
@@ -80,13 +80,13 @@ Determinados pacotes e tarefas de MapReduce podem criar resultados intermédios 
 > [!NOTE]
 > Maioria dos comandos HDFS (por exemplo, `ls`, `copyFromLocal` e `mkdir`) continuarão a funcionar conforme esperado. Apenas os comandos que são específicos para o DFS, tal como `fschk` e `dfsadmin`, apresentam um comportamento diferente no armazenamento do Azure.
 
-## <a name="create-an-data-lake-storage-file-system"></a>Criar um sistema de ficheiros de armazenamento do Data Lake
+## <a name="create-a-data-lake-storage-file-system"></a>Criar um sistema de ficheiros de armazenamento do Data Lake
 
 Para utilizar o sistema de ficheiros, primeiro crie uma [conta de armazenamento do Azure][azure-storage-create]. Como parte deste processo, deve especificar uma região do Azure onde a conta de armazenamento é criada. O cluster e a conta do Storage têm de estar alojados na mesma região. A base de dados do SQL Server do metastore do Hive e a base de dados do SQL Server do metastore do Oozie também têm de estar localizadas na mesma região.
 
-Independentemente de onde se encontre, cada blob que criar pertence a um sistema de ficheiros na sua conta de armazenamento do Azure Data Lake. 
+Independentemente de onde se encontre, cada blob que criar pertence a um sistema de ficheiros na sua conta de armazenamento.
 
-O sistema de ficheiros de armazenamento do Data Lake predefinido armazena informações específicas do cluster, como o histórico de tarefas e registos. Não partilhe um sistema de ficheiros de armazenamento do Data Lake predefinida com vários clusters do HDInsight. Isto pode danificar o histórico de tarefas. Recomenda-se para utilizar um sistema de ficheiros diferentes para cada cluster e colocar os dados partilhados numa conta do storage ligada especificada na implementação de todos os clusters relevantes em vez da conta de armazenamento predefinida. Para obter mais informações sobre como configurar contas do Storage ligadas, consulte [Create HDInsight clusters (Criar clusters do HDInsight)][hdinsight-creation]. No entanto, pode reutilizar um sistema de ficheiros de armazenamento predefinido depois do cluster do HDInsight original foi eliminado. Para clusters do HBase, pode manter os dados e esquema de tabela do HBase ao criar um novo cluster do HBase com o contentor de BLOBs predefinido utilizado por um cluster do HBase eliminado que tenha sido eliminado.
+O sistema de ficheiros de geração 2 de armazenamento do Data Lake predefinido armazena informações específicas do cluster, como o histórico de tarefas e registos. Não partilhe um sistema de ficheiros de geração 2 de armazenamento do Data Lake predefinida com vários clusters do HDInsight. Isto pode danificar o histórico de tarefas. Recomenda-se para utilizar um sistema de ficheiros diferentes para cada cluster e colocar os dados partilhados numa conta do storage ligada especificada na implementação de todos os clusters relevantes em vez da conta de armazenamento predefinida. Para obter mais informações sobre como configurar contas do Storage ligadas, consulte [Create HDInsight clusters (Criar clusters do HDInsight)][hdinsight-creation]. No entanto, pode reutilizar um sistema de ficheiros de armazenamento predefinido depois do cluster do HDInsight original foi eliminado. Para clusters do HBase, pode manter os dados e esquema de tabela do HBase ao criar um novo cluster do HBase com o contentor de BLOBs predefinido utilizado por um cluster do HBase eliminado que tenha sido eliminado.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -132,7 +132,7 @@ Se [instalado e configurado o Azure PowerShell][powershell-install], pode utiliz
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> A criação de um contentor é sinônimo de criação de um sistema de ficheiros no armazenamento do Azure Data Lake.
+> A criação de um contentor é sinônimo de criação de um sistema de ficheiros no Data Lake Storage Gen2.
 
 ### <a name="use-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -164,7 +164,7 @@ Para criar um contentor, utilize o seguinte comando:
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> A criação de um contentor é sinônimo de criação de um sistema de ficheiros no armazenamento do Azure Data Lake.
+> A criação de um contentor é sinônimo de criação de um sistema de ficheiros no Data Lake Storage Gen2.
 
 ## <a name="address-files-in-azure-storage"></a>Endereçar ficheiros no armazenamento do Azure
 
@@ -174,7 +174,7 @@ O esquema URI para aceder a ficheiros no armazenamento do Azure a partir do HDIn
 
 O esquema URI fornece acesso não encriptado (com o *abfs:* prefixo) e acesso encriptado por SSL (com *abfss*). Recomendamos que utilize *abfss* sempre que possível, até mesmo ao aceder a dados que se encontrem dentro da mesma região no Azure.
 
-* &lt;FILE_SYSTEM_NAME&gt; identifica o caminho do sistema de ficheiros de armazenamento do Azure Data Lake.
+* &lt;FILE_SYSTEM_NAME&gt; identifica o caminho do sistema de arquivos de geração 2 de armazenamento do Data Lake.
 * &lt;Nome_conta&gt; identifica o nome da conta de armazenamento do Azure. É necessário um nome de domínio completamente qualificado (FQDN).
 
     Se os valores para &lt;FILE_SYSTEM_NAME&gt; nem &lt;nome_conta&gt; foram especificadas, o sistema de ficheiros predefinido é utilizado. Para os ficheiros no sistema de ficheiros predefinido, pode utilizar um caminho relativo ou um caminho absoluto. Por exemplo, o *hadoop-mapreduce-examples* ficheiro que é fornecido com clusters do HDInsight pode ser referido utilizando um dos seguintes caminhos:
@@ -205,9 +205,9 @@ Neste artigo, aprendeu a utilizar o armazenamento do Azure compatível com HDFS 
 Para obter mais informações, consulte:
 
 * [O driver de sistema de ficheiros do ABFS Hadoop para a geração 2 de armazenamento do Azure Data Lake](abfs-driver.md)
-* [Introdução ao armazenamento do Azure Data Lake](introduction.md)
-* [Configurar clusters do HDInsight através do armazenamento do Azure Data Lake com o Hadoop, Spark, Kafka e muito mais](quickstart-create-connect-hdi-cluster.md)
-* [Ingestão de dados para utilizar o distcp de armazenamento do Azure Data Lake](use-distcp.md)
+* [Introdução ao Azure Data Lake Storage Gen2](introduction.md)
+* [Configurar clusters do HDInsight com geração 2 de armazenamento do Azure Data Lake com o Hadoop, Spark, Kafka e muito mais](quickstart-create-connect-hdi-cluster.md)
+* [Ingestão de dados na geração 2 de armazenamento do Azure Data Lake, utilizar o distcp](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

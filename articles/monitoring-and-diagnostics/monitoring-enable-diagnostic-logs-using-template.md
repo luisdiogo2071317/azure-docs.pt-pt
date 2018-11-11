@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6e5bbdf0d43b642816a58419c2ce1c186fd44acb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 774c313086883bedf4f8e06a46715a438fc02e69
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960757"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281205"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Ativar automaticamente as definições de diagnóstico durante a criação de recursos através de um modelo do Resource Manager
 Neste artigo vamos mostrar como pode usar uma [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar as definições de diagnóstico num recurso quando é criado. Isto permite-lhe iniciar automaticamente a transmissão em fluxo a registos de diagnóstico e métricas para os Hubs de eventos, arquivá-los numa conta de armazenamento, ou enviá-los para o Log Analytics, quando um recurso é criado.
@@ -26,7 +26,7 @@ Neste artigo vamos mostrar como pode usar uma [modelo Azure Resource Manager](..
 O método para ativar os registos de diagnóstico com um modelo do Resource Manager depende do tipo de recurso.
 
 * **Não-Compute** recursos (por exemplo, grupos de segurança de rede, Logic Apps, automatização) utilizam [definições de diagnóstico descrito neste artigo](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-* **Computação** recursos (WAD/LAD baseado) utilizar o [ficheiro de configuração de WAD/LAD descrito neste artigo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Computação** recursos (WAD/LAD baseado) utilizar o [ficheiro de configuração de WAD/LAD descrito neste artigo](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 Neste artigo, descrevemos como configurar o diagnóstico utilizando um dos métodos.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 96c518bee85b0b3dce9421e4cd9a1f2ada357bf0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259977"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277653"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importar dados do Azure Log Analytics no Power BI
 
@@ -33,7 +33,7 @@ Para importar dados a partir de uma área de trabalho do Log Analytics no Power 
 ![O log Analytics para o Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>Consulta de exportação
-Comece por criar um [pesquisa de registos](log-analytics-log-search-new.md) que devolve os dados do Log Analytics que deseja preencher o conjunto de dados do Power BI.  Em seguida, exportar essa consulta para [linguagem do Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx) que podem ser utilizadas pelo Power BI Desktop.
+Comece por criar um [pesquisa de registos](log-analytics-queries.md) que devolve os dados do Log Analytics que deseja preencher o conjunto de dados do Power BI.  Em seguida, exportar essa consulta para [linguagem do Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx) que podem ser utilizadas pelo Power BI Desktop.
 
 1. Crie a pesquisa de registos no Log Analytics para extrair os dados para o conjunto de dados.
 2. Se estiver a utilizar o portal de pesquisa de registos, clique em **Power BI**.  Se estiver a utilizar o portal do Analytics, selecione **exportar** > **Power BI consulta (M)**.  As duas opções exportar a consulta para um ficheiro de texto chamado **PowerBIQuery.txt**. 

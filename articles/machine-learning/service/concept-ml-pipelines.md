@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 212488b74ba726012966787c7b2de633414e96a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245346"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278978"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pipelines e do Azure Machine Learning
 
@@ -43,6 +43,8 @@ Usar as etapas distintas torna possível voltar a executar apenas as etapas que 
 Assim que o pipeline foi concebido, há muitas vezes mais ajustar o loop de treinamento do pipeline. Quando voltar a executar um pipeline, a saltar execução para as etapas que precisam ser executados novamente, por exemplo, um script de treinamento atualizado e ignora o que não mudou. O paradigma do mesmo se aplica a inalterado scripts utilizados para a execução do passo. 
 
 Com o Azure Machine Learning, pode utilizar vários kits de ferramentas e estruturas, como o Microsoft Cognitive Toolkit ou TensorFlow para cada etapa no seu pipeline. As coordenadas do Azure entre os diversos [destinos de computação](concept-azure-machine-learning-architecture.md) utilizar, para que os seus dados intermediários podem ser facilmente partilhados com os destinos de computação de downstream. 
+
+Pode [controlar as métricas para suas experimentações do pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments) diretamente no portal do Azure. 
 
 ## <a name="key-advantages"></a>Principais vantagens
 

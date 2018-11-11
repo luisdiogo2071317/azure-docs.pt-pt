@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.component: diagnostic-extension
-ms.openlocfilehash: 733c84ef9e6cee1a8ea488f0007ade1e72f39737
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f9ae9e2edea1daf2fda825053c777521f042413d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033254"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278927"
 ---
-# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Store e ver dados de diagnóstico no armazenamento do Azure
+# <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Armazenar e ver dados de diagnósticos no Armazenamento do Azure
 Dados de diagnóstico não são armazenados permanentemente, a menos que transferi-la no emulador de armazenamento do Microsoft Azure ou para o armazenamento do Azure. Uma vez no armazenamento, podem ser visualizado com uma das várias ferramentas disponíveis.
 
 ## <a name="specify-a-storage-account"></a>Especifique uma conta de armazenamento
@@ -73,7 +73,7 @@ Dados de registo são armazenados no armazenamento de BLOBs ou tabelas com os se
 ## <a name="tools-to-view-diagnostic-data"></a>Ferramentas para ver dados de diagnóstico
 Várias ferramentas estão disponíveis para ver os dados depois de serem transferido para o armazenamento. Por exemplo:
 
-* Explorador de servidores no Visual Studio – se tiver instalado as ferramentas do Azure para Microsoft Visual Studio, pode utilizar o nó de armazenamento do Azure no Explorador de servidores para ver dados de tabela de blob de só de leitura e das suas contas de armazenamento do Azure. Pode exibir os dados da sua conta do emulador de armazenamento local e também das contas de armazenamento que criou para o Azure. Para obter mais informações, consulte [navegação e gerenciamento de recursos de armazenamento com o Server Explorer](../vs-azure-tools-storage-resources-server-explorer-browse-manage.md).
+* Explorador de servidores no Visual Studio – se tiver instalado as ferramentas do Azure para Microsoft Visual Studio, pode utilizar o nó de armazenamento do Azure no Explorador de servidores para ver dados de tabela de blob de só de leitura e das suas contas de armazenamento do Azure. Pode exibir os dados da sua conta do emulador de armazenamento local e também das contas de armazenamento que criou para o Azure. Para obter mais informações, consulte [navegação e gerenciamento de recursos de armazenamento com o Server Explorer](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage).
 * [Explorador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, OSX e Linux.
 * [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) inclui Gestor de diagnóstico do Azure, que permite-lhe ver, transferir e gerir os dados de diagnóstico recolhidos pelas aplicações em execução no Azure.
 

@@ -2,25 +2,25 @@
 title: Utilizar o Log Analytics para monitorizar clusters do HDInsight do Azure
 description: Saiba como utilizar o Azure Log Analytics para monitorizar tarefas em execução num cluster do HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/15/2018
-ms.author: jasonh
-ms.openlocfilehash: 1a526bfdd951e4dc2897ec52c03bfbe96ee14d4c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/05/2018
+ms.author: hrasheed
+ms.openlocfilehash: 531cfb32b3433e0a376845a81a3ea5e13e6f1d11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403683"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278689"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Utilizar o Azure Log Analytics para monitorizar clusters do HDInsight
 
 Saiba como ativar o Azure Log Analytics para monitorizar as operações de cluster de Hadoop no HDInsight e como adicionar uma solução de monitorização de Hdinsight.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md) é um serviço que monitoriza a sua cloud e ambientes para manter a disponibilidade e desempenho no local. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
+[Log Analytics](../log-analytics/log-analytics-overview.md) é um serviço no Azure Monitor, que monitoriza a sua cloud e ambientes para manter a disponibilidade e desempenho no local. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -40,7 +40,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
   Para instruções sobre como criar um cluster do HDInsight, consulte [introdução ao Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
 > [!NOTE]
-> Recomenda-se para colocar o cluster do HDInsight e a área de trabalho do Log Analytics na mesma região para um melhor desempenho. Tenha em atenção o que log Analytics do Azure não está disponível em todas as regiões do Azure.
+> Recomenda-se para colocar o cluster do HDInsight e a área de trabalho do Log Analytics na mesma região para um melhor desempenho. O Azure Log Analytics não está disponível em todas as regiões do Azure.
 
 ## <a name="enable-log-analytics-by-using-the-portal"></a>Ativar o Log Analytics com o portal
 
@@ -85,7 +85,7 @@ HDInsight fornece soluções de gerenciamento de cluster específicos que podem 
 Estas são as soluções disponíveis do HDInsight:
 
 * Monitorização do HDInsight Hadoop
-* HBase do HDInsight monitorização
+* Monitorização do HDInsight HBase
 * Monitorização do HDInsight Interactive Query
 * Monitorização HDInsight Kafka
 * Monitorização HDInsight Spark

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870558"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277554"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>O Azure AD B2C: Utilizar o Azure AD Graph API
 
@@ -66,8 +66,8 @@ Tem agora uma aplicação que tenha permissão para criar, ler e atualizar utili
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>Configurar permissões de eliminação para a sua aplicação
-Atualmente, o *dados de diretório de leitura e escrita* permissão faz **não** incluem a capacidade de fazer quaisquer eliminações como eliminar os utilizadores. Se pretende conceder a capacidade de excluir os usuários de seu aplicativo, terá de executar estes passos Extras que envolvem o PowerShell, caso contrário, pode avançar para a secção seguinte.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configurar a eliminação ou atualizar as permissões de palavra-passe para a sua aplicação
+Atualmente, o *dados de diretório de leitura e escrita* permissão faz **não** incluem a capacidade de eliminar utilizadores ou atualizar as palavras-passe do utilizador. Se pretende conceder a capacidade de seu aplicativo para usuários de eliminação ou palavras-passe de atualização, terá de executar estes passos Extras que envolvem o PowerShell, caso contrário, pode avançar para a secção seguinte.
 
 Em primeiro lugar, se ainda não tiver instalado, instale o [módulo do Azure AD PowerShell v1 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
@@ -84,7 +84,7 @@ Depois de instalar o módulo do PowerShell ligar ao seu inquilino do Azure AD B2
 Connect-MsolService
 ```
 
-Agora, vamos utilizar o **ID da aplicação** no script abaixo para atribuir a aplicação a função de administrador de conta de utilizador que irão permiti-lhe eliminar utilizadores. Estas funções têm identificadores bem conhecidos, portanto, tudo o que precisa fazer é a entrada sua **ID da aplicação** no script abaixo.
+Agora, vamos utilizar o **ID da aplicação** no script abaixo para atribuir a aplicação a função de administrador de conta de utilizador. Estas funções têm identificadores bem conhecidos, portanto, tudo o que precisa fazer é a entrada sua **ID da aplicação** no script abaixo.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-Agora seu aplicativo também tem permissões para eliminar os utilizadores do seu inquilino do B2C.
+Agora seu aplicativo também tem permissões para eliminar os utilizadores ou atualizar as palavras-passe do seu inquilino do B2C.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Transferir, configurar e criar o código de exemplo
 Em primeiro lugar, Baixe o código de exemplo e executá-lo. Em seguida, podemos irá demorar uma análise detalhada-lo.  Pode [baixar o código de exemplo como um ficheiro. zip](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Também pode cloná-lo num diretório à sua escolha:

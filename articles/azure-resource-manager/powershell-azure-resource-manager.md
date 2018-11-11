@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/20/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0ecb497e9b07119f6c32149a875f27ee7c338d74
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205804"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344642"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerir recursos com o Azure PowerShell
 
@@ -56,7 +56,7 @@ Neste artigo, vai implementar uma máquina virtual e a respetiva rede virtual re
 * [Contribuidor de Rede](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Contribuidor de Conta de Armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito. 
+Em vez de atribuir funções a utilizadores individuais, muitas vezes, é mais fácil [criar um grupo do Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) para utilizadores que precisam de realizar ações semelhantes. Em seguida, atribua esse grupo à função adequada. Para simplificar este artigo, crie um grupo do Azure Active Directory sem membros. Pode ainda atribuir este grupo a uma função dentro de um âmbito.
 
 O exemplo seguinte cria um grupo e o atribui à função de contribuinte de Máquina Virtual para o grupo de recursos. Para executar o `New-AzureAdGroup` comando, tem de utilizar o [Azure Cloud Shell](/azure/cloud-shell/overview) ou [transferir o módulo do Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -74,7 +74,7 @@ Normalmente, pode repetir o processo para o **Contribuidor de Rede** e o **Contr
 
 ## <a name="azure-policy"></a>Azure Policy
 
-[O Azure Policy](../azure-policy/azure-policy-introduction.md) ajuda a tirar-se de que todos os recursos na subscrição cumpre os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize:
+O [Azure Policy](../azure-policy/azure-policy-introduction.md) ajuda-o a certificar-se de que todos os recursos na subscrição cumprem os padrões empresariais. A subscrição já tem várias definições de política. Para ver as definições de política disponíveis, utilize:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -211,11 +211,12 @@ Remove-AzureRmResourceLock -LockName LockNSG `
 
 Quando já não for necessário, pode utilizar o comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o Grupo de Recursos, a VM e todos os recursos relacionados.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * Para saber mais sobre a monitorização de suas máquinas virtuais, veja [monitorizar e atualizar uma Máquina Virtual do Windows com o Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * Para saber mais sobre como utilizar o Centro de segurança do Azure para implementar práticas de segurança recomendadas [monitorizar a segurança da máquina virtual utilizando o Centro de segurança do Azure](../virtual-machines/windows/tutorial-azure-security.md).
 * Pode mover os recursos existentes para um novo grupo de recursos. Para obter exemplos, consulte [mover recursos para um novo grupo de recursos ou subscrição](resource-group-move-resources.md).

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/06/2018
 ms.author: tulasim
-ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451889"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279766"
 ---
 # <a name="edit-a-knowledge-base"></a>Editar uma base de dados de conhecimento
 
@@ -54,7 +54,7 @@ Depende da atualização da base de conhecimento **escalão de preço de gestão
     >[!NOTE]
     Deixando a página antes de clicar em Guardar e train não aplicará as alterações.
 
-## <a name="add-a-qna-pair"></a>Adicione um par de QnA
+## <a name="add-a-qna-pair"></a>Adicione um par de FAQ
 
 Selecione **QnA adicionar par** para adicionar uma nova linha à tabela de base de dados de conhecimento.
 
@@ -89,6 +89,12 @@ Adicionar os pares de metadados ao selecionar o ícone de filtro
 3. **Paginação** permite-lhe gerir grandes bases de dados de conhecimento
 
     ![Procurar, paginar, grupo](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+## <a name="delete-knowledge-bases"></a>Eliminar bases de dados de conhecimento
+
+A eliminar uma base de dados de conhecimento (KB) é uma operação permanente. Não pode ser anulada. Antes de eliminar uma base de dados de conhecimento, deve exportar a base de dados de conhecimento a partir da **definições** página do portal do QnA Maker. 
+
+Se partilhar a sua BDC com [colaboradores](collaborate-knowledge-base.md) , em seguida, eliminá-lo, todos os utilizadores perde o acesso para o KB. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

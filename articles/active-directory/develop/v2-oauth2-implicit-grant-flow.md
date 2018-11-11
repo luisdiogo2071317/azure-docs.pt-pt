@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d063c5e5a5b81f16d8921864ab2e2a0c3504e334
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817105"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289024"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protocolos - SPAs com o fluxo implícito
 
@@ -145,7 +145,7 @@ Depois de validar o id_token completamente, pode iniciar uma sessão com o utili
 
 ## <a name="get-access-tokens"></a>Obter os tokens de acesso
 
-Agora que o utilizador ter iniciado sessão na sua aplicação de página única, pode obter os tokens de acesso para chamadas de web APIs protegidas pelo Azure AD, como o [Microsoft Graph](https://graph.microsoft.io). Mesmo que já recebeu um token através do `token` response_type, pode utilizar este método para adquirir tokens para recursos adicionais sem ter de redirecionar o utilizador iniciar sessão novamente.
+Agora que o utilizador ter iniciado sessão na sua aplicação de página única, pode obter os tokens de acesso para chamadas de web APIs protegidas pelo Azure AD, como o [Microsoft Graph](https://developer.microsoft.com/graph). Mesmo que já recebeu um token através do `token` response_type, pode utilizar este método para adquirir tokens para recursos adicionais sem ter de redirecionar o utilizador iniciar sessão novamente.
 
 No fluxo de OpenID Connect/OAuth normal, pode fazê-lo fazendo uma solicitação para a versão 2.0 `/token` ponto final. No entanto, o ponto final v2.0 não suporta solicitações CORS, portanto, fazer chamadas AJAX para obter e tokens de atualização está fora da pergunta. Em vez disso, pode utilizar o fluxo implícito num iframe oculto para obter novos tokens para outras APIs web: 
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 190b7fff24c9d6b3dee86471b56ad68c962e51ce
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 97350c90ab4ce9c3623a293c3a6637edc65ced08
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116883"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345475"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e o Azure Machine Learning: crie e implemente modelos de IA interoperáveis
 
@@ -192,13 +192,13 @@ Eis um exemplo para implementar um modelo ONNX:
 ## <a name="examples"></a>Exemplos
  
 Os blocos de notas seguintes demonstram como criar modelos ONNX e implementá-las com o Azure Machine Learning: 
-+ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
-+ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
-+ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
++ [onnx/onnx-modelzoo-aml-implementar-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
++ [onnx/onnx-convert-aml-implementar-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
++ [onnx/onnx-Train-pytorch-AML-Deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
 
 Os blocos de notas seguintes demonstram como implementar modelos ONNX existentes com o Azure Machine Learning: 
-+ [onnx/onnx-inferência de tipos-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist.ipynb) 
-+ [onnx/onnx-inferência de tipos-emoções-recognition.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-emotion-recognition.ipynb)
++ [onnx/onnx-inferência de tipos-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
++ [onnx/onnx-inference-facial-Expression-Recognition-Deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
  
 Obtenha estes blocos de notas:
  

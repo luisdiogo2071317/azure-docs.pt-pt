@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13da68f826f7077acec9a64d1aa0ea18c66be6ff
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914248"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278213"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
 > [!NOTE]
 > Esta é a documentação preliminar para a criação de soluções de gestão no Azure que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.  
 
-Soluções de gestão do Azure são implementadas como [modelos do Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  A principal tarefa em aprender a criar soluções de gestão é aprender como [criar um modelo](../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos de modelos utilizados para soluções e como configurar recursos de solução típica.
+Soluções de gestão do Azure são implementadas como [modelos do Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  A principal tarefa em aprender a criar soluções de gestão é aprender como [criar um modelo](../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos de modelos utilizados para soluções e como configurar recursos de solução típica.
 
 
 ## <a name="tools"></a>Ferramentas

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231628"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515663"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 ## <a name="overview"></a>Descrição geral
 O Azure disponibiliza diagnósticos incorporados para ajudar a depurar uma [aplicação do serviço de aplicações web](https://go.microsoft.com/fwlink/?LinkId=529714). Neste artigo, saiba como ativar o registo de diagnósticos e adicionar instrumentação à sua aplicação, bem como aceder às informações registadas pelo Azure.
 
-Este artigo utiliza a [portal do Azure](https://portal.azure.com), Azure PowerShell e a Interface de linha de comandos do Azure (CLI do Azure) para trabalhar com registos de diagnóstico. Para obter informações sobre como trabalhar com registos de diagnóstico com o Visual Studio, consulte [resolução de problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+Este artigo utiliza a [portal do Azure](https://portal.azure.com) e CLI do Azure para trabalhar com registos de diagnóstico. Para obter informações sobre como trabalhar com registos de diagnóstico com o Visual Studio, consulte [resolução de problemas do Azure no Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ Para **registo de aplicações**, pode ativar a opção de sistema de ficheiros 
 
 Para **registo de servidor Web**, pode selecionar **armazenamento** ou **sistema de ficheiros**. Selecionando **armazenamento** permite-lhe selecionar uma conta de armazenamento e, em seguida, um contentor de BLOBs que os registos são escritos. 
 
-Se armazenar os registos no sistema de ficheiros, os ficheiros podem ser acedidos por FTP ou transferidos como um arquivo Zip com o Azure PowerShell ou a Interface de linha de comandos do Azure (CLI do Azure).
+Se armazenar os registos no sistema de ficheiros, os ficheiros podem ser acedidos por FTP ou transferiu como um arquivo Zip com a CLI do Azure.
 
 Por predefinição, os registos não são automaticamente eliminados (com exceção do **registo de aplicação (sistema de ficheiros)**). Para eliminar automaticamente os registos, defina o **período de retenção (dias)** campo.
 
@@ -84,13 +84,9 @@ Embora as mesmas informações básicas para eventos registrados, de fornecer to
 > [!NOTE]
 > Informações armazenadas na **armazenamento de tabelas** ou **armazenamento de BLOBs** só pode ser acedido através de um cliente de armazenamento ou um aplicativo que pode trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Explorador de armazenamento que podem ser utilizadas para explorar o armazenamento de tabela ou um blob e o HDInsight pode aceder a dados armazenados no armazenamento de Blobs. Também pode escrever uma aplicação que acede ao armazenamento do Azure ao utilizar uma da [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
-> [!NOTE]
-> Também pode ser ativado o diagnóstico do Azure PowerShell com o **Set-AzureWebsite** cmdlet. Se não tiver instalado o Azure PowerShell, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
 
 ## <a name="download"></a> Como: transferir registos
-Informações de diagnóstico armazenadas para o sistema de ficheiros de aplicação web podem ser acessadas diretamente com o FTP. Também pode ser transferido como um arquivo Zip com o Azure PowerShell ou a Interface de linha de comandos do Azure.
+Informações de diagnóstico armazenadas para o sistema de ficheiros de aplicação web podem ser acessadas diretamente com o FTP. Também pode ser transferido como um arquivo Zip com a CLI do Azure.
 
 Segue-se a estrutura de diretório que os registos são armazenados em:
 
@@ -106,19 +102,7 @@ Para abrir uma ligação de FTP para o servidor FTP da sua aplicação, consulte
 
 Assim que estiver ligado ao servidor FTP/S da sua aplicação web, abra a **LogFiles** pasta, onde são armazenados os ficheiros de registo.
 
-### <a name="download-with-azure-powershell"></a>Transferir com o Azure PowerShell
-Para transferir os ficheiros de registo, inicie uma nova instância do Azure PowerShell e utilize o seguinte comando:
-
-    Save-AzureWebSiteLog -Name webappname
-
-Este comando guarda os registos da aplicação web especificado pela **-Name** parâmetro para um arquivo chamado **logs.zip** no diretório atual.
-
-> [!NOTE]
-> Se não tiver instalado o Azure PowerShell, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>Transferir com Interface de linha de comandos do Azure
+### <a name="download-with-azure-cli"></a>Transferir com a CLI do Azure
 Para transferir os ficheiros de registo utilizando a Interface de linha de comandos do Azure, abra uma nova linha de comandos, o PowerShell, o Bash ou a sessão de Terminal e introduza o seguinte comando:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ Para transferir os ficheiros de registo utilizando a Interface de linha de coman
 Este comando guarda os registos da aplicação web com o nome webappname num ficheiro denominado **diagnostics.zip** no diretório atual.
 
 > [!NOTE]
-> Se não tiver instalado a Interface de linha de comandos do Azure (CLI) do Azure, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> Se não tiver instalado a CLI do Azure, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -143,7 +127,7 @@ O Visual Studio Application Insights fornece ferramentas para filtragem e pesqui
 [Saiba mais sobre o desempenho de controlo com o Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Como: Stream registos
-Ao desenvolver um aplicativo, geralmente é útil ver informações de registo em tempo quase real. Pode transmitir informações de registo para o seu ambiente de desenvolvimento com o Azure PowerShell ou a Interface de linha de comandos do Azure.
+Ao desenvolver um aplicativo, geralmente é útil ver informações de registo em tempo quase real. Pode transmitir informações de registo para o seu ambiente de desenvolvimento com a CLI do Azure.
 
 > [!NOTE]
 > Alguns tipos de memória intermédia de registo de escrita para o ficheiro de registo, que pode resultar em eventos fora de ordem no fluxo. Por exemplo, uma entrada de registo de aplicação que ocorre quando um usuário visitar uma página pode ser apresentada no fluxo antes da entrada de registo HTTP correspondente para o pedido de página.
@@ -153,29 +137,7 @@ Ao desenvolver um aplicativo, geralmente é útil ver informações de registo e
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>Transmissão em fluxo com o Azure PowerShell
-Para transmitir informações de registo, iniciar uma nova instância do Azure PowerShell e utilize o seguinte comando:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-Este comando liga-se para a aplicação web especificada pelos **-nome** parâmetro e iniciar a transmissão em fluxo de informações na janela do PowerShell como ocorrem eventos de registo na aplicação web. Todas as informações de escrita em ficheiros terminados em. txt,. log ou. htm que estão armazenados no diretório /LogFiles (d: / home/logfiles) são transmitidas para a consola local.
-
-Para filtrar eventos específicos, como erros, utilize o **-mensagem** parâmetro. Por exemplo:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-Para filtrar os tipos de registo específicos, como HTTP, utilize o **-caminho** parâmetro. Por exemplo:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-Para ver uma lista de caminhos disponíveis, utilize o parâmetro - ListPath.
-
-> [!NOTE]
-> Se não tiver instalado o Azure PowerShell, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>Transmissão em fluxo com a Interface de linha de comandos do Azure
+### <a name="streaming-with-azure-cli"></a>Transmissão em fluxo com a CLI do Azure
 Para transmitir informações de registo, abra uma nova linha de comandos, o PowerShell, o Bash ou a sessão de Terminal e introduza o seguinte comando:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,7 +153,7 @@ Para filtrar os tipos de registo específicos, como HTTP, utilize o **– caminh
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> Se não tiver instalado a Interface de linha de comandos do Azure, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como para utilizar o Azure de Interface de linha](../cli-install-nodejs.md).
+> Se não tiver instalado a CLI do Azure, ou não tiver configurado para utilizar a sua subscrição do Azure, veja [como utilizar o Azure CLI](../cli-install-nodejs.md).
 >
 >
 

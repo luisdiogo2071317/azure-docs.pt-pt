@@ -1,25 +1,25 @@
 ---
-title: Apache Spark, transmissão em fluxo com Kafka - Azure HDInsight
-description: Saiba como utilizar o Spark Apache Spark para transmitir dados para dentro ou fora do Apache Kafka com DStreams. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
+title: Apache Spark de transmissão em fluxo com o Apache Kafka - Azure HDInsight
+description: Saiba como utilizar o Apache Spark para transmitir dados para dentro ou fora do Apache Kafka com DStreams. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 keywords: exemplo de kafka, zookeeper do kafka, kafka, spark, o exemplo de kafka de transmissão em fluxo de transmissão em fluxo do spark
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d06e9d26051fbfafc4d717ec180e8760157aefd9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094171"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279165"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark (DStream) de exemplo com o Kafka no HDInsight de transmissão em fluxo
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Spark (DStream) de exemplo com o Apache Kafka no HDInsight de transmissão em fluxo
 
-Saiba como utilizar o Spark Apache Spark para transmitir dados para dentro ou fora do Apache Kafka no HDInsight usando DStreams. Este exemplo utiliza um bloco de notas do Jupyter que é executada no cluster do Spark.
+Saiba como utilizar o Apache Spark para transmitir dados para dentro ou fora do Apache Kafka no HDInsight usando DStreams. Este exemplo utiliza um bloco de notas do Jupyter que é executada no cluster do Spark.
 
 > [!NOTE]
 > Os passos neste documento criam um grupo de recursos do Azure que contém um cluster do Spark no HDInsight e um cluster do Kafka no HDInsight. Estes dois clusters estão localizados numa Rede Virtual do Azure, o que permite que o cluster do Spark comunique diretamente com o cluster do Kafka.
@@ -59,7 +59,7 @@ Embora pode criar uma rede virtual do Azure, Kafka, e clusters do Spark manualme
 
     * **Localização**: selecione uma localização geograficamente próximo de.
 
-    * **Nome do Cluster de base**: este valor é utilizado como o nome de base para o Spark e clusters do Kafka. Por exemplo, introduzir **hdi** cria um cluster do Spark com o nome __spark hdi__ e um cluster de Kafka com o nome **kafka-hdi**.
+    * **Nome do Cluster de base**: este valor é utilizado como o nome de base para o Spark e clusters do Kafka. Por exemplo, introduzir **hdistreaming** cria um cluster do Spark com o nome __spark hdistreaming__ e um cluster de Kafka com o nome **kafka hdistreaming**.
 
     * **Nome de utilizador de início de sessão do cluster**: O nome de utilizador de administrador para os clusters do Spark e Kafka.
 
@@ -71,7 +71,7 @@ Embora pode criar uma rede virtual do Azure, Kafka, e clusters do Spark manualme
 
 3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
 
-4. Por fim, marque **Afixar ao dashboard** e, em seguida, selecione **Compra**. Demora cerca de 20 minutos para criar os clusters.
+4. Por fim, selecione **Compra**. Demora cerca de 20 minutos para criar os clusters.
 
 Assim que os recursos foram criados, é apresentada uma página de resumo.
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 ms.author: danlep
-ms.openlocfilehash: 987cbcc642152a4077cc895ad06e43ac56113497
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 35e5d13ac358fa5edcb778253340de0f9e15c067
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544069"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281284"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para nós de computação num conjunto do Azure Batch
 
@@ -42,8 +42,14 @@ Os conjuntos do batch na configuração da Máquina Virtual suportam todos os ta
 | Série A | Standard_A0 |
 | Série B | Todos |
 
-VMs de série M são suportadas apenas para nós de baixa prioridade.
+Os seguintes tamanhos VM são suportados apenas para nós de baixa prioridade:
 
+| Família  | Tamanhos suportados  |
+|---------|---------|
+| Série M | Standard_M64ms |
+| Série M | Standard_M128s |
+
+Outros tamanhos de VM da família de série M não são atualmente suportados.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Conjuntos na configuração de serviço em nuvem
 
@@ -55,6 +61,7 @@ Os conjuntos do batch na configuração do serviço em nuvem suportam todas [tam
 | Série Av2 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="restricted-vm-families"></a>Restritas famílias de VM
+
 As famílias VM seguintes podem ser alocadas em conjuntos do Batch, mas tem de pedir um aumento de quota específico (consulte [este artigo](batch-quota-limit.md#increase-a-quota)):
 * Série NCv2
 * Série NCv3

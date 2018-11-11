@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254482"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293213"
 ---
-# <a name="internet-of-things-security-architecture"></a>Arquitetura de segurança de Internet das coisas
+# <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança de Internet das coisas (IoT)
 
 Quando um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, como o sistema é concebido e criado. É importante estruturar o produto desde o início com segurança em mente, porque a compreensão de como um invasor poderá comprometer um sistema de ajuda a tornar as atenuações apropriadas-se de que estão em vigor desde o início.
 
@@ -27,23 +27,23 @@ O objetivo da modelagem de ameaças é compreender como um invasor poderá compr
 
 Muitas equipes de desenvolvimento fazem um excelente trabalho capturar os requisitos funcionais para o sistema que beneficiam os clientes. No entanto, a identificação de formas não óbvio que alguém pode uso indevido o sistema é mais desafiador. A Modelagem de ameaças pode ajudar a compreender o que um invasor pode fazer as equipes de desenvolvimento e por que. A Modelagem de ameaças é um processo estruturado que cria uma discussão sobre a segurança decisões de design no sistema, bem como alterações para o design que são feitas ao longo do processo dessa segurança de impacto. Enquanto um modelo de risco é simplesmente um documento, esta documentação também representa uma forma ideal para garantir a continuidade dos dados de conhecimento, retenção de lições aprendidas e novo de ajuda da Equipe carregar rapidamente. Por fim, um resultado da modelagem de ameaças é permitir-lhe que considere outros aspectos de segurança, como os compromissos de segurança que deseja fornecer aos seus clientes. Estes compromissos em conjunto com a Modelagem de ameaças informam e orientar o teste da sua solução de Internet das coisas (IoT).
 
-### <a name="when-to-threat-model"></a>Quando um modelo de risco
+### <a name="when-to-do-threat-modeling"></a>Quando a Modelagem de ameaças
 
 [A Modelagem de ameaças](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) oferece o maior valor quando incorporá-la para a fase de design. Durante o design, tem a maior flexibilidade para fazer alterações para eliminar as ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar atenuações, testá-los e garantir que eles permanecem atualizados e além disso, tal eliminação nem sempre é possível. Ele se torna mais difícil de eliminar as ameaças à medida que um produto torna-se mais maduro e, por sua vez, por fim, requer mais trabalho e os compromissos muito mais difícil do que no início de modelagem no desenvolvimento de ameaças.
 
-### <a name="what-to-threat-model"></a>O modelo de risco
+### <a name="what-to-consider-for-threat-modeling"></a>O que considerar para a Modelagem de ameaças
 
-Deve contra ameaças de modelo de solução como um todo e também se concentrar nas seguintes áreas:
+Deve considerar a solução como um todo e também se concentrem nas seguintes áreas:
 
 * As funcionalidades de segurança e privacidade
 * Os recursos cujas falhas são relevante de segurança
 * Os recursos de toque de um limite de fidedignidade
 
-### <a name="who-threat-models"></a>Que modelos de ameaças
+### <a name="who-performs-threat-modeling"></a>Que executa a Modelagem de ameaças
 
 A Modelagem de ameaças é um processo como qualquer outro. É uma boa idéia para tratar o documento de modelo de ameaças, como qualquer outro componente da solução e validá-lo. Muitas equipes de desenvolvimento fazem um excelente trabalho capturar os requisitos funcionais para o sistema que beneficiam os clientes. No entanto, a identificação de formas não óbvio que alguém pode uso indevido o sistema é mais desafiador. A Modelagem de ameaças pode ajudar a compreender o que um invasor pode fazer as equipes de desenvolvimento e por que.
 
-### <a name="how-to-threat-model"></a>Como modelo de risco
+### <a name="how-to-perform-threat-modeling"></a>Como realizar a Modelagem de ameaças
 
 O processo de modelagem de ameaças é composto de quatro etapas; os passos são:
 
@@ -57,16 +57,21 @@ O processo de modelagem de ameaças é composto de quatro etapas; os passos são
 Três regras básicas para ter em mente ao criar um modelo de ameaças:
 
 1. Crie um diagrama de arquitetura de referência.
-1. Comece a amplitude em primeiro lugar. Obtenha uma visão geral e compreender o sistema como um todo, antes de mergulhar de profunda. Esta abordagem ajuda a garantir que-aprofunde-se nos lugares certos.
-1. Orientar o processo, não deixe que o processo de unidade. Se encontrar um problema na fase de modelagem e pretende explorá-lo, vá para o mesmo! Não se sinta tem de seguir estes passos submissamente.
+
+2. Comece a amplitude em primeiro lugar. Obtenha uma visão geral e compreender o sistema como um todo, antes de mergulhar de profunda. Esta abordagem ajuda a garantir que-aprofunde-se nos lugares certos.
+
+3. Orientar o processo, não deixe que o processo de unidade. Se encontrar um problema na fase de modelagem e pretende explorá-lo, vá para o mesmo! Não se sinta tem de seguir estes passos submissamente.
 
 #### <a name="threats"></a>Ameaças
 
 Os elementos de quatro núcleos de um modelo de ameaças são:
 
 * Processos como serviços da web, serviços do Win32, e * nix daemons. Algumas entidades complexas (por exemplo, os gateways de campo e sensores) podem ser abstraídas como um processo quando um técnico desagregação nas seguintes áreas não é possível.
+
 * Arquivos de dados (em qualquer lugar os dados são armazenados como um ficheiro de configuração ou a base de dados)
+
 * Fluxo de dados (em que dados são movidos entre outros elementos do aplicativo)
+
 * Entidades externas (qualquer coisa que interage com o sistema, mas que não seja sob o controlo da aplicação, exemplos incluem utilizadores e por satélite feeds)
 
 Todos os elementos no diagrama da arquitetura são sujeitos a várias ameaças; Este artigo o mnemônica STRIDE. Leia [modelagem de ameaças novamente ', STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) para saber mais sobre os elementos STRIDE.
@@ -105,7 +110,7 @@ As secções seguintes abordam os componentes padrão normalmente encontrados de
 
 O ambiente de dispositivo é o espaço físico imediato em todo o dispositivo no qual físico acesso e/ou "rede local" acesso digital do ponto-a-ponto para o dispositivo é viável. Uma "rede local" é considerada como uma rede que é distinto e isolado da – mas potencialmente preenchidas – para a Internet pública e inclui qualquer tecnologia de curto alcance relacionadas rádio sem fio que permite a comunicação de ponto-a-ponto dos dispositivos. Ele faz *não* incluir qualquer tecnologia de Virtualização de rede criar a ilusão de uma rede local e também não inclui as redes de operador público que necessitam de quaisquer dois dispositivos para comunicar em espaço de rede pública se eles eram introduzir uma relação de comunicação de ponto-a-ponto.
 
-### <a name="the-field-gateway-zone"></a>A zona de Gateway de campo
+### <a name="the-field-gateway-zone"></a>A zona de gateway de campo
 
 Gateway de campo é uma aplicação/dispositivo ou algum software de computador do servidor para fins gerais que age como habilitador de comunicação e, potencialmente, como um sistema de controle de dispositivo e o hub de processamento de dados do dispositivo. A zona de gateway de campo inclui o próprio gateway de campo e todos os dispositivos que estão ligados ao mesmo. Como o nome indica, o gateways de campo agirem instalações de processamento de dados dedicado exterior, são, normalmente, a localização vinculada, são potencialmente sujeitas a intrusões físico e limitou a redundância operacional. Tudo para dizer que um gateway de campo é, normalmente, uma coisa um touch e tentaram sabotar sabendo o que é sua função.
 
@@ -135,7 +140,7 @@ Dispositivos com objetivos especiais ligados têm um número significativo de po
 
 À medida que explora os padrões de interação, examine "controle de dispositivo" e "dados de dispositivo" com o mesmo nível de atenção durante a Modelagem de ameaças. "Controle de dispositivo" pode ser classificado como qualquer informação que é fornecida para um dispositivo por qualquer entidade com o objetivo de alterar ou influência de seu comportamento para seu estado ou o estado de seu ambiente. "Dados de dispositivo" podem ser classificados como todas as informações que um dispositivo emite a todas as outras pessoas sobre seu estado e o estado observado de seu ambiente.
 
-## <a name="threat-modeling-the-azure-iot-reference-architecture"></a>A arquitetura de referência do IoT do Azure de modelagem de ameaças
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>A efetuar para a arquitetura de referência do IoT do Azure de modelagem de ameaças
 
 A Microsoft utiliza o framework descrito anteriormente para o fazer para IoT do Azure de modelagem de ameaças. A secção seguinte utiliza o exemplo concreto de arquitetura de referência do Azure IoT para demonstrar como pensar sobre IoT de modelagem de ameaças e como resolver ameaças identificadas. Neste exemplo identifica quatro áreas de foco principais:
 
@@ -252,7 +257,7 @@ Cada gateway de dispositivo e o campo tem de alguma forma de armazenamento (temp
 
 Um gateway de nuvem é o sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes em espaço de rede pública, normalmente em direção um controle com base na cloud e o sistema de análise de dados, uma federação de tais sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitam o acesso para dispositivos com objetivos especiais de terminais, tais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se para fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos ligados ou gateways de campo e em que medidas operacionais impedem o acesso físico de destino, mas não é necessariamente a um " infraestrutura de nuvem pública". Um gateway de nuvem potencialmente pode ser mapeado para uma sobreposição de Virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos ligados ou gateways de campo de qualquer outro tráfego de rede. O gateway de nuvem em si não é um sistema de controle de dispositivo ou um processamento ou recurso de armazenamento para dados device nessas instalações interface com o gateway de nuvem. A zona de gateway de cloud inclui o gateway de nuvem, juntamente com todos os gateways de campo e dispositivos direta ou indiretamente ligados ao mesmo.
 
-Gateway de nuvem é principalmente personalizados criados software em execução como um serviço com pontos finais expostos ao qual ligar dispositivos e de gateway de campo. Como tal, devem ser criado tendo em mente a segurança. Siga [SDL](http://www.microsoft.com/sdl) processo de estruturação e criação deste serviço.
+Gateway de nuvem é principalmente personalizados criados software em execução como um serviço com pontos finais expostos ao qual ligar dispositivos e de gateway de campo. Como tal, devem ser criado tendo em mente a segurança. Siga [SDL](https://www.microsoft.com/sdl) processo de estruturação e criação deste serviço.
 
 #### <a name="services-zone"></a>Zona de serviços
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416125"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288123"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - motivação e benefícios
 
@@ -180,7 +180,7 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 |Utilizar a monitorização de terceiros de monitorização do Azure & alertas integrar o Vs|Utilizar o Azure, monitorização e alertas||
 |**Tópico**: **preferências de segurança** |||
 |Pipeline de dados particulares e protegidos?|Sim||
-|Cluster de associado de domínio (ESPP)?|     Sim||
+|Cluster de associado de domínio (ESP)?|     Sim||
 |No local sincronização do AD para a Cloud?|     Sim||
 |Não. de utilizadores do AD para sincronizar?|          100||
 |OK para sincronizar as palavras-passe para a cloud?|    Sim||

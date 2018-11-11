@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: a39ae42ba2344cb39318809e2f120e01a75344d7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b595e62e032743be2655406ac02c8db94cf708f9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025791"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281772"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como utilizar o SDK de aplicações móveis do Azure para Android
 
@@ -144,7 +144,7 @@ public class AzureServiceAdapter {
 
 Pode chamar `AzureServiceAdapter.Initialize(this);` no `onCreate()` método de sua atividade principal.  Outros métodos de que precisam de acesso para a utilização do cliente `AzureServiceAdapter.getInstance();` para obter uma referência para o adaptador de serviço.
 
-## <a name="data-operations"></a>Operações de dados
+## <a name="data-operations"></a>Operações de Dados
 
 É o núcleo do SDK de aplicações móveis do Azure fornecer acesso aos dados armazenados no SQL Azure no back-end da aplicação móvel.  Pode acessar esses dados usando as classes com rigidez de tipos (preferidas) ou sem tipos de consultas (não recomendadas).  A maior parte desta secção lida com o uso de classes com rigidez de tipos.
 
@@ -1047,7 +1047,7 @@ O processo geral para iniciar sessão com a autenticação de fluxo de cliente �
 
 * Configure a autorização e autenticação de serviço de aplicações do Azure tal como faria com autenticação de fluxo de servidor.
 * Integre o SDK para a autenticação para produzir um token de acesso do fornecedor de autenticação.
-* Chamar o `.login()` método da seguinte forma:
+* Chamar o `.login()` método da seguinte forma (`result` deve ser um `AuthenticationResult`):
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1065,6 +1065,8 @@ O processo geral para iniciar sessão com a autenticação de fluxo de cliente �
     });
     ```
 
+Veja o exemplo de código completo na próxima seção.
+
 Substitua o `onSuccess()` método com qualquer código que deseja usar num início de sessão com êxito.  O `{provider}` cadeia de caracteres é um fornecedor válido: **aad** (Azure Active Directory), **facebook**, **google**, **microsoftaccount**, ou **twitter**.  Se tiver implementado a autenticação personalizada, em seguida, também pode utilizar a marca de fornecedor de autenticação personalizado.
 
 ### <a name="adal"></a>Autenticar utilizadores com o Active Directory Authentication Library (ADAL)
@@ -1074,35 +1076,35 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sess
 1. Configurar o seu back-end de aplicação móvel para o início de sessão do AAD ao seguir a [como configurar o serviço de aplicações para início de sessão do Active Directory] [ 22] tutorial. Certifique-se concluir o passo opcional de registar uma aplicação cliente nativa.
 2. Instale a ADAL, modificando o ficheiro de gradle para incluir as seguintes definições:
 
-```
-repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
+    ```
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+        maven {
+            url "YourLocalMavenRepoPath\\.m2\\repository"
+        }
     }
-    maven {
-        url "YourLocalMavenRepoPath\\.m2\\repository"
+    packagingOptions {
+        exclude 'META-INF/MSFTSIG.RSA'
+        exclude 'META-INF/MSFTSIG.SF'
     }
-}
-packagingOptions {
-    exclude 'META-INF/MSFTSIG.RSA'
-    exclude 'META-INF/MSFTSIG.SF'
-}
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile('com.microsoft.aad:adal:1.1.1') {
-        exclude group: 'com.android.support'
-    } // Recent version is 1.1.1
-    compile 'com.android.support:support-v4:23.0.0'
-}
-```
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        compile('com.microsoft.aad:adal:1.1.1') {
+            exclude group: 'com.android.support'
+        } // Recent version is 1.1.1
+        compile 'com.android.support:support-v4:23.0.0'
+    }
+    ```
 
-1. Adicione o seguinte código para seu aplicativo, tornando as substituições seguintes:
+3. Adicione o seguinte código para seu aplicativo, tornando as substituições seguintes:
 
-* Substitua **INSERT-autoridade-HERE** com o nome do inquilino que aprovisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com.
-* Substitua **INSERT-RESOURCE-ID-HERE** com o ID de cliente para o back-end de aplicação móvel. Pode obter o ID de cliente do **avançadas** separador sob **definições de diretório do Azure Active Directory** no portal.
-* Substitua **INSERT-CLIENT-ID-HERE** com o ID de cliente que copiou da aplicação cliente nativa.
-* Substitua **INSERT-REDIRECIONAMENTO-URI-HERE** com o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done*.
+    * Substitua **INSERT-autoridade-HERE** com o nome do inquilino que aprovisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com.
+    * Substitua **INSERT-RESOURCE-ID-HERE** com o ID de cliente para o back-end de aplicação móvel. Pode obter o ID de cliente do **avançadas** separador sob **definições de diretório do Azure Active Directory** no portal.
+    * Substitua **INSERT-CLIENT-ID-HERE** com o ID de cliente que copiou da aplicação cliente nativa.
+    * Substitua **INSERT-REDIRECIONAMENTO-URI-HERE** com o seu site */.auth/login/done* ponto de extremidade, usando o esquema HTTPS. Este valor deve ser semelhante à *https://contoso.azurewebsites.net/.auth/login/done*.
 
 ```java
 private AuthenticationContext mContext;

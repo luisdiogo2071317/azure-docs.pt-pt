@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: b0e9f72bad685d569b4a09baecec8cebc33fefde
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717901"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345220"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +119,7 @@ Para copiar dados de/para a base de dados do SQL Server, defina a propriedade de
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **SqlServerTable** | Sim |
-| tableName |Nome da tabela ou vista de instância de base de dados do SQL Server pelo serviço ligado refere-se. | Sim |
+| tableName |Nome da tabela ou vista de instância de base de dados do SQL Server pelo serviço ligado refere-se. | Não para a origem, Sim para o sink |
 
 **Exemplo:**
 
@@ -159,7 +159,6 @@ Para copiar dados do SQL Server, defina o tipo de origem na atividade copy na at
 
 - Se o **sqlReaderQuery** é especificado para o SqlSource, a atividade de cópia executa esta consulta em relação à origem de SQL Server para obter os dados. Em alternativa, pode especificar um procedimento armazenado, especificando o **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se o procedimento armazenado recebe parâmetros).
 - Se não especificar "sqlReaderQuery" ou "sqlReaderStoredProcedureName", as colunas definidas na secção "estrutura" do conjunto de dados JSON são utilizadas para construir uma consulta (`select column1, column2 from mytable`) para executar o SQL Server. Se a definição do conjunto de dados não tiver a "estrutura", todas as colunas são selecionadas da tabela.
-- Quando utiliza **sqlReaderStoredProcedureName**, terá de especificar uma cópia **tableName** propriedade no conjunto de dados JSON.
 
 **Exemplo: com o SQL query**
 
@@ -489,7 +488,7 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 | binário |Byte[] |
 | bit |Booleano |
 | char |Cadeia de caracteres, Char [] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
@@ -497,7 +496,7 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Flutuante |Valor de duplo |
 | image |Byte[] |
-| Int |Int32 |
+| int |Int32 |
 | dinheiro |decimal |
 | nchar |Cadeia de caracteres, Char [] |
 | ntext |Cadeia de caracteres, Char [] |

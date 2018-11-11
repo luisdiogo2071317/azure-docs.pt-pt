@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d7e9e5a4c60c16c505b0b69f14d22ebd868c1c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: fd0b2bda91ecb9b717f4cfe366c45bc95b21fd8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748226"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277567"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtro de eventos do Event Grid
 
@@ -181,30 +181,17 @@ O seguinte exemplo de modelo do Resource Manager cria uma subscrição para um a
 
 ## <a name="filter-by-operators-and-data"></a>Filtrar por dados e operadores
 
-Para utilizar a filtragem avançada, tem de instalar uma extensão de pré-visualização para a CLI do Azure. Pode usar [CloudShell](/azure/cloud-shell/quickstart) ou instalar a CLI do Azure localmente.
+Para obter mais flexibilidade na filtragem, pode usar operadores e propriedades de dados para filtrar eventos.
 
-### <a name="install-extension"></a>Instalar a extensão
-
-No CloudShell:
-
-* Se tiver instalado anteriormente a extensão, atualizá-lo `az extension update -n eventgrid`
-* Se ainda não instalou a extensão anteriormente, instale-o `az extension add -n eventgrid`
-
-Para uma instalação local:
-
-1. Desinstale a CLI do Azure localmente.
-1. Instalar o [versão mais recente](/cli/azure/install-azure-cli) da CLI do Azure.
-1. Inicie a janela de comando.
-1. Desinstale as versões anteriores da extensão `az extension remove -n eventgrid`
-1. Instalar a extensão `az extension add -n eventgrid`
-
-Agora, está pronto para utilizar a filtragem avançada.
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>Subscrever com filtros avançados
 
 Para saber mais sobre os operadores e chaves que podem ser usados para filtragem avançada, consulte [filtragem avançada](event-filtering.md#advanced-filtering).
 
-O exemplo seguinte cria um tópico personalizado. Ele subscreve o tópico personalizado e filtra por um valor no objeto de dados. Eventos que tenham a propriedade de cor definida para azul, vermelho ou verde são enviados para a subscrição.
+Estes exemplos criar um tópico personalizado. Eles subscrevem o tópico personalizado e filtrar por um valor no objeto de dados. Eventos que tenham a propriedade de cor definida para azul, vermelho ou verde são enviados para a subscrição.
+
+Para a CLI do Azure, utilize:
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -225,9 +212,33 @@ az eventgrid event-subscription create \
 
 Tenha em atenção que uma [data de expiração](concepts.md#event-subscription-expiration) está definido para a subscrição.
 
+Para o PowerShell, utilize:
+
+```azurepowershell-interactive
+$topicName = <your-topic-name>
+$endpointURL = <endpoint-URL>
+
+New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+
+$expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
+$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint $endpointURL `
+  -ExpirationDate $expDate `
+  -AdvancedFilter @($AdvFilter1)
+```
+
 ### <a name="test-filter"></a>Filtro de teste
 
-Para testar o filtro, envie um evento com o campo de cor definido como verde.
+Para testar o filtro, envie um evento com o campo de cor definido como verde. Uma vez que é apresentada a verde um dos valores no filtro, o evento é entregue ao ponto final.
+
+Para a CLI do Azure, utilize:
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -238,17 +249,60 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-O evento é enviado para o ponto final.
+Para o PowerShell, utilize:
 
-Para testar um cenário em que o evento não for enviado, envie um evento com o campo de cor definido como amarelo.
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+
+$eventID = Get-Random 99999
+$eventDate = Get-Date -Format s
+
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="green"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+Para testar um cenário em que o evento não for enviado, envie um evento com o campo de cor definido como amarelo. Amarelo não é um dos valores especificados na subscrição, para que o evento não é entregue à sua subscrição.
+
+Para a CLI do Azure, utilize:
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
+Para o PowerShell, utilize:
 
-Amarelo não é um dos valores especificados na subscrição, para que o evento não é entregue à sua subscrição.
+```azurepowershell-interactive
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="yellow"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 11/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 6974350c6abbc6c5f5a8e10b22e91796e2564b08
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4ed571d34e5df67f556f39b898e7ae5efc06a3e1
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268064"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -52,32 +52,33 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 
 ## <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
-1.  **P: O integração de Google Cloud Platform SSO com o Azure AD para o suporte de integração?**
-    
+1. **P: O integração de Google Cloud Platform SSO com o Azure AD para o suporte de integração?**
+
     R: Sim. Google Cloud Platform e o Google Apps compartilham a mesma plataforma de autenticação. Portanto, para fazer a integração de GCP terá de configurar o SSO com o Google Apps.
 
-
-1. **P: são Chromebooks e outros dispositivos Chrome compatíveis com o Azure AD início de sessão único?**
-   
+2. **P: são Chromebooks e outros dispositivos Chrome compatíveis com o Azure AD início de sessão único?**
+  
     R: Sim, os utilizadores conseguem iniciar sessão nos respetivos dispositivos Chromebook através das respetivas credenciais do Azure AD. Ver isso [artigo de suporte do G Suite](https://support.google.com/chrome/a/answer/6060880) para obter informações sobre por que os utilizadores podem recebe o pedido de credenciais duas vezes.
 
-1. **P: Se ativar a início de sessão único, os utilizadores poderão utilizar as credenciais do Azure AD para iniciar sessão em qualquer produto do Google, tais como a sala de aulas do Google, GMail, Google Drive, YouTube e assim por diante?**
-   
+3. **P: Se ativar a início de sessão único, os utilizadores poderão utilizar as credenciais do Azure AD para iniciar sessão em qualquer produto do Google, tais como a sala de aulas do Google, GMail, Google Drive, YouTube e assim por diante?**
+
     R: Sim, dependendo no [quais G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583) optar por ativar ou desativar para a sua organização.
 
-1. **P: posso ativar o início de sessão único para apenas um subconjunto dos meus utilizadores do G Suite?**
-   
+4. **P: posso ativar o início de sessão único para apenas um subconjunto dos meus utilizadores do G Suite?**
+
     R: não, ativando o início de sessão único imediatamente requer que todos os seus utilizadores do G Suite autenticar com as credenciais do Azure AD. Porque o G Suite não suporta a ter vários fornecedores de identidade, o fornecedor de identidade para o seu ambiente do G Suite pode ser do Azure AD ou Google – mas não ambos simultaneamente.
 
-1. **P: se um usuário está conectado por meio do Windows, são autenticam automaticamente ao G Suite sem introdução pedida uma palavra-passe?**
-   
+5. **P: se um usuário está conectado por meio do Windows, são autenticam automaticamente ao G Suite sem introdução pedida uma palavra-passe?**
+
     R: Existem duas opções para ativar este cenário. Em primeiro lugar, os utilizadores podem iniciar sessão em dispositivos Windows 10 através da [Azure Active Directory Join](../device-management-introduction.md). Em alternativa, os utilizadores foi possível iniciar sessão em dispositivos Windows que estão associados a um domínio para um diretório de Active Directory no local que tenha sido ativada para início de sessão único para o Azure AD através de um [serviços de Federação do Active Directory (AD FS)](../hybrid/plan-connect-user-signin.md) implementação. Ambas as opções exigem que execute os passos no tutorial seguinte para ativar o início de sessão único entre o Azure AD e G Suite.
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o G Suite da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+2. Configuração e teste do Azure AD início de sessão único
 
 ## <a name="adding-g-suite-from-the-gallery"></a>Adicionando o G Suite da Galeria
 
@@ -92,14 +93,14 @@ Para configurar a integração do G Suite para o Azure AD, terá de adicionar G 
 2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
 
     ![image](./media/google-apps-tutorial/a_select_app.png)
-    
+
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
     ![image](./media/google-apps-tutorial/a_new_app.png)
 
 4. Na caixa de pesquisa, escreva **G Suite**, selecione **G Suite** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![image](./media/google-apps-tutorial/a_add_app.png)
+    ![image](./media/google-apps-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -107,15 +108,13 @@ Nesta secção, configure e teste do Azure AD início de sessão único com G Su
 
 Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no G Suite para um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no G Suite tem de ser estabelecida.
 
-No G Suite, atribuir o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
-
 Para configurar e testar o Azure AD início de sessão único com o G Suite, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste do G Suite](#create-a-g-suite-test-user)**  - para ter um equivalente da Eduarda Almeida no G Suite, que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+3. **[Criar um utilizador de teste do G Suite](#create-a-g-suite-test-user)**  - para ter um equivalente da Eduarda Almeida no G Suite, que está ligado à representação de utilizador do Azure AD.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
@@ -143,7 +142,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: 
+    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
     | |
     |--|
     | `google.com/a/<yourdomain.com>` |
@@ -152,8 +151,8 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `http://google.com/a/<yourdomain.com>` |
 
     ![image](./media/google-apps-tutorial/b1-domains_and_urls.png)
- 
-    > [!NOTE] 
+
+    > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do G Suite](https://www.google.com/contact/) obter esses valores.
 
 6. Aplicação do G Suite espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
@@ -161,7 +160,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![image](./media/google-apps-tutorial/i3-attribute.png)
 
 7. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
-    
+
     a. Clique em **edite** botão para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
     ![image](./media/google-apps-tutorial/i2-attribute.png)
@@ -191,24 +190,24 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 10. Abra um novo separador no seu browser e inicie sessão no [consola de administração do G Suite](http://admin.google.com/) com a sua conta de administrador.
 
 11. Clique em **segurança**. Se não vir a ligação, podem estar ocultos sob o **More Controls** menu na parte inferior do ecrã.
-   
+
     ![Clique em Security.][10]
 
 12. Sobre o **Security** página, clique em **configurar início de sessão único (SSO).**
-   
+
     ![Clique em SSO.][11]
 
 13. Execute as seguintes alterações de configuração:
-   
+
     ![Configurar o SSO][12]
-   
+
     a. Selecione **SSO de configuração com o fornecedor de identidade de terceiros**.
 
-    b. Na **URL da página de início de sessão** campo no G Suite, cole o valor de **único URL de início de sessão no serviço** que copiou do portal do Azure.
+    b. Na **URL da página de início de sessão** campo no G Suite, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
 
-    c. Na **URL de página de início de sessão** campo no G Suite, cole o valor de **URL de fim de sessão** que copiou do portal do Azure. 
+    c. Na **URL de página de início de sessão** campo no G Suite, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
 
-    d. Na **alterar o URL de palavra-passe** campo no G Suite, cole o valor de **alterar a URL da palavra-passe** que copiou do portal do Azure. 
+    d. Na **alterar o URL de palavra-passe** campo no G Suite, cole o valor de **alterar a URL da palavra-passe** que copiou do portal do Azure.
 
     e. No G Suite, para o **certificado de verificação**, carregue o certificado que transferiu a partir do portal do Azure.
 
@@ -240,18 +239,16 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
     c. Selecione **propriedades**, selecione a **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Selecione **Criar**.
- 
+
 ### <a name="create-a-g-suite-test-user"></a>Criar um utilizador de teste do G Suite
 
 O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Software do G Suite. G Suite suporta o aprovisionamento automático, que está por predefinição, ativada. Não existe nenhuma ação para nesta secção. Se um utilizador já não existir no Software do G Suite, uma nova é criada quando tentar acessar o Software do G Suite.
 
->[!NOTE]
->Certifique-se de que os seus utilizadores são já existe no G Suite se aprovisionamento no Azure AD não foi ativado antes de testar o início de sessão único.
+> [!NOTE]
+> Certifique-se de que os seus utilizadores são já existe no G Suite se aprovisionamento no Azure AD não foi ativado antes de testar o início de sessão único.
 
->[!NOTE] 
->Se precisar de criar manualmente um utilizador, entre em contato com o [equipa de suporte do Google](https://www.google.com/contact/).
-
-
+> [!NOTE]
+> Se precisar de criar manualmente um utilizador, entre em contato com o [equipa de suporte do Google](https://www.google.com/contact/).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -273,16 +270,16 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![image](./media/google-apps-tutorial/d_assign_user.png)
 
-4. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-5. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
-    
+6. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
+
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
 Quando clica no mosaico do G Suite no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação do G Suite.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -294,4 +291,3 @@ Para obter mais informações sobre o painel de acesso, consulte [introdução a
 [10]: ./media/google-apps-tutorial/gapps-security.png
 [11]: ./media/google-apps-tutorial/security-gapps.png
 [12]: ./media/google-apps-tutorial/gapps-sso-config.png
-

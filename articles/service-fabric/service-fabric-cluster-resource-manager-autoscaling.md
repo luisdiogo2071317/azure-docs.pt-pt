@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 1bee48225448a964da7caa2a7b284b274c52bea6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914061"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281664"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao dimensionamento automático
 Dimensionamento automático é uma capacidade adicional do Service Fabric para dimensionar dinamicamente os seus serviços com base na carga que serviços estão a enviar relatórios ou com base na respetiva utilização de recursos. Dimensionamento automático oferece excelente elasticidade e permite o aprovisionamento de instâncias adicionais ou partições do seu serviço a pedido. O processo de dimensionamento de automático todo é automatizada e transparente e, depois de configurar as políticas num serviço não é necessário para operações de dimensionamento manuais no nível de serviço. Dimensionamento automático pode ser ativado no momento da criação de serviço ou em qualquer altura ao atualizar o serviço.
@@ -28,7 +28,9 @@ Um cenário comum em que o dimensionamento automático é útil é quando a carg
 * Se todas as instâncias do meu gateway estiver a utilizar mais de dois núcleos em média, em seguida, dimensione o serviço de gateway horizontalmente ao adicionar uma instância mais. Fazer isso cada hora, mas nunca ter mais de sete instâncias no total.
 * Se todas as instâncias do meu gateway estiver a utilizar inferior a 0,5 núcleos em média, em seguida, dimensione o serviço ao remover uma instância. Fazer isso cada hora, mas nunca tiver menos de três instâncias no total.
 
-Dimensionamento automático é suportado para contentores e serviços do Service Fabric regulares. O resto deste artigo descreve as políticas de formas para ativar ou desativar o dimensionamento automático, dimensionamento e fornece exemplos sobre como utilizar esta funcionalidade.
+Dimensionamento automático é suportado para contentores e serviços do Service Fabric regulares. Para utilizar o dimensionamento automático, terá de estar em execução na versão 6.2 ou acima do runtime do Service Fabric. 
+
+O resto deste artigo descreve as políticas de formas para ativar ou desativar o dimensionamento automático, dimensionamento e fornece exemplos sobre como utilizar esta funcionalidade.
 
 ## <a name="describing-auto-scaling"></a>Descrevendo o dimensionamento automático
 Políticas de dimensionamento automático pode ser definido para cada serviço no cluster do Service Fabric. Cada política de dimensionamento consiste em duas partes:
@@ -41,7 +43,7 @@ Todos os acionadores que são atualmente suportados funcionará com [métricas d
 Há dois mecanismos que são atualmente suportados para o dimensionamento automático. Primeiro destina-se para serviços sem estado ou para contentores, dimensionamento automático onde é feita adicionando ou removendo [instâncias](service-fabric-concepts-replica-lifecycle.md). Para os serviços com e sem estado, dimensionamento automático pode também ser executada ao adicionar ou remover nomeados [partições](service-fabric-concepts-partitioning.md) do serviço.
 
 > [!NOTE]
-> Atualmente, existe suporte para apenas uma política de dimensionamento por serviço e apenas um acionador de dimensionamento por política.
+> Atualmente, existe suporte para apenas uma política de dimensionamento por serviço e apenas um acionador de dimensionamento por política de dimensionamento.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Acionador de carga de partição média com a instância de dimensionamento com base em
 O primeiro tipo de Acionador baseia-se a carga de instâncias de uma partição de serviço sem estado. Métrica cargas são primeiro suavizadas para obter a carga para cada instância de uma partição e, em seguida, estes valores são transformadas em médias de todas as instâncias da partição. Existem três fatores que determinam quando o serviço será dimensionado:

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341128"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280168"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -66,7 +66,7 @@ Agora quando a chamada `GET /api/stock/value` feita para um serviço externo que
 
 ## <a name="correlation-headers"></a>Cabeçalhos de correlação
 
-Estamos a trabalhar na proposta de RFC para o [correlação protocolo HTTP](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). Essa proposta seja define dois cabeçalhos de:
+Estamos a trabalhar na proposta de RFC para o [correlação protocolo HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Essa proposta seja define dois cabeçalhos de:
 
 - `Request-Id` executar o id exclusivo global da chamada
 - `Correlation-Context` -executar a coleção de pares de valor de nome das propriedades de rastreio distribuído
@@ -77,7 +77,7 @@ O Application Insights define a [extensão](https://github.com/lmolkova/correlat
 
 ### <a name="w3c-distributed-tracing"></a>Rastreamento de distribuídas de W3C
 
-Estão a transitar para (formato de rastreio distribuído do W3C) [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Ela define:
+Estão a transitar [formato de rastreio distribuído do W3C](https://w3c.github.io/trace-context/). Ela define:
 - `traceparent` -tem o id de operação globalmente exclusivo e o identificador exclusivo da chamada
 - `tracestate` -carrega o contexto específico do sistema de rastreamento.
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Através da [classe de contexto de dispositivo](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (apenas este item de telemetria é marcado)
+Através da [classe de contexto de dispositivo](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (apenas este item de telemetria é marcado)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

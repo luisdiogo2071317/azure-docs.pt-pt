@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 32cebecbb9185250d7d295eab3074a76dcd6a8b9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d21b6235c91a7d2f14b8b39c07891efe967ef572
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240499"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278247"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmissão em fluxo de dados de diagnóstico do Azure no caminho de acesso frequente ao utilizar os Hubs de eventos
 Diagnóstico do Azure fornece formas flexíveis para coletar métricas e registos provenientes de máquinas de virtuais de serviços cloud (VMs) e transferir os resultados para o armazenamento do Azure. A partir do intervalo de tempo de Março de 2016 (SDK 2.9), pode enviar diagnósticos para origens de dados personalizados e transferir dados de caminho mais utilizado em segundos, utilizando [os Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -40,7 +40,7 @@ Dados de receieving de Hubs de eventos de diagnóstico do Azure são suportados 
 * Extensão de diagnóstico do Azure 1.6 ([Azure SDK para .NET 2.9 ou posterior](https://azure.microsoft.com/downloads/) destina-se isso por predefinição)
 * [Visual Studio 2013 ou posterior](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * As configurações existentes do diagnóstico do Azure num aplicativo usando uma *.wadcfgx* ficheiro e um dos seguintes métodos:
-  * Visual Studio: [Konfiguruje se Diagnostika para serviços Cloud do Azure e máquinas virtuais](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [Konfiguruje se Diagnostika para serviços Cloud do Azure e máquinas virtuais](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [ativar diagnósticos nos serviços de Cloud do Azure com o PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Espaço de nomes do Hubs de eventos aprovisionado por artigo, [introdução aos Hubs de eventos](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 

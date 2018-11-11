@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419849"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280746"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e o Azure Stack
 
@@ -292,7 +292,7 @@ Pode criar uma ligação de serviço com o seguinte mapeamento:
 | Nome da subscrição | name@contoso.com | Nome de subscrição de utilizador do Azure Stack. |
 | ID de cliente do Principal de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | O ID de principal da [isso](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) secção deste artigo. |
 | Chave de Principal de serviço | THESCRETGOESHERE = | A chave do mesmo artigo (ou a palavra-passe se utilizou o script). |
-| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino, recupera a seguinte instrução em obter o inquilino ID. O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Ligação: | Não verificado | Valide as definições de ligação para o principal de serviço. |
 
 Agora que o ponto final for criado, o DevOps para ligação do Azure Stack está pronta a utilizar. O agente de compilação no Azure Stack obtém as instruções do DevOps e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.
@@ -317,7 +317,7 @@ Pode criar uma ligação de serviço com o seguinte mapeamento:
 | Nome da subscrição | name@contoso.com | Nome de subscrição de utilizador do Azure Stack. |
 | ID de cliente do Principal de serviço | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | O ID de cliente do Principal de serviço que criou para o AD FS. |
 | Certificado | `<certificate>` |  Converta o ficheiro de certificado de PFX em PEM. Cole o conteúdo do ficheiro do certificado PEM neste campo. <br> Converter o PFX em PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino, recupera a seguinte instrução em obter o inquilino ID. O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| ID do inquilino | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | O ID de inquilino é recuperar seguindo as instruções em [obter o ID de inquilino](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Ligação: | Não verificado | Valide as definições de ligação para o principal de serviço. |
 
 Agora que o ponto final for criado, o Azure DevOps para ligação do Azure Stack está pronto a utilizar. O agente de compilação no Azure Stack obtém as instruções de DevOps do Azure e, em seguida, o agente transmite informações de ponto final para comunicação com o Azure Stack.

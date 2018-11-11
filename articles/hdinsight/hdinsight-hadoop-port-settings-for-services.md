@@ -2,19 +2,19 @@
 title: Portas utilizadas pelo serviços do Hadoop no HDInsight - Azure
 description: Uma lista das portas utilizadas pelo serviços do Hadoop em execução no HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: jasonh
-ms.openlocfilehash: 29d6aa99b972dacb12ffb016eabb3a46afab7c7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804077"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279723"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Portas utilizadas pelo serviços do Hadoop no HDInsight
 
@@ -166,7 +166,7 @@ Exemplos:
 | --- | --- | --- | --- | --- | --- |
 | Servidores de Spark Thrift |Nós de cabeça |10002 |Thrift | &nbsp; | Serviço para ligar ao Spark SQL (Thrift/JDBC) |
 | Servidor do Livy | Nós de cabeça | 8998 | HTTP | &nbsp; | Serviço de demonstrativos, tarefas e aplicações em execução |
-| O bloco de notas do Jupyter | Nós de cabeça | 8001 | HTTP | &nbsp; | Web site de bloco de notas do Jupyter |
+| Jupyter Notebook | Nós de cabeça | 8001 | HTTP | &nbsp; | Web site de bloco de notas do Jupyter |
 
 Exemplos:
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389637"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300273"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias no Azure Stream Analytics
 
@@ -31,7 +31,7 @@ O operador de AnomalyDetection Deteta três tipos de anomalias:
 
 * **Lento tendência negativo**: uma diminuição lenta a tendência ao longo do tempo.  
 
-Ao utilizar o operador de AnomalyDetection, tem de especificar o **Limit Duration** cláusula. Essa cláusula Especifica que o intervalo de tempo (até que ponto voltar no histórico do evento atual) deve ser considerado quando detetar anomalias. Este operador, opcionalmente, pode ser limitado a apenas os eventos que correspondem a uma determinada propriedade ou condição, utilizando o **quando** cláusula. Este operador opcionalmente, também pode processar dos grupos de eventos separadamente com base na chave especificada no **particionar por** cláusula. Formação e predição independentemente ocorrerem para cada partição. 
+Ao utilizar o operador de AnomalyDetection, tem de especificar o **Limit Duration** cláusula. Essa cláusula Especifica que o intervalo de tempo (até que ponto voltar no histórico do evento atual) deve ser considerado quando detetar anomalias. Este operador, opcionalmente, pode ser limitado a apenas os eventos que correspondem a uma determinada propriedade ou condição, utilizando o **quando** cláusula. Este operador opcionalmente, também pode processar dos grupos de eventos separadamente com base na chave especificada no **particionar por** cláusula. Formação e predição independentemente ocorrerem para cada partição. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Sintaxe para o operador de AnomalyDetection
 
@@ -45,11 +45,11 @@ Ao utilizar o operador de AnomalyDetection, tem de especificar o **Limit Duratio
 
 * **scalar_expression** -a expressão escalar sobre o qual é executada a deteção de anomalias. Valores permitidos para este parâmetro incluem o número de vírgula flutuante ou tipos de dados de Bigint ou retorno um (valor escalar único). A expressão com carateres universais **\*** não é permitida. Expressão escalar não pode conter outras funções de análise ou funções externas. 
 
-* **partition_by_clause** – a `PARTITION BY <partition key>` cláusula divide a aprendizagem e formação em partições separadas. Em outras palavras, um modelo separado seria usado por valor de `<partition key>` e eventos únicos com esse valor poderia ser usados para aprendizagem e formação nesse modelo. Por exemplo, a seguinte consulta trens e pontua um leitura em relação a outras leituras de apenas o sensor da mesma:
+* **partition_by_clause** – a `PARTITION BY <partition key>` cláusula divide a aprendizagem e formação em partições separadas. Em outras palavras, um modelo separado seria usado por valor de `<partition key>` e eventos únicos com esse valor poderia ser usados para aprendizagem e formação nesse modelo. Por exemplo, a seguinte consulta trens e pontua um leitura em relação a outras leituras de apenas o sensor da mesma:
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **cláusula limit_duration** `DURATION(<unit>, <length>)` -Especifica o intervalo de tempo (até que ponto voltar no histórico do evento atual) deve ser considerado quando detetar anomalias. Ver [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) para uma descrição detalhada de unidades suportadas e respetivas abreviaturas. 
+* **cláusula limit_duration**  `DURATION(<unit>, <length>)` -Especifica o intervalo de tempo (até que ponto voltar no histórico do evento atual) deve ser considerado quando detetar anomalias. Ver [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics) para uma descrição detalhada de unidades suportadas e respetivas abreviaturas. 
 
 * **when_clause** -Especifica uma condição booliana para os eventos considerado o cálculo de deteção de anomalias.
 

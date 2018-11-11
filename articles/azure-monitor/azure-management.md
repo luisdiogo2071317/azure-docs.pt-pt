@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 46c59d02294dea34a4713f44f31733035c68d66e
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057959"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277465"
 ---
 # <a name="azure-management---monitoring"></a>Gestão do Azure - Monitorização
 
@@ -35,13 +35,13 @@ O diagrama seguinte ilustra as diferentes áreas de gestão necessárias para ma
 As secções seguintes descrevem resumidamente as diferentes áreas de gestão e fornecem ligações para conteúdo detalhado sobre os principais serviços do Azure que visam abordar essas áreas.
 
 ## <a name="monitor"></a>Monitorizar
-A monitorização é o ato de recolha e análise de dados para determinar o desempenho, o estado de funcionamento e a disponibilidade da sua aplicação empresarial e dos recursos de que esta depende. Uma estratégia de monitorização eficaz irá ajudá-lo a compreender o funcionamento detalhado dos diferentes componentes da sua aplicação e a aumentar o tempo de atividade ao notificá-lo proativamente dos problemas críticos, para que possa resolvê-los antes que se tornem realmente graves. Monitorização no Azure é principalmente fornecida pela [do Azure Monitor](../azure-monitor/overview.md) que fornece os arquivos comuns para armazenar dados de monitorização, dados de várias origens de recolha de dados de diferentes camadas que suporta a sua aplicação e funcionalidades para analisar e responder a dados recolhidos.
+A monitorização é o ato de recolha e análise de dados para determinar o desempenho, o estado de funcionamento e a disponibilidade da sua aplicação empresarial e dos recursos de que esta depende. Uma estratégia de monitorização eficaz irá ajudá-lo a compreender o funcionamento detalhado dos diferentes componentes da sua aplicação e a aumentar o tempo de atividade ao notificá-lo proativamente dos problemas críticos, para que possa resolvê-los antes que se tornem realmente graves. A monitorização no Azure é principalmente fornecida pelo [Azure Monitor](../azure-monitor/overview.md) que fornece os meios comuns para armazenar dados de monitorização, várias origens de dados para a recolha de dados das diferentes camadas que suportam a sua aplicação e funcionalidades para analisar e responder aos dados recolhidos.
 
 ## <a name="configure"></a>Configurar
 Configurar refere-se à implementação inicial e à configuração dos recursos e aplicações e à respetiva manutenção contínua com correções de erros e atualizações.  A automatização destas tarefas através de scripts e políticas permite-lhe eliminar a redundância, minimizar o tempo e esforço que despende e aumentar a precisão e eficiência.  A [Automatização do Azure](..\automation\automation-intro.md) fornece-lhe o conjunto de serviços que lhe permite automatizar as tarefas de configuração.  Para além dos runbooks para a automatização de processos, este serviço fornece a gestão de atualizações e configuração, o que o ajuda a gerir a configuração através de políticas e a identificar e implementar atualizações.
 
 ## <a name="govern"></a>Governação
-A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure.  A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.  A governação no Azure é implementada principalmente com dois serviços.  O [Azure Policy](../azure-policy/azure-policy-introduction.md) permite-lhe criar, atribuir e gerir definições de política que impõem diferentes regras e ações aos recursos, para que esses recursos mantenham a conformidade face às normas empresariais e aos contratos de nível de serviço. O [Azure Cost Management da Cloudyn](../cost-management/overview.md) permite-lhe controlar a utilização da cloud e as despesas dos seus recursos do Azure e outros fornecedores de cloud, incluindo AWS e Google.
+A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure.  A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.  A governação no Azure é implementada principalmente com dois serviços.  O [Azure Policy](../governance/policy/overview.md) permite-lhe criar, atribuir e gerir definições de política que impõem diferentes regras e ações aos recursos, para que esses recursos mantenham a conformidade face às normas empresariais e aos contratos de nível de serviço. O [Azure Cost Management da Cloudyn](../cost-management/overview.md) permite-lhe controlar a utilização da cloud e as despesas dos seus recursos do Azure e outros fornecedores de cloud, incluindo AWS e Google.
 
 ## <a name="secure"></a>Proteger
 Gerir a segurança dos seus recursos, aplicações e dados passa por combinar a avaliação de ameaças, a recolha e análise de dados de segurança e garantir que os seus recursos e aplicações são concebidos e configurados com toda a segurança.  A monitorização da segurança e a análise de ameaças são fornecidas pelo [Centro de Segurança do Azure](../security-center/security-center-intro.md), o que inclui gestão de segurança unificada e proteção avançada contra ameaças entre cargas de trabalho na cloud híbrida.  Também deve ver a [Introdução à Segurança do Azure](../security/azure-security.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar recursos do Azure com segurança.

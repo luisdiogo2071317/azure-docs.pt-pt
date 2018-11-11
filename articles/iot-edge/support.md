@@ -4,23 +4,23 @@ description: Plataformas suportadas pelo Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: adf017c57cf7c895a0da8fec70e89dda0a314693
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248568"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277924"
 ---
 # <a name="azure-iot-edge-support"></a>Suporte do Azure IoT Edge
 Existem várias formas para buscar suporte para o produto do Azure IoT Edge.
 
 **Relatório de bugs** – a maior parte do desenvolvimento que vai para o produto do Azure IoT Edge acontece no projeto de código-fonte aberto do IoT Edge. Bugs podem ser comunicados sobre o [página problemas](https://github.com/azure/iotedge/issues) do projeto. Correções rapidamente se tornam do projeto para atualizações de produtos.
 
-**Equipa de suporte ao cliente da Microsoft** – os utilizadores que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) pode envolver a equipe de suporte ao cliente da Microsoft através da criação de um pedido de suporte diretamente a partir do [portal do Azure]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Equipa de suporte ao cliente da Microsoft** – os utilizadores que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) pode envolver a equipe de suporte ao cliente da Microsoft através da criação de um pedido de suporte diretamente a partir do [portal do Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
 **Pedidos de funcionalidades** – produto o Azure IoT Edge controla as solicitações de recursos através do produto [página de voz do utilizador](https://feedback.azure.com/forums/907045-azure-iot-edge).
 

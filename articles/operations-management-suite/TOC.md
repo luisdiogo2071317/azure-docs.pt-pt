@@ -3,7 +3,7 @@
 
 # Introdução
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [Automatização](../automation/automation-offering-get-started.md)
+## [Automatização](/azure/automation/)
 ## [Cópia de segurança](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # Procedimento
 
 ## Analisar
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatizar
 ### [Descrição geral da Automatização do Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 

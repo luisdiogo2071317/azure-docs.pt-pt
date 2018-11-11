@@ -8,33 +8,32 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.openlocfilehash: 026d223d5cb435b741a045dc0f673746b0a6d90b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/06/2018
+ms.openlocfilehash: b029ff7575f9d8511abcc1619d0c5e2e00df01ea
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252024"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282191"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utilizar o armazenamento do Azure com clusters do Azure HDInsight
 
-Para analisar dados num cluster do HDInsight, pode armazenar os dados no Armazenamento do Azure, no Azure Data Lake Store ou em ambos. Ambas opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem que haja perda de dados do utilizador.
+Para analisar dados num cluster do HDInsight, pode armazenar os dados no armazenamento do Azure, [fins de armazenamento do Azure Data Lake 1 / Azure Data Lake Store Gen2] ou ambos. Ambas opções de armazenamento permitem eliminar em segurança os clusters do HDInsight que são utilizados para o cálculo sem que haja perda de dados do utilizador.
 
-O Hadoop suporta uma noção do sistema de ficheiros predefinido. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação do cluster do HDInsight, pode especificar um contentor de blobs no Armazenamento do Azure como o sistema de ficheiros predefinido ou, com o HDInsight 3.5, pode selecionar o Armazenamento do Azure ou o Azure Data Lake Store como o sistema de ficheiros predefinido com algumas exceções. Para a suportabilidade da utilização do Data Lake Store armazenamento predefinido e ligado, veja [Disponibilidade do cluster do HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
+O Hadoop suporta uma noção do sistema de ficheiros predefinido. O sistema de ficheiros predefinido implica um esquema e uma autoridade predefinidos. Também pode ser utilizado para resolver caminhos relativos. Durante o processo de criação de cluster do HDInsight, pode especificar um contentor de BLOBs no armazenamento do Azure como o sistema de ficheiros predefinido ou com o HDInsight 3.6, pode selecionar o armazenamento do Azure ou do Azure Data Lake Storage Gen 1 / Azure Data Lake Store Gen 2 como os arquivos padrão sistema com algumas exceções. Para a Suportabilidade da utilização do Data Lake Storage Gen 1 como tanto o armazenamento predefinido e ligado, consulte [disponibilidade para o cluster de HDInsight](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
-Neste artigo, ficará a saber como o Armazenamento do Azure funciona com clusters do HDInsight. Para saber como funciona o Data Lake Store com clusters do HDInsight, veja [Use Azure Data Lake Store with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md) (Utilizar o Azure Data Lake Store com clusters do Azure HDInsight). Para obter mais informações sobre a criação de um cluster do HDInsight, veja [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters do Hadoop no HDInsight).
+Neste artigo, ficará a saber como o Armazenamento do Azure funciona com clusters do HDInsight. Para saber como o Data Lake Storage Gen 1 funciona com clusters do HDInsight, veja [Use Azure Data Lake Store com o Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-store.md). Para obter mais informações sobre a criação de um cluster do HDInsight, veja [Create Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md) (Criar clusters do Hadoop no HDInsight).
 
 O armazenamento do Azure é uma solução de armazenamento para fins gerais robusta que se integra perfeitamente no HDInsight. O HDInsight pode utilizar um contentor de blobs no Armazenamento do Azure como o sistema de ficheiros predefinido para o cluster. Através de uma interface HDFS (Sistema de Ficheiros Distribuído Hadoop), o conjunto completo de componentes do HDInsight pode operar diretamente em dados estruturados ou não estruturados armazenados como blobs.
 
 > [!WARNING]
 > Existem várias opções disponíveis quando criar uma conta de Armazenamento do Azure. A tabela seguinte fornece informações sobre as opções suportadas no HDInsight:
-> 
-> | Tipo de conta de armazenamento | Camada de armazenamento | Suportada no HDInsight |
-> | ------- | ------- | ------- |
-> | Conta de Armazenamento para fins gerais | Standard | __Sim__ |
-> | &nbsp; | Premium | Não |
-> | Conta de Armazenamento de Blobs | Acesso Frequente | Não |
-> | &nbsp; | Acesso Esporádico | Não |
+
+| Tipo de conta de armazenamento | Serviços suportados | Escalões de desempenho suportados | Suporte de acesso |
+|----------------------|--------------------|-----------------------------|------------------------|
+| Para fins gerais V2   | Blobs               | Standard                    | Frequente, esporádico Archive3    |
+| Para fins gerais V1   | Blobs               | Standard                    | N/A                    |
+| Armazenamento de blobs         | Blobs               | Standard                    | Frequente, esporádico Archive3    |
 
 Não recomendamos a utilização do contentor de blobs predefinido para armazenar dados empresariais. Eliminar o contentor de blobs predefinido depois de cada utilização para reduzir o custo de armazenamento é uma prática recomendada. Tenha em atenção que o contentor predefinido contém os registos da aplicação e do sistema. Certifique-se de que obtém os registos antes de eliminar o contentor.
 

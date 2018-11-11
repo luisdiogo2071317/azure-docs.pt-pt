@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: bdbe15a85ad4d2ef6918b7ab7e16942edde5096e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220340"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300460"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, eliminar ou atribuir uma função para uma identidade gerida atribuído ao utilizador com o portal do Azure
 
@@ -33,11 +33,10 @@ Neste artigo, irá aprender a criar, listar, eliminar ou atribuir uma função p
 
 - Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para efetuar as operações de gestão neste artigo, a conta tem das atribuições de funções seguintes:
-    - [Contribuidor de identidade de geridos](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (lista), atualizar e eliminar uma identidade gerida atribuído ao utilizador.
-    - [Gerido operador de identidade](/azure/role-based-access-control/built-in-roles#managed-identity-operator) função para ler (lista) as propriedades de uma identidade gerida atribuído ao utilizador.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Criar uma identidade gerida atribuída pelo utilizador
+
+Para criar uma identidade gerida atribuído ao utilizador, a conta tem do [Contribuidor de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) atribuição de função.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) usando uma conta associada à subscrição do Azure para criar a identidade gerida atribuído ao utilizador.
 2. Na caixa de pesquisa, escreva *identidades geridas por*e, em **serviços**, clique em **identidades geridas por**.
@@ -52,6 +51,8 @@ Neste artigo, irá aprender a criar, listar, eliminar ou atribuir uma função p
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuído ao utilizador
 
+A lista/leitura uma identidade gerida atribuído ao utilizador, a conta tem do [operador de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-operator) ou [Contribuidor de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) atribuição de função.
+
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure para listar as identidades geridas atribuído ao utilizador.
 2. Na caixa de pesquisa, escreva *identidades geridas por*e em serviços, clique em **identidades geridas por**.
 3. Devolve uma lista de identidades geridas atribuído ao utilizador para a sua subscrição.  Para ver os detalhes de uma identidade gerida atribuído ao utilizador, clique no respetivo nome.
@@ -60,13 +61,17 @@ Neste artigo, irá aprender a criar, listar, eliminar ou atribuir uma função p
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminar uma identidade gerida atribuído ao utilizador
 
+Para eliminar uma identidade gerida atribuído ao utilizador, a conta tem do [Contribuidor de identidade gerida](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) atribuição de função.
+
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure para eliminar uma identidade gerida atribuído ao utilizador.
 2. Selecionar a identidade gerida atribuído ao utilizador e clique em **eliminar**.
 3. Na caixa de confirmação escolha, **Sim**.
 
 ![Eliminar utilizador atribuído a identidade gerida](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função para uma identidade gerida atribuído ao utilizador 
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Atribuir uma função para uma identidade gerida atribuído ao utilizador
+
+Para atribuir uma função a uma identidade gerida atribuído ao utilizador, a conta tem do [administrador de acesso de utilizador](/azure/role-based-access-control/built-in-roles#user-access-administrator) atribuição de função.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) através de uma conta associada à subscrição do Azure para listar as identidades geridas atribuído ao utilizador.
 2. Na caixa de pesquisa, escreva *identidades geridas por*e em serviços, clique em **identidades geridas por**.

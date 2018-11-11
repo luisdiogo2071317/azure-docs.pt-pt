@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 4da90cf636ab2010d7c369f4c13e45190dc6b2db
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
-ms.translationtype: MT
+ms.openlocfilehash: 2453cee167df3da9bf524fc446953b4304686564
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020822"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51293206"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
@@ -33,7 +33,7 @@ Controladores de NVIDIA Tesla (CUDA) para NC, a NCv2, NCv3 e VMs de série ND (o
 
 ### <a name="nvidia-grid-drivers"></a>Controladores de GRID da NVIDIA
 
-Microsoft redistribui instaladores de drivers de NVIDIA GRID para NV amd VMs da série NVv2 utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs do Azure NV, apenas em sistemas operativos listados na tabela seguinte. Estes controladores incluem licenças de Software GPU Virtual GRADE no Azure.
+Microsoft redistribui programas de instalação de controladores de NVIDIA GRID NV e as VMs da série NVv2 utilizadas como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs do Azure NV, apenas em sistemas operativos listados na tabela seguinte. Estes controladores incluem licenças de Software GPU Virtual GRADE no Azure.
 
 | SO | Controlador |
 | -------- |------------- |

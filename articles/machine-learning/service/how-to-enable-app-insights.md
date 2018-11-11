@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: fa425a5ecd8cf8f4c7b3516534b4c4f0f4257850
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 962090340cad6bcd95245cffe16c25f08a98226b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085347"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300766"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>Monitorizar os seus modelos do Azure Machine Learning na produção com o Application Insights
 
@@ -109,8 +109,11 @@ Para desativar o Application Insights, utilize o seguinte código:
 ## <a name="evaluate-data"></a>Avaliar dados
 Dados do seu serviço são armazenados na sua conta do Application Insights, dentro do mesmo grupo de recursos que o seu serviço Azure Machine Learning.
 Para vê-la:
-1. Aceda ao seu grupo de recursos no [portal do Azure](https://portal.azure.com) e navegue para o recurso do Application Insights. 
-2. O **descrição geral** Guia mostra-lhe o conjunto básico de métricas para o seu serviço.
+1. Aceda à área de trabalho no serviço Machine Learning a [portal do Azure](https://portal.azure.com) e clique no link do Application Insights.
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. Selecione o **descrição geral** guia para ver um conjunto básico de métricas para o seu serviço.
 
    [![Descrição geral](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -130,3 +133,7 @@ O [00. obtendo Started/13.enable-app-insights-in-production-service.ipynb](https
 
 ## <a name="next-steps"></a>Passos Seguintes
 Também é possível recolher dados em seus modelos em produção. Leia o artigo [recolher dados para modelos em produção](how-to-enable-data-collection.md). 
+
+
+## <a name="other-references"></a>Outras referências
+* [Monitor do Azure para contentores](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)

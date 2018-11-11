@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886165"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277841"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutorial 4: extrair padrões relacionados contextualmente
 
@@ -49,7 +49,7 @@ Se tiver dificuldade na detecção de uma entidade simples porque consiste num n
 > * Criar lista de expressões de Cidades
 > * Obter as intenções e as entidades do ponto final
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Utilizar a aplicação existente
 Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
@@ -64,7 +64,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 
 ## <a name="create-new-entities"></a>Criar novas entidades
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Entidades** no painel de navegação esquerdo. 
 
@@ -254,7 +254,7 @@ Tal como os nomes das pessoas, as cidades também são complicadas pois podem se
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Vá para o final do URL no endereço e introduza `Move wayne berry from miami to mount vernon`. O último parâmetro querystring é `q`, a expressão **query**. 
 
@@ -380,6 +380,8 @@ Neste tutorial, a aplicação Recursos Humanos deteta expressões sobre a transf
 |--|--|--|
 |[Hierárquica (sem funções)](luis-quickstart-intent-and-hier-entity.md)|transf Jill Jones de **a-2349** para **b-1298**|a-2349, b-1298|
 |Este tutorial (com funções)|Mover Billy Patterson de **Yuma** para **Denver**.|Yuma, Denver|
+
+Para obter mais informações, veja [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: bceccbfd0efb54db3e599ec737fe5df0c2a87acd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261660"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281630"
 ---
 # <a name="azure-database-security-best-practices"></a>Práticas recomendadas de segurança da base de dados do Azure
 A segurança é uma grande preocupação para a gestão de bases de dados e, sempre foi uma prioridade para o [base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/). As bases de dados podem ser fortemente protegidos para ajudar a satisfazer mais normas ou requisitos de segurança, incluindo a HIPAA, ISO 27001/27002 e PCI DSS nível 1. A lista atual de certificações de conformidade de segurança está disponível na [site do Microsoft Trust Center](https://azure.microsoft.com/support/trust-center/services/). Também pode optar por colocar as bases de dados nos datacenters do Azure específicos com base nos requisitos de regulamentação.
@@ -122,7 +122,7 @@ Uma vez que um utilizador autorizado como um administrador de segurança ou um a
 - Certifique-se de que os utilizadores e aplicações usam contas separadas para autenticar. Dessa forma, pode limitar as permissões concedidas a utilizadores e aplicações e reduzir o risco de atividades maliciosas.
 - Implementar a segurança ao nível da base de dados através de funções de base de dados fixa (como db_datareader ou db_datawriter). Ou pode criar funções personalizadas para a sua aplicação conceder permissões explícitas para objetos de base de dados selecionada.
 
-Para outras formas de encriptar os seus dados, considere:
+Para outras formas de proteger os seus dados, considere:
 
 - A [encriptação ao nível da célula](/sql/relational-databases/security/encryption/encrypt-a-column-of-data), para encriptar colunas específicas ou até mesmo células de dados com chaves de encriptação diferentes.
 - [Sempre encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine), que permite aos clientes encriptar dados confidenciais em aplicativos cliente e nunca revelar as chaves de encriptação para o motor de base de dados (base de dados SQL ou SQL Server). Como resultado, o Always Encrypted fornece uma separação entre os proprietários dos dados (e os podem ver) e aqueles que gerir os dados (mas não devem ter acesso).

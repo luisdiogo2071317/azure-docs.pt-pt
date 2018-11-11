@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 4a5f820c9e6d39c65ef0942091b247c5d52fe17f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5e9dc207d84a9a66d83f01f49c3aefe2d77a64fa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253215"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281443"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origens de dados no Azure Monitor
 Este artigo descreve as origens de dados recolhidos pelo Azure Monitor para monitorizar o estado de funcionamento e desempenho dos seus recursos e as aplicações em execução nos mesmos. Esses recursos podem ser no Azure, no noutra cloud ou no local.  Ver [dados recolhidos pelo Azure Monitor](monitoring-data-collection.md) para obter detalhes sobre como estes dados são armazenados e como pode vê-lo.
@@ -63,7 +63,7 @@ Serviços do Azure mais irão gerar [métricas de plataforma](monitoring-data-co
 ### <a name="resource-diagnostic-logs"></a>Registos de diagnóstico de recursos
 Embora o registo de atividades fornece informações sobre as operações executadas num recursos do Azure, ao nível de recursos [registos de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) fornecem informações sobre o funcionamento do recurso em si.   Os requisitos de configuração e conteúdo estes registos [varia consoante o tipo de recurso](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
-Não pode ver os registos de diagnóstico diretamente no portal do Azure, mas pode [enviá-los para o armazenamento do Azure para arquivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e exportá-las para [Hub de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) para o redirecionamento para outros serviços, ou [para registo Análise](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Podem escrever alguns recursos diretamente ao Log Analytics, enquanto outras pessoas a escrever para uma conta de armazenamento antes de ser [importados para o Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+Não pode ver os registos de diagnóstico diretamente no portal do Azure, mas pode [enviá-los para o armazenamento do Azure para arquivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) e exportá-las para [Hub de eventos](../event-hubs/event-hubs-about.md) para o redirecionamento para outros serviços, ou [para registo Análise](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) para análise. Podem escrever alguns recursos diretamente ao Log Analytics, enquanto outras pessoas a escrever para uma conta de armazenamento antes de ser [importados para o Log Analytics](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>Soluções de monitorização
  [Soluções de monitorização](monitoring-solutions.md) recolher dados para fornecer informações adicionais sobre o funcionamento de um determinado serviço ou aplicação. Eles recolhem dados no Log Analytics, onde pode ser analisado com o [linguagem de consulta](../log-analytics/log-analytics-queries.md) ou [vistas](../log-analytics/log-analytics-view-designer.md) que normalmente estão incluídas na solução.
@@ -81,7 +81,7 @@ Com o [extensão de diagnóstico do Azure](../monitoring-and-diagnostics/azure-d
 Pode instalar o agente Log Analytics em qualquer [Windows](../log-analytics/log-analytics-agent-windows.md) ou [Linux]() máquina virtual ou de computador físico. A máquina virtual pode estar em execução no Azure, noutra cloud ou no local.  O agente se liga ao Log Analytics ou diretamente ou através uma [grupo de gestão do System Center Operations Manager ligado](../log-analytics/log-analytics-om-agents.md) e permite-lhe recolher dados a partir de [origens de dados](../log-analytics/log-analytics-data-sources.md) que configurou ou a partir de [soluções de gestão](monitoring-solutions.md) que fornecem informações adicionais sobre as aplicações em execução na máquina virtual.
 
 ### <a name="service-map"></a>Mapa de Serviços
-[Mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) requer um agente de dependência em máquinas virtuais Windows e Linux. Isso funciona com o agente recolhe dados sobre os processos em execução a máquina virtual e as dependências de processos externos do Log Analytics. Ele armazena estes dados no Log Analytics e inclui uma consola que apresenta visualmente os dados que coleta, além de outros dados armazenados no Log Analytics.
+[Mapa de serviço](../monitoring/monitoring-service-map.md) requer um agente de dependência em máquinas virtuais Windows e Linux. Isso funciona com o agente recolhe dados sobre os processos em execução a máquina virtual e as dependências de processos externos do Log Analytics. Ele armazena estes dados no Log Analytics e inclui uma consola que apresenta visualmente os dados que coleta, além de outros dados armazenados no Log Analytics.
 
 ## <a name="applications"></a>Aplicações
 Além de telemetria que seu aplicativo pode gravar o sistema operativo convidado, monitorização detalhada de aplicações é feita com [Application Insights](https://docs.microsoft.com/azure/application-insights/). O Application Insights pode recolher dados de aplicações em execução num vasto leque de plataformas. A aplicação pode estar em execução no Azure, noutra cloud ou no local.

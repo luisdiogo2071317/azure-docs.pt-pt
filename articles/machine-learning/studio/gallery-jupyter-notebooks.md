@@ -1,6 +1,6 @@
 ---
-title: Blocos de notas do Jupyter da Galeria de AI do Azure | Microsoft Docs
-description: Detete blocos de notas do Jupyter na Galeria de AI do Azure.
+title: Blocos de notas do Jupyter da Galeria de IA do Azure | Documentos da Microsoft
+description: Descubra os blocos de notas do Jupyter na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,60 +15,58 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 336949d3c3c23041d1907ae2b2a9151ca626d94f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 81a2f444012085782c377de050e7cb5445f8ebb3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834646"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344659"
 ---
-# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Detetar blocos de notas do Jupyter na galeria do Azure de AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Descubra os blocos de notas do Jupyter na Galeria de IA do Azure
 
-## <a name="jupyter-notebooks"></a>Jupyter Notebooks
-**[Blocos de notas do Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  incluir código, visualizações de dados e documentação numa tela único, interativa.
-Blocos de notas na Galeria fornecem tutoriais e uma explicação detalhada de técnicas e soluções de aprendizagem automática avançada.
+**[Blocos de notas do Jupyter](https://gallery.cortanaintelligence.com/notebooks)**  na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com) incluem código, visualizações de dados e a documentação na tela de uma única e interativa.
+Blocos de notas na Galeria fornecem tutoriais e explicações detalhadas de técnicas e soluções de aprendizagem automática avançada.
 
 ## <a name="discover"></a>Descobrir
-  Para procurar na Galeria blocos de notas, abra o [galeria](http://gallery.cortanaintelligence.com) e clique em **blocos de notas** na parte superior da home page da galeria.
+  Para navegar para a Galeria de blocos de notas, abra a [galeria](http://gallery.cortanaintelligence.com) e clique em **blocos de notas** na parte superior da home page da galeria.
 
  O **[blocos de notas do Jupyter](https://gallery.cortanaintelligence.com/notebooks)** página apresenta uma lista de blocos de notas mais populares.
-Clique em **ver todos os** para ver todos os blocos de notas.
-Nesta página, pode procurar todos os blocos de notas na galeria. Também pode pesquisar ao selecionar os critérios de filtro no lado esquerdo da página e entrar termos de pesquisa na parte superior.
+Clique em **ver todas as** para ver todos os blocos de notas.
+Nesta página, pode procurar todos os blocos de notas na galeria. Também pode pesquisar ao selecionar os critérios de filtro à esquerda da página e inserir termos de pesquisa na parte superior.
 
- Clique em qualquer bloco de notas para abrir a página de detalhes do bloco de notas e ler mais informações. Nesta página pode comente, fornecer comentários ou fazer perguntas através da secção de comentários. Ainda pode partilhar com amigos ou colegas utilizando as capacidades de partilha de LinkedIn e o Twitter. Também pode enviar por e-mail uma hiperligação para o bloco de notas para convidar outros utilizadores para ver a página.
+ Clique em qualquer bloco de notas para abrir a página de detalhes do bloco de notas e ler mais informações. Nesta página pode comentar, fornecer comentários ou fazer perguntas através da secção de comentários. Até pode compartilhar com amigos ou de colegas com os recursos de partilha do LinkedIn e Twitter. Também pode enviar um e-mail uma ligação para o bloco de notas para convidar outros utilizadores para ver a página.
 
-![Partilhar este item com amigos](./media/gallery-how-to-use-contribute-publish/share-links.png)
+![Compartilhar este item com amigos](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Adicionar os seus comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Adicione os seus próprios comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Transferência
-Pode transferir uma cópia de qualquer bloco de notas da galeria na sua área de trabalho do Machine Learning Studio.
+Pode transferir uma cópia de qualquer bloco de notas a partir da galeria na sua área de trabalho do Machine Learning Studio.
 
 ### <a name="download-from-the-gallery"></a>Transferir a partir da Galeria
 Para transferir uma cópia de um bloco de notas a partir da galeria:
 
 1. Abra a página de detalhes do bloco de notas na Galeria
 2. Clique em **abrir no Studio**
-3. Selecione a área de trabalho que pretende utilizar e região
+3. Selecione a região e a área de trabalho que pretende utilizar
    
-    ![Abra o bloco de notas do Jupyter na galeria do](./media/gallery-jupyter-notebooks/open-notebook-from-gallery.png)
+    ![Abra o bloco de notas do Jupyter partir da Galeria](./media/gallery-jupyter-notebooks/open-notebook-from-gallery.png)
 
-Ao clicar em **abrir no Studio**, o bloco de notas é carregado na sua área de trabalho do Machine Learning Studio e aberto (se que ainda não tenha sido iniciada no Studio, ser-lhe-á solicitado para iniciar sessão com a sua conta Microsoft antes do bloco de notas copiar para a sua área de trabalho). Pode encontrar o bloco de notas novamente mais tarde, clicando em **blocos de notas** no lado esquerdo da home page do Studio.
+Quando clica em **abrir no Studio**, o bloco de notas é carregado na sua área de trabalho do Machine Learning Studio e aberto (se ainda não tiver iniciado ao Studio, ser-lhe-á pedido que inicie sessão com a sua conta Microsoft antes de é o bloco de notas copiado para a área de trabalho). Pode encontrar o bloco de notas novamente mais tarde clicando **blocos de notas** no lado esquerdo da home page do Studio.
 
 ### <a name="download-in-machine-learning-studio"></a>Transferir no Machine Learning Studio
-Pode também abrir qualquer um dos blocos de notas de galeria mesmos enquanto estiver a trabalhar no Machine Learning Studio:
+Também pode abrir qualquer um dos blocos de notas de galeria mesmo enquanto está a trabalhar no Machine Learning Studio:
 
 1. No Machine Learning Studio, clique em **+ novo**
-2. Selecione **bloco de notas** -é apresentada uma lista de blocos de notas da galeria do que pode escolher entre ou, pode encontrar um bloco de notas específico utilizando a caixa de pesquisa
-3. Aponte o rato, um bloco de notas e selecione **bloco de notas aberta**
+2. Selecione **bloco de notas** -é apresentada uma lista de blocos de notas da galeria, que pode escolher entre, ou pode encontrar um bloco de notas específico usando a caixa de pesquisa
+3. Apontar o mouse num bloco de notas e selecione **bloco de notas Open**
    
-    ![Bloco de notas Open Galeria de dentro de Machine Learning Studio](./media/gallery-jupyter-notebooks/open-notebook-from-studio.png)
+    ![Bloco de notas Open galeria do Machine Learning Studio](./media/gallery-jupyter-notebooks/open-notebook-from-studio.png)
 
-Uma cópia do bloco de notas é transferida e aberta na sua área de trabalho na secção de blocos de notas do Jupyter do Machine Learning Studio.
-O bloco de notas será apresentado, juntamente com os outros blocos de notas, no **blocos de notas** página do Studio (no [home page do Studio](https://studio.azureml.net/), clique em **blocos de notas** à esquerda).
+Uma cópia do notebook é transferida e aberta na sua área de trabalho na seção de blocos de notas do Jupyter do Machine Learning Studio.
+O bloco de notas será listado, juntamente com seus outros blocos de notas, no **blocos de notas** página do Studio (sobre o [home page do Studio](https://studio.azureml.net/), clique em **blocos de notas** à esquerda).
 
-**[COLOCAR-ME PARA THE GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[IR PARA A GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

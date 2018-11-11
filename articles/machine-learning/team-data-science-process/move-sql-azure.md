@@ -15,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: 99141b7542cc9adadadda6ada670b644d3aba5f3
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 5fa86387861ca87f9280a4c900d9dd83db5f1a39
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393648"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344540"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
-Este tópico descreve as opções para mover dados de ficheiros simples (formatos de CSV ou TSV) ou de dados armazenados num servidor de SQL no local para uma base de dados SQL do Azure. Estas tarefas para mover dados para a cloud fazem parte do processo de ciência de dados de equipa.
+
+Este artigo descreve as opções para mover dados de ficheiros simples (formatos CSV ou TSV) ou de dados armazenados num servidor de SQL no local para uma base de dados SQL do Azure. Estas tarefas para mover dados para a cloud fazem parte do processo de ciência de dados de equipa.
 
 Para um tópico que descreve as opções para mover dados para um servidor de SQL no local para o Machine Learning, consulte [mover dados para o SQL Server numa máquina virtual do Azure](move-sql-server-virtual-machine.md).
-
-O seguinte procedimento **menu** ligações para tópicos que descrevem como ingerir dados nos ambientes de destino onde os dados podem ser armazenados e processados durante o Team Data Science Process (TDSP).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
 
 A tabela seguinte resume as opções para mover dados para uma base de dados do SQL do Azure.
 

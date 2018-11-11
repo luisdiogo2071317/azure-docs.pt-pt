@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 49682a2d9ec5d3ce7c2139dc8b2e2fd6a1c3ec18
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236793"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278893"
 ---
 # <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>Débito de aprovisionamento para contentores do Cosmos DB e bases de dados
 
@@ -27,7 +27,7 @@ A definição de débito aprovisionado num contentor é a opção amplamente usa
 
 Recomenda-se que configure o débito com a granularidade de contentor quando pretender que o desempenho garantido para o contentor.
 
-Débito aprovisionado num contentor do Cosmos é distribuído uniformemente por todas as partições lógicas do contentor. Uma vez que um ou mais partições lógicas de um contentor são alojadas por uma partição de recursos, as partições de recurso pertencem exclusivamente para o contentor e suportam o débito aprovisionado no contentor. A imagem seguinte mostra como uma partição de recursos hospeda um ou mais partições lógicas de um contentor:
+Débito aprovisionado num contentor do Cosmos é distribuído uniformemente por todas as partições lógicas do contentor. Uma vez que um ou mais partições lógicas de um contentor são alojadas por uma partição de recursos, as partições físicas pertencem exclusivamente para o contentor e o débito aprovisionado no contentor de suporte. A imagem seguinte mostra como uma partição de recursos hospeda um ou mais partições lógicas de um contentor:
 
 ![Partição de recursos](./media/set-throughput/resource-partition.png)
 
@@ -49,7 +49,7 @@ Recomenda-se que configure o débito numa base de dados quando pretende partilha
 
 Num determinado período de tempo, o débito alocado a um contentor numa base de dados é distribuído por todas as partições lógicas nesse contentor. Quando tiver o débito aprovisionado num banco de dados de partilha de contentores, não pode aplicar seletivamente a taxa de transferência para um contentor específico ou de uma partição lógica. Se a carga de trabalho numa partição lógica consome mais do que a taxa de transferência que é atribuída a uma partição lógica específica, suas operações será limitado de taxa. Quando ocorre a limitação de velocidade, pode aumentar o débito para o contêiner inteiro ou repita a operação. Para obter mais informações sobre a criação de partições, consulte [partições lógicas](partition-data.md).
 
-Várias partições lógicas partilha o débito aprovisionado para um banco de dados podem ser hospedadas numa partição de recursos único. Enquanto uma única partição lógica de um contentor sempre tem um âmbito dentro de uma partição de recursos, partições lógicas do "L" em contentores de "C" partilha o débito aprovisionado das bases de dados podem ser mapeadas e alojadas em partições de recursos 'R'. A imagem seguinte mostra como uma partição de recursos pode alojar uma ou mais partições lógicas que pertencem a contentores diferentes dentro de uma base de dados:
+Várias partições lógicas partilha o débito aprovisionado para um banco de dados podem ser hospedadas numa partição de recursos único. Enquanto uma única partição lógica de um contentor sempre tem um âmbito dentro de uma partição de recursos, partições lógicas do "L" em contentores de "C" partilha o débito aprovisionado das bases de dados podem ser mapeadas e alojadas em partições físicas de 'R'. A imagem seguinte mostra como uma partição de recursos pode alojar uma ou mais partições lógicas que pertencem a contentores diferentes dentro de uma base de dados:
 
 ![Partição de recursos](./media/set-throughput/resource-partition2.png)
 

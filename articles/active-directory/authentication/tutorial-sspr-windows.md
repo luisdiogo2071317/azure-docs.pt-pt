@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430226"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277771"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavra-passe do Azure AD no ecrã de início de sessão
 
@@ -113,7 +113,7 @@ Quando testar esta funcionalidade com o Ambiente de Trabalho Remoto, a ligação
 
 Se o ecrã de bloqueio do Windows for desativado com uma chave de registo ou uma política de grupo, **Repor palavra-passe** não estará disponível.
 
-Se Ctrl+Alt+Del for exigido pela política, ou as notificações do ecrã de Bloqueio estiverem desativadas, a opção **Repor a palavra-passe** não irá funcionar. O Windows 10 19H1 irá resolver este requisito.
+Se Ctrl+Alt+Del for exigido pela política, ou as notificações do ecrã de Bloqueio estiverem desativadas, a opção **Repor a palavra-passe** não irá funcionar.
 
 O registo de auditoria do Azure AD irá incluir informações sobre o endereço IP e ClientType onde ocorreu a reposição de palavra-passe.
 

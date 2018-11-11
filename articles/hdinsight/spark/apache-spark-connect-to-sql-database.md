@@ -2,19 +2,19 @@
 title: Utilizar o Apache Spark para ler e escrever dados para a base de dados SQL do Azure
 description: Saiba como configurar uma ligação entre o cluster do HDInsight Spark e uma base de dados SQL do Azure para ler dados, escrever dados e transmitir dados num banco de dados SQL
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 2aec894da6b4e5ffd59fee12bc8476b25955c991
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045801"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277295"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilizar o cluster do HDInsight Spark para ler e escrever dados para a base de dados SQL do Azure
 
@@ -234,7 +234,7 @@ Nesta secção, vamos transmitir dados para o **hvactable** que já criou na bas
         
          var streamingQuery = WriteToSQLQuery.start()
 
-1. Certifique-se de que os dados são a ser transmitidos para o **hvactable** executando a seguinte consulta no SQL Server Management Studio (SSMS). Sempre que execute a consulta, mostra o número de linhas no aumento da tabela.
+1. Certifique-se de que os dados são a ser transmitidos para o **hvactable** executando a seguinte consulta no SQL Server Management Studio (SSMS). Sempre que executar a consulta, o número de linhas mostra o aumento de tabela.
 
         SELECT COUNT(*) FROM hvactable
 

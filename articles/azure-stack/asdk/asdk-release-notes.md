@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282463"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515765"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK  
 Este artigo fornece informações sobre melhorias, correções e problemas conhecidos no Azure Stack Development Kit (ASDK). Se não tiver a certeza qual é a versão que está a executar, pode [utilizar o portal para verificar](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,7 +46,7 @@ Para obter mais informações, consulte [reencaminhamento do Azure Stack syslog]
 <!-- TBD - IS ASDK --> 
 - Foi corrigido um problema em que criou as máquinas virtuais no portal de utilizador do Azure Stack e o portal apresentado um número incorreto de discos de dados que pode anexar a uma VM da série DS. Séries de DS VMs capaz de acomodar os discos de dados como a configuração do Azure.
 
-- Os seguintes problemas de disco gerido foram corrigidos na 1809 e também foram corrigidos no 1808 [do Azure Stack correção 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- Os seguintes problemas de disco gerido foram corrigidos na 1809 e também foram corrigidos no 1808 [do Azure Stack correção 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Foi corrigido o problema em que anexar discos de dados SSD para máquinas de virtuais de disco gerido (DS, DSv2, Fs, Fs_V2) falhou com um erro de tamanho de premium: *Falha ao atualizar discos para a máquina virtual "vmname" erro: pedida não é possível efetuar a operação porque tipo de conta de armazenamento "Premium_LRS" não é suportada para o tamanho da VM "Standard_DS/Ds_V2/FS/Fs_v2)*. 
@@ -59,6 +59,16 @@ Para obter mais informações, consulte [reencaminhamento do Azure Stack syslog]
 - <!-- 2702741 -  IS, ASDK --> Foi corrigido o problema no qual os IPs públicos que foram implementadas utilizando a alocação de dinâmica método não eram a garantia de ser preservadas quando uma paragem da Desalocação é emitido. Agora são preservadas.
 
 - <!-- 3078022 - IS, ASDK --> Se uma VM foi parada-desalocada antes de 1808 não pode ser reatribuída após a atualização 1808.  Este problema é resolvido de 1809. Instâncias que foram neste estado e não foi possível iniciar podem ser iniciadas na 1809 com esta correção. A correção também evita que este problema ocorrer.
+
+<!-- 3090289 – IS, ASDK --> 
+- Foi corrigido um problema em que depois de aplicar a atualização de 1808, poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
+
+   1. Se a subscrição tiver sido criada antes da atualização de 1808, implantação de VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
+      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
+      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
+   2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos:
+      1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4471992).
+      2. Siga os passos em [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
 
 - **Várias correções** de desempenho, estabilidade, segurança e o sistema operativo que é utilizado pelo Azure Stack
 
@@ -100,7 +110,7 @@ Para obter mais informações, consulte [reencaminhamento do Azure Stack syslog]
 
 #### <a name="compute"></a>Computação 
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - Reattaching um disco desligado para a mesma máquina virtual (VM) com o mesmo nome e o LUN falha com um erro **não é possível anexar o disco de dados 'datadisk"a VM"vm1"**. O erro ocorre porque o disco está atualmente a ser desligado ou o último desanexar falha na operação. Aguarde até que o disco é completamente desanexado e, em seguida, tente novamente ou elimine/desanexe o disco explicitamente novamente. A solução alternativa é voltar a ligá-lo com um nome diferente ou num LUN diferente. 
 
 <!-- 3235634 – IS, ASDK -->
@@ -108,16 +118,6 @@ Para obter mais informações, consulte [reencaminhamento do Azure Stack syslog]
 
 <!-- 3099544 – IS, ASDK --> 
 - Quando cria uma nova máquina de virtual (VM) com o portal do Azure Stack, e selecionar o tamanho da VM, a coluna USD/mês é apresentada com um **indisponível** mensagem. Esta coluna não deve aparecer; exibindo a VM coluna preço não é suportada no Azure Stack.
-
-<!-- 3090289 – IS, ASDK --> 
-- Depois de aplicar o 1808 de atualização, pode encontrar os seguintes problemas quando implementar VMs com discos geridos:
-
-   1. Se a subscrição tiver sido criada antes da atualização de 1808, implantação de VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
-      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
-      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
-   2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos:
-      1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4468920).
-      2. Siga os passos em [este artigo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
 
 <!-- 2869209 – IS, ASDK --> 
 - Ao utilizar o [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), tem de utilizar o **- OsUri** parâmetro como a conta de armazenamento URI onde o disco é carregado. Se utilizar o caminho local do disco, o cmdlet falhar com o seguinte erro: *operação de longa execução falhou com o estado 'Com falhas'*. 

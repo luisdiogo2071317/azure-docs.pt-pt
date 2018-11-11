@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957960"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281698"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -142,7 +142,9 @@ Depois de foram mescladas alterações para o ramo de colaboração (`master` é
 
 ## <a name="author-with-github-integration"></a>Autor com integração do GitHub
 
-Criação de Visual com integração do GitHub suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório de conta do GitHub para o controlo de origem, colaboração, controlo de versões. Uma única conta GitHub pode ter vários repositórios, mas um repositório do GitHub pode ser associado a fábrica de dados apenas uma. Se não tiver uma conta do GitHub ou o repositório, siga [estas instruções](https://github.com/join) para criar os seus recursos. A integração do GitHub com o Data Factory suporta tanto públicas GitHub, bem como GitHub Enterprise.
+Criação de Visual com integração do GitHub suporta o controlo de código fonte e colaboração for work nos seus pipelines da fábrica de dados. Pode associar uma fábrica de dados um repositório de conta do GitHub para o controlo de origem, colaboração, controlo de versões. Uma única conta GitHub pode ter vários repositórios, mas um repositório do GitHub pode ser associado a fábrica de dados apenas uma. Se não tiver uma conta do GitHub ou o repositório, siga [estas instruções](https://github.com/join) para criar os seus recursos.
+
+A integração do GitHub com o Data Factory suporta dois GitHub público (ou seja, [ https://github.com ](https://github.com)) e o GitHub Enterprise. Pode usar a repositórios de GitHub públicos e privados com o Data Factory, como há muito tempo leu e permissão de escrita para o repositório no GitHub.
 
 Para configurar um repositório do GitHub, terá de ter permissões de administrador para a subscrição do Azure que está a utilizar.
 
@@ -164,11 +166,11 @@ Pode configurar um repositório do GitHub com uma fábrica de dados por meio de 
 
 **Método de configuração 1 (repositório público): página Vamos começar**
 
-No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
+No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
 
 ![Página de introdução à fábrica de dados](media/author-visually/github-integration-image1.png)
 
-O **definições do repositório** é apresentado o painel de configuração:
+O **definições de repositório** é apresentado o painel de configuração:
 
 ![Definições de repositório do GitHub](media/author-visually/github-integration-image2.png)
 
@@ -181,14 +183,14 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **RepositoryName**                                       | O nome de repositório de código do GitHub. Contas GitHub contenham repositórios de Git para gerir o seu código-fonte. Pode criar um novo repositório ou utilizar um repositório existente que já está na sua conta.                                                                                                                                                                                                                              |                    |
 | **Ramo de colaboração**                                 | O ramo de colaboração do GitHub que serve para publicação. Por padrão, ele é a Mestra. Altere esta definição caso queira publicar recursos a partir de outro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | A pasta de raiz no seu ramo de colaboração do GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
+| **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 | **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório público): UX tela de criação
 
-Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
+Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
 
-É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições *método de configuração 1* acima.
+É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições *método de configuração 1* acima.
 
 ### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>Configurar um repositório de GitHub Enterprise com o Azure Data Factory
 
@@ -196,11 +198,11 @@ Pode configurar um repositório de GitHub Enterprise com uma fábrica de dados p
 
  #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório de Enterprise): página Vamos começar
 
-No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
+No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
 
 ![Página de introdução à fábrica de dados](media/author-visually/github-integration-image1.png)
 
-O **definições do repositório** é apresentado o painel de configuração:
+O **definições de repositório** é apresentado o painel de configuração:
 
 ![Definições de repositório do GitHub](media/author-visually/github-integration-image3.png)
 
@@ -215,14 +217,14 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 | **RepositoryName**                                       | O nome de repositório de código do GitHub. Contas GitHub contenham repositórios de Git para gerir o seu código-fonte. Pode criar um novo repositório ou utilizar um repositório existente que já está na sua conta.                                                                                                                                                                                                                              |                    |
 | **Ramo de colaboração**                                 | O ramo de colaboração do GitHub que serve para publicação. Por padrão, ele é a Mestra. Altere esta definição caso queira publicar recursos a partir de outro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Pasta raiz**                                          | A pasta de raiz no seu ramo de colaboração do GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
+| **Importar recursos do Data Factory existentes para o repositório** | Especifica se pretende importar recursos de fábrica de dados existentes de UX **tela de criação** para um repositório do GitHub. Selecione a caixa para importar os seus recursos de fábrica de dados para o repositório de Git associado no formato JSON. Esta ação exporta cada recurso individualmente (ou seja, os serviços ligados e conjuntos de dados são exportados para o JSONs separados). Quando esta caixa não está selecionada, os recursos existentes não são importados. | Selecionado (predefinição) |
 | **Ramo para importar recursos para**                       | Especifica para o ramo os recursos de fábrica de dados (pipelines, conjuntos de dados, serviços ligados, etc.) são importados. Pode importar recursos para um dos seguintes ramificações: um. B de colaboração. Crie nova c. Utilizar Existente                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Método de configuração 2 (repositório de Enterprise): UX tela de criação
 
-Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
+Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica de dados. Selecione o **Data Factory** menu pendente e, em seguida, selecione **configurar repositório de código**.
 
-É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições *método de configuração 1* acima.
+É apresentado um painel de configuração. Para obter detalhes sobre as definições de configuração, consulte as descrições *método de configuração 1* acima.
 
 ## <a name="use-the-expression-language"></a>Utilize a linguagem de expressão
 Pode especificar expressões para valores de propriedade usando a linguagem de expressão que é suportada pelo Azure Data Factory.

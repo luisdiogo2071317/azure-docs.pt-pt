@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d289dee6770b0fc70edb0ed5fecf8a39402c6fa
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311991"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282004"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementar a sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este artigo fornece informações que precisa sincronizar suas senhas de usuário de uma instância do Active Directory no local para uma instância do Azure Active Directory (Azure AD) com base na cloud.
@@ -54,7 +54,7 @@ Para obter mais detalhes, consulte o artigo [Integrar as identidades no local ao
 >
 
 ## <a name="how-password-hash-synchronization-works"></a>Como funciona a sincronização de hash de palavra-passe
-O serviço de domínio do Active Directory armazena as palavras-passe na forma de uma representação de valor de hash da palavra-passe de utilizador reais. Um valor de hash é um resultado de uma função de matemática unidirecional (a *algoritmo hash*). Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma palavra-passe. Não é possível utilizar um hash de palavra-passe para iniciar sessão na sua rede no local.
+O serviço de domínio do Active Directory armazena as palavras-passe na forma de uma representação de valor de hash da palavra-passe de utilizador reais. Um valor de hash é um resultado de uma função de matemática unidirecional (a *algoritmo hash*). Não existe nenhum método para reverter o resultado de uma função unidirecional para a versão de texto simples de uma palavra-passe. Não pode utilizar um hash de palavra-passe para iniciar sessão na sua rede no local.
 
 Para sincronizar a palavra-passe, a sincronização do Azure AD Connect extrai o hash de palavra-passe da instância do Active Directory no local. Processamento extra de segurança é aplicado para o hash de palavra-passe antes dos dados foram sincronizados para o serviço de autenticação do Azure Active Directory. Palavras-passe são sincronizadas numa base por utilizador e por ordem cronológica.
 
@@ -136,7 +136,7 @@ A sincronização de uma palavra-passe não tem qualquer impacto no utilizador d
 ## <a name="enable-password-hash-synchronization"></a>Ativar a sincronização de hash de palavra-passe
 
 >[!IMPORTANT]
->Se estiver a migrar do AD FS (ou outras tecnologias de Federação) para a sincronização de Hash de palavra-passe, recomendamos vivamente que siga o nosso guia de implementação detalhados publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+>Se estiver a migrar do AD FS (ou outras tecnologias de Federação) para a sincronização de Hash de palavra-passe, recomendamos vivamente que siga o nosso guia de implementação detalhados publicado [aqui](https://aka.ms/adfstophsdpdownload).
 
 Ao instalar o Azure AD Connect utilizando as **definições rápidas** opção, a sincronização de hash de palavra-passe é ativada automaticamente. Para obter mais detalhes, consulte [introdução ao Azure AD Connect com as definições rápidas](how-to-connect-install-express.md).
 

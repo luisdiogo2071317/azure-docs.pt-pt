@@ -1,6 +1,6 @@
 ---
-title: Soluções de galeria do Azure AI | Microsoft Docs
-description: Detete soluções na Galeria de AI do Azure.
+title: Soluções de Galeria de IA do Azure | Documentos da Microsoft
+description: Descobrir soluções na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
@@ -15,39 +15,37 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 19861955dcf82d0ffae674400552ca1f0c439a81
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cb02ed61ea050c17bc7e6dc0ebc724f29f885dd7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834890"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344340"
 ---
-# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Detetar soluções na galeria do Azure de AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
+# <a name="discover-solutions-in-the-azure-ai-gallery"></a>Descobrir soluções na Galeria de IA do Azure
 
-## <a name="solutions"></a>Soluções
-A **[solução](https://gallery.cortanaintelligence.com/solutions)** na Galeria fornece um início rápido para criar rapidamente Cortana Intelligence soluções de soluções pré-configuradas, arquiteturas de referência e padrões de conceção.
-Torne-os seus com as instruções incluídas ou com um parceiro em destaque.  
+R **[solução](https://gallery.cortanaintelligence.com/solutions)** na [Galeria de IA do Azure](http://gallery.cortanaintelligence.com) fornece um início rápido para rapidamente criar soluções do Cortana Intelligence de soluções pré-configuradas, arquiteturas, de referência e padrões de design.
+Personalize as suas soluções com as instruções incluídas ou com um parceiro em destaque.  
 
 ## <a name="discover"></a>Descobrir
-  Para procurar soluções na galeria, abra o [galeria](http://gallery.cortanaintelligence.com) e clique em **soluções** na parte superior da home page da galeria.
+  Para procurar soluções na galeria, abra a [galeria](http://gallery.cortanaintelligence.com) e clique em **soluções** na parte superior da home page da galeria.
 
- O **[soluções](https://gallery.cortanaintelligence.com/solutions)** página apresenta uma lista das soluções mais recentemente adicionadas.
-Clique em **ver todos os** para ver todas as soluções.
-Nesta página, pode procurar todas as soluções na galeria. Também pode pesquisar ao selecionar os critérios de filtro no lado esquerdo da página e entrar termos de pesquisa na parte superior.
+ O **[soluções](https://gallery.cortanaintelligence.com/solutions)** página apresenta uma lista das soluções adicionadas recentemente.
+Clique em **ver todas as** para ver todas as soluções.
+Nesta página, pode procurar todas as soluções na galeria. Também pode pesquisar ao selecionar os critérios de filtro à esquerda da página e inserir termos de pesquisa na parte superior.
 
- Clique em qualquer solução para abrir a página de detalhes e ler mais informações. Nesta página pode comente, fornecer comentários ou fazer perguntas através da secção de comentários. Ainda pode partilhar com amigos ou colegas utilizando as capacidades de partilha de LinkedIn e o Twitter. Também pode por e-mail uma ligação para a solução para convidar outros utilizadores para ver a página.
+ Clique em qualquer solução para abrir a página de detalhes e ler mais informações. Nesta página pode comentar, fornecer comentários ou fazer perguntas através da secção de comentários. Até pode compartilhar com amigos ou de colegas com os recursos de partilha do LinkedIn e Twitter. Pode também enviar um e-mail uma ligação para a solução para convidar outros utilizadores para ver a página.
 
-![Partilhar este item com amigos](./media/gallery-how-to-use-contribute-publish/share-links.png)
+![Compartilhar este item com amigos](./media/gallery-how-to-use-contribute-publish/share-links.png)
 
-![Adicionar os seus comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
+![Adicione os seus próprios comentários](./media/gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Implementação
-Se pretender utilizar uma solução, clique em **implementar**. Siga os passos apresentados ao configurar e implementar a solução na sua área de trabalho.
+Se quiser usar uma solução, clique em **Deploy**. Siga os passos apresentados ao configurar e implementar a solução na sua área de trabalho.
 
 ![Implementar uma solução de galeria](./media/gallery-solutions/deploy-solution.png)
 
-**[COLOCAR-ME PARA THE GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
+**[IR PARA A GALERIA &GT;&GT;](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
