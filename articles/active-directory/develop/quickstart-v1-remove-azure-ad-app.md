@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962135"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245363"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Início Rápido: Remover uma aplicação do Azure Active Directory
 
@@ -69,7 +69,7 @@ Um subconjunto das aplicações que são apresentadas no filtro **Todas as aplic
 
 Em termos técnicos, estas aplicações com múltiplos inquilinos são de outro inquilino e foram registadas no seu inquilino durante o processo de autorização. Mais especificamente, são representadas apenas por um objeto principal de serviço no seu inquilino, sem um objeto de aplicação correspondente. Para obter mais informações sobre as diferenças entre objetos de aplicação e principais de serviço, consulte [Objetos de aplicação e principais de serviço no Azure AD](app-objects-and-service-principals.md).
 
-Para remover o acesso de uma aplicação com múltiplos inquilinos ao seu diretório (depois de ter dado autorização), o administrador da empresa tem de remover o principal de serviço da aplicação. O administrador tem de ter acesso de administrador global e pode removê-lo através do portal do Azure ou utilizar os [Cmdlets do PowerShell do Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151).
+Para remover o acesso de uma aplicação com múltiplos inquilinos ao seu diretório (depois de ter dado autorização), o administrador da empresa tem de remover o principal de serviço da aplicação. O administrador tem de ter acesso de administrador global e pode removê-lo através do portal do Azure ou utilizar os [Cmdlets do PowerShell do Azure AD](https://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passos seguintes
 

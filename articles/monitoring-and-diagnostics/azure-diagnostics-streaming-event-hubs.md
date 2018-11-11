@@ -11,7 +11,7 @@ ms.author: robb
 ms.component: diagnostic-extension
 ms.openlocfilehash: 32cebecbb9185250d7d295eab3074a76dcd6a8b9
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51240499"

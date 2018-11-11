@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b870be792da9a6646a7854bc17b7e33fb11d7b0c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2138eed9975abe804442c476d19b5b7229685362
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070173"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289194"
 ---
-# <a name="internet-of-things-security-best-practices"></a>Práticas recomendadas de segurança de Internet das coisas
+# <a name="security-best-practices-for-internet-of-things-iot"></a>Melhores práticas de segurança para Internet das coisas (IoT)
 
 A proteção de uma infra-estrutura de Internet das coisas (IoT) exige uma estratégia de segurança em profundidade rigorosa. Esta estratégia requer a proteger os dados na cloud, proteger a integridade dos dados em trânsito através da internet pública e aprovisionar os dispositivos de forma segura. Cada camada baseia-se maior garantia de segurança numa infraestrutura global.
 

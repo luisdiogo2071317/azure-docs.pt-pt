@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: cd137462235431f0a0c1562e15a32951fe2a41c5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957994"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346716"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -208,7 +208,7 @@ Para copiar dados de ou para a base de dados do Azure SQL, defina o **tipo** pro
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **AzureSqlTable**. | Sim |
-| tableName | O nome da tabela ou vista na instância da base de dados do Azure SQL que o serviço ligado refere-se a. | Sim |
+| tableName | O nome da tabela ou vista na instância da base de dados do Azure SQL que o serviço ligado refere-se a. | Não para a origem, Sim para o sink |
 
 #### <a name="dataset-properties-example"></a>Exemplo de propriedades do conjunto de dados
 
@@ -248,7 +248,6 @@ Para copiar dados de base de dados do Azure SQL, defina o **tipo** propriedade n
 
 - Se o **sqlReaderQuery** especificado para o **SqlSource**, atividade de cópia executa esta consulta em relação à origem de SQL Database do Azure para obter os dados. Em alternativa, pode especificar um procedimento armazenado. Especifique **sqlReaderStoredProcedureName** e **storedProcedureParameters** se o procedimento armazenado utiliza parâmetros.
 - Se não especificar qualquer um **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, as colunas definidas no **estrutura** secção do conjunto de dados JSON está habituado Construa uma consulta. `select column1, column2 from mytable` é executado na base de dados do Azure SQL. Se não tiver a definição do conjunto de dados do **estrutura**, todas as colunas selecionadas da tabela.
-- Quando utiliza **sqlReaderStoredProcedureName**, terá de especificar uma cópia **tableName** propriedade no conjunto de dados JSON.
 
 #### <a name="sql-query-example"></a>Exemplo de consulta de SQL
 
@@ -588,7 +587,7 @@ Quando copia dados de ou para a base de dados do Azure SQL, os seguintes mapeame
 | Datetimeoffset |DateTimeOffset |
 | decimal |decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| número de vírgula flutuante |Valor de duplo |
+| Flutuante |Valor de duplo |
 | image |Byte[] |
 | int |Int32 |
 | dinheiro |decimal |

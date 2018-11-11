@@ -3,19 +3,19 @@ title: Ligar ao Azure HDInsight com as Ferramentas do Data Lake para Visual Stud
 description: Saiba como instalar e utilizar o Data Lake Tools para Visual Studio para se ligar a clusters do Hadoop no Azure HDInsight e, em seguida, executar consultas do Hive.
 keywords: ferramentas do hadoop,consulta do hive,visual studio, visual studio hadoop
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 0c90dfe0aa76bd4f27bbc6f9a5e7e30c76595ea1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 281c3744dc311fdced20f810e0a9f2b233076472
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050152"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247148"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>Utilize o Data Lake Tools para o Visual Studio ligar ao Azure HDInsight e executar consultas do Hive
 
@@ -65,7 +65,7 @@ Se não tiver o Visual Studio instalado, utilize o [Instalador de Plataforma Web
 Pode utilizar o Data Lake Tools para Visual Studio para se ligar aos seus clusters do HDInsight, realizar algumas operações de gestão básicas e executar consultas do Hive.
 
 > [!NOTE]
-> Para obter informações sobre a ligação a um cluster do Hadoop genérico, veja [Escrever e submeter consultas do Hive com o Visual Studio](http://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
+> Para obter informações sobre a ligação a um cluster do Hadoop genérico, veja [Escrever e submeter consultas do Hive com o Visual Studio](https://blogs.msdn.com/b/xiaoyong/archive/2015/05/04/how-to-write-and-submit-hive-queries-using-visual-studio.aspx).
 > 
 > 
 

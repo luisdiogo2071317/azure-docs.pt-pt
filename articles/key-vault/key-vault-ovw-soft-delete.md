@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407880"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300324"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação de forma recuperável de Cofre de chaves do Azure
 
@@ -44,7 +44,9 @@ Com esta funcionalidade, a operação de eliminação num cofre de chaves ou o o
 ### <a name="purge-protection--flag"></a>Limpar sinalizador de proteção
 Remover a proteção (**– enable--proteção contra remoção** na CLI do Azure) sinalizador está desativada por predefinição. Quando esse sinalizador estiver ativado, um cofre ou um objeto no estado de eliminado, não é possível limpar até ter passado o período de retenção de 90 dias. Esse cofre ou o objeto ainda pode ser recuperado. Este sinalizador oferece mais segurança para os clientes que um cofre ou um objeto pode nunca ser permanentemente eliminado até que tenha passado o período de retenção. Pode ativar o sinalizador de proteção de remoção somente se o sinalizador de eliminação de forma recuperável está ativada ou durante a criação do cofre ativar ambas as eliminação de forma recuperável e remover a proteção.
 
-[!NOTE] O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada. É o comando para fazer isso em 2 de CLI do Azure
+> [!NOTE] 
+   O pré-requisito para ativar a proteção contra remoção é que deve ter a eliminação de forma recuperável ativada.
+É o comando para fazer isso em 2 de CLI do Azure
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

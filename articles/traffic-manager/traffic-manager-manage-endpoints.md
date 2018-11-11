@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 35c3027f2b592f6b24075005829ae9376a7fca82
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987040"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245013"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desativar, ativar ou eliminar pontos finais
 
@@ -80,5 +80,5 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 * [Configurar métodos de encaminhamento](traffic-manager-configure-routing-method.md)
 * [Resolução de problemas do estado degradado do Gestor de Tráfego](traffic-manager-troubleshooting-degraded.md)
 * [Considerações de desempenho para o Gestor de Tráfego](traffic-manager-performance-considerations.md)
-* [Operações do Gestor de Tráfego (Referência da API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [Operações do Gestor de Tráfego (Referência da API REST)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 

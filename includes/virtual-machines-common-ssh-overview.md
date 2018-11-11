@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 04/16/2018
+ms.date: 11/08/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0363b719e2587226282257e19e58e3c4e55c2219
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: cff3d7bfb89d5b03f986da32edc148efcfb7e7bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47454472"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51506384"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>Descrição geral de SSH e chaves
 
@@ -21,7 +21,7 @@ O SSH é um protocolo de conexão criptografada que permite inícios de sessão 
 
 * O *chave pública* é colocada na sua VM do Linux, ou qualquer outro serviço que deseja usar com a criptografia de chave pública.
 
-* O *chave privada* é o que apresenta a sua VM do Linux quando efetuar uma ligação de SSH, para verificar a sua identidade. Proteja esta chave privada. Não a partilhe.
+* O *chave privada* o sistema local é utilizado por um cliente SSH para verificar a sua identidade quando se liga a sua VM do Linux. Proteja esta chave privada. Não a partilhe.
 
 Dependendo das políticas de segurança da sua organização, pode reutilizar um único par de chaves públicas-privadas para aceder a várias VMs do Azure e serviços. Não é necessário um separado par de chaves para cada VM ou serviço que pretende aceder. 
 

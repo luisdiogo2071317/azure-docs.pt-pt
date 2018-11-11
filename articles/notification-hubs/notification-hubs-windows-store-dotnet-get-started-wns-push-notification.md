@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 37d9f433f39b60609870913a13f23e5a6e419476
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597749"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246502"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para aplicações da Plataforma Universal do Windows com os Hubs de Notificação do Azure
 
@@ -57,7 +57,7 @@ Para enviar notificações push para aplicações do UWP, associe a aplicação 
 1. Escreva um nome para a aplicação e selecione **Reservar nome do produto**. Desta forma, é criado um registo novo da Loja Windows para a sua aplicação.
 
     ![Nome da aplicação na loja](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. Expanda **Gestão de Aplicações**, selecione **WNS/MPNS**, **WNS/MPNS** e **Site dos Serviços Live**. Inicie sessão com a sua conta Microsoft. É aberto o **Portal de Registo da Aplicação** num novo separador. Em alternativa, pode navegar diretamente para o [Portal de Registo da Aplicação](http://apps.dev.microsoft.com) e selecionar o nome da aplicação para aceder a esta página.
+1. Expanda **Gestão de Aplicações**, selecione **WNS/MPNS**, **WNS/MPNS** e **Site dos Serviços Live**. Inicie sessão com a sua conta Microsoft. É aberto o **Portal de Registo da Aplicação** num novo separador. Em alternativa, pode navegar diretamente para o [Portal de Registo da Aplicação](https://apps.dev.microsoft.com) e selecionar o nome da aplicação para aceder a esta página.
 
     ![Página do WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   Anote a palavra-passe **Segredo da Aplicação** e o **Identificador de segurança de pacotes (SID)**.

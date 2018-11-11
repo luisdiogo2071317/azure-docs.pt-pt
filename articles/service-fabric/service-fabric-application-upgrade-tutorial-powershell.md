@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348774"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515323"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização da aplicação de Service Fabric com o PowerShell
 > [!div class="op_single_selector"]
@@ -79,13 +79,13 @@ Agora, crie o projeto ao selecionar apenas o **ActorService** projeto e, em segu
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Passo 3: Opte por utilizar as políticas de estado de funcionamento e parâmetros de atualização
 Familiarize-se com o [parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md) e o [processo de atualização](service-fabric-application-upgrade.md) para obter uma boa compreensão dos vários parâmetros de atualização, tempos limite e critério de estado de funcionamento aplicada. Nestas instruções, o critério de avaliação de estado de funcionamento do serviço é definido como a predefinição (e recomendado) valores, o que significa que todas as instâncias e serviços devem ser *bom estado de funcionamento* após a atualização.  
 
-No entanto, vamos aumentar a *HealthCheckStableDuration* como 60 segundos (para que os serviços estão em bom Estados durante, pelo menos, 20 segundos antes que a atualização prossiga para o domínio de atualização seguinte).  Vamos também definir o *UpgradeDomainTimeout* ser 1200 segundos e o *UpgradeTimeout* seja 3000 segundos.
+No entanto, vamos aumentar a *HealthCheckStableDuration* para 180 segundos (para que os serviços estão em bom Estados de, pelo menos, 120 segundos, antes que a atualização prossiga para o domínio de atualização seguinte).  Vamos também definir o *UpgradeDomainTimeout* ser 1200 segundos e o *UpgradeTimeout* seja 3000 segundos.
 
 Por fim, vamos também definir o *UpgradeFailureAction* para reversão. Esta opção requer que o Service Fabric reverter a aplicação para a versão anterior se encontrar algum problema durante a atualização. Assim, quando iniciar a atualização (no passo 4), os parâmetros seguintes são especificados:
 
 FailureAction = reversão
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 

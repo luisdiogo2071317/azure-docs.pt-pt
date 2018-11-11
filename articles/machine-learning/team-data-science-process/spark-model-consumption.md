@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: 95403e71367f111877c6f317c63811333bd054dd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 76b67112ade2d160f281533c4be7d41c98087398
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395195"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345543"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalizar modelos de aprendizagem automática criados com o Spark
-[!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
 Este tópico mostra como operacionalizar um modelo de aprendizagem guardado (ML) com o Python nos clusters do Spark do HDInsight. Ele descreve como carregar modelos de machine learning que foram criados com o Spark MLlib e armazenados no armazenamento de Blobs do Azure (WASB) e como classificá-los com conjuntos de dados que também tiverem sido armazenados no WASB. Ele mostra como processar previamente os dados de entrada, transforme recursos usando as funções de codificação e indexação no Kit de ferramentas MLlib e como criar um objeto de dados do ponto de etiquetados que pode ser utilizado como entrada para a classificação com os modelos de ML. Os modelos usados para a classificação incluem regressão Linear, regressão logística, aleatório de floresta de modelos e modelos de árvore aumentam a gradação.
 

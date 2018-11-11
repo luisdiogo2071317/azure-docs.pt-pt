@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955451"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288208"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparação entre o ponto final da v2.0 do Azure AD com o ponto final de v1.0
 
@@ -41,7 +41,7 @@ Ao desenvolver um novo aplicativo, é importante saber as diferenças entre os p
 
 * Pontos finais v1.0 e v2.0 também aceitam inícios de sessão do *[os utilizadores convidados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de um diretório do Azure AD para aplicações configuradas como *[inquilino único](single-and-multi-tenant-apps.md)* ou para *multi-inquilino* aplicações configuradas para apontar para o ponto final específico de inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-O ponto final v2.0 permite-lhe escrever aplicações que aceitam inícios de sessão de contas pessoais e profissionais e escolares, dando-lhe a capacidade de escrever a sua aplicação completamente independente de conta. Por exemplo, se a aplicação chama o [Microsoft Graph](https://graph.microsoft.io), algumas funcionalidades adicionais e os dados estarão disponíveis para contas, como seus sites do SharePoint ou dados do diretório de trabalho. Mas para muitas ações, como [ler correio de um utilizador](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), o mesmo código pode aceder ao e-mail para tanto pessoais e contas profissionais e escolares.
+O ponto final v2.0 permite-lhe escrever aplicações que aceitam inícios de sessão de contas pessoais e profissionais e escolares, dando-lhe a capacidade de escrever a sua aplicação completamente independente de conta. Por exemplo, se a aplicação chama o [Microsoft Graph](https://developer.microsoft.com/graph), algumas funcionalidades adicionais e os dados estarão disponíveis para contas, como seus sites do SharePoint ou dados do diretório de trabalho. Mas para muitas ações, como [ler correio de um utilizador](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), o mesmo código pode aceder ao e-mail para tanto pessoais e contas profissionais e escolares.
 
 Para o ponto final v2.0, pode utilizar uma única biblioteca (MSAL) para obter acesso para o consumidor, ensino e mundos da empresa.
 

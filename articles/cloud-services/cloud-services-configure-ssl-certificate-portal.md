@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
-ms.openlocfilehash: e3e7d271375cd9c3f49d8fedd963b5234dab7902
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: cf2fe10d6a0ab81ff71c948ee2defe6bc7edfd70
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001529"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300198"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurar o SSL para uma aplicação no Azure
 
@@ -80,7 +80,7 @@ A aplicação tem de ser configurada para utilizar o certificado e um ponto fina
 
    O **certificados** secção define o nome do nosso certificado, a localização e o nome do arquivo de onde está localizado.
 
-   Permissões (`permisionLevel` atributo) pode ser definido como um dos seguintes valores:
+   Permissões (`permissionLevel` atributo) pode ser definido como um dos seguintes valores:
 
    | Valor de permissão | Descrição |
    | --- | --- |

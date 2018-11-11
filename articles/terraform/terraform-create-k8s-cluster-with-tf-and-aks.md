@@ -9,17 +9,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/08/2018
-ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960248"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232329"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Criar um cluster do Kubernetes com o Azure Kubernetes Service e Terraform
 O [Azure Kubernetes Service (AKS)](/azure/aks/) faz a gestão do seu ambiente alojado do Kubernetes, permitindo implementar e gerir rápida e facilmente aplicações contentorizadas sem que sejam necessários conhecimentos em termos de orquestração de contentores. Também põe fim às tarefas de operações e manutenções contínuas ao aprovisionar, atualizar e dimensionar recursos a pedido, sem que as aplicações sejam colocadas offline.
 
-Neste tutorial, irá aprender a efetuar as seguintes tarefas na criação de um cluster de [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) através do [Terraform](http://terraform.io) e AKS:
+Neste tutorial, vai aprender a realizar as seguintes tarefas na criação de um cluster do [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) através do [Terraform](http://terraform.io) e do AKS:
 
 > [!div class="checklist"]
 > * Utilizar o HCL (HashiCorp Language) para definir um cluster do Kubernetes
@@ -30,9 +30,9 @@ Neste tutorial, irá aprender a efetuar as seguintes tarefas na criação de um 
 
 - **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Configurar o Terraform**: Siga as instruções no artigo [Terraform e configuração do acesso ao Azure](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configurar o Terraform**: siga as instruções no artigo [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) (Terraform e configuração do acesso ao Azure)
 
-- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores para appId, displayName, password, e tenant.
+- **Principal de serviço do Azure**: siga as instruções na secção **Criar o principal de serviço** no artigo [Criar um principal de serviço do Azure com a CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Tome nota dos valores de appId, displayName, password e tenant.
 
 ## <a name="create-the-directory-structure"></a>Criar a estrutura de diretórios
 O primeiro passo é criar o diretório que mantenha os seus ficheiros de configuração do Terraform para o exercício.
@@ -43,7 +43,7 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
 
     ![Comando do Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Altere os diretórios para o diretório `clouddrive`.
+1. Mude para o diretório `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -55,7 +55,7 @@ O primeiro passo é criar o diretório que mantenha os seus ficheiros de configu
     mkdir terraform-aks-k8s
     ```
 
-1. Altere os diretórios para o novo diretório:
+1. Mude para o diretório novo:
 
     ```bash
     cd terraform-aks-k8s
@@ -149,7 +149,7 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
 
     O registo **linux_profile** permite-lhe configurar as definições que permitem iniciar sessão nos nós de trabalho através do SSH.
 
-    No AKS,paga apenas os nós de trabalho. O registo **agent_pool_profile** configura os detalhes destes nós de trabalho. O **registo agent_pool_profile** inclui o número de nós de trabalho a criar e o tipo de nós de trabalho. Se precisar de aumentar verticalmente ou reduzir verticalmente o cluster futuramente, modifique o valor **count** neste registo.
+    No AKS, paga apenas os nós de trabalho. O registo **agent_pool_profile** configura os detalhes destes nós de trabalho. O **registo agent_pool_profile** inclui o número de nós de trabalho a criar e o tipo de nós de trabalho. Se precisar de aumentar verticalmente ou reduzir verticalmente o cluster futuramente, modifique o valor **count** neste registo.
 
 1. Saia do modo de inserção ao clicar na tecla **Esc**.
 
@@ -209,7 +209,7 @@ Crie o ficheiro de configuração Terraform que declare os recursos para o clust
     ```
 
 ## <a name="create-a-terraform-output-file"></a>Criar um ficheiro de saída do Terraform
-Os [ficheiros de saída do Terraform](https://www.terraform.io/docs/configuration/outputs.html) permitem-lhe definir valores que serão realçados para o utilizador quando o Terraform aplicar um plano e podem ser consultados com o comando `terraform output`. Nesta secção, crie um ficheiro de saída que permita o acesso ao cluster com [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
+Os [ficheiros de saída do Terraform](https://www.terraform.io/docs/configuration/outputs.html) permitem-lhe definir valores que serão realçados para o utilizador quando o Terraform aplicar um plano e podem ser consultados com o comando `terraform output`. Nesta secção, vai criar um ficheiro de saída que permite o acesso ao cluster com [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
 1. No Cloud Shell, crie um ficheiro com o nome `output.tf`.
 
@@ -260,7 +260,7 @@ Os [ficheiros de saída do Terraform](https://www.terraform.io/docs/configuratio
     ```
 
 ## <a name="set-up-azure-storage-to-store-terraform-state"></a>Configurar o armazenamento do Azure para armazenar estado do Terraform
-O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfstate`. Este padrão funciona bem num ambiente individual. No entanto, num ambiente mais prático com múltiplas pessoas, precisa de acompanhar o estado no servidor através do [armazenamento do Azure](/azure/storage/). Nesta secção, obtém as informações necessárias de conta de armazenamento (nome de conta e chave de conta) e cria um contentor de armazenamento no qual serão armazenadas as informações de estado do Terraform.
+O Terraform monitoriza o estado localmente através do ficheiro `terraform.tfstate`. Este padrão funciona bem num ambiente individual. No entanto, num ambiente mais prático com múltiplas pessoas, precisa de acompanhar o estado no servidor através do [armazenamento do Azure](/azure/storage/). Nesta secção, vai obter as informações necessárias da conta de armazenamento (nome e chave da conta) e criar um contentor de armazenamento no qual serão armazenadas as informações de estado do Terraform.
 
 1. No portal do Azure, selecione **Todos os serviços** no menu à esquerda.
 
@@ -372,6 +372,6 @@ As ferramentas do Kubernetes podem ser utilizadas para verificar o cluster acaba
 Neste artigo, aprendeu a utilizar o Terraform e AKS para criar o cluster do Kubernetes. Aqui estão alguns recursos adicionais para o ajudar a saber mais acerca do Terraform no Azure: 
 
  [Hub do Terraform no Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentação do fornecedor do Azure do Terraform](http://aka.ms/terraform)  
- [Origem do fornecedor do Azure do Terraform](http://aka.ms/tfgit)  
- [Módulos do Azure do Terraform](http://aka.ms/tfmodules)
+ [Documentação do fornecedor do Azure do Terraform](https://aka.ms/terraform)  
+ [Origem do fornecedor do Azure do Terraform](https://aka.ms/tfgit)  
+ [Módulos do Azure do Terraform](https://aka.ms/tfmodules)

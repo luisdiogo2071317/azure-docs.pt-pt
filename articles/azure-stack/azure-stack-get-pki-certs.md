@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945116"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514201"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Certificados de pilha do Azure, geração de pedido de assinatura
 
@@ -29,7 +29,7 @@ A ferramenta do Verificador de preparação do Azure Stack (AzsReadinessChecker)
  - **Pedidos de certificado Standard**  
     Pedido de acordo com a [gerar certificados de PKI para a implementação do Azure Stack](azure-stack-get-pki-certs.md).
  - **Plataforma-como-serviço**  
-    Opcionalmente, pedir os de nomes do plataforma-como-serviço (PaaS) para certificados conforme especificado na [requisitos de certificados de infraestrutura de chave pública do Azure Stack - certificados de PaaS opcional](azure-stack-pki-certs.md#optional-paas-certificates).
+    Pode pedir nomes de (PaaS) de plataforma-como-serviço para os certificados conforme especificado nas [requisitos de certificados de infraestrutura de chave pública do Azure Stack - certificados de PaaS opcional](azure-stack-pki-certs.md#optional-paas-certificates).
 
 
 
@@ -102,7 +102,7 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
     Para incluir serviços PaaS, especifique a opção ```-IncludePaaS```
 
-7. Em alternativa, para ambientes de Dev/Test. Para gerar um pedido de certificado único com vários nomes alternativos do requerente adicione **- RequestType SingleCSR** parâmetro e o valor (**não** recomendado para ambientes de produção):
+7. Em alternativa, para ambientes de Dev/Test, para gerar um pedido de certificado único com vários nomes alternativos do requerente adicione **- RequestType SingleCSR** parâmetro e o valor (**não** recomendado para ambientes de produção):
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem

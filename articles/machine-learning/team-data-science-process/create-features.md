@@ -1,6 +1,6 @@
 ---
-title: Engenharia no ciência de dados da funcionalidade | Microsoft Docs
-description: Explica o efeito de engenharia da funcionalidade e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem.
+title: "\"Feature Engineering\" em ciência de dados | Documentos da Microsoft"
+description: Explica a finalidade de engenharia de funcionalidades e fornece exemplos de seu papel no processo de aprimoramento de dados do machine learning.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,82 +15,85 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: b4194ef5ab1c2c09206ea0acf78cb539bc2fc0b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836522"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343997"
 ---
-# <a name="feature-engineering-in-data-science"></a>Engenharia da funcionalidade na ciência de dados
-Este artigo explica o efeito de engenharia da funcionalidade e fornece exemplos da sua função no processo de melhoramento de dados de aprendizagem. Os exemplos utilizados para ilustrar este processo são desenhados a partir do Azure Machine Learning Studio. 
+# <a name="feature-engineering-in-data-science"></a>Engenharia de funcionalidades em ciência de dados
+Este artigo explica os fins de engenharia de funcionalidades e fornece exemplos de seu papel no processo de aprimoramento de dados do machine learning. Os exemplos usados para ilustrar esse processo são obtidos a partir do Azure Machine Learning Studio. 
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
+Esta tarefa é um passo na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Isto **menu** ligações para artigos que descrevem como criar funcionalidades para os dados em vários ambientes. Esta tarefa é um passo de [processo de ciência de dados de equipa (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Tentativas de engenharia para aumentar a capacidade de previsão de algoritmos de aprendizagem através da criação de recursos de dados não processados que ajudam a facilitar o processo de aprendizado de recursos. A engenharia e a seleção de funcionalidades é parte integrante do TDSP descrito no [o que é o ciclo de vida do processo de ciência de dados de equipa?](overview.md) Engenharia de funcionalidades e seleção são partes do **desenvolver funcionalidades** passo do TDSP. 
 
-Funcionalidade engenharia tentativas para aumentar a potência preditiva de algoritmos de aprendizagem através da criação de funcionalidades de dados não processados que ajudam o facilitar o processo de aprendizagem. A seleção das funcionalidades e de engenharia é parte integrante TDSP descrito no [o que é o ciclo de vida do processo de ciência de dados de equipa?](overview.md) Engenharia da funcionalidade e seleção de são partes do **desenvolver funcionalidades** passo o TDSP. 
+* **"Feature Engineering"**: Este processo tenta para criar as funcionalidades relevantes adicionais dos recursos existentes não processados nos dados e para aumentar o poder de previsão do algoritmo de aprendizagem.
+* **seleção de funcionalidades**: Este processo seleciona o subconjunto de chave dos recursos de dados original numa tentativa de reduzir a dimensionalidade do problema de treinamento.
 
-* **engenharia da funcionalidade**: Este processo tenta criar funcionalidades relevantes adicionais a partir as funcionalidades existentes não processadas nos dados e para aumentar a potência preditiva do algoritmo do learning.
-* **seleção de funcionalidade**: Este processo seleciona o subconjunto das funcionalidades de dados original chave numa tentativa para reduzir dimensionalidade do problema formação.
+Normalmente **com engenharia** é aplicada primeiro para gerar recursos adicionais e, em seguida, o **seleção de funcionalidades** passo é realizado para eliminar recursos irrelevantes, redundantes ou altamente correlacionados.
 
-Normalmente **engenharia da funcionalidade** é aplicado primeiro ao gerar funcionalidades adicionais e, em seguida, o **seleção de funcionalidade** passo é realizado para eliminar irrelevantes, redundantes ou altamente correlacionadas funcionalidades.
+Os dados de treinamento utilizados na machine learning, muitas vezes, podem ser melhorados pela extração dos recursos dos dados brutos coletados. Um exemplo de uma funcionalidade de engenharia no contexto de aprender classificar as imagens de caracteres manuscritas é a criação de um pouco mapa de densidade construído a partir de dados de distribuição bits brutos. Este mapa pode ajudar a localizar os limites dos caracteres de forma mais eficiente do que simplesmente usar a distribuição bruta diretamente.
 
-Os dados de preparação utilizados no machine learning, muitas vezes, podem ser melhorados pela extração das funcionalidades de dados não processados recolhidos. Um exemplo de uma funcionalidade engineered no contexto de aprender a classificar as imagens de carateres handwritten é a criação de um pouco a densidade mapa construída a partir de dados de distribuição de bits não processados. Este mapa pode ajudar a localizar as extremidades de carateres de forma mais eficiente do que simplesmente utilizar a distribuição não processada diretamente.
+Criar características para dados em ambientes específicos, consulte os artigos seguintes:
+
+* [Criar características para dados no SQL Server](create-features-sql-server.md)
+* [Criar características para dados num cluster do Hadoop com consultas do Hive](create-features-hive.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="create-features-from-your-data---feature-engineering"></a>Criar as funcionalidades dos seus dados - engenharia da funcionalidade
-Os dados de preparação é composta por uma matriz composta exemplos (registos ou as observações armazenadas nas linhas), cada um dos quais tem um conjunto de funcionalidades (os campos armazenados nas colunas ou variáveis). As funcionalidades especificadas na estrutura experimental espera caracterizam os padrões nos dados. Embora muitos dos campos de dados não processados podem ser diretamente incluídos no conjunto de funcionalidade selecionada utilizado para preparar um modelo, é frequentemente as maiúsculas e minúsculas que funcionalidades adicionais (foi desenvolvidas) tem de ser construídas a partir as funcionalidades dos dados não processados para gerar um conjunto de dados de formação avançada.
+## <a name="create-features-from-your-data---feature-engineering"></a>Criar recursos dos seus dados - "feature Engineering"
+Os dados de treinamento consiste numa matriz composta por exemplos (registos ou observações armazenadas em linhas), cada um com um conjunto de recursos (variáveis ou armazenados em colunas de campos). Espera-se que os recursos especificados no experimental design caracterizam os padrões nos dados. Embora muitos dos campos de dados não processados podem ser diretamente incluídos no conjunto de funcionalidade selecionada usado para preparar um modelo, é muitas vezes o caso que funcionalidades adicionais de (engenharia) tem de ser criada a partir os recursos de dados não processados para gerar um conjunto de dados de treinamento avançado.
 
-Que tipo de funcionalidades deve ser criado para melhorar o conjunto de dados quando se prepara um modelo? Funcionalidades foi desenvolvidas que melhoram a formação fornecem informações que melhor diferencia aos padrões nos dados. Espera-se as novas funcionalidades para fornecer informações adicionais que não é claramente capturada ou facilmente aparente no conjunto de funcionalidade original ou existente. Mas este processo é algo um art. Decisões de som e produtivas frequentemente requerem alguns conhecimentos de domínio.
+Que tipo de recursos deve ser criado para melhorar o conjunto de dados quando preparar um modelo? Engenharia de funcionalidades que melhoram o treinamento fornecem informações que diferencia melhor os padrões nos dados. Espera-se que os novos recursos fornecem informações adicionais que não é claramente capturada ou facilmente aparente no conjunto de recursos existente ou original. Mas esse processo é algo de arte. Decisões de som e produtivas, muitas vezes, requerem alguma experiência de domínio.
 
-Ao iniciar com o Azure Machine Learning, é mais fácil para grasp este processo concretely com exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
+Quando a partir do Azure Machine Learning, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
 
-* Um exemplo de regressão [previsão do número de alugueres de bicicleta](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) numa experimentação supervisionada onde os valores de destino são conhecidos
-* A utilizar um exemplo do texto extração classificação [funcionalidade hash](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
+* Um exemplo de regressão [previsão do número de bicicletas alugadas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) numa experimentação supervisionada onde os valores de destino são conhecidos
+* Um através do exemplo de classificação do extração de texto [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: Adicionar funcionalidades temporais para um modelo de regressão
-Vamos utilizar a experimentação "a pedido previsão de bikes" no Azure Machine Learning Studio para demonstrar como criar funcionalidades para uma tarefa de regressão. O objetivo desta fase experimental é prever a procura de bikes, ou seja, o número de alugueres de bicicleta dentro de uma específica mês/dia/hora. O conjunto de dados "bicicleta Rental UCI conjunto de dados" é utilizado como os dados de entrada não processados. Este conjunto de dados é baseado nos dados reais anónimos da empresa Capital Bikeshare que mantém uma rede de rental bicicleta no Washington D.C. nos Estados Unidos. O conjunto de dados representa o número de alugueres de bicicleta dentro de uma hora específica de um dia nos anos 2011 e ano de 2012 e contém 17379 linhas e colunas de 17. O conjunto de funcionalidades em bruto contém condições Meteorologia (humidade/temperatura/vento velocidade) e o tipo do dia (feriado/dia da semana). O campo para prever é o número de "cnt", que representa os alugueres de bicicleta dentro de uma hora específica e que intervalos de 1 977.
+Vamos utilizar a experiência "previsão da procura de bicicletas" no Azure Machine Learning Studio para demonstrar como fazer a engenharia de funcionalidades para uma tarefa de regressão. O objetivo desta experiência é prever a procura por bicicletas, ou seja, o número de bicicletas alugadas dentro de uma específica mês/dia/hora. O conjunto de dados "aluguer de bicicletas UCI conjunto de dados" é utilizado como os dados de entrada não processados. Este conjunto de dados baseia-se em dados reais da empresa de Capital Bikeshare que mantém uma rede de aluguer de bicicletas em Washington DC nos Estados Unidos. O conjunto de dados representa o número de bicicletas alugadas dentro de uma hora específica de um dia nos anos de 2011 e o ano 2012 e contém 17379 linhas e colunas de 17. O conjunto de recursos não processados contém condições meteorológicas (velocidade de temperatura/umidade/vento) e o tipo do dia (feriado/dia da semana). O campo para prever é a contagem de "cnt", que representa o aluguer de bicicletas dentro de uma hora específica e que varia de 1 a 977.
 
-Com o objetivo de construir funcionalidades efeitas nos dados de formação, quatro regressão modelos são criados com o mesmo algoritmo, mas com quatro conjuntos de dados de formação diferentes. Os quatro conjuntos de dados representam os mesmos dados de entrada não processados, mas com um número crescente de funcionalidades definida. Estas funcionalidades estão agrupadas em quatro categorias:
+Com o objetivo de construção de funcionalidades em vigor nos dados de treinamento, quatro regressão modelos são criados com o mesmo algoritmo, mas com quatro conjuntos de dados de treinamento diferentes. Os quatro conjuntos de dados representam os mesmos dados de entrada não processados, mas com um número crescente de recursos do conjunto. Esses recursos são agrupados em quatro categorias:
 
-1. A fim de semana funcionalidades para o dia previsto + de = Meteorologia + feriado + dia da semana
-2. B = diversas bikes foram rented em cada 12 horas anteriores
-3. C = diversas bikes foram rented em cada um dos dias anteriores 12 na mesma hora
-4. D = diversas bikes foram rented em cada um das 12 semanas anteriores na mesma hora e o mesmo dia
+1. Um = Meteorologia + feriado + weekday + final de semana funcionalidades para o dia previsto
+2. B = número de bicicletas que foram alugados em cada um das 12 horas anteriores
+3. C = número de bicicletas que foram alugados em cada um dos últimos dias 12 na mesma hora
+4. 1!d = número de bicicletas que foram alugados em cada um das 12 semanas anteriores na mesma hora e o mesmo dia
 
-Para além de um conjunto de funcionalidade, que já existe nos dados não processados originais, os outros três conjuntos de funcionalidades são criados através da funcionalidade processos de engenharia. Definir funcionalidade B capturas a pedido muito recente para os bikes. Funcionalidade definido C capturas a procura de bikes uma hora específica. Funcionalidade definido a pedido de captura de D para bikes determinada hora e dia específico da semana. Quatro formação conjuntos de dados cada incluem um conjunto de funcionalidades, D + B, D + B + C e D + B + C + D, respetivamente.
+Além de um conjunto de funcionalidade, que já existe nos dados não processados originais, os outros três conjuntos de recursos são criados através da funcionalidade de processo de engenharia. Conjunto de recursos capturas de B muito recente procura de bicicletas. Funcionalidade definida a procura por bicicletas capturas de C numa determinada hora. Conjunto de recursos a pedido de capturas de D para bicicletas em determinada hora e dia determinado da semana. O quatro treinamento conjuntos de dados cada incluem um conjunto de recursos, A + B, A + B + C e A + B + C + D, respectivamente.
 
-Na experimentação do Azure Machine Learning, estes quatro conjuntos de dados de formação são formados através de quatro ramos do conjunto de dados de entrada pré-processado. Exceto o ramo mais à esquerda, cada um destes ramos contém um [executar Script do R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) módulo, em que as funcionalidades derivadas (funcionalidade definido B, C e D) são respetivamente construídas e anexadas ao conjunto de dados importado. A figura seguinte demonstra o script do R utilizado para criar o conjunto de funcionalidades B no segundo ramo esquerdo.
+Na experimentação do Azure Machine Learning, estes quatro conjuntos de dados de treinamento são formados por meio de quatro ramificações do conjunto de dados de entrada previamente processada. Exceto o ramo mais à esquerda, cada uma dessas agências contém um [executar Script do R](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) módulo, na qual os recursos derivados (conjunto de recursos B, C e D) são respectivamente construídos e acrescentados ao conjunto de dados importado. A figura a seguir demonstra o script de R utilizado para criar o conjunto de recursos B no segundo ramo à esquerda.
 
-![criar funcionalidades](./media/create-features/addFeature-Rscripts.png)
+![Criar recursos](./media/create-features/addFeature-Rscripts.png)
 
-Uma comparação dos resultados de desempenho dos modelos de quatro está resumida na tabela seguinte: 
+Uma comparação dos resultados do desempenho de quatro modelos é resumida na tabela a seguir: 
 
 ![comparação de resultado](./media/create-features/result1.png)
 
-Obter os melhores resultados, são apresentados as funcionalidades de D + B + C. Tenha em atenção que a taxa de erros diminui quando o conjunto de funcionalidades adicionais estão incluídos os dados de preparação. Verifica o presumption que o conjunto de funcionalidades B, C fornece informações adicionais de relevantes para a tarefa de regressão. Mas, adicionar a funcionalidade de D aparentemente, não forneça quaisquer redução adicional da taxa de erros.
+Os melhores resultados são mostrados pelas funcionalidades A + B + C. Tenha em atenção que a taxa de erros diminui quando o conjunto de funcionalidades adicionais estão incluídos nos dados de treinamento. Verifica a suposição de que o conjunto de recursos B, C informações adicionais relevantes para a tarefa de regressão. Mas adicionar a funcionalidade de D aparenta não fornecem qualquer redução adicional a taxa de erros.
 
-## <a name="example2"></a> Exemplo 2: Criar funcionalidades na extração de texto
-Engenharia da funcionalidade é amplamente aplicada em tarefas relacionadas com a extração de texto, tal como a análise de classificação e dados de sentimento do documento. Por exemplo, quando pretende classificar documentos em várias categorias, um pressuposto típico é que o word/expressões incluídos numa categoria documento são menos provável é que ocorra noutra categoria do documento. Por outras palavras, a frequência da distribuição de palavras/expressões é capaz de caracterizam categorias de documento diferente. Em aplicações de extração de texto, porque partes individuais de conteúdos de texto normalmente servirem como os dados de entrada, a funcionalidade de processos de engenharia necessária para criar as funcionalidades que envolvam word/frase frequências.
+## <a name="example2"></a> Exemplo 2: Criar recursos na extração de texto
+Engenharia de funcionalidades amplamente é aplicada em tarefas relacionadas com a extração de texto, como a análise de classificação e de sentimento do documento. Por exemplo, quando deseja classificar documentos em várias categorias, uma suposição típica é que as incluído numa categoria de documento do word/frases é menos provável que ocorram noutra categoria de documento. Em outras palavras, a frequência da distribuição de palavras/frases é capaz de caracterizam categorias diferentes de documento. Em aplicativos de extração de texto, uma vez que as partes individuais de conteúdos de texto, normalmente, servem como os dados de entrada, a funcionalidade de processo de engenharia é necessária para criar as funcionalidades que envolvam frequências palavra/expressão.
 
-Para alcançar esta tarefa, denominada uma técnica **funcionalidade hash** é aplicado a forma eficiente ativar funcionalidades de texto arbitrários para índices. Em vez de associação de cada funcionalidade de texto (palavras/expressões) para um índice específico, este funções de método por aplicar uma função de hash para as funcionalidades e utilizar os respetivos valores de hash como índices diretamente.
+Para realizar esta tarefa, uma técnica chamada **hashing de funcionalidade** é aplicada a transformar eficientemente recursos de texto arbitrário em índices. Em vez de associar cada funcionalidade de texto (palavras/frases) para um índice específico, este funções de método ao aplicar uma função de hash para os recursos e usar seus valores de hash como índices diretamente.
 
-No Azure Machine Learning, há um [funcionalidade hash](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) módulo que cria estes word/frase funcionalidades comodamente. Figura seguinte mostra um exemplo de como utilizar este módulo. O conjunto de dados de entrada contém duas colunas: a classificação de livro entre 1 e 5 e o conteúdo de revisão real. O objetivo deste [funcionalidade hash](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) módulo é para obter um bunch das novas funcionalidades que mostram a frequência de ocorrência da word(s) correspondente / rever phrase(s) dentro do livro específico. Para utilizar este módulo, conclua os seguintes passos:
+No Azure Machine Learning, existe uma [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) módulo que cria estas palavra/expressão funcionalidades convenientemente. Figura a seguir mostra um exemplo de como utilizar este módulo. O conjunto de dados de entrada contém duas colunas: a classificação de livro entre 1 e 5 e o conteúdo de revisão real. O objetivo desta [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/) módulo é para recuperar um monte de novas funcionalidades que mostram a frequência de ocorrência da word(s) correspondente / rever phrase(s) neste livro específico. Para utilizar este módulo, conclua os seguintes passos:
 
-* Em primeiro lugar, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
-* Segundo, como "bitsize de Hashing" 8, que significa a 2 ^ 8 = 256 funcionalidades serão criadas. O word fase em todo o texto será convertido para 256 índices. Os parâmetro "Hashing bitsize" intervalos entre 1 e 31. O word(s) phrase(s) são menor probabilidade de ser colocado em hash para o mesmo índice se defini-la de ser um número maior.
-* Terceira, defina o parâmetro "N-grams" como 2. Este valor obtém a frequência de ocorrência de unigrams (uma funcionalidade para cada uma única palavra) e bigrams (uma funcionalidade para cada par de palavras adjacentes) a partir do texto de entrada. O parâmetro "N-grams" intervalos de 0 a 10, que indica o número máximo de palavras sequenciais a ser incluído numa funcionalidade.  
+* Primeiro, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
+* Em segundo lugar, defina "bitsize de Hashing" como 8, que significa 2 ^ 8 = 256 funcionalidades serão criadas. O word/fase em todo o texto será convertido para 256 índices. O parâmetro "Hashing bitsize" intervalos de 1 e 31. O word(s) / phrase(s) têm menos probabilidade de ser protegido por hash para o mesmo índice se defini-la para ser um número maior.
+* Em terceiro lugar, defina o parâmetro "N-grams" como 2. Este valor é a frequência de ocorrência de unigrams (um recurso para cada palavra única) e bigrams (um recurso para cada par de palavras adjacentes), o texto de entrada. O parâmetro "N-grams" varia de 0 a 10, que indica o número máximo de sequenciais palavras a serem incluídos num recurso.  
 
-![Módulo "Funcionalidade Hashing"](./media/create-features/feature-Hashing1.png)
+![Módulo "Hashing de funcionalidade"](./media/create-features/feature-Hashing1.png)
 
-A figura seguinte mostra que estes nova funcionalidade aspeto.
+A figura seguinte mostra o que eles nova funcionalidade de aspeto.
 
-![Exemplo de "Funcionalidade Hashing"](./media/create-features/feature-Hashing2.png)
+![Exemplo de "Hashing de funcionalidade"](./media/create-features/feature-Hashing2.png)
 
 ## <a name="conclusion"></a>Conclusão
-Funcionalidades selecionadas foi desenvolvidas e aumentam a eficiência do processo de preparação, tenta extrair as informações chaves contidas nos dados. Também podem melhorar o power destes modelos de classificar os dados de entrada com precisão e prever resultados de interesse mais robustly. Engenharia da funcionalidade e a seleção também podem combinar para tornar a aprendizagem mais viáveis tractable. Isto é feito através da Otimização e, em seguida, reduzir o número de funcionalidades necessárias para calibrar os ou preparar um modelo. Matematicamente falando, as funcionalidades selecionadas para preparar o modelo são um conjunto mínimo de variáveis independentes que explicam os padrões de dados e, em seguida, prever resultados com êxito.
+Funcionalidades de engenharia e selecionadas aumentam a eficiência do processo de treinamento, que tenta extrair as informações da chave contidas nos dados. Eles também melhorem o poder desses modelos para classificar os dados de entrada com precisão e prever os resultados de interesse com mais robustez. Engenharia de funcionalidades e a seleção também podem combinar para tornar a aprendizagem mais recursos computacionais tractable. Ele faz isso, a melhorar e, em seguida, reduzindo o número de recursos necessários para calibrar ou preparar um modelo. Falando em matemática, dos recursos selecionados para preparar o modelo são um conjunto mínimo de variáveis independentes, que explicam os padrões nos dados e, em seguida, prever os resultados com êxito.
 
-Não é sempre necessariamente para efetuar a seleção de engenharia ou funcionalidade de funcionalidades. É necessária ou não depende dos dados para manualmente ou recolhidos, o algoritmo selecionado e o objetivo da experimentação.
+Nem sempre é necessariamente para efetuar a seleção de funcionalidade ou de engenharia de funcionalidades. Se for necessário ou não depende a transferência dos dados ou recolhidos, o algoritmo selecionado e o objetivo da experimentação.
 

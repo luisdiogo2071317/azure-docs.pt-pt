@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3a9fba644bd379f3f54cf07cf35c0a54029756da
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804332"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287188"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Palavra-passe sem início de sessão no telefone com a aplicação Microsoft Authenticator (pré-visualização pública)
 
@@ -37,11 +37,16 @@ Para a pré-visualização pública, um administrador tem, primeiro, adicione um
 
 ### <a name="steps-to-enable"></a>Passos para ativar
 
-1. Instalar o [versão de pré-visualização pública do módulo PowerShell do Azure Active Directory V2](https://www.powershellgallery.com/packages/AzureADPreview/).  
-2. No PowerShell, execute os dois comandos:
-   1. `Connect-AzureAD`
-      1. Na caixa de diálogo de autenticação, inicie sessão com uma conta no inquilino. A conta tem de ser um administrador de segurança ou Administrador Global.
-   2. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+Certifique-se de que tem a versão mais recente da versão de pré-visualização pública do módulo de PowerShell para Azure Active Directory V2. Pode pretender desinstalar e reinstalar para confirmar isso executando os seguintes comandos:
+
+1. `Uninstall-Module -Name AzureADPreview`
+2. `Install-Module -Name AzureADPreview`
+
+Pode ativar o telefone de palavra-passe sem início de sessão pré-visualização através dos seguintes comandos do PowerShell:
+
+1. `Connect-AzureAD`
+   1. Na caixa de diálogo de autenticação, inicie sessão com uma conta no inquilino. A conta tem de ser um administrador de segurança ou Administrador Global.
+1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Como ativar início de sessão no telefone os meus utilizadores finais?
 
@@ -61,7 +66,7 @@ Assim que o utilizador tiver a conta MFA com notificações push, configuradas n
 
 ### <a name="ad-fs-integration"></a>Integração do AD FS
 
-Quando um utilizador tiver ativado a credencial sem palavra-passe do Microsoft Authenticator, a autenticação para que o usuário sempre será predefinido para enviar uma notificação para aprovação. Essa lógica impede que os utilizadores num inquilino híbrido sejam direcionadas para AD FS para a verificação de início de sessão sem que o usuário tirar uma etapa adicional de clicar em "Use a palavra-passe em vez disso,". Este processo também irá ignorar quaisquer políticas de acesso condicional no local e fluxos de autenticação pass-through. A exceção a este processo é se um login_hint for especificado, um utilizador serão automaticamente reencaminhadas para o AD FS e ignorar a opção para utilizar a credencial sem palavra-passe.
+Quando um utilizador tiver ativado a credencial sem palavra-passe do Microsoft Authenticator, a autenticação para que o usuário sempre será predefinido para enviar uma notificação para aprovação. Essa lógica impede que os utilizadores num inquilino híbrido sejam direcionadas para AD FS para a verificação de início de sessão sem que o usuário tirar uma etapa adicional de clicar em "Use a palavra-passe em vez disso,". Este processo também irá ignorar quaisquer políticas de acesso condicional no local e fluxos de autenticação pass-through. A exceção a este processo é se um login_hint for especificado, um utilizador serão autoforwarded para o AD FS e ignorar a opção para utilizar a credencial sem palavra-passe.
 
 ### <a name="azure-mfa-server"></a>Servidor MFA do Azure
 

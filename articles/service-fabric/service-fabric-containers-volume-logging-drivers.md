@@ -3,7 +3,7 @@ title: Controladores de Volume (pré-visualização) de ficheiros do Azure de re
 description: O Service Fabric suporta ficheiros do Azure a utilizar para volumes de cópia de segurança do seu contentor. Isso está atualmente em pré-visualização.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239377"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346410"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de Volume de ficheiros do Azure do serviço Fabric (pré-visualização)
 O plug-in de volume de ficheiros do Azure é um [Plug-in de volume do Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) com base em volumes para contentores do Docker. Este plug-in de volume do Docker é empacotado como uma aplicação do Service Fabric que pode ser implementada em clusters do Service Fabric. Seu objetivo é fornecer a ficheiros do Azure com base em volumes para outras aplicações de contentor do Service Fabric que são implementadas para o cluster.
@@ -166,12 +166,11 @@ Na **Volume** elemento no fragmento acima, o plug-in de volume de ficheiros do A
 - **Destino** -esta etiqueta é a localização que o volume está mapeado para dentro do contentor em execução. Portanto, o seu destino não pode ser uma localização que já existe no seu contentor
 
 Como mostra a **DriverOption** elementos no fragmento acima, o plug-in de volume de ficheiros do Azure suporta as seguintes opções de controlador:
+- **shareName** -nome da partilha de ficheiros de ficheiros do Azure que fornece o volume para o contentor.
+- **storageAccountName** – nome da conta de armazenamento do Azure que contém o ficheiro de ficheiros do Azure de partilhar.
+- **storageAccountKey** -chave de acesso para a conta de armazenamento do Azure que contém a partilha de ficheiros de ficheiros do Azure.
+- **storageAccountFQDN** -nome de domínio associado com a conta de armazenamento. Se não for especificado storageAccountFQDN, nome de domínio será formado utilizando o suffix(.file.core.windows.net) padrão com o storageAccountName.  
 
-Suporte para opções de controlador:
-- **shareName** -nome da partilha de ficheiros de ficheiros do Azure que fornece o volume para o contentor
-- **storageAccountName** – nome da conta de armazenamento do Azure que contém o ficheiro de ficheiros do Azure de partilhar
-- **storageAccountKey** -chave de acesso para a conta de armazenamento do Azure que contém a partilha de ficheiros de ficheiros do Azure
-- **storageAccountFQDN** -nome de domínio associado com a conta de armazenamento. Se não for especificado storageAccountFQDN, nome de domínio será formado utilizando o suffix(.file.core.windows.net) padrão com o storageAccountName. 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Suporte para opções de controlador:
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>Utilizar o seu próprio volume ou o driver de registo
 Service Fabric também permite a utilização de seu próprio custom [volume](https://docs.docker.com/engine/extend/plugins_volume/) ou [registo](https://docs.docker.com/engine/admin/logging/overview/) drivers. Se o controlador de volume/registo de Docker não está instalado no cluster, pode instalá-lo manualmente utilizando os protocolos RDP/SSH. Pode efetuar a instalação com estes protocolos através de um [conjunto de dimensionamento de máquina virtual de script de inicialização](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) ou uma [SetupEntryPoint script](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

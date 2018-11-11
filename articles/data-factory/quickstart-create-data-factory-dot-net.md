@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 25a1913fba3e66e65b3c785eb6ce1738c5f00a26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954795"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247930"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar uma fábrica de dados e um pipeline com o SDK .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 As instruções neste artigo utilizam o Visual Studio 2017. Também pode utilizar o Visual Studio 2013 ou 2015.
 
 ### <a name="azure-net-sdk"></a>SDK do Azure para .NET
-Transfira e instale o [SDK do Azure para .NET](http://azure.microsoft.com/downloads/) no seu computador.
+Transfira e instale o [SDK do Azure para .NET](https://azure.microsoft.com/downloads/) no seu computador.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Criar uma Aplicação no Azure Active Directory
 Siga as instruções das secções apresentadas [neste artigo](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) para realizar as seguintes tarefas: 

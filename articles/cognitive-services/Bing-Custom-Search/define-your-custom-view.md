@@ -10,16 +10,16 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815261"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282928"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurar a sua experiência de pesquisa personalizada
 
-Uma instância de pesquisa personalizada permite-lhe personalizar a experiência de pesquisa para incluir conteúdo apenas a partir de sites que se preocupam com os seus utilizadores. Em vez de efetuar uma pesquisa de toda a web, o Bing procura apenas o setor da web que lhe interessa. Para criar a sua vista personalizada da web, utilize a pesquisa personalizada do Bing [portal](https://customsearch.ai). Para obter informações sobre o início de sessão no portal, consulte [criar a primeira instância de pesquisa personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
+Uma instância de pesquisa personalizada permite-lhe personalizar a experiência de pesquisa para incluir conteúdo apenas a partir de sites que se preocupam com os seus utilizadores. Em vez de efetuar uma pesquisa de toda a web, o Bing procura apenas o setor da web que lhe interessa. Para criar a sua vista personalizada da Web, utilize a Pesquisa Personalizada do portal [Bing](https://customsearch.ai). Para obter informações sobre o início de sessão no portal, consulte [criar a primeira instância de pesquisa personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). 
 
 O portal permite-lhe criar uma instância de pesquisa que especifica os domínios, subpáginas e páginas da Web que pretende que o Bing para pesquisar e aqueles que não quê-lo para pesquisar. Além de especificar os URLs do conteúdo que conhece, também pode fazer o portal para sugerir conteúdos que pretende adicionar à sua exibição. 
 
@@ -64,7 +64,7 @@ Da mesma forma, pode adicionar setores à lista de bloqueado (exceto não é pos
 
 ## <a name="pinned-list"></a>Lista afixada
 
-O portal também lhe permite afixar uma página Web específica na parte superior do resultado da pesquisa, se o usuário inserir um termo de pesquisa específico. O **Pinned** separador contém uma lista de pares de prazo e a página Web de consulta que especificam a página Web que é apresentado como o melhor resultado para uma consulta específica. Para obter informações sobre como afixar os resultados, consulte [ajustar classificação](#adjustrank).
+O portal permite-lhe ainda afixar uma página Web específica na parte superior do resultado da pesquisa, se o utilizador inserir um termo de pesquisa específico. O **Pinned** separador contém uma lista de pares de prazo e a página Web de consulta que especificam a página Web que é apresentado como o melhor resultado para uma consulta específica. Além disso, serão apresentadas apenas indexadas páginas da Web nas pesquisas. Para obter informações sobre como afixar os resultados, consulte [ajustar classificação](#adjustrank). 
 
 Afixar os resultados não está disponível para a pesquisa de imagens e experiências de pesquisa de vídeo.
 
@@ -176,6 +176,6 @@ Se subscrever a pesquisa personalizada ao nível apropriado (consulte a [página
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Chamar a sua pesquisa personalizada](./search-your-custom-view.md)
-- [Configurar a sua experiência de interface do Usuário alojada](./hosted-ui.md)
-- [Utilizar marcadores decoration para realçar o texto](./hit-highlighting.md)
-- [Páginas Web de página](./page-webpages.md)
+- [Configurar a sua experiência de IU alojada](./hosted-ui.md)
+- [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
+- [Paginação de páginas Web](./page-webpages.md)

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093976"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299865"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificado de infra-estrutura de chave pública do Azure Stack
 
@@ -42,7 +42,7 @@ A lista seguinte descreve os requisitos de certificados que são necessários pa
 - Para a implementação e a rotação, pode usam um único certificado que abrange todos os espaços de nomes em campos de nome do requerente e o nome alternativo do requerente (SAN) do certificado ou pode utilizar o indivíduo certificados, para cada espaço de nomes abaixo disso, o Azure Stack exigem a serviços que pretende utilizar. Ambas as abordagens requerem a utilização de carateres universais para pontos finais, onde são necessários, tal como **KeyVault** e **KeyVaultInternal**. 
 - Encriptação de PFX do certificado deve ser 3DES. 
 - O algoritmo de assinatura de certificado não deve ser SHA1. 
-- O formato de certificado tem de estar PFX, que as chaves públicas e privadas são necessárias para a instalação do Azure Stack. 
+- O formato de certificado tem de estar PFX, que as chaves públicas e privadas são necessárias para a instalação do Azure Stack. A chave privada tem de ter o atributo de chave de computador local definida.
 - A encriptação de PFX tem de ser 3DES (isto é padrão ao exportar a partir de um cliente do Windows 10 ou o arquivo de certificados do Windows Server 2016).
 - Os ficheiros pfx do certificado tem de ter um valor de "Assinatura Digital" e "KeyEncipherment" no seu campo de "Utilização de chave".
 - Os ficheiros pfx do certificado tem de ter os valores "Autenticação de servidor (1.3.6.1.5.5.7.3.1)" e "Autenticação de cliente (1.3.6.1.5.5.7.3.2)" no campo "Utilização de chave avançada".

@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ecdc6ae6c7e0c8a89d97611f41146d168bc74741
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243425"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344115"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importação de Dados em Massa e em Paralelo com Tabelas de Partição de SQL
-Este documento descreve como criar tabelas particionadas para a importação em massa rápida paralela de dados para uma base de dados do SQL Server. Para grandes volumes de dados carregamento/transferência de um banco de dados do SQL, importar dados para a BD SQL e consultas subsequentes pode ser melhorado usando *vistas e tabelas Particionadas*. 
+
+Este artigo descreve como criar tabelas particionadas para a importação em massa rápida paralela de dados para uma base de dados do SQL Server. Para grandes volumes de dados carregamento/transferência de um banco de dados do SQL, importar dados para a BD SQL e consultas subsequentes pode ser melhorado usando *vistas e tabelas Particionadas*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Criar uma nova base de dados e um conjunto de grupos de ficheiros
 * [Criar uma nova base de dados](https://technet.microsoft.com/library/ms176061.aspx), se ainda não exista.

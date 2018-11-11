@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035186"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283517"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Tutorial 6: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
@@ -26,33 +26,33 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 
 * Estão relacionados entre si. 
 * Utilize uma variedade de tipos de entidade.
-* Tem de ser agrupados e processados pela aplicação de cliente como uma unidade de informações.
+* Têm de ser agrupadas e processadas pela aplicação cliente como uma unidade de informações.
 
 **Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Utilizar o tutorial de aplicação existente
+> * Utilizar a aplicação de tutorial existente
 > * Adicionar entidade composta 
 > * Preparar
 > * Publicar
-> * Obter as intenções e entidades do ponto final
+> * Obter as intenções e as entidades do ponto final
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Utilizar a aplicação existente
-Continuar com a aplicação criada no tutorial última, com o nome **RecursosHumanos**. 
+Continue com a aplicação criada no último tutorial, com o nome **RecursosHumanos**. 
 
-Se não tiver a aplicação de RecursosHumanos no tutorial anterior, utilize os seguintes passos:
+Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seguintes passos:
 
-1.  Transfira e guarde [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
+1.  Transfira e guarde o [ficheiro JSON da aplicação](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
 2. Importe o JSON para uma nova aplicação.
 
-3. Do **Manage** na secção a **versões** separador, clonar a versão e nomeie- `composite`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter quaisquer carateres que não são válidos num URL.
+3. Na secção **Gerir**, no separador **Versões**, clone a versão e dê-lhe o nome `composite`. A clonagem é uma excelente forma de utilizar várias funcionalidades do LUIS sem afetar a versão original. Como o nome da versão é utilizado como parte da rota de URL, o nome não pode conter carateres que não sejam válidos num URL.
 
 
-## <a name="composite-entity"></a>entidade composta
+## <a name="composite-entity"></a>Entidade composta
 Crie uma entidade composta quando as entidades separadas podem ser agrupadas logicamente e este agrupamento lógico é útil para a aplicação cliente. 
 
 Nesta aplicação, o nome do funcionário é definido no **funcionário** listar entidade e inclui sinónimos de nome, endereço de e-mail, a extensão de telefone da empresa, número de telemóvel e dos EUA ID do imposto sobre Federal. 
@@ -97,7 +97,7 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sobre o **intenções** página, selecione **MoveEmployee** intenção. 
 
@@ -153,7 +153,7 @@ Os dados extraídos do ponto de extremidade devem conter essas informações e r
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Obter a intenção e entidades do ponto final 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obter as intenções e as entidades do ponto final 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 

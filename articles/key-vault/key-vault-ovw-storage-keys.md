@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: f3f310c247aea3842b5ec7a9a1409032d5bdc0bf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912922"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300228"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de armazenamento do Azure Key Vault
 
@@ -44,7 +44,7 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
 1. Depois de criar uma conta de armazenamento, execute o seguinte comando para obter o ID de recurso da conta de armazenamento, que pretende gerir
 
     ```
-    az storage account show -n storageaccountname (Copy ID out of the result of this command)
+    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
     
 2. Obter serviço do Azure Key Vault do ID aplicação principal 
@@ -56,7 +56,7 @@ Nas instruções, abaixo, está a atribuir Key Vault como um serviço para ter p
 3. Atribua a função de operador de chave de armazenamento para o Azure Key Vault Identity
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Criar um cofre de chaves de conta de armazenamento gerida.     <br /><br />

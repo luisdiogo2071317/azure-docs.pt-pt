@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257195"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515612"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -70,6 +70,17 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Foi corrigido o problema no qual os IPs públicos que foram implementadas utilizando a alocação de dinâmica método não eram a garantia de ser preservadas quando uma paragem da Desalocação é emitido. Agora são preservadas.
 
 - <!-- 3078022 - IS, ASDK --> Se uma VM foi parada-desalocada antes de 1808 não pode ser reatribuída após a atualização 1808.  Este problema é resolvido de 1809. Instâncias que foram neste estado e não foi possível iniciar podem ser iniciadas na 1809 com esta correção. A correção também evita que este problema ocorrer.
+
+<!-- 3090289 – IS, ASDK --> 
+- Foi corrigido o problema onde depois de aplicar a atualização de 1808, poderá encontrar os seguintes problemas ao implementar VMs com discos geridos:
+
+   1. Se a subscrição tiver sido criada antes da atualização de 1808, implantação de VM com Managed Disks poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos para cada subscrição:
+      1. No portal do inquilino, aceda a **subscrições** e encontrar a subscrição. Clique em **fornecedores de recursos**, em seguida, clique em **Microsoft. Compute**e, em seguida, clique em **voltar a registar**.
+      2. Na mesma subscrição, aceda a **controlo de acesso (IAM)** e certifique-se de que **disco gerido do Azure Stack –** está listado.
+   2. Se tiver configurado o ambiente multi-inquilino, a implementação de VMs numa assinatura associada um diretório de convidado poderá falhar com uma mensagem de erro interno. Para resolver o problema, siga estes passos:
+      1. Aplicar a [correção de pilha do 1808 Azure](https://support.microsoft.com/help/4471992).
+      2. Siga os passos em [este artigo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) reconfigurar cada um dos seus diretórios de convidado.
+
 
 ### <a name="changes"></a>Alterações
 
@@ -128,7 +139,7 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links ant
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-- Instale a correção de pilha mais recente do Azure para 1808 antes de aplicar 1809. Para obter mais informações, consulte [KB 4468920 – Azure Stack correção do Azure Stack correção 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- Instale a correção de pilha mais recente do Azure para 1808 antes de aplicar 1809. Para obter mais informações, consulte [KB 4471992 – Azure Stack correção do Azure Stack correção 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Subscrever o seguinte procedimento *RRS* ou *Atom* feeds para se manter atualizado com correções do Azure Stack:
@@ -157,9 +168,8 @@ Para obter mais informações sobre essas vulnerabilidades, clique nos links ant
 > [!Important]  
 > Prepare-se a implementação do Azure Stack para o anfitrião de extensão que está ativada pelo pacote de atualização seguinte. Preparar o seu sistema usando as seguintes orientações [preparar para o anfitrião de extensão para o Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+Após a instalação desta atualização, instale as correções aplicáveis. Para obter mais informações, consulte os seguintes artigos da base de dados de conhecimento, bem como nossos [política de manutenção](azure-stack-servicing-policy.md).  
+- [KB 4471993 – o Azure Stack correção Azure Stack correção 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 

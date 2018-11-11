@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: eae7f97799e38d5a4b09e3f193a84b423dced780
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/09/2018
+ms.openlocfilehash: abf41f48ffa08867fd0f06ff88da00ca65286803
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869334"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515714"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replicação de bases de dados de base de dados SQL, únicas e em pool
 
@@ -65,7 +65,7 @@ Replicação do SQL Server pode ser configurada para bases de dados únicos e em
 
 1. Crie uma publicação de replicação transacional num banco de dados do SQL Server no local.  
 2. No SQL Server no local, utilize o **Assistente de nova subscrição** ou instruções de Transact-SQL para criar um esforço para subscrição para a base de dados do Azure SQL.  
-3. O conjunto de dados inicial, normalmente, é um instantâneo que é criado pelo agente de instantâneo e distribuído e aplicado pelo agente de distribuição. O conjunto de dados inicial também podem ser fornecido por meio de uma cópia de segurança ou outros meios, como o SQL Server Integration Services.  
+3. Na base de dados SQL do Azure, o conjunto de dados inicial é um instantâneo que é criado pelo agente de instantâneo e distribuído e aplicado pelo agente de distribuição.   
 
 ### <a name="data-migration-scenario"></a>Cenário de migração de dados  
 

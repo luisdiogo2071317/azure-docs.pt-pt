@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 2d4091d8ad6a778405ee6bb916c399e0b144f21d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4156071c36b06be586b05ee98e9eeb0a9138e4bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441532"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246862"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introdução aos nós de computação do Linux num cluster HPC Pack no Azure
 Configurar uma [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) a executar uma distribuição Linux suportada de nós de computação de cluster no Azure que contém um nó principal que executam o Windows Server e muitos outros. Explore as opções para mover dados entre os nós do Linux e o nó principal do Windows do cluster. Aprenda a submeter tarefas HPC do Linux para o cluster.
@@ -186,7 +186,7 @@ Existem várias opções para mover dados entre os nós do Linux e o nó princip
 ### <a name="azure-file-storage"></a>Armazenamento de ficheiros do Azure
 O [ficheiros do Azure](https://azure.microsoft.com/services/storage/files/) serviço expõe partilhas de ficheiros utilizando o protocolo SMB 2.1 padrão. VMs do Azure e serviços cloud podem partilhar dados de ficheiros entre componentes de aplicações através de partilhas montadas e as aplicações no local podem aceder a dados de ficheiros numa partilha através da API de armazenamento de ficheiros. 
 
-Para obter passos detalhados criar uma partilha de ficheiros do Azure e montá-la no nó principal, consulte [introdução ao armazenamento de ficheiros do Azure no Windows](../../../storage/files/storage-how-to-use-files-windows.md). Para montar a partilha de ficheiros do Azure em nós do Linux, veja [como utilizar o armazenamento de ficheiros do Azure com o Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para configurar a persistência de ligações, veja [Persisting ligações aos ficheiros do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
+Para obter passos detalhados criar uma partilha de ficheiros do Azure e montá-la no nó principal, consulte [introdução ao armazenamento de ficheiros do Azure no Windows](../../../storage/files/storage-how-to-use-files-windows.md). Para montar a partilha de ficheiros do Azure em nós do Linux, veja [como utilizar o armazenamento de ficheiros do Azure com o Linux](../../../storage/files/storage-how-to-use-files-linux.md). Para configurar a persistência de ligações, veja [Persisting ligações aos ficheiros do Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx).
 
 No exemplo a seguir, crie uma partilha de ficheiros do Azure numa conta de armazenamento. Para montar a partilha no nó principal, abra uma linha de comandos e introduza os seguintes comandos:
 
@@ -271,7 +271,7 @@ Existem várias formas de submeter as tarefas para o cluster HPC Pack:
 
 Submissão de tarefas para o cluster no Azure através de ferramentas de GUI do HPC Pack e o HPC web portal são as mesmas que nos Windows nós de computação. Ver [Gestor de tarefas do HPC Pack](https://technet.microsoft.com/library/ff919691.aspx) e [como submeter tarefas de um computador de cliente no local](../../windows/hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Para submeter tarefas através da API REST, veja [criar e submeter tarefas ao utilizar a API REST no Microsoft HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Para submeter tarefas de um cliente Linux, consulte também o exemplo de Python a [SDK do HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
+Para submeter tarefas através da API REST, veja [criar e submeter tarefas ao utilizar a API REST no Microsoft HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx). Para submeter tarefas de um cliente Linux, consulte também o exemplo de Python a [SDK do HPC Pack](https://www.microsoft.com/download/details.aspx?id=47756).
 
 ## <a name="clusrun-for-linux-nodes"></a>Clusrun para nós do Linux
 O HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) ferramenta pode ser utilizada para executar comandos em nós do Linux através do Gestor de clusters HPC ou linha de comandos. Seguem-se alguns exemplos básicos.

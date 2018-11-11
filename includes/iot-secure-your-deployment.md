@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 744d9929d7f82242d2bb75452b70b11af19b3af7
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49084350"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289177"
 ---
-# <a name="secure-your-iot-deployment"></a>Proteger a sua implementação de IoT
+# <a name="secure-your-internet-of-things-iot-deployment"></a>Proteger a sua implementação de Internet das coisas (IoT)
 
 Este artigo fornece o próximo nível de detalhe para proteger a infraestrutura do Azure IoT com base em Internet das coisas (IoT). Ele contém ligações para detalhes de nível de implementação para configurar e implantar cada componente. Ele também fornece comparações de preços e opções de entre vários métodos concorrentes.
 

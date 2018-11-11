@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 86a14d12f6621524ef26e2a869d4be532105dc77
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a62af881efd4f6f3422db19850a0ce9987c6ae7b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732355"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245125"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilizar o Armazenamento do Azure com uma solução Hudson de Integração Contínua
 ## <a name="overview"></a>Descrição geral
@@ -146,7 +146,7 @@ A seguir, fornecemos uma visão geral dos componentes do serviço de Blobs.
 
 * **Conta de armazenamento**: todos os acessos ao armazenamento do Azure são feitos através de uma conta de armazenamento. Este é o mais alto nível do espaço de nomes para aceder a blobs. Uma conta pode conter um número ilimitado de contentores, desde que seu tamanho total é de menos de 100 TB.
 * **Contentor**: um contentor fornece um agrupamento de um conjunto de blobs. Todos os blobs tem de estar num contentor. Uma conta pode conter um número ilimitado de contentores. Um contentor pode armazenar um número ilimitado de blobs.
-* **Blob**: um ficheiro de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no armazenamento do Azure: blobs de bloco e de página. A maioria dos arquivos são blobs de blocos. Um único blob de blocos pode ser até 200 GB de tamanho. Este tutorial utiliza os blobs de blocos. Blobs de páginas, outro tipo de blob, podem ser até 1 TB de tamanho e são mais eficiente quando intervalos de bytes num arquivo são modificados com frequência. Para obter mais informações sobre blobs, veja [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Blob**: um ficheiro de qualquer tipo e tamanho. Existem dois tipos de blobs que podem ser armazenados no armazenamento do Azure: blobs de bloco e de página. A maioria dos arquivos são blobs de blocos. Um único blob de blocos pode ser até 200 GB de tamanho. Este tutorial utiliza os blobs de blocos. Blobs de páginas, outro tipo de blob, podem ser até 1 TB de tamanho e são mais eficiente quando intervalos de bytes num arquivo são modificados com frequência. Para obter mais informações sobre blobs, veja [Noções básicas sobre Blobs de blocos, Blobs de acréscimo e Blobs de páginas](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato de URL**: os Blobs são endereçáveis através do formato de URL seguinte:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -162,6 +162,6 @@ A seguir, fornecemos uma visão geral dos componentes do serviço de Blobs.
 * [Armazenamento do Azure SDK para Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/) (Referência do SDK do Cliente do Armazenamento do Azure)
 * [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blogue da Equipa de Armazenamento do Azure](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blogue da Equipa de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 
 Para obter mais informações, visite [Azure para programadores Java](/java/azure).

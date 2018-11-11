@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/30/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3c0ab236dd6fce10be0a50c435f04517e14c1387
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077600"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299424"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
@@ -31,15 +31,15 @@ ms.locfileid: "49077600"
 ## <a name="compute-quota-types"></a>Tipos de quota de computação 
 | **Tipo** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
-| Número máx. de máquinas virtuais | 20 | O número máximo de máquinas virtuais que uma subscrição pode criar nesta localização. |
-| Número máximo de núcleos de máquina virtual | 50 | O número máximo de núcleos que uma subscrição pode criar nesta localização (por exemplo, uma VM A3 tem quatro núcleos). |
+| Número máx. de máquinas virtuais | 50 | O número máximo de máquinas virtuais que uma subscrição pode criar nesta localização. |
+| Número máximo de núcleos de máquina virtual | 100 | O número máximo de núcleos que uma subscrição pode criar nesta localização (por exemplo, uma VM A3 tem quatro núcleos). |
 | Número máximo de número de conjuntos de disponibilidade | 10 | O número máximo de conjuntos de disponibilidade que podem ser criadas nesta localização. |
-| Define o número máximo de dimensionamento de máquinas virtuais | 20 | O número máximo de conjuntos de dimensionamento de máquinas virtuais que podem ser criadas nesta localização. |
+| Define o número máximo de dimensionamento de máquinas virtuais | 100 | O número máximo de conjuntos de dimensionamento de máquinas virtuais que podem ser criadas nesta localização. |
 
 ## <a name="storage-quota-types"></a>Tipos de quota de armazenamento 
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
-| Capacidade máxima (GB) |500 |Capacidade de armazenamento total que pode ser utilizada por uma subscrição nesta localização. |
+| Capacidade máxima (GB) |2048 |Capacidade de armazenamento total que pode ser utilizada por uma subscrição nesta localização. |
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que uma subscrição pode criar nesta localização. |
 
 > [!NOTE]  

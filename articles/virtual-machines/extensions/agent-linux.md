@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73e5e54e40223f7cd972e2bd2752add9ca82ff2b
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452348"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243884"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreendendo e usando o agente Linux do Azure
 
@@ -73,7 +73,7 @@ O fluxo de informações da plataforma para o agente ocorre por meio de dois can
 Os seguintes sistemas foram testados e funcionam com o agente Linux do Azure:
 
 > [!NOTE]
-> Esta lista poderá ser diferente da lista oficial de sistemas suportados na plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Esta lista poderá ser diferente da lista oficial de sistemas suportados na plataforma Microsoft Azure, conforme descrito aqui: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -344,6 +344,6 @@ Utilizar imagens de nuvem do Ubuntu [cloud-init](https://launchpad.net/ubuntu/+s
 
 * Para obter mais informações, consulte os seguintes recursos para configurar o ponto de montagem do disco de recurso e trocar espaço nas imagens do Ubuntu Cloud durante o aprovisionamento:
   
-  * [Wiki do Ubuntu: Configurar partições de troca](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Wiki do Ubuntu: Configurar partições de troca](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injetar dados personalizados numa máquina Virtual do Azure](../windows/classic/inject-custom-data.md)
 

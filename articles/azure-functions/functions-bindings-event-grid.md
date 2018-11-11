@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ac15b95c19fb0184e902ebb43146a76b6ba2faaf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249208"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283738"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -245,12 +245,12 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="usage"></a>Utilização
 
-Para funções c# e F # no Azure funções 1.x, pode utilizar os seguintes tipos de parâmetro para o acionador do Event Grid:
+Para C# e F# as funções no Azure funções 1.x, pode utilizar os seguintes tipos de parâmetro para o acionador do Event Grid:
 
 * `JObject`
 * `string`
 
-Para funções c# e F # nas funções do Azure 2.x, tem também a opção para utilizar o seguinte tipo de parâmetro para o acionador do Event Grid:
+Para C# e F# as funções nas funções do Azure 2.x, tem também a opção para utilizar o seguinte tipo de parâmetro para o acionador do Event Grid:
 
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Define as propriedades para os campos comuns a todos os tipos de evento.
 
@@ -358,6 +358,14 @@ Para obter mais informações sobre como criar uma subscrição, veja [o início
 ### <a name="get-the-system-key"></a>Obter a chave de sistema
 
 Pode obter a chave do sistema utilizando a seguinte API (HTTP GET):
+
+#### <a name="version-2x-runtime"></a>Versão 2.x do runtime
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
+```
+
+#### <a name="version-1x-runtime"></a>O tempo de execução do versão 1.x
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}

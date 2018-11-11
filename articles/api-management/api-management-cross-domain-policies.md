@@ -1,6 +1,6 @@
 ---
-title: Gestão de API do Azure políticas entre domínios | Microsoft Docs
-description: Saiba mais sobre as políticas de domínio cruzada disponíveis para utilização na API Management do Azure.
+title: Gestão de API do Azure políticas entre domínios | Documentos da Microsoft
+description: Saiba mais sobre as políticas entre domínios disponíveis para utilização na gestão de API do Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129039"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246655"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
-Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
-##  <a name="CrossDomainPolicies"></a>Entre as políticas de domínio  
+##  <a name="CrossDomainPolicies"></a> Políticas entre domínios  
   
--   [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -faz com que a API acessível a partir de clientes baseada no browser Adobe Flash e o Microsoft Silverlight.  
--   [CORS](api-management-cross-domain-policies.md#CORS) -adiciona os recursos de várias origens (CORS) com o suporte para uma operação ou uma API para permitir que as chamadas entre domínios de clientes baseados no browser de partilha.  
--   [JSONP](api-management-cross-domain-policies.md#JSONP) -adiciona JSON com o suporte do preenchimento (JSONP) para uma operação ou uma API para permitir que as chamadas entre domínios de clientes baseada no browser do JavaScript.  
+-   [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) -torna a API acessível a partir de clientes baseada no browser e Adobe Flash e o Microsoft Silverlight.  
+-   [CORS](api-management-cross-domain-policies.md#CORS) -adiciona recursos de várias origens (CORS) suporte a uma operação ou uma API para permitir chamadas entre domínios de clientes baseados em navegador de partilha.  
+-   [JSONP](api-management-cross-domain-policies.md#JSONP) -adiciona JSON com o suporte de preenchimento (JSONP) para uma operação ou uma API para permitir chamadas entre domínios de clientes baseada no browser de JavaScript.  
   
-##  <a name="AllowCrossDomainCalls"></a>Permitir chamadas entre domínios  
- Utilize o `cross-domain` política para tornar a API acessível a partir de clientes baseada no browser Adobe Flash e o Microsoft Silverlight.  
+##  <a name="AllowCrossDomainCalls"></a> Permitir chamadas entre domínios  
+ Utilize o `cross-domain` política para tornar a API acessível a partir de clientes baseada no browser e Adobe Flash e o Microsoft Silverlight.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -54,20 +54,20 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Requerido|  
+|Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
-|entre domínios|Elemento raiz. Elementos subordinados devem estar em conformidade com a [especificação de ficheiro de política entre domínios Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|  
+|entre domínios|Elemento raiz. Elementos subordinados têm de cumprir os [especificação do ficheiro de política entre domínios de Adobe](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
 -   **Âmbitos de política:** global  
   
-##  <a name="CORS"></a>CORS  
- O `cors` política adiciona os recursos de várias origens (CORS) com o suporte para uma operação ou uma API para permitir que as chamadas entre domínios de clientes baseados no browser de partilha.  
+##  <a name="CORS"></a> CORS  
+ O `cors` política adiciona recursos de várias origens (CORS) suporte a uma operação ou uma API para permitir chamadas entre domínios de clientes baseados em navegador de partilha.  
   
- CORS permite um browser e um servidor interagir e determinar se deve ou não permitir pedidos de várias origens específicos (ou seja, chamadas de XMLHttpRequests efetuadas a partir de JavaScript numa página web para outros domínios). Isto permite uma maior flexibilidade ao permitir apenas pedidos do mesmo origem, mas é mais seguro do que permitir que todos os pedidos de várias origens.  
+ CORS permite que um browser e um servidor para interagir e determinar se deve ou não permitir pedidos transversais à específicos (ou seja, XMLHttpRequests as chamadas feitas a partir do JavaScript numa página da web para outros domínios). Isso permite mais flexibilidade do que apenas permitir que os pedidos de mesma origem, mas é mais seguro que permitir que todos os pedidos de várias origens.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -89,7 +89,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 ```  
   
 ### <a name="example"></a>Exemplo  
- Este exemplo demonstra como suportar pedidos de pré-voo, como os com cabeçalhos personalizados ou métodos diferentes de GET e POST. Para suportar cabeçalhos personalizados e verbos HTTP adicionais, utilize o `allowed-methods` e `allowed-headers` secções conforme mostrado no exemplo seguinte.  
+ Este exemplo demonstra como suportar pedidos de simulação, tais como aqueles com cabeçalhos personalizados ou métodos que não seja GET e POST. Para suportar os cabeçalhos personalizados e ações HTTP adicionais, utilize o `allowed-methods` e `allowed-headers` secções conforme mostrado no exemplo a seguir.  
   
 ```xml  
 <cors allow-credentials="true">  
@@ -123,32 +123,32 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Requerido|Predefinição|  
+|Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|cors|Elemento raiz.|Sim|N/D|  
-|origens permitidas|Contém `origin` elementos que descrevem as origens permitidas para pedidos entre domínios. `allowed-origins`pode conter qualquer um único `origin` elemento que especifica `*` para permitir que qualquer origem, ou um ou mais `origin` elementos que contêm um URI.|Sim|N/D|  
-|origem|O valor pode ser `*` para permitir que todas as origens ou um URI que especifica uma única origem. O URI tem de incluir um esquema, anfitrião e porta.|Sim|Se a porta for omitida num URI, é utilizada a porta 80 para HTTP e é utilizada a porta 443 para HTTPS.|  
-|métodos permitido|Este elemento é necessário se métodos diferente de obter ou POST são permitidos. Contém `method` elementos que especifique os verbos HTTP suportados.|Não|Se esta secção não estiver presente, são suportadas GET e POST.|  
-|Método|Especifica um verbo de HTTP.|Pelo menos um `method` elemento é necessário se o `allowed-methods` secção está presente.|N/D|  
-|cabeçalhos permitido|Este elemento contém `header` elementos especificando os nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/D|  
-|expõe cabeçalhos|Este elemento contém `header` elementos especificando os nomes dos cabeçalhos que estarão acessíveis pelo cliente.|Não|N/D|  
-|cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um `header` elemento não é necessária no `allowed-headers` ou `expose-headers` se a secção está presente.|N/D|  
+|cors|Elemento raiz.|Sim|N/A|  
+|origens permitidas|Contém `origin` elementos que descrevem as origens permitidas para pedidos entre domínios. `allowed-origins` pode conter um único `origin` elemento que especifica `*` para permitir que qualquer origem, ou um ou mais `origin` elementos que contêm um URI.|Sim|N/A|  
+|origem|O valor pode ser uma `*` para permitir que todas as origens ou um URI que especifica uma única origem. O URI tem de incluir um esquema, o anfitrião e a porta.|Sim|Se a porta for omitida num URI, é utilizada porta 80 para HTTP e a porta 443 é utilizada para HTTPS.|  
+|métodos permitidos|Este elemento é necessário se métodos diferentes de introdução ou POST são permitidos. Contém `method` elementos que especifique os verbos HTTP suportados.|Não|Se não estiver presente nesta secção, são suportados GET e POST.|  
+|método|Especifica um verbo HTTP.|Pelo menos um `method` elemento é necessário se o `allowed-methods` secção está presente.|N/A|  
+|cabeçalhos permitidos|Esse elemento contém `header` elementos especificando os nomes dos cabeçalhos que podem ser incluídos no pedido.|Não|N/A|  
+|Expose-headers|Esse elemento contém `header` elementos especificando os nomes dos cabeçalhos que estarão acessíveis pelo cliente.|Não|N/A|  
+|cabeçalho|Especifica um nome de cabeçalho.|Pelo menos um `header` elemento é obrigatório `allowed-headers` ou `expose-headers` se a seção estiver presente.|N/A|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Requerido|Predefinição|  
+|Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|permitir que as credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta prévia será definida para o valor deste atributo e afeta a capacidade do cliente para submeter credenciais nos pedidos entre domínios.|Não|False|  
-|verificação prévia-resultado--idade máxima|O `Access-Control-Max-Age` cabeçalho na resposta prévia será definida para o valor deste atributo e afeta a capacidade do agente de utilizador de resposta de pré-voo da cache.|Não|0|  
+|permitir que as credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor deste atributo e afetar a capacidade do cliente enviar credenciais nos pedidos entre domínios.|Não|false|  
+|simulação-resultado-max-age|O `Access-Control-Max-Age` cabeçalho na resposta de simulação será definido como o valor deste atributo e afetar a capacidade do agente de utilizador de resposta de simulação do cache.|Não|0|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
 -   **Âmbitos de política:** API, operação  
   
-##  <a name="JSONP"></a>JSONP  
- O `jsonp` política adiciona JSON com o suporte de preenchimento (JSONP) a uma operação ou uma API para permitir que as chamadas entre domínios de clientes baseada no browser do JavaScript. JSONP é um método utilizado em programas JavaScript para dados de pedido de um servidor num domínio diferente. JSONP ignora a limitação imposta pela maioria dos browsers onde o acesso a páginas web tem de estar no mesmo domínio.  
+##  <a name="JSONP"></a> JSONP  
+ O `jsonp` política adiciona JSON com o suporte de preenchimento (JSONP) para uma operação ou uma API para permitir chamadas entre domínios de clientes baseada no browser de JavaScript. JSONP é um método usado em programas de JavaScript para dados de pedidos de um servidor num domínio diferente. JSONP ignora a limitação imposta pela maioria dos navegadores da web em que o acesso às páginas da web tem de estar no mesmo domínio.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -162,33 +162,33 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 <jsonp callback-parameter-name="cb" />  
 ```  
   
- Se chamar o método sem o parâmetro de chamada de retorno? cb = XXX devolverá JSON simples (sem um dispositivo de moldagem de chamada de função).  
+ Se chamar o método sem o parâmetro de retorno de chamada? cb = XXX irá devolver JSON simples (sem um wrapper de chamada de função).  
   
- Se adicionar o parâmetro de chamada de retorno `?cb=XXX` irá devolver um resultado JSONP, original JSON de encapsulamento de aplicações, como os resultados à volta a função de chamada de retorno`XYZ('<json result goes here>');`  
+ Se adicionar o parâmetro de retorno de chamada `?cb=XXX` irá devolver um resultado JSONP, o JSON original de encapsulamento de aplicações, como resultados relativos a função de retorno de chamada `XYZ('<json result goes here>');`  
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Requerido|  
+|Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |jsonp|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Requerido|Predefinição|  
+|Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|nome de parâmetro de chamada de retorno|A chamada de função de JavaScript entre domínios prefixo com o nome de domínio completamente qualificado onde reside a função.|Sim|N/D|  
+|nome do parâmetro do retorno de chamada|A chamada de função de JavaScript entre domínios prefixada com o nome de domínio completamente qualificado, onde reside a função.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** saída  
 -   **Âmbitos de política:** global, produto, API, operação  
   
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações para trabalhar com as políticas, consulte:
+Para obter mais informações para trabalhar com políticas, consulte:
 
 + [Políticas de gestão de API](api-management-howto-policies.md)
-+ [APIs de transformação](transform-api.md)
-+ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e as respetivas definições
++ [Transforme as APIs](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e suas configurações
 + [Exemplos de política](policy-samples.md)   

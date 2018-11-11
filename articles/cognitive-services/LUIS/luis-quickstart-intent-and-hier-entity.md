@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831029"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282276"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutorial 5: extrair dados relacionados contextualmente
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, as localizações de origem e destino para uma mudança física de um edifício e escritório para outros estão relacionadas. Para gerar uma ordem de trabalho, ambos os fragmentos de dados podem ser necessários e estão relacionados entre si.  
@@ -57,7 +57,7 @@ Se não tiver a aplicação RecursosHumanos do tutorial anterior, utilize os seg
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Remover a entidade de número pré-concebida da aplicação
 Para ver toda a expressão e marcar os subordinados hierárquicos, remova temporariamente a entidade de número pré-concebida.
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecione **Entidades** no menu esquerdo.
 
@@ -83,7 +83,7 @@ Para ver toda a expressão e marcar os subordinados hierárquicos, remova tempor
 
     No tutorial [entidade de lista](luis-quickstart-intent-and-list-entity.md), um colaborador é designado por nome, endereço de e-mail, extensão do telefone, número de telemóvel ou número da segurança social. Estes números de funcionários são utilizados nas expressões. As expressões de exemplo anteriores incluem diferentes formas para anotar as localizações de origem e destino, marcadas a negrito. Algumas das expressões apenas têm destinos de propósito. Isto ajuda o LUIS a compreender como essas localizações são colocadas na expressão quando a origem não está especificada.     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Criar uma entidade de localização
 O LUIS tem de compreender o que é uma localização ao etiquetar a origem e o destino nas expressões. Se precisar de ver a expressão na vista de tokens (não processados), selecione o botão de alternar na barra acima das expressões etiquetadas como **Vista de Entidades**. Depois de alternar o comutador, o controlo está etiquetado como **Vista de Tokens**.
@@ -119,7 +119,7 @@ Adicione a entidade de número pré-concebida novamente à aplicação.
 
 1. Selecione **Entidades** no menu de navegação esquerdo.
 
-2. Selecione o botão **Gerir entidades pré-concebidas**.
+2. Selecione o botão **Adicionar entidade pré-compilada**.
 
 3. Selecione **número** na lista de entidades pré-concebidas e, em seguida, selecione **Concluído**.
 
@@ -248,6 +248,10 @@ As localizações neste exemplo, como `a-1234`, seguem um formato específico de
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="hierarchical-entities-versus-roles"></a>Entidades hierárquicas versus funções
+
+Para obter mais informações, veja [Funções versus entidades hierárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, criou uma nova intenção e adicionou expressões de exemplo para dados adquiridos contextualmente das localizações de origem e destino. Depois de a aplicação ser preparada e publicada, uma aplicação cliente pode utilizar essas informações para criar um pedido de movimentação com as informações relevantes.

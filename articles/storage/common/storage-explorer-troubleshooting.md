@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: fa73062cc2fdfa3704088f37b2e4856e134a6dfe
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979034"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281783"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de armazenamento do Azure
 
@@ -59,6 +59,9 @@ Se estiver num loop de reautenticação, ou tiver alterado o UPN de uma das suas
 1. Remover todas as contas e, em seguida, feche o Explorador de armazenamento
 2. Eliminar o. Pasta de IdentityService partir do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, pode encontrar a pasta na raiz do seu diretório do utilizador.
 3. Se estiver no Mac ou Linux, também terá de eliminar a entrada de Microsoft.Developer.IdentityService de keystore de seu sistema operacional. No Mac, o keystore é o aplicativo de "Gnome Keychain". Para o Linux, o aplicativo é normalmente chamado de "Porta-chaves", mas o nome pode ser diferente dependendo de sua distribuição.
+
+### <a name="conditional-access"></a>Acesso Condicional
+Acesso condicional não é suportado quando o Explorador de armazenamento está a ser utilizado no Windows 10, Linux ou macOS. Isso é devido a uma limitação na biblioteca do AAD utilizado pelo Explorador de armazenamento.
 
 ## <a name="mac-keychain-errors"></a>Erros de Keychain do Mac
 O macOS Keychain, às vezes, pode chegar a um Estado que provoca problemas para a biblioteca de autenticação do Explorador de armazenamento. Para obter a keychain fora do try este estado os seguintes passos:

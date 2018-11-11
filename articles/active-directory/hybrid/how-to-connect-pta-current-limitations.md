@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: acb3297b8d7af1a91563fb2f519e06bc49c65695
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ae6964b36f837931f2278ceef0b330f9badb1d71
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314623"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282718"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory autenticação pass-through: Limitações atuais
 
@@ -54,7 +54,7 @@ Ativar a sincronização de Hash de palavra-passe dá-lhe a opção de autentica
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Guia de introdução](how-to-connect-pta-quick-start.md): começar a trabalhar com a autenticação pass-through do Azure AD.
-- [Migrar do AD FS para autenticação pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
+- [Migrar do AD FS para autenticação pass-through](https://aka.ms/ADFSTOPTADPDownload) -um guia detalhado para migrar do AD FS (ou outras tecnologias de Federação) para autenticação pass-through.
 - [Bloqueio do smart](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de bloqueio inteligente no seu inquilino para proteger contas de utilizador.
 - [Análise técnica aprofundada](how-to-connect-pta-how-it-works.md): compreender como funciona a funcionalidade de autenticação pass-through.
 - [Perguntas mais frequentes sobre](how-to-connect-pta-faq.md): encontre respostas para perguntas mais frequentes sobre a funcionalidade de autenticação pass-through.

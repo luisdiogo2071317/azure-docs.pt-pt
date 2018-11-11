@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212952"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247998"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de Hyper-V para replicação do Azure e de ativação pós-falha
 
@@ -167,6 +167,6 @@ Todos os eventos de replicação de Hyper-V são registadas no registo do Hyper-
 
 Essas ferramentas podem ajudar na resolução de problemas avançada:
 
--   Para o VMM, realizar a coleção de registo do Site Recovery com o [ferramenta de plataforma de diagnóstico de suporte (SDP)](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
+-   Para o VMM, realizar a coleção de registo do Site Recovery com o [ferramenta de plataforma de diagnóstico de suporte (SDP)](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -   Para o Hyper-V sem o VMM, [baixe esta ferramenta](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab), e execute-o no anfitrião Hyper-V para recolher os registos.
 

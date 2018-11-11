@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4955c535cd033a1e4a5825303133eb2bd3eecd25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260334"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282340"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Adicionar o Log Analytics guardar pesquisas e alertas para solução de gestão (pré-visualização)
 
@@ -27,7 +27,7 @@ ms.locfileid: "51260334"
 > Esta é a documentação preliminar para a criação de soluções de gestão que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.   
 
 
-[Soluções de gestão](monitoring-solutions.md) normalmente, irá incluir [pesquisas guardadas](../log-analytics/log-analytics-queries.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../log-analytics/log-analytics-alerts.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../resource-manager-template-walkthrough.md) para que possam ser incluídos na [soluções de gestão](monitoring-solutions-creating.md).
+[Soluções de gestão](monitoring-solutions.md) normalmente, irá incluir [pesquisas guardadas](../log-analytics/log-analytics-queries.md) no Log Analytics para analisar dados recolhidos pela solução.  Podem também definir [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para notificar o utilizador ou efetuar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir o Log Analytics pesquisas guardadas e alertas numa [modelo de gestão de recursos](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) para que possam ser incluídos na [soluções de gestão](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure](monitoring-solutions-creating.md)  

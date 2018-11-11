@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: 7a3083bd757a7aa5625799724d601f99fd7e2b14
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961301"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281902"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Descrição geral do dimensionamento automático em máquinas virtuais do Microsoft Azure, serviços Cloud e aplicações Web
 Este artigo descreve o dimensionamento automático do Microsoft Azure é, seus benefícios e como começar a usá-lo.  
@@ -107,8 +107,8 @@ Pode configurar o dimensionamento automático através de
 | Aplicações Web |[Dimensionar aplicações Web](monitoring-autoscale-get-started.md) |
 | Serviços Cloud |[Dimensionamento automático um serviço em nuvem](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Máquinas virtuais: clássico |[Dimensionar conjuntos de disponibilidade de Máquina Virtual clássica](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Máquinas virtuais: Conjuntos de dimensionamento do Windows |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) |
-| Máquinas virtuais: Conjuntos de dimensionamento do Linux |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) |
+| Máquinas virtuais: Conjuntos de dimensionamento do Windows |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Máquinas virtuais: Conjuntos de dimensionamento do Linux |[Conjuntos de dimensionamento de dimensionamento de máquinas virtuais no Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Máquinas virtuais: Exemplo do Windows |[Configuração avançada do dimensionamento automático com modelos do Resource Manager para conjuntos de dimensionamento de VM](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | Serviço da Gestão de API|[Dimensionar automaticamente uma instância de gestão de API do Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

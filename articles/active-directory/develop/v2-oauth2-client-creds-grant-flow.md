@@ -17,12 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 2dc1be6b861515cf34f8dd799fa732da530e82a1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 05013905ddda232fb08e3b30892af5ac5a8320dc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985405"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289007"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>O Azure Active Directory v 2.0 e o fluxo de credenciais de cliente OAuth 2.0
 
@@ -52,7 +52,7 @@ Um caso de uso comum é usar uma ACL para executar testes de um aplicativo web o
 
 Este tipo de autorização é comum daemons e contas de serviço que precisam de aceder a dados pertencentes a utilizadores de consumidor com contas pessoais da Microsoft. Para os dados pertencentes a organizações, é recomendável que obtém a autorização necessária através de permissões de aplicação.
 
-### <a name="application-permissions"></a>Permissões de aplicação
+### <a name="application-permissions"></a>Permissões de aplicações
 Em vez de utilizar ACLs, pode usar APIs para expor um conjunto de permissões de aplicação. Uma permissão de aplicação é concedida a uma aplicação ao administrador da organização e pode ser utilizada apenas para aceder a dados pertencentes a essa organização e seus funcionários. Por exemplo, o Microsoft Graph expõe várias permissões de aplicação para fazer o seguinte:
 
 * Ler correio em todas as caixas de correio
@@ -60,7 +60,7 @@ Em vez de utilizar ACLs, pode usar APIs para expor um conjunto de permissões de
 * Enviar e-mails como um utilizador qualquer
 * Ler dados do diretório
 
-Para obter mais informações sobre as permissões de aplicação, aceda a [Microsoft Graph](https://graph.microsoft.io).
+Para obter mais informações sobre as permissões de aplicação, aceda a [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Para utilizar permissões de aplicação na sua aplicação, siga os passos que abordamos as secções seguintes.
 
@@ -177,8 +177,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | inquilino |Necessário | O inquilino do diretório do aplicativo planos operar em relação a, no formato de nome de domínio ou de GUID. |
 | client_id |Necessário |ID de aplicação que o [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuído à sua aplicação. |
 | scope |Necessário |O valor transmitido para o `scope` parâmetro neste pedido deve ser o identificador de recurso (URI de ID de aplicação) do recurso que pretende, afixação com o `.default` sufixo. No exemplo do Microsoft Graph, o valor é `https://graph.microsoft.com/.default`. Este valor informa o ponto final v2.0 que todos os aplicativos direto das permissões de que configurou para a sua aplicação, que ele deverá emitir um token para aquelas associadas com o recurso que pretende utilizar. |
-| client_assertion_type |Necessário |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Necessário | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registar o seu certificado e o formato da asserção.|
+| client_assertion_type |obrigatório |O valor tem de ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |obrigatório | Uma asserção (um JSON Web Token) que precisa para criar e assinar com o certificado é registado como as credenciais para a sua aplicação. Leia sobre [credenciais de certificado](active-directory-certificate-credentials.md) para saber como registar o seu certificado e o formato da asserção.|
 | grant_type |Necessário |Tem de ser `client_credentials`. |
 
 Tenha em atenção que os parâmetros são quase os mesmos que no caso do pedido de segredo partilhado, exceto que o parâmetro client_secret é substituído por dois parâmetros: um client_assertion_type e client_assertion.

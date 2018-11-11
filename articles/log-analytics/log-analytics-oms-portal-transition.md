@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8aec6ae3532acaaa5d039ee9db8745927c66957b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389116"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288786"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS para o Azure
 
@@ -55,7 +55,7 @@ Consulte a [perguntas comuns para a transição do portal do OMS para o portal d
 Gestão de acesso ao portal do Azure é mais rica e mais poderoso do que a gestão de acesso no Portal do OMS. Ver [gerir áreas de trabalho](log-analytics-manage-access.md#manage-accounts-and-users) para obter detalhes sobre a gestão de acesso no Log Analytics.
 
 > [!NOTE]
-> Versões anteriores deste artigo indicado que as permissões seja convertidas do portal do OMS para o portal do Azure. Esta conversa automática já não está prevista e tem de efetuar a conversão por conta própria.
+> Versões anteriores deste artigo indicado que as permissões seja convertidas do portal do OMS para o portal do Azure. Esta conversão automática já não está prevista e tem de efetuar a conversão por conta própria.
 
 Pode já ter acesso adequado no portal do Azure caso em que não precisa de fazer quaisquer alterações. Existem alguns casos em que pode não ter acesso apropriado, caso em que o administrador tem de atribuir permissões.
 

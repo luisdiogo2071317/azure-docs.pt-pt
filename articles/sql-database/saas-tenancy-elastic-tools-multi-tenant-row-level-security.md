@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242573"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242913"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-inquilino com ferramentas de base de dados elástica e segurança ao nível da linha
 
@@ -41,7 +41,7 @@ O objetivo é utilizar a biblioteca de cliente da base de dados elástica [encam
 
 - Utilizar o Visual Studio (2012 ou superior)
 - Criar três bases de dados SQL do Azure
-- Transfira o projeto de exemplo: [ferramentas elásticas de DB para SQL do Azure - partições horizontais de multi-inquilino](http://go.microsoft.com/?linkid=9888163)
+- Transfira o projeto de exemplo: [ferramentas elásticas de DB para SQL do Azure - partições horizontais de multi-inquilino](https://go.microsoft.com/?linkid=9888163)
   - Preencha as informações nas bases de dados no início do **Program.cs** 
 
 Este projeto estende aquele descrito em [ferramentas elásticas de DB para SQL do Azure - integração de Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) , adicionando suporte para bases de dados de partição horizontal do multi-inquilino. O projeto baseia-se uma aplicação de consola simples para criar blogues e publicações. O projeto inclui quatro inquilinos e duas bases de dados de partição horizontal do multi-inquilino. Esta configuração é ilustrada no diagrama anterior. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> Num projeto complexo, que poderá ter de adicionar o predicado em centenas de tabelas, que pode ser entediante. Existe um procedimento armazenado do programa auxiliar automaticamente gera uma política de segurança e adiciona um predicado em todas as tabelas num esquema. Para obter mais informações, consulte o postagem no blog em [aplicam-se a segurança ao nível da linha a todas as tabelas - script de programa auxiliar (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> Num projeto complexo, que poderá ter de adicionar o predicado em centenas de tabelas, que pode ser entediante. Existe um procedimento armazenado do programa auxiliar automaticamente gera uma política de segurança e adiciona um predicado em todas as tabelas num esquema. Para obter mais informações, consulte o postagem no blog em [aplicam-se a segurança ao nível da linha a todas as tabelas - script de programa auxiliar (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 Agora se executar novamente a aplicação de exemplo, os inquilinos ver apenas as linhas que pertençam a eles. Além disso, o aplicativo não é possível inserir linhas que pertencem aos inquilinos daquela atualmente ligado à base de dados de partição horizontal. Além disso, a aplicação não é possível atualizar o TenantId em nenhuma linha pode ver. Se a aplicação tenta efetuar um, é gerado um DbUpdateException.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Manutenção
 
 - **Adicionar novas partições horizontais**: executar o script de T-SQL para ativar a RLS em quaisquer novas partições horizontais, caso contrário, consultas nestas partições horizontais não são filtrados.
-- **Adicionar novas tabelas**: adicionar um predicado de filtro e do bloco para a política de segurança em todas as partições horizontais, sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada com um acionador de DDL, conforme descrito em [aplicam-se a segurança ao nível da linha automaticamente para tabelas recém-criado (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Adicionar novas tabelas**: adicionar um predicado de filtro e do bloco para a política de segurança em todas as partições horizontais, sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada com um acionador de DDL, conforme descrito em [aplicam-se a segurança ao nível da linha automaticamente para tabelas recém-criado (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Resumo
 
@@ -358,7 +358,7 @@ Ferramentas de base de dados elástica e segurança ao nível da linha podem ser
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e pedidos de funcionalidades
 
-Para fazer perguntas, contacte-nos sobre o [fórum de base de dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). E adicione quaisquer pedidos de funcionalidades para o [fórum de comentários de base de dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Para fazer perguntas, contacte-nos sobre o [fórum de base de dados SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). E adicione quaisquer pedidos de funcionalidades para o [fórum de comentários de base de dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

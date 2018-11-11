@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c65f5364ccd4943d1d3e703ed27099408d3a2a27
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093835"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346597"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -28,11 +28,10 @@ Quando mover os recursos, o grupo de origem e o grupo de destino estão bloquead
 Não é possível alterar a localização do recurso. Mover um recurso apenas move-o para um novo grupo de recursos. Novo grupo de recursos pode ter uma localização diferente, mas que não altera a localização do recurso.
 
 > [!NOTE]
-> Este artigo descreve como mover a oferta de contas de recursos dentro do Azure. Se pretender alterar a sua conta do Azure da oferta (por exemplo, a atualização de gratuita para pay as you go), na verdade, terá de converter a sua subscrição. 
+> Este artigo descreve como mover a oferta de contas de recursos dentro do Azure. Se pretender alterar a sua conta do Azure da oferta (por exemplo, a atualização de gratuita para pay as you go), na verdade, terá de converter a sua subscrição.
 > * Para atualizar uma versão de avaliação gratuita, consulte [atualizar a sua subscrição de avaliação gratuita ou o Microsoft Imagine Azure para pay as you go](..//billing/billing-upgrade-azure-subscription.md).
 > * Para alterar uma conta pay as you go, consulte [alterar a sua subscrição pay as you go do Azure para outra oferta](../billing/billing-how-to-switch-azure-offer.md).
 > * Se não é possível converter a subscrição [criar um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
->
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 
@@ -42,7 +41,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
   Para o Azure PowerShell, utilize:
 
-  ```powershell
+  ```azurepowershell-interactive
   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -63,14 +62,14 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
   Para o PowerShell, utilize os seguintes comandos para obter o estado do registo:
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Para registar um fornecedor de recursos, utilize:
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -112,7 +111,7 @@ Contacte [suportar](https://portal.azure.com/#blade/Microsoft_Azure_Support/Help
 
 ## <a name="validate-move"></a>Validar a movimentação
 
-O [validar a operação de movimentação](/rest/api/resources/resources/resources_validatemoveresources) permite testar o seu cenário de movimentação sem, na verdade, mover os recursos. Esta operação é utilizada para determinar se a mudança será bem sucedida. Para executar esta operação, precisa de:
+O [validar a operação de movimentação](/rest/api/resources/resources/validatemoveresources) permite testar o seu cenário de movimentação sem, na verdade, mover os recursos. Esta operação é utilizada para determinar se a mudança será bem sucedida. Para executar esta operação, precisa de:
 
 * nome do grupo de recursos de origem
 * ID de recurso do grupo de recursos de destino
@@ -325,7 +324,6 @@ Aqui estão as restrições que ainda não são suportadas:
 * Não é possível mover a conjuntos de dimensionamento de máquina virtual com o Balanceador de carga de SKU Standard ou IP público de SKU Standard
 * Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implemente novamente na subscrição nova.
 
-
 ## <a name="virtual-networks-limitations"></a>Limitações de redes virtuais
 
 Ao mover uma rede virtual, também tem de mover os recursos dependentes. Para Gateways de VPN, tem de mover os endereços IP, gateways de rede virtual e todos os recursos de ligação associada. Gateways de rede local podem estar num grupo de recursos diferente.
@@ -346,9 +344,9 @@ Ao mover uma aplicação Web _dentro da mesma subscrição_, não é possível m
 
 Se pretender mover o certificado SSL com a aplicação Web, siga estes passos:
 
-1.  Elimine o certificado carregado a partir da aplicação Web.
-2.  Mova a aplicação Web.
-3.  Carregue o certificado para a aplicação Web movido.
+1. Elimine o certificado carregado a partir da aplicação Web.
+2. Mova a aplicação Web.
+3. Carregue o certificado para a aplicação Web movido.
 
 ### <a name="moving-across-subscriptions"></a>Mover entre subscrições
 
@@ -503,7 +501,7 @@ Quando tiver concluído, foi notificado do resultado.
 
 Para mover os recursos existentes para outro grupo de recursos ou subscrição, utilize o [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) comando. O exemplo seguinte mostra como mover vários recursos para um novo grupo de recursos.
 
-```powershell
+```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId

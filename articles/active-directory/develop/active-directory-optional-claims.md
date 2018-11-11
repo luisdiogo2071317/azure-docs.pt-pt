@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914656"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345492"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Como: fornecer afirmações opcionais para a sua aplicação do Azure AD (pré-visualização pública)
 
@@ -42,7 +42,7 @@ Um dos objetivos do [ponto final v2.0 do Azure AD](active-directory-appmodel-v2-
 | Tipo de conta | Ponto final V1.0 | Ponto final v2.0  |
 |--------------|---------------|----------------|
 | Conta Microsoft pessoal  | N/d – pedidos de suporte do RPS são utilizados em vez disso | Suporte a chegar |
-| Conta do Azure AD          | Suportadas                          | Suportado com avisos      |
+| Conta do Azure AD          | Suportadas                          | Suportado com avisos |
 
 > [!IMPORTANT]
 > As aplicações que suportam contas pessoais e o Azure AD (registado através do [portal de registo de aplicação](https://apps.dev.microsoft.com)) não é possível utilizar afirmações opcionais. No entanto, as aplicações registadas para apenas Azure AD com o ponto final v2.0 podem obter as afirmações opcionais que solicitados no manifesto. No portal do Azure, pode utilizar o editor de manifesto de aplicativo no existente **registos das aplicações** experiência para editar as afirmações opcionais. No entanto, esta funcionalidade ainda não está disponível com o editor de manifesto de aplicativo no novo **registos de aplicações (pré-visualização)** experiência.
@@ -60,8 +60,6 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Hora quando o usuário autenticado pela última vez. A especificação de OpenID Connect consulte.| JWT        |           |  |
 | `tenant_region_scope`      | Região do inquilino de recursos | JWT        |           | |
-| `signin_state`             | Inicie sessão na declaração de estado   | JWT        |           | 6 retornar valores, como sinalizadores:<br> "dvc_mngd": dispositivo é gerido<br> "dvc_cmp": dispositivo está em conformidade<br> "dvc_dmjd": o dispositivo está associado a um domínio<br> "dvc_mngd_app": dispositivo é gerido através de MDM<br> "inknownntwk": o dispositivo está dentro de uma rede conhecida.<br> "kmsi": mantenha-Me com sessão iniciada no foi utilizado. <br> |
-| `controls`                 | Multivalue de afirmação que contém os controles de sessão impostos pelas políticas de acesso condicional. | JWT        |           | 3 valores:<br> "app_res": A aplicação precisa de impor restrições mais granulares. <br> "ca_enf": a imposição de acesso condicional foi diferida e ainda é necessária. <br> "no_cookie": Este token é insuficiente para o exchange para um cookie no browser. <br>  |
 | `home_oid`                 | Para os utilizadores convidados, o ID de objeto do utilizador no inquilino principal do utilizador.| JWT        |           | |
 | `sid`                      | ID de sessão utilizado para a fim de sessão de utilizador de por sessão. | JWT        |           |         |
 | `platf`                    | Plataforma de dispositivos    | JWT        |           | Restringido aos dispositivos geridos que podem verificar o tipo de dispositivo.|
@@ -76,6 +74,7 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 | `xms_pl`                   | Idioma preferido do utilizador  | JWT ||O usuário do idioma preferencial, se definir. Origem do seu inquilino principal, em cenários de acesso de convidado. Formatado LL CC ("en-us"). |
 | `xms_tpl`                  | Idioma preferencial do inquilino| JWT | | O inquilino de recursos do idioma preferencial, se definir. Formatado LL ("en"). |
 | `ztdid`                    | Implantação zero-touch ID | JWT | | A identidade de dispositivo utilizada para [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | O e-mail endereçável para este utilizador, se o utilizador tiver um.  | JWT, SAML | | Este valor está incluído por predefinição, se o utilizador é um convidado no inquilino.  Para os utilizadores geridos (aquelas dentro do inquilino), este deve ser solicitada por meio desta afirmação opcional ou, na versão 2.0 apenas, com o âmbito OpenID.  Para os utilizadores geridos, o endereço de e-mail tem de ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|  
 | `acct`             | Estado da conta de utilizadores no inquilino. | JWT, SAML | | Se o utilizador é membro do inquilino, o valor é `0`. Se forem um convidado, o valor é `1`. |
 | `upn`                      | Declaração de UserPrincipalName. | JWT, SAML  |           | Embora esta afirmação é automaticamente incluída, pode especificá-lo como uma afirmação opcional para anexar propriedades adicionais para modificar seu comportamento no caso de utilizador convidado. <br> Propriedades adicionais: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

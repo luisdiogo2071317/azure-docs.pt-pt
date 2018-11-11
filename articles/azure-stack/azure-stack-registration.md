@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/02/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 4128f5e389ac6e35f863f02ff5b09ff96fadc527
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962491"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288242"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
 Registar o Azure Stack com o Azure permite-lhe para transferir itens do marketplace do Azure e configurar relatórios de volta à Microsoft de dados de comércio. Depois de registar o Azure Stack, utilização é comunicada ao Azure commerce e pode vê-lo sob a subscrição utilizada para o registo.
 
-As informações neste artigo descrevem o registo de integrado do Azure Stack de sistemas, com o Azure. Para obter informações sobre como registar o ASDK com o Azure, consulte [registo do Azure Stack](.\asdk\asdk-register.md) na documentação do ASDK.
+As informações neste artigo descrevem o registo de integrado do Azure Stack de sistemas, com o Azure. Para obter informações sobre como registar o ASDK com o Azure, consulte [registo do Azure Stack](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) na documentação do ASDK.
 
 > [!IMPORTANT]  
 > É necessário Registro para dar suporte a todas as funcionalidades do Azure Stack, incluindo a oferta de itens no marketplace. Além disso, será estar em violação dos termos de licenciamento, se não registar ao utilizar o modelo de faturação de pagamento-como-utiliza do Azure Stack. Para saber mais sobre o Azure Stack, modelos de licenciamento, consulte a [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).

@@ -9,20 +9,20 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f618b925839d6f501635748734327293a2073b64
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1eacaa33fd5d0c70e8a1d3547fa40bf9d0d616c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384860"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282599"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver de sistema de ficheiros do Azure Blob (ABFS): um driver de armazenamento do Azure dedicado para o Hadoop
 
-Um dos métodos de acesso primária para os dados em pré-visualização do Azure Data Lake Storage Gen2 é através da [sistema de ficheiros Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Geração de armazenamento 2 do Azure Data Lake inclui um driver associado, o driver de sistema de ficheiros de Blob do Azure ou `ABFS`. ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Utilizar este controlador, muitos aplicativos e estruturas podem aceder a dados na geração 2 de armazenamento do Data Lake sem nenhum código explicitamente a referenciar o serviço de geração 2 de armazenamento do Data Lake.
+Um dos métodos de acesso primária para os dados em pré-visualização do Azure Data Lake Storage Gen2 é através da [sistema de ficheiros Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Geração 2 de armazenamento do Data Lake permite aos utilizadores de acesso de armazenamento de Blobs do Azure para um novo driver, o driver de sistema de ficheiros de Blob do Azure ou `ABFS`. ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Utilizar este controlador, muitos aplicativos e estruturas podem aceder a dados no armazenamento de Blobs do Azure sem qualquer código referenciar explicitamente a geração 2 de armazenamento do Data Lake.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Capacidade anterior: driver do Windows Azure Storage Blob
 
-O driver do Windows Azure Storage Blob ou [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) foi fornecido o suporte original para Blobs de armazenamento do Azure. Este controlador efetuada a complexa tarefa de sistema de ficheiros de mapeamento semântica (conforme exigido pela interface do sistema de ficheiros do Hadoop) para que o objeto armazenar interface no estilo exposto pelo armazenamento de Blobs do Azure. Este controlador continua a suportar esse modelo, fornecendo acesso de alto desempenho para dados armazenados em Blobs, mas contém uma quantidade significativa de código realizar esse mapeamento, tornando difícil de manter. Além disso, algumas operações, tais como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) quando aplicado aos diretórios requerem o driver para executar um grande número de operações (devido à ausência de arquivos de objeto suporte para diretórios) que, muitas vezes, leva a degradação do desempenho. O novo serviço de armazenamento do Azure Data Lake foi concebido para superar as deficiências inerentes de WASB.
+O driver do Windows Azure Storage Blob ou [controlador WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) fornecido o suporte original para o armazenamento de Blobs do Azure. Este controlador efetuada a complexa tarefa de sistema de ficheiros de mapeamento semântica (conforme exigido pela interface do sistema de ficheiros do Hadoop) para que o objeto armazenar interface no estilo exposto pelo armazenamento de Blobs do Azure. Este controlador continua a suportar esse modelo, fornecendo acesso de alto desempenho para dados armazenados em Blobs, mas contém uma quantidade significativa de código realizar esse mapeamento, tornando difícil de manter. Além disso, algumas operações, tais como [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) e [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) quando aplicado aos diretórios requerem o driver para executar um grande número de operações (devido à ausência de arquivos de objeto suporte para diretórios) que, muitas vezes, leva a degradação do desempenho. O driver ABFS foi projetado para superar as deficiências inerentes de WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>O driver de sistema de ficheiros de Blob do Azure
 

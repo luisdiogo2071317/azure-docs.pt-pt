@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313895"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344887"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Considerações de Design da Identidade Híbrida do Azure Active Directory
 Dispositivos com base no consumidor são proliferando o mundo Corporativo e baseado na nuvem aplicações do software-como-serviço (SaaS) são fáceis de adotar. Como resultado, é difícil manter o controlo de acesso dos utilizadores da aplicação em todas as plataformas internas de datacenters e na cloud.  
@@ -58,10 +58,10 @@ Irá deparar-se com o design mais adequado aos seus requisitos depois de repetir
 
 | Fase de identidade híbrida | Lista de tópico |
 | --- | --- |
-| Determinar os requisitos de identidade |[Determinar as necessidades de negócio](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Determinar requisitos de sincronização de diretórios](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Determinar os requisitos de autenticação multifator](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Definir uma estratégia de adoção de identidade híbrida](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
+| Determinar requisitos de identidade |[Determinar as necessidades de negócio](plan-hybrid-identity-design-considerations-business-needs.md)<br> [Determinar requisitos de sincronização de diretórios](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)<br> [Determinar os requisitos de autenticação multifator](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)<br> [Definir uma estratégia de adoção de identidade híbrida](plan-hybrid-identity-design-considerations-identity-adoption-strategy.md) |
 | Plano para melhorar a segurança de dados através da solução de identidade forte |[Determinar os requisitos de proteção de dados](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [Determinar os requisitos de gestão de conteúdos](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [Determinar os requisitos de controlo de acesso](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [Determinar os requisitos de resposta a incidentes](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [Definir a estratégia de proteção de dados](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
-| Plano para o ciclo de vida da identidade híbrida |[Determinar as tarefas de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Gestão de sincronização](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Determinar a estratégia de adoção de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
+| Planear para ciclo de vida da identidade híbrida |[Determinar as tarefas de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [Gestão de sincronização](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [Determinar a estratégia de adoção de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>Baixe este guia
-Pode baixar uma versão em pdf do guia de considerações de Design de identidade híbrida dos [galeria do Technet](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288). 
+## <a name="next-steps"></a>Próximos Passos
+[Determinar os requisitos de identidade](plan-hybrid-identity-design-considerations-business-needs.md)
 
