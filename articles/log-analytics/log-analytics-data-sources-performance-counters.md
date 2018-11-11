@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/19/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d03af1398f8fd714246c88308ba615ae17010b39
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 15991faa61dc5f543b1b9db491bc1669daf219cc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962032"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014215"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows e Linux origens de dados de desempenho do Log Analytics
 Contadores de desempenho no Windows e no Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  Log Analytics pode recolher contadores de desempenho em intervalos frequentes para análise quase em Tempo Real (NRT), além de agregar dados de desempenho para análise de termo mais tempo e relatórios.
@@ -227,5 +227,5 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registos que obter
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Recolher contadores de desempenho de aplicações do Linux](log-analytics-data-sources-linux-applications.md) incluindo MySQL e Apache HTTP Server.
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 * Exportar os dados recolhidos para [Power BI](log-analytics-powerbi.md) para análise e visualizações adicionais.

@@ -4,7 +4,7 @@ description: Este artigo explica como o Centro de segurança do Azure utiliza o 
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295467"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007863"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissões no Centro de segurança do Azure
 
-Centro de segurança do Azure utiliza [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
+O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.
 
 Centro de segurança avalia a configuração dos seus recursos para identificar problemas de segurança e vulnerabilidades. No Centro de segurança, apenas verá informações relacionadas com a um recurso quando for atribuída a função de proprietário, contribuinte ou leitor para a subscrição ou grupo de recursos que um recurso pertence.
 
@@ -44,7 +44,7 @@ A tabela seguinte mostra as funções e permitido ações no Centro de seguranç
 | Função | Editar política de segurança | Aplicar recomendações de segurança de um recurso | Dispensar alertas e recomendações | Ver alertas e recomendações |
 |:--- |:---:|:---:|:---:|:---:|
 | Proprietário da subscrição | X | X | X | X |
-| Contribuidor de Subscrição | X | X | X | X |
+| Contribuinte da subscrição | -- | X | X | X |
 | Proprietário do grupo de recursos | -- | X | -- | X |
 | Contribuinte do grupo de recursos | -- | X | -- | X |
 | Leitor | -- | -- | -- | X |

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 7f3a90bf0dad2d0e9c6d51e942d88fb933b8ed1f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961335"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014827"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão de informações de conector de aplicações (pré-visualização)
 
@@ -267,4 +267,4 @@ Esta solução não tem um conjunto de pesquisas de registos de exemplo mostrado
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Uso [pesquisa de registos](log-analytics-log-search.md) para ver informações detalhadas para as suas aplicações do Application Insights.
+- Uso [pesquisa de registos](log-analytics-queries.md) para ver informações detalhadas para as suas aplicações do Application Insights.

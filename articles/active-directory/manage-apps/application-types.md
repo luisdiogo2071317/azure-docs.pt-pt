@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 754a06cc8bb9cc6e660e2ac5f01ef2c40176eb05
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f483be5866715ddf253daefb197ae3dd87e02d99
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357134"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249103"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicação inesperada na minha lista de aplicações
 
@@ -59,13 +59,13 @@ Quando filtrado para **todos os aplicativos**, o **todos os aplicativos** **list
 
 2.  Quando se inscrever ou iniciar sessão para um 3<sup>rd</sup> aplicação de terceiros integrada com o Azure Active Directory. Um exemplo é [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  Quando se inscrever ou a adição de uma licença a um utilizador ou grupo a uma primeira aplicação de terceiros, como [do Microsoft Office 365](http://products.office.com/)
+3.  Quando se inscrever ou a adição de uma licença a um utilizador ou grupo a uma primeira aplicação de terceiros, como [do Microsoft Office 365](https://products.office.com/)
 
 4.  Quando adiciona um novo registo de aplicação através da criação de uma aplicação personalizada desenvolvida utilizando o [Registro do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 
 5.  Quando adiciona um novo registo de aplicação através da criação de uma aplicação personalizada desenvolvida utilizando o [portal de registo de aplicação V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal)
 
-6.  Quando adiciona uma aplicação esteja a desenvolver com o Visual Studio [métodos de autenticação do ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou [serviços ligados](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
+6.  Quando adiciona uma aplicação esteja a desenvolver com o Visual Studio [métodos de autenticação do ASP.net](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) ou [serviços ligados](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx)
 
 7.  Quando cria um objeto do principal de serviço com o [módulo Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0)
 

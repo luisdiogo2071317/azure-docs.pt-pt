@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4945bf6064f2614c1779957317d21279d09e05d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2a64b9fc7e2f13c3b9974e95d914a3d3b675d883
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964106"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006810"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para mosaicos do estruturador de vistas no Log Analytics
 Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
@@ -179,5 +179,5 @@ O **duas linhas cronológicas** mosaico apresenta os resultados de duas consulta
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para oferecer suporte as consultas em mosaicos.
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para oferecer suporte as consultas em mosaicos.
 * Adicione [partes de visualização](log-analytics-view-designer-parts.md) à sua vista personalizada.

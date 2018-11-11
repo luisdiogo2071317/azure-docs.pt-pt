@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094900"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412751"
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
 
@@ -40,11 +40,15 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
++ Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
++ Compreender o [conceito das políticas da Gestão de API do Azure](api-management-howto-policies.md).
++ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Criar uma API de teste 
 
 Os passos nesta secção mostram como criar uma API em branco sem back-end. Mostra também como adicionar uma operação à API. Chamar a operação depois de concluir os passos nesta secção produz um erro. Não obterá erros depois de concluir os passos na secção "Ativar a simulação de respostas".
+
+![Criar API em branco](./media/mock-api-responses/03-MockAPIResponses-01-CreateTestAPI.png)
 
 1. Selecione **APIs** no serviço **Gestão de API**.
 2. No menu à esquerda, selecione **+ Adicionar API**.
@@ -55,19 +59,20 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end. Most
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adicionar uma operação à API de teste
 
+![Adicionar operação à API](./media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png)
+
 1. Selecione a API que criou no passo anterior.
 2. Clique em **+ Adicionar Operação**.
-    ![Resposta da operação simulada](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
-    |Definição|Valor|Descrição|
-    |---|---|---|
-    |**Nome a apresentar**|*Chamada de teste*|O nome que é apresentado no **Portal do programador**.|
-    |**URL** (verbo HTTP)|GET|Pode escolher um dos verbos HTTP predefinidos.|
-    |**URL** |*/test*|Um caminho de URL para a API. |
-    |**Descrição**||Forneça uma descrição da operação utilizada para fornecer a documentação aos programadores que utilizam esta API no **Portal do programador**.|
-    |Separador **Consulta**||Pode adicionar parâmetros de consulta. Além de fornecer um nome e uma descrição, pode fornecer valores que podem ser atribuídos a este parâmetro. Um dos valores pode ser marcado como predefinição (opcional).|
-    |Separador **Pedido**||Pode definir os tipos de conteúdo, exemplos e esquemas do pedido. |
-    |Separador **Resposta**|Veja os passos que se seguem nesta tabela.|Defina códigos de estado de resposta, tipos de conteúdo, exemplos e esquemas.|
+    | Definição             | Valor                             | Descrição                                                                                                                                                                                   |
+    |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Nome a apresentar**    | *Chamada de teste*                       | O nome que é apresentado no **Portal do programador**.                                                                                                                                       |
+    | **URL** (verbo HTTP) | GET                               | Pode escolher um dos verbos HTTP predefinidos.                                                                                                                                         |
+    | **URL**             | */test*                           | Um caminho de URL para a API.                                                                                                                                                                       |
+    | **Descrição**     |                                   | Forneça uma descrição da operação utilizada para fornecer a documentação aos programadores que utilizam esta API no **Portal do programador**.                                                    |
+    | Separador **Consulta**       |                                   | Pode adicionar parâmetros de consulta. Além de fornecer um nome e uma descrição, pode fornecer valores que podem ser atribuídos a este parâmetro. Um dos valores pode ser marcado como predefinição (opcional). |
+    | Separador **Pedido**     |                                   | Pode definir os tipos de conteúdo, exemplos e esquemas do pedido.                                                                                                                                  |
+    | Separador **Resposta**    | Veja os passos que se seguem nesta tabela. | Defina códigos de estado de resposta, tipos de conteúdo, exemplos e esquemas.                                                                                                                           |
 
 3. Selecione o separador **Resposta**, localizado abaixo dos campos URL, Nome a apresentar e Descrição.
 4. Clique em **+ Adicionar resposta**.
@@ -79,16 +84,25 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end. Most
 
 ## <a name="enable-response-mocking"></a>Ativar a simulação de respostas
 
+![Ativar a simulação de respostas](./media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png)
+
 1. Selecione a API que criou no passo "Criar uma API de teste".
 2. Selecione a operação de teste que adicionou.
 3. Na janela à direita, clique no separador **Conceber**.
-4. Na janela **Processamento de entrada**, clique no ícone de lápis.
-5. No separador **Simulação**, selecione **Respostas estáticas** para **Comportamento de simulação**.
-6. Na caixa de texto **A Gestão de API devolve a seguinte resposta:**, escreva **200 OK, application/json**. Esta seleção indica que a API deve devolver o exemplo de resposta que definiu na secção anterior.
+4. Na janela **Processamento de entrada**, clique em **+Adicionar política**.
+5. Selecione o mosaico **Simular respostas** da galeria.
+
+    ![Mosaico da política de simulação de respostas](./media/mock-api-responses/mock-responses-policy-tile.png)
+
+6. Na caixa de texto **Respostas da Gestão de API**, escreva **200 OK, application/json**. Esta seleção indica que a API deve devolver o exemplo de resposta que definiu na secção anterior.
+
     ![Ativar a simulação de respostas](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+
 7. Clique em **Guardar**.
 
 ## <a name="test-the-mocked-api"></a>Testar a API simulada
+
+![Testar a API simulada](./media/mock-api-responses/03-MockAPIResponses-04-TestMocking.png)
 
 1. Selecione a API que criou no passo "Criar uma API de teste".
 2. Abra o separador **Testar**.
@@ -99,15 +113,15 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end. Most
 
 4. Selecione **Enviar** para efetuar uma chamada de teste.
 5. A **resposta de HTTP** apresenta o JSON fornecido como um exemplo na primeira secção do tutorial.
+
     ![Ativar a simulação de respostas](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
-> 
-> 
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]

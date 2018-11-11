@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 54a506b509ca1b6129a549589da3f2d18068a82f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115442"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250735"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migração de Contoso: realojar a uma aplicação no local em VMs do Azure e o grupo de Disponibilidade AlwaysOn do SQL Server
 
@@ -416,7 +416,7 @@ Após a ativação pós-falha, a Contoso quer ser capaz de ligar a VMs do Azure.
 Além disso, quando executam uma ativação pós-falha que precisam verificar o seguinte:
 
 - Não deve haver nenhuma atualização do Windows pendentes na VM quando acionar uma ativação pós-falha. Se existirem, os utilizadores não será possível iniciar sessão na VM, enquanto a atualização for concluída.
-- Após a ativação pós-falha, pode verificar **diagnósticos de arranque** para ver uma captura de ecrã da VM. Se não funcionar, deve verificar que a VM está em execução e revisá-los [sugestões de resolução de problemas](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Após a ativação pós-falha, pode verificar **diagnósticos de arranque** para ver uma captura de ecrã da VM. Se não funcionar, deve verificar que a VM está em execução e revisá-los [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 
 **Precisa de mais ajuda?**

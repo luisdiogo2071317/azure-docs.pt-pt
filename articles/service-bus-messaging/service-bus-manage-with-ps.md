@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: cc15947c5ed06d85d95d12aa448624533dc292d3
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 61869787304d8acaff00e13b52e557b878a795a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393159"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250378"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utilize o PowerShell para gerir recursos do Service Bus
 
@@ -168,8 +168,8 @@ Pode utilizar o [módulo do PowerShell do Service Bus](/powershell/module/azurer
 
 Existem algumas maneiras alternativas para gerir entidades do Service Bus, conforme descrito em dessas postagens de blog:
 
-* [Como criar filas, tópicos e subscrições através de um script do PowerShell do Service Bus](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Como criar um espaço de nomes do Service Bus e um Hub de eventos utilizando um script do PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Como criar filas, tópicos e subscrições através de um script do PowerShell do Service Bus](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Como criar um espaço de nomes do Service Bus e um Hub de eventos utilizando um script do PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 * [Scripts do PowerShell do Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

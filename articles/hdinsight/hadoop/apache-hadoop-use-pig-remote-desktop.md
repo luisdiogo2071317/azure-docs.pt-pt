@@ -2,19 +2,19 @@
 title: Utilizar o Pig de Hadoop com o ambiente de trabalho remoto no HDInsight - Azure
 description: Saiba como utilizar o comando de Pig para executar as instruções em Pig Latin numa ligação de ambiente de trabalho remoto num cluster de Hadoop baseado em Windows no HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 224722c61a653eae55bc1351e91e6288bc793fb6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049868"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007234"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Executar tarefas do Pig a partir de uma ligação de ambiente de trabalho remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]

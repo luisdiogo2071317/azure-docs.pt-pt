@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: d49360fe39b0df7fc1172c3927e8725af10f927d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963885"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011056"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -251,7 +251,7 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém dispositi
 
 ## <a name="log-analytics-search"></a>Pesquisa do log Analytics 
 
-Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [de pesquisa do Log Analytics](log-analytics-log-search.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
+Todos os dados que é páginas graficamente expostas através do dashboard de Monitor de desempenho de rede e a desagregação também está disponível nativamente no [de pesquisa do Log Analytics](log-analytics-queries.md). Pode efetuar análises interativas de dados no repositório e correlacione dados de origens diferentes. Também pode criar vistas e alertas personalizados e exportar os dados para Excel, Power BI ou uma ligação partilhável. O **consultas comuns** área no dashboard tem algumas consultas útil que pode utilizar como ponto de partida para criar suas próprias consultas e relatórios. 
 
 ## <a name="alerts"></a>Alertas
 

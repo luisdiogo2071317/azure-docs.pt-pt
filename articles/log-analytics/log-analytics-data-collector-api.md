@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: cedebbe1ba0dcf40af0f2f001f022ffaad175c70
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 497b5b9d33ab2dea37e1017fa2d5bf2d0db66a5f
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959635"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007676"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados para o Log Analytics a partir de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Log Analytics.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -201,7 +201,7 @@ Esta tabela lista o conjunto completo de códigos de estado que o serviço pode 
 Para consultar dados submetidos pelo Log Analytics API HTTP Data Collector, pesquisa de registos com **tipo** que é igual para o **LogType** valor que especificou, anexado com **_CL**. Por exemplo, se utilizou **MyCustomLog**, em seguida, retornará a todos os registos com **tipo = MyCustomLog_CL**.
 
 >[!NOTE]
-> Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
+> Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
 
 > `MyCustomLog_CL`
 
@@ -470,6 +470,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Utilize o [API de pesquisa de registo](log-analytics-log-search.md) para recuperar dados do repositório do Log Analytics.
+- Utilize o [API de pesquisa de registo](log-analytics-queries.md) para recuperar dados do repositório do Log Analytics.
 
 - Saiba mais sobre como [criar um pipeline de dados com a API de Recoletor de dados](log-analytics-create-pipeline-datacollector-api.md) com fluxo de trabalho do Logic Apps para o Log Analytics.

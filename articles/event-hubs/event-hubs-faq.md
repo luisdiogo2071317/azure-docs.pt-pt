@@ -7,18 +7,21 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 50491515c7a553107666e29dcba2b4bd0836f409
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
-ms.translationtype: MT
+ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746234"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282446"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 
 ## <a name="general"></a>Geral
+
+### <a name="what-is-an-event-hubs-namespace"></a>O que é um espaço de nomes de Hubs de eventos?
+Um espaço de nomes é um contentor de âmbito para tópicos do Event Hub/Kafka. Ele fornece um exclusivo [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Um espaço de nomes serve como um contêiner de aplicativo que pode alojar vários tópicos do Event Hub/Kafka. 
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>O que é a diferença entre os escalões Standard e Hubs de eventos básico?
 
@@ -28,30 +31,13 @@ O escalão Standard dos Hubs de eventos do Azure fornece funcionalidades para al
 * Ligações mediadas adicionais, com uma taxa de excesso para obter mais informações que o número incluído
 * Mais do que um único [grupo de consumidores](event-hubs-features.md#consumer-groups)
 * [captura](event-hubs-capture-overview.md)
+* [Integração do Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 Para obter mais informações sobre os preços escalões, incluindo os Hubs de eventos dedicados, consulte a [os detalhes dos preços dos Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-### <a name="what-are-event-hubs-throughput-units"></a>Quais são as unidades de débito dos Hubs de eventos?
+### <a name="where-is-azure-event-hubs-available"></a>Onde os Hubs de eventos do Azure está disponível?
 
-Selecionar explicitamente as unidades de débito dos Hubs de eventos, através do portal do Azure ou modelos do Gestor de recursos de Hubs de eventos. Unidades de débito aplicam-se a todos os hubs de eventos num espaço de nomes de Hubs de eventos, e cada unidade de débito autoriza o espaço de nomes para as seguintes capacidades:
-
-* Até 1 MB por segundo de eventos de entrada (eventos enviados para um hub de eventos), mas não mais de 1000 eventos de entrada, operações de gestão ou controlo de chamadas de API por segundo.
-* Até 2 MB por segundo de eventos de saída (eventos consumidos a partir de um hub de eventos), mas não mais de 4096 eventos de saída.
-* Até 84 GB de armazenamento de eventos (suficiente para o período de retenção de 24 horas predefinido).
-
-Unidades de débito dos Hubs de eventos são cobradas à hora, com base no número máximo de unidades selecionadas durante essa hora determinada. Pode automaticamente [aumentar as unidades de débito número utilizando a ampliação automática](event-hubs-auto-inflate.md) à medida que aumenta a sua utilização.
-
-### <a name="how-are-event-hubs-throughput-unit-limits-enforced"></a>Como os limites de unidade de débito dos Hubs de eventos são impostas?
-
-Se o débito de entrada total ou a taxa de eventos de entrada total em todos os hubs de eventos num espaço de nomes exceder as permissões da unidade de débito agregada, os remetentes são limitados e recebem erros que indicam que a quota de entrada foi excedida.
-
-Se o débito de saída total ou a taxa de saída do total de eventos em todos os hubs de eventos num espaço de nomes exceder as permissões da unidade de débito agregada, os recetores limitados e recebem erros que indicam que a quota de saída foi excedida. Quotas de entrada e de saída são impostas separadamente, para que nenhum remetente possa causar o abrandamento do consumo de eventos, nem pode um recetor impedir o envio de para um hub de eventos.
-
-### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-selected"></a>Existe um limite em relação ao número de unidades de débito que podem ser selecionadas?
-
-Existe uma quota predefinida de 20 unidades de débito por espaço de nomes. Pode pedir uma quota maior de unidades de débito ao preencher um pedido de suporte. Além do limite de unidade de débito de 20 pacotes estão disponíveis em 20 e 100 unidades de débito. Tenha em atenção que a utilização de mais de 20 unidades de débito remove a capacidade de alterar o número de unidades de débito sem enviar um pedido de suporte.
-
-Utilizar o [ampliação automática](event-hubs-auto-inflate.md) recurso, pode aumentar automaticamente as unidades de débito número à medida que aumenta a sua utilização.
+Os Hubs de eventos do Azure está disponível em todas as regiões do Azure suportadas. Para obter uma lista, visite o [regiões do Azure](https://azure.microsoft.com/regions/) página.  
 
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Pode utilizar uma única ligação AMQP para enviar e receber vários dos hubs de eventos?
 
@@ -59,21 +45,101 @@ Sim, desde que todos os hubs de eventos estão no mesmo espaço de nomes.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>O que é o período de retenção máximo para eventos?
 
-Escalão Standard dos Hubs de eventos, atualmente, suporta um período de retenção máximo de 7 dias. Tenha em atenção que os hubs de eventos não se destinam a ser um arquivo de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente reproduzir um fluxo de eventos nos mesmos sistemas; Por exemplo, programar ou verificar um novo modelo de aprendizagem automática nos dados existentes. Se precisar de retenção de mensagens para além de 7 dias, permitindo [captura de Hubs de eventos](event-hubs-capture-overview.md) em seu evento hub extrai os dados do seu hub de eventos para a conta de armazenamento ou a conta de serviço do Azure Data Lake à sua escolha. Habilitar a captura implica uma cobrança com base em unidades de débito adquiridas.
+Escalão Standard dos Hubs de eventos, atualmente, suporta um período de retenção máximo de sete dias. Os hubs de eventos não se destinam como um arquivo de dados permanente. Períodos de retenção superiores a 24 horas destinam-se a cenários em que é conveniente reproduzir um fluxo de eventos nos mesmos sistemas; Por exemplo, programar ou verificar um novo modelo de aprendizagem automática nos dados existentes. Se precisar de retenção de mensagens para além dos sete dias, permitindo [captura de Hubs de eventos](event-hubs-capture-overview.md) em seu evento hub extrai os dados do seu hub de eventos para a conta de armazenamento ou a conta de serviço do Azure Data Lake à sua escolha. Habilitar a captura implica uma cobrança com base em unidades de débito adquiridas.
 
-### <a name="where-is-azure-event-hubs-available"></a>Onde os Hubs de eventos do Azure está disponível?
+### <a name="how-do-i-monitor-my-event-hubs"></a>Como posso monitorizar o meu Hubs de eventos?
+Os Hubs de eventos emite métricas exaustivas que fornecem o estado dos seus recursos para [do Azure Monitor](../azure-monitor/overview.md). Eles também permitem avaliar o estado de funcionamento geral do serviço Hubs de eventos não apenas ao nível do espaço de nomes, mas também no nível de entidade. Saiba mais sobre o que monitorizar é oferecido para [os Hubs de eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
-Os Hubs de eventos do Azure está disponível em todas as regiões do Azure suportadas. Para obter uma lista, visite o [regiões do Azure](https://azure.microsoft.com/regions/) página.  
+## <a name="apache-kakfa-integration"></a>Integração do Apache Kakfa
+
+### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>Como posso integrar o meu aplicativo existente do Kafka com os Hubs de eventos?
+Os Hubs de eventos fornece um ponto de extremidade do Kafka que pode ser utilizado por seus aplicativos existentes do Apache Kafka com base. Uma alteração de configuração é tudo o que é necessária para ter a experiência de PaaS Kafka. Ele fornece uma alternativa à execução de seu próprio cluster do Kafka. Os Hubs de eventos suporta Apache Kafka 1.0 e as versões mais recentes do cliente e funciona com seus existente Kafka aplicativos, ferramentas e estruturas. Para obter mais informações, consulte [Hubs de eventos para o repositório de Kafka](https://github.com/Azure/azure-event-hubs-for-kafka).
+
+### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>O que as alterações de configuração precisam ser feito para a minha aplicação existente comunicar com os Hubs de eventos?
+Para ligar a um Hub de eventos habilitados no Kafka, terá de atualizar as configurações de cliente do Kafka. Isso é feito ao criar um espaço de nomes de Hubs de eventos e obter o [cadeia de ligação](event-hubs-get-connection-string.md). Altere o bootstrap.servers para apontar o FQDN de Hubs de eventos e a porta para 9093. Atualizar o sasl.jaas.config para direcionar o cliente do Kafka para o ponto final de Hubs de eventos de Kafka-ativado (que é a cadeia de ligação que obteve), com corrija autenticação conforme mostrado abaixo:
+
+bootstrap.Servers={your. EVENTHUBS. FQDN}: 9093 request.timeout.ms=60000 o security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule necessário o nome de utilizador = a palavra-passe de "$ConnectionString" = "{seu. EVENTHUBS. LIGAÇÃO. CADEIA DE CARACTERES} ";
+
+Exemplo:
+
+bootstrap.Servers=dummynamespace.servicebus.Windows.NET:9093 request.timeout.ms=60000 security.protocol=SASL_SSL sasl.mechanism=PLAIN sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule necessário o nome de utilizador = "$ ConnectionString"password="Endpoint=sb://dummynamespace.servicebus.windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = 5dOntTRytoC24opYThisAsit3is2B + OGY1US/fuL3ly = ";
+
+Nota: Se sasl.jaas.config não é uma configuração suportada no sua estrutura, encontre as configurações que são utilizadas para definir o nome de utilizador do SASL e a palavra-passe e utilizá-los em vez disso. Defina o nome de utilizador para $ConnectionString e a palavra-passe para a cadeia de ligação dos Hubs de eventos.
+
+### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>O que é o tamanho de mensagens/eventos para Hubs de eventos de Kafka-ativado?
+O tamanho máximo permitido para os Hubs de eventos habilitado para o Kafka é 1MB.
+
+## <a name="throughput-units"></a>Unidades de débito
+
+### <a name="what-are-event-hubs-throughput-units"></a>Quais são as unidades de débito dos Hubs de eventos?
+Débito em Hubs de eventos define a quantidade de dados em megabytes de bytes ou o número (em milhares) de eventos de 1 KB, essa entrada e de saída através dos Hubs de eventos. Essa taxa de transferência é medida em unidades de débito (n). Comprar TUs antes de começar a utilizar o serviço de Hubs de eventos. Pode selecionar explicitamente TUs de Hubs de eventos utilizando o portal ou de modelos do Gestor de recursos de Hubs de eventos. 
+
+
+### <a name="do-throughput-units-apply-to-all-event-hubs-in-a-namespace"></a>Unidades de débito são aplicáveis a todos os hubs de eventos num espaço de nomes?
+Sim, o (n) de unidades de débito aplicam-se a todos os hubs de eventos num espaço de nomes de Hubs de eventos. Significa que compra TUs ao nível do espaço de nomes e compartilhados entre os hubs de eventos nesse espaço de nomes. Cada TU autoriza o espaço de nomes as seguintes capacidades:
+
+- Até 1 MB por segundo de eventos de entrada (eventos enviados para um hub de eventos), mas não mais de 1000 eventos de entrada, operações de gestão ou controlo de chamadas de API por segundo.
+- Até 2 MB por segundo de eventos de saída (eventos consumidos a partir de um hub de eventos), mas não mais de 4096 eventos de saída.
+- Até 84 GB de armazenamento de eventos (suficiente para o período de retenção de 24 horas predefinido).
+
+### <a name="how-are-throughput-units-billed"></a>Como são cobradas as unidades de débito?
+Unidades de débito (n) são cobradas à hora. A faturação baseia-se no número máximo de unidades que foi selecionado durante a hora especificada. 
+
+### <a name="how-can-i-optimize-the-usage-on-my-throughput-units"></a>Como posso otimizar a utilização nas minhas unidades de débito?
+Pode iniciar como tão baixo como uma unidade de débito (TU) e ative [ampliação automática](event-hubs-auto-inflate.md). A ampliação automática funcionalidade permite-lhe aumentar sua TUs à medida que aumenta o tráfego de/payload. Também pode definir um limite superior no número de TUs.
+
+### <a name="how-does-auto-inflate-feature-of-event-hubs-work"></a>Como funciona a funcionalidade de ampliação automática dos Hubs de eventos?
+O a ampliação automática permite a funcionalidade que aumenta verticalmente as unidades de débito (n). Isso significa que pode iniciar com a compra TUs baixas e ampliação automática escalas de segurança de sua TUs à medida que aumenta a sua entrada. Ele fornece uma opção rentável e o controle total do número de TUs para gerir. Esta funcionalidade é uma **vertical apenas** funcionalidade e pode controlar completamente a reduzir verticalmente o número de TUs ao atualizá-los. 
+
+Pode querer começar com baixa unidades de débito (n), por exemplo, 2 TUs. Se prever que o tráfego pode aumentar de 15 TUs, ativar à ampliação automática funcionalidade no seu espaço de nomes e defina o limite máximo de 15 TUs. Agora pode aumentar sua TUs automaticamente à medida que o seu tráfego aumenta.
+
+### <a name="is-there-a-cost-associated-when-i-turn-on-the-auto-inflate-feature"></a>Existe um custo associado quando posso ativar a funcionalidade de ampliação automática?
+Há **sem custos** associados a esta funcionalidade. 
+
+### <a name="how-are-throughput-limits-enforced"></a>Como os limites de débito são impostas?
+Se o débito de entrada total ou a taxa de eventos de entrada total em todos os hubs de eventos num espaço de nomes exceder as permissões da unidade de débito agregada, os remetentes são limitados e recebem erros que indicam que a quota de entrada foi excedida.
+
+Se o débito de saída total ou a taxa de saída do total de eventos em todos os hubs de eventos num espaço de nomes exceder as permissões da unidade de débito agregada, os recetores limitados e recebem erros que indicam que a quota de saída foi excedida. Quotas de entrada e de saída são impostas separadamente, para que nenhum remetente possa causar o abrandamento do consumo de eventos, nem pode um recetor impedir o envio de para um hub de eventos.
+
+### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Existe um limite no número de unidades de débito (n) que podem ser reservados/selecionado?
+Na oferta do multi-inquilino, unidades de débito podem crescer até 40 TUs (pode selecionar até 20 TUs no portal e emitir um pedido de suporte para atualizá-lo com 40 TUs no mesmo espaço de nomes). Para além dos 40 TUs, os Hubs de eventos oferece o modelo baseado em recursos/capacidade chamado os **clusters de Hubs de eventos dedicados**. Clusters dedicados são vendidos em unidades de capacidade (CUs).
+
+## <a name="dedicated-clusters"></a>Clusters dedicados
+
+### <a name="what-are-event-hubs-dedicated-clusters"></a>Quais são os clusters de Hubs de eventos dedicados?
+Clusters de dedicado de Hubs de eventos oferecem implementações de inquilino único para os clientes com requisitos mais exigentes. Esta oferta baseia-se um cluster baseado em capacidades que não está vinculado pelas unidades de débito. Isso significa que poderia utilizar o cluster para ingerir e transmitir os seus dados conforme ditado pela utilização de CPU e memória do cluster. Para obter mais informações, consulte [clusters de Hubs de eventos dedicados](event-hubs-dedicated-overview.md).
+
+### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Quanto uma unidade de capacidade único permite-me obter?
+Para um cluster dedicado, quanto pode ingerir e transmitir em fluxo depende de vários fatores, tais como os produtores, os consumidores, a taxa a que são a ingerir e processar e muito mais. 
+
+Tabela a seguir mostra os resultados do benchmark que obtivemos durante os nossos testes:
+
+| Forma de payload | Recetores | Largura de banda de entrada| Mensagens de entrada | Largura de banda de saída | Mensagens de saída | Total TUs | TUs por CU |
+| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
+| Lotes de 100x1KB | 2 | 400 MB/seg | 400 mil msgs/seg | 800 MB/seg | 800 k msgs/seg | 400 TUs | 100 TUs | 
+| Lotes de 10x10KB | 2 | 666 MB/seg | 66.6 k msgs/seg | 1.33 GB/seg | 133 k msgs/seg | 666 TUs | 166 TUs |
+| Lotes de 6x32KB | 1 | 1,05 GB/seg | 34 k msgs / seg | 1,05 GB/seg | 34 k msgs/seg | 1000 TUs | 250 TUs |
+
+No teste, utilizou-se os seguintes critérios:
+
+- Um cluster de Hubs de eventos dedicado com quatro unidades de capacidade (CUs) foi utilizado. 
+- O hub de eventos utilizado para ingestão tinha 200 partições. 
+- Os dados que foi ingeridos recebeu dois aplicativos de recetor recebimento de todas as partições.
+
+Os resultados dão-lhe uma ideia do que pode ser conseguido com um cluster de Hubs de eventos dedicado. Além disso, um cluster de dedicate vem com a captura de Hubs de eventos ativado para os seus cenários de retenção de micro-lotes e de longa duração.
+
+### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Como posso criar um cluster de Hubs de eventos dedicados?
+Criar um cluster dedicado de Hubs de eventos ao enviar um [pedido de suporte de aumento de quota](https://portal.azure.com/#create/Microsoft.Support) ou contacte o [equipa dos Hubs de eventos](mailto:askeventhubs@microsoft.com). Normalmente, demora cerca de duas semanas para obter o cluster implementado e passada para ser utilizado por si. Este processo é temporário até uma completa personalizada é disponibilizado através do portal do Azure ou de modelos do Azure Resource Manager, que demora cerca de duas horas a implementar o cluster.
 
 ## <a name="best-practices"></a>Melhores práticas
 
 ### <a name="how-many-partitions-do-i-need"></a>O número de partições é necessário?
 
-Tenha em atenção que o número de partições num hub de eventos não pode ser modificado após a configuração. Com isso em mente, é importante pensar sobre quantas partições terá antes de começar. 
+O número de partições num hub de eventos não pode ser modificado após a configuração. Com isso em mente, é importante pensar sobre quantas partições terá antes de começar. 
 
 Os Hubs de eventos foi concebido para permitir que um leitor de partição única por grupo de consumidores. Na maioria dos casos de utilização, a predefinição de quatro partições é suficiente. Se estiver à procura de dimensionar o processamento de eventos, poderá querer considerar a adição de partições adicionais. Não existe nenhum limite de taxa de transferência específico numa partição, no entanto, o débito agregado em seu espaço de nomes é limitado pelo número de unidades de débito. À medida que aumenta o número de unidades de débito no seu espaço de nomes, pode desejar partições adicionais para permitir que os leitores simultâneos alcançar um débito máximo seus próprios.
 
-No entanto, se tiver um modelo no qual a sua aplicação tem uma afinidade com uma partição específica, aumento do número de partições pode não ser de qualquer vantagem para si. Para obter mais informações sobre este assunto, consulte [disponibilidade e consistência](event-hubs-availability-and-consistency.md).
+No entanto, se tiver um modelo no qual a sua aplicação tem uma afinidade com uma partição específica, aumento do número de partições pode não ser de qualquer vantagem para si. Para obter mais informações, consulte [disponibilidade e consistência](event-hubs-availability-and-consistency.md).
 
 ## <a name="pricing"></a>Preços
 
@@ -83,7 +149,7 @@ Para obter informações completas sobre os preços de Hubs de eventos, consulte
 
 ### <a name="is-there-a-charge-for-retaining-event-hubs-events-for-more-than-24-hours"></a>Existe uma cobrança de retenção de eventos de Hubs de eventos para mais de 24 horas?
 
-O escalão Standard dos Hubs de eventos permitem a retenção de mensagens períodos mais de 24 horas, para um máximo de 7 dias. Se o tamanho do número total de eventos armazenados ultrapassar a concessão de armazenamento para o número de unidades de débito selecionadas (84 GB por unidade de débito), o tamanho que ultrapassar esse montante é cobrado à tarifa de armazenamento de Blobs do Azure publicada. A concessão de armazenamento em cada unidade de débito abrange todos os custos de armazenamento para períodos de retenção de 24 horas (predefinição), mesmo que a unidade de débito é utilizada a cópia de segurança para a concessão máxima de entrada.
+O escalão Standard dos Hubs de eventos permitem a retenção de mensagens períodos mais de 24 horas, para um máximo de sete dias. Se o tamanho do número total de eventos armazenados ultrapassar a concessão de armazenamento para o número de unidades de débito selecionadas (84 GB por unidade de débito), o tamanho que ultrapassar esse montante é cobrado à tarifa de armazenamento de Blobs do Azure publicada. A concessão de armazenamento em cada unidade de débito abrange todos os custos de armazenamento para períodos de retenção de 24 horas (predefinição), mesmo que a unidade de débito é utilizada a cópia de segurança para a concessão máxima de entrada.
 
 ### <a name="how-is-the-event-hubs-storage-size-calculated-and-charged"></a>Como é que o tamanho de armazenamento dos Hubs de eventos é calculado e cobrado?
 
@@ -103,9 +169,9 @@ Custos de ligação aplicam-se apenas quando é utilizado o protocolo AMQP. Não
 
 Captura é ativada quando qualquer hub de eventos no espaço de nomes tem a opção de captura ativada. Captura de Hubs de eventos é cobrada por hora por unidade de débito comprada. Como a contagem de unidades de débito aumenta ou diminui, a faturação da captura de Hubs de eventos reflete estas alterações em incrementos de hora completa. Para obter mais informações sobre a faturação da captura dos Hubs de eventos, consulte [obter informações sobre preços de Hubs de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>Feita a cobrança para a conta de armazenamento que eu selecionar para a captura de Hubs de eventos?
+### <a name="do-i-get-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>É-me faturada para a conta de armazenamento que eu selecionar para a captura de Hubs de eventos?
 
-Captura utiliza uma conta de armazenamento fornecida por si quando ativada num hub de eventos. Como esta é a sua conta de armazenamento, todas as alterações para esta configuração são faturadas na sua subscrição do Azure.
+Captura utiliza uma conta de armazenamento fornecida por si quando ativada num hub de eventos. Como é sua conta de armazenamento, todas as alterações para esta configuração são faturadas à sua subscrição do Azure.
 
 ## <a name="quotas"></a>Quotas
 

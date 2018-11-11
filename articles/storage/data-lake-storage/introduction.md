@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: c86609ae5b993328beced468b74c7f2a1b65def4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060197"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283619"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução à pré-visualização do Azure Data Lake Storage geração 2
 
-Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, criado sobre [armazenamento de Blobs do Azure](../blobs/storage-blobs-introduction.md). Permite-lhe interagir com os dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro. Isso torna a geração 2 de armazenamento do Data Lake o serviço de apenas armazenamento em multimodal baseado na nuvem, permitindo-lhe extrair o valor de análise de todos os seus dados.
+Pré-visualização da geração 2 do armazenamento do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, incorporado ao [armazenamento de Blobs do Azure](../blobs/storage-blobs-introduction.md). Permite-lhe interagir com os dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro. A adição de geração 2 de armazenamento do Data Lake torna a única plataforma baseada na cloud multimodal, permitindo-lhe extrair o valor de análise de todos os seus dados de armazenamento do Azure.
 
-Geração 2 de armazenamento do Data Lake inclui todas as qualidades que são necessárias para o ciclo de vida completo de dados de análise. Isso resulta de convergir as capacidades dos nossos dois serviços de armazenamento existente. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](../../data-lake-store/index.md), como semântica do sistema de ficheiros, ao nível do ficheiro segurança e o dimensionamento são combinados com armazenamento em camadas e de baixo custo, capacidades de recuperação após desastre/disponibilidade elevada e uma grande/ferramentas do SDK o ecossistema de desde [armazenamento de Blobs do Azure](../blobs/storage-blobs-introduction.md). No ger2 de armazenamento do Data Lake, todas as qualidades de armazenamento de objetos permanecem enquanto adicionar as vantagens de uma interface de sistema de ficheiros otimizados para análise de cargas de trabalho.
+Geração 2 de armazenamento do Data Lake traz as qualidades que são necessárias para o ciclo de vida completo de dados de análise para o armazenamento do Azure. É o resultado da convergir as capacidades dos nossos serviços armazenamento existente dois, armazenamento de Blobs do Azure e de geração 1 de armazenamento do Azure Data Lake. Funcionalidades do [Gen1 de armazenamento do Azure Data Lake](../../data-lake-store/index.md), como semântica do sistema de ficheiros, ao nível do ficheiro segurança e o dimensionamento são combinados com o armazenamento em camadas e de baixo custo, capacidades de recuperação de alta disponibilidade/desastre de [Azure Armazenamento de BLOBs](../blobs/storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Concebido para análise de macrodados de enterprise
 
-Geração 2 de armazenamento do Data Lake é o serviço de armazenamento fundamentais para a criação de enterprise lakes de dados (EDL) no Azure. Projetada desde o início para atender a vários petabytes de informações ao suporte a centenas de gigabits de débito, geração 2 de armazenamento do Data Lake dá-lhe uma forma fácil de gerenciar grandes quantidades de dados.
+Geração 2 de armazenamento do Data Lake torna o armazenamento do Azure, a base para a criação de enterprise lakes de dados no Azure. Projetada desde o início para atender a vários petabytes de informações ao suporte a centenas de gigabits de débito, geração 2 de armazenamento do Data Lake permite-lhe gerir facilmente quantidades enormes de dados.
 
-Um recurso fundamental de geração 2 de armazenamento do Data Lake é a adição de um [espaço de nomes hierárquico](./namespace.md) para o serviço de armazenamento de BLOBs que organiza os ficheiros de objetos de/para uma hierarquia de diretórios para acesso a dados de elevado desempenho. O espaço de nomes hierárquico também permite a geração 2 de armazenamento do Data Lake suportar o arquivo de ambos os objetos e paradigmas de sistema de ficheiros ao mesmo tempo. Por exemplo, uma convenção de nomenclatura objeto ao arquivo comuns utiliza barras no nome para imitar a estrutura de pastas hierárquica. Esta estrutura torna-se real com geração 2 de armazenamento do Data Lake. Operações como mudar o nome ou eliminar um diretório tornam-se operações de metadados de atômica única no diretório em vez de enumerar e processamento de todos os objetos que compartilham o prefixo do nome do diretório.
+Uma parte fundamental de geração 2 de armazenamento do Data Lake é a adição de um [espaço de nomes hierárquico](./namespace.md) para o serviço de armazenamento de BLOBs que organiza os ficheiros de objetos de/para uma hierarquia de diretórios para acesso a dados eficiente. O espaço de nomes hierárquico também permite a geração 2 de armazenamento do Data Lake suportar o arquivo de ambos os objetos e paradigmas de sistema de ficheiros ao mesmo tempo. Por exemplo, uma convenção de nomenclatura objeto ao arquivo comuns utiliza barras no nome para imitar a estrutura de pastas hierárquica. Esta estrutura torna-se real com geração 2 de armazenamento do Data Lake. Operações como mudar o nome ou eliminar um diretório tornam-se operações de metadados de atômica única no diretório em vez de enumerar e processamento de todos os objetos que compartilham o prefixo do nome do diretório.
 
 No passado, análise baseada na cloud tinha de comprometer nas áreas de desempenho, gerenciamento e segurança. Geração 2 de armazenamento do Data Lake resolve cada um desses aspectos das seguintes formas:
 
@@ -45,9 +45,9 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 - **Acesso compatível do Hadoop**: geração 2 de armazenamento do Data Lake permite-lhe gerir e aceder aos dados, tal como faria com um [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). A nova [ABFS driver](./abfs-driver.md) está disponível em todos os ambientes do Apache Hadoop, incluindo [Azure HDInsight](../../hdinsight/index.yml) e [Azure Databricks](../../azure-databricks/index.yml) para acessar dados armazenados no armazenamento do Data Lake Geração 2.
 
-- **Um conjunto mais amplo de permissões de POSIX**: O modelo de segurança para a geração 2 do Data Lake é totalmente compatível permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas por meio de ferramentas de administração ou estruturas como o Hive e do Spark.
+- **Um conjunto mais amplo de permissões de POSIX**: O modelo de segurança para a geração 2 do Data Lake suporta permissões de ACL e POSIX, juntamente com alguns extra granularidade específica de geração 2 de armazenamento do Data Lake. Definições podem ser configuradas por meio de ferramentas de administração ou estruturas como o Hive e do Spark.
 
-- **Custo-eficiência**: geração 2 de armazenamento do Data Lake inclui a capacidade de armazenamento de baixo custo e transações. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](../common/storage-lifecycle-managment-concepts.md).
+- **Custo-eficiência**: geração 2 de armazenamento do Data Lake oferece a capacidade de armazenamento de baixo custo e transações. Como transições de dados por meio de seu ciclo de vida completo, taxas de faturação alterar os custos de manutenção ao mínimo possível por meio de recursos incorporados, tal como [ciclo de vida de armazenamento de Blobs do Azure](../common/storage-lifecycle-managment-concepts.md).
 
 - **Funciona com aplicações, estruturas e ferramentas de armazenamento de BLOBs**: geração 2 de armazenamento do Data Lake continua a trabalhar com um vasto leque de ferramentas, estruturas e aplicativos que existem hoje mesmo para o armazenamento de Blobs.
 
@@ -70,4 +70,4 @@ Os seguintes artigos descrevem alguns dos principais conceitos de geração 2 de
 * [Espaço de nomes hierárquico](./namespace.md)
 * [Criar uma conta de armazenamento](./quickstart-create-account.md)
 * [Criar um cluster do HDInsight com geração 2 de armazenamento do Azure Data Lake](./quickstart-create-connect-hdi-cluster.md)
-* [Utilizar uma conta de geração 2 de armazenamento do Azure Data Lake no Azure Databricks](./quickstart-create-databricks-account.md) 
+* [Utilizar uma conta de geração 2 de armazenamento do Azure Data Lake no Azure Databricks](./quickstart-create-databricks-account.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395853"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013331"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -225,7 +225,7 @@ Qualquer propriedade que o aplicativo precisa define deve ser mapeada para do AM
 | id da mensagem |Identificador para esta mensagem definida pelo aplicativo, de forma livre. Utilizada para a deteção de duplicados. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
 | id de utilizador |Identificador de utilizador definida pelo aplicativo, não interpretado pelo Service Bus. |Não está acessível através da API do barramento de serviço. |
 | para |Identificador de destino definido pelo aplicativo, não interpretado pelo Service Bus. |[Para](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| Assunto |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| assunto |Identificador de finalidade do mensagem definida pelo aplicativo, não interpretado pelo Service Bus. |[Etiqueta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
 | responder a |Indicador de caminho de resposta definida pelo aplicativo, não interpretado pelo Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
 | id de correlação |Identificador de correlação definida pelo aplicativo, não interpretado pelo Service Bus. |[correlationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
 | tipo de conteúdo |Definido pelo aplicativo indicador de tipo de conteúdo para o corpo, não interpretado pelo Service Bus. |[contentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
@@ -380,7 +380,7 @@ A mensagem de resposta tem segue *propriedades da aplicação* valores
 
 | Chave | Opcional | Tipo de valor | Conteúdo de valor |
 | --- | --- | --- | --- |
-| código de estado |Não |Int |Código de resposta HTTP **[RFC2616]**. |
+| código de estado |Não |int |Código de resposta HTTP **[RFC2616]**. |
 | Descrição do Estado |Sim |cadeia |Descrição do Estado. |
 
 O cliente pode chamar *token de put* para qualquer entidade na infraestrutura de mensagens e repetidamente. Os tokens são um âmbito para o cliente atual e ancorados na ligação atual, que significa que o servidor remove quaisquer tokens retidos quando a conexão caiu.
@@ -391,7 +391,7 @@ O mecanismo de anônimo, portanto, têm de ser suportado pelo cliente AMQP 1.0 e
 
 Assim que a ligação e a sessão for estabelecida, anexando as ligações para o *$cbs* nó e o envio a *put token* apenas são permitidas operações de pedidos. Um token válido tem de ser definido com êxito com um *token de put* pedido para o nó alguma entidade dentro de 20 segundos depois da ligação for estabelecida, caso contrário, a conexão é unilateral cancelada pelo Service Bus.
 
-O cliente é, em seguida, responsável por manter o controle de expiração do token. Quando um token expira, do Service Bus ignora imediatamente todas as ligações na ligação para a entidade correspondente. Para evitar o problema ocorrer, o cliente pode substituir o token para o nó com uma nova em qualquer altura através de virtual *$cbs* nó de gestão com o mesmo *put token* gesto e, sem introdução forma da carga de tráfego que fluxos em ligações diferentes.
+O cliente é, em seguida, responsável por manter o controle de expiração do token. Quando um token expira, do Service Bus ignora imediatamente todas as ligações na ligação para a entidade correspondente. Para evitar a ocorrência do problema, o cliente pode substituir o token para o nó com uma nova em qualquer altura através de virtual *$cbs* nó de gestão com o mesmo *put token* gesto e, sem introdução forma da carga de tráfego que fluxos em ligações diferentes.
 
 ### <a name="send-via-functionality"></a>Funcionalidade de envio-via
 

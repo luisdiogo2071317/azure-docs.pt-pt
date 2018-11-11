@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 11/06/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a16230b6f51f0ce93f4a9bf53591abbcd6b4bd3b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412963"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283687"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
@@ -98,7 +98,7 @@ A tabela seguinte realça os parâmetros específicos do Log Analytics, suportad
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalar o agente através do DSC na automatização do Azure
 
-Pode utilizar o seguinte exemplo de script para instalar o agente utilizando o DSC de automatização do Azure.   Se não tiver uma conta de automatização, consulte [introdução à automatização do Azure](../automation/automation-offering-get-started.md) para compreender os requisitos e passos para criar uma conta de automatização necessária antes de utilizar o DSC de automatização.  Se não estiver familiarizado com o DSC de automatização, reveja [introdução ao DSC de automatização](../automation/automation-dsc-getting-started.md).
+Pode utilizar o seguinte exemplo de script para instalar o agente utilizando o DSC de automatização do Azure.   Se não tiver uma conta de automatização, consulte [introdução à automatização do Azure](/azure/automation/) para compreender os requisitos e passos para criar uma conta de automatização necessária antes de utilizar o DSC de automatização.  Se não estiver familiarizado com o DSC de automatização, reveja [introdução ao DSC de automatização](../automation/automation-dsc-getting-started.md).
 
 O exemplo seguinte instala o agente de 64 bits, identificado pelo `URI` valor. Também pode utilizar a versão de 32 bits, substituindo o valor do URI. Os URIs para as duas versões são:
 
@@ -109,13 +109,13 @@ O exemplo seguinte instala o agente de 64 bits, identificado pelo `URI` valor. T
 >[!NOTE]
 >Neste exemplo de procedimento e o script não suporta a atualização do agente já implementado num computador Windows.
 
-As versões de 32 bits e 64 bits do pacote de agente têm códigos de produto diferente e novas versões lançadas também tem um valor exclusivo.  O código de produto é um GUID que é a identificação do principal de um aplicativo ou o produto e é representado pelo instalador do Windows **ProductCode** propriedade.  O `ProductId value` no **MMAgent.ps1** script tem de corresponder ao código de produto do pacote de instalador do agente de 32 bits ou 64 bits.
+As versões de 32 bits e 64 bits do pacote de agente têm códigos de produto diferente e novas versões lançadas também tem um valor exclusivo.  O código de produto é um GUID que é a identificação do principal de um aplicativo ou o produto e é representado pelo instalador do Windows **ProductCode** propriedade.  O `ProductId` valor de **MMAgent.ps1** script tem de corresponder ao código de produto do pacote de instalador do agente de 32 bits ou 64 bits.
 
 Para obter o código de produto a partir do pacote de instalação do agente diretamente, pode usar Orca.exe do [Windows componentes para o Windows Installer programadores do SDK](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) ou seja, um componente do Kit de desenvolvimento de Software do Windows ou a utilizar PowerShell seguem uma [script de exemplo](http://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) escrito por um Microsoft Valuable Professional (MVP).  Para qualquer uma das abordagens, tem primeiro de extrair os **momagent. msi** ficheiro do pacote de instalação MMASetup.  Isso é mostrado anteriormente no primeiro passo na secção [instalar o agente utilizando a linha de comandos](#install-the-agent-using-the-command-line).  
 
 1. Módulo de importação a DSC xPSDesiredStateConfiguration da [ http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration ](http://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) para a automatização do Azure.  
 2.  Criar recursos de variável da automatização do Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY*. Definir *OPSINSIGHTS_WS_ID* para o seu ID de área de trabalho do Log Analytics e o conjunto *OPSINSIGHTS_WS_KEY* para a chave primária da sua área de trabalho.
-3.  Copie o script e guarde-o como MMAgent.ps1
+3.  Copie o script e guarde-o como MMAgent.ps1.
 
     ```PowerShell
     Configuration MMAgent
@@ -153,7 +153,8 @@ Para obter o código de produto a partir do pacote de instalação do agente dir
 
     ```
 
-4. [Importe o script de configuração MMAgent.ps1](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) na sua conta de automatização. 
+4. Atualização do `ProductId` valor no script com o código de produto extraído da versão mais recente do agente de instalar o pacote usando os métodos recomendados anteriormente. 
+5. [Importe o script de configuração MMAgent.ps1](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) na sua conta de automatização. 
 5. [Atribuir um computador Windows ou o nó](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) para a configuração. Em 15 minutos, o nó verifica a respetiva configuração e o agente é enviado para o nó.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Verificar a conectividade de agente para o Log Analytics

@@ -1,136 +1,164 @@
 ---
-title: 'Início Rápido: identificar o idioma do texto, Node.js – API de Texto do Microsoft Translator'
+title: 'Início Rápido: detetar o idioma de texto, Node.js - API de Texto do Microsoft Translator'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá identificar o idioma do texto de origem com a API de Texto do Microsoft Translator com o Node.js.
+description: Neste início rápido, irá aprender a identificar o idioma do texto fornecido com o Node.js e a API REST de Texto do Microsoft Translator.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 15c8b8077caf7c1235d0eff0429f7ada11e533ff
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d70a420f01c7bf3486093951e89c9f48db148d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644679"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248766"
 ---
-# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-nodejs"></a>Início Rápido: identificar o idioma do texto com a API de Texto do Microsoft Translator (Node.js)
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-with-nodejs"></a>Início Rápido: utilizar a API de Texto do Microsoft Translator para detetar o idioma de texto com Node.js
 
-Neste início rápido, vai identificar o idioma do texto de origem com a API de Texto do Microsoft Translator.
+Neste início rápido, irá aprender a detetar o idioma do texto fornecido com o Node.js e a API REST de Texto do Microsoft Translator.
+
+Este início rápido requer uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Irá precisar do [Node.js 6](https://nodejs.org/en/download/) para executar este código.
+Este início rápido requer:
 
-Para utilizar a API de Texto do Microsoft Translator, também necessita de uma chave de subscrição, consulte [Como iniciar sessão na API de Texto do Microsoft Translator](translator-text-how-to-signup.md).
+* [Node 8.12.x ou posterior](https://nodejs.org/en/)
+* Uma chave de subscrição do Azure para Tradução de Texto
 
-## <a name="detect-request"></a>Pedido de deteção
+## <a name="create-a-project-and-import-required-modules"></a>Criar um projeto e importar os módulos exigidos
 
-O código seguinte identifica o idioma do texto de origem através do método [Detetar](./reference/v3-0-detect.md).
-
-1. Crie um novo projeto Node.js no seu editor de código preferido.
-2. Adicione o código indicado abaixo.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
-4. Execute o programa.
+Crie um novo projeto através do seu editor ou IDE favorito. Em seguida, copie este fragmento de código para o seu projeto num ficheiro com o nome `detect.js`.
 
 ```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/detect?api-version=3.0';
-
-let params = '';
-
-let text = 'Salve, mondo!';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let Detect = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text}]);
-
-Detect (content);
+const request = require('request');
+const uuidv4 = require('uuid/v4');
 ```
 
-## <a name="detect-response"></a>Resposta da deteção
+> [!NOTE]
+> Se ainda não utilizou estes módulos, terá de instalá-los antes de executar o seu programa. Para instalar estes pacotes, execute: `npm install request uuidv4`.
 
-É devolvida uma resposta com êxito em JSON, tal como apresentado no exemplo seguinte:
+Estes módulos são necessários para construir o pedido HTTP e criar um identificador exclusivo para o cabeçalho `'X-ClientTraceId'`.
+
+## <a name="set-the-subscription-key"></a>Definir a chave de subscrição
+
+Este código irá tentar ler a chave de subscrição de Tradução de Texto a partir da variável de ambiente `TRANSLATOR_TEXT_KEY`. Se não estiver familiarizado com variáveis de ambiente, pode definir `subscriptionKey` como cadeia e comentar a instrução condicional.
+
+Copie este código para o seu projeto:
+
+```javascript
+/* Checks to see if the subscription key is available
+as an environment variable. If you are setting your subscription key as a
+string, then comment these lines out.
+
+If you want to set your subscription key as a string, replace the value for
+the Ocp-Apim-Subscription-Key header as a string. */
+const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
+if (!subscriptionKey) {
+  throw new Error('Environment variable for your subscription key is not set.')
+};
+```
+
+## <a name="configure-the-request"></a>Configurar o pedido
+
+O método `request()`, disponibilizado através do módulo de pedido, permite-nos passar o método HTTP, o URL, os parâmetros de pedido, os cabeçalhos e o corpo de JSON como um objeto de `options`. Neste fragmento de código, vamos configurar o pedido:
+
+>[!NOTE]
+> Para obter mais informações sobre pontos finais, rotas e parâmetros de pedido, veja [API de Texto do Microsoft Translator 3.0: detetar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+
+```javascript
+let options = {
+    method: 'POST',
+    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    url: 'detect',
+    qs: {
+      'api-version': '3.0',
+    },
+    headers: {
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Content-type': 'application/json',
+      'X-ClientTraceId': uuidv4().toString()
+    },
+    body: [{
+          'text': 'Salve, mondo!'
+    }],
+    json: true,
+};
+```
+
+### <a name="authentication"></a>Autenticação
+
+A forma mais fácil de autenticar um pedido é transmitir a sua chave de subscrição como um cabeçalho `Ocp-Apim-Subscription-Key`, que é o que vamos utilizar neste exemplo. Como alternativa, pode trocar a chave de subscrição por um token de acesso e transmiti-lo como um cabeçalho `Authorization` para validar o pedido. Para obter mais informações, veja [Autenticação](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
+## <a name="make-the-request-and-print-the-response"></a>Fazer o pedido e imprimir a resposta
+
+Em seguida, vamos criar o pedido com o método `request()`. É utilizado o objeto `options` que criámos na secção anterior, como o primeiro argumento e, em seguida, imprime a resposta JSON embelezada.
+
+```javascript
+request(options, function(err, res, body){
+    console.log(JSON.stringify(body, null, 4));
+});
+```
+
+>[!NOTE]
+> Neste exemplo, vamos definir o pedido HTTP no objeto `options`. No entanto, o módulo de pedido também suporta métodos convenientes, como `.post` e `.get`. Para obter mais informações, veja [métodos convenientes](https://github.com/request/request#convenience-methods).
+
+## <a name="put-it-all-together"></a>Juntar tudo
+
+Já está. Utilizámos um programa simples que irá chamar a API de Texto do Microsoft Translator e devolver uma resposta JSON. Agora, é altura de executar o seu programa:
+
+```console
+node detect.js
+```
+
+Se quiser comparar o seu código com o nosso, o exemplo completo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
+
+## <a name="sample-response"></a>Resposta de amostra
 
 ```json
 [
-  {
-    "language": "it",
-    "score": 1.0,
-    "isTranslationSupported": true,
-    "isTransliterationSupported": false,
-    "alternatives": [
-      {
-        "language": "pt",
-        "score": 1.0,
+    {
+        "alternatives": [
+            {
+                "isTranslationSupported": true,
+                "isTransliterationSupported": false,
+                "language": "pt",
+                "score": 1.0
+            },
+            {
+                "isTranslationSupported": true,
+                "isTransliterationSupported": false,
+                "language": "en",
+                "score": 1.0
+            }
+        ],
         "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      },
-      {
-        "language": "en",
-        "score": 1.0,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      }
-    ]
-  }
+        "isTransliterationSupported": false,
+        "language": "it",
+        "score": 1.0
+    }
 ]
 ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se codificou a chave de subscrição no seu programa, certifique-se de que remove a chave de subscrição quando tiver terminado este início rápido.
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Explore o código de exemplo neste início rápido e noutros, incluindo a tradução e a transliteração, assim como outros exemplos de projetos de Tradução de Texto no GitHub.
-
 > [!div class="nextstepaction"]
-> [Explorar exemplos de Node.js no GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Explorar exemplos de Node.js no GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+
+## <a name="see-also"></a>Consulte também
+
+Além da deteção de idioma, saiba como utilizar a API de Texto do Microsoft Translator para:
+
+* [Traduzir texto](quickstart-nodejs-translate.md)
+* [Transliterar texto](quickstart-nodejs-transliterate.md)
+* [Obter traduções alternativas](quickstart-nodejs-dictionary.md)
+* [Obter uma lista de idiomas suportados](quickstart-nodejs-languages.md)
+* [Determinar o comprimento das frases a partir de uma entrada](quickstart-nodejs-sentences.md)

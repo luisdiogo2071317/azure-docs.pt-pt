@@ -2,19 +2,19 @@
 title: Consulta do Hive através do controlador JDBC - Azure HDInsight
 description: Utilize o controlador JDBC a partir de uma aplicação de Java para submeter consultas do Hive ao Hadoop no HDInsight. Ligar através de programação e do cliente SQuirrel SQL.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: jasonh
-ms.openlocfilehash: da2b3484f80f7116664cf5a25c7de99da723f202
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041697"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014419"
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta do Hive através do controlador JDBC no HDInsight
 

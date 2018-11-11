@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b5d3a735bd490468e989ac29c9f082475cc7eab3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528702"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283377"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espaço de nomes hierárquico pré-visualização de geração 2 de Data Lake Storage do Azure
 
-Um mecanismo de chave que permite que o Azure Data Lake armazenamento Gen2 pré-visualização fornecer o desempenho do sistema de ficheiros em escala de armazenamento de objeto e os preços é a adição de um **espaço de nomes hierárquico**. Isso permite que a coleção de objetos de/arquivos dentro de uma conta para ser organizados numa hierarquia de diretórios e subdiretórios aninhados da mesma forma que o sistema de ficheiros no seu computador é organizado. Com o espaço de nomes hierárquico ativado, a geração 2 de armazenamento do Data Lake fornece a escalabilidade e a relação custo-eficácia de armazenamento de objetos, com semântica de sistema de ficheiros que estão familiarizado motores de análise e estruturas.
+Um mecanismo de chave que permite que o Azure Data Lake armazenamento Gen2 pré-visualização fornecer o desempenho do sistema de ficheiros em escala de armazenamento de objeto e os preços é a adição de um **espaço de nomes hierárquico**. Isso permite que a coleção de objetos de/arquivos dentro de uma conta para ser organizados numa hierarquia de diretórios e subdiretórios aninhados da mesma forma que o sistema de ficheiros no seu computador é organizado. Com o espaço de nomes hierárquico ativado, uma conta de armazenamento torna-se capazes de fornecer a escalabilidade e a relação custo-eficácia de armazenamento de objetos, com semântica de sistema de ficheiros que estão familiarizada motores de análise e estruturas.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Os benefícios do espaço de nomes hierárquico
 
@@ -26,7 +26,7 @@ Um mecanismo de chave que permite que o Azure Data Lake armazenamento Gen2 pré-
 
 Os seguintes benefícios estão associados a sistemas de ficheiros que implementam um espaço de nomes hierárquico sobre os dados de BLOBs:
 
-- **Manipulação de diretório atômica:** os arquivos de objetos se aproximam de uma hierarquia de diretório ao adotar uma convenção de incorporação de barras (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione para organizar a objetos, a Convenção não fornece nenhuma assistência para ações como mover, mudar o nome ou eliminar diretórios. Sem diretórios real, aplicativos têm de processar potencialmente milhões de blobs individuais para atingir as tarefas de nível de diretório. Por outro lado, o espaço de nomes hierárquico processa estas tarefas mediante a atualização de uma única entrada (o diretório principal). 
+- **Manipulação de diretório atômicas:** os arquivos de objetos se aproximam de uma hierarquia de diretório ao adotar uma convenção de incorporação de barras (/) no nome do objeto para denotar segmentos de caminho. Embora essa convenção funcione para organizar a objetos, a Convenção não fornece nenhuma assistência para ações como mover, mudar o nome ou eliminar diretórios. Sem diretórios real, aplicativos têm de processar potencialmente milhões de blobs individuais para atingir as tarefas de nível de diretório. Por outro lado, o espaço de nomes hierárquico processa estas tarefas mediante a atualização de uma única entrada (o diretório principal).
 
     É especialmente importante para muitas estruturas de análise de macrodados, essa otimização surpreendentes. Ferramentas como o Hive, Spark, etc., muitas vezes, escrever a saída para localizações temporárias em, em seguida, mude o nome a localização na conclusão da tarefa. Sem espaço de nomes hierárquico, esta mudança de nome, muitas vezes, pode demorar mais tempo do que a análise de processar em si. Latência mais baixa da tarefa é igual a menor custo total de propriedade (TCO) para cargas de trabalho de análise.
 

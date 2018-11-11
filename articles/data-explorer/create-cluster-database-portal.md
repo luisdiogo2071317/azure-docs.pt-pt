@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394226"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214822"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: criar um cluster e uma base de dados do Azure Data Explorer
 
@@ -31,11 +31,11 @@ Crie um cluster do Azure Data Explorer num grupo de recursos do Azure, com um co
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
-1. Procure *Azure Data Explorer* e, em seguida, selecione **Azure Data Explorer**.
+1. Procure o *Azure Data Explorer*.
 
    ![Procurar recursos](media/create-cluster-database-portal/search-resources.png)
 
-1. No canto inferior direito, selecione **Criar**.
+1. No **Azure Data Explorer**, na parte inferior do ecrã, selecione **Criar**.
 
 1. Introduza um nome exclusivo para o cluster, selecione a subscrição e crie um grupo de recursos com o nome *test-resource-group*.
 
@@ -51,10 +51,12 @@ Crie um cluster do Azure Data Explorer num grupo de recursos do Azure, com um co
     | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o cluster.|
     | Grupo de recursos | *test-resource-group* | Crie um novo grupo de recursos. |
     | Localização | *E.U.A. Oeste* | Selecione *E.U.A. Oeste* para este início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
-    | Especificação de computação | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
+    | Especificações do dispositivo | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
     | | |
 
-1. Selecione **Criar** para aprovisionar o cluster. Normalmente, o aprovisionamento demora cerca de dez minutos. Selecione **Notificações** na barra de ferramentas (o ícone da campainha) para monitorizar o processo de aprovisionamento.
+1. Selecione **Criar** para aprovisionar o cluster. Normalmente, o aprovisionamento demora cerca de dez minutos. Selecione **Notificações** na barra de ferramentas para monitorizar o processo de aprovisionamento.
+
+    ![Notificações](media/create-cluster-database-portal/notifications.png)
 
 1. Quando o processo estiver concluído, selecione **Notificações** e, em seguida, **Ir para recurso**.
 

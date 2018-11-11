@@ -1,19 +1,19 @@
 ---
 title: incluir ficheiro
 description: incluir ficheiro
-services: azure-digital-twins
-author: adamgerard
-ms.service: azure-digital-twins
+services: digital-twins
+author: kingdomofends
+ms.service: digital-twins
 ms.topic: include
 ms.date: 09/27/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: a03f2b4e8d216db3764af03dc06b5188289ffc92
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 215a6c9ff3fdcfe2cb38728ce100255843d6c26e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964208"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285716"
 ---
 Controlo de acesso baseado em funções é uma estratégia de segurança condicionada por herança para a gestão de acesso, permissões e funções. Funções descendentes herdarem permissões do funções do principal. Permissões também podem ser atribuídas sem a ser herdadas a partir de uma função principal. Também eles podem ser atribuídos a uma função ser personalizados conforme necessário.
 

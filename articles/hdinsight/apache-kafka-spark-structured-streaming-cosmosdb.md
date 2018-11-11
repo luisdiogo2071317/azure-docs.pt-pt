@@ -1,28 +1,28 @@
 ---
-title: Transmissão em fluxo estruturada do Kafka para Azure Cosmos DB - Azure HDInsight do Apache Spark
+title: Transmissão em fluxo estruturada do Apache Kafka para Azure Cosmos DB - Azure HDInsight do Apache Spark
 description: Saiba como utilizar a transmissão estruturada do Apache Spark para ler dados do Apache Kafka e, em seguida, armazene-o para o Azure Cosmos DB. Neste exemplo, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.author: jasonh
-ms.openlocfilehash: 8f0a16320091f8b2efa98ee96a63801e841c082e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971319"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287987"
 ---
-# <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Utilizar estruturada do Spark transmissão em fluxo com Kafka e Azure Cosmos DB
+# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>Utilizar o Apache Spark estruturado de transmissão em fluxo com Kafka e Azure Cosmos DB
 
-Saiba como utilizar a transmissão estruturada do Spark para ler os dados do Apache Kafka no HDInsight do Azure e, em seguida, armazenar os dados para o Azure Cosmos DB.
+Saiba como utilizar a transmissão estruturada do Apache Spark para ler os dados do Apache Kafka no HDInsight do Azure e, em seguida, armazenar os dados para o Azure Cosmos DB.
 
 O Azure Cosmos DB é uma base de dados distribuída globalmente com vários modelo. Este exemplo utiliza um modelo de base de dados da API de SQL. Para obter mais informações, consulte a [bem-vindo ao Azure Cosmos DB](../cosmos-db/introduction.md) documento.
 
-A transmissão em fluxo estruturada do Spark é um motor de processamento de fluxos incorporado no SQL do Spark. Permite-lhe expressar computações de transmissão em fluxo, tal como a computação em lotes o faz em dados estáticos. Para obter mais informações sobre a Transmissão em Fluxo Estruturada, veja o [Structured Streaming Programming Guide [Alpha] (Guia de Programação da Transmissão em Fluxo Estruturada [Alfa])](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) em Apache.org.
+A transmissão em fluxo estruturada do Spark é um motor de processamento de fluxos incorporado no SQL do Spark. Permite-lhe expressar computações de transmissão em fluxo, tal como a computação em lotes o faz em dados estáticos. Para obter mais informações sobre a transmissão em fluxo estruturada, consulte a [guia de programação de transmissão em fluxo estruturada](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) em Apache.org.
 
 > [!IMPORTANT]
 > Neste exemplo utilizado o Spark 2.2 no HDInsight 3.6.
@@ -95,7 +95,7 @@ Embora pode criar uma rede virtual do Azure, Kafka, e clusters do Spark manualme
 
 3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
 
-4. Por fim, marque **Afixar ao dashboard** e, em seguida, selecione **Compra**. Demora cerca de 20 minutos para criar os clusters.
+4. Por fim, selecione **Compra**. Demora cerca de 20 minutos para criar os clusters.
 
 > [!IMPORTANT]
 > Poderá demorar até 45 minutos para criar os clusters, a rede virtual e a conta do Cosmos DB.

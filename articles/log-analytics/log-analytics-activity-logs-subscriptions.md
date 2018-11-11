@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c078320ce31e0c51c7aef0bc0a2aa14e68ac2fc3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 41e627d895f0276d372ee42df3e0a43fdadc4051
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042866"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016068"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Recolher Registos de Atividades do Azure no Log Analytics entre subscrições
 
@@ -29,7 +29,7 @@ Se a área de trabalho do Log Analytics estiver na mesma subscrição do Azure o
 
 ## <a name="overview"></a>Descrição geral
 
-A estratégia utilizada neste cenário consiste em fazer com que o Azure Activity Log envie eventos para um [Hub de Eventos](../event-hubs/event-hubs-what-is-event-hubs.md), onde uma [aplicação lógica](../logic-apps/logic-apps-overview.md) os envia para a sua área de trabalho do Log Analytics. 
+A estratégia utilizada neste cenário consiste em fazer com que o Azure Activity Log envie eventos para um [Hub de Eventos](../event-hubs/event-hubs-about.md), onde uma [aplicação lógica](../logic-apps/logic-apps-overview.md) os envia para a sua área de trabalho do Log Analytics. 
 
 ![imagem do fluxo de dados da análise de registos para o log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 

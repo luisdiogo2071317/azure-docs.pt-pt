@@ -1,20 +1,20 @@
 ---
-title: Migrar VMs do AWS para o Azure com o Azure Site Recovery | Microsoft Docs
-description: Este artigo descreve como migrar VMs do Windows em execução no Amazon Web Services (AWS) para o Azure utilizando o Azure Site Recovery.
+title: Migrar VMs do AWS para o Azure com o Azure com o serviço Azure Site Recovery | Microsoft Docs
+description: Este artigo descreve como migrar VMs do Windows em execução no Amazon Web Services (AWS) para o Azure com o Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078941"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252144"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -119,7 +119,7 @@ Na página **Preparar origem**, selecione em **+ Servidor de Configuração**.
 
 1. Utilize uma instância do EC2 que esteja a executar o Windows Server 2012 R2 para criar um servidor de configuração e registá-lo no seu cofre de recuperação.
 2. Configure o proxy na VM de instância do EC2 que está a utilizar como servidor de configuração, para que possa aceder aos [URLs do serviço](site-recovery-support-matrix-to-azure.md).
-3. Transfira [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus) (Configuração Unificada do Microsoft Azure Site Recovery). Pode transferi-lo para o seu computador local e, em seguida, copiá-lo para a VM que está a utilizar como servidor de configuração.
+3. Transfira [Microsoft Azure Site Recovery Unified Setup](https://aka.ms/unifiedinstaller_wus) (Configuração Unificada do Microsoft Azure Site Recovery). Pode transferi-lo para o seu computador local e, em seguida, copiá-lo para a VM que está a utilizar como servidor de configuração.
 4. Clique no botão **Transferir** para transferir a chave de registo do cofre. Copie o ficheiro transferido para a VM que está a utilizar como o servidor de configuração.
 5. Na VM, clique com botão direito do rato no instalador que transferiu para o Microsoft Azure Site Recovery Unified Setup e depois selecione **Executar como administrador**.
 

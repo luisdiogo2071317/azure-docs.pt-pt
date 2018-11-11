@@ -7,15 +7,15 @@ ms.service: automation
 ms.component: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ef55e6ca6fc913710bae68a7423369b33f26c009
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1f28f642d1a5fc30055c73a4b7d60c076c83d204
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629003"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250106"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Descrição geral da configuração de estado da automatização do Azure
 
@@ -35,11 +35,48 @@ A configuração de estado de automatização do Azure traz a mesma camada de ge
 
 No portal do Azure ou no PowerShell, pode gerir todos os seus DSC configurações, recursos e nós de destino.
 
-![Captura de ecrã do painel de automatização do Azure](./media/automation-dsc-overview/azure-automation-blade.png)
+![Captura de ecrã da página de automatização do Azure](./media/automation-dsc-overview/azure-automation-blade.png)
 
 ### <a name="import-reporting-data-into-log-analytics"></a>Importar dados de relatórios para o Log Analytics
 
-Nós que são geridos com a configuração de estado de automatização do Azure enviam dados de estado de geração de relatórios detalhados para o servidor de solicitação incorporada. Pode configurar a configuração de estado de automatização do Azure para enviar estes dados para a área de trabalho do Log Analytics. Para saber como enviar dados de estado de configuração de estado para a área de trabalho do Log Analytics, veja [reencaminhar Azure Automation configuração de estado reportar dados à Log nalytics](automation-dsc-diagnostics.md).
+Nós que são geridos com a configuração de estado de automatização do Azure enviam dados de estado de geração de relatórios detalhados para o servidor de solicitação incorporada. Pode configurar a configuração de estado de automatização do Azure para enviar estes dados para a área de trabalho do Log Analytics. Para saber como enviar dados de estado de configuração de estado para a área de trabalho do Log Analytics, veja [reencaminhar Azure Automation configuração de estado dados de relatórios para o Log Analytics](automation-dsc-diagnostics.md).
+
+## <a name="network-planning"></a>Configurar a rede
+
+Os seguintes URLs e portas são necessárias para o estado de configuração (DSC) para comunicar com a automatização:
+
+* Porta: Apenas a TCP 443 é necessária para acesso de internet de saída.
+* Global URL: *. Azure-Automation.NET
+* URL global do US Gov Virgínia: *.azure automation.us
+* Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+É recomendado para utilizar os endereços listados quando definir exceções. Para endereços IP, pode baixar o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e tem os intervalos implementados atualmente e as alterações futuras para os intervalos de IP.
+
+Se tiver uma conta de automatização que está definida para uma região específica, pode restringir a comunicação para esse datacenter regional. A tabela seguinte fornece o registo DNS para cada região:
+
+| **Região** | **Registo de DNS** |
+| --- | --- |
+| EUA Centro-Oeste | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus agentservice-prod-1.azure-Azure-Automation.NET |
+| EUA Centro-Sul |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| EUA Leste 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
+| Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| Europa do Norte |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| Sudeste Asiático |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
+| Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
+| Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
+| Reino Unido Sul | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks agentservice-prod-1.azure-Azure-Automation.NET |
+| Gov (US) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+
+Para obter uma lista de endereços IP da região em vez de nomes de região, transfira o [endereço IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) arquivo XML do Microsoft Download Center.
+
+> [!NOTE]
+> O ficheiro XML de endereço IP do Datacenter do Azure apresenta uma lista de intervalos de endereços IP que são utilizados nos datacenters do Microsoft Azure. O arquivo inclui os intervalos de computação, SQL e armazenamento.
+>
+>Um ficheiro atualizado é publicado semanalmente. O ficheiro reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP. Os novo intervalos que aparecem no ficheiro não são utilizados nos centros de dados para, pelo menos, uma semana.
+>
+> É uma boa idéia para transferir o ficheiro XML novo todas as semanas. Em seguida, atualize o seu site para identificar corretamente os serviços em execução no Azure. Os utilizadores do Azure ExpressRoute devem observar que este ficheiro é utilizado para atualizar o anúncio de protocolo BGP (Border Gateway) do espaço Azure na primeira semana de cada mês.
 
 ## <a name="introduction-video"></a>Vídeo de introdução
 

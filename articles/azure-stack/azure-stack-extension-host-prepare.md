@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 4376b9e89aeef32987f7a3bb29ca6815e941ba00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960247"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514371"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o anfitrião de extensão para o Azure Stack
 
@@ -84,8 +84,7 @@ Utilize um computador que pode ligar-se ao ponto final do Azure Stack com privil
 
 1. Utilize um computador que pode ligar-se ao ponto final do Azure Stack com privilégios para os passos seguintes. Certifique-se de que aceder para os novos ficheiros de certificado a partir desse computador.
 2. Abra o ISE do PowerShell para executar o seguinte script permanece bloqueado
-3. Importe o certificado para o alojamento de ponto final. Ajuste o script para corresponder ao seu ambiente.
-4. Importe o certificado para a ponto final de alojamento de administração.
+3. Importe o certificado para a ponto final de alojamento de administração.
 
     ```PowerShell  
 
@@ -104,7 +103,7 @@ Utilize um computador que pode ligar-se ao ponto final do Azure Stack com privil
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-5. Importe o certificado para o ponto final de alojamento.
+4. Importe o certificado para o ponto final de alojamento.
     ```PowerShell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 

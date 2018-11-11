@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd3fdec0e50d64af28306034e6e1086e67526b7d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232194"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251058"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>Instalar atualização 0.4 em sua matriz Virtual StorSimple
 
@@ -29,7 +29,7 @@ Este artigo descreve os passos necessários para instalar atualização 0.4 na s
 
 Tenha em atenção que a instalação de uma atualização ou correção reinicia o seu dispositivo. Uma vez que a matriz Virtual StorSimple é um dispositivo de nó único, qualquer e/s em curso é interrompida e o período de indisponibilidade ocorre com o seu dispositivo. 
 
-Antes de aplicar uma atualização, recomendamos que levar os volumes ou compartilhamentos offline no anfitrião primeiro e, em seguida, o dispositivo. Isso minimiza qualquer possibilidade de Corrupção de dados.
+Antes de aplicar uma atualização, recomendamos que levar os volumes ou compartilhamentos offline no anfitrião primeiro e, em seguida, o dispositivo. Isto minimiza qualquer possibilidade de danos em dados.
 
 > [!IMPORTANT]
 > Se estiver a executar a atualização 0.1 ou versões de software de disponibilidade geral, tem de utilizar o método de correção através da IU da web local para instalar a atualização 0.3. Se estiver a executar atualização 0.2 ou posterior, recomendamos que instale as atualizações através do portal do Azure.
@@ -48,7 +48,7 @@ Execute os seguintes passos para transferir a atualização de software a partir
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Para transferir a atualização ou a correção
 
-1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](http://catalog.update.microsoft.com).
+1. Inicie o Internet Explorer e navegue para [ http://catalog.update.microsoft.com ](https://catalog.update.microsoft.com).
 
 2. Se esta for a primeira vez que utiliza o Catálogo Microsoft Update neste computador, clique em **Instalar** quando lhe for pedido para instalar o suplemento do Catálogo Microsoft Update.
 

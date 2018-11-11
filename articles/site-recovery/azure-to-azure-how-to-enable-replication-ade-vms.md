@@ -8,26 +8,26 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043282"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300579"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas de virtuais do Azure disk encryption (ADE) ativada para outra região do Azure
 
 Este artigo descreve como ativar VMs de replicação de encriptação de disco do Azure (ADE) ativada, de uma região do Azure para outra.
 
 >[!NOTE]
->Apenas as VMs do Azure que executa o SO Windows e [ativada para a encriptação com a aplicação do Azure AD](https://aka.ms/ade-aad-app) são atualmente suportadas pelo Azure Site Recovery.
+>Apenas as VMs do Azure com o SO Windows e [ativadas para a encriptação com a aplicação do Azure AD](https://aka.ms/ade-aad-app) são atualmente suportadas pelo Azure Site Recovery.
 >
 
 ## <a name="required-user-permissions"></a>Permissões de utilizador necessário
 
 Para ativar a replicação de VMs de ADE a partir do portal, o utilizador deve ter o abaixo permissões.
 - Permissões do Cofre de chaves
-    - lista
+    - list
     - Criar
     - Get
 
@@ -64,8 +64,8 @@ Se o utilizador ativar a recuperação após desastre (DR) não tem as permissõ
 6. Aguarde que os grupos de recursos carregar e, em seguida, selecione o **grupo de recursos** das suas VMs.
 7. Selecione as VMs da lista de VMs apresentado. Apenas as VMs ativadas com encriptação de disco do Azure são apresentadas na lista.
 8. Selecione o **localização de destino**.
-9. **Cofres de chaves de encriptação de disco**: por predefinição, do Azure Site Recovery cria um novo cofre de chaves na região de destino com um nome que o sufixo "asr" com base nas chaves de encriptação de disco da VM de origem. No caso de Cofre de chaves criado pelo Azure Site Recovery já existe, este é reutilizado. Pode selecionar um cofre de chaves diferente na lista, se necessário.
-10. **Cofres de chaves de encriptação da chave**: por predefinição, do Azure Site Recovery cria um novo cofre de chaves na região de destino com um nome que o sufixo "asr" com base nas chaves de encriptação de chave de VM de origem. No caso de Cofre de chaves criado pelo Azure Site Recovery já existe, este é reutilizado. Pode selecionar um cofre de chaves diferente na lista, se necessário.
+9. **Cofres de chaves da encriptação do disco**: por predefinição, o Azure Site Recovery cria um novo cofre de chaves na região de destino com o sufixo “asr” no nome, com base nas chaves de encriptação do disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, será reutilizado. Pode selecionar um cofre de chaves diferente na lista, se necessário.
+10. **Cofres de chaves da encriptação de chaves**: por predefinição, o Azure Site Recovery cria um novo cofre de chaves na região de destino com o sufixo “asr” no nome, com base nas chaves de encriptação da chave da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, será reutilizado. Pode selecionar um cofre de chaves diferente na lista, se necessário.
 
 ## <a name="enable-replication"></a>Ativar a replicação
 
@@ -91,8 +91,8 @@ Este procedimento assume que a região primária do Azure é a Ásia Oriental e 
     - **Discos de geridos de réplica (se a VM de origem utilizar discos geridos)**: o Site Recovery cria novos discos geridos de réplica na região de destino para espelhar os discos geridos da VM de origem com o mesmo tipo de armazenamento (Standard ou premium), como a VM de origem de disco gerido.
     - **Contas de armazenamento em cache**: Site Recovery precisa da conta de armazenamento extra chamada de armazenamento de cache na região de origem. Todas as alterações acontecendo nas VMs de origem são controladas e enviadas para a conta de armazenamento de cache antes de replicar os para a localização de destino.
     - **Conjunto de disponibilidade**: por predefinição, o Azure Site Recovery cria uma novo conjunto de disponibilidade na região de destino com um nome que o sufixo "asr". No caso de conjunto de disponibilidade criado pelo Azure Site Recovery já existe, este é reutilizado.
-    - **Cofres de chaves de encriptação de disco**: por predefinição, do Azure Site Recovery cria um novo cofre de chaves na região de destino com um nome que o sufixo "asr" com base nas chaves de encriptação de disco da VM de origem. No caso de Cofre de chaves criado pelo Azure Site Recovery já existe, este é reutilizado.
-    - **Cofres de chaves de encriptação da chave**: por predefinição, do Azure Site Recovery cria um novo cofre de chaves na região de destino com um nome que o sufixo "asr" com base nas chaves de encriptação de chave de VM de origem. No caso de Cofre de chaves criado pelo Azure Site Recovery já existe, este é reutilizado.
+    - **Cofres de chaves da encriptação do disco**: por predefinição, o Azure Site Recovery cria um novo cofre de chaves na região de destino com o sufixo “asr” no nome, com base nas chaves de encriptação do disco da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, será reutilizado.
+    - **Cofres de chaves da encriptação de chaves**: por predefinição, o Azure Site Recovery cria um novo cofre de chaves na região de destino com o sufixo “asr” no nome, com base nas chaves de encriptação da chave da VM de origem. Caso o cofre de chaves criado pelo Azure Site Recovery já exista, será reutilizado.
     - **Política de replicação**: define as definições de recuperação ponto retenção histórico e aplicação de frequência de instantâneo consistente. Por predefinição, o Azure Site Recovery cria uma nova política de replicação com as predefinições dos ' 24 horas para retenção do ponto de recuperação e "60 minutos para a frequência de instantâneo consistente da aplicação.
 
 
@@ -104,7 +104,7 @@ Pode modificar as predefinições de destino utilizadas pelo Site Recovery.
 
 1. Clique em **personalizar:** junto a "Subscrição de destino" para modificar a subscrição de destino predefinido. Selecione a subscrição da lista de todas as subscrições disponíveis no mesmo inquilino do Azure Active Directory (AAD).
 
-2. Clique em **personalizar:** junto a "grupo de recursos, armazenamento, rede e disponibilidade define como para modificar o abaixo as predefinições:
+2. Clique em **personalizar:** junto a "recurso grupo, rede, armazenamento e conjuntos de disponibilidade para modificar o abaixo as predefinições:
     - Na **grupo de recursos de destino**, selecione o grupo de recursos na lista de todos os grupos de recursos na localização de destino da subscrição.
     - Na **rede virtual de destino**, selecione a rede de uma lista de todos os a rede virtual na localização de destino.
     - Na **conjunto de disponibilidade**, pode adicionar as definições de conjunto de disponibilidade para a VM, se eles são parte de um conjunto de disponibilidade na região de origem.

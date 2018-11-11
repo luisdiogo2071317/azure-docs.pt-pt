@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 84e26212b1102d693b84e5b66fbd606da2673934
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d1099b813e84cd4885b011dec205a1e631fc6599
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405944"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250718"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-gdpr"></a>Azure Security and Compliance Blueprint: armazém de dados para o GDPR
 
 ## <a name="overview"></a>Descrição geral
 O Regulamento de proteção de dados (GDPR) geral contém muitos requisitos sobre a recolher, armazenar e usar informações pessoais, incluindo como as organizações a identificarem e proteger dados pessoais, acomodar os requisitos de transparência, detetar e comunicar violações de dados pessoais e o pessoal de privacidade train e outros funcionários. O GDPR oferece maior controle sobre seus dados pessoais de indivíduos e impõe obrigações de novo vários de organizações que recolhem, processarem ou analisar os dados pessoais. O GDPR impõe as regras de novo em organizações que oferecem bens e serviços a pessoas localizadas na União Europeia (UE), ou que recolha e analisam dados associados a residentes da UE. O GDPR aplica-se, independentemente de onde está localizada a uma organização.
 
-A Microsoft criou o Azure com as políticas de privacidade para salvaguardar os dados na cloud, incluindo as categorias de dados pessoais identificados pelo GDPR e medidas de segurança líderes do setor. Da Microsoft [termos contratuais](http://aka.ms/Online-Services-Terms) consolidar Microsoft para os requisitos de processadores.
+A Microsoft criou o Azure com as políticas de privacidade para salvaguardar os dados na cloud, incluindo as categorias de dados pessoais identificados pelo GDPR e medidas de segurança líderes do setor. Da Microsoft [termos contratuais](https://aka.ms/Online-Services-Terms) consolidar Microsoft para os requisitos de processadores.
 
 Este Azure no Security and Compliance Blueprint fornece orientações para implementar uma arquitetura de armazém de dados no Azure que o ajuda com os requisitos do GDPR. Esta solução demonstra maneiras em que os clientes podem satisfazer os requisitos específicos de segurança e conformidade e serve como uma base para os clientes criar e configurar suas próprias soluções de armazém de dados no Azure. Os clientes podem utilizar esta arquitetura de referência e siga da Microsoft [processo de quatro etapas](https://aka.ms/gdprebook) na sua jornada para conformidade com o GDPR:
 1. Detetar: Identifica os dados pessoais que existem e a respetiva localização.

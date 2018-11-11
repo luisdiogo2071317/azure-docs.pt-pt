@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 10/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 45f5dc840f015793912e314ab3d47e54a409708e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 177deb779ca3e3e9575a41ab9a37bb51d5e79df8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126671"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008084"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Proteger o serviço SQL do Azure e os dados no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários.  Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs), redes, SQL e dados e aplicações.
@@ -49,12 +49,26 @@ Quando clica na base de dados para abordar esta recomendação, é aberto **Dete
 
 Para ativar a auditoria, selecione **ATIVAR**, na opção **Auditoria**.
 
-## <a name="available-sql-service-and-data-recommendations"></a>Recomendações disponíveis de serviço e os dados SQL
-| Recomendação | Descrição |
-| --- | --- |
-| [Ativar a auditoria e a deteção de ameaças em servidores SQL](security-center-enable-auditing-on-sql-servers.md) |Recomenda-se que ative a deteção de ameaças e auditoria para servidores SQL do Azure (serviço do SQL do Azure apenas; não inclui SQL em execução nas suas máquinas virtuais). |
-| [Ativar a auditoria e a deteção de ameaças nas bases de dados SQL](security-center-enable-auditing-on-sql-databases.md) |Recomenda-se que ative a deteção de ameaças e auditoria para bases de dados SQL do Azure (serviço do SQL do Azure apenas; não inclui SQL em execução nas suas máquinas virtuais). |
-| [Ativar a encriptação de dados transparente nas bases de dados SQL](security-center-enable-transparent-data-encryption.md) |Recomenda-se de que ativar a encriptação para bases de dados do SQL (apenas para serviço de SQL do Azure). |
+## <a name="data-and-storage-recommendations"></a>Recomendações de armazenamento e dados
+
+|Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
+|----|----|----|----|
+|Conta de armazenamento|20|Requer transferência segura para a conta de armazenamento|Transferência segura é uma opção que força a sua conta de armazenamento para aceitar pedidos apenas a partir de ligações seguras (HTTPS). Utilização de HTTPS garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão.|
+|Redis|20|Permitir apenas ligações seguras para a Cache de Redis|Ative apenas as ligações através de SSL para a Cache de Redis. Utilização de ligações seguras garante a autenticação entre o servidor e o serviço e protege os dados em trânsito de ataques de camada de rede, tais como o man-in-the-middle, interceptação e seqüestro de sessão.|
+|SQL|15|Ativar a encriptação de dados transparente nas bases de dados SQL|Ative a encriptação transparente de dados para proteger dados inativos e requisitos de conformidade.|
+|SQL|15|Ativar a auditoria em servidores SQL|Ative a auditoria para servidores SQL do Azure. (Apenas para serviços do SQL do azure. Não inclui SQL em execução nas suas máquinas virtuais.)|
+|SQL|15|Ativar a auditoria em bases de dados SQL|Ative a auditoria para bases de dados SQL do Azure. (Apenas para serviços do SQL do azure. Não inclui SQL em execução nas suas máquinas virtuais.)|
+|O Data lake analytics|15|Ativar a encriptação em repouso do Data Lake Analytics|Ative a encriptação de dados transparente proteger os dados Inativos no seu Data Lake Analytics. Encriptação inativa é transparente, o que significa que o Data Lake Analytics encripta automaticamente os dados antes de persistir e desencripta-os antes da obtenção. Não foram efetuadas alterações necessárias nos aplicativos em e serviços que interagem com o Data Lake Analytics devido à encriptação. Encriptação em repouso minimiza o risco de perda de dados contra roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
+|Arquivo do Data lake|15|Ativar a encriptação em repouso para o Store de Lake de dados|Ative a encriptação de dados transparente proteger os dados Inativos no Store de Lake seus dados. Encriptação inativa é transparente, o que significa que o Store de Lake dados encripta automaticamente os dados antes de persistir e desencripta-os antes da obtenção. Não precisa de fazer qualquer alteração nas aplicações e serviços que interagem com o Data Lake Store para acomodar a encriptação. Encriptação em repouso minimiza o risco de perda de dados contra roubo físico e também ajuda a atender aos requisitos de conformidade a normas.|
+|Conta de armazenamento|15|Ativar a encriptação para a Conta de Armazenamento do Azure|Ative a encriptação de serviço de armazenamento do Azure para dados inativos. Encriptação de serviço de armazenamento (SSE) funciona ao encriptar os dados quando ele é escrito para o armazenamento do Azure e desencripta antes da obtenção. O SSE está atualmente disponível apenas para o serviço de Blobs do Azure e pode ser utilizado para blobs de blocos, blobs de páginas e blobs de acréscimo.|
+|O Data lake analytics|5|Ativar registos de diagnóstico no Data Lake Analytics|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Arquivo do Data lake|5|Ativar registos de diagnóstico no Azure Data Lake Store|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|SQL|30|Remediar vulnerabilidades nas bases de dados SQL|Avaliação de vulnerabilidades do SQL analisa a sua base de dados para vulnerabilidades de segurança e expõe qualquer desvios das melhores práticas, como configurações incorretas, permissões excessivas e dados confidenciais não protegidos. Resolver as vulnerabilidades encontradas pode melhorar muito o escritor de segurança da base de dados.|
+|SQL|20|Aprovisionar um administrador do Azure AD para o SQL server|Aprovisione um administrador do Azure AD para o servidor SQL para ativar a autenticação do Azure AD. Autenticação do Azure AD permite a gestão de permissões simplificado e o gerenciamento centralizado de identidades de utilizadores de base de dados e outros serviços Microsoft.|
+|Conta de armazenamento|15|Desativar o acesso irrestrito à rede para a conta de armazenamento|Auditar o acesso de rede sem restrições nas definições de firewall da conta de armazenamento. Em vez disso, configure regras de rede para que apenas aplicativos de redes permitidas podem acessar a conta de armazenamento. Para permitir ligações a partir da Internet específico ou os clientes locais, o acesso pode ser concedido para tráfego a partir de redes virtuais do Azure específicos ou para intervalos de endereços IP de Internet públicos.|
+|Conta de armazenamento|1||Migrar contas de armazenamento aos novos recursos de AzureRM|Utilizar o novo Azure Resource Manager v2, para as suas contas de armazenamento fornecer aprimoramentos de segurança, tais como: aceder a mais forte controlo de acesso (RBAC), a auditoria melhor, a implantação baseada no Resource Manager e a governação de identidades geridas, acesso ao Cofre de chaves para segredos, autenticação baseada no AD do Azure e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança.|
+
+
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre as recomendações que se aplicam a outros tipos de recursos do Azure, consulte o seguinte:

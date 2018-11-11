@@ -2,19 +2,19 @@
 title: Restringir o acesso com assinaturas de acesso partilhado - Azure HDInsight
 description: Saiba como utilizar assinaturas de acesso partilhado para restringir o acesso do HDInsight para dados armazenados em blobs de armazenamento do Azure.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 76e40f5178457f366ed386dba7a1817ddde3c8ac
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090233"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016191"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Utilizar assinaturas de acesso partilhado do Azure Storage para restringir o acesso aos dados no HDInsight
 
@@ -45,7 +45,7 @@ HDInsight tem acesso total aos dados nas contas de armazenamento do Azure associ
   * Um script de Python que pode criar um contentor de armazenamento, a política armazenadas e a SAS para utilização com o HDInsight
   * Um script do PowerShell que pode criar um cluster do HDInsight e configurá-lo para utilizar a SAS.
 
-## <a name="shared-access-signatures"></a>Assinaturas de acesso partilhado
+## <a name="shared-access-signatures"></a>Assinaturas de Acesso Partilhado
 
 Existem duas formas de assinaturas de acesso partilhado:
 

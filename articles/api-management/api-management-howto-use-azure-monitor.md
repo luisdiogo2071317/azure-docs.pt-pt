@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 683b77e47857e4efbe2c24425953e9a3d83177f9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973003"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418851"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -36,11 +36,10 @@ Neste tutorial, ficará a saber como:
 O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
++ Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
 + Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
@@ -55,17 +54,16 @@ A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilida
 * Pedidos do Gateway Não Autorizados: número de pedidos da API que receberam códigos de resposta HTTP, incluindo 401, 403 e 429.
 * Outros Pedidos do Gateway: número de pedidos da API que receberam códigos de resposta HTTP que não pertencem a nenhuma das categorias anteriores (por exemplo, 418).
 
+![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 Para aceder a métricas:
 
 1. Selecione **Métricas** no menu junto à parte inferior da página.
 
     ![métricas](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-2. Na lista pendente, selecione as métricas que lhe interessam (pode adicionar múltiplas métricas).  
-    Por exemplo, selecione **Total de Pedidos do Gateway** e **Pedidos do Gateway Falhados** na lista de métricas disponíveis.
-3. O gráfico mostra o número total de chamadas à API. Mostra também o número de chamadas à API que falharam.
-
-    ![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+2. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **Pedidos do Gateway Com Êxito**. Também pode adicionar mais métricas ao gráfico.
+3. O gráfico mostra o número total de chamadas à API com êxito.
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para um pedido não autorizado
 
@@ -102,6 +100,8 @@ Os registos de atividades fornecem informações aprofundadas sobre as operaçõ
 
 Pode aceder aos registos de atividades no serviço de Gestão de API ou aceder aos registos de todos os recursos do Azure no Azure Monitor. 
 
+![registos de atividades](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 Para ver registos de atividades:
 
 1. Selecione a instância de serviço APIM.
@@ -111,8 +111,6 @@ Para ver registos de atividades:
 
 3. Selecione o âmbito de filtragem pretendido e clique em **Aplicar**.
 
-    ![registos de atividades](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
-
 ## <a name="diagnostic-logs"></a>Registos de Diagnóstico
 
 Os registos de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria, bem como para fins de resolução de problemas. Os registos de diagnóstico diferem dos registos de atividades. Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos recursos do Azure. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo recurso.
@@ -120,7 +118,7 @@ Os registos de diagnóstico fornecem informações avançadas sobre operações 
 Para configurar os registos de diagnóstico:
 
 1. Selecione a instância de serviço APIM.
-2. Clique em **Registos de diagnóstico**.
+2. Clique em **Definições de diagnóstico**.
 
     ![registos de diagnóstico](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 

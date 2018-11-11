@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433757"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288259"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações sobre o funcionamento em rede para um ambiente de serviço de aplicações #
 
@@ -33,7 +33,7 @@ Existem duas versões do ambiente de serviço de aplicações: ASEv1 e ASEv2. Pa
 
 Todas as chamadas de um ASE que aceder à internet, deixe a VNet através de um VIP atribuído para o ASE. O IP público deste VIP é o IP de origem para todas as chamadas a partir do ASE, aceda à internet. Se as aplicações no ASE fazem chamadas para recursos na sua VNet ou numa VPN, o IP de origem é um dos IPs na sub-rede utilizada pelo seu ASE. Uma vez que o ASE é dentro da VNet, também pode aceder aos recursos dentro da VNet sem qualquer configuração adicional. Se a VNet estiver ligada à sua rede no local, o aplicações no ASE também tem acesso a recursos existem sem configuração adicional.
 
-![ASE externo][1] 
+![ASE externo][1] 
 
 Se tiver um ASE externo, o VIP público também é o ponto final de que as suas aplicações de ASE resolver para:
 
@@ -52,7 +52,7 @@ As portas de acesso de aplicação normal são:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Utilizador configurável |  80, 443 |
 |  FTP/FTPS    | Utilizador configurável |  21, 990, 10001-10020 |
-|  Visual Studio depuração remota  |  Utilizador configurável |  4016, 4018, 4020, 4022 |
+|  Visual Studio depuração remota  |  Utilizador configurável |  4020, 4022, 4024 |
 
 Isso é verdade se estiver num ASE externo ou num ASE de ILB. Se estiver num ASE externo, atingir essas portas no VIP público. Se estiver num ASE de ILB, atingir essas portas no ILB. Se bloquear a porta 443, pode haver um efeito sobre algumas funcionalidades expostas no portal. Para obter mais informações, consulte [dependências de Portal](#portaldep).
 
@@ -170,7 +170,7 @@ Os dois primeiros requisitos de entrada para o ASE para a função são apresent
 
 Uma regra predefinida permite que os IPs na VNet para comunicar com a sub-rede do ASE. Outra regra padrão permite que o Balanceador de carga, também conhecido como o VIP público, para comunicar com o ASE. Para ver as regras predefinidas, selecione **regras predefinidas** junto a **Add** ícone. Se colocar uma negação de todo o resto da regra depois do NSG de regras apresentadas, impedir que o tráfego entre o VIP e o ASE. Para impedir que o tráfego que vem de dentro da VNet, adicione a sua própria regra para permitir a entrada. Use uma fonte igual a AzureLoadBalancer com um destino **qualquer** e um intervalo de portas de **\***. Uma vez que a regra NSG é aplicada à sub-rede do ASE, não precisa de ser específico no destino.
 
-Se um endereço IP atribuído à sua aplicação, certifique-se de que manter as portas abertas. Para ver as portas, selecione **ambiente do serviço de aplicações** > **endereços IP**.  
+Se um endereço IP atribuído à sua aplicação, certifique-se de que manter as portas abertas. Para ver as portas, selecione **ambiente do serviço de aplicações** > **endereços IP**.  
 
 Todos os itens que mostra as seguintes regras de saída são necessários, exceto o último item. Elas permitem o acesso à rede para as dependências de ASE registados anteriormente no artigo. Se bloquear qualquer um deles, o ASE deixa de funcionar. O último item na lista permite que o ASE para comunicar com outros recursos na sua VNet.
 

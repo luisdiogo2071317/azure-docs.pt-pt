@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a3e5ae61fcefcb65d08288a2ddc2dd239e68b211
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 60d4501257bf79d1846e62010bf7b336c1b18f19
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312257"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250871"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de gestão de conteúdos para a sua solução de identidade híbrida
 Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode afetar sua decisão sobre qual solução de identidade híbrida para utilizar. Com a proliferação de vários dispositivos e a capacidade dos usuários para trazer os seus próprios dispositivos ([BYOD](https://aka.ms/byodcg)), a empresa precisa proteger os seus próprios dados, mas ele também deve manter privacidade do utilizador intactos. Normalmente, quando um utilizador tem seu próprio dispositivo, poderá também têm várias credenciais que serão alternadas, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado com as credenciais pessoais em comparação com aqueles criados com as credenciais da empresa. Sua solução de identidade deve ser capaz de interagir com a nuvem serviços para fornecer uma experiência totalmente integrada para o utilizador final ao mesmo tempo, certifique-se a sua privacidade e aumentar a proteção contra fugas de dados. 
@@ -38,7 +38,7 @@ Em geral, os requisitos de gestão de conteúdos irão tirar partido do seu sist
 * Proteção de fuga de dados: responsáveis pela proteção de dados para evitar a fuga de controlos de segurança tem de interagir com o sistema de identidade para validar a identidade do utilizador. Isso também é importante para fins de trilha de auditoria.
 
 > [!NOTE]
-> Leia [classificação de dados para preparação da cloud](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) para obter mais informações sobre melhores práticas e diretrizes para a classificação de dados.
+> Leia [classificação de dados para preparação da cloud](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) para obter mais informações sobre melhores práticas e diretrizes para a classificação de dados.
 > 
 > 
 

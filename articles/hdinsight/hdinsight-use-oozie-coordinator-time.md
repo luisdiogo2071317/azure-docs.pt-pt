@@ -2,20 +2,20 @@
 title: Utilizar o coordenador de Oozie do Hadoop de baseados no tempo no HDInsight
 description: Utilize o coordenador de Oozie do Hadoop de baseados no tempo no HDInsight, um serviço de macrodados. Saiba como definir Oozie fluxos de trabalho e coordenadores e submeter trabalhos.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f10990d2e4531be42f0553875bf3a01f0a23f58
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 430d5938ff8f5fcfee2239e25486459bc7a629ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575665"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016034"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Utilize o coordenador de Oozie baseados no tempo com o Hadoop no HDInsight para definir fluxos de trabalho e coordenar trabalhos
 Neste artigo, aprenderá como definir fluxos de trabalho e coordenadores e como acionar as tarefas de coordenador, com base no tempo. É útil percorrer [Oozie de utilização com o HDInsight] [ hdinsight-use-oozie] antes de ler este artigo. Para além do Oozie, também pode agendar as tarefas com o Azure Data Factory. Para obter o Azure Data Factory, veja [utilizar Pig e Hive com o Data Factory](../data-factory/transform-data.md).

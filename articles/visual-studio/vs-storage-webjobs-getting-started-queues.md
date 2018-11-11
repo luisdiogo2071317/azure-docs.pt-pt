@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f94a9d71dab4320e561d2de00af0e2af77ab4c3f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c3e0bd338c38165d3a372f60e12ff5ddaa05d2a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42062076"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248287"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligados (projetos de trabalho Web) de serviços
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -468,7 +468,7 @@ Saída dos métodos de consola que chamar uma função ou no **main ()** método
 
 Resultado da consola não pode ser associado a uma invocação de método em particular, porque a consola é um único thread, embora muitas funções de trabalho podem ser executadas ao mesmo tempo. É por isso que o SDK fornece cada invocação de função com seu próprio objeto de escritor de log exclusivos.
 
-Escrever [dos logs de rastreamento do aplicativo](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), utilize **out** (cria registos marcados como informação) e **Error** (cria registos marcados como erro). Uma alternativa é usar [rastreio ou TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que fornece verboso, aviso, e os níveis de crítico para além das informações e erro. Registos de rastreio de aplicações são apresentadas nos ficheiros de registo de aplicação web, as tabelas do Azure, ou blobs do Azure, dependendo de como configurar a aplicação web do Azure. Como é verdadeiro para todos os saída da consola, os registos de 100 aplicativos mais recentes também aparecem na página do Dashboard para o trabalho Web, não a página de uma invocação de função.
+Escrever [dos logs de rastreamento do aplicativo](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), utilize **out** (cria registos marcados como informação) e **Error** (cria registos marcados como erro). Uma alternativa é usar [rastreio ou TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), que fornece verboso, aviso, e os níveis de crítico para além das informações e erro. Registos de rastreio de aplicações são apresentadas nos ficheiros de registo de aplicação web, as tabelas do Azure, ou blobs do Azure, dependendo de como configurar a aplicação web do Azure. Como é verdadeiro para todos os saída da consola, os registos de 100 aplicativos mais recentes também aparecem na página do Dashboard para o trabalho Web, não a página de uma invocação de função.
 
 Resultado da consola é apresentado no Dashboard apenas se o programa está em execução num trabalho Web do Azure, não se o programa está em execução localmente ou em algum outro ambiente.
 
@@ -511,5 +511,5 @@ E uma tabela do Azure a **out** e **Error** registos ter este aspeto:
 ![Registo de erros na tabela](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Este artigo fornece exemplos de código que mostram como lidar com cenários comuns para trabalhar com as filas do Azure. Para obter mais informações sobre como utilizar o WebJobs do Azure e o SDK de WebJobs, consulte [recursos de documentação de WebJobs do Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Este artigo fornece exemplos de código que mostram como lidar com cenários comuns para trabalhar com as filas do Azure. Para obter mais informações sobre como utilizar o WebJobs do Azure e o SDK de WebJobs, consulte [recursos de documentação de WebJobs do Azure](https://go.microsoft.com/fwlink/?linkid=390226).
 

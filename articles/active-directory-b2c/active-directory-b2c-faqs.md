@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d17e7abbb3b6e4f091e19b8ab6834461dedffc71
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914775"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010648"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>O Azure AD B2C: Perguntas mais frequentes (FAQ) 
 Esta página responde às perguntas mais frequentes sobre o Azure Active Directory (Azure AD) B2C. Manter a verificação de volta para as atualizações.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Por que não é possível a aceder a extensão do Azure AD B2C no portal do Azure?
-Existem dois motivos comuns para por que a extensão do Azure AD não está a funcionar para.  O Azure AD B2C requer a sua função de utilizador no diretório para ser administrador global.  Contacte o administrador se acha que devem ter acesso.  Se tiver privilégios de administrador global, certifique-se de que está num diretório do Azure AD B2C e não um diretório do Azure Active Directory.  Pode ver as instruções para [criar um diretório do Azure AD B2C aqui](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Existem dois motivos comuns para por que a extensão do Azure AD não está a funcionar para.  O Azure AD B2C requer a sua função de utilizador no diretório para ser administrador global.  Contacte o administrador se acha que devem ter acesso.  Se tiver privilégios de administrador global, certifique-se de que está num diretório do Azure AD B2C e não um diretório do Azure Active Directory.  Pode ver as instruções para [criar um inquilino do Azure AD B2C](tutorial-create-tenant.md).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Pode utilizar funcionalidades do Azure AD B2C no meu inquilino do Azure AD existente, com base em funcionários?
 O Azure AD e do Azure AD B2C são ofertas de produtos separada e não podem coexistir no mesmo inquilino.  Um inquilino do Azure AD representa uma organização.  Um inquilino do Azure AD B2C representa uma coleção de identidades a serem utilizadas com aplicações das entidades confiadoras.  Com as políticas personalizadas (em pré-visualização pública), o Azure AD B2C pode federar com o Azure AD, que permite a autenticação de funcionários numa organização.
@@ -39,12 +39,12 @@ Contas de utilizador para aplicações sempre tem de ser criadas através de uma
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Os fornecedores de identidade social suporta agora? Quais planeia suportar no futuro?
 Suportamos, atualmente, o Facebook, Google +, LinkedIn, Amazon, Twitter (pré-visualização), WeChat (pré-visualização), Weibo (pré-visualização) e QQ (pré-visualização). Vamos adicionar suporte para outros fornecedores de identidade de redes sociais populares com base na procura dos clientes.
 
-O Azure AD B2C também adicionou suporte para [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Estes [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) permitir que um desenvolvedor crie sua própria política de que com qualquer fornecedor de identidade que suporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
+O Azure AD B2C também adicionou suporte para [políticas personalizadas](active-directory-b2c-overview-custom.md).  Estes [políticas personalizadas](active-directory-b2c-overview-custom.md) permitir que um desenvolvedor crie sua própria política de que com qualquer fornecedor de identidade que suporta [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
 
 Comece com as políticas personalizadas ao dar uma olhada em nosso [pacote de iniciante da política personalizada](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Pode configurar âmbitos para obter mais informações sobre os consumidores de vários fornecedores de identidade de redes sociais?
-Não, mas esta funcionalidade está no nosso plano. Os âmbitos de padrão usados para nosso conjunto de fornecedores de identidade social de suportados são:
+Não. Os âmbitos de padrão usados para nosso conjunto de fornecedores de identidade social de suportados são:
 
 * Facebook: e-mail
 * Google +: e-mail
@@ -56,7 +56,7 @@ Não, mas esta funcionalidade está no nosso plano. Os âmbitos de padrão usado
 Não, não é possível hospedar seu aplicativo em qualquer lugar (na cloud ou no local). Tudo o que precisa interagir com o Azure AD B2C é a capacidade de enviar e receber pedidos HTTP em pontos de extremidade acessíveis publicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Tenho vários inquilinos do Azure AD B2C. Como posso geri-las no portal do Azure?
-Antes de abrir o "Azure AD B2C" no menu do lado esquerdo do portal do Azure, tem de mudar para o diretório que pretende gerir.  Mudar de diretórios, clicando em sua identidade no canto superior direito do portal do Azure, em seguida, escolha um diretório na lista pendente que é apresentada.  Para um passo a passo com imagens, consulte [navegar para as definições do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
+Antes de abrir o "Azure AD B2C" no menu do lado esquerdo do portal do Azure, tem de mudar para o diretório que pretende gerir.  Mudar de diretórios, clicando em sua identidade no canto superior direito do portal do Azure, em seguida, escolha um diretório na lista pendente que é apresentada.
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Como personalizar mensagens de correio eletrónico de verificação (o conteúdo e o "de:" campo) enviada pelo Azure AD B2C?
 Pode utilizar o [funcionalidade de imagem corporativa](../active-directory/fundamentals/customize-branding.md) para personalizar o conteúdo de mensagens de e-mail de verificação. Especificamente, esses dois elementos da mensagem de e-mail podem ser personalizados:
@@ -74,7 +74,7 @@ A assinatura de e-mail contém o nome do inquilino do Azure AD B2C que indicou q
 1. Alteração da **nome** campo.
 1. Clique em **Guardar** no início da página.
 
-Atualmente não é possível alterar o "de:" campo no email. Vote [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) estiver interessado em Personalizar o corpo da mensagem de e-mail de verificação.
+Atualmente não é possível alterar o "de:" campo no email.
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Como posso migrar meu os nomes de utilizador existente, as palavras-passe e perfis do banco de dados para o Azure AD B2C?
 Pode utilizar o Azure AD Graph API para escrever a sua ferramenta de migração. Consulte a [guia de migração de utilizador](active-directory-b2c-user-migration.md) para obter detalhes.
@@ -113,8 +113,7 @@ Não é atualmente. Esta funcionalidade está no nosso plano. Verificar o seu do
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como posso eliminar o inquilino B2C do Azure AD?
 Siga estes passos para eliminar o inquilino do Azure AD B2C:
 
-1. Siga estes passos para [navegar para as definições do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no portal do Azure.
-1. Navegue para o **aplicativos**, **fornecedores de identidade**, e **todas as políticas** e elimine todas as entradas em cada um deles.
+1. Elimine todas as políticas no seu inquilino do Azure AD B2C.
 1. Agora iniciar sessão para o [portal do Azure](https://portal.azure.com/) como o administrador da subscrição. (Utilizar o mesmo ou conta profissional ou a mesma conta Microsoft que utilizou para se inscrever no Azure.)
 1. Comutador para o inquilino do Azure AD B2C que pretende eliminar.
 2. Navegue para o menu à esquerda do Active Directory.

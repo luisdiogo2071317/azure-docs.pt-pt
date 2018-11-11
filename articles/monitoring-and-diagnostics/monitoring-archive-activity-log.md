@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054010"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016323"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividades do Azure
 Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell ou CLI de várias plataformas para arquivar sua [ **registo de atividades do Azure** ](monitoring-overview-activity-logs.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter o registo de atividades mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estática. Se só precisa de manter seus eventos durante 90 dias ou menos não é necessário configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de Atividades são mantidos na plataforma do Azure durante 90 dias sem ativar arquivamento.
@@ -35,10 +35,10 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
 ## <a name="archive-the-activity-log-using-the-portal"></a>Arquive o registo de atividades com o portal
 1. No portal, clique a **registo de atividades** ligação no painel de navegação esquerda. Se não vir uma ligação para o registo de atividades, clique nas **todos os serviços** ligar pela primeira vez.
    
-    ![Navegue para o painel de registo de atividades](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Na parte superior do painel, clique em **exportar**.
+    ![Navegue para o painel de registo de atividades](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. Na parte superior do painel, clique em **exportar para o Hub de eventos**.
    
-    ![Clique no botão de exportação](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Clique no botão de exportação](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. No painel que aparece, marque a caixa **exportar para uma conta de armazenamento** e selecione uma conta de armazenamento.
    
     ![Definir uma conta de armazenamento](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
@@ -65,9 +65,9 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
 | StorageAccountId |Sim |ID de recurso da conta do Storage para o qual os registos de atividades devem ser salvos. |
-| Localização |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. Pode ver uma lista de todas as regiões para a sua subscrição com `(Get-AzureRmLocation).Location`. |
+| Localizações |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. Pode ver uma lista de todas as regiões para a sua subscrição com `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |Não |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs de indefinidamente (Eterno). |
-| Categoria |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação.  Se não for indicado, em seguida, todos os valores possíveis são pressupõe-se |
+| Categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação.  Se não for indicado, em seguida, todos os valores possíveis são pressupõe-se |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Arquivar o registo de atividade através da CLI
 
@@ -82,7 +82,7 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
 | localizações |Sim |Lista de regiões para o qual pretende recolher eventos de registo de atividades separadas por espaços. Pode ver uma lista de todas as regiões para a sua subscrição com `az account list-locations --query [].name`. |
 | dias |Sim |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor igual a zero irá armazenar os registos indefinidamente (Eterno).  Se zero, em seguida, o parâmetro ativado deve ser definido como true. |
 |enabled | Sim |VERDADEIRO ou FALSO.  Utilizado para ativar ou desativar a política de retenção.  Se for VERDADEIRO, o parâmetro de dias tem de ser um valor maior que 0.
-| categorias |Sim |Lista de categorias de evento que deve ser coletado separadas por espaços. Valores possíveis são escrita, eliminação e ação. |
+| categories |Sim |Lista de categorias de evento que deve ser coletado separadas por espaços. Valores possíveis são escrita, eliminação e ação. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>Esquema de armazenamento do registo de atividades
 Assim que tiver configurado a arquivamento, um contentor de armazenamento será criado na conta de armazenamento quando ocorre um evento de registo de atividades. Os blobs no contentor seguem a mesma Convenção de nomenclatura em registos de atividades e os registos de diagnóstico, conforme ilustrado aqui:

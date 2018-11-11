@@ -1,11 +1,11 @@
 ---
-title: "As políticas de autenticação de API Management do Azure | Microsoft Docs"
-description: "Saiba mais sobre as políticas de autenticação disponíveis para utilização na API Management do Azure."
+title: As políticas de autenticação de gestão de API do Azure | Documentos da Microsoft
+description: Saiba mais sobre as políticas de autenticação disponíveis para utilização na gestão de API do Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
@@ -14,23 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 4d13d9dbea9da9db5bfe9a9af85fdbf9eab1ae84
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4c4c03fffa5786bf3a50f4d2c03511f0a2de0f48
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250956"
 ---
-# <a name="api-management-authentication-policies"></a>Políticas de autenticação de API Management
-Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para obter informações sobre adicionar e configurar as políticas, consulte [políticas na API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+# <a name="api-management-authentication-policies"></a>Políticas de autenticação de gestão de API
+Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).  
 
-##  <a name="AuthenticationPolicies"></a>Políticas de autenticação  
+##  <a name="AuthenticationPolicies"></a> Políticas de autenticação  
   
--   [Autenticar com Basic](api-management-authentication-policies.md#Basic) -autenticar com um serviço de back-end utilizando a autenticação básica.  
+-   [Autenticar com o Basic](api-management-authentication-policies.md#Basic) -autenticar com um serviço de back-end usando a autenticação básica.  
   
--   [Autenticar com o certificado de cliente](api-management-authentication-policies.md#ClientCertificate) -autenticar com um serviço de back-end utilizando certificados de cliente.  
+-   [Autenticar com o certificado de cliente](api-management-authentication-policies.md#ClientCertificate) -autenticar com um serviço de back-end com certificados de cliente.  
   
-##  <a name="Basic"></a>Autenticar com básico  
- Utilize o `authentication-basic` política para autenticar com um serviço de back-end utilizando a autenticação básica. Esta política define eficazmente o cabeçalho de autorização de HTTP para o valor correspondente às credenciais fornecidas na política.  
+##  <a name="Basic"></a> Autenticar com o básico  
+ Utilize o `authentication-basic` política para autenticar com um serviço de back-end usando a autenticação básica. Esta política efetivamente define o cabeçalho de autorização de HTTP para o valor correspondente para as credenciais fornecidas na política.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -46,26 +47,26 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Requerido|  
+|Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |autenticação básica|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Requerido|Predefinição|  
+|Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|nome do utilizador|Especifica o nome de utilizador da credencial básico.|Sim|N/D|  
-|palavra-passe|Especifica a palavra-passe da credencial básico.|Sim|N/D|  
+|o nome de utilizador|Especifica o nome de utilizador da credencial básica.|Sim|N/A|  
+|palavra-passe|Especifica a palavra-passe da credencial básica.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
   
 -   **Âmbitos de política:** API  
   
-##  <a name="ClientCertificate"></a>Autenticar com o certificado de cliente  
- Utilize o `authentication-certificate` política para autenticar com um serviço de back-end com o certificado de cliente. O certificado tem de ser [instalada na API Management](http://go.microsoft.com/fwlink/?LinkID=511599) primeiro e é identificado pelo respetivo thumbprint.  
+##  <a name="ClientCertificate"></a> Autenticar com o certificado de cliente  
+ Utilize o `authentication-certificate` política para autenticar com um serviço de back-end com o certificado de cliente. O certificado tem de ser [instalados, a gestão de API](https://go.microsoft.com/fwlink/?LinkID=511599) primeiro e é identificado por sua impressão digital.  
   
 ### <a name="policy-statement"></a>Declaração de política  
   
@@ -81,28 +82,28 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
   
 ### <a name="elements"></a>Elementos  
   
-|Nome|Descrição|Requerido|  
+|Nome|Descrição|Necessário|  
 |----------|-----------------|--------------|  
 |certificado de autenticação|Elemento raiz.|Sim|  
   
 ### <a name="attributes"></a>Atributos  
   
-|Nome|Descrição|Requerido|Predefinição|  
+|Nome|Descrição|Necessário|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|impressão digital|O thumbprint do certificado de cliente.|Sim|N/D|  
+|Thumbprint|O thumbprint do certificado de cliente.|Sim|N/A|  
   
 ### <a name="usage"></a>Utilização  
- Esta política pode ser utilizada na política de seguinte [secções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **As secções de política:** entrada  
   
 -   **Âmbitos de política:** API  
   
 
-## <a name="next-steps"></a>Passos seguintes
-Para obter mais informações para trabalhar com as políticas, consulte:
+## <a name="next-steps"></a>Passos Seguintes
+Para obter mais informações para trabalhar com políticas, consulte:
 
 + [Políticas de gestão de API](api-management-howto-policies.md)
-+ [APIs de transformação](transform-api.md)
-+ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e as respetivas definições
++ [Transforme as APIs](transform-api.md)
++ [Referência de política](api-management-policy-reference.md) para uma lista completa das declarações de política e suas configurações
 + [Exemplos de política](policy-samples.md)   

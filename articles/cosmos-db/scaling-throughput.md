@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c30c233fb1d413c6a55c7ec0af8c63ca60284b86
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960281"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282382"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>Dimensionar o débito no Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Pode aprovisionar RUs num contentor do Cosmos ou uma base de dados do Cosmos. RU
 
 Para dimensionar elasticamente o débito, pode aumentar ou diminuir o RU/s aprovisionada em qualquer altura. Para obter mais informações, consulte [débito aprovisionar procedimentos](set-throughput.md) e dimensionar bases de dados e contentores de Cosmos. Para globalmente dimensionar o débito, pode adicionar ou remover regiões na sua conta do Cosmos em qualquer altura. Para obter mais informações, consulte [procedimentos adicionar ou remover regiões à sua conta do Cosmos](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associação de várias regiões com uma conta do Cosmos é importante em muitos cenários para alcançar a baixa latência e [elevada disponibilidade](high-availability.md) em todo o mundo.
 
-## <a name="how-throughput-scaling-works"></a>Como funciona o dimensionamento de débito
+## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>como o débito aprovisionado é distribuído em várias regiões
 
 Se aprovisionar 'R' RUs num contêiner de Cosmos (ou da base de dados), o Cosmos DB garante que o RUs 'R' estão disponíveis no *cada* região associada à sua conta do Cosmos. Sempre que adicionar uma nova região à sua conta do Cosmos DB Aprovisiona automaticamente 'R' RUs na região recentemente adicionado. As operações executadas em relação a seu contentor do Cosmos são garantidas para obter o RUs 'R' em cada região. Não é possível atribuir seletivamente RUs numa região específica. O RUs aprovisionadas para um contentor do Cosmos (ou a base de dados) é aprovisionado para todas as regiões à sua conta do Cosmos.
 
