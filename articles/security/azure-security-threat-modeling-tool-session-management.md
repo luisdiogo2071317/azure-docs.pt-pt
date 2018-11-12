@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232747"
 ---
 # <a name="security-frame-session-management"></a>Quadro de segurança: Gerenciamento de sessões
 | Produtos/serviços | Artigo |
@@ -82,7 +82,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Azure DocumentDB | 
+| **Componente**               | DB de documentos do Azure | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
@@ -157,7 +157,7 @@ Ele também deve destruir o sessão do utilizador chamando o método Session.Aba
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | EnvironmentType - OnPrem |
-| **Referências**              | [o elemento (Nastavení Technologie ASP.NET) de httpCookies](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure propriedade](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **Referências**              | [o elemento (Nastavení Technologie ASP.NET) de httpCookies](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx), [HttpCookie.Secure propriedade](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **Passos** | Os cookies são normalmente apenas acessíveis para o domínio para as quais eles foram o escopo. Infelizmente, a definição de "domínio" não inclui o protocolo para que os cookies que são criados através de HTTPS são acessíveis através de HTTP. O atributo "seguro", indica ao navegador, que o cookie deve apenas ser disponibilizado através de HTTPS. Certifique-se de que todos os cookies definida sobre a utilização HTTPS a **seguro** atributo. O requisito pode ser imposto no arquivo Web. config, definindo o atributo requireSSL como true. É a melhor abordagem porque ele aplicará os **seguro** atributo para todos os cookies atuais e futuros sem a necessidade de fazer quaisquer alterações de código adicionais.|
 
 ### <a name="example"></a>Exemplo

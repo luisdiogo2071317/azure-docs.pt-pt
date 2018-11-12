@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a70bb09edb5ccaf4e216785933af80e2fcb2153a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363611"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230517"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Tutorial: Criar e utilizar uma imagem personalizada para conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell
 Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser utilizada quando as instâncias de VM são implementadas. Para reduzir o número de tarefas após as instâncias de VM serem implementadas, pode utilizar uma imagem de VM personalizada. Esta imagem de VM personalizada inclui instalações ou configurações de aplicações obrigatórias. Quaisquer instâncias de VM criadas no conjunto de dimensionamento utilizam a imagem de VM personalizada e estão prontas para apresentar o seu tráfego de aplicações. Neste tutorial, ficará a saber como:
@@ -76,7 +76,7 @@ Para personalizar a sua VM, vamos instalar um servidor Web básico. Quando a ins
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-O último passo para preparar a sua VM para utilização como imagem personalizada é gerar a VM. O Sysprep remove todas as suas informações de conta e configurações pessoais e repõe a VM para um estado limpo para futuras implementações. Para obter mais informações, consulte [Como Utilizar o Sysprep: Uma Introdução](http://technet.microsoft.com/library/bb457073.aspx).
+O último passo para preparar a sua VM para utilização como imagem personalizada é gerar a VM. O Sysprep remove todas as suas informações de conta e configurações pessoais e repõe a VM para um estado limpo para futuras implementações. Para obter mais informações, consulte [Como Utilizar o Sysprep: Uma Introdução](https://technet.microsoft.com/library/bb457073.aspx).
 
 Para generalizar a VM, execute o Sysprep e defina a VM para uma experiência fora da caixa. Quando terminar, indique ao Sysprep que encerre a VM:
 

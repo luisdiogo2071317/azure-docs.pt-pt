@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 8ecef86841bcf13a469f9c0dc81f114bd54acdba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946522"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235161"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>O que é o Azure Data Box Heavy? (Pré-visualização)
 
@@ -31,7 +31,7 @@ O Data Box Heavy está atualmente em pré-visualização. Pode inscrever-se para
 
 > [!IMPORTANT]
 > - O Data Box Heavy está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
-> - Para pedir um dispositivo, inscreva-se no [Portal de pré-visualização](http://aka.ms/).
+> - Para pedir um dispositivo, inscreva-se no [Portal de pré-visualização](https://aka.ms/).
 > - Durante a pré-visualização, o Data Box Heavy pode ser enviado aos clientes nos EUA e na União Europeia. Para obter mais informações, aceda a [Disponibilidade de região](#region-availability).
 
 ## <a name="use-cases"></a>Casos de utilização
@@ -97,7 +97,7 @@ Um fluxo típico inclui os seguintes passos:
 
 1. **Encomenda** - Crie uma encomenda no portal do Azure, forneça as informações de envio e a conta de armazenamento do Azure de destino para os seus dados. Se o dispositivo estiver disponível, o Azure prepara-o e envia-o com um ID de controlo de envio.
 
-2. **Receber** – assim que o dispositivo for entregue, instale os cabos especificados de alimentação e rede do dispositivo. Ative e ligue ao dispositivo. Configure a rede de dispositivo e monte partilhas no computador anfitrião a partir do qual pretende copiar os dados.
+2. **Receber** – Assim que o dispositivo for entregue, instale os cabos especificados de alimentação e rede do dispositivo. Ative e ligue ao dispositivo. Configure a rede de dispositivo e monte partilhas no computador anfitrião a partir do qual pretende copiar os dados.
 
 3. **Copiar dados** - copie dados para partilhas do Data Box Heavy.
 

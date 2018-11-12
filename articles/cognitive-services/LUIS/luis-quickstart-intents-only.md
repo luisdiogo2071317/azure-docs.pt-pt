@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035413"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277720"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutorial 1: Criar uma aplicação personalizada para determinar as intenções do utilizador
 
@@ -71,7 +71,7 @@ Depois de devolver a resposta JSON, o LUIS conclui este pedido. O LUIS não forn
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Captura de ecrã da introdução de novas expressões para a intenção MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>Intenção None (Nenhuma) 
@@ -144,8 +144,8 @@ Regresse ao site do LUIS e crie uma intenção para determinar se a expressão d
 
     | Expressões de exemplo|
     |--|
-    |Quero candidatar-me ao novo cargo de contabilidade|
-    |Preencher a candidatura para o cargo 123456|
+    |Quero candidatar-me ao novo trabalho de contabilidade|
+    |Preencher a candidatura para o emprego 123456|
     |Submeter currículo para a vaga de engenharia|
     |Eis o meu CV para a vaga 654234|
     |Emprego 567890 e a minha documentação|
@@ -156,11 +156,11 @@ Regresse ao site do LUIS e crie uma intenção para determinar se a expressão d
 
 ## <a name="train-again"></a>Preparar novamente
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>Publicar novamente
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>Obter a intenção novamente
 

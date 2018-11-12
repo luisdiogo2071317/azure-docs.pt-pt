@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 2ba921a45619c74af230b282c23adff502ae5b6d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d93b8e37c2025ebe47f9351da26f0913107585d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961454"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009373"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções do Log Analytics de monitorização da rede do Azure
 
@@ -236,4 +236,4 @@ Os dados recolhidos antes da alteração não é visível na solução de novo. 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](log-analytics-log-search.md) ver dados de diagnóstico do Azure de detalhados.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-queries.md) ver dados de diagnóstico do Azure de detalhados.

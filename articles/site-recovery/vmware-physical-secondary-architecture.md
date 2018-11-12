@@ -1,20 +1,20 @@
 ---
-title: Arquitetura da recuperação após desastre VMware/servidor físico no Azure Site Recovery | Documentos da Microsoft
-description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada durante a recuperação após desastre de VMs de VMware no local ou servidores físicos do Windows/Linux para um site de VMware secundário com o Azure Site Recovery
+title: Arquitetura para a recuperação de desastres do servidor VMware/físico para um site secundário com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada durante a recuperação após desastre de VMs de VMware no local ou servidores físicos do Windows/Linux para um site de VMware secundário com o Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215128"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007438"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>Servidor VM de VMware/físico para a arquitetura de recuperação de desastre do VMware
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Arquitetura de replicação de servidor do VMware/físico para um site secundário no local
 
 Este artigo descreve a arquitetura e os processos utilizados quando configurar a replicação de recuperação após desastre, ativação pós-falha e recuperação de máquinas de virtuais de VMware no local (VMs) ou servidores físicos do Windows/Linux para uma secundária através de site de VMware [Azure Recuperação de sites](site-recovery-overview.md).
 

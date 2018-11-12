@@ -7,31 +7,31 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379200"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280458"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões suportadas do Kubernetes no Azure Kubernetes Service (AKS)
 
-Comunidade do Kubernetes libera a versões secundárias aproximadamente a cada três meses. Estas versões incluem novas funcionalidades e melhorias. Versões de patch (por vezes, semanalmente) são mais freqüentes e destinam-se apenas de correções de erros críticas numa versão secundária. Estas versões de patch incluem correções para vulnerabilidades de segurança ou bugs principais afetar um grande número de clientes e produtos em execução na produção com base no Kubernetes.
+A comunidade do Kubernetes lança versões secundárias a cada três meses. Estas versões incluem novas funcionalidades e melhorias. As versões de patch são mais frequentes (às vezes semanais) e destinam-se apenas a correções de erros críticos numa versão secundária. Estas versões de patch incluem correções para vulnerabilidades de segurança ou bugs principais afetar um grande número de clientes e produtos em execução na produção com base no Kubernetes.
 
-Kubernetes nova versão secundária é disponibilizada no [motor de acs] [ acs-engine] no primeiro dia. Os destinos de objetivo de nível de serviço (SLO) do AKS a lançar a versão secundária para clusters do AKS dentro de 30 dias, sujeita a estabilidade da versão.
+Kubernetes nova versão secundária é disponibilizada no [motor de acs] [ acs-engine] no primeiro dia. O Objetivo do Nível de Serviço (SLO) do AKS é lançar a versão secundária dos clusters do AKS dentro de 30 dias, sujeito à estabilidade da versão.
 
-## <a name="kubernetes-version-support-policy"></a>Política de suporte de versão do Kubernetes
+## <a name="kubernetes-version-support-policy"></a>Política de suporte da versão do Kubernetes
 
-AKS oferece suporte a quatro versões secundárias do Kubernetes:
+O AKS suporta quatro versões secundárias do Kubernetes:
 
 - A atual versão secundária que é lançado a montante (n)
-- Três versões secundárias anteriores. Cada versão secundária suportado também oferece suporte a dois patches estáveis.
+- Três versões secundárias anteriores. Cada versão secundária suportada também suporta dois patches estáveis.
 
 Por exemplo, se apresenta o AKS *1.11.x* hoje em dia, também é fornecido suporte para *1.10.a* + *1.10.b*, *1.9.c*  +  *1!d 1,9*, *1.8.e* + *1.8F* (em que as versões de patch letras são duas compilações estáveis mais recente).
 
-Quando uma nova versão secundária é introduzida, as mais antigas pequenas versão e patch em versões suportadas são descontinuadas. 15 dias antes do lançamento da nova versão secundária e extinção de versão futura, um anúncio é feito por meio dos canais de atualização do Azure. No exemplo acima onde *1.11.x* é lançado, as versões retiradas são *1.7.g* + *1.7.h*.
+Quando uma nova versão secundária é introduzida, a versão secundária mais antiga e as versões de patch suportadas são retiradas. 15 dias antes do lançamento da nova versão secundária e extinção de versão futura, é feito por meio de um anúncio a [canais de atualização do Azure][azure-update-channel]. No exemplo acima onde *1.11.x* é lançado, as versões retiradas são *1.7.g* + *1.7.h*.
 
-Quando implementa um cluster do AKS no portal ou com a CLI do Azure, o cluster está sempre definido como a versão secundária n-1 e o patch mais recente. Por exemplo, se suportar do AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1.9*, *1.8.e* + *1.8F*, é a versão predefinida para novos clusters *1.10.b*.
+Quando implementa um cluster do AKS no portal ou com a CLI do Azure, o cluster é sempre definido para a versão secundária n-1 e o patch mais recente. Por exemplo, se suportar do AKS *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1!d 1.9* , *1.8.e* + *1.8F*, é a versão predefinida para novos clusters *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Lista de versões suportadas atualmente
 
@@ -85,6 +85,7 @@ Para obter informações sobre como atualizar o seu cluster, consulte [atualizar
 
 <!-- LINKS - External -->
 [acs-engine]: https://github.com/Azure/acs-engine
+[azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
