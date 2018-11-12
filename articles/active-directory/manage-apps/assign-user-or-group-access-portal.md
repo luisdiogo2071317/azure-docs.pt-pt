@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 11/05/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369185"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037979"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory
 Para atribuir um utilizador ou grupo a uma aplicação empresarial, tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.
 
 > [!NOTE]
-> Os recursos discutidos neste artigo requerem uma licença do Azure Active Directory Premium P1 ou Premium P2. Para obter mais informações, consulte a [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory).
+> Para os requisitos para os recursos discutidos neste artigo de licenciamento, consulte a [Azure Active Directory, página de preços](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > For Microsoft Applications (por exemplo, aplicações do Office 365), utilize o PowerShell para atribuir utilizadores a uma aplicação empresarial.
@@ -35,7 +35,7 @@ Para atribuir um utilizador ou grupo a uma aplicação empresarial, tem de ter a
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Como atribuir acesso de utilizador para uma aplicação empresarial no portal do Azure?
 1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Selecione **todos os serviços**, introduza Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
-3. Sobre o **Azure Active Directory – *directoryname***  painel (ou seja, o Azure AD painel para o diretório que está a gerir), selecione **aplicações empresariais**.
+3. Selecione **aplicações empresariais**.
 
     ![Aplicações empresariais de abertura](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
 4. Sobre o **aplicações empresariais** painel, selecione **todos os aplicativos**. Isto apresenta uma lista de aplicações que pode gerir.
