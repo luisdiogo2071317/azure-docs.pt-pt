@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8525dd443e80bb7d67bc48cc007ab1632ee3e611
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b8b07db6e21fb685ed76409336c98bb5f4ce5bde
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057692"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009441"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Carregar dados para o Azure SQL Data Warehouse com o Azure Data Factory
 
@@ -35,6 +35,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
 > [!NOTE]
 > Para obter mais informações, consulte [copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory](connector-azure-sql-data-warehouse.md).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Subscrição do Azure: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0285b9208247aa84f56d127e734e8a5e87048ac6
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f2f6472fc485691b95305337dd608126d001aa27
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961369"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010713"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Origens de dados de registo de eventos Windows no Log Analytics
 Registos de eventos do Windows são uma das mais comuns [origens de dados](log-analytics-data-sources.md) para a recolha de dados através de agentes do Windows, uma vez que muitos aplicativos escrevem no registo de eventos do Windows.  Pode recolher eventos de registos standard como sistema e da aplicação, além de especificar quaisquer registos personalizados criados por aplicativos que tem de monitorizar.
@@ -76,6 +76,6 @@ A tabela seguinte fornece exemplos diferentes de pesquisas de registos que obter
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Configurar o Log Analytics para recolher outros [origens de dados](log-analytics-data-sources.md) para análise.
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 * Uso [campos personalizados](log-analytics-custom-fields.md) para analisar os registos de eventos em campos individuais.
 * Configurar [recolha de contadores de desempenho de](log-analytics-data-sources-performance-counters.md) dos seus agentes do Windows.

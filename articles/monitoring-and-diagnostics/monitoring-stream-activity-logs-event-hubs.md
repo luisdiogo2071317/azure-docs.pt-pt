@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: af8248bb68068c20d62a2d8cc1e86fd9997a740c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962968"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011838"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>O registo de atividades do Azure para os Hubs de eventos do Stream
 Pode transmitir em fluxo a [registo de atividades do Azure](monitoring-overview-activity-logs.md) em tempo real para qualquer aplicativo, por qualquer um:
@@ -39,10 +39,10 @@ Para atualizar o perfil de registo do registo de atividades para incluir a trans
 ### <a name="via-the-azure-portal"></a>Através do portal do Azure
 1. Navegue para o **registo de atividades** secção utilizando o **todos os serviços** pesquisa no lado esquerdo do portal.
    
-   ![Selecionar o registo de atividades na lista de serviços no portal](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Selecione o **exportar** botão na parte superior do registo.
+   ![Selecionar o registo de atividades na lista de serviços no portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Selecione o **exportar para o Hub de eventos** botão na parte superior do registo.
    
-   ![Botão de exportação no portal](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![Botão de exportação no portal](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Tenha em atenção que as definições de filtro que aplicou ao visualizar o registo de atividades no vista anterior não tem nenhum impacto nas suas definições de exportação. Esses são apenas para filtragem, o que vê ao navegar pelo seu registo de atividades no portal.
 3. Na secção que aparece, selecione **todas as regiões**. Não selecione certas regiões.

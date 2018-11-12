@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5effed58ea0fab9051470a44be30fbb3a7fd7feb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: aa5e0887f6dfb3e983c08d1bbcf1f56f41a9543d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962661"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012807"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta no Log Analytics com a REST API
 A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para realizar operações diferentes.
@@ -28,7 +28,7 @@ A API de REST alerta do Log Analytics permite-lhe criar e gerir alertas no Log A
 A API de REST de pesquisa do Log Analytics é RESTful e pode ser acedido através da API de REST do Azure Resource Manager. Neste documento, encontrará exemplos em que a API é acessada a partir de uma linha de comandos do PowerShell através de [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comandos de código-fonte aberto que simplifica a invocar a API do Azure Resource Manager. O uso de ARMClient e o PowerShell é uma das muitas opções para acessar a API de pesquisa do Log Analytics. Com essas ferramentas, pode utilizar o Gestor de recursos do API RESTful do Azure para fazer chamadas para áreas de trabalho do Log Analytics e executar comandos de pesquisa dentro dos mesmos. A API irá enviar os resultados da pesquisa para si no formato JSON, permitindo que use os resultados da pesquisa de muitas formas diferentes através de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](log-analytics-log-search.md) para obter mais informações.
+Atualmente, os alertas só podem ser criados com uma pesquisa guardada do Log Analytics.  Pode consultar o [API do REST de pesquisa de registo](log-analytics-queries.md) para obter mais informações.
 
 ## <a name="schedules"></a>Agendas
 Uma pesquisa guardada pode ter uma ou mais agendas. O plano define a frequência com que a pesquisa é a execução e o intervalo de tempo durante o qual os critérios é identificado.
@@ -510,6 +510,6 @@ Utilize o método Put com um ID de ação existente para modificar uma ação do
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Utilize o [API REST para realizar pesquisas de registos](log-analytics-log-search.md) no Log Analytics.
+* Utilize o [API REST para realizar pesquisas de registos](log-analytics-queries.md) no Log Analytics.
 * Saiba mais sobre [alertas de registo nos alertas do azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

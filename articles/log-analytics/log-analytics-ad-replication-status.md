@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c248e126d99c7cb83895871ec24d41ffcfd84d29
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960689"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009747"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com o Log Analytics
 
@@ -110,7 +110,7 @@ Quando clicar em qualquer item em uma das listas, verá detalhes adicionais sobr
 
 ![Erros de estado de replicação de AD nos resultados da pesquisa](./media/log-analytics-ad-replication-status/oms-ad-replication-search-details.png)
 
-A partir daqui, pode filtrar ainda mais, modifique a consulta de pesquisa e assim por diante. Para obter mais informações sobre como utilizar a pesquisa de registos, consulte [pesquisas de registos](log-analytics-log-search.md).
+A partir daqui, pode filtrar ainda mais, modifique a consulta de pesquisa e assim por diante. Para obter mais informações sobre como utilizar a pesquisa de registos, consulte [pesquisas de registos](log-analytics-queries.md).
 
 O **HelpLink** campo mostra o URL de uma página do TechNet com detalhes adicionais sobre esse erro específico. Pode copiar e colar esta ligação para a janela do browser para ver informações sobre resolução de problemas e corrigir o erro.
 
@@ -154,4 +154,4 @@ Se precisar de assistência a ligar um dos seus controladores de domínio, pode 
 Se não pretender ligar qualquer um dos seus controladores de domínio diretamente ao Log Analytics ou para o System Center Operations Manager, veja [para permitir que um controlador de domínio enviar dados de AD para o Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](log-analytics-log-search.md) para ver os dados detalhados de estado de replicação do Active Directory.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-queries.md) para ver os dados detalhados de estado de replicação do Active Directory.

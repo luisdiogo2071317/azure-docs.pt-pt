@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445114"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014725"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>O Azure AD B2C: Configurar os requisitos de complexidade de palavras-passe
 
@@ -38,11 +38,10 @@ Aqui estão os tipos de políticas em que a complexidade de palavra-passe pode s
 
 ## <a name="how-to-configure-password-complexity"></a>Como configurar a complexidade de palavra-passe
 
-1. Siga estes passos para [navegar para as definições do Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 1. Open **políticas de inscrição ou início de sessão**.
-1. Selecione uma política e clique em **editar**.
-1. Open **complexidade de palavra-passe**.
-1. Alterar a complexidade de palavra-passe para esta política **simples**, **forte**, ou **Custom**.
+2. Selecione uma política e clique em **editar**.
+3. Open **complexidade de palavra-passe**.
+4. Alterar a complexidade de palavra-passe para esta política **simples**, **forte**, ou **Custom**.
 
 ### <a name="comparison-chart"></a>Gráfico de comparação
 

@@ -3,18 +3,18 @@ title: Submeter tarefas de MapReduce com o SDK .NET do HDInsight - Azure
 description: Aprenda a submeter tarefas de MapReduce para o Azure HDInsight Hadoop com o SDK de .NET do HDInsight.
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: b2a79b73015419dc48a1a731e01ac9c8e1fc27f8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: a978ce7fdfdf7d4c42ab5f512590da96b0c7fcae
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041505"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009334"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar tarefas de MapReduce com o HDInsight .NET SDK
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

@@ -16,15 +16,15 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 141df44f62ddb4a62f6f5f6a8b67107aa2c58a29
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 59133eb9ebc24bc423764523aa9c74430d63b30a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404499"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962529"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Recolher dados sobre Máquinas Virtuais do Azure
-O [Azure Log Analytics](log-analytics-overview.md) pode recolher dados diretamente das máquinas virtuais do Azure e de outros recursos no seu ambiente para um único repositório para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados das VMs do Linux e Windows do Azure em alguns passos simples.  
+O [Azure Log Analytics](log-analytics-queries.md) pode recolher dados diretamente das máquinas virtuais do Azure e de outros recursos no seu ambiente para um único repositório para análise e correlação detalhadas.  Este início rápido mostra como configurar e recolher dados das VMs do Linux e Windows do Azure em alguns passos simples.  
  
 Este início rápido pressupõe que tem uma máquina virtual do Azure. Se não for o caso, pode [criar uma VM do Windows](../virtual-machines/windows/quick-create-portal.md) ou [criar uma VM do Linux](../virtual-machines/linux/quick-create-cli.md) ao seguir os nossos inícios rápidos de VM.
 

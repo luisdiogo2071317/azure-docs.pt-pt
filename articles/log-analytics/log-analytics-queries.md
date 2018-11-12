@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 774ca8d0c893a5672c7f04f3530679204b7262c6
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: MT
+ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51513771"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005058"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analisar dados do Log Analytics no Azure Monitor
 
-Dados de registo recolhidos pelo Azure Monitor são armazenados numa área de trabalho do Log Analytics, que se baseia nos [Explorador de dados do Azure](/azure/data-explorer). Ele recolhe telemetria a partir de várias origens e utiliza a [linguagem do Explorador de dados de consulta](/azure/kusto/query) para recuperar e analisar dados.
+Dados de registo recolhidos pelo Azure Monitor são armazenados numa área de trabalho do Log Analytics, que se baseia nos [Explorador de dados do Azure](/data-explorer). Ele recolhe telemetria a partir de várias origens e utiliza a [linguagem do Explorador de dados de consulta](/kusto) para recuperar e analisar dados.
 
 > [!NOTE]
 > O log Analytics anteriormente era tratado como seu próprio serviço no Azure. Ele agora é considerado uma parte do Azure Monitor e se concentra no armazenamento e análise de dados de registo com a sua linguagem de consulta. Funcionalidades que foram consideradas parte do Log Analytics, por exemplo, agentes Windows e Linux para a recolha de dados, modos de exibição para visualizar os dados existentes e alertas para ser notificado proativamente dos problemas, não foram alterados, mas agora são consideradas parte do Azure Monitor.

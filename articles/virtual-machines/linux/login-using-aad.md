@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993566"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007148"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Inicie sessão na máquina virtual Linux no Azure utilizando a autenticação do Azure Active Directory (pré-visualização)
 
@@ -147,6 +147,20 @@ Quando lhe for pedido, introduza as credenciais de início de sessão do Azure A
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 Feche a janela do browser, devolva o SSH linha de comandos e prima a **Enter** chave. Tem agora sessão iniciada para a máquina virtual do Linux do Azure com as permissões de função como atribuído, como *utilizador de VM* ou *administrador da VM*. Se a sua conta de utilizador é atribuída a *início de sessão de administrador do Virtual Machine* função, pode usar o `sudo` para executar comandos que exigem privilégios de raiz.
+
+## <a name="sudo-and-aad-login"></a>Início de sessão Sudo e AAD
+
+A primeira vez que executar o sudo, será solicitado para autenticar uma segunda vez. Se não quiser tem de autenticar novamente para executar o sudo, pode editar o ficheiro de sudoers `/aad/etc/sudoers.d/aad_admins` e substitua esta linha:
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+com esta linha:
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## <a name="troubleshoot-sign-in-issues"></a>Resolver problemas de início de sessão
 

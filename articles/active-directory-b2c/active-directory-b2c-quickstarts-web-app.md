@@ -7,101 +7,77 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 2/13/2018
+ms.date: 10/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e52674014a888913e288f7b0749d9b2e05bedf45
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c4fa3f9cbba558cd743f85119dd9e91bd73ce062
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292791"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250605"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início Rápido: configurar o início de sessão para uma aplicação ASP.NET através do Azure Active Directory B2C
 
-O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud para manter as aplicações, as empresas e os clientes protegidos. O Azure AD B2C permite às aplicações efetuar a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos.
-
-Neste início rápido, vai utilizar um exemplo de aplicação ASP.NET ativada pelo Azure AD B2C para iniciar sessão com um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
+O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud para manter as aplicações, as empresas e os clientes protegidos. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação ASP.NET para iniciar sessão com um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento ASP.NET e Web**. 
-* Uma conta de rede social do Facebook, Google, Microsoft ou Twitter.
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento ASP.NET e Web**. 
+- Uma conta de rede social do Facebook, Google, Microsoft ou Twitter.
+- [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
-## <a name="download-the-sample"></a>Transferir o exemplo
+    ```
+    git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
+    ```
 
-[Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
+    Estes dois projetos estão na solução de exemplo:
 
-```
-git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
-```
+    - **TaskWebApp** - uma aplicação Web que cria e edita uma lista de tarefas. A aplicação Web utiliza a política de **inscrição ou início de sessão** para inscrição ou início de sessão de utilizadores.
+    - **TaskService** - uma API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
-## <a name="run-the-app-in-visual-studio"></a>Executar a aplicação no Visual Studio
+## <a name="run-the-application-in-visual-studio"></a>Execute a aplicação no Visual Studio
 
-Na pasta de projeto do exemplo de aplicação, abra a solução `B2C-WebAPI-DotNet.sln` no Visual Studio.
+1. Na pasta de projeto da aplicação de exemplo, abra a solução **B2C-WebAPI-DotNet.sln** no Visual Studio.
+2. Para este início rápido, vai executar ambos os projetos **TaskWebApp** e **TaskService** em simultâneo. Clique com o botão direito do rato na solução **B2C-WebAPI-DotNet** no Explorador de Soluções e, em seguida, selecione **Definir Projetos de Arranque**. 
+3. Selecione **Vários projetos de arranque** e altere a **Ação** de ambos os projetos para **Iniciar**. 
+4. Clique em **OK**.
+5. Prima **F5** para depurar as duas aplicações. Cada aplicação abre no seu próprio separador do browser:
 
-Existem dois projetos na solução de exemplo:
+    - `https://localhost:44316/` - aplicação Web ASP.NET. No início rápido, interage diretamente com esta aplicação.
+    - `https://localhost:44332/` - a API Web que é chamada pela aplicação Web ASP.NET.
 
-**Aplicação de exemplo da aplicação Web (TaskWebApp):** aplicação Web para criar e editar uma lista de tarefas. A aplicação Web utiliza a política de **inscrição ou início de sessão** para inscrição ou início de sessão de utilizadores.
+## <a name="sign-in-using-your-account"></a>Inicie sessão com a sua conta
 
-**Exemplo de aplicação da API Web (TaskService):** API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
+1. Clique em **Inscrever-se / Iniciar sessão** na aplicação Web ASP.NET para iniciar o fluxo de trabalho.
 
-Para este início rápido, vai executar ambos os projetos `TaskWebApp` e `TaskService` em simultâneo. 
+    ![Exemplo de aplicação Web ASP.NET](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
-1. Selecione a solução `B2C-WebAPI-DotNet` no Explorador de Soluções.
-2. No menu do Visual Studio, selecione **Projeto > Definir Projetos de Arranque...**. 
-3. Selecione o botão de opção **Vários projetos de arranque**.
-4. Altere a **Ação** em ambos os projetos para **Iniciar**. Clique em **OK**.
+    O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Neste início rápido, utilize uma conta de fornecedor de identidade de redes sociais do Facebook, Google, Microsoft ou Twitter.
 
-Prima **F5** para depurar as duas aplicações. Cada aplicação abre no seu próprio separador do browser:
-
-`https://localhost:44316/` - Esta página é a aplicação Web ASP.NET. No início rápido, interage diretamente com esta aplicação.
-`https://localhost:44332/` - Esta página é a API Web que é chamada pela aplicação Web ASP.NET.
-
-## <a name="create-an-account"></a>Criar uma conta
-
-Clique na ligação **Inscrever-se / Iniciar sessão** na aplicação Web ASP.NET para iniciar o fluxo de trabalho **Inscrever-se ou Iniciar Sessão** com base numa política do Azure AD B2C.
-
-![Exemplo de aplicação Web ASP.NET](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
-
-O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Neste início rápido, utilize uma conta de fornecedor de identidade de redes sociais do Facebook, Google, Microsoft ou Twitter. 
-
-### <a name="sign-up-using-a-social-identity-provider"></a>Inscrever-se através de um fornecedor de identidade de redes sociais
-
-O Azure AD B2C apresenta uma página de início de sessão personalizada para uma marca fictícia com o nome Wingtip Toys para a aplicação Web de exemplo. 
-
-1. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
+2. O Azure AD B2C apresenta uma página de início de sessão personalizada para uma marca fictícia com o nome Wingtip Toys para a aplicação Web de exemplo. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
 
     ![Fornecedor de Início de Sessão ou Inscrição](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
     Efetue a autenticação (início de sessão) com as suas credenciais da rede social e autorize a aplicação a ler as informações da sua conta da rede social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
 
-2. Conclua o processo de início de sessão para o fornecedor de identidade. Por exemplo, se tiver escolhido o Twitter, introduza as suas credenciais do Twitter e clique em **Iniciar sessão**.
-
-    ![Autenticar e autorizar através de uma conta de redes sociais](media/active-directory-b2c-quickstarts-web-app/twitter-authenticate-authorize-web.png)
-
-    Os detalhes do perfil da nova conta do Azure AD B2C são pré-preenchidos com as informações da sua conta de rede social.
-
-3. Atualize os campos Nome a Apresentar, Cargo e Localidade e clique em **Continuar**.  Os valores que introduzir são utilizados para o seu perfil de conta de utilizador do Azure AD B2C.
-
-    ![Detalhes do perfil de inscrição da nova conta](media/active-directory-b2c-quickstarts-web-app/new-account-sign-up-profile-details-web.png)
-
-    Utilizou com êxito o exemplo de aplicação Web que utiliza uma política do Azure AD B2C para autenticar com um fornecedor de identidade e criar uma conta de utilizador do Azure AD B2C. 
+3. Conclua o processo de início de sessão para o fornecedor de identidade.
 
 ## <a name="edit-your-profile"></a>Editar o seu perfil
 
 O Azure Active Directory B2C fornece funcionalidades para permitir que os utilizadores atualizem os seus perfis. O exemplo de aplicação Web utiliza uma política de edição de perfil do Azure AD B2C para o fluxo de trabalho. 
 
-1. Na barra de menus da aplicação Web, clique no nome do perfil e selecione **Editar perfil** para editar o perfil que criou.
+1. Na barra de menus da aplicação, clique no nome do perfil e selecione **Editar perfil** para editar o perfil que criou.
 
     ![Editar perfil](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-2. Altere o **Nome a apresentar** e **Cidade**.  
-3. Clique em **Continuar** para atualizar o seu perfil. O novo nome a apresentar é apresentado na parte superior direita da home page da aplicação Web.
+2. Altere o seu **Nome a apresentar** ou **Cidade** e, em seguida, clique em **Continuar** para atualizar o seu perfil. 
 
-## <a name="access-a-protected-web-api-resource"></a>Aceder a um recurso protegido da API Web
+    A alteração é apresentada na parte superior direita da home page da aplicação Web.
+
+## <a name="access-a-protected-api-resource"></a>Aceder a um recurso protegido da API
 
 1. Clique em **Lista de Tarefas** para introduzir e modificar os itens da lista de tarefas. 
 
@@ -111,7 +87,7 @@ O Azure Active Directory B2C fornece funcionalidades para permitir que os utiliz
 
     A aplicação Web ASP.NET inclui um token de acesso do Azure AD no pedido para o recurso da API Web protegido para executar operações nos itens da lista de tarefas do utilizador.
 
-Utilizou com êxito a conta de utilizador do Azure AD B2C para efetuar uma chamada autorizada para uma API Web protegida pelo Azure AD B2C.
+Utilizou com êxito a conta de utilizador do Azure AD B2C para fazer uma chamada autorizada para uma API Web protegida pelo Azure AD B2C.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -119,9 +95,9 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros início
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste início rápido, utilizou um exemplo de aplicação ASP.NET ativada pelo Azure AD B2C para iniciar sessão com uma página de início de sessão personalizado, iniciar sessão com um fornecedor de identidade de redes sociais, criar uma conta do Azure AD B2C e chamar uma API Web protegida pelo Azure AD B2C. 
+Neste início rápido, utilizou uma aplicação de exemplo ASP.NET para iniciar sessão com uma página de início de sessão personalizado, iniciar sessão com um fornecedor de identidade de redes sociais, criar uma conta do Azure AD B2C e chamar uma API Web protegida pelo Azure AD B2C. 
 
-Continue para o tutorial para saber como configurar o exemplo de ASP.NET para utilizar o seu inquilino do Azure AD B2C.
+Comece a criar o seu próprio inquilino do Azure AD B2C.
 
 > [!div class="nextstepaction"]
 > [Criar um inquilino do Azure Active Directory B2C no portal do Azure](tutorial-create-tenant.md)

@@ -2,18 +2,18 @@
 title: Transmissão em fluxo em escala no Azure HDInsight
 description: Como utilizar os dados de transmissão em fluxo com clusters do HDInsight dimensionáveis.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 35304a51ff7fda8bbf7ef6ebb0366ebe740abfa6
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6588d65a4f19c06e3ee4990aba226dbd11119c91
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591260"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016255"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 
