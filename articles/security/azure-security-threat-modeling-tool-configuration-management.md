@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302112"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249358"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de segurança: Gestão de configuração | Atenuações 
 | Produtos/serviços | Artigo |
@@ -210,7 +210,7 @@ Tenha em atenção de que essa funcionalidade de validação do pedido não é s
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Segurança do IE8 parte v: proteção abrangente](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [tipo de MIME](http://en.wikipedia.org/wiki/Mime_type) |
+| **Referências**              | [Segurança do IE8 parte v: proteção abrangente](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [tipo de MIME](http://en.wikipedia.org/wiki/Mime_type) |
 | **Passos** | O cabeçalho X-conteúdo-tipo-Options é um cabeçalho HTTP que permite que os desenvolvedores especifiquem que seu conteúdo não deve ser intercetados de MIME. Este cabeçalho é projetado para mitigar ataques de detecção de MIME. Para cada página que pode conter conteúdo controlável do utilizador, tem de utilizar o X de cabeçalho de HTTP-conteúdo-tipo-opções: nosniff. Para ativar o cabeçalho necessário globalmente para todas as páginas do aplicativo, pode fazer um dos seguintes|
 
 ### <a name="example"></a>Exemplo

@@ -1,6 +1,6 @@
 ---
-title: Fase de compreensão de negócio o ciclo de vida do processo de ciência de dados de equipa - Azure | Microsoft Docs
-description: Os objetivos, tarefas e materiais a entregar para a fase de compreensão de empresas dos seus projetos de ciência de dados
+title: Estágio de compreensão de negócios do ciclo de vida do processo de ciência de dados de equipa - Azure | Documentos da Microsoft
+description: As metas, tarefas e resultados finais para a fase de compreensão de negócios dos seus projetos de ciência de dados
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,86 +15,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 6d8eedbbf4a682443e73ecb9cf9496f3cdd1cd9d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 00dc359fc171afe470b1dfe8f38d0951085ec580
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837206"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228305"
 ---
 # <a name="business-understanding"></a>Noções sobre empresas
 
-Este artigo descreve os objetivos, tarefas e materiais a entregar associada a fase de compreensão de negócio da equipa de dados de ciência processo (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar seus projetos de ciência de dados. O ciclo de vida destaca as fases principais que projetos normalmente executar, muitas vezes, iteratively:
+Este artigo descreve os objetivos, tarefas e resultados associados a fase de compreensão de negócios do Team Data Science Process (TDSP). Este processo fornece um ciclo de vida recomendado que pode utilizar para estruturar os seus projetos de ciência de dados. O ciclo de vida destaca as fases principais projetos normalmente executadas, muitas vezes iterativamente:
 
-   1. **Compreensão de negócio**
-   2. **Aquisição de dados e a compreensão**
-   3. **Modelação**
+   1. **Compreensão empresarial**
+   2. **Aquisição de dados e compreensão**
+   3. **Modelagem**
    4. **Implementação**
-   5. **Aceitação de cliente**
+   5. **Aceitação do cliente**
 
-Eis uma representação visual do ciclo de vida TDSP: 
+Esta é uma representação visual de ciclo de vida do TDSP: 
 
-![Ciclo de vida TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
+![Ciclo de vida do TDSP](./media/lifecycle/tdsp-lifecycle2.png) 
 
 
 ## <a name="goals"></a>Objetivos
-* Especifique as variáveis de chaves que está a servir como os destinos de modelo e cujas métricas relacionadas são utilizadas determinam o êxito do projeto.
-* Identifica as origens de dados relevantes que o negócio tem acesso para ou a obter.
+* Especifique as variáveis-chave que está a servir como destinos de modelo e cujas métricas relacionadas são utilizadas determinam o sucesso do projeto.
+* Identifica as origens de dados relevantes que tem acesso à empresa, ou tem de obter.
 
 ## <a name="how-to-do-it"></a>Como fazê-lo
-Existem duas tarefas principais resolvidas nesta fase: 
+Existem duas tarefas principais abordadas neste estágio: 
 
-   * **Definir objetivos**: trabalhar com o seu cliente e outros intervenientes para compreender e identificar os problemas empresariais. Formular perguntas que definem os objetivos de negócio podem apontar para as técnicas de ciência de dados.
-   * **Identificar as origens de dados**: localizar dados relevantes que o ajuda a responder às perguntas que definem os objetivos do projeto.
+   * **Definir os objetivos**: trabalhar com seu cliente e outros intervenientes para compreender e a identificar os problemas empresariais. Formule perguntas que definem os objetivos de negócio que as técnicas de ciência de dados podem ter como destino.
+   * **Identificar origens de dados**: localizar os dados relevantes que o ajuda a responder às perguntas que definem os objetivos do projeto.
 
 ### <a name="define-objectives"></a>Definir os objetivos
-1. Um central objetivo deste passo é identificar as variáveis de empresarial fundamentais a análise tem de prever. Vamos referir-se a estas variáveis, como o *modelo destinos*, e as métricas associadas são utilizadas para determinar o êxito do projeto. Dois exemplos de tais destinos são previsões de vendas ou a probabilidade de uma ordem a ser fraudulentas.
+1. Um objetivo central deste passo é identificar as variáveis de negócios essenciais que a análise tem de prever. Fazemos referência a essas variáveis como o *modelar destinos*, e podemos usar as métricas associadas a eles para determinar o sucesso do projeto. Dois exemplos de tais destinos são as previsões de vendas ou a probabilidade de um pedido que está sendo fraudulentos.
 
-2. Defina os objetivos de projeto, pedir e limitar as perguntas "sharp", que são relevantes, específico e inequívoca. Ciência de dados é um processo que utiliza os nomes e números para responder a estas perguntas. Para obter mais informações sobre perguntas sharp, consulte o [como fazê-lo ciência de dados](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blogue. Normalmente utiliza ciência de dados ou de aprendizagem automática responder a cinco tipos de questões:
+2. Defina as metas do projeto ao perguntar e refinar perguntas "sharp", que são relevantes, específicas e inequívoca. Ciência de dados é um processo que utiliza nomes e números para responder a essas perguntas. Para obter mais informações sobre perguntas sharp, consulte a [como fazer ciência de dados](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) blog. Geralmente usa ciência de dados ou de aprendizagem automática responder a cinco tipos de perguntas:
  
    * Quantidade ou quantos? (regressão)
-   * A categoria? (classificação)
-   * Qual o grupo? (clustering)
-   * Este é estranho? (deteção de anomalias)
-   * Qual é a opção deverão ser executada? (recomendação)
+   * Qual categoria? (classificação)
+   * Que grupo? (clustering)
+   * É estranho? (deteção de anomalias)
+   * Qual é a opção deve ser levada em consideração? (recomendação)
 
-   Determine que estas perguntas está a pedir e como responder alcança seus objetivos empresariais.
+   Determine qual dessas perguntas, está pedindo e como respondendo atinge seus objetivos empresariais.
 
-3. Defina a equipa de projeto, especificando as funções e responsabilidades de membros. Desenvolva um plano de referência de alto nível reanalisa como descobrir mais informações. 
+3. Defina a equipe do projeto, especificando as funções e responsabilidades de seus membros. Desenvolva um plano de alto nível etapa que itera à medida que descobre mais informações. 
 
-4. Defina as métricas de sucesso. Por exemplo, pode querer alcançar uma predição de volume de alterações do cliente. Precisa de uma taxa de precisão de "x" por cento no final deste projeto de três meses. Com estes dados, pode oferecer churn promoções de cliente para reduzir. A métrica tem de ser **INTELIGENTE**: 
+4. Defina as métricas de sucesso. Por exemplo, pode querer obter uma previsão de abandono de clientes. Precisa de uma taxa de precisão de "x" por cento no final deste projeto de três meses. Com esses dados, pode oferecer promoções de cliente para reduzir o abandono. As métricas têm de ser **INTELIGENTE**: 
 
    * **S**pecíficas 
    * **M**easurable
    * **A**chievable 
    * **R**elevant 
-   * **T**ime vinculados 
+   * **T**ligados a ime 
 
-### <a name="identify-data-sources"></a>Identificar as origens de dados
-Identifica as origens de dados que contenham conhecidos exemplos de respostas às suas perguntas sharp. Procure os dados seguintes:
+### <a name="identify-data-sources"></a>Identificar origens de dados
+Identifica origens de dados que contêm conhecidos exemplos de respostas para suas perguntas sharp. Procure os seguintes dados:
 
-* Dados que são relevantes para a pergunta. Tiver medidas de destino e as funcionalidades que estão relacionados com o destino?
-* Dados que são uma medida de destino modelo exata e as funcionalidades de interesse.
+* Dados que são relevantes para a pergunta. Tem medidas de destino e de recursos que estão relacionadas com o destino?
+* Dados que é uma medida precisa do seu destino do modelo e os recursos de interesse.
 
-Por exemplo, poderá achar que os sistemas existentes tem de recolher e registar adicionais tipos de dados para resolver o problema e atingir os objetivos de projeto. Nesta situação, pode querer serve para origens de dados externas ou atualizar os sistemas de recolher novos dados.
+Por exemplo, pode descobrir que os sistemas existentes necessário recolher e registar os tipos adicionais de dados para resolver o problema e atingir as metas do projeto. Nesta situação, pode querer procurar origens de dados externas ou atualizar seus sistemas a recolher novos dados.
 
 ## <a name="artifacts"></a>Artefactos
-Seguem-se a concentrarem nesta fase:
+Aqui estão os resultados finais neste estágio:
 
-   * [Documento charter](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): é fornecido um modelo padrão na definição de estrutura de projeto do TDSP. O documento de charter é um documento de maior duração. Atualizar o modelo em todo o projeto como novas deteções e os como empresariais os requisitos se alteram. A chave é iterar após neste documento, a adição de mais detalhadamente, à medida que o processo de deteção. Manter o cliente e outros intervenientes envolvido na efetuar as alterações e claramente comunicam as razões para que as alterações aos mesmos.  
-   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): O **origens de dados não processados** secção o **definições de dados** relatório que está presente no projeto TDSP **relatório de dados** pasta contém os dados origens. Esta secção especifica as localizações originais e de destino para os dados não processados. Em fases posteriores, preencha detalhes adicionais, como os scripts para mover os dados para o seu ambiente de análise.  
-   * [Dicionários dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento fornece descrições dos dados que são fornecidos pelo cliente. Estas descrições incluem informações sobre o esquema (os tipos de dados e obter informações sobre as regras de validação, se aplicável) e os diagramas de relação da entidade, se disponível.
+   * [Documento de responsabilidade](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): um modelo padrão é fornecido na definição de estrutura de projeto de TDSP. O documento de responsabilidade é um documento dinâmico. Atualizar o modelo em todo o projeto como fizer deteções novas e quanto a empresa requisitos se alteram. A chave é a iteração após neste documento, adicionando mais detalhes, conforme avança no processo de deteção. Manter o cliente e outras partes interessadas envolvido em fazer as alterações e comuniquem claramente os motivos para que as alterações aos mesmos.  
+   * [Origens de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): A **origens de dados não processados** seção o **definições de dados** relatório que se encontra no projeto de TDSP **relatório de dados** pasta contém os dados origens. Esta secção especifica as localizações originais e de destino para os dados não processados. Nos estágios posteriores, preencha os detalhes adicionais, como os scripts para mover os dados ao seu ambiente de análise.  
+   * [Os dicionários de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): este documento fornece descrições dos dados que são fornecidos pelo cliente. Estas descrições incluem informações sobre o esquema (tipos de dados e informações sobre as regras de validação, se aplicável) e os diagramas de entidade-relação, se disponível.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Seguem-se ligações para cada passo no ciclo de vida do TDSP:
+Seguem-se ligações para cada etapa do ciclo de vida do TDSP:
 
-   1. [Compreensão de negócio](lifecycle-business-understanding.md)
-   2. [Aquisição de dados e a compreensão](lifecycle-data.md)
-   3. [Modelação](lifecycle-modeling.md)
+   1. [Compreensão empresarial](lifecycle-business-understanding.md)
+   2. [Aquisição de dados e compreensão](lifecycle-data.md)
+   3. [Modelagem](lifecycle-modeling.md)
    4. [Implementação](lifecycle-deployment.md)
-   5. [Aceitação de cliente](lifecycle-acceptance.md)
+   5. [Aceitação do cliente](lifecycle-acceptance.md)
 
-Fornecemos instruções completa ponto-a-ponto que demonstram todos os passos no processo de cenários específicos. O [instruções de exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com ligações e descrições em miniatura. As instruções mostram como combinar em nuvem, ferramentas no local e serviços para um fluxo de trabalho ou pipeline para criar uma aplicação inteligente. 
+Fornecemos orientações passo a passo de completa-a-ponto, que demonstram todas as etapas do processo para cenários específicos. O [instruções passo a passo do exemplo](walkthroughs.md) artigo fornece uma lista dos cenários com links e descrições em miniatura. A instruções passo a passo mostram como combinar a cloud, ferramentas no local e serviços num fluxo de trabalho ou um pipeline para criar uma aplicação inteligente. 
 
-Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](http://aka.ms/datascienceprocess).
+Para obter exemplos de como executar os passos no TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com o Azure Machine Learning](https://aka.ms/datascienceprocess).

@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de Teradata utilizando o Azure Data Factory | Microsoft Docs
-description: Saiba mais sobre Teradata conector do serviço fábrica de dados que lhe permite copiar dados de base de dados Teradata aos arquivos de dados suportados pela fábrica de dados como sinks.
+title: Copiar dados do Teradata com o Azure Data Factory | Documentos da Microsoft
+description: Saiba mais sobre Teradata conector do serviço Data Factory que lhe permite copiar dados de base de dados Teradata armazenamentos de dados suportado pelo Data Factory como sinks.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,54 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a2928b202f56674c69e6431201db6d846a9feb9a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 37e7281af87a8cfc57aae95411eb2d4cce9eef65
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045760"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228067"
 ---
-# <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados de Teradata utilizando o Azure Data Factory
+# <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados do Teradata com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Versão atual](connector-teradata.md)
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados Teradata. Baseia-se no [copiar descrição geral da atividade](copy-activity-overview.md) artigo que apresenta uma descrição geral da atividade de cópia.
+Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de uma base de dados Teradata. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de base de dados Teradata para qualquer arquivo de dados suportados sink. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks pela atividade de cópia, consulte o [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Pode copiar dados de base de dados Teradata para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
-Especificamente, este conector Teradata suporta:
+Especificamente, este conector de Teradata suporta:
 
 - Teradata **versão 12 e acima**.
-- Copiar dados utilizando **básico** ou **Windows** autenticação.
+- Copiar dados utilizando **básica** ou **Windows** autenticação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar este conector Teradata, tem de:
+Para utilizar este conector de Teradata, terá de:
 
-- Defina um tempo de execução de integração Self-hosted. Consulte [Self-hosted integração Runtime](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
-- Instalar o [fornecedor de dados .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versão 14 ou acima na máquina de tempo de execução de integração.
+- Configure um Runtime de integração autoalojado. Ver [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md) artigo para obter detalhes.
+- Instalar o [fornecedor de dados do .NET para Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) versão 14 ou superior no computador Runtime de integração.
 
 ## <a name="getting-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As secções seguintes fornecem detalhes sobre as propriedades que são utilizados para definir entidades do Data Factory específicas para o conector Teradata.
+As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector de Teradata.
 
-## <a name="linked-service-properties"></a>Propriedades de serviço ligado
+## <a name="linked-service-properties"></a>Propriedades do serviço ligado
 
-As seguintes propriedades são suportadas para o serviço de Teradata ligada:
+As seguintes propriedades são suportadas para o serviço de Teradata ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida: **Teradata** | Sim |
-| servidor | Nome do servidor Teradata. | Sim |
-| authenticationType | Tipo de autenticação utilizado para ligar à base de dados Teradata.<br/>Valores permitidos são: **básico**, e **Windows**. | Sim |
+| tipo | A propriedade de tipo deve ser definida como: **Teradata** | Sim |
+| servidor | Nome do servidor de Teradata. | Sim |
+| authenticationType | Tipo de autenticação utilizado para ligar à base de dados Teradata.<br/>Valores permitidos são: **básica**, e **Windows**. | Sim |
 | o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados Teradata. | Sim |
-| palavra-passe | Especifique a palavra-passe da conta de utilizador especificado para o nome de utilizador. Marcar este campo como um SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Cofre de chaves do Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [integração Runtime](concepts-integration-runtime.md) para ser utilizado para ligar ao arquivo de dados. Um tempo de execução de integração Self-hosted é necessário, tal como mencionado na [pré-requisitos](#prerequisites). |Sim |
+| palavra-passe | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
 
@@ -88,13 +88,13 @@ As seguintes propriedades são suportadas para o serviço de Teradata ligada:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para uma lista completa das secções e propriedades disponíveis para definir os conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista de propriedades suportadas por conjunto de dados Teradata.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados Teradata.
 
-Para copiar dados de Teradata, defina a propriedade de tipo do conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
+Para copiar dados do Teradata, defina a propriedade de tipo de conjunto de dados para **RelationalTable**. São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida: **RelationalTable** | Sim |
+| tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela na base de dados Teradata. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo:**
@@ -115,15 +115,15 @@ Para copiar dados de Teradata, defina a propriedade de tipo do conjunto de dados
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
-Para uma lista completa das secções e propriedades disponíveis para definir as atividades, consulte o [Pipelines](concepts-pipelines-activities.md) artigo. Esta secção fornece uma lista de propriedades suportadas por origem Teradata.
+Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [Pipelines](concepts-pipelines-activities.md) artigo. Esta seção fornece uma lista de propriedades suportadas pela origem de Teradata.
 
 ### <a name="teradata-as-source"></a>Teradata como origem
 
-Para copiar dados de Teradata, defina o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+Para copiar dados do Teradata, defina o tipo de origem na atividade de cópia para **RelationalSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo da origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
+| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -160,9 +160,9 @@ Para copiar dados de Teradata, defina o tipo de origem na atividade de cópia pa
 
 ## <a name="data-type-mapping-for-teradata"></a>Tipo de dados de mapeamento para Teradata
 
-Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Teradata tipos de dados para tipos de dados intermédio do Azure Data Factory. Consulte [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
+Ao copiar dados da Teradata, os seguintes mapeamentos são utilizados entre tipos de dados Teradata aos tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber mais sobre como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
-| Tipo de dados Teradata | Tipo de dados intermédio de fábrica de dados |
+| Tipo de dados Teradata | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
 | Blobs |Byte[] |
@@ -171,32 +171,32 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 | char |Cadeia |
 | CLOB |Cadeia |
 | Date |DateTime |
-| Decimal |Decimal |
+| decimal |decimal |
 | Valor de duplo |Valor de duplo |
 | Gráfico |Cadeia |
 | Número inteiro |Int32 |
-| Dia de intervalo |TimeSpan |
-| Dia de intervalo hora |TimeSpan |
-| Dia de intervalo para minuto |TimeSpan |
-| Dia de intervalo para o segundo |TimeSpan |
-| Hora de intervalo |TimeSpan |
-| Hora de intervalo para minuto |TimeSpan |
-| Hora de intervalo para o segundo |TimeSpan |
-| Minuto do intervalo |TimeSpan |
-| Minuto do intervalo para o segundo |TimeSpan |
-| Mês do intervalo |Cadeia |
-| Intervalo segundo |TimeSpan |
-| Intervalo ano |Cadeia |
-| Intervalo de ano a mês |Cadeia |
+| Dia do intervalo |Período de tempo |
+| Dia de intervalo para a hora |Período de tempo |
+| Dia de intervalo de minuto |Período de tempo |
+| Dia do intervalo como segundo |Período de tempo |
+| Hora do intervalo |Período de tempo |
+| Intervalo de hora para minuto |Período de tempo |
+| Hora do intervalo como segundo |Período de tempo |
+| Minuto do intervalo |Período de tempo |
+| Intervalo de minuto para segundo |Período de tempo |
+| Mês de intervalo |Cadeia |
+| Intervalo de segundo |Período de tempo |
+| Ano de intervalo |Cadeia |
+| Intervalo de ano para mês |Cadeia |
 | Number |Valor de duplo |
 | Period(Date) |Cadeia |
 | Period(Time) |Cadeia |
-| Período (Time com fuso horário) |Cadeia |
+| Período (hora com fuso horário) |Cadeia |
 | Period(Timestamp) |Cadeia |
 | Período (Timestamp com o fuso horário) |Cadeia |
 | SmallInt |Int16 |
-| Hora |TimeSpan |
-| Período de tempo com fuso horário |Cadeia |
+| Hora |Período de tempo |
+| Hora com fuso horário |Cadeia |
 | Carimbo de data/hora |DateTime |
 | Timestamp com o fuso horário |DateTimeOffset |
 | VarByte |Byte[] |
@@ -206,4 +206,4 @@ Quando copiar dados de Teradata, os seguintes mapeamentos são utilizados Terada
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter uma lista dos arquivos de dados suportados como origens e sinks pela atividade de cópia no Azure Data Factory, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

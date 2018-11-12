@@ -1,24 +1,24 @@
 ---
-title: Utilizar nós de extremidade em branco em clusters do Hadoop no HDInsight - Azure
+title: Utilizar nós de extremidade em branco em clusters do Apache Hadoop no HDInsight - Azure
 description: Como adicionar um nó de extremidade vazio para um cluster do HDInsight que pode ser utilizado como um cliente e, em seguida, teste/anfitrião suas aplicações do HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 1111f3c21e3c3718a9a010284a42ea469e04473d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090393"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281376"
 ---
-# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utilizar nós de extremidade em branco em clusters do Hadoop no HDInsight
+# <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utilizar nós de extremidade em branco em clusters do Apache Hadoop no HDInsight
 
-Saiba como adicionar um nó de extremidade vazio para um cluster do HDInsight. Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instalado e configurado como nos principais, mas com não existem serviços do Hadoop em execução. Pode utilizar o nó de extremidade para aceder ao cluster, testar as suas aplicações de cliente e hospedar seus aplicativos de cliente. 
+Saiba como adicionar um nó de extremidade vazio para um cluster do HDInsight. Um nó de extremidade vazio é uma máquina virtual do Linux com as mesmas ferramentas de cliente instalado e configurado como nos principais, mas com os serviços não Apache Hadoop em execução. Pode utilizar o nó de extremidade para aceder ao cluster, testar as suas aplicações de cliente e hospedar seus aplicativos de cliente. 
 
 Pode adicionar um nó de extremidade vazio para um cluster do HDInsight existente, para um novo cluster ao criar o cluster. Adicionar um nó de extremidade em branco é feito usando o modelo Azure Resource Manager.  O exemplo seguinte demonstra como isso é feito através de um modelo:
 
@@ -58,7 +58,7 @@ O tamanho de máquina virtual do nó de extremidade tem de cumprir os requisitos
 Depois de ter criado um nó de extremidade, pode ligar ao nó de extremidade através de SSH e executar as ferramentas de cliente para aceder ao cluster de Hadoop no HDInsight.
 
 > [!WARNING] 
-> Componentes personalizados que estão instalados no nó de extremidade recebem suporte comercialmente razoável da Microsoft. Isto pode resultar na resolução de problemas que encontrar. Ou pode ser direcionado para os recursos da Comunidade para obter mais assistência. Seguem-se alguns dos sites de ativos mais para obter ajuda da Comunidade:
+> Componentes personalizados que estão instalados no nó de extremidade recebem suporte comercialmente razoável da Microsoft. Isto pode resultar na resolução de problemas que encontrar. Em alternativa, pode ser direcionado para os recursos da Comunidade para obter mais assistência. Seguem-se alguns dos sites de ativos mais para obter ajuda da Comunidade:
 >
 > * [Fórum do MSDN para o HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
 > * [http://stackoverflow.com](http://stackoverflow.com).
@@ -66,7 +66,7 @@ Depois de ter criado um nó de extremidade, pode ligar ao nó de extremidade atr
 > Se estiver a utilizar uma tecnologia do Apache, talvez consiga encontrar assistência através do Apache sites de projeto na [ http://apache.org ](http://apache.org), como a [Hadoop](http://hadoop.apache.org/) site.
 
 > [!NOTE]
-> Mesmo que os clusters, nós de extremidade também são gerido de patch.  Para obter mais informações, consulte [aplicação de patches de SO para o HDInsight](./hdinsight-os-patching.md).
+> Como os outros nós do cluster, nós de extremidade também são gerido de patch.  Para obter mais informações, consulte [aplicação de patches de SO para o HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Adicionar um nó de extremidade a um cluster existente
 Nesta secção, vai utilizar um modelo do Resource Manager para adicionar um nó de extremidade a um cluster do HDInsight existente.  O modelo do Resource Manager pode ser encontrado na [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). O modelo do Resource Manager chama uma ação de script localizada em https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. O script não executa qualquer ação.  É demonstrar a chamada de ação de script de um modelo do Resource Manager.
@@ -116,7 +116,7 @@ Nesta seção, usar um modelo do Resource Manager para criar o cluster do HDInsi
 
 ## <a name="add-multiple-edge-nodes"></a>Adicionar vários nós de extremidade
 
-Pode adicionar vários nós de extremidade para um cluster do HDInsight.  A configuração de nós de extremidade vários só pode ser feita utilizando modelos do Azure Resource Manager.  Veja o exemplo de modelo no início deste artigo.  Tem de atualizar o **targetInstanceCount** para refletir o número de nós de extremidade que pretende criar.
+Pode adicionar vários nós de extremidade para um cluster do HDInsight.  A configuração de nós de extremidade vários só pode ser feita utilizando modelos do Azure Resource Manager.  Veja o exemplo de modelo no início deste artigo.  Tem de atualizar o **targetInstanceCount** para refletir o número de nós de extremidade que gostaria de criar.
 
 ## <a name="access-an-edge-node"></a>Aceder a um nó de extremidade
 O nó de extremidade ssh ponto final está &lt;EdgeNodeName >.&lt; ClusterName >-ssh.azurehdinsight.net:22.  Por exemplo, novo-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.

@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282446"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300680"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 
@@ -50,7 +50,7 @@ Escalão Standard dos Hubs de eventos, atualmente, suporta um período de reten�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como posso monitorizar o meu Hubs de eventos?
 Os Hubs de eventos emite métricas exaustivas que fornecem o estado dos seus recursos para [do Azure Monitor](../azure-monitor/overview.md). Eles também permitem avaliar o estado de funcionamento geral do serviço Hubs de eventos não apenas ao nível do espaço de nomes, mas também no nível de entidade. Saiba mais sobre o que monitorizar é oferecido para [os Hubs de eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
-## <a name="apache-kakfa-integration"></a>Integração do Apache Kakfa
+## <a name="apache-kafka-integration"></a>Integração do Apache Kafka
 
 ### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>Como posso integrar o meu aplicativo existente do Kafka com os Hubs de eventos?
 Os Hubs de eventos fornece um ponto de extremidade do Kafka que pode ser utilizado por seus aplicativos existentes do Apache Kafka com base. Uma alteração de configuração é tudo o que é necessária para ter a experiência de PaaS Kafka. Ele fornece uma alternativa à execução de seu próprio cluster do Kafka. Os Hubs de eventos suporta Apache Kafka 1.0 e as versões mais recentes do cliente e funciona com seus existente Kafka aplicativos, ferramentas e estruturas. Para obter mais informações, consulte [Hubs de eventos para o repositório de Kafka](https://github.com/Azure/azure-event-hubs-for-kafka).

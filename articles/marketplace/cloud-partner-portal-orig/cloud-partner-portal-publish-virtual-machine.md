@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387366"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247080"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicar uma máquina virtual no Azure Marketplace
 
@@ -37,7 +37,7 @@ Os seguintes pré-requisitos de técnicos e aplicam a publicação de máquinas 
 
 -   [Criar e testar uma VM do Linux a partir de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Criar e carregar um VHD do Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Criar e carregar um VHD do Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Criar e testar uma VM do Windows a partir de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ Os seguintes pré-requisitos de técnicos e aplicam a publicação de máquinas 
 
 -   Aceita os termos do contrato de publicador e políticas de participação do Azure Marketplace.
 
--   Concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [declaração de privacidade da Microsoft](http://www.microsoft.com/privacystatement/default.aspx), e [contrato do Microsoft Azure Certified programa](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   Concorda em estar em conformidade com o [termos de utilização](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [declaração de privacidade da Microsoft](https://www.microsoft.com/privacystatement/default.aspx), e [contrato do Microsoft Azure Certified programa](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -211,7 +211,7 @@ No excel preço, os preços para as diferentes regiões estão listados na moeda
 
 >[!IMPORTANT]
 >-   Os preços não podem ser alterados depois de uma oferta entra no ar. No entanto, ainda poderá adicionar ou remover regiões suportadas.
->-   Este preço é cobrado ao utilizador para além [Azure\'preços das máquinas virtuais de s](http://aka.ms/vmpricingdetails).
+>-   Este preço é cobrado ao utilizador para além [Azure\'preços das máquinas virtuais de s](https://aka.ms/vmpricingdetails).
 >-   Os preços são definidos para todas as regiões na moeda local, utilizando as taxas de moeda disponíveis no momento da definição dos preços.
 >-   Para definir ou ver o preço de cada região individualmente, a folha de cálculo do preço de exportação e importação com preços personalizados.
 
@@ -225,7 +225,7 @@ A secção seguinte para concluir será a secção de imagens de VM. Antes de ir
 
 -   [Criar e testar uma VM do Linux a partir de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Criar e carregar um VHD do Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Criar e carregar um VHD do Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Criar e testar uma VM do Windows a partir de uma imagem](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 

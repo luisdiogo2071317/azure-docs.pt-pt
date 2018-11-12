@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307425"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251564"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Quadro de segurança: Autenticação | Atenuações 
 | Produtos/serviços | Artigo |
@@ -47,7 +47,7 @@ ms.locfileid: "43307425"
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| Detalhes | <p>A autenticação é o processo em que uma entidade prova a sua identidade, normalmente através de credenciais, tal como um nome de utilizador e palavra-passe. Existem vários protocolos de autenticação disponíveis que podem ser considerados. Algumas delas estão listadas abaixo:</p><ul><li>Certificados de cliente</li><li>Plataforma Windows</li><li>Baseada em formulários</li><li>Federação - ADFS</li><li>Federação - Azure AD</li><li>Federação - servidor de identidades</li></ul><p>Considere a utilização de um mecanismo de autenticação padrão para identificar o processo de origem</p>|
+| Detalhes | <p>A autenticação é o processo em que uma entidade prova a sua identidade, normalmente através de credenciais, tal como um nome de utilizador e palavra-passe. Existem vários protocolos de autenticação disponíveis que podem ser considerados. Algumas delas estão listadas abaixo:</p><ul><li>Certificados de cliente</li><li>Com base do Windows</li><li>Baseada em formulários</li><li>Federação - ADFS</li><li>Federação - Azure AD</li><li>Federação - servidor de identidades</li></ul><p>Considere a utilização de um mecanismo de autenticação padrão para identificar o processo de origem</p>|
 
 ## <a id="handle-failed-authn"></a>Aplicativos devem suportar cenários de falha de autenticação de forma segura
 
@@ -156,14 +156,14 @@ ms.locfileid: "43307425"
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | OnPrem, SQL Azure |
 | **Atributos**              | V12 de versão - MSSQL2012, versão do SQL - SQL |
-| **Referências**              | [Melhores práticas de segurança com bases de dados contidas](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **Referências**              | [Melhores práticas de segurança com bases de dados contidas](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Passos** | A ausência de uma política de palavra-passe imposto pode aumentar a probabilidade de uma credencial fraca a ser estabelecida numa base de dados contida. Tire partido de autenticação do Windows. |
 
 ## <a id="authn-sas-tokens"></a>Utilizar por credenciais de autenticação do dispositivo utilizar SaS tokens
 
 | Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Hub de Eventos do Azure | 
+| **Componente**               | Hub de eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
@@ -339,7 +339,7 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Autenticação e autorização na ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [serviços de autenticação externo com a API Web ASP.NET (c#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **Passos** | <p>A autenticação é o processo em que uma entidade prova a sua identidade, normalmente através de credenciais, tal como um nome de utilizador e palavra-passe. Existem vários protocolos de autenticação disponíveis que podem ser considerados. Algumas delas estão listadas abaixo:</p><ul><li>Certificados de cliente</li><li>Plataforma Windows</li><li>Baseada em formulários</li><li>Federação - ADFS</li><li>Federação - Azure AD</li><li>Federação - servidor de identidades</li></ul><p>Links na seção referências fornecem detalhes de baixo nível sobre como cada um dos esquemas de autenticação pode ser implementada para proteger uma API Web.</p>|
+| **Passos** | <p>A autenticação é o processo em que uma entidade prova a sua identidade, normalmente através de credenciais, tal como um nome de utilizador e palavra-passe. Existem vários protocolos de autenticação disponíveis que podem ser considerados. Algumas delas estão listadas abaixo:</p><ul><li>Certificados de cliente</li><li>Com base do Windows</li><li>Baseada em formulários</li><li>Federação - ADFS</li><li>Federação - Azure AD</li><li>Federação - servidor de identidades</li></ul><p>Links na seção referências fornecem detalhes de baixo nível sobre como cada um dos esquemas de autenticação pode ser implementada para proteger uma API Web.</p>|
 
 ## <a id="authn-aad"></a>Utilizar cenários de autenticação padrão suportados pelo Azure Active Directory
 
@@ -489,7 +489,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>Token SAS
+#### <a name="sas-token"></a>SAS Token
 * Obtém geradas internamente ao utilizar a chave simétrica, mas pode gerar e utilizá-lo explicitamente também
 * Defina um protocolo: `var Http = require('azure-iot-device-http').Http;`
 * Crie um token sas:

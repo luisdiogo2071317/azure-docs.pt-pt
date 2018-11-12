@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 61776b19ba0ee273b78e3b0a6f610e5701251dd0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26632725"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261966"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Criar os BizTalk Services com o Portal do Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "26632725"
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 > [!TIP]
-> Para iniciar sessão no Portal do Azure, deve ter uma conta e uma subscrição do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Veja [Avaliação Gratuita do Azure](http://go.microsoft.com/fwlink/p/?LinkID=239738).
+> Para iniciar sessão no Portal do Azure, deve ter uma conta e uma subscrição do Azure. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Veja [Avaliação Gratuita do Azure](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
 
 ## <a name="CreateService"></a>Criar um Serviço BizTalk
@@ -84,7 +84,7 @@ Estes requisitos não se aplicam à Edição Gratuita.
 <br/><br/>
 A conta do Azure pode ter várias subscrições e pode ser gerida por qualquer pessoa autorizada. Por exemplo, o titular da conta do Azure cria uma subscrição com o nome <em>BizTalkServiceSubscription</em> e permite aos Administradores do BizTalk da sua empresa (por exemplo, ContosoBTSAdmins@live.com) acederem a esta subscrição. Neste cenário, os Administradores do BizTalk iniciam sessão no Azure e têm todos os direitos de Administrador para todos os serviços alojados na subscrição, incluindo os Serviços BizTalk do Azure. Os Administradores do BizTalk não são titulares da conta do Azure e, por conseguinte, não têm acesso a quaisquer informações de faturação.
 <br/><br/>
-<a HREF="http://go.microsoft.com/fwlink/p/?LinkID=267577"> Gerir Subscrições e Contas de Armazenamento no Azure</a> apresenta mais informações.
+<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=267577"> Gerir Subscrições e Contas de Armazenamento no Azure</a> apresenta mais informações.
 </td>
 </tr>
 <tr>
@@ -93,7 +93,7 @@ A conta do Azure pode ter várias subscrições e pode ser gerida por qualquer p
 <br/><br/>
 Quando cria um BizTalk Service, pode utilizar um Servidor SQL do Azure existente, uma SQL Database do Azure ou criar automaticamente um novo servidor ou base de dados.
 <br/><br/>
-O dimensionamento da SQL Database é configurado automaticamente. Normalmente, o dimensionamento predefinido é suficiente para um BizTalk Service. Alterar o dimensionamento terá impactos nos preços. Veja <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=234930">Contas e Faturação na Base de Dados SQL do Azure</a>
+O dimensionamento da SQL Database é configurado automaticamente. Normalmente, o dimensionamento predefinido é suficiente para um BizTalk Service. Alterar o dimensionamento terá impactos nos preços. Veja <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Contas e Faturação na Base de Dados SQL do Azure</a>
 <br/><br/>
 <strong>Notas</strong>
 <br/>
@@ -123,7 +123,7 @@ As predefinições do Armazenamento são suficientes para um BizTalk Service.
 <br/><br/>
 Quando cria uma Conta de armazenamento, são criadas automaticamente uma Chave Primária e uma Chave Secundária. Estas Chaves controlam o acesso à Conta de armazenamento. O BizTalk Service utiliza automaticamente a Chave Primária.
 <br/><br/>
-Para obter mais informações, veja <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=285671">Armazenamento</a>.
+Para obter mais informações, veja <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285671">Armazenamento</a>.
 </td>
 </tr>
 
@@ -165,15 +165,15 @@ As Ligações Híbridas são utilizadas para ligar um site do Azure ou um servi�
  Veja [Ligações Híbridas](integration-hybrid-connection-overview.md) para saber mais, incluindo como criar e gerir as Ligações Híbridas.
 
 ## <a name="next-steps"></a>Passos seguintes
-Agora que criou um BizTalk Service, familiarize-se com os diferentes separadores em [BizTalk Services: separadores Dashboard, Monitorização e Dimensionamento](biztalk-dashboard-monitor-scale-tabs.md). O BizTalk Service está pronto para as suas aplicações. Para começar a criar aplicações, veja [BizTalk Services do Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Agora que criou um BizTalk Service, familiarize-se com os diferentes separadores em [BizTalk Services: separadores Dashboard, Monitorização e Dimensionamento](biztalk-dashboard-monitor-scale-tabs.md). O BizTalk Service está pronto para as suas aplicações. Para começar a criar aplicações, veja [BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Consultar também
+## <a name="see-also"></a>Consulte também
 * [Serviços BizTalk: Gráfico de Edições](biztalk-editions-feature-chart.md)<br/>
 * [Serviços BizTalk: Gráfico de Estado](biztalk-service-state-chart.md)<br/>
 * [Serviços BizTalk: Cópia de segurança e Restauro](biztalk-backup-restore.md)<br/>
 * [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
 * [Serviços BizTalk: Nome e Chave do Emissor](biztalk-issuer-name-issuer-key.md)<br/>
-* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Ligações Híbridas](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png

@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452331"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249902"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerir a capacidade de armazenamento para o Azure Stack 
 
@@ -138,7 +138,7 @@ Migração consolida todas as um blob de contentores na partilha de novo.
 > Migração de blobs para um contentor é uma operação offline, que requer a utilização do PowerShell. Até que a migração estiver concluída, todos os blobs para o contentor que está a migrar permanecerem offline e não podem ser utilizados. Também deve evitar a atualização do Azure Stack, até que seja concluída a migração em curso todos os.
 
 #### <a name="to-migrate-containers-using-powershell"></a>A migração de contentores com o PowerShell
-1. Confirme se tem [do Azure PowerShell instalada e configurada](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](http://go.microsoft.com/fwlink/?LinkId=394767).
+1. Confirme se tem [do Azure PowerShell instalada e configurada](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Para obter mais informações, veja [Using Azure PowerShell with Azure Resource Manager (Utilizar o Azure PowerShell com o Azure Resource Manager)](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Examine o contentor para compreender os dados que estão na partilha que pretende migrar. Para identificar os contentores de Release candidate melhor para migração de um volume, utilize o **Get-AzsStorageContainer** cmdlet:
 
     ````PowerShell  

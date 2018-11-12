@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 61238482339250e45be36162e7eef252f78c74b1
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.openlocfilehash: 6581081f0f34f73c915f0b026a3ed50816f6731f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288990"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298948"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: iniciar sessão a qualquer utilizador do Azure Active Directory utilizando o padrão de aplicação multi-inquilino
 
@@ -118,7 +118,7 @@ Algumas permissões podem ser permitidas por um utilizador normal, enquanto outr
 
 Permissões só de aplicação necessitam sempre de consentimento de um administrador de inquilino. Se a aplicação solicite uma permissão só de aplicação e um utilizador tenta iniciar sessão na aplicação, é apresentada uma mensagem de erro dizendo que o utilizador não é capaz de dar consentimento.
 
-Determinadas permissões delegadas também requerem o consentimento de um administrador de inquilino. Por exemplo, a capacidade de efetuar um write back para o Azure AD como utilizador com sessão iniciada necessita de consentimento de um administrador de inquilino. Como as permissões só de aplicação, se um usuário comum tentar iniciar sessão para um aplicativo que solicita uma permissão delegada que necessita de consentimento de administrador, o seu aplicativo recebe um erro. Se uma permissão necessita de consentimento de administrador é determinado pelo programador que o recurso de publicado e pode ser encontrada na documentação para o recurso. A documentação de permissões para o [Azure AD Graph API] [ AAD-Graph-Perm-Scopes] e [Microsoft Graph API] [ MSFT-Graph-permision-scopes] indicar as permissões que requerem administração consentimento.
+Determinadas permissões delegadas também requerem o consentimento de um administrador de inquilino. Por exemplo, a capacidade de efetuar um write back para o Azure AD como utilizador com sessão iniciada necessita de consentimento de um administrador de inquilino. Como as permissões só de aplicação, se um usuário comum tentar iniciar sessão para um aplicativo que solicita uma permissão delegada que necessita de consentimento de administrador, o seu aplicativo recebe um erro. Se uma permissão necessita de consentimento de administrador é determinado pelo programador que o recurso de publicado e pode ser encontrada na documentação para o recurso. A documentação de permissões para o [Azure AD Graph API] [ AAD-Graph-Perm-Scopes] e [Microsoft Graph API] [ MSFT-Graph-permission-scopes] indicar as permissões que requerem administração consentimento.
 
 Se seu aplicativo utiliza as permissões que requerem o consentimento de administrador, tem de ter um gesto, como um botão ou uma ligação em que o administrador pode iniciar a ação. O pedido a sua aplicação envia para esta ação é habitual OAuth2/OpenID Connect pedido de autorização que também inclui o `prompt=admin_consent` parâmetro de cadeia de caracteres de consulta. Assim que o administrador já autorizou e o principal de serviço é criado no inquilino do cliente, os pedidos de início de sessão subsequentes não é necessário o `prompt=admin_consent` parâmetro. Uma vez que o administrador tenha decidido que as permissões solicitadas são aceitáveis, não existem outros utilizadores no inquilino são lhe seja pedidos consentimento a partir desse ponto.
 
@@ -184,7 +184,7 @@ Neste artigo, aprendeu a criar uma aplicação que pode iniciar sessão um utili
 * [Objetos de aplicação e objetos de principal de serviço][AAD-App-SP-Objects]
 * [Integrar aplicações com o Azure Active Directory][AAD-Integrating-Apps]
 * [Descrição geral da estrutura do consentimento][AAD-Consent-Overview]
-* [Âmbitos de permissão da Graph API da Microsoft][MSFT-Graph-permision-scopes]
+* [Âmbitos de permissão da Graph API da Microsoft][MSFT-Graph-permission-scopes]
 * [Âmbitos de permissão do Azure AD Graph API][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
@@ -202,7 +202,7 @@ Neste artigo, aprendeu a criar uma aplicação que pode iniciar sessão um utili
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
 [MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

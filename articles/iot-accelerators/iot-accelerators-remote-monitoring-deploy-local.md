@@ -1,6 +1,6 @@
 ---
 title: Implementar a solução de monitorização remota localmente (por meio do IDE do Visual Studio) - Azure | Documentos da Microsoft
-description: Este guia de procedimentos mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento.
+description: Este guia de procedimentos mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local com o Visual Studio para desenvolvimento e teste.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c667782ef49f41cda8ccefc2f56e5f1265531037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278825"
+ms.locfileid: "51287613"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implementar o monitorização remota acelerador de soluções localmente - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. O artigo mostra como executar os microsserviços no Visual Studio. Uma implementação de microsserviços local utiliza os seguintes serviços de nuvem: serviços de IoT Hub, Cosmos DB, a análise de transmissão em fluxo do Azure e Azure Time Series Insights na cloud.
+Este artigo mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local para teste e desenvolvimento. Saiba como executar os microsserviços no Visual Studio. Uma implementação de microsserviços local utiliza os seguintes serviços de nuvem: serviços de IoT Hub, Cosmos DB, a análise de transmissão em fluxo do Azure e Azure Time Series Insights na cloud.
 
 Se quiser executar o acelerador de solução de monitorização remota no Docker no seu computador local, veja [implementar o monitorização remota acelerador de soluções localmente - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -115,14 +115,4 @@ Também pode eliminar a cópia local do repositório de monitorização remota c
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Configurar um ambiente de desenvolvimento local
-> * Configurar o acelerador de soluções
-> * Implementar o acelerador de solução
-> * Inicie sessão no solution accelerator
-
 Agora que implementou a solução de monitorização remota, a próxima etapa é [explore os recursos do dashboard da solução](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->
