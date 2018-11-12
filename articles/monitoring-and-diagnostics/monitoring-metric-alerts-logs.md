@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 62b5c8fd0a63e660cd4126755d94ea90cf4d412b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961165"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282803"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas de métricas para os registos no Azure Monitor  
 
 ## <a name="overview"></a>Descrição geral
-O Azure suporta Monitor [tipo de alerta de métrica](monitoring-near-real-time-metric-alerts.md) que tem vantagens sobre o [alertas clássicos](insights-alerts-portal.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Este artigo explica a utilização de um subconjunto (ou seja,) para o recurso - `Microsoft.OperationalInsights/workspaces`. 
+O Azure suporta Monitor [tipo de alerta de métrica](monitoring-near-real-time-metric-alerts.md) que tem vantagens sobre o [alertas clássicos](alert-metric-classic.md). As métricas estão disponíveis para [grande lista de serviços do Azure](monitoring-supported-metrics.md). Este artigo explica a utilização de um subconjunto (ou seja,) para o recurso - `Microsoft.OperationalInsights/workspaces`. 
 
 Pode utilizar alertas de métricas em populares registos do Log Analytics extraídos como métricas como parte das métricas de Logs, incluindo recursos no Azure ou no local. As soluções do Log Analytics suportadas estão listadas abaixo:
 - [Contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) para máquinas Windows e Linux

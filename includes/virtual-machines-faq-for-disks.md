@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400455"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264082"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -292,7 +292,7 @@ Não há nenhuma desvantagem para a utilização de cortar nos discos do Azure n
 
 **O que é o maior tamanho de disco gerido suportado para o sistema operativo e discos de dados?**
 
-O tipo de partição que o Azure suporta para o disco de sistema operativo é o registo de arranque principal (MBR). O formato do MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que suporte o Azure para um disco do sistema operativo é 2 TiB. O Azure suporta até 32 TiB para discos de dados geridos. Tamanhos de disco geridos, maiores do que 4 TiB estão em pré-visualização. Para obter mais informações sobre as mesmas, consulte nosso [mensagem de blogue](http://aka.ms/azure-large-disk-32TB-preview-blog).
+O tipo de partição que o Azure suporta para o disco de sistema operativo é o registo de arranque principal (MBR). O formato do MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que suporte o Azure para um disco do sistema operativo é 2 TiB. O Azure suporta até 32 TiB para discos de dados geridos. Tamanhos de disco geridos, maiores do que 4 TiB estão em pré-visualização. Para obter mais informações sobre as mesmas, consulte nosso [mensagem de blogue](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **O que é o maior tamanho de disco não gerido suportado para o sistema operativo e discos de dados?**
 
@@ -309,7 +309,7 @@ Não precisa de ferramentas do Azure existentes para criar, anexar ou redimensio
 |Ferramentas do Azure      | Versões suportadas                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Número de versão 4.1.0: versão de Junho de 2017 ou posterior|
-|CLI do Azure v1     | Número de versão 0.10.13: versão de Maio de 2017 ou posterior|
+|CLI do Azure v1     | Número de versão 0.10.13: versão de Maio de 2017 ou posterior|
 |CLI do Azure v2     | Número da versão 2.0.12: versão de Julho de 2017 ou posterior|
 |AzCopy           | Número de versão 6.1.0: versão de Junho de 2017 ou posterior|
 

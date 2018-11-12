@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f88290043f750122327ddb1fd9b381b6bc24110c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959329"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278655"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Log Analytics
 
@@ -151,7 +151,7 @@ Em aproximadamente 30 minutos, é possível ver os dados da conta de armazenamen
 Utilize os passos em [configurar o Log Analytics para o diagnóstico do Azure de índice](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) para utilizar o PowerShell para ler a partir do diagnóstico do Azure que é escrito no armazenamento de tabelas.
 
 Com o Azure PowerShell pode especificar mais precisamente os eventos que são escritos no armazenamento do Azure.
-Para obter mais informações, consulte [ativar diagnósticos em máquinas de virtuais do Azure](../virtual-machines/virtual-machines-dotnet-diagnostics.md).
+Para obter mais informações, consulte [ativar diagnósticos em máquinas de virtuais do Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 Pode ativar e atualizar o diagnóstico do Azure com o seguinte script do PowerShell.
 Também pode utilizar este script com uma configuração de registo personalizado.
@@ -195,4 +195,4 @@ Reveja o script de exemplo seguinte, copie-o, modificá-la conforme necessário,
 ## <a name="next-steps"></a>Passos Seguintes
 * [Recolher registos e métricas para serviços do Azure](log-analytics-azure-storage.md) para suporte a serviços do Azure.
 * [Ativar soluções](../monitoring/monitoring-solutions.md) para fornecer informações sobre os dados.
-* [Utilizar consultas de pesquisa](log-analytics-log-search.md) para analisar os dados.
+* [Utilizar consultas de pesquisa](log-analytics-queries.md) para analisar os dados.

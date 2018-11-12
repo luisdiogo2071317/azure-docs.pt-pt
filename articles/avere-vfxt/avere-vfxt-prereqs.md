@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 823bf50a54ff43fa95f7136c137e3d8f3303c3e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634381"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286763"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 
@@ -60,7 +60,7 @@ Tem de ter uma quota suficiente para os seguintes componentes do Azure. Se for n
 |Componente do Azure|Quota|
 |----------|-----------|
 |Máquinas virtuais|3 ou mais D16s_v3 ou E32s_v3|
-|Armazenamento SSD Premium|Espaço de SO de 200 GB e 1 TB de espaço da cache de 4 TB por nó |
+|Armazenamento SSD Premium|200 GB de espaço para SO e 1 a 4 TB de espaço na cache por nó |
 |Conta de armazenamento (opcional) |v2|
 |Armazenamento de back-end de dados (opcional) |Um novo contentor de BLOBs LRS |
 
@@ -80,11 +80,10 @@ Para aceitar o software de termos com antecedência:
     az account set --subscription abc123de-f456-abc7-89de-f01234567890
    ```
 
-1. Emita este comando para aceitar os termos de serviço e ativar o acesso programático a vFXT Avere para imagens de software do Azure: 
+1. Emita este comando para aceitar os termos de serviço e ativar o acesso programático a vFXT Avere para a imagem de software do Azure: 
 
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
-   az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-node:latest
    ```
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Passo seguinte: criar o cluster vFXT

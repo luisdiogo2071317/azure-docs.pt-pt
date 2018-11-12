@@ -5,7 +5,7 @@ items:
   items:
   - name: O que são os Hubs de Eventos?
     href: event-hubs-about.md
-  - name: Hubs de Eventos para o Apache Kafka (pré-visualização)
+  - name: Hubs de Eventos para o Apache Kafka
     href: event-hubs-for-kafka-ecosystem-overview.md
   - name: Recolha dos Hubs de Eventos
     href: event-hubs-capture-overview.md
@@ -69,8 +69,12 @@ items:
     items:
     - name: Espelhar um mediador de Kafka num hub de eventos ativado para o Apache Kafka
       href: event-hubs-kafka-mirror-maker-tutorial.md
+    - name: Ligar o Apache Spark a hubs de eventos ativados para o Apache Kafka
+      href: event-hubs-kafka-spark-tutorial.md
     - name: Ligar o Apache Flink a hubs de eventos ativados para o Apache Kafka
       href: event-hubs-kafka-flink-tutorial.md
+    - name: Integrar o Apache Kafka Connect com um hub de eventos ativados para o Kafka (Pré-visualização)
+      href: event-hubs-kafka-connect-tutorial.md
     - name: Ligar o Akka Streams a hubs de eventos ativados para o Apache Kafka
       href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Amostras
@@ -122,6 +126,8 @@ items:
       href: event-hubs-metrics-azure-monitor.md
     - name: Bibliotecas de gestão dos Hubs de Eventos
       href: event-hubs-management-libraries.md
+  - name: Obter a cadeia de ligação dos Hubs de Eventos
+    href: event-hubs-get-connection-string.md
   - name: Resolução de problemas
     items:
     - name: Exceções
@@ -134,6 +140,8 @@ items:
     href: event-hubs-auto-inflate.md
   - name: Transmitir dados do Diagnóstico do Azure em fluxo com os Hubs de Eventos
     href: event-hubs-streaming-azure-diags-data.md
+  - name: Trocar eventos entre aplicações através de protocolos diferentes
+    href: event-hubs-exchange-events-different-protocols.md
 - name: Referência
   items:
   - name: Java
@@ -176,9 +184,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: f5e7bad27764428b80f523bc3c3c6c0445665783
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 28260650a8859f76aa6d8bd6ff9333d57c65e55a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977792"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281461"

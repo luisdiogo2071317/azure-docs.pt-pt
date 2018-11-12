@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fbfe7255f2b848187c74fd832f349186eef5eaef
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386727"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287579"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
@@ -27,7 +27,7 @@ Para implantar sua solução, pode utilizar um modelo único ou um modelo princi
 
 Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Pode ver todos os recursos e os valores num único arquivo. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para os componentes-alvo e reutilizar os modelos.
 
-Ao utilizar o modelo ligado, criar um modelo principal que recebe os valores de parâmetro durante a implementação. O modelo principal contém todos os modelos ligados e transmite valores para esses modelos, conforme necessário.
+Ao utilizar modelos ligados, criar um modelo principal que recebe os valores de parâmetro durante a implementação. O modelo principal contém todos os modelos ligados e transmite valores para esses modelos, conforme necessário.
 
 Para obter um tutorial, veja [Tutorial: criar modelos do Azure Resource Manager ligados](./resource-manager-tutorial-create-linked-templates.md).
 

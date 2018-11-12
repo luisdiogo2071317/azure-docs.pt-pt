@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 0e1cb2cdd6270590def11479cc5859d996d84caa
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749056"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283602"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 
@@ -79,10 +79,10 @@ Dependendo de como a regra de alerta é configurada, pode haver enganássemos fi
 ### <a name="alert-query-output-misunderstood"></a>Saída de consulta de alerta mal compreendida
 Para os alertas de registo a lógica para alertar é fornecida pelo usuário por meio de consulta do analytics. A consulta de análise fornecida pode ser empregadas várias funções matemáticas e grandes quantidades de dados para criar construções específicas. O serviço de alerta executará a consulta do cliente fornecido em intervalos especificados com os dados para o período de tempo especificado; alertas de serviço faz sutil é alterado para consulta fornecido – com base na escolhido o tipo de alerta e o mesmo pode ser testemunhado na secção "Consultar a ser executado" no ecrã de lógica de sinal de configurar, conforme ilustrado abaixo: ![consulta a ser executado](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-O que é mostrado na **consulta a ser executado** secção destina-se o registo de alerta service será executado; o utilizador pode executar a consulta declarada como timespan através de [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) ou [API de análise de](https://docs.microsoft.com/en-us/rest/api/loganalytics/) -Se quer saber antes da criação do alerta, que resultado de consulta de alerta pode ser.
+O que é mostrado na **consulta a ser executado** secção destina-se o registo de alerta service será executado; o utilizador pode executar a consulta declarada como timespan através de [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) ou [API de análise de](https://docs.microsoft.com/rest/api/loganalytics/) -Se quer saber antes da criação do alerta, que resultado de consulta de alerta pode ser.
  
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [alertas de registo nos alertas do Azure](monitor-alerts-unified-log.md)
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md)
-* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-queries.md). 

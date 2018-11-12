@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247985"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287443"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configurar uma aplicação de OpenID/OAuth a partir da Galeria de aplicações do Azure AD
 
@@ -84,7 +84,7 @@ Pode utilizar a estrutura de consentimento do Azure AD para desenvolver aplicaç
 
 O framework baseia-se um utilizador ou um administrador a dar o consentimento para um aplicativo que solicita a ser registados no respetivo diretório. O registo pode envolver a aceder a dados do diretório. Depois de consentimento for dado, a aplicação cliente pode chamar o Microsoft Graph API em nome do utilizador e utilize as informações conforme necessário.
 
-O [Microsoft Graph API](https://graph.microsoft.io/) fornece acesso aos dados no Office 365, como:
+O [Microsoft Graph API](https://developer.microsoft.com/graph/) fornece acesso aos dados no Office 365, como:
 
 - Calendários e mensagens do Exchange.
 - Sites e listas do SharePoint.
