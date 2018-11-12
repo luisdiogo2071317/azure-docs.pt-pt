@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1cb36eec6dd23d65298b2c011a194c015922d807
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 681f0eeff0d93e6af341d2dddaf7da4475c13d9d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960995"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007200"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurar a recolha de métricas de recursos de PaaS do Azure com o Log Analytics
 
@@ -81,7 +81,7 @@ Será solicitado para responder as mesmas informações que, quando executou o s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
 
 * Uso [campos personalizados](log-analytics-custom-fields.md)(para analisar os registos de eventos em campos individuais.
 

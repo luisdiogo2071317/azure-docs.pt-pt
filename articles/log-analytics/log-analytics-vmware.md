@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9b0a9b8c976ce5ef9fb57a6f8bcfd076f370bb10
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964000"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005228"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
 
@@ -131,7 +131,7 @@ Na **VMware** vista do dashboard, os painéis são organizados por:
 
 Clique em qualquer painel para abrir o painel de pesquisa do Log Analytics que mostra informações detalhadas específico para o painel.
 
-A partir daqui, pode editar a consulta de pesquisa para modificá-lo para algo específico. Para obter detalhes sobre a criação de pesquisas de registos, consulte [encontrar os dados com pesquisas de registos no Log Analytics](log-analytics-log-search.md).
+A partir daqui, pode editar a consulta de pesquisa para modificá-lo para algo específico. Para obter detalhes sobre a criação de pesquisas de registos, consulte [encontrar os dados com pesquisas de registos no Log Analytics](log-analytics-queries.md).
 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos de anfitrião ESXi
 Um único anfitrião do ESXi gera vários registos, com base em seus processos. A solução de monitorização de VMware centraliza-los e resume as contagens de eventos. Esta vista centralizada ajuda a compreender qual anfitrião ESXi tem um grande volume de eventos e quais eventos com mais frequência ocorrem no seu ambiente.
@@ -206,6 +206,6 @@ Pode haver vários motivos:
     d. Se o ficheiro não existe ou o utilizador e a definição de grupo é errado, tomar medidas corretivas pela [preparar o servidor Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos](log-analytics-log-search.md) no Log Analytics para ver o VMware detalhada alojar os dados.
+* Uso [pesquisas de registos](log-analytics-queries.md) no Log Analytics para ver o VMware detalhada alojar os dados.
 * [Criar seus próprios dashboards](log-analytics-dashboards.md) a mostrar dados de anfitrião do VMware.
 * [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) quando ocorrem eventos específicos de anfitriões de VMware.

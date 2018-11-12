@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 92d456ae4db1b4016c1a3676b5adfd7cbc2e7867
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962780"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012059"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de verificação de estado de funcionamento do Active Directory no Log Analytics
 
@@ -186,4 +186,4 @@ Após a próxima agendada execuções de verificação de estado de funcionament
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Uso [pesquisas de registos no Log Analytics](log-analytics-log-search.md) para saber como analisar dados de verificação de estado de funcionamento do AD e recomendações detalhadas.
+* Uso [pesquisas de registos no Log Analytics](log-analytics-queries.md) para saber como analisar dados de verificação de estado de funcionamento do AD e recomendações detalhadas.

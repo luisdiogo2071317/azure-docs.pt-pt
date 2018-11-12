@@ -3,16 +3,16 @@ title: Resolver problemas de YARN no HDInsight do Azure
 description: Obtenha respostas a perguntas comuns sobre como trabalhar com o Apache Hadoop YARN e o Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: f1f332164b5e954b2576f9fbde519241c7288006
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c3904286fc998769b9a72522bd31d3a9797c55c2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596469"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008050"
 ---
 # <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Resolver problemas YARN utilizando o Azure HDInsight
 

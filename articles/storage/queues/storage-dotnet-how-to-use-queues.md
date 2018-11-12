@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 11b43037a16072bcb2056b70305eeef9d3b5d4ce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e0a38a8494e0a0ae9288aab5c3d491946dc629f8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231554"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -277,8 +277,8 @@ queue.Delete();
 Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas ligações para saber mais sobre as tarefas de armazenamento mais complexas.
 
 * Ver a documentação de referência do serviço Fila para obter detalhes completos sobre as APIs disponíveis:
-  * [Storage Client Library for .NET reference (Referência da Biblioteca de Clientes do Armazenamento para .NET)](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [REST API reference (Referência da API REST)](http://msdn.microsoft.com/library/azure/dd179355)
+  * [Storage Client Library for .NET reference (Referência da Biblioteca de Clientes do Armazenamento para .NET)](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [REST API reference (Referência da API REST)](https://msdn.microsoft.com/library/azure/dd179355)
 * Saiba como simplificar o código de escrita para trabalhar com o Storage do Azure utilizando o [SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
   * [Introdução ao Table Storage do Azure utilizando o .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para armazenar dados estruturados.

@@ -1,20 +1,20 @@
 ---
-title: Criar clusters do Hadoop com a CLI do Azure clássica - Azure HDInsight
+title: Criar clusters do Apache Hadoop com a CLI do Azure clássica - Azure HDInsight
 description: Saiba como criar clusters do HDInsight com a CLI clássica do Azure de várias plataformas.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 93ee51c8a00e5cfcbffd56f96b627b68dd124aea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992818"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034698"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Criar clusters do HDInsight com a CLI clássica do Azure
 

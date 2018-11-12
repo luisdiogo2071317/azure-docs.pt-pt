@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165029"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010325"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -38,6 +38,12 @@ O Azure Migrate utiliza a [mapa de serviço](../operations-management-suite/oper
     ![Navegue até a área de trabalho do Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
 
 Para utilizar a visualização de dependência, terá de transferir e instalar agentes em cada máquina no local que pretende analisar.  
+
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) tem de ser instalado em cada máquina.
+- O [agente de dependência](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) tem de ser instalado em cada máquina.
+- Além disso, se tiver máquinas sem conectividade internet, terá de transferir e instalar o gateway de Log Analytics nos mesmos.
+
+Não precisa destes agentes nas máquinas que pretende avaliar a menos que está usando a visualização de dependência.
 
 ## <a name="do-i-need-to-pay-for-it"></a>É necessário para pagá-la?
 

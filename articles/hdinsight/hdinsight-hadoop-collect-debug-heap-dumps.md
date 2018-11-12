@@ -1,25 +1,25 @@
 ---
-title: Depurar e analisar os serviços do Hadoop com informações de estado do heap - Azure
-description: Recolher registos da área dinâmica para serviços do Hadoop e colocar dentro da conta de armazenamento de Blobs do Azure para depuração e análise automaticamente.
+title: Depurar e analisar os serviços do Apache Hadoop com informações de estado do heap - Azure
+description: Recolher registos da área dinâmica para serviços do Apache Hadoop e colocar dentro da conta de armazenamento de Blobs do Azure para depuração e análise automaticamente.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2a399899c93addf966d3f2ec0e36d4b1c76b686f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43099772"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038312"
 ---
-# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Área dinâmica para dados recolher informações do Estado no armazenamento de BLOBs para depurar e analisar os serviços do Hadoop
+# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Área dinâmica para dados recolher informações do Estado no armazenamento de BLOBs para depurar e analisar os serviços do Apache Hadoop
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Capturas de área dinâmica para dados contém um instantâneo de memória do aplicativo, incluindo os valores das variáveis no momento que a captura foi criada. Portanto, eles são úteis para diagnosticar problemas que ocorrem no tempo de execução. Registos da área dinâmica podem ser automaticamente recolhidos para serviços do Hadoop e colocados dentro da conta de armazenamento de Blobs do Azure de um utilizador em HDInsightHeapDumps /.
+Capturas de área dinâmica para dados contém um instantâneo de memória do aplicativo, incluindo os valores das variáveis no momento que a captura foi criada. Portanto, eles são úteis para diagnosticar problemas que ocorrem no tempo de execução. Registos da área dinâmica podem ser automaticamente recolhidos para serviços do Apache Hadoop e colocados dentro da conta de armazenamento de Blobs do Azure de um utilizador em HDInsightHeapDumps /.
 
 A coleção de registos da área dinâmica para vários serviços tem de estar ativada para os serviços em clusters individuais. A predefinição para esta funcionalidade é ter um para um cluster. Estes registos da área dinâmica podem ser grandes, portanto, é aconselhável para monitorizar a conta de armazenamento de BLOBs onde eles são guardados depois da coleção foi ativada.
 
@@ -30,11 +30,11 @@ A coleção de registos da área dinâmica para vários serviços tem de estar a
 ## <a name="eligible-services-for-heap-dumps"></a>Serviços elegíveis para capturas de área dinâmica para dados
 Pode ativar os registos da área dinâmica para os seguintes serviços:
 
-* **hcatalog** -tempelton
-* **Hive** -hiveserver2, metastore, derbyserver
+* **O Apache hcatalog** -tempelton
+* **Ramo de registo do Apache** -hiveserver2, metastore, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resourcemanager nodemanager, timelineserver
-* **hdfs** -datanode secondarynamenode, namenode
+* **Apache yarn** -resourcemanager nodemanager, timelineserver
+* **Apache hdfs** -datanode secondarynamenode, namenode
 
 ## <a name="configuration-elements-that-enable-heap-dumps"></a>Elementos de configuração que ativar capturas de área dinâmica para dados
 Para ativar registos da área dinâmica para um serviço, tem de definir os elementos de configuração adequado na secção para esse serviço, o que é especificado por **service_name**.

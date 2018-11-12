@@ -10,59 +10,113 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 11/01/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4e1cb47989011f179c54061bd29ae55b4ff86d80
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e7204c223681b9a33c439b0d9fc653167422384a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669416"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011702"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções de diretório do Azure AD no PIM
+
+O Azure AD Privileged Identity Management (PIM) gera alertas quando houver atividade suspeita ou não segura no seu ambiente. Quando for acionado um alerta, este aparece no dashboard do PIM. Selecione o alerta para ver um relatório que lista os utilizadores ou funções que acionou o alerta.
+
+![Alertas de segurança do PIM - captura de ecrã](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+
 ## <a name="security-alerts"></a>Alertas de segurança
-Azure Privileged Identity Management (PIM) gera alertas quando houver atividade suspeita ou não segura no seu ambiente. Quando for acionado um alerta, este aparece no dashboard do PIM. Selecione o alerta para ver um relatório que lista os utilizadores ou funções que acionou o alerta.
 
-![Alertas de segurança de dashboard do PIM - captura de ecrã](./media/pim-how-to-configure-security-alerts/PIM_security_dash.png)
+Esta secção lista todos os alertas de segurança para funções de diretório, além de como corrigir e como impedir. Gravidade tem o significado seguinte:
 
-| Alerta | Gravidade | Acionador | Recomendação |
-| --- | --- | --- | --- |
-| **Funções estão a ser atribuídas fora do PIM** |Elevado |Um utilizador permanentemente foi atribuído uma função com privilégios, fora da interface do PIM. |Reveja os utilizadores na lista e anular a atribuição privilegiado-los a partir de funções atribuídas fora do PIM. |
-| **Funções estão a ser ativadas com demasiada frequência** |Médio |Ocorreram demasiados reativações da mesma função no tempo permitido nas definições. |Entre em contato com o utilizador veja por que eles tenham ativado a função muitas vezes. Talvez o limite de tempo é demasiado curto para-los para concluir suas tarefas, ou talvez eles que estiver a utilizar scripts para ativar automaticamente uma função. Certifique-se que a duração de ativação para a respetiva função é definida tempo suficiente para os mesmos executar suas tarefas. |
-| **Funções não exigem autenticação multifator para a ativação** |Médio |Existem funções sem MFA ativada nas definições. |Podemos exigir a MFA para as funções com privilégios mais elevados, mas recomendo enfaticamente usar a ativar a MFA para ativação de todas as funções. |
-| **Os utilizadores não estiverem a utilizar as suas funções com privilégios** |Baixa |Existem os administradores elegíveis que ainda não tiver ativado as suas funções recentemente. |Inicie uma revisão de acesso para determinar os utilizadores que não precisam mais o acesso. |
-| **Existem muitos administradores globais** |Baixa |Existem mais globais administradores que recomendado. |Se tiver um elevado número de administradores globais, é provável que os utilizadores estão a obter permissões mais do que o necessário. Mover os utilizadores a funções com menos privilégios, ou tornar alguns deles elegível para a função em vez de permanentemente atribuída. |
-
-### <a name="severity"></a>Gravidade
-* **Alta**: requer uma ação imediata devido a uma violação de política. 
+* **Alta**: requer uma ação imediata devido a uma violação de política.
 * **Médio**: não requerer ação imediata, mas sinaliza uma potencial violação de política.
-* **Baixa**: não requerer ação imediata, mas sugere uma alteração de política preferrable.
+* **Baixa**: não requerer ação imediata, mas sugere uma alteração de política preferível.
+
+### <a name="roles-are-being-assigned-outside-of-pim"></a>Funções estão a ser atribuídas fora do PIM
+
+| | |
+| --- | --- |
+| **Gravidade** | Elevado |
+| **Por que motivo recebo este alerta?** | Atribuições de funções privilegiadas efetuadas fora do PIM não são monitorizadas corretamente e podem indicar um ataque de Active Directory. |
+| **Como corrigir?** | Rever os utilizadores na lista e removê-los a partir de funções com privilégios atribuídas fora do PIM. |
+| **Prevenção** | Investigar em que os utilizadores estão a ser atribuídos funções com privilégios fora do PIM e proibir futuras atribuições a partir daí. |
+| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
+
+### <a name="potential-stale-accounts-in-a-privileged-role"></a>Contas obsoletas potenciais numa função com privilégios
+
+| | |
+| --- | --- |
+| **Gravidade** | Médio |
+| **Por que motivo recebo este alerta?** | Contas que não foram alterados a palavra-passe recentemente podem ser o serviço ou as contas que não estão a ser mantidas partilhadas. Estas contas nas funções privilegiadas são vulneráveis aos atacantes. |
+| **Como corrigir?** | Reveja as contas na lista. Se já não precisam de acesso, removê-los a partir de suas funções com privilégios. |
+| **Prevenção** | Certifique-se de que as contas que são partilhadas são a rotação das palavras-passe seguras quando existe uma alteração nos utilizadores que sabe a palavra-passe. </br>Regularmente, reveja as contas com funções com privilégios com revisões de acesso e remover atribuições de funções que já não são necessários. |
+| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
+
+### <a name="users-arent-using-their-privileged-roles"></a>Os utilizadores não estiverem a utilizar as suas funções com privilégios
+
+| | |
+| --- | --- |
+| **Gravidade** | Baixa |
+| **Por que motivo recebo este alerta?** | Os utilizadores que tenham sido atribuídos a funções com privilégios que não precisam aumenta as chances de um ataque. Também é mais fácil para os atacantes permaneça despercebidas em contas que ativamente não estão a ser utilizadas. |
+| **Como corrigir?** | Rever os utilizadores na lista e removê-los a partir de funções com privilégios, não é necessário. |
+| **Prevenção** | Só atribua funções com privilégios para os utilizadores que tenham uma justificativa comercial. </br>Revisões de acesso normal de agenda para verificar que os usuários ainda tem o acesso. |
+| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
+| **Acionador** | Se um utilizador der um determinado período de tempo sem ativar uma função de acionada. |
+| **Número de dias** | Esta definição especifica o número de dias, de 0 a 100, o que um utilizador pode aceder sem ativar uma função.|
+
+### <a name="there-are-too-many-global-administrators"></a>Existem muitos administradores globais
+
+| | |
+| --- | --- |
+| **Gravidade** | Baixa |
+| **Por que motivo recebo este alerta?** | Administrador global é a função com privilégios mais alta. Se um Administrador Global for comprometido, o atacante obtém acesso a todas as suas permissões, que coloca o seu sistema inteiro em risco. |
+| **Como corrigir?** | Reveja os utilizadores na lista e remova qualquer um que não é absolutamente necessário a função de Administrador Global. </br>Atribua estes utilizadores a funções com privilégios mais baixas. |
+| **Prevenção** | Atribua utilizadores a função com privilégios mínimos que precisam. |
+| **Ação de redução de dentro do portal** | Remove a conta da respetiva função com privilégios. |
+| **Acionador** | Acionado se dois critérios diferentes são cumpridos e pode configurar os dois. Em primeiro lugar, precisa atingir um certo limite de administradores globais. Em segundo lugar, um determinado percentual das atribuições de função total tem de ser administradores globais. Se cumprir apenas um dessas medidas, o alerta não aparecer. |
+| **Número mínimo de administradores globais** | Esta definição especifica o número de administradores globais, de 2 para 100, que considere uma quantidade de não segura. |
+| **Percentagem de administradores globais** | Esta definição especifica a percentagem mínima de administradores que são administradores globais, de % 0 e 100%, o que é inseguro no seu ambiente. |
+
+### <a name="roles-are-being-activated-too-frequently"></a>Funções estão a ser ativadas com demasiada frequência
+
+| | |
+| --- | --- |
+| **Gravidade** | Baixa |
+| **Por que motivo recebo este alerta?** | Várias ativações para a mesma função com privilégios pelo mesmo utilizador é um sinal de um ataque. |
+| **Como corrigir?** | Reveja os utilizadores na lista e certifique-se de que o [duração da ativação](pim-how-to-change-default-settings.md) respetiva função com privilégios está definida tempo suficiente para os mesmos executar suas tarefas. |
+| **Prevenção** | Certifique-se de que o [duração da ativação](pim-how-to-change-default-settings.md) para funções com privilégios é definido tempo suficiente para os utilizadores executar suas tarefas.</br>[Exigir a MFA](pim-how-to-change-default-settings.md) para funções privilegiadas que tenham contas compartilhadas por vários administradores. |
+| **Ação de redução de dentro do portal** | N/A |
+| **Acionador** | Acionado se um utilizador ativa a mesma função com privilégios a várias vezes dentro de um período de tempo especificado. Pode configurar o período de tempo e o número de ativações. |
+| **Período de tempo de renovação de ativação** | Esta definição especifica em dias, horas, minutos e, segundo o período de tempo que pretende utilizar para controlar as renovações suspeitas. |
+| **Número de renovações de ativação** | Esta definição especifica o número de ativações, de 2 para 100, o que considerar digna de alerta, durante o período de tempo que escolheu. Pode alterar esta definição ao mover o controlo de deslize ou digitando um número na caixa de texto. |
+
+### <a name="roles-dont-require-mfa-for-activation"></a>Funções não exigem a MFA para ativação
+
+| | |
+| --- | --- |
+| **Gravidade** | Baixa |
+| **Por que motivo recebo este alerta?** | Sem MFA, os utilizadores comprometidos podem ativarem funções com privilégios. |
+| **Como corrigir?** | Reveja a lista de funções e [exigir a MFA](pim-how-to-change-default-settings.md) para cada função. |
+| **Prevenção** | [Exigir a MFA](pim-how-to-change-default-settings.md) para cada função.  |
+| **Ação de redução de dentro do portal** | Torna o MFA necessária para a ativação da função com privilégios. |
 
 ## <a name="configure-security-alert-settings"></a>Configurar definições de alerta de segurança
-Pode personalizar algumas dos alertas de segurança no PIM para trabalhar com o seu ambiente e os objetivos de segurança. Siga estes passos para alcançar o painel de definições:
 
-1. Entrar para o [portal do Azure](https://portal.azure.com/) e selecione o **Azure AD Privileged Identity Management** mosaico no dashboard.
-2. Selecione **geridos funções com privilégios** > **definições** > **definições de alertas**.
-   
-    ![Navegar para as definições de alertas de segurança](./media/pim-how-to-configure-security-alerts/PIM_security_settings.png)
+Pode personalizar algumas dos alertas de segurança no PIM para trabalhar com o seu ambiente e os objetivos de segurança. Siga estes passos para abrir as definições de alerta de segurança:
 
-### <a name="roles-are-being-activated-too-frequently-alert"></a>Alerta de "Funções estão a ser ativadas com demasiada frequência"
-Este alerta for acionado, se um utilizador ativa a mesma função com privilégios a várias vezes dentro de um período de tempo especificado. Pode configurar o período de tempo e o número de ativações.
+1. Open **do Azure AD Privileged Identity Management**.
 
-* **Período de tempo de renovação de ativação**: Especifique em dias, horas, minutos e, segundo o período de tempo que pretende utilizar para controlar as renovações suspeitas.
-* **Número de renovações de ativação**: Especifique o número de ativações, de 2 para 100, o que considerar digna de alerta, durante o período de tempo que escolheu. Pode alterar esta definição ao mover o controlo de deslize ou digitando um número na caixa de texto.
+1. Clique em **funções do Azure AD**.
 
-### <a name="there-are-too-many-global-administrators-alert"></a>Alerta de "Existem muitos administradores globais"
-PIM aciona este alerta, se dois critérios diferentes são cumpridos, e pode configurar os dois. Em primeiro lugar, precisa atingir um certo limite de administradores globais. Em segundo lugar, um determinado percentual das atribuições de função total tem de ser administradores globais. Se cumprir apenas um dessas medidas, o alerta não aparecer.  
+1. Clique em **configurações** e, em seguida **alertas**.
 
-* **Número mínimo de administradores globais**: Especifique o número de administradores globais, de 2 para 100, que considere uma quantidade de não segura.
-* **Percentagem de administradores globais**: Especifique a percentagem de administradores que são administradores globais, de % de 0 a 100%, que é inseguro no seu ambiente.
+    ![Navegar para as definições de alertas de segurança](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
-### <a name="administrators-arent-using-their-privileged-roles-alert"></a>Alerta de "Administradores não estiverem a utilizar as suas funções com privilégios"
-Este alerta for acionado, se um utilizador der um determinado período de tempo sem uma função de ativação.
+1. Clique num nome de alerta para configurar a definição para esse alerta.
 
-* **Número de dias**: Especifique o número de dias, de 0 a 100, o que um utilizador pode aceder sem ativar uma função.
+    ![Definições do alerta de segurança](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

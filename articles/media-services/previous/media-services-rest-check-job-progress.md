@@ -1,10 +1,10 @@
 ---
-title: Como verificar o progresso da tarefa utilizando a REST API | Microsoft Docs
+title: Como verificar o progresso da tarefa com a REST API | Documentos da Microsoft
 description: Saiba como controlar o progresso da tarefa.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 0065b12c9ee01bddef664e5c78a4e40af759826a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dc78dce667bf00dd6e923b86b9859e29e4a5fde6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790287"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035004"
 ---
 # <a name="how-to-check-job-progress"></a>Como: verificar o progresso da tarefa
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.locfileid: "33790287"
 > 
 > 
 
-Quando executar tarefas, muitas vezes, necessitam de uma forma de controlar o progresso da tarefa. Pode encontrar o estado da tarefa utilizando a propriedade de estado da tarefa. Para obter mais informações sobre a propriedade de estado, consulte [propriedades de entidade de tarefa](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
+Quando executa tarefas, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode descobrir o estado da tarefa usando a propriedade de estado da tarefa. Para obter mais informações sobre a propriedade de estado, consulte [propriedades de entidade de tarefa](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 
 ## <a name="connect-to-media-services"></a>Ligar aos Media Services
 
-Para obter informações sobre como ligar à API do AMS, consulte [aceder à API de serviços de suporte de dados do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
+Para obter informações sobre como ligar à AMS API, consulte [aceder a API de serviços de multimédia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
 ## <a name="check-job-progress"></a>Verificar progresso da tarefa
@@ -76,4 +76,4 @@ Resposta:
 
 ## <a name="see-also"></a>Consulte também
 
-[Descrição geral da REST API de operações de Media Services](media-services-rest-how-to-use.md)
+[Descrição geral de REST API de operações de serviços de multimédia](media-services-rest-how-to-use.md)

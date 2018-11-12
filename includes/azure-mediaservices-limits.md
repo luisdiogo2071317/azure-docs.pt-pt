@@ -26,7 +26,7 @@
 
 A partir de 1 de Abril de 2017, qualquer registo de tarefa na sua conta mais de 90 dias será automaticamente eliminado, juntamente com os seus registos de tarefas associados, mesmo se o número total de registos for inferior à quota máxima. Se precisar de arquivar as informações de tarefas, pode utilizar o código descrito [aqui](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> ao fazer um pedido de lista tarefa entidades, um máximo de 1.000 tarefas é devolvido por pedido. Se tiver de estar a par de todos os Trabalhos submetidos, pode utilizar “top/skip”, conforme descrito em [OData system query options (Opções de consultas de sistema OData)](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> ao fazer um pedido de lista tarefa entidades, um máximo de 1.000 tarefas é devolvido por pedido. Se tiver de estar a par de todos os Trabalhos submetidos, pode utilizar “top/skip”, conforme descrito em [OData system query options (Opções de consultas de sistema OData)](https://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Os localizadores não foram concebidos para gerir o controlo de acesso por utilizador. Para conceder direitos de acesso diferentes a utilizadores individuais, utilize soluções de Gestão de Direitos Digitais (Digital Rights Management, DRM). Para obter mais informações, veja [esta](../articles/media-services/previous/media-services-content-protection-overview.md) secção.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: febe5c58857aa9cee6f6cfd5855919075d10d58a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958088"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010592"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campos personalizados no Log Analytics
 O **campos personalizados** recurso do Log Analytics permite-lhe expandir registos existentes no Log Analytics ao adicionar seus próprios campos pesquisáveis.  Campos personalizados são preenchidos automaticamente a partir dos dados extraídos de outras propriedades no mesmo registo.
@@ -46,9 +46,9 @@ As secções seguintes fornecem o procedimento para criar um campo personalizado
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Passo 1 – identificar registos com o campo personalizado
-A primeira etapa é identificar os registos que obterão o campo personalizado.  Começar com uma [pesquisa de registos standard](log-analytics-log-search.md) e, em seguida, selecione um registo para atuar como o modelo que aprende do Log Analytics.  Quando especifica que vai extrair dados para um campo personalizado, o **Assistente de extração de campo** é aberto, onde valida e refine os critérios.
+A primeira etapa é identificar os registos que obterão o campo personalizado.  Começar com uma [pesquisa de registos standard](log-analytics-queries.md) e, em seguida, selecione um registo para atuar como o modelo que aprende do Log Analytics.  Quando especifica que vai extrair dados para um campo personalizado, o **Assistente de extração de campo** é aberto, onde valida e refine os critérios.
 
-1. Aceda a **pesquisa de registos** e utilizar um [consulta para obter os registos](log-analytics-log-search.md) que farão com que o campo personalizado.
+1. Aceda a **pesquisa de registos** e utilizar um [consulta para obter os registos](log-analytics-queries.md) que farão com que o campo personalizado.
 2. Selecione um registo que o Log Analytics irá utilizar para atuar como um modelo de extração de dados para preencher o campo personalizado.  Irá identificar os dados que pretende extrair este registo e do Log Analytics irá utilizar estas informações para determinar a lógica para preencher o campo personalizado para todos os registos semelhantes.
 3. Clique no botão à esquerda de qualquer propriedade de texto do registo e selecione **extrair os campos de**.
 4. O **é aberto o Assistente de extração de campos**, e o registo que selecionou é apresentado na **exemplo principal** coluna.  O campo personalizado será definido para esses registos com os mesmos valores das propriedades selecionadas.  
@@ -140,6 +140,6 @@ Agora podemos usar o campo personalizado, como qualquer outra propriedade de reg
 ![Agrupar por consulta](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para criar consultas com campos personalizados para critérios.
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para criar consultas com campos personalizados para critérios.
 * Monitor [ficheiros de registo personalizado](log-analytics-data-sources-custom-logs.md) que analisar com campos personalizados.
 

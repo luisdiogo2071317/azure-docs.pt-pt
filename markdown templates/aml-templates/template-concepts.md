@@ -1,6 +1,6 @@
 ---
-title: CONCEITO, tais como serviços Web no serviço Azure Machine Learning em 59 carateres ou menos. Inclua o nome do Azure Machine Learning. Aqui o título do teste https://moz.com/learn/seo/title-tag
-description: Esta cadeia descreve o artigo em 115 para 145 carateres. Utilize o tipo SEO dos verbos de ação aqui. Saiba como - como fazer isto e que utilizar palavras de cliente. Esta informação é apresentada em inline de página pesquisa com o carimbo de data do artigo. Se o seu para introdução descrever o objetivo do seu artigo, pode ser utilizado aqui editar de comprimento.
+title: CONCEITO, tais como serviços da Web no serviço do Azure Machine Learning em 59 carateres ou menos. Inclua o nome do Azure Machine Learning. Testar o título aqui https://moz.com/learn/seo/title-tag
+description: Esta cadeia descreve o artigo em 115 para 145 carateres. Use o tipo SEO de verbos de ação aqui. Por exemplo, - saiba como fazer isso e que utilizar palavras do cliente. Esta informação é apresentada no inline de página de pesquisa com o carimbo de data do artigo. Se a paravirtualização de introdução descreve a intenção de seu artigo, pode utilizá-lo aqui editado para o comprimento.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,31 +10,31 @@ ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
 ms.openlocfilehash: 759e76a75fffeb31d38439f59b219ad48ebf6277
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793127"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009256"
 ---
 # <a name="this-is-the-h1-and-the-article-title-that-shows-on-the-web"></a>Este é o H1 e o título do artigo que mostra na web
 
 ## <a name="section-here-h2"></a>Secção aqui H2 
 Parágrafo aqui. 
-**Esta frase está a negrito**
-*esta frase é italics*
+**Esta expressão é negrito**
+*esta frase é itálico*
 
-Este é um [hiperligação para um artigo](template-concepts.md)
+Este é um [hiperlink para um artigo](template-concepts.md)
 
 Esta é uma imagem:
 
-![Esta é uma descrição da imagem](media/overview-what-is-azure-ml/aml-concepts.png)
+![Esta é uma descrição de imagem](media/overview-what-is-azure-ml/aml-concepts.png)
 
 ## <a name="section-here-h2"></a>Secção aqui H2
 Esta tabela tem cabeçalhos de:
 
 |Column1  |Column2  |Column3  |
 |---------|---------|---------|
-|Row1|Valor de 1|Valor A|
+|Row1|Valor 1|Valor A|
 |Row2|Valor 2|Valor B|
 |Row3|Valor 3|Valor C|
 
@@ -43,17 +43,17 @@ Esta é uma lista numerada:
 
 1. Primeiro item
 
-   Este parágrafo é avanços para ser o mesmo espaçamento como o primeiro item numerado.
+   Este parágrafo é recuado para ser o mesmo espaçamento como o primeiro item numerado.
 
 2. Segundo item
-   - Esta frase é uma marca
-   - Esta frase é outra marca
+   - Esta frase é um marcador
+   - Esta frase é outro marcador
 
 3. Terceiro item
 
-4. Estabelecido item
+4. Item para trás
 
-5. Item de quinta
+5. Quinto item
 
 ## <a name="this-list-is-bulleted-list"></a>Esta lista é uma lista com marcas:
 - Item 1
@@ -64,4 +64,4 @@ Esta é uma lista numerada:
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter informações sobre a aprendizagem, consulte [outro artigo](template-concepts.md)
+Para obter informações sobre o machine learning, consulte [outro artigo](template-concepts.md)

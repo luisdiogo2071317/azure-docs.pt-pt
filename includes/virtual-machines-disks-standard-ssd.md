@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060987"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264262"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>SSD Managed Disks Standard para cargas de trabalho de Máquina Virtual do Azure
 
@@ -22,7 +22,7 @@ Unidades de estado sólido padrão (SSD) Managed Disks do Azure são uma opção
 ## <a name="standard-ssd-features"></a>Funcionalidades Standard SSD
 
 **Discos geridos**: Standard SSDs só estão disponíveis como Managed Disks. Blobs de páginas e discos não geridos não são suportados em Standard SSD. Ao criar o disco gerido, especifique o tipo de disco como Standard SSD e indicar o tamanho do disco é necessário, e o Azure cria e gere o disco por si.
-Standard SSDs suportam todas as operações de gestão de serviço oferecidas pelo Managed Disks. Por exemplo, pode criar, copiar ou instantâneo SSD Managed Disks Standard da mesma forma que fazer com o Managed Disks.
+Standard SSDs suportam todas as operações de modelo de implementação clássica oferecidas pelo Managed Disks. Por exemplo, pode criar, copiar ou instantâneo SSD Managed Disks Standard da mesma forma que fazer com o Managed Disks.
 
 **Máquinas virtuais**: SSDs padrão pode ser utilizados com todas as VMs do Azure, incluindo os tipos VM que não suporta discos Premium. Por exemplo, se estiver a utilizar uma VM de série, ou VMS de série N ou série DS, ou qualquer outra série de VM do Azure, pode utilizar SSDs padrão com essa VM. Com a introdução do padrão de SSD, estamos a ativar uma vasta gama de cargas de trabalho que tenha utilizado os discos baseados em HDD para fazer a transição para discos baseado em SSD e experimentar o desempenho consistente, maior disponibilidade, latência melhor e um melhor geral experiência que acompanham o SSDs.
 
@@ -32,7 +32,7 @@ Standard SSDs suportam todas as operações de gestão de serviço oferecidas pe
 
 ## <a name="scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho
 
-A tabela seguinte contém os tamanhos de disco, que são oferecidos atualmente para Standard SSD.
+A tabela seguinte contém os tamanhos de disco, que são oferecidos atualmente para Standard SSD. Tamanhos marcados com um asterisco estão atualmente em pré-visualização.
 
 |Tipo de disco Standard SSD  |Tamanho do Disco  |IOPS por disco  |Débito por disco  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ A tabela seguinte contém os tamanhos de disco, que são oferecidos atualmente p
 |E30     |1.024 giB       |Até 500         |MiB até 60 por segundo         |
 |E40     |2048 giB       |Até 500         |MiB até 60 por segundo         |
 |E50     |4095 giB       |Até 500         |MiB até 60 por segundo         |
-|E60     |8.192 giB       |Até 1.300       |Até 300 MiB por segundo        |
-|E70     |16.384 giB      |Até 2000       |Até 500 MiB por segundo        |
-|E80     |32.767 giB      |Até 2000       |Até 500 MiB por segundo        |
+|E60 *     |8.192 giB       |Até 1.300       |Até 300 MiB por segundo        |
+|E70 *    |16.384 giB      |Até 2000       |Até 500 MiB por segundo        |
+|E80 *    |32.767 giB      |Até 2000       |Até 500 MiB por segundo        |
 
 SSDs padrão foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s e para disponibilizar o IOPS e débito até aos limites descrito na tabela acima. IOPS e o débito real podem variar, às vezes, consoante os padrões de tráfego. SSDs padrão irão proporcionar um desempenho mais consistente que os discos HDD com menor latência.
 
@@ -61,7 +61,7 @@ Ao utilizar o padrão do SSDs, aplicam-se as seguintes considerações de fatura
 - Transferências de dados de saída
 - Transações
 
-**Geridos pelo tamanho do disco**: os discos geridos são cobrados no tamanho aprovisionado. Azure mapeia o tamanho aprovisionado (arredondado) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e são faturadas em conformidade. Por exemplo, se tiver aprovisionado um 200 GiB Standard SSD, vai mapear para a oferta de tamanho de disco de E15 (256gib). Para qualquer disco aprovisionado a faturação é contabilizada à hora, utilizando o preço mensal para a oferta de armazenamento Premium. Por exemplo, se aprovisionar um disco de E10 e eliminado depois de 20 horas, é cobrado para a oferta de E10 Rateado para 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco.
+**Geridos pelo tamanho do disco**: os discos geridos são cobrados no tamanho aprovisionado. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e são faturadas em conformidade. Por exemplo, se tiver aprovisionado um 200 GiB Standard SSD, vai mapear para a oferta de tamanho de disco de E15 (256gib). Para qualquer disco aprovisionado a faturação é contabilizada à hora, utilizando o preço mensal para a oferta de armazenamento Premium. Por exemplo, se aprovisionar um disco de E10 e eliminado depois de 20 horas, é cobrado para a oferta de E10 Rateado para 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco.
 
 **Instantâneos**: instantâneos de Managed Disks são cobradas a capacidade utilizada pelos instantâneos, o destino e na origem, se houver. Para obter mais informações sobre instantâneos, consulte [instantâneos de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 

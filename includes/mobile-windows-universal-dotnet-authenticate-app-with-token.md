@@ -1,9 +1,9 @@
 
-1. No ficheiro de projeto MainPage.xaml.cs, adicione a seguinte **utilizando** instruções:
+1. No arquivo de projeto MainPage.xaml.cs, adicione as seguintes **usando** instruções:
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Substitua o **AuthenticateAsync** método com o seguinte código:
+2. Substitua a **AuthenticateAsync** método com o código a seguir:
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -72,13 +72,13 @@
             return success;
         }
    
-    Nesta versão do **AuthenticateAsync**, a aplicação tenta utilizar as credenciais armazenadas no **PasswordVault** para aceder ao serviço. Um regular início de sessão é também efetuado quando não existe nenhuma credencial armazenada.
+    Nesta versão do **AuthenticateAsync**, a aplicação tenta utilizar credenciais armazenadas no **PasswordVault** para aceder ao serviço. Um regular início de sessão é também executado quando não existe nenhuma credencial armazenada.
    
    > [!NOTE]
-   > Um token em cache pode estar expirado e expiração do token também pode ocorrer após a autenticação quando a aplicação está a ser utilizado. Para saber como determinar se um token tiver expirado, consulte [Verifique a existência de tokens de autenticação expirada](http://aka.ms/jww5vp). Para uma solução de processamento de erros de autorização relacionados com a expiração de tokens, consulte o post [colocação em cache e tokens expirados em Mobile Services do Azure de processamento gerido SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Um token em cache pode ter expirado e expiração do token também pode ocorrer após a autenticação quando a aplicação está em utilização. Para saber como determinar se um token expirou, veja [verificar a existência de tokens de autenticação expirado](https://aka.ms/jww5vp). Para uma solução de tratamento de erros de autorização relacionados com tokens prestes a expirar, consulte a postagem [colocação em cache e a manipulação de tokens expirados em serviços móveis do Azure geridos SDK](https://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
-3. Reinicie a aplicação duas vezes.
+3. Reinicie a aplicação de duas vezes.
    
-    Tenha em atenção que no arranque do primeiro início de sessão com o fornecedor é novamente necessária. No entanto, na segunda reinicialização são utilizadas as credenciais em cache e início de sessão é ignorada. 
+    Tenha em atenção que na primeira inicialização, inicie sessão com o fornecedor é novamente necessária. No entanto, no segundo reinício são utilizadas as credenciais em cache e início de sessão é ignorada. 
 

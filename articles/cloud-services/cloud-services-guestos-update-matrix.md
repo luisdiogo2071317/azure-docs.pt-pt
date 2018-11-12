@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: raiye
-ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978745"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346172"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -42,6 +42,9 @@ Fornece a que com informações atualizadas sobre o SO convidado do Azure mais r
 Não sabe sobre como atualizar o SO convidado? Verifique [isso] [ cloud updates] horizontalmente.
 
 ## <a name="news-updates"></a>Notícias sobre atualizações
+
+###### <a name="november-8-2018"></a>**8 de Novembro de 2018**
+Lançou o SO de convidado de Outubro.
 
 ###### <a name="october-12-2018"></a>**12 de Outubro de 2018**
 Lançou o SO de convidado de Setembro.
@@ -74,8 +77,9 @@ Lançou o SO de convidado de Abril.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-CONVIDADO-SO-5.24_201810-01 |8 de Novembro de 2018 |Post 5.26 |
 | WA-CONVIDADO-SO-5.23_201809-01 |12 de Outubro de 2018 |Post 5.25 |
-| WA-CONVIDADO-SO-5.22_201808-01 |12 de Setembro de 2018 |Post 5.24 |
+|~~WA-CONVIDADO-SO-5.22_201808-01~~ |12 de Setembro de 2018 |8 de Novembro de 2018 |
 |~~WA-CONVIDADO-SO-5.21_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
 |~~WA-CONVIDADO-SO-5.20_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-5.19_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
@@ -88,8 +92,9 @@ Lançou o SO de convidado de Abril.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-CONVIDADO-SO-4.59_201810-01 |8 de Novembro de 2018 |Post 4.61 |
 | WA-CONVIDADO-SO-4.58_201809-01 |12 de Outubro de 2018 |Post 4.60 |
-| WA-CONVIDADO-SO-4.57_201808-01 |12 de Setembro de 2018 |Post 4.59 |
+|~~WA-CONVIDADO-SO-4.57_201808-01~~ |12 de Setembro de 2018 |8 de Novembro de 2018 |
 |~~WA-CONVIDADO-SO-4.56_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
 |~~WA-CONVIDADO-SO-4.55_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-4.54_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
@@ -102,8 +107,9 @@ Lançou o SO de convidado de Abril.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-CONVIDADO-SO-3.66_201810-01 |8 de Novembro de 2018 |Post 3,68 |
 | WA-CONVIDADO-SO-3.65_201809-01 |12 de Outubro de 2018 |Post 3.67 |
-| WA-CONVIDADO-SO-3.64_201808-01 |12 de Setembro de 2018 |Post 3.66 |
+|~~WA-CONVIDADO-SO-3.64_201808-01~~ |12 de Setembro de 2018 |8 de Novembro de 2018 |
 |~~WA-CONVIDADO-SO-3.63_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
 |~~WA-CONVIDADO-SO-3.62_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-3.61_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018 |
@@ -116,8 +122,9 @@ Lançou o SO de convidado de Abril.
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
+| WA-CONVIDADO-SO-2.79_201810-01 |8 de Novembro de 2018 |Post 2.81 |
 | WA-CONVIDADO-SO-2.78_201809-01 |12 de Outubro de 2018 |Post 2.80 |
-| WA-CONVIDADO-SO-2.77_201808-01 |12 de Setembro de 2018 |Post 2.79 |
+|~~WA-CONVIDADO-SO-2.77_201808-01~~ |12 de Setembro de 2018 |8 de Novembro de 2018 |
 |~~WA-CONVIDADO-SO-2.76_201807-02~~ |3 de Agosto de 2018 |12 de Outubro de 2018 |
 |~~WA-CONVIDADO-SO-2.75_201806-01~~ |3 de julho de 2018 |12 de Setembro de 2018 |
 |~~WA-CONVIDADO-SO-2.74_201805-01~~ |1 de Junho de 2018 |3 de Agosto de 2018|

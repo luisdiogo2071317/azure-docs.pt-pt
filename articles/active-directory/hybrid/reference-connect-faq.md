@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269450"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010609"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ do Azure Active Directory Connect
 
@@ -75,6 +75,9 @@ Não, do Azure AD Connect não suporta florestas no local ou em domínios em que
 
 **P: é o ambiente de IPv6 puro suportada?**  
 Não, do Azure AD Connect não suporta um ambiente IPv6 puro.
+
+**P: Tenho um ambiente de várias florestas e de rede entre as duas florestas está a utilizar o NAT (tradução de endereços de rede). Está a utilizar o Azure AD Connect entre estas duas florestas suportadas?**</br>
+ Não, a utilização do Azure AD Connect através de NAT não é suportada. 
 
 ## <a name="federation"></a>de Federação
 **P: o que devo fazer se eu recebo uma mensagem de e-mail que lhe pede-me para renovar o meu certificado do Office 365?**  

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312350"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264095"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Armazenamento Standard económico e discos de VM do Azure geridos e não
 
@@ -61,10 +61,10 @@ Nesta seção, descrevemos os destinos de escalabilidade e desempenho, que preci
 | **Recurso** | **Limite Predefinido** |
 |--------------|-------------------|
 | TB por conta de armazenamento  | 500 TB |
-| Entrada de Max<sup>1</sup> por conta de armazenamento (regiões E.u.a.) | 10 Gbps, se estiver ativada o GRS/ZRS, 20 Gbps para LRS |
-| Saída de Max<sup>1</sup> por conta de armazenamento (regiões E.u.a.) | 20 Gbps se ativada de RA-GRS/GRS/ZRS, 30 Gbps para LRS |
-| Entrada de Max<sup>1</sup> por conta de armazenamento (Europeu e asiático regiões) | 5 Gbps, se estiver ativada o GRS/ZRS, 10 Gbps para LRS |
-| Saída de Max<sup>1</sup> por conta de armazenamento (Europeu e asiático regiões) | 10 Gbps, se estiver ativada de RA-GRS/GRS/ZRS, 15 Gbps para LRS |
+| Entrada de Max<sup>1</sup> por conta de armazenamento (regiões E.u.a.) | 10 Gbps, se estiver ativada o GRS/ZRS, 20 Gbps para LRS |
+| Saída de Max<sup>1</sup> por conta de armazenamento (regiões E.u.a.) | 20 Gbps se ativada de RA-GRS/GRS/ZRS, 30 Gbps para LRS |
+| Entrada de Max<sup>1</sup> por conta de armazenamento (Europeu e asiático regiões) | 5 Gbps, se estiver ativada o GRS/ZRS, 10 Gbps para LRS |
+| Saída de Max<sup>1</sup> por conta de armazenamento (Europeu e asiático regiões) | 10 Gbps, se estiver ativada de RA-GRS/GRS/ZRS, 15 Gbps para LRS |
 | Total taxa de pedidos (supondo que o tamanho do objeto de 1 KB) por conta de armazenamento | Até 20 000 IOPS, entidades por segundo ou mensagens por segundo |
 
 <sup>1</sup> entrada refere-se a todos os dados (pedidos) a ser enviados para uma conta de armazenamento. Saída refere-se a todos os dados (respostas) recebidos de uma conta de armazenamento.
@@ -111,8 +111,8 @@ Se um disco gerido está ligado a uma VM, determinadas operações de API não s
 
 Ao utilizar o armazenamento Standard, aplicam-se as seguintes considerações de faturas:
 
-* Tamanho de discos/dados de armazenamento Standard não gerido 
-* Discos geridos padrão
+* Tamanho de discos/dados de armazenamento Standard não gerido
+* Discos geridos Standard
 * Instantâneos de armazenamento Standard
 * Transferências de dados de saída
 * Transações
@@ -121,14 +121,16 @@ Ao utilizar o armazenamento Standard, aplicam-se as seguintes considerações de
 
 **Discos geridos:** faturação para discos geridos standard depende do tamanho aprovisionado do disco. Azure mapeia o tamanho aprovisionado (arredondado) para a opção de Managed Disks mais próxima, conforme especificado nas tabelas abaixo. Cada disco gerido é mapeado para um dos tamanhos suportados aprovisionados e é cobrado em conformidade. Por exemplo, se criar um disco gerido standard e especificar um tamanho aprovisionado de 200 GiB, é-lhe cobrada de acordo com os preços do tipo de disco S15.
 
-| **HDD padrão gerido <br>tipo de disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Tamanhos marcados com um asterisco estão atualmente em pré-visualização.
+
+| **HDD padrão gerido <br>tipo de disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Tamanho do Disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1.024 giB (1 TiB) | 2.048 giB (2 TiB) | 4095 giB (4 TiB) | 8.192 giB (8 TiB) | 16,385 giB (TiB de 16) | 32.767 giB (32 TiB) |
 
 
 **Instantâneos**: os instantâneos de discos standard são faturados para uma maior capacidade utilizada pelos instantâneos. Para obter informações sobre instantâneos, consulte [criar um instantâneo de um Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Transferências de dados de saída**: [transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
+**Transferências de dados de saída**: [transferências de dados de saída](https://azure.microsoft.com/pricing/details/data-transfers/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
 
 **Transação**: Azure cobra $0.0036 por 100.000 transações de armazenamento standard. As transações incluem as opções de leitura e escrita para armazenamento.
 

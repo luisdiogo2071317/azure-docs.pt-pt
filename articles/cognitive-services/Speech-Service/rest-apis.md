@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025842"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038608"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -42,7 +42,7 @@ Os seguintes parâmetros podem ser incluídos na cadeia de consulta da solicita�
 |`format`|Opcional<br>predefinição: `simple`|Formato de resultado `simple` ou `detailed`. Os resultados da simples incluem `RecognitionStatus`, `DisplayText`, `Offset`e a duração. Resultados detalhados incluem vários candidatos com valores de confiança e quatro diferentes representações.|
 |`profanity`|Opcional<br>predefinição: `masked`|Como lidar com linguagem inapropriada nos resultados de reconhecimento. Pode ser `masked` (substitui linguagem inapropriada por asteriscos), `removed` (Remove todos os profanidades), ou `raw` (inclui a linguagem inapropriada).
 
-### <a name="request-headers"></a>Cabeçalhos de pedido
+### <a name="request-headers"></a>Cabeçalhos do pedido
 
 Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 
@@ -57,10 +57,12 @@ Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 
 ### <a name="audio-format"></a>Formato de áudio
 
-O áudio é enviado no corpo do HTTP `POST` pedido. Deve estar no formato WAV de 16 bits com canal único PCM (mono) em 16 KHz da formatos/codificação seguinte.
+Áudio é enviado no corpo do HTTP `POST` pedido. Tem de ser um dos formatos nesta tabela:
 
-* Formato WAV com PCM codec
-* Formato de OGG com OPUS codec
+| Formato | Codec | Velocidade de transmissão | Taxa de exemplo |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 16 kHz, mono |
+| OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
 >Os formatos acima são suportados através da REST API e WebSocket no serviço de voz. O [SDK de voz](/index.yml) atualmente apenas suporta o WAV formatar com o codec PCM.
@@ -104,7 +106,7 @@ Segue-se uma solicitação típica.
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -212,7 +214,7 @@ pt-PT  | Inglês dos Estados Unidos | Masculino   | "Microsoft Server voz texto 
 
 Uma lista completa de vozes disponíveis está disponível no [idiomas suportados](language-support.md#text-to-speech).
 
-### <a name="request-headers"></a>Cabeçalhos de pedido
+### <a name="request-headers"></a>Cabeçalhos do pedido
 
 Os campos seguintes são enviados no cabeçalho do pedido HTTP.
 
@@ -267,11 +269,11 @@ O estado HTTP de resposta indica o êxito ou condições de erro comuns.
 Código de HTTP|Significado|Razão possível
 -|-|-|
 200|OK|O pedido foi concluída com êxito; o corpo da resposta é um arquivo de áudio.
-400 |Pedido incorreto |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
+400 |Pedido Inválido |Um parâmetro necessário está em falta, vazios ou nulos. Em alternativa, o valor transmitido como um parâmetro obrigatório ou opcional é inválido. Um problema comum é um cabeçalho que é demasiado longo.
 401|Não autorizado |O pedido não está autorizado. Certifique-se a chave de subscrição ou o token é válido e na região correto.
 413|Entidade do pedido demasiado grande|A entrada SSML é superior a 1024 carateres.
-429|Demasiados pedidos|Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição.
-502|Gateway inválido | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
+429|Demasiados Pedidos|Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição.
+502|Gateway incorrecto | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
 Se o estado HTTP é `200 OK`, o corpo da resposta contém um arquivo de áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que ele tem transferidos ou guardada para um ficheiro para posterior reprodução ou outro uso ou memória intermédia.
 

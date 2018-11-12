@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 8201e1569bd3030a205ab0ec5adb8a1f39a0ecc3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960740"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280711"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta de registo é criada no Azure](alert-log.md), tem a opção de [configurar a utilização de grupos de ação](monitoring-action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e os detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -79,7 +79,7 @@ Para incluir os resultados da pesquisa num payload personalizado, certifique-se 
 Esta secção mostra o payload de exemplo do webhook para alertas de registo, incluindo a carga é padrão e quando seu custom.
 
 > [!NOTE]
-> Para garantir a compatibilidade com versões anteriores, é o mesmo que o payload do webook padrão para os alertas com o Azure Log Analytics [gestão de alertas do Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Mas para os alertas de registo utilizando [Application Insights](../application-insights/app-insights-analytics.md), o payload do webook standard baseia-se no esquema do grupo de ação.
+> Para garantir a compatibilidade com versões anteriores, é o mesmo que o payload do webook padrão para os alertas com o Azure Log Analytics [gestão de alertas do Log Analytics](../monitoring-and-diagnostics/alert-metric.md). Mas para os alertas de registo utilizando [Application Insights](../application-insights/app-insights-analytics.md), o payload do webook standard baseia-se no esquema do grupo de ação.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Padrão Webhook para alertas de registo 
 Ambos estes exemplos tiveram indicado um payload fictício com apenas duas colunas e linhas de duas.

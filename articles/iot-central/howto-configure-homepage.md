@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731126"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007625"
 ---
 ## <a name="configuring-homepage"></a>Configurar a home page
 
-A home page é a página que carrega quando os utilizadores que têm acesso, navegue até ao URL da aplicação. Se tiver selecionado o "Exemplo de Contoso" ou "Exemplo Devkits" modelos de aplicativos durante a criação de seu aplicativo, seu aplicativo irá ter previamente definido Home Pages. Se por outro lado, tiver selecionado o modelo de aplicativo de "Aplicativo personalizado", sua home page estará em branco.
+A home page é a página que carrega quando os utilizadores que têm acesso à aplicação, navegue até ao URL da aplicação. Se tiver selecionado o "Exemplo de Contoso" ou "Exemplo Devkits" modelos de aplicativos durante a criação de seu aplicativo, seu aplicativo irá ter previamente definido Home Pages. Se por outro lado, tiver selecionado o modelo de aplicativo de "Aplicativo personalizado", sua home page estará em branco.
 
 Por exemplo, segue-se a página inicial para aplicativos com base no modelo de "Exemplo Contoso". Para personalizar a home page para a sua aplicação, primeiro selecione **editar** no canto superior direito. 
 

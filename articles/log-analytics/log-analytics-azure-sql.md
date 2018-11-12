@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: f43db05cac03d090116d227536e343c4a7bb0df4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958879"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006741"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -192,7 +192,7 @@ Alertas automatizados na solução se baseia em escrever uma consulta do Log Ana
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Criar alertas para a base de dados do Azure SQL
 
-Pode facilmente [criar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [pesquisa de registos](log-analytics-log-search.md) consultas que pode utilizar com um alerta de registo:
+Pode facilmente [criar alertas](../monitoring-and-diagnostics/alert-metric.md) com os dados provenientes de recursos de base de dados do Azure SQL. Aqui estão algumas útil [pesquisa de registos](log-analytics-queries.md) consultas que pode utilizar com um alerta de registo:
 
 *Elevada da CPU na base de dados SQL do Azure*
 
@@ -289,6 +289,6 @@ Embora a solução é gratuita, consumo de telemetria de diagnóstico acima as u
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Uso [pesquisas de registos](log-analytics-log-search.md) no Log Analytics para ver os dados de SQL do Azure detalhados.
+- Uso [pesquisas de registos](log-analytics-queries.md) no Log Analytics para ver os dados de SQL do Azure detalhados.
 - [Criar seus próprios dashboards](log-analytics-dashboards.md) a mostrar dados de SQL do Azure.
 - [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) quando ocorrem eventos específicos do SQL do Azure.

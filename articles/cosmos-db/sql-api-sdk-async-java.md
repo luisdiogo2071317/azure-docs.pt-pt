@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/02/2018
 ms.author: moderakh
-ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c8b8397e5d51b67895a6a95ed6d1611813a9aaf6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252875"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300851"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,9 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* Foi corrigido um erro de empacotamento.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Foi corrigido um erro NPE no caminho de repetição de escrita.
@@ -119,8 +122,9 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
-| [2.2.1](#2.1.0) |2 de Novembro de 2018|--- |
-| [2.2.0](#2.2.1) |22 de Setembro de 2018|--- |
+| [2.2.2](#2.2.2) |8 de Novembro de 2018|--- |
+| [2.2.1](#2.2.1) |2 de Novembro de 2018|--- |
+| [2.2.0](#2.2.0) |22 de Setembro de 2018|--- |
 | [2.1.0](#2.1.0) |5 de Setembro de 2018|--- |
 | [2.0.1](#2.0.1) |16 de Agosto de 2018|--- |
 | [2.0.0](#2.0.0) |20 de junho de 2018|--- |

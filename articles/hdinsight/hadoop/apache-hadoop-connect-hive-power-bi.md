@@ -3,19 +3,19 @@ title: Visualizar grandes volumes de dados com o Power BI no Azure HDInsight
 description: Saiba como utilizar o Microsoft Power BI para visualizar dados de Hive processados pelo Azure HDInsight.
 keywords: hdinsight, hadoop, hive, interactive consultas interativas do hive, LLAP, odbc
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: c24818f6b746754111540bae5fbf7f21d22c3a61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: b094df367d4396533d368b9fdbcb4b78ec1673de
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041909"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008900"
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar dados do Hive com o Microsoft Power BI com ODBC no Azure HDInsight
 
@@ -54,7 +54,7 @@ A tabela de Hive hivesampletable é fornecido com todos os clusters do HDInsight
 4. Partir do **de ODBC** painel, selecione os dados que criou na última seção do nome da origem e, em seguida, clique em **OK**.
 5. Do **Navigator** painel, expanda **ODBC -> HIVE -> predefinição**, selecione **hivesampletable**e, em seguida, clique em **carga**.
 
-## <a name="visualize-data"></a>Visualizar dados
+## <a name="visualize-data"></a>Visualizar os dados
 
 Continue a partir do último procedimento.
 

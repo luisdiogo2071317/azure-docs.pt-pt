@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f5bfe6c730f569f0cc902b0e0a132bfca645a45
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961692"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006520"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
@@ -238,7 +238,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +263,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +304,4 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Pesquisar registos](log-analytics-log-search.md) para saber como analisar dados detalhados de verificação do System Center Operations Manager estado de funcionamento e recomendações.
+- [Pesquisar registos](log-analytics-queries.md) para saber como analisar dados detalhados de verificação do System Center Operations Manager estado de funcionamento e recomendações.

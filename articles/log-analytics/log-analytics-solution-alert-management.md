@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e0bc49fb3b85decb97366b62771a191702149b1a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fa76ccf7019097c5f27aa126b0a5a7dc81ffbd41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960536"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008152"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
@@ -74,7 +74,7 @@ Clique nas **gestão de alertas** mosaico para abrir o **gestão de alertas** da
 | Alertas SCOM Ativos |Todos os alertas recolhidos a partir do Operations Manager com qualquer Estado diferente de *fechado* agrupados por origem que gerou o alerta. |
 | Todos os alertas ativos |Todos os alertas com qualquer gravidade agrupados por nome do alerta. Inclui apenas alertas do Operations Manager com qualquer Estado diferente de *fechado*. |
 
-Se se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar uma [pesquisa de registos](log-analytics-log-search.md) para dados de alertas.
+Se se deslocar para a direita, o dashboard apresenta uma lista de várias consultas comuns que pode clicar em para efetuar uma [pesquisa de registos](log-analytics-queries.md) para dados de alertas.
 
 ![Dashboard de gestão de alertas](media/log-analytics-solution-alert-management/dashboard.png)
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1def5686933a971b1192ec58bc72d64cbc5e8931
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219329"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279131"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -26,11 +26,11 @@ Este artigo mostra-lhe como ativar o início de sessão para uma conta de utiliz
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Conclua os passos na [introdução às políticas personalizadas no Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Certifique-se de que tem acesso ao ficheiro. pfx do certificado, com a chave privada que foi emitido pelo ADFS.
+- Certifique-se de que tem acesso a um ficheiro de certificado. pfx com uma chave privada. Pode gerar seu próprio certificado assinado e carregue-o para o Azure AD B2C. O Azure AD B2C utiliza este certificado para assinar o pedido SAML enviado para o fornecedor de identidade SAML.
 
 ## <a name="create-a-policy-key"></a>Criar uma chave de política
 
-Precisa armazenar o certificado ADFS no seu inquilino do Azure AD B2C.
+Precisa armazenar o certificado no seu inquilino do Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
@@ -38,7 +38,7 @@ Precisa armazenar o certificado ADFS no seu inquilino do Azure AD B2C.
 4. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
 5. Selecione **chaves de política** e, em seguida, selecione **Add**.
 6. Para **opções**, escolha `Upload`.
-7. Introduza um **nome** para a chave de política. Por exemplo, `ADFSSamlCert`. O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.
+7. Introduza um **nome** para a chave de política. Por exemplo, `SamlCert`. O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.
 8. Procure e selecione o ficheiro. pfx de certificado com a chave privada.
 9. Clique em **Criar**.
 

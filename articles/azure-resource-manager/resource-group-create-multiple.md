@@ -10,24 +10,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295942"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012008"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar várias instâncias de um recurso ou uma propriedade nos modelos do Azure Resource Manager
+# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar mais de uma instância de um recurso ou uma propriedade nos modelos do Azure Resource Manager
 
-Este artigo mostra como iterar no modelo do Azure Resource Manager para criar várias instâncias de um recurso. Se tiver de especificar se um recurso está implementado em todos os, consulte [elemento condition](resource-manager-templates-resources.md#condition).
+Este artigo mostra como iterar no modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Se tiver de especificar se um recurso está implementado em todos os, consulte [elemento condition](resource-manager-templates-resources.md#condition).
 
 Para obter um tutorial, veja [Tutorial: criar várias instâncias de recursos com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Iteração de recursos
 
-Quando tem de decidir durante a implementação para criar uma ou mais instâncias de um recurso, adicione um `copy` elemento para o tipo de recurso. No elemento de cópia, especifique o número de iterações e um nome para esse loop. O valor de contagem tem de ser um número inteiro positivo e não pode ter mais de 800. 
+Quando tem de decidir durante a implementação para criar uma ou mais instâncias de um recurso, adicione um `copy` elemento para o tipo de recurso. No elemento de cópia, especifique o número de iterações e um nome para este ciclo. O valor de contagem tem de ser um número inteiro positivo e não pode ser mais de 800. 
 
 O recurso para criar várias vezes assume o formato seguinte:
 
@@ -68,7 +68,7 @@ Cria estes nomes:
 * storage1
 * storage2.
 
-Para alterar o valor de índice, pode passar um valor na função copyindex (). O número de iterações para efetuar ainda é especificado no elemento de cópia, mas o valor de copyIndex é contrabalançado pelo valor especificado. Para isso, o exemplo seguinte:
+Para deslocar o valor de índice, pode passar um valor na função copyIndex(). O número de iterações para efetuar ainda é especificado no elemento de cópia, mas o valor de copyIndex é contrabalançado pelo valor especificado. Para isso, o exemplo seguinte:
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -111,9 +111,9 @@ Cria estes nomes:
 * storagefabrikam
 * storagecoho
 
-Por predefinição, o Gestor de recursos cria os recursos em paralelo. Por conseguinte, não é garantida a ordem em que forem criadas. No entanto, poderá especificar que os recursos são implementados numa sequência. Por exemplo, ao atualizar um ambiente de produção, convém escalonar as atualizações por isso, apenas um determinado número são atualizadas ao mesmo tempo.
+Por predefinição, o Gestor de recursos cria os recursos em paralelo. Não é garantida a ordem em que forem criadas. No entanto, poderá especificar que os recursos são implementados numa sequência. Por exemplo, ao atualizar um ambiente de produção, convém escalonar as atualizações por isso, apenas um determinado número são atualizadas ao mesmo tempo.
 
-Para implementar em série várias instâncias de um recurso, defina `mode` para **serial** e `batchSize` para o número de instâncias a implementar cada vez. Com o modo serial, o Resource Manager cria uma dependência em instâncias anteriores no loop, para que ele não começa um lote até que o lote anterior seja concluída.
+Para implementar em série mais de uma instância de um recurso, defina `mode` para **serial** e `batchSize` para o número de instâncias a implementar cada vez. Com o modo serial, o Resource Manager cria uma dependência em instâncias anteriores no loop, para que ele não começa um lote até que o lote anterior seja concluída.
 
 Por exemplo, para implementar em série contas de armazenamento dois ao mesmo tempo, utilize:
 
@@ -148,10 +148,10 @@ A propriedade de modo também aceita **paralela**, que é o valor predefinido.
 
 ## <a name="property-iteration"></a>Iteração de propriedade
 
-Para criar vários valores para uma propriedade num recurso, adicione um `copy` matriz no elemento de propriedades. Essa matriz contém objetos, e cada objeto tem as seguintes propriedades:
+Para criar mais de um valor para uma propriedade num recurso, adicione um `copy` matriz no elemento de propriedades. Essa matriz contém objetos, e cada objeto tem as seguintes propriedades:
 
 * nome – o nome da propriedade para criar vários valores para
-* Contagem - o número de valores para criar
+* Contagem - o número de valores para criar. O valor de contagem tem de ser um número inteiro positivo e não pode ser mais de 800.
 * introdução - um objeto que contém os valores a atribuir à propriedade  
 
 O exemplo seguinte mostra como aplicar `copy` à propriedade dataDisks numa máquina virtual:
@@ -381,7 +381,7 @@ Especificar que um recurso é implementado depois de outro recurso utilizando o 
 <a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Iteração de um recurso subordinado
-Não é possível usar um loop de cópia de um recurso de subordinados. Para criar várias instâncias de um recurso que normalmente define como aninhada dentro de outro recurso, em vez disso, tem de criar esse recurso como um recurso de nível superior. É possível definir a relação com o recurso principal através das propriedades de tipo e nome.
+Não é possível usar um loop de cópia de um recurso de subordinados. Para criar mais de uma instância de um recurso que normalmente define como aninhada dentro de outro recurso, em vez disso, tem de criar esse recurso como um recurso de nível superior. É possível definir a relação com o recurso principal através das propriedades de tipo e nome.
 
 Por exemplo, suponha que normalmente define um conjunto de dados como um recurso filho dentro de uma fábrica de dados.
 
@@ -403,7 +403,7 @@ Por exemplo, suponha que normalmente define um conjunto de dados como um recurso
 }]
 ```
 
-Para criar várias instâncias de conjuntos de dados, movê-lo fora da fábrica de dados. O conjunto de dados tem de estar no mesmo nível que a fábrica de dados, mas ainda é um recurso de subordinados do data factory. Preservar a relação entre o conjunto de dados e o data factory através das propriedades de tipo e nome. Uma vez que o tipo já não pode ser inferido da sua posição no modelo, tem de fornecer o tipo completamente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Para criar mais de um conjunto de dados, movê-lo fora da fábrica de dados. O conjunto de dados tem de estar no mesmo nível que a fábrica de dados, mas ainda é um recurso de subordinados do data factory. Preservar a relação entre o conjunto de dados e o data factory através das propriedades de tipo e nome. Uma vez que o tipo já não pode ser inferido da sua posição no modelo, tem de fornecer o tipo completamente qualificado no formato: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Para estabelecer uma relação de pai/filho com uma instância de fábrica de dados, forneça um nome para o conjunto de dados que inclui o nome de recurso principal. Utilize o formato: `{parent-resource-name}/{child-resource-name}`.  
 
@@ -432,11 +432,11 @@ O exemplo seguinte mostra a implementação:
 
 ## <a name="example-templates"></a>Modelos de exemplo
 
-Os exemplos seguintes apresentam cenários comuns para a criação de vários recursos ou propriedades.
+Os exemplos seguintes apresentam cenários comuns para criar mais de uma instância de um recurso ou uma propriedade.
 
 |Modelo  |Descrição  |
 |---------|---------|
-|[Armazenamento de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implementa várias contas de armazenamento com um número de índice no nome. |
+|[Armazenamento de cópia](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Implementa mais de uma conta de armazenamento com um número de índice no nome. |
 |[Armazenamento de cópia Serial](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Implementa várias contas de armazenamento um momento. O nome inclui o número de índice. |
 |[Armazenamento de cópia com matriz](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Implementa várias contas de armazenamento. O nome inclui um valor de uma matriz. |
 |[Implementação de VMS com um número variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implementa vários discos de dados com uma máquina virtual. |

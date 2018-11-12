@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 505abe8f3dc19458b3f0e18f349974199ae4ba58
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2b7045f74a22732337ceb8dc9136da1c93ee7c2c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212119"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037792"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>Como integrar o Azure Monitor para contentores (pré-visualização) 
 Este artigo descreve como configurar o Azure Monitor para contentores para monitorizar o desempenho de cargas de trabalho que são implementadas nos ambientes do Kubernetes e alojada num [do Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
@@ -110,7 +110,7 @@ Depois de ativar a monitorização, poderá demorar cerca de 15 minutos antes de
 ### <a name="enable-monitoring-from-aks-cluster-in-the-portal"></a>Ativar a monitorização a partir de um cluster do AKS no portal
 Para ativar a monitorização do seu contentor do AKS no portal do Azure, efetue o seguinte:
 
-1. No portal do Azure, selecione **todos os serviços**. 
+1. No portal do Azure, selecione **Todos os serviços**. 
 2. Na lista de recursos, comece a escrever **contentores**.  
     Os filtros de lista com base na sua entrada. 
 3. Selecione **serviços de Kubernetes**.  
@@ -244,7 +244,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {

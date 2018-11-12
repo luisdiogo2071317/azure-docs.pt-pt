@@ -400,7 +400,7 @@ Se quiser analisar os ficheiros ORC ou escrever os dados em formato ORC, defina 
 ```
 
 > [!IMPORTANT]
-> Se não estiver a copiar ficheiros ORC **como estão** entre arquivos de dados no local e na cloud, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador de gateway. Um gateway de 64 bits requer um JRE de 64 bits e um gateway de 32 bits requer um JRE de 32 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605). Escolha a versão adequada.
+> Se não estiver a copiar ficheiros ORC **como estão** entre arquivos de dados no local e na cloud, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador de gateway. Um gateway de 64 bits requer um JRE de 64 bits e um gateway de 32 bits requer um JRE de 32 bits. Pode encontrar ambas as versões [aqui](https://go.microsoft.com/fwlink/?LinkId=808605). Escolha a versão adequada.
 >
 >
 
@@ -419,7 +419,7 @@ Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet,
 }
 ```
 > [!IMPORTANT]
-> Se não estiver a copiar ficheiros Parquet **como estão** entre arquivos de dados no local e na cloud, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador de gateway. Um gateway de 64 bits requer um JRE de 64 bits e um gateway de 32 bits requer um JRE de 32 bits. Pode encontrar ambas as versões [aqui](http://go.microsoft.com/fwlink/?LinkId=808605). Escolha a versão adequada.
+> Se não estiver a copiar ficheiros Parquet **como estão** entre arquivos de dados no local e na cloud, tem de instalar o JRE 8 (Java Runtime Environment) no seu computador de gateway. Um gateway de 64 bits requer um JRE de 64 bits e um gateway de 32 bits requer um JRE de 32 bits. Pode encontrar ambas as versões [aqui](https://go.microsoft.com/fwlink/?LinkId=808605). Escolha a versão adequada.
 >
 >
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 720deec76c57a7aab222ac3e6e76a1cd3f4253c1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 14ddd92320fdbeab3edf8c155bdb195334c93e16
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961420"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006911"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução de Monitor de desempenho de rede: a monitorização de desempenho
 
@@ -137,4 +137,4 @@ Na imagem seguinte, a causa de raiz das áreas problemáticas para a secção es
 ![Mapa de topologia com propriedades de nó selecionado](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Pesquisar registos](log-analytics-log-search.md) para ver os registos de dados de desempenho de rede detalhada.
+[Pesquisar registos](log-analytics-queries.md) para ver os registos de dados de desempenho de rede detalhada.
