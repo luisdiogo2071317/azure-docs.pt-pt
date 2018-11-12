@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423498"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250786"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar a utilizar para os operadores de TI do Azure
 
@@ -227,7 +227,7 @@ Para obter mais informações, consulte [obter informações sobre o consumo de 
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Montante dos custos com a Calculadora de preços
 
-Os preços para cada serviço no Azure são diferente. Muitos serviços do Azure fornecem escalões Basic, Standard e Premium. Normalmente, cada escalão tem vários níveis de preço e desempenho. Ao utilizar o [Calculadora de preços online](http://azure.microsoft.com/pricing/calculator), pode criar as estimativas de preços. A Calculadora inclui flexibilidade para estimar o custo num único recurso ou um grupo de recursos.
+Os preços para cada serviço no Azure são diferente. Muitos serviços do Azure fornecem escalões Basic, Standard e Premium. Normalmente, cada escalão tem vários níveis de preço e desempenho. Ao utilizar o [Calculadora de preços online](https://azure.microsoft.com/pricing/calculator), pode criar as estimativas de preços. A Calculadora inclui flexibilidade para estimar o custo num único recurso ou um grupo de recursos.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -415,7 +415,7 @@ Existem várias opções para implementar uma conta de armazenamento.
 
 #### <a name="portal"></a>Portal
 
-A implementação de uma conta de armazenamento com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova conta de armazenamento para um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, pode criar uma partilha de ficheiro ou de contentor de Blobs com o portal. Pode criar a tabela e fila entidades de armazenamento por meio de programação. Para obter mais informações, consulte [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
+A implementação de uma conta de armazenamento com o portal do Azure requer apenas uma subscrição do Azure Active Directory e o acesso a um navegador da web. Pode implementar uma nova conta de armazenamento para um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, pode criar uma partilha de ficheiro ou de contentor de Blobs com o portal. Pode criar a tabela e fila entidades de armazenamento por meio de programação. Para obter mais informações, veja [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
 
 Para além de implementar uma conta de armazenamento no portal do Azure, pode implementar um modelo Azure Resource Manager do portal. Isto irá implementar e configurar todos os recursos, conforme definido no modelo, incluindo as contas de armazenamento. Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

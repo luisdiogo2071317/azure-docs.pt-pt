@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409291"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261813"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma ligação ponto a site com a WAN Virtual do Azure (Pré-visualização)
 
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Criar uma WAN Virtual
 
-Num browser, navegue para o [portal do Azure (Pré-visualização)](http://aka.ms/azurevirtualwanpreviewfeatures) e inicie sessão com a sua conta do Azure.
+Num browser, navegue para o [portal do Azure (Pré-visualização)](https://aka.ms/azurevirtualwanpreviewfeatures) e inicie sessão com a sua conta do Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -111,12 +111,13 @@ Uma configuração P2S define os parâmetros para ligar clientes remotos.
 
 ## <a name="hub"></a>5. Editar atribuição de hub
 
-1. Na página da sua WAN virtual, clique em **Configurações ponto a site**.
-2. Em **Hub**, é apresentada uma lista de configurações que ainda não foram ligadas a um hub.
-3. Selecione a configuração que pretende associar e clique em **Editar atribuição de hub**
-4. Na lista pendente, selecione o hub ou os hubs aos quais pretende associar a configuração.
-5. Clique em **Atribuir**. 
-6. A operação poderá demorar até 30 minutos a concluir.
+1. Na página da WAN Virtual, clique em **Hubs**.
+2. Selecione o hub ao qual pretende atribuir a configuração ponto a site.
+3. Clique em **“...”** e escolha **Editar hub virtual**
+4. Marque **Incluir gateway ponto a site**.
+5. Escolha **Unidades de escala de gateway** e **Configuração ponto a site**, juntamente com um **Conjunto de endereços** para os clientes.
+6. Clique em **Confirmar**. 
+7. A operação poderá demorar até 30 minutos a concluir.
 
 ## <a name="vnet"></a>6. Ligar a VNet a um hub
 
@@ -135,9 +136,10 @@ Neste passo, vai criar a ligação de peering entre o hub e uma VNet. Repita est
 
 Utilize o perfil VPN para configurar os seus clientes.
 
-1. Na página da sua WAN virtual, clique em **Configurações ponto a site**.
-2. Na parte superior da página, clique em **Transferir o perfil ponto a site**. 
-3. Após a conclusão da criação do ficheiro, pode clicar na ligação para transferi-lo.
+1. Na página da WAN Virtual, clique em **Hubs**.
+2. Selecione o hub para o qual pretende transferir o perfil.
+3. Clique em **“...”** e escolha **Transferir perfil**. 
+4. Após a conclusão da criação do ficheiro, pode clicar na ligação para transferi-lo.
 4. Utilize o ficheiro de perfil para configurar os clientes ponto a site.
 
 ## <a name="device"></a>8. Configurar clientes ponto a site

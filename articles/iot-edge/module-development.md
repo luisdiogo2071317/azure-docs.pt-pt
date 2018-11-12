@@ -8,12 +8,12 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2513624aecff652e8a952b3255faf2ab9366f21a
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741441"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288701"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Compreender os requisitos e as ferramentas para desenvolver módulos do IoT Edge
 
@@ -26,9 +26,9 @@ O runtime do IoT Edge fornece a infraestrutura para integrar a funcionalidade de
 O hub IoT Edge fornece duas funcionalidades principais: proxy para o IoT Hub e comunicações locais.
 
 ### <a name="iot-hub-primitives"></a>Primitivos de IoT Hub
-Vê do Hub IoT um módulo analogously instância para um dispositivo, no sentido de que a TI:
+IoT Hub vê uma instância de módulo analogously para um dispositivo, no sentido de que:
 
-* tem um duplo do módulo, que é distinto e isolado a partir do [dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md) e os outros duplos de módulo de que o dispositivo;
+* tem um duplo do módulo que é distinto e isolado a partir do [dispositivo duplo](../iot-hub/iot-hub-devguide-device-twins.md) e os outros duplos de módulo de que o dispositivo;
 * Pode enviar [mensagens dispositivo-para-cloud](../iot-hub/iot-hub-devguide-messaging.md);
 * pode receber [métodos diretos](../iot-hub/iot-hub-devguide-direct-methods.md) direcionado especificamente para a sua identidade.
 
@@ -41,7 +41,7 @@ Ver [desenvolver e implementar um módulo do IoT Edge num dispositivo simulado](
 ### <a name="device-to-cloud-messages"></a>Mensagens do dispositivo para a cloud
 Para ativar complexas de processamento de mensagens do dispositivo para a cloud, hub do IoT Edge fornece declarativa de encaminhamento de mensagens entre módulos e entre módulos e o IoT Hub. Encaminhamento declarativa permite que os módulos interceptar e processar mensagens enviadas por outros módulos e propagação-las em pipelines de complexos. O artigo [composição do módulo](module-composition.md) explica como compor módulos em pipelines complexos com rotas.
 
-Módulo do IoT Edge, forma diferente do que um aplicativo de dispositivo do IoT Hub normal, pode receber mensagens dispositivo-para-cloud que estão a ser transmitidas por proxy ao seu hub IoT Edge local, para poder processá-las.
+Módulo do IoT Edge, em vez de um aplicativo de dispositivo do IoT Hub normal, pode receber mensagens de dispositivo para a nuvem que estão a ser transmitidas por proxy ao seu hub IoT Edge local para processá-las.
 
 Hub do IoT Edge propaga as mensagens ao módulo com base nas rotas declarativas descritas na [composição do módulo](module-composition.md) artigo. Ao desenvolver um módulo do IoT Edge, pode receber essas mensagens através da definição de manipuladores de mensagens.
 
@@ -58,7 +58,9 @@ Por fim, as mensagens de dispositivo-para-cloud manipuladas pelo Edge hub são m
 | $outputName | A saída utilizada para enviar a mensagem. Pode estar vazio. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Ligar ao hub IoT Edge, a partir de um módulo
-Ligar ao hub IoT Edge local a partir de um módulo envolve dois passos: utilizar a cadeia de ligação, desde que o runtime do IoT Edge quando seu módulo é iniciado, e certifique-se de que seu aplicativo aceita o certificado apresentado pelo hub IoT Edge nesse dispositivo.
+Ligar ao hub IoT Edge local a partir de um módulo envolve dois passos: 
+1. Utilize a cadeia de ligação fornecida pelo runtime do IoT Edge, quando seu módulo é iniciado.
+2. Certifique-se de que seu aplicativo aceita o certificado apresentado pelo hub IoT Edge nesse dispositivo.
 
 Cadeia de ligação a utilizar é injetada pelo runtime do IoT Edge na variável de ambiente `EdgeHubConnectionString`. Isto torna disponível para qualquer programa que queira utilizá-la.
 

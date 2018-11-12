@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388233"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249086"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementar uma aplicação do Service Fabric num cluster no Azure
 
@@ -87,7 +87,7 @@ Para a sua subscrição do Azure, abra esta porta através de uma regra de balan
 
 Os clusters comemorativos são clusters do Service Fabric gratuitos e de tempo limitado, alojados no Azure e executados pela equipa do Service Fabric. Qualquer pessoa pode implementar aplicações e obter informações sobre a plataforma. O cluster utiliza um único certificado autoassinado para a segurança de nó para nó e cliente para nó.
 
-Inicie sessão e [adira a um cluster do Windows](http://aka.ms/tryservicefabric). Para transferir o certificado PFX para o seu computador, selecione a ligação **PFX**. Selecione a ligação **Como ligar a um Party cluster seguro?** e copie a palavra-passe do certificado. O certificado, a palavra-passe do certificado e o valor do **Ponto final da ligação** são utilizados nos passos seguintes.
+Inicie sessão e [adira a um cluster do Windows](https://aka.ms/tryservicefabric). Para transferir o certificado PFX para o seu computador, selecione a ligação **PFX**. Selecione a ligação **Como ligar a um Party cluster seguro?** e copie a palavra-passe do certificado. O certificado, a palavra-passe do certificado e o valor do **Ponto final da ligação** são utilizados nos passos seguintes.
 
 ![PFX e ponto final de ligação](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

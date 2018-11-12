@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036432"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515380"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -189,7 +189,7 @@ Para saber mais sobre como utilizar as ferramentas de núcleo de funções do Az
 
 Quaisquer configurações adicionadas no Settings tem de ser adicionadas também para a aplicação de funções no Azure. Estas definições não são carregadas automaticamente quando publica o projeto.
 
-A maneira mais fácil para carregar as definições necessárias para a aplicação de funções no Azure é usar o **gerir as definições da aplicação...**  ligação que é apresentada depois de publicar seu projeto com êxito. 
+A maneira mais fácil para carregar as definições necessárias para a aplicação de funções no Azure é usar o **gerir as definições da aplicação...**  ligação que é apresentada depois de publicar seu projeto com êxito.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -197,11 +197,13 @@ Esta ação apresenta os **as definições da aplicação** caixa de diálogo pa
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Local** representa um valor de definição no arquivo Settings, e **remoto** é a definição atual na aplicação de função no Azure.  Escolher **Adicionar definição** para criar uma nova definição de aplicação. Utilize o **inserir o valor a partir de locais** link para copiar um valor de definição para o **remoto** campo. As alterações pendentes são escritos para o arquivo de configurações local e a aplicação de função quando seleciona **OK**.
+
 Também pode gerir as definições da aplicação de uma das seguintes outras formas:
 
 * [No portal do Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Utilizar o `--publish-local-settings` publicar opção nas ferramentas de núcleo de funções do Azure](functions-run-local.md#publish).
-* [Com a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Com a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>Funções de monitorização
 

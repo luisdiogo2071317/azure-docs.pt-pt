@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: eaa44b4fff47f8e3385e86f5c86a090ff84a6bf8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218893"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261507"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>Análise de registos para o Balanceador de carga básico público
 
@@ -143,7 +143,7 @@ Terá de ligar à sua conta de armazenamento e obter as entradas de registo JSON
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Visualize os seus registos de auditoria do Azure com o Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) postagem de blog.
+* [Visualize os seus registos de auditoria do Azure com o Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) postagem de blog.
 * [Ver e analisar registos de auditoria do Azure no Power BI e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) postagem de blog.
 
 ## <a name="next-steps"></a>Passos Seguintes

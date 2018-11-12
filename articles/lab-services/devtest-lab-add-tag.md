@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3d9a5b3c0ae0b6058d3e8ccf8cdb340bd1200edc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 38ec93afd27ac75a97a28fef59bd10fafdf963c9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247046"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Adicionar etiquetas a um laboratório no Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Cada etiqueta é constituída por um **name**/**valor** par. Por exemplo, pode c
 
 ## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Passos para gerir marcas num laboratório existente
 
-1. Inicie sessão no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Se necessário, selecione **todos os serviços**e, em seguida, selecione **DevTest Labs** da lista. Já pode ser mostrado o laboratório no Dashboard em **todos os recursos**.
 1. Na lista de laboratórios, selecione o laboratório em que pretende adicionar ou gerir etiquetas.  
 1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.  
