@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: f084433efa2476a75714da6eaef674911006bb76
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 297184a2623a6a7cfa3894a51f5de0e3bd3db622
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344771"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232781"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>O que o Multi-Factor Authentication do Azure significa para mim?
 Então, recebeu um e-mail de alguém de TI ou o seu chefe diz que foi acrescentada uma verificação adicional de segurança à sua conta.  Em que é que isto se traduz?
@@ -44,4 +44,4 @@ Selecione um destes tópicos para começar a utilizar.
 | [Experiência de início de sessão](multi-factor-authentication-end-user-signin.md) |Mostra o que pode esperar ao iniciar sessão com os diversos métodos, como o telemóvel ou a aplicação. |
 | [Alterar as definições](multi-factor-authentication-end-user-manage-settings.md) |Mostra como pode alterar as definições, como o número de telefone ou o método preferencial de inscrição. |
 | [Ajuda com as palavras-passe das aplicações](multi-factor-authentication-end-user-app-passwords.md) |Encontre informações sobre como criar e utilizar palavras-passe das aplicações. |
-| [Utilizar a aplicação móvel](microsoft-authenticator-app-how-to.md) |A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Utilizar a aplicação móvel](microsoft-authenticator-app-how-to.md) |A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |

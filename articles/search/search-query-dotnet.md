@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
-ms.openlocfilehash: 83f7f29471d49c4dbbf1630b4e8e9006144638cc
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5b7f454fed6206ac57799d6f1e86152cd52dc9e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797792"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254422"
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Consultar o índice de Pesquisa do Azure utilizando o SDK .NET
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Este artigo mostra como consultar um índice através do [SDK .NET de Pesquisa d
 Antes de iniciar estas instruções, já deverá ter [criado um índice de Pesquisa do Azure](search-what-is-an-index.md) e [preenchido este com dados](search-what-is-data-import.md).
 
 > [!NOTE]
-> Todo o código de exemplo neste artigo está escrito em C#. Pode localizar o código de origem completo [no GitHub](http://aka.ms/search-dotnet-howto). Também pode ler sobre o [Azure Search .NET SDK (SDK .NET do Azure Search)](search-howto-dotnet-sdk.md) para um percurso mais detalhado através do código de exemplo.
+> Todo o código de exemplo neste artigo está escrito em C#. Pode localizar o código de origem completo [no GitHub](https://aka.ms/search-dotnet-howto). Também pode ler sobre o [Azure Search .NET SDK (SDK .NET do Azure Search)](search-howto-dotnet-sdk.md) para um percurso mais detalhado através do código de exemplo.
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Identificar a sua chave de API de consulta do serviço Azure Search
 Agora que criou um índice de Pesquisa do Azure, está quase pronto para emitir consultas utilizando o SDK .NET. Em primeiro lugar, precisa de obter uma das chaves de API de consulta que foi gerada para o serviço de pesquisa que aprovisionou. O SDK .NET irá enviar esta chave de API em cada pedido para o seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
@@ -49,7 +49,7 @@ Para efeitos de consulta de um índice, pode utilizar uma das chaves de consulta
 ## <a name="create-an-instance-of-the-searchindexclient-class"></a>Criar uma instância da classe SearchIndexClient
 Para começar a emitir consultas com o SDK .NET de Pesquisa do Azure, terá de criar uma instância da classe `SearchIndexClient`. Esta classe tem vários construtores. O pretendido recebe o nome do serviço de pesquisa, o nome do índice e um objeto `SearchCredentials` como parâmetros. `SearchCredentials` molda a sua chave de API.
 
-O código abaixo cria uma nova `SearchIndexClient` para o índice "hotéis" (criado em [Criar um índice de Pesquisa do Azure com o SDK .NET](search-create-index-dotnet.md)) ao utilizar valores para o nome do serviço de pesquisa e a chave de API que são armazenados num ficheiro de configuração da aplicação (`appsettings.json` no caso do [exemplo de aplicação](http://aka.ms/search-dotnet-howto)):
+O código abaixo cria uma nova `SearchIndexClient` para o índice "hotéis" (criado em [Criar um índice de Pesquisa do Azure com o SDK .NET](search-create-index-dotnet.md)) ao utilizar valores para o nome do serviço de pesquisa e a chave de API que são armazenados num ficheiro de configuração da aplicação (`appsettings.json` no caso do [exemplo de aplicação](https://aka.ms/search-dotnet-howto)):
 
 ```csharp
 private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot configuration)

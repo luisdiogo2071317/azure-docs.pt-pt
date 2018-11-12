@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: ff4d39a69df90c31186153c077b1b6183a08dd34
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397220"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259994"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorizar e resolver problemas de uma aplicação de armazenamento na cloud
 
@@ -83,7 +83,7 @@ A imagem seguinte é um alerta de exemplo que se baseia na falha simulada execut
 
 Os registos de armazenamento armazenam dados num conjunto de blobs num contentor do blobs denominado **$logs** na conta de armazenamento. Este contentor não aparecerá se listar todos os contentores de blobs na sua conta, mas poderá ver o conteúdo se aceder diretamente ao ele.
 
-Neste cenário, utilize o [Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) para interagir com a conta de armazenamento do Azure.
+Neste cenário, utilize o [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) para interagir com a conta de armazenamento do Azure.
 
 ### <a name="download-microsoft-message-analyzer"></a>Transferir o Microsoft Message Analyzer
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3d6d3184c2a17e397e5bbba9fff6cf9c3de9b73e
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218496"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240975"
 ---
 # <a name="azure-storage-replication"></a>Replicação do Storage do Azure
 
@@ -68,5 +68,5 @@ Se alterar o GRS para LRS, não existe nenhum custo adicional, mas os dados repl
 - [Armazenamento georredundante (GRS): replicação de inter-regional do armazenamento do Azure](storage-redundancy-grs.md)
 - [Azure destinos de escalabilidade e desempenho de armazenamento](storage-scalability-targets.md)
 - [Conceber aplicações de elevada disponibilidade com o armazenamento RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-- [Armazenamento do Microsoft Azure redundância acesso de leitura e de opções de armazenamento georredundante ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [Artigo SOSP – Storage do Azure: Um cloud altamente disponível, serviço de armazenamento com consistência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Armazenamento do Microsoft Azure redundância acesso de leitura e de opções de armazenamento georredundante ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Artigo SOSP – Storage do Azure: Um cloud altamente disponível, serviço de armazenamento com consistência forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

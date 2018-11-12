@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318542"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260385"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
@@ -150,7 +150,7 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 ### <a name="database-level-policy-audit-logs"></a>Registos de auditoria de política ao nível da base de dados
 Registos de auditoria ao nível da base de dados são agregados numa coleção de tabelas do Store com um **SQLDBAuditLogs** prefixo na conta de armazenamento do Azure que escolheu durante a configuração. Pode ver ficheiros de registo utilizando uma ferramenta como [Explorador de armazenamento do Azure](http://azurestorageexplorer.codeplex.com).
 
-Um modelo de relatório de dashboard pré-configurada está disponível como um [planilha do Excel que pode ser baixada](http://go.microsoft.com/fwlink/?LinkId=403540) para o ajudar a analisar rapidamente os dados de registo. Para utilizar o modelo nos seus registos de auditoria, terá de Excel 2013 ou posterior e o Power Query, que pode [baixe aqui](http://www.microsoft.com/download/details.aspx?id=39379).
+Um modelo de relatório de dashboard pré-configurada está disponível como um [planilha do Excel que pode ser baixada](https://go.microsoft.com/fwlink/?LinkId=403540) para o ajudar a analisar rapidamente os dados de registo. Para utilizar o modelo nos seus registos de auditoria, terá de Excel 2013 ou posterior e o Power Query, que pode [baixe aqui](https://www.microsoft.com/download/details.aspx?id=39379).
 
 O modelo tem dados de exemplo fictícia nela, e pode configurar o Power Query para importar o seu registo de auditoria diretamente a partir da sua conta de armazenamento do Azure.
 

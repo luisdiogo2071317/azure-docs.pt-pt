@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092903"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229616"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Azure Data Box Disk? (Pré-visualização)
 
@@ -25,7 +25,7 @@ Pode configurar, ligar e desbloquear rapidamente os discos através do serviço 
 
 > [!IMPORTANT]
 > - O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implementar esta solução. 
-> - Tem de se inscrever neste serviço. Para se inscrever, aceda ao [Portal de pré-visualização](http://aka.ms/azuredataboxfromdiskdocs).
+> - Tem de se inscrever neste serviço. Para se inscrever, aceda ao [Portal de pré-visualização](https://aka.ms/azuredataboxfromdiskdocs).
 > - Durante a pré-visualização, o Data Box Disk pode ser enviado aos clientes nos EUA e na União Europeia. Para obter mais informações, aceda a [Disponibilidade de região](#region-availability).
 
 ## <a name="use-cases"></a>Casos de utilização
@@ -112,7 +112,7 @@ Durante a pré-visualização, o Data Box Disk pode transferir dados para as seg
 
 ## <a name="pricing"></a>Preços
 
-Durante a pré-visualização, o Data Box Disk está disponível gratuitamente. Isto será alterado quando o Data Box Disk estiver em disponibilidade geral.
+Para obter informações sobre preços, aceda a [Página de Preços de Pré-visualização](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

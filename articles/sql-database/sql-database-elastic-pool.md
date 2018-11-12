@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241213"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283568"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -113,10 +113,10 @@ Nos casos em que não pode utilizar as ferramentas, as instruções passo a pass
 
 1. Estime as eDTUs ou vCores necessárias para o conjunto da seguinte forma:
 
-   Para o modelo de compra baseado em DTU: máx. (<*número Total de DBs* X *utilização média de DTUS por DB* >,<br>
+   Para o modelo de compra baseado em DTU: máx. (<*número Total de DBs* X *utilização média de DTUS por DB*>,<br>  
    <*Número de DBs com pico em simultâneo* X *utilização de pico de DTUs por DB*)
 
-   Para o modelo de compra baseado em vCore: máx. (<*número Total de DBs* X *média de utilização de vCore por DB* >,<br>
+   Para o modelo de compra baseado em vCore: máx. (<*número Total de DBs* X *média de utilização de vCore por DB*>,<br>  
    <*Número de com picos simultâneos DBs* X *pico de utilização de vCore por DB*)
 
 2. Calcule o espaço de armazenamento necessário para o conjunto ao adicionar o número de bytes de que todas as bases de dados do conjunto precisam. Em seguida, determine o tamanho do conjunto de eDTUs que disponibiliza esta quantidade de armazenamento.

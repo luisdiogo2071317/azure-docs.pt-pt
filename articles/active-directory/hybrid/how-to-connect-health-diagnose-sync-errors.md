@@ -3,7 +3,7 @@ title: O Azure AD Connect Health - diagnosticar duplicados erros de sincronizaç
 description: Este documento descreve o processo de diagnóstico de erros de sincronização de atributo duplicado e uma correção potencial dos cenários de objeto órfão diretamente a partir do portal do Azure.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 2d525056f42b35c573943a4db281c8a74605a4c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315260"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282531"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e resolver erros de sincronização de atributo duplicado
 
@@ -105,7 +105,7 @@ Para o **cenário de objeto órfão**, apenas o utilizador único **Joe Johnson*
 Essa pergunta verifica um utilizador em conflito de entrada e o objeto de utilizador existente no Azure AD para ver se eles pertencem ao mesmo utilizador.  
 1.  O objeto em conflito recentemente está sincronizado com o Azure Active Directory. Compare os atributos de objectos:  
   - Nome a Apresentar
-  - Nome do Principal de Utilizador
+  - Nome Principal de Utilizador
   - ID de objeto
 2.  Se não for compará-los do Azure AD, verifique se o Active Directory tem objetos com o fornecido **UserPrincipalNames**. Resposta **não** se encontrar ambos.
 

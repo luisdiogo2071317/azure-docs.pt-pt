@@ -3,19 +3,19 @@ title: Elevada disponibilidade para o Hadoop - Azure HDInsight
 description: Saiba como o HDInsight clusters melhorar a fiabilidade e disponibilidade, através de um nó principal adicional. Saiba como isso afeta os serviços do Hadoop, como Ambari e do Hive, bem como para ligar individualmente para cada nó principal através de SSH.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 keywords: elevada disponibilidade do hadoop
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953594"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281987"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e fiabilidade dos clusters Hadoop no HDInsight.
 
@@ -23,8 +23,7 @@ Clusters do HDInsight fornecem dois nós principais para aumentar a disponibilid
 
 Hadoop alcança a elevada disponibilidade e fiabilidade através da replicação de dados e serviços em vários nós num cluster. No entanto distribuições norma do Hadoop têm, normalmente, apenas um único nó principal. Qualquer interrupção do nó principal único pode fazer com que o cluster para parar de funcionar. HDInsight fornece dois nós principais para melhorar a disponibilidade e fiabilidade do Hadoop.
 
-> [!IMPORTANT]
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>Disponibilidade e fiabilidade de nós
 
@@ -224,7 +223,7 @@ Utilize as seguintes ligações para saber mais sobre as coisas mencionadas nest
 
 * [Referência REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Instalar e configurar a CLI clássica do Azure](../cli-install-nodejs.md)
-* [Instale e configure o Azure PowerShell](/powershell/azure/overview).
+* [instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 * [Gerir o HDInsight com o Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Aprovisionar clusters do HDInsight baseado em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 

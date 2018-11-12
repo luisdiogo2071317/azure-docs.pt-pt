@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401636"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285698"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>Ultra SSD (pré-visualização) Managed Disks para cargas de trabalho de Máquina Virtual do Azure
 
@@ -23,7 +23,7 @@ SSD Ultra do Azure (pré-visualização) fornece débito elevado, o IOPS elevado
 
 **Discos geridos**: Ultra SSDs só estão disponíveis como Managed Disks. Ultra SSDs não podem ser implementados como um disco não gerido ou a BLOBs de páginas. Ao criar um disco gerido, especificar o sku de disco escreva como UltraSSD_LRS e indicar o tamanho do disco, o IOPS e débito de que precisa e o Azure cria e gere o disco por si.  
 
-**Máquinas virtuais**: Ultra SSDs são projetados para funcionar com todos os SKUs de Máquina Virtual do Azure de SSD Premium ativada, no entanto, o momento de pré-visualização os tamanhos VM estará limitados às instâncias VM de v3 de ES/DS.
+**Máquinas virtuais**: Ultra SSDs foram concebidas para funcionar com todos os SKUs de Máquina Virtual do Azure de SSD Premium ativado; no entanto, como se encontra atualmente em pré-visualização, as VMs são o tamanho v3 de ES/DS.
 
 **Configuração dinâmica de desempenho**: Ultra SSDs permitem-lhe alterar dinamicamente o desempenho (IOPS e débito) do disco, juntamente com suas necessidades de carga de trabalho sem ter de reiniciar as máquinas virtuais.
 
@@ -55,7 +55,7 @@ A tabela seguinte resume as diferentes configurações suportadas pelos diferent
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
-Ao utilizar o Ultra SSDs, aplicam-se as seguintes considerações de faturas:
+Ao utilizar o Ultra SSDs, serão aplicadas as seguintes considerações de faturas:
 
 - Tamanho do disco de geridos
 - Disco gerido aprovisionado IOPS
@@ -64,11 +64,11 @@ Ao utilizar o Ultra SSDs, aplicam-se as seguintes considerações de faturas:
 
 ### <a name="managed-disk-size"></a>Tamanho do disco de geridos
 
-Discos geridos são faturados sobre os tamanhos aprovisionados. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e em conformidade faturadas à hora. Por exemplo, se aprovisionar um disco 200 para o GiB Ultra SSD e eliminado depois de 20 horas, ele será mapeada para a oferta de tamanho de disco de 256gib e será cobrado para o 256gib durante 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco.
+Discos geridos são faturados em tamanhos de VM choosed ao provisionning uma nova VM do Azure. O Azure mapeia o tamanho aprovisionado (arredondado para cima) para a oferta de tamanho de disco mais próxima. Para obter detalhes sobre os tamanhos de disco oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima. Cada disco é mapeado para um tamanho de disco de aprovisionamento suportados e será cobrada em conformidade numa base horária. Por exemplo, se aprovisionar um disco 200 para o GiB Ultra SSD e eliminado depois de 20 horas, ele será mapeada para a oferta de tamanho de disco de 256gib e será cobrado para o 256gib durante 20 horas. Esta faturação foi baseada no consumo de hora de computação, independentemente do volume de dados, na verdade, escritos no disco.
 
 ### <a name="managed-disk-provisioned-iops"></a>Disco gerido aprovisionado IOPS
 
-IOPS são o número de pedidos que a aplicação está a enviar para os discos num segundo. Uma operação de entrada/saída pode ser aleatório ou sequenciais, ler ou escreve. Como o tamanho do disco, os IOPS aprovisionadas são faturadas à hora. Para obter detalhes do disco que IOPS oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima.
+IOPS são o número de pedidos que a aplicação está a enviar para os discos por segundo. Uma operação de entrada/saída poderia ser de leitura seqüencial ou gravação ou leitura aleatória ou escrever. Com base no tamanho do disco ou o número de discos ligados à VM, o número médio de IOPS é faturado à hora. Para obter detalhes do disco que IOPS oferecidos, consulte a tabela na secção de metas de desempenho e escalabilidade acima.
 
 ### <a name="managed-disk-provisioned-throughput"></a>Débito de disco gerido
 

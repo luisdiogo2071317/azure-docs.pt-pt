@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421361"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237864"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Executar um cluster do Cassandra no Linux no Azure com node. js
 
@@ -49,7 +49,7 @@ Cassandra pode ser implementado numa única região do Azure ou em várias regi�
 ### <a name="single-region-deployment"></a>Implementação numa única região
 Vamos começar com uma implementação numa única região e coletar as lições aprendidas na criação de um modelo de várias regiões. Redes virtuais do Azure é utilizado para criar sub-redes isoladas, para que podem ser cumpridos os requisitos de segurança de rede mencionados acima.  O processo descrito na criação da implementação de região única utiliza Ubuntu 14.04 LTS e Cassandra 2.08. No entanto, o processo facilmente pode ser adotado para as outras variantes de Linux. Seguem-se algumas das características sistêmicos da implementação única região.  
 
-**Elevada disponibilidade:** os nós de Cassandra mostrados a figura 1 são implementados para os dois conjuntos de disponibilidade, para que os nós são distribuídos entre vários domínios de falha para elevada disponibilidade. VMs anotadas com cada conjunto de disponibilidade é mapeado para 2 domínios de falha. Para gerir não planeada do tempo (por exemplo falhas de hardware ou software), o Azure utiliza o conceito de domínio de falha. O conceito de domínio de atualização (por exemplo, anfitrião ou aplicação de patches de SO convidado/atualização, as atualizações de aplicações) é utilizado para gerir agendada período de indisponibilidade. Veja [recuperação após desastre e elevada disponibilidade para aplicações do Azure](http://msdn.microsoft.com/library/dn251004.aspx) para a função de domínios de atualização e de falha na obtenção de elevada disponibilidade.
+**Elevada disponibilidade:** os nós de Cassandra mostrados a figura 1 são implementados para os dois conjuntos de disponibilidade, para que os nós são distribuídos entre vários domínios de falha para elevada disponibilidade. VMs anotadas com cada conjunto de disponibilidade é mapeado para 2 domínios de falha. Para gerir não planeada do tempo (por exemplo falhas de hardware ou software), o Azure utiliza o conceito de domínio de falha. O conceito de domínio de atualização (por exemplo, anfitrião ou aplicação de patches de SO convidado/atualização, as atualizações de aplicações) é utilizado para gerir agendada período de indisponibilidade. Veja [recuperação após desastre e elevada disponibilidade para aplicações do Azure](https://msdn.microsoft.com/library/dn251004.aspx) para a função de domínios de atualização e de falha na obtenção de elevada disponibilidade.
 
 ![Implementação numa única região](./media/cassandra-nodejs/cassandra-linux1.png)
 
