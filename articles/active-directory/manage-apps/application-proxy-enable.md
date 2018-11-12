@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5227f756e807a30573733bd408144d869caac9ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366480"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034971"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Introdução ao Proxy da aplicação e instalar o conector
 Este artigo explica como ativar a Proxy da Aplicação do Microsoft Azure AD para o diretório em nuvem no Azure AD.
@@ -33,6 +33,7 @@ Para poder ativar e utilizar os serviços do Proxy da Aplicação, terá de ter:
 * Uma [subscrição Basic ou Premium do Microsoft Azure AD](../fundamentals/active-directory-whatis.md) e um diretório do Azure AD para o qual terá de ser um administrador global.
 * Um servidor com o Windows Server 2012 R2 ou 2016, no qual pode instalar o conector do Proxy de aplicações. O servidor tem de conseguir ligar-se aos serviços do Proxy de aplicações na cloud e as aplicações no local que está a publicar.
   * Para o início de sessão único para seus aplicativos publicados usando delegação restrita de Kerberos, essa máquina deve ser associado a um domínio no mesmo domínio do AD que as aplicações que está a publicar. Para obter informações, consulte [KCD para início de sessão único com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md).
+* TLS 1.2 em execução no sistema operacional subjacente. Para alterar para TLS 1.2, siga os passos em [ativar o TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Embora seja o conteúdo do Azure AD Connect, este procedimento é o mesmo para todos os clientes .NET.
 
 Se sua organização utilizar servidores proxy para ligar à internet, leia [funcionam com o existente no local servidores proxy](application-proxy-configure-connectors-with-proxy-servers.md) para obter detalhes sobre como configurá-los antes de começar com o Proxy de aplicações.
 

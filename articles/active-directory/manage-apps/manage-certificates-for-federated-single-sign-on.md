@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719584"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035341"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para início de sessão único federado no Azure Active Directory
 Este artigo aborda as questões comuns e informações relacionadas com os certificados que cria do Azure Active Directory (Azure AD) para estabelecer único início de sessão Federado (SSO) às suas aplicações SaaS. Adicione aplicações de Galeria de aplicações do Azure AD ou utilizando um modelo de aplicativo externas à galeria. Configure a aplicação ao utilizar a opção de SSO federada.
@@ -76,16 +76,20 @@ Os seguintes passos de renovação devem resultar em sem períodos de indisponib
 
     ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. Selecione a data de expiração desejada e a hora para o novo certificado e clique em **guardar**.
+2. Selecione a data de expiração desejada e a hora para o novo certificado e clique em **guardar**. Selecionar uma data que sobrepõe-se com o certificado existente irá garantir que qualquer período de indisponibilidade devido à expiração do certificado é limitado. 
 
-3. Transferir o certificado no **certificado de assinatura de SAML** opção. Carregar o novo certificado para o ecrã de configuração de início de sessão único da aplicação SaaS. Para saber como fazê-lo para a sua aplicação SaaS específica, clique a **tutorial de configuração de aplicação de vista** ligação.
+3. Se a aplicação pode fazer o roll ao longo de um certificado, defina o novo certificado para o Active Directory.  Iniciar sessão aplicação para verificar se funciona.
+
+4. Se a aplicação não automaticamente recolha o novo certificado, mas pode identificador mais do que um certificado de assinatura, antes de expira o antigo, carregar o novo modelo à aplicação, em seguida, voltar para o portal e torná-lo o certificado do Active Directory. 
+
+5. Se a aplicação só poderá lidar com um certificado ao mesmo tempo, escolha uma janela de tempo de inatividade, transfira o novo certificado, carregá-lo para a aplicação, volte ao Portal do Azure e definir o novo certificado como o Active Directory. 
    
-4. Para ativar o novo certificado no Azure AD, selecione o **ativar o novo certificado** caixa de verificação e clique nas **guardar** botão na parte superior da página. Isso é agregado ao longo do novo certificado no lado do Azure AD. O estado do certificado é alterado de **New** ao **Active Directory**. A partir desse ponto, do Azure AD é iniciado com o novo certificado para assinar a resposta. 
+6. Para ativar o novo certificado no Azure AD, selecione o **ativar o novo certificado** caixa de verificação e clique nas **guardar** botão na parte superior da página. Isso é agregado ao longo do novo certificado no lado do Azure AD. O estado do certificado é alterado de **New** ao **Active Directory**. A partir desse ponto, do Azure AD é iniciado com o novo certificado para assinar a resposta. 
    
     ![Gerar um novo certificado](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Gestão de aplicações no Azure Active Directory](what-is-application-management.md)
+* [Gestão de Aplicações no Azure Active Directory](what-is-application-management.md)
 * [Acesso a aplicações e início de sessão único com o Azure Active Directory](what-is-single-sign-on.md)
 * [Resolução de problemas com base em SAML início de sessão único](../develop/howto-v1-debug-saml-sso-issues.md)

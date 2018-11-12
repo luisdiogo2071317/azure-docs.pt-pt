@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579549"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035040"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Resolver problemas de configuração de Principal de serviço inválido para o seu domínio gerido
 
@@ -45,7 +45,7 @@ Utilize os seguintes passos para determinar qual serviço tem de ser recriadas p
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recriar um principal de serviço em falta com o PowerShell](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Principais de serviço que autónoma corrigir](#service-principals-that-self-correct) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Voltar a registar para o espaço de nomes de Microsoft.AAD](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Recriar um Principal de serviço em falta com o PowerShell
 Siga estes passos, se um principal de serviço com o ID de ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` está em falta no diretório do Azure AD.
@@ -76,7 +76,7 @@ Para resolver este problema, escreva os seguintes comandos numa janela do PowerS
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>Voltar a registar para o espaço de nomes do Microsoft AAD com o portal do Azure
-Siga estes passos, se um principal de serviço com o ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` ou ```abba844e-bc0e-44b0-947a-dc74e5d09022``` está em falta no diretório do Azure AD.
+Siga estes passos, se um principal de serviço com o ID ```443155a6-77f3-45e3-882b-22b3a8d431fb``` ou ```abba844e-bc0e-44b0-947a-dc74e5d09022``` ou ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` está em falta no diretório do Azure AD.
 
 **Resolução:** utilize os seguintes passos para restaurar os serviços de domínio no seu diretório:
 
@@ -85,12 +85,6 @@ Siga estes passos, se um principal de serviço com o ID ```443155a6-77f3-45e3-88
 3. Usando o painel de navegação esquerda, escolha **fornecedores de recursos**
 4. Procure "Microsoft.AAD" na tabela e clique em **voltar a registar**
 5. Para garantir que o alerta é resolvido, ver a página de estado de funcionamento para o seu domínio gerido nas duas horas.
-
-
-## <a name="service-principals-that-self-correct"></a>Principais de serviço que autónoma corrigir
-Siga estes passos, se um principal de serviço com o ID de ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` está em falta no diretório do Azure AD.
-
-**Resolução:** dos serviços de domínio do Azure AD pode detectar quando este principal de serviço específico está em falta, configurada incorretamente ou eliminado. O serviço recria automaticamente este principal de serviço. No entanto, terá de eliminar a aplicação e o objeto que trabalhou com a aplicação eliminado, assim como quando a certificação passa o tempo limite, a aplicação e o objeto já não poderá ser modificada pelo novo principal de serviço. Isso irá gerar um erro de novo no seu domínio. Siga os passos descritos no [na secção AADDS105](#alert-aadds105-password-synchronization-application-is-out-of-date) para evitar este problema. Depois, verifique o estado de funcionamento do seu domínio gerido depois de duas horas para se certificar de que o novo principal de serviço ter sido recriado.
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alerta AADDS105: A aplicação de sincronização de palavra-passe está desatualizada
@@ -110,8 +104,8 @@ Para resolver este problema, escreva os seguintes comandos numa janela do PowerS
 2. Eliminar a aplicação antiga e o objeto com os seguintes comandos do PowerShell
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

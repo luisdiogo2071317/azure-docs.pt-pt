@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978923"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037622"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -167,7 +167,7 @@ Quando substitui o prefixo de endereço 0.0.0.0/0, para além do tráfego de sa�
         - Ser capaz de utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego no recurso de destino na sub-rede, bem como de devolvê-lo à Internet. 
     - **Gateway de rede virtual**: se o gateway for um gateway de rede virtual do ExpressRoute, os dispositivos ligados à Internet no local podem utilizar a tradução e o reencaminhamento de endereços de rede ou o proxy de tráfego para o recurso de destino na sub-rede, através do[peering privado](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) do ExpressRoute.  
 
-Se a rede virtual esiver ligada a um gateway VPN do Azure, não associe nenhuma tabela de rota à [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluia uma rota com um destino 0.0.0.0/0. Se o fizer, poderá impedir que o gateway funcione corretamente. Para obter detalhes, veja a questão *Por que motivo determinadas portas são abertas no meu gateway de VPN?* nas [FAQ do Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway).
+Se a rede virtual esiver ligada a um gateway VPN do Azure, não associe nenhuma tabela de rota à [sub-rede do gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que incluia uma rota com um destino 0.0.0.0/0. Se o fizer, poderá impedir que o gateway funcione corretamente. Para obter detalhes, veja a questão *Por que motivo determinadas portas são abertas no meu gateway de VPN?* nas [FAQ do Gateway de VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
 Veja [DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e o seu datacenter no local) e [DMZ between Azure and the Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) (DMZ entre o Azure e a Internet) para obter detalhes da implementação ao utilizar gateways de rede virtual e aplicações virtuais entre a Internet e o Azure.
 

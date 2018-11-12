@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575818"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036602"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual no Azure Stack
 
@@ -30,7 +30,7 @@ No Azure Stack, é possível disponibilizar imagens de máquinas virtuais aos se
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Adicionar uma imagem de VM através do portal
 
-> [!NOTE]
+> [!NOTE]  
 > Com esse método, tem de criar o item do Marketplace em separado.
 
 Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Blobs. Preparar uma imagem de sistema operativo Windows ou Linux no formato VHD (não VHDX) e, em seguida, carregue a imagem para uma conta de armazenamento no Azure ou no Azure Stack. Se a sua imagem já foi carregada para o armazenamento de BLOBs no Azure ou no Azure Stack, pode ignorar o passo 1.
@@ -39,7 +39,7 @@ Imagens tem de ser capazes de ser referenciado por um URI de armazenamento de Bl
 
    - O Azure Stack apenas suporta a geração formatar de VM um (1) no VHD de disco fixo. O formato fixo estrutura o disco lógico linearmente dentro do arquivo, para que esse deslocamento do disco X é armazenado no deslocamento do blob X. Um rodapé pequeno no final do blob descreve as propriedades do VHD. Para confirmar se o disco é fixa, utilize o [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando do PowerShell.  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  O Azure Stack não suporta os VHDs de discos dinâmicos. Redimensionar um disco dinâmico, que está ligado a uma VM deixará a VM no estado de falha. Para atenuar este problema, elimine a VM sem eliminar disco da VM, um blob VHD numa conta de armazenamento. O, converter o VHD a partir de um disco dinâmico para um disco fixo e, em seguida, voltar a criar a máquina virtual.
 
    * É mais eficiente para carregar uma imagem para o armazenamento de Blobs do Azure Stack que para o Azure blob storage porque demora menos tempo para enviar a imagem para o repositório de imagens do Azure Stack.

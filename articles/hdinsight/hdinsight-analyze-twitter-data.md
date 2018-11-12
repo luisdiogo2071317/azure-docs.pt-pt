@@ -1,20 +1,20 @@
 ---
-title: Analisar dados do Twitter com o Hadoop no HDInsight - Azure
-description: Saiba como utilizar o Hive para analisar dados do Twitter do Hadoop no HDInsight para determinar a frequência de utilização de uma palavra específica.
+title: Analisar dados do Twitter com o Apache Hadoop no HDInsight - Azure
+description: Saiba como utilizar o Hive para analisar dados do Twitter no Apache Hadoop no HDInsight para determinar a frequência de utilização de uma palavra específica.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387586"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037300"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analisar dados do Twitter com o Hive no HDInsight
 Web sites sociais são uma das principais forças que para a adoção de grandes volumes de dados. APIs públicas, fornecidas por sites como o Twitter são uma fonte útil dos dados para analisar e compreender as tendências populares.
@@ -80,7 +80,7 @@ Twitter utiliza o OAuth para fornecer acesso autorizado para sua API. OAuth é u
    | --- | --- |
    |  Nome |MyHDInsightApp |
    |  Descrição |MyHDInsightApp |
-   |  Site |http://www.myhdinsightapp.com |
+   |  Web site |http://www.myhdinsightapp.com |
 4. Verifique **Sim, eu Concordo**e, em seguida, clique em **criar a sua aplicação do Twitter**.
 5. Clique nas **permissões** separador. A permissão de predefinição está **só de leitura**. Isso é suficiente para este tutorial.
 6. Clique nas **chaves e Tokens de acesso** separador.

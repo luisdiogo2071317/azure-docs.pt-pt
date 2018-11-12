@@ -1,25 +1,25 @@
 ---
-title: 'Tutorial: Criar clusters do Hadoop de demanda no HDInsight do Azure com o Data Factory '
-description: Saiba como criar clusters do Hadoop de demanda no HDInsight com o Azure Data Factory.
+title: 'Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight do Azure com o Data Factory '
+description: Saiba como criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 9e21c49e7a472830c19f61388739c35aac17c3ff
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955614"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036381"
 ---
-# <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Hadoop de demanda no HDInsight com o Azure Data Factory
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters do Apache Hadoop a pedido no HDInsight com o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Neste artigo, saiba como criar um cluster do Hadoop, a pedido, no HDInsight do Azure com o Azure Data Factory. Utilize, em seguida, pipelines de dados no Azure Data Factory para executar tarefas do Hive e eliminar o cluster. No final deste tutorial, irá aprender a operacionalizar um trabalho de grandes volumes de dados, executar em que a criação do cluster, a execução de tarefa e a exclusão de cluster são executadas com base numa agenda.
+Neste artigo, saiba como criar um cluster do Apache Hadoop, a pedido, no HDInsight do Azure com o Azure Data Factory. Utilize, em seguida, pipelines de dados no Azure Data Factory para executar tarefas do Hive e eliminar o cluster. No final deste tutorial, irá aprender a operacionalizar um trabalho de grandes volumes de dados, executar em que a criação do cluster, a execução de tarefa e a exclusão de cluster são executadas com base numa agenda.
 
 Este tutorial abrange as seguintes tarefas: 
 

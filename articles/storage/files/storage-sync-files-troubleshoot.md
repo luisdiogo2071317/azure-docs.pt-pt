@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231887"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014283"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -368,7 +368,7 @@ Este erro ocorre quando o limite de armazenamento da partilha de ficheiros do Az
 
     ![Uma captura de ecrã das propriedades de partilha de ficheiros do Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-Se a partilha está cheio e de uma quota não está definida, uma forma possível de corrigir este problema é colocar cada subpasta do ponto de final atual do servidor em seus próprios ponto final do servidor em seus próprios grupos de sincronização separadas. Desta forma, cada subpasta serão sincronizados para partilhas de ficheiros do Azure individuais.
+Se a partilha está cheio e de uma quota não está definida, uma forma possível de corrigir este problema é colocar cada subpasta do ponto de final de servidor atual em seu próprio ponto final do servidor em seus próprios grupos de sincronização separadas. Desta forma, cada subpasta serão sincronizados para partilhas de ficheiros do Azure individuais.
 
 <a id="-2134351824"></a>**Não é possível encontrar a partilha de ficheiros do Azure.**  
 | | |

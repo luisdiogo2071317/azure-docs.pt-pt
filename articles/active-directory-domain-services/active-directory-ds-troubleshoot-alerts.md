@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: a6928b5a849f35456a6fb7699acd7720f686c2aa
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243066"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036143"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Serviços de domínio do Azure AD - alertas de resolução de problemas
 Este artigo fornece os guias de resolução de problemas para todos os alertas que poderá notar no seu domínio gerido.
@@ -39,13 +39,15 @@ Escolha os passos de resolução de problemas que correspondem para o ID ou uma 
 | AADDS105 | *O principal de serviço com o ID da aplicação "d87dcbc6-a371-462e-88e3-28ad15ec4e64" foi eliminado e, em seguida, recriado. A recriação de deixa para trás inconsistentes permissões em recursos de serviços de domínio do Azure AD necessários para atender a seu domínio gerido. Sincronização de palavras-passe no seu domínio gerido poderá ser afetada.* | [A aplicação de sincronização de palavra-passe está desatualizada](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS106 | *A subscrição do Azure associada a seu domínio gerido foi eliminada.  O Azure AD Domain Services requer uma subscrição ativa para continuar a funcionar corretamente.* | [Subscrição do Azure não foi encontrada](#aadds106-your-azure-subscription-is-not-found) |
 | AADDS107 | *A subscrição do Azure associada a seu domínio gerido não está ativa.  O Azure AD Domain Services requer uma subscrição ativa para continuar a funcionar corretamente.* | [Subscrição do Azure está desativada](#aadds107-your-azure-subscription-is-disabled) |
-| AADDS108 | *Um recurso que é utilizado para o seu domínio gerido foi eliminado. Este recurso é necessária para o Azure AD Domain Services funcionar corretamente.* | [Um recurso foi eliminado](#aadds108-resources-for-your-managed-domain-cannot-be-found) |
-| AADDS109 | *A sub-rede selecionada para a implementação do Azure AD Domain Services está cheio e não tem espaço para o controlador de domínio adicional que tem de ser criada.* | [Sub-rede está cheio](#aadds109-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS110 | *Identificámos que a sub-rede da rede virtual neste domínio poderá não ter endereços IP suficientes. O Azure AD Domain Services precisa de um mínimo dois disponíveis endereços IP na sub-rede está ativada no. Recomendamos um mínimo de ter 3 a 5 endereços IP livres na sub-rede. Isto pode ter ocorrido se outras máquinas virtuais são implementadas na sub-rede, portanto esgotar o número de endereços IP disponíveis ou se existe uma restrição no número de endereços IP disponíveis na sub-rede.* | [Endereços IP não suficientes](#aadds110-not-enough-ip-address-in-the-managed-domain) |
-| AADDS111 | *Um ou mais dos recursos de rede utilizados pelo domínio gerido não podem ser manipulado como o âmbito de destino foi bloqueado.* | [Recursos estão bloqueados](#aadds111-resources-are-locked) |
-| AADDS112 | *Um ou mais dos recursos de rede utilizados pelo domínio gerido não podem ser manipulado devido à política restriction(s).* | [Recursos não são utilizáveis](#aadds112-resources-are-unusable) |
+| AADDS108 | *A subscrição utilizada pelos serviços de domínio do Azure AD foi movida para outro diretório. O Azure AD Domain Services tem de ter uma subscrição ativa no mesmo diretório para funcionar corretamente.* | [Diretórios de subscrição movido](#aadds108-subscription-moved-directories) |
+| AADDS109 | *Um recurso que é utilizado para o seu domínio gerido foi eliminado. Este recurso é necessária para o Azure AD Domain Services funcionar corretamente.* | [Um recurso foi eliminado](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
+| AADDS110 | *A sub-rede selecionada para a implementação do Azure AD Domain Services está cheio e não tem espaço para o controlador de domínio adicional que tem de ser criada.* | [Sub-rede está cheio](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
+| AADDS111 | * Um principal de serviço que utiliza o Azure AD Domain Services para o seu domínio de serviço não está autorizado para gerir os recursos na subscrição do Azure. O principal de serviço tem de obter permissões para atender a seu domínio gerido. * | [Principal de serviço não autorizado](#aadds111-service-principal-unauthorized) |
+| AADDS112 | *Identificámos que a sub-rede da rede virtual neste domínio poderá não ter endereços IP suficientes. O Azure AD Domain Services precisa de um mínimo dois disponíveis endereços IP na sub-rede está ativada no. Recomendamos um mínimo de ter 3 a 5 endereços IP livres na sub-rede. Isto pode ter ocorrido se outras máquinas virtuais são implementadas na sub-rede, portanto esgotar o número de endereços IP disponíveis ou se existe uma restrição no número de endereços IP disponíveis na sub-rede.* | [Endereços IP não suficientes](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *Os recursos utilizados pelo Azure AD Domain Services foram detetados num Estado inesperado e não podem ser recuperados.* | [Os recursos são irrecuperáveis](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | * O azure AD Domain Services, controladores de domínio não são possível aceder a porta 443. É necessário para o serviço, gerir e atualizar o seu domínio gerido. * | [Porta 442 bloqueado](#aadds114-port-443-blocked) |
+| AADDS114 | * A sub-rede selecionada para a implementação dos serviços de domínio do Azure AD é inválida e não pode ser utilizada. * | [Sub-rede inválida](#aadds114-subnet-invalid) |
+| AADDS115 | *Um ou mais dos recursos de rede utilizados pelo domínio gerido não podem ser manipulado como o âmbito de destino foi bloqueado.* | [Recursos estão bloqueados](#aadds115-resources-are-locked) |
+| AADDS116 | *Um ou mais dos recursos de rede utilizados pelo domínio gerido não podem ser manipulado devido à política restriction(s).* | [Recursos não são utilizáveis](#aadds116-resources-are-unusable) |
 | AADDS500 | *O domínio gerido última sincronização com o Azure AD no [date]. Os utilizadores podem não ser possível iniciar sessão no domínio gerido ou associações de grupo podem não ser sincronizadas com o Azure AD.* | [Sincronização ainda não ocorreu há algum tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *O domínio gerido última cópia de segurança em [date].* | [Ainda não foi feita uma cópia de segurança há algum tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *O certificado de secure LDAP para o domínio gerido irá expirar em [date].* | [Prazo de expiração de certificado de secure LDAP](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
@@ -138,7 +140,17 @@ O Azure AD Domain Services requer uma subscrição para a função e não pode s
 1. [Renovar a sua subscrição do Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Assim que a subscrição for renovada, serviços de domínio do Azure AD irão receber uma notificação do Azure para reativar o seu domínio gerido.
 
-## <a name="aadds108-resources-for-your-managed-domain-cannot-be-found"></a>AADDS108: Não não possível localizar recursos para o seu domínio gerido
+## <a name="aadds108-subscription-moved-directories"></a>AADDS108: Subscrição movida diretórios
+
+**Mensagem de alerta:**
+
+*A subscrição utilizada pelos serviços de domínio do Azure AD foi movida para outro diretório. O Azure AD Domain Services tem de ter uma subscrição ativa no mesmo diretório para funcionar corretamente.*
+
+**Resolução:**
+
+Pode optar por mover a subscrição associada do Azure AD Domain Services no diretório anterior ou se precisar [eliminar o seu domínio gerido](active-directory-ds-disable-aadds.md) do diretório existente e recrie-o no diretório escolhido (qualquer um deles com uma nova subscrição ou altere o diretório de sua instância do Azure AD Domain Services está no).
+
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109: Não não possível localizar recursos para o seu domínio gerido
 
 **Mensagem de alerta:**
 
@@ -149,15 +161,15 @@ O Azure AD Domain Services requer uma subscrição para a função e não pode s
 O Azure AD Domain Services cria recursos específicos ao implementar para funcionar corretamente, incluindo endereços IP públicos, NICs e um balanceador de carga. Se qualquer um das com nome são eliminados, isso faz com que o seu domínio gerido estar num Estado não suportado e impede que o seu domínio a ser gerido. Este alerta é encontrado quando alguém que consiga editar os recursos do Azure AD Domain Services elimina um recurso necessário. Os passos seguintes descrevem como restaurar o seu domínio gerido.
 
 1.  Navegue para a página de estado de funcionamento do Azure AD Domain Services
-  1.    Viajar para o [página do Azure AD Domain Services]() no portal do Azure.
+  1.    Viajar para o [página do Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) no portal do Azure.
   2.    No painel de navegação esquerdo, clique em **estado de funcionamento**
 2.  Verificar se o alerta é menos de 4 horas
-  1.    Na página de estado de funcionamento, clique no alerta com o ID de **AADDS108**
+  1.    Na página de estado de funcionamento, clique no alerta com o ID de **AADDS109**
   2.    O alerta irá ter um carimbo para quando primeiro foi encontrado. Se esse timestamp há menos de 4 horas, é provável que o Azure AD Domain Services pode recriar o recurso foi eliminado.
 3.  Se o alerta é a mais de 4 horas, o domínio gerido está num Estado irrecuperável. Tem de eliminar e recriar o Azure AD Domain Services.
 
 
-## <a name="aadds109-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS109: A sub-rede associada do seu domínio gerido está cheio
+## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110: A sub-rede associada do seu domínio gerido está cheio
 
 **Mensagem de alerta:**
 
@@ -167,8 +179,21 @@ O Azure AD Domain Services cria recursos específicos ao implementar para funcio
 
 Este erro é irrecuperável. Para resolver, tem [eliminar o domínio gerido existente](active-directory-ds-disable-aadds.md) e [recriar o seu domínio gerido](active-directory-ds-getting-started.md)
 
+## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111: Principal de serviço não autorizado
 
-## <a name="aadds110-not-enough-ip-address-in-the-managed-domain"></a>AADDS110: Insuficiente endereço IP no domínio gerido
+**Mensagem de alerta:**
+
+*Um principal de serviço que utiliza o Azure AD Domain Services para o seu domínio de serviço não está autorizado para gerir os recursos na subscrição do Azure. O principal de serviço tem de obter permissões para atender a seu domínio gerido.*
+
+**Resolução:**
+
+Nossos principais de serviço precisam de acesso para poder gerir e criar recursos no seu domínio gerido. Alguém negou o acesso ao principal de serviço e agora é possível gerir os recursos. Siga os passos para conceder acesso ao seu principal de serviço.
+
+1. Leia sobre [RBAC controlo e como pode conceder acesso a aplicações no portal do Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+2. Rever o acesso que o principal de serviço com o ID de ```abba844e-bc0e-44b0-947a-dc74e5d09022``` e conceder o acesso que foi negado uma data anterior.
+
+
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Insuficiente endereço IP no domínio gerido
 
 **Mensagem de alerta:**
 
@@ -189,7 +214,27 @@ Este erro é irrecuperável. Para resolver, tem [eliminar o domínio gerido exis
 4. A associação ao domínio suas máquinas virtuais para o novo domínio, siga [este guia](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Verifique o estado de funcionamento do seu domínio nas duas horas para se certificar de que concluiu os passos corretamente.
 
-## <a name="aadds111-resources-are-locked"></a>AADDS111: Recursos estão bloqueados
+## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: Os recursos são irrecuperáveis
+
+**Mensagem de alerta:**
+
+*Os recursos utilizados pelo Azure AD Domain Services foram detetados num Estado inesperado e não podem ser recuperados.*
+
+**Resolução:**
+
+Este erro é irrecuperável. Para resolver, tem [eliminar o domínio gerido existente](active-directory-ds-disable-aadds.md) e [recriar o seu domínio gerido](active-directory-ds-getting-started.md).
+
+## <a name="aadds114-subnet-invalid"></a>AADDS114: Sub-rede inválido
+
+**Mensagem de alerta:**
+
+*A sub-rede selecionada para a implementação dos serviços de domínio do Azure AD é inválida e não pode ser utilizada.*
+
+**Resolução:**
+
+Este erro é irrecuperável. Para resolver, tem [eliminar o domínio gerido existente](active-directory-ds-disable-aadds.md) e [recriar o seu domínio gerido](active-directory-ds-getting-started.md).
+
+## <a name="aadds115-resources-are-locked"></a>AADDS115: Recursos estão bloqueados
 
 **Mensagem de alerta:**
 
@@ -200,8 +245,7 @@ Este erro é irrecuperável. Para resolver, tem [eliminar o domínio gerido exis
 1.  Operação do Gestor de recursos de revisão de logon os recursos de rede (isso deve lhe dar informações no qual bloqueio está a impedir a modificação).
 2.  Remova os bloqueios nos recursos para que o principal de serviço do Azure AD Domain Services pode operar nos mesmos.
 
-
-## <a name="aadds112-resources-are-unusable"></a>AADDS112: Recursos estiverem inutilizáveis
+## <a name="aadds116-resources-are-unusable"></a>AADDS116: Recursos estiverem inutilizáveis
 
 **Mensagem de alerta:**
 
@@ -209,28 +253,9 @@ Este erro é irrecuperável. Para resolver, tem [eliminar o domínio gerido exis
 
 **Resolução:**
 
-1.  Operação do Gestor de recursos de revisão de logon os recursos de rede para o seu domínio gerido
+1.  Operação do Gestor de recursos de análise de registos nos recursos de rede para o seu domínio gerido.
 2.  Enfraquecem as restrições de política nos recursos para que o principal de serviço do AAD-DS pode operar nos mesmos.
 
-## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: Os recursos são irrecuperáveis
-
-**Mensagem de alerta:**
-
-*Os recursos utilizados pelo Azure AD Domain Services foram detetados num Estado inesperado e não podem ser recuperados.*
-
-**Resolução:**
-
-Este erro é irrecuperável. Para resolver, tem [eliminar o domínio gerido existente](active-directory-ds-disable-aadds.md) e [recriar o seu domínio gerido](active-directory-ds-getting-started.md)
-
-## <a name="aadds114-port-443-blocked"></a>AADDS114: Porta 443 bloqueado
-
-**Mensagem de alerta:**
-
-*Azure AD Domain Services, controladores de domínio não são possível aceder a porta 443. É necessário para o serviço, gerir e atualizar o seu domínio gerido.*
-
-**Resolução:**
-
-Permita acesso de entrada através da porta 443 no seu grupo de segurança de rede para serviços de domínio do Azure AD.
 
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: A sincronização não foi concluída no tempo
@@ -255,7 +280,7 @@ Aqui estão algumas razões comuns, por que deixa de sincronização em domínio
 
 **Resolução:**
 
-[Verificar estado de funcionamento do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na sua configuração do seu domínio gerido. Às vezes, com problemas de configuração podem bloquear a capacidade da Microsoft para sincronizar o domínio gerido. Se for capaz de resolver todos os alertas, aguarde duas horas e verificação de volta para ver se a sincronização foi concluída.
+[Verificar estado de funcionamento do seu domínio](active-directory-ds-check-health.md) para todos os alertas que possam indicar problemas na sua configuração do seu domínio gerido. Às vezes, com problemas de configuração podem bloquear a capacidade da Microsoft para fazer backup de seu domínio gerido. Se for capaz de resolver todos os alertas, aguarde duas horas e verificação de volta para ver se a cópia de segurança foi concluída.
 
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: Suspensão devido à subscrição desativada

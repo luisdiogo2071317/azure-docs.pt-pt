@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d96058ae9415ccb361af8a281a4b65b3f69edfcd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746770"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034954"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Windows
 
@@ -42,7 +42,7 @@ Muitos aplicativos podem beneficiar de tempo para se preparar para a manutençã
 - Registo de eventos
 - Encerramento correto 
 
-Através dos eventos agendados seu aplicativo podem detetar quando manutenção irá ocorrer e acionar tarefas para limitar seu impacto.  
+Através dos eventos agendados seu aplicativo podem detetar quando manutenção irá ocorrer e acionar tarefas para limitar seu impacto. Ativar eventos agendados dá a sua máquina virtual uma quantidade mínima de tempo antes que seja efetuada a atividade de manutenção. Consulte a secção de agendamento eventos abaixo para obter detalhes.
 
 Eventos agendados fornece eventos nos seguintes casos de utilização:
 - Manutenção de plataforma iniciada (por exemplo, atualização de SO de Host)
@@ -71,7 +71,7 @@ O serviço de eventos agendados tem a mesma versão. Versões são obrigatórias
 > Versões anteriores de pré-visualização de eventos agendados suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Ativar e desativar eventos agendados
-Eventos agendados está ativada para o tempo de serviço a primeira fizer um pedido para eventos. Deve esperar uma resposta atrasada em sua primeira chamada de até dois minutos.
+Eventos agendados está ativada para o tempo de serviço a primeira fizer um pedido para eventos. Deve esperar uma resposta atrasada em sua primeira chamada de até dois minutos. Deve consultar o ponto de extremidade periodicamente para detetar eventos de manutenção futura, bem como o estado das atividades de manutenção que estão a ser efetuadas.
 
 Eventos agendados está desativada para o seu serviço, se não faz um pedido para 24 horas.
 
@@ -110,6 +110,7 @@ No caso em que há eventos agendados, a resposta contém uma matriz de eventos:
     ]
 }
 ```
+O DocumentIncarnation é uma ETag e fornece uma forma fácil de inspecionar se o payload de eventos foi alterado desde a última consulta.
 
 ### <a name="event-properties"></a>Propriedades do evento
 |Propriedade  |  Descrição |

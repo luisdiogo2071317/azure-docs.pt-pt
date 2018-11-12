@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418539"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037692"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -147,7 +147,7 @@ Siga as instruções no [vincular um certificado SSL personalizado existente](/a
 >[!NOTE]
 > Se a sua aplicação utilizar o Spring Framework ou o Spring Boot, pode definir as informações de ligação de base de dados para a Primavera dados JPA como variáveis de ambiente [em seu arquivo de propriedades da aplicação]. Em seguida, utilize [as definições da aplicação](/azure/app-service/web-sites-configure#app-settings) para definir esses valores para a sua aplicação no portal do Azure ou na CLI.
 
-Os fragmentos de configuração de exemplo nesta secção utilizam a base de dados MySQL. Para obter mais informações, consulte os documentos de configuração para [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [JDBC do SQL Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+Os fragmentos de configuração de exemplo nesta secção utilizam a base de dados MySQL. Para obter mais informações, consulte os documentos de configuração para [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [JDBC do SQL Server](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 Para configurar o Tomcat para utilizar ligações geridas para bases de dados com a conectividade de banco de dados de Java (JDBC) ou a API de persistência de Java (JPA), primeiro de personalizá-a variável de ambiente de CATALINA_OPTS lida por Tomcat na inicialização. Defina estes valores através de uma definição de aplicação no plug-in Maven do serviço de aplicações:
 

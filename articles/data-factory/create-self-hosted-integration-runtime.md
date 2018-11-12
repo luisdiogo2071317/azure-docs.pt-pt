@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248936"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038473"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -148,6 +148,10 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 É possível reutilizar uma infraestrutura de runtime de integração autoalojado existente que já configurou a numa fábrica de dados. Isto permite-lhe criar uma *ligado integration runtime autoalojado* numa diferentes dados fábrica fazendo referência um existente autoalojado (compartilhado).
 
 Para partilhar um runtime de integração autoalojado com o PowerShell, consulte [criar um runtime de integração autoalojado partilhado na fábrica de dados do Azure com o PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+
+Para obter uma introdução de doze minutos e demonstração desta funcionalidade, veja o vídeo seguinte:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminologia
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9c2b5db4fe35227600e7ab8d94f2cc8701cf529b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963783"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008339"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Recolher alertas do Nagios e do Zabbix no Log Analytics a partir do agente do Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
@@ -80,7 +80,7 @@ Recolher alertas no servidor Nagios, execute os seguintes passos.
 
 
 ## <a name="alert-records"></a>Registos de alerta
-Pode obter registos de alertas do Nagios e do Zabbix usando [pesquisas de registos](log-analytics-log-search.md) no Log Analytics.
+Pode obter registos de alertas do Nagios e do Zabbix usando [pesquisas de registos](log-analytics-queries.md) no Log Analytics.
 
 ### <a name="nagios-alert-records"></a>Registos de alerta de Nagios
 
@@ -119,4 +119,4 @@ Alertas de registos recolhidos pelo Zabbix têm uma **tipo** de **alerta** e um 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) no Log Analytics.
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
