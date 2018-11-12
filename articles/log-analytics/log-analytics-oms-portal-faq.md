@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f28a636f4df1343431762cf1eb8aec9b660f2e2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962508"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283449"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.
@@ -35,7 +35,7 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 ![Área de trabalho do Log Analytics](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Como posso gerir as permissões?
-Se não tiver acesso à área de trabalho do Log Analytics no portal do Azure, tem de configurar as suas permissões usando [acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md). Para obter detalhes sobre a gestão de permissões de área de trabalho, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Para obter informações sobre o gerenciamento de permissões para alertas, consulte [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Se não tiver acesso à área de trabalho do Log Analytics no portal do Azure, tem de configurar as suas permissões usando [acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md). Para obter detalhes sobre a gestão de permissões de área de trabalho, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Para obter informações sobre o gerenciamento de permissões para alertas, consulte [começar com as funções, permissões e segurança com o Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Como posso criar uma nova área de trabalho? 
 Na lista de áreas de trabalho no portal do Azure, clique em **adicionar** na lista de áreas de trabalho.  Para obter detalhes completos, veja [criar uma área de trabalho do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
@@ -110,7 +110,7 @@ Gerir soluções na **soluções** menu para a área de trabalho.
 No portal do OMS, instalar soluções de gestão a partir da Galeria de soluções e removido-los a partir **definições**. No portal do Azure, [instalar soluções de gestão](../monitoring/monitoring-solutions.md#install-a-management-solution) no Azure Marketplace. [Remover soluções](../monitoring/monitoring-solutions.md#remove-a-management-solution) na lista de soluções instaladas.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Como criar e gerir alertas
-Regras de alerta com base em consultas do Log Analytics são agora geridas na [unified a experiência de alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Ver [como expandir alertas do Log Analytics para alertas do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) para obter detalhes sobre como configurar e utilizar alertas no portal do Azure.
+Regras de alerta com base em consultas do Log Analytics são agora geridas na [unified a experiência de alertas](../monitoring-and-diagnostics/alert-metric.md). Ver [como expandir alertas do Log Analytics para alertas do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) para obter detalhes sobre como configurar e utilizar alertas no portal do Azure.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Como posso acessar meus dashboards?
 O [meu painel](../log-analytics/log-analytics-dashboards.md) funcionalidade no Log Analytics foi preterida. Esta funcionalidade permitia que tem uma coleção privada das partes do estruturador de vistas e é substituída pela funcionalidade interna do Dashboard do Azure. Pode continuar a visualizar dados no Log Analytics utilizando [estruturador de vistas](../log-analytics/log-analytics-view-designer.md) para vistas partilhadas. Também pode afixar visualizações desses modos de exibição ou para [consultas individuais](../log-analytics/log-analytics-tutorial-dashboards.md) para Dashboards do Azure.

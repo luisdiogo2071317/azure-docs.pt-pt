@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 61238482339250e45be36162e7eef252f78c74b1
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960282"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288990"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: iniciar sessão a qualquer utilizador do Azure Active Directory utilizando o padrão de aplicação multi-inquilino
 
@@ -46,9 +46,9 @@ Vamos examinar cada etapa detalhadamente. Também pode ir diretamente para [esta
 
 Por predefinição, os registos de aplicação/API web no Azure AD são único inquilino. Pode efetuar o registo do multi-inquilino ao detetar o **com múltiplos inquilinos** alternar o **propriedades** painel do seu registo de aplicação no [portal do Azure] [ AZURE-portal] e defini-la como **Sim**.
 
-Antes de um aplicativo pode ser feito a multi-inquilino, o Azure AD requer o URI de ID de aplicação do aplicativo para ser globalmente exclusivo. O URI de ID de aplicação é uma das formas num que aplicativo é identificado em mensagens de protocolo. Para uma aplicação de inquilino único, é suficiente para o URI de ID de aplicação para que seja exclusivo dentro desse inquilino. Para uma aplicação multi-inquilino, tem de ser globalmente exclusivo para que o Azure AD possa encontrar a aplicação em todos os inquilinos. Exclusividade global é aplicada, exigindo que o URI de ID de aplicação ter um nome de anfitrião que corresponde a um domínio verificado do inquilino do Azure AD. 
+Antes de um aplicativo pode ser feito a multi-inquilino, o Azure AD requer o URI de ID de aplicação do aplicativo para ser globalmente exclusivo. O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Relativamente às aplicações de inquilino único, basta que o URI do ID da Aplicação seja exclusivo nesse inquilino. Nas aplicações multi-inquilinos, tem de ser globalmente exclusivo, para que o Azure AD consiga encontrar a aplicação em todos os inquilinos. Para aplicar a exclusividade global, o URI do ID da App tem de ter um nome de anfitrião que corresponda a um domínio verificado do inquilino do Azure AD. 
 
-Por predefinição, as aplicações criadas através do portal do Azure têm um URI de ID de aplicação globalmente exclusivo definido na criação de aplicações, mas pode alterar este valor. Por exemplo, se o nome do seu inquilino tiver contoso.onmicrosoft.com válido App ID URI seria `https://contoso.onmicrosoft.com/myapp`. Se o seu inquilino tinha um domínio verificiado `contoso.com`, em seguida, também seria um URI de ID de aplicação válido `https://contoso.com/myapp`. Se o URI de ID de aplicação não seguir esse padrão, a definição de um aplicativo como falha de multi-inquilino.
+Por predefinição, as aplicações criadas através do portal do Azure têm um URI de ID de aplicação globalmente exclusivo definido na criação de aplicações, mas pode alterar este valor. Por exemplo, se o nome do seu inquilino tiver contoso.onmicrosoft.com válido App ID URI seria `https://contoso.onmicrosoft.com/myapp`. Se o seu inquilino tinha um domínio verificiado `contoso.com`, em seguida, também seria um URI de ID de aplicação válido `https://contoso.com/myapp`. Se o URI não seguir este padrão, a definição da aplicação como multi-inquilinos falha.
 
 > [!NOTE] 
 > Registos de cliente nativo, bem como [v2.0 aplicativos](./active-directory-appmodel-v2-overview.md) são multi-inquilino por predefinição. Não precisa de fazer nada para tornar esses registos de aplicação multi-inquilino.
@@ -201,8 +201,8 @@ Neste artigo, aprendeu a criar uma aplicação que pode iniciar sessão um utili
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

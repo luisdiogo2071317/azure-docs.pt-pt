@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470069"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300562"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure Firewalls e redes virtuais
 O armazenamento do Azure fornece um modelo de segurança em camadas, permitindo-lhe proteger as contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede estiverem configuradas, apenas as aplicações de redes permitidas podem aceder a uma conta de armazenamento.  Ao chamar a partir de uma rede permitida, o aplicações continuam a exigir a autorização adequada (uma chave de acesso válido ou um token SAS) para aceder à conta de armazenamento.
@@ -201,7 +201,7 @@ Cada conta de armazenamento pode suportar até 100 regras de rede IP que podem s
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurar o acesso a partir de redes no local
 Para conceder acesso a partir de suas redes no local para a sua conta de armazenamento com uma regra de rede IP, tem de identificar endereços IP utilizados pela sua rede de acesso à internet.  Contacte o administrador de rede para obter ajuda.
 
-Se a sua rede está ligada ao uso de rede do Azure [ExpressRoute](/azure/expressroute/expressroute-introduction), cada circuito está configurado com dois endereços IP públicos no Microsoft Edge que são utilizados para ligar ao Microsoft Services, como o armazenamento do Azure com [Peering público do azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Para permitir a comunicação do seu circuito ao armazenamento do Azure, tem de criar regras de rede IP para os endereços IP públicos dos seus circuitos.  Para localizar os endereços IP públicos do seu circuito do ExpressRoute, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure.
+Se a sua rede está ligada ao uso de rede do Azure [ExpressRoute](/azure/expressroute/expressroute-introduction), cada circuito está configurado com dois endereços IP públicos no Microsoft Edge que são utilizados para ligar ao Microsoft Services, como o armazenamento do Azure com [Peering público do azure](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains).  Para permitir a comunicação do seu circuito ao armazenamento do Azure, tem de criar regras de rede IP para os endereços IP públicos dos seus circuitos.  Para localizar os endereços IP públicos do seu circuito do ExpressRoute, [abra um pedido de suporte no ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) através do portal do Azure.
 
 
 ### <a name="managing-ip-network-rules"></a>Gerir regras de rede IP
@@ -294,7 +294,7 @@ Quando a exceção de "Serviços Microsoft fidedignos" está ativada, os seguint
 |Azure Event Grid|Microsoft.EventGrid|Ative a publicação de eventos de armazenamento de Blobs.  [Saiba mais](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Arquivar dados com a captura de Hubs de eventos.  [Saiba mais](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Redes do Azure|Microsoft.Networking|Store e analisar registos de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights| Permite a escrita de dados para uma conta de storaage segura de monitorização [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights| Permite a escrita de dados para uma conta de armazenamento seguro de monitorização [Saiba mais](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
 |
 
 

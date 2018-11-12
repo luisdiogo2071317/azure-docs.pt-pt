@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.openlocfilehash: b5a1e521f46da7feffd2eb556ad1662a9ccaee55
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/08/2018
+ms.openlocfilehash: 4e21b1bb85ba91266370d89ec8dbd0fae84ef197
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913841"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299797"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Compreender os domínios de eventos para o gerenciamento de tópicos do Event Grid
 
@@ -23,7 +23,7 @@ Este artigo descreve como utilizar domínios de eventos para gerenciar o fluxo d
 * Particione os tópicos sem ter de gerir cada um individualmente.
 * Evite publicar individualmente para cada um dos seus pontos de extremidade do tópico.
 
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
+Esta funcionalidade está em pré-visualização. Para usá-lo, tem de instalar uma extensão de pré-visualização ou um módulo. Para obter instruções, consulte [tópicos de gerir e publicar eventos através de domínios de evento](how-to-event-domains.md).
 
 ## <a name="event-domain-overview"></a>Descrição geral do domínio de eventos
 

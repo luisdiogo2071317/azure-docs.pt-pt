@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049981"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300171"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS do Active Directory para o serviço de aplicações do Azure
 
@@ -60,6 +60,13 @@ O registo TXT que precisa depende o registo DNS que pretende migrar. Para obter 
 | \* (com carateres universais) | _awverify.\*_ | _&lt;appname >. azurewebsites_ |
 
 Na sua página de registos DNS, tenha em atenção o tipo de registo do nome DNS que pretende migrar. Serviço de aplicações suporta mapeamentos de CNAME e registos.
+
+> [!NOTE]
+> Para alguns fornecedores, como CloudFlare, `awverify.*` não é um registo válido. Utilize `*` apenas em vez disso.
+
+> [!NOTE]
+> Caráter universal `*` registos não será validado subdomínios com registo de um CNAME existente. Terá de criar explicitamente um registo TXT para cada subdomínio.
+
 
 ### <a name="enable-the-domain-for-your-app"></a>Ativar o domínio para a sua aplicação
 
