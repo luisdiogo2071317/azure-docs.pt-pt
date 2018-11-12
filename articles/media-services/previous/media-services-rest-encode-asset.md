@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 34652400acaf2efca3648bb4c7cde795861c3101
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ada3210a59e0c3044551bee54b0a705b4b513594
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247934"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254439"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um recurso com o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "50247934"
 ## <a name="overview"></a>Descrição geral
 Para distribuir vídeo digital através da Internet, tem de comprimir a multimédia. Ficheiros de vídeo digital são grandes e podem ser demasiado grandes para entregar através da Internet ou para os dispositivos dos seus clientes para serem exibidos corretamente. Codificação é o processo de compactação de vídeo e áudio para que os clientes podem ver os seus suportes de dados.
 
-Tarefas de codificação são uma das operações de processamento mais comuns nos serviços de multimédia do Azure. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Ao codificar, pode usar o codificador incorporado de serviços de multimédia (Media Encoder Standard). Também pode usar um codificador fornecido por um parceiro de serviços de multimédia. Codificadores de terceiros estão disponíveis através do Azure Marketplace. Pode especificar os detalhes das tarefas de codificação, utilizando cadeias predefinidas, definidas para seu codificador ou com arquivos de configuração predefinida. Para ver os tipos de configurações predefinidas que estão disponíveis, consulte [predefinições de tarefas para o Media Encoder Standard](http://msdn.microsoft.com/library/mt269960).
+Tarefas de codificação são uma das operações de processamento mais comuns nos serviços de multimédia do Azure. Estes Serviços permitem-lhe criar tarefas de codificação para converter ficheiros de multimédia de uma codificação para outra. Ao codificar, pode usar o codificador incorporado de serviços de multimédia (Media Encoder Standard). Também pode usar um codificador fornecido por um parceiro de serviços de multimédia. Codificadores de terceiros estão disponíveis através do Azure Marketplace. Pode especificar os detalhes das tarefas de codificação, utilizando cadeias predefinidas, definidas para seu codificador ou com arquivos de configuração predefinida. Para ver os tipos de configurações predefinidas que estão disponíveis, consulte [predefinições de tarefas para o Media Encoder Standard](https://msdn.microsoft.com/library/mt269960).
 
 Cada tarefa pode ter uma ou mais tarefas, dependendo do tipo de processamento que deseja realizar. Através da API REST, pode criar tarefas e suas tarefas relacionadas em uma das seguintes formas:
 
@@ -63,7 +63,7 @@ Para obter informações sobre como ligar à AMS API, consulte [aceder a API de 
 >
 >
 
-O exemplo seguinte mostra-lhe como criar e publicar uma tarefa com uma tarefa definida como codificar um vídeo numa resolução específico e qualidade. Quando codifica com o Media Encoder Standard, pode utilizar predefinições de configuração de tarefas especificadas [aqui](http://msdn.microsoft.com/library/mt269960).
+O exemplo seguinte mostra-lhe como criar e publicar uma tarefa com uma tarefa definida como codificar um vídeo numa resolução específico e qualidade. Quando codifica com o Media Encoder Standard, pode utilizar predefinições de configuração de tarefas especificadas [aqui](https://msdn.microsoft.com/library/mt269960).
 
 Pedido:
 

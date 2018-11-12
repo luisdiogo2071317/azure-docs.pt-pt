@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 6196e2802f31fd5d06418cb722ae628dbf01c8c1
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251010"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262102"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Utilizar vários ficheiros de entrada e propriedades do componente com o codificador Premium
 ## <a name="overview"></a>Descrição geral
@@ -330,7 +330,7 @@ A próxima etapa é adicionar um "vídeo dados tipo Atualizador" para especifica
 
 ![Atualizador de tipo de dados e o conversor de formato de vídeo](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter.png)
 
-*Atualizador de tipo de dados de vídeo e o conversor de formato*
+*Atualizador de tipo de dados e o conversor de formato de vídeo*
 
 ![Tipo de layout = configuráveis planas](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture12_formatconverter2.png)
 
@@ -466,12 +466,12 @@ Para codificar, siga estes passos:
 * O elemento codificado irá conter várias faixas de áudio de idioma e essas faixas devem ser selecionadas no leitor de multimédia do Azure.
 
 ## <a name="see-also"></a>Consulte também
-* [Apresentando o Encoding de multimédia do Azure, serviços Premium](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-* [Como utilizar o Premium Encoding nos serviços de multimédia do Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+* [Apresentando o Encoding de multimédia do Azure, serviços Premium](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+* [Como utilizar o Premium Encoding nos serviços de multimédia do Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Codificação de conteúdo a pedido com os serviços de multimédia do Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Media Encoder Premium Workflow formatos e codecs do](media-services-premium-workflow-encoder-formats.md)
 * [Ficheiros de fluxo de trabalho de exemplo](https://github.com/Azure/azure-media-services-samples)
-* [Ferramenta do Explorador dos serviços de multimédia do Azure](http://aka.ms/amse)
+* [Ferramenta do Explorador dos serviços de multimédia do Azure](https://aka.ms/amse)
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

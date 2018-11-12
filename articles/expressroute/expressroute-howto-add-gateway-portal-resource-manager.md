@@ -1,6 +1,6 @@
 ---
-title: 'Adicionar um gateway de rede virtual para uma VNet para o ExpressRoute: Portal: Azure | Microsoft Docs'
-description: Este artigo explica como adicionar um gateway de rede virtual para uma VNet do Resource Manager já criados para o ExpressRoute.
+title: 'Adicionar um gateway de rede virtual a uma VNet para o ExpressRoute: Portal: Azure | Documentos da Microsoft'
+description: Este artigo orienta-o processo de adicionar um gateway de rede virtual a uma VNet do Resource Manager já criada para o ExpressRoute.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23850869"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255698"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Configurar um gateway de rede virtual para o ExpressRoute com o portal do Azure
 > [!div class="op_single_selector"]
 > * [Resource Manager - portal do Azure](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager – PowerShell](expressroute-howto-add-gateway-resource-manager.md)
-> * [Clássico - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [Vídeo - portal do Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [Clássica – PowerShell](expressroute-howto-add-gateway-classic.md)
+> * [Vídeo - portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
-Este artigo explica os passos para adicionar um gateway de rede virtual para uma VNet já existente. Este artigo explica os passos para adicionar, redimensionar e remover um gateway de rede virtual (VNet) para uma VNet já existente. Os passos para esta configuração são especificamente para VNets que foram criadas utilizando o modelo de implementação do Resource Manager que será utilizado uma configuração do ExpressRoute. Para obter mais informações sobre gateways de rede virtual e definições de configuração do gateway do ExpressRoute, consulte [sobre gateways de rede virtual para o ExpressRoute](expressroute-about-virtual-network-gateways.md). 
+Este artigo orienta-o pelos passos para adicionar um gateway de rede virtual para uma VNet já existente. Este artigo orienta-o pelos passos para adicionar, redimensionar e remover um gateway de rede virtual (VNet) para uma VNet já existente. Os passos para esta configuração são especificamente para VNets que foram criadas utilizando o modelo de implementação do Resource Manager que será utilizado uma configuração de ExpressRoute. Para obter mais informações sobre gateways de rede virtual e as definições de configuração do gateway para o ExpressRoute, veja [sobre os gateways de rede virtual para o ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
 
 ## <a name="before-beginning"></a>Antes de começar
 
-Os passos para esta tarefa utilizam uma VNet com base nos valores de lista de referências de configuração seguintes. Podemos utilizar esta lista no nosso passos de exemplo. Pode copiar a lista para utilizar como uma referência, substituindo os valores pelos seus.
+Os passos para esta tarefa utilizam uma VNet com base nos valores na lista de referência de configuração seguinte. Podemos utilizar esta lista em nossa passos de exemplo. Pode copiar a lista para utilizar como uma referência, substituindo os valores pelos seus próprios.
 
 **Lista de referência de configuração**
 
 * Nome da rede virtual = "TestVNet"
-* Espaço de endereços de rede virtuais = 192.168.0.0/16
+* Espaço de endereços de rede virtual = 192.168.0.0/16
 * Nome da sub-rede = "FrontEnd" 
     * Espaço de endereços da sub-rede = "192.168.1.0/24"
-* Grupo de recursos = "TestRG"
-* Localização = "EUA Leste"
-* Nome de sub-rede de gateway: "GatewaySubnet" tem de nome sempre uma sub-rede de gateway *GatewaySubnet*.
+* Resource Group = "TestRG"
+* Localização = "Este dos E.U.A."
+* Nome da sub-rede de gateway: "GatewaySubnet", deve nomeá sempre uma sub-rede de gateway *GatewaySubnet*.
     * Espaço de endereços de sub-rede de gateway = "192.168.200.0/26"
-* O nome do gateway = "ERGW"
-* O nome IP do gateway = "MyERGWVIP"
-* Tipo de gateway = "ExpressRoute" deste tipo é necessário para uma configuração do ExpressRoute.
-* O nome IP público do gateway = "MyERGWVIP"
+* Nome do gateway = "ERGW"
+* Nome do gateway de IP = "MyERGWVIP"
+* Tipo de gateway "ExpressRoute" de = deste tipo é necessário para uma configuração de ExpressRoute.
+* Nome IP público do gateway = "MyERGWVIP"
 
-Pode ver um [vídeo](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) destes passos antes de iniciar a configuração.
+Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dos seguintes passos antes de iniciar a configuração.
 
 ## <a name="create-the-gateway-subnet"></a>Criar a sub-rede de gateway
 
@@ -87,4 +87,4 @@ Pode ver um [vídeo](http://azure.microsoft.com/documentation/videos/azure-expre
 14. Clique em **Criar** para começar a criar o gateway. As definições são validadas e o gateway será implementado. Criar gateway de rede virtual pode demorar até 45 minutos a concluir.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Depois de ter criado o gateway de VNet, pode ligar a VNet a um circuito ExpressRoute. Consulte [ligar uma rede Virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).
+Depois de ter criado o gateway de VNet, pode ligar a VNet a um circuito do ExpressRoute. Ver [ligar uma rede Virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-portal-resource-manager.md).

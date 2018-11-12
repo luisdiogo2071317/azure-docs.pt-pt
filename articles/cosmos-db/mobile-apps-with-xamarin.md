@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974141"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255290"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Criar aplicações móveis com o Xamarin e o Azure Cosmos DB
 
@@ -85,7 +85,7 @@ Siga estes passos para mudar a aplicação de lista de tarefas para uma aplicaç
 
   4. Modifique a aplicação de forma a que seja autenticada pelo Mediador de Tokens de Recurso com o Facebook e peça os tokens de recurso dos utilizadores com sessão iniciada no Facebook. Em seguida, poderá aceder aos respetivos dados na coleção UserItems.  
 
-Um exemplo de código completo deste padrão encontra-se no [Mediador de Tokens de Recurso no GitHub](http://aka.ms/documentdb-xamarin-todouser). Este diagrama ilustra a solução:
+Um exemplo de código completo deste padrão encontra-se no [Mediador de Tokens de Recurso no GitHub](https://aka.ms/documentdb-xamarin-todouser). Este diagrama ilustra a solução:
 
 ![Mediador de permissões e utilizadores do Azure Cosmos DB](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

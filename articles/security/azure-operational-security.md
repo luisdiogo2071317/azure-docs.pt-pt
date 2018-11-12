@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409497"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256226"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -74,7 +74,7 @@ A funcionalidade principal do Log Analytics é fornecida por um conjunto de serv
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
 
 
 Este método permite-lhe consolidar os dados de várias origens, para que pode combinar dados dos seus serviços do Azure com os seus existentes ambiente no local. Também separa claramente a recolha dos dados das ações tomadas em relação aos mesmos, para que todas as ações estejam disponíveis para todos os tipos de dados.
@@ -92,7 +92,7 @@ O serviço Log Analytics gere os seus dados com base na cloud em segurança, uti
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[O Azure Backup](http://azure.microsoft.com/documentation/services/backup) fornece dados de cópia de segurança e restaurar os serviços e faz parte do conjunto de produtos e serviços do Log Analytics.
+[O Azure Backup](https://azure.microsoft.com/documentation/services/backup) fornece dados de cópia de segurança e restaurar os serviços e faz parte do conjunto de produtos e serviços do Log Analytics.
 Protege os dados de aplicação e mantém-nos durante anos sem qualquer investimento de capital e com um mínimo de custos operacionais. Pode criar cópias de segurança dados a partir de servidores Windows físicos e virtuais, além de cargas de trabalho de aplicação, como o SQL Server e SharePoint. Também pode ser utilizado pelo [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) para replicar dados protegidos para o Azure para redundância e armazenamento de longa duração.
 
 

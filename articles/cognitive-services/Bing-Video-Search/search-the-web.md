@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225417"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261864"
 ---
 # <a name="what-is-bing-video-search"></a>O que é a Pesquisa de Vídeos do Bing?
 
@@ -47,7 +47,7 @@ Todos os pedidos têm de ser feitos a partir de um servidor.
 
 Se for a primeira vez que está a chamar qualquer uma das APIs do Bing, não inclua o cabeçalho de ID de cliente. Inclua apenas o ID de cliente se tiver chamado anteriormente uma API do Bing e o Bing tiver devolvido um ID de cliente para o utilizador e a combinação de dispositivo.
 
-Para obter vídeos de um domínio específico, utilize o operador de consulta [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Para obter vídeos de um domínio específico, utilize o operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ Por predefinição, a API de Pesquisa de Vídeos devolve todos os vídeos que s�
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength) – filtrar vídeos por duração do vídeo (por exemplo, vídeos com menos de cinco minutos de duração)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness) – filtrar vídeos por antiguidade (por exemplo, vídeos descobertos pelo Bing na semana anterior)
 
-Para obter vídeos de um domínio específico, inclua o operador de consulta [site:](http://msdn.microsoft.com/library/ff795613.aspx) na cadeia de consulta.
+Para obter vídeos de um domínio específico, inclua o operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx) na cadeia de consulta.
 
 > [!NOTE]
 > Consoante a consulta, se utilizar o operador `site:`, existe a possibilidade de a resposta incluir conteúdo para adultos, independentemente da definição [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch). Deve utilizar `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdo para adultos.

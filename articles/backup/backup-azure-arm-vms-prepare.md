@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: dd11c50940dc35524b6d10c6043e906cc813498d
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748294"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256277"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Preparar a cópia de segurança de VMs do Azure
 
@@ -182,8 +182,8 @@ Se tiver problemas, fazer backup da VM do Azure, utilize a tabela seguinte para 
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalar o Agente da VM |Transfira e instale o [MSI do agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de Administrador para concluir o processo de instalação. |<li> Instalar a versão mais recente [agente Linux](../virtual-machines/extensions/agent-linux.md). Necessita de privilégios de Administrador para concluir o processo de instalação. Recomendamos que instale o agente do seu repositório de distribuição. Estamos **não é recomendável** instalar agente de VM com Linux diretamente a partir do github.  |
-| Atualizar o Agente da VM |A atualização do Agente da VM é tão simples como reinstalar os [binários do Agente da VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o agente da VM está a ser atualizado. |Siga as instruções para [atualizar o Agente da VM do Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Recomendamos que Atualize o agente a partir do seu repositório de distribuição. Estamos **não é recomendável** atualizar agente de VM com Linux diretamente a partir do github.<br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o Agente da VM está a ser atualizado. |
+| Instalar o Agente da VM |Transfira e instale o [MSI do agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Necessita de privilégios de Administrador para concluir o processo de instalação. |<li> Instalar a versão mais recente [agente Linux](../virtual-machines/extensions/agent-linux.md). Necessita de privilégios de Administrador para concluir o processo de instalação. Recomendamos que instale o agente do seu repositório de distribuição. Estamos **não é recomendável** instalar agente de VM com Linux diretamente a partir do github.  |
+| Atualizar o Agente da VM |A atualização do Agente da VM é tão simples como reinstalar os [binários do Agente da VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o agente da VM está a ser atualizado. |Siga as instruções para [atualizar o Agente da VM do Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Recomendamos que Atualize o agente a partir do seu repositório de distribuição. Estamos **não é recomendável** atualizar agente de VM com Linux diretamente a partir do github.<br>Certifique-se de que nenhuma operação de cópia de segurança está em execução enquanto o Agente da VM está a ser atualizado. |
 | A validar a instalação do Agente da VM |<li>Navegue até à pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Deve encontrar o ficheiro WaAppAgent.exe presente.<li> Clique com o botão direito do rato no ficheiro, aceda a **Propriedades** e, em seguida, selecione o separador **Detalhes**. O campo da Versão do Produto deve ser 2.6.1198.718 ou superior. |N/A |
 
 ### <a name="backup-extension"></a>Extensão da cópia de segurança
@@ -194,7 +194,7 @@ O serviço de cópia de segurança instala a extensão de cópia de segurança, 
 ## <a name="establish-network-connectivity"></a>Estabelecer conectividade de rede
 Para gerir os instantâneos VM, a extensão de cópia de segurança precisa de conectividade para os endereços IP públicos do Azure. Sem conectividade de internet adequada, tempo limite de pedidos de HTTP da máquina virtual e a operação de cópia de segurança falhará. Se a sua implementação tem restrições de acesso no local – através de um grupo de segurança de rede (NSG), por exemplo – escolha uma destas opções para fornecer um caminho claro para o tráfego de cópia de segurança:
 
-* [Intervalos de IP do datacenter do Azure de lista branca](http://www.microsoft.com/download/details.aspx?id=41653).
+* [Intervalos de IP do datacenter do Azure de lista branca](https://www.microsoft.com/download/details.aspx?id=41653).
 * Implemente um servidor de proxy HTTP para o encaminhamento de tráfego.
 
 Quando estiver a decidir qual a opção para utilizar, são os compromissos entre a capacidade de gerenciamento, um controle granular e custo.
@@ -205,7 +205,7 @@ Quando estiver a decidir qual a opção para utilizar, são os compromissos entr
 | Utilizar um proxy de HTTP |Um controle granular no proxy sobre o armazenamento é permitida a URLs.<br><br>Único ponto de acesso à internet para VMs.<br><br>Não sujeitas a alterações ao endereço IP do Azure. |Custos adicionais para executar uma VM com o software de proxy. |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Intervalos de IP da lista de permissões do datacenter do Azure
-A lista de permissões os intervalos IP do datacenter do Azure, consulte a [Web site do Azure](http://www.microsoft.com/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
+A lista de permissões os intervalos IP do datacenter do Azure, consulte a [Web site do Azure](https://www.microsoft.com/download/details.aspx?id=41653) para obter detalhes sobre os intervalos de IP e as instruções.
 
 Pode permitir ligações para o armazenamento da região específica, utilizando [etiquetas de serviço](../virtual-network/security-overview.md#service-tags). Certifique-se de que a regra que permite o acesso à conta de armazenamento tem uma prioridade mais alta do que a regra que bloqueia o acesso à internet.
 
@@ -305,7 +305,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>Tem dúvidas?
-Se tiver dúvidas ou se houver alguma funcionalidade que pretende ver incluída, [envie-nos comentários](http://aka.ms/azurebackup_feedback).
+Se tiver dúvidas ou se houver alguma funcionalidade que pretende ver incluída, [envie-nos comentários](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que a preparar o ambiente para fazer backup de sua VM, a próxima etapa lógica é criar uma cópia de segurança. O planeamento artigo fornece informações mais detalhadas sobre o backup das VMs.

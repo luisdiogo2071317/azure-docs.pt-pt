@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388175"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258464"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
 Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta **apenas as VMs de geração 1** que estejam no formato de ficheiro VHD e que tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -48,7 +48,7 @@ Depois de converter o disco, crie uma VM que utiliza o disco convertido. Iniciar
 >Os comandos neste artigo devem ser executados numa sessão elevada do PowerShell.
 
 ### <a name="convert-disk-by-using-powershell"></a>Converter o disco com o PowerShell
-Pode converter um disco virtual ao utilizar o [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) comando no Windows PowerShell. Selecione **executar como administrador** quando inicia o PowerShell. 
+Pode converter um disco virtual ao utilizar o [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) comando no Windows PowerShell. Selecione **executar como administrador** quando inicia o PowerShell. 
 
 O seguinte comando de exemplo converte de VHDX em VHD e de um disco de expansão dinâmica de tamanho fixo:
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 Neste comando, substitua o valor para "-caminho" com o caminho para o disco rígido virtual que pretende converter e o valor de "-DestinationPath" com o novo caminho e nome do disco convertido.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Converter de formato de disco VMDK do VMware
-Se tiver uma imagem de VM do Windows na [formato de ficheiro VMDK](https://en.wikipedia.org/wiki/VMDK), convertê-lo a um VHD com o [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Para obter mais informações, consulte o artigo de blogue [como converter um VMDK do VMware em Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
+Se tiver uma imagem de VM do Windows na [formato de ficheiro VMDK](https://en.wikipedia.org/wiki/VMDK), convertê-lo a um VHD com o [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Para obter mais informações, consulte o artigo de blogue [como converter um VMDK do VMware em Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx).
 
 ## <a name="set-windows-configurations-for-azure"></a>Definir configurações do Windows para o Azure
 
@@ -377,7 +377,7 @@ Para obter mais informações sobre como criar uma VM a partir de um disco espec
 - [Criar uma VM a partir de um disco especializado](create-vm-specialized.md)
 - [Criar uma VM a partir de um disco VHD especializado](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Se quiser criar uma imagem generalizada, terá de executar o sysprep. Para obter mais informações sobre o Sysprep, consulte [como utilizar Sysprep: uma introdução](http://technet.microsoft.com/library/bb457073.aspx). 
+Se quiser criar uma imagem generalizada, terá de executar o sysprep. Para obter mais informações sobre o Sysprep, consulte [como utilizar Sysprep: uma introdução](https://technet.microsoft.com/library/bb457073.aspx). 
 
 Nem todas as funções ou a aplicação que é instalada num computador baseado em Windows oferece suporte a essa generalização. Portanto, antes de executar este procedimento, consulte o artigo seguinte para se certificar de que a função do computador é suportada pelo sysprep. Para obter mais informações, [suporte de Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
@@ -401,7 +401,7 @@ Nem todas as funções ou a aplicação que é instalada num computador baseado 
 ## <a name="complete-recommended-configurations"></a>Conclua as configurações de recomendada
 As seguintes definições não afetam a carregar o VHD. No entanto, recomendamos vivamente que configurou-los.
 
-* Instalar o [agente de VMs do Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, pode ativar as extensões de VM. As extensões VM implementam a maioria das funcionalidades críticas que poderá utilizar com as suas VMs como a reposição de palavras-passe, a configuração de RDP e assim por diante. Para obter mais informações, consulte:
+* Instalar o [agente de VMs do Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, pode ativar as extensões de VM. As extensões VM implementam a maioria das funcionalidades críticas que poderá utilizar com as suas VMs como a reposição de palavras-passe, a configuração de RDP e assim por diante. Para obter mais informações, consulte:
 
     - [Agente da VM e extensões – parte 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [Agente da VM e extensões – parte 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

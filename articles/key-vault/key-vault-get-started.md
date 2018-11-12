@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: d0be0cbd9ff16acc1ecb209997a0c87cd4e43b36
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955109"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238404"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução Cofre de Chaves do Azure
 Este artigo ajuda-o a começar a utilizar o Azure Key Vault com o PowerShell e orienta-o ao longo das atividades seguintes:
@@ -36,7 +36,7 @@ Antes de continuar, confirme que tem:
 
 - **Uma subscrição do Azure**. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/free/).
 - **Azure PowerShell**, **com a versão mínima 1.1.0**. Para instalar o Azure PowerShell e associá-lo à sua subscrição do Azure, consulte o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Se já tiver instalado o Azure PowerShell e não souber a versão, a partir da consola do Azure PowerShell, introduza `(Get-Module azure -ListAvailable).Version`. Quando tiver instalado as versões 0.9.1 a 0.9.8 do Azure PowerShell, pode continuar a utilizar neste tutorial com algumas pequenas alterações. Por exemplo, tem de utilizar o comando `Switch-AzureMode AzureResourceManager` e alguns dos comandos do Cofre de Chaves do Azure foram alterados. Para obter uma lista dos cmdlets do Cofre de Chaves para versões 0.9.1 a 0.9.8, consulte o artigo [Cmdlets do Cofre de Chaves do Azure](/powershell/module/azurerm.keyvault/#key_vault).
-- **Uma aplicação que pode ser configurada para utilizar o Key Vault**. Uma aplicação de exemplo está disponível a partir do [Centro de Transferências da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, veja o ficheiro **Readme**.
+- **Uma aplicação que pode ser configurada para utilizar o Key Vault**. Uma aplicação de exemplo está disponível a partir do [Centro de Transferências da Microsoft](https://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, veja o ficheiro **Readme**.
 
 >[!NOTE]
 Este artigo pressupõe uma compreensão básica do PowerShell e do Azure. Para obter mais informações sobre o PowerShell, veja a [Getting started with Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx) (Introdução ao Windows PowerShell).

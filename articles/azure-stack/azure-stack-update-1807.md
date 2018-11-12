@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345276"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260589"
 ---
 # <a name="azure-stack-1807-update"></a>Atualização de 1807 de pilha do Azure
 
@@ -94,7 +94,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack.
 - **Melhorada a hora de criação de VM** para as VMs que são criadas com imagens, transfira a partir do Azure marketplace.
 
 <!-- TBD | IS, ASDK -->  
-- **Melhorias na usabilidade do Planeador de capacidade de pilha do Azure**. O Azure Stack [Planeador de capacidade](http://aka.ms/azstackcapacityplanner) agora oferece uma experiência simplificada para inserir a S2D cache e a capacidade de S2D para definir a solução SKUs. Foi removido o limite VM de 1000.
+- **Melhorias na usabilidade do Planeador de capacidade de pilha do Azure**. O Azure Stack [Planeador de capacidade](https://aka.ms/azstackcapacityplanner) agora oferece uma experiência simplificada para inserir a S2D cache e a capacidade de S2D para definir a solução SKUs. Foi removido o limite VM de 1000.
 
 
 ### <a name="fixed-issues"></a>Problemas corrigidos

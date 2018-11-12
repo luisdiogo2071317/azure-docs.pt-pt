@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740490"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232895"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Descompactar, ligar e desbloquear o Disco do Azure Data Box
 
@@ -75,7 +75,7 @@ Siga os seguintes passos para ligar e desbloquear os discos.
     Neste procedimento, utilizará apenas a ferramenta de Desbloqueio do Data Box Disk. As outras duas ferramentas serão utilizadas posteriormente.
 
     > [!div class="nextstepaction"]
-    > [Transferir o conjunto de ferramentas do Data Box Disk para Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Transferir o conjunto de ferramentas do Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin)         
 
 3. Extraia o conjunto de ferramentas no mesmo computador que vai utilizar para copiar os dados. 
 4. Abra uma janela da Linha de Comandos ou execute o Windows PowerShell como administrador no mesmo computador.
@@ -131,7 +131,7 @@ Siga os seguintes passos para ligar e desbloquear os discos.
 2. Transfira o conjunto de ferramentas do Data Box Disk correspondente ao cliente Linux.  
 
     > [!div class="nextstepaction"]
-    > [Transferir o conjunto de ferramentas do Data Box Disk para Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Transferir o conjunto de ferramentas do Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. No cliente Linux, abra um terminal. Navegue para a pasta onde transferiu o software. Altere as permissões de ficheiro para que possa executar estes ficheiros. Escreva o seguinte comando: 
 

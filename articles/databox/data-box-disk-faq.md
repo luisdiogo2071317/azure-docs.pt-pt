@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/28/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 8acb808e4b60926fbe6b3faa3fa6a7174a190884
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094246"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238136"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Azure Data Box Disk? (Pré-visualização)
 
@@ -44,10 +44,10 @@ Os discos são encriptados com a Encriptação de Unidade BitLocker da Microsoft
 R. Se tiver 40 TB (ou menos) de dados e quiser transferi-los para o Azure, pode tirar partido dos discos do Data Box Disk.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>P. Qual é o preço dos discos do Data Box Disk?
-A. Durante a pré-visualização, os discos do Data Box Disk estão disponíveis gratuitamente. O envio também é gratuito; contudo, os custos do armazenamento do Azure serão aplicados.
+R. Para obter informações sobre preços dos discos do Data Box Disk, aceda a [Página de Preços de Pré-visualização](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>P. Como recebo os discos do Data Box Disk? 
-A.  Para receber os discos do Azure Data Box Disk, comece por se inscrever na [pré-visualização do Data Box Disk](http://aka.ms/AzureDataBox). Depois, inicie sessão no portal do Azure e crie uma encomenda de discos do Data Box. Indique as suas informações de contacto e os seus detalhes de notificação. Depois de fazer a encomenda, os discos são-lhe enviados num prazo de dez dias, com base na disponibilidade.   
+A.  Para receber os discos do Azure Data Box Disk, comece por se inscrever na [pré-visualização do Data Box Disk](https://aka.ms/AzureDataBox). Depois, inicie sessão no portal do Azure e crie uma encomenda de discos do Data Box. Indique as suas informações de contacto e os seus detalhes de notificação. Depois de fazer a encomenda, os discos são-lhe enviados num prazo de dez dias, com base na disponibilidade.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>P. Qual é a quantidade máxima de dados que posso transferir com os discos do Data Box Disk numa instância?
 A. Para cinco discos de 8 TB cada (7 TB de capacidade utilizável), a capacidade utilizável máxima são 35 TB. Assim, pode transferir 35 TB de dados numa instância.  Para transferir mais dados, tem de encomendar mais discos.
