@@ -10,20 +10,20 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 00e0b7db5bfc8b763d9b16524bd783601d1ec4d8
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 20677167c88b4e3cf326067fac7a33bede9ee4c3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801000"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420359"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-java"></a>Início Rápido da API de Verificação de Ortografia do Bing com Java 
 
-Este artigo mostra-lhe como utilizar a [API de Verificação de Ortografia do Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) com Java. A API de Verificação de Ortografia do Bing devolve uma lista de palavras que não reconhece, juntamente com sugestões de substituição. Normalmente, teria de submeter o texto a esta API e, em seguida, teria de aplicar as substituições sugeridas no texto ou apresentá-las ao utilizador da sua aplicação para que este pudesse decidir se as substituições deveriam ser feitas. Este artigo mostra como enviar um pedido que contém o texto “Hollo, wrld!”. As substituições sugeridas são “Hello” e “world”.
+Este artigo mostra-lhe como utilizar a [API de Verificação de Ortografia do Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) com Java. A API de Verificação de Ortografia do Bing devolve uma lista de palavras que não reconhece, juntamente com sugestões de substituição. Normalmente, teria de submeter o texto a esta API e, em seguida, teria de aplicar as substituições sugeridas no texto ou apresentá-las ao utilizador da sua aplicação para que este pudesse decidir se as substituições deveriam ser feitas. Este artigo mostra como enviar um pedido que contém o texto “Hollo, wrld!”. As substituições sugeridas são “Hello” e “world”.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Irá precisar do [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar este código. Pode utilizar um IDE Java se tiver um favorito, mas um editor de texto será suficiente.
+Irá precisar do [JDK 7 ou 8](https://aka.ms/azure-jdks) para compilar e executar este código. Pode utilizar um IDE Java se tiver um favorito, mas um editor de texto será suficiente.
 
 Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de Verificação de Ortografia do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#lang) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 

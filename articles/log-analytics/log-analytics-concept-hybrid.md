@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6c58967255270231f61c59205ed12a9cdfec6897
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b50e6de9de6498f57fd9b599c45a35f2367b84ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958700"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012144"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Recolher dados num ambiente híbrido com o agente do Log Analytics
 
@@ -127,6 +127,6 @@ Ligar os computadores no local diretamente com o Log Analytics pode ser feito at
 
 * Revisão [origens de dados](log-analytics-data-sources.md) para compreender as origens de dados disponíveis para recolher dados do seu sistema Windows ou Linux. 
 
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
 
 * Saiba mais sobre [soluções](../monitoring/monitoring-solutions.md) que acrescentam funcionalidades ao Log Analytics e também, recolher dados para a área de trabalho do Log Analytics.

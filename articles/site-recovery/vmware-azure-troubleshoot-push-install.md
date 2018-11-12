@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: c12683fee7022b84e097c2b71628776271611429
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210997"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012331"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Resolver problemas de instalação de push do serviço de mobilidade
 
@@ -73,7 +73,7 @@ Para **windows 2008 R2 e versões anteriores**,
   * No painel de navegação, abra as seguintes pastas: política de computador Local, configuração do usuário, modelos administrativos, componentes do Windows e a partilha de rede.
   * No painel de detalhes, faça duplo clique **impedir que os utilizadores a partilhar ficheiros no seu perfil**. Para desativar a definição de política de grupo e ativar a capacidade do utilizador partilhar ficheiros, clique em desativado. Clique em OK para guardar as alterações. Para obter mais informações, clique em [aqui](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
-Para **versões posteriores**, siga as instruções fornecidas [aqui](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) para ativar a partilha de impressoras e ficheiros
+Para **versões posteriores**, siga as instruções fornecidas [aqui](vmware-azure-install-mobility-service.md) para ativar a partilha de impressoras e ficheiros.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Verificação de configuração do Windows Management Instrumentation (WMI)
 

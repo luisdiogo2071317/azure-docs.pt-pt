@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bb95caf7f50b52d2c423de31d4fda701f4c16b40
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f96d18c2e1a00008f2e391302a41d145d6b47efd
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963782"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016610"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Pesquisas de registos de grupos de computadores no Log Analytics
 
-Grupos de computador no Log Analytics permitem-lhe âmbito [pesquisas de registos](log-analytics-log-search.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores por meio de uma consulta por si ou ao importar grupos de diferentes origens.  Quando o grupo está incluído numa pesquisa de registos, os resultados estão limitados aos registos que correspondem a computadores no grupo.
+Grupos de computador no Log Analytics permitem-lhe âmbito [pesquisas de registos](log-analytics-queries.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores por meio de uma consulta por si ou ao importar grupos de diferentes origens.  Quando o grupo está incluído numa pesquisa de registos, os resultados estão limitados aos registos que correspondem a computadores no grupo.
 
 ## <a name="creating-a-computer-group"></a>Criar um grupo de computadores
 Pode criar um grupo de computadores no Log Analytics com qualquer um dos métodos na tabela seguinte.  Obter detalhes sobre cada método são fornecidos nas secções abaixo. 
@@ -136,5 +136,5 @@ Na área de trabalho do Log Analytics para cada associação de grupo do computa
 | TimeGenerated |Data e hora, o grupo de computadores foi criado ou atualizado. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 

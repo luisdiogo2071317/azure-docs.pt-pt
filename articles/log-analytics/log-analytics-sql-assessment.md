@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: be2fd826ffa658ec04bd937036e37bf55cbf65a4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 96163188fad464bc4b94457f7061a78b3f4997a9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964140"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014504"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente de SQL com a solução de verificação de estado de funcionamento do SQL Server no Log Analytics
 
@@ -184,7 +184,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
     ```
 
     >[!NOTE]
-    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-log-search.md), em seguida, a consulta acima serão alteradas para o seguinte.
+    > Se a sua área de trabalho tiver sido atualizada para o [linguagem de consulta do Log Analytics de novas](log-analytics-queries.md), em seguida, a consulta acima serão alteradas para o seguinte.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 * Sim, consulte [ignorar recomendações](#ignore-recommendations) secção acima.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Pesquisar registos](log-analytics-log-search.md) para saber como analisar dados de verificação de estado de funcionamento do SQL detalhados e recomendações.
+* [Pesquisar registos](log-analytics-queries.md) para saber como analisar dados de verificação de estado de funcionamento do SQL detalhados e recomendações.

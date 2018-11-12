@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: c69a61f19b55cd325cd594173dbf3b5f2b4576b8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962933"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015779"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas Clássicos no Microsoft Azure?
 
@@ -29,7 +29,7 @@ No passado o Azure Monitor, Application Insights, o Log Analytics e o estado de 
 
 Pode ver alertas clássicos apenas no ecrã de utilizador de alertas Clássicos no Portal do Azure. Obtém este ecrã do **ver alertas clássicos** botão no ecrã de alertas. 
 
- ![Opções de alerta no portal do Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)�
+ ![Opções de alerta no portal do Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 A nova experiência de utilizador de alertas tem as seguintes vantagens sobre a experiência de alertas clássicos:
 -   **Melhor o sistema de notificação** -todos os alertas mais recentes utilizam grupos de ação, o que são denominados grupos de notificações e ações que podem ser reutilizadas em vários alertas. Não utilize grupos de ação clássicas alertas de métricas e alertas mais antigas do Log Analytics.
@@ -40,7 +40,7 @@ A nova experiência de utilizador de alertas tem as seguintes vantagens sobre a 
 -   **Consolidação de alertas do smart** e **definir o estado do alerta** -alertas mais recentes incluem a funcionalidade de agrupamento automático que mostra alertas semelhantes em conjunto para reduzir a sobrecarga na interface do usuário. 
 
 Os alertas de métricas mais recentes têm as seguintes vantagens sobre os alertas de métrica clássicos:
--   **Melhorada a latência**: alertas de métricas mais recente podem ser executado com uma frequência de cada minuto. Alertas de métricas mais antigas são sempre executam com uma frequência de 5 minutos. Alertas mais recentes têm aumentando o atraso menor de occurance de problema a notificação ou ação (3 a 5 minutos). Alertas mais antigas são 5 a 15 minutos, dependendo do tipo.  Normalmente, os alertas de registo têm 10 a 15 minutos é de atraso devido ao tempo necessário para ingerir os registos, mas os métodos de processamento mais recente é reduzir esse tempo. 
+-   **Melhorada a latência**: alertas de métricas mais recente podem ser executado com uma frequência de cada minuto. Alertas de métricas mais antigas são sempre executam com uma frequência de 5 minutos. Alertas mais recentes têm aumentando o atraso menor de ocorrência do problema, a notificação ou ação (3 a 5 minutos). Alertas mais antigas são 5 a 15 minutos, dependendo do tipo.  Normalmente, os alertas de registo têm 10 a 15 minutos é de atraso devido ao tempo necessário para ingerir os registos, mas os métodos de processamento mais recente é reduzir esse tempo. 
 -   **Suporte para métricas multidimensionais**: pode alerta relativamente a métricas dimensionais, permitindo-lhe monitorizar um segmento interessante da métrica.
 -   **Mais controlo sobre condições de métricas**: pode definir regras de alerta mais sofisticadas. Os alertas mais recente suportam os valores máximos, mínimo, médios e total de métricas de monitorização.
 -   **Combinados a monitorização de várias métricas**: pode monitorizar várias métricas (atualmente, até duas métricas) com uma única regra. Um alerta é acionado se ambas as métricas de violações seus respectivos limites para o período de tempo especificado.

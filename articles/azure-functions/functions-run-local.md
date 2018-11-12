@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: cc3a835c0322aded4a92b15c1320259780ffb6d2
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249225"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346427"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -114,16 +114,6 @@ Os passos seguintes utilizam [APT](https://wiki.debian.org/Apt) para instalar as
     sudo apt-get install azure-functions-core-tools
     ```
 
-### <a name="v1"></a>Versão 1.x
-
-A versão original das ferramentas utiliza o runtime 1.x de funções. Esta versão utiliza o .NET Framework (4.7.1) e só é suportada em computadores Windows. Antes de instalar as ferramentas do versão 1.x, deve [instalar o NodeJS](https://docs.npmjs.com/getting-started/installing-node), que inclui o npm.
-
-Utilize o seguinte comando para instalar as ferramentas de 1.x da versão:
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
-
 ## <a name="create-a-local-functions-project"></a>Criar um projeto de funções local
 
 Um diretório de projeto de funções contém os ficheiros [Host. JSON](functions-host-json.md) e [Settings](#local-settings-file), juntamente com as subpastas que contêm o código para funções individuais. Este diretório é o equivalente a uma aplicação de funções no Azure. Para saber mais sobre a estrutura de pastas de funções, consulte a [guia de programadores do funções do Azure](functions-reference.md#folder-structure).
@@ -214,7 +204,7 @@ Os valores de definições de aplicação de função também podem ser lidos em
 
 + [C# pré-compiladas](functions-dotnet-class-library.md#environment-variables)
 + [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F # script (.fsx)](functions-reference-fsharp.md#environment-variables)
++ [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -288,7 +278,7 @@ Também pode especificar estas opções no comando utilizando os argumentos a se
 | Argumento     | Descrição                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versão 2.x) Gera os mesmos c# script (. csx) modelos usados na versão 1.x e no portal. |
-| **`--language -l`**| O modelo de programação de linguagem, como c#, F # ou JavaScript. Esta opção é necessária na versão 1.x. Na versão 2.x, não utilize esta opção ou escolha um idioma que corresponde ao tempo de execução do trabalho. |
+| **`--language -l`**| O modelo de linguagem, de programação, como C#, F#, ou JavaScript. Esta opção é necessária na versão 1.x. Na versão 2.x, não utilize esta opção ou escolha um idioma que corresponde ao tempo de execução do trabalho. |
 | **`--name -n`** | O nome da função. |
 | **`--template -t`** | Utilize o `func templates list` comando para ver a lista completa dos modelos disponíveis para cada idioma suportado.   |
 

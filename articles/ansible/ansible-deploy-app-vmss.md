@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391475"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414000"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para implementar as suas aplicações no Azure. Este artigo mostra-lhe como implementar uma aplicação do Java num conjunto de dimensionamento de máquinas virtuais do Azure (VMSS).  
@@ -23,7 +23,7 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Conjunto de dimensionamento de máquinas virtuais** – se ainda não tem um conjunto de dimensionamento de máquinas virtuais, pode [criar um conjunto de dimensionamento de máquinas virtuais com o Ansible](ansible-create-configure-vmss.md). 
 - O **git** - [git](https://git-scm.com) serve para transferir um exemplo do Java utilizado neste tutorial.
-- **Kit de Desenvolvimento SE do Java (JDK)** - O JDK serve para compilar o projeto do Java de exemplo.
+- **Kit de Desenvolvimento SE do Java (JDK)** - o [JDK](https://aka.ms/azure-jdks) serve para compilar o projeto Java de exemplo.
 - **Ferramentas de compilação do Apache Maven** – As [ferramentas de compilação do Apache Maven](https://maven.apache.org/download.cgi) são utilizadas para compilar o projeto de Java de exemplo.
 
 > [!Note]

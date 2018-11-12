@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1692e111d48a6e4574b2b114c0de84d9bc9f3203
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0bd93e0732b0e822fae68b4ac2cc5e28fb246808
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299836"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016969"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -37,11 +37,11 @@ Para continuar, selecione **computação e aplicações** sob **recursos** ou o 
 ![Dashboard do Centro de segurança][1]
 
 ## <a name="monitor-compute-and-app-services"></a>Serviços de computação de monitor e aplicação
-Sob **computação**, existem quatro separadores:
+Em **Computação**, existem quatro separadores:
 
-- **Descrição geral**: monitorização e recomendações identificadas pelo centro de segurança.
-- **VMs e computadores**: lista das VMs, computadores e estado de segurança atual de cada.
-- **Serviços cloud**: lista de funções da web e de trabalho monitorizadas pelo centro de segurança.
+- **Descrição geral**: monitorização e recomendações identificadas pelo Centro de Segurança.
+- **VMs e computadores**: lista das suas VMS, computadores, máquinas virtuais e os atuais estados de segurança de cada um.
+- **Serviços Cloud**: lista das suas funções de trabalho e na Web monitorizadas pelo Centro de Segurança.
 - **Serviços de aplicações (pré-visualização)**: lista de seus ambientes do serviço de aplicações e o estado de segurança atual de cada.
 Para continuar, selecione **computação e aplicações** sob **recursos** ou o menu principal do Centro de segurança.
 
@@ -101,7 +101,7 @@ Para ver os detalhes das recomendações, clique no nome da atualização em fal
 ### <a name="vms-and-computers"></a>VMs e computadores
 A secção de VMs e computadores dá-lhe uma descrição geral de todas as recomendações de VM e o computador. Cada coluna representa um conjunto de recomendações como é mostrado na seguinte captura de ecrã:
 
-![Recomendações de VM e de computador][7]
+![Recomendações da VM e do computador][7]
 
 Existem quatro tipos de ícones representados nesta lista:
 
@@ -176,6 +176,65 @@ Existem três tipos de ícones representados nesta lista:
 3. Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação, uma lista de recursos de mau e bom estado de funcionamento e uma lista de recursos não verificados. Há uma guia para os recursos de mau estado de funcionamento, mas essa lista está sempre vazia, uma vez que a avaliação passado.
 
     ![Recursos de estado de funcionamento][23]
+
+## <a name="compute-and-app-recommendations"></a>Recomendações de computação e de aplicação
+|Tipo de recurso|Classificação de segurança|Recomendação|Descrição|
+|----|----|----|----|
+|Máquina|50|Instalar o agente de monitorização nos seus computadores|Instale o agente de monitorização para ativar a recolha de dados, as atualizações de verificação, verificação de linha de base e o endpoint protection em cada máquina.|
+|Máquina|50|Ativar o aprovisionamento automático e a recolha de dados para as suas subscrições |Ative aprovisionamento automático e a recolha de dados para máquinas nas suas subscrições para ativar a recolha de dados, as atualizações de verificação, verificação de linha de base e o endpoint protection em cada máquina adicionada às suas subscrições.|
+|Máquina|40|Resolver problemas de estado de funcionamento de agente de monitorização nos seus computadores|Para proteção de centro de segurança completa, resolver problemas de agente de monitorização em suas máquinas, seguindo as instruções no guia de resolução de problemas| 
+|Máquina|40|Resolver problemas de estado de funcionamento do Endpoint Protection nos seus computadores|Para proteção de centro de segurança completa, resolva problemas de agente de monitorização em suas máquinas, seguindo as instruções no guia de resolução de problemas.|
+|Máquina|40|Resolver problemas relacionados com dados de análise em falta os seus computadores|Resolver problemas relacionados com dados de análise em falta nas máquinas virtuais e computadores. Dados de análise em falta nos seus resultados de máquinas na ausência de avaliações de segurança, tais como atualizar a análise de linha de base de análise e falta de verificação da solução de proteção de ponto final.|
+|Máquina|40|Instalar atualizações de sistema nos seus computadores|Instalar a segurança do sistema em falta e atualizações críticas para proteger as máquinas virtuais Windows e Linux e computadores
+|Máquina|40|Atualizar a versão do SO para as funções de serviço na cloud|Atualize a versão do sistema operativo (SO) para as funções de serviço em cloud para a versão mais recente disponível para a sua família de SO.|
+|Máquina|35|Solucionar vulnerabilidades na configuração de segurança nos seus computadores|Remediar vulnerabilidades na configuração de segurança nos seus computadores para protegê-los contra ataques. |
+|Máquina|35|Remediar vulnerabilidades na configuração de segurança em seus contentores|Remediar vulnerabilidades na configuração de segurança em máquinas com o Docker para protegê-las de ataques.|
+|Máquina|25|Ativar Controlos de Aplicação Adaptáveis|Ative a aplicação controle para controle que aplicações podem ser executadas nas suas VMs localizadas no Azure. Isto ajudará a proteger as VMs contra software maligno. Centro de segurança utiliza machine learning para analisar as aplicações em execução em cada VM e ajuda a que aplicar permite regras com base neste informações. Esta capacidade simplifica o processo de configuração e manutenção de aplicação de regras de permissão.|
+|Máquina|20|Instalar a solução do Endpoint Protection nos seus computadores|Instale uma solução de proteção de ponto final em suas máquinas virtuais, para protegê-los de ameaças e vulnerabilidades.|
+|Máquina|20|Reiniciar os seus computadores para aplicar as atualizações do sistema|Reinicie os seus computadores para aplicar as atualizações de sistema e proteger o computador contra vulnerabilidades.|
+|Serviço de aplicações|20|Aplicação Web só deve estar acessível através de HTTPS|Limitar apenas o acesso de aplicações Web através de HTTPS.|
+|Serviço de aplicações|20|Função de aplicação só deve estar acessível através de HTTPS|Limitar apenas o acesso de aplicações de funções através de HTTPS.|
+|Máquina|15|Aplicar encriptação de disco nas suas máquinas virtuais|Encripte discos da máquina virtual com o Azure Disk Encryption ambos os para máquinas virtuais Windows e Linux. Encriptação de disco do Azure (ADE) aproveita a funcionalidade de BitLocker padrão da indústria do Windows e a funcionalidade de DM-Crypt do Linux para fornecer encriptação de disco de SO e dados para ajudar a proteger e salvaguardar os seus dados e ajudam a cumprir a conformidade e segurança organizacionais compromissos no cliente do Azure key vault. Quando seu requisito de conformidade e segurança exige que encripte os dados de ponta a ponta com as suas chaves de encriptação, incluindo a encriptação do disco (temporária ligado localmente) efémeras, utilize a encriptação de discos do Azure. Em alternativa, por predefinição, o Managed Disks são encriptados em descanso por padrão, usando a encriptação do serviço de armazenamento do Azure onde as chaves de encriptação são chaves gerida pela Microsoft no Azure. Se esta implementação satisfaz os requisitos de segurança e conformidade, pode aproveitar a encriptação de disco gerido padrão para satisfazer os seus requisitos.|
+|(Recursos de infraestrutura do serviço) de recursos de computação|10|Utilizar o Azure Active Directory para autenticação de cliente no Service Fabric|Efetue a autenticação de cliente apenas através do Azure Active Directory no Service Fabric.|
+|(Conta de automatização) de recursos de computação|5| Ativar a encriptação da conta de automatização|Ative a encriptação de recursos de variável de conta de automatização ao armazenar dados confidenciais.|
+|Serviço de aplicações|5|Ativar registos de diagnóstico no serviço de aplicações|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(Balanceador de carga) de recursos de computação|5|Ativar registos de diagnóstico no balanceador de carga|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(Pesquisa) de recursos de computação|5|Ativar registos de diagnóstico no serviço de pesquisa|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(Barramento de serviço) de recursos de computação|5|Ativar registos de diagnóstico no Service Bus|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(O stream analytics) de recursos de computação|5|Ativar registos de diagnóstico no Azure Stream Analytics|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(Recursos de infraestrutura do serviço) de recursos de computação|5|Ativar registos de diagnóstico no Service Fabric|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(Batch) de recursos de computação|5|Ativar registos de diagnóstico em contas do Batch|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(Hub de eventos) de recursos de computação|5|Ativar registos de diagnóstico no Hub de eventos|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|(Aplicações lógicas) de recursos de computação|5|Ativar registos de diagnóstico no Logic Apps|Ativar os registos e retenha-los até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação quando ocorrer um incidente de segurança ou a rede estiver comprometida. |
+|Máquina|30|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|
+|Máquina|15|Adicionar uma firewall de aplicação Web| Implemente uma solução de firewall (WAF) de aplicações web para proteger seus aplicativos web. |
+|Máquina|30|Remediar vulnerabilidades - por uma solução de avaliação de vulnerabilidade|As máquinas virtuais para o qual é implementar uma solução de terceiros de 3 de avaliação do vulnerabilidade estão a ser continuamente avaliadas em relação a aplicação e vulnerabilidades do SO. Sempre que encontram-se estas vulnerabilidades, elas estão disponíveis para obter mais informações, como parte da recomendação.|
+|(Recursos de infraestrutura do serviço) de recursos de computação|15|Defina a propriedade ClusterProtectionLevel EncryptAndSign no Service Fabric|O Service Fabric fornece três níveis de proteção (nenhum, início de sessão e EncryptAndSign) para a comunicação de nó para nó a utilizar um certificado de cluster principal.  Defina o nível de proteção para garantir que todas as mensagens de nó para nó são criptografadas e assinadas digitalmente. |
+|Serviço de aplicações|10|Depuração remota deve ser desativada para a aplicação Web|Desative a depuração para aplicativos Web, se já não precisar de utilizá-lo. Depuração remota necessita de portas de entrada estar abertas na aplicação de funções.|
+|Serviço de aplicações|10|Depuração remota deve ser desativada para a aplicação de função|Desative a depuração para a aplicação de função se já não precisar de utilizá-lo. Depuração remota necessita de portas de entrada estar abertas na aplicação de funções.|
+|Serviço de aplicações|10|Configurar restrições de IP para a aplicação Web|Defina uma lista de endereços IP que têm permissão para aceder à sua aplicação. Utilização de restrições de IP de protege as aplicações web contra ataques comuns.|
+|Serviço de aplicações|10|Configurar restrições de IP para a aplicação de função| Defina uma lista de endereços IP que têm permissão para aceder à sua aplicação. Utilização de restrições de IP protege uma aplicação de funções de ataques comuns.|
+|Serviço de aplicações|10|Não permitir que todos os ('* ') recursos para aceder à sua aplicação| Não permitir o conjunto de parâmetro WEBSITE_LOAD_CERTIFICATES "". Definição do parâmetro ' significa que todos os certificados são carregados para o arquivo de certificados pessoais de aplicações web. Isto pode levar ao abuso do princípio de privilégio mínimo porque é improvável que o site necessita de acesso a todos os certificados no tempo de execução.|
+|Serviço de aplicações|5|Web Sockets devem ser desativados para a aplicação Web|Reveja a utilização de Web Sockets nas aplicações web. O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança.|
+|Serviço de aplicações|5|Web Sockets devem ser desativados para a aplicação de função|Reveja a utilização de Sockets Web nas aplicações de função. O protocolo de Web Sockets está vulnerável a diferentes tipos de ameaças de segurança.|
+|Serviço de aplicações|5|Utilizar domínios personalizados para a sua aplicação Web|Utilize domínios personalizados para proteger uma aplicação web de ataques comuns, como o phishing e outros ataques relacionados com DNS.|
+|Serviço de aplicações|5|Utilizar domínios personalizados para a aplicação de funções|Utilize domínios personalizados para proteger uma aplicação de funções de ataques comuns, como o phishing e outros ataques relacionados com DNS.|
+|(Batch) de recursos de computação|1|Configurar regras de alerta de métrica na conta de Batch|Configurar regras de alerta de métrica na conta do Batch e ativar as métricas de conjunto eliminar eventos completa e eventos de eliminar conjunto|
+|(Barramento de serviço) de recursos de computação|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey do espaço de nomes do Service Bus |Os clientes do Service Bus não devem utilizar uma política de acesso de nível de espaço de nomes que fornece acesso a todas as filas e tópicos num espaço de nomes. Para alinhar com a segurança de privilégio mínimo modelo, deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso a apenas a entidade específica.|
+|(Hub de eventos) de recursos de computação|1|Remover todas as regras de autorização, exceto RootManageSharedAccessKey do espaço de nomes do Hub de eventos |Os clientes do Hub de eventos não devem utilizar uma política de acesso de nível de espaço de nomes que fornece acesso a todas as filas e tópicos num espaço de nomes. Para alinhar com a segurança de privilégio mínimo modelo, deve criar políticas de acesso no nível de entidade para filas e tópicos para fornecer acesso a apenas a entidade específica.|
+|(Hub de eventos) de recursos de computação|5|Definir regras de autorização na entidade Hub de eventos|Regras de autorização na entidade para conceder acesso menos privilegiado Hub de eventos de auditoria.|
+|Máquina|30|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|
+|Serviço de aplicações|20|CORS não deve permitir que todos os recursos aceder às suas aplicações Web|Permitir que apenas necessários domínios interagir com a sua aplicação web. Entre os recursos de origens (CORS) de partilha não deve permitir que todos os domínios acedam à sua aplicação web.|
+|Serviço de aplicações|20|CORS não deve permitir que todos os recursos de aceder à sua aplicação de função| Permitir que apenas necessários domínios interagir com a sua aplicação de função. Entre os recursos de origens (CORS) de partilha não deve permitir que todos os domínios acedam à sua aplicação de função.|
+|Máquina|15|Adicionar uma firewall de aplicação Web| Implemente uma solução de firewall (WAF) de aplicações web para proteger seus aplicativos web. |
+|Serviço de aplicações|10|Utilize a versão mais recente do .NET Framework suportada para a aplicação Web|Utilize a versão mais recente do .NET Framework para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
+|Serviço de aplicações|10|Utilizar a versão de Java mais recente suportada para a aplicação Web|Utilize a versão mais recente do Java para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
+|Serviço de aplicações|10|Utilizar a versão PHP mais recente suportada para a aplicação Web|Utilize a versão mais recente do PHP para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
+|Serviço de aplicações|10|Utilizar a versão de node. js mais recente suportada para a aplicação Web|Utilize a versão mais recente do node. js para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
+|Serviço de aplicações|10|Utilizar a versão de Python mais recente suportada para a aplicação Web|Utilize a versão mais recente do Python para as classes de segurança mais recente. Utilizar classes mais antigas e de tipos pode fazer com que seu aplicativo vulnerável.|
+|VMs e computadores|1|Migrar máquinas virtuais para novos recursos de AzureRM|Utilizar o novo Azure Resource Manager v2 para as suas máquinas virtuais para fornecer aprimoramentos de segurança, tais como: controlo de acesso mais forte (RBAC), a auditoria melhor, a implantação com base em ARM e a governação de acesso para identidades geridas, acesso ao Cofre de chaves para segredos, Azure Autenticação baseada no AD e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança. |
+|Máquina|30|Remediar vulnerabilidades - por uma solução de avaliação de vulnerabilidade|As máquinas virtuais para o qual é implementar uma solução de terceiros de 3 de avaliação do vulnerabilidade estão a ser continuamente avaliadas em relação a aplicação e vulnerabilidades do SO. Sempre que encontram-se estas vulnerabilidades, elas estão disponíveis para obter mais informações, como parte da recomendação.|
+
 
 
 

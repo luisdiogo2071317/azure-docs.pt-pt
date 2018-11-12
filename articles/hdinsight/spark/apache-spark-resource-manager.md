@@ -2,19 +2,19 @@
 title: Gerir os recursos de cluster do Apache Spark no Azure HDInsight
 description: Saiba como utilizar Gerir os recursos de clusters do Spark no HDInsight do Azure para um melhor desempenho.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d7395231662d79d284bdf061e651602dea392c28
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051503"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014589"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerir os recursos de cluster do Apache Spark no Azure HDInsight 
 
@@ -76,7 +76,7 @@ Os parâmetros de configuração de três podem ser configurados no nível do cl
 2. Os valores predefinidos são bons ter quatro de Spark de aplicativos executado em simultâneo no cluster. Pode alterar estes valores de interface do usuário, conforme mostrado na captura de ecrã seguinte:
 
     ![Definir parâmetros com o Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png)
-3. Clique em **guardar** para guardar as alterações de configuração. Na parte superior da página, lhe for pedido para reiniciar todos os serviços afetados. Clique em **reiniciar**.
+3. Clique em **guardar** para guardar as alterações de configuração. Na parte superior da página, lhe for pedido para reiniciar todos os serviços afetados. Clique em **Reiniciar**.
 
     ![Reinicie os serviços](./media/apache-spark-resource-manager/restart-services.png)
 

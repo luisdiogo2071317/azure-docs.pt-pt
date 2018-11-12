@@ -1,19 +1,19 @@
 ---
 title: Ligar o HDInsight à sua rede no local - Azure HDInsight
 description: Saiba como criar um cluster de HDInsight numa rede Virtual do Azure e, em seguida, ligá-la à sua rede no local. Saiba como configurar a resolução de nome entre o HDInsight e a sua rede no local ao utilizar um servidor DNS personalizado.
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: b9b744edbcb2abce70487c84c85a0aae71494e52
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: d8ab61d99b617f21557b6f1ef476418e25bcee55
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105873"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016935"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 

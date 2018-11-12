@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 776033bde46f170295900d154cbbb3c7df73ab11
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960264"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014028"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origens de dados no Log Analytics
 Log Analytics recolhe dados a partir de origens ligadas e armazena-os em sua área de trabalho do Log Analytics.  Os dados que são recolhidos de cada um são definidos pelas origens de dados que configurou.  Dados do Log Analytics são armazenados como um conjunto de registos.  Cada origem de dados cria registos de um determinado tipo com cada tipo de ter seu próprio conjunto de propriedades.
@@ -68,5 +68,5 @@ Todos os dados recolhidos pelo Log Analytics é armazenado na área de trabalho 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [soluções](../monitoring/monitoring-solutions.md) que acrescentam funcionalidades ao Log Analytics e também, recolher dados para a área de trabalho.
-* Saiba mais sobre [pesquisas de registos](log-analytics-log-search.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
+* Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções.  
 * Configurar [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para ser notificado proativamente dos dados vitais recolhidos a partir de origens de dados e soluções.

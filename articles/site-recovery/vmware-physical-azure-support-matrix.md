@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: raynew
-ms.openlocfilehash: b472ed1c32e64b8f8ac881c09f22590c49f39c75
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 076cd987cdc74cad07287c15ad52394ef304f251
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215366"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015371"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -63,16 +63,9 @@ Recuperação de sites suporta a replicação de qualquer carga de trabalho em e
 --- | ---
 Definições do computador | As máquinas que replicam para o Azure tem de cumprir [requisitos do Azure](#azure-vm-requirements).
 Sistema de operativo do Windows | 64-bit Windows Server 2016 (Server Core, servidor com experiência de área de trabalho), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com em, pelo menos, SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 bits e 64 bits](migrate-tutorial-windows-server-2008.md) (apenas para migração). </br></br> O servidor Nano do Windows 2016 não é suportado.
-Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>CentOS: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>Servidor de Ubuntu 14.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Servidor de Ubuntu 16.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel de suportadas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel de suportadas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3) <br/><br/></br>* *Atualizar máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.*</br></br><b>\*\*</b> *Consulte a [suporte para máquinas virtuais do Linux no Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) para compreender o suporte para Linux e tecnologia de código aberto no Azure. O Azure Site Recovery permite-lhe ativação pós-falha e executar servidores Linux no Azure, no entanto fornecedores do Linux podem limitar o suporte para apenas as versões dos seus distribuição que não atingiram o fim da vida.*
+Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>CentOS: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7.5 <br/><br/>Servidor de Ubuntu 14.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Servidor de Ubuntu 16.04 LTS[ (versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versões de kernel de suportadas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versões de kernel de suportadas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3) <br/><br/></br>-Atualizar máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.</br></br> - [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código aberto no Azure. Recuperação de sites orquestra a ativação pós-falha para executar servidores Linux no Azure. No entanto fornecedores do Linux podem limitar o suporte para apenas as versões de distribuição que não atingiram o fim-de-vida.<br/><br/> -Em distribuições do Linux, apenas os kernels das ações que fazem parte da versão/atualização do podverze distribuição são suportados.<br/><br/> -Atualizar máquinas protegidas em Linux principais versões de distribuição não é suportada. Para atualizar, desative a replicação, atualize o sistema operativo e, em seguida, ative novamente a replicação.<br/><br/> -Servidores a executar o Red Hat Enterprise Linux 5.2 5.11 ou CentOS 5.2 5.11 devem ter o [componentes de serviços de integração do Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalado para as máquinas efetuar o arranque no Azure.
 
 
->[!NOTE]
->
-> - Nas distribuições do Linux, apenas os kernels das ações que fazem parte da versão/atualização do podverze distribuição são suportados.
->
-> - A atualizar máquinas protegidas em Linux principais versões de distribuição não é suportada. Para atualizar, desative a replicação, atualize o sistema operativo e, em seguida, ative novamente a replicação.
->
-> - Servidores a executar o Red Hat Enterprise Linux 5.2 5.11 ou CentOS 5.2 para 5.11 devem ter o [Services(LIS) de integração do Linux componentes](https://www.microsoft.com/en-us/download/details.aspx?id=55106) instalado para que as máquinas efetuar o arranque no Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Versões de kernel do Ubuntu
 
@@ -249,7 +242,7 @@ Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> 
 --- | --- | --- | --- | ---
 Servidor de configuração | Coordena as comunicações entre servidores de VMware no local e o Azure <br/><br/> Instalado em servidores de VMware no local | Para instalação de raiz, clique em [aqui](vmware-azure-deploy-configuration-server.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Servidor de processos|Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.| Para instalação de raiz, clique em [aqui](vmware-azure-set-up-process-server-scale.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site do Azure/secundária<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | Para instalação de raiz, clique em [aqui](vmware-azure-install-mobility-service.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-azure-install-mobility-service.md#update-mobility-service).
+Serviço de mobilidade | Coordena a replicação entre servidores de servidores/físico de VMware no local e o site do Azure/secundária<br/><br/> Instalado na VM de VMware ou servidores físicos que pretende replicar | Para instalação de raiz, clique em [aqui](vmware-azure-install-mobility-service.md). Para atualizar o componente existente para a versão mais recente, clique em [aqui](vmware-physical-mobility-service-overview.md#update-the-mobility-service).
 
 Para saber mais sobre as funcionalidades e correções mais recentes, clique em [aqui](https://aka.ms/latest_asr_updates).
 

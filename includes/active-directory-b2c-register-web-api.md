@@ -4,12 +4,12 @@ ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
-ms.openlocfilehash: 9d5af21fb3b329623b14cb8742d9ec9c5d1bad46
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133279"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51017275"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -22,7 +22,7 @@ Para registar a API Web, utilize as definições especificadas na tabela.
 | **Nome** | API Contoso B2C | Introduza um **Nome** para a aplicação que descreva a API aos consumidores. | 
 | **Incluir aplicação/API Web** | Sim | Selecione **Sim** para uma API Web. |
 | **Permitir fluxo implícito** | Sim | Selecione **Sim** se a sua aplicação utilizar o [Início de sessão OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md) |
-| **URL de resposta** | `https://localhost:44316/` | Os URLs de resposta são pontos finais para onde o Azure AD B2C devolve quaisquer tokens que a aplicação solicite. Introduza [um](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) **URL de resposta** adequado. Neste exemplo, a API Web é local e está a escutar na porta 44316. |
+| **URL de resposta** | `https://localhost:44316/` | Os URLs de resposta são pontos finais para onde o Azure AD B2C devolve quaisquer tokens que a aplicação solicite. Neste exemplo, a API Web é local e está a escutar na porta 44316. |
 | **URI do ID da Aplicação** | api | O URI do ID da Aplicação é o identificador utilizado para a API Web. O URI identificador completo, incluindo o domínio, é gerado por si. |
 
 Clique em **Criar** para registar a aplicação.

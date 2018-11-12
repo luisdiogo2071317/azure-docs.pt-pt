@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 65477f62af80511a73307204c2a6f4b5e0f409d6
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164895"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51019223"
 ---
 1. Copie o instalador para uma pasta local (por exemplo, C:\Temp) no servidor que pretende proteger. Execute os seguintes comandos como administrador num prompt de comando:
 

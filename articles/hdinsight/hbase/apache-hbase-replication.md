@@ -2,19 +2,19 @@
 title: Configurar a replicação de cluster HBase em redes virtuais do Azure
 description: Saiba como configurar a replicação do HBase de uma versão do HDInsight para outro para balanceamento de carga, elevada disponibilidade, sem período de indisponibilidade migração e as atualizações e recuperação após desastre.
 services: hdinsight,virtual-network
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b978adcdcc025c24746167ef5ab92aebe94aca8b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224386"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016238"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase em redes virtuais do Azure
 
@@ -270,7 +270,7 @@ Crie um cluster HBase em cada uma das duas redes virtuais com a seguinte configu
 
 Para garantir que o ambiente está configurado corretamente, tem de ser capaz de executar ping FQDN do nó principal entre dois clusters.
 
-## <a name="load-test-data"></a>Dados de teste de carga
+## <a name="load-test-data"></a>Carregar os dados de teste
 
 Quando replicar um cluster, tem de especificar as tabelas que pretende replicar. Nesta seção, carrega alguns dados para o cluster de origem. Na secção seguinte, irá ativar a replicação entre dois clusters.
 

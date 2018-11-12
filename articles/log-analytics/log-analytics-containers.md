@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 824be21623892b8810ca4af5b885daf65bfb1594
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959159"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013059"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -604,7 +604,7 @@ Pesquisa de registos é aberta, exibindo informações sobre o estado dos seus c
 
 ![Pesquisa de registos para contentores](./media/log-analytics-containers/containers-log-search.png)
 
-A partir daqui, pode editar a consulta de pesquisa de modificá-lo para encontrar as informações específicas que está interessado. Para obter mais informações sobre pesquisas de registos, consulte [pesquisas de registos no Log Analytics](log-analytics-log-search.md).
+A partir daqui, pode editar a consulta de pesquisa de modificá-lo para encontrar as informações específicas que está interessado. Para obter mais informações sobre pesquisas de registos, consulte [pesquisas de registos no Log Analytics](log-analytics-queries.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Resolver problemas ao detetar um contentor com falhas
 
@@ -672,4 +672,4 @@ A guardar consultas é uma funcionalidade padrão do Log Analytics. Salvando-los
 Depois de criar uma consulta que ser úteis, guarde-o clicando **Favoritos** na parte superior da página pesquisa de registos. Em seguida, pode aceder facilmente mais tarde a partir da **meu painel** página.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Pesquisar registos](log-analytics-log-search.md) para ver os registos de dados de contentor detalhadas.
+* [Pesquisar registos](log-analytics-queries.md) para ver os registos de dados de contentor detalhadas.

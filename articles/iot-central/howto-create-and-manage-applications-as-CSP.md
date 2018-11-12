@@ -8,18 +8,18 @@ ms.author: tanmayb
 ms.date: 10/29/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 5db215a3bf87ac42ac832a59ce39f7e72c45527f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbc72e040f3d68ca77c036c41612f57616d1e74e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963358"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016833"
 ---
 # <a name="as-a-csp-create-and-manage-an-azure-iot-central-application-on-behalf-of-your-customer"></a>Como um CSP, criar e gerir um aplicativo de Central de IoT do Azure em nome do seu cliente 
 
 O programa de fornecedor de soluções Cloud (CSP) da Microsoft é um programa de Reseller da Microsoft. Qual a sua intenção é fornecer a nossos parceiros de canal com um programa de um único local para revenda todos os serviços comerciais Microsoft Online. Saiba mais sobre o [programa Cloud Solution Provider](https://partner.microsoft.com/cloud-solution-provider).
 
-Como um CSP, pode criar e gerir aplicações do Microsoft Azure IoT Central em nome dos clientes através da [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Quando as aplicações do Azure IoT Central são criadas em nome dos clientes por CSPs, tal como com os outros CSP serviços geridos do Azure, CSPs gerenciar a cobrança aos clientes. Um custo para o Azure IoT Central será apresentada a sua fatura total no Microsoft Partner Center.
+Como um CSP, pode criar e gerir aplicações do Microsoft Azure IoT Central em nome dos clientes através da [Microsoft Partner Center](https://partnercenter.microsoft.com/partner/home). Quando as aplicações do Azure IoT Central são criadas em nome dos clientes por CSPs, tal como com os outros CSP serviços geridos do Azure, CSPs gerenciar a cobrança aos clientes. Um custo para o Azure IoT Central irá aparecer na sua fatura total no Microsoft Partner Center.
 
 Para começar a utilizar, início de sessão para a sua conta no Portal de parceiros Microsoft e selecionar um cliente para o qual pretende criar uma aplicação do Azure IoT Central. Navegue para a gestão de serviço para o cliente de navegação esquerda.
 
@@ -29,7 +29,7 @@ O Azure IoT Central é listado como um serviço disponível para administrar. Cl
 
 ![Centro de IoT do Azure disponíveis para gerir](media\howto-create-application-asCSP\image2.png)
 
-É apresentado na página do Gestor de aplicações do Azure IoT Central. O Azure IoT Central mantém contexto que veio do Microsoft Partner Center e que veio para gerir esse cliente específico. Verá isto confirmados no cabeçalho da página do Gestor de aplicações. Aqui pode navegar para uma aplicação existente tiver criado anteriormente para este cliente para geri-lo ou criar uma nova aplicação do cliente.
+É apresentado na página do Gestor de aplicações do Azure IoT Central. O Azure IoT Central mantém contexto que veio do Microsoft Partner Center e que veio para gerir esse cliente específico. Verá isto confirmados no cabeçalho da página do Gestor de aplicações. A partir daqui, pode optar por navegar para uma aplicação existente que tiver criado anteriormente para este cliente gerir ou crie uma nova aplicação do cliente.
 
 ![Criar Manager para CSPs](media\howto-create-application-asCSP\image3.png)
 
@@ -51,7 +51,7 @@ O nome da sua aplicação é apresentado na **Gerenciador de aplicativos** pági
 
 O URL da aplicação é a ligação à sua aplicação. Pode salvar um indicador para ele no seu browser ou partilhá-lo com outras pessoas.
 
-Ao introduzir o nome para a sua aplicação, o URL do aplicativo é gerado automaticamente. Se preferir, pode escolher um URL diferente para a sua aplicação. Cada URL de Central de IoT do Azure tem de ser exclusivo no Azure IoT Central. Verá uma mensagem de erro se o URL que escolher já foi atribuído.
+Ao introduzir o nome para a sua aplicação, o seu URL da aplicação é gerado automaticamente. Se preferir, pode escolher um URL diferente para a sua aplicação. Cada URL de Central de IoT do Azure tem de ser exclusivo no Azure IoT Central. Verá uma mensagem de erro se o URL que escolher já foi atribuído.
 
 ## <a name="directory"></a>Diretório
 

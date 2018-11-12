@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 289aa893a0ffa598d5b9fae67a81e9bf0c9782f7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024865"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014402"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Configurar redes avançadas no Azure Kubernetes Service (AKS)
 
@@ -35,12 +35,21 @@ Clusters configurados com um sistema de rede avançado requerem planeamento adic
 
 Endereços IP para os pods e nós do cluster são atribuídos a partir da sub-rede especificada dentro da rede virtual. Cada nó está configurado com um endereço IP primário. Por predefinição, 30 endereços IP adicionais são pré-configurado pelo CNI do Azure que estão atribuídos a pods agendadas no nó. Ao aumentar horizontalmente o seu cluster, cada nó da mesma forma é configurado com endereços IP da sub-rede. Também pode ver o [pods máximas por nó](#maximum-pods-per-node).
 
+> [!IMPORTANT]
+> O número de endereços IP necessários deve incluir considerações sobre a atualização e operações de dimensionamento. Se definir o intervalo de endereços IP para suportar apenas um número fixo de nós, não é possível atualizar ou dimensionar o seu cluster.
+>
+> - Quando **atualizar** seu cluster do AKS, um novo nó é implementada num cluster. Serviços e cargas de trabalho começam a ser executados no novo nó e um nó mais antigo é removido do cluster. Este processo de atualização sem interrupção requer um mínimo de um bloco adicional de endereços IP para estar disponível. A contagem de nó é, em seguida, `n + 1`.
+>
+> - Quando **dimensionamento** um cluster do AKS, um novo nó é implementado num cluster. Serviços e cargas de trabalho começam a executar no novo nó. O intervalo de endereços IP deve considerar considerações sobre como pode querer aumentar verticalmente o número de nós e pods que seu cluster pode suportar. Um nó adicional para operações de atualização também deve ser incluído. A contagem de nó é, em seguida, `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
+
+Se pretender que os nós para executar o número máximo de pods e destruir regularmente e implementar pods, deve também avaliar alguns endereços IP adicionais por nó. Estes endereços IP adicionais levam em consideração poderá demorar alguns segundos para um serviço a ser eliminado e o endereço IP é libertado para um novo serviço deve ser implementado e adquirir o endereço.
+
 O plano de endereço IP para um cluster do AKS consiste num virtual de rede, pelo menos uma sub-rede para nós e pods e um intervalo de endereços do serviço de Kubernetes.
 
 | Intervalo de endereços / Azure recursos | Limites e dimensionamento |
 | --------- | ------------- |
 | Rede virtual | A rede virtual do Azure pode ser tão grande quanto /8, mas está limitada a 65.536 endereços IP configurados. |
-| Subrede | Tem de ser suficientemente grande para acomodar os nós, pods e recursos de todos os Kubernetes e do Azure que podem ser aprovisionados no seu cluster. Por exemplo, se implementar um balanceador de carga interno do Azure, o IPs de front-end são alocadas a partir da sub-rede de cluster, IPs públicos não. <p/>Para calcular *mínima* tamanho da sub-rede: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Exemplo para um cluster de 50 nó: `(50) + (50 * 30 (default)) = 1,550` (/ 21 ou superior)<p>Se não especificar um número máximo de pods por nó, ao criar o cluster, o número máximo de pods por nó é definido como *30*. O número mínimo de endereços IP necessários baseia-se nesse valor. Se calcular seus requisitos de endereço IP mínimos num valor máximo diferente, veja [como configurar o número máximo de pods por nó](#configure-maximum---new-clusters) definir este valor quando implementar o cluster. |
+| Subrede | Tem de ser suficientemente grande para acomodar os nós, pods e recursos de todos os Kubernetes e do Azure que podem ser aprovisionados no seu cluster. Por exemplo, se implementar um balanceador de carga interno do Azure, o IPs de front-end são alocadas a partir da sub-rede de cluster, IPs públicos não. O tamanho da sub-rede também deve levar em operações de atualização de contas ou futuras necessidades de dimensionamento.<p />Para calcular a *mínima* tamanho de sub-rede, incluindo um nó adicional para operações de atualização: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemplo para um cluster de 50 nó: `(51) + (51  * 30 (default)) = 1,581` (/ 21 ou superior)<p/>Exemplo para um cluster de 50 nó que também inclui o aprovisionamento para aumentar verticalmente uma 10 nós adicionais: `(61) + (61 * 30 (default)) = 2,440` (/ 20 ou superior)<p>Se não especificar um número máximo de pods por nó, ao criar o cluster, o número máximo de pods por nó é definido como *30*. O número mínimo de endereços IP necessários baseia-se nesse valor. Se calcular seus requisitos de endereço IP mínimos num valor máximo diferente, veja [como configurar o número máximo de pods por nó](#configure-maximum---new-clusters) definir este valor quando implementar o cluster. |
 | Intervalo de endereços de serviço do Kubernetes | Não deve ser utilizado pelo qualquer elemento de rede no ou ligado a esta rede virtual neste intervalo. Endereço do serviço CIDR tem de ser menor do que /12. |
 | Endereço IP do serviço de DNS do Kubernetes | Intervalo de endereços que será utilizado pela deteção de serviço de cluster (kube-dns) do serviço de endereço IP dentro do Kubernetes. |
 | Endereço de bridge do docker | Endereço IP (em notação CIDR) utilizado como a ponte de Docker endereço IP em nós. Predefinição de 172.17.0.1/16. |
@@ -73,7 +82,7 @@ Quando cria um cluster do AKS, os seguintes parâmetros são configuráveis para
 
 **Rede virtual**: A rede virtual no qual pretende implementar o cluster de Kubernetes. Se quiser criar uma nova rede virtual para o seu cluster, selecione *criar novo* e siga os passos a *criar rede virtual* secção. Para obter informações sobre os limites e quotas para uma rede virtual do Azure, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Sub-rede**: A sub-rede na rede virtual onde pretende implementar o cluster. Se quiser criar uma nova sub-rede na rede virtual para o seu cluster, selecione *criar novo* e siga os passos a *criar a sub-rede* secção.
+**Sub-rede**: A sub-rede na rede virtual onde pretende implementar o cluster. Se quiser criar uma nova sub-rede na rede virtual para o seu cluster, selecione *criar novo* e siga os passos a *criar a sub-rede* secção. Para conectividade híbrida, o intervalo de endereços não deve se sobrepõe a outras redes virtuais no seu ambiente.
 
 **Intervalo de endereços de serviço do Kubernetes**: Este é o conjunto de IPs virtuais que Kubernetes atribui a [services] [ services] no seu cluster. Pode utilizar qualquer intervalo de endereços privados que satisfaça os seguintes requisitos:
 

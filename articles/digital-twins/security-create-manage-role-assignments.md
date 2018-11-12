@@ -1,6 +1,6 @@
 ---
-title: Noções básicas sobre a autenticação e conectividade dos dispositivos duplos Digital do Azure | Documentos da Microsoft
-description: Utilização duplos Digital do Azure para ligar e autenticar os dispositivos
+title: Compreender a autenticação e conectividade dos dispositivos duplos Digital do Azure | Documentos da Microsoft
+description: Utilizar o gémeos Digital do Azure para ligar e autenticar dispositivos
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324189"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012467"
 ---
 # <a name="create-and-manage-role-assignments"></a>Criar e gerir atribuições de funções
 
@@ -21,15 +21,15 @@ Os gémeos Digital do Azure utiliza o controlo de acesso baseado em funções ([
 
 Cada atribuição de função inclui:
 
-* Uma **identificador de objeto** (um ID de diretório do Azure Active Directory, ID de objeto do principal de serviço ou nome de domínio).
-* Uma **tipo de identificador de objeto**.
-* R **ID de definição de função**.
-* R **caminho de espaço**.
-* (Na maioria dos casos) um Azure Active Directory **ID de inquilino**.
+* **Identificador de objeto**: um ID do Azure Active Directory, o ID de objeto do principal de serviço ou o nome de domínio
+* **Tipo de identificador de objeto**
+* **ID de definição de função**
+* **Caminho de espaço**
+* **ID do inquilino**: na maioria dos casos, ID de inquilino de um Azure Active Directory
 
 ## <a name="role-definition-identifiers"></a>Identificadores da definição de função
 
-A tabela abaixo mostra o que pode ser obtido consultando a API de funções do sistema:
+A tabela seguinte mostra o que pode ser obtido consultando as API de sistema/funções.
 
 | **Função** | **Identificador** |
 | --- | --- |
@@ -41,11 +41,11 @@ A tabela abaixo mostra o que pode ser obtido consultando a API de funções do s
 | Utilizador | b1ffdb77-c635-4E7E-ad25-948237d85b30 |
 | Especialista de suporte | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Instalador do dispositivo | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
+| Dispositivo de gateway | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>ObjectIdTypes suportados
 
-O suporte `ObjectIdTypes` são:
+O suporte `ObjectIdTypes`:
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Nome** | **Necessário** | **Tipo** | **Descrição** |
 | --- | --- | --- | --- |
-| RoleId| Sim |cadeia | O identificador de definição de função. Definições de funções e os seus identificadores podem ser encontrados através da consulta da API do sistema. |
-| objectId | Sim |cadeia | O ID de objeto para a atribuição de função têm de ser formatado vzhledem KE svému typu associado. Para o `DomainName` ObjectIdType, ObjectId tem de começar com o `“@”` caráter. |
-| objectIdType | Sim |cadeia | O tipo de atribuição de função. Tem de ser uma das seguintes linhas nesta tabela. |
-| TenantId | Varia | cadeia |O identificador do inquilino. Não são permitidas para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o DomainName ObjectIdType. |
-| caminho * | Sim | cadeia |O caminho de acesso total para o `Space` objeto. Por exemplo: `/{Guid}/{Guid}` se precisar de um identificador a atribuição de função para todo o gráfico, especifique `"/"` (que designa a raiz). No entanto, não recomendado a utilizar, ou seja e **sempre que deve seguir o princípio do menor privilégio**. |
+| RoleId| Sim |Cadeia | O identificador de definição de função. Encontre as definições de função e seus identificadores consultando a API do sistema. |
+| objectId | Sim |Cadeia | O ID de objeto para a atribuição de função têm de ser formatado vzhledem KE svému typu associado. Para o `DomainName` ObjectIdType, ObjectId tem de começar com o `“@”` caráter. |
+| objectIdType | Sim |Cadeia | O tipo de atribuição de função. Tem de ser uma das seguintes linhas nesta tabela. |
+| TenantId | Varia | Cadeia |O identificador do inquilino. Não são permitidas para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o DomainName ObjectIdType. |
+| caminho * | Sim | Cadeia |O caminho de acesso total para o `Space` objeto. Um exemplo é `/{Guid}/{Guid}`. Se precisar de um identificador a atribuição de função para todo o gráfico, especifique `"/"`. Este caráter designa a raiz, mas a sua utilização não é recomendada. Seguem sempre o princípio do menor privilégio. |
 
 ## <a name="sample-configuration"></a>Configuração de exemplo
 
-Um utilizador tem acesso administrativo a um andar de um espaço de inquilino:
+Neste exemplo, um utilizador tem acesso administrativo a um andar de um espaço de inquilino.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ Um utilizador tem acesso administrativo a um andar de um espaço de inquilino:
     }
   ```
 
-Um aplicativo que é executado testar cenários de dispositivos e sensores de simulação:
+Neste exemplo, um aplicativo é executado a simulação de dispositivos e sensores de cenários de teste.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ Um aplicativo que é executado testar cenários de dispositivos e sensores de si
     }
   ```
 
-Todos os utilizadores faz parte de um domínio receberá acesso de leitura para os espaços, sensores e utilizadores, incluindo os respetivos objetos relacionados correspondentes:
+Todos os utilizadores que fazem parte de um domínio recebem acesso de leitura para usuários, sensores e espaços. Este acesso inclui seus objetos relacionados correspondentes.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ Todos os utilizadores faz parte de um domínio receberá acesso de leitura para 
     }
   ```
 
-Para obter uma atribuição de função:
+OBTER utilização para obter uma atribuição de função.
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | Caminho | Caminho | Verdadeiro | Cadeia | O caminho completo para o espaço |
 
-Para eliminar uma atribuição de função:
+Utilize a eliminação para eliminar uma atribuição de função.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

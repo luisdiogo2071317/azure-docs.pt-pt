@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219908"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51525662"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -45,7 +45,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Redes virtuais |1000 |
 | Sub-redes por rede virtual |3000 |
 | Peerings de rede virtual por rede Virtual |100 |
-| Servidores de DNS por rede virtual |25 |
+| Servidores de DNS por rede virtual |20 |
 | Endereços de IP privados por rede virtual |65536 |
 | Endereços IP privados por interface de rede |256 |
 | Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |

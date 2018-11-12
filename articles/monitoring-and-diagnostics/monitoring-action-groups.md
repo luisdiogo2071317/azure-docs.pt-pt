@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717680"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016051"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -24,8 +24,8 @@ Este artigo mostra-lhe como criar e gerir grupos de ação no portal do Azure.
 Cada ação é constituída pelas seguintes propriedades:
 
 * **Nome**: um identificador exclusivo dentro do grupo de ação.  
-* **Tipo de ação**: enviar uma chamada de voz ou SMS, enviar um e-mail, chamar um webhook, enviar dados para uma ferramenta de ITSM, chamar uma aplicação lógica, enviar uma notificação push para a aplicação do Azure ou executar um runbook da automatização.
-* **Detalhes**: correspondentes de telefone número, endereço de e-mail, webhook URI ou detalhes de ligação de ITSM.
+* **Tipo de ação**: A ação a efetuar. Os exemplos incluem enviar um e-mail de chamada, SMS, voz; ou acionar vários tipos de ações automatizadas. Ver tipos neste artigo. 
+* **Detalhes**: os detalhes de correspondentes que variam de acordo com *tipo de ação*. 
 
 Para obter informações sobre como utilizar os modelos Azure Resource Manager para configurar grupos de ação, veja [modelos do Resource Manager de grupo de ação](monitoring-create-action-group-with-resource-manager-template.md).
 
@@ -57,64 +57,45 @@ Para obter informações sobre como utilizar os modelos Azure Resource Manager p
 
 1. Selecione **OK** para criar o grupo de ação.
 
-## <a name="action-specific-information"></a>Informações específicas da ação
-<dl>
-<dt>Push da aplicação do Azure</dt>
-<dd>Pode ter até 10 ações de aplicação do Azure num grupo de ação.</dd>
-<dd>Neste momento, a ação de aplicações do Azure só suporta ServiceHealth alertas. Qualquer outra altura alerta será ignorada. Ver [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
-
-<dt>e-mail</dt>
-<dd>Mensagens de correio eletrónico serão enviadas dos seguintes endereços de e-mail. Certifique-se de que a filtragem de e-mail está configurado corretamente
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>Talvez tenha até 1000 ações de e-mail num grupo de ação</dd>
-<dd>Consulte a [informações de limitação de taxas](./monitoring-alerts-rate-limiting.md) artigo</dd>
-
-<dt>ITSM</dt>
-<dd>Pode ter até 10 ações do ITSM um grupo de ação</dd>
-<dd>Ação de ITSM requer uma ligação de ITSM. Saiba como criar uma [ligação de ITSM](../log-analytics/log-analytics-itsmc-overview.md).</dd>
-
-<dt>Aplicação lógica</dt>
-<dd>Pode ter até 10 ações de aplicação lógica num grupo de ação</dd>
-
-<dt>Runbook</dt>
-<dd>Pode ter até 10 ações de Runbook num grupo de ação</dd>
-<dd>Consulte a [limites de serviço de subscrição do Azure](../azure-subscription-service-limits.md) para limites em cargas de Runbook</dd>
-
-<dt>SMS</dt>
-<dd>Pode ter até 10 ações de SMS num grupo de ação</dd>
-<dd>Consulte a [informações de limitação de taxas](./monitoring-alerts-rate-limiting.md) artigo</dd>
-<dd>Consulte a [comportamento de alertas do SMS](monitoring-sms-alert-behavior.md) artigo</dd>
-
-<dt>Voz</dt>
-<dd>Pode ter até 10 ações de voz num grupo de ação</dd>
-<dd>Consulte a [informações de limitação de taxas](./monitoring-alerts-rate-limiting.md) artigo</dd>
-
-<dt>Webhook</dt>
-<dd>Pode ter até 10 ações de Webhook num grupo de ação
-<dd>Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será repetida um máximo de 2 horas quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final HTTP não responde. Da primeira repetição acontece após 10 segundos. A segunda e última repetição acontece após 100 segundos.</dd>
-<dd>Intervalos de endereços IP de origem
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-Para receber atualizações sobre as alterações a estes endereços IP, recomendamos que configure uma [alerta de estado de funcionamento do serviço](./monitoring-service-notifications.md) que monitoriza para notificações informativas sobre o serviço de grupos de ação.
-</dd>
-</dl>
-
 ## <a name="manage-your-action-groups"></a>Gerir os seus grupos de ação ##
 Depois de criar um grupo de ação, é visível na **grupos de ação** secção a **Monitor** painel. Selecione o grupo de ação que pretende gerir para:
 
 * Adicionar, editar ou remover ações.
 * Elimine o grupo de ação.
+
+## <a name="action-specific-information"></a>Informações específicas da ação
+**Aplicação do Azure Push** -pode ter até 10 ações de aplicação do Azure num grupo de ação. Neste momento, a ação de aplicações do Azure só suporta ServiceHealth alertas. Qualquer outra altura alerta será ignorada. Ver [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](monitoring-activity-log-alerts-on-service-notifications.md).
+
+**E-mail** -serão enviadas mensagens de correio eletrónico dos seguintes endereços de e-mail. Certifique-se de que a filtragem de e-mail está configurado corretamente
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+Pode ter até 1000 ações de e-mail num grupo de ação. Consulte a [informações de limitação de taxas](./monitoring-alerts-rate-limiting.md) artigo
+
+**ITSM** -pode ter até 10 ações do ITSM numa ação de ITSM do grupo de ação requer uma ligação de ITSM. Saiba como criar uma [ligação de ITSM](../log-analytics/log-analytics-itsmc-overview.md).
+
+**Aplicação lógica** -pode ter até 10 ações de aplicação lógica num grupo de ação
+
+**Runbook** -pode ter até 10 ações do Runbook numa veja de grupo de ação para o [limites do serviço de subscrição do Azure](../azure-subscription-service-limits.md) para limites em cargas de Runbook
+
+**SMS** -pode ter até 10 ações de SMS num grupo de ação que consulte o [informações de limitação de taxas](./monitoring-alerts-rate-limiting.md) consulte o artigo a [comportamento de alertas do SMS](monitoring-sms-alert-behavior.md) artigo
+
+**Voz** -pode ter até 10 ações de voz num grupo de ação</dd>
+Consulte a [informações de limitação de taxas](./monitoring-alerts-rate-limiting.md) artigo</dd>
+
+**Webhook** -pode ter até 10 ações de Webhook num grupo de ação. Lógica de repetição - o período de tempo limite para uma resposta é 10 segundos. A chamada de webhook será repetida um máximo de 2 horas quando os seguintes códigos de estado HTTP são devolvidos: 408, 429, 503, 504 ou o ponto final HTTP não responde. Da primeira repetição acontece após 10 segundos. A segunda e última repetição acontece após 100 segundos.
+
+Intervalos de endereços IP de origem
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+Para receber atualizações sobre as alterações a estes endereços IP, recomendamos que configure uma [alerta de estado de funcionamento do serviço](./monitoring-service-notifications.md) que monitoriza para notificações informativas sobre o serviço de grupos de ação.
+
 
 ## <a name="next-steps"></a>Passos Seguintes ##
 * Saiba mais sobre [comportamento de alertas do SMS](monitoring-sms-alert-behavior.md).  

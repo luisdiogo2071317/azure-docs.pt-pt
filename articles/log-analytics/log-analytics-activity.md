@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f5db8c4e8137d9758113210ad433278eb8f5a2ee
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fab4bcb62d15be11ab0a588b7a58447f05b4466a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962134"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014674"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
 
@@ -100,5 +100,5 @@ Dados de registo de atividade só é apresentado *depois de* que configurou os s
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Criar uma [alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) quando ocorre uma atividade específica.
-- Uso [pesquisa de registos](log-analytics-log-search.md) para ver informações detalhadas de registos de atividades.
+- Criar uma [alerta](../monitoring-and-diagnostics/alert-metric.md) quando ocorre uma atividade específica.
+- Uso [pesquisa de registos](log-analytics-queries.md) para ver informações detalhadas de registos de atividades.

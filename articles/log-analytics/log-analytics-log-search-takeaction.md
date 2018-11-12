@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d86a4de5f54d0c1c492fa17081623366692712af
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c6206d4aa98ab3c9744f1f82840817b4bdb000ef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959788"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016340"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Agir com um Runbook da automatização de um resultado de pesquisa de registos do Log Analytics
 
@@ -32,7 +32,7 @@ De um resultado de pesquisa de registo no Azure Log Analytics, pode agora seleci
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Para iniciar o runbook a partir de pesquisa de registos
 
-Para tomar medidas num evento e iniciar um runbook a partir de seus resultados de pesquisa de registo, começa criando uma pesquisa de registos e dos resultados pode invocar uma runbook a pedido.  Isso pode ser obtido a partir da funcionalidade de pesquisa de registo no [portal do Azure](log-analytics-log-search.md).  Neste exemplo, realizar uma pesquisa de registos do portal do Azure com uma demonstração desta funcionalidade básica.
+Para tomar medidas num evento e iniciar um runbook a partir de seus resultados de pesquisa de registo, começa criando uma pesquisa de registos e dos resultados pode invocar uma runbook a pedido.  Isso pode ser obtido a partir da funcionalidade de pesquisa de registo no [portal do Azure](log-analytics-queries.md).  Neste exemplo, realizar uma pesquisa de registos do portal do Azure com uma demonstração desta funcionalidade básica.
 
 1. No portal do Azure, clique em **todos os serviços** e selecione **do Log Analytics**.  
 2. Selecione a área de trabalho do Log Analytics.
@@ -51,5 +51,5 @@ Se selecionar um runbook que foi configurado para ser [chamado a partir de um al
     
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Reveja os [referência de pesquisa de registos do Log Analytics](log-analytics-log-search.md) para ver todos os campos de pesquisa e facetas disponíveis no Log Analytics.
+* Reveja os [referência de pesquisa de registos do Log Analytics](log-analytics-queries.md) para ver todos os campos de pesquisa e facetas disponíveis no Log Analytics.
 * Para saber como invocar um runbook da automatização automaticamente, reveja [invocar um runbook da automatização do Azure a partir de um alerta do Log Analytics](../automation/automation-create-alert-triggered-runbook.md).  

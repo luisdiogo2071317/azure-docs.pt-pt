@@ -1,6 +1,6 @@
 ---
-title: Ação de verbo para o serviço Azure Machine Learning em 59 carateres ou menos. Inclua o nome do Azure Machine Learning. Testar aqui o título https://moz.com/learn/seo/title-tag (exemplo - implementar serviços web Python com o serviço Azure Machine Learning)
-description: Saiba como efetuar este procedimento e que o cliente a utilizar palavras no Azure Machine Learning. Esta cadeia descreve o artigo em 115 para 145 carateres. Utilize o tipo SEO dos verbos de ação aqui. Esta informação é apresentada em inline de página pesquisa com o carimbo de data do artigo. Se o seu para introdução descrever o objetivo do seu artigo, pode ser utilizado aqui editar de comprimento.
+title: Ação de verbo para o serviço Azure Machine Learning em 59 carateres ou menos. Inclua o nome do Azure Machine Learning. Testar o título aqui https://moz.com/learn/seo/title-tag (exemplo - implementar serviços web em Python com o serviço Azure Machine Learning)
+description: Saiba como fazer isso e que cliente a utilizar as palavras no Azure Machine Learning. Esta cadeia descreve o artigo em 115 para 145 carateres. Use o tipo SEO de verbos de ação aqui. Esta informação é apresentada no inline de página de pesquisa com o carimbo de data do artigo. Se a paravirtualização de introdução descreve a intenção de seu artigo, pode utilizá-lo aqui editado para o comprimento.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,40 +10,40 @@ ms.author: your-msft-alias
 author: your-github-account-name
 ms.date: 04/10/2018
 ms.openlocfilehash: 1fd64cca8eb51cdcaa2eb6e8cbce853b6a55b0e6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188164"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013010"
 ---
-# <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Este H1 é o título do artigo. Surge na procura, é apresentada na parte superior do artigo, segundo maior impacto na procura, 100 caracteres ou menos
+# <a name="this-h1-is-the-title-of-the-article-it-appears-in-search-appears-at-the-top-of-article-second-greatest-impact-on-search-100-chars-or-less"></a>Este H1 é o título do artigo. É apresentado na pesquisa, é apresentada na parte superior do artigo, a segunda maior impacto na pesquisa, 100 carateres ou menos
 
 Documentação de orientação aqui: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
 
 
-parágrafo 1ª fornece o objetivo principal do artigo no frases curtos 1 ou 2. 
+parágrafo 1 fornece a intenção principal deste artigo em 1 ou 2 frases curtas. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para seguir este guia de procedimentos, tem de:
+Para seguir este guia de procedimentos, terá de:
 - [Uma conta do machine learning](template-howto.md)
 
 ## <a name="section-here-h2"></a>Secção aqui H2 
 Parágrafo aqui. 
-**Esta frase está a negrito. ** 
- *Esta frase é italics.*
+**Esta expressão é negrito. ** 
+ *Esta frase é itálico.*
 
-Este é um [hiperligação para um artigo](./template-concepts.md)
+Este é um [hiperlink para um artigo](./template-concepts.md)
 
 Esta é uma imagem:
 
-![Esta é uma descrição da imagem](media/overview-what-is-azure-ml/aml-concepts.png) tenha em atenção que as imagens têm de ser armazenados na pasta do suporte de dados com um subdiretório correspondente ao nome de artigo e, em seguida, o nome de ficheiro.
+![Esta é uma descrição de imagem](media/overview-what-is-azure-ml/aml-concepts.png) tenha em atenção que as imagens devem ser armazenados na pasta de multimédia com um subdiretório correspondente ao nome de artigo e, em seguida, o nome de ficheiro.
 
 ## <a name="section-here-h2"></a>Secção aqui H2
 Esta tabela tem cabeçalhos de:
 
 |Column1  |Column2  |Column3  |
 |---------|---------|---------|
-|Row1|Valor de 1|Valor A|
+|Row1|Valor 1|Valor A|
 |Row2|Valor 2|Valor B|
 |Row3|Valor 3|Valor C|
 
@@ -52,17 +52,17 @@ Esta é uma lista numerada:
 
 1. Primeiro item
 
-   Este parágrafo é avanços para ser o mesmo espaçamento como o primeiro item numerado.
+   Este parágrafo é recuado para ser o mesmo espaçamento como o primeiro item numerado.
 
 2. Segundo item
-   - Esta frase é uma marca
-   - Esta frase é outra marca
+   - Esta frase é um marcador
+   - Esta frase é outro marcador
 
 3. Terceiro item
 
-4. Estabelecido item
+4. Item para trás
 
-5. Item de quinta
+5. Quinto item
 
 ## <a name="this-list-is-bulleted-list"></a>Esta lista é uma lista com marcas:
 - Item 1
@@ -74,4 +74,4 @@ Esta é uma lista numerada:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter informações sobre a aprendizagem, consulte [outro artigo](template-howto.md)
+Para obter informações sobre o machine learning, consulte [outro artigo](template-howto.md)

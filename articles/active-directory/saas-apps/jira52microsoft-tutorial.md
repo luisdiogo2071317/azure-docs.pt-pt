@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 43ad99d4814923204b3b1993969bd6a0730530c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741747"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Active Directory com o JIRA SAML SSO pela Microsoft (V5.2)
 
@@ -62,7 +62,7 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 **Versões suportadas:**
 
 * JIRA Core e de Software: 5.2
-* JIRA também suporta 6.0 e 7.12. Para obter mais detalhes, clique em [JIRA SAML SSO pela Microsoft](jiramicrosoft-tutorial.md)
+* JIRA também suporta 6.0 para 7.12. Para obter mais detalhes, clique em [JIRA SAML SSO pela Microsoft](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

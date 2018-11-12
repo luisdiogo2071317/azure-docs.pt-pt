@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390181"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016705"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric perguntas mais frequentes
 
@@ -48,13 +48,9 @@ Alguns aspetos a ter em conta:
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Nós do Service Fabric recebe automaticamente as atualizações do SO?
 
-Não hoje em dia, mas também se trata de uma solicitação comum que tenciona do Azure para entregar.
+Pode usar [Máquina Virtual de dimensionamento definido SO imagem atualização automática](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) hoje mesmo a funcionalidade de disponibilidade geral.
 
-Até lá, temos [fornecido um aplicativo](service-fabric-patch-orchestration-application.md) que os sistemas de operativos sob os nós do Service Fabric se manter atualizado e corrigida.
-
-O desafio com as atualizações do SO é que, normalmente, requer um reinício da máquina, o que resulta em perda de disponibilidade temporário. Por si só, isso não é um problema, uma vez que o Service Fabric automaticamente irá redirecionar o tráfego para os serviços para outros nós. No entanto, se as atualizações do SO não são coordenadas entre o cluster, existe o potencial que muitos de nós descer ao mesmo tempo. Tais reinícios simultâneos podem causar a perda de disponibilidade completa para um serviço ou em, pelo menos, para uma partição específica (para um serviço com estado).
-
-No futuro, planeamos oferecer suporte uma política de atualização de SO que é totalmente automatizada e coordenada entre domínios de atualização, garantindo que a disponibilidade é mantida apesar das reinicializações e outras falhas inesperadas.
+Para os clusters que não são executados no Azure, temos [fornecido um aplicativo](service-fabric-patch-orchestration-application.md) para corrigir os sistemas de operativos sob os nós do Service Fabric.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Pode utilizar os conjuntos de dimensionamento de máquinas virtuais de grande no meu cluster SF? 
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057295"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035106"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Práticas recomendadas de serviço de cópia de segurança de infra-estrutura
 
@@ -52,7 +52,6 @@ A chave deve ser armazenada numa localização segura (por exemplo, segredo púb
 
 ### <a name="backups"></a>Cópias de segurança
 
- - Controlador de cópia de segurança da infraestrutura tem de ser acionada a pedido. Recomenda-se a cópia de segurança, pelo menos, duas vezes por dia.
  - Tarefas de cópia de segurança de execução enquanto o sistema está em execução, portanto, não sem períodos de indisponibilidade para as aplicações de utilizador ou experiências de gestão. Esperar que as tarefas de cópia de segurança demore 20 e 40 minutos para uma solução que está sob carga razoável.
  - Utilizar fornecido instruções de OEM, comutadores de rede manualmente cópias de segurança e o anfitrião de ciclo de vida do hardware (HLH) devem ser armazenados na mesma partilha de cópia de segurança em que o controle de arquivos do controlador de cópia de segurança de infra-estrutura do plano de dados de cópia de segurança. Considere armazenar o comutador e configurações de HLH na pasta de região. Se tiver várias instâncias do Azure Stack na mesma região, considere utilizar um identificador para cada configuração que pertence a uma unidade de escala.
 
@@ -95,5 +94,6 @@ O sistema suporta os seguintes alertas:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
- - Reveja o material de referência para o [serviço de cópia de segurança de infra-estrutura](azure-stack-backup-reference.md).  
- - Ativar a [serviço de cópia de segurança de infra-estrutura](azure-stack-backup-enable-backup-console.md).
+Reveja o material de referência para o [serviço de cópia de segurança de infra-estrutura](azure-stack-backup-reference.md).
+
+Ativar a [serviço de cópia de segurança de infra-estrutura](azure-stack-backup-enable-backup-console.md).
