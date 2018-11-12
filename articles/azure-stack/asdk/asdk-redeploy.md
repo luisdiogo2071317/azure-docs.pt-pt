@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413761"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037384"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplementar o ASDK
 Neste artigo, irá aprender a implementar novamente o Azure Stack Development Kit (ASDK) num ambiente de não produção. Como atualizar o ASDK não é suportada, precisa completamente reimplantá-la para mover para uma versão mais recente. Também pode implementar novamente o ASDK em qualquer altura em que pretende iniciar do zero.
@@ -60,7 +60,10 @@ Para remover o recurso de registo, utilize o **Remove-AzsRegistration** cmdlet p
 3. São-lhe pedido para iniciar sessão na sua subscrição do Azure e a instalação de ASDK local quando o script é executado.
 4. Quando o script tiver concluído, deverá ver as mensagens semelhantes aos exemplos seguintes:
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    ` Remove registration resource from Azure...`
+    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
@@ -95,7 +98,7 @@ Se não utilizou o script de asdk installer.ps1 para instalar o ASDK, tem de rec
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-[Pós-instalação de ASDK tarefas de configuração](asdk-post-deploy.md)
+[Publicar tarefas de implementação de ASDK](asdk-post-deploy.md)
 
 
 

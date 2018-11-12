@@ -1,6 +1,6 @@
 ---
-title: Armazenamento de BLOBs de dados de exemplo no Azure | Microsoft Docs
-description: Dados de exemplo no Blob Storage do Azure
+title: Armazenamento de BLOBs de dados de exemplo no Azure | Documentos da Microsoft
+description: Dados de exemplo no armazenamento de Blobs do Azure
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,27 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: ffb92df0e0727d02985ec26f61739cdc759d0f93
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9f987daf8b0f111f8d527b2f18dc5e3428df282a
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837672"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344931"
 ---
 # <a name="heading"></a>Armazenamento de BLOBs de dados de exemplo no Azure
-Este documento inclui dados de amostragem armazenados no armazenamento de Blobs do Azure, transferindo-a através de programação e, em seguida, fazendo a amostragem-la através de procedimentos escritos no Python.
 
-O seguinte **menu** ligações para tópicos que descrevem como dados de vários ambientes de armazenamento de exemplo. 
+Este artigo aborda os dados de amostragem armazenados no armazenamento de Blobs do Azure ao baixá-lo por meio de programação e, em seguida, a amostragem usando procedimentos escritos em Python.
 
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+**Por que os dados de exemplo?**
+Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa idéia para dimensionar os dados para reduzi-lo para um tamanho mais pequeno, mas representativo e mais gerenciável. Isso facilita a compreensão de dados, a exploração e a engenharia de funcionalidades. Sua função no Cortana Analytics Process é ativar a criação de protótipos rápida das funções de processamento de dados e modelos de machine learning.
 
-**Os dados de exemplo por que motivo?**
-Se o conjunto de dados que pretende analisar for grande, normalmente, é uma boa ideia baixo-sample os dados para reduzir para um tamanho mais pequeno, mas representativo e mais fácil gerir. Isto facilita a compreensão de dados, exploração e engenharia da funcionalidade. A função no processo de análise do Cortana é permitir o rápido fazer o protótipo das funções de processamento de dados e modelos de machine learning.
+Esta tarefa de amostragem é uma etapa na [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Esta tarefa de amostragem é um passo de [processo de ciência de dados de equipa (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-
-## <a name="download-and-down-sample-data"></a>Transferir e dados de exemplo para baixo
-1. Transferir os dados a partir do blob storage do Azure utilizando o serviço blob do código de Python do exemplo seguinte: 
+## <a name="download-and-down-sample-data"></a>Transferir e dimensionar dados
+1. Transferir os dados do armazenamento de Blobs do Azure com o serviço de Blobs do código de Python de exemplo seguinte: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -53,14 +50,14 @@ Esta tarefa de amostragem é um passo de [processo de ciência de dados de equip
         t2=time.time()
         print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 
-2. Ler dados para um intervalo de dados Pandas do ficheiro transferido acima.
+2. Ler os dados num quadro de dados Pandas do arquivo baixado anteriormente.
    
         import pandas as pd
    
         #directly ready from file on disk
         dataframe_blobdata = pd.read_csv(LOCALFILE)
 
-3. Os dados através de exemplo de baixo o `numpy`do `random.choice` da seguinte forma:
+3. Dimensionar os dados com o `numpy`do `random.choice` da seguinte forma:
    
         # A 1 percent sample
         sample_ratio = 0.01 
@@ -68,16 +65,16 @@ Esta tarefa de amostragem é um passo de [processo de ciência de dados de equip
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Agora, pode trabalhar com o intervalo de dados acima com o exemplo de 1 por cento mais de exploração e geração de funcionalidade.
+Agora, pode trabalhar com o quadro de dados acima com o exemplo de 1 por cento para obter uma exploração e a geração de funcionalidade.
 
 ## <a name="heading"></a>Carregar dados e lê-lo no Azure Machine Learning
-Pode utilizar o seguinte código de exemplo para os dados de exemplo para baixo e utilizá-lo diretamente no Azure Machine Learning:
+Pode utilizar o seguinte código de exemplo para dimensionar os dados e utilizá-lo diretamente no Azure Machine Learning:
 
-1. Escrever o intervalo de dados para um ficheiro local
+1. Escrever o quadro de dados para um ficheiro local
    
         dataframe.to_csv(os.path.join(os.getcwd(),LOCALFILENAME), sep='\t', encoding='utf-8', index=False)
 
-2. Carregar o ficheiro local para um blob do Azure utilizando o seguinte código de exemplo:
+2. Carregar o ficheiro local para um blob do Azure com o seguinte código de exemplo:
    
         from azure.storage.blob import BlobService
         import tables
@@ -99,7 +96,7 @@ Pode utilizar o seguinte código de exemplo para os dados de exemplo para baixo 
         except:            
             print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
 
-3. Ler os dados de Blobs do Azure utilizando o Azure Machine Learning [importar dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) conforme mostrado na imagem abaixo:
+3. Ler os dados de blob do Azure com o Azure Machine Learning [importar dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) conforme mostrado na imagem abaixo:
 
 ![blob de leitor](./media/sample-data-blob/reader_blob.png)
 

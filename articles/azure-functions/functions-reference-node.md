@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 18ff0e3fadad64f7bd7fe014a6dcec6a628ef1b9
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914557"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036551"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -109,8 +109,8 @@ module.exports = async function (context, req) {
 ## <a name="bindings"></a>Enlaces 
 No JavaScript, [enlaces](functions-triggers-bindings.md) são configuradas e definidos em Function uma função. Funções de interagirem com as ligações de diversas formas.
 
-### <a name="reading-trigger-and-input-data"></a>Acionador de leitura e dados de entrada
-Acionar e enlaces de entrada (enlaces de `direction === "in"`) podem ser lidos por uma função de três formas:
+### <a name="inputs"></a>Entradas
+Entrada são divididas em duas categorias nas funções do Azure: um é a entrada de Acionador e o outro é a entrada adicional. Acionador e outros enlaces de entrada (enlaces de `direction === "in"`) podem ser lidos por uma função de três formas:
  - **_[Recomendável]_  Como parâmetros transmitidos para a sua função.** Elas são passadas para a função na mesma ordem em que elas estão definidas na *Function*. Tenha em atenção que o `name` propriedade definida no *Function* não tem de corresponder ao nome do seu parâmetro, embora ele deve.
  
    ```javascript
@@ -137,7 +137,7 @@ Acionar e enlaces de entrada (enlaces de `direction === "in"`) podem ser lidos p
    };
    ```
 
-### <a name="writing-data"></a>Escrita de dados
+### <a name="outputs"></a>Saídas
 Saídas (enlaces de `direction === "out"`) pode ser escrito por uma função de diversas formas. Em todos os casos, o `name` propriedade da ligação, conforme definido na *Function* corresponde ao nome do membro de objeto escrito na sua função. 
 
 Pode atribuir os dados para ligações de saída de uma das seguintes formas. Não deve combinar esses métodos.

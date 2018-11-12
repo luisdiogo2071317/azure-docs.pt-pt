@@ -1,22 +1,22 @@
 ---
-title: Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight - Azure
-description: Ative capturas de área dinâmica para dados para serviços do Hadoop de clusters do HDInsight baseado em Linux para depuração e análise.
+title: Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight - Azure
+description: Ative capturas de área dinâmica para dados para os serviços do Apache Hadoop de clusters do HDInsight baseado em Linux para depuração e análise.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095587"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037719"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight baseado em Linux
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Ativar capturas de área dinâmica para dados dos serviços de Apache Hadoop no HDInsight baseado em Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ Capturas de área dinâmica para dados contém um instantâneo de memória do ap
 
 Pode ativar os registos da área dinâmica para os seguintes serviços:
 
-* **hcatalog** -tempelton
-* **Hive** -hiveserver2, metastore, derbyserver
+* **O Apache hcatalog** -tempelton
+* **Ramo de registo do Apache** -hiveserver2, metastore, derbyserver
 * **mapreduce** -jobhistoryserver
-* **yarn** -resourcemanager nodemanager, timelineserver
-* **hdfs** -datanode secondarynamenode, namenode
+* **Apache yarn** -resourcemanager nodemanager, timelineserver
+* **Apache hdfs** -datanode secondarynamenode, namenode
 
 Também pode ativar os registos da área dinâmica para o mapa e reduzir processos executaram pelo HDInsight.
 
@@ -49,7 +49,7 @@ Mapa e redução processos são ligeiramente diferentes, como essas operações 
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Recomendamos que utilize Ambari para modificar os scripts e de definições de site mapred, como identificador de Ambari, a replicação de alterações em todos os nós do cluster. Consulte a [Ambari usando](#using-ambari) secção para obter passos específicos.
+> Recomendamos que utilize Apache Ambari para modificar os scripts e de definições de site mapred, como identificador de Ambari, a replicação de alterações em todos os nós do cluster. Consulte a [Ambari usando](#using-ambari) secção para obter passos específicos.
 
 ### <a name="enable-heap-dumps"></a>Ativar capturas de área dinâmica para dados
 

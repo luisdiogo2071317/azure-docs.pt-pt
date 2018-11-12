@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093838"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037401"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -35,7 +35,7 @@ O diagrama seguinte mostra uma vista conceptual do comportamento e fluxo de dado
 
 ![Atualizar o fluxo do processo de gestão](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino. Para gerir máquinas num inquilino diferente, tem de integrá-los como [máquinas não Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas em várias subscrições no mesmo inquilino.
 
 Assim que um CVE versão, demora 2 a 3 horas para o patch seja apresentado para computadores Linux para avaliação.  Para máquinas Windows, demora de 12 a 15 horas para o patch a aparecer para avaliação, após ele foi lançado.
 
