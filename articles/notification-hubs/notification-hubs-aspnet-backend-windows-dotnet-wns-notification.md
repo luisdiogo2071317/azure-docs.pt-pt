@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
 ms.author: dimazaid
-ms.openlocfilehash: ee0e78402515a733731e6faf21b09886674cda51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d2d0e878aed5b200852e56a29ce0430305d4efc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452418"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251547"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: enviar notificações para utilizadores específicos com Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -222,7 +222,7 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
     ```
 1. Clique com o botão direito do rato no projeto **WindowsApp**, clique em **Adicionar** e em **Classe**. Atribua um nome à classe **RegisterClient.cs** e, em seguida, clique em **OK** para gerar a classe.
    
-   Esta classe encapsula as chamadas REST necessárias para contactar o back-end da aplicação, para se registar para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](http://msdn.microsoft.com/library/dn743807.aspx). Utiliza um token de autorização guardado no armazenamento local quando clica no botão **Iniciar sessão e registar**.
+   Esta classe encapsula as chamadas REST necessárias para contactar o back-end da aplicação, para se registar para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](https://msdn.microsoft.com/library/dn743807.aspx). Utiliza um token de autorização guardado no armazenamento local quando clica no botão **Iniciar sessão e registar**.
 2. Adicione as seguintes declarações `using` na parte superior do ficheiro RegisterClient.cs:
 
     ```csharp   
