@@ -4,17 +4,17 @@ description: Utilizar o Visual Studio Code para desenvolver, criar e depurar um 
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984006"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566029"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar os módulos de C para o Azure IoT Edge
 
@@ -94,7 +94,7 @@ Em cada pasta de módulo, há vários arquivos de Docker para tipos de contentor
 2. Substitua o createOptions do módulo de C na **deployment.template.json** com abaixo conteúdo e guarde este ficheiro: 
     
     ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
 2. Na paleta de comandos VS Code, introduza e execute o comando **do Azure IoT Edge: solução de compilação e de Push IoT Edge**.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 50dcd2a6a2c8dc703b4c8c0ee8fb6270e0840581
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211643"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566470"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação após desastre de VMs de VMware para o Azure com o PowerShell
 
@@ -23,7 +23,8 @@ Saiba como:
 > [!div class="checklist"]
 > - Crie um cofre dos serviços de recuperação e defina o contexto do cofre.
 > - Valide o registo do servidor no cofre.
-> - Configure a replicação, incluindo uma política de replicação. Adicione o servidor vCenter e detetar VMs. > - Adicionar um servidor vCenter e detetar 
+> - Configure a replicação, incluindo uma política de replicação. Adicione o servidor vCenter e detetar VMs. 
+> - Adicionar um servidor vCenter e detetar 
 > - Criar contas de armazenamento para armazenar dados de replicação e replicar as VMs.
 > - Executar uma ativação pós-falha. Configurar definições de ativação pós-falha, efetue uma definição de e para replicar máquinas virtuais.
 
@@ -93,7 +94,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Utilize a chave de registo do cofre transferido e siga os passos nos artigos indicados abaixo para concluir a instalação e registo do servidor de configuração.
-   - [Escolha os seus objetivos de proteção](vmware-azure-set-up-source.md#choose-your-protection-goals)
+   - [Escolha os seus objetivos de proteção](vmware-azure-set-up-source.md#choose-protection-goals)
    - [Configurar o ambiente de origem](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>Definir o contexto do Cofre

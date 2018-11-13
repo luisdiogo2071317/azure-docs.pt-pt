@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: 99dddd86c9348c9791d3012b382298bb020e63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572588"
+---
 **1. Como serão clientes notificado sobre o SDK obsoletos?**
 
 A Microsoft fornecerá 12 meses notificação antecipada para o fim do suporte do SDK obsoletos para facilitar uma transição tranquila para um SDK suportado. Além disso, os clientes serão notificados por meio de vários comunicação canais – Portal de gestão do Azure, Developer Center, postagem de blog, e atribuída de comunicação direta para os administradores de serviços.

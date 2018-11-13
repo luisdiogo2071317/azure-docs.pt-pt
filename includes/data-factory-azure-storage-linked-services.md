@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: e5f2afa4bc8a4b8eae523fde323d835c0c53fe8e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572573"
+---
 ### <a name="azure-storage-linked-service"></a>Serviço Ligado do Storage do Azure
 O **serviço ligado do armazenamento do Azure** permite-lhe associar uma conta de armazenamento do Azure para uma fábrica de dados do Azure utilizando o **chave de conta**, que fornece a fábrica de dados com o acesso global para o armazenamento do Azure. A tabela seguinte fornece uma descrição para elementos JSON específicos ao serviço ligado do armazenamento do Azure.
 

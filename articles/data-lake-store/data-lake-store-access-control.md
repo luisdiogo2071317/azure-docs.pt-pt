@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432628"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567490"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -128,9 +128,11 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 
 Nas ACLs POSIX, cada utilizador está associado um "grupo principal". Por exemplo, o utilizador "alice" poderá pertencer ao grupo "finanças". A Alice poderá, também, pertencer a vários grupos, mas um dos grupos será sempre o grupo principal dela. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
 
-**Assiging o grupo proprietário para um novo ficheiro ou pasta**
+Como não há nenhum "grupo principal" associado a utilizadores na geração 1 de armazenamento do Data Lake, o grupo proprietário é atribuído como abaixo.
 
-* **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido como o utilizador que criou a conta.
+**Atribuir o grupo proprietário para um novo ficheiro ou pasta**
+
+* **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido para um GUID de todos os de zero.  Este valor não permite que qualquer acesso.  É um marcador de posição até a hora num que grupo é atribuído.
 * **Caso 2** (todos os outros casos): quando é criado um item novo, o grupo proprietário é copiado da pasta principal.
 
 **Alterar o grupo proprietário**
@@ -140,7 +142,9 @@ O grupo proprietário pode ser alterado por:
 * Pelo utilizador proprietário, se o utilizador proprietário também for membro do grupo de destino.
 
 > [!NOTE]
-> O grupo proprietário *não pode* alterar as ACLs de um ficheiro ou pasta.  Enquanto o grupo proprietário estiver definido como o utilizador que criou a conta no caso da pasta raiz, **Caso 1** acima, uma conta de utilizador individual não é válida para fornecer permissões através do grupo proprietário.  Pode atribuir esta permissão a um grupo de utilizadores válido, se aplicável.
+> O grupo proprietário *não pode* alterar as ACLs de um ficheiro ou pasta.
+>
+> Para as contas criadas antes de Setembro de 2018, o grupo proprietário foi definido para o utilizador que criou a conta no caso da pasta de raiz para **caso 1**, acima.  Uma única conta de utilizador não é válida para fornecer permissões através do grupo proprietário, portanto, não existem permissões são concedidas por esta predefinição. Pode atribuir esta permissão a um grupo de utilizador válido.
 
 
 ## <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso

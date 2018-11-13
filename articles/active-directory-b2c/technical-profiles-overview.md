@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe7d18cdfa88988e1c7dda7f1120d4750fa52e8c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269433"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578489"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre os perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
@@ -38,8 +38,7 @@ Um perfil técnico permite que esses tipos de cenários:
 - [SAML2](saml-technical-profile.md) -federação com qualquer fornecedor de identidade do protocolo SAML.
 - [Autodeclarativas](self-asserted-technical-profile.md) -interagir com o utilizador. Por exemplo, recolher as credenciais do utilizador para iniciar sessão, renderizar a página de inscrição ou de reposição de palavra-passe.
 - **WsFed** -federação com qualquer fornecedor de identidade de protocolo do WsFed. 
-- **Gerenciamento de sessões** -lidar com diferentes tipos de sessões. 
-- **Fornecedor de contexto do percurso de utilizador**
+- [Gerenciamento de sessões](active-directory-b2c-reference-sso-custom.md) -lidar com diferentes tipos de sessões. 
 - **O Application insights**
 
 ## <a name="technical-profile-flow"></a>Fluxo do perfil técnico
@@ -56,7 +55,7 @@ Todos os tipos de perfis técnicos partilham o mesmo conceito. Enviar afirmaçõ
     - Criar ou atualizar a conta de utilizador.
     - Envia e verifica se a mensagem de texto MFA.
 4. **ValidationTechnicalProfiles** – para uma [auto-avaliar relativamente perfil técnico](self-asserted-technical-profile.md), pode chamar uma entrada [perfil técnico de validação](validation-technical-profile.md). O perfil técnico de validação valida os dados com perfis criados pelo usuário e retorna uma mensagem de erro ou Ok, com ou sem afirmações de saída. Por exemplo, antes que o Azure AD B2C, crie uma nova conta, ele verifica se o utilizador já existe nos serviços de diretório. Pode chamar um perfil técnico da REST API para adicionar sua própria lógica de negócios.<p>O escopo das afirmações de saída de um perfil de técnicas de validação é limitado para o perfil técnico que invoca o perfil técnico de validação e de outros perfis de técnicas de validação sob o mesmo perfil técnico. Se pretender utilizar as afirmações de saída no próximo passo de orquestração, terá de adicionar as afirmações de saída para o perfil técnico que invoca o perfil técnico de validação.
-5. **OutputClaims** -afirmações são ajustadas para o conjunto de afirmações. Pode usar essas declarações na próxima etapa de orquestrações ou transformações de afirmações de saída.
+5. **OutputClaims** -afirmações são devolvidas para o conjunto de afirmações. Pode usar essas declarações na próxima etapa de orquestrações ou transformações de afirmações de saída.
 6. **OutputClaimsTransformations** -afirmações de cada saída de entrada [transformação de afirmações](claimstransformations.md) são captados a partir do conjunto de afirmações. As afirmações de saída do perfil técnico dos passos anteriores podem ser afirmações de entrada de uma transformação de afirmações de saída. Após a execução, as afirmações de saída são colocadas para trás no conjunto de afirmações. As afirmações de saída de uma transformação de afirmações de saída também podem ser afirmações de entrada de uma transformação de afirmações de saída subsequentes.
 7. **Único início de sessão em gerenciamento de sessão (SSO)** - [gestão de sessões SSO](active-directory-b2c-reference-sso-custom.md) controla a interação com um utilizador depois do utilizador já foi autenticado. Por exemplo, o administrador pode controlar se a seleção de fornecedores de identidade é apresentada, ou se os detalhes da conta local precisam de ser introduzido novamente.
 

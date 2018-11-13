@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: ad2032345332519713b177596df0556e4c35c18c
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741866"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567745"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhar com a alteração de suporte de feed no Azure Cosmos DB
 
@@ -177,7 +177,7 @@ A biblioteca de processador do feed de alterações simplifica as alterações d
 
 O cliente do esquerda foi iniciado primeiro e ele começou a monitorização de todas as partições, em seguida, o segundo cliente foi iniciado e, em seguida, a primeira desistir de algumas das concessões para segundo cliente. Como pode ver isso é excelente maneira de distribuir o trabalho entre clientes e computadores diferentes.
 
-Tenha em atenção que se tiver dois funtions de Azure sem servidor a mesma coleção de monitorização e utilizar a concessão do mesmo, em seguida, as duas funções podem obter documentos diferentes consoante a forma como a biblioteca de processador decide processo as partições.
+Tenha em atenção que se tem duas funções de Azure sem servidor a mesma coleção de monitorização e utilizar a concessão do mesmo, em seguida, as duas funções podem obter documentos diferentes consoante a forma como a biblioteca de processador decide processar as partições.
 
 <a id="understand-cf"></a>
 ### <a name="understanding-the-change-feed-processor-library"></a>Noções básicas sobre a alteração de biblioteca processador do feed

@@ -1,5 +1,5 @@
 ---
-title: Inicialização VM está bloqueada no "obtendo Windows pronto. Não desativar o seu computador." no Azure | Documentos da Microsoft
+title: O arranque da VM está preso em "A Preparar o Windows. Não desligue o computador." no Azure | Documentos da Microsoft
 description: Introduzir os passos para resolver o problema no qual VM arranque está bloqueado no "obtendo Windows pronto. Não desative o seu computador".
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: e0ad7a8b083a72a9d3c630fa53601aa8fb6ad601
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a51bd5c16a569d0464d4456e57933a09f2fb285
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862806"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567303"
 ---
-# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Inicialização VM está bloqueada no "obtendo Windows pronto. Não desativar o seu computador." no Azure
+# <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>O arranque da VM está preso em "A Preparar o Windows. Não desligue o computador." no Azure
 
-Este artigo ajuda-o a resolver o problema quando está bloqueada a Máquina Virtual (VM) sobre o "introdução Windows pronto. Não desativar o seu computador." estágio durante o arranque.
+Este artigo ajuda-o a resolver o problema quando está bloqueada a Máquina Virtual (VM) sobre o "introdução Windows pronto. Não desligue o computador." estágio durante o arranque.
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -189,7 +189,7 @@ $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Mi
 
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
 
-#Uncomment to add Availabilty Set
+#Uncomment to add Availability Set
 #$avSet = Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName;
 #$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
 
@@ -207,7 +207,7 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskN
 #Linux VM
 #$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Linux;
 
-#Uncomment to add additnal Data Disk
+#Uncomment to add additional Data Disk
 #Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
 
 New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;

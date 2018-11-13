@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038608"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566623"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -127,14 +127,43 @@ Código de HTTP|Significado|Razão possível
 
 ### <a name="json-response"></a>Resposta JSON
 
-Os resultados são devolvidos em formato JSON. O `simple` formato inclui apenas os campos de nível superior seguintes.
+Os resultados são devolvidos em formato JSON. Consoante os parâmetros de consulta, uma `simple` ou `detailed` formato está a ser devolvido.
+
+#### <a name="the-simple-format"></a>O `simple` formato 
+
+Este formato inclui os seguintes campos de nível superior.
 
 |Nome do campo|Conteúdo|
 |-|-|
-|`RecognitionStatus`|Estado, tais como `Success` para reconhecimento bem-sucedido. Consulte a tabela seguinte.|
+|`RecognitionStatus`|Estado, tais como `Success` para reconhecimento bem-sucedido. Ver isso [tabela](rest-apis.md#recognitionstatus).|
 |`DisplayText`|O texto reconhecido depois de capitalização, pontuação, normalização do texto inversa (conversão de texto falado forms mais curto, por exemplo, 200 para "duzentos" ou "Dr. Smith"para"doutor smith") e a máscara de linguagem inapropriada. Apresentar apenas com êxito.|
 |`Offset`|O tempo (em unidades de 100 nanossegundos), no qual a voz reconhecido começa no fluxo de áudio.|
 |`Duration`|A duração (em unidades de 100 nanossegundos) do voz reconhecido no fluxo de áudio.|
+
+#### <a name="the-detailed-format"></a>O `detailed` formato 
+
+Este formato inclui os seguintes campos de nível superior.
+
+|Nome do campo|Conteúdo|
+|-|-|
+|`RecognitionStatus`|Estado, tais como `Success` para reconhecimento bem-sucedido. Ver isso [tabela](rest-apis.md#recognition-status).|
+|`Offset`|O tempo (em unidades de 100 nanossegundos), no qual a voz reconhecido começa no fluxo de áudio.|
+|`Duration`|A duração (em unidades de 100 nanossegundos) do voz reconhecido no fluxo de áudio.|
+|`NBest`|Uma lista de alternativas interpretações sobre a mesma conversão de voz, ordenadas do provavelmente ao menos probabilidade. Consulte a [NBest Descrição](rest-apis.md#nbest).|
+
+#### <a name="nbest"></a>NBest
+
+O `NBest` campo é uma lista de alternativas interpretações sobre a mesma conversão de voz, classificados do maior probabilidade de, pelo menos, provavelmente. A primeira entrada é o mesmo, como o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
+
+|Nome do campo|Conteúdo|
+|-|-|
+|`Confidence`|A pontuação de confiança da entrada de 0,0 (sem confiança) para 1,0 (confiança total)
+|`Lexical`|O formulário léxico do texto reconhecido: as palavras reais reconhecidas.
+|`ITN`|O formulário ("canonical") normalizado de texto de inverso do texto reconhecido, com o telefone números, números, abreviaturas ("doutor smith" para "dr smith") e outras transformações aplicadas.
+|`MaskedITN`| O formulário ITN com a máscara de linguagem inapropriada aplicada, se solicitado.
+|`Display`| O formulário de apresentação do texto reconhecido, com a pontuação e capitalização adicionado.
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 O `RecognitionStatus` campo pode conter os seguintes valores.
 
@@ -148,17 +177,6 @@ O `RecognitionStatus` campo pode conter os seguintes valores.
 
 > [!NOTE]
 > Se o áudio consiste apenas em linguagem inapropriada e o `profanity` parâmetro de consulta está definido como `remove`, o serviço não devolve um resultado de conversão de voz.
-
-
-O `detailed` formato inclui os mesmos campos que o `simple` formatar, juntamente com um `NBest` campo. O `NBest` campo é uma lista de alternativas interpretações sobre a mesma conversão de voz, classificados do maior probabilidade de, pelo menos, provavelmente. A primeira entrada é o mesmo, como o resultado do reconhecimento principal. Cada entrada contém os seguintes campos:
-
-|Nome do campo|Conteúdo|
-|-|-|
-|`Confidence`|A pontuação de confiança da entrada de 0,0 (sem confiança) para 1,0 (confiança total)
-|`Lexical`|O formulário léxico do texto reconhecido: as palavras reais reconhecidas.
-|`ITN`|O formulário ("canonical") normalizado de texto de inverso do texto reconhecido, com o telefone números, números, abreviaturas ("doutor smith" para "dr smith") e outras transformações aplicadas.
-|`MaskedITN`| O formulário ITN com a máscara de linguagem inapropriada aplicada, se solicitado.
-|`Display`| O formulário de apresentação do texto reconhecido, com a pontuação e capitalização adicionado. Mesmo que `DisplayText` no resultado de nível superior.
 
 ### <a name="sample-responses"></a>Respostas de exemplo
 

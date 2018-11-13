@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2e8b2753a441b0d7f27745fdf622b26dcee7784a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263292"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572593"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 
@@ -167,7 +167,7 @@ Seguem-se alguns aspetos importantes a saber sobre metas de escalabilidade e des
 
 * **Desempenho e capacidade aprovisionada**
 
-    Quando aprovisiona um disco de armazenamento premium, ao contrário do armazenamento standard, haverá a garantia de capacidade, IOPS e débito desse disco. Por exemplo, se criar um disco de P50, Azure Aprovisiona a capacidade de armazenamento de 4095 GB, 7.500 IOPS e débito de 250-MB/s desse disco. Seu aplicativo pode usar toda ou parte da capacidade e desempenho.
+    Quando aprovisiona um disco de armazenamento premium, ao contrário do armazenamento standard, haverá a garantia de capacidade, IOPS e débito desse disco. Por exemplo, se criar um disco de P50, Azure Aprovisiona a capacidade de armazenamento de 4095 GB, 7.500 IOPS e débito de 250-MB/s desse disco. Seu aplicativo pode usar toda ou parte da capacidade e desempenho. Os discos SSD Premium foram concebidos para fornecer o destino desempenho 99,9% do tempo.
 
 * **Tamanho do disco**
 

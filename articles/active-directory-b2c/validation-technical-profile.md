@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: c21a5c5b23b709ce6683c51cf96f0e6ff89efc78
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543144"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568681"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnicas de validação numa política personalizada do Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Um perfil de técnicas de validação é um perfil técnico comum de qualquer pr
 }
 ```
 
-Afirmações que são ajustadas a partir de um perfil de técnicas de validação são adicionadas novamente para o conjunto de afirmações. Pode usar essas declarações nos perfis de técnicas de validação seguintes.
+Afirmações que são devolvidas a partir de um perfil de técnicas de validação são adicionadas novamente para o conjunto de afirmações. Pode usar essas declarações nos perfis de técnicas de validação seguintes.
 
 Perfis de técnicos de validação são executados na sequência que aparecem no **ValidationTechnicalProfiles** elemento. Pode configurar um perfil de técnicas de validação se a execução de quaisquer perfis de técnicas de validação subsequentes deve continuar se o perfil técnico de validação gera um erro ou for concluída com êxito.  
 
@@ -81,8 +81,8 @@ O **pré-condição** elemento contém seguintes elementos:
 Exemplo seguinte utiliza estes perfis de técnicas de validação: 
 
 1. O primeiro perfil técnico de validação verifica as credenciais de utilizador e não continua se ocorrer um erro, como o nome de utilizador inválido ou a palavra-passe incorreta. 
-2. O perfil técnico validação seguinte, não é executado se a afirmação userType não existir, ou se o valor do userType é `Partner`. O perfil técnico de validação tenta ler o perfil de utilizador da base de dados dos clientes internos e continue se ocorrer um erro, como o serviço de REST API não avançados ou qualquer erro interno.
-3. O perfil técnico validação última, não é executado se a afirmação userType não existe ou se o valor do userType é `Customer`. O perfil técnico de validação tenta ler o perfil de utilizador da base de dados interna do parceiro e continua se ocorrer um erro, como o serviço de REST API não avançados ou qualquer erro interno.
+2. O perfil técnico validação seguinte, não é executado se a afirmação userType não existir, ou se o valor do userType é `Partner`. O perfil técnico de validação tenta ler o perfil de utilizador da base de dados dos clientes internos e continue se ocorrer um erro, como o serviço de REST API não está disponível, ou qualquer erro interno.
+3. O perfil técnico validação última, não é executado se a afirmação userType não existe ou se o valor do userType é `Customer`. O perfil técnico de validação tenta ler o perfil de utilizador da base de dados interna do parceiro e continua se ocorrer um erro, como o serviço de REST API não está disponível, ou qualquer erro interno.
 
 ```XML
 <ValidationTechnicalProfiles>

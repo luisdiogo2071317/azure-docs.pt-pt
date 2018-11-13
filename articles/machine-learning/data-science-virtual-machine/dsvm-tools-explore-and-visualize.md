@@ -1,7 +1,7 @@
 ---
-title: Exploração e visualização as ferramentas do Data - Azure | Microsoft Docs
-description: Dados exploração e visualização de ferramentas para a máquina de Virtual de ciência de dados.
-keywords: ferramentas de ciência de dados, a máquina de virtual de ciência de dados, as ferramentas de ciência de dados, ciência de dados do linux
+title: Exploração e visualização ferramentas de dados - Azure | Documentos da Microsoft
+description: Exploração e visualização ferramentas de dados para a máquina de Virtual de ciência de dados.
+keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407219"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567388"
 ---
-# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Exploração e visualização as ferramentas do data na máquina de Virtual de ciência de dados
+# <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Ferramentas de exploração e visualização de dados na máquina de Virtual de ciência de dados
 
-Etapa chave de ciência de dados é compreender os dados. Ferramentas de exploração de dados e visualização de ajudam a acelerar a compreensão de dados. Seguem-se algumas ferramentas fornecidas no DSVM esse faciliate esta chave passo. 
+É uma etapa importante da ciência de dados compreender os dados. Visualização e ferramentas de exploração de dados ajudam a acelerar a compreensão de dados. Aqui estão algumas ferramentas fornecidas no DSVM que facilitam o nessa importante etapa. 
 
-## <a name="apache-drill"></a>Apache desagregação
+## <a name="apache-drill"></a>Apache Drill
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Motor de consulta SQL de código aberto no macrodados    |
+| O que é?   | Motor de consulta SQL de código-fonte aberto de macrodados    |
 | Versões suportadas DSVM      | Windows, Linux  |
-| Como é mesmo configurado / instalado o DSVM?      |  Instalado no `/dsvm/tools/drill*` no apenas no modo incorporado   |
-| Utilizações comuns      |  Exploração de dados no situ sem necessidade de ETL. Formatos includign CSV, JSON, relacionais tabelas, Hadoop e origens de dados diferentes de consulta     |
-| Como utilizar / executá-lo?      | Atalho do ambiente de trabalho  <br/> [Introdução ao desagregação em 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
-| Ferramentas relacionadas no DSVM      |   Rattle, Weka, SQL Server Management Studio      |
+| Como é ele configurado / instalado no DSVM?      |  Instalado em `/dsvm/tools/drill*` no modo de embedded apenas   |
+| Utilizações típicas      |  Exploração de dados no situ sem a necessidade de ETL. Consultar dados de diferentes origens e formatos includign CSV, JSON, tabelas relacionais, Hadoop     |
+| Como utilizar / executá-lo?      | Atalho de Desktop  <br/> [Introdução ao teste em 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
+| Ferramentas relacionadas na DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| O que é?   |  Weka é uma coleção de algoritmos do machine learning para tarefas de extração de dados. Os algoritmos podem ser aplicados diretamente a um conjunto de dados ou chamados a partir do seu próprio código de Java. Weka contém as ferramentas para o pré- processamento de dados, classificação, regressão, clustering, regras de associação e visualização. |
-| Edições de DSVM suportados     | Windows, Linux     |
-| Utilizações comuns      | Ferramenta de ML geral     |
-| Como utilizar / executá-lo?      | No Windows, procure Weka no Menu Iniciar. No Linux, inicie sessão com X2Go, em seguida, navegue para aplicações -> desenvolvimento -> Weka. |
-| Ligações para amostras      | [Exemplos de weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Ferramentas relacionadas no DSVM      |Xgboost LightGBM, Rattle,   |
+| O que é?   |  Weka é uma coleção de algoritmos de machine learning para tarefas de extração de dados. Os algoritmos podem ser aplicados diretamente a um conjunto de dados ou chamados a partir de seu próprio código de Java. Weka contém ferramentas para o processamento prévio de dados, classificação, regressão, clustering, regras de associação e visualização. |
+| Edições DSVM suportados     | Windows, Linux     |
+| Utilizações típicas      | Ferramenta de ML geral     |
+| Como utilizar / executá-lo?      | No Windows, procure Weka no Menu Iniciar. No Linux, inicie sessão com X2Go, em seguida, navegue para aplicativos -> desenvolvimento -> Weka. |
+| Links para amostras      | [Exemplos de weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Ferramentas relacionadas na DSVM      |Xgboost LightGBM, Rattle,   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| O que é?   |   Uma Interface gráfica para extração de dados através de R   |
-| Edições de DSVM suportados     | Windows, Linux     |
-| Utilizações comuns      | Ferramenta de extração de dados gerais de IU para R    |
-| Como utilizar / executá-lo?      | Ferramenta de UI. No Windows, inicie uma linha de comandos, execute o R e, em seguida, no interior de R executar `rattle()`. No Linux, ligar com X2Go, iniciar um terminal, execute o R e, em seguida, no interior de R executar `rattle()`. |
-| Ligações para amostras      | [Rattle](https://togaware.com/onepager/) |
-| Ferramentas relacionadas no DSVM      |Xgboost LightGBM, Weka,   |
+| O que é?   |   Uma Interface gráfica do usuário para Data Mining com R   |
+| Edições DSVM suportados     | Windows, Linux     |
+| Utilizações típicas      | Ferramenta de mineração de dados de interface de Usuário geral para R    |
+| Como utilizar / executá-lo?      | Ferramenta de interface do Usuário. No Windows, inicie uma linha de comandos, execute o R, em seguida, dentro de R executar `rattle()`. No Linux, conecte-se X2Go, iniciar um terminal, execute R, em seguida, dentro de R executar `rattle()`. |
+| Links para amostras      | [Rattle](https://togaware.com/onepager/) |
+| Ferramentas relacionadas na DSVM      |Xgboost LightGBM, Weka,   |
 
-## <a name="powerbi-desktop"></a>Power BI Desktop 
+## <a name="powerbi-desktop"></a>PowerBI Desktop 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Visualização de dados interativa e BI ferramenta    |
+| O que é?   | Visualização interativa de dados e ferramenta de BI    |
 | Versões suportadas DSVM      | Windows  |
-| Utilizações comuns      |  Visualização de dados e a criação de Dashboards   |
-| Como utilizar / executá-lo?      | Atalho do ambiente de trabalho (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Ferramentas relacionadas no DSVM      |   Visual Studio 2017, o código do Visual Studio, Juno      |
+| Utilizações típicas      |  Visualização de dados e a criação de Dashboards   |
+| Como utilizar / executá-lo?      | Atalho de Desktop (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Ferramentas relacionadas na DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

@@ -2,24 +2,20 @@
 title: Como configurar a palavra-passe início de sessão único para um applicationn externas à Galeria | Documentos da Microsoft
 description: Como configurar uma aplicação de externas à Galeria personalizada para segura baseada em palavra-passe de início de sessão único, quando não está listado na Galeria de aplicações do Azure AD
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356937"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578404"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar a palavra-passe início de sessão único para uma aplicação de externas à Galeria
 
@@ -115,7 +111,6 @@ Para configurar o início de sessão único para uma aplicação, siga estes pas
 
 11. Além disso, também pode fornecer as credenciais em nome do utilizador ao selecionar as linhas dos utilizadores e clicar em **as credenciais de atualização** e introduzindo o nome de utilizador e palavra-passe em nome dos utilizadores. Caso contrário, ser pedido aos utilizadores para introduzir as credenciais durante a inicialização propriamente ditas.
 
-12. **Opcional:** para determinadas aplicações de redes sociais como o Twitter e Facebook, também existe a opção de ativar o rollover automático da palavra-passe para a aplicação a uma frequência selecionada. Para ativar esta, selecione **eu quero que o Azure AD para gerir automaticamente a este utilizador ou palavra-passe do grupo** ao introduzir as credenciais em nome de um utilizador ou grupo. Em seguida, selecione o **frequência de Rollover (em semanas)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Atribuir um utilizador a uma aplicação diretamente
 

@@ -3,18 +3,18 @@ title: Implementar e monitorizar módulos para o Azure IoT Edge (CLI) | Document
 description: Gerir os módulos que são executados em dispositivos periféricos
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3f2e7de6b32b4cca6320933050775f843e2cdf39
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394617"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567938"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos do IoT Edge em escala com a CLI do Azure
 
@@ -144,7 +144,7 @@ Utilize o seguinte comando para criar uma implementação:
 * **– etiquetas** -adicionar etiquetas para ajudar a monitorizar as suas implementações. As etiquetas são pares de valor que descrevem a implementação, nome de. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`
 * **– conteúdo** -Filepath para a implementação de manifesto JSON. 
 * **-nome do hub** -nome do hub IoT em que a implementação será criada. O hub tem de ser na subscrição atual. Mude para a subscrição pretendida com o comando `az account set -s [subscription name]`
-* **– condição de destino** -introduza uma condição de destino para determinar quais os dispositivos que serão visados para esta implementação. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades comunicadas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
+* **– condição de destino** -introduza uma condição de destino para determinar quais os dispositivos que serão visados para esta implementação. A condição baseia-se nas etiquetas de twin do dispositivo ou o dispositivo duplo propriedades comunicadas e deve corresponder ao formato de expressão. Por exemplo, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 * **– prioridade** -um número inteiro positivo. No caso de duas ou mais implementações destinam-se no mesmo dispositivo, será aplicada a implementação com o maior valor numérico da prioridade.
 
 ## <a name="monitor-a-deployment"></a>Monitorizar uma implementação
@@ -157,7 +157,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 * **– id de implementação** -o nome da implementação que existe no IoT hub.
 * **-nome do hub** -nome do hub IoT na qual existe a implementação. O hub tem de ser na subscrição atual. Mude para a subscrição pretendida com o comando `az account set -s [subscription name]`
 
-Inspecione a implementação na janela de comando. O **métricas** listas de propriedades de uma contagem para cada métrica que é avaliada por cada hub:
+Inspecione a implementação na janela de comando. O **métricas** listas de propriedades de uma contagem para cada métrica que é avaliada por cada hub:
 * **targetedCount** -uma métrica de sistema que especifica o número de dispositivos duplos no IoT Hub que correspondem à condição de destino.
 * **appliedCount** -uma métrica do sistema Especifica o número de dispositivos que tenha tido a conteúdo de implementação aplicada a seus duplos de módulo do IoT Hub.
 * **reportedSuccessfulCount** -uma métrica de dispositivo que especifica o número de dispositivos de ponta na implementação do relatório de sucesso do tempo de execução de cliente do IoT Edge.

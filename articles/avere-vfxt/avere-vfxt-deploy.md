@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: eb0f5a4a4219c63334e0a5be3ea4378c3c317bec
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288106"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578642"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Implementar o cluster vFXT
 
@@ -90,6 +90,7 @@ Sob **termos e condições**:
 
   > [!NOTE] 
   > Se não for um proprietário da subscrição, ter um proprietário de aceitar os termos para, seguindo o pré-requisito os passos [aceitar software termos com antecedência](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
+
 
 Clique em **Compra** quando terminar. Depois de cinco ou seis minutos, o nó de controlador estará em execução.
 
@@ -225,7 +226,9 @@ Para fazer o resto dos passos de implementação, terá de ligar ao controlador 
 ## <a name="create-the-cluster-node-access-role"></a>Criar a função de acesso de nó de cluster
 
 > [!NOTE] 
-> Se não for um proprietário da subscrição e a função já não tiver sido criada, ter um proprietário de subscrição, siga estes passos ou utilize o procedimento [criar a função de acesso de tempo de execução do Avere vFXT cluster sem um controlador](avere-vfxt-pre-role.md).
+> * Se não for um proprietário da subscrição e a função já não tiver sido criada, ter um proprietário de subscrição, siga estes passos ou utilize o procedimento [criar a função de acesso de tempo de execução do Avere vFXT cluster sem um controlador](avere-vfxt-pre-role.md).
+> 
+> * Usuários internos da Microsoft devem utilizar a função existente com o nome "Operador de tempo de execução do Cluster de Avere" em vez de tentar criar um. 
 
 [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) dá os nós do cluster vFXT autorização para efetuar tarefas necessárias.  
 

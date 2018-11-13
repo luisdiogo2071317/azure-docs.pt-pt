@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651536"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578676"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -38,7 +38,7 @@ Utilizar uma identidade gerida num contentor em execução para autenticar a qua
 
 ### <a name="enable-a-managed-identity"></a>Ativar uma identidade gerida
 
- No Azure Container Instances, identidades geridas para recursos do Azure são suportadas a partir de 2018-10-01 de versão de API de REST e ferramentas e os SDKs correspondentes. Quando cria um grupo de contentores, ativar uma ou mais identidades geridas ao definir uma [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) propriedade. Também pode ativar ou atualizar identidades geridas depois de um grupo de contentores está em execução; qualquer uma das ações faz com que o grupo de contentores reiniciar. Para definir as identidades num grupo de contentores de novo ou existente, utilize a CLI do Azure, um modelo do Resource Manager ou um ficheiro YAML. 
+ No Azure Container Instances, identidades geridas para recursos do Azure são suportadas a partir de 2018-10-01 de versão de API de REST e ferramentas e os SDKs correspondentes. Quando cria um grupo de contentores, ativar uma ou mais identidades geridas ao definir uma [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) propriedade. Também pode ativar ou atualizar identidades geridas depois de um grupo de contentores está em execução; qualquer uma das ações faz com que o grupo de contentores reiniciar. Para definir as identidades num grupo de contentores de novo ou existente, utilize a CLI do Azure, um modelo do Resource Manager ou um ficheiro YAML. 
 
 O Azure Container Instances suporta ambos os tipos de identidades do Azure geridas: atribuído ao utilizador e sistema atribuídos. Num grupo de contentor, pode ativar uma identidade atribuída de sistema, um ou mais identidiades atribuídas ou ambos os tipos de identidades. 
 

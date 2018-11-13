@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2436a4e75045200a8d2f48586e31ebfa0c03705a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012110"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566266"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -110,6 +110,8 @@ O servidor de configuração é executado no local para componentes do Site Reco
 - O servidor de processos atua como um gateway de replicação. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-o para o armazenamento do Azure., o servidor de processos também instala o serviço de mobilidade nas VMs que pretende replicar e efetua a deteção automática de VMs de VMware no local.
 - O servidor de destino principal processa dados de replicação durante a reativação pós-falha do Azure.
 
+[Saiba mais](vmware-azure-architecture.md) sobre os componentes de servidor de configuração e os processos.
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>Onde posso configurar o servidor de configuração?
 Precisa de uma VM do VMware único elevada disponibilidade no local para o servidor de configuração.
 
@@ -126,15 +128,35 @@ Não. Para tal, terá de configurar um servidor de configuração em cada regiã
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Pode alojar um servidor de configuração no Azure?
 Ainda que possível, a VM do Azure com o servidor de configuração têm de comunicar com a sua infraestrutura de VMware no local e VMs. Isso pode adicionar as latências e afetar os replicação em curso.
 
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Onde posso obter a versão mais recente do modelo de servidor de configuração?
-Baixe a versão mais recente a partir da [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-
 ### <a name="how-do-i-update-the-configuration-server"></a>Como posso atualizar o servidor de configuração?
-Instalar os update rollups. Pode encontrar as informações de atualização mais recente na [página de atualizações de wiki](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+[Saiba mais sobre](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) a atualizar o servidor de configuração. Pode encontrar as informações de atualização mais recente na [página de atualizações do Azure](https://azure.microsoft.com/updates/?product=site-recovery). Pode transferir a versão mais recente do servidor de configuração de também diretamente [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Deve posso criar cópias de segurança do servidor de configuração implementada?
 Recomendamos que faça cópias de segurança agendadas regulares do servidor de configuração. Para a reativação pós-falha concluída com êxito, a máquina virtual que está a ser realizarão a reativação pós-falha tem de existir na base de dados de servidor de configuração e o servidor de configuração tem de estar em execução e num estado ligado. Pode saber mais sobre tarefas de gestão de servidor de configuração comuns [aqui](vmware-azure-manage-configuration-server.md).
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Quando eu estou configurar o servidor de configuração, posso transferir e instalar manualmente o MySQL?
+Sim. Transferir o MySQL e colocá-la a **C:\Temp\ASRSetup** pasta. Em seguida, instale manualmente. Quando configurar a VM do servidor de configuração e aceitar os termos, MySQL será listada como **já instalado** na **transferir e instalar**.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Pode evitar o download de MySQL mas permitir que o Site Recovery instalá-lo?
+Sim. Transferir o instalador do MySQL e colocá-la a **C:\Temp\ASRSetup** pasta.  Quando configurou a VM do servidor de configuração, aceite os termos e clique em **transferir e instalar**, o portal irá utilizar o instalador que adicionou ao instalar o MySQL.
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL posso utilizar o servidor de configuração de VM para qualquer outra coisa?
+Não, só deve utilizar a VM para o servidor de configuração. 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Pode alterar o Cofre registado no servidor de configuração?
+Não. Depois de um cofre é registrado no servidor de configuração, não pode ser alterado.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Pode utilizar o mesmo servidor de configuração para recuperação após desastre de VMs de VMware e servidores físicos
+Sim, mas tenha em atenção que a máquina física pode apenas ser falha novamente para uma VM do VMware.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Onde posso transferir a frase de acesso para o servidor de configuração?
+[Rever este artigo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) para saber mais sobre a frase de acesso a transferir.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>Onde posso transferir as chaves de registo do Cofre?
+
+Na **Cofre de serviços de recuperação**, **gerir** > **infraestrutura do Site Recovery** > **deservidoresdeconfiguração**. Na **servidores**, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
+
+
 
 ## <a name="mobility-service"></a>Serviço de Mobilidade
 

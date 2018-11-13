@@ -2,18 +2,18 @@
 title: Criar um gateway transparente com o Azure IoT Edge | Documentos da Microsoft
 description: Utilizar um dispositivo Azure IoT Edge como gateway transparente que pode processar informações para vários dispositivos
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a48699507fbba18b20cb94e404c4814f25d31f44
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50915304"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568476"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 

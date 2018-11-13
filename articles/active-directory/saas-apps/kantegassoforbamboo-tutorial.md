@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ceab1293b5bd1fbae9088783651d0effa8c5a78a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e6e534aaa833d7c66216896765d20cdcf50a461
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449007"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Active Directory com o SSO Kantega para Bamboo
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Kantega SSO para Bamboo, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um SSO Kantega para Bamboo logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do SSO de Kantega para Bamboo com o Azure AD, ter
 
 **Para adicionar Kantega SSO para Bamboo a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![Active Directory][1]
 
@@ -263,7 +263,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Bamboo, tem de ser apr
 
     ![Adicionar o funcionário](./media/kantegassoforbamboo-tutorial/user1.png) 
 
-1. Clique em **Utilizadores**. Sob o **adicionar utilizador** secção, execute os passos de follwing:
+1. Clique em **Utilizadores**. Sob o **adicionar utilizador** secção, executar passos seguintes:
 
     ![Adicionar o funcionário](./media/kantegassoforbamboo-tutorial/user2.png) 
 

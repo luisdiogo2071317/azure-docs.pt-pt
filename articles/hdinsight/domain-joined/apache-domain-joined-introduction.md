@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf94ba73d57763f5e05ed9b33d10bb335103400a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a1b4565d4875b60ce36d74f8c99e4c7d79999c36
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946396"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578268"
 ---
 # <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Hadoop com o Enterprise Security Package
 
@@ -25,7 +25,7 @@ Pode criar um cluster do HDInsight com o pacote de segurança empresarial (ESP),
 O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para a segurança do Hive utilizando [Apache Ranger](http://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
 
 > [!NOTE]
-> As novas funcionalidades descritas neste artigo estão disponíveis em pré-visualização apenas nos seguintes tipos de cluster: Hadoop, Spark e a consulta interativa. Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
+> Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Segurança empresarial contém quatro pilares principais: segurança de perímetro, autenticação, autorização e encriptação.
 

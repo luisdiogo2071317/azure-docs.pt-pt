@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0fae059db53668da2d71906bbe94e9dabae931bc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960209"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578591"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>Utilize o Swagger duplos Digital do Azure
 
 Cada instância de duplos Digital do Azure aprovisionada inclui a sua própria documentação de referência do Swagger gerada automaticamente.
 
 [Swagger](https://swagger.io/), ou [OpenAPI](https://www.openapis.org/), une as informações de API complexas num recurso de referência interativa e de linguagem desconhecida. Swagger fornece o material de referência essencial sobre qual conteúdo JSON, métodos HTTP e pontos de extremidade específicos a utilizar para efetuar operações de uma API.
+
+> [!IMPORTANT]
+> Suporte para a autenticação de Swagger está temporariamente desativado durante a pré-visualização pública.
 
 ## <a name="swagger-summary"></a>Resumo do swagger
 
@@ -43,10 +46,10 @@ Pode acessar sua própria documentação Swagger da API de gestão gerada em:
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 ```
 
-| Nome do atributo personalizado | Substituir |
+| Nome personalizado | Substituir |
 | --- | --- |
-| *yourInstanceName* | O nome da sua instância de duplos Digital do Azure |
-| *yourLocation* | Qual sua instância estiver alojada num servidor a região |
+| yourInstanceName | O nome da sua instância de duplos Digital do Azure |
+| yourLocation | Qual sua instância estiver alojada num servidor a região |
 
 ## <a name="reference-material"></a>Material de referência
 
@@ -104,7 +107,10 @@ Os exemplos incluem também os códigos de erro para o ajudar a depurar ou melho
 
 ## <a name="swagger-oauth-20-authorization"></a>Autorização de OAuth 2.0 de swagger
 
-Para testar interativamente a pedidos relativos a recursos da API protegidos pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
+Para saber mais sobre testar interativamente os pedidos protegidos pelo OAuth 2.0, consulte a [documentação oficial](https://swagger.io/docs/specification/authentication/oauth2/).
+
+> [!NOTE]
+> Suporte para a autenticação do OAuth 2.0 está temporariamente desativado durante a pré-visualização pública.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

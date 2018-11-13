@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 75e37d228d523347ee54794ead5fbba6f278702a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260504"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569085"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -60,6 +60,13 @@ Para resolver este problema, remova o bloqueio do grupo de recursos e repita a o
 
 **Passo 1: [remover o bloqueio do grupo de recursos do ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
+
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas.
+
+**Código de erro**: UserErrorKeyvaultPermissionsNotConfigured <br>
+**Mensagem de erro**: cópia de segurança não tem permissões suficientes para o Cofre de chaves para cópia de segurança de VMs encriptadas. <br>
+
+Para a operação de cópia de segurança com êxito em VMs encriptadas, tem de ter permissões para aceder ao Cofre de chaves. Isso pode ser feito com o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) ou através do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - operação de instantâneo falhou devido a nenhuma conectividade de rede na máquina virtual
 

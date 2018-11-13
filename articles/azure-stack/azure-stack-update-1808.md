@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515595"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568238"
 ---
 # <a name="azure-stack-1808-update"></a>Atualização de 1808 de pilha do Azure
 
@@ -219,6 +219,8 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
    - *Nó de unidade de escala está offline*
    
   Volte a executar o [AzureStack teste](azure-stack-diagnostic-test.md) cmdlet para verificar o estado de funcionamento das instâncias de função de infraestrutura e dimensionar nós de unidade. Se não existem problemas são detetados pelo [AzureStack teste](azure-stack-diagnostic-test.md), pode ignorar estes alertas. Se for detetado um problema, pode tentar iniciar a instância de função de infraestrutura ou o nó com o portal de administração ou PowerShell.
+
+  Este problema é resolvido da versão mais recente [versão de correção de 1808](https://support.microsoft.com/help/4471992/), por isso, certifique-se de que instale esta correção, se estiver a ter o problema.
 
 <!-- 1264761 - IS ASDK --> 
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  

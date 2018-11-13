@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572578"
+---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Especificar a definição da estrutura para conjuntos de dados retangulares
 A seção de estrutura em conjuntos de dados JSON é um **opcional** secção para tabelas retangulares (com linhas e colunas) e contém uma coleção de colunas da tabela. Irá utilizar a secção de estrutura para qualquer um com informações de tipo para conversões de tipo ou fazer o mapeamento de colunas. As secções seguintes descrevem estas funcionalidades em detalhes. 
 

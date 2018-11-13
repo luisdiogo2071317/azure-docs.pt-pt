@@ -14,12 +14,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138797"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564923"
 ---
 # <a name="application-insights-cohorts"></a>Coortes do Application Insights
 
@@ -49,9 +49,9 @@ Sua equipe define um utilizador envolvido como qualquer pessoa que utilize a sua
     Há três parâmetros para esta coorte:
     * **Atividades**, em que escolha que eventos e vistas de página contam como "utilização".
     * **Período**, a definição de um mês.
-    * **UsedAtleastCustom**, o número de vezes que os utilizadores têm de utilizar algo dentro de um período para contar como envolvidos.
+    * **UsedAtLeastCustom**, o número de vezes que os utilizadores têm de utilizar algo dentro de um período para contar como envolvidos.
 
-4. Alteração **UsedAtleastCustom** ao **5 + dias**e deixe **período** no valor predefinido de 28 dias.
+4. Alteração **UsedAtLeastCustom** ao **5 + dias**e deixe **período** no valor predefinido de 28 dias.
 
     ![Usuários envolvidos](.\media\app-insights-usage-cohorts\003.png)
 
