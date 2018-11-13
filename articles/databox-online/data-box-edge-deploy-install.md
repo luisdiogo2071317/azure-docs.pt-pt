@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167363"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963851"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Tutorial: Instalar o Azure Data Box Edge (Pré-visualização)
 
@@ -111,8 +111,14 @@ Antes de começar a cablagem do dispositivo, é necessário:
 
 - Desembalar e montar o dispositivo físico do Edge em bastidor.
 - Dois cabos de alimentação. 
-- Dois cabos de rede RJ-45 de 1 GbE e quatro cabos SFP + cobre de 25 GbE.
+- Pelo menos um cabo de rede de 1 GbE RJ-45 para ligar à interface de gestão. Existem duas interfaces de rede de 1 GbE, uma de gestão e uma de dados, no dispositivo.
+- Um cabo de cobre de 25 GbE SFP+ para cada interface de rede de dados a ser configurada. Precisa de ter, pelo menos, uma interface de rede de dados (PORTAS 2, 3, 4, 5 ou 6) ligada à Internet (conectividade ao Azure).
 - Acesso a duas Unidades de Distribuição de Energia (recomendado).
+
+> [!NOTE]
+> - Se estiver a ligar apenas uma interface de rede de dados, recomendamos que utilize uma interface de rede de 25 GbE, como as PORTAS 3, 4, 5 ou 6, para enviar dados para o Azure. 
+> - Para obter um melhor desempenho e lidar com grandes volumes de dados, considere ligar todas as portas de dados.
+> - O dispositivo Edge deve estar ligado à rede do datacenter para que possa ingerir dados dos servidores de origem de dados. 
 
 O dispositivo Edge tem 8 SSDs NVMe. O painel frontal também tem LEDs de estado e botões de energia. O dispositivo inclui Unidades de Alimentação (PSUs) redundantes na parte posterior. O dispositivo tem seis interfaces de rede: duas interfaces de 1 Gbps e quatro interfaces de 25 Gbps. O dispositivo tem um controlador de gestão da placa base (BMC). Identifique as várias portas no painel posterior do dispositivo.
  
@@ -123,13 +129,7 @@ Siga os passos seguintes para ligar o dispositivo em termos de alimentação e r
 1. Ligue os cabos de alimentação a cada uma das PSUs no bastidor. Para garantir uma elevada disponibilidade, instale e ligue as PSUs a diferentes fontes de alimentação.
 2. Ligue os cabos de alimentação às unidades de distribuição de energia (PDUs) em bastidor. Certifique-se de que as duas PSUs utilizam fontes de alimentação separadas.
 3. Ligue a PORTA 1 da interface de rede de 1 GbE ao computador utilizado para configurar o dispositivo físico. A PORTA 1 é a interface de gestão dedicada.
-4. Ligue a PORTA 2 da interface de rede de 1 GbE através dos cabos de rede RJ-45 à rede do datacenter/Internet. 
-5. Ligue as PORTAS 3, 4, 5 e 6 das quatro interfaces de rede de 25 GbE através de cabos de SFP + cobre à rede do datacenter/Internet. 
-
-> [!NOTE]
-> - É necessário que pelo menos uma interface de rede de dados (PORTAS 2, 3, 4, 5 ou 6) esteja ligada à Internet (conectividade ao Azure). 
-> - Recomendamos que utilize uma interface de rede de 25 GbE, como as PORTAS 3, 4, 5 ou 6, para enviar dados para o Azure. 
-> - O dispositivo Edge deve estar ligado à rede do datacenter para que possa ingerir dados dos servidores de origem de dados.  
+4. Ligue uma ou mais das PORTAS 2, 3, 4, 5 ou 6 à rede/Internet do datacenter. Se ligar a PORTA 2, utilize o cabo de rede RJ-45. Para as interfaces de rede de 25 GbE, utilize os cabos de cobre SFP+.  
 
 
 ## <a name="next-steps"></a>Passos seguintes

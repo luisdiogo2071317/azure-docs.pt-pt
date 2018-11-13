@@ -2,19 +2,19 @@
 title: 'Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight '
 description: Saiba como carregar dados e executar consultas interativas em clusters do Spark no Azure HDInsight.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: jasonh
-ms.date: 05/17/2018
-ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.date: 11/06/2018
+ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047562"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244082"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Criar um pacote de dados a partir de um ficheiro CSV
 
-As aplicações podem criar pacotes de dados a partir de um Conjunto de Dados Distribuído Resiliente (RDD) existente, de uma tabela do Hive ou de origens de dados que utilizam o objeto SQLContext. A seguinte captura de ecrã mostra um instantâneo do ficheiro HVAC.csv utilizado neste tutorial. O ficheiro CSV é fornecido com todos os clusters do Spark no HDInsight. Os dados ilustram as variações de temperatura de alguns edifícios.
+As aplicações podem criar pacotes de dados diretamente a partir de ficheiros ou pastas para o armazenamento remoto, como o Armazenamento do Azure ou o Azure Data Lake Storage; ou de uma tabela do Hive; ou de outras origens de dados suportadas pelo Spark, como o Cosmos DB, a DB SQL do Azure, DW, etc. A seguinte captura de ecrã mostra um instantâneo do ficheiro HVAC.csv utilizado neste tutorial. O ficheiro CSV é fornecido com todos os clusters do Spark no HDInsight. Os dados ilustram as variações de temperatura de alguns edifícios.
     
 ![Instantâneo de dados para a consulta SQL interativa de Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para a consulta SQL interativa de Spark")
 
@@ -41,7 +41,7 @@ As aplicações podem criar pacotes de dados a partir de um Conjunto de Dados Di
 1. Abra o bloco de notas Jupyter Notebook que criou na secção de pré-requisitos.
 2. Cole o seguinte código numa célula vazia do bloco de notas e, em seguida, prima **SHIFT + ENTER** para o executar. O código importa os tipos necessários para este cenário:
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -52,14 +52,14 @@ As aplicações podem criar pacotes de dados a partir de um Conjunto de Dados Di
 
 3. Execute o seguinte código para criar um pacote de dados e uma tabela temporária (**hvac**) ao utilizar o seguinte código. 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > Ao utilizar o kernel do PySpark para criar um bloco de notas, os contextos de SQL são criados automaticamente quando executa a primeira célula de código. Não é necessário criar explicitamente os contextos.
+    > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
 
 
 ## <a name="run-queries-on-the-dataframe"></a>Executar consultas no pacote de dados
@@ -68,12 +68,10 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
 1. Execute o seguinte código numa célula vazia do bloco de notas:
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   Tendo em conta a utilização do kernel do PySpark no bloco de notas, agora pode executar diretamente uma consulta SQL interativa na tabela temporária **hvac**.
 
    É apresentado o seguinte resultado em forma de tabela.
 
@@ -89,7 +87,7 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Com o HDInsight, os seus dados são armazenados no Armazenamento do Azure ou no Azure Data Lake Store, pelo que pode eliminar um cluster em segurança quando este não estiver a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
+Com o HDInsight, os seus dados e os blocos de notas Jupyter são armazenados no Armazenamento do Azure ou no Azure Data Lake Store, pelo que pode eliminar um cluster em segurança quando este não estiver a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
 
 Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 

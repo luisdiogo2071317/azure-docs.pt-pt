@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
-ms.openlocfilehash: 9e4073fa54b7dda5ee9c413b84050510e2357893
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/06/2018
+ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013178"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278706"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API Streams do Apache Kafka
 
@@ -84,7 +84,7 @@ Seguem-se os aspetos importantes a compreender em relação ao ficheiro `pom.xml
 
 ### <a name="streamjava"></a>Stream.java
 
-O ficheiro `Stream.java` utiliza a API Streams para implementar uma aplicação de contagem de palavras. Lê os dados de um tópico do Kafka, denominado `test`, e escreve as contagens de palavras num tópico com o nome `wordcounts`.
+O ficheiro [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) utiliza a API Streams para implementar uma aplicação de contagem de palavras. Lê os dados de um tópico do Kafka, denominado `test`, e escreve as contagens de palavras num tópico com o nome `wordcounts`.
 
 O código seguinte define a aplicação de contagem de palavras:
 

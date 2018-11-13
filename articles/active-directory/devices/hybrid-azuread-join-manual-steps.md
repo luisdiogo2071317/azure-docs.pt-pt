@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408412"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962015"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente. 
 
@@ -504,6 +504,9 @@ Se alguns dos seus dispositivos associados a um domínio são dispositivos de n�
  
 - Adicionar o ponto final da autenticação de dispositivos do Azure AD às zonas de intranet local, para evitar pedidos de certificado durante a autenticação dos dispositivos.
 
+- Controlar dispositivos de nível inferior do Windows 
+
+
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Definir uma política no Azure AD para permitir que os utilizadores registem dispositivos
 
 Para registar dispositivos de nível inferior do Windows, tem de se certificar de que a definição para permitir que os utilizadores registem dispositivos no Azure AD está configurada. No portal do Azure, pode encontrar esta definição em:
@@ -551,6 +554,12 @@ No AD FS, tem de adicionar uma regra de transformação de emissão que seja tra
 Para evitar pedidos de certificado quando os utilizadores de dispositivos registados se autenticam no Azure AD, pode enviar uma política para os dispositivos associados ao domínio para adicionar o seguinte URL à zona de Intranet local no Internet Explorer:
 
 `https://device.login.microsoftonline.com`
+
+
+### <a name="control-windows-down-level-devices"></a>Controlar dispositivos de nível inferior do Windows 
+
+Para registar dispositivos de nível inferior do Windows, tem de transferir e instalar um pacote do Windows Installer (.msi) do Centro de Transferências. Para obter mais informações, clique [aqui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 
 ## <a name="verify-joined-devices"></a>Verificar dispositivos associados

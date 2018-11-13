@@ -1,173 +1,169 @@
 ---
-title: Descrição geral do Balanceador de carga do Azure | Documentos da Microsoft
-description: Descrição geral das funcionalidades, a arquitetura e a implementação de Balanceador de carga do Azure. Saiba como funciona o Balanceador de carga e tirar partido dos mesmos na cloud.
+title: Descrição geral do Balanceador de Carga do Azure | Microsoft Docs
+description: Descrição geral das funcionalidades, da arquitetura e da implementação do Balanceador de Carga do Azure. Saiba como o Balanceador de Carga funciona e como tirar partido do mesmo na cloud.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918747"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219584"
 ---
-# <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de carga do Azure?
+# <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
-Com o Balanceador de carga do Azure pode dimensionar as suas aplicações e criar disponibilidade elevada para os seus serviços. Balanceador de carga dá suporte a cenários de entrada e saídos, oferece baixa latência e alto débito e aumenta até milhões de fluxos para todas as aplicações TCP e UDP.  
+Com o Balanceador de Carga do Azure, pode dimensionar as aplicações e criar elevada disponibilidade para os seus serviços. O Balanceador de Carga suporta cenários de entrada e de saída, oferece baixa latência e alto débito e dimensiona-se até milhões de fluxos para todas as aplicações TCP e UDP.  
 
-Balanceador de carga distribui novos fluxos de entrada que chegam no front-end de Balanceador de carga para instâncias de conjunto de back-end, de acordo com as regras e sondas de estado de funcionamento. 
+O Balanceador de Carga distribui os fluxos de entrada novos que chegam ao front-end do Balanceador de Carga para as instâncias do conjunto de back-ends, de acordo com regras e sondas de estado de funcionamento. 
 
-Além disso, um balanceador de carga público pode fornecer as ligações de saída para máquinas virtuais (VMs) no interior da rede virtual ao traduzir os respetivos endereços IP privados para endereços IP públicos.
+Além disso, um balanceador de carga público pode fornecer ligações de saída para as máquinas virtuais (VMs) que estejam dentro da sua rede virtual, ao traduzir os respetivos endereços IP em endereços IP públicos.
 
-O Balanceador de carga do Azure está disponível em dois SKUs: básico e Standard. Existem diferenças em escala, funcionalidades e preços. Também é possível criar qualquer cenário que pode fazer com o Balanceador de carga básico com o Balanceador de carga Standard, embora as abordagens podem ser ligeiramente diferentes. Como saber sobre o Balanceador de carga, é importante para se familiarizar com os conceitos básicos e diferenças de específico de SKU.
+O Balanceador de Carga do Azure está disponível em dois SKUs - Básico e Standard. Há diferenças em termos de dimensionamento, funcionalidades e preços. Qualquer cenário possível no Balanceador de Carga Básico também pode ser criado com o Balanceador de Carga Standard, embora as abordagens possam ser ligeiramente diferentes. À medida que fica a conhecer o Balanceador de Carga, é importante que se familiarize com os conceitos básicos e as diferenças específicas de cada SKU.
 
-## <a name="why-use-load-balancer"></a>Porquê utilizar o Balanceador de carga? 
+## <a name="why-use-load-balancer"></a>Porquê utilizar o Balanceador de Carga 
 
-Pode utilizar o Azure Load Balancer para:
+Pode utilizar o Balanceador de Carga do Azure para:
 
-* Tráfego da internet de entrada balanceamento de carga para as suas VMs. Esta configuração é conhecida como uma [Balanceador de carga público](#publicloadbalancer).
-* Tráfego de balanceamento de carga entre VMs numa rede virtual. Também pode aceder um balanceador de carga front-end da partir de uma rede no local, num cenário híbrido. Ambos os cenários usam uma configuração que é conhecida como um [Balanceador de carga interno](#internalloadbalancer).
-* Tráfego de encaminhamento de porta para uma porta específica no VMs específicas com regras de tradução (NAT) de endereço de rede de entrada.
-* Fornecer [conectividade de saída](load-balancer-outbound-connections.md) para as VMs no interior da rede virtual, utilizando um balanceador de carga público.
+* Balancear a carga do tráfego de entrada da Internet para as suas VMs. Esta configuração é denominada [Balanceador de Carga Público](#publicloadbalancer).
+* Balancear a carga do tráfego entre VMs dentro de uma rede virtual. Também pode alcançar um front-end do Balanceador de Carga a partir de uma rede no local num cenário híbrido. Ambos os cenários utilizam uma configuração conhecida como [Balanceador de Carga Interno](#internalloadbalancer).
+* Encaminhar o tráfego de uma porta para uma porta específica em determinadas VMs com regras de tradução de endereços de rede (NAT).
+* Utilize um balanceador de carga público para fornecer [conectividade de saída](load-balancer-outbound-connections.md) às VMs dentro da sua rede virtual.
 
 
 >[!NOTE]
-> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se estiver à procura de terminação de protocolo TLS (Transport Layer Security) (“descarga de SSL”) ou de processamento de camada de aplicação por pedido HTTP/HTTPS, reveja [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md). Se estiver à procura de global DNS balanceamento de carga, reveja [Gestor de tráfego](../traffic-manager/traffic-manager-overview.md). Combinar estas soluções conforme necessário poderá trazer benefícios aos seus cenários completos.
+> O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se estiver à procura de terminação de protocolo TLS (Transport Layer Security) (“descarga de SSL”) ou de processamento de camada de aplicação por pedido HTTP/HTTPS, reveja [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md). Se pretender balanceamento de carga de DNS global, reveja [Gestor de Tráfego](../traffic-manager/traffic-manager-overview.md). Combinar estas soluções conforme necessário poderá trazer benefícios aos seus cenários completos.
 
-## <a name="what-are-load-balancer-resources"></a>Quais são os recursos do Balanceador de carga?
+## <a name="what-are-load-balancer-resources"></a>O que são os recursos do Balanceador de Carga?
 
-Um recurso de Balanceador de carga pode existir como um balanceador de carga público ou um balanceador de carga interno. Funções do recurso de Balanceador de carga são expressos como um front-end, uma regra, uma sonda de estado de funcionamento e uma definição de conjunto de back-end. Coloque as VMs para o pool de back-end, especificando o conjunto de back-end da VM.
+Os recursos do Balanceador de Carga podem existir como um balanceador de carga público ou interno. As funções dos recursos do Balanceador de Carga são expressos como um front-end, uma regra, uma sonda de estado de funcionamento e uma definição de conjunto de back-ends. Para colocar as VMs no conjunto de back-ends, especifique esse conjunto a partir da VM.
 
-Recursos do Balanceador de carga são objetos nos quais pode expressar como o Azure deve programar a sua infraestrutura de multi-inquilino para alcançar o cenário que deseja criar. Não existe nenhuma relação direta entre recursos do Balanceador de carga e a infraestrutura real. Criar um balanceador de carga não cria uma instância, e a capacidade está sempre disponível. 
+Os recursos do Balanceador de Carga são objetos dentro dos quais pode expressar de que forma é que o Azure deve programar a sua infraestrutura multi-inquilinos para chegar ao cenário que pretende criar. Não há uma relação direta entre os recursos do Balanceador de Carga e a infraestrutura propriamente dita. A criação de um balanceador de carga não cria uma instância e a capacidade está sempre disponível. 
 
-## <a name="fundamental-load-balancer-features"></a>Recursos fundamentais do Balanceador de carga
+## <a name="fundamental-load-balancer-features"></a>Funcionalidades básicas do Balanceador de Carga
 
-Balanceador de carga fornece as seguintes capacidades fundamentais para as aplicações TCP e UDP:
+O Balanceador de Carga proporciona as seguintes capacidades básicas para as aplicações TCP e UDP:
 
 * **Balanceamento de carga**
 
-    Com o Balanceador de carga do Azure, pode criar uma regra de balanceamento de carga para distribuir o tráfego que chega ao front-end para instâncias de conjunto de back-end. Balanceador de carga utiliza um algoritmo com base em hash para a distribuição de fluxos de entrada e reescreve os cabeçalhos de fluxos para instâncias de conjunto de back-end em conformidade. Um servidor está disponível para receber novos fluxos quando uma sonda de estado de funcionamento indica que um ponto de final de back-end em bom estado.
+    Com o Balanceador de Carga do Azure, pode criar uma regra de balanceamento de carga para distribuir o tráfego que chega ao front-end para instâncias do conjunto de back-ends. O Balanceador de Carga utiliza um algoritmo baseado em hash para a distribuição dos fluxos de entrada e reescreve os cabeçalhos dos fluxos nas instâncias do conjunto de back-ends, em conformidade. Um servidor está disponível para receber fluxos novos quando uma sonda de estado de funcionamento indica um ponto final de back-end em bom estado de funcionamento.
     
-    Por predefinição, o Balanceador de carga utiliza um hash de 5 cadeias de identificação composto por endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e número de protocolo IP para mapear fluxos para servidores disponíveis. Pode optar por criar afinidade com um endereço IP de origem específico ao optar por um hash de 2 ou 3-cadeias de identificação para uma determinada regra. Todos os pacotes do mesmo fluxo de pacote chegarem na mesma instância por trás do front-end com balanceamento de carga. Quando o cliente inicia um novo fluxo do mesmo IP de origem, as alterações de porta de origem. Como resultado, a 5 cadeias de identificação poderão fazer com que o tráfego Ir para um ponto de final de back-end diferente.
+    Por predefinição, o Balanceador de Carga utiliza um hash de 5 tuplas, o qual é composto por endereço IP de origem, porta de origem, endereço IP de destino, porta de destino e número do protocolo IP (Internet Protocol), para mapear os fluxos para os servidores disponíveis. Numa determinada regra, pode optar por um hash de 2 ou 3 tuplas para escolher criar afinidade com um endereço IP de origem específico. Todos os pacotes do mesmo fluxo de pacotes são entregues na mesma instância, atrás do front-end com carga balanceada. Quando o cliente inicia um fluxo novo a partir do mesmo IP de origem, a porta de origem altera-se. Como resultado, as 5 tuplas podem fazer com que o tráfego vá para outro ponto final de back-end.
 
-    Para obter mais informações, consulte [modo de distribuição de Balanceador de carga](load-balancer-distribution-mode.md). A imagem seguinte mostra a distribuição baseada em hash:
+    Para obter mais informações, veja [Load Balancer distribution mode](load-balancer-distribution-mode.md) (Modo de distribuição do Balanceador de Carga) A imagem seguinte apresenta a distribuição baseada em hashes:
 
-    ![Distribuição baseada em hash](./media/load-balancer-overview/load-balancer-distribution.png)
+    ![Distribuição baseada em hashes](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *Figura: A distribuição de Hash com base*
+    *Figura: distribuição baseada em hashes*
 
-* **Encaminhamento de porta**
+* **Encaminhamento de portas**
 
-    Com o Balanceador de carga, pode criar uma regra NAT de entrada para reencaminhar tráfego de porta de uma porta específica de um endereço IP de front-end específicas para uma porta específica de uma instância específica de back-end dentro da rede virtual. Isso também é realizado através da distribuição baseada em hash mesmo como balanceamento de carga. Cenários comuns para esta capacidade são sessões do protocolo RDP (Remote Desktop) ou Secure Shell (SSH) para instâncias de VM individuais dentro da rede Virtual do Azure. Pode mapear vários pontos de extremidade internos para as várias portas no mesmo endereço IP de front-end. Pode usá-los para administrar remotamente as suas VMs através da internet sem a necessidade de uma jumpbox adicionais.
+    Com o Balanceador de Carga, pode criar uma regra NAT de entrada para fazer o encaminhamento de portas do tráfego de uma porta específica de um endereço IP de front-end específico para uma porta específica de uma instância de back-end específica dentro da rede virtual. Esse encaminhamento também pode ser obtido pela mesma distribuição baseada em hashes como balanceamento de carga. Os cenários comuns para esta capacidade são as sessões protocolo RDP (Remote Desktop Protocol) ou Secure Shell (SSH) em instâncias de VMs individuais dentro da Rede Virtual do Azure. Pode mapear vários pontos finais internos para as diversas portas no mesmo endereço IP do front-end. Os endereços IP do front-end podem ser utilizados para administrar remotamente as VMs na Internet sem precisar de um servidor de salto.
 
-* **Aplicação agnóstica e transparente**
+* **Independente de aplicações e transparente**
 
-    Balanceador de carga não interage diretamente com o TCP ou UDP ou a camada de aplicativo e qualquer TCP ou cenário de aplicativo de UDP pode ser suportado.  Balanceador de carga não terminar ou se originam fluxos, interagir com o payload do fluxo, não fornece nenhuma função de gateway de camada de aplicativo e sempre ocorrem handshakes de protocolo diretamente entre o cliente e a instância de conjunto de back-end.  Uma resposta a um fluxo de entrada é sempre uma resposta de uma máquina virtual.  Quando chega o fluxo na máquina virtual, o endereço IP de origem original também é preservado.  Alguns exemplos ilustram melhor transparência:
-    - Cada ponto de extremidade é apenas respondido por uma VM.  Por exemplo, um handshake TCP sempre ocorre entre o cliente e o VM de back-end selecionado.  Uma resposta a um pedido para um front-end é uma resposta gerada pela VM de back-end. Quando a conectividade com um front-end validar com êxito, que está a validar a conectividade de ponto a ponto para, pelo menos, uma máquina de virtual de back-end.
-    - Payloads de aplicativo são transparentes para o Balanceador de carga e qualquer UDP ou TCP de aplicações pode ser suportada. Para cargas de trabalho que requerem por processamento de pedidos HTTP ou manipulação de payloads de camada de aplicativo (por exemplo, análise de HTTP URLs), deve utilizar um balanceador de carga de camada 7, como [Gateway de aplicação](https://azure.microsoft.com/services/application-gateway).
-    - Uma vez que o Balanceador de carga é agnóstico para o payload TCP e descarga de TLS ("SSL") não for fornecido, pode criar cenários criptografados de ponto a ponto com o Balanceador de carga e obter grandes aumentar horizontalmente para aplicativos de TLS ao terminar a ligação de TLS a própria VM.  Por exemplo, sua capacidade de chaves de sessão TLS é limitada apenas pelo tipo e número de VMs que adiciona ao agrupamento de back-end.  Se necessitar de "Descarga de SSL", tratamento de camada de aplicativo ou pretende delegar a gestão de certificados para o Azure, deve utilizar o Balanceador de carga de camada 7 do Azure [Gateway de aplicação](https://azure.microsoft.com/services/application-gateway) em vez disso.
+    O Balanceador de Carga não interage diretamente com TCP ou UDP nem com a camada de aplicação e permite qualquer cenário de aplicação TCP ou UDP.  O Balanceador de Carga não termina nem origina fluxos, não interage com o payload dos fluxos nem fornece nenhuma função de gateway de camada de aplicação e o protocolos e os handshakes ocorrem sempre entre o cliente e a instância do conjunto de back-ends.  Uma resposta a um fluxo de entrada é sempre uma resposta de uma máquina virtual.  Quando o fluxo chega à máquina virtual, o endereço IP de origem original também é preservado.  Veja dois exemplos que ilustram melhor a transparência:
+    - Cada ponto final só recebe uma resposta de uma VM.  Por exemplo, um handshake de TCP ocorre sempre entre o cliente e a VM de back-end selecionada.  Uma resposta a um pedido a um front-end é uma resposta gerada pela VM de back-end. Quando a conectividade a um front-end é validada com êxito, está a ser validada a conectividade ponto a ponto a, pelo menos, uma máquina virtual de back-end.
+    - Os payloads das aplicações são transparentes para o Balanceador de Carga e qualquer aplicação UDP ou TCP pode ser suportada. Relativamente a cargas de trabalho que precisem de processamento por pedido HTTP ou da manipulação dos payloads da camada de aplicação (por exemplo, analisar URLs HTTP), deve utilizar um balanceador de carga de 7 camadas, como o [Gateway de Aplicação](https://azure.microsoft.com/services/application-gateway).
+    - Uma vez que o Balanceador de Carga é independente do payload TCP e a descarga de TLS (“SSL”) não é fornecida, pode utilizar o Balanceador de Carga para criar cenários encriptados completos e obter um amplo escalamento horizontal para as aplicações TLS mediante a terminação da ligação TLS na própria VM.  Por exemplo, a capacidade de criação de chaves de sessão TLS só é limitada pelo tipo e o número de VMs que adicionar ao conjunto de back-ends.  Se precisar de “descarga de SSL” ou de tratamento da camada de aplicação ou quiser delegar a gestão de certificados ao Azure, deve utilizar o [Gateway de Aplicação](https://azure.microsoft.com/services/application-gateway), o balanceador de carga de 7 camadas do Azure.
         
 
 * **Reconfiguração automática**
 
-    Balanceador de carga instantaneamente reconfigura-se de quando instâncias de aumentar ou reduzir verticalmente. Adicionar ou remover VMs de conjunto de back-end reconfigura o Balanceador de carga sem operações adicionais no recurso do Balanceador de carga.
+    Quando aumenta ou reduz instâncias verticalmente, o Balanceador de Carga reconfigura-se a si próprio instantaneamente. Adicionar ou remover VMs do conjunto de back-ends reconfigura o Balanceador de Carga sem que sejam necessárias operações adicionais no recurso do Balanceador de Carga.
 
 * **Sondas de estado de funcionamento**
 
-    Para determinar o estado de funcionamento de instâncias no conjunto de back-end, o Balanceador de carga utiliza sondas de estado de funcionamento que definir. Quando uma sonda não consegue responder, o Balanceador de carga para enviar ligações novas para as instâncias em mau estado de funcionamento. Ligações existentes não são afetadas e podem continuar até que a aplicação concluir o fluxo, ocorre um tempo limite de inatividade, ou a VM é encerrada.
+    Para determinar o estado de funcionamento das instâncias no conjunto de back-ends, o Balanceador de Carga utiliza as sondas de estado de funcionamento que forem definidas por si. Quando uma sonda não consegue responder, o Balanceador de Carga deixa de enviar ligações novas para as instâncias em mau estado de funcionamento. As ligações já existentes não são afetadas e continuam até a aplicação terminar o fluxo, até ocorrer um tempo limite de inatividade ou até a VM ser encerrada.
      
-    Balanceador de carga fornece [tipos de sonda de estado de funcionamento de diferentes](load-balancer-custom-probe-overview.md#types) para pontos de extremidade TCP, HTTP e HTTPS.
+    O Balanceador de Carga disponibiliza [diferentes tipos de sondas de estado de funcionamento](load-balancer-custom-probe-overview.md#types) para os pontos finais TCP, HTTP e HTTPS.
 
-    Além disso, ao utilizar os serviços de nuvem de clássico, um tipo adicional é permitido: [agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Isso deve ser a considerar para ser uma sonda de estado de funcionamento de último recurso e não é recomendado quando outras opções são viáveis.
+    Além disso, se forem utilizados serviços cloud clássicos, é permitido outro tipo, [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Este deve ser encarado como uma sonda de estado de funcionamento de último recurso e não é recomendado caso as outras opções sejam viáveis.
     
 * **Ligações de saída (SNAT)**
 
-    Todos os fluxos de saída de endereços IP privados no interior da rede virtual para endereços IP públicos na internet podem ser traduzidos para um endereço IP de front-end de Balanceador de carga. Quando um front-end público está ligado a um VM de back-end por meio de uma regra de balanceamento de carga, o Azure programas ligações de saída para ser convertido automaticamente para o endereço IP público de front-end.
+    Todos os fluxos de saída de endereços IP privados dentro da sua rede virtual para endereços IP públicos na Internet podem ser traduzidos para um endereço IP de front-end do Balanceador de Carga. Se um front-end público estiver associado a uma VM de back-end por meio de uma regra de balanceamento de carga, o Azure programa as ligações de saída para serem traduzidas automaticamente para o endereço IP do front-end público.
 
-    * Ative uma atualização simples e recuperação após desastre de serviços, porque o front-end pode ser mapeado dinamicamente para outra instância do serviço.
-    * Mais fácil acesso (ACL) lista gestão de controlo para. ACLs expressas em termos de front-end IPs, não altere como o dimensionamento de serviços ou reduzir verticalmente ou obter reimplantados.  A tradução de ligações de saída para um número menor de endereços IP que máquinas podem reduzir a carga de listas de permissões.
+    * Permite a atualização e a recuperação após desastre fácil dos serviços, porque o front-end pode ser mapeado dinamicamente para outra instância do serviço.
+    * Facilita a gestão das listas de controlo de acesso (ACL). As ACLs expressas em termos de IPs de front-end não se alteram quando os serviços são aumentados ou reduzidos verticalmente ou reimplementados.  A tradução das ligações de saída para um número mais pequeno de endereços IP do que de máquinas pode reduzir a tarefa de criação de listas de permissões.
 
-    Para obter mais informações, consulte [ligações de saída](load-balancer-outbound-connections.md).
+    Para obter mais informações, veja [Outbound Connections](load-balancer-outbound-connections.md) (Ligações de Saída).
 
-Balanceador de carga standard tem capacidades específico de SKU adicionais além desses conceitos básicos. Reveja o resto deste artigo para obter detalhes.
+Para além destas capacidades básicas, o Balanceador de Carga Standard tem capacidades específicas de SKU adicionais. Leia o resto do artigo para ver os detalhes.
 
-## <a name="skus"></a> Comparação de SKU do Balanceador de carga
+## <a name="skus"></a> Comparação de SKUs do Balanceador de Carga
 
-Load Balancer suporta os SKUs básico e padrão, cada um diferentes na escala de cenário, recursos e preços. Qualquer cenário que pode fazer com o Balanceador de carga básico pode ser criado com o Balanceador de carga Standard também. Na verdade, as APIs para ambos os SKUs são semelhantes e invocado por meio da especificação de um SKU. A API para SKUs de suporte para o Balanceador de carga e o IP público está disponível a partir da API de 2017-08-01. Ambos os SKUs tenham a mesma API geral e a estrutura.
+O Balanceador de Carga suporta os SKUs Básico e Standard, cuja escala de cenários, funcionalidades e preços diferem. Qualquer cenário possível no Balanceador de Carga Básico pode ser criado com o Balanceador de Carga Standard. Na verdade, as APIs para ambos os SKUs são semelhantes e invocadas através da especificação de um SKU. A API para suportar SKUs para o Balanceador de Carga e o IP público está disponível a partir da API 2017-08-01. Os dois SKUs têm a mesma API e a mesma estrutura geral.
 
-No entanto, dependendo de qual SKU que escolher, a configuração do cenário completo poderá ser ligeiramente diferentes. Documentação do Load Balancer chama quando um artigo só se aplica a um SKU específico. Para comparar e compreender as diferenças, veja a seguinte tabela. Para obter mais informações, consulte [descrição geral do Balanceador de carga Standard](load-balancer-standard-overview.md).
+No entanto, dependendo do SKU que for escolhido, a configuração completa do cenário poderá ser ligeiramente diferente. A documentação do Balanceador de Carga indica se um artigo se aplica apenas a um SKU específico. Para comparar e compreender as diferenças, veja a tabela seguinte. Para obter mais informações, veja [Standard Load Balancer overview](load-balancer-standard-overview.md) (Descrição geral do Balanceador de Carga Standard).
 
 >[!NOTE]
-> Novos designs devem adotar o Balanceador de carga Standard. 
+> Os designs novos devem adotar o Balanceador de Carga Standard. 
 
-VMs autónomas e conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual podem ser conectados a apenas um SKU, não ambos. Quando usá-los com endereços IP públicos, Balanceador de carga e o endereço IP público SKU tem de corresponder. SKUs de IP público do Balanceador de carga e não são mutáveis.
+As VMs autónomas, os conjuntos de disponibilidade e os conjuntos de dimensionamento de máquinas virtuais só podem ser ligados a um SKU, nunca a ambos. Quando os utiliza com os endereços IP públicos, tanto o Balanceador de Carga, como o SKU do endereço IP público, têm de corresponder. O Balanceador de Carga e os SKUs de IP público não são mutáveis entre si.
 
-_É melhor prática para especificar os SKUs explicitamente, mesmo que ainda não é obrigatório._  Neste momento, as alterações necessárias são mantidas num mínimo. Se não for especificado um SKU, ela é interpretada como uma intenção de utilizar a versão de API de 2017-08-01 de SKU básico.
+_É boa prática especificar os SKUs explicitamente, embora não seja obrigatório._  Nesta fase, estamos a manter as alterações obrigatórias no mínimo. Se não for especificado um SKU, pressupõe-se que a intenção é utilizar a versão 2017-08-01 da API do SKU Básico.
 
 >[!IMPORTANT]
->Balanceador de carga Standard é um novo produto de Balanceador de carga e amplamente um superconjunto do Balanceador de carga básico. Existem diferenças importantes ponderada e deliberadas entre os dois produtos. Também é possível criar qualquer cenário de ponto-a-ponto que é possível com o Balanceador de carga básico com o Balanceador de carga Standard. Se já está acostumado a Balanceador de carga básico, deve se familiarizar com o Balanceador de carga Standard para compreender as alterações mais recentes no comportamento entre o Standard e Basic e seu impacto. Rever esta secção com cuidado.
+>O Balanceador de Carga Standard é um produto novo do Balanceador de Carga e consiste, em grande medida, num superconjunto do Balanceador de Carga Básico. Há diferenças importantes e propositadas entre ambos os produtos. Qualquer cenário completo possível no Balanceador de Carga Básico também pode ser criado com o Balanceador de Carga Standard. Se já estiver habituado ao Balanceador de Carga Básico, deve familiarizar-se com o Standard, para compreender as últimas alterações ao comportamento entre o Básico e o Standard e o respetivo impacto. Leia esta secção atentamente.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
-Para obter mais informações, consulte [limites de serviço para o Balanceador de carga](https://aka.ms/lblimits). Para obter detalhes de Balanceador de carga Standard, veja [descrição geral](load-balancer-standard-overview.md), [preços](https://aka.ms/lbpricing), e [SLA](https://aka.ms/lbsla).
+Para obter mais informações, veja os [limites de serviço do Balanceador de Carga](https://aka.ms/lblimits). Relativamente aos detalhes do Balanceador de Carga Standard, veja a [descrição geral](load-balancer-standard-overview.md), os [preços](https://aka.ms/lbpricing) e o [SLA](https://aka.ms/lbsla).
 
 ## <a name="concepts"></a>Conceitos
 
-### <a name = "publicloadbalancer"></a>Balanceador de carga público
+### <a name = "publicloadbalancer"></a>Balanceador de Carga Público
 
-Um balanceador de carga público mapeia o IP público endereço e porta número do tráfego de entrada para o IP endereço e a porta número privado da VM e vice-versa para o tráfego de resposta da VM. Ao aplicar regras de balanceamento de carga, pode distribuir os tipos específicos de tráfego em várias VMs ou serviços. Por exemplo, pode distribuir a carga de tráfego de solicitação da web em vários servidores web.
+Os balanceadores de carga públicos mapeiam o endereço IP público e o número de porta do tráfego de entrada para o endereço IP privado e o número de porta da VM e vice-versa, relativamente ao tráfego de resposta da VM. Mediante a aplicação de regras de balanceamento de carga, pode distribuir tipos específicos de tráfego entre vários serviços ou VMs. Por exemplo, pode distribuir a carga do tráfego de pedidos da Web entre múltiplos servidores Web.
 
-A figura seguinte mostra um ponto final com balanceamento de carga para tráfego da web que é partilhado entre três VMs para o público e da porta TCP 80. São esses três VMs num conjunto com balanceamento de carga.
+A figura abaixo mostra um ponto final com carga balanceada para tráfego da Web que é partilhado entre três VMs no balanceador de carga público e na porta TCP 80. Estas três VMs estão num conjunto com carga balanceada.
 
-![Exemplo de Balanceador de carga público](./media/load-balancer-overview/IC727496.png)
+![Exemplo de balanceador de carga público](./media/load-balancer-overview/IC727496.png)
 
-*Figura: Carregar o balanceamento de tráfego web com um balanceador de carga público*
+*Figura: balanceamento de carga de tráfego da Web mediante a utilização de um Balanceador de Carga público*
 
-Quando os clientes de internet enviam solicitações de página Web para o endereço IP público de uma aplicação web na porta TCP 80, o Azure Load Balancer distribui os pedidos entre três VMs no conjunto com balanceamento de carga. Para obter mais informações sobre os algoritmos de Balanceador de carga, consulte a [funcionalidades do Balanceador de carga](load-balancer-overview.md##fundamental-load-balancer-features) seção deste artigo.
+Quando os clientes de Internet enviam pedidos de páginas Web para o endereço IP público de uma aplicação Web na porta TCP 80, o Balanceador de Carga do Azure distribui-os entre as três VMs no conjunto com carga balanceada. Para obter mais informações sobre os algoritmos do Balanceador de Carga, veja a secção [Funcionalidade do Balanceador de Carga](load-balancer-overview.md##fundamental-load-balancer-features) deste artigo.
 
-Por predefinição, o Balanceador de carga do Azure distribui o tráfego de rede igualmente entre várias instâncias de VM. Também pode configurar a afinidade de sessão. Para obter mais informações, consulte [modo de distribuição de Balanceador de carga](load-balancer-distribution-mode.md).
+Por predefinição, o Balanceador de Carga do Azure distribui o tráfego de rede igualmente entre várias instâncias da VM. Também pode configurar a afinidade de sessão. Para obter mais informações, veja [Load Balancer distribution mode](load-balancer-distribution-mode.md) (Modo de distribuição do Balanceador de Carga)
 
-### <a name = "internalloadbalancer"></a> Balanceador de carga interno
+### <a name = "internalloadbalancer"></a> Balanceador de Carga Interno
 
-Um balanceador de carga interno direciona o tráfego apenas a recursos que estão dentro de uma rede virtual ou utilizem uma VPN para aceder à infraestrutura do Azure. Nesse sentido, um balanceador de carga interno é diferente de um balanceador de carga público. Infraestrutura do Azure restringe o acesso para os endereços IP com balanceamento de carga front-end de uma rede virtual. endereços IP de front-end e redes virtuais são expostas nunca diretamente para um ponto de extremidade de internet. Aplicações de linha de negócio internas são executadas no Azure e são acessadas a partir do Azure ou a partir de recursos no local.
+Os balanceadores de carga internos direcionam o tráfego apenas para recursos que estejam dentro de uma rede virtual ou que acedam à infraestrutura do Azure através de uma VPN. Neste aspeto, estes balanceadores de carga são diferentes dos públicos. A infraestrutura do Azure limita o acesso aos endereços IP do front-end com carga balanceada de uma rede virtual. Os endereços IP do front-end e as redes virtuais nunca são expostos diretamente a um ponto final da Internet. As aplicações de linha de negócio internas são executadas no Azure e acedidas de dentro do Azure ou a partir de recursos no local.
 
-Um balanceador de carga interno que permite que os seguintes tipos de balanceamento de carga:
+Os balanceadores de carga internos permitem os seguintes tipos de balanceador de carga:
 
 * **Dentro de uma rede virtual**: balanceamento de carga de VMs na rede virtual para um conjunto de VMs que residam na mesma rede virtual.
-* **Para uma rede virtual em vários locais**: balanceamento de carga de computadores no local para um conjunto de VMs que residam na mesma rede virtual. 
-* **Para aplicações de várias camadas**: balanceamento de carga para aplicações de várias camadas de acesso à internet em que os escalões de back-end não são destinados à internet. Os escalões de back-end requerem balanceamento de carga tráfego da internet orientada para camada (consulte a figura seguinte).
-* **Para aplicações de linha de negócio**: balanceamento de carga para aplicativos de linha de negócio que estão alojados no Azure sem hardware de Balanceador de carga adicional ou software. Este cenário inclui servidores no local que estão no conjunto de computadores cujo tráfego está com balanceamento de carga.
+* **Para uma rede virtual entre locais**: balanceamento de carga de computadores no local para um conjunto de VMs que residam na mesma rede virtual. 
+* **Para aplicações multicamadas**: balanceamento de carga para aplicações multicamada acessíveis pela Internet nas quais as camadas do back-end não são acedidas pela Internet. As camadas do back-end requerem o balanceamento de carga do tráfego da camada acessível pela Internet (veja a figura abaixo).
+* **Para aplicações de linha de negócio**: balanceamento de carga para aplicações de linha de negócio que estão alojadas no Azure sem hardware ou software adicional de balanceador de carga. Este cenário inclui servidores no local que estão no conjunto de computadores cujo tráfego tem a carga balanceada.
 
-![Exemplo de Balanceador de carga interno](./media/load-balancer-overview/IC744147.png)
+![Exemplo de Balanceador de Carga Interno](./media/load-balancer-overview/IC744147.png)
 
-*Figura: Balanceamento de carga aplicações de várias camadas, com Balanceador de carga públicos e internos*
+*Figura: balanceamento de carga de aplicações multicamada com balanceadores de carga públicos e internos*
 
 ## <a name="pricing"></a>Preços
-Utilização de Balanceador de carga Standard é cobrada com base no número de regras de balanceamento de carga configurados e a quantidade de dados de entrada e de saída processados. Para o Balanceador de carga Standard preços informações, vá para o [preços do Balanceador de carga](https://azure.microsoft.com/pricing/details/load-balancer/) página.
+A utilização do Balanceador de Carga Standard é cobrada com base no número de regras de balanceamento de carga configuradas e na quantidade de dados de entrada e saída processados. Para obter as informações de preços do Balanceador de Carga Standard, aceda à página [Preços de Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
-Balanceador de carga básico é disponibilizado sem custos.
+O Balanceador de Carga Básico é disponibilizado sem custos.
 
 ## <a name="sla"></a>SLA
 
-Para obter informações sobre o SLA de Balanceador de carga Standard, vá para o [SLA de Balanceador de carga](https://aka.ms/lbsla) página. 
+Para obter informações sobre o SLA do Balanceador de Carga Standard, aceda à página [SLA para Load Balancer](https://aka.ms/lbsla). 
 
 ## <a name="limitations"></a>Limitações
 
-- Balanceador de carga é um produto TCP ou UDP para balanceamento de carga e encaminhamento de porta para estes protocolos IP específicos.  Regras de balanceamento de carga e regras NAT de entrada são suportadas para TCP e UDP e não são suportadas para outros protocolos IP, incluindo o ICMP. Balanceador de carga não encerra, responder ou, caso contrário, interagir com a carga de um fluxo UDP ou TCP. Não é um proxy. Validação com êxito de conectividade para um front-end tem de efetuar lugar em banda com o mesmo protocolo usado numa entrada ou balanceamento regra NAT de carga (TCP ou UDP) _e_ , pelo menos, uma das suas máquinas virtuais tem de gerar uma resposta para um cliente ver uma resposta de um front-end.  Não receber uma resposta em banda a partir do front-end de Balanceador de carga indica que nenhuma máquina virtual foram capaz de responder.  Não é possível interagir com um front-end de Balanceador de carga sem uma máquina virtual capaz de responder.  Isso também se aplica a ligações de saída onde [masquerade de porta SNAT](load-balancer-outbound-connections.md#snat) é apenas suportado para TCP e UDP; outros protocolos IP incluindo ICMP também irão falhar.  Atribua um endereço de IP público de nível de instância para atenuar.
-- Ao contrário dos balanceadores de carga público que fornecem [ligações de saída](load-balancer-outbound-connections.md) durante a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, balanceadores de carga interno não traduzir saída teve origem ligações para o front-end de um balanceador de carga interno como ambos estão no espaço de endereços IP privados.  Isso evita a possibilidade de exaustão de porta SNAT dentro exclusivo espaço de endereços IP interno onde a tradução não é necessária.  O efeito é que, se um fluxo de saída de uma VM no conjunto de back-end tenta um fluxo para front-end de Balanceador de carga interno no qual conjunto reside _e_ é mapeado para ele mesmo, as duas primeiras partes do fluxo não coincidem e o fluxo irá falhar.  Se o fluxo não mapeado voltar para a mesma VM no agrupamento de back-end que criou o fluxo para o front-end, o fluxo será concluída com êxito.   Quando o fluxo é mapeado para ele mesmo o fluxo de saída é apresentada se originar de VM para o front-end e o fluxo de entrada correspondente é exibido originar da VM para si próprio. Do ponto de vista para o sistema operacional convidado, as partes de entrada e saídas do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não irá reconhecer estas metades do mesmo fluxo como parte do mesmo fluxo de origem e de destino não coincidir com.  Quando o fluxo é mapeado para qualquer outra VM no conjunto de back-end, corresponderão ao metades do fluxo e a VM pode responder com êxito para o fluxo.  O sintoma para este cenário é o tempo limite das conexões intermitentes quando o fluxo retorna para o mesmo back-end o fluxo de origem. Existem várias soluções de alternativas comuns para atingir com fiabilidade a este cenário (com origem fluxos a partir de um conjunto de back-end para back-end conjuntos respectivo interno Balanceador de carga front-end) que incluem a inserção de uma camada de proxy por detrás do Balanceador de carga interno ou [usando regras de estilo DSR](load-balancer-multivip-overview.md).  Os clientes podem combinar um balanceador de carga interno com o proxy de terceiros ou substituto interno 3º [Gateway de aplicação](../application-gateway/application-gateway-introduction.md) para cenários de proxy limitados a HTTP/HTTPS. Embora pudesse usar um balanceador de carga público para atenuar, o cenário de resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitada, a menos que gerenciada com cautela.
+- O Balanceador de Carga é um produto TCP ou UDP para balanceamento de carga e encaminhamento de portas para estes dois protocolos IP específicos.  As regras de balanceamento de carga e as regras NAT de entrada são suportadas para TCP e UDP, mas não para os outros protocolos IP, incluindo o ICMP. O Balanceador de Carga não termina, não responde nem interage com o payload dos fluxos UDP ou TCP. Não é um proxy. A validação bem-sucedida da conectividade a um front-end deve ter lugar na banda com o mesmo protocolo utilizado numa regra de balanceamento de carga ou de NAT de entrada (TCP ou UDP) _e_, para que um cliente veja uma resposta de um front-end, pelo menos uma das suas máquinas virtuais tem de gerar uma resposta.  Não receber uma resposta em banda do front-end do Balanceador de Carga indica que nenhuma máquina virtual conseguiu responder.  Não é possível interagir com um front-end do Balanceador de Carga sem uma máquina virtual que consiga responder.  Isto também se aplica às ligações de saída, em que o [SNAT de máscara de rede](load-balancer-outbound-connections.md#snat) só é suportado para TCP e UDP; qualquer outro protocolo IP, incluindo ICMP, falhará.  Para mitigar o problema, atribua um endereço IP público ao nível da instância.
+- Ao contrário dos balanceadores de carga públicos, que fornecem [ligações de saída](load-balancer-outbound-connections.md) durante a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os balanceadores de carga internos não traduzem as ligações originadas na saída para o front-end de um balanceador de carga interno, porque ambos estão no espaço de endereços IP privados.  Isto evita a possibilidade de esgotamento a porta SNAT dentro de um espaço de endereços IP internos exclusivo em que a tradução não é necessária.  O efeito secundário é que, caso um fluxo de saída de uma VM no conjunto de back-ends tentar um fluxo para o front-end do balanceador de carga interno no conjunto em que reside _e_ é mapeado para o próprio, as partes do fluxo não corresponderão e o fluxo falhará.  Se o fluxo não se tiver mapeado para a mesma VM no conjunto de back-ends que criou o fluxo para o front-end, o fluxo será bem-sucedido.   Quando o fluxo se mapeia para si próprio, parecerá que o fluxo de saída tem origem na VM para o front-end e o fluxo de entrada correspondente parecerá ter origem na VM para si próprio. Do ponto de vista do SO convidado, as partes de entrada e saída do mesmo fluxo não correspondem dentro da máquina virtual. A pilha TCP não reconhecerá essas partes do fluxo como fazendo parte do mesmo fluxo, pois a origem e o destino não correspondem.  Quando o fluxo se mapeia para outra VM no conjunto de back-ends, as partes do mesmo corresponderão e a VM poderá responder corretamente ao fluxo.  O sintoma deste cenário são tempos limite de ligação intermitentes quando o fluxo regressa ao mesmo back-end que o originou. Existem várias soluções comuns para chegar a este cenário de forma fiável (fluxos com origem num conjunto de back-ends para os conjuntos de back-end ou para o front-end do balanceador de carga interno), que incluem a inserção de uma camada de proxy por trás do balanceador de carga interno ou a [utilização de regras de estilo DSR](load-balancer-multivip-overview.md).  Os clientes podem combinar um balanceador de carga interno com qualquer proxy de terceiros ou substituir o [Gateway de Aplicação](../application-gateway/application-gateway-introduction.md) interno para os cenários de proxy limitados a HTTP/HTTPS. Embora possa utilizar um balanceador de carga público para mitigar o problema, o cenário resultante é propenso a [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deve ser evitado, salvo se for gerido cuidadosamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Tem agora uma descrição geral do Balanceador de carga do Azure. Para começar a utilizar com o uso de um balanceador de carga, crie uma, crie VMs com uma extensão personalizada do IIS instalado e o balanceamento de carga da aplicação web entre as VMs. Para saber como, veja a [criar um balanceador de carga básico](quickstart-create-basic-load-balancer-portal.md) início rápido.
+Agora, já tem uma perceção geral do Balanceador de Carga do Azure. Para começar a utilizar um balanceador de carga, crie um balanceador, crie VMs com uma extensão de IIS personalizada instalada e faça o balanceamento da carga da aplicação Web entre as VMs. Para saber como o fazer, veja o início rápido [Criar um Balanceador de Carga Básico](quickstart-create-basic-load-balancer-portal.md).

@@ -1,5 +1,5 @@
 ---
-title: Criar uma instância do Azure Database Migration Service com o portal do Azure | Microsoft Docs
+title: 'Início Rápido: Criar uma instância do Azure Database Migration Service com o portal do Azure | Microsoft Docs'
 description: Utilizar o portal do Azure para criar uma instância do Azure Database Migration Service
 services: database-migration
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 662543a0717fbddb8eaefb5938f36adc88f4f3f2
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 7df19efc52f0771a10535c10625dd959a6edc90a
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883759"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958020"
 ---
-# <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Criar uma instância do Azure Database Migration Service com o portal do Azure
+# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Criar uma instância do Azure Database Migration Service com o portal do Azure
 Neste Início Rápido, utiliza o portal do Azure para criar uma instância do Azure Database Migration Service.  Depois de criar o serviço, pode utilizá-lo para migrar dados do SQL Server no local para uma base de dados SQL do Azure.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
