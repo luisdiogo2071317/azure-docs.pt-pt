@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7700de9bed7e5cfc003481a8e7d93720a767928
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7761b6f034eae6b23be51930a1498957debafe8b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036160"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566589"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso de voo utilizando o Hive no HDInsight
 Hive fornece um meio para executar tarefas do Apache Hadoop MapReduce por meio de uma linguagem de script semelhante a SQL denominada  *[HiveQL][hadoop-hiveql]*, que podem ser aplicado em resumir, consultar e analisar grandes volumes de dados.
@@ -88,7 +88,7 @@ Para obter mais informações sobre como criar um cluster do HDInsight e executa
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -449,7 +449,7 @@ Para obter uma lista completa dos comandos HiveQL, consulte [linguagem de defini
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {

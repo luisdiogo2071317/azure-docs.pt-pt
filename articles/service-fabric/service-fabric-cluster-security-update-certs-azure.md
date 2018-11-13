@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: chackdan
-ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ad32bd521975312b72aa55fc44e9b4d213519a07
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056374"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567881"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 Recomenda-se familiarizar com como o Service Fabric utiliza certificados X.509 e estar familiarizado com o [cenários de segurança do Cluster](service-fabric-cluster-security.md). Tem de compreender é que um certificado de cluster e o que é utilizado para, antes de prosseguir.
@@ -47,7 +47,7 @@ Se sua intenção é remover o certificado que está marcado como primário, em 
 > [!TIP]
 > Agora, é melhor e mais fácil adicionar um certificado secundário com o [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. Não precisa de seguir o resto dos passos nesta secção.  Além disso, não é necessário o modelo utilizado originalmente para criar e implementar o cluster ao utilizar o [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
 
-Estes passos partem do princípio de que está familiarizado com o funcionamento do Gestor de recursos e tiver implementado o cluster, pelo menos, um Service Fabric com um modelo do Resource Manager e que tem o modelo que utilizou para configurar o cluster útil. Também é assumido que está familiarizado com o JSON.
+Estes passos partem do princípio de que está familiarizado com o funcionamento do Gestor de recursos e tiver implementado pelo menos um cluster do Service Fabric com um modelo do Resource Manager e que tem o modelo que utilizou para configurar o cluster útil. Também é assumido que está familiarizado com o JSON.
 
 > [!NOTE]
 > Se estiver à procura de um modelo de exemplo e parâmetros que pode utilizar a seguir ao longo ou como um ponto de partida, em seguida, transfira-o partir [repositório do git](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 

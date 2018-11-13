@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cef3eef86cbb4abde5005f7a5bc278f9cd831b64
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7ea379516c6e636abd1309416374be75bcdbb686
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515272"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578744"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -55,17 +55,7 @@ Falhas regionais não são invulgares e Azure Cosmos DB torna-se de que a sua ba
 
 - Contas de região única podem perder disponibilidade após uma falha regional. É recomendado que para configurar, pelo menos, duas regiões (de preferência, regiões de escrita, pelo menos, dois) com a sua conta do Cosmos para garantir a elevada disponibilidade em todos os momentos.
 
-### <a name="durability-following-a-regional-disaster"></a>Durabilidade após um desastre regional
-
-Antes de uma operação de escrita é reconhecida para o cliente, os dados de maneira duradoura consolidados por um quórum de réplicas na região que aceita as operações de escrita. A tabela abaixo mostra a janela de perda de dados possíveis para cada nível de consistência após um desastre regional irrecuperável para contas do Cosmos em várias regiões.
-
-| **Nível de consistência** | **Janela de perda de dados potenciais após um desastre regional** |
-| - | - |
-| Forte | Zero |
-| Estagnação Limitada | Limitado à "janela de envelhecimento" que configura na conta do Cosmos. |
-| Sessão | Até 5 segundos |
-| Prefixo Consistente | Até 5 segundos |
-| Eventual | Até 5 segundos |
+- Mesmo num evento extremamente raro e uma pena quando a região do Azure é permanentemente irrecuperável, existe sem potencial perda de dados se a sua conta do Cosmos de várias regiões é configurada com o nível predefinido de consistência forte de. Em caso de uma região de escrita permanentemente irrecuperável, para as contas do Cosmos de várias regiões configurado com consistência de prescrição vinculada, a janela de perda de dados potenciais é restrita para a janela de envelhecimento; na sessão, níveis de prefixo consistente e eventual consistência, a janela de perda de dados potenciais está limitada a um máximo de cinco segundos.
 
 ## <a name="building-highly-available-applications"></a>Criar aplicações de elevada disponibilidade
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264262"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572572"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>SSD Managed Disks Standard para cargas de trabalho de Máquina Virtual do Azure
 
@@ -46,9 +46,9 @@ A tabela seguinte contém os tamanhos de disco, que são oferecidos atualmente p
 |E70 *    |16.384 giB      |Até 2000       |Até 500 MiB por segundo        |
 |E80 *    |32.767 giB      |Até 2000       |Até 500 MiB por segundo        |
 
-SSDs padrão foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s e para disponibilizar o IOPS e débito até aos limites descrito na tabela acima. IOPS e o débito real podem variar, às vezes, consoante os padrões de tráfego. SSDs padrão irão proporcionar um desempenho mais consistente que os discos HDD com menor latência.
+SSDs padrão foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s e para disponibilizar o IOPS e débito até aos limites descrito na tabela acima 99% do tempo. IOPS e o débito real podem variar, às vezes, consoante os padrões de tráfego. SSDs padrão irão proporcionar um desempenho mais consistente que os discos HDD com menor latência.
 
-Premium SSDs por outro lado, melhor desempenho do que SSDs padrão, com latências baixas, IOPS/débito alto e consistência ainda melhor com o desempenho de disco aprovisionado. É o tipo de disco recomendado para cargas de trabalho de produção crítico. Se a sua carga de trabalho requer o suporte de disco de elevado desempenho e de baixa latência, considere utilizar o armazenamento Premium.
+Premium SSDs por outro lado, melhor desempenho do que SSDs padrão, com latências baixas, IOPS/débito alto e consistência ainda melhor com o desempenho de disco aprovisionado. Premium SSD é o tipo de disco recomendado para cargas de trabalho de produção crítico. Se a sua carga de trabalho requer o suporte de disco de elevado desempenho e de baixa latência, considere utilizar o armazenamento Premium.
 
 Como SSD Premium, o SSDs padrão também utilizar tamanho da unidade de e/s de 256 KiB. Se os dados que está a ser transferidos forem inferior a 256 KiB, ele é considerado 1 unidade de e/s. Tamanhos de e/s maiores são contabilizados como várias e/SS de tamanho 256 KiB. Por exemplo, uma e/s de KiB 1,100 é contabilizado como cinco unidades de e/s.
 

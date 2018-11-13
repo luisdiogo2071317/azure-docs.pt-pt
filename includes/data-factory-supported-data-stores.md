@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 72b63754accee2dbd812f338f5756cc8ba914df2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572566"
+---
 | Categoria | Arquivo de dados | Suportado como origem | Suportado como sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Armazenamento de Blobs do Azure](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |

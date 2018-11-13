@@ -4,17 +4,17 @@ description: Utilizar o Visual Studio Code para desenvolver, criar e depurar um 
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 88659d31b64b4a98043606a71602f7c29316a31e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: abfd65920348bd51a9923d0a7c74f0f980a01540
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423294"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567830"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utilizar o Visual Studio Code para desenvolver e depurar c# módulos do Azure IoT Edge
 
@@ -81,7 +81,7 @@ Existem quatro itens dentro da solução:
 
 ## <a name="develop-your-module"></a>Desenvolver o seu módulo
 
-O padrão módulo código c# que vem com a solução está localizado em **módulos** > * * [nome da sua módulo] * * > **Program.cs**. O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
+A predefinição C# código de módulo que vem com a solução está localizado em **módulos** > * * [nome da sua módulo] * * > **Program.cs**. O módulo e o ficheiro de deployment.template.json são configuradas para que possa criar a solução, enviá-la para o seu registo de contentor e implementá-la para um dispositivo para começar a testar sem tocar em nenhum código. O módulo baseia-se simplesmente utilizam os dados de uma origem (no caso, o módulo de tempSensor que simula dados) e encaminhá-la para o IoT Hub. 
 
 Quando estiver pronto para personalizar o modelo do c# com o seu próprio código, utilize o [SDKs do Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) para criar módulos esse endereço tem da chave para soluções de IoT, como segurança, gestão de dispositivos e confiabilidade. 
 

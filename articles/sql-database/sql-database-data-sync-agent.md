@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/08/2018
-ms.openlocfilehash: 9e873de5899f0cf84fe76b70ffb70b38638055ef
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 11/12/2018
+ms.openlocfilehash: 08585b795b8c407bc66162a961fca92777f78076
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299899"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578626"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agente de sincronização de dados para sincronização de dados SQL do Azure
 
@@ -31,8 +31,14 @@ Para transferir o agente de sincronização de dados, aceda a [agente de sincron
 
 Para instalar o agente de sincronização de dados automaticamente na linha de comandos, introduza um comando semelhante ao seguinte exemplo. Verifique o nome de ficheiro do arquivo. msi transferido e fornecer seus próprios valores para o **TARGETDIR** e **SERVICEACCOUNT** argumentos.
 
+- Se não fornecer um valor para **TARGETDIR**, o valor predefinido é `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`.
+
+- Se fornecer `LocalSystem` como o valor de **SERVICEACCOUNT**, utilizar a autenticação do SQL Server quando configurar o agente para ligar ao SQL Server no local.
+
+- Se fornecer uma conta de utilizador de domínio ou uma conta de utilizador local como o valor de **SERVICEACCOUNT**, também tem de fornecer a palavra-passe com o **SERVICEPASSWORD** argumento. Por exemplo, `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## <a name="sync-data-with-sql-server-on-premises"></a>Sincronizar dados com o SQL Server no local
@@ -91,10 +97,10 @@ Se quiser executar o agente local num computador diferente que atualmente em, ef
 
 - **Causa**. Muitos cenários poderão causar esta falha. Para determinar a causa específica para esta falha, consulte os registos.
 
-- **Resolução**. Para encontrar a causa específica da falha, gerar e ver os registos do instalador do Windows. Pode ativar o registo no prompt de comando. Por exemplo, se o ficheiro transferido do AgentServiceSetup.msi LocalAgentHost.msi, gerar e examinar os ficheiros de registo utilizando as seguintes linhas de comando:
+- **Resolução**. Para encontrar a causa específica da falha, gerar e ver os registos do instalador do Windows. Pode ativar o registo no prompt de comando. Por exemplo, se o ficheiro de instalação transferido é `SQLDataSyncAgent-2.0-x86-ENU.msi`, gerar e examinar os ficheiros de registo utilizando as seguintes linhas de comando:
 
-    -   Para instalações: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   Para desinstala: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   Para instalações: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+    -   Para desinstala: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     Também pode ativar o registo para todas as instalações que são executadas pelo Windows Installer. O artigo da Base de dados de conhecimento da Microsoft [como ativar o registo do Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fornece uma solução de um clique para ativar o registo para o Windows Installer. Ele também fornece a localização dos registos.
 
@@ -275,6 +281,8 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 ```
 
 ### <a name="unregister-a-database"></a>Anular o registo de uma base de dados
+
+Quando utilizar este comando para anular o registo de uma base de dados, ele desprovisiona completamente o banco de dados. Se a base de dados no qual participam de outros grupos de sincronização, esta operação quebra os outros grupos de sincronização.
 
 #### <a name="usage"></a>Utilização
 

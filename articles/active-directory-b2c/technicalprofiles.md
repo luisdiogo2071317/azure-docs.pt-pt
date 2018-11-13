@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f1242b299c6d2278bd75b576f225987854a2d8a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381570"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566538"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -272,7 +272,7 @@ O **UseTechnicalProfileForSessionManagement** elemento contém o atributo seguin
 | referenceId | Sim | Um identificador de um perfil técnico já definido no ficheiro de política ou ficheiro de política do principal. |
 
 ### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
-O **ClaimsProviderSelections** sessão de um utilizador jornada define a lista de opções de seleção do fornecedor de afirmações e sua ordem. Com o **EnabledForUserJourneys** elemento filtrar, qual o fornecedor de afirmações é disponíveis ao usuário. O **EnabledForUserJourneys** elemento contém um dos seguintes valores:
+O **ClaimsProviderSelections** sessão de um utilizador jornada define a lista de opções de seleção do fornecedor de afirmações e sua ordem. Com o **EnabledForUserJourneys** elemento filtrar, qual o fornecedor de afirmações está disponível para o utilizador. O **EnabledForUserJourneys** elemento contém um dos seguintes valores:
 
 - **Sempre**, execute o perfil técnico.
 - **Nunca**, ignore o perfil técnico. 

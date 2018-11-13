@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: a98e2ef8cb1f1cd7ad06cc482f24590d59eea3e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f1fd272bc25486e3abd068be5ddc01f5ac5f5f76
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248644"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566283"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Quais são as zonas de disponibilidade no Azure?
 As zonas de disponibilidade é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Serviços com redundância de zona replicar os seus dados e aplicações em zonas de disponibilidade para proteger contra único pontos de falha. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -43,7 +43,7 @@ Para alcançar a continuidade do negócio abrangente no Azure, crie a sua arquit
 - E.U.A. Leste 2 (pré-visualização)
 - França Central
 - Europa do Norte
-- Sudeste Asiático (pré-visualização)
+- Sudeste Asiático 
 - Europa Ocidental
 - EUA Oeste 2
 
@@ -58,7 +58,8 @@ Os serviços do Azure que suportam as zonas de disponibilidade são:
 - Managed Disks
 - Load balancer
 - Endereço IP público
-- Armazenamento com redundância de zona
+- Armazenamento com redundância entre zonas
+
 - SQL Database
 - Hubs de Eventos
 - Service Bus
@@ -77,7 +78,7 @@ Não existe nenhum custo adicional para máquinas virtuais implementadas numa zo
 - [Criar um conjunto de dimensionamento de máquinas virtuais com redundância de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Balancear carga de VMs por zonas com um balanceador de carga Standard com um front-end com redundância de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Balancear carga de VMs dentro de uma zona com um balanceador de carga Standard com um front-end zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)
+- [Armazenamento com redundância entre zonas](../storage/common/storage-redundancy-zrs.md)
 - [Base de Dados SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Recuperação após desastre geográfica dos Hubs de Eventos](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 - [Recuperação após desastre geográfica do Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)

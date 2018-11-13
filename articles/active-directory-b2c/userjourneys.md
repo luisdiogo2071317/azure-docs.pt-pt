@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161830"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567065"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,8 +49,7 @@ O **UserJourney** elemento contém os seguintes elementos:
 
 Um percurso do utilizador é representado como uma sequência de orquestração que deve ser seguida por meio de uma transação concluída com êxito. Se falhar qualquer passo, a transação falhar. Estes passos de orquestração referenciam os blocos de construção e os fornecedores de afirmações permitido no ficheiro de política. Qualquer passo de orquestração responsável para mostrar ou compor uma experiência de utilizador também tem uma referência para o identificador de definição de conteúdo correspondente.
 
-Etapas da orquestração podem ser ecxetuted conditionaly, com base em pré-condições definidas no elemento de passo de orquestração. Para examle pode verificar para realizar um passo de orquestração, apenas se existir um afirmações específicas, ou se uma afirmação é igual ou não com o valor especificado. 
-
+Etapas da orquestração podem ser conditionaly executada, com base em pré-condições definidas no elemento de passo de orquestração. Para examle pode verificar para realizar um passo de orquestração, apenas se existir um afirmações específicas, ou se uma afirmação é igual ou não com o valor especificado. 
 
 Para especificar a lista ordenada de passos de orquestração, um **OrchestrationSteps** elemento é adicionado como parte da política. Este elemento é necessário.
 
@@ -66,7 +65,7 @@ O **OrchestrationStep** elemento contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | Encomenda | Sim | A ordem dos passos de orquestração. | 
 | Tipo | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**ClaimsProviderSelection** -indica que o passo de orquestração apresenta vários fornecedores de afirmações para o usuário selecionar um.</li><li>**CombinedSignInAndSignUp** -indica que o passo de orquestração apresenta um provedor social combinado página de inscrição de conta de início de sessão e locais.</li><li>**ClaimsExchange** -indica que o passo de orquestração troca de afirmações com um fornecedor de afirmações.</li><li>**SendClaims** -indica que o passo de orquestração envia as afirmações para a entidade confiadora com um token emitido por um emissor de afirmações.</li></ul> | 
-| ContentDefinitionReferenceId | Não | O identificador do [definição de conteúdo](contentdefinitions.md) associadas a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico de declaração própria. Mas, existem alguns casos quando precisa exibir alguma coisa sem um perfil técnico do Azure AD B2C. Existem dois exemplos, se o tipo de passo de orquestração é uma das follwing: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. O Azure AD B2C tem de apresentar a seleção do fornecedor de identidade sem ter um perfil técnico. | 
+| ContentDefinitionReferenceId | Não | O identificador do [definição de conteúdo](contentdefinitions.md) associadas a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico de declaração própria. Mas, existem alguns casos quando precisa exibir alguma coisa sem um perfil técnico do Azure AD B2C. Existem dois exemplos, se o tipo de passo de orquestração é um dos seguintes procedimentos: `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`. O Azure AD B2C tem de apresentar a seleção do fornecedor de identidade sem ter um perfil técnico. | 
 | CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo de orquestração é `SendClaims`. Esta propriedade define o identificador do perfil técnico do fornecedor de afirmações que emite o token para a entidade confiadora.  Se estiver ausente, não é criado nenhum token da entidade confiadora de terceiros. |
 
 

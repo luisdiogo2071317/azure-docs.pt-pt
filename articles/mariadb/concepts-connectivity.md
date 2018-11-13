@@ -3,19 +3,19 @@ title: Manipulação de erros de conectividade transitória da base de dados do 
 description: Saiba como lidar com erros de conectividade transitória da base de dados do Azure para MariaDB.
 keywords: ligação ao MySQL, cadeia de ligação, problemas de conectividade, erro transitório, erro de ligação
 services: mariadb
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mariadb
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 90b253fda55a903f22068ebac0c6c3fff5ad8347
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 203401e3842912169371f315048f6930c8dc80eb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347707"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568102"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Tratamento de erros de conectividade transitória da base de dados do Azure para MariaDB
 

@@ -2,19 +2,19 @@
 title: Implementar módulos do Azure IoT Edge (portal) | Documentos da Microsoft
 description: Utilize o portal do Azure para implementar módulos para um dispositivo IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/06/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 83f199c49209210ec577017534f93e36d05bd70a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b135832c1f0cb8af23a513d4914d7e32b398be7e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620370"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564940"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementar módulos do Azure IoT Edge do portal do Azure
 

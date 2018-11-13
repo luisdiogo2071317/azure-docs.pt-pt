@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b2f22500a4e557cb89bac7ed114d8c76ca8d9f9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715555"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567422"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Criar cópias de segurança e restaurar máquinas virtuais encriptadas com o Azure Backup
 Este artigo fala sobre os passos para criar cópias de segurança e restaurar máquinas virtuais (VMs) com o Azure Backup. Também fornece detalhes sobre os cenários suportados, pré-requisitos e passos de resolução de problemas para casos de erro.
@@ -76,47 +76,47 @@ Se for um **utilizador de membro**, processo de ativar cópia de segurança ser�
    Para uma **utilizador convidado**, tem de fornecer permissões para o serviço de cópia de segurança para aceder ao Cofre de chaves para cópias de segurança trabalhar. Pode fornecer estas permissões ao seguir o [passos mencionados na secção seguinte](#provide-permissions-to-backup)
 
    ![Mensagem de VMs encriptada](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
- 
+
     Agora que definiu todas as definições do cofre, selecione **ativar cópia de segurança** na parte inferior da página. **Ativar cópia de segurança** implementa a política no cofre e as VMs.
-  
+
 1. A próxima fase no processo de preparação está a instalar o agente da VM ou certificar-se de que o agente da VM está instalado. Para fazer o mesmo, siga os passos em [preparar o ambiente para cópia de segurança](backup-azure-arm-vms-prepare.md).
 
 ### <a name="trigger-a-backup-job"></a>Acionar uma tarefa de cópia de segurança
 Siga os passos em [VMs de cópia de segurança do Azure para um cofre dos serviços de recuperação](backup-azure-arm-vms.md) para acionar uma tarefa de cópia de segurança.
 
 ### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>Continuar as cópias de segurança de VMs de cópia de segurança já com encriptação ativada  
-Se tiver VMs já a cópia de segurança num cofre dos serviços de recuperação que estão ativadas para a encriptação mais tarde, tem de dar permissões para cópia de segurança para aceder ao Cofre de chave para cópias de segurança continuar. Pode fornecer estas permissões ao seguir a [os passos na secção seguinte](#provide-permissions-to-azure-backup). Ou pode seguir os passos de PowerShell na secção "Ativar cópia de segurança" a [documentação do PowerShell](backup-azure-vms-automation.md). 
+Se tiver VMs já a cópia de segurança num cofre dos serviços de recuperação que estão ativadas para a encriptação mais tarde, tem de dar permissões para cópia de segurança para aceder ao Cofre de chave para cópias de segurança continuar. Pode fornecer estas permissões ao seguir a [os passos na secção seguinte](#provide-permissions-to-azure-backup). Ou pode seguir os passos de PowerShell na secção "Ativar cópia de segurança" a [documentação do PowerShell](backup-azure-vms-automation.md).
 
-## <a name="provide-permissions-to-backup"></a>Fornecer permissões para cópia de segurança
+## <a name="provide-permissions-to-azure-backup"></a>Fornecer permissões para cópia de segurança
 Utilize os seguintes passos para fornecer permissões relevantes à cópia de segurança para aceder ao Cofre de chaves e executar a cópia de segurança de VMs encriptadas.
 1. Selecione **todos os serviços**e procure **cofres de chaves**.
 
     ![Cofres de chaves](./media/backup-azure-vms-encryption/search-key-vault.png)
-    
+
 1. Na lista de cofres de chaves, selecione o Cofre de chaves associado à VM encriptada que tem de ser efetuada a cópia de segurança.
 
      ![Seleção de Cofre de chaves](./media/backup-azure-vms-encryption/select-key-vault.png)
-     
+
 1. Selecione **políticas de acesso**e, em seguida, selecione **adicionar novo**.
 
-    ![Adicionar novo](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
-    
-1. Selecione **selecionar principal**e, em seguida, escreva **serviço de gestão de cópia de segurança** na caixa de pesquisa. 
+    ![Adicionar nova](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
+
+1. Selecione **selecionar principal**e, em seguida, escreva **serviço de gestão de cópia de segurança** na caixa de pesquisa.
 
     ![Pesquisa de serviço de cópia de segurança](./media/backup-azure-vms-encryption/search-backup-service.png)
-    
+
 1. Selecione **serviço de gestão de cópia de segurança**e, em seguida, selecione **selecione**.
 
     ![Seleção de serviço de cópia de segurança](./media/backup-azure-vms-encryption/select-backup-service.png)
-    
+
 1. Sob **configurar a partir de modelo (opcional)**, selecione **cópia de segurança do Azure**. As permissões necessárias são prefilled para **permissões da chave** e **permissões secretas**. Se a VM é encriptada utilizando **BEK só**, apenas para segredos são necessárias permissões de, pelo que tem de remover a seleção para **permissões da chave**.
 
     ![Seleção de cópia de segurança do Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
-    
-1. Selecione **OK**. Tenha em atenção que **serviço de gestão de cópia de segurança** é adicionado na **políticas de acesso**. 
+
+1. Selecione **OK**. Tenha em atenção que **serviço de gestão de cópia de segurança** é adicionado na **políticas de acesso**.
 
     ![Políticas de acesso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
-    
+
 1. Selecione **guardar** para conceder as permissões necessárias para a cópia de segurança.
 
     ![Política de cópia de segurança de acesso](./media/backup-azure-vms-encryption/save-access-policy.png)

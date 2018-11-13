@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: eabfca64a4bdf1f72375575161111ddaff55eba3
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572553"
+---
 O Azure Data Factory suporta as seguintes atividades de transformação, que podem ser adicionadas a pipelines individualmente ou encadeadas com outra atividade.
 
 | Atividade de transformação de dados | Ambiente de computação |

@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 4f542f313b1c55ea68532efcbd6da780caae399f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572570"
+---
 # <a name="securing-docker-containers-in-azure-container-service"></a>Proteger contentores do Docker no Azure Container Service
 
 Este artigo apresenta considerações e recomendações para proteger contentores d Docker implementados no Azure Container Service. Muitas destas considerações aplicam-se geralmente aos contentores do Docker implementados no Azure ou noutros ambientes. 
@@ -49,7 +62,7 @@ Para obter informações adicionais sobre a segurança específica de cada orque
 
 * **Docker Swarm**: [Docker Security](https://www.docker.com/docker-security) (Segurança do Docker)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre a arquitetura do Docker e a segurança dos contentores, veja [Introduction to Container Security](https://www.docker.com/sites/default/files/WP_IntrotoContainerSecurity_08.19.2016.pdf) (Introdução à Segurança dos Contentores).
 

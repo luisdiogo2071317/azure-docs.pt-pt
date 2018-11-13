@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/12/2018
 ms.author: wolfma
-ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 706f51ae1e2d81e2003f2fcd637def95c7a42f8e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218598"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567541"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -48,7 +48,7 @@ ms.locfileid: "51218598"
 
 **Amostras**
 
-* Adicionado o exemplo de C++ para push e pull transmitir utilização no nosso [repositório de exemplo](https://aka.ms/csspeech/samples).
+* Adicionado o C++ e C# samplea para a utilização de fluxo de push e pull no [repositório de exemplo](https://aka.ms/csspeech/samples).
 
 ## <a name="speech-service-sdk-101"></a>Serviço de voz SDK 1.0.1
 

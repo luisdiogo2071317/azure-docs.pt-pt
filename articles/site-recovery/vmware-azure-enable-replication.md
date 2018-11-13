@@ -1,8 +1,18 @@
 ---
-Título: Ativar a replicação de VMs de VMware para recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Descrição do Microsoft Docs: Este artigo descreve como ativar a replicação de VMs de VMware para recuperação após desastre para o Azure com o Azure Site Recovery.
-autor: MS. Service de asgang: MS. Date de recuperação de sites: MS. topic de 07/06/2018: conceitual MS. Author: asgang
-
-
+title: Ativar a replicação de VMs de VMware para recuperação de desastre do VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
+description: Este artigo descreve como ativar a replicação de VMs de VMware para recuperação após desastre para o Azure com o Azure Site Recovery.
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566368"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
 
@@ -68,10 +78,7 @@ Ao replicar máquinas virtuais VMware:
     ![Ativar a replicação](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. Clique em **Ativar Replicação**. Pode controlar o progresso da tarefa **Ativar Proteção** em **Definições** > **Tarefas** > **Tarefas do Site Recovery**. Depois de a tarefa **Finalizar Proteção** ser executada, a máquina está preparada para ativação pós-falha.
 
-> [!NOTE]
-> Se a máquina fica preparada para a instalação push, o componente de serviço de mobilidade está instalado quando a proteção está ativada. Depois do componente está instalado no computador, uma tarefa de proteção inicia e falha. Após a falha, terá de reiniciar manualmente cada máquina. Após o reinício, a tarefa de proteção começa novamente e ocorre a replicação inicial.
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>Ver e gerir propriedades da VM
 

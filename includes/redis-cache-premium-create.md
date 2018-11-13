@@ -1,4 +1,17 @@
-Para criar uma cache de premium, iniciar sessão para o [portal do Azure](https://portal.azure.com) e clique em **crie um recurso** > **bases de dados** > **a Cache de Redis** .
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: wesmc
+ms.openlocfilehash: 2c96604093542c2697c691ad8fb8bf11e77e2d0b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572562"
+---
+Para criar uma cache premium, inicie sessão para o [portal do Azure](https://portal.azure.com) e clique em **criar um recurso** > **bases de dados** > **a Cache de Redis** .
 
 ![Criar cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)
 
@@ -7,7 +20,7 @@ Para criar uma cache de premium, iniciar sessão para o [portal do Azure](https:
 > 
 > 
 
-Para configurar as funcionalidades premium, primeiro selecione uma do camadas em de preços premium o **escalão de preço** na lista pendente. Para obter mais informações sobre cada escalão de preço, clique em **vista completa detalhes de preços** e selecione um escalão de preço do **escolher o escalão de preço** painel.
+Para configurar as funcionalidades premium, primeiro selecione uma das camadas de preços premium a **escalão de preço** na lista pendente. Para obter mais informações sobre cada escalão de preço, clique em **vista de detalhes de preço completos** e selecione um escalão de preço da **escolher o escalão de preço** painel.
 
 ![Escolha o escalão de preço](media/redis-cache-premium-create/redis-cache-premium-pricing-tier.png)
 

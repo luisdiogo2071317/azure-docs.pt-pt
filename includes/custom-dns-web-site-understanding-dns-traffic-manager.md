@@ -1,25 +1,38 @@
-O sistema de nomes de domínio (DNS) é utilizado para localizar coisas na internet. Por exemplo, quando introduzir um endereço no seu browser ou clicar numa ligação numa página web, utiliza DNS traduzir o domínio para um endereço IP. O endereço IP é a ordenação dos, como uma morada, mas não é compatível muito humano. Por exemplo, é mais fácil de recordar um nome DNS como **contoso.com** que é lembrar-se de um endereço IP, tais como 192.168.1.88 ou 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572587"
+---
+O sistema de nomes de domínio (DNS) é utilizado para localizar coisas na internet. Por exemplo, quando introduzir um endereço no seu browser ou clica numa hiperligação numa página web, utiliza DNS para traduzir o domínio para um endereço IP. O endereço IP é semelhante a um endereço de rua, mas não é compatível com muito humana. Por exemplo, é muito mais fácil lembrar-se de um nome DNS como **contoso.com** que vale lembrar-se de um endereço IP, como 192.168.1.88 ou 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-O sistema DNS baseia-se no *registos*. Regista associar específico *nome*, tais como **contoso.com**, com um endereço IP ou outro nome DNS. Quando uma aplicação, tal como um browser, procura um nome de DNS, localiza o registo e utiliza que aponta para que o endereço. Se o valor aponta para um endereço IP, o browser utilizará esse valor. Se aponta para outro nome DNS, em seguida, a aplicação tem de repetir a resolução. Em última análise, resolução de nomes de todos os vai terminar dentro de um endereço IP.
+O sistema DNS baseia *registos*. Registos de associar um específico *nome*, tal como **contoso.com**, com um endereço IP ou outro nome DNS. Quando um aplicativo, como um navegador da web, procura um nome no DNS, localiza o registo e, utiliza a tudo o que ele aponta para, como o endereço. Se o valor que ele aponta para um endereço IP, o navegador irá utilizar esse valor. Se ele aponta para outro nome DNS, a aplicação tem de repetir a resolução. Em última análise, resolução de nomes de todos os vai terminar dentro de um endereço IP.
 
-Quando cria um Web site do Azure, é atribuído automaticamente um nome DNS para o site. Este nome assume a forma de  **&lt;yoursitename&gt;. azurewebsites.net**. Quando adicionar o seu Web site como um ponto de final do Gestor de tráfego do Azure, o seu Web site, em seguida, é acessível através de  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** domínio.
+Quando cria um Web site do Azure, um nome DNS é atribuído automaticamente ao site. Este nome é formada  **&lt;yoursitename&gt;. azurewebsites.net**. Quando adiciona o seu Web site como um ponto de final do Gestor de tráfego do Azure, o seu Web site, em seguida, está acessível através da  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** domínio.
 
 > [!NOTE]
-> Quando o seu Web site está configurado como um ponto final do Gestor de tráfego, que irá utilizar o **. trafficmanager.net** endereço quando criar registos DNS.
+> Quando o seu Web site está configurado como um ponto de final do Gestor de tráfego, utilizará a **. trafficmanager.net** durante a criação de registos DNS de endereços.
 > 
-> Só pode utilizar registos CNAME com o Gestor de tráfego
+> Só pode utilizar os registos CNAME com o Gestor de tráfego
 > 
 > 
 
-Também existem vários tipos de registos, cada um com as suas próprias funções e limitações, mas para Web sites configurados como pontos finais do Gestor de tráfego, iremos apenas mais importantes para si sobre um; *CNAME* registos.
+Também existem vários tipos de registos, cada um com suas próprias funções e limitações, mas configurado para como pontos finais do Gestor de tráfego de Web sites, precisamos apenas saber sobre um; *CNAME* registos.
 
 ### <a name="cname-or-alias-record"></a>Registo CNAME ou Alias
-Um registo CNAME mapeia um *específico* de nomes DNS, tal como **mail.contoso.com** ou **www.contoso.com**, para outro nome de domínio (canónico). No caso de Web sites do Azure utilizando o Gestor de tráfego, o nome de domínio canónico é o  **&lt;myapp >. trafficmanager.net** nome de domínio do perfil do Traffic Manager. Depois de criado, o CNAME cria um alias para o  **&lt;myapp >. trafficmanager.net** nome de domínio. A entrada CNAME irá resolver para o endereço IP do seu  **&lt;myapp >. trafficmanager.net** nome de domínio automaticamente, pelo que o se o endereço IP do site for alterada, não precisa de efetuar qualquer ação.
+Um registo CNAME mapeia um *específicos* nome de DNS, como **mail.contoso.com** ou **www.contoso.com**, para outro nome de domínio (canônica). No caso de Web sites do Azure utilizando o Gestor de tráfego, o nome de domínio canônico é o  **&lt;myapp >. trafficmanager.net** nome de domínio do perfil do Traffic Manager. Depois de criado, o CNAME cria um alias para o  **&lt;myapp >. trafficmanager.net** nome de domínio. A entrada CNAME será resolvido para o endereço IP do seu  **&lt;myapp >. trafficmanager.net** nome de domínio automaticamente, portanto, se alterar o endereço IP do Web site, não é necessário efetuar qualquer ação.
 
-Assim que o tráfego chega ao Gestor de tráfego, em seguida, encaminha o tráfego para o seu Web site, utilizando a método balanceamento de carga que está configurado para. Este é completamente transparente para os visitantes do Web site. Apenas verão o nome de domínio personalizado no browser.
+Assim que o tráfego chega ao Gestor de tráfego, em seguida, encaminha o tráfego para o seu Web site, usando o método que está configurado para balanceamento de carga. Isso é completamente transparente para os visitantes ao seu Web site. Apenas verá o nome de domínio personalizado no browser.
 
 > [!NOTE]
-> Alguns registrars de domínio apenas lhe permitam mapear os subdomínios quando utilizar um registo CNAME, tais como **www.contoso.com**e não raiz nomes, tal como **contoso.com**. Para obter mais informações sobre registos CNAME, consulte a documentação fornecida pela sua entidade de registo, <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada de Wikipedia no registo CNAME</a>, ou o <a href="http://tools.ietf.org/html/rfc1035">IETF os nomes de domínio - implementação e a especificação de</a> documento.
+> Algumas entidades de registo do domínio apenas permitem mapear subdomínios quando utilizar um registo CNAME, como **www.contoso.com**e não raiz nomes, tal como **contoso.com**. Para obter mais informações sobre os registos CNAME, consulte a documentação fornecida pela sua entidade de registo <a href="http://en.wikipedia.org/wiki/CNAME_record">a entrada na Wikipedia sobre o registo CNAME</a>, ou o <a href="http://tools.ietf.org/html/rfc1035">nomes de domínio de IETF - implementação e a especificação de</a> documento.
 > 
 > 
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: raiye
-ms.openlocfilehash: cfd0d9d7484e82ee130f4de860190238718c149c
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301072"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578778"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
@@ -28,11 +28,10 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Segurança do Windows 10 | 5.24 | 9 de outubro de 2018 |
-| Rel 18-10 | [4464330] | Segurança do Windows 10 | 6.0 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462915] | Segurança do Windows | 2.79 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462931] | Segurança do Windows | 3.66 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462941] | Segurança do Windows | 4.59 | 9 de outubro de 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24, 6.0 | 9 de outubro de 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24 | 9 de outubro de 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 de outubro de 2018 |
 | N/A | [4339284] | Atualização de fuso horário | 2.79, 3.66, 4.59 | 24 de julho de 2018 |
 | N/A | [4457144] | Rollup de Setembro sem segurança | 2.79 | 11 de Setembro de 2018 |
@@ -46,7 +45,6 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | N/A | [4457036] | Rollup de Setembro sem segurança .NET 4.5.2 | 4.59 | 11 de Setembro de 2018 |
 
 [4462917]: http://support.microsoft.com/kb/4462917
-[4464330]: http://support.microsoft.com/kb/4464330
 [4462915]: http://support.microsoft.com/kb/4462915
 [4462931]: http://support.microsoft.com/kb/4462931
 [4462941]: http://support.microsoft.com/kb/4462941

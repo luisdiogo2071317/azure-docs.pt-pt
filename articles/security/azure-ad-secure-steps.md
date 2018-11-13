@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: cb1c525527f7261c10b502a25b3cab3db89dd85f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515146"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567955"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger a sua infraestrutura de identidade
 
@@ -51,8 +51,6 @@ Tudo pronto? Vamos começar a lista de verificação.
 A maioria das falhas de segurança empresarial têm origem com uma conta comprometida com um dos vários métodos como spray de palavra-passe, a repetição de violação ou phishing. Saiba mais sobre estes ataques neste vídeo (45 minutos):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-Se os utilizadores no seu sistema de identidade estão usando senhas fracas e não fortalecendo-los com a autenticação multifator, não é uma questão de se ou quando são a comprometidas – apenas "quantas vezes."
-
 ### <a name="make-sure-your-organization-use-strong-authentication"></a>Certifique-se a sua organização utilizar uma autenticação segura
 
 Tendo em conta a frequência de senhas que está a ser percebido, phished, roubado com software maligno ou reutilizados, é fundamental para fazer uma cópia da palavra-passe com alguma forma de credencial forte – Saiba mais sobre [multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
@@ -69,7 +67,7 @@ A Microsoft recomenda a adotar a seguinte política de palavra-passe modernas co
 2. Desativar regras de expiração, o que levar os seus utilizadores para palavras-passe facilmente adivinháveis como **Summer2018!**
 3. Desative a requisitos de composição de caracteres e impedir que os utilizadores escolham normalmente atacadas palavras-passe, como eles fazem com que os usuários escolham substituições de caráter previsível em palavras-passe.
 
-Pode usar [PowerShell para impedir que as palavras-passe prestes a expirar](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) para os utilizadores se criar as identidades no Azure AD diretamente. Organizações híbridas devem implementar estas políticas com [definições de política de grupo do domínio] (https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10) ou [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
+Pode usar [PowerShell para impedir que as palavras-passe prestes a expirar](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) para os utilizadores se criar as identidades no Azure AD diretamente. Organizações híbridas devem implementar estas políticas usando [definições de política de grupo do domínio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Proteger contra fugas de credenciais e adicionar resiliência contra falhas
 

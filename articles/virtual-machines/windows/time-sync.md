@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/017/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1c784721d103ca623f6e9bac5ec1281beeb70074
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ad5ceeef170e38bf6368c54894b20245d10b74ee
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468329"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578200"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de hora para VMs do Windows no Azure
 
@@ -40,6 +40,8 @@ Precisão de um relógio de computador é gauged sobre como fechar o relógio do
 Anfitriões do Azure são sincronizadas com servidores de tempo de Microsoft internos que usam seu tempo a partir de dispositivos pertencentes à Microsoft o Stratum 1, com antenas GPS. Máquinas virtuais no Azure pode optar por confiar no host para passar o tempo preciso (*alojar tempo*) para a VM ou a VM pode diretamente obter hora de um servidor de tempo, ou uma combinação de ambos. 
 
 Interações de máquina virtual com o host também podem afetar o relógio. Durante [memória preservação da manutenção](maintenance-and-updates.md#memory-preserving-maintenance), as VMs são colocadas em pausa para até 30 segundos. Por exemplo, antes do início da manutenção o relógio VM mostra: 00 10:00 e tem uma duração de 28 segundos. Depois da VM é retomada, o relógio na VM ainda mostraria: 00 10:00, que seria 28 segundos desativado. A correta para isso, o serviço de VMICTimeSync monitoriza o que está acontecendo no host e pedidos de alterações a ocorrer nas VMs para compensar.
+
+O serviço de VMICTimeSync funciona em modo de exemplo ou sincronização e apenas irão influenciar o relógio para a frente. No modo de exemplo, o que requer W32time estar em execução, o serviço de VMICTimeSync consulta o anfitrião em 5 segundos e fornece exemplos de tempo para W32time. Aproximadamente a cada 30 segundos, o serviço W32time leva o exemplo de tempo mais recente e utiliza-o para influenciar o relógio do convidado. O modo de sincronização ativa se um convidado foi retomado ou se o relógio de um convidado drifts mais de 5 segundos por trás do relógio do anfitrião. Em casos em que o serviço W32time está sendo executando corretamente, o último caso deveriam ocorrer nunca.
 
 Sem o trabalho de sincronização de hora, o relógio na VM seria acumular-se erros. Quando existe apenas uma VM, o efeito poderá não ser significativo, a menos que a carga de trabalho requer timekeeping altamente preciso. Mas, na maioria dos casos, podemos ter várias, interligados VMs que utilizam o tempo para controlar as transações e as necessidades de tempo para ser consistente em toda a implantação. Quando o tempo entre VMs é diferente, pode ver os seguintes efeitos:
 

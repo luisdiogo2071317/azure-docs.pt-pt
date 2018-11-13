@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637736"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568647"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,7 +50,7 @@ O **ClaimType** elemento contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| displayName | 0:1 | O título apresentado aos utilizadores nos vários ecrãs. O valor pode ser [localizada](localization.md). |
+| Nome a Apresentar | 0:1 | O título apresentado aos utilizadores nos vários ecrãs. O valor pode ser [localizada](localization.md). |
 | Tipo de dados | 0:1 | O tipo de afirmação. Os tipos de dados de boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection pode ser utilizado. |
 | DefaultPartnerClaimTypes | 0:1 | A predefinição de parceiro de afirmação tipos a utilizar para um protocolo especificado. O valor pode ser substituído no **PartnerClaimType** especificado na **InputClaim** ou **OutputClaim** elementos. Utilize este elemento para especificar o nome predefinido para um protocolo.  |
 | Máscara | 0:1 | Uma cadeia de caracteres opcional de máscara de caracteres que podem ser aplicadas ao exibir a afirmação. Por exemplo, o 324-232-4343 número telefone pode ser mascarado como XXX-XXX-4343. |
@@ -109,7 +109,7 @@ O **máscara** elemento contém os seguintes atributos:
 | Tipo | Sim | O tipo de máscara de afirmação. Valores possíveis: `Simple` ou `Regex`. O `Simple` valor indica que uma máscara de texto simples é aplicada à parte de uma afirmação de cadeia de caracteres à esquerda. O `Regex` valor indica que uma expressão regular é aplicada às afirmações de cadeia de caracteres como todo.  Se o `Regex` valor for especificado, um atributo opcional também tem de ser definido com a expressão regular a utilizar. |
 | RegEx | Não | Se **tipo** está definida como `Regex`, especifique a expressão regular a utilizar.
 
-O exemplo de follwing configura um **PhoneNumber** a afirmação com o `Simple` máscara:
+O exemplo seguinte configura um **PhoneNumber** a afirmação com o `Simple` máscara:
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -124,7 +124,7 @@ O Framework de experiência de identidade renderiza o número de telefone e ocul
 
 ![Usando o tipo com a máscara de afirmação](./media/claimsschema/mask.png)
 
-O exemplo de follwing configura um **AlternateEmail** a afirmação com o `Regex` máscara:
+O exemplo seguinte configura um **AlternateEmail** a afirmação com o `Regex` máscara:
 
 ```XML
 <ClaimType Id="AlternateEmail">

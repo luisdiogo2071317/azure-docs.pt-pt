@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: a2bf6ef44a8698e802d9bbc25689988498c55f13
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300273"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567048"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Deteção de anomalias no Azure Stream Analytics
 
@@ -131,7 +131,7 @@ Vamos rever o cálculo de strangeness detalhadamente (partem do princípio de um
    - Situação perigosa, se a inclinação é negativa  
    - 0, caso contrário  
 
-Assim que o valor de strangeness para o evento de entrada é computado, um valor de martingale é calculado com base no valor strangeness (consulte a [blogue de Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para obter detalhes sobre como é calculado o valor de martingale). Este valor de martingale é ajustado como a classificação de anomalia. O valor de martingale lentamente aumenta em resposta a valores estranhos, que permite o detetor de mantenha a robustez às alterações esporádicos e reduz os falsos alertas. Ele também tem uma propriedade útil: 
+Assim que o valor de strangeness para o evento de entrada é computado, um valor de martingale é calculado com base no valor strangeness (consulte a [blogue de Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) para obter detalhes sobre como é calculado o valor de martingale). Este valor de martingale é retornado como a classificação de anomalia. O valor de martingale lentamente aumenta em resposta a valores estranhos, que permite o detetor de mantenha a robustez às alterações esporádicos e reduz os falsos alertas. Ele também tem uma propriedade útil: 
 
 Probabilidade [existe t tal esse M<sub>t</sub> > λ] < 1/λ, onde M<sub>t</sub> é o valor de martingale em t instantânea e λ é um valor real. Por exemplo, se existir um alerta quando M<sub>t</sub>> 100, em seguida, a probabilidade de falsos positivos é inferior a 1/100.  
 
