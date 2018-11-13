@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7600ff1a11435ee079fef80ecfa5ad88de1b4750
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: MT
+ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569027"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261154"
 ---
 # <a name="analyze-hadoop-logs"></a>Analisar os registos de Hadoop
 
@@ -131,7 +131,7 @@ As mensagens de erro descritas nesta secção são fornecidas para ajudar os usu
 
 Algumas dessas mensagens de erro podem também ser vistas no portal do Azure quando é utilizado para gerir os clusters do HDInsight. Mas outras mensagens de erro que poderá encontrar existem menos granular devido às restrições sobre as ações corretivas possíveis neste contexto. Outras mensagens de erro são fornecidas em contextos em que a atenuação é óbvia. 
 
-### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
+### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
 * **Descrição**: introduza os detalhes de base de dados SQL do Azure para, pelo menos, um componente para utilizar definições personalizadas para metastores Hive e Oozie.
 * **Atenuação**: O utilizador tem de fornecer um metastore do SQL Azure válido e repita o pedido.  
 
@@ -315,4 +315,4 @@ Algumas dessas mensagens de erro podem também ser vistas no portal do Azure qua
 
 * [Utiliza as vistas Ambari para depurar tarefas do Tez no HDInsight](../hdinsight-debug-ambari-tez-view.md)
 * [Ativar capturas de área dinâmica para dados para serviços do Hadoop no HDInsight baseado em Linux](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Gerir clusters HDInsight através da IU Web do Ambari](../hdinsight-hadoop-manage-ambari.md)
+* [Gerir clusters do HDInsight através da IU Web do Ambari](../hdinsight-hadoop-manage-ambari.md)
