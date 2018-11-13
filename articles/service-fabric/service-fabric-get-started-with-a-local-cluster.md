@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 639293a1811c35d87bd705800b8ecf62f667c0e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246723"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introdução à implementação e atualização de aplicações no seu cluster local
 O SDK de Service Fabric de Azure inclui um ambiente de desenvolvimento local completo que pode utilizar para rapidamente começar a implementar e gerir aplicações num cluster local. Neste artigo, cria um cluster local, implementa nele uma aplicação existente e atualiza essa aplicação para uma nova versão, tudo a partir do Windows PowerShell.
@@ -71,7 +71,7 @@ Neste tutorial, utilizamos uma aplicação de exemplo existente (denominada Word
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [Transfira a aplicação WordCount](http://aka.ms/servicefabric-wordcountapp) para a localização criada.  Nota: o browser Microsoft Edge guarda o ficheiro com a extensão *.zip*.  Altere a extensão do ficheiro para *.sfpkg*.
+4. [Transfira a aplicação WordCount](https://aka.ms/servicefabric-wordcountapp) para a localização criada.  Nota: o browser Microsoft Edge guarda o ficheiro com a extensão *.zip*.  Altere a extensão do ficheiro para *.sfpkg*.
 5. Ligar ao cluster local:
    
     ```powershell
@@ -139,7 +139,7 @@ O Service Fabric fornece atualizações sem tempo de indisponibilidade através 
 
 A nova versão da aplicação conta agora apenas as palavras que começam por uma vogal. À medida que a atualização é efetuada, vemos duas alterações de comportamento da aplicação. Em primeiro lugar, a taxa de aumento na contagem torna-se mais lenta, uma vez que estão a ser contadas menos palavras. Em segundo lugar, uma vez que a primeira partição tem duas vogais (A e E) e restantes partições contêm apenas uma, a contagem deverá finalmente deve começar a ultrapassar as outras.
 
-1. [Transfira o pacote de WordCount versão 2](http://aka.ms/servicefabric-wordcountappv2) para a mesma localização onde transferiu o pacote versão 1.
+1. [Transfira o pacote de WordCount versão 2](https://aka.ms/servicefabric-wordcountappv2) para a mesma localização onde transferiu o pacote versão 1.
 2. Regresse à janela do PowerShell e utilize o comando de atualização do SDK para registar a nova versão do cluster. Em seguida, comece a atualizar a aplicação Fabric:/ WordCount.
    
     ```powershell

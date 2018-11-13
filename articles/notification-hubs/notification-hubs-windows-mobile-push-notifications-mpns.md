@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 14b9a4ed66995a73f00234f4b25f52fccbcbe556
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e055b51af19ad3958c0c9155490c598ed0f4a80e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562609"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235212"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações Windows Phone com Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -61,7 +61,7 @@ A conclusão deste tutorial é um pré-requisito para todos os outros tutoriais 
     O seu hub já está criado e configurado para enviar notificações não autenticadas para Windows Phone.
 
     > [!NOTE]
-    > Este tutorial utiliza MPNS no modo não autenticado. O modo MPNS não autenticado vem com restrições quanto às notificações que pode enviar para cada canal. Os Notification Hubs suportam o [Modo MPNS autenticado ](http://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) ao permitirem-lhe carregar o seu certificado.
+    > Este tutorial utiliza MPNS no modo não autenticado. O modo MPNS não autenticado vem com restrições quanto às notificações que pode enviar para cada canal. Os Notification Hubs suportam o [Modo MPNS autenticado ](https://msdn.microsoft.com/library/windowsphone/develop/ff941099.aspx) ao permitirem-lhe carregar o seu certificado.
 
 ## <a name="create-a-windows-phone-application"></a>Criar uma aplicação Windows Phone
 Nesta secção, vai criar uma aplicação Windows Phone que efetua o próprio registo no hub de notificação. 
