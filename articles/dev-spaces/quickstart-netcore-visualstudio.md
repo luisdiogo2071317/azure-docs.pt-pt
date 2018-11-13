@@ -1,22 +1,21 @@
 ---
 title: Criar um espaço de programador do Kubernetes na cloud | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: ghogen
+author: iainfoulds
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: ghogen
+ms.author: iainfou
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-manager: douge
-ms.openlocfilehash: 0e58fb23aded66a44deb0d520151c98903cffe18
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: de30cc01dedbba9177c2a67fe1147b9ae767280e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433332"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978166"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (.NET Core e Visual Studio)
 
@@ -31,7 +30,7 @@ Neste guia, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um cluster Kubernetes a executar o Kubernetes 1.9.6 ou posterior, na região EUA Leste, E.U.A. Central, E.U.A. Central 2, 	Europa Ocidental, Canadá Central ou Leste do Canadá, com o Encaminhamento de Aplicações de Http ativado.
+- Um cluster Kubernetes a executar o Kubernetes 1.9.6 ou posterior, na região EUA Leste, EUA Leste 2, EUA Central, EUA Oeste 2, Europa Ocidental, Sudeste Asiático, Canadá Central ou Leste do Canadá, com o Encaminhamento de Aplicações de HTTP ativado.
 
   ![É necessário ativar o Encaminhamento de Aplicações de Http.](media/common/Kubernetes-Create-Cluster-3.PNG)
 

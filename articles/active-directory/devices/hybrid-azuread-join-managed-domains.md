@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352615"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963936"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -140,6 +140,9 @@ Se alguns dos seus dispositivos associados a um domínio são dispositivos de n�
  
 - Configurar as definições de intranet local para o registo de dispositivos
 
+- Controlar dispositivos de nível inferior do Windows 
+
+
 ### <a name="update-device-settings"></a>Atualizar as definições do dispositivo 
 
 Para registar dispositivos de nível inferior do Windows, terá de se certificar de que as definições do dispositivo para permitir que os utilizadores registem dispositivos no Azure AD estão configuradas. No portal do Azure, pode encontrar esta definição em:
@@ -163,6 +166,12 @@ Para concluir com êxito a associação ao Azure AD híbrido dos seus dispositiv
 - `https://autologon.microsoftazuread-sso.com`.
 
 Além disso, tem de ativar **Permitir atualizações à barra de estado por meio de script** na zona de intranet local do utilizador.
+
+
+### <a name="control-windows-down-level-devices"></a>Controlar dispositivos de nível inferior do Windows 
+
+Para registar dispositivos de nível inferior do Windows, tem de transferir e instalar um pacote do Windows Installer (.msi) do Centro de Transferências. Para obter mais informações, clique [aqui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## <a name="verify-the-registration"></a>Verificar o registo
 

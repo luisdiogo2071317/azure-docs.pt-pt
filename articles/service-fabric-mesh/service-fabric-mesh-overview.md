@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888202"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978320"
 ---
 # <a name="what-is-service-fabric-mesh"></a>O que é o Service Fabric Mesh?
 
@@ -66,6 +66,8 @@ Com o Service Fabric Mesh pode:
 ## <a name="next-steps"></a>Passos seguintes
 
 Demora apenas alguns passos a implementar um projeto de exemplo com o Visual Studio. Para obter mais informações, veja [Criar um site ASP.NET Core](service-fabric-mesh-quickstart-dotnet-core.md). 
+
+Encontre respostas a [perguntas comuns](service-fabric-mesh-faq.md).
 
 
 <!-- Links -->

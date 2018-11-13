@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 59696245dc33302c65aee5a39dc856926347b8fb
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353721"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569119"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma edge solução de machine learning com o Azure e o Azure Stack
 
@@ -1175,7 +1175,7 @@ A partir do subsistema Windows para Linux sessão utilize os seguintes comandos 
 
 ### <a name="create-a-service-principal-in-azure-ad"></a>Criar um principal de serviço no Azure AD
 
-1.  Inicie sessão no global [ *portal do Azure*](http://www.poartal.azure.com/).
+1.  Inicie sessão no global [ *portal do Azure*](http://portal.azure.com/).
 
 2.  Inicie sessão com o inquilino do Azure AD associado à instância do Azure Stack.
 

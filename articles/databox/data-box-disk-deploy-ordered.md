@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: bd90d3c4c9207374d6a6085df6a3962ef42b68a9
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091441"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037962"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: encomendar um disco do Azure Data Box Disk (Pré-visualização)
 
-O Azure Data Box Disk é uma solução na cloud híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para discos de estado sólido (SSDs) fornecidos pela Microsoft e reenvie os discos. Estes dados são então carregados para o Azure. 
+O Azure Data Box Disk é uma solução na cloud híbrida que permite importar os dados no local para o Azure, de forma rápida, fácil e fiável. Transfira os seus dados para discos de estado sólido (SSDs) fornecidos pela Microsoft e reenvie os discos. Estes dados são então carregados para o Azure.
 
 Este tutorial descreve como pode encomendar um disco do Azure Data Box Disk. Neste tutorial, ficará a saber mais sobre:
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 > - O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
 > - Durante a pré-visualização, o Data Box Disk pode ser enviado aos clientes nos EUA, na Europa Ocidental e Europa do Norte, no Canadá e na Austrália. Para obter mais informações, aceda a [Disponibilidade de região](data-box-disk-overview.md#region-availability).
 
-## <a name="sign-up"></a>Inscrever-se 
+## <a name="sign-up"></a>Inscrever-se
 
 O Data Box Disk está em pré-visualização e precisa de inscrever-se no serviço. Execute os seguintes passos para inscrever-se no serviço Data Box:
 
@@ -64,7 +64,7 @@ Execute os seguintes passos no [portal do Azure](https://aka.ms/azuredataboxfrom
     |Região do Azure de destino|Selecione a região do Azure para onde pretende transferir os dados.|
 
   
-5.  Selecione **Data Box Disk**. A capacidade máxima da solução para uma encomenda única de 5 discos é 35 TB. Pode criar várias encomendas para tamanhos de dados maiores. 
+5.  Selecione **Data Box Disk**. A capacidade máxima da solução para uma encomenda única de 5 discos é 35 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 
      ![Selecionar a opção Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
@@ -77,6 +77,7 @@ Execute os seguintes passos no [portal do Azure](https://aka.ms/azuredataboxfrom
     |Região do Azure de destino| Selecione uma região para a sua conta de armazenamento.<br> Atualmente, são suportadas contas de armazenamento em todas as regiões nos EUA, na Europa Ocidental e Europa do Norte, no Canadá e na Austrália. |
     |Contas de armazenamento|Com base na região do Azure especificada, selecione na lista filtrada uma conta de armazenamento existente. <br>Também pode criar uma nova conta v1 para Fins gerais ou uma conta v2 para Fins Gerais. |
     |Tamanho de dados estimado em TB| Introduza uma estimativa em TB. <br>Com base no tamanho dos dados, a Microsoft envia um número adequado de SSDs de 8 TB (capacidade utilizável de 7 TB). <br>A capacidade máxima utilizável de 5 discos é 35 TB. |
+    |Chave de acesso de disco| Indique a chave de acesso do disco, se assinalar **Utilizar a chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Indique uma chave alfanumérica de 12 a 32 carateres com, pelo menos, um caráter numérico e um especial. Os carateres especiais permitidos são `@?_+`. <br> Pode optar por ignorar esta opção e utilizar a chave de acesso gerada pelo Azure para desbloquear os discos.|
 
 13. Clique em **Seguinte**. 
 

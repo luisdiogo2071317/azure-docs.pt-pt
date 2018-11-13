@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 66ee4ac8fe946696d6760891a086a672fa9fc412
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165012"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914606"
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar uma base de dados SQL do Azure no portal do Azure
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>Início Rápido: Criar uma base de dados SQL do Azure no portal do Azure
 
 Este início rápido explica como criar uma base de dados SQL no Azure com o [modelo de compra com base na DTU](sql-database-service-tiers-dtu.md). A Base de Dados SQL do Azure é uma oferta de "Base de dados como Serviço" que lhe permite executar e dimensionar bases de dados do SQL Server altamente disponíveis na cloud. Este guia de início rápido mostra-lhe como começar a criar e a consultar uma base de dados SQL através do portal do Azure.
 
@@ -85,7 +85,7 @@ Siga estes passos para criar uma base de dados SQL com os dados de exemplo da Ad
 
    ![criar base de dados-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
-8. Aceite os termos de pré-visualização para utilizar a opção **Adicionar ao Armazenamento**.
+8. Aceitd os termos de pré-visualização para utilizar a opção **Adicionar ao Armazenamento**.
 
    > [!IMPORTANT]
    > No escalão Premium, está atualmente disponível mais de 1 TB de armazenamento em todas as regiões, exceto nas seguintes: Alemanha Central, E.U.A. Centro-Oeste, Leste da China, Nordeste da Alemanha, Norte da China, US DoD – Centro, US DoD – Leste, US Gov – Iowa, US Gov – Sudoeste. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Ver [Limitações Atuais P11-P15]( sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  

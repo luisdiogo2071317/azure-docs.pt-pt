@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030851"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913568"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerir dados exportados
 
@@ -46,7 +46,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 ## <a name="create-a-daily-export"></a>Criar uma exportação diária
 
-Cost Management + Faturação &gt; selecione um subscrição ou grupo de recursos numa subscrição &gt; Exportação &gt; **Adicionar**.
+Cost Management + Faturação &gt; Cost Management &gt; selecione um subscrição ou grupo de recursos numa subscrição &gt; Exportação &gt;  **Adicionar**.
 
 Escreva um nome para a exportação e especifique a subscrição, a conta de armazenamento do Azure, o contentor e o diretório de armazenamento de ficheiros ou o contentor de blobs e, em seguida, clique em **Criar**.
 

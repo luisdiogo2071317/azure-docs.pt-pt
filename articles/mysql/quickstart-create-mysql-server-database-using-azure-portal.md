@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407626"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959227"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure
 
@@ -98,20 +98,9 @@ Para localizar estes valores, siga os passos seguintes:
 Neste exemplo, o nome do servidor é **mydemoserver.mysql.database.azure.com** e o início de sessão de administrador do servidor é **myadmin@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Ligar ao MySQL com a ferramenta de linha de comandos mysql
-Estão disponíveis diversas aplicações que pode utilizar para ligar à sua Base de Dados do Azure para o servidor MySQL. 
+Ligue ao servidor com a ferramenta de linha de comandos **mysql.exe**. Pode transferir o MySQL [aqui](https://dev.mysql.com/downloads/) e instalá-lo no seu computador. 
 
-Vamos utilizar primeiro a ferramenta de linha de comandos [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) para ilustrar como ligar ao servidor. Também pode utilizar um browser e o Azure Cloud Shell conforme descrito aqui sem instalar software adicional. Se tiver o utilitário mysql instalado localmente, também pode ligar a partir do mesmo.
-
-1. Inicie o Azure Cloud Shell através do ícone de terminal (**>_**) no canto superior direito do portal do Azure.
-![Símbolo do terminal do Azure Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  O Azure Cloud Shell é aberto no browser, onde pode escrever os comandos bash da shell.
-
-   ![Linha de comandos - exemplo de linha de comandos do mysql](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. Na linha de comandos Cloud Shell, ligue à Base de Dados do Azure para o servidor MySQL escrevendo a linha de comandos mysql.
-
-    Para ligar a uma Base de Dados do Azure para o servidor MySQL com o utilitário mysql, utilize o seguinte formato:
+1. Para ligar a uma Base de Dados do Azure para o servidor MySQL com o utilitário mysql, utilize o seguinte formato:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ Vamos utilizar primeiro a ferramenta de linha de comandos [mysql](https://dev.my
 
     Por exemplo, o comando seguinte liga ao nosso servidor de exemplo:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -149,7 +138,7 @@ Vamos utilizar primeiro a ferramenta de linha de comandos [mysql](https://dev.my
     mysql>
     ```
     > [!TIP]
-    > Se a firewall não estiver configurada para permitir o endereço IP do Azure Cloud Shell, ocorre o seguinte erro:
+    > Se a firewall não estiver configurada para permitir o endereço IP do seu cliente, ocorre o seguinte erro:
     >
     > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server. (ERRO 2003 (28000): o cliente com o endereço IP 123.456.789.0 não tem permissão para aceder ao servidor.)
     >
@@ -178,7 +167,7 @@ Vamos utilizar primeiro a ferramenta de linha de comandos [mysql](https://dev.my
     SHOW DATABASES;
     ```
 
-7.  Escreva `\q` e, em seguida, selecione a tecla **Enter** para sair da ferramenta mysql. Pode fechar o Azure Cloud Shell depois de terminar.
+7.  Escreva `\q` e, em seguida, selecione a tecla **Enter** para sair da ferramenta mysql. 
 
 Está agora ligado à Base de Dados do Azure para o servidor MySQL e criou uma base de dados de utilizador vazia. Continue para a secção seguinte para um exercício semelhante. O exercício seguinte liga-se ao mesmo servidor ao utilizar outra ferramenta comum, Workbench do MySQL.
 

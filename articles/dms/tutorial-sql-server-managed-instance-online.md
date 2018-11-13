@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Azure Database Migration Service para realizar uma migração online do SQL Server para a Instância Gerida da Base de Dados Azure SQL | Microsoft Docs
+title: 'Tutorial: Utilizar o Azure Database Migration Service para realizar uma migração online do SQL Server para a Instância Gerida da Base de Dados Azure SQL | Microsoft Docs'
 description: Aprenda a realizar uma migração do SQL Server no local para a Instância Gerida da Base de Dados Azure SQL com o Azure Database Migration Service.
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ab869e53810f049593803d58b3df75d0c083bbd2
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946084"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962899"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL online com o DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do SQL Server no local para uma [Instância Gerida da Base de Dados Azure SQL](../sql-database/sql-database-managed-instance.md), com um período de indisponibilidade mínimo. Para métodos adicionais que podem exigir algum trabalho manual, veja o artigo [SQL Server instance migration to Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md) (Migração de instância do SQL Server para a Instância Gerida da Base de Dados SQL do Azure).
 
 >[!IMPORTANT]
@@ -145,7 +145,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 3. Indique o **Utilizador SQL** e a **Palavra-passe** para ligar à instância de destino da Instância Gerida da Base de Dados Azure SQL.
 
-       ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Selecionar o Destino](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
 
 2.  Selecione **Guardar**.
 

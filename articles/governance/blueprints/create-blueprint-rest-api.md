@@ -4,21 +4,21 @@ description: Utilize o Azure Blueprints para criar, definir e implementar artefa
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974209"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283551"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
-Compreender como criar e atribuir esquemas no Azure permite a uma organização definir padrões comuns de consistência e desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
+Aprender a criar e atribuir esquemas permite a definição de padrões comuns para desenvolver configurações reutilizáveis e rapidamente implementáveis com base nos modelos do Resource Manager, política, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure Blueprints para realizar algumas das tarefas comuns relacionadas com a criação, publicação e atribuição de um esquema na sua organização, tais como:
 
 > [!div class="checklist"]
 > - Criar um novo esquema e adicionar vários artefactos suportados
@@ -33,6 +33,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="getting-started-with-rest-api"></a>Introdução à API REST
 
 Se não estiver familiarizado com a API REST, comece por rever a [Referência da API REST do Azure](/rest/api/azure/) para obter uma compreensão geral da API REST, especificamente o URI do pedido e o corpo do pedido. Este artigo utiliza estes conceitos para fornecer instruções para trabalhar com o Azure Blueprints e pressupõe um conhecimento prático dos mesmos. Ferramentas como o [ARMClient](https://github.com/projectkudu/ARMClient) e outras podem processar a autorização automaticamente e são recomendadas para iniciantes.
+
+Para as especificações de Esquema, veja [API REST de Esquemas do Azure](/rest/api/blueprints/).
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
@@ -59,7 +61,7 @@ Substitua `{subscriptionId}` na variável **$restUri** acima para obter informa�
 
 ## <a name="create-a-blueprint"></a>Criar um esquema
 
-O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Neste exemplo, vai criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição, adicionar um grupo de recursos e criar uma atribuição de função e o modelo do Resource Manager no grupo de recursos.
+O primeiro passo na definição de um padrão de conformidade é compor um esquema a partir dos recursos disponíveis. Vamos criar um esquema com o nome "MyBlueprint" para configurar as atribuições de função e política para a subscrição. Em seguida, vamos adicionar um grupo de recursos, um modelo do Resource Manager e uma atribuição de função no grupo de recursos.
 
 > [!NOTE]
 > Ao utilizar a API REST, o objeto _esquema_ é criado em primeiro lugar. Para cada _artefacto_ a adicionar que tenha parâmetros, os parâmetros precisam de ser definidos com antecedência no _esquema_ inicial.
@@ -69,7 +71,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 - `{YourMG}` - substituir pelo nome do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
-1. Crie o objeto _esquema_ inicial. O **Corpo do Pedido** inclui propriedades sobre o esquema, grupos de recursos a criar e todos os parâmetros ao nível do esquema que são definidos durante a atribuição e utilizados pelos artefactos adicionados em passos posteriores.
+1. Crie o objeto _esquema_ inicial. O **Corpo do Pedido** inclui propriedades sobre o esquema, grupos de recursos a criar e todos os parâmetros ao nível do esquema. Os parâmetros são definidos durante a atribuição e utilizados pelos artefactos adicionados nos passos posteriores.
 
    - URI da API REST
 
@@ -148,7 +150,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para serem configurados durante a atribuição do esquema.
+1. Adicione a atribuição de política no momento da subscrição. O **Corpo do Pedido** define o _tipo_ de artefacto, as propriedades que se alinham com uma definição de política ou iniciativa e configura a atribuição de política para utilizar os parâmetros de esquema definidos para configurar durante a atribuição do esquema.
 
    - URI da API REST
 
@@ -176,7 +178,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema pode ser utilizado por mais do que um artefacto. No exemplo, o parâmetro **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos, que fornece informações sobre a conta de armazenamento que é criada no passo seguinte.
+1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte.
 
    - URI da API REST
 
@@ -204,7 +206,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
      }
      ```
 
-1. Adicione um modelo no grupo de recursos. O **Corpo do Pedido** para um modelo do Resource Manager inclui o componente JSON normal do modelo, define o grupo de recursos de destino com **properties.resourceGroup** e reutiliza os parâmetros de esquema  **storageAccountType**, **tagName** e **tagValue** ao fornecer cada um deles ao modelo. Os parâmetros de esquema são disponibilizados ao modelo através da definição de **properties.parameters** e, dentro do modelo JSON, essa chave/valor é utilizada para injetar o valor. Os nomes dos parâmetros de esquema e modelo podem ser os mesmos, mas foram diferenciados para ilustrar como cada um deles é passado do esquema para o artefacto de modelo.
+1. Adicione um modelo no grupo de recursos. O **Corpo do Pedido** para um modelo do Resource Manager inclui o componente JSON normal do modelo e define o grupo de recursos de destino com **properties.resourceGroup**. O modelo também reutiliza os parâmetros de esquema **storageAccountType**, **tagName** e **tagValue** ao passar cada um para o modelo. Os parâmetros de esquema são disponibilizados ao modelo através da definição de **properties.parameters** e, dentro do modelo JSON, esse par chave-valor é utilizado para injetar o valor. Os nomes dos parâmetros de esquema e modelo podem ser os mesmos, mas foram diferenciados para ilustrar como cada um deles passa do esquema para o artefacto de modelo.
 
    - URI da API REST
 
@@ -313,7 +315,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 
 ## <a name="publish-a-blueprint"></a>Publicar um esquema
 
-Agora que os artefactos foram adicionados ao esquema, é altura de publicá-lo. A publicação disponibiliza-o para ser atribuído a uma subscrição.
+Agora que os artefactos foram adicionados ao esquema, é altura de publicá-lo. A publicação disponibiliza-o para atribuir a uma subscrição.
 
 - URI da API REST
 
@@ -325,7 +327,7 @@ O valor para `{BlueprintVersion}` é uma cadeia de letras, números e hífenes (
 
 ## <a name="assign-a-blueprint"></a>Atribuir um esquema
 
-Depois de um esquema ser publicado com a API REST, pode ser atribuído a uma subscrição. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. O **Corpo do Pedido** especifica o esquema a atribuir, fornece o nome e a localização de quaisquer grupos de recursos na definição do esquema, e fornece todos os parâmetros que foram definidos no esquema e utilizados por um ou mais artefactos associados.
+Depois de um esquema ser publicado com a API REST, pode ser atribuído a uma subscrição. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. O **Corpo do Pedido** especifica o esquema a atribuir, indica o nome e a localização de quaisquer grupos de recursos na definição do esquema, e indica todos os parâmetros que foram definidos no esquema e utilizados por um ou mais artefactos associados.
 
 1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas o ID do principal de serviço varia de inquilino para inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
@@ -388,7 +390,7 @@ Depois de um esquema ser publicado com a API REST, pode ser atribuído a uma sub
 
 ## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
-Os esquemas podem ser removidos de uma subscrição se já não forem necessários ou tiverem sido substituídos por esquemas mais recentes com padrões, políticas e designs atualizados. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, utilize a seguinte operação da API REST:
+Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita quando os recursos de artefacto já não são precisos. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de esquema, utilize a seguinte operação da API REST:
 
 - URI da API REST
 

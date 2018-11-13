@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322874"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281223"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis com o Azure Digital Twins
 
 O serviço Azure Digital Twins permite-lhe recriar uma imagem digital do seu ambiente físico. Depois, pode ser notificado por eventos no ambiente e personalizar as respostas para esses eventos. 
 
 Este início rápido utiliza [um par de exemplos de .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) para digitalizar um edifício de escritórios imaginário e mostra-lhe como encontrar salas disponíveis nesse edifício. Com o Digital Twins, pode associar vários sensores ao seu ambiente. Juntamente com a disponibilidade das salas, também pode saber se a qualidade do ar de uma sala livre é ideal, com a ajuda de um sensor de dióxido de carbono simulado. Um dos exemplos de aplicações gerará dados de sensor aleatórios para o ajudar a visualizar este cenário.
+
+O vídeo seguinte apresenta um resumo da configuração do início rápido:
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +40,7 @@ Este início rápido utiliza [um par de exemplos de .NET](https://github.com/Azu
 
 Utilize os passos nesta secção para criar uma instância nova do Digital Twins no [portal](https://portal.azure.com).
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Definir permissões para a aplicação
 

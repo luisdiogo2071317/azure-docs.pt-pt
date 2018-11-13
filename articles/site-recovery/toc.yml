@@ -60,7 +60,7 @@ items:
       href: azure-to-azure-tutorial-migrate.md
 - name: Conceitos
   items:
-  - name: Perguntas Mais Frequentes (FAQ)
+  - name: Perguntas comuns sobre a Recuperação de Sites
     href: site-recovery-faq.md
   - name: Sobre a Recuperação após desastre da VM para o Azure
     items:
@@ -80,6 +80,8 @@ items:
       href: vmware-azure-common-questions.md
     - name: Matriz de suporte
       href: vmware-physical-azure-support-matrix.md
+    - name: Requisitos de suporte para a implementação do servidor de configuração
+      href: vmware-azure-configuration-server-requirements.md
     - name: Arquitetura de VMware para o Azure
       href: vmware-azure-architecture.md
     - name: Opções de localização de reativação pós-falha do Azure para o VMware
@@ -134,9 +136,9 @@ items:
       items:
       - name: Preparar o funcionamento em rede para a recuperação após desastre da VM do Azure
         href: azure-to-azure-about-networking.md
-      - name: Preparar o mapeamento do funcionamento em rede para a recuperação após desastre da VM do Azure
+      - name: Configurar o mapeamento de rede e reter os endereços IP após a ativação pós-falha
         href: azure-to-azure-network-mapping.md
-      - name: Configurar o endereçamento de IP para ativação pós-falha
+      - name: Exemplos para reter os endereços IP após a ativação pós-falha
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Integrar o ExpressRoute com a recuperação após desastre de VM do Azure
         href: azure-vm-disaster-recovery-with-expressroute.md
@@ -148,14 +150,6 @@ items:
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
       - name: Voltar a proteger as VMs do Azure após a ativação pós-falha
         href: azure-to-azure-how-to-reprotect.md
-    - name: Resolução de problemas
-      items:
-      - name: Resolver problemas de replicação do Azure para o Azure
-        href: azure-to-azure-troubleshoot-errors.md
-      - name: Resolver problemas sobre replicação em curso
-        href: azure-to-azure-troubleshoot-replication.md
-      - name: Resolver problemas com a extensão do Azure Site Recovery
-        href: site-recovery-extension-troubleshoot.md
       - name: Configurar a recuperação após desastre de VMs do Azure após a migração para o Azure
         href: azure-to-azure-replicate-after-migration.md
     - name: Gerir
@@ -188,10 +182,8 @@ items:
         href: vmware-azure-set-up-process-server-scale.md
     - name: Configurar a recuperação após desastre
       items:
-      - name: Configurar o ambiente de origem
+      - name: Configurar o ambiente de origem/servidor de configuração
         href: vmware-azure-set-up-source.md
-      - name: Implementar o servidor de configuração para VMs do VMware
-        href: vmware-azure-deploy-configuration-server.md
       - name: Configurar o ambiente de destino
         href: vmware-azure-set-up-target.md
       - name: Configurar as definições de replicação
@@ -390,14 +382,18 @@ items:
     href: site-recovery-monitor-and-troubleshoot.md
   - name: VMs do Azure
     items:
-    - name: Resolver problemas de replicação do Azure para o Azure
+    - name: Resolver problemas de erros de replicação para VMs do Azure
       href: azure-to-azure-troubleshoot-errors.md
+    - name: Resolver problemas de replicação contínua para VMs do Azure
+      href: azure-to-azure-troubleshoot-replication.md
     - name: Resolver problemas do serviço de Mobilidade para VMs do Azure
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/servidor físico
     items:
     - name: Resolver problemas de replicação do VMware para o Azure
       href: vmware-azure-troubleshoot-replication.md
+    - name: Resolver problemas do servidor de configuração
+      href: vmware-azure-troubleshoot-configuration-server.md
     - name: Resolver problemas de instalação push do serviço de Mobilidade para VMs do VMware/servidores físicos
       href: vmware-azure-troubleshoot-push-install.md
     - name: Resolver problemas de ativação pós-falha para o Azure
@@ -438,9 +434,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 770aa6a07df6900b10558ebbb7718c248296ee51
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: d0d5ff955caa7cf9206973f0411f4170ba3bbc35
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288089"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566358"

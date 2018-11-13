@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815380"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279216"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutorial: Criar uma página Web de Pesquisa Personalizada
 
@@ -79,7 +79,7 @@ Para excluir os resultados de sites ou URLs específicos, adicione-os ao separad
 
 ## <a name="add-pinned-entries"></a>Adicionar entradas afixadas
 
-Para afixar uma página Web específica à parte superior dos resultados da pesquisa, adicione o termo de página Web e consulta ao separador **Afixado**. O separador **Afixado** contém uma lista de pares de termos de página Web e consulta que especificam a página Web apresentada como o melhor resultado de uma consulta específica. A página Web só é afixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta afixada com base na condição de correspondência. [Leia mais](../define-your-custom-view.md#pin-to-top).
+Para afixar uma página Web específica à parte superior dos resultados da pesquisa, adicione o termo de página Web e consulta ao separador **Afixado**. O separador **Afixado** contém uma lista de pares de termos de página Web e consulta que especificam a página Web apresentada como o melhor resultado de uma consulta específica. A página Web só é afixada se a cadeia de consulta do utilizador corresponder à cadeia de consulta afixada com base na condição de correspondência. Apenas as páginas Web indexadas serão apresentadas nas pesquisas. Veja [Definir a sua vista personalizada](../define-your-custom-view.md#pin-to-top) para obter mais informações.
 
 1. Na página **Configuração**, clique no separador **Afixado** e introduza o termo de página Web e consulta da página Web a devolver como o melhor resultado.  
   

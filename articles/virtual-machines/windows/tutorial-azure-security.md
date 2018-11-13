@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298515"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978507"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Windows
 
@@ -133,7 +133,7 @@ Neste tutorial, configurou o Centro de Segurança do Azure e, em seguida, reviu 
 > * Ver e corrigir problemas de estado de funcionamento da configuração
 > * Rever as ameaças detetadas
 
-Avance para o próximo tutorial para saber como criar um pipeline CI/CD com o Azure DevOps Services e uma VM do Windows com o IIS em execução.
+Avance para o próximo tutorial para saber como instalar uma pilha .NET SQL&#92;IIS&#92; num par de VMs do Windows.
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [Pilha .NET SQL&#92;IIS&#92;.](tutorial-iis-sql.md)
