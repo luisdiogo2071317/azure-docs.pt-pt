@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 1b949d2baedc7a7da3230212e267c3ac98b30bbd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239547"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626002"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -197,7 +197,7 @@ Os utilizadores da sua aplicação notificá-lo de erros comunicados pela aplica
 Os seguintes recursos são úteis para compreender os códigos de estado e o erro relacionados com o armazenamento:
 
 * [Códigos de erro de API de REST comuns](https://msdn.microsoft.com/library/azure/dd179357.aspx)
-* [Códigos de erro do serviço de BLOBs](https://msdn.microsoft.com/library/azure/dd179439.aspx)
+* [Códigos de Erro do Serviço de Blobs](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Códigos de erro do serviço de fila](https://msdn.microsoft.com/library/azure/dd179446.aspx)
 * [Códigos de erro do serviço de tabela](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Códigos de erro do serviço de arquivo](https://msdn.microsoft.com/library/azure/dn690119.aspx)
@@ -642,7 +642,7 @@ O **PercentSuccess** métrica captura a percentagem de operações que foram bem
 É importante observar que essas operações foram concluídas com êxito e, portanto, não afetam o outras métricas, como a disponibilidade. Alguns exemplos de operações que ser executado com êxito, mas que pode resultar em códigos de estado HTTP sem êxito incluem:
 
 * **ResourceNotFound** (não encontrado 404), por exemplo a partir de um pedido GET para um blob que não existe.
-* **ResouceAlreadyExists** (409 Conflito), por exemplo a partir de um **CreateIfNotExist** operação onde o recurso já existe.
+* **ResourceAlreadyExists** (409 Conflito), por exemplo a partir de um **CreateIfNotExist** operação onde o recurso já existe.
 * **ConditionNotMet** (não modificado 304), por exemplo a partir de uma operação condicional, como quando um cliente envia um **ETag** valor e um HTTP **If-None-Match** cabeçalho para solicitar uma imagem apenas se tiver foi atualizado desde a última operação.
 
 Pode encontrar uma lista de códigos de erro de REST API comuns que os serviços de armazenamento retornam na página [códigos de erro da API de REST comuns](https://msdn.microsoft.com/library/azure/dd179357.aspx).
