@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816689"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622975"
 ---
-# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o Pacote de Conteúdos do Power BI para o Azure Active Directory
+# <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como utilizar o pacote de conteúdos do Azure Active Directory Power BI
 
 |  |
 |--|
-|Atualmente, o pacote de conteúdos do Azure AD Power BI utiliza as APIs do Azure AD Graph para recuperar dados de inquilino do Azure AD. Como resultado, poderá ver algumas disparidade entre os dados disponíveis no pacote de conteúdos e os dados obtidos com o [APIs de relatórios do Microsoft Graph](concept-reporting-api.md). |
+|Atualmente, o pacote de conteúdos do Power BI para o Azure AD utiliza as APIs do Azure AD Graph para obter dados do seu inquilino do Azure AD. Como resultado, poderá observar alguma disparidade entre os dados disponíveis no pacote de conteúdos e os dados obtidos com as [APIs do Microsoft Graph para relatórios](concept-reporting-api.md). |
 |  |
 
-Como um administrador de TI, precisa entender como os utilizadores adotam e utilizam as funcionalidades do Azure Active Directory. Isto permite-lhe planear a sua infraestrutura de TI e comunicação para aumentar a utilização e tirar o máximo partido de funcionalidades do Azure AD. Pacote de conteúdos Power BI para o Azure Active Directory dá-lhe a capacidade de analisar mais aprofundadamente os dados para recolher informações mais ricas sobre o que está acontecendo com o seu diretório. Com a integração de APIs do Azure Active Directory para o Power BI, pode transferir o pacote de conteúdos criado previamente e obtenha informações detalhadas sobre todas as atividades dentro do seu Azure Active Directory com a experiência de visualização avançada que o Power BI oferece facilmente. Pode criar o seu próprio dashboard e partilhá-lo facilmente com qualquer pessoa da sua organização. 
+O Power BI conteúdo de pacote para o Azure Active Directory (Azure AD) contém relatórios criados previamente para o ajudar a compreender como os utilizadores adotam e utilizam as funcionalidades do Azure AD. Isto permite-lhe obter informações sobre todas as atividades em seu diretório, com a experiência Rica visualização no Power BI. Também pode criar seu próprio dashboard e partilhá-lo com qualquer pessoa na sua organização. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,36 +38,32 @@ Precisa de uma licença de premium (P1/P2) do Azure AD para utilizar o pacote de
 
 Veja a [guia de introdução](quickstart-install-power-bi-content-pack.md) para instalar o pacote de conteúdos do Azure AD Power BI.
 
-## <a name="what-can-i-do-with-this-content-pack"></a>O que posso fazer com este pacote de conteúdos?
+### <a name="reports-included-in-this-version-of-azure-ad-logs-content-pack"></a>Pacote de conteúdos de registos de relatórios incluídos nesta versão do Azure AD
 
-Antes de avançarmos para aquilo que pode fazer com este pacote de conteúdos, segue-se uma pré-visualização rápida dos diversos relatórios que o mesmo contém. Os dados dos relatórios remontam aos **últimos 30 dias**.
+Os seguintes relatórios estão incluídos no pacote de conteúdos do Azure AD Power BI. Os relatórios contêm dados a partir da **últimos 30 dias**.
 
-### <a name="reports-included-in-this-version-of-azure-active-directory-logs-content-pack"></a>Relatórios incluídos nesta versão do Pacote de Conteúdos de registos do Azure Active Directory
+**Relatório de utilização da aplicação e as tendências**: este relatório fornece informações sobre as aplicações utilizadas na sua organização. Pode obter uma lista dos aplicativos mais populares ou compreender como uma aplicação que tenha implementado recentemente na sua organização está a ser utilizada. Isto permite-lhe controlar e melhorar a utilização ao longo do tempo.
 
-**Relatório de Utilização de Aplicações e Tendências**: obtenha informações sobre as aplicações utilizadas na sua organização e quais as que o são mais vezes e quando. Pode utilizar este relatório para recolher dados sobre como é que uma aplicação que tenha implementado recentemente na sua organização está a ser utilizada ou para descobrir quais são as aplicações mais populares. Com estas informações, pode melhorar a utilização, se vir que uma determinada aplicação não está a ser utilizada.
+**Inícios de sessão por localização e utilizadores**: este relatório fornece dados sobre todos os inícios de sessão executados usando a identidade do Azure. Com este relatório, pode desagregar para inícios de sessão individuais e responder a perguntas como:
 
-**Inícios de sessão por localização e utilizadores**: recolha informações sobre todos os inícios de sessão feitos com o Azure Identity, ao mesmo tempo que revela informações sobre a identidade dos utilizadores. Com estas informações, pode analisar mais aprofundadamente inícios de sessão individuais e responder a perguntas como:
-
-- De onde é que este utilizador iniciou sessão?
+- Onde este utilizador inícios de sessão de?
 - Que utilizador iniciou sessão mais vezes e de onde é que o fez? 
 - O início de sessão foi bem-sucedido?  
  
-Pode clicar numa data ou localização específica para ver informações mais detalhadas.
+Também pode filtrar os resultados ao selecionar uma data ou localização específica.
 
-**Utilizadores exclusivos por aplicação**: veja todos os utilizadores exclusivos que estão a utilizar uma determinada aplicação. Inclui apenas os utilizadores que iniciaram sessão “*com êxito*” numa aplicação.
+**Utilizadores exclusivos por aplicação**: este relatório fornece uma vista de todos os utilizadores exclusivos com uma determinada aplicação. Incluir apenas os utilizadores que têm "*com êxito*" conectado a uma aplicação.
 
-**Inícios de sessão de dispositivo**: veja que tipo de SO e de browsers os utilizadores da sua organização estão a utilizar, com informações detalhadas sobre eles, incluindo:
+**Inícios de sessão de dispositivo**: este relatório ajuda-o a compreender os vários perfis de dispositivo utilizados na sua organização e determinar políticas de dispositivos com base na utilização. Ele fornece dados sobre o tipo de SO e os browsers utilizados para início de sessão para aplicações, juntamente com informações detalhadas sobre os utilizadores, incluindo:
 
 - Nome de Utilizador
 - Endereço IP
 - Localização 
 - Estado de início de sessão 
 
-Com este relatório, pode ficar a saber quais são os diversos perfis de dispositivos utilizados na sua organização e determinar políticas de dispositivos com base no que é utilizado.
+**Funil de SSPR**: este relatório ajuda-o a compreender como a ferramenta SSPR é utilizada na sua organização. Pode ver a palavra-passe quantas reposições foram tentadas com a ferramenta SSPR e quantas foram bem-sucedidas. Também pode aprofundar mais as falhas de reposições de palavra-passe e compreender por que motivo ocorreram determinadas falhas. 
 
-**Funil de SSPR**: saiba como é que as reposições de palavras-passe são feitas na sua organização. Veja quantas tentativas de repor palavras-passe foram feitas com a ferramenta SSPR e quantas foram bem-sucedidas. Utilize o funil de SSPR (reposição personalizada de palavras-passe) para analisar os detalhes das falhas de Reposições de palavras-passe e ver por que motivo ocorreram determinadas falhas. Este relatório proporciona informações mais completas sobre a forma como a ferramenta SSPR é utilizada na sua organização, para que possa tomar as decisões certas.
-
-## <a name="customizing-azure-ad-activity-content-pack"></a>Personalizar o Pacote de Conteúdos de Atividades do Azure AD
+## <a name="customize-azure-ad-activity-content-pack"></a>Personalizar o pacote de conteúdos de atividades do Azure AD
 
 **Alterar a Visualização**:pode clicar em **Editar Relatório** para alterar a visualização de um relatório e selecionar a visualização que pretende.
  
@@ -75,51 +71,43 @@ Com este relatório, pode ficar a saber quais são os diversos perfis de disposi
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/10.png) 
 
-**Incluir campos adicionais**: pode adicionar um campo ao relatório ou removê-lo ao selecionar o elemento visual ao qual quer adicionar/remover o campo. No exemplo a seguir, vamos adicionar o campo “sign-in status” à vista de tabela. 
+**Incluir campos adicionais**: pode adicionar um campo ao relatório ou removê-lo ao selecionar o elemento visual ao qual quer adicionar/remover o campo. Por exemplo, pode adicionar o campo "sign-in status" para a exibição de tabela, conforme mostrado abaixo. 
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/11.png) 
 
-**Afixar visualizações ao dashboard**: pode personalizar o seu dashboard e incluir as suas próprias visualizações no relatório e afixá-las ao dashboard. No exemplo a seguir, adicionámos um filtro novo, com o nome “Sign-in Status”, e incluímo-lo no relatório. Também alterámos a visualização de gráfico de barras para gráfico de linhas e posso afixar este elemento visual novo ao dashboard.
-
-![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/12.png) 
+**Afixar visualizações ao dashboard**: pode personalizar o dashboard, incluindo as suas próprias visualizações ao relatório e afixá-lo ao dashboard. 
 
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/13.png) 
  
-
- 
-
-
-**Partilhar o seu dashboard**: depois de criar o conteúdo que queria, pode partilhar o dashboard com os utilizadores da sua organização. Não se esqueça de que, depois de partilhar, eles podem ver os campos que selecionou no relatório.
+**Partilhar o dashboard**: também pode partilhar o dashboard com os utilizadores na sua organização. Depois de partilhar o relatório, os utilizadores podem ver os campos que selecionou no relatório.
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/14.png) 
 
+## <a name="schedule-a-daily-refresh-of-your-power-bi-report"></a>Agendar uma atualização diária do seu relatório do Power BI
 
-
-## <a name="scheduling-a-daily-refresh-of-your-power-bi-report"></a>Agendar uma atualização diária do seu relatório do Power BI
-
-Para agendar uma atualização diária do seu relatório do Power BI, aceda a **Conjuntos de dados > Definições > Agendar Atualização** e defina-a conforme mostrado abaixo.
+Para agendar uma atualização diária do seu relatório do Power BI, aceda a **conjuntos de dados** > **definições** > **agendar atualização** e defini-lo, conforme mostrado abaixo.
  
 ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/15.png) 
 
-## <a name="updating-to-newer-version-of-content-pack"></a>Atualizar para uma versão mais recente do pacote de conteúdos
+## <a name="update-to-newer-version-of-content-pack"></a>Atualizar para a versão mais recente do pacote de conteúdos
 
-Se quiser atualizar um pacote de conteúdos para obter uma versão mais recente:
+Se pretender atualizar o pacote de conteúdos para uma versão mais recente:
 
-- Transfira o pacote novo e configure-e de acordo com as instruções apresentadas neste artigo.
+- Baixe o novo pacote de conteúdos e configurá-lo com as instruções neste artigo.
 
-- Depois de concluída a configuração, aceda a **Origem de Dados > Definições > Credenciais da origem de dados**
+- Assim que tiver configurado para ele, aceda a **origem de dados** > **definições** > **credenciais da origem de dados** e volte a introduzir as suas credenciais.
 
     ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/howto-power-bi-content-pack/16.png) 
 
-Assim que a versão nova do pacote de conteúdos estiver em funcionamento, pode remover a antiga, se necessário, eliminando os relatórios subjacentes e os conjuntos de dados associados a esse pacote de conteúdos.
+Depois de verificar se a nova versão do pacote de conteúdos funciona conforme esperado, pode remover a antiga versão, se necessário, eliminando os relatórios e conjuntos de dados associados esse pacote de conteúdos subjacentes.
 
 ## <a name="still-having-issues"></a>Ainda está com problemas? 
 
 Veja o nosso [guia de resolução de problemas](troubleshoot-content-pack.md). Para obter ajuda geral com o Power BI, veja estes [artigos de ajuda](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
  
-
+ 
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Instalar o pacote de conteúdos do Power BI](quickstart-install-power-bi-content-pack.md).
-* [Resolver erros de pacote de conteúdos](troubleshoot-content-pack.md).
+* [Resolver erros do pacote de conteúdos](troubleshoot-content-pack.md).
 * [Quais são os relatórios do Azure AD? ](overview-reports.md).

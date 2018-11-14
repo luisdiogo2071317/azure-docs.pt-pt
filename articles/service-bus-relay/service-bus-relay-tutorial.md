@@ -1,5 +1,5 @@
 ---
-title: Tutorial de reencaminhamento de WCF do Service Bus do Azure | Documentos da Microsoft
+title: Expor um serviço de REST do WCF no local para o cliente externo com o reencaminhamento de WCF do Azure | Documentos da Microsoft
 description: Crie uma aplicação de cliente e o serviço utilizando o reencaminhamento do WCF.
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262017"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615481"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Tutorial do reencaminhamento do WCF do Azure
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Expor um serviço de REST do WCF no local para o cliente externo com o reencaminhamento de WCF do Azure
 
 Este tutorial descreve como criar um cliente simples do reencaminhamento do WCF, aplicação e do serviço com o reencaminhamento do Azure. Para obter um tutorial semelhante que utiliza [mensagens do Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [introdução às filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -31,19 +31,32 @@ Quando completar a sequência de tópicos deste tutorial, terá um serviço em e
 
 Os últimos três passos descrevem como criar uma aplicação cliente, configurá-la, e criar e utilizar um cliente que possa aceder à funcionalidade do anfitrião.
 
+Siga os passos seguintes neste tutorial:
+
+> [!div class="checklist"]
+> * Crie um espaço de nomes do reencaminhamento.
+> * Criar um contrato de serviço do WCF
+> * Implementar o contrato WCF
+> * Alojar e executar o serviço WCF para registar com o serviço de reencaminhamento
+> * Criar um cliente WCF para o contrato de serviço
+> * Configurar o cliente de WCF
+> * Implementar o cliente WCF
+> * Execute as aplicações. 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, irá precisar do seguinte:
+Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
-* [Microsoft Visual Studio 2015 ou superior](https://visualstudio.com). Este tutorial utiliza o Visual Studio 2017.
-* Uma conta ativa do Azure. Se não tiver uma, pode criar uma conta gratuita em apenas alguns minutos. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/free/).
+- Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- [Visual Studio 2015 ou posterior](http://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017.
+- Azure SDK para .NET. Instale-o a partir da [página de downloads do SDK](https://azure.microsoft.com/downloads/).
 
-## <a name="create-a-service-namespace"></a>Criar um espaço de nomes de serviço
+## <a name="create-a-relay-namespace"></a>Criar um espaço de nomes do reencaminhamento
+A primeira etapa é criar um espaço de nomes e obter um [assinatura de acesso partilhado (SAS)](../service-bus-messaging/service-bus-sas.md) chave. Um espaço de nomes fornece um limite de aplicação para cada aplicação exposta através do serviço de reencaminhamento. O sistema gera uma chave SAS automaticamente quando se cria um espaço de nomes de serviço. A combinação do espaço de nomes de serviço e da chave SAS fornece as credenciais do Azure autenticar o acesso a uma aplicação.
 
-A primeira etapa é criar um espaço de nomes e obter um [assinatura de acesso partilhado (SAS)](../service-bus-messaging/service-bus-sas.md) chave. Um espaço de nomes fornece um limite de aplicação para cada aplicação exposta através do serviço de reencaminhamento. O sistema gera uma chave SAS automaticamente quando se cria um espaço de nomes de serviço. A combinação do espaço de nomes de serviço e da chave SAS fornece as credenciais do Azure autenticar o acesso a uma aplicação. Siga as [instruções aqui](relay-create-namespace-portal.md) para criar um espaço de nomes de Reencaminhamento.
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>Definir um contrato de serviço do WCF
-
 O contrato de serviço Especifica quais as operações (a terminologia do serviço web para funções ou métodos) o serviço suporta. Os contratos são criados através da definição de uma interface em C++, C# ou Visual Basic. Cada método da interface corresponde a uma operação de serviço específica. Todas as interfaces devem ter aplicado o atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) e todas as operações devem ter aplicado o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx). Se um método numa interface que tem o atributo [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx), não tem o atributo [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx), esse método não será exposto. O código utilizado nestas tarefas surge no exemplo que segue o procedimento. Para uma descrição completa de contratos e serviços, consulte o artigo [Desenhar e implementar serviços](https://msdn.microsoft.com/library/ms729746.aspx) na documentação do WCF.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Criar um contrato de reencaminhamento com uma interface
@@ -51,13 +64,13 @@ O contrato de serviço Especifica quais as operações (a terminologia do servi�
 1. Abra o Visual Studio como administrador, para tal clique com o botão direito no programa no menu **Iniciar** e selecione **Executar como administrador**.
 2. Crie um novo projeto de aplicação de consola. Clique no menu **Ficheiro**, selecione **Novo** e clique em **Projeto**. Na caixa de diálogo **Novo Projeto**, clique em **Visual C#** (se **Visual C#** não aparecer, procure em **Outras Linguagens**). Clique nas **aplicação de consola (.NET Framework)** modelo e o nomeio **EchoService**. Clique em **OK** para criar o projeto.
 
-    ![][2]
+    ![Criar uma aplicação de consola][2]
 
 3. Instale o pacote NuGet do Service Bus. Este pacote adiciona automaticamente referências para as bibliotecas do Service Bus, bem como o **System.ServiceModel** do WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) é o espaço de nomes que permite o acesso através de programação às funcionalidades básicas do WCF. O Service Bus utiliza muitos dos objetos e atributos de WCF para definir os contratos de serviço.
 
     No Solution Explorer, clique com o botão direito no projeto e, em seguida, clique em **gerir pacotes NuGet...** . Clique no separador Procurar e, em seguida, procure **WindowsAzure.ServiceBus**. Certifique-se de que o nome do projeto está selecionado na caixa **Versões**. Clique em **Instalar** e aceite os termos de utilização.
 
-    ![][3]
+    ![Pacote do Service Bus][3]
 4. No Explorador de Soluções, faça duplo clique no ficheiro Program.cs para abri-lo no editor, caso não esteja ainda aberto.
 5. Adicione o seguinte utilizando declarações na parte superior do ficheiro:
 
@@ -231,7 +244,7 @@ O código seguinte mostra o formato básico do ficheiro de configuração App.co
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>Alojar e executar um serviço web básico para registar com o serviço de reencaminhamento
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>Alojar e executar o serviço WCF para registar com o serviço de reencaminhamento
 
 Este passo descreve como executar um serviço de reencaminhamento do Azure.
 
@@ -501,7 +514,7 @@ Neste passo, criará um ficheiro App.config para uma aplicação cliente básica
     Este passo define o nome do ponto de extremidade, o contrato definido no serviço e o fato de que a aplicação de cliente utiliza TCP para comunicar com o reencaminhamento do Azure. O nome do ponto final é utilizado no próximo passo para ligar esta configuração de ponto final com o URI do serviço.
 5. Clique em **arquivo**, em seguida, clique em **Save All**.
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 
 O código seguinte mostra o ficheiro App.config para o cliente de Echo.
 
@@ -607,7 +620,7 @@ No entanto, uma das principais diferenças é que a aplicação de cliente utili
     channelFactory.Close();
     ```
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 
 O código de conclusão deve ser apresentado como a seguir, que mostra como criar uma aplicação cliente, como chamar as operações do serviço e como fechar o cliente após a chamada de operação é concluída.
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. Pode continuar a enviar mensagens de texto do cliente para o serviço desta forma. Quando tiver terminado, prima Enter nas janelas de consola do cliente e do serviço para terminar as duas aplicações.
 
 ## <a name="next-steps"></a>Passos Seguintes
+Avançar para o tutorial seguinte: 
 
-Este tutorial mostrou como criar um cliente de reencaminhamento do Azure, aplicação e serviço utilizando as capacidades de reencaminhamento de WCF do Service Bus. Para obter um tutorial semelhante que utiliza [mensagens do Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consulte [introdução às filas do Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
-
-Para saber mais sobre o reencaminhamento do Azure, consulte os seguintes tópicos.
-
-* [Descrição Geral do Reencaminhamento do Azure](relay-what-is-it.md)
-* [Como utilizar o serviço de reencaminhamento do WCF com .NET](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[Expor um serviço de REST do WCF no local para um cliente fora da rede](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

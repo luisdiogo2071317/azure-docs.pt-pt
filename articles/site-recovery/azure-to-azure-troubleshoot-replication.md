@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: c1cc8769617e4c9cd823b1e44d60c49b73f4bdb9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289716"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615801"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Resolver problemas de replicação em curso de VMS do Azure para o Azure
 
@@ -56,12 +56,6 @@ Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
-
-
-**Alterações a dados de origem** | **Limite máximo**
----|---
-Média de alterações a dados por VM| 25 MB/s
-Alterações a dados de pico em todos os discos numa VM | 54 MB/s
 
 ### <a name="solution"></a>Solução
 É necessário compreendermos que o Azure Site Recovery tem limites de velocidade, com base no tipo de disco de alteração de dados. Para saber se este problema seja recorrente ou momentaneamente, é importante localizar os dados alterados padrão da taxa da máquina virtual afetada.

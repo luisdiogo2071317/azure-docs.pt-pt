@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6050771ee1d129edd4370079c07da721f60d2065
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008339"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613550"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Recolher alertas do Nagios e do Zabbix no Log Analytics a partir do agente do Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los juntamente com [alertas a partir de outras origens](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  Este artigo descreve como configurar o agente do Log Analytics para Linux recolher alertas a partir desses sistemas.
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) são de código aberto, ferramentas de monitorização. Pode recolher alertas dessas ferramentas para o Log Analytics para analisá-los juntamente com [alertas a partir de outras origens](../monitoring-and-diagnostics/monitoring-overview-alerts.md).  Este artigo descreve como configurar o agente do Log Analytics para Linux recolher alertas a partir desses sistemas.
  
 ## <a name="prerequisites"></a>Pré-requisitos
 O agente do Log Analytics para Linux suporta recolher alertas do Nagios até versão 4.2.x e do Zabbix até versão 2.x.
@@ -118,5 +118,5 @@ Alertas de registos recolhidos pelo Zabbix têm uma **tipo** de **alerta** e um 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) no Log Analytics.
+* Saiba mais sobre [alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) no Log Analytics.
 * Saiba mais sobre [pesquisas de registos](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 

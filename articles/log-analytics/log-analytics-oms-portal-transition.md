@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8aec6ae3532acaaa5d039ee9db8745927c66957b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288786"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612810"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS para o Azure
 
@@ -84,7 +84,7 @@ Já não estão a ser capaz de criar novas áreas de trabalho através do portal
 Foram removidos [expandidos para o portal do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Quando isso for concluído, as ações de gestão de alertas só estará disponíveis no portal do Azure. Alertas existentes continuarão a ser listados no portal do OMS. Se aceder aos alertas através de programação, utilizando a API de REST de alerta do Log Analytics ou o modelo de recurso alerta do Log Analytics, terá de utilizar grupos de ação em vez de ações em suas chamadas de API, modelos Azure Resource Manager e comandos do PowerShell.
 
 ### <a name="alert-management-solution"></a>Solução de gestão de alertas
-Em vez do [solução de gestão de alertas](log-analytics-solution-alert-management.md), pode utilizar [Azure Monitor unified interface alerta](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) para visualizar e gerir os alertas. Esta nova experiência agrega alertas de várias origens dentro do Azure incluindo alertas de registos do Log Analytics. Pode ver distribuições os alertas, tirar partido do agrupamento automático de alertas relacionados por meio de grupos inteligentes e ver alertas em várias subscrições ao aplicar filtros avançados. Todos esses recursos estão disponíveis em pré-visualização, a partir de 4 de Junho de 2018. A solução de gestão de alertas não estarão disponível no portal do Azure. 
+Em vez do [solução de gestão de alertas](log-analytics-solution-alert-management.md), pode utilizar [Azure Monitor unified interface alerta](../monitoring-and-diagnostics/monitoring-overview-alerts.md) para visualizar e gerir os alertas. Esta nova experiência agrega alertas de várias origens dentro do Azure incluindo alertas de registos do Log Analytics. Pode ver distribuições os alertas, tirar partido do agrupamento automático de alertas relacionados por meio de grupos inteligentes e ver alertas em várias subscrições ao aplicar filtros avançados. Todos esses recursos estão disponíveis em pré-visualização, a partir de 4 de Junho de 2018. A solução de gestão de alertas não estarão disponível no portal do Azure. 
 
 Os dados recolhidos pela solução de gestão de alertas (registos com um tipo de alerta) continuam a ser no Log Analytics, desde que a solução está instalada para a área de trabalho. A partir de Agosto de 2018, transmissão em fluxo de alertas a partir de alertas unificada em áreas de trabalho será ativada, esta capacidade a substituir. Algumas alterações de esquema são esperadas e serão anunciadas numa data posterior.
 

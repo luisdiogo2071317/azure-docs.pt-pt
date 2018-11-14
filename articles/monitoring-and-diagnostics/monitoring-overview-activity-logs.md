@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f69a7f5e7aef4da798ec7c9ce3b7af3a456c00e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006027"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613363"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -33,7 +33,7 @@ O registo de atividade difere [registos de diagnóstico](monitoring-overview-of-
 Pode obter eventos de seu registo de atividades no portal do Azure, CLI, cmdlets do PowerShell e a API de REST do Azure Monitor.
 
 > [!NOTE]
->  [Os alertas mais recentes](monitoring-overview-unified-alerts.md) oferece uma experiência aprimorada quando criar e gerir atividade regras de alerta de registo.  [Saiba mais](alert-activity-log.md).
+> [Os alertas mais recentes](monitoring-overview-alerts.md) oferecem uma experiência aprimorada, ao criar e gerir atividade regras de alerta de registo.  [Saiba mais](alert-activity-log.md).
 
 
 ## <a name="categories-in-the-activity-log"></a>Categorias no registo de atividades

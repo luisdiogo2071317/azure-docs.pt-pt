@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281783"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616202"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de armazenamento do Azure
 
@@ -81,7 +81,7 @@ O macOS Keychain, às vezes, pode chegar a um Estado que provoca problemas para 
 * Reinicie o Explorador de armazenamento
 * Se a janela de autenticação está em branco, aguarde, pelo menos, um minuto antes de fechar a caixa de diálogo de autenticação.
 * Certifique-se de que o proxy e as definições estão configuradas corretamente para o seu computador e o Explorador de armazenamento de certificado.
-* Se estiver no Windows e ter acesso ao Visual Studio 2017 na mesma máquina e início de sessão, tente iniciar sessão no Visual Studio 2017. Após um êxito início de sessão para o Visual Studio 2017, deve ser capaz de abrir o Explorador de armazenamento e ver a sua conta no painel de conta. 
+* Se estiver no Windows e ter acesso ao Visual Studio 2017 na mesma máquina e início de sessão, tente iniciar sessão no Visual Studio 2017. Após um êxito início de sessão para o Visual Studio 2017, deve ser capaz de abrir o Explorador de armazenamento e ver a sua conta no painel de conta.
 
 Se nenhum desses métodos funcionam [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ Em primeiro lugar, certifique-se de que as seguintes informações que introduzi
 
 * O URL de proxy e o número de porta
 * Nome de utilizador e palavra-passe se for necessário pelo proxy
+
+Tenha em atenção que o Explorador de armazenamento não suporta .pac ficheiro para configurar definições de proxy.
 
 ### <a name="common-solutions"></a>Soluções comuns
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ed97a2c31897d1e5e61421ea489a35af377f4f37
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061724"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621450"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protegendo o acesso a dados do Azure Cosmos DB
 Este artigo fornece uma descrição geral da proteção de acesso a dados armazenados no [do Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -40,7 +40,7 @@ Cada conta consiste em duas de mestre de chaves: uma chave primária e chave sec
 
 Além de duas chaves mestra para a conta do Cosmos DB, existem duas chaves só de leitura. Essas chaves só de leitura permitem apenas operações de leitura na conta. Chaves só de leitura não concede acesso a recursos de permissões de leitura.
 
-Primária, secundária, só de leitura e chaves mestras de leitura e escrita podem ser obtidas e gerada novamente com o portal do Azure. Para obter instruções, consulte [ver, copiar e chaves de acesso de voltar a gerar](manage-account.md#keys).
+Primária, secundária, só de leitura e chaves mestras de leitura e escrita podem ser obtidas e gerada novamente com o portal do Azure. Para obter instruções, consulte [ver, copiar e chaves de acesso de voltar a gerar](manage-with-cli.md#regenerate-account-key).
 
 ![Controlo de acesso (IAM) no portal do Azure - demonstração da segurança de base de dados NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -196,5 +196,4 @@ O Azure Cosmos DB permite-lhe pesquisar, selecione, modificar e eliminar quaisqu
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre a segurança de base de dados do Cosmos DB, veja [Cosmos DB: segurança de base de dados](database-security.md).
-* Para saber mais sobre a gestão de chaves mestras e só de leitura, veja [como gerir uma conta do Azure Cosmos DB](manage-account.md#keys).
 * Para saber como construir tokens de autorização do Azure Cosmos DB, veja [controlo de acesso em recursos do Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

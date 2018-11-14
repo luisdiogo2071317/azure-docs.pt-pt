@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: e765739384aa7d18b95394cb0a9b2b6748174e7c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51525662"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51597643"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -49,7 +49,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Endereços de IP privados por rede virtual |65536 |
 | Endereços IP privados por interface de rede |256 |
 | Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |
-| Interfaces de Rede (NIC) |24000 |
+| Interfaces de Rede (NIC) |65536 |
 | Grupos de Segurança de Rede (NSG) |5000 |
 | Regras do NSG por NSG |1000 |
 | Endereços IP e intervalos especificados para a origem ou destino num grupo de segurança |4000 |
@@ -64,28 +64,27 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Configurações de TOQUE de interface de rede por TOQUE de rede virtual |100 |
 
 #### <a name="publicip-address"></a>Limites de endereço IP públicos
-
 | Recurso | Limite predefinido | Limite Máximo |
 | --- | --- | --- |
-| Endereços IP públicos - dinâmico |200 (básico) |contactar o suporte |
+| Endereços IP públicos - dinâmico |1000 (básico) |contactar o suporte |
 | Endereços IP públicos - estáticos |200 (básico) |contactar o suporte |
 | Endereços IP públicos - estáticos |200 (standard) |contactar o suporte |
 
 #### <a name="load-balancer"></a>Limites do Balanceador de carga
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md)
 
-| Recurso | Limite predefinido | Limite Máximo |
+| Recurso | Limite predefinido |
 | --- | --- | --- |
-| Balanceador de Carga | 100 | 1000 |
-| Regras por recurso, Basic | 250 | 250 |
-| Regras por recurso, Standard | 1500 | 1500 |
-| Regras por configuração de IP | 299 |299 |
-| Configurações de IP de front-end, Basic | 10 | 200 |
-| Configurações de IP de front-end, Standard | 10 | 600 |
-| Conjunto de back-end, Basic | Conjunto de disponibilidade de único de 100, | Conjunto de disponibilidade de único de 100, |
-| Conjunto de back-end, Standard | 1000, único VNet | 1000, único VNet |
-| Recursos de back-end por Balanceador de carga Standard * | 150 | 150 |
-| HA portas, Standard | 1 por front-end interno | 1 por front-end interno |
+| Balanceador de Carga | 1000 | 
+| Regras por recurso, Basic | 250 |
+| Regras por recurso, Standard | 1500 | 
+| Regras por configuração de IP | 299 |
+| Configurações de IP de front-end, Basic | 200 |
+| Configurações de IP de front-end, Standard | 600 |
+| Conjunto de back-end, Basic | Conjunto de disponibilidade de único de 100, |
+| Conjunto de back-end, Standard | 1000, único VNet |
+| Recursos de back-end por Balanceador de carga Standard * | 150 |
+| HA portas, Standard | 1 por front-end interno |
 
 * * Até 150 recursos, qualquer combinação de máquinas virtuais autónomas, conjuntos de disponibilidade e conjuntos de dimensionamento de máquina virtual.
 

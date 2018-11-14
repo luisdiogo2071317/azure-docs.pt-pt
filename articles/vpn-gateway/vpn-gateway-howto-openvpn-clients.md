@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: de24e8b308c6adf3f69caae4ab671f57fc2f6b8c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 7d76827a4e4ba4ccb7a146c5f8282000d143eb35
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565059"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624442"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurar clientes OpenVPN para o Gateway de VPN do Azure (pré-visualização)
 
@@ -38,7 +38,7 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
   ```
 6. Open *profileinfo.txt* no bloco de notas. Para obter o thumbprint do certificado de cliente (filho), selecione o texto (incluindo e entre) "---BEGIN CERTIFICATE---" e "---certificado END---" para o filho de certificado e copiá-lo. Pode identificar o certificado de subordinado ao observar o assunto = / linha.
-7. Mude para o *vpnconfig.ovpn* arquivo aberto no bloco de notas do passo 3. Localize a secção abaixo Substituir tudo entre "cert" e "/ cert".
+7. Mude para o *vpnconfig.ovpn* arquivo aberto no bloco de notas do passo 3. A secção mostrada abaixo de localizar e Substituir tudo entre "cert" e "/ cert".
 
   ```
   # P2S client certificate
@@ -119,7 +119,7 @@ Certifique-se de que concluiu os passos para configurar OpenVPN para o seu gatew
 11. Para ligar utilizando a linha de comandos, escreva o seguinte comando:
   
   ```
-  Sudo openvpn –config <name and path of your VPN profile file>
+  sudo openvpn –-config <name and path of your VPN profile file>
   ```
 12. Para ligar através da GUI, aceda às definições de sistema.
 13. Clique em **+** para adicionar uma nova ligação VPN.

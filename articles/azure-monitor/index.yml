@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3e73ed1e774b2054cc403598c227b48fc6c99c21
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 128a6a767cfdebe66c884b12659fbb270ead3882
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645495"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614706"
 documentType: LandingData
 title: Documentação do Azure Monitor
 metadata:
@@ -98,11 +98,11 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="app-insights-tutorial-runtime-exceptions">Encontrar e diagnosticar exceções de runtime</a>
-    - html: <a href="app-insights-tutorial-performance">Encontrar e diagnosticar problemas de desempenho</a>
-    - html: <a href="app-insights-tutorial-alert">Monitorizar e alertar relativamente ao estado de funcionamento das aplicações</a>
-    - html: <a href="app-insights-tutorial-users">Analisar a utilização e as informações dos clientes</a>
-    - html: <a href="app-insights-tutorial-dashboards">Criar dashboards de KPI personalizados</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-runtime-exceptions">Encontrar e diagnosticar exceções de runtime</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-performance">Encontrar e diagnosticar problemas de desempenho</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-alert">Monitorizar e alertar relativamente ao estado de funcionamento das aplicações</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-users">Analisar a utilização e as informações dos clientes</a>
+    - html: <a href="/azure/application-insights/app-insights-tutorial-dashboards">Criar dashboards de KPI personalizados</a>
 - title: Vídeo de Formação Gratuita da PluralSight
   items:
   - type: list

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/28/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d3809c2615c1d73d0c4c80bafba77614aac6b17e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395689"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624204"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Azure AD de analisar os registos de atividades com o Log Analytics (pré-visualização)
 
@@ -97,7 +97,7 @@ As vistas do Log Analytics pré-criados para a atividade do Azure AD também pod
 * **Eventos de inícios de sessão**: esta vista mostra os relatórios mais relevantes relacionada com a monitorização da atividade de entrada, tais como inícios de sessão por aplicação, utilizador, dispositivo, bem como uma vista de resumo de controlo o número de inícios de sessão ao longo do tempo.
 * **Os utilizadores a efetuar a dar consentimento**: esta vista mostra os relatórios relacionados com o consentimento do utilizador, como o consentimento concede por utilizador, inícios de sessão por utilizadores que autoriza, bem como inícios de sessão por aplicação para todos os aplicativos baseados no consentimento. 
 
-Saiba como [instalar e utilizar as vistas do Log Analytics para a atividade do Azure AD registos](howto-install-use-log-analytics-views.md). 
+Saiba como [instalar e utilizar vistas do Log Analytics para registos de atividades do Azure AD](howto-install-use-log-analytics-views.md). 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

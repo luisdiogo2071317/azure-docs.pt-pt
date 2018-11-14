@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8e1494594546c432123b8b1b98d646e8637eea99
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214584"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622844"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurar a recuperação após desastre de VMs de Hyper-V para um site secundário com o PowerShell (Resource Manager)
 
@@ -21,7 +21,7 @@ Este artigo mostra como automatizar os passos para a replicação de VMs de Hype
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Reveja os [arquitetura do cenário e componentes](hyper-v-vmm-architecture.md).
+- Reveja a [arquitetura e os componentes do cenário](hyper-v-vmm-architecture.md).
 - Reveja os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
 - Certifique-se de que servidores do Virtual Machine Manager e os anfitriões de Hyper-V estão em conformidade com [suportar requisitos](site-recovery-support-matrix-to-sec-site.md).
 - Verifique se as VMs que pretende replicar cumprem [replicados suporte máquina](site-recovery-support-matrix-to-sec-site.md).
@@ -29,20 +29,20 @@ Este artigo mostra como automatizar os passos para a replicação de VMs de Hype
 
 ## <a name="prepare-for-network-mapping"></a>Preparar o mapeamento da rede
 
-[Mapeamento da rede](hyper-v-vmm-network-mapping.md) mapeia entre as redes no local do Virtual Machine Manager VM em clouds de origem e de destino. Mapeamento faz o seguinte:
+[Mapeamento da rede](hyper-v-vmm-network-mapping.md) mapeia entre as redes no local do Virtual Machine Manager VM em clouds de origem e de destino. O mapeamento faz o seguinte:
 
-- Liga-se as VMs para redes VM de destino apropriado após a ativação pós-falha. 
-- Idealmente, coloca as VMs da réplica nos servidores de anfitrião de Hyper-V de destino. 
+- Liga as VMs às redes de VMs de destino adequadas após a ativação pós-falha. 
+- Coloca as VMs de réplica nos servidores dos anfitriões de Hyper-V de destino, de forma otimizada. 
 - Se não configurar o mapeamento da rede, as VMs de réplica não será ligada a uma rede VM após a ativação pós-falha.
 
 Prepare do Virtual Machine Manager da seguinte forma:
 
 * Certifique-se de que tem [redes lógicas do Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/network-logical) nos servidores de Gestor de Máquina Virtual de origem e de destino:
 
-    - A rede lógica no servidor de origem deve ser associada com a cloud de origem em que estão localizados os anfitriões de Hyper-V.
-    - A rede lógica no servidor de destino deve ser associada com a nuvem de destino.
-* Certifique-se de que tem [redes VM](https://docs.microsoft.com/system-center/vmm/network-virtual) nos servidores de Gestor de Máquina Virtual de origem e de destino. Redes VM devem ser ligadas à rede lógica em cada local.
-* Ligar as VMs nos anfitriões de Hyper-V de origem à rede VM de origem. 
+    - A rede lógica no servidor de origem deve ser associada à cloud de origem na qual os anfitriões de Hyper-V estão localizados.
+    - A rede lógica no servidor de destino deve ser associada à cloud de destino.
+* Certifique-se de que tem [redes VM](https://docs.microsoft.com/system-center/vmm/network-virtual) nos servidores de Gestor de Máquina Virtual de origem e de destino. As redes de VMs devem ser ligadas à rede lógica em cada localização.
+* Ligue as VMs nos anfitriões de Hyper-V de origem à rede de VMs de origem. 
 
 ## <a name="prepare-for-powershell"></a>Preparar para o PowerShell
 
@@ -73,7 +73,7 @@ Certifique-se de que tem o Azure PowerShell pronto para começar:
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
 2. Crie um novo cofre de serviços de recuperação. Guarde o objeto do cofre numa variável a ser utilizado mais tarde. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
     Depois de criar utilizando o cmdlet Get-AzureRMRecoveryServicesVault, pode recuperar o objeto do cofre.
 

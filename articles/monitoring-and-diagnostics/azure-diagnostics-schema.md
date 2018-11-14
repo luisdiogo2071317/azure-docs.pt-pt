@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbe2619b99fdc5281375e2c6c1300432d9a4cbb9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963806"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616134"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões do esquema de configuração de extensão do Azure Diagnostics e o histórico
 Esta página de índices versões de esquema de extensão de diagnóstico do Azure fornecidos como parte do SDK do Microsoft Azure.  
@@ -67,7 +67,7 @@ Versões diferentes do diagnóstico do Azure utilizam esquemas de configuração
 ### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1.11
 Foi adicionado suporte para o sink do Azure Monitor. Este sink só é aplicável a contadores de desempenho. Ativa o envio de contadores de desempenho recolhidos na sua VM, VMSS ou serviço em nuvem para o Azure Monitor, como métricas personalizadas. Suporta o sink do Azure Monitor:
 * Obter todos os contadores de desempenho enviados para o Azure Monitor através do [métricas do Azure Monitor APIs.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Alertas em todos os contadores de desempenho enviados para o Azure Monitor através do novo [experiência de alertas unificada](monitoring-overview-unified-alerts.md) no Azure Monitor
+* Alertas em todos os contadores de desempenho enviados para o Azure Monitor através do novo [experiência de alertas unificada](monitoring-overview-alerts.md) no Azure Monitor
 * Ao tratar o operador de caráter universal no contadores de desempenho como a dimensão de "Instância" em sua métrica. Por exemplo, se recolheu o "disco lógico (\*) / DiskWrites/seg" contador deve ser capaz de filtro e dividir a dimensão de "Instância" plotagem ou alertar relativamente a escritas de disco/seg para cada disco lógico (c:, d:, etc.)
 
 Definir o Monitor do Azure como um sink novo na sua configuração de extensão de diagnóstico

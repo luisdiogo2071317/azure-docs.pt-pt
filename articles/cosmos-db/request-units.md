@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: eabfe503d9b92252ada0014eba4c83390dd6fd97
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 709cd16c7eee30dd2d88ea87b5f704ad20530ffb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236080"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621348"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de pedido no Azure Cosmos DB
 
@@ -52,8 +52,8 @@ Ao calcular o número de RU/s para aprovisionar, é importante considerar os seg
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [débito de aprovisionamento para contentores do Cosmos DB e bases de dados](set-throughput.md)
-* Saiba mais sobre [partições lógicas](partition-data.md)
-* Saiba mais sobre [débito de escala](scaling-throughput.md)
+* Saiba mais sobre [aprovisionamento um débito de contentores do Cosmos DB e bases de dados](set-throughput.md)
+* Saiba mais sobre [Llogical partições](partition-data.md)
+* Saiba mais sobre [globalmente dimensionar o débito aprovisionado](scaling-throughput.md)
 * Saiba [como aprovisionar o débito num contentor do Cosmos](how-to-provision-container-throughput.md)
 * Saiba [como aprovisionar o débito, numa base de dados do Cosmos](how-to-provision-database-throughput.md)

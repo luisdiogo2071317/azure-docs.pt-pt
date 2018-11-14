@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 653ed7e4cdbd2df166e21acfd1e376638cad6290
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52476488307b9467665b1b8df35c92419825078f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257229"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622385"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurar o mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Pode usá-lo para ver os servidores, como considerá-los – sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos e as portas em qualquer arquitetura ligado a TCP sem qualquer configuração necessária, que não seja a instalação de um agente.
@@ -133,8 +133,8 @@ Mapa de serviço obtém seus dados do agente do Microsoft Dependency. O agente d
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados a partir de computadores Windows. <br><br>Para além da [agente do Log Analytics para Windows](../log-analytics/log-analytics-concept-hybrid.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores Linux. <br><br>Para além da [agente do Log Analytics para Linux](../log-analytics/log-analytics-concept-hybrid.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Mapa de serviço analisa e recolhe dados a partir de computadores Windows. <br><br>Para além da [agente do Log Analytics para Windows](../log-analytics/log-analytics-agent-overview.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | Mapa de serviço analisa e recolhe dados de computadores Linux. <br><br>Para além da [agente do Log Analytics para Linux](../log-analytics/log-analytics-agent-overview.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Sim | Mapa de serviço analisa e recolhe dados de agentes do Windows e Linux no conectado [grupo de gestão do System Center Operations Manager](../log-analytics/log-analytics-om-agents.md). <br><br>É preciso uma ligação direta do computador do agente do System Center Operations Manager ao Log Analytics. |
 | Conta de armazenamento do Azure | Não | Mapa de serviço recolhe dados a partir de computadores de agente, portanto, não há nenhum dado com ele para coletar do armazenamento do Azure. |
 
@@ -230,7 +230,7 @@ O agente de dependência pode ser instalado manualmente em computadores Windows 
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador do Windows:
 
-1.  Instalar o agente do Log Analytics para Windows, siga um dos métodos descritos [recolher dados num ambiente híbrido com o agente do Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Instalar o agente do Log Analytics para Windows, siga um dos métodos descritos [descrição geral do agente do Log Analytics](../log-analytics/log-analytics-agent-overview.md).
 2.  Transferir o agente do Windows e executá-lo utilizando o seguinte comando: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -258,7 +258,7 @@ O agente de dependência é instalado em computadores com Linux do `InstallDepen
 
 Utilize os seguintes passos para instalar o agente de dependência em cada computador Linux:
 
-1.  Instalar o agente de Log Analytics, um dos métodos descritos a seguir [recolher dados num ambiente híbrido com o agente do Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
+1.  Instalar o agente de Log Analytics, um dos métodos descritos a seguir [descrição geral do agente do Log Analytics](../log-analytics/log-analytics-agent-overview.md).
 2.  Instale o agente de dependência de Linux como raiz, executando o seguinte comando:
     
     `sh InstallDependencyAgent-Linux64.bin`

@@ -13,24 +13,21 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/10/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 68028fd1ba116251860e5c370e9e9ce61fd314bb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107116"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624595"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatórios do Azure Active Directory
 
+Neste artigo, ficará a conhecer as políticas de retenção de dados para os relatórios de atividade diferente no Azure Active Directory. 
 
-Este artigo fornece respostas às perguntas mais comuns em conjunto com a retenção de dados para os relatórios de atividade diferente no Azure Active Directory. 
-
-### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>P: como pode obter a recolha de dados de atividade iniciados?
-
-**R:**
+### <a name="when-does-azure-ad-start-collecting-data"></a>Quando é que o Azure AD iniciar a recolha de dados?
 
 | Edição do Azure AD | Início da coleção |
 | :--              | :--   |
@@ -38,25 +35,21 @@ Este artigo fornece respostas às perguntas mais comuns em conjunto com a reten�
 | Azure AD Gratuito | A primeira vez que abre o [painel Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) ou utilizar o [APIs de relatórios](https://aka.ms/aadreports)  |
 
 ---
-### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>P: quando é que os dados de atividade disponível no portal do Azure?
 
-**R:**
+### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando os dados de atividade está disponível no portal do Azure?
 
 - **Imediatamente** – se já estiver trabalhando com relatórios no portal do Azure.
 - **Dentro de 2 horas** - se de que ainda não ativou a criação de relatórios no portal do Azure.
 
 ---
 
-### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>P: como pode obter a coleção de sinais de segurança a utilizar?  
+### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Quando é que o Azure AD comece a recolher dados de sinal de segurança?  
 
-**R:** para sinais de segurança, o processo de coleta é iniciado quando participar para utilizar o Centro de proteção de identidade. 
-
+Para sinais de segurança, o processo de coleta é iniciado quando participar para utilizar o **Centro de proteção de identidade**. 
 
 ---
 
-### <a name="q-for-how-long-is-the-collected-data-stored"></a>P: durante quanto tempo são os dados recolhidos armazenados?
-
-**R:**
+### <a name="how-long-does-azure-ad-store-the-data"></a>O período de tempo é que o Azure AD armazena os dados?
 
 **Relatórios de atividade**    
 

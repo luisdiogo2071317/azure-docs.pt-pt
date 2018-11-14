@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232448"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614477"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial de REST do reencaminhamento WCF do Azure
-
 Este tutorial descreve como criar uma simples aplicação anfitriã de reencaminhamento do Azure que expõe uma interface baseada em REST. O REST permite que um cliente web, como um navegador, aceda às APIs do Service Bus através de pedidos de HTTP.
 
 O tutorial utiliza o Windows Communication Foundation (WCF) modelo de programação REST para construir um serviço REST no reencaminhamento do Azure. Para obter mais informações, consulte o artigo [Modelo de Programação REST de WCF](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model) e [Desenho e Implementação de Serviços](/dotnet/framework/wcf/designing-and-implementing-services) na documentação do WCF.
 
-## <a name="step-1-create-a-namespace"></a>Passo 1: Criar um espaço de nomes
+Siga os passos seguintes neste tutorial:
+
+> [!div class="checklist"]
+> * Crie um espaço de nomes do reencaminhamento.
+> * Definir um contrato de serviço WCF baseado em REST
+> * Implementar o contrato WCF baseado em REST
+> * Alojar e executar o serviço WCF baseado em REST
+> * Executar e testar o serviço
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Para concluir este tutorial, precisa dos seguintes pré-requisitos:
+
+- Uma subscrição do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+- [Visual Studio 2015 ou posterior](http://www.visualstudio.com). Os exemplos neste tutorial utilizam o Visual Studio 2017.
+- Azure SDK para .NET. Instale-o a partir da [página de downloads do SDK](https://azure.microsoft.com/downloads/).
+
+## <a name="create-a-relay-namespace"></a>Criar um espaço de nomes do reencaminhamento
 
 Para começar a utilizar as funcionalidades do reencaminhamento no Azure, deve criar, em primeiro lugar, um espaço de nomes de serviço. Um espaço de nomes fornece um contentor de âmbito para abordar os recursos do Azure na sua aplicação. Siga as [instruções aqui](relay-create-namespace-portal.md) para criar um espaço de nomes de Reencaminhamento.
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Passo 2: Definir um contrato de serviço WCF baseado em REST para utilizar com o reencaminhamento do Azure
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>Definir um contrato de serviço WCF baseado em REST para utilizar com o reencaminhamento do Azure
 
 Quando cria um serviço de estilo REST de WCF, deve definir o contrato. O contrato especifica quais as operações suportadas pelo anfitrião. Uma operação de serviço pode considerar-se como um método de serviço web. Os contratos são criados através da definição de uma interface em C++, C# ou Visual Basic. Cada método da interface corresponde a uma operação de serviço específica. O atributo [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) tem de ser aplicado a cada interface e o atributo [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) tem de ser aplicado a cada operação. Se um método numa interface que tem [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) não tem [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute), esse método não será exposto. O código utilizado para estas tarefas é mostrado no exemplo que segue o procedimento.
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>Passo 3: Implementar um contrato de serviço de WCF baseado em REST para utilizar o Service Bus
+## <a name="implement-the-rest-based-wcf-service-contract"></a>Implementar o contrato de serviço WCF baseado em REST
 A criação de um serviço de reencaminhamento do WCF de estilo REST requer que crie primeiro o contrato, que é definido através de uma interface. O passo seguinte consiste em implementar a interface. Isto implica a criação de uma classe com o nome **ImageService** que implementa a interface **IImageContract** definida pelo utilizador. Depois de implementar o contrato, em seguida, configura-se a interface utilizando um ficheiro de App.config. O ficheiro de configuração contém as informações necessárias para a aplicação, como o nome do serviço, o nome do contrato e o tipo de protocolo que é utilizado para comunicar com o serviço de reencaminhamento. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
 
 Tal como acontece com os passos anteriores, há muito pouca diferença entre a implementação de um contrato de estilo REST e um contrato de reencaminhamento do WCF.
@@ -430,7 +446,7 @@ O exemplo seguinte mostra o ficheiro de App.config associado ao serviço.
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>Passo 4: Alojar o serviço WCF baseado em REST para utilizar o reencaminhamento do Azure
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>Alojar o serviço WCF baseado em REST para utilizar o reencaminhamento do Azure
 Este passo descreve como executar um serviço da web através de uma aplicação de consola com o reencaminhamento do WCF. No exemplo que segue o procedimento fornece uma lista completa de código escrito neste passo.
 
 ### <a name="to-create-a-base-address-for-the-service"></a>Para criar um endereço base para o serviço
@@ -476,7 +492,7 @@ Este passo descreve como executar um serviço da web através de uma aplicação
     host.Close();
     ```
 
-## <a name="example"></a>Exemplo
+### <a name="example"></a>Exemplo
 O exemplo seguinte inclui o contrato de serviço e de implementação dos passos anteriores no tutorial e aloja o serviço numa aplicação de consola. Compile o código seguinte para criar um executável com o nome ImageListener.exe.
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>Compilação do código
+## <a name="run-and-test-the-service"></a>Executar e testar o serviço
 Depois de compilar a solução, faça o seguinte procedimento para executar a aplicação:
 
 1. Prima **F5** ou navegue para a localização do ficheiro executável (ImageListener\bin\Debug\ImageListener.exe), para executar o serviço. Manter a aplicação em execução dado que é necessário para efetuar o passo seguinte.

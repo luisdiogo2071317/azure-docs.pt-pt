@@ -4,16 +4,16 @@ description: Saiba mais sobre o ciclo de vida que atravessa um plano gráfico e 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcfffe6094361c8b47b1cc7ce42cb79561261b15
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094583"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620600"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreender a sequência de implementação no Azure esquemas
 
@@ -47,6 +47,9 @@ Dentro de cada **grupo de recursos** artefacto, pela seguinte ordem sequência �
 Ao redigir planos gráficos grandes, poderá ser necessário para os recursos a ser criada por uma ordem específica. O padrão de uso mais comum deste cenário é quando um plano gráfico inclui diversos modelos do Azure Resource Manager. Planos gráficos lida com esse padrão, permitindo que a ordem de sequenciamento ser definido.
 
 A ordenação é realizada definindo um `dependsOn` propriedade no JSON. Apenas o esquema (para grupos de recursos) e os objetos de artefacto suportam esta propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefacto o artefacto específico tem de ser criada antes de ser criado.
+
+> [!NOTE]
+> **Grupo de recursos** artefactos de oferecer suporte a `dependsOn` propriedade, mas não pode ser o destino de um `dependsOn` por qualquer tipo de artefacto.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Exemplo - esquema com o grupo de recursos ordenada
 

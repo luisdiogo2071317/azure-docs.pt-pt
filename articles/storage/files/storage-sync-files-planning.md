@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a2864ca743adf4ced1418630940146fed21b7fd5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914333"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625305"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -27,7 +27,7 @@ Antes de entrar em detalhes sobre como planear uma implementação de sincroniza
 O serviço de sincronização de armazenamento é o recurso de nível superior do Azure para o Azure File Sync. O recurso de serviço de sincronização de armazenamento é um elemento de rede do recurso de conta de armazenamento e da mesma forma pode ser implementado em grupos de recursos do Azure. Recursos de nível superior distintos do recurso de conta de armazenamento é necessário porque o serviço de sincronização de armazenamento podem criar relacionamentos de sincronização com várias contas de armazenamento através de vários grupos de sincronização. Uma subscrição pode ter vários recursos de serviço de sincronização de armazenamento implementados.
 
 ### <a name="sync-group"></a>Grupo de sincronização
-Os grupos de sincronização definem a topologia da sincronização para um conjunto de ficheiros. Pontos finais dentro de um grupo de sincronização são mantidos em sincronia entre si. Se, por exemplo, tem dois conjuntos distintos de ficheiros que pretende gerir com o Azure File Sync, poderia criar dois grupos de sincronização e adicionar pontos de extremidade diferentes para cada grupo de sincronização. Um serviço de sincronização de armazenamento pode alojar os grupos de sincronização, conforme necessário.  
+Os grupos de sincronização definem a topologia da sincronização para um conjunto de ficheiros. Os pontos finais num grupo de sincronização são mantidos em sincronia entre si. Se, por exemplo, tem dois conjuntos distintos de ficheiros que pretende gerir com o Azure File Sync, poderia criar dois grupos de sincronização e adicionar pontos de extremidade diferentes para cada grupo de sincronização. Um serviço de sincronização de armazenamento pode alojar os grupos de sincronização, conforme necessário.  
 
 ### <a name="registered-server"></a>Servidor registado
 O objeto de servidor registado representa uma relação de confiança entre o servidor (ou cluster) e o serviço de sincronização de armazenamento. Pode registar os servidores a uma instância de serviço de sincronização de armazenamento que quiser. No entanto, um servidor (ou cluster) pode ser registrado com apenas um serviço de sincronização de armazenamento cada vez.
@@ -191,19 +191,9 @@ Com o sysprep num servidor que tem instalado o agente de sincronização de fich
 Se cloud disposição em camadas estiver ativada um ponto de final de servidor, os ficheiros que são dispostos em camadas ignorados e não indexados por Windows Search. Ficheiros em camadas não são indexados corretamente.
 
 ### <a name="antivirus-solutions"></a>Soluções antivírus
-Como o antivírus funciona através da análise de ficheiros para o código malicioso conhecido, um produto antivírus pode causar a remoção de ficheiros em camadas. Porque os ficheiros em camadas ter o atributo "offline" definido, é recomendável consultar o fornecedor de software para saber como configurar a sua solução para ignorar a leitura de ficheiros offline. 
+Como o antivírus funciona através da análise de ficheiros para o código malicioso conhecido, um produto antivírus pode causar a remoção de ficheiros em camadas. Nas versões 4.0 e acima do agente do Azure File Sync, ficheiros em camadas de ter o conjunto FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS de atributo seguro do Windows. Recomendamos que o serviço de consultoria com o seu fornecedor de software para saber como configurar a sua solução para ignorar a leitura de ficheiros com esse conjunto de atributo (muitos fazem-lo automaticamente).
 
-As seguintes soluções são conhecidas para suportar a ignorar ficheiros offline:
-
-- [O Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - O Windows Defender ignora automaticamente ficheiros de leitura com o atributo offline definido. Temos testado Defender e identificou um problema menor: ao adicionar um servidor a um grupo de sincronização existente, arquivos de tamanho inferior de 800 bytes são recuperados (transferido) no novo servidor. Estes ficheiros permanecerão no novo servidor e não pode ser camados, uma vez que estas não cumprem o requisito de tamanho de camadas (> 64kb).
-- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - SCEP funciona da mesma forma Defender; Veja acima
-- [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
-- [Segurança de ponto final do McAfee](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (consulte "Apenas o que precisa de verificação" na página 90 do PDF)
-- [Kaspersky software antivírus](https://support.kaspersky.com/4684)
-- [Proteção de ponto final da Sophos](https://community.sophos.com/kb/en-us/40102)
-- [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
+Soluções da Microsoft internas antivírus, o Windows Defender e System Center Endpoint Protection (SCEP), o ambos ignorar automaticamente de ficheiros de leitura com esse atributo seja definido. Temos testado-los e identificou um problema menor: ao adicionar um servidor a um grupo de sincronização existente, arquivos de tamanho inferior de 800 bytes são recuperados (transferido) no novo servidor. Estes ficheiros permanecerão no novo servidor e não pode ser camados, uma vez que estas não cumprem o requisito de tamanho de camadas (> 64kb).
 
 ### <a name="backup-solutions"></a>Soluções de cópia de segurança
 Como as soluções antivírus, soluções de cópia de segurança podem fazer com que a remoção de ficheiros em camadas. Recomendamos que utilize uma solução de cópia de segurança na cloud para criar cópias de segurança da partilha de ficheiros do Azure em vez de um produto de cópia de segurança no local.

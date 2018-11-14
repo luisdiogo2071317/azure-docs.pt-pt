@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 49d68a28180c384a181f29e41c12a5e32bd76aee
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280678"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625220"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -126,14 +126,14 @@ Um GUID é um número de referência exclusivo que tem 32 dígitos hexadecimais.
 > [!Note]
 > É altamente recomendável que use [formulário de gerador GUID do armazenamento do Azure](https://aka.ms/StoragePartners) para criar o GUID. Para obter mais informações, consulte nosso [FAQ](#faq).
 
-Crie um GUID exclusivo para cada oferta e a distribuição de canal. Se implementar duas soluções utilizando um modelo e cada um deles está disponível no Azure Marketplace e no GitHub, terá de criar quatro GUIDS:
+Recomendamos que crie um GUID exclusivo para cada oferta e a distribuição do canal para cada produto. Pode optar por utilizar um GUID único para vários canais de distribuição do produto se não pretender que o relatório ser dividida. 
 
-*   Oferecer A no Azure Marketplace 
-*   Oferecer A no GitHub
-*   Oferta B no Azure Marketplace 
-*   Oferta B no GitHub
+Se implementar um produto ao utilizar um modelo e está disponível no Marketplace do Azure e no GitHub, pode criar e registar 2 GUIDS distintos:
 
-A comunicação é efetuada pelo valor de parceiro (ID de parceiro da Microsoft) e o GUID. 
+*   Produto A no Azure Marketplace 
+*   Produto A no GitHub
+
+A comunicação é efetuada pelo valor de parceiro (ID de parceiro da Microsoft) e os GUIDs. 
 
 Também pode controlar GUIDs num nível mais granular, como o SKU, onde os SKUs são variantes de uma oferta.
 

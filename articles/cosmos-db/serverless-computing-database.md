@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140981"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623162"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor com o Azure Cosmos DB e as funções do Azure
 
@@ -98,7 +98,7 @@ Em implementações de varejo, quando um utilizador adiciona um item para seus c
 
 **Implementação:** escuta para um contentor de acionadores de vários Azure Cosmos DB
 
-1. Pode criar várias funções do Azure ao adicionar acionadores do Azure Cosmos DB a cada - todos os quais escutam ao mesmo alterar feed de dados do carrinho de compras. Tenha em atenção que, quando várias funções de ouvem o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre as coleções de concessão, consulte [Noções básicas sobre a biblioteca processador do Feed de alterações](change-feed.md#understand-cf).
+1. Pode criar várias funções do Azure ao adicionar acionadores do Azure Cosmos DB a cada - todos os quais escutam ao mesmo alterar feed de dados do carrinho de compras. Tenha em atenção que, quando várias funções de ouvem o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre as coleções de concessão, consulte [Noções básicas sobre a biblioteca processador do Feed de alterações](change-feed-processor.md).
 2. Sempre que um novo item é adicionado a um carrinho de compras de utilizadores, cada função de forma independente é invocada pela mudança de feed o contêiner de carrinho de compras.
     * Uma função pode utilizar o conteúdo do cesto atual para alterar a apresentação de outros itens que o utilizador poderá ter interesse em.
     * Outra função pode atualizar os totais de inventário.

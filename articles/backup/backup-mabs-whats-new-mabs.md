@@ -6,18 +6,18 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 1026b103b8bb2b16114147b1c58deaf5b20cc437
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 8e80d935bac94f3d4b2380799a1aed256828af75
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579732"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625883"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>O que há de novo no Microsoft Azure Backup Server
 
-Microsoft Azure Backup Server versão 3 (MABS V3) é a atualização mais recente e inclui correções de erros críticas, suporte de 2019 do Windows Server, suporte de 2017 do SQL e outras funcionalidades e melhoramentos. Para ver a lista de erros corrigidos e as instruções de instalação de MABS V3, consulte o artigo BDC 4457852.
+Microsoft Azure Backup Server versão 3 (MABS V3) é a atualização mais recente e inclui correções de erros críticas, suporte de 2019 do Windows Server, suporte de 2017 do SQL e outras funcionalidades e melhoramentos. Para ver a lista de erros corrigidos e as instruções de instalação de MABS V3, consulte o artigo BDC [4457852](https://support.microsoft.com/en-us/help/4457852/microsoft-azure-backup-server-v3).
 
 As seguintes funcionalidades estão incluídas na MABS V3:
 

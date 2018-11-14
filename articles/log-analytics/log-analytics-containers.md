@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6bde2fb0fc9534d170be1d755856f6f779e47d7c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013059"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625866"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -126,7 +126,7 @@ Depois de instalar o Docker, utilize as seguintes definições para o anfitrião
 
 **Para todos os anfitriões de contentor de Linux exceto CoreOS:**
 
-- Para obter mais informações e passos sobre como instalar o agente do Log Analytics para Linux, consulte [ligar os computadores Linux ao Log Analytics](log-analytics-concept-hybrid.md).
+- Para obter mais informações e passos sobre como instalar o agente do Log Analytics para Linux, consulte [descrição geral do agente do Log Analytics](log-analytics-agent-overview.md).
 
 **Para anfitriões de contentor do todos os Linux incluindo o CoreOS:**
 

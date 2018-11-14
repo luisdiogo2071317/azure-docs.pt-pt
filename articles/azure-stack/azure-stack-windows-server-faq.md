@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 91404f01a1a675ac59898336ef8aa81e1d2638b6
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579240"
+ms.locfileid: "51613100"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server na pilha do Azure Marketplace FAQ
 
@@ -38,7 +38,7 @@ Em seguida, se consultar quaisquer conjuntos de dimensionamento de Máquina Virt
 A Microsoft oferece duas versões de imagens do Windows Server através do Marketplace do Azure Stack:
 
 - **Pague à medida que usar**: estas imagens de executam os medidores de Windows de preço integral. 
-   Quem deve usar: os clientes do EA que utilizam o *modelo de faturação do consumo*; CSPs que não pretende utilizar o licenciamento de SPLA.
+   Quem deve usar: os clientes do Enterprise Agreement (EA) que utilizam o *modelo de faturação do consumo*; CSPs que não pretende utilizar o licenciamento de SPLA.
 - **Traga a sua própria licença (BYOL)**: medidores básicas de executar essas imagens.
    Quem deve usar: os clientes com EA com uma licença do Windows Server; CSPs que utilizam o licenciamento de SPLA.
 
@@ -52,7 +52,7 @@ Elimine primeiro a versão incorreta por meio do gerenciamento do Marketplace. A
 
 Ver [converter VMs do Windows Server com o benefício de volta para pay as you go](../virtual-machines/windows/hybrid-use-benefit-licensing.md#powershell-1).
 
-### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-ea-entitlement"></a>E se eu tiver uma imagem mais antiga e meu usuário se esqueceu de verificar a caixa "Tenho uma licença", ou podemos utilizar o nossas próprio imagens e temos a elegibilidade de EA?
+### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>E se eu tiver uma imagem mais antiga e meu usuário se esqueceu de verificar a caixa "Tenho uma licença", ou podemos utilizar o nossas próprio imagens e temos a elegibilidade de contrato Enterprise?
 
 Ver [converter uma VM existente com o Azure híbrido benefício para o Windows Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server). Tenha em atenção que o benefício híbrido do Azure não se aplica ao Azure Stack, mas o efeito desta definição é aplicável.
 
@@ -60,7 +60,7 @@ Ver [converter uma VM existente com o Azure híbrido benefício para o Windows S
 
 Estas imagens são aplicáveis a **licenseType** parâmetro, para que sejam de pagamento que utiliza. Pode definir este parâmetro (consulte as FAQ anteriores resposta). Isto aplica-se apenas ao software do Windows Server, não para os produtos em camadas, como SQL, que requerem que traga a sua própria licença. Pagamento como utilizar o licenciamento não se aplica a produtos de software em camadas.
 
-### <a name="i-have-an-ea-and-i-create-my-own-images-how-do-i-make-sure-they-are-billed-correctly"></a>Tenho um EA e posso criar meus próprio imagens; como me certifico de que eles são faturados corretamente?
+### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>Tenho um Enterprise Agreement (EA) e irá utilizar minha licença de servidor do Windows de EA; como me certifico de que imagens são faturadas corretamente?
 
 Pode adicionar **licenseType: Windows_Server** num modelo do Azure Resource Manager. Esta definição tem de ser adicionada a cada bloco de recurso de máquina virtual.
 

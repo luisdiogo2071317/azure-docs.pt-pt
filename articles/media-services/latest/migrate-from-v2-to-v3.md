@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 1c8bacf4c6cb22240609fb9f5dc0c3c456bc4531
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287545"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616015"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -59,6 +59,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 * Os SDKs de v3 agora estão desassociados do SDK de armazenamento, o que dá-lhe mais controlo sobre a versão do SDK de armazenamento que pretende utilizar e evita problemas de controle de versão. 
 * Nas v3 APIs, todas as taxas de bits de codificação são em bits por segundo. Isto é diferente de v2 que predefine Media Encoder Standard. Por exemplo, a velocidade de transmissão no v2 teria de ser especificada como 128 (kbps), mas na v3 seria 128000 (bits por segundo). 
 * Entidades AssetFiles AccessPolicies e IngestManifests não existem na v3.
+* A propriedade IAsset.ParentAssets não existe na v3.
 * ContentKeys já não é uma entidade, agora é uma propriedade do StreamingLocator.
 * Suporte a eventos Grid substitui NotificationEndpoints.
 * As seguintes entidades foram renomeadas

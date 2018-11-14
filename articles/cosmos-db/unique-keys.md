@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252569"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624425"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas no Azure Cosmos DB
 
@@ -48,17 +48,6 @@ Pode definir chaves exclusivas durante a criação de um contentor do Cosmos. Um
 * Chaves exclusivas dispersas não são suportadas. Se faltam alguns valores de caminho exclusivo, são tratadas como valores nulos, o que faça parte da restrição de exclusividade. Por conseguinte, só pode existir um único item com valor nulo para satisfazer esta restrição.
 
 * Nomes de chave exclusivos diferenciam maiúsculas de minúsculas. Por exemplo, considere um contentor com a restrição de chave exclusiva definida como /address/zipcode. Se os dados tiverem um campo chamado ZipCode, do Cosmos DB insere "null" como uma chave exclusiva porque "zipcode" não é igual a "ZipCode". Devido a este maiúsculas e minúsculas, todos os outros registos com ZipCode não não possível inserir uma vez que o duplicado "null" será violam a restrição de chave exclusiva.
-
-## <a name="supported-apis-and-sdks"></a>SDKs e APIs compatíveis
-
-A funcionalidade de chaves exclusivas é atualmente suportada pelos seguintes Cosmos DB APIs e SDKs do cliente: 
-
-|Controladores do cliente|SQL API|API de Cassandra|API do MongoDB|API do Gremlin|API de Tabela|
-|---|---|---|---|---|---|
-|.NET|Sim|Não|Sim|Não|Não|
-|Java|Sim|Não|Sim|Não|Não|
-|Python|Sim|Não|Sim|Não|Não|
-|JS/nó|Sim|Não|Sim|Não|Não|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

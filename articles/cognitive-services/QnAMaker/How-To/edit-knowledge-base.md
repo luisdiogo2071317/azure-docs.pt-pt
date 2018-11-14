@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fa5b5e1998d54c7b22d01e7cc70e84059d482cfb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279766"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623551"
 ---
 # <a name="edit-a-knowledge-base"></a>Editar uma base de dados de conhecimento
 
@@ -29,30 +29,25 @@ A ferramenta QnA Maker permite-lhe gerir o conteúdo da sua base de dados de con
 
     ![Meu Bases de dados de conhecimento](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Selecione uma base de dados de conhecimento específica para fazer edições ao mesmo.
+1. Selecione uma base de dados de conhecimento específica para fazer edições ao mesmo.
  
-3. Clique em **Definições**.
-
-   Aqui pode editar o nome do serviço de campo obrigatório.
+1. Selecione **definições**. Aqui pode editar o nome do serviço de campo obrigatório.
   
-   Pode adicionar novos Urls para adicionar o novo conteúdo de perguntas frequentes sobre a base de conhecimento ao clicar em **Gerir base de dados de conhecimento da -> "+ Adicionar URL'** ligação.
-   
-   Pode eliminar URLs existentes ao clicar em **ícone Eliminar**.
-   
-   Se pretender que a base de conhecimento para pesquisar o conteúdo mais recente de URLs existentes, o nome de caixa de verificação de escala **'Atualizar'**, esta ação irá atualizar a base de conhecimento com conteúdo mais recente do URL.
-   
-Pode adicionar o documento de ficheiro suportados para fazer parte da base de conhecimento, ao clicar em **Gerir base de dados de conhecimento da -> "+ adicionar o ficheiro"**
+    |Objetivo|Ação|
+    |--|--|
+    |Adicionar URL|Pode adicionar novos URLs para adicionar novo conteúdo de perguntas frequentes sobre a base de dados de conhecimento clicando **base de dados de conhecimento de gerir -> "+ Adicionar URL'** ligação.|
+    |Eliminar o URL|Pode eliminar URLs existentes ao selecionar o ícone Eliminar, o caixote do lixo.|
+    |Atualizar o conteúdo do URL|Se pretender que a sua base de dados de conhecimento para pesquisar o conteúdo mais recente de URLs existentes, selecione o **atualizar** caixa de verificação. Isto irá atualizar a base de dados de conhecimento com conteúdo mais recente do URL.|
+    |Adicionar ficheiro|Pode adicionar um documento de ficheiro suportados para fazer parte de uma base de dados de conhecimento, selecionando **gerir a base de dados de conhecimento**, em seguida, selecionar **+ adicionar ficheiro**|
+    |Importar|Também pode importar qualquer base de dados de conhecimento existente selecionando **base de dados de conhecimento Ímport** botão. |
+    |Atualizar|Atualizações da base de dados de conhecimento de depende **escalão de preço de gestão** utilizado ao criar o serviço QnA Maker associado à sua base de dados de conhecimento. Também pode atualizar o escalão de gestão a partir do portal do Azure, se necessário.
 
-Também pode importar qualquer base de conhecimento existente clicando **base de Ímport conhecimento** botão. 
-   
-Depende da atualização da base de conhecimento **escalão de preço de gestão** a ser utilizado ao criar o serviço QnA Maker associado ao seu knowledgbase. Também pode atualizar o escalão de gestão a partir do portal do Azure, se necessário.
-
-4. Quando tiver terminado de efetuar alterações para a base de dados de conhecimento, clique em **guardar e treinar** no canto superior direito da página para manter as alterações.    
+1. Depois de concluída a efetuar alterações para a base de dados de conhecimento, selecione **guardar e treinar** no canto superior direito da página para manter as alterações.    
 
     ![Guardar e preparar](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!NOTE]
-    Deixando a página antes de clicar em Guardar e train não aplicará as alterações.
+    >[!CAUTION]
+    >Se deixar a página antes de selecionar **guardar e treinar**, todas as alterações serão perdidas.
 
 ## <a name="add-a-qna-pair"></a>Adicione um par de FAQ
 
@@ -62,7 +57,7 @@ Selecione **QnA adicionar par** para adicionar uma nova linha à tabela de base 
 
 ## <a name="delete-a-qna-pair"></a>Eliminar um par de QnA
 
-Para eliminar um QnA, clique nas **eliminar** ícone mais à direita da linha QnA.
+Para eliminar um QnA, clique nas **eliminar** ícone mais à direita da linha QnA. Esta é uma operação permanente. Não pode ser anulada. Considerar a exportação de sua BDC do **publicar** página antes de eliminar pares. 
 
 ![Eliminar QnA par](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -95,6 +90,10 @@ Adicionar os pares de metadados ao selecionar o ícone de filtro
 A eliminar uma base de dados de conhecimento (KB) é uma operação permanente. Não pode ser anulada. Antes de eliminar uma base de dados de conhecimento, deve exportar a base de dados de conhecimento a partir da **definições** página do portal do QnA Maker. 
 
 Se partilhar a sua BDC com [colaboradores](collaborate-knowledge-base.md) , em seguida, eliminá-lo, todos os utilizadores perde o acesso para o KB. 
+
+## <a name="delete-azure-resources"></a>Eliminar recursos do Azure 
+
+Se eliminar qualquer um dos recursos do Azure utilizados para as bases de dados de conhecimento do QnA Maker, as bases de dados de conhecimento deixarão de funcionar. Antes de eliminar todos os recursos, certifique-se de exportar o seu bases de dados de conhecimento do **definições** página. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

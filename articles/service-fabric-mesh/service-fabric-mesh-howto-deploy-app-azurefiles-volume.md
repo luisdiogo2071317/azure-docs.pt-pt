@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cb5b421c1bcfe888d65335f3ab7f67bed80eec34
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055154"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614264"
 ---
 # <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Estado de Store num aplicativo de malha do Azure Service Fabric ao montar uma ficheiros do Azure com base em volume no interior do contentor
 
@@ -62,10 +62,10 @@ Criar a aplicação e os recursos relacionados com o seguinte comando e forneça
 
 O `storageAccountKey` parâmetro no modelo é uma cadeia segura. Não será apresentado o estado de implementação e `az mesh service show` comandos. Certifique-se de que ele está corretamente especificado no comando seguinte.
 
-O seguinte comando implementa uma aplicação do Linux utilizar o [mesh_rp.linux.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Para implementar uma aplicação do Windows, utilize o [mesh_rp.windows.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Lembre-se de que a maior imagens de contentor podem demorar mais tempo a implementar.
+O seguinte comando implementa uma aplicação do Linux utilizar o [counter.azurefilesvolume.linux.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json). Para implementar uma aplicação do Windows, utilize o [counter.azurefilesvolume.windows.json modelo](https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.windows.json). Lembre-se de que a maior imagens de contentor podem demorar mais tempo a implementar.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/counter.azurefilesvolume.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
 Dentro de alguns minutos, o comando deverá devolver com `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
@@ -97,5 +97,5 @@ az group delete --resource-group myResourceGroup
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Ver a aplicação de exemplo do volume de ficheiros do Azure no [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
-- Para saber mais sobre o modelo de recursos do Service Fabric, veja [modelo de recursos de malha do Service Fabric](service-fabric-mesh-service-fabric-resources.md).
-- Para saber mais sobre a malha de recursos de infraestrutura do serviço, leia os [descrição geral do Service Fabric em malha](service-fabric-mesh-overview.md).
+- Para saber mais sobre o Modelo de Recursos do Service Fabric, consulte [Modelo de Recursos do Service Fabric Mesh](service-fabric-mesh-service-fabric-resources.md).
+- Para saber mais sobre o Service Fabric Mesh, consulte [Descrição geral do Service Fabric Mesh](service-fabric-mesh-overview.md).

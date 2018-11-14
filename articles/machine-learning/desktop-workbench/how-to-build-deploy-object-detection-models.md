@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 166adc2b464ede5ba77d049075479e3b37a02a88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1451cdc5efcb62cff5c5d3725d5b15eb44be1755
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954863"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613669"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Criar e implementar modelos de deteção de objeto com o Azure Machine Learning
 
@@ -29,7 +29,7 @@ Um grande número de problemas do domínio de visão do computador pode ser reso
 Ao criar e implementar este modelo com este pacote, que execute os seguintes passos:
 1.  Criação de conjunto de dados
 2.  Definição de modelo de rede Neurais profundas (DNN)
-3.  Preparação de modelos
+3.  Preparação de Modelos
 4.  Avaliação e visualização
 5.  Implementação do serviço Web
 6.  Serviço Web de teste de carga
@@ -534,7 +534,7 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
         image (str): Image file path
         service_endpoint_url(str): web service endpoint url
         service_key(str): Service key. None for local deployment.
-        parameters (dict): Additional request paramters in dictionary. Default is {}.
+        parameters (dict): Additional request parameters in dictionary. Default is {}.
 
 
     Returns:

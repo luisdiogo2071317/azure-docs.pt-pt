@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057642"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614815"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Atualização offline do serviço de aplicações do Azure no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização de 1807 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.3 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1809 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.4 de serviço de aplicações do Azure.
 >
 >
 
@@ -44,7 +44,7 @@ Ao seguir as instruções neste artigo, pode atualizar o [fornecedor de recursos
 
 Para atualizar o fornecedor de recursos do serviço de aplicações num ambiente do Azure Stack, tem de concluir estas tarefas:
 
-1. Transferir o [instalador do serviço de aplicações](https://aka.ms/appsvcupdate3installer)
+1. Transferir o [instalador do serviço de aplicações](https://aka.ms/appsvcupdate4installer)
 2. Crie um pacote de atualização offline.
 3. Execute o instalador do serviço de aplicações (appservice.exe) e concluir a atualização.
 
@@ -93,7 +93,7 @@ Para atualizar o serviço de aplicações num ambiente desligado, primeiro tem d
 
 5. Reveja e aceite os termos de licença de terceiros e, em seguida, clique em **seguinte**.
 
-6. Certifique-se de que o ponto final do Azure Stack Azure Resource Manager e o inquilino do Active Directory informações estão corretas. Se usou as configurações padrão durante a implementação do Development Kit do Azure Stack, pode aceitar os valores predefinidos aqui. No entanto, se as opções personalizado quando implementou o Azure Stack, tem de editar os valores nesta janela para refletir a alteração. Por exemplo, se usar o sufixo de domínio *mycloud.com*, tem de alterar para o ponto de final do Azure Stack Azure Resource Manager *management.region.mycloud.com*. Depois de confirmar suas informações, clique em **seguinte**.
+6. Certifique-se de que o ponto final do Azure Stack Azure Resource Manager e o inquilino do Active Directory informações estão corretas. Se usou as configurações padrão durante a implementação do Development Kit do Azure Stack, pode aceitar os valores predefinidos aqui. No entanto, se as opções personalizado quando implementou o Azure Stack, tem de editar os valores nessa janela. Por exemplo, se usar o sufixo de domínio *mycloud.com*, tem de alterar para o ponto de final do Azure Stack Azure Resource Manager *management.region.mycloud.com*. Depois de confirmar suas informações, clique em **seguinte**.
 
     ![Informações de nuvem do Azure Stack][3]
 
@@ -104,7 +104,7 @@ Para atualizar o serviço de aplicações num ambiente desligado, primeiro tem d
         * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, *cloudadmin@azurestack.local*. Introduza a palavra-passe e clique em **sessão**.
    2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
    3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
-   4. Se uma implementação de serviço de aplicações existente é detetada, em seguida, a conta de armazenamento e de grupo de recursos será preenchida e a cinzento.
+   4. Se for detetada uma implementação existente do serviço de aplicações, em seguida, a conta de armazenamento e de grupo de recursos será preenchida e a cinzento.
    5. Clique em **seguinte** para rever o resumo da atualização.
 
     ![Instalação do serviço de aplicações detetada][4]

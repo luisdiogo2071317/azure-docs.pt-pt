@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 7ea379516c6e636abd1309416374be75bcdbb686
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: dd018dca2de018733783605bfdb2802f91ebd76b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578744"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621178"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Elevada disponibilidade com o Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Falhas regionais não são invulgares e Azure Cosmos DB torna-se de que a sua ba
 
 - Contas de várias regiões configuradas com a escrita de várias regiões será elevada disponibilidade para escritas e leituras. As ativações pós-falha regionais são instantâneas e não necessitam de quaisquer alterações da aplicação.
 
-- Contas de várias regiões com uma região de escrita única: durante uma falha de região de escrita, estas contas serão permanecem altamente disponíveis para leitura. No entanto, para escritas "ative a ativação pós-falha automática" na sua conta do Cosmos para ativação pós-falha a região afetada para outra região associado. A ativação pós-falha irá ocorrer por ordem de prioridade da região que especificou. Por fim, quando a região afetada esteja novamente online, os dados não replicados presentes na região de escrita afetados durante o período de inatividade são disponibilizados por meio de conflitos de feed. Aplicações podem ler os conflitos de feed, resolver conflitos com base na lógica específica de aplicativo e escrever os dados atualizados de volta para o contentor do Cosmos conforme apropriado. Assim que a região de escrita anteriormente afetado recupera, esta fica automaticamente disponível como uma região de leitura. Pode invocar uma ativação pós-falha manual e configurar a região afetada como a região de escrita. Pode fazer uma ativação pós-falha manual usando [CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#enable-manual-failover-for-your-cosmos-account).  
+- Contas de várias regiões com uma região de escrita única: durante uma falha de região de escrita, estas contas serão permanecem altamente disponíveis para leitura. No entanto, para escritas "ative a ativação pós-falha automática" na sua conta do Cosmos para ativação pós-falha a região afetada para outra região associado. A ativação pós-falha irá ocorrer por ordem de prioridade da região que especificou. Por fim, quando a região afetada esteja novamente online, os dados não replicados presentes na região de escrita afetados durante o período de inatividade são disponibilizados por meio de conflitos de feed. Aplicações podem ler os conflitos de feed, resolver conflitos com base na lógica específica de aplicativo e escrever os dados atualizados de volta para o contentor do Cosmos conforme apropriado. Assim que a região de escrita anteriormente afetado recupera, esta fica automaticamente disponível como uma região de leitura. Pode invocar uma ativação pós-falha manual e configurar a região afetada como a região de escrita. Pode fazer uma ativação pós-falha manual usando [CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover).  
 
 - Contas de várias regiões com uma região de escrita única: durante uma falha de região de leitura, estas contas irão continuar altamente disponíveis para leituras e gravações. A região afetada é automaticamente desligada a partir da região de escrita e será marcada como offline. Os SDKs do Cosmos DB irá redirecionar as chamadas de leitura para a próxima região disponível na lista de região preferencial. Se nenhuma das regiões na lista de região preferencial estiver disponível, chamadas automaticamente revertam para a região de escrita atual. Sem alterações são necessárias no código da aplicação para lidar com indisponibilidade da região de leitura. Eventualmente, quando a região afetada esteja novamente online, a região de leitura anteriormente afetado serão automaticamente sincronizados com a região de escrita atual e vai estar disponível novamente para atender a solicitações de leitura. Leituras subseqüentes são redirecionadas para a região recuperada sem exigir alterações ao código da aplicação. Durante a ativação pós-falha tanto rejoining de uma região anteriormente falhada, garantias de consistência de leitura continuam a ser cumpridas do Cosmos DB.
 
@@ -61,20 +61,15 @@ Falhas regionais não são invulgares e Azure Cosmos DB torna-se de que a sua ba
 
 - Certifique-se de escrita elevada e disponibilidade de leitura, configure a conta do Cosmos para abranger, pelo menos, duas regiões com a escrita de várias regiões. Esta configuração irá fornecer a disponibilidade, latência mais baixa e leituras e escritas isto suportado por SLAs de escalabilidade para ambos. Para obter mais informações, consulte como [configure a conta do Cosmos com várias regiões de escrita](tutorial-global-distribution-sql-api.md).
 
-- Para contas do Cosmos de várias regiões que estão configuradas com uma região de escrita única [ativar a ativação pós-falha automática utilizando a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account). Depois de ativar a ativação pós-falha automática, sempre que houver um desastre regional, Cosmos DB será automaticamente ativação pós-falha sua conta.  
+- Para contas do Cosmos de várias regiões que estão configuradas com uma região de escrita única [ativar a ativação pós-falha automática utilizando a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#automatic-failover). Depois de ativar a ativação pós-falha automática, sempre que houver um desastre regional, Cosmos DB será automaticamente ativação pós-falha sua conta.  
 
-- Mesmo que a sua conta do Cosmos está altamente disponível, seu aplicativo pode não ser criado corretamente para continuar altamente disponível. Para testar a disponibilidade elevada de ponto-a-ponto para a sua aplicação, invocar periodicamente o [ativação pós-falha manual ao utilizar a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#enable-manual-failover-for-your-cosmos-account), como parte do seu teste de aplicativos ou a recuperação após desastre (DR) explorações.
+- Mesmo que a sua conta do Cosmos está altamente disponível, seu aplicativo pode não ser criado corretamente para continuar altamente disponível. Para testar a disponibilidade elevada de ponto-a-ponto para a sua aplicação, invocar periodicamente o [ativação pós-falha manual ao utilizar a CLI do Azure ou o portal do Azure](how-to-manage-database-account.md#manual-failover), como parte do seu teste de aplicativos ou a recuperação após desastre (DR) explorações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Em seguida pode aprender sobre dimensionar o débito no seguinte artigo:
 
-- [Dimensionar o débito](scaling-throughput.md)
-
-- [Desvantagens de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
-
-- [Dimensionar o débito aprovisionado globalmente](scaling-throughput.md)
-
-- [Distribuição global - sob definições avançadas](global-dist-under-the-hood.md)
-
-- [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)
+* [Desvantagens de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
+* [Globalmente dimensionar o débito aprovisionado](scaling-throughput.md)
+* [Distribuição global - sob definições avançadas](global-dist-under-the-hood.md)
+* [Níveis de consistência no Azure Cosmos DB](consistency-levels.md)

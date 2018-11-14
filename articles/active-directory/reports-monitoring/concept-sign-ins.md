@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42057598"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623797"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
-Com os relatórios no Azure Active Directory (Azure AD) no [portal do Azure](https://portal.azure.com) pode obter todas as informações de que precisa para determinar o estado de funcionamento do seu ambiente.
-
-A arquitetura de relatórios no Azure Active Directory consiste nos seguintes componentes:
+A arquitetura de relatórios no Azure Active Directory (Azure AD) é composta pelos seguintes componentes:
 
 - **Atividade** 
-    - **Atividades de início de sessão** – Informações sobre a utilização de aplicações geridas e atividades de início de sessão do utilizador
-    - **Registos de auditoria** - informações de atividades do sistema sobre gestão de utilizadores e de grupos, as suas aplicações geridas e atividades de diretório.
+    - **Inícios de sessão** – informações sobre a utilização de aplicações geridas e atividades de início de sessão de utilizador.
+    - **Registos de auditoria** - [registos de auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre utilizadores e gestão de grupos, aplicações geridas e atividades de diretório.
 - **Segurança** 
-    - **Inícios de sessão de risco** – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. Para obter mais detalhes, veja Inícios de sessão de risco.
-    - **Utilizadores sinalizados para risco** – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. Para obter mais detalhes, veja Utilizadores sinalizados para risco.
+    - **Inícios de sessão arriscados** - uma [o início de sessão arriscado](concept-risky-sign-ins.md) é um indicador de uma tentativa de início de sessão poderão ter sido executada por alguém que não é o proprietário legítimo de uma conta de utilizador.
+    - **Utilizadores sinalizados para risco** - uma [utilizador de risco](concept-user-at-risk.md) é um indicador de uma conta de utilizador que pode ter sido comprometida.
 
-Este tópico fornece-lhe uma descrição geral das atividades de início de sessão.
+Este tópico fornece-lhe uma descrição geral do relatório de inícios de sessão.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
-* Utilizadores no administrador de segurança, leitor de segurança, a função de leitor de relatório
-* Administradores Globais
-* Qualquer utilizador (não administrador) pode aceder aos seus próprios inícios de sessão 
+* Utilizadores nas funções de administrador de segurança, o leitor de segurança e o leitor de relatório
+* Administradores globais
+* Além disso, qualquer utilizador (não administrador) pode aceder aos seus próprios inícios de sessão 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Que licença do Azure AD precisa para aceder à atividade de entrada?
 * O seu inquilino deve ter uma licença do Azure AD Premium associada ao mesmo para ver o relatório de atividade completo de inícios de sessão
 
+## <a name="sign-ins-report"></a>Relatório de inícios de sessão
 
-## <a name="sign-in-activities"></a>Atividades de início de sessão
-
-Com as informações fornecidas pelo relatório de início de sessão de utilizador, encontrará respostas a perguntas como:
+O relatório de inícios de sessão de utilizador fornece respostas às seguintes perguntas:
 
 * O que é o padrão de início de sessão de um utilizador?
 * Quantos utilizadores iniciaram sessão ao longo de uma semana?
 * Qual é o estado destes inícios de sessão?
 
-O primeiro ponto de entrada para atividades de início de sessão todos os dados são **inícios de sessão** na secção de atividade do **Azure Active Directory**.
-
+Pode acessar o relatório de inícios de sessão, selecionando **inícios de sessão** no **atividade** secção do **Azure Active Directory** painel no [portal do Azure](https://portal.azure.com).
 
 ![Atividade de início de sessão](./media/concept-sign-ins/61.png "Atividade de início de sessão")
-
 
 Um registo de inícios de sessão tem uma vista de listas predefinidas que mostra:
 
@@ -82,7 +77,7 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 ![Atividade de início de sessão](./media/concept-sign-ins/02.png "Atividade de início de sessão")
 
-Ao clicar num item na vista de lista, obtém todos os detalhes disponíveis sobre o mesmo numa vista horizontal.
+Selecione um item na vista de lista para obter informações mais detalhadas.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/03.png "Atividade de início de sessão")
 
@@ -100,7 +95,7 @@ Para limitar os dados comunicados para um nível que funcione para si, pode filt
 - Utilizador
 - Aplicação
 - Estado de início de sessão
-- Estado da deteção de risco
+- Acesso Condicional
 - Date
 
 ![Atividade de início de sessão](./media/concept-sign-ins/04.png "Atividade de início de sessão")
@@ -115,11 +110,12 @@ O filtro **Estado do início de sessão** permite-lhe selecionar:
 - Êxito
 - Falha
 
-O filtro **Risco Detetado** permite-lhe selecionar:
+O **acesso condicional** filtro permite-lhe selecionar o estado de política de AC para o início de sessão:
 
 - Todos
-- Sim
-- Não
+- Não Aplicado
+- Êxito
+- Falha
 
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.  
 Os valores possíveis são:
@@ -149,11 +145,14 @@ Se adicionar mais campos à vista de inícios de sessão, estes campos são adic
 
 ## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
 
-Pode transferir os dados de atividades de início de sessão se pretender trabalhar com eles fora do portal do Azure. Ao clicar em **Transferir** cria um ficheiro CSV dos 5000 registos mais recentes.  Além de um botão de transferência, o portal do Azure também fornece uma opção para gerar um script para transferir os dados.  
+Pode [transferir os dados de inícios de sessão](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure. Ao clicar em **Transferir** cria um ficheiro CSV dos 5000 registos mais recentes.  Além de um botão de transferência, o portal do Azure também fornece uma opção para [gerar um script para transferir os seus dados](tutorial-signin-logs-download-script.md).  
 
 ![Transferir](./media/concept-sign-ins/71.png "Transferir")
 
 Se necessita de mais flexibilidade, pode utilizar a solução de script. Clicar **Script** cria um script do PowerShell que inclui todos os filtros que definiu. Transfira e execute este script numa **modo de administrador** para gerar o ficheiro CSV. 
+
+> [!IMPORTANT]
+> O número de registos, pode transferir é restrita pela [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Executar o script num computador Windows 10
 
@@ -164,28 +163,18 @@ Se quiser executar o script num **Windows 10** máquina, precisa executar alguma
 3. Execute **Set-ExecutionPolicy irrestrito** e escolha **Sim para todos**. 
 4. Agora pode executar o script do PowerShell transferido no modo de administrador para gerar o ficheiro CSV.
 
-Além da implementação técnica, o número de registos que pode transferir também é limitado pelas [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
+## <a name="sign-ins-data-shortcuts"></a>Atalhos de dados de inícios de sessão
 
-
-## <a name="sign-in-activities-shortcuts"></a>Atalhos de atividades de início de sessão
-
-Para além do Azure Active Directory, o portal do Azure fornece-lhe os pontos de entrada adicionais para início de sessão dados de atividades:
+Para além do Azure AD, o portal do Azure fornece pontos de entrada adicionais para dados de inícios de sessão:
 
 - A descrição de geral de proteção de segurança de identidade
 - Utilizadores
 - Grupos
 - Aplicações Empresariais
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de inícios de sessão de utilizadores na proteção de segurança de identidade
 
-### <a name="users-sign-ins-activities"></a>Atividades de inícios de sessão de utilizadores
-
-Com as informações fornecidas pelo relatório de início de sessão de utilizador, encontrará respostas a perguntas como:
-
-- O que é o padrão de início de sessão de um utilizador?
-- Quantos utilizadores iniciaram sessão ao longo de uma semana?
-- Qual é o estado destes inícios de sessão?
-
-O ponto de entrada para estes dados é o gráfico de início de sessão de utilizador na página de descrição geral **Proteção de segurança de identidade**. O gráfico de início de sessão de utilizador mostra as agregações semanais de inícios de sessão de todos os utilizadores num determinado período de tempo. A predefinição do período de tempo é 30 dias.
+O gráfico de início de sessão do utilizador no **proteção de segurança de identidade** página Visão Geral mostra as agregações semanais de início de sessão ins para todos os utilizadores num determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
 ![Atividade de início de sessão](./media/concept-sign-ins/06.png "Atividade de início de sessão")
 
@@ -211,7 +200,6 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Date
 - MFA Necessário
 - Estado de início de sessão
-
  
 Na página **Utilizadores**, pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade**.
 
@@ -243,9 +231,9 @@ A opção **Inícios de sessão** dá uma visão geral completa de todos os even
 
 ![Atividade de início de sessão](./media/concept-sign-ins/11.png "Atividade de início de sessão")
 
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se quiser saber mais sobre os códigos de erro das atividades de inícios de sessão, veja os [Códigos de erro dos relatórios de atividades de inícios de sessão no portal do Azure Active Directory](reference-sign-ins-error-codes.md).
+* [Códigos de erro de relatório de atividades de início de sessão](reference-sign-ins-error-codes.md)
+* [Políticas de retenção de dados do Azure AD](reference-reports-data-retention.md)
+* [Latências de relatórios do Azure AD](reference-reports-latencies.md)
 

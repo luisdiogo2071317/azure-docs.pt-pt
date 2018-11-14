@@ -12,24 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 3a9f27a92a4bc808ff9bcf04b66523a92f1bcf03
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3fe268b6491a2a3cc1237173506ef5a91beb7d26
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356965"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625086"
 ---
-# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Como escolher o tipo de aplicação a utilizar ao adicionar uma aplicação
+# <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Escolher o tipo de aplicação ao adicionar uma aplicação no Azure Active Directory
+Saiba mais sobre os quatro tipos de aplicativos, que pode adicionar ao Azure Active Directory (Azure AD). Quando estiver a adicionar uma aplicação no Azure Active Directory, será solicitado a escolher um do tipo de quatro aplicação. 
 
-Este artigo ajuda-o a compreender os quatro tipos principais de aplicações, pode integrar com o Azure AD:
-
-* O que é suportado por cada um deles
-* Por que pode escolher qual aplicativo
-* Como configurar propriedades de núcleo desses aplicativos, como a forma como os utilizadores estiverem **aprovisionado**, ou o que **início de sessão único** tecnologia a ser utilizada.
-
-## <a name="supported-application-types-in-azure-ad"></a>Tipos de aplicações suportados no Azure AD
+## <a name="what-are-the-types-of-applications"></a>Quais são os tipos de aplicativos?
 
 O Azure AD suporta quatro tipos de aplicativo principal que podem ser adicionados com o **Add** funcionalidade disponível em **aplicações empresariais**. Estas incluem:
 
@@ -41,7 +36,7 @@ O Azure AD suporta quatro tipos de aplicativo principal que podem ser adicionado
 
 -   **Aplicações não à galeria** – traga os seus próprios aplicativos! Qualquer ligação web que desejar, qualquer aplicativo que processa um campo de nome de utilizador e palavra-passe, oferece suporte a protocolos SAML ou OpenID Connect ou suporta SCIM que deseja integrar para início de sessão único com o Azure AD.
 
-## <a name="features-and-capabilities-supported-by-all-the-preceding-application-types"></a>Funcionalidades e capacidades suportadas por todos os tipos de aplicação anterior
+## <a name="features-and-capabilities-supported-by-the-application-types"></a>Funcionalidades e capacidades suportadas pelos tipos de aplicação
 
 As seguintes funcionalidades são suportadas por qualquer um dos tipos de quatro aplicação anteriores no Azure AD:
 

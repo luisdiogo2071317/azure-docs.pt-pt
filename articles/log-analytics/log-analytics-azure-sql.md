@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5eb398cf981edbcfe9b98ee89c3dd4e12b3f758f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006741"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615498"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -291,4 +291,4 @@ Embora a solução é gratuita, consumo de telemetria de diagnóstico acima as u
 
 - Uso [pesquisas de registos](log-analytics-queries.md) no Log Analytics para ver os dados de SQL do Azure detalhados.
 - [Criar seus próprios dashboards](log-analytics-dashboards.md) a mostrar dados de SQL do Azure.
-- [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) quando ocorrem eventos específicos do SQL do Azure.
+- [Criar alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md) quando ocorrem eventos específicos do SQL do Azure.

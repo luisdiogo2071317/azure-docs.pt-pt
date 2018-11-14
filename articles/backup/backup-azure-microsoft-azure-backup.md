@@ -7,14 +7,14 @@ manager: shivamg
 keywords: servidor de cópia de segurança do Azure. proteger cargas de trabalho; fazer cópias de segurança de cargas de trabalho
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
-ms.openlocfilehash: 602b7b2a81ec727c9acaf86165867daa20370947
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578727"
+ms.locfileid: "51616321"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o servidor de cópia de segurança do Azure
 > [!div class="op_single_selector"]
@@ -169,18 +169,20 @@ Depois do processo de extração completo, marque a caixa para iniciar o recente
 
    **Configuração manual**
 
-    > [!IMPORTANT]
+   Quando usa sua própria instância do SQL, certifique-se de que adicionar builtin\Administrators à função sysadmin para a BD principal.
 
-    > Ao configurar manualmente o MABS, após a configuração, certifique-se de que *IsInitialized* do SSRS estiver definida como *verdadeiro*. Quando definida como True, o MABS pressupõe que o SSRS já está configurada e irá ignorar a configuração do SSRS.
+    **Configuração do SSRS com o SQL 2017**
 
-    > Utilize os seguintes valores para a configuração do SSRS:
+    Quando estiver a utilizar uma instância própria do SQL 2017, terá de configurar manualmente o SSRS. Após a configuração do SSRS, certifique-se de que *IsInitialized* do SSRS estiver definida como *verdadeiro*. Quando definida como True, o MABS pressupõe que o SSRS já está configurada e irá ignorar a configuração do SSRS.
 
-      >- Conta de serviço: 'Conta interna de utilização' deve ser o serviço de rede
-    >- URL do serviço Web: 'Diretório Virtual' deve ser ReportServer_MSDPMINSTANCE
-    > - Base de dados: DatabaseName deve ser ReportServer$ MSDPMINSTANCE
-    > - URL do Portal Web: 'Diretório Virtual' deve ser Reports_MSDPMINSTANCE
+    Utilize os seguintes valores para a configuração do SSRS:
 
-    > [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
+        - Service Account: ‘Use built-in account’ should be Network Service
+        - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
+        - Database: DatabaseName should be ReportServer$<SQLInstanceName>
+        - Web Portal URL: ‘Virtual Directory’ should be Reports_<SQLInstanceName>
+
+    [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
 
 4. Forneça uma localização para a instalação dos ficheiros do servidor de cópia de segurança do Microsoft Azure e clique em **seguinte**.
 
@@ -323,6 +325,8 @@ Utilize os seguintes passos para atualizar o MABS:
   > [!IMPORTANT]
 
   >  Como parte da atualização do SQL 2017, as chaves de encriptação do SQL de cópia de segurança e desinstalar do reporting services. Após a atualização do SQL server, service(14.0.6827.4788) de geração de relatórios está instalado e as chaves de encriptação são restauradas.
+
+ > Ao configurar manualmente o SQL 2017, consulte *configuração do SSRS com o SQL 2017* secção em instruções de instalação.
 
 3. Atualize os agentes de proteção nos servidores protegidos.
 4. As cópias de segurança devem continuar sem a necessidade de reiniciar os servidores de produção.

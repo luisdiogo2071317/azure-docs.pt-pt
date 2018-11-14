@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 88e55468c4018b73cb26087c4fbbdbee65cd5db3
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515527"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624882"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -131,6 +131,10 @@ Importar uma base de dados de conhecimento substitui o conteúdo da base de dado
 ## <a name="editorially-add-to-knowledge-base"></a>Adicionar de forma editorial à base de dados de conhecimento
 
 Se não tiver conteúdo já existente para preencher a base de dados de conhecimento, pode adicionar QnAs forma editorial nos conhecimentos do QnA Maker base. Saiba como atualizar a sua base de dados de conhecimento [aqui](../How-To/edit-knowledge-base.md).
+
+## <a name="formatting-considerations"></a>Considerações sobre a formatação
+
+Depois de importar um ficheiro ou URL, é convertida em Markdown e armazenado nesse formato. Se o processo de conversão não é converter ligações em seus arquivos e os URLs corretamente, deve editar as perguntas e respostas sobre o **editar** página. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

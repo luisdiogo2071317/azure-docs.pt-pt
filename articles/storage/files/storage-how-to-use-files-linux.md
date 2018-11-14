@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: bbd250e9ee987403d670b2605fdb8deda8c19092
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782060"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614955"
 ---
-# <a name="use-azure-files-with-linux"></a>Utilizar ficheiros do Azure com o Linux
+# <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. Partilhas de ficheiros do Azure podem ser montadas em distribuições do Linux com o [cliente do SMB kernel](https://wiki.samba.org/index.php/LinuxCIFS). Este artigo mostra duas formas de montar uma partilha de ficheiros do Azure: a pedido com o `mount` comando e de arranque através da criação de uma entrada no `/etc/fstab`.
 
 > [!NOTE]  
@@ -117,7 +117,7 @@ ms.locfileid: "43782060"
     fi
     ```
 
-4. **Alterar permissões no arquivo de credencial, de modo a raiz só pode ler ou modificar o ficheiro de palavra-passe.** Uma vez que a chave de conta de armazenamento é, essencialmente, uma senha de administrador superutilizadores para a conta de armazenamento, a definir as permissões no ficheiro, de modo que apenas raiz pode aceder é importante para que os utilizadores de privilégio mais baixos não foi possível obter a chave de conta de armazenamento.   
+4. **Alterar permissões no arquivo de credencial, de modo a raiz só pode ler ou modificar o ficheiro de palavra-passe.** Uma vez que a chave de conta de armazenamento é, essencialmente, uma senha de administrador superutilizadores para a conta de armazenamento, a definir as permissões no ficheiro, de modo que apenas raiz pode aceder é importante para que os utilizadores de privilégio mais baixos, não é possível obter a chave de conta de armazenamento.   
 
     ```bash
     sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred

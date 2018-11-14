@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166887"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614060"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166887"
 Utilize as orientações neste artigo para implementar o serviço de aplicações no Azure Stack.
 
 > [!IMPORTANT]  
-> Aplicar a atualização de 1807 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.3 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1809 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.4 de serviço de aplicações do Azure.
 
 Pode dar a capacidade de criar aplicações de API web e os seus utilizadores. Para permitir aos utilizadores criar esses aplicativos, terá de:
 
@@ -74,8 +74,8 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
    b. Na **subscrições do Azure Stack**, selecione a **subscrição do fornecedor predefinido**.
 
-     >[!NOTE]
-     >Atualmente, o serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido**.
+     > [!IMPORTANT]  
+     > Serviço de aplicações **tem** ser implementada para o **subscrição do fornecedor predefinido**.
 
    c. Na **localizações do Azure Stack**, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
 
@@ -198,7 +198,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
 1. No portal de administração do Azure Stack, aceda a **administração - serviço de aplicações**.
 
-2. Na descrição geral em estado, verifique que o **Status** mostra **todas as funções estão prontas**.
+2. Na descrição geral, em estado, verifique que o **Status** apresenta **todas as funções estão prontas**.
 
     ![Gestão de serviço de aplicações](media/azure-stack-app-service-deploy/image12.png)
 

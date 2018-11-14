@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718734"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614043"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado do Azure Stack protegido pelo AD FS
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização de 1807 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.3 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1809 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.4 de serviço de aplicações do Azure.
 >
 >
 
@@ -84,8 +84,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
     
     > [!NOTE]
-    > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido** neste momento.  Numa atualização futura o serviço de aplicações irá implementar para a nova subscrição de medição introduzida no Azure Stack 1804 e todas as implementações existentes serão migradas para esta nova subscrição também.
-    >
+    > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido**.
     >
     
     3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
@@ -170,7 +169,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     ![Instalador do serviço de aplicações][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core não é uma imagem de plataforma suportada para utilização com o serviço de aplicações do Azure no Azure Stack.  Não utilize imagens de avaliação para implementações de produção.  Serviço de aplicações do Azure no Azure Stack requer que o Microsoft.Net 3.5.1 SP1 está ativado na imagem utilizada para a implementação.   Marketplace distribuídos imagens não tem esta funcionalidade ativada do Windows Server 2016.**
+    > **Windows Server 2016 Core não é uma imagem de plataforma suportada para utilização com o serviço de aplicações do Azure no Azure Stack.  Não utilize imagens de avaliação para implementações de produção.  Serviço de aplicações do Azure no Azure Stack requer que o Microsoft.Net 3.5.1 SP1 está ativado na imagem utilizada para a implementação.   Marketplace distribuídos imagens não tem esta funcionalidade ativada do Windows Server 2016, por conseguinte, tem de criar e utilizar uma imagem do Windows Server 2016 com esta opção ativada previamente.**
 
 14. Na **selecione a imagem de plataforma** caixa, escolha a sua imagem de máquina virtual de implantação do Windows Server 2016 daqueles disponíveis no fornecedor de recursos de computação para a cloud de serviço de aplicações. Clique em **Seguinte**.
 
@@ -198,7 +197,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
 1. No portal de administração do Azure Stack, aceda a **administração - serviço de aplicações**.
 
-2. Na descrição geral em estado, verifique que o **Status** mostra **todas as funções estão prontas**.
+2. Na descrição geral, em estado, verifique que o **Status** apresenta **todas as funções estão prontas**.
 
     ![Gestão de serviço de aplicações](media/azure-stack-app-service-deploy/image12.png)
     

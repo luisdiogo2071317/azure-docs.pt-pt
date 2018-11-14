@@ -8,55 +8,58 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283602"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616491"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
-
 ## <a name="overview"></a>Descrição geral
-Este artigo mostra-lhe lidar com problemas comuns vistos durante a configuração de alertas de registo dentro do Azure monitor. E fornecer a solução para perguntas freqüentes sobre a funcionalidade ou configuração de alertas de registo. O termo **alertas de registo** para descrever os alertas em que o sinal é a consulta personalizada com base nos [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidade, terminologia e tipos a partir [alertas - descrição geral de registo](monitor-alerts-unified-log.md).
+Este artigo mostra-lhe como resolver problemas comuns detetados quando a configuração de alertas de registo no Azure monitor. Ele também fornece soluções para perguntas freqüentes sobre a funcionalidade ou configuração de alertas de registo. 
+
+O termo **alertas de registo** para descrever os alertas que fire com base numa consulta personalizada na [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Saiba mais sobre funcionalidades, terminologia e tipos no [alertas - descrição geral de registo](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> Este artigo não considere casos quando a regra de alerta é mostrada como acionados no portal do Azure e a notificação através do grupo de ação associada (s). Para tais casos, consulte detalhes no artigo sobre [grupos de ação](monitoring-action-groups.md).
+> Este artigo não considere casos em que o portal do Azure mostra e alerta acionado de regra e uma notificação realizadas por um grupo de ação associada (s). Para tais casos, consulte detalhes no artigo sobre [grupos de ação](monitoring-action-groups.md).
 
 
 ## <a name="log-alert-didnt-fire"></a>Alerta de registo não são acionados
 
-Próxima detalhada são algumas razões comuns, por que um configurado [regra de alerta de registo no Azure Monitor](alert-log.md) não obter acionada quando visualizado no [alertas do Azure](monitoring-alerts-managing-alert-states.md), quando espera que sejam acionados. 
+Eis algumas razões comuns um configurado [regra de alerta de registo no Azure Monitor](alert-log.md) Estado não mostra [como *disparado* quando esperado](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para os registos
-Trabalha alerta de registo ao executar periodicamente a consulta pelo cliente, com base na [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Ambos têm a tecnologia o poder da análise, que processa grandes quantidades de dados de registo e fornece uma funcionalidade no mesmo. Como o serviço Log Analytics envolve muitos terabytes de dados a partir de milhares de clientes e de origens variadas de processamento em todo o mundo – o serviço não está suscetível a tempo de atraso. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Alerta de registo executado periodicamente sua consulta com base na [do Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Uma vez que o Log Analytics processa muitos terabytes de dados a partir de milhares de clientes de origens variadas em todo o mundo, o serviço é suscetível a um atraso de tempo diferentes. Para obter mais informações, consulte [tempo de ingestão de dados no Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Para superar o atraso de ingestão de dados que pode ocorrer no Log Analytics ou registos do Application Insights; alerta de registo deve aguardar e tentar após algum tempo quando encontrar dados ainda não são ingeridos para o período de tempo de alerta. Alertas de registo tem um conjunto de tempo de espera aumentar exponencialmente, de modo a certificar-se de que podemos esperar que o tempo necessário para os dados ingeridos pelo Log Analytics. Por conseguinte, se os registos consultados por sua regra de alerta de registo são afetados pela atrasos de ingestão, em seguida, alerta de registo irá acionar apenas depois dos dados estão disponíveis na pós-ingestão de Log Analytics e após o intervalo de tempo exponencial devido ao serviço de alertas de registo repetir várias vezes interina .
+Para atenuar o atraso de ingestão de dados, o sistema deve aguardar e repete a consulta de alerta várias vezes se ele encontrar que os dados necessários não são ingeridos ainda. O sistema tem um tempo de espera aumentar exponencialmente definido. Os registo alerta apenas acionadores depois dos dados estão disponíveis para que eles atraso podem ser devido a ingestão de dados de registo lento. 
 
 ### <a name="incorrect-time-period-configured"></a>Período de hora incorreto configurado
-Conforme descrito no artigo [terminologia para alertas de registo](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), período de tempo indicado na configuração especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo de tempo. Período de tempo restringe os dados obtidos para a consulta de registo evitar abusos e evita qualquer comando de tempo (como há) utilizado numa consulta de registo. 
-*Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 é devolvido ao executar a consulta de registo. Agora, se a consulta de registo utiliza o comando como atrás de tempo (1 dia), a consulta de registo deve ser executada apenas para dados entre 12:15 e 1 às 15:15 - como se existem dados para apenas os últimos 60 minutos. E não durante sete dias de dados conforme especificado na consulta de registo.*
+Conforme descrito no artigo [terminologia para alertas de registo](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), o tempo de configuração no declarado períoda Especifica o intervalo de tempo para a consulta. A consulta devolve apenas os registos que foram criados neste intervalo de tempo. Período de tempo restringe os dados obtidos para a consulta de registo evitar abusos e evita qualquer comando de tempo (como há) utilizado numa consulta de registo. 
+*Por exemplo, se o período de tempo é definido como 60 minutos, e a consulta é executada em 1 às 15:15, apenas os registos criados entre 12:15 e 1 às 15:15 são utilizados para a consulta de registo. Se a consulta de registo utiliza um comando de tempo como *há (1 dia)*, a consulta utiliza apenas dados entre 12:15 e 1 às 15:15 porque o período de tempo é definido como esse intervalo.*
 
-Com base na sua lógica de consulta, verifique se o período de tempo adequado na configuração foi fornecido. Por exemplo, mencionado anteriormente, se o registo de consultar utiliza há (1 dia), conforme mostrado com marcador verde -, em seguida, o período de tempo deve ser definido para 24 horas ou 1440 minutos (como indicado em vermelho) garantir que a consulta fornecida executa corretamente como envisaged.
-    ![Período de tempo](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
+Por conseguinte, a verificação esse período de tempo na configuração corresponde à sua consulta. Por exemplo, mencionado anteriormente, se a consulta de registo utiliza *há (1 dia)* como é mostrado com marcador verde, em seguida, o período de tempo deve ser definido como 24 horas ou 1440 minutos (como indicado em vermelho), para garantir que a consulta for executada conforme pretendido.
+
+![Período de tempo](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
 
 ### <a name="suppress-alerts-option-is-set"></a>Suprimir alertas a opção estiver definida
-Conforme descrito no passo 8 deste artigo [criar uma regra de alerta de registo no portal do Azure](alert-log.md#managing-log-alerts-from-the-azure-portal), alerta de registo fornece uma opção Configurar automática supressão da regra de alerta e impedir que a notificação/acionador estipulado período de tempo. Opção de alertas de suppress fará com que o alerta de registo executar ao mesmo tempo que não o acionamento do grupo de ação para o período de tempo especificado na **suprimir alertas** opção e, por conseguinte, o utilizador pode parecer esse alerta não são disparados enquanto na realidade foi suprimida, conforme configurado .
-    ![Suprimir alertas](./media/monitor-alerts-unified/LogAlertSuppress.png)
+Conforme descrito no passo 8 deste artigo [criar uma regra de alerta de registo no portal do Azure](alert-log.md#managing-log-alerts-from-the-azure-portal), os alertas de registo fornecem uma **suprimir alertas** opção para suprimir as ações de acionamento e de notificação para um período de configurado tempo. Como resultado, pode considerar que um alerta não são disparados enquanto na realidade ele fez, mas foi suprimido.  
+
+![Suprimir Alertas](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>Regra de alerta de medida da métrica está incorreta
-Tipo de medida da métrica de regra de alerta de registo é o subtipo de alertas de registo, que têm capacidades especiais, mas por sua vez emprega restrição sobre a sintaxe de consulta de alerta. Alerta de registo de medida da métrica regra requer a saída da consulta de alerta para fornecer uma série de métrica de tempo - uma tabela com períodos de tempo de tamanho igual distintos, juntamente com valores correspondentes de AggregatedValue calculadas. Além disso, os utilizadores podem optar por ter nas variáveis adicionais tabela juntamente com AggregatedValue como computador, o nó, etc. com que os dados na tabela pode ser ordenado.
+**Alertas de registo de medida da métrica** são um subtipo de alertas de registo, que têm capacidades especiais e uma sintaxe de consulta de alerta restrito. A consulta de saída para ser uma série de métrica de tempo; necessita de uma regra de alerta de registo de medida da métrica ou seja, uma tabela com distintos igualmente tamanho períodos de tempo, juntamente com os valores agregados correspondentes. Além disso, os usuários podem escolher têm variáveis adicionais da tabela juntamente com AggregatedValue. Estas variáveis podem ser utilizadas para ordenar a tabela. 
 
-Por exemplo, suponha que regra de alerta de registo de medida da métrica foi configurada como:
+Por exemplo, suponha que uma regra de alerta de registo de medida da métrica foi configurada como:
 - consulta era: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - período de tempo de seis horas
 - limiar de 50
 - lógica de alerta de falhas consecutivas três
 - Agregação após escolhido como $table
 
-Agora, uma vez que o comando, usamos resuma... por e fornecidas duas variáveis: timestamp & $table; alerta de serviço irá escolher $table para "Agregado com" - basicamente ordenar a tabela de resultados ao campo: $table - conforme mostrado abaixo e, em seguida, examinar a vários AggregatedValue para cada tabela tipo (como availabilityResults), para ver se haveria falhas consecutivas de 3 ou mais.
+Uma vez que o comando inclui *resumir... por* e fornecidas duas variáveis (timestamp & $table), o sistema escolhe $table para "Agregado com". Ordena a tabela de resultados pelo campo *$table* conforme mostrado abaixo e, em seguida, analisa a vários AggregatedValue para cada tipo de tabela (como availabilityResults) para ver se haveria falhas consecutivas de 3 ou mais.
 
-   ![Execução da consulta medida métrica com vários valores](./media/monitor-alerts-unified/LogMMQuery.png)
+![Execução da consulta medida métrica com vários valores](./media/monitor-alerts-unified/LogMMQuery.png)
 
 Como "Agregadas após" é $table – os dados são ordenados na coluna de $table (como em vermelho); em seguida, podemos de grupo e procurar por tipos de campo "Agregado com" (ou seja) $table – por exemplo: os valores do availabilityResults será considerado como um desenho/entidade (como destacado na cor de laranja). Nesta plotagem de valor/entidade – Serviço de alertas verifica a existência de falhas consecutivas três ocorrendo (como mostra a verde) para a alerta irá obter acionada para o valor de tabela "availabilityResults". Da mesma forma, se em qualquer outro valor de $table se são visualizadas três falhas consecutivas - outra notificação de alertas será acionada para o mesmo; com o serviço de alertas classificar automaticamente os valores num desenho/entidade (como cor de laranja) por vez.
 
@@ -85,4 +88,5 @@ O que é mostrado na **consulta a ser executado** secção destina-se o registo 
 
 * Saiba mais sobre [alertas de registo nos alertas do Azure](monitor-alerts-unified-log.md)
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md)
-* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-queries.md). 
+* Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-overview.md). 
+

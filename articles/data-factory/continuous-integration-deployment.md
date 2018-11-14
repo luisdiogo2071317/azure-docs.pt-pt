@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457215"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623801"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integração contínua e entrega (CI/CD) no Azure Data Factory
 
-Integração contínua é a prática de teste de cada alteração feita à sua base de código automaticamente e mais cedo possível. Entrega contínua segue os testes que acontece durante a integração contínua e envia por push as alterações para um sistema de teste ou produção.
+Integração contínua é a prática de teste de cada alteração feita à sua base de código automaticamente e mais cedo possível. Entrega contínua segue os testes que acontece durante a integração contínua e envia por push as alterações para um sistema de teste ou produção.
 
 Azure Data Factory, integração contínua e entrega significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. Para fazer a integração contínua e entrega, pode utilizar a integração de IU do Data Factory com modelos Azure Resource Manager. IU do Data Factory pode gerar um modelo do Resource Manager, ao selecionar o **modelo ARM** opções. Quando seleciona **modelo de ARM exportar**, o portal gera o modelo do Resource Manager para a fábrica de dados e um ficheiro de configuração que inclui todas as suas cadeias de caracteres de ligações e outros parâmetros. Em seguida, terá de criar um ficheiro de configuração para cada ambiente (desenvolvimento, teste, produção). O principal arquivo de modelo do Resource Manager permanece o mesmo para todos os ambientes.
 
@@ -75,11 +75,11 @@ Eis os passos para configurar uma versão de Pipelines do Azure, para que pode a
 
 ### <a name="requirements"></a>Requisitos
 
--   Uma subscrição do Azure ligada ao Team Foundation Server ou de repositórios do Azure utilizando o [ *ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Uma subscrição do Azure ligada ao Team Foundation Server ou de repositórios do Azure utilizando o [*ponto final de serviço do Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
 -   Uma fábrica de dados com a integração de Git de repositórios do Azure configurada.
 
--   Uma [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contém os segredos.
+-   Uma [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) que contém os segredos.
 
 ### <a name="set-up-an-azure-pipelines-release"></a>Configurar uma versão de Pipelines do Azure
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utilizar parâmetros personalizados com o modelo do Resource Manager
 
 Pode definir parâmetros personalizados para o modelo do Resource Manager. Simplesmente tem de ter um arquivo chamado `arm-template-parameters-definition.json` na pasta raiz do repositório. (O nome do ficheiro tem de corresponder ao nome mostrado a seguir exatamente.) Fábrica de dados tenta ler o ficheiro a partir de qualquer ramo que atualmente está a trabalhar no, não apenas do ramo a colaboração. Se nenhum arquivo for encontrado, o Data Factory utiliza os parâmetros predefinidos e valores.
+
+### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxe de um ficheiro de parâmetros personalizados
+
+Aqui estão algumas diretrizes para utilizar quando criar o ficheiro de parâmetros personalizados. Exemplos de sintaxe, consulte a secção [ficheiro de parâmetros personalizados de exemplo](#sample).
+
+1. Quando especifica uma matriz no ficheiro de definição, indica que a propriedade correspondente no modelo é uma matriz. Fábrica de dados repete-se a todos os objetos da matriz usando a definição especificada no primeiro objeto da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é utilizado como o nome para o parâmetro para cada iteração.
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. Quando define um nome de propriedade para `*`, indica que pretende que o modelo a utilizar todas as propriedades nesse nível, exceto aquelas explicitamente definido.
+
+3. Ao definir o valor de uma propriedade como uma cadeia de caracteres, indica que deseja parametrize a propriedade. Utilize o formato `<action>:<name>:<stype>`.
+    1.  `<action>` pode ser um dos seguintes carateres: 
+        1.  `=`  significa manter o valor atual como o valor predefinido para o parâmetro.
+        2.  `-` significa que não tenha o valor predefinido para o parâmetro.
+        3.  `|` é um caso especial para segredos no Azure Key Vault para uma cadeia de ligação.
+    2.  `<name>` é o nome do parâmetro. Se `<name`> está em branco, é necessário o nome do parâmetro 
+    3.  `<stype>` é o tipo do parâmetro. Se `<stype>` está em branco, o tipo de padrão é uma cadeia de caracteres.
+4.  Se introduzir um `-` caráter no início de um nome de parâmetro, o Gestor de recursos completo, nome do parâmetro baixou para `<objectName>_<propertyName>`.
+Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` baixou para `AzureStorage1_connectionString`.
+
+
+### <a name="sample"></a> Ficheiro de parâmetros personalizados de exemplo
 
 O exemplo seguinte mostra um ficheiro de parâmetros de exemplo. Utilize este exemplo como uma referência para criar seu próprio ficheiro de parâmetros personalizados. Se o ficheiro que fornecer não estiver no formato JSON correto, o Data Factory gera uma mensagem de erro na consola do browser e reverte para os parâmetros de padrão e os valores mostrados na IU do Data Factory.
 

@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054742"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622879"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
-Com os relatórios no Azure Active Directory (Azure AD), obtenha todas as informações de que precisa para determinar o estado de funcionamento do seu ambiente.
+Com os relatórios do Azure Active Directory (Azure AD), pode obter as informações que necessárias para determinar o estado de funcionamento do ambiente.
 
 A arquitetura de relatórios no Azure AD consiste nos seguintes componentes:
 
-- **Atividade** 
-    - **Atividades de início de sessão** – Informações sobre a utilização de aplicações geridas e atividades de início de sessão do utilizador
-    - **Registos de auditoria** - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. Os exemplos de registos de auditoria incluem as alterações efetuadas a quaisquer recursos no Azure AD, como utilizadores, aplicações, grupos, funções, políticas, autenticações, etc.
-- **Segurança** 
-    - **Inícios de sessão de risco** – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. Para obter mais detalhes, veja Inícios de sessão de risco.
-    - **Utilizadores sinalizados para risco** – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. Para obter mais detalhes, veja Utilizadores sinalizados para risco.
+- **Relatórios de atividade** 
+    - [Inícios de sessão](concept-sign-ins.md) – fornece informações sobre a utilização de aplicações geridas e utilizador atividades de início de sessão
+    - [Registos de auditoria](concept-audit-logs.md) - Capacidade de rastreio através de registos para todas as alterações efetuadas por várias funcionalidades no Azure AD. 
+    
+- **Relatórios de segurança** 
+    - [Inícios de sessão de risco](concept-risky-sign-ins.md) – Um início de sessão de risco é um indicador de uma tentativa de início de sessão que pode ter sido efetuada por alguém que não é o proprietário legítimo de uma conta de utilizador. 
+    - [Utilizadores sinalizados para risco](concept-user-at-risk.md) – Um utilizador de risco é um indicador de uma conta de utilizador que pode ter sido comprometida. 
 
 Este artigo lista as atividades de auditoria que podem ser registadas nos seus registos de auditoria.
- 
-
 
 ## <a name="access-reviews"></a>Revisões de acesso
 
@@ -72,9 +71,6 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Utilizadores|Obter aplicações V1|
 |Gestão de Utilizadores|Obter aplicação V2|
 |Gestão de Utilizadores|Obter aplicações V2|
-
-
-
 
 ## <a name="account-provisioning"></a>Aprovisionamento de contas
 
@@ -593,13 +589,8 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Gestão de Políticas|Utilizador registado na reposição de palavra-passe personalizada|
 
 
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para uma descrição geral de:
-
-- Relatórios, veja o [Guia de relatórios do Azure Active Directory](overview-reports.md).
-
-- Relatórios de atividade de auditoria, veja [Relatórios de atividade de auditoria no portal do Azure Active Directory](concept-audit-logs.md). 
-
+- [Descrição geral de relatórios do Azure AD](overview-reports.md).
+- [Relatório de registos de auditoria](concept-audit-logs.md). 
+- [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)

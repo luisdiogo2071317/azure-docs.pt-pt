@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc7510fdc635de03ac4dd4f64118bc5be040e969
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719414"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622198"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configurar o início de sessão único para aplicações que não estão na Galeria de aplicações do Azure Active Directory
 
@@ -31,9 +31,9 @@ A Galeria de aplicações do Azure Active Directory fornece uma listagem dos apl
 Os clientes com [Azure Active Directory Premium](../fundamentals/active-directory-whatis.md) licença também obter estas capacidades adicionais:
 
 * Integração personalizada de qualquer aplicação que suporta os fornecedores de identidade de SAML 2.0 (iniciado por SP ou iniciadas pelo IdP)
-* Integração personalizada de qualquer aplicativo da web que tem uma página baseada em HTML início de sessão utilizando [SSO baseado em palavra-passe](what-is-single-sign-on.md#password-based-single-sign-on)
+* Integração personalizada de qualquer aplicativo da web que tem uma página baseada em HTML início de sessão utilizando [SSO baseado em palavra-passe](what-is-single-sign-on.md#password-based-sso)
 * Ligação de autoatendimento de aplicativos que utilizam o protocolo SCIM para aprovisionamento de utilizadores ([descrito aqui](use-scim-to-provision-users-and-groups.md))
-* Capacidade de adicionar links para todos os aplicativos no [iniciador de aplicações do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou o [painel de acesso do Azure AD](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
+* Capacidade de adicionar links para todos os aplicativos no [iniciador de aplicações do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou o [painel de acesso do Azure AD](what-is-single-sign-on.md#linked-sso)
 
 Isto pode incluir não apenas as aplicações de SaaS que utilizam mas ter não ainda foi integrado para a Galeria de aplicações do Azure AD, mas aplicativos web de terceiros que sua organização implantou a servidores que controlar, seja na cloud ou no local.
 
@@ -165,7 +165,7 @@ Assim que a página de início de sessão é capturada, podem ser atribuídos a 
 ## <a name="existing-single-sign-on"></a>Existente início de sessão único
 Selecione esta opção para adicionar uma ligação para uma aplicação ao portal de painel de acesso do Azure AD ou Office 365 da sua organização. Pode utilizar este para adicionar ligações a aplicações web personalizado que a utilizam atualmente o Azure Active Directory Federation Services (ou outro serviço de Federação) em vez do Azure AD para autenticação. Em alternativa, pode adicionar ligações avançadas para páginas específicas do SharePoint ou outras páginas da web que pretende são apresentadas nos painéis de acesso dos seus utilizadores. 
 
-Depois de selecionar **seguinte**, será solicitado que introduza o URL da aplicação para ligar a. Depois de concluído, os utilizadores e grupos podem ser atribuídos à aplicação, que faz com que as aplicações apareçam no [iniciador de aplicações do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou o [painel de acesso do Azure AD](what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) para esses utilizadores.
+Depois de selecionar **seguinte**, será solicitado que introduza o URL da aplicação para ligar a. Depois de concluído, os utilizadores e grupos podem ser atribuídos à aplicação, que faz com que as aplicações apareçam no [iniciador de aplicações do Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) ou o [painel de acesso do Azure AD](end-user-experiences.md) para esses utilizadores.
 
 > [!NOTE] 
 > Pode carregar um logótipo de mosaico para a aplicação utilizando o **carregar o logótipo** botão a **configurar** separador para a aplicação. 

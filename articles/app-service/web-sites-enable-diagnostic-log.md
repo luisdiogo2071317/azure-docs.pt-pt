@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0c22072d0eaa328fdf786421344e8ef2caaa575c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515663"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614384"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 ## <a name="overview"></a>Descrição geral
@@ -73,16 +73,16 @@ Por predefinição, os registos não são automaticamente eliminados (com exceç
 > Se [regenerar chaves de acesso da conta de armazenamento](../storage/common/storage-create-storage-account.md), tem de repor a configuração de registo correspondente para utilizar as chaves atualizadas. Para efetuar este procedimento:
 >
 > 1. Na **configurar** separador, defina a funcionalidade de registo correspondentes **desativar**. Salve sua configuração.
-> 2. Ative o registo para o blob da conta de armazenamento ou tabela novamente. Salve sua configuração.
+> 2. Ative o registo novamente para o blob da conta de armazenamento. Salve sua configuração.
 >
 >
 
-Qualquer combinação de armazenamento de BLOBs, armazenamento de tabelas ou sistema de ficheiros pode ser ativada ao mesmo tempo e ter configurações de nível de registo individuais. Por exemplo, convém registar erros e avisos para armazenamento de BLOBs como uma solução de registo de longo prazo, ao ativar o registo do sistema de ficheiros com um nível de verbose.
+Qualquer combinação de armazenamento de BLOBs ou de sistema de ficheiros pode ser ativada ao mesmo tempo e ter configurações de nível de registo individuais. Por exemplo, convém registar erros e avisos para armazenamento de BLOBs como uma solução de registo de longo prazo, ao ativar o registo do sistema de ficheiros com um nível de verbose.
 
-Embora as mesmas informações básicas para eventos registrados, de fornecer todas as localizações de armazenamento de três **armazenamento de tabelas** e **armazenamento de BLOBs** registar informações adicionais, como o ID de instância, ID de thread e uma mais timestamp granular (formato de escala) que o registo para **sistema de ficheiros**.
+Embora ambas as localizações de armazenamento fornecem as mesmas informações básicas para eventos registrados, **armazenamento de BLOBs** regista informações adicionais, como o ID de instância, ID de thread e um carimbo mais granular (formato de escala) que o registo para **sistema de ficheiros**.
 
 > [!NOTE]
-> Informações armazenadas na **armazenamento de tabelas** ou **armazenamento de BLOBs** só pode ser acedido através de um cliente de armazenamento ou um aplicativo que pode trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Explorador de armazenamento que podem ser utilizadas para explorar o armazenamento de tabela ou um blob e o HDInsight pode aceder a dados armazenados no armazenamento de Blobs. Também pode escrever uma aplicação que acede ao armazenamento do Azure ao utilizar uma da [SDKs do Azure](https://azure.microsoft.com/downloads/).
+> Informações armazenadas na **armazenamento de BLOBs** só pode ser acedido através de um cliente de armazenamento ou um aplicativo que pode trabalhar diretamente com estes sistemas de armazenamento. Por exemplo, o Visual Studio 2013 contém um Explorador de armazenamento que podem ser utilizadas para explorar o armazenamento de BLOBs e o HDInsight pode aceder a dados armazenados no armazenamento de Blobs. Também pode escrever uma aplicação que acede ao armazenamento do Azure ao utilizar uma da [SDKs do Azure](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> Como: transferir registos
@@ -159,7 +159,7 @@ Para filtrar os tipos de registo específicos, como HTTP, utilize o **– caminh
 
 ## <a name="understandlogs"></a> Como: compreender os registos de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Registos de diagnóstico de aplicações
-Diagnóstico de aplicação armazena informações num formato específico para aplicações de .NET, dependendo se armazena os registos para o sistema de ficheiros, o armazenamento de tabela ou o armazenamento de Blobs. O conjunto base de dados armazenados é o mesmo em todos os três tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento.
+Diagnóstico de aplicação armazena informações num formato específico para aplicações de .NET, dependendo se armazena os registos para o armazenamento de BLOBs ou de sistema de ficheiros. O conjunto base de dados armazenados é o mesmo em todos os três tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento.
 
 **Sistema de Ficheiros**
 
@@ -173,27 +173,9 @@ Por exemplo, um evento de erro seria ter um aspeto semelhante ao exemplo seguint
 
 O registo para o sistema de ficheiros fornece as informações mais básicas dos três métodos disponíveis, fornecendo apenas o tempo, ID de processo, nível do evento e mensagem.
 
-**Armazenamento de tabelas**
-
-Ao fazer logon no armazenamento de tabelas, as propriedades adicionais são utilizadas para simplificar a pesquisa os dados armazenados na tabela, bem como informações mais detalhadas sobre o evento. As seguintes propriedades (colunas) são utilizadas para cada entidade (linha) armazenada na tabela.
-
-| Nome da propriedade | Formato do valor |
-| --- | --- |
-| PartitionKey |Data/hora do evento no formato de yyyyMMddHH |
-| RowKey |Um valor GUID que identifica exclusivamente esta entidade |
-| Carimbo de data/hora |A data e hora em que ocorreu o evento |
-| EventTickCount |A data e hora em que ocorreu o evento, no formato de escala (maior precisão) |
-| ApplicationName |O nome da aplicação web |
-| Nível |Nível do evento (por exemplo, erro, aviso, informações) |
-| EventId |O ID do evento deste evento<p><p>Predefinição é 0 se nenhum especificado |
-| Id da Instância |Instância da aplicação web que ocorreu o mesmo no |
-| PID |ID de Processo |
-| NIF |O ID de thread do thread que produziu o evento |
-| Mensagem |Mensagem de detalhes do evento |
-
 **Armazenamento de blobs**
 
-Ao iniciar sessão para o armazenamento de BLOBs, os dados são armazenados no formato de valores separados por vírgulas (CSV). Semelhante ao armazenamento de tabelas, campos adicionais são registados para fornecer informações mais detalhadas sobre o evento. As seguintes propriedades são usadas para cada linha no CSV:
+Ao iniciar sessão para o armazenamento de BLOBs, os dados são armazenados no formato de valores separados por vírgulas (CSV). Campos adicionais são registados para fornecer informações mais detalhadas sobre o evento. As seguintes propriedades são usadas para cada linha no CSV:
 
 | Nome da propriedade | Formato do valor |
 | --- | --- |

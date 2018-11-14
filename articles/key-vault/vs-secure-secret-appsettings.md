@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: d1e4177dff3f9ae8c78fb2e22b12e40ff2682c58
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037571"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625458"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar em segurança as definições da aplicação secreta para uma aplicação web
 
@@ -100,7 +100,7 @@ Se estiver escrevendo um protótipo rápido e não pretende Aprovisionar recurso
 
 1. Instalar o seguinte pacote NuGet ao seu projeto
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. Crie um ficheiro que é semelhante a seguir. Guarde-o num local fora da pasta do projeto.
@@ -145,7 +145,7 @@ Siga as instruções da secção de núcleo do ASP.NET para configurar um cofre 
 
 1. Instalar o seguinte pacote NuGet ao seu projeto
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Defina o construtor de configuração do Cofre de chaves em Web. config. Colocar esta secção antes *appSettings* secção. Substitua *vaultName* para ser o nome do Cofre de chave, se o seu Cofre de chaves está em público do Azure ou o URI completo, se estiver a utilizar o cloud soberana.

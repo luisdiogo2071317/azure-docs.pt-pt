@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4aa5e4ff46eeaa4e8d8c723f626dd1f1193fd12a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cc7bd6bab76ee6617a2594cb0b84ace3f6f3dafc
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281613"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622130"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db"></a>Distribuição de dados global com o Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Muitos aplicativos irão se beneficiar as melhorias de desempenho que vêm com a
 
 **Crie aplicações altamente disponíveis**: executar uma base de dados em várias regiões aumenta a disponibilidade da base de dados. Se uma região não estiver disponível, outras regiões manipula automaticamente os pedidos de aplicações. O Azure Cosmos DB oferece 99,999% de leitura e escrita de disponibilidade para bases de dados de várias regiões.
 
-**Continuidade do negócio durante falhas regionais**: Azure Cosmos DB suporta [a ativação pós-falha automática](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account) durante uma falha regional. Além disso, durante uma falha regional, o Cosmos DB continua a manter a latência, disponibilidade, consistência e SLAs de débito. Para ajudar a garantir que todo o seu aplicativo está altamente disponível, o Azure Cosmos DB oferece API de ativação pós-falha manual para simular uma falha regional. Ao utilizar esta API, pode efetuar as explorações de continuidade comercial normal.
+**Continuidade do negócio durante falhas regionais**: Azure Cosmos DB suporta [a ativação pós-falha automática](how-to-manage-database-account.md#automatic-failover) durante uma falha regional. Além disso, durante uma falha regional, o Cosmos DB continua a manter a latência, disponibilidade, consistência e SLAs de débito. Para ajudar a garantir que todo o seu aplicativo está altamente disponível, o Azure Cosmos DB oferece API de ativação pós-falha manual para simular uma falha regional. Ao utilizar esta API, pode efetuar as explorações de continuidade comercial normal.
 
 **Global de leitura e escrita escalabilidade**: com capacidade de vários mestre, pode dimensionar leitura e escrita débito elástica em todo o mundo. Capacidade de vários mestre garante que o débito que configura o seu aplicativo num banco de dados do Azure Cosmos DB ou um contentor é entregue em todas as regiões e protegido por [apoiado financeiramente SLAs](https://aka.ms/acdbsla).
 

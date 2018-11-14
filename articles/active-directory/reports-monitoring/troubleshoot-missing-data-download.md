@@ -13,18 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 01/15/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9138da42eeb87e45b86be10aff67792ee6de09b4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2607c5dacf6f261f27e7805e02df189a2753404c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060244"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625658"
 ---
-# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Não consigo encontrar todos os dados nos registos de atividades do Azure Active Directory que transferi
-
+# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Não consigo encontrar todos os dados nos registos de atividades do Azure Active Directory que transferi
 
 ## <a name="symptoms"></a>Sintomas
 
@@ -32,15 +31,15 @@ Transferi os registos de atividades (auditorias ou inícios de sessão) e não v
 
  ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
  
-
 ## <a name="cause"></a>Causa
 
 Quando transfere registos de atividades no portal do Azure, limitamos o dimensionamento para 5000 registos, ordenados pelos mais recente primeiro. 
 
 ## <a name="resolution"></a>Resolução
 
-Pode tirar partido das [APIs de Relatórios do Azure AD](concept-reporting-api.md) para obter até um milhão de registos num determinado período. A nossa abordagem recomendada é executar um script com base numa agenda que chama às APIs de relatórios para obter registos de uma forma incremental durante um período de tempo (por exemplo, diária ou semanal).
+Pode tirar partido das [APIs de Relatórios do Azure AD](concept-reporting-api.md) para obter até um milhão de registos num determinado período. Nossa abordagem recomendada é [executar um script de forma agendada](tutorial-signin-logs-download-script.md) que chama às APIs de relatórios para obter registos de uma forma incremental durante um período de tempo (por exemplo, diária ou semanal). 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Veja as [FAQ de relatórios do Azure Active Directory](reports-faq.md).
+
+* [FAQ de relatórios do Azure Active Directory](reports-faq.md)
 

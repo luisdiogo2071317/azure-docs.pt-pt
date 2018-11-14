@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731807"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615608"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Store entrada da tarefa de IA do Batch e de saída com o armazenamento do Azure
 
@@ -30,7 +30,7 @@ O Armazenamento do Azure é a solução de armazenamento da cloud da Microsoft. 
 
 Ao escolher o armazenamento do Azure para o seu ambiente do Batch AI, recomendamos que armazene os ficheiros de entrada (por exemplo, os conjuntos de dados) num contentor de BLOBs, que tem um débito mais elevado, e armazenar a saída de treinamento na partilha de ficheiros, que suporta a transmissão em fluxo (permitindo a leitura dos registos de saída, enquanto a tarefa está em execução em simultâneo). 
 
-Antes de poder utilizar o armazenamento do Azure, tem [criar uma conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md). O batch AI suporta volumes de montagem de ambos os para fins gerais v1 (GPv1) e para fins gerais v2 contas de armazenamento do Azure (GPv2). A conta de armazenamento do Azure pode conter vários contentores de BLOBs ou instâncias de partilha de ficheiros. Considere os requisitos de desempenho e custo ao escolher o tipo de conta de armazenamento para criar. Para obter mais informações, consulte [descrição geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md). 
+Antes de poder utilizar o armazenamento do Azure, tem [criar uma conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md). O batch AI suporta volumes de montagem de ambos os para fins gerais v1 (GPv1) e para fins gerais v2 contas de armazenamento do Azure (GPv2). A conta de armazenamento do Azure pode conter vários contentores de BLOBs ou instâncias de partilha de ficheiros. Considere os requisitos de desempenho e custo ao escolher o tipo de conta de armazenamento para criar. Para mais informações, veja [Visão geral de conta de armazenamento do Azure](../storage/common/storage-account-overview.md). 
 
 Para criar um contentor de BLOBs e para carregar o conjunto de dados para um contentor de Blobs do Azure, escolha um dos seguintes métodos:
 - [Portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md) para carregar com uma GUI baseada na web. Para carregar um pequeno número de ficheiros, o portal do Azure fornece a operação mais simples.
@@ -98,7 +98,7 @@ Se o seu script de treinamento requer conhecimento de um caminho, deve passá-lo
 
 ### <a name="abbreviate-input-paths"></a>Abreviar os caminhos de entrada
 
-Para abreviar os caminhos de entrada como uma variável de ambiente, utilize o `inputDirectories` propriedade de seu `job.json` ficheiro (ou `models.JobCreateParamters.input_directories` se utilizar o SDK de IA do Batch). O esquema de `inputDirectories` é:
+Para abreviar os caminhos de entrada como uma variável de ambiente, utilize o `inputDirectories` propriedade de seu `job.json` ficheiro (ou `models.JobCreateParameters.input_directories` se utilizar o SDK de IA do Batch). O esquema de `inputDirectories` é:
 
 ```json
 {
@@ -115,7 +115,7 @@ Para obter mais informações, consulte [aqui](https://github.com/Azure/BatchAI/
 
 ### <a name="abbreviate-output-paths"></a>Abreviar os caminhos de saída
 
-Para abreviar os caminhos de saída como uma variável de ambiente, utilize o `outputDirectories` propriedade de seu `job.json` ficheiro (ou `models.JobCreateParamters.output_directories` se utilizar o SDK de IA do Batch). Através deste método podem simplificar os caminhos para ficheiros de saída. O esquema de `outputDirectories` é:
+Para abreviar os caminhos de saída como uma variável de ambiente, utilize o `outputDirectories` propriedade de seu `job.json` ficheiro (ou `models.JobCreateParameters.output_directories` se utilizar o SDK de IA do Batch). Através deste método podem simplificar os caminhos para ficheiros de saída. O esquema de `outputDirectories` é:
 
 ```json
 {
@@ -135,7 +135,7 @@ Para obter mais informações, consulte [aqui](https://github.com/Azure/BatchAI/
 
 ### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
-O portal do Azure é um meio cómodo para ver a saída de tarefas, utilizando um Explorador de ficheiros de GUI. No entanto, se pretender ver o resultado de Stdout e Stderr ou de um caminho no `outputDirectories`, os ficheiros são colocados num caminho de geradas automaticamente no seu volume de armazenamento do Azure. Veja abaixo para obter mais informações.
+O portal do Azure é um meio cómodo para ver a saída de tarefas, utilizando um Explorador de ficheiros de GUI. No entanto, se pretender ver o resultado de Stdout e Stderr ou de um caminho no `outputDirectories`, os ficheiros são colocados num caminho de geradas automaticamente no seu volume de armazenamento do Azure. Veja a tabela abaixo para obter mais informações.
 
 ### <a name="access-stdout-and-stderr-output"></a>Acesso Stdout e Stderr
 

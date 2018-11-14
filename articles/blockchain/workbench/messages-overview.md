@@ -5,23 +5,327 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8f3584475415cf9ca19458f6da78d34df37f438
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235994"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614366"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>O Azure Blockchain Workbench, integração de mensagens
 
 Além de fornecer uma API REST, o Azure Blockchain Workbench também fornece integração baseados em mensagens. Workbench publica eventos centrada em razão através do Azure Event Grid, permitindo que os consumidores de downstream para ingestão de dados ou tomar medidas com base nestes eventos. Para os clientes que necessitam de sistema de mensagens confiável, o Azure Blockchain Workbench entregam mensagens para um ponto final do Azure Service Bus também.
 
-Os desenvolvedores também tem expressou interesse na capacidade de ter sistemas externos comunicar iniciar transações para criar utilizadores, criar contratos e atualizar contratos num livro razão. Enquanto esta funcionalidade não está exposta atualmente em pré-visualização pública, uma amostra que fornece essa funcionalidade pode ser encontrada em [ http://aka.ms/blockchain-workbench-integration-sample ](https://aka.ms/blockchain-workbench-integration-sample).
+## <a name="input-apis"></a>APIs de entrada
+
+Se quiser iniciar transações de sistemas externos para criar utilizadores, criar contratos e atualizar contratos, pode utilizar as APIs de entrada de mensagens para executar transações num livro razão. Ver [exemplos de integração de mensagens](https://aka.ms/blockchain-workbench-integration-sample) para obter um exemplo que demonstra as APIs de entrada.
+
+Seguem-se a APIs de entrada está disponível.
+
+### <a name="create-user"></a>Criar utilizador
+
+Cria um novo utilizador.
+
+O pedido requer os seguintes campos:
+
+| **Nome**             | **Descrição**                                      |
+|----------------------|------------------------------------------------------|
+| requestId            | GUID fornecido pelo cliente                                |
+| firstName            | Nome próprio do utilizador                              |
+| Apelido             | Apelido do utilizador                               |
+| Endereço de correio eletrónico         | Endereço de e-mail do utilizador                           |
+| externalId           | ID de objeto do Azure AD do utilizador                      |
+| ConnectionId         | Identificador exclusivo para a ligação de blockchain |
+| messageSchemaVersion | Versão do esquema de mensagens                            |
+| messageName          | **CreateUserRequest**                               |
+
+Exemplo:
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bbbb-edba8e44562d",
+    "firstName": "Ali",
+    "lastName": "Alio",
+    "emailAddress": "aa@contoso.com",
+    "externalId": "6a9b7f65-ffff-442f-b3b8-58a35abd1bcd",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateUserRequest"
+}
+```
+
+Blockchain Workbench devolve uma resposta com os seguintes campos:
+
+| **Nome**              | **Descrição**                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| requestId             | GUID fornecido pelo cliente |
+| userId                | ID do utilizador que foi criado |
+| UserChainIdentifier   | Endereço do utilizador que foi criado na rede de blockchain. Em Ethereum, o endereço é o usuário **na cadeia** endereço. |
+| ConnectionId          | Identificador exclusivo para a ligação de blockchain|
+| messageSchemaVersion  | Versão do esquema de mensagens |
+| messageName           | **CreateUserUpdate** |
+| status                | Estado do pedido de criação do utilizador.  Se tiver êxito, o valor é **êxito**. Em caso de falha, o valor é **falha**.     |
+| AdditionalInformation | Fornecidas informações adicionais com base no status |
+
+Exemplo com êxito **criar utilizador** resposta do Blockchain Workbench:
+
+``` json
+{ 
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Success", 
+    "additionalInformation": { } 
+} 
+```
+
+Se o pedido não teve êxito, os detalhes sobre a falha são incluem informações adicionais.
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": null, 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Failure", 
+    "additionalInformation": { 
+        "errorCode": 4000, 
+        "errorMessage": "User cannot be provisioned on connection." 
+    }
+}
+```
+
+### <a name="create-contract"></a>Criar o contrato
+
+Cria um novo contrato.
+
+O pedido requer os seguintes campos:
+
+| **Nome**             | **Descrição**                                                                                                           |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId            | GUID fornecido pelo cliente |
+| UserChainIdentifier  | Endereço do utilizador que foi criado na rede de blockchain. Em Ethereum, este endereço é o usuário **na cadeia** endereço. |
+| ApplicationName      | Nome da aplicação |
+| WorkflowName         | Nome do fluxo de trabalho |
+| parâmetros           | Entrada de parâmetros para a criação do contrato |
+| ConnectionId         | Identificador exclusivo para a ligação de blockchain |
+| messageSchemaVersion | Versão do esquema de mensagens |
+| messageName          | **CreateContractRequest** |
+
+Exemplo:
+
+``` json
+{ 
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "applicationName": "AssetTransfer", 
+    "workflowName": "AssetTransfer", 
+    "parameters": [ 
+        { 
+            "name": "description", 
+            "value": "a 1969 dodge charger" 
+        }, 
+        { 
+            "name": "price", 
+            "value": "12345" 
+        } 
+    ], 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateContractRequest" 
+}
+```
+
+Blockchain Workbench devolve uma resposta com os seguintes campos:
+
+| **Nome**                 | **Descrição**                                                                   |
+|--------------------------|-----------------------------------------------------------------------------------|
+| requestId                | GUID fornecido pelo cliente                                                             |
+| ContractId               | Identificador exclusivo para o contrato de dentro do Azure Blockchain Workbench |
+| ContractLedgerIdentifier | Endereço do contrato no razão                                            |
+| ConnectionId             | Identificador exclusivo para a ligação de blockchain                               |
+| messageSchemaVersion     | Versão do esquema de mensagens                                                         |
+| messageName              | **CreateContractUpdate**                                                      |
+| status                   | Estado do pedido de criação do contrato.  Valores possíveis: **submetida**, **consolidado**, **falha**.  |
+| AdditionalInformation    | Fornecidas informações adicionais com base no status                              |
+
+Exemplo de um submetido **criar contrato** resposta do Blockchain Workbench:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Submitted"
+    "additionalInformation": { }
+}
+```
+
+Exemplo de um compromisso **criar contrato** resposta do Blockchain Workbench:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Committed",
+    "additionalInformation": { }
+}
+```
+
+Se o pedido não teve êxito, os detalhes sobre a falha são incluem informações adicionais.
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": null,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="create-contract-action"></a>Criar uma ação de contrato
+
+Cria uma nova ação de contrato.
+
+O pedido requer os seguintes campos:
+
+| **Nome**                 | **Descrição**                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId                | GUID fornecido pelo cliente |
+| UserChainIdentifier      | Endereço do utilizador que foi criado na rede de blockchain. No Ethereum, este é o usuário **na cadeia** endereço. |
+| ContractLedgerIdentifier | Endereço do contrato no razão |
+| WorkflowFunctionName     | Nome da função de fluxo de trabalho |
+| parâmetros               | Entrada de parâmetros para a criação do contrato |
+| ConnectionId             | Identificador exclusivo para a ligação de blockchain |
+| messageSchemaVersion     | Versão do esquema de mensagens |
+| messageName              | **CreateContractActionRequest** |
+
+Exemplo:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "workflowFunctionName": "modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a 1969 dodge charger"
+        },
+        {
+            "name": "price",
+            "value": "12345"
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionRequest"
+}
+```
+
+Blockchain Workbench devolve uma resposta com os seguintes campos:
+
+| **Nome**              | **Descrição**                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------|
+| requestId             | GUID fornecido pelo cliente|
+| ContractId            | Identificador exclusivo para o contrato de dentro do Azure Blockchain Workbench |
+| ConnectionId          | Identificador exclusivo para a ligação de blockchain |
+| messageSchemaVersion  | Versão do esquema de mensagens |
+| messageName           | **CreateContractActionUpdate** |
+| status                | Estado do pedido de ação de contrato. Valores possíveis: **submetida**, **consolidado**, **falha**.                         |
+| AdditionalInformation | Fornecidas informações adicionais com base no status |
+
+Exemplo de um submetido **criar uma ação de contrato** resposta do Blockchain Workbench:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Submitted",
+    "additionalInformation": { }
+}
+```
+
+Exemplo de um compromisso **criar uma ação de contrato** resposta do Blockchain Workbench:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Committed"
+    "additionalInformation": { }
+}
+```
+
+Se o pedido não teve êxito, os detalhes sobre a falha são incluem informações adicionais.
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract action cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="input-api-error-codes-and-messages"></a>Códigos de erro de API entrados e de mensagens
+
+**O código de erro 4000: erro de pedido incorreto**
+- ConnectionId inválido
+- Falhada de desserialização de CreateUserRequest
+- Falhada de desserialização de CreateContractRequest
+- Falhada de desserialização de CreateContractActionRequest
+- Aplicação {identificada pelo nome da aplicação} não existe
+- Aplicação {identificada pelo nome da aplicação} não tem o fluxo de trabalho
+- UserChainIdentifier não existe
+- Contrato {identificado pelo identificador de contabilidade} não existe
+- Contrato {identificado pelo identificador de contabilidade} não tem a função {nome da função de fluxo de trabalho}
+- UserChainIdentifier não existe
+
+**O código de erro 4090: erro de entrar em conflito**
+- O utilizador já existe
+- Contrato já existe
+- Ação de contrato já existe
+
+**5000 do código de erro: erro de servidor interno**
+- Mensagens de exceção
 
 ## <a name="event-notifications"></a>Notificações de eventos
 
@@ -92,15 +396,15 @@ Indica que foi efetuada uma solicitação para inserir ou atualizar um contrato 
 
 | Nome | Descrição |
 |-----|--------------|
-| ChainID | Um identificador exclusivo para a cadeia associado à solicitação.|
-| BlockId | O identificador exclusivo para um bloco no razão.|
-| ContractId | Um identificador exclusivo para o contrato.|
-| ContractAddress |       O endereço do contrato no razão.|
-| TransactionHash  |     O hash da transação no razão.|
-| OriginatingAddress |   O endereço de origem da transação.|
-| actionName       |     O nome da ação.|
-| IsUpdate        |      Identifica se se tratar de uma atualização.|
-| Parâmetros       |     Uma lista de objetos que identificam o tipo de nome, valor e dados enviados para uma ação de parâmetros.|
+| ChainID | Identificador exclusivo para a cadeia associado à solicitação |
+| BlockId | Identificador exclusivo para um bloco no razão |
+| ContractId | Um identificador exclusivo para o contrato |
+| ContractAddress |       O endereço do contrato no razão |
+| TransactionHash  |     O hash da transação no razão |
+| OriginatingAddress |   O endereço de origem da transação |
+| actionName       |     O nome da ação |
+| IsUpdate        |      Identifica se se tratar de uma atualização |
+| Parâmetros       |     Uma lista de objetos que identificam o tipo de nome, valor e dados enviados para uma ação de parâmetros |
 | TopLevelInputParams |  Em cenários em que um contrato está ligado a um ou mais contratos, estes são os parâmetros do contrato de nível superior. |
 
 ``` csharp
@@ -126,18 +430,17 @@ Indica que um pedido foi efetuado a execução de uma ação num contrato espec�
 
 | Nome                     | Descrição                                                                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | O identificador exclusivo para esta ação de contrato                                                                                                                                |
-| ChainIdentifier          | O identificador exclusivo para a cadeia                                                                                                                                           |
-| ConnectionId             | O identificador exclusivo para a ligação                                                                                                                                      |
-| UserChainIdentifier      | Endereço do utilizador que foi criado na rede de blockchain. Ethereum, isso seria o endereço do utilizador "na cadeia".                                                     |
-| ContractLedgerIdentifier | Endereço do contrato no razão.                                                                                                                                        |
-| WorkflowFunctionName     | Nome da função de fluxo de trabalho.                                                                                                                                                |
-| WorkflowName             | Nome do fluxo de trabalho.                                                                                                                                                         |
-| WorkflowBlobStorageURL   | O url do contrato no armazenamento de Blobs.                                                                                                                                      |
-| ContractActionParameters | Parâmetros para a ação de contrato.                                                                                                                                           |
-| TransactionHash          | O hash da transação no razão.                                                                                                                                    |
-| Estado do Aprovisionamento      | O estado de aprovisionamento atual da ação.</br>0 – criado</br>1 – no processo</br>2 – concluir</br> Completo indica uma confirmação da razão que neste foram adicionadas com êxito.                                               |
-|                          |                                                                                                                                                                               |
+| ContractActionId         | Identificador exclusivo para esta ação de contrato |
+| ChainIdentifier          | Identificador exclusivo para a cadeia |
+| ConnectionId             | Identificador exclusivo para a ligação |
+| UserChainIdentifier      | Endereço do utilizador que foi criado na rede de blockchain. Em Ethereum, este endereço é o usuário **na cadeia** endereço. |
+| ContractLedgerIdentifier | Endereço do contrato no razão |
+| WorkflowFunctionName     | Nome da função de fluxo de trabalho |
+| WorkflowName             | Nome do fluxo de trabalho |
+| WorkflowBlobStorageURL   | O url do contrato no armazenamento de BLOBs |
+| ContractActionParameters | Parâmetros para a ação de contrato |
+| TransactionHash          | O hash da transação no razão |
+| Estado do Aprovisionamento      | O estado de aprovisionamento atual da ação.</br>0 – criado</br>1 – no processo</br>2 – concluir</br> Completo indica uma confirmação da razão que neste foram adicionadas com êxito |
 
 ```csharp
 public class ContractActionRequest : MessageModelBase
@@ -165,9 +468,9 @@ Indica que foi efetuada uma solicitação para atualizar o saldo de usuário num
 
 | Nome    | Descrição                              |
 |---------|------------------------------------------|
-| Endereço | O endereço do utilizador que foi atendido. |
-| Saldo | O equilíbrio entre o saldo de utilizador.         |
-| ChainID | O identificador exclusivo para a cadeia.     |
+| Endereço | O endereço do utilizador que foi atendido |
+| Saldo | O equilíbrio entre o saldo de utilizador         |
+| ChainID | Identificador exclusivo para a cadeia     |
 
 
 ``` csharp
@@ -185,10 +488,10 @@ Mensagem indica que foi efetuada uma solicitação para adicionar um bloco de um
 
 | Nome           | Descrição                                                            |
 |----------------|------------------------------------------------------------------------|
-| ChainId        | O identificador exclusivo da cadeia para o qual foi adicionado o bloco de mensagens em fila.             |
-| BlockId        | O identificador exclusivo para o bloco de dentro do Azure Blockchain Workbench. |
-| BlockHash      | O hash do bloco.                                                 |
-| BlockTimeStamp | O carimbo de hora do bloco.                                            |
+| ChainId        | Identificador exclusivo da cadeia para o qual foi adicionado o bloco             |
+| BlockId        | Identificador exclusivo para o bloco de dentro do Azure Blockchain Workbench |
+| BlockHash      | O hash do bloco                                                 |
+| BlockTimeStamp | O carimbo de hora do bloco                                            |
 
 ``` csharp
 public class InsertBlockRequest : MessageModelBase
@@ -206,13 +509,13 @@ Mensagem fornece detalhes sobre um pedido para adicionar uma transação num liv
 
 | Nome            | Descrição                                                            |
 |-----------------|------------------------------------------------------------------------|
-| ChainId         | O identificador exclusivo da cadeia para o qual foi adicionado o bloco de mensagens em fila.             |
-| BlockId         | O identificador exclusivo para o bloco de dentro do Azure Blockchain Workbench. |
-| TransactionHash | O hash da transação.                                           |
-| De            | O endereço de origem da transação.                      |
-| Para              | O endereço do destinatário da transação.              |
-| Valor           | O valor incluído na transação.                                 |
-| IsAppBuilderTx  | Identifica se se tratar de uma transação de Blockchain Workbench.                         |
+| ChainId         | Identificador exclusivo da cadeia para o qual foi adicionado o bloco             |
+| BlockId         | Identificador exclusivo para o bloco de dentro do Azure Blockchain Workbench |
+| TransactionHash | O hash da transação                                           |
+| De            | O endereço de origem da transação                      |
+| Para              | O endereço do destinatário pretendido da transação              |
+| Valor           | O valor incluído na transação                                 |
+| IsAppBuilderTx  | Identifica se se tratar de uma transação de Blockchain Workbench                         |
 
 ``` csharp
 public class InsertTransactionRequest : MessageModelBase
@@ -233,8 +536,8 @@ Fornece detalhes sobre a atribuição de um identificador de cadeia para um cont
 
 | Nome            | Descrição                                                                       |
 |-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | Este é o identificador exclusivo para o contrato de dentro do Azure Blockchain Workbench. |
-| ChainIdentifier | Este é o identificador para o contrato da cadeia.                             |
+| ContractId      | Identificador exclusivo para o contrato de dentro do Azure Blockchain Workbench |
+| ChainIdentifier | Identificador para o contrato da cadeia                             |
 
 ``` csharp
 public class AssignContractChainIdentifierRequest : MessageModelBase
@@ -252,8 +555,8 @@ O modelo de base para todas as mensagens.
 
 | Nome          | Descrição                          |
 |---------------|--------------------------------------|
-| OperationName | O nome da operação.           |
-| requestId     | Um identificador exclusivo para o pedido. |
+| OperationName | O nome da operação           |
+| requestId     | Identificador exclusivo para o pedido |
 
 ``` csharp
 public class MessageModelBase
@@ -269,9 +572,9 @@ Contém o nome, o valor e o tipo de um parâmetro.
 
 | Nome  | Descrição                 |
 |-------|-----------------------------|
-| Nome  | O nome do parâmetro.  |
-| Valor | O valor do parâmetro. |
-| Tipo  | O tipo do parâmetro.  |
+| Nome  | O nome do parâmetro  |
+| Valor | O valor do parâmetro |
+| Tipo  | O tipo do parâmetro  |
 
 ``` csharp
 public class ContractInputParameter
@@ -288,10 +591,10 @@ Contém o ID, nome, valor e tipo de uma propriedade.
 
 | Nome  | Descrição                |
 |-------|----------------------------|
-| Id    | O ID da propriedade.    |
-| Nome  | O nome da propriedade.  |
-| Valor | O valor da propriedade. |
-| Tipo  | O tipo da propriedade.  |
+| Id    | O ID da propriedade    |
+| Nome  | O nome da propriedade  |
+| Valor | O valor da propriedade |
+| Tipo  | O tipo da propriedade  |
 
 ``` csharp
 public class ContractProperty

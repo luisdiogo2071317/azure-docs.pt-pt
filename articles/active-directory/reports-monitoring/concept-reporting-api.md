@@ -13,38 +13,40 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/07/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1e6ad35702b15090202278cfdead62b245040302
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309625"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624629"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução ao Azure Active Directory reporting API
 
-O Azure Active Directory fornece-lhe diversas [relatórios](overview-reports.md). Os dados destes relatórios podem ser bastante úteis para as suas aplicações, como sistemas SIEM e ferramentas de auditoria e de business intelligence. 
+O Azure Active Directory fornece-lhe diversas [relatórios](overview-reports.md), que contém informações úteis para aplicativos como sistemas SIEM, auditoria e ferramentas de business intelligence. 
 
-Ao utilizar a API de relatórios do Azure AD, pode obter acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
+Ao utilizar o Microsoft Graph API para relatórios do Azure AD, pode obter acesso programático aos dados através de um conjunto de APIs baseadas em REST. Pode chamar estas APIs a partir de várias linguagens e ferramentas de programação.
 
-Este artigo fornece um mapa para acessar os dados de relatório com a API relacionada.
+Este artigo fornece uma descrição geral da API de geração de relatórios, incluindo formas de aceder ao mesmo.
 
 Caso se depare com problemas, consulte [como obter suporte do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
-Este artigo aplica-se para o Azure AD Graph API.  Para informações semelhantes relacionados com o Microsoft Graph API, veja [tipo de recurso directoryAudit](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit).
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para acessar a API de relatórios, mesmo se estiver a planear a aceder à API usando um script, terá de:
+Para aceder à API de geração de relatórios, com ou sem a intervenção do utilizador, terá de:
 
 1. Atribuir funções (Administrador Global do leitor de segurança, administrador de segurança)
 2. Registar uma aplicação
 3. Conceder permissões
 4. Recolher as definições de configuração
 
-Para obter instruções detalhadas, consulte a [pré-requisitos para aceder ao Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md).
+Para obter instruções detalhadas, consulte a [pré-requisitos para aceder ao Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
+
+## <a name="api-endpoints"></a>Pontos finais da API 
+
+O ponto final de API do Microsoft Graph para registos de auditoria está `https://graph.microsoft.com/beta/auditLogs/directoryAudits` e o ponto de final de API do Microsoft Graph para inícios de sessão é `https://graph.microsoft.com/beta/auditLogs/signIns`. Para obter mais informações, consulte a [referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) e [início de sessão referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
 ## <a name="apis-with-graph-explorer"></a>APIs com API do Graph
 
@@ -60,11 +62,10 @@ Utilize a API de relatórios do AD do Azure com certificados, se pretender recup
 
 Para obter instruções detalhadas, consulte [utilizar a API de relatórios do AD do Azure com certificados para obter dados](tutorial-access-api-with-certificates.md).
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
- * [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
- * [Relatório de atividade de início de sessão de referência da API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Pré-requisitos para aceder à API de relatórios](howto-configure-prerequisites-for-reporting-api.md) 
+ * [Obter dados a utilizar a API de relatórios do AD do Azure com certificados](tutorial-access-api-with-certificates.md)
  * [Resolver erros no Azure AD a API de relatórios](troubleshoot-graph-api.md)
 
 

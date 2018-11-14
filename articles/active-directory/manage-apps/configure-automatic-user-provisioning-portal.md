@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 11/13/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 13ce1a7c9008a7893892e5d7e6b67a243c381c9f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349148"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622011"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações empresariais no portal do Azure
-Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir a conta de utilizador automático provisionamento e desprovisionamento para aplicações que suportem-la, particularmente as que foram adicionados na categoria "featured" do [ Galeria de aplicações do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Para saber mais sobre o aprovisionamento de contas de utilizadores automático e como ele funciona, veja [automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory](user-provisioning.md).
+Este artigo descreve como utilizar o [portal do Azure](https://portal.azure.com) para gerir a conta de utilizador automático provisionamento e desprovisionamento para aplicações que o suportam. Para saber mais sobre o aprovisionamento de contas de utilizadores automático e como ele funciona, veja [automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Encontrar as suas aplicações no portal
-Todas as aplicações que estão configuradas para início de sessão único num diretório, por um administrador do diretório a utilizar o [Galeria de aplicações do Azure Active Directory](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), poderão ser exibidos e gerenciados no [portal do Azure](https://portal.azure.com). Os aplicativos podem ser encontrados no **todos os serviços** &gt; **aplicações empresariais** seção do portal. Aplicações empresariais são as aplicações que são implementadas e utilizadas na sua organização.
+Todas as aplicações que estão configuradas para início de sessão único num diretório pode ser exibida e gerenciada no [portal do Azure](https://portal.azure.com). Os aplicativos podem ser encontrados no **todos os serviços** &gt; **aplicações empresariais** seção do portal. Aplicações empresariais são as aplicações que são implementadas e utilizadas na sua organização.
 
 ![Painel de aplicações empresariais](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
@@ -77,7 +77,5 @@ Esta seção fornece detalhes adição da operação do serviço de aprovisionam
 
 São fornecidas hiperligações para o **relatório de atividade de aprovisionamento** que fornece um registo de todos os utilizadores e grupos criados, atualizado e removido entre o Azure AD e o aplicativo de destino e para o **derelatóriodeerrosdeaprovisionamento** que fornece mais mensagens de erro para o utilizador e grupo de objetos que falharam ao ser de leitura, criado, atualizado ou removido. 
 
-## <a name="feedback"></a>Comentários
 
-Mantenha os comentários chegando! Poste seus comentários e ideias para aprimoramento no **do Portal de administração** secção do nosso [fórum de comentários](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  A equipa de engenharia tem o prazer sobre como criar algo novo e interessante todos os dias, pelo que utilizam a sua documentação de orientação a forma e definem o que, em seguida.
 

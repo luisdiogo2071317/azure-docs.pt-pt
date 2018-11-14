@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c79a44422944fd2049c47a6729a86d063dbcd15e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232346"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625832"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -160,7 +160,7 @@ R. Não, não é atualmente possível ler a partir de tabelas arbitrárias ou de
 
 R. O serviço Log Analytics se baseia no Azure. Endereços de IP de análise de registo estão no [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Como as implementações de serviço são feitas, alterar os endereços IP reais do serviço do Log Analytics. Os nomes DNS para permitir através da firewall estão documentados em [requisitos de rede](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Como as implementações de serviço são feitas, alterar os endereços IP reais do serviço do Log Analytics. Os nomes DNS para permitir através da firewall estão documentados em [requisitos de rede](log-analytics-agent-overview.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>P. Utilizar o ExpressRoute para ligar ao Azure. O tráfego de meu Log Analytics usa a minha ligação do ExpressRoute?
 

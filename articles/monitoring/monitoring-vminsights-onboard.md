@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9b6fd9a1eb9e5b27f62507e58f9b1a85caa92dea
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283376"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625424"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Como carregar para o Azure Monitor para VMs (pré-visualização)
-Este artigo descreve como configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento do sistema operativo de máquinas virtuais do Azure e detetar e mapear as dependências de aplicativo que podem ser hospedadas nos mesmos.  
+Este artigo descreve como configurar o Azure Monitor para as VMs monitorizar o estado de funcionamento do sistema operativo de suas máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais e máquinas virtuais no seu ambiente, incluindo a deteção e o mapeamento de dependências de aplicações que pode estar alojado nos mesmos.  
 
 Ativar o Azure Monitor para VMs é realizada através de um dos seguintes métodos e detalhes sobre como utilizar cada método são fornecidas posteriormente neste artigo.  
 
@@ -50,16 +50,12 @@ Atualmente é suportada uma área de trabalho do Log Analytics nas seguintes reg
 
 Se não tiver uma área de trabalho, pode criar ele por meio [CLI do Azure](../log-analytics/log-analytics-quick-create-workspace-cli.md), da funcionalidade [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), no [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md), ou com [doAzureResourceManager](../log-analytics/log-analytics-template-workspace-configuration.md).  Se pretende ativar a monitorização para uma única VM do Azure no portal do Azure, terá a opção para criar uma área de trabalho durante este processo.  
 
-Para ativar a solução, terá de ser um membro da função de Contribuidor do Log Analytics. Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md).
-
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-
 Ativar a solução para uma escala de cenário primeiro exige a configuração o seguinte na sua área de trabalho do Log Analytics:
 
-* Instalar o **ServiceMap** e **InfrastructureInsights** soluções
-* Configurar a área de trabalho do Log Analytics para recolher contadores de desempenho
+* Instalar o **ServiceMap** e **InfrastructureInsights** soluções. Só pode ser realizada com um modelo Azure Resource Manager fornecido neste artigo.   
+* Configure a área de trabalho do Log Analytics para recolher contadores de desempenho.
 
-Para configurar a sua área de trabalho para este cenário, consulte [área de trabalho do Log Analytics da configuração](#setup-log-analytics-workspace).
+Para configurar a sua área de trabalho para no cenário de dimensionamento, veja [área de trabalho do Log Analytics do programa de configuração para na implementação de escala](#setup-log-analytics-workspace).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
@@ -148,20 +144,16 @@ A tabela seguinte lista os sistemas operativos Windows e Linux que são suportad
 |12 SP2 | 4.4. * |
 |12 SP3 | 4.4. * |
 
-### <a name="hybrid-environment-connected-sources"></a>Origens de ambiente ligado híbrida
-O Azure Monitor para o mapa de VMs obtém seus dados do agente do Microsoft Dependency. O agente de dependência depende do agente para estabelecer ligação com o Log Analytics e, portanto, um sistema tem de ter o agente do Log Analytics instalada e configurada com o agente de dependência do Log Analytics. A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa suporta num ambiente híbrido.
+### <a name="microsoft-dependency-agent"></a>Agente de Dependency da Microsoft
+O Azure Monitor para o mapa de VMs obtém seus dados do agente do Microsoft Dependency. O agente de dependência depende do agente para estabelecer ligação com o Log Analytics e, portanto, um sistema tem de ter o agente do Log Analytics instalada e configurada com o agente de dependência do Log Analytics. Quando ativa do Azure Monitor para as VMs para uma única VM do Azure ou ao utilizar os métodos para na implementação de escala, a extensão de agente de dependência de VM do Azure é utilizada para instalar o agente como parte dessa experiência de integração. Com um ambiente híbrido, o agente de dependência pode ser transferido e instalado manualmente ou usando um método de implantação automatizadas a essas máquinas virtuais alojadas fora do Azure.  
+
+A tabela seguinte descreve as origens ligadas que a funcionalidade de mapa suporta num ambiente híbrido.
 
 | Origem ligada | Suportadas | Descrição |
 |:--|:--|:--|
-| Agentes do Windows | Sim | Para além da [agente do Log Analytics para Windows](../log-analytics/log-analytics-concept-hybrid.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | Para além da [agente do Log Analytics para Linux](../log-analytics/log-analytics-concept-hybrid.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Windows | Sim | Para além da [agente do Log Analytics para Windows](../log-analytics/log-analytics-agent-overview.md), agentes do Windows exigem o agente do Microsoft Dependency. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | Para além da [agente do Log Analytics para Linux](../log-analytics/log-analytics-agent-overview.md), o agente do Microsoft Dependency necessitam de agentes do Linux. Veja os [sistemas operativos suportados](#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
 | Grupo de gestão do System Center Operations Manager | Não | |  
-
-No Windows, o Microsoft Monitoring Agent (MMA) é utilizada pelo System Center Operations Manager e do Log Analytics para recolher e enviar dados de monitorização. System Center Operations Manager e do Log Analytics oferecem versões de outra fora da caixa do agente. Estas versões podem reportar ao System Center Operations Manager, ao Log Analytics ou a ambos.  
-
-No Linux, o agente do Log Analytics para Linux recolhe e envia dados para o Log Analytics de monitorização.   
-
-Se seus computadores Windows ou Linux não podem ligar-se diretamente ao serviço, tem de configurar o agente do Log Analytics para se ligar ao Log Analytics com o Gateway de OMS. Para obter mais informações sobre como implementar e configurar o Gateway de OMS, consulte [ligar computadores sem acesso à Internet através do Gateway de OMS](../log-analytics/log-analytics-oms-gateway.md).  
 
 O agente de dependência pode ser transferido a partir da seguinte localização.
 
@@ -170,63 +162,23 @@ O agente de dependência pode ser transferido a partir da seguinte localização
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
-## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
-A Microsoft recolhe automaticamente dados de utilização e desempenho através da sua utilização do serviço do Azure Monitor. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço. Para fornecer capacidades de resolução de problemas exatas e eficientes, os dados a partir da funcionalidade de mapa incluem informações sobre a configuração de software, como o sistema operativo e o versão, o endereço IP, o nome DNS e o nome da estação de trabalho. Microsoft não recolhe nomes, moradas ou outras informações de contacto.
+## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+O seguinte acesso tem de ser concedido aos seus utilizadores para habilitar e aceder a recursos no Azure Monitor para as VMs.  
+  
+- Para ativar a solução, terá de ser adicionado como membro da função de Contribuidor do Log Analytics.  
 
-Para obter mais informações sobre a recolha de dados e a utilização, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+- Para ver o desempenho, o estado de funcionamento e mapear dados, terá de adicionado como um membro da função do leitor de monitorização para a VM do Azure e a área de trabalho do Log Analytics configurado com o Azure Monitor para as VMs.   
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
-## <a name="performance-counters-enabled"></a>Contadores de desempenho ativadas
-Monitor do Azure para VMs configura uma área de trabalho do Log Analytics para recolher contadores de desempenho utilizadas pela solução.  A tabela seguinte lista os objetos e contadores configuradas pela solução que são recolhidas a cada 60 segundos.
-
-### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
-
-|Nome do objeto |Nome do contador |  
-|------------|-------------|  
-|Disco lógico |% De espaço livre |  
-|Disco lógico |Média Disco seg/leitura |  
-|Disco lógico |Média Disco seg/transferência |  
-|Disco lógico |Média Disco seg/escritas |  
-|Disco lógico |Bytes de disco/seg |  
-|Disco lógico |Bytes Lidos de Disco/seg |  
-|Disco lógico |Leituras de disco/seg |  
-|Disco lógico |As transferências de disco/seg |  
-|Disco lógico |Bytes Escritos em Disco/seg |  
-|Disco lógico |Escritas de disco/seg |  
-|Disco lógico |Megabytes livres |  
-|Memória |MBytes disponíveis |  
-|Placa de rede |Bytes recebidos/seg |  
-|Placa de rede |Bytes enviados/seg |  
-|Processador |% Tempo do processador |  
-
-### <a name="linux-performance-counters"></a>Contadores de desempenho do Linux
-
-|Nome do objeto |Nome do contador |  
-|------------|-------------|  
-|Disco lógico |% De espaço utilizado |  
-|Disco lógico |Bytes Lidos de Disco/seg |  
-|Disco lógico |Leituras de disco/seg |  
-|Disco lógico |As transferências de disco/seg |  
-|Disco lógico |Bytes Escritos em Disco/seg |  
-|Disco lógico |Escritas de disco/seg |  
-|Disco lógico |Megabytes livres |  
-|Disco lógico |Bytes de disco lógico/seg |  
-|Memória |MBytes de memória disponíveis |  
-|Rede |Total de Bytes recebidos |  
-|Rede |Total de Bytes transmitidos |  
-|Processador |% Tempo do processador |  
-
-## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+Para obter mais informações sobre como controlar o acesso a uma área de trabalho do Log Analytics, consulte [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="enable-from-the-azure-portal"></a>Ativar a partir do portal do Azure
 Para ativar a monitorização da sua VM do Azure no portal do Azure, efetue o seguinte:
 
-1. No portal do Azure, selecione **máquinas virtuais**. 
-2. Na lista, selecione uma VM. 
-3. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)**.
-4. Sobre o **Insights (pré-visualização)** página, selecione **Experimente agora o**.
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+2. No portal do Azure, selecione **máquinas virtuais**. 
+3. Na lista, selecione uma VM. 
+4. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)**.
+5. Sobre o **Insights (pré-visualização)** página, selecione **Experimente agora o**.
 
     ![Ativar o Azure Monitor para as VMs para uma VM](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
@@ -241,7 +193,13 @@ Depois de ativar a monitorização, poderá demorar cerca de 10 minutos antes de
 
 
 ## <a name="on-boarding-at-scale"></a>Introdução à escala
-Nas instruções nesta secção sobre como efetuar na implementação de escala do Azure Monitor para VMs com a política do Azure ou com o Azure PowerShell.  É a primeira etapa necessária configurar a sua área de trabalho do Log Analytics.  
+Nas instruções nesta secção sobre como efetuar na implementação de escala do Azure Monitor para VMs com a política do Azure ou com o Azure PowerShell.  
+
+Resumidos são os passos que necessários para efetuar para configurar previamente a sua área de trabalho do Log Analytics antes de poder prosseguir com a integração suas máquinas virtuais.
+
+1. Criar uma nova área de trabalho se não ainda existir que pode ser utilizada para suportar o Azure Monitor de VMs. Revisão [gerir áreas de trabalho](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) antes de criar uma nova área de trabalho para compreender as considerações de custo, gestão e conformidade antes de continuar.       
+2. Ative os contadores de desempenho na área de trabalho para a coleção em Linux e VMs do Windows.
+3. Instalar e ativar a **ServiceMap** e **InfrastructureInsights** solução na sua área de trabalho.  
 
 ### <a name="setup-log-analytics-workspace"></a>Configurar área de trabalho do Log Analytics
 Se não tiver uma área de trabalho do Log Analytics, reveja os métodos disponíveis sugeridos sob o [pré-requisitos](#log-analytics) secção para criar um.  
@@ -337,7 +295,7 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
     ```
 
 ### <a name="enable-using-azure-policy"></a>Ativar com o Azure Policy
-Para ativar o Azure Monitor para VMs em escala que assegura a conformidade consistente e a ativação automática para novas VMs aprovisionado, [do Azure Policy](../governance/policy/overview.md) é recomendado. Estas políticas:
+Para ativar o Azure Monitor para VMs em escala que assegura a conformidade consistente e a ativação automática para novas VMs aprovisionado, [do Azure Policy](../azure-policy/azure-policy-introduction.md) é recomendado. Estas políticas:
 
 * Implementar o agente do Log Analytics e o agente de dependência 
 * Relatório sobre os resultados de compatibilidade 
@@ -573,14 +531,16 @@ Failed: (0)
 ## <a name="enable-for-hybrid-environment"></a>Ativar para o ambiente híbrido
 Esta secção explica como a adicionar máquinas virtuais ou físicas computadores hospedados no seu datacenter ou outro ambiente de cloud para monitorização ao Azure Monitor para as VMs.  
 
-O Azure Monitor para agente de dependência de mapa de VMs não transmitir todos os dados em si, e não requer alterações às firewalls ou portas. Os dados no mapa sempre são transmitidos pelo agente do Log Analytics para o serviço Azure Monitor, diretamente ou através da [Gateway de OMS](../log-analytics/log-analytics-oms-gateway.md) se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet.
+O Azure Monitor para agente de dependência de mapa de VMs não transmitir todos os dados em si, e não requer alterações às firewalls ou portas. Os dados de mapa sempre são transmitidos pelo agente do Log Analytics para o serviço Azure Monitor, diretamente ou através da [Gateway de OMS](../log-analytics/log-analytics-oms-gateway.md) se as políticas de segurança de TI não permitir que os computadores na rede para ligar à Internet.
 
-Reveja os requisitos e métodos de implementação para o [agente Linux do Log Analytics e o Windows](../log-analytics/log-analytics-concept-hybrid.md).
+Reveja os requisitos e métodos de implementação para o [agente Linux do Log Analytics e o Windows](../log-analytics/log-analytics-agent-overview.md).  
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 Passos resumidos:
 
 1. Instalar o agente do Log Analytics para Windows ou Linux
-2. Instalar o Azure Monitor para agente de dependência de mapa de VMs
+2. Transfira e instale o Azure Monitor para agente de dependência de mapa de VMs para [Windows](https://aka.ms/dependencyagentwindows) ou [Linux](https://aka.ms/dependencyagentlinux).
 3. Ativar a recolha de contadores de desempenho
 4. Carregar Monitor do Azure para VMs
 
@@ -723,6 +683,52 @@ Se optar por utilizar a CLI do Azure, tem primeiro de instalar e utilizar a CLI 
     ```
 Depois de ativar a monitorização, poderá demorar cerca de 10 minutos antes de poder ver o estado de funcionamento e as métricas para o computador híbrida. 
 
+## <a name="performance-counters-enabled"></a>Contadores de desempenho ativadas
+Monitor do Azure para VMs configura uma área de trabalho do Log Analytics para recolher contadores de desempenho utilizadas pela solução.  A tabela seguinte lista os objetos e contadores configuradas pela solução que são recolhidas a cada 60 segundos.
+
+### <a name="windows-performance-counters"></a>Contadores de desempenho do Windows
+
+|Nome do objeto |Nome do contador |  
+|------------|-------------|  
+|Disco lógico |% De espaço livre |  
+|Disco lógico |Média Disco seg/leitura |  
+|Disco lógico |Média Disco seg/transferência |  
+|Disco lógico |Média Disco seg/escritas |  
+|Disco lógico |Bytes de disco/seg |  
+|Disco lógico |Bytes Lidos de Disco/seg |  
+|Disco lógico |Leituras de disco/seg |  
+|Disco lógico |As transferências de disco/seg |  
+|Disco lógico |Bytes Escritos em Disco/seg |  
+|Disco lógico |Escritas de disco/seg |  
+|Disco lógico |Megabytes livres |  
+|Memória |MBytes disponíveis |  
+|Placa de rede |Bytes recebidos/seg |  
+|Placa de rede |Bytes enviados/seg |  
+|Processador |% Tempo do processador |  
+
+### <a name="linux-performance-counters"></a>Contadores de desempenho do Linux
+
+|Nome do objeto |Nome do contador |  
+|------------|-------------|  
+|Disco lógico |% De espaço utilizado |  
+|Disco lógico |Bytes Lidos de Disco/seg |  
+|Disco lógico |Leituras de disco/seg |  
+|Disco lógico |As transferências de disco/seg |  
+|Disco lógico |Bytes Escritos em Disco/seg |  
+|Disco lógico |Escritas de disco/seg |  
+|Disco lógico |Megabytes livres |  
+|Disco lógico |Bytes de disco lógico/seg |  
+|Memória |MBytes de memória disponíveis |  
+|Rede |Total de Bytes recebidos |  
+|Rede |Total de Bytes transmitidos |  
+|Processador |% Tempo do processador |  
+
+## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
+A Microsoft recolhe automaticamente dados de utilização e desempenho através da sua utilização do serviço do Azure Monitor. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço. Para fornecer capacidades de resolução de problemas exatas e eficientes, os dados a partir da funcionalidade de mapa incluem informações sobre a configuração de software, como o sistema operativo e o versão, o endereço IP, o nome DNS e o nome da estação de trabalho. Microsoft não recolhe nomes, moradas ou outras informações de contacto.
+
+Para obter mais informações sobre a recolha de dados e a utilização, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 ## <a name="next-steps"></a>Passos Seguintes
 
 Com a monitorização ativada para a máquina virtual, estas informações são disponíveis para análise com o Azure Monitor para as VMs.  Para saber como utilizar a funcionalidade de estado de funcionamento, veja [vista do Azure Monitor de estado de funcionamento de VMs](monitoring-vminsights-health.md), ou para ver dependências de aplicações detetadas, consulte [vista de Azure Monitor para o mapa de VMs](monitoring-vminsights-maps.md).  

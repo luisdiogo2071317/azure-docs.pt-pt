@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 51bdc228e27d643cfda75d1e21bc8ea45fe09e3c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958158"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613295"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Azure Monitor
-Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](monitoring-overview-unified-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
+Este artigo fornece detalhes de alertas de registo são um dos tipos de alertas de suportam o [alertas do Azure](monitoring-overview-alerts.md) e permitir que os utilizadores utilizem a plataforma de análise do Azure como base para alertas.
 
 Alerta de registo é composta por regras de pesquisa de registos, criadas para [do Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Para saber mais sobre a utilização, consulte [criar alertas de registo no Azure](alert-log.md)
 
@@ -120,6 +120,6 @@ Preços aplicáveis para alertas de registo é mencionado no [preços do Azure M
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba mais sobre [criar nos alertas de registo no Azure](alert-log.md).
 * Compreender [webhooks em alertas de registo no Azure](monitor-alerts-unified-log-webhook.md).
-* Saiba mais sobre [alertas do Azure](monitoring-overview-unified-alerts.md).
+* Saiba mais sobre [alertas do Azure](monitoring-overview-alerts.md).
 * Saiba mais sobre [Application Insights](../application-insights/app-insights-analytics.md).
 * Saiba mais sobre [do Log Analytics](../log-analytics/log-analytics-queries.md).    

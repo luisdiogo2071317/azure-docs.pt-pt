@@ -1,6 +1,6 @@
 ---
-title: Como integrar registos do Azure Active Directory com SumoLogic com o Azure Monitor (pré-visualização) | Documentos da Microsoft
-description: Saiba como integrar registos do Azure Active Directory com SumoLogic com o Azure Monitor (pré-visualização)
+title: Como integrar registos do Azure Active Directory com SumoLogic através do Azure Monitor (pré-visualização) | Documentos da Microsoft
+description: Saiba como integrar registos do Azure Active Directory com SumoLogic através do Azure Monitor (pré-visualização)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d13eb22bd58dc7e680a27738549665bc2b691898
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4a39ee2fb057547c44c9eb08c85afdbb971ea5d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392215"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622419"
 ---
-# <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>Integrar registos do Azure AD com SumoLogic com o Azure Monitor (pré-visualização)
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>Integrar registos do Azure Active Directory com SumoLogic através do Azure Monitor (pré-visualização)
 
-Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com SumoLogic com o Azure Monitor. Primeiro encaminha os registos para um hub de eventos do Azure e, em seguida, integrar o hub de eventos com SumoLogic.
+Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com SumoLogic através do Azure Monitor. Primeiro encaminha os registos para um hub de eventos do Azure e, em seguida, integrar o hub de eventos com SumoLogic.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 71ac963f00993f8a66d41a8d6f3f67528d9c0583
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903052"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625154"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserir publicidade no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de publicidade no lado do cliente.
@@ -107,7 +107,7 @@ Anúncios lineares podem ser exibidos numa ordem especificada. Para tal, adicion
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -127,7 +127,7 @@ Anúncios lineares podem ser exibidos numa ordem especificada. Para tal, adicion
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -160,7 +160,7 @@ Anúncios não lineares são especificados num <Creative> elemento também. A ex
     </Creative>
 ```
 
-A <**NonLinearAds**> elemento pode conter um ou mais <**NonLinear**> elementos, cada um dos quais pode descrever um ad não linear. A <**NonLinear**> elemento Especifica o recurso do ad não linear. O recurso pode ser um <**StaticResouce**>, um <**IFrameResource**>, ou um <**HTMLResouce**>. <**StaticResource**> descreve um recurso de não-HTML e define um atributo de creativeType que especifica como o recurso é apresentado:
+A <**NonLinearAds**> elemento pode conter um ou mais <**NonLinear**> elementos, cada um dos quais pode descrever um ad não linear. A <**NonLinear**> elemento Especifica o recurso do ad não linear. O recurso pode ser um <**StaticResource**>, um <**IFrameResource**>, ou um <**HTMLResource**>. <**StaticResource**> descreve um recurso de não-HTML e define um atributo de creativeType que especifica como o recurso é apresentado:
 
 Imagem/gif, imagem/jpeg, png/imagem – o recurso é apresentado num HTML <**img**> etiqueta.
 

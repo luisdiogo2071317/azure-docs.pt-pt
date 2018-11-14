@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349029"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625356"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Configurar a caixa para aprovisionamento automático de utilizadores
 
@@ -55,7 +55,7 @@ Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir qua
 O **caixa > utilizadores e grupos** separador no portal do Azure permite-lhe especificar os utilizadores e grupos devem ter acesso à caixa. A atribuição de um utilizador ou grupo faz com que os seguintes procedimentos ocorrer:
 
 * Do Azure AD permite que o utilizador atribuído (seja por atribuição direta ou associação de grupo) para autenticar a caixa. Se não for atribuído um utilizador, o Azure AD não permite que iniciem sessão a caixa e devolve um erro na página de início de sessão do Azure AD.
-* Um mosaico da aplicação para a Box é adicionado para o usuário [iniciador de aplicações](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+* Um mosaico da aplicação para a Box é adicionado para o usuário [iniciador de aplicações](../manage-apps/end-user-experiences.md).
 * Se o aprovisionamento automático está ativado, em seguida, os utilizadores atribuídos e/ou grupos são adicionados à fila de aprovisionamento a ser aprovisionado automaticamente.
   
   * Se apenas os objetos de utilizador foram configurados para ser aprovisionado, em seguida, todos os utilizadores atribuídos diretamente são colocados na fila de aprovisionamento e todos os utilizadores que são membros de nenhum grupo atribuído são colocados na fila de aprovisionamento. 
