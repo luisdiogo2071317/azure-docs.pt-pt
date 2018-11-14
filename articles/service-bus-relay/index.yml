@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fe78cdfefb8062d3d576937afd133905e1787a8d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7eba9c526f26254a400eaee1a00644399d3979a8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698806"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612105"
 documentType: LandingData
 title: Documentação de Transmissão do Azure Service Bus
 metadata:
@@ -22,33 +22,19 @@ metadata:
 abstract:
   description: O serviço de Reencaminhamento do Azure facilita as aplicações híbridas entre ambientes no local e na cloud numa rede empresarial e a cloud pública, sem ter de abrir uma ligação de firewall ou sem ter de fazer alterações intrusivas na infraestrutura da rede empresarial.
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba como enviar e receber mensagens com o Azure Relay:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: /azure/media/index/logo_net.svg
-      text: Sockets Web .NET
-      href: /azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started
-    - image:
-        src: /azure/media/index/logo_net.svg
-      text: .NET HTTP
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started
-    - image:
-        src: /azure/media/index/logo_nodejs.svg
-      text: Sockets Web de Node.js
-      href: /azure/service-bus-relay/relay-hybrid-connections-node-get-started
-    - image:
-        src: /azure/media/index/logo_nodejs.svg
-      text: Node.js HTTP
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
-    text: Aprenda a criar, gerir e enviar e receber mensagens através do Azure Relay
+    text: <b>Ligações Híbridas:</b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">Enviar e receber mensagens – Websockets .NET</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">Enviar e receber mensagens – HTTP .NET</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">Enviar e receber mensagens – Websockets Node.js</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">Enviar e receber mensagens – HTTP Node.js</a>
+  - type: paragraph
+    text: <b>Reencaminhamento da Windows Communication Foundation (WCF):</b>
   - type: list
     style: ordered
     items:
@@ -58,12 +44,13 @@ sections:
 - title: Amostras
   items:
   - type: paragraph
-    text: Encontre scripts para gerir tarefas comuns.
+    text: Exemplos no GitHub
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples">Exemplos do Azure Relay</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">Ligações Híbridas</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">Windows Communication Foundation (WCF)</a>
 - title: Referência
   items:
   - type: list
