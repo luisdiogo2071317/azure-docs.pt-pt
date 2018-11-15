@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985068"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687440"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>O Azure Stream Analytics do IoT Edge (pré-visualização)
 
@@ -71,13 +71,17 @@ Um contentor de armazenamento é necessário para exportar a consulta do ASA com
 
 1. A partir do portal do Azure, crie uma nova "tarefa de Stream Analytics". [Ligação direta para criar uma nova tarefa ASA aqui](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
-2. No ecrã de criação, selecione **Edge** como **ambiente de alojamento** (veja a imagem seguinte) ![criação da tarefa](media/stream-analytics-edge/ASAEdge_create.png)
+2. No ecrã de criação, selecione **Edge** como **ambiente de alojamento** (veja a imagem seguinte)
+
+   ![Criação da tarefa](media/stream-analytics-edge/ASAEdge_create.png)
 3. Definição de tarefa
     1. **Definir a entrada Stream(s)**. Defina um ou vários fluxos de entrada para a sua tarefa.
     2. Defina os dados de referência (opcionais).
     3. **Definir a saída Stream(s)**. Defina um ou vários fluxos de saídas para a sua tarefa. 
     4. **Definir consulta**. Defina a consulta do ASA na cloud com o editor de inline. O compilador verifica automaticamente a sintaxe ativada para o ASA edge. Também pode testar a consulta através do carregamento de dados de exemplo. 
+
 4. Definir as informações de contentor de armazenamento na **definições do IoT Edge** menu.
+
 5. Definir definições opcionais
     1. **Ordenação de eventos**. Pode configurar a política de fora de ordem no portal. A documentação está disponível [aqui](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Localidade**. Defina o formato de internacionalização.
@@ -181,20 +185,27 @@ Pelo presente, o único suportado entrada de fluxo e os tipos de saída de fluxo
 
 
 ##### <a name="reference-data"></a>Dados de referência
-Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto finito de dados que são estáticos ou lenta alterar por natureza. É utilizado para efetuar uma pesquisa ou para correlacionar com seu fluxo de dados. Para tornar usar dados de referência na sua tarefa do Azure Stream Analytics, geralmente utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. Para obter mais informações, consulte a [documentação ASA sobre dados de referência](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto finito de dados que são estáticos ou lenta alterar por natureza. É utilizado para efetuar uma pesquisa ou para correlacionar com seu fluxo de dados. Para tornar usar dados de referência na sua tarefa do Azure Stream Analytics, geralmente utilizará um [associação de dados de referência](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) na sua consulta. Para obter mais informações, consulte a [usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md).
 
-Para utilizar dados de referência no caso do ASA do Iot Edge, siga estes passos: 
-1. Criar uma nova entrada para a sua tarefa
+Apenas os dados de referência local são suportados. Quando uma tarefa é implementada em dispositivos do IoT Edge, ele carrega dados de referência do caminho de ficheiro de definidas pelo utilizador.
+
+Para criar uma tarefa com dados de referência do Edge:
+
+1. Crie uma nova entrada para a sua tarefa.
+
 2. Escolher **dados de referência** como o **tipo de origem**.
-3. Defina o caminho de ficheiro. O caminho do ficheiro deve ser um **absoluto** caminho do ficheiro no dispositivo ![criação de dados de referência](media/stream-analytics-edge/ReferenceData.png)
-4. Ativar **partilhados unidades** na sua configuração de Docker e certifique-se a unidade está ativada antes de iniciar a implementação.
 
-Para obter mais informações, consulte [documentação do Docker para Windows aqui](https://docs.docker.com/docker-for-windows/#shared-drives).
+3. Possui um arquivo de dados referência pronto a no dispositivo. Para um contentor do Windows, colocar o arquivo de dados de referência na unidade local e partilhar o disco local com o contentor do Docker. Para um contentor do Linux, criar um volume do Docker e preencha o ficheiro de dados no volume.
 
-> [!Note]
-> Neste momento, apenas os dados de referência local são suportados.
+4. Defina o caminho de ficheiro. Para um dispositivo windows, utilize o caminho absoluto. Para um dispositivo Linux, utilize o caminho do volume.
 
+![Nova entrada de dados de referência para a tarefa do Azure Stream Analytics do IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+Os dados de referência na atualização do IoT Edge são acionados por uma implementação. Quando acionado, o módulo ASA escolhe os dados atualizados sem parar a tarefa em execução.
+
+Existem duas maneiras de atualizar os dados de referência:
+* Caminho de dados de referência de atualização na sua tarefa ASA do portal do Azure.
+* Atualize a implementação de IoT Edge.
 
 
 ## <a name="license-and-third-party-notices"></a>Licença e avisos de terceiros

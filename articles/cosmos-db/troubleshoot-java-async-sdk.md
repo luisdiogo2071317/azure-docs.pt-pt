@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238834"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632939"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Resolução de problemas ao utilizar o SDK do Java assíncrono com contas do Azure Cosmos DB SQL API
 Este artigo aborda problemas, soluções alternativas, passos de diagnóstico e ferramentas comuns ao utilizar [ADK de Async Java](sql-api-sdk-async-java.md) com contas de API de SQL do Azure Cosmos DB.
@@ -148,7 +148,7 @@ Certificado HTTPS de emulador do cosmos DB é autoassinado. Para o SDK trabalhar
 
 ## <a name="enable-client-sice-logging"></a>Ativar o registo do SDK de cliente
 
-As utilizações de Java SDK async SLF4j como a fachada de registo que suporta início de sessão em arquiteturas de registo populares, como log4j e logback.
+As utilizações de SDK do Java Async SLF4j como a fachada de registo que suporta o início de sessão em arquiteturas de registo populares, como log4j e logback.
 
 Por exemplo, se pretender utilizar log4j como a arquitetura de registo, adicione as seguintes bibliotecas no caminho da sua classe Java:
 

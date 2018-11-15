@@ -1,6 +1,6 @@
 ---
-title: MapReduce com o Hadoop no HDInsight
-description: Saiba como executar tarefas de MapReduce do Hadoop em clusters do HDInsight.
+title: MapReduce com o Apache Hadoop no HDInsight
+description: Saiba como executar tarefas de MapReduce no Apache Hadoop em clusters do HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015167"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632667"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Hadoop no HDInsight
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Apache Hadoop no HDInsight
 
 Saiba como executar tarefas de MapReduce em clusters do HDInsight. Utilize a tabela seguinte para detetar as várias formas que pode ser usado MapReduce com o HDInsight:
 
@@ -32,7 +32,7 @@ Saiba como executar tarefas de MapReduce em clusters do HDInsight. Utilize a tab
 
 ## <a id="whatis"></a>O que é o MapReduce
 
-MapReduce do Hadoop é uma estrutura de software para a escrita de tarefas que processam grandes quantidades de dados. Dados de entrada são divididos em partes independentes. Cada segmento é processado em paralelo em todos os nós do cluster. Uma tarefa de MapReduce consiste em duas funções:
+Apache Hadoop MapReduce é uma estrutura de software para a escrita de tarefas que processam grandes quantidades de dados. Dados de entrada são divididos em partes independentes. Cada segmento é processado em paralelo em todos os nós do cluster. Uma tarefa de MapReduce consiste em duas funções:
 
 * **Mapeador de**: consome dados de entrada, analisa-(normalmente com o filtro e classificação de operações) e emite tuplas (pares chave-valor)
 

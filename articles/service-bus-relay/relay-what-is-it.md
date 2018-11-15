@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 132fca9c8904c4f64fffe167e3a3f2c6bb0d2cfe
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319341"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621032"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
-O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma ligação de firewall ou efetuar alterações intrusivas à infraestrutura de rede empresarial. 
+O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma porta no firewall, ou para fazer alterações intrusivas na sua infraestrutura de rede empresarial. 
 
 O serviço de reencaminhamento suporta os seguintes cenários entre serviços no local e aplicações em execução na cloud ou noutro ambiente no local. 
 
@@ -56,7 +56,7 @@ Para obter detalhes sobre o protocolo de Ligações Híbridas, veja [Guia do pro
 > As Ligações Híbridas do Azure Relay substituem a antiga funcionalidade de Ligações Híbridas dos Serviços BizTalk. A funcionalidade Ligações Híbridas dos Serviços BizTalk foi criada com base no Reencaminhamento do WCF do Azure Service Bus. A capacidade Ligações Híbridas do Azure Relay complementa a funcionalidade de Reencaminhamento do WCF já existente. Estas duas capacidades de serviço (Reencaminhamento do WCF e Ligações Híbridas) existem lado a lado no serviço Azure Relay. Partilham um gateway comum, mas, de resto, são implementações diferentes.
 
 ## <a name="wcf-relay"></a>Reencaminhamento do WCF
-O Reencaminhamento do WCF funciona com o .NET Framework completo e no WCF. Cria uma ligação entre o serviço no local e o serviço de reencaminhamento através de um conjunto de enlaces de "reencaminhamento" do WCF. Em segundo plano, os enlaces de reencaminhamento mapeiam para novos elementos de enlace de transporte concebidos para criar os componentes de canal WCF que se integram ao Service Bus na nuvem. Para obter mais informações, veja [introdução ao WCF Relay](relay-wcf-dotnet-get-started.md).
+O Reencaminhamento do WCF funciona com o .NET Framework completo e no WCF. Cria uma ligação entre o serviço no local e o serviço de reencaminhamento através de um conjunto de enlaces de "reencaminhamento" do WCF. Os enlaces de reencaminhamento mapeiam para novos elementos de ligação de transporte concebidos para criar componentes de canal WCF que se integram com o Service Bus na nuvem. Para obter mais informações, veja [introdução ao WCF Relay](relay-wcf-dotnet-get-started.md).
 
 ## <a name="hybrid-connections-vs-wcf-relay"></a>Ligações Híbridas vs. Reencaminhamento do WCF
 Tanto as Ligações Híbridas como o Reencaminhamento do WCF permitem ligações seguras a recursos que existem dentro de uma rede empresarial. A utilização de uma funcionalidade em detrimento da outra depende das suas necessidades específicas, conforme descrito na tabela seguinte:
@@ -68,7 +68,7 @@ Tanto as Ligações Híbridas como o Reencaminhamento do WCF permitem ligações
 | **.NET Framework** |x |x |
 | **Javascript/Node.JS** | |x |
 | **Standards-Based Open Protocol (Protocolo Aberto Baseado em Normas)** | |x |
-| **Vários modelos de programação de RPC** | |x |
+| **Modelos de programação de RPC** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: processamento de pedidos de reencaminhamento recebidos
 O diagrama seguinte mostra como os pedidos de reencaminhamento recebidos são processados pelo serviço Azure Relay:
@@ -85,10 +85,10 @@ O diagrama seguinte mostra como os pedidos de reencaminhamento recebidos são pr
 8. O gateway encaminha qualquer outra forma de mensagens do cliente de escuta para o cliente de envio. 
 9. O gateway encaminha qualquer outra forma de mensagens do cliente de envio para o cliente de escuta.  
 
-## <a name="next-steps"></a>Passos seguintes
-* [Introdução aos Websockets de .NET](relay-hybrid-connections-dotnet-get-started.md)
+## <a name="next-steps"></a>Passos Seguintes
+* [Introdução ao .NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução aos Pedidos de HTTP de .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [Introdução aos Websockets de Node](relay-hybrid-connections-node-get-started.md)
+* [Introdução ao Node WebSockets](relay-hybrid-connections-node-get-started.md)
 * [Introdução aos Pedidos de HTTP de Node](relay-hybrid-connections-http-requests-node-get-started.md)
 * [FAQ de Reencaminhamento](relay-faq.md)
 

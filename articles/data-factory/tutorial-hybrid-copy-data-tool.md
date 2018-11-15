@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: a6c17fc897dae765f9789840262cb001d598b731
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 91c6939e42f0a8a5126883e5258017b2c38e6f2a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297748"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613975"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiar dados de uma base de dados do SQL Server no local para o Armazenamento de blobs do Azure com a ferramenta Copiar Dados
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,6 +27,7 @@ Neste tutorial, irá utilizar o portal do Azure para criar uma fábrica de dados
 
 > [!NOTE]
 > - Se não estiver familiarizado com o Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
+
 Neste tutorial, vai executar os seguintes passos:
 
 > [!div class="checklist"]
@@ -107,7 +108,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na lista de contentores, clique em **adftutorial**.
 
-    ![Seleção de contentor](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Seleção de contentor](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Mantenha a janela **Contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
@@ -273,7 +274,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
      ![Separador Editar](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O pipeline neste exemplo copia os dados de uma base de dados do SQL Server no local para o Armazenamento de blobs. Aprendeu a: 
 
 > [!div class="checklist"]

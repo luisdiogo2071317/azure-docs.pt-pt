@@ -10,12 +10,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: d500a5cab4373d21b729a177ef847c40c2f4211b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: bc32cde7e4b4cf68b12b100eb402237098459aae
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354024"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566453"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor do Azure Database for MariaDB com a CLI do Azure
 
@@ -59,7 +59,7 @@ ssl-enforcement | **Ativado** | Se SSL deve ser ativado para este servidor. Valo
 storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5120 MB (mínimo) com aumentos em incrementos de 1024 MB. Para obter mais informações sobre os limites de tamanho de armazenamento, veja [Escalões de preço](./concepts-pricing-tiers.md). 
 versão | **10.2** | A versão do motor principal de MariaDB.
 admin-user | **myadmin** | O nome de utilizador para o início de sessão do administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
-admin-password | *A sua palavra-passe* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
+admin-password | *a sua palavra-passe* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.
 
 O valor do parâmetro **sku-name** segue a convenção *escalão de preço*\_*geração de computação*\_*vCores*, conforme os exemplos abaixo:
 + `--sku-name B_Gen5_4` é mapeado para o escalão de preço Básico, a geração de computação Ger 5 e 4 vCores.
@@ -216,7 +216,7 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
   | Nome de anfitrião | **mydemoserver.mariadb.database.azure.com** | O nome de servidor que anotou anteriormente. |
   | Porta | **3306** | A porta predefinida para o Azure Database for MariaDB. |
   | Nome de utilizador | **myadmin@mydemoserver** | O início de sessão de administrador do servidor que anotou anteriormente. |
-  | Palavra-passe | *A sua palavra-passe* | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |
+  | Palavra-passe | *a sua palavra-passe* | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |
 
 3. Para verificar se todos os parâmetros estão configurados corretamente, selecione **Testar Ligação**.
 
@@ -236,9 +236,7 @@ Se quiser eliminar apenas o servidor que criou neste início rápido, execute o 
 az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-<!--
-## Next steps
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Design a MariaDB Database with Azure CLI](./tutorial-design-database-using-cli.md)
--->
+> [Criar uma base de dados da MariaDB com a CLI do Azure](./tutorial-design-database-cli.md)

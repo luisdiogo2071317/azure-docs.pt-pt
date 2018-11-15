@@ -1,5 +1,5 @@
 ---
-title: Carregar, codificar e transmitir em fluxo com os Serviços de Multimédia do Azure | Microsoft Docs
+title: Carregar, codificar e transmitir em fluxo com os serviços de multimédia do Azure - REST | Documentos da Microsoft
 description: Siga os passos deste tutorial para carregar um ficheiro, codificar o vídeo e transmitir o seu conteúdo com os Serviços de Multimédia do Azure utilizando REST.
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377436"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615777"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutorial: carregar, codificar e transmitir vídeos com REST
 
-Este tutorial mostra como carregar, codificar e transmitir ficheiros de vídeo com os Serviços de Multimédia do Azure.
+Serviços de multimédia do Azure permite-lhe a codificar seus arquivos de suporte de dados em formatos que podem ser jogados numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
 
-Os Serviços de Multimédia permitem-lhe codificar os seus ficheiros de suporte de dados em formatos que podem ser reproduzidos numa ampla variedade de dispositivos e browsers. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
+Este tutorial mostra-lhe como carregar, codificar e transmitir ficheiros vídeo com os serviços de multimédia do Azure com REST. 
 
 ![Reproduzir o vídeo](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
+
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).
+
+    Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia
+
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
     Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou **Telerik Fiddler**. 
@@ -53,10 +61,6 @@ Clone o repositório do GitHub que contém os ficheiros de ambiente e coleção 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -316,7 +320,7 @@ Nesta secção, criemos um URL de transmissão HLS. Os URL são compostos pelos 
 
 2. Nome do anfitrião do StreamingEndpoint. Neste caso, o nome é "amsaccount-usw22.streaming.media.azure.net".
 
-    Para obter o nome do anfitrião, pode utilizar a seguinte operação GET:
+    Para obter o nome de anfitrião, pode utilizar a seguinte operação de obtenção:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
@@ -352,15 +356,15 @@ Para eliminar um recurso, selecione a operação "Eliminar…" sob o recurso que
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado. Pode utilizar a ferramenta **CloudShell**.
+Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.  
 
-No **CloudShell**, execute o seguinte comando:
+Execute o seguinte comando da CLI:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como carregar, codificar e transmitir o vídeo, veja o artigo seguinte: 
 

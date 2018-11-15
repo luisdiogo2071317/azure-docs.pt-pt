@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 31ce23bf6249ef21a2c9fe515b78cdd6ebea9b9c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614384"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636973"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Ativar o registo de diagnóstico para aplicações web no App Service do Azure
 ## <a name="overview"></a>Descrição geral
@@ -159,7 +159,9 @@ Para filtrar os tipos de registo específicos, como HTTP, utilize o **– caminh
 
 ## <a name="understandlogs"></a> Como: compreender os registos de diagnóstico
 ### <a name="application-diagnostics-logs"></a>Registos de diagnóstico de aplicações
-Diagnóstico de aplicação armazena informações num formato específico para aplicações de .NET, dependendo se armazena os registos para o armazenamento de BLOBs ou de sistema de ficheiros. O conjunto base de dados armazenados é o mesmo em todos os três tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento.
+Diagnóstico de aplicação armazena informações num formato específico para aplicações de .NET, dependendo se armazena os registos para o armazenamento de BLOBs ou de sistema de ficheiros. 
+
+O conjunto base de dados armazenados é a mesma em ambos os tipos de armazenamento - a data e hora que ocorreu o evento, o ID de processo que produziu o evento, o tipo de evento (informação, aviso, erro) e a mensagem de evento. Utilizar o sistema de ficheiros para o armazenamento de registo é útil quando precisa ter acesso imediato ao solucionar um problema porque os ficheiros de registo são atualizados quase instantaneamente. Armazenamento de BLOBs é o uso para fins de arquivamento, porque os ficheiros são colocados em cache e, em seguida, libertados para o contentor de armazenamento com base numa agenda.
 
 **Sistema de Ficheiros**
 
@@ -195,7 +197,7 @@ Os dados armazenados num blob teria uma aparência semelhantes ao seguinte exemp
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> A primeira linha do registo contém os cabeçalhos de coluna, como ilustrado neste exemplo.
+> Para o ASP.NET Core, o registo é conseguido utilizando o [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) fornecedor este registo adicional do fornecedor depósitos ficheiros para o contentor de Blobs. Para obter mais informações, consulte [ASP.NET Core, iniciar sessão no Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 

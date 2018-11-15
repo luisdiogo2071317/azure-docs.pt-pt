@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Introdução ao Hadoop e ao Hive no Azure HDInsight através de um modelo do Resource Manager '
+title: 'Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager '
 description: Saiba como criar clusters do HDInsight e consultar dados com o Hive.
 keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, introdução do hive, início rápido do hive
 services: hdinsight
@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.openlocfilehash: cf5992615f021a986aeb3145f01b27a3b565a17b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: cc726156273591215e5a311065ae2fe6dd87402c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014385"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634450"
 ---
-# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início Rápido: Introdução ao Hadoop e ao Hive no Azure HDInsight através de um modelo do Resource Manager
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager
 
-Neste artigo, vai aprender a criar clusters do [Hadoop](http://hadoop.apache.org/) no HDInsight através de um modelo do Resource Manager e, em seguida, executar tarefas do Hive no HDInsight. A maioria das tarefas do Hadoop são tarefas de lote. Cria um cluster, executa algumas tarefas e, em seguida, elimina o cluster. Neste artigo, irá realizar as três tarefas.
+Neste artigo, irá aprender a criar [Apache Hadoop](http://hadoop.apache.org/) clusters no HDInsight com um modelo do Resource Manager e, em seguida, executar tarefas do Hive no HDInsight. A maioria das tarefas do Hadoop são tarefas de lote. Cria um cluster, executa algumas tarefas e, em seguida, elimina o cluster. Neste artigo, irá realizar as três tarefas.
 
 Neste início rápido, vai utilizar um modelo do Resource Manager para criar um cluster do Hadoop no HDInsight. Também pode criar um cluster com o [Portal do Azure](apache-hadoop-linux-create-cluster-get-started-portal.md).
 
@@ -242,7 +242,7 @@ Depois de concluir o artigo, pode achar conveniente eliminar o cluster. Com o HD
 
 3. Selecione **Eliminar grupo de recursos** para eliminar o grupo de recursos, o qual contém o cluster e a conta de armazenamento predefinida. Tenha em atenção que a eliminação do grupo de recursos elimina a conta de armazenamento. Se pretender manter a conta do Storage, opte por eliminar apenas o cluster.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a criar um cluster do HDInsight baseado em Linux com um modelo do Resource Manager, bem como a realizar consultas básicas do Hive. No artigo seguinte, vai aprender a realizar uma operação de ETL (extração, transformação e carregamento) com o Hadoop no HDInsight.
 
 > [!div class="nextstepaction"]

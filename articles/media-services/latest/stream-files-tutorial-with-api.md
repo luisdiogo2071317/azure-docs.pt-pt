@@ -10,25 +10,24 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 404a40f8949add77153d3fbf53b5c68dfb866128
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: d2d648dd02426596e1c070ffd494458c68060085
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377885"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613448"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Tutorial: Carregar, codificar e transmitir vídeos com as APIs
 
-Os Serviços de Multimédia permitem-lhe codificar os ficheiros de suporte de dados em formatos que podem ser reproduzidos numa ampla variedade de dispositivos e browsers. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md). Este tutorial carrega um ficheiro de vídeo local e codifica o ficheiro carregado. Também pode codificar o conteúdo que torna acessível através de um URL HTTPS. Para obter mais informações, veja [Criar uma entrada de tarefa a partir de um URL HTTP(s)](job-input-from-http-how-to.md).
+Serviços de multimédia do Azure permite-lhe a codificar seus arquivos de suporte de dados em formatos que podem ser jogados numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md). Este tutorial carrega um ficheiro de vídeo local e codifica o ficheiro carregado. Também pode codificar o conteúdo que torna acessível através de um URL HTTPS. Para obter mais informações, veja [Criar uma entrada de tarefa a partir de um URL HTTP(s)](job-input-from-http-how-to.md).
 
 ![Reproduzir o vídeo](./media/stream-files-tutorial-with-api/final-video.png)
 
 Este tutorial mostrar-lhe como:    
 
 > [!div class="checklist"]
-> * Criar uma conta dos Media Services
 > * Aceder à API dos Serviços de Multimédia
 > * Configurar a aplicação de exemplo
 > * Examinar o código que carrega, codifica e transmite
@@ -40,7 +39,14 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver o Visual Studio instalado, poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Se não tiver o Visual Studio instalado, poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
+
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).
+
+    Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -51,10 +57,6 @@ Clone o repositório do GitHub que contém o exemplo de .NET de transmissão par
  ```
 
 O exemplo está localizado na pasta [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -185,11 +187,11 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado. Pode utilizar a ferramenta **CloudShell**.
+Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.
 
-No **CloudShell**, execute o seguinte comando:
+Execute o seguinte comando da CLI:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 
@@ -197,7 +199,7 @@ az group delete --name amsResourceGroup
 
 Os SDKs dos Serviços de Multimédia do Azure v3 não são seguros para threads. Ao criar aplicações com vários threads, deve gerar e utilizar um novo objeto AzureMediaServicesClient por thread.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como carregar, codificar e transmitir o vídeo, veja o artigo seguinte: 
 

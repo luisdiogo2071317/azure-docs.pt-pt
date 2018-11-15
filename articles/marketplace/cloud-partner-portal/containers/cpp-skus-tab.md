@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 83acdb320e0be0837ec5188a11cb86b91ed077fa
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979822"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683983"
 ---
 # <a name="container-skus-tab"></a>Separador de SKUs de contentor
 
@@ -46,7 +46,7 @@ Os metadados SKU contém vitrine de apresentar as informações para a listagem 
 
 ### <a name="container-metadata"></a>Metadados do contentor
 
-Os metadados do contentor tem informações de referência de seus detalhes de repositório de imagem dentro do Azure Container Registry (ACR). O Azure Marketplace copia esta imagem para o registo de marketplace público e é disponibilizado para clientes após a certificação. Todos os pedidos do utilizador do Azure para consumir uma imagem de contentor são servidos a partir do registo de contentor do Marketplace.
+Os metadados do contentor tem informações de referência de seus detalhes de repositório de imagem dentro do Azure Container Registry (ACR). O Azure Marketplace copia esta imagem para um registo específico do Marketplace, público e, em seguida, disponibiliza a imagem para os clientes após a certificação. Todos os pedidos do utilizador do Azure para consumir uma imagem de contentor do Azure Marketplace são servidos a partir do registo de público do Marketplace, não ACR.
 
 ![Metadados do contentor](./media/containers-image-repository.png)
     

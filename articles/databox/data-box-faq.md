@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649402"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568035"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -113,7 +113,7 @@ A.-->
 R. Se o LED indicador de falha do sistema estiver ligado, significa que o sistema não está em bom estado de funcionamento. [Contacte o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md) para saber quais os próximos passos.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>P. Não consigo aceder à palavra-passe de desbloqueio do Data Box no portal do Azure. O que correu mal?
-R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, verifique as permissões na sua subscrição e na sua conta de armazenamento. Confirme que tem a permissão Contribuidor ou Proprietário ao nível do grupo de recursos. Se não tiver, precisa, pelo menos, da permissão de função Operador do Data Box para ver as credenciais de acesso.
+R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, verifique as permissões na sua subscrição e na sua conta de armazenamento. Confirme que tem a permissão Contribuidor ou Proprietário ao nível do grupo de recursos. Se não, em seguida, tem de ter, pelo menos, permissão de função de operador de caixa de dados para ver as credenciais de acesso.
 
 ## <a name="track-status"></a>Acompanhar o estado
 
@@ -236,7 +236,7 @@ R.  Os registos de acompanhamento da transportadora são guardados no histórico
 R.  Não. Atualmente, o datacenter do Azure não aceita a entrega do Data Box por parte de clientes nem transportadoras que não a UPS/DHL.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja os [requisitos de sistema do Data Box](data-box-system-requirements.md).
 - Compreenda os [limites do Data Box](data-box-limits.md).

@@ -3,29 +3,31 @@ title: Tutorial C# do Azure IoT Edge | Microsoft Docs
 description: Este tutorial mostra como criar um módulo do IoT Edge com código C# e implementá-lo num dispositivo Edge.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ec8cd52d8a91c76033d52f9b49ee84dde98eada2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156770"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633993"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge do C# e implementar no seu dispositivo simulado
 
 Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:    
 
 > [!div class="checklist"]
-> * Utilize o Visual Studio Code para criar um módulo do IoT Edge com base no SDK .NET Core 2.0.
+> * Utilize o Visual Studio Code para criar um módulo do IoT Edge que baseia-se o SDK 2.1 do .NET Core.
 > * Utilize o Visual Studio Code e o Docker para criar uma imagem do Docker e publicá-la no seu registo.
 > * Implemente o módulo no seu dispositivo IoT Edge.
 > * Veja os dados gerados.
 
+>[!NOTE]
+>Também pode utilizar [Visual Studio 2017 desenvolver, depurar e implementar módulos IoT Edge](how-to-visual-studio-develop-csharp-module.md).
 
 O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura que são gerados pelo seu dispositivo. Envia apenas mensagens de origem caso a temperatura seja superior a um limiar especificado. Este tipo de análise no Edge é útil para reduzir a quantidade de dados que são comunicados e armazenados na cloud. 
 
@@ -330,7 +332,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 [!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar os seus próprios módulos, pode saber mais sobre como [desenvolver um módulo de C# com o Azure IoT Edge para Visual Studio Code](how-to-develop-csharp-module.md). Pode continuar para os próximos tutoriais para aprender outras formas em que o Azure IoT Edge o pode ajudar a transformar os dados em informações empresariais na periferia.
 

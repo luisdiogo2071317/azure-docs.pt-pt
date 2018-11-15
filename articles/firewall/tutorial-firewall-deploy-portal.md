@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/9/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 02805f676a5ea9edbfa619c625bb11e94e16c12e
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278587"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300001"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -196,15 +196,16 @@ Esta é a regra de aplicação que permite acesso de saída ao github.com.
 
 1. Abra o **Test-FW-RG** e clique na firewall **Test-FW01**.
 2. Na página **Test-FW01**, em **Definições**, clique em **Regras**.
-3. Clique em **Adicionar coleção de regras de aplicação**.
-4. Em **Nome**, escreva **App-Coll01**.
-5. Em **Prioridade**, escreva **200**.
-6. Em **Ação**, selecione **Permitir**.
-7. Em **Regras**, em **Nome**, escreva **AllowGH**.
-8. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
-9. Em **Protocolo:porta**, escreva **http, https**.
-10. Em **FQDNS de destino**, escreva **github.com**
-11. Clique em **Adicionar**.
+3. Clique nas **coleção de regras de aplicação** separador.
+4. Clique em **Adicionar coleção de regras de aplicação**.
+5. Em **Nome**, escreva **App-Coll01**.
+6. Em **Prioridade**, escreva **200**.
+7. Em **Ação**, selecione **Permitir**.
+8. Sob **regras**, **FQDNs de destino**, para **nome**, tipo **AllowGH**.
+9. Em **Endereços de Origem**, escreva **10.0.2.0/24**.
+10. Em **Protocolo:porta**, escreva **http, https**.
+11. Em **FQDNS de destino**, escreva **github.com**
+12. Clique em **Adicionar**.
 
 O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de infraestrutura que são permitidos por predefinição. Estes FQDNs são específicos da plataforma e não podem ser utilizados para outros fins. Para obter mais informações, veja [FQDNs de Infraestrutura](infrastructure-fqdns.md).
 
@@ -212,6 +213,7 @@ O Azure Firewall inclui uma coleção de regras incorporadas para os FQDNs de in
 
 Esta é a regra de rede que permite acesso de saída aos dois endereços IP na porta 53 (DNS).
 
+1. Clique nas **coleção de regras de rede** separador.
 1. Clique em **Adicionar coleção de regras de rede**.
 2. Em **Nome**, escreva **Net-Coll01**.
 3. Em **Prioridade**, escreva **200**.
@@ -261,7 +263,7 @@ Verificou que as regras de firewall estão a funcionar:
 
 Pode manter os recursos da firewall para o próximo tutorial. Se já não precisar dos mesmos elimine o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com a firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

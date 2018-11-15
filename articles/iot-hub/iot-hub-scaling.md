@@ -1,19 +1,19 @@
 ---
 title: Dimensionar o IoT Hub do Azure | Documentos da Microsoft
 description: Como dimensionar o seu hub IoT para suportar o débito de mensagem antecipada e os recursos desejados. Inclui um resumo das opções de fragmentação e do débito suportado para cada camada.
-author: kgremban
+author: wesmc7777
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: kgremban
-ms.openlocfilehash: d98a890cfb6bd388477ff3f14b81c8df02ece879
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.author: wesmc
+ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287970"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633381"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 
@@ -31,7 +31,7 @@ Cada escalão do IoT Hub está disponível em três tamanhos, com base em torno 
 
 O escalão standard do IoT Hub permite que todas as funcionalidades e é necessário para qualquer soluções de IoT que pretendem tornar a utilizar as capacidades de comunicação bidirecional. O escalão básico permite a um subconjunto das funcionalidades e destina-se para soluções IoT que só precisam uni-direcional comunicações de dispositivos para a cloud. Ambas as camadas oferecem os mesmos recursos de segurança e autenticação.
 
-Depois de criar o seu hub IoT, pode atualizar do escalão básico para o escalão standard sem interromper as operações existentes. Para obter mais informações, consulte [como atualizar o seu hub IoT](iot-hub-upgrade.md). O limite máximo de partição para o IoT Hub de escalão básico é 8 e para o escalão standard é 32. A maioria dos hubs de IoT precisam apenas de 4 partições. O limite de partição é escolhido ao IoT Hub é criado e se relaciona com as mensagens do dispositivo para a cloud para o número de leitores simultâneos dessas mensagens. Este valor permanece inalterado durante a migração de escalão básico para o escalão standard. Tenha também em atenção que apenas um tipo de [edition](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de uma camada pode ser selecionado por IoT Hub. Por exemplo, pode criar um IoT Hub com múltiplas unidades de S1, mas não com uma mistura de unidades de edições diferentes, por exemplo, S1 e B3, ou S1 e S2.
+Apenas um tipo de [edition](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de uma camada pode ser selecionado por IoT Hub. Por exemplo, pode criar um IoT Hub com múltiplas unidades de S1, mas não com uma mistura de unidades de edições diferentes, por exemplo, S1 e B3, ou S1 e S2.
 
 | Capacidade | Escalão Basic | Escalão Standard |
 | ---------- | ---------- | ------------- |
@@ -47,7 +47,22 @@ Depois de criar o seu hub IoT, pode atualizar do escalão básico para o escalã
 
 IoT Hub também oferece um escalão gratuito, que serve para teste e avaliação. Ele tem todas as funcionalidades do escalão standard, mas limitados concessões de mensagens. Não é possível atualizar do escalão gratuito para básico ou padrão. 
 
-### <a name="iot-hub-rest-apis"></a>APIs REST do Hub IoT
+
+## <a name="partitions"></a>Partições
+
+Os Hubs IoT do Azure contêm muitos componentes principais do [os Hubs de eventos do Azure](../event-hubs/event-hubs-features.md), incluindo [partições](../event-hubs/event-hubs-features.md#partitions). Fluxos de eventos para IoT Hubs geralmente são preenchidos com dados telemétricos recebidos comunicado por vários dispositivos de IoT. A criação de partições do fluxo de eventos é utilizada para reduzir contenções que ocorrem quando em simultâneo de leitura e escrita em fluxos de eventos. 
+
+O limite de partição é escolhido ao IoT Hub é criado e não pode ser alterado. O limite de máxima de partições para os Hubs IoT do escalão básico é 8 e para o escalão standard, o máximo são 32. A maioria dos hubs de IoT precisam apenas de 4 partições. Para obter mais informações sobre como determinar as partições, consulte as FAQ dos Hubs de eventos [quantas partições é necessário?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+
+
+## <a name="tier-upgrade"></a>Atualização do escalão
+
+Depois de criar o seu hub IoT, pode atualizar do escalão básico para o escalão standard sem interromper as operações existentes. Para obter mais informações, consulte [como atualizar o seu hub IoT](iot-hub-upgrade.md).
+
+A configuração de partição permanece inalterada durante a migração de escalão básico para o escalão standard.
+
+
+## <a name="iot-hub-rest-apis"></a>APIs REST do Hub IoT
 
 A diferença em capacidades suportadas entre os escalões básicos e standard do IoT Hub significa que algumas chamadas de API não funcionam com os hubs de escalão básico. A tabela seguinte mostra as APIs estão disponíveis: 
 

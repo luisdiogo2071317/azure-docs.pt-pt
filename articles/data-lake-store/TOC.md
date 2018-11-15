@@ -95,12 +95,11 @@
 ## [CLI do Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Recursos
-## [Mapa do Azure](https://azure.microsoft.com/roadmap/)
+## [Mapa do Azure](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Blogue do Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Enviar comentários sobre o UserVoice](https://feedback.azure.com/forums/327234-data-lake)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Preços](https://azure.microsoft.com/pricing/details/data-lake-store/)
 ## [Calculadora de preços](https://azure.microsoft.com/pricing/calculator/)
-## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=data-lake-store)
 ## [Fórum do Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=data-lake-store)

@@ -1,6 +1,6 @@
 ---
-title: O que é o HDInsight e a pilha tecnológica do Hadoop e do Spark? - Azure
-description: Introdução ao HDInsight e à pilha tecnológica e aos componentes do Hadoop e do Spark, incluindo Kafka, Hive, Storm e HBase para análise de macrodados.
+title: O que é a pilha de tecnologia de HDInsight e o Apache Hadoop e Apache Spark? - Azure
+description: Uma introdução ao HDInsight e à pilha de tecnologia do Apache Hadoop e Apache Spark e componentes, incluindo Kafka, Hive, Storm e HBase para análise de macrodados.
 keywords: hadoop azure, azure hadoop, introdução ao hadoop, intro ao hadoop, pilha de tecnologia do hadoop, intro do hadoop, introdução do hadoop, o que é um cluster do hadoop, o que é o cluster do hadoop, para que é utilizado o hadoop
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 0c617f09c846811f876206e6045b640e63ad90b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007057"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634520"
 ---
-# <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>O que é o Azure HDInsight e a pilha de tecnologia do Hadoop?
+# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>O que é o Azure HDInsight e a pilha de tecnologia do Apache Hadoop
 
 Este artigo disponibiliza uma introdução ao Apache Hadoop no Azure HDInsight. O Azure HDInsight é um serviço de análise completamente gerido, de espectro completo e open-source para empresas. Pode utilizar as estruturas de open source, como o Hadoop, o Spark, o Hive, o LLAP, o Kafka, o Storm, o R e muitos mais. 
 
@@ -143,7 +143,7 @@ As ferramentas de business intelligence (BI) familiares obtêm, analisam e repor
 * [Utilizar o SQL Server Reporting Services com o HDInsight](https://msdn.microsoft.com/library/dn749856.aspx)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu o que é o Azure HDInsight e como fornece o Hadoop e outros tipos de cluster no Azure. Avance para o artigo seguinte para saber como criar um cluster do Apache Hadoop no HDInsight.
 

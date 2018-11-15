@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00fde1145b038f3bf82e3dbc5e1dc967e1865ad6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234930"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51635562"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Conjunto redirecionar URLs b2clogin.com para o Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Quando configurar um fornecedor de identidade para inscrição e início de sess
 Utilizar b2clogin.com dá-lhe benefícios adicionais, tais como:
 
 - Cookies já não são partilhados com outros serviços Microsoft.
-- Suas URLs deixarão de incluir uma referência à Microsoft. Por exemplo, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
+- Suas URLs deixarão de incluir uma referência à Microsoft. Por exemplo, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
 
 Considere estas definições que poderão ter de alterar quando utilizar b2clogin.com:
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 717ce40caccd1114f8bae762fe38ce986421a4c9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 120fe358e5c8afe63e98038ad353d5ebc45a1937
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306698"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636474"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar uma Aplicação API como uma API
 
@@ -34,7 +34,7 @@ Neste artigo, vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Concluir o início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md)
-+ Certifique-se de que existe uma Aplicação API na sua subscrição. Para obter mais informações, veja [Documentação sobre o Serviço de Aplicações][https://docs.microsoft.com/azure/app-service/]
++ Certifique-se de que existe uma Aplicação API na sua subscrição. Para obter mais informações, consulte [documentação do serviço de aplicações](https://docs.microsoft.com/azure/app-service/)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -43,7 +43,7 @@ Neste artigo, vai aprender a:
 1. Selecione **APIs** em **GESTÃO DE API**.
 2. Selecione **Aplicação API** na lista **Adicionar uma nova API**.
 
-    !(API app)[./media/import-api-app-as-api/api-app.png]
+    ![Aplicação de API](./media/import-api-app-as-api/api-app.png)
 3. Prima **Procurar** para ver a lista de Aplicações API na sua subscrição.
 4. Selecione a aplicação. O APIM localiza o swagger associado à aplicação selecionada, obtém-no e importa-o. 
 

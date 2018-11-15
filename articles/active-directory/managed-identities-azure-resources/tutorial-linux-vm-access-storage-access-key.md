@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: bf194e9627f5ad683c854f1c0d9891ba9315e119
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: e0261f96b1b097cba753ec905bc590a35e9a2c24
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223042"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623609"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure
 
@@ -33,15 +33,7 @@ Este tutorial mostra-lhe como utilizar uma identidade atribuída pelo sistema de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Iniciar sessão no portal do Azure](https://portal.azure.com)
-
-- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Ativar a identidade gerida atribuída pelo sistema na sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -201,7 +193,7 @@ Resposta:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial aprendeu a utilizar uma identidade gerida atribuída pelo sistema da VM do Linux para aceder ao Armazenamento do Azure através de uma chave de acesso.  Para saber mais sobre as chaves de acesso ao Armazenamento do Azure, veja:
 

@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 0ad39048a6b175a30ac7c5cdc346d0858c3719ef
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621875"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685179"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
 Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço web com C#, Go, Java e Python.
 
-Um serviço web é criado quando implementa uma imagem para uma instância de contentor do Azure, o serviço Kubernetes do Azure ou o Project Brainwave (matrizes de porta programável por campo). Imagens são criadas a partir de modelos de registado e classificação de ficheiros. O URI utilizado para aceder a um serviço web pode ser obtido com o [SDK do Azure Machine Learning](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
+Um serviço web é criado quando implementa uma imagem para uma instância de contentor do Azure, o serviço Kubernetes do Azure ou o Project Brainwave (matrizes de porta programável por campo). Imagens são criadas a partir de modelos de registado e classificação de ficheiros. O URI utilizado para aceder a um serviço web pode ser obtido com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
 
 O fluxo de trabalho geral, quando criar um cliente que utiliza um serviço da web de ML é:
 
@@ -33,7 +33,7 @@ O fluxo de trabalho geral, quando criar um cliente que utiliza um serviço da we
 > [!NOTE]
 > O SDK do Azure Machine Learning é utilizado para obter as informações de serviço da web. Trata-se de um SDK de Python. Enquanto ele é usado para obter informações sobre os serviços web, pode usar qualquer linguagem para criar um cliente para o serviço.
 
-As informações de ligação de serviço web podem ser obtidas com o SDK do Azure Machine Learning. O [azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) classe fornece as informações necessárias para criar um cliente. O seguinte `Webservice` propriedades que são úteis ao criar um aplicativo de cliente:
+As informações de ligação de serviço web podem ser obtidas com o SDK do Azure Machine Learning. O [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) classe fornece as informações necessárias para criar um cliente. O seguinte `Webservice` propriedades que são úteis ao criar um aplicativo de cliente:
 
 * `auth_enabled` -Se a autenticação estiver ativada, `True`; caso contrário, `False`.
 * `scoring_uri` -O endereço da REST API.
@@ -51,7 +51,7 @@ Para obter estas informações para os serviços web implementados, há um três
     print(service.scoring_uri)
     ```
 
-* Pode usar `Webservice.list` obter uma lista de implantados serviços da web para modelos em sua área de trabalho. Pode adicionar filtros para refinar a lista de informações devolvidas. Para obter mais informações sobre o que podem ser filtradas no, consulte a [Webservice.list](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) documentação de referência.
+* Pode usar `Webservice.list` obter uma lista de implantados serviços da web para modelos em sua área de trabalho. Pode adicionar filtros para refinar a lista de informações devolvidas. Para obter mais informações sobre o que podem ser filtradas no, consulte a [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) documentação de referência.
 
     ```python
     services = Webservice.list(ws)
@@ -82,7 +82,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se precisar de voltar a gerar uma chave, utilize [ `service.regen_key` ](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
+> Se precisar de voltar a gerar uma chave, utilize [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#regen-key).
 
 ## <a name="request-data"></a>Dados de pedidos
 

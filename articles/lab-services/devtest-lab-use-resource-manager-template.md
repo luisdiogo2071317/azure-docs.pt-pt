@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99d835d1d0e18bf62d6e64b7e5af45b6c53d809e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239513"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686386"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais com um modelo Azure Resource Manager 
 
@@ -42,7 +42,7 @@ Existem duas formas de criar VMs nos laboratórios DevTest através de um modelo
 
    As VMs no mesmo ambiente podem ser geridas em conjunto e partilham o mesmo ciclo de vida. Os utilizadores que tiver sido atribuídos uma função de utilizador de DevTest Labs, podem criar ambientes usando esses modelos, desde que o administrador tenha configurado o laboratório, dessa forma.
 
-O restante deste artigo aborda os modelos do Resource Manager que utilizam Mirosoft.DevTestLab/labs/virtualmachines. Estes são utilizados por administradores de laboratório para automatizar a criação de VM de laboratório (por exemplo, VMs reclamáveis) ou de geração de imagem dourada (por exemplo, a fábrica de imagem).
+O restante deste artigo aborda os modelos do Resource Manager que utilizam Microsoft.DevTestLab/labs/virtualmachines. Estes são utilizados por administradores de laboratório para automatizar a criação de VM de laboratório (por exemplo, VMs reclamáveis) ou de geração de imagem dourada (por exemplo, a fábrica de imagem).
 
 [Melhores práticas para a criação de modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) oferece muitas orientações e sugestões para ajudar a criar modelos Azure Resource Manager que são confiáveis e fáceis de usar.
 

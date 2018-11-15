@@ -1,5 +1,5 @@
 ---
-title: Configurar as políticas de Kafka no HDInsight com o Pacote de Segurança Enterprise - Azure
+title: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package - Azure
 description: Saiba como configurar as políticas do Apache Ranger para Kafka no Azure HDInsight com o Pacote de Segurança Enterprise.
 services: hdinsight
 ms.service: hdinsight
@@ -8,16 +8,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037146"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633053"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: configurar as políticas de Kafka no HDInsight com o Pacote de Segurança Enterprise (Pré-visualização)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas do Apache Kafka no HDInsight com o Enterprise Security Package (pré-visualização)
 
-Saiba como configurar as políticas do Apache Ranger para clusters do Kafka do Pacote de Segurança Enterprise (ESP). Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso aos tópicos `sales*` e `marketingspend`.
+Saiba como configurar políticas do Apache Ranger para clusters do Apache Kafka do pacote de segurança da empresa (ESP). Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso aos tópicos `sales*` e `marketingspend`.
 
 Neste tutorial, ficará a saber como:
 
@@ -208,7 +208,7 @@ Com base nas políticas do Ranger configuradas, o **sales_user** pode produzir/c
 
    ![Auditoria à Política da IU do Ranger](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Traga a sua própria chave para o Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
 * [Uma introdução à segurança do Hadoop com o Pacote de Segurança Enterprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

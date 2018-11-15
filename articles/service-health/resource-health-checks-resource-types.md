@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 633501b03a362fbd07e14e308e18488f03af5af5
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6f02e20efbcb34d1f70f9f10acbe5bb3800cb4d2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069215"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683956"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas por meio do Estado de funcionamento do recurso por tipos de recursos.
@@ -100,6 +100,11 @@ Segue-se uma lista completa de todas as verificações executadas por meio do Es
 |Verificações executadas|
 |---|
 |<ul><li> Podem ser executadas operações de tempo de execução, como o registo, a instalação ou a enviar no espaço de nomes?</li></ul>|
+
+## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
+|Verificações executadas|
+|---|
+|<ul><li>É o recurso de capacidade em execução?</li><li>Estão todas as cargas de trabalho em execução?</li></ul>|
 
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |Verificações executadas|

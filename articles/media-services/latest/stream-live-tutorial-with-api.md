@@ -1,5 +1,5 @@
 ---
-title: Transmissão em fluxo em direto com Serviços de Multimédia do Azure v3 com .NET Core | Microsoft Docs
+title: Stream em direto com Media Services do Azure v3 | Documentos da Microsoft
 description: Este tutorial explica os passos da transmissão em fluxo em direto com os Serviços de Multimédia v3 com .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392340"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613397"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>Transmissão em fluxo em direto com os Serviços de Multimédia v3 com .NET Core
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutorial: Stream conviver com serviços de multimédia v3 com APIs
 
-Nos Serviços de Multimédia, os [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo da transmissão em fluxo em direto. Um LiveEvent fornece um ponto final de entrada (URL de ingestão) que, em seguida, o utilizador indica a um codificador em direto. O LiveEvent recebe fluxos de entrada em direto do codificador em direto e disponibiliza o mesmo para transmissão em fluxo através de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). O LiveEvents também fornece um ponto final de pré-visualização (URL de pré-visualização) que pode utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
+Nos serviços de multimédia do Azure, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis por processar o conteúdo de transmissão em fluxo em direto. Um LiveEvent fornece um ponto final de entrada (URL de ingestão) que, em seguida, o utilizador indica a um codificador em direto. O LiveEvent recebe fluxos de entrada em direto do codificador em direto e disponibiliza o mesmo para transmissão em fluxo através de um ou mais [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). O LiveEvents também fornece um ponto final de pré-visualização (URL de pré-visualização) que pode utilizar para pré-visualizar e validar a sua transmissão antes de mais processamentos e entregas. Este tutorial mostra como utilizar um canal .NET Core para criar um evento em direto do tipo **pass-through**. 
 
 > [!NOTE]
 > Certifique-se de que revê [Transmissão em fluxo em direto com os Serviços de Multimédia v3](live-streaming-overview.md) antes de continuar. 
@@ -31,7 +31,6 @@ Nos Serviços de Multimédia, os [LiveEvents](https://docs.microsoft.com/rest/ap
 Este tutorial mostra-lhe como:    
 
 > [!div class="checklist"]
-> * Criar uma conta dos Media Services
 > * Aceder à API dos Serviços de Multimédia
 > * Configurar a aplicação de exemplo
 > * Examinar o código que efetua a transmissão em fluxo em direto
@@ -44,9 +43,17 @@ Este tutorial mostra-lhe como:
 
 O seguinte é necessário para concluir o tutorial.
 
-* Instalar o Visual Studio Code ou o Visual Studio
-* Uma câmara ou um dispositivo (como um computador portátil) que é utilizado para transmitir um evento.
-* Um codificador em direto no local que converte sinais da câmara para transmissões em fluxos que são enviadas para o serviço de transmissão em fluxo em direto dos Serviços de Multimédia. O fluxo tem de ser em formato **RTMP** ou de **transmissão em fluxo uniforme**.
+- Instale o Visual Studio Code ou o Visual Studio.
+- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
+
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).
+
+    Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia
+
+- Uma câmara ou um dispositivo (como um computador portátil) que é utilizado para transmitir um evento.
+- Um codificador em direto no local que converte sinais da câmara para transmissões em fluxos que são enviadas para o serviço de transmissão em fluxo em direto dos Serviços de Multimédia. O fluxo tem de ser em formato **RTMP** ou de **transmissão em fluxo uniforme**.
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -61,10 +68,6 @@ O exemplo de transmissão em fluxo em direto está localizado na pasta [Dinâmic
 > [!IMPORTANT]
 > Este exemplo utiliza o sufixo exclusivo para cada recurso. Se cancelar a depuração ou se terminar a aplicação sem a executar, irá ficar com vários LiveEvents na sua conta. <br/>
 > Certifique-se de que interrompe a execução de LiveEvents. Se não o fizer, estes ser-lhe-ão **faturados**!
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ O evento em direto converte automaticamente os eventos para conteúdo a pedido q
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado. Pode utilizar a ferramenta **CloudShell**.
+Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.
 
-No **CloudShell**, execute o seguinte comando:
+Execute o seguinte comando da CLI:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup
@@ -187,7 +190,7 @@ az group delete --name amsResourceGroup
 > [!IMPORTANT]
 > Deixar o LiveEvent em execução implica custos de faturação. Tenha em atenção que se o programa/projeto falhar ou se for fechado por qualquer motivo, pode deixar o LiveEvent em execução num estado de faturação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Transmitir ficheiros em fluxo](stream-files-tutorial-with-api.md)
 

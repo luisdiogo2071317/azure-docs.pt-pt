@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729997"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288038"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início Rápido: criar um pipeline de pesquisa cognitiva com competências e dados de exemplo
 
@@ -26,10 +26,16 @@ Neste início rápido, experimente o pipeline de melhoramento no [portal do Azur
 * Execute o assistente (uma capacidade de entidades deteta as pessoas, a localização e as organizações)
 * Utilize o [Explorador de procura](search-explorer.md) para consultar os dados melhorados.
 
+## <a name="supported-regions"></a> Regiões suportadas
+
 Pode experimentar a pesquisa cognitiva num serviço do Azure Search criado nas seguintes regiões:
 
+* EUA Centro-Oeste
 * EUA Centro-Sul
+* EUA Leste
 * Europa Ocidental
+* Europa do Norte
+* Sudeste Asiático
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -57,7 +63,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
 
 1. Para Grupo de recursos, crie um grupo de recursos para conter todos os recursos que criar neste início rápido. Tal torna mais fácil limpar os recursos depois de concluir o início rápido.
 
-1. Para Localização, escolha **EUA Centro-Sul** ou **Europa Ocidental**. Atualmente, a pré-visualização está disponível apenas nestas regiões.
+1. Para a localização, escolha uma da [regiões suportadas](#supported-regions) para pesquisa cognitiva.
 
 1. Para Escalão de preço, pode criar um serviço **Gratuito** para concluir os tutoriais e os inícios rápidos. Para uma investigação mais aprofundada através dos seus próprios dados, crie um [serviço pago](https://azure.microsoft.com/pricing/details/search/), como **Básico** ou **Standard**. 
 
@@ -186,7 +192,7 @@ Se tiver terminado a exploração, a forma mais rápida de a limpar passará por
 
 Assumindo que coloca ambos os serviços no mesmo grupo, elimine o grupo de recursos agora para eliminar definitivamente todo o seu conteúdo, incluindo os serviços e quaisquer conteúdos armazenados criados para este exercício. No portal, o nome do grupo de recursos está na página Descrição geral de cada serviço.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode experimentar a indexação e o melhoramento ao executar novamente o assistente com competências e campos de dados de origem diferentes. Para repetir os passos, elimine o índice e o indexador e, em seguida, recrie o indexador com uma nova combinação de seleções.
 

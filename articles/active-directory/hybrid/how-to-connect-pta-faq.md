@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637870"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685655"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>O Azure Active Directory autenticação pass-through: Perguntas mais frequentes
 
@@ -79,6 +79,23 @@ Se não tiver configurado a repetição de escrita de palavra-passe para um util
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Os agentes de autenticação pass-through possam comunicar através de um servidor de proxy da web de saída?
 
 Sim. Se a deteção automática de Proxy da Web (WPAD) estiver ativada no seu ambiente no local, os agentes de autenticação automaticamente tente localizar e utilizar um servidor web proxy na rede.
+
+Se não tiver o WPAD no seu ambiente, pode adicionar informações de proxy (como mostrado abaixo) para permitir que um agente de autenticação pass-through comunicar com o Azure AD:
+- Configure as informações de proxy no Internet Explorer antes de instalar o agente de autenticação pass-through no servidor. Isso permitirá que concluir a instalação do agente de autenticação, mas ainda será mostrado como **Inactive** no portal de administração.
+- No servidor, navegue para "C:\Program Files\Microsoft Azure AD Connect o agente de autenticação".
+- Edite o ficheiro de configuração de "AzureADConnectAuthenticationAgentService" e adicione as seguintes linhas (substitua "http://contosoproxy.com:8080" com o seu endereço de proxy real):
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Pode instalar dois ou mais agentes de autenticação pass-through no mesmo servidor?
 

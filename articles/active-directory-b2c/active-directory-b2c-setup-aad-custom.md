@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 820fd904ac4ab983f4bd9858f3cf1ecff147876e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a4519484c3319ca73bef2862db4d279ba117c4f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386625"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636735"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do Azure Active Directory com as políticas personalizadas no Azure Active Directory B2C 
 
@@ -31,20 +31,19 @@ Conclua os passos na [introdução às políticas personalizadas no Azure Active
 
 Para ativar o início de sessão para que os utilizadores específicos de um organização do Azure AD, terá de registar uma aplicação organizacionais no inquilino do Azure AD.
 
->[!NOTE]
->`Contoso.com` é utilizado o organizacional para inquilino do Azure AD e `fabrikamb2c.onmicrosoft.com` é utilizado como o inquilino do Azure AD B2C nas instruções seguintes.
-
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o Azure organizacional inquilino do AD (contoso.com) ao clicar o **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações**.
 4. Selecione **Novo registo de aplicação**.
 5. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
 6. Para o **tipo de aplicação**, selecione `Web app / API`.
-7. Para o **URL de início de sessão**, introduza o seguinte URL em todas as letras minúsculas, onde `your-tenant` é substituído pelo nome do inquilino do Azure AD B2C (fabrikamb2c.onmicrosoft.com):
+7. Para o **URL de início de sessão**, introduza o seguinte URL em todas as letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do inquilino do Azure AD B2C:
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 8. Clique em **Criar**. Copiar o **ID da aplicação** a ser utilizado mais tarde.
 9. Selecione a aplicação e, em seguida, selecione **definições**.
@@ -85,7 +84,7 @@ Pode definir do Azure AD como um fornecedor de afirmações ao adicionar o Azure
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -119,7 +118,7 @@ Pode definir do Azure AD como um fornecedor de afirmações ao adicionar o Azure
     </ClaimsProvider>
     ```
 
-4. Sob o **ClaimsProvider** elemento, atualize o valor para **domínio** para um valor exclusivo que pode ser utilizado para distinguir de outros fornecedores de identidade.
+4. Sob o **ClaimsProvider** elemento, atualize o valor para **domínio** para um valor exclusivo que pode ser utilizado para distinguir de outros fornecedores de identidade. Por exemplo, `Contoso`. Não posiciona um `.com` no final desta definição de domínio.
 5. Sob o **ClaimsProvider** elemento, atualize o valor para **DisplayName** para um nome amigável para o fornecedor de afirmações. Este valor não é atualmente utilizado.
 
 ### <a name="update-the-technical-profile"></a>Atualizar o perfil técnico
@@ -130,7 +129,7 @@ Para obter um token a partir do ponto final do Azure AD, terá de definir protoc
 2. Atualize o valor para **DisplayName**. Este valor será apresentado no botão de início de sessão no seu ecrã de início de sessão.
 3. Atualize o valor para **Descrição**.
 4. Azure AD utiliza o protocolo OpenID Connect, por isso, certifique-se de que o valor para **protocolo** é `OpenIdConnect`.
-5. Defina o valor do **METADADOS** ao `https://login.windows.net/your-tenant/.well-known/openid-configuration`, onde `your-tenant` é o nome do seu inquilino do Azure AD (contoso.com).
+5. Defina o valor do **METADADOS** ao `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, onde `your-AD-tenant-name` é o nome do seu inquilino do Azure AD. Por exemplo, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Abra o browser e vá para o **METADADOS** URL que acabou de atualizar, veja para o **emissor** de objeto, copie e cole o valor para o valor de **ProviderName** no arquivo XML.
 8. Definir **client_id** e **IdTokenAudience** para o ID de aplicação do registo de aplicação.
 9. Sob **CryptograhicKeys**, atualize o valor para **StorageReferenceId** para a chave de política que definiu. Por exemplo, `ContosoAppSecret`.
@@ -158,7 +157,7 @@ Neste momento, o fornecedor de identidade tiver sido configurado, mas não está
 O **ClaimsProviderSelection** elemento é semelhante a um botão do fornecedor de identidade numa tela de início de sessão-inscrição/início de sessão. Se adicionar um **ClaimsProviderSelection** elemento para o Azure AD, um novo botão exibido quando um utilizador que chegam na página.
 
 1. Encontrar o **OrchestrationStep** elemento que inclui `Order="1"` no percurso do utilizador que criou.
-2. Sob **ClaimsProviderSelects**, adicione o seguinte elemento. Defina o valor da **TargetClaimsExchangeId** para um valor adequado, por exemplo `ContosoExchange`:
+2. Sob **ClaimsProviderSelections**, adicione o seguinte elemento. Defina o valor da **TargetClaimsExchangeId** para um valor adequado, por exemplo `ContosoExchange`:
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />

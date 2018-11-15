@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8226ff956db1b21c308d184e8d5876a59d1b646d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391783"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686999"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>ID de parceiro de ligação para suas contas do Azure
 
@@ -136,4 +136,4 @@ A ligação entre o ID de parceiro e a conta é feita para cada inquilino do cli
 
 **Podem outros parceiros ou clientes, editar ou remover a ligação para o ID de parceiro?**
 
-A ligação está associada ao nível da conta. Apenas pode editar ou remover a ligação para o ID de parceiro. O cliente e outro parceiro não é possível alterar a ligação para o ID de parceiro. 
+A ligação está associada ao nível da conta de utilizador. Apenas pode editar ou remover a ligação para o ID de parceiro. O cliente e outro parceiro não é possível alterar a ligação para o ID de parceiro. 

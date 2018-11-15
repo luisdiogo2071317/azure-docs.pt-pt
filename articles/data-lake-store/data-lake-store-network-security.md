@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218972"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288004"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integração da rede virtual para o Azure Data Lake Storage Gen1 - Pré-visualização
 
@@ -29,8 +29,6 @@ Esta funcionalidade ajuda a proteger a sua conta do Data Lake Storage de ameaça
 A integração da rede virtual para o Data Lake Storage Gen1 utiliza a segurança do ponto final de serviço da rede virtual entre a sua rede virtual e o Azure Active Directory (Azure AD) para gerar afirmações de segurança adicionais no token de acesso. Essas afirmações são, posteriormente, utilizadas para autenticar a rede virtual na conta do Data Lake Storage Gen1 e permitir o acesso.
 
 > [!NOTE]
-> Esta tecnologia está em pré-visualização. Não recomendamos utilizá-la em ambientes de produção.
->
 > A utilização destas capacidades não tem custos adicionais. A sua conta é faturada à taxa padrão do Data Lake Storage Gen1. Para obter mais informações, veja os [preços](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). Relativamente a todos os outros serviços do Azure que utiliza, veja os [preços](https://azure.microsoft.com/pricing/#product-picker).
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Cenários para a integração da rede virtual para o Data Lake Storage Gen1
@@ -101,7 +99,7 @@ Algumas opções disponíveis são:
 
      ![Selecionar o ponto final de serviço Microsoft.AzureActiveDirectory](media/data-lake-store-network-security/config-vnet-2.png)
 
-6.  Selecione as sub-redes nas quais pretende permitir a conectividade. Selecione **Add** (Adicionar).
+6.  Selecione as sub-redes nas quais pretende permitir a conectividade. Selecione **Adicionar**.
 
     ![Selecionar a sub-rede](media/data-lake-store-network-security/config-vnet-3.png)
 
@@ -126,11 +124,11 @@ Algumas opções disponíveis são:
 
     ![Adicionar rede virtual existente](media/data-lake-store-network-security/config-adls-2.png)
 
-5.  Selecione as redes virtuais e as sub-redes que vão ter permissão de conectividade. Selecione **Add** (Adicionar).
+5.  Selecione as redes virtuais e as sub-redes que vão ter permissão de conectividade. Selecione **Adicionar**.
 
     ![Escolher a rede virtual e as sub-redes](media/data-lake-store-network-security/config-adls-3.png)
 
-6.  Confirme que as redes virtuais e as sub-redes aparecem corretamente na lista. Selecione **Save** (Guardar).
+6.  Confirme que as redes virtuais e as sub-redes aparecem corretamente na lista. Selecione **Guardar**.
 
     ![Guardar a regra nova](media/data-lake-store-network-security/config-adls-4.png)
 

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: e140ca46a18fcab2194adb213d723ab67d40b0a8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615165"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636310"
 ---
 # <a name="egress-and-endpoints"></a>Saída e os pontos finais
 
@@ -76,13 +76,13 @@ Os formatos de evento para cada um dos tipos de eventos são descritos nas seç�
   "eventTime": "2018-04-17T17:41:54.9400177Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Nome do atributo personalizado | Substituir |
+| Valor | Substituir |
 | --- | --- |
-| yourTopicName | O nome do seu tópico personalizado |
+| YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
 ### <a name="udfcustom"></a>UdfCustom
 
@@ -107,13 +107,13 @@ Os formatos de evento para cada um dos tipos de eventos são descritos nas seç�
   "eventTime": "2018-10-02T06:50:15.198Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Nome do atributo personalizado | Substituir |
+| Valor | Substituir |
 | --- | --- |
-| yourTopicName | O nome do seu tópico personalizado |
+| YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
 ### <a name="sensorchange"></a>SensorChange
 
@@ -142,13 +142,13 @@ Os formatos de evento para cada um dos tipos de eventos são descritos nas seç�
   "eventTime": "2018-04-17T17:46:18.5452993Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Nome do atributo personalizado | Substituir |
+| Valor | Substituir |
 | --- | --- |
-| yourTopicName | O nome do seu tópico personalizado |
+| YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
 ### <a name="spacechange"></a>SpaceChange
 
@@ -177,13 +177,13 @@ Os formatos de evento para cada um dos tipos de eventos são descritos nas seç�
   "eventTime": "2018-10-02T06:50:20.128Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Nome do atributo personalizado | Substituir |
+| Valor | Substituir |
 | --- | --- |
-| yourTopicName | O nome do seu tópico personalizado |
+| YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
 ### <a name="devicemessage"></a>DeviceMessage
 
@@ -211,18 +211,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourTopicName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME"
   }
   ```
 
-    | Nome do atributo personalizado | Substituir |
+    | Valor | Substituir |
     | --- | --- |
-    | yourNamespace | O espaço de nomes do seu ponto final |
-    | yourPrimaryKey | A cadeia de ligação primária utilizada para autenticar |
-    | yourSecondaryKey | A cadeia de ligação secundária utilizada para autenticar |
-    | yourTopicName | O nome do seu tópico personalizado |
+    | YOUR_NAMESPACE | O espaço de nomes do seu ponto final |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar |
+    | YOUR_SECONDARY_KEY | A cadeia de ligação secundária utilizada para autenticar |
+    | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
 - Rota para tipos de eventos do Event Grid **SensorChange**, **SpaceChange**, e **TopologyOperation**:
 
@@ -234,17 +234,17 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "yourPrimaryKey",
-    "secondaryConnectionString": "yourSecondaryKey",
-    "path": "yourTopicName.westus-1.eventgrid.azure.net"
+    "connectionString": "YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME.westus-1.eventgrid.azure.net"
   }
   ```
 
-    | Nome do atributo personalizado | Substituir |
+    | Valor | Substituir |
     | --- | --- |
-    | yourPrimaryKey | A cadeia de ligação primária utilizada para autenticar|
-    | yourSecondaryKey | A cadeia de ligação secundária utilizada para autenticar |
-    | yourTopicName | O nome do seu tópico personalizado |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar|
+    | YOUR_SECONDARY_KEY | A cadeia de ligação secundária utilizada para autenticar |
+    | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
 - Rota para tipos de eventos de Hubs de eventos **SensorChange**, **SpaceChange**, e **TopologyOperation**:
 
@@ -256,18 +256,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Nome do atributo personalizado | Substituir |
+    | Valor | Substituir |
     | --- | --- |
-    | yourNamespace | O espaço de nomes do seu ponto final |
-    | yourPrimaryKey | A cadeia de ligação primária utilizada para autenticar |
-    | yourSecondaryKey | A cadeia de ligação secundária utilizada para autenticar |
-    | yourEventHubName | O nome do seu hub de eventos |
+    | YOUR_NAMESPACE | O espaço de nomes do seu ponto final |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar |
+    | YOUR_SECONDARY_KEY | A cadeia de ligação secundária utilizada para autenticar |
+    | YOUR_EVENT_HUB_NAME | O nome do seu hub de eventos |
 
 - Rota para o tipo de evento de Hubs de eventos **DeviceMessage**. A inclusão de `EntityPath` no **connectionString** é obrigatório:
 
@@ -277,18 +277,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     "eventTypes": [
       "DeviceMessage"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey;EntityPath=yourEventHubName",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey;EntityPath=yourEventHubName",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Nome do atributo personalizado | Substituir |
+    | Valor | Substituir |
     | --- | --- |
-    | yourNamespace | O espaço de nomes do seu ponto final |
-    | yourPrimaryKey | A cadeia de ligação primária utilizada para autenticar |
-    | yourSecondaryKey | A cadeia de ligação secundária utilizada para autenticar |
-    | yourEventHubName | O nome do seu hub de eventos |
+    | YOUR_NAMESPACE | O espaço de nomes do seu ponto final |
+    | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar |
+    | YOUR_SECONDARY_KEY | A cadeia de ligação secundária utilizada para autenticar |
+    | YOUR_EVENT_HUB_NAME | O nome do seu hub de eventos |
 
 > [!NOTE]  
 > Após a criação de um novo ponto final, poderá demorar até 5 a 10 minutos para começar a receber eventos no ponto final.

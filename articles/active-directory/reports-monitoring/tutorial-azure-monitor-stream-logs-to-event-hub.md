@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c8157820f7137eb06a0fe10c42645ec91f33edbc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364079"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623784"
 ---
-# <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>Tutorial: Transmitir registos do Azure AD para um hub de eventos do Azure (pré-visualização)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Tutorial: Transmitir registos do Azure Active Directory num hub de eventos do Azure (pré-visualização)
 
-Neste tutorial, vai aprender a configurar as definições de diagnóstico do Azure Monitor para transmitir registos do Azure Active Directory (Azure AD) para um hub de eventos do Azure. Utilize este mecanismo para integrar os seus registos com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros, como Splunk e QRadar.
+Neste tutorial, saiba como configurar as definições de diagnóstico do Azure Monitor para transmitir os registos de Azure Active Directory (Azure AD) para um hub de eventos do Azure. Utilize este mecanismo para integrar os seus registos com ferramentas de Gestão de Informações e Eventos de Segurança (SIEM) de terceiros, como Splunk e QRadar.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -36,7 +36,7 @@ Para utilizar esta funcionalidade, precisa de:
 * Um utilizador que seja *administrador global* ou *administrador de segurança* do inquilino do Azure AD.
 * Um espaço de nomes dos Hubs de Eventos e um hub de eventos na sua subscrição do Azure. Saiba como [criar um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
-## <a name="archive-logs-to-an-event-hub"></a>Arquivar registos num hub de eventos
+## <a name="stream-logs-to-an-event-hub"></a>Registos do Stream para um hub de eventos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
@@ -84,7 +84,7 @@ Quando os dados forem apresentados no hub de eventos, pode aceder e lê-los de d
 * **Configurar ferramentas personalizadas**. Se a sua SIEM atual ainda não for suportada nos diagnóstico do Azure Monitor, pode configurar as ferramentas personalizadas com a API dos Hubs de Eventos. Para saber mais, veja [Começar a receber mensagens a partir de um hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md) (Utilizar o Azure Monitor para integrar registos do Azure AD no Splunk)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md) (Utilizar o Azure Monitor para integrar registos do Azure AD no SumoLogic)

@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 11cd052ca07e074ce8303891f7a372890fdf7291
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580604"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566913"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicação com o redirecionamento com base no caminho do URL com o Azure PowerShell
 
@@ -32,6 +32,8 @@ Neste tutorial, ficará a saber como:
 O exemplo seguinte mostra o tráfego do site proveniente das portas 8080 e 8081 e que está a ser direcionado para os mesmos conjuntos de back-end:
 
 ![Exemplo de encaminhamento de URL](./media/tutorial-url-redirect-powershell/scenario.png)
+
+Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-url-redirect-cli.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -515,15 +517,7 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
-## <a name="next-steps"></a>Passos seguintes
-
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Adicionar serviços de escuta e regras de encaminhamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais para conjuntos de back-end
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o que pode fazer com o gateway de aplicação](application-gateway-introduction.md)

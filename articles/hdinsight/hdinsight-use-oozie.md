@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5611830d4d9950a7781062997b13555d95d8e703
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625968"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684227"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Utilizar o Oozie com o Hadoop para definir e executar um fluxo de trabalho no HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -63,7 +63,7 @@ Antes de começar este tutorial, tem de ter o seguinte item:
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Definir fluxo de trabalho Oozie e o script de HiveQL relacionado
 Definições de fluxos de trabalho de Oozie são escritas em hPDL (uma linguagem de definição XML do processo). O nome de ficheiro de fluxo de trabalho predefinido é *workflow.xml*. Segue-se o ficheiro de fluxo de trabalho utilizado neste tutorial.
-
+```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -118,7 +118,7 @@ Definições de fluxos de trabalho de Oozie são escritas em hPDL (uma linguagem
 
         <end name="end"/>
     </workflow-app>
-
+```
 Existem duas ações definidas no fluxo de trabalho. A ação de início é *RunHiveScript*. Se a ação é executada com êxito, a próxima ação é *RunSqoopExport*.
 
 O RunHiveScript tem várias variáveis. Transmitir os valores ao submeter a tarefa de Oozie da sua estação de trabalho com o Azure PowerShell.
@@ -191,7 +191,7 @@ O script do PowerShell nesta secção, executa os seguintes passos:
     Para examinar os resultados das tarefas OOzie, utilize o Visual Studio ou outras ferramentas para ligar à base de dados SQL do Azure.
 
 Aqui está o script.  Pode executar o script do Windows PowerShell ISE. Apenas terá de configurar as primeiros 7 variáveis.
-
+```powershell
     #region - provide the following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
@@ -200,7 +200,7 @@ Aqui está o script.  Pode executar o script do Windows PowerShell ISE. Apenas t
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
@@ -529,8 +529,8 @@ Aqui está o script.  Pode executar o script do Windows PowerShell ISE. Apenas t
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $httpCredential -OutVariable $OozieServerStatus
 
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-    $oozieServerSatus = $jsonResponse[0].("systemMode")
-    Write-Host "Oozie server status is $oozieServerSatus."
+    $oozieServerStatus = $jsonResponse[0].("systemMode")
+    Write-Host "Oozie server status is $oozieServerStatus."
 
     # create Oozie job
     Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -570,7 +570,7 @@ Aqui está o script.  Pode executar o script do Windows PowerShell ISE. Apenas t
     Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
     #endregion
-
+```
 
 **Voltar a executar o tutorial**
 
@@ -580,7 +580,7 @@ Voltar a executar o fluxo de trabalho, tem de eliminar os seguintes itens:
 * Os dados na tabela log4jLogsCount
 
 Eis um script do PowerShell de exemplo que pode utilizar:
-
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
 
     $defaultStorageAccountName = "<AzureStorageAccountName>"
@@ -610,6 +610,7 @@ Eis um script do PowerShell de exemplo que pode utilizar:
     $cmd.executenonquery()
 
     $conn.close()
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e como executar uma tarefa de Oozie com o PowerShell. Para obter mais informações, consulte os artigos seguintes:
@@ -647,7 +648,6 @@ Neste tutorial, ficou a saber como definir um fluxo de trabalho do Oozie e como 
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/

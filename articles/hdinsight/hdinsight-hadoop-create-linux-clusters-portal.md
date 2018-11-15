@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 42b0a2440fa459fa31a7d6e137d124883646c205
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278995"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686015"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight com o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -65,7 +65,7 @@ O portal do Azure expõe a maior parte das propriedades do cluster. Utilizar o m
 
     * Clique em **Seguinte**.
 
-4. Na **rede e de segurança**, ligue o seu cluster a uma rede virtual através da lista pendente fornecida. Selecione uma rede virtual do Azure e a sub-rede, se quiser colocar o cluster numa rede virtual. Para obter informações sobre como utilizar o HDInsight com uma rede Virtual, incluindo requisitos de configuração específicos para a rede Virtual, consulte [capacidades de estender o HDInsight, com uma rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md). Se pretender utilizar o **Enterprise Security Package**, também pode seguir as instruções aqui: [configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+4. Na **rede e de segurança**, ligue o seu cluster a uma rede virtual através da lista pendente fornecida. Selecione uma rede virtual do Azure e a sub-rede, se quiser colocar o cluster numa rede virtual. Para obter informações sobre como utilizar o HDInsight com uma rede Virtual, incluindo requisitos de configuração específicos para a rede Virtual, consulte [capacidades de estender o HDInsight, com uma rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md). Se pretender utilizar o **Enterprise Security Package**, também pode seguir as instruções aqui: [configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
 5. Para **armazenamento**, especifique se pretende o armazenamento do Azure (WASB) ou o armazenamento do Data Lake como o armazenamento predefinido. Veja a tabela abaixo para obter mais informações.
 

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: b094df367d4396533d368b9fdbcb4b78ec1673de
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e6711a5595c6b7c6caaff97f4c1996817be1abce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008900"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634554"
 ---
-# <a name="visualize-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualizar dados do Hive com o Microsoft Power BI com ODBC no Azure HDInsight
+# <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>Visualize os dados do Apache Hive com o Microsoft Power BI com ODBC no Azure HDInsight
 
-Saiba como ligar o Microsoft Power BI para o HDInsight do Azure com o ODBC e visualize os dados de Hive. 
+Saiba como ligar o Microsoft Power BI para o HDInsight do Azure com o ODBC e visualize os dados do Apache Hive. 
 
 >[!IMPORTANT]
 > Pode tirar partido do controlador ODBC do Hive para importar através do conector ODBC genérico no Power BI Desktop. No entanto não é recomendado para cargas de trabalho de BI dadas a natureza não interativa do motor de consulta do Hive. [Conector do Interactive Query do HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) e [conector do Spark do HDInsight](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) são opções melhor para seu desempenho.
@@ -40,7 +40,7 @@ Antes de passar por este artigo, tem de ter os seguintes itens:
 
 ## <a name="create-hive-odbc-data-source"></a>Criar a origem de dados do ODBC do Hive
 
-Ver [origem de dados criar ODBC do Hive](apache-hadoop-connect-excel-hive-odbc-driver.md#create-hive-odbc-data-source).
+Ver [origem de dados criar ODBC do Hive](apache-hadoop-connect-excel-hive-odbc-driver.md#create-apache-hive-odbc-data-source).
 
 ## <a name="load-data-from-hdinsight"></a>Carregar dados do HDInsight
 

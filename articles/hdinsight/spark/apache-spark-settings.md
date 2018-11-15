@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 9533992b939983ceda37a7c98d0bc2426168a0ac
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b31be534641f2777bcbfaaa33497d96b457db191
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279364"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684091"
 ---
 # <a name="configure-spark-settings"></a>Configurar as definições do Spark
 
@@ -30,7 +30,7 @@ O número de VMs e os tamanhos VM, para os nós no cluster do HDInsight também 
 
 Utilize a versão de Spark melhor para o seu cluster.  O serviço HDInsight inclui várias versões do Spark e o HDInsight em si.  Cada versão do Spark inclui um conjunto de predefinições de cluster.  
 
-Quando cria um novo cluster, há várias versões de Spark à sua escolha. Para ver a lista completa, [versões e componentes do HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning)
+Quando cria um novo cluster, há várias versões de Spark à sua escolha. Para ver a lista completa, [versões e componentes do HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
 
 > [!NOTE]

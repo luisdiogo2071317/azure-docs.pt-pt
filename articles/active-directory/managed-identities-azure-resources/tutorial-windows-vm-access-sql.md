@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 61b176f4f1fccbb975ee53de497d5afcc8ede060
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238119"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623830"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows para aceder ao SQL do Azure
 
@@ -35,15 +35,7 @@ Este tutorial mostra-lhe como utilizar a identidade atribuída pelo sistema para
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Iniciar sessão no portal do Azure](https://portal.azure.com)
-
-- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Ativar a identidade gerida atribuída pelo sistema na sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Conceder à sua VM acesso a uma base de dados num SQL Server do Azure
 
@@ -198,7 +190,7 @@ Em alternativa, uma forma rápida de testar a configuração ponto a ponto sem t
 
 Examine o valor de `$DataSet.Tables[0]` para ver os resultados da consulta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema para aceder ao servidor SQL do Azure.  Para saber mais sobre o SQL Server do Azure, veja:
 

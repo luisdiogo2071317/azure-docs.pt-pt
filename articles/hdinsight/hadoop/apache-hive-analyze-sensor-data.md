@@ -1,6 +1,6 @@
 ---
-title: Analisar dados do sensor utilizando o Hive e do Hadoop - Azure HDInsight
-description: Saiba como analisar dados de sensores, utilizando a consola de consulta do Hive com HDInsight (Hadoop), em seguida, visualize os dados no Microsoft Excel com PowerView.
+title: Analisar dados do sensor utilizando o Apache Hive e Apache Hadoop - Azure HDInsight
+description: Saiba como analisar dados de sensores utilizando a consola de consultas do Apache Hive com HDInsight (Hadoop), em seguida, visualize os dados no Microsoft Excel com PowerView.
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfc4d930f185c36c3ba0c869494ba0e7dee64cac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249409"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634418"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analisar dados de sensores utilizando a consola de consulta do Hive do Hadoop no HDInsight
+# <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>Analisar dados do sensor utilizando a consola de consultas do Apache Hive no Apache Hadoop no HDInsight
 
-Saiba como analisar dados de sensores, utilizando a consola de consulta do Hive com HDInsight (Hadoop), em seguida, visualize os dados no Microsoft Excel com o Power View.
+Saiba como analisar dados de sensores, utilizando a consola de consulta do Hive com HDInsight (Apache Hadoop), em seguida, visualize os dados no Microsoft Excel com o Power View.
 
 > [!IMPORTANT]
 > Os passos neste documento funcionam apenas com clusters do HDInsight baseado em Windows. HDInsight só está disponível no Windows para versões mais baixos do que o HDInsight 3.4. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).

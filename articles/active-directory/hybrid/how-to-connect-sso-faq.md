@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d445a4673245b4c6d1986d099113beba79d136bb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e3f08b80b891ad277794ae5a07c3662dab2f2c16
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315246"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687457"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
@@ -46,7 +46,7 @@ Abaixo encontra uma lista parcial das aplicações que pode enviar estes parâme
 | -- | -- |
 | Painel de acesso | https://myapps.microsoft.com/contoso.com |
 | Outlook na Web | https://outlook.office365.com/contoso.com |
-| Portal do Office 365 | https://portal.office.com?domain_hint=contoso.com |
+| Portais do Office 365 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
 Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para pontos finais de inquilinos do Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
 

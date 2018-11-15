@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2436a4e75045200a8d2f48586e31ebfa0c03705a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566266"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636820"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -135,10 +135,10 @@ Ainda que possível, a VM do Azure com o servidor de configuração têm de comu
 Recomendamos que faça cópias de segurança agendadas regulares do servidor de configuração. Para a reativação pós-falha concluída com êxito, a máquina virtual que está a ser realizarão a reativação pós-falha tem de existir na base de dados de servidor de configuração e o servidor de configuração tem de estar em execução e num estado ligado. Pode saber mais sobre tarefas de gestão de servidor de configuração comuns [aqui](vmware-azure-manage-configuration-server.md).
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Quando eu estou configurar o servidor de configuração, posso transferir e instalar manualmente o MySQL?
-Sim. Transferir o MySQL e colocá-la a **C:\Temp\ASRSetup** pasta. Em seguida, instale manualmente. Quando configurar a VM do servidor de configuração e aceitar os termos, MySQL será listada como **já instalado** na **transferir e instalar**.
+Sim. Transferir o MySQL e colocá-la a **C:\Temp\ASRSetup** pasta. Em seguida, instale manualmente. Quando configurar a VM do servidor de configuração e aceite os termos, MySQL será listada como **já instalado** na **transfira e instale**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Pode evitar o download de MySQL mas permitir que o Site Recovery instalá-lo?
-Sim. Transferir o instalador do MySQL e colocá-la a **C:\Temp\ASRSetup** pasta.  Quando configurou a VM do servidor de configuração, aceite os termos e clique em **transferir e instalar**, o portal irá utilizar o instalador que adicionou ao instalar o MySQL.
+Sim. Transferir o instalador do MySQL e colocá-la a **C:\Temp\ASRSetup** pasta.  Ao configurar a VM do servidor de configuração, aceite os termos e clique em **transferir e instalar**, o portal irá utilizar o instalador que adicionou ao instalar o MySQL.
  
 ### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>CanL posso utilizar o servidor de configuração de VM para qualquer outra coisa?
 Não, só deve utilizar a VM para o servidor de configuração. 

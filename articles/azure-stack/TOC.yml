@@ -255,6 +255,10 @@ items:
       href: azure-stack-sql-resource-provider-maintain.md
     - name: Remover o fornecedor de recursos do SQL Server
       href: azure-stack-sql-resource-provider-remove.md
+    - name: Notas de versão do fornecedor de recursos do SQL
+      items:
+      - name: Notas de versão do fornecedor 1.1.30.0 de recursos do SQL
+        href: azure-stack-sql-resource-provider-11300.md
   - name: Oferecer MySQL como PaaS
     href: azure-stack-mysql-resource-provider.md
     items:
@@ -270,6 +274,10 @@ items:
       href: azure-stack-mysql-resource-provider-maintain.md
     - name: Remover o fornecedor de recursos do servidor MySQL
       href: azure-stack-mysql-resource-provider-remove.md
+    - name: Notas de versão do fornecedor de recursos do MySQL
+      items:
+      - name: Notas de versão do fornecedor 1.1.30.0 de recursos do MySQL
+        href: azure-stack-mysql-resource-provider-11300.md
   - name: Oferecer Serviço de Aplicações como PaaS
     href: azure-stack-app-service-overview.md
     items:
@@ -390,9 +398,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formação e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: b68cebd2d6e2a7965eef61bf35c50824f7102c8e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: b339c19e4736ddf55794ae07f2f14b3d993f7762
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614757"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686658"

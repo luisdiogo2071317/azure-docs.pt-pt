@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: c8035a87816c56daa5ac9e1f95b40d15fa556cd9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465164"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687389"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento com a CLI do Azure (pré-visualização)
 
@@ -48,7 +48,7 @@ A encriptação de disco do Azure para pré-visualização de conjuntos de dimen
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [show de funcionalidade de az](/cli/azure/feature#az_feature_show). Quando o `State` relatórios *registada*, volte a registar o *Mirosoft.Compute* fornecedor com [Registre-se fornecedor de az](/cli/azure/provider#az_provider_register):
+Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [show de funcionalidade de az](/cli/azure/feature#az_feature_show). Quando o `State` relatórios *registada*, volte a registar o *Microsoft. Compute* fornecedor com [Registre-se fornecedor de az](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

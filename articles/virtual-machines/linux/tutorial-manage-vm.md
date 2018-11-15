@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981251"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613431"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutorial: Criar e Gerir VMs do Linux com a CLI do Azure
 
@@ -262,7 +262,7 @@ Uma VM do Azure pode ter um de vários estados de energia. Este estado represent
 | Desalocada | Indica que a máquina virtual foi removida do hipervisor, mas continua disponível no painel de controlo. As máquinas virtuais no estado Desalocada não incorrem em custos de computação. |
 | - | Indica que o estado de energia da máquina virtual é desconhecido. |
 
-### <a name="find-power-state"></a>Encontrar estado de energia
+### <a name="find-the-power-state"></a>Encontrar o estado de energia
 
 Para obter o estado de uma VM específica, utilize o comando [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view). Certifique-se de que especifica um nome válido para a máquina virtual e o grupo de recursos. 
 
@@ -313,7 +313,7 @@ Eliminar um grupo de recursos também elimina todos os recursos nele contidos, c
 az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu sobre a criação e gestão básica de VMs, como:
 

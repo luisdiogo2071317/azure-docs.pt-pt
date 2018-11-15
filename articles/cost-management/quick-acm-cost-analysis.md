@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471293"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515731"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guia de Início Rápido: Explorar e analisar os custos com a Análise de custos
 
@@ -32,27 +32,14 @@ Neste início rápido, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A análise de custos está disponível para todos os clientes do [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos para ver os dados de custos.
+A análise de custos está disponível para todos os clientes do [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Tem de ter, pelo menos, acesso de leitura a um ou mais dos seguintes âmbitos para ver os dados de custos. Para obter mais informações sobre a atribuir acesso a dados de gestão de custos, veja [atribuir acesso a dados](assign-access-acm-data.md).
 
-
-|**Âmbito**|**Definido no**|**Acesso obrigatório para analisar os custos de âmbito**|**Definição de pré-requisitos de EA**|**Consolida os dados de faturação para**|
-|---                |---                  |---                   |---            |---           |
-|Conta de faturação<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Administrador da Empresa|Nenhuma|Todas as subscrições do contrato enterprise|
-|Departamento|[https://ea.azure.com ](https://ea.azure.com )|Administrador do Departamento|Custos de vista do AD ativados|Todas as subscrições que pertencem a uma conta de inscrição que está associada ao departamento|
-|Conta de inscrição<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Proprietário da Conta|Custos de vista do PC ativados|Todas as subscrições da conta de inscrição|
-|Grupo de gestão|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Cost Management (ou Leitor)|Custos de vista do PC ativados|Todas as subscrições abaixo o grupo de gestão|
-|Subscrição|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Cost Management (ou Leitor)|Custos de vista do PC ativados|Todos os recursos/grupos de recursos na subscrição|
-|Grupo de recursos|[https://portal.azure.com ](https://portal.azure.com )|Leitor do Cost Management (ou Leitor)|Custos de vista do PC ativados|Todos os recursos no grupo de recursos|
-
-<sup>1</sup>A conta de faturação é frequentemente referida como o Contrato Enterprise ou Inscrição.
-
-<sup>2</sup>A conta de inscrição é frequentemente referida como o proprietário da conta.
-
-Para obter mais informações sobre como configurar as definições **Ver custos de DA** e **Ver custos de AO**, veja [Permitir o acesso aos custos](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Conta de faturação
+- Departamento
+- Conta de inscrição
+- Grupo de gestão
+- Subscrição
+- Grupo de recursos
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -116,7 +103,7 @@ As máquinas virtuais, as redes e os recursos de armazenamento (Gestão do Servi
 
 Pode **Transferir** informações da análise de custos para gerar um ficheiro CSV de todos os dados apresentados atualmente no portal do Azure. Todos os filtros ou agrupamentos que aplicar serão incluídos no ficheiro. Os dados subjacentes do gráfico Total principal que não forem apresentados ativamente estarão incluídos no ficheiro CSV.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Avance para o primeiro tutorial para saber como criar e gerir orçamentos.
 

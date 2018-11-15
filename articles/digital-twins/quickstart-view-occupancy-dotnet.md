@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 590a7aa875f5f8c40576d69d7e73bdfc31fffbf8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281223"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636259"
 ---
-# <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Início Rápido: Encontrar salas disponíveis com o Azure Digital Twins
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure
 
-O serviço Azure Digital Twins permite-lhe recriar uma imagem digital do seu ambiente físico. Depois, pode ser notificado por eventos no ambiente e personalizar as respostas para esses eventos. 
+O serviço de duplos Digital do Azure permite-lhe voltar a criar uma imagem digital do seu ambiente físico. Depois, pode ser notificado por eventos no ambiente e personalizar as respostas para esses eventos. 
 
-Este início rápido utiliza [um par de exemplos de .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) para digitalizar um edifício de escritórios imaginário e mostra-lhe como encontrar salas disponíveis nesse edifício. Com o Digital Twins, pode associar vários sensores ao seu ambiente. Juntamente com a disponibilidade das salas, também pode saber se a qualidade do ar de uma sala livre é ideal, com a ajuda de um sensor de dióxido de carbono simulado. Um dos exemplos de aplicações gerará dados de sensor aleatórios para o ajudar a visualizar este cenário.
+Este início rápido utiliza [um par de amostras do .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) a digitalização de um edifício de escritórios imaginário. Ele mostra como de salas disponíveis desse edifício. Digital duplos, pode associar vários sensores com o seu ambiente. Também pode descobrir se a qualidade de ar do seu espaço disponível é o ideal com a ajuda de um sensor simulado para emissões de dióxido de carbono. Uma das aplicações de exemplo gera dados de sensor aleatório para o ajudar a visualizar este cenário.
 
 O vídeo seguinte apresenta um resumo da configuração do início rápido:
 
@@ -31,106 +31,129 @@ O vídeo seguinte apresenta um resumo da configuração do início rápido:
 
 1. Se não tiver uma conta do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-1. As duas aplicações de consola que vai executar neste início rápido são escritas com C#. Tem de instalar a [versão 2.1.403 ou superior do SDK de .NET Core](https://www.microsoft.com/net/download) no computador de desenvolvimento. Se tiver o SDK de .NET Core instalado, pode executar `dotnet --version` numa janela de comandos para confirmar a versão atual do C# no computador de desenvolvimento.
+1. As aplicações de dois consola executadas neste início rápido são escritas utilizando C#. Instalar o [.NET Core SDK versão 2.1.403 ou acima](https://www.microsoft.com/net/download) no computador de desenvolvimento. Se tiver o .NET Core SDK instalado, certifique-se a versão atual do C# no computador de desenvolvimento. Executar `dotnet --version` numa linha de comandos.
 
-1. Transferir o [exemplo de projeto em C#](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip) e extrair o arquivo digital-twins-samples-csharp-master.zip. 
+1. Transfira o [exemplo C# projeto](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Extraia o arquivo de digital-twins-exemplos-csharp-Master. 
 
 
 ## <a name="create-a-digital-twins-instance"></a>Criar uma instância do Digital Twins
 
-Utilize os passos nesta secção para criar uma instância nova do Digital Twins no [portal](https://portal.azure.com).
+Criar uma nova instância de duplos Digital no [portal](https://portal.azure.com) ao seguir os passos nesta secção.
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Definir permissões para a aplicação
 
-Esta secção regista o exemplo de aplicação no Azure Active Directory (AAD), para que possa aceder à instância do Digital Twins. Se já tiver um registo de aplicação do AAD, pode reutilizá-lo no exemplo. Para tal, confirme que está configurado conforme descrito nesta secção. 
+Esta secção registra seu aplicativo de exemplo para o Azure Active Directory (Azure AD) para que ele pode aceder à sua instância de duplos Digital. Se já tiver um registo de aplicação do Azure AD, reutilizá-lo para o seu exemplo. Certifique-se de que está configurado conforme descrito nesta secção. 
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
 
 ## <a name="build-application"></a>Compilar a aplicação
 
-Compile a aplicação de ocupação com os passos seguintes:
+Crie a aplicação de ocupação seguindo estes passos.
 
-1. Abra uma linha de comandos e navegue para a pasta na qual os ficheiros digital-twins-samples-csharp-master.zip foram extraídos.
+1. Abra uma linha de comandos. Aceda à pasta onde foram extraídos os ficheiros de digital-twins-exemplos-csharp-Master.
 1. Execute `cd occupancy-quickstart/src`.
 1. Execute `dotnet restore`.
-1. Edite *appSettings.json* para atualizar as variáveis seguintes:
-    - *ClientId*: introduza o *ID da Aplicação* do seu registo de aplicação do AAD, indicado na secção anterior.
-    - *Tenant*: introduza o *ID do Diretório* do seu inquilino do AAD, também indicado na secção anterior.
-    - *BaseUrl*: o URL da *API de Gestão* da sua instância do Digital Twins, que estará no formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Substitua os marcadores de posição neste URL pelos valores da sua instância, indicados na secção anterior.
+1. Edite **appSettings.json** para atualizar as variáveis seguintes:
+    - **ClientId**: introduza o ID da aplicação do seu registo de aplicação do Azure AD, indicado na secção anterior.
+    - **Inquilino**: introduza o ID de diretório do seu inquilino do Azure AD, também é indicado na secção anterior.
+    - **BaseUrl**: O URL de API de gestão da sua instância de duplos digitais está no formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Substitua os marcadores de posição este URL com os valores para a sua instância da secção anterior.
 
 ## <a name="provision-graph"></a>Aprovisionar o gráfico
 
-Este passo aprovisiona o gráfico espacial do Digital Twins com vários espaços, um dispositivo, dois sensores, uma função personalizada e uma atribuição de função. O gráfico espacial é aprovisionado com o ficheiro [*provisionSample.yaml*](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
+Este passo Aprovisiona o gráfico de geográfico duplos Digital com:
+ 
+- Vários espaços.
+- Um dispositivo.
+- Dois sensores. 
+- Uma função personalizada. 
+- Uma atribuição de função.
+ 
+O gráfico espacial é aprovisionado através da utilização a [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) ficheiro.
 
 1. Execute `dotnet run ProvisionSample`.
     >[!NOTE]
-    >Para autenticar o utilizador no Azure AD, utilizamos a ferramenta da CLI do Azure Device Login. O utilizador tem de introduzir um determinado código para se autenticar através da página de [início de sessão da Microsoft](https://microsoft.com/devicelogin). Após a introdução do código, siga os passos para se autenticar. Quando a ferramenta estiver em execução, é pedido ao utilizador que se autentique sempre.
+    >A ferramenta de CLI do dispositivo início de sessão do Azure é utilizada para autenticar o utilizador para o Azure AD. O utilizador tem de introduzir um código específico para autenticar com [o início de sessão do Microsoft](https://microsoft.com/devicelogin) página. Depois do código é inserido, siga os passos para se autenticar. O utilizador tem de ser autenticado quando é executada a ferramenta.
     
     >[!TIP]
-    > Se receber o erro seguinte ao realizar este passo, confirme que copiou as variáveis corretamente. 
-    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+    > Quando executar este passo, certifique-se de que suas variáveis foram copiadas corretamente se é apresentada a seguinte mensagem de erro: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 
-1. O passo de aprovisionamento pode demorar alguns minutos. Também aprovisionará um Hub IoT na sua instância do Digital Twins e entrará em ciclo até que o estado do Hub IoT seja `Running`.
+1. O passo de aprovisionamento pode demorar alguns minutos. Ele também fornece um IoT Hub na sua instância de duplos Digital. Percorre até que o IoT Hub mostra o estado =`Running`.
 
     ![Exemplo de aprovisionamento][4]
 
-1. No final da execução, copie `ConnectionString` do dispositivo para utilização no exemplo do simulador de dispositivo. Copie apenas a cadeia realçada na imagem abaixo:
+1. No final da execução, copie o `ConnectionString` do dispositivo para utilização no exemplo de simulador de dispositivos. Copie apenas a cadeia de caracteres descrita nesta imagem.
 
     ![Exemplo de aprovisionamento][1]
 
 ## <a name="send-sensor-data"></a>Enviar dados do sensor
 
-Pode compilar e executar a aplicação de simulador de sensor com os passos abaixo:
+Crie e execute o aplicativo de simulador do sensor, seguindo estes passos.
 
-1. Abra uma linha de comandos nova e navegue para o projeto que transferiu, na pasta digital-twins-samples-csharp-master.
+1. Abra uma nova linha de comandos. Vá para o projeto que transferiu na pasta digital-twins-exemplos-csharp-master.
 1. Execute `cd device-connectivity`.
 1. Execute `dotnet restore`.
-1. Edite *appsettings.json* para atualizar *DeviceConnectionString* com `ConnectionString` acima.
-1. Execute `dotnet run` para começar a enviar os dados do sensor. Deverá ver os dados serem enviados para o serviço Digital Twins conforme ilustrado na imagem seguinte:
+1. Editar **appSettings** para atualizar **DeviceConnectionString** com o anterior `ConnectionString`.
+1. Executar `dotnet run` para começar a enviar dados de sensor. Verá enviados para o Digital duplos, conforme mostrado na imagem seguinte.
 
      ![Conectividade do dispositivo][2]
 
-1. Deixe o simulador ser executado, para que possa ver os resultados lado a lado com a ação do próximo passo. Esta janela mostra os dados do sensor simulado enviados para o Digital Twins e o próximo passo vai consultar em tempo para encontrar salas disponíveis com ar fresco.
+1. Permitir que este simulador em execução para que possa visualizar os resultados lado a lado com a ação de passo seguinte. Esta janela mostra os dados de sensor simulado enviados para o Digital duplos. As consultas de passo seguintes em tempo real de salas com ar fresco disponíveis.
 
     >[!TIP]
-    > Se receber o erro seguinte ao realizar este passo, confirme que `DeviceConnectionString` foi copiado corretamente.  
-    > `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
+    > Quando executar este passo, certifique-se de que `DeviceConnectionString` foram copiados corretamente se é apresentada a seguinte mensagem de erro: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
 
 ## <a name="find-available-spaces-with-fresh-air"></a>Encontrar espaços disponíveis com ar fresco
 
-O exemplo de sensor está a simular valores de dados aleatórios para dois sensores, um de movimento e outro de dióxido de carbono. No exemplo, os espaços disponíveis com ar fresco são definidos como estando vazios e como tendo um nível de dióxido de carbono inferior a 1000 ppm. Se a condição não for satisfeita, o espaço não está disponível ou a qualidade do ar é má.
+O exemplo de sensor simula os valores de dados aleatórios para dois sensores. Eles são motion e emissões de dióxido de carbono. Disponíveis espaços com ar fresco são definidos no exemplo sem presença na sala. Também estão definidos por um nível de dióxido de carbono em 1000 ppm. Se a condição não é atendida, o espaço não está disponível ou a qualidade de ar é fraca.
 
-1. Abra a linha de comandos que utilizou para executar o passo de aprovisionamento acima.
+1. Abra o prompt de comando utilizado para executar o passo de aprovisionamento anterior.
 1. Execute `dotnet run GetAvailableAndFreshSpaces`.
-1. Veja esta linha de comandos e a linha de comandos dos dados do sensor lado a lado, conforme descrito abaixo. 
-1. Uma linha de comandos envia os dados simulados de movimento e de dióxido de carbono para o Digital Twins de cinco em cinco segundos. O outro comando lê o gráfico em tempo real para encontrar salas disponíveis com ar fresco, tendo por base os dados simulados aleatórios. Apresentará uma das condições seguintes em tempo quase real com base nos últimos dados do sensor enviados:
+1. Examinar esse prompt de comando e de linha de comandos de dados do sensor lado a lado. 
+
+    Um prompt de comando envia dados de movimento e emissões de dióxido de carbono simulados para Digital Twins cada cinco segundos. O outro comando lê o gráfico em tempo real para descobrir os ambientes disponíveis com ar fresco com base nos dados simulados aleatórios. Apresenta uma dessas condições em tempo real com base nos dados de sensor que foi enviados pela última vez:
     - Salas disponíveis com ar fresco.
     - Sala ocupada ou com má qualidade de ar.
 
      ![Obter espaços disponíveis com ar fresco][3]
 
-Para compreender o que aconteceu neste início rápido e que APIs foram chamadas, abra o [Visual Studio Code](https://code.visualstudio.com/Download) com o projeto de área de trabalho de código em digital-twins-samples-csharp (veja os comandos abaixo). Os tutoriais aprofundam o código e ensinam-lhe a modificar os dados de configuração e as APIs que são chamadas. Para obter mais informações sobre as APIs de Gestão, navegue para a página Swagger do Digital Twins, `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net//management/swagger`, ou, para sua comodidade, navegue para [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger). 
+Para compreender o que aconteceu neste guia de introdução e que foram chamadas de APIs, abra [Visual Studio Code](https://code.visualstudio.com/Download) com o projeto de área de trabalho de código foi encontrado na digital-twins-exemplos-csharp. Utilize o seguinte comando:
 
-```
+```plaintext
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
+Os tutoriais fornecem profundamente o código. Que ensinam como modificar os dados de configuração e o que são chamadas de APIs. Para obter mais informações sobre APIs de gestão, aceda à sua página de Swagger de duplos Digital:
+
+```plaintext
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
+```
+
+| Nome | Substituir |
+| --- | --- |
+| YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
+| YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |
+
+Ou para sua comodidade, navegue até [Swagger de duplos Digital](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Os tutoriais mostram detalhadamente como compilar uma aplicação que permite aos gestores de instalações aumentar a produtividade da ocupação e gerir o edifício de forma mais eficiente.
+Os tutoriais entrar em detalhes sobre como: 
 
-Se quiser avançar para os tutoriais, não limpe os recursos criados neste Início Rápido. Se não planear continuar, utilize os passos seguintes para eliminar todos os recursos criados neste Início Rápido:
+- Crie uma aplicação para os gestores de recurso aumentar a produtividade de occupant. 
+- Operar a criação com mais eficiência.
 
-1. Elimine a pasta que foi criada quando transferiu o exemplo de repositório.
-1. No menu do lado esquerdo do [portal do Azure](http://portal.azure.com), clique em **Todos os recurso** e selecione o seu recurso do Digital Twins. Na parte superior do painel **Todos os recursos**, clique em **Eliminar**.
+Para continuar para os tutoriais, não limpe os recursos criados neste início rápido. Se não quiser continuar, elimine todos os recursos criados por este início rápido.
 
-## <a name="next-steps"></a>Passos seguintes
+1. Elimine a pasta que foi criada quando transferiu o repositório de exemplo.
+1. No menu à esquerda na [portal do Azure](http://portal.azure.com), selecione **todos os recursos**. Em seguida, selecione o recurso de duplos Digital. Na parte superior a **todos os recursos** painel, selecione **eliminar**.
 
-Este início rápido mostrou-lhe uma descrição geral de um cenário simples para encontrar salas com boas condições de trabalho. Para ver uma análise mais aprofundada deste cenário, avance para o tutorial:
+## <a name="next-steps"></a>Passos Seguintes
+
+Este guia de introdução utilizado um cenário simples para mostrar como salas com boa condições de trabalho. Para uma análise aprofundada deste cenário, consulte este tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md) (Tutorial: Implementar o Azure Digital Twins e configurar um gráfico espacial)

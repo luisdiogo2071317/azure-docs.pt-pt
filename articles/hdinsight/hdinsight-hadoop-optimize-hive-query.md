@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6729a0e3ccbb96dc178925bbab4cfbf8189c4a14
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278264"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687219"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Hive no HDInsight do Azure
 
@@ -72,7 +72,7 @@ Algumas considerações sobre a criação de partições:
 
 * **Fazer não em partição** -criação de partições em colunas com apenas alguns valores pode fazer com que algumas partições. Por exemplo, a criação de partições no sexo apenas cria duas partições para ser criado (masculino e feminino), assim, reduzir a latência apenas por um máximo de metade.
 * **Fazer não através da partição** - no outro extremo, criação de uma partição numa coluna com um valor exclusivo (por exemplo, userid) faz com que várias partições. Ao longo da partição faz com que muito esforço no namenode cluster porque esta tem de lidar com grande número de diretórios.
-* **Evitar a distorção de dados** -escolha com sabedoria sua chave de particionamento, para que todas as partições são até mesmo tamanho. Por exemplo, criação de partições num *estado* coluna pode distorcer a distribuição de dados. Uma vez que o estado da Califórnia tem uma população quase 30 x que de Vermont, o tamanho de dividir em partições é potencialmente desviado e o desempenho podem variar enormemente.
+* **Evitar a distorção de dados** -escolha com sabedoria sua chave de particionamento, para que todas as partições são até mesmo tamanho. Por exemplo, criação de partições num *estado* coluna pode distorcer a distribuição de dados. Uma vez que o estado da Califórnia tem uma população quase 30 x que de Vermont, o tamanho da partição é potencialmente desviado e o desempenho podem variar enormemente.
 
 Para criar uma tabela de partição, utilize o *particionados por* cláusula:
 

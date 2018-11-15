@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237065"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684642"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtros de segurança para cortar os resultados de pesquisa do Azure com identidades do Active Directory
 
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Passo 4: Colocar em Cache os identificadores de grupos
-Opcionalmente, para reduzir a latência de rede, pode colocar em cache as associações de grupo de utilizadores para que quando é emitida uma solicitação de pesquisa, grupos são devolvidos da cache, economizando uma ida e volta para o AAD. Pode usar (API de Batch do AAD) [https://developer.microsoft.com/graph/docs/concepts/json_batching] para enviar um único pedido de Http com vários utilizadores e criar a cache.
+Opcionalmente, para reduzir a latência de rede, pode colocar em cache as associações de grupo de utilizadores para que quando é emitida uma solicitação de pesquisa, grupos são devolvidos da cache, economizando uma ida e volta para o AAD. Pode usar [API do Batch AAD](https://developer.microsoft.com/graph/docs/concepts/json_batching) para enviar um único pedido de Http com vários utilizadores e criar a cache.
 
 Microsoft Graph foi concebido para lidar com um grande volume de pedidos. Se ocorrer um número massivo de pedidos, o Microsoft Graph falha o pedido com o código de estado HTTP 429. Para obter mais informações, consulte [limitação do Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/throttling).
 

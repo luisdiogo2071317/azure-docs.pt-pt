@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 6330e187ce0a46744bc27eee3ee74ed125d49446
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8806d2b1848064c48615aed653c69c2df9b1949f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625985"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685468"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs Linux IaaS 
 
@@ -130,7 +130,7 @@ A tabela seguinte lista os parâmetros de modelo do Resource Manager para existe
 | Parâmetro | Descrição |
 | --- | --- |
 | vmName | Nome da VM para executar a operação de criptografia. |
-| keyVaultName | Nome do Cofre de chaves que a chave do BitLocker deve ser enviada para. Pode obtê-lo utilizando o cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` ou o comando da CLI do Azure "lista de keyvault de az--resource-group"MySecureGroup" |Convertfrom-JSON "|
+| keyVaultName | Nome do Cofre de chaves que a chave do BitLocker deve ser enviada para. Pode obtê-lo utilizando o cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` ou o comando da CLI do Azure "lista de keyvault de az--resource-group"MySecureGroup" |ConvertFrom-JSON "|
 | keyVaultResourceGroup | Nome do grupo de recursos que contém o Cofre de chaves|
 |  keyEncryptionKeyURL | URL da chave de encriptação de chave que é utilizada para encriptar a chave gerada do BitLocker. Este parâmetro é opcional se selecionou **nokek** na lista pendente UseExistingKek. Se selecionou **kek** na lista pendente UseExistingKek, tem de introduzir o _keyEncryptionKeyURL_ valor. |
 | VolumeType | Tipo de volume que a operação de criptografia é executada em. Os valores válidos são _SO_, _dados_, e _todos os_. 
@@ -153,7 +153,7 @@ A encriptação de disco do Azure para pré-visualização de conjuntos de dimen
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [show de funcionalidade de az](/cli/azure/feature#az_feature_show). Quando o `State` relatórios *registada*, volte a registar o *Mirosoft.Compute* fornecedor com [Registre-se fornecedor de az](/cli/azure/provider#az_provider_register):
+Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [show de funcionalidade de az](/cli/azure/feature#az_feature_show). Quando o `State` relatórios *registada*, volte a registar o *Microsoft. Compute* fornecedor com [Registre-se fornecedor de az](/cli/azure/provider#az_provider_register):
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -191,7 +191,7 @@ A encriptação de disco do Azure para pré-visualização de conjuntos de dimen
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Quando o `RegistrationState` relatórios *registada*, volte a registar o *Mirosoft.Compute* fornecedor com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
+Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). Quando o `RegistrationState` relatórios *registada*, volte a registar o *Microsoft. Compute* fornecedor com [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -244,7 +244,7 @@ O **EncryptFormatAll** parâmetro reduz o tempo para discos de dados do Linux se
  Depois de executar este comando, todas as unidades que foram montadas anteriormente serão formatadas. Em seguida, a camada de encriptação será iniciada na parte superior da unidade agora vazia. Quando esta opção estiver selecionada, o disco de recurso efémeras anexado à VM também será encriptado. Se a unidade efémeras é reposta, será reformatada e encriptado novamente para a VM pela solução Azure Disk Encryption na próxima oportunidade.
 
 >[!WARNING]
-> EncryptFormatAll não deve ser usado quando há dados necessários em volumes de dados de uma VM. Pode excluir discos da encriptação pela desmontagem-los. Primeiro deve experimentar EncryptFormatAll pela primeira vez numa VM de teste, compreender o parâmetro de recurso e sua implicação antes de tentá-lo na VM de produção. A opção de EncryptFormatAll formata o disco de dados e todos os dados serão perdidos. Antes de continuar, certifique-se de que os discos que pretende excluir corretamente são unmouted. </br></br>
+> EncryptFormatAll não deve ser usado quando há dados necessários em volumes de dados de uma VM. Pode excluir discos da encriptação pela desmontagem-los. Primeiro deve experimentar EncryptFormatAll pela primeira vez numa VM de teste, compreender o parâmetro de recurso e sua implicação antes de tentá-lo na VM de produção. A opção de EncryptFormatAll formata o disco de dados e todos os dados serão perdidos. Antes de continuar, certifique-se de que os discos que pretende excluir estão desmontados corretamente. </br></br>
  >Se estiver definindo esse parâmetro ao atualizar as definições de encriptação, pode originar um reinício antes da encriptação real. Neste caso, também desejará remover o disco que não desejado do ficheiro fstab. Da mesma forma, deve adicionar a partição que pretende encriptar formatada para o ficheiro fstab antes de iniciar a operação de criptografia. 
 
 ### <a name="bkmk_EFACriteria"> </a> Critérios de EncryptFormatAll

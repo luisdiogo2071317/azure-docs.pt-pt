@@ -9,19 +9,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973563"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634469"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters do HDInsight com o Enterprise Security Package
 Saiba os utilizadores e as funções no pacote de segurança de Enterprise do HDInsight (ESP) e como gerir clusters do ESP.
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Utilizar o VSCode para ligar a um cluster associado a um domínio
 
-Pode ligar um cluster do normal com o nome de utilizador do Ambari gerida, também ligar um cluster de hadoop de segurança com o nome de utilizador de domínio (como: user1@contoso.com).
+Pode ligar um cluster do normal com o nome de utilizador do Apache ambari destina gerida, também ligar um cluster do Apache Hadoop de segurança com o nome de utilizador de domínio (como: user1@contoso.com).
 1. Abra a paleta de comandos, selecionando **CTRL + SHIFT + P**e, em seguida, introduza **HDInsight: ligar um cluster**.
 
    ![comando de cluster de ligação](./media/apache-domain-joined-manage/link-cluster-command.png)

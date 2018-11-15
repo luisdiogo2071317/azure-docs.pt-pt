@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 97ac49ff5cc50621fd902f77c2543a428c7e8bae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384757"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631664"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurar BFD através do ExpressRoute
 
@@ -67,7 +67,7 @@ Um exemplo de configuração de PE (com o Cisco IOS XE) é mostrado abaixo.
 
 ## <a name="bfd-timer-negotiation"></a>Negociação de temporizador BFD
 
-Entre itens de mesmo nível BFD, mais lenta os dois protocolos de mesmo nível determina a taxa de transmissão. Intervalos de transmissão/receção do MSEEs BFD estão definidos para 300 milissegundos. Ao configurar os valores mais altos, pode forçar estes intervalos para ter mais; No entanto, não mais curto.
+Entre itens de mesmo nível BFD, mais lenta os dois protocolos de mesmo nível determina a taxa de transmissão. Intervalos de transmissão/receção do MSEEs BFD estão definidos para 300 milissegundos. Em determinados cenários, é possível definir o intervalo de cada um valor mais alto de 750 milissegundos. Ao configurar os valores mais altos, pode forçar estes intervalos para ter mais; No entanto, não mais curto.
 
 >[!NOTE]
 >Se tiver configurado os circuitos peering privados do ExpressRoute com redundância geográfica ou utilize o IPSec de Site-Site VPN conectividade como cópia de segurança para o peering privado do ExpressRoute; Ativar BFD por peering privado ajudaria a ativação pós-falha mais rápida de após uma falha de conectividade do ExpressRoute. 

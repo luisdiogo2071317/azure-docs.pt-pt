@@ -1,6 +1,6 @@
 ---
 title: O que é o Apache Hive e o HiveQL - Azure HDInsight
-description: Apache Hive é um sistema de armazém de dados para o Hadoop. Pode consultar os dados armazenados no Hive com o HiveQL, que semelhante para o Transact-SQL. Neste documento, saiba como utilizar o Hive e o HiveQL com o Azure HDInsight.
+description: Apache Hive é um sistema de armazém de dados para o Apache Hadoop. Pode consultar os dados armazenados no Hive com o HiveQL, que semelhante para o Transact-SQL. Neste documento, saiba como utilizar o Hive e o HiveQL com o Azure HDInsight.
 keywords: hiveql, o que é o hive, hiveql do hadoop, como utilizar o hive, saiba o hive, o que é o hive
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241111"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633721"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>O que é o Apache Hive e o HiveQL no HDInsight do Azure?
 
-[Apache Hive](http://hive.apache.org/) é um sistema de armazém de dados para o Hadoop. Hive permite que o resumo de dados, consulta e análise de dados. Consultas do Hive são escritas em HiveQL, que é uma linguagem de consulta semelhante ao SQL.
+[Apache Hive](http://hive.apache.org/) é um sistema de armazém de dados para o Apache Hadoop. Hive permite que o resumo de dados, consulta e análise de dados. Consultas do Hive são escritas em HiveQL, que é uma linguagem de consulta semelhante ao SQL.
 
 Hive permite-lhe a estrutura do projeto nos dados em grande parte não estruturados. Depois de definir a estrutura, pode utilizar o HiveQL para consultar os dados sem o conhecimento de Java ou do MapReduce.
 

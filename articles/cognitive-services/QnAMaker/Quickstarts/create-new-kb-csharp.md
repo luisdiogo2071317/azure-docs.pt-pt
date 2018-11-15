@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/6/2018
 ms.author: diberry
-ms.openlocfilehash: d9040965a0cfaf022bf4cc582cb2aeaa34d04849
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: bcb19ebdcf6d4ca1c01612f815700fbbc0dd2fda
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252450"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567728"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>Início Rápido: criar uma base de dados de conhecimento no Criador de FAQ com o C#
 
@@ -32,7 +32,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 * Tem de ter um [serviço Criador de FAQ](../How-To/set-up-qnamaker-service-azure.md). Para obter a sua chave, selecione **Chaves** em **Gestão de Recursos** no seu dashboard. 
 
 > [!NOTE] 
-> Os ficheiros de solução completos estão disponíveis a partir do repositório do Github [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/create-and-publish-knowledge-base).
+> Os ficheiros de solução completos estão disponíveis a partir do repositório do Github [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## <a name="create-a-knowledge-base-project"></a>Criar um projeto de base de dados de conhecimento
 
@@ -131,7 +131,7 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

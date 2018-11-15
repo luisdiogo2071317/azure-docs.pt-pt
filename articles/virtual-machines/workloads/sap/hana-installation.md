@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 160cc4fb3ccdabfd76e228c447ad179b3616d195
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231105"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633959"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (instâncias grandes) no Azure
 
@@ -170,7 +170,7 @@ O volume HANA/registo/cópia de segurança não deve para ser o volume para cóp
 
 Para além do armazenamento que é fornecido, pode comprar capacidade de armazenamento adicional em incrementos de 1 TB. Este armazenamento adicional pode ser adicionado como novos volumes para uma instância grande do HANA.
 
-Durante a integração com o SAP HANA na gestão de serviço do Azure, o cliente especifica um utilizador ID (UID) e o grupo ID (GID) para o grupo de utilizador e sapsys sidadm (por exemplo: 1000,500) durante a instalação do sistema SAP HANA, tem de utilizar estes mesmos valores. Como deseja implementar várias instâncias HANA numa unidade, tem vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento da implementação terá de definir o seguinte:
+Durante a integração com o SAP HANA na gestão de serviço do Azure, o cliente especifica um utilizador ID (UID) e o grupo ID (GID) para o grupo de utilizador e sapsys sidadm (por exemplo: 1000,500). Durante a instalação do sistema SAP HANA, tem de utilizar estes mesmos valores. Como deseja implementar várias instâncias HANA numa unidade, tem vários conjuntos de volumes (um conjunto para cada instância). Como resultado, no momento da implementação terá de definir o seguinte:
 
 - O SID das diferentes instâncias HANA (sidadm é derivado do mesmo).
 - Os tamanhos de memória das diferentes instâncias do HANA. O tamanho de memória por instância define o tamanho dos volumes em cada conjunto de individual volume.

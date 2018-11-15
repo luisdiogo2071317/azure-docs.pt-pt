@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 475fda79d3f5d844b494f1b0ae5eab8eba5ed8bc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: c8ef958b2f39a9271b9fa344f61329d48eccdee4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363568"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514751"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guia de Início Rápido: Controlar um dispositivo ligado a um hub IoT (.NET)
 
@@ -26,6 +26,7 @@ O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de te
 O guia de início rápido utiliza duas aplicações .NET pré-escritas:
 
 * Uma aplicação de dispositivo simulado que responde aos métodos diretos chamados a partir de uma aplicação back-end. Para receber as chamadas de método direto, esta aplicação liga-se a um ponto final específico do dispositivo no seu hub IoT.
+
 * Uma aplicação back-end que chama os métodos diretos no dispositivo simulado. Para chamar um método direto num dispositivo, esta aplicação liga-se a um ponto final do lado do serviço no seu hub IoT.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -50,7 +51,7 @@ Se ainda não o fez, transfira o projeto C# de exemplo do https://github.com/Azu
 
 Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md), pode ignorar este passo.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
@@ -60,21 +61,25 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
 
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName** : substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
    **MyDotnetDevice**: este é o nome designado para o dispositivo registado. Utilize MyDotnetDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
+    az iot hub device-identity create \
+      --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName** : substitua este marcador de posição abaixo pelo nome coose do seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
+    az iot hub device-identity show-connection-string \
+      --hub-name YourIoTHubName \
+      --device-id MyDotnetDevice 
+      --output table
     ```
 
     Anote a cadeia de ligação do dispositivo, que se parece com:
@@ -121,7 +126,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação de dispositivo simulado envia telemetria para o seu hub IoT:
 
-    ![Executar o dispositivo simulado](media/quickstart-control-device-dotnet/SimulatedDevice-1.png)
+    ![Executar o dispositivo simulado](./media/quickstart-control-device-dotnet/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>Chamar o método direto
 
@@ -147,19 +152,19 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação faz uma chamada de método direto para o dispositivo e obtém uma confirmação:
 
-    ![Executar a aplicação back-end](media/quickstart-control-device-dotnet/BackEndApplication.png)
+    ![Executar a aplicação back-end](./media/quickstart-control-device-dotnet/BackEndApplication.png)
 
     Depois de executar a aplicação back-end, verá uma mensagem na janela da consola a executar o dispositivo simulado e a velocidade à qual a aplicação envia mensagens muda:
 
-    ![Alteração no cliente simulado](media/quickstart-control-device-dotnet/SimulatedDevice-2.png)
+    ![Alteração no cliente simulado](./media/quickstart-control-device-dotnet/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia de início rápido, chamou um método direto num dispositivo a partir de uma aplicação back-end e respondeu a uma chamada de método direto numa aplicação de dispositivo simulado.
+Neste início rápido, chamado um método direto num dispositivo a partir de uma aplicação de back-end e respondeu à chamada de método direto num aplicativo de dispositivo simulado.
 
 Para saber como encaminhar mensagens do dispositivo para a cloud para diferentes destinos na cloud, avance para o tutorial seguinte.
 

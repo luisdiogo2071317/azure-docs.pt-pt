@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 11/14/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 38e85ede1e984aa3d26fe509d68b4582d11b6c26
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237847"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636225"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utilizar modelos Azure Resource Manager no Azure Stack
 
@@ -34,7 +34,7 @@ Os seguintes modelos de início rápido estão disponíveis na [GitHub](https://
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implantar o SharePoint Server (implementação de não-elevada disponibilidade)
 
-Utilizar a extensão DSC do PowerShell para [criar um farm do SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) que inclui os seguintes recursos:
+Utilizar a extensão DSC do PowerShell para [criar um farm do SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Três contas de armazenamento
@@ -45,7 +45,7 @@ Utilizar a extensão DSC do PowerShell para [criar um farm do SharePoint Server 
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Implementar AD (não-alto--implementação de disponibilidade)
 
-Utilizar a extensão DSC do PowerShell para [criar um servidor de controlador de domínio do AD](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) que inclui os seguintes recursos:
+Utilizar a extensão DSC do PowerShell para [criar um servidor de controlador de domínio do AD](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha) que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Uma conta de armazenamento
@@ -54,7 +54,7 @@ Utilizar a extensão DSC do PowerShell para [criar um servidor de controlador de
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Implementar o AD/SQL (não-alto--implementação de disponibilidade)
 
-Utilizar a extensão DSC do PowerShell para [criar um servidor autónomo do SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) que inclui os seguintes recursos:
+Utilizar a extensão DSC do PowerShell para [criar um servidor autónomo do SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha) que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Duas contas de armazenamento
@@ -68,11 +68,11 @@ Utilize a extensão DSC do PowerShell para configurar uma máquina virtual exist
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Criar uma máquina virtual a partir de uma imagem de utilizador
 
-[Criar uma máquina virtual a partir de uma imagem de utilizador personalizada](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Este modelo também implementa uma rede virtual (com o DNS), o endereço IP público e uma interface de rede.
+[Criar uma máquina virtual a partir de uma imagem de utilizador personalizada](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image). Este modelo também implementa uma rede virtual (com o DNS), o endereço IP público e uma interface de rede.
 
 ## <a name="basic-virtual-machine"></a>Máquinas virtuais básico
 
-[Implementar uma VM do Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) que inclui uma rede virtual (com o DNS), o endereço IP público e uma interface de rede.
+[Implementar uma VM do Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) que inclui uma rede virtual (com o DNS), o endereço IP público e uma interface de rede.
 
 ## <a name="cancel-a-running-template-deployment"></a>Cancelar uma implementação de modelo em execução
 

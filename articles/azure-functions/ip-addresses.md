@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 0ed488cd717bc1548b26dcf8ff5f200a62710132
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: a92a4183962f71005577478bf27df9b5fb945acf
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584893"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634367"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP nas funções do Azure
 
@@ -55,6 +55,8 @@ Uma forma alternativa para localizar os endereços IP de saída disponíveis é 
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
+> [!NOTE]
+> Quando uma aplicação de função que é executado no [plano de consumo](functions-scale.md#consumption-plan) é ajustada, pode ser atribuído um novo intervalo de endereços IP de saída. Quando em execução no plano de consumo, poderá ter lista branca integral do Datacenter.
 
 ## <a name="data-center-outbound-ip-addresses"></a>Endereços IP de saída do Centro de dados
 

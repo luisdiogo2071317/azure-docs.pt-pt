@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 67cd78d4900b8ce53cf0c50116c02a9c1b967687
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 0683516d16bf1501eee83901c5171811b8c0e44d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958768"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621552"
 ---
 # <a name="manage-database-accounts-in-azure-cosmos-db"></a>Gerir contas de base de dados no Azure Cosmos DB
 
-Este artigo descreve como gerir a sua conta do Cosmos DB para configurar o multi-homing, adicionar/remover uma região, configurar várias regiões de escrita e configurar prioridades de ativação pós-falha. 
+Este artigo descreve como gerir a sua conta do Azure Cosmos DB para configurar a multi-homing, adicionar ou remover uma região, configurar várias regiões de escrita e configurar prioridades de ativação pós-falha. 
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -28,7 +28,7 @@ Este artigo descreve como gerir a sua conta do Cosmos DB para configurar o multi
 
 ```bash
 # Create an account
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group Name>
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group Name>
 ```
 
 ## <a name="configure-clients-for-multi-homing"></a>Configurar clientes para multi-homing
@@ -122,13 +122,13 @@ No modo de escrita de várias regiões, pode adicionar/remover qualquer região 
 
 ```bash
 # Given an account created with 1 region like so
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0'
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0'
 
 # Add a new region by adding another region to the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
 
 # Remove a region by removing a region from the list
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'westus=0'
 ```
 
 ## <a name="configure-multiple-write-regions"></a>Configurar várias regiões de escrita
@@ -137,17 +137,17 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 Quando criar uma conta de base de dados, certifique-se de que a definição **Escritas de Várias Regiões** está ativada.
 
-![Captura de ecrã da criação da Conta do Cosmos DB](./media/how-to-manage-database-account/account-create.png)
+![Captura de criação ecrã do Azure Cosmos conta](./media/how-to-manage-database-account/account-create.png)
 
 ### <a id="configure-multiple-write-regions-cli"></a>CLI do Azure
 
 ```bash
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-multiple-write-locations true
 ```
 
 ### <a id="configure-multiple-write-regions-arm"></a>Modelo do Resource Manager
 
-O código JSON seguinte é um modelo de exemplo do Resource Manager. Pode utilizá-lo para implementar uma conta do Azure Cosmos DB com uma política de consistência como Estagnação Limitada, um intervalo de estagnação máximo de 5 segundos e o número máximo de pedidos obsoletos tolerado em 100. Para saber mais sobre o formato de modelo do Resource Manager e a sintaxe, veja a documentação do [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+O código JSON seguinte é um modelo de exemplo do Resource Manager. Pode usá-lo a implementação de uma conta do Cosmos do Azure com uma política de consistência como estagnação limitada, um intervalo de envelhecimento máximo de 5 segundos e o número máximo de pedidos obsoletos pela tolerar em 100. Para saber mais sobre o formato de modelo do Resource Manager e a sintaxe, veja a documentação do [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ```json
 {
@@ -202,11 +202,11 @@ O código JSON seguinte é um modelo de exemplo do Resource Manager. Pode utiliz
 ```
 
 
-## <a name="enable-manual-failover-for-your-cosmos-account"></a>Ativar a ativação pós-falha manual para a conta do Cosmos
+## <a id="manual-failover"></a>Ativar a ativação pós-falha manual para a sua conta do Cosmos do Azure
 
 ### <a id="enable-manual-failover-via-portal"></a>Portal do Azure
 
-1. Navegue para a sua conta do Azure Cosmos DB e abra o menu **"Replicar dados globalmente"**.
+1. Navegue para a sua conta do Cosmos do Azure e abra o **"Replicar dados globalmente"** menu.
 
 2. Clique no botão **"Ativação Pós-falha Manual"** na parte superior do menu.
 
@@ -223,14 +223,14 @@ O código JSON seguinte é um modelo de exemplo do Resource Manager. Pode utiliz
 ```bash
 # Given your account currently has regions with priority like so: 'eastus=0 westus=1'
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
 ```
 
-## <a name="enable-automatic-failover-for-your-cosmos-account"></a>Ativar a ativação pós-falha automática para a conta do Cosmos
+## <a id="automatic-failover"></a>Ativar a ativação pós-falha automática para a sua conta do Cosmos do Azure
 
 ### <a id="enable-automatic-failover-via-portal"></a>Portal do Azure
 
-1. Na sua conta do Azure Cosmos DB, abra o painel **"Replicar dados globalmente"**. 
+1. A partir da sua conta do Cosmos do Azure, abra a **"Replicar dados globalmente"** painel. 
 
 2. Clique no botão **"Ativação Pós-falha Automática"** na parte superior do painel.
 
@@ -248,20 +248,20 @@ Também pode definir as prioridades de ativação pós-falha neste menu.
 
 ```bash
 # Enable automatic failover on account creation
-az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Enable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover true
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover true
 
 # Disable automatic failover on an existing account
-az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Group name> --enable-automatic-failover false
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-cosmos-account"></a>Definir prioridades de ativação pós-falha para a conta do Cosmos
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Definir prioridades de ativação pós-falha para a sua conta do Cosmos do Azure
 
 ### <a id="set-failover-priorities-via-portal"></a>Portal do Azure
 
-1. Na sua conta do Azure Cosmos DB, abra o painel **"Replicar dados globalmente"**. 
+1. A partir da sua conta do Cosmos do Azure, abra a **"Replicar dados globalmente"** painel. 
 
 2. Clique no botão **"Ativação Pós-falha Automática"** na parte superior do painel.
 
@@ -280,12 +280,12 @@ Não é possível modificar a região de escrita neste menu. Para alterar a regi
 ### <a id="set-failover-priorities-via-cli"></a>CLI do Azure
 
 ```bash
-az cosmosdb failover-priority-change --name <Cosmos DB Account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
+az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Pode saber mais sobre a gestão de conflitos de dados e níveis de consistência no Cosmos DB com os documentos seguintes:
+Pode saber sobre a gestão de conflitos de dados e níveis de consistência no Azure Cosmos DB com os documentos seguintes:
 
 * [Como gerir a consistência](how-to-manage-consistency.md)
 * [Como gerir conflitos entre regiões](how-to-manage-conflicts.md)

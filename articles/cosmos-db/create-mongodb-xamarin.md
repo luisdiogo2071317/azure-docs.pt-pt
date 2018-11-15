@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: e002f99cc16721b78d85284105ce22ee7d1eb9a3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: HT
+ms.openlocfilehash: 45d299e2d5e1f9c9c454e6b2f77df7cdf8295e5f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574832"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568714"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Início rápido: criar uma aplicação Xamarin.Forms da API MongoDB com .NET e o portal do Azure
 
@@ -79,7 +79,7 @@ Se ainda não pretende utilizar o git, também pode [transferir o projeto como u
 
 Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string).
 
-Os seguintes fragmentos são todos retirados da classe `MongoService`, que se encontra no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
+Os seguintes fragmentos são retirados do `MongoService` classe, encontrada no seguinte caminho: src/TaskList.Core/Services/MongoService.cs.
 
 * Inicializar o cliente Mongo.
     ```cs
@@ -190,7 +190,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a criar uma conta do Azure Cosmos DB e a executar uma aplicação Xamarin.Forms com a API do MongoDB. Agora, pode importar dados adicionais à sua conta do Cosmos DB.
 

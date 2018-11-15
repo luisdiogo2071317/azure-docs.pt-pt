@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
-ms.translationtype: HT
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702411"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615233"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um Balanceador de Carga Standard para fazer o balanceamento de carga das VMs com o portal do Azure
 
@@ -77,7 +77,7 @@ Nesta secção, vai criar uma rede virtual, duas máquinas virtuais para o conju
 3. Selecione **DS1_V2** para o tamanho da máquina virtual e clique em **Selecionar**.
 4. Introduza estes valores para as definições de VM:
     1. Certifique-se de que *myVNet* está selecionado para a rede virtual e que *myBackendSubnet* está selecionado como sub-rede.
-    2. Para o **Endereço IP público**, no painel **Criar endereço IP público**, selecione **Standard** e, em seguida, selecione **OK**.
+    2. Para **Endereço IP público**, no painel **Criar endereço IP público**, selecione **Standard** e, em seguida, selecione **OK**.
     3. Para o **Grupo de Segurança de Rede**, selecione **Avançado** e, em seguida, faça o seguinte:
         1. Selecione *Grupo de segurança de rede (firewall) e, na página **Escolher grupo de segurança de rede**, selecione **Criar novo**. 
         2. Na página **Criar grupo de segurança de rede**, para **Nome**, introduza *myNetworkSecurityGroup* e, em seguida, selecione **OK**.
@@ -145,6 +145,7 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
     - *myHealthProbe* - no nome da sonda de estado de funcionamento.
     - **HTTP** - no tipo de protocolo.
     - *80* - no número da porta.
+    - *Healthprobe. aspx* – para o caminho do URI. Pode substituir este valor com quaisquer outro URI ou mantenha o valor do caminho predefinido de **"\\"** para obter o URI predefinido.
     - *15* - no número do **Intervalo**, em segundos, entre tentativas da sonda.
     - *2* - no número do **Limiar de mau estado de funcionamento** ou das falhas consecutivas da sonda que têm de ocorrer para que uma VM seja considerada como estando em mau estado de funcionamento.
 4. Clique em **OK**.
@@ -179,7 +180,7 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de introdução, criou um Balanceador de Carga Standard, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 

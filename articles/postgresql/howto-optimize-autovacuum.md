@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 91f24bf90f3e1a8a0c383a5820c6816748090807
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3f35779337082b7280398bd13ef870c74f3ec082
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629260"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685995"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Otimizando autovacuum na base de dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como otimizar efetivamente autovacuum na base de dados do Azure para PostgreSQL.
@@ -50,7 +50,7 @@ autovacuum_vacuum_cost_limit|Especifica o valor de limite de custo que será uti
 autovacuum_vacuum_cost_delay|Especifica o valor de atraso de custo que será utilizado em operações de ASPIRADOR automática. Se não for especificado -1, será utilizado o valor de regular vacuum_cost_delay. O valor predefinido é 20 milissegundos. Este parâmetro só pode ser definido no ficheiro de postgresql.conf ou na linha de comandos de servidor. A definição pode ser substituída para tabelas individuais ao alterar os parâmetros de armazenamento de tabela.|20 ms
 autovacuum_nap_time|Especifica que o atraso mínimo entre autovacuum é executado em qualquer determinada base de dados. Em cada rodada, o daemon examina o banco de dados e emite comandos ASPIRADOR e analisar, conforme necessário para tabelas no banco de dados. O atraso é medido em segundos, e a predefinição é (1 min) de um minuto. Este parâmetro só pode ser definido no ficheiro de postgresql.conf ou na linha de comandos de servidor.|15 s
 autovacuum_max_workers|Especifica o número máximo de processos de autovacuum (que não seja o Iniciador do autovacuum) que podem ser executadas ao mesmo tempo. A predefinição é três. Este parâmetro só pode ser definido no início do servidor.|3
-As configurações acima podem ser atualizadas com o portal do Azure ou a CLI do Azure.
+As configurações acima podem ser substituídas para tabelas individuais ao alterar os parâmetros de armazenamento de tabela.  
 
 ## <a name="autovacuum-cost"></a>Custo de Autovacuum
 Seguem-se a "custos" de execução de uma operação de aspirador:

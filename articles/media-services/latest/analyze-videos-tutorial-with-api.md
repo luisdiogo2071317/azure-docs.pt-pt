@@ -1,5 +1,5 @@
 ---
-title: Analisar vídeos com os Serviços de Multimédia do Azure | Microsoft Docs
+title: Analisar vídeos com os serviços de multimédia do Azure | Documentos da Microsoft
 description: Siga os passos deste tutorial para analisar vídeos com os Serviços de Multimédia do Microsoft Azure.
 services: media-services
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985714"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612769"
 ---
-# <a name="tutorial-analyze-videos-with-azure-media-services"></a>Tutorial: analisar vídeos com os Serviços de Multimédia do Azure 
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>Tutorial: Analisar vídeos com os serviços de multimédia v3 com APIs
 
-Este tutorial mostra-lhe como analisar vídeos com os Serviços de Multimédia do Microsoft Azure. Existem muitos cenários em que pode querer obter mais informações sobre conteúdos de áudio ou vídeos gravados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem executar o processamento de voz em texto para converter gravações de suporte de clientes num catálogo pesquisável, com índices e dashboards. Em seguida, podem obter informações sobre a empresa, tal como uma lista de queixas comuns, origens dessas queixas, etc.
+Este tutorial mostra-lhe como analisar vídeos com os Serviços de Multimédia do Microsoft Azure. Existem muitos cenários em que pode querer obter mais informações sobre conteúdos de áudio ou vídeos gravados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem executar o processamento de voz em texto para converter gravações de suporte de clientes num catálogo pesquisável, com índices e dashboards. Em seguida, o atacante pode obter informações sobre a sua empresa, como uma lista de queixas comuns, fontes de tais reclamações e outras informações úteis.
 
 Este tutorial mostrar-lhe como:    
 
@@ -38,7 +38,14 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver o Visual Studio instalado, poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Se não tiver o Visual Studio instalado, poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
+
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).
+
+    Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia.
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -49,10 +56,6 @@ Clone o repositório do GitHub que contém o exemplo de .NET para o seu computad
  ```
 
 O exemplo está localizado na pasta [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -154,11 +157,11 @@ O ficheiro de saída para analisar vídeos chama-se insights.json. Este ficheiro
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado. Pode utilizar a ferramenta **CloudShell**.
+Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado. 
 
-No **CloudShell**, execute o seguinte comando:
+Execute o seguinte comando da CLI:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

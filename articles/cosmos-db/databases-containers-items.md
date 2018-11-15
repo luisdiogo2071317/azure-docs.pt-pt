@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 195686a924d784327c72bcd09a1a50a563e444de
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629219"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684863"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Trabalhar com bases de dados do Cosmos do Azure, contentores e itens
 
@@ -94,12 +94,10 @@ Um contentor do Cosmos do Azure suporta as seguintes operações através de qua
 | **Operação** | **CLI do Azure** | **API DE SQL** | **API para Cassandra** | **API do MongoDB** | **API do gremlin** | **API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Enumerar contentores numa base de dados | Sim* | Sim | Sim | Sim | ND | ND |
-| Ler um contentor | Sim* | Sim | Sim | Sim | ND | ND |
-| Criar novo contentor | Sim* | Sim | Sim | Sim | ND | ND |
-| Atualização do contentor | Sim* | Sim | Sim | Sim | ND | ND |
-| Eliminar contentor | Sim* | Sim | Sim | Sim | ND | ND |
-
-\* Estará disponível em Janeiro de 2019.
+| Ler um contentor | Sim | Sim | Sim | Sim | ND | ND |
+| Criar novo contentor | Sim | Sim | Sim | Sim | ND | ND |
+| Atualização do contentor | Sim | Sim | Sim | Sim | ND | ND |
+| Eliminar contentor | Sim | Sim | Sim | Sim | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Itens do Cosmos do Azure
 

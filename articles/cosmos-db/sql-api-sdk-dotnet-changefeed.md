@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740965"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685451"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ ms.locfileid: "50740965"
   * IChangeFeedObserver.ProcessChangesAsync agora demora CancellationToken.
   * IRemainingWorkEstimator - o avaliador de trabalho restantes pode ser utilizado em separado do processador.
   * Novos pontos de extensibilidade:
-    * IParitionLoadBalancingStrategy - para personalizados-balanceamento de carga de partições entre instâncias do processador.
+    * IPartitionLoadBalancingStrategy - para personalizados-balanceamento de carga de partições entre instâncias do processador.
     * ILease, ILeaseManager - para a gestão da concessão personalizado.
     * IPartitionProcessor - para que as alterações do processamento personalizado numa partição.
 * Registo - utiliza [LibLog](https://github.com/damianh/LibLog) biblioteca.

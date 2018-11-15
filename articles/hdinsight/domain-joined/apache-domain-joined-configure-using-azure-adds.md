@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: f0727d7ad415c718c01361cba8e8822a43298f66
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 8b92191b60f8eb7e3c63f465926b434e205ef1b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300732"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684754"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar um cluster do HDInsight com o Enterprise Security Package com o Azure Active Directory Domain Services
 
@@ -22,7 +22,7 @@ Os clusters de pacote de segurança da empresa (ESP) fornecem acesso de vários 
 Neste artigo, irá aprender a configurar um cluster do HDInsight com ESP, utilizando o Azure Active Directory Domain Services (Azure AD-DS).
 
 >[!NOTE]
->O ESP é GA no HDI 3.6 para Spark, interativo e Hadoop. O ESP para tipos de clusters de HBase e o Kafka está em pré-visualização.
+>O ESP é a disponibilidade geral no HDI 3.6 para Spark, interativo e Apache Hadoop. O ESP para tipos de clusters de HBase e o Kafka está em pré-visualização.
 
 ## <a name="enable-azure-ad-ds"></a>Ativar o Azure AD DS
 
@@ -66,7 +66,7 @@ Depois de a identidade gerida é criada e tendo em conta a função correta, o a
 ## <a name="networking-considerations"></a>Considerações de redes
 
 > [!NOTE]
-> Azure AD DS tem de ser implementada numa vNET do Azure Resource Manager (ARM) com base. Redes virtuais clássicas não são suportadas para o Azure AD-DS. Consulte a [ativar o Azure Active Directory Domain Services no portal do Azure](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-network) para obter mais detalhes.
+> Azure AD DS tem de ser implementada numa vNET do Azure Resource Manager (ARM) com base. Redes virtuais clássicas não são suportadas para o Azure AD-DS. Consulte a [ativar o Azure Active Directory Domain Services no portal do Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) para obter mais detalhes.
 
 Depois de ativar o Azure AD-DS, um servidor local do serviço de nomes de domínio (DNS) é executado em máquinas de virtuais AD (VMs). Configure o Azure AD DS rede Virtual (VNET) para utilizar estes servidores DNS personalizados. Para localizar os endereços IP corretos, selecione **propriedades** sob a **gerir** categoria e examinar os endereços IP listados abaixo **endereço IP na rede Virtual**.
 

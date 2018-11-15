@@ -1,6 +1,6 @@
 ---
-title: O Apache Sqoop com o Hadoop - Azure HDInsight
-description: Saiba como utilizar o Apache Sqoop para importar e exportar entre o Hadoop no HDInsight e uma base de dados do SQL do Azure.
+title: O Apache Sqoop com o Apache Hadoop - Azure HDInsight
+description: Saiba como utilizar o Apache Sqoop para importar e exportar entre o Apache Hadoop no HDInsight e uma base de dados do SQL do Azure.
 keywords: sqoop do hadoop, sqoop
 services: hdinsight
 author: hrasheed-msft
@@ -10,18 +10,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: 6aa5627a0b5e8cb29f0ec68b948084a0bed30529
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb6ad52f008ddeec5d3ecd3b0fdbc80dbf627101
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259450"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685927"
 ---
-# <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Utilizar o Apache Sqoop para importar e exportar dados entre o Hadoop no HDInsight e a base de dados SQL
+# <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>Utilizar o Apache Sqoop para importar e exportar dados entre o Apache Hadoop no HDInsight e a base de dados SQL
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como utilizar o Apache Sqoop para importar e exportar entre um cluster do Hadoop no HDInsight do Azure e base de dados de base de dados do Azure SQL ou o Microsoft SQL Server. Os passos neste documentam uso o `sqoop` comando diretamente a partir do nó principal do cluster de Hadoop. Utilizar o SSH para ligar ao nó principal e execute os comandos neste documento.
+Saiba como utilizar o Apache Sqoop para importar e exportar entre um cluster do Apache Hadoop no HDInsight do Azure e base de dados de base de dados do Azure SQL ou o Microsoft SQL Server. Os passos neste documentam uso o `sqoop` comando diretamente a partir do nó principal do cluster de Hadoop. Utilizar o SSH para ligar ao nó principal e execute os comandos neste documento.
 
 > [!IMPORTANT]
 > Os passos neste documento funcionam apenas com clusters do HDInsight que utilizam o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
@@ -170,7 +170,6 @@ Agora que aprendeu a utilizar o Sqoop. Para saber mais, consulte:
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

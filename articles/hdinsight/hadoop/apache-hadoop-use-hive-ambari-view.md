@@ -1,5 +1,5 @@
 ---
-title: Utilizar as vistas Ambari para trabalhar com o Hive no HDInsight (Hadoop) - Azure
+title: Utilizar vistas do Apache Ambari para trabalhar com o Hive no HDInsight (Apache Hadoop) - Azure
 description: Saiba como utilizar a vista de ramo de registo de mensagens em fila do seu navegador da web para submeter consultas do Hive. A vista do Hive é parte da IU da Web do Ambari fornecido com o seu cluster do HDInsight baseado em Linux.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c481889eda53ff46a8899676da2529fe4165dfd5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233161"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632752"
 ---
-# <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Utilizar a vista Ambari Hive com o Hadoop no HDInsight
+# <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilize a vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Saiba como executar consultas do Hive com o modo de exibição do Ambari Hive. A vista do Hive permite-lhe criar, otimizar e executar consultas do Hive a partir do seu navegador da web.
+Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do Hive permite-lhe criar, otimizar e executar consultas do Hive a partir do seu navegador da web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um Hadoop baseado em Linux em clusters do HDInsight versão 3.4 ou superior.
+* Um baseado em Linux Apache Hadoop em clusters do HDInsight versão 3.4 ou superior.
 
   > [!IMPORTANT]
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).

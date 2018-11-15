@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037962"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567456"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutorial: encomendar um disco do Azure Data Box Disk (Pré-visualização)
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 > [!IMPORTANT]
 > - O Data Box Disk está em pré-visualização. Reveja os [Termos de serviço do Azure para pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de encomendar e implementar esta solução. 
-> - Durante a pré-visualização, o Data Box Disk pode ser enviado aos clientes nos EUA, na Europa Ocidental e Europa do Norte, no Canadá e na Austrália. Para obter mais informações, aceda a [Disponibilidade de região](data-box-disk-overview.md#region-availability).
+> - Durante a pré-visualização, disco de caixa de dados pode ser enviado aos clientes nos E.U.A., oeste e Europa do Norte, Canadá e Austrália. Para obter mais informações, aceda a [Disponibilidade de região](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Inscrever-se
 
@@ -77,7 +77,7 @@ Execute os seguintes passos no [portal do Azure](https://aka.ms/azuredataboxfrom
     |Região do Azure de destino| Selecione uma região para a sua conta de armazenamento.<br> Atualmente, são suportadas contas de armazenamento em todas as regiões nos EUA, na Europa Ocidental e Europa do Norte, no Canadá e na Austrália. |
     |Contas de armazenamento|Com base na região do Azure especificada, selecione na lista filtrada uma conta de armazenamento existente. <br>Também pode criar uma nova conta v1 para Fins gerais ou uma conta v2 para Fins Gerais. |
     |Tamanho de dados estimado em TB| Introduza uma estimativa em TB. <br>Com base no tamanho dos dados, a Microsoft envia um número adequado de SSDs de 8 TB (capacidade utilizável de 7 TB). <br>A capacidade máxima utilizável de 5 discos é 35 TB. |
-    |Chave de acesso de disco| Indique a chave de acesso do disco, se assinalar **Utilizar a chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Indique uma chave alfanumérica de 12 a 32 carateres com, pelo menos, um caráter numérico e um especial. Os carateres especiais permitidos são `@?_+`. <br> Pode optar por ignorar esta opção e utilizar a chave de acesso gerada pelo Azure para desbloquear os discos.|
+    |Chave de acesso de disco| Indique a chave de acesso do disco, se assinalar **Utilizar a chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Forneça uma chave de alfanuméricos de 12 a 32 carateres que tenha pelo menos numérico e um caráter especial. Os carateres especiais permitidos são `@?_+`. <br> Pode optar por ignorar esta opção e utilizar a chave de acesso gerada pelo Azure para desbloquear os discos.|
 
 13. Clique em **Seguinte**. 
 
@@ -124,7 +124,7 @@ Só pode cancelar quando os discos tiverem sido encomendados e a encomenda estiv
 Para eliminar uma encomenda cancelada, aceda a **Descrição Geral** e clique em **Eliminar** na barra de comandos. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 

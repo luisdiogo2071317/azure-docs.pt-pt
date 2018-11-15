@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/30/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 87c0ab7ea0bbc5a98bcb6c0d993e3f7f997f3627
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.openlocfilehash: c9b5e33f7994209bf1530200cf14d812fa1cf67d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747274"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299151"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Encaminhar eventos personalizados para o armazenamento de Filas do Azure com a CLI do Azure e o Event Grid
 
@@ -22,6 +22,8 @@ O Azure Event Grid é um serviço de eventos para a cloud. O armazenamento de Fi
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="install-preview-feature"></a>Instale a funcionalidade de pré-visualização
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -129,7 +131,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

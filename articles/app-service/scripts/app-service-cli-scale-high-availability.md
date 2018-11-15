@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure – Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade | Microsoft Docs
-description: Exemplo do Script da CLI do Azure – Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade
+title: Exemplo do Script da CLI do Azure - dimensionar uma aplicação web em todo o mundo com uma arquitetura de elevada disponibilidade | Documentos da Microsoft
+description: Exemplo do Script da CLI do Azure - dimensionar uma aplicação web em todo o mundo com uma arquitetura de elevada disponibilidade
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: ae2aaaa35d119b6e4691257333547cb1a3a21e86
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 4403e0081df3120c889b93d642670895252ac47e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968487"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567972"
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Dimensionar uma aplicação Web para todo o mundo com uma arquitetura de elevada disponibilidade
 
@@ -51,7 +51,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma a
 | [`az network traffic-manager profile create`](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create) | Cria um perfil do Gestor de Tráfego do Azure. |
 | [`az network traffic-manager endpoint create`](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create) | Adiciona um ponto final a um Perfil do Gestor de Tráfego do Azure. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a216f3ddd89ad92dbbae617c51d5fc9c478c0c03
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431443"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684822"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Separador de SKUs de módulo do IoT Edge
 
@@ -90,7 +90,7 @@ A tabela seguinte descreve a finalidade, conteúda e formatação para os campos
 
 ## <a name="sku-content"></a>Conteúdo do SKU
 
-Em imagens do módulo de borda, forneça as informações necessárias carregar o módulo do IoT Edge.
+Sob **imagens de módulo Edge**, forneça as informações necessárias carregar o módulo do IoT Edge.
 
 Envie-no acesso ao seu [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) que contém o módulo de imagem, para que possamos carregá-lo e certificá-lo do IoT Edge. Após a publicação, o módulo do IoT Edge será copiado e distribuídos a utilizar um registo de contentor público alojado pelo Azure Marketplace.
 

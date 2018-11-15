@@ -1,5 +1,5 @@
 ---
-title: Uma introdução à segurança do Hadoop com o Enterprise Security Package
+title: Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
 description: Saiba como o Enterprise Security Package suporta os quatro pilares da segurança corporativa.
 services: hdinsight
 ms.service: hdinsight
@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a1b4565d4875b60ce36d74f8c99e4c7d79999c36
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578268"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632004"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Hadoop com o Enterprise Security Package
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
 
-No passado, o Azure HDInsight suportado apenas um único utilizador: administrador local. Isto resultava muito bem para equipas ou departamentos de aplicações mais pequenos. Como cargas de trabalho baseadas no Hadoop ganhavam mais popularidade no setor empresarial, a necessidade para suportam capacidades de nível empresarial, como a autenticação baseada no Active Directory, multiusuário e controlo de acesso baseado em funções se tornou cada vez mais importante. 
+No passado, o Azure HDInsight suportado apenas um único utilizador: administrador local. Isto resultava muito bem para equipas ou departamentos de aplicações mais pequenos. Como cargas de trabalho baseadas em Apache Hadoop ganhavam mais popularidade no setor empresarial, a necessidade para suportam capacidades de nível empresarial, como a autenticação baseada no Active Directory, multiusuário e controlo de acesso baseado em funções se tornou cada vez mais importante. 
 
 Pode criar um cluster do HDInsight com o pacote de segurança empresarial (ESP), que está associado a um domínio do Active Directory. Em seguida, pode configurar uma lista de funcionários da empresa que podem autenticar através do Azure Active Directory para iniciar sessão no cluster do HDInsight. Ninguém de fora da empresa pode iniciar sessão ou aceder ao cluster do HDInsight. 
 
-O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para a segurança do Hive utilizando [Apache Ranger](http://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
+O administrador da empresa, pode configurar o controlo de acesso baseado em funções (RBAC) para o Apache Hive security utilizando [Apache Ranger](http://hortonworks.com/apache/ranger/). Configurar o RBAC restringe o acesso a dados a apenas o que é necessário. Por fim, o administrador pode auditar o acesso a dados por funcionários e quaisquer alterações efetuadas às políticas de controlo de acesso. O administrador, em seguida, pode obter um alto grau de governação de recursos da sua empresa.
 
 > [!NOTE]
 > Oozie está agora ativada nos clusters do ESP. Para aceder à IU da web de Oozie, devem ativar os utilizadores [túnel](../hdinsight-linux-ambari-ssh-tunnel.md).

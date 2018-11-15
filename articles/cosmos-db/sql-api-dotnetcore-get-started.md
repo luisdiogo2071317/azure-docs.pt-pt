@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 2cbfa3662f6db7dc44d142d5fa13275aed359be7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: ca2f855166d9a36f600889059368ebeb313e789c
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740404"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636293"
 ---
 # <a name="tutorial-build-a-net-core-app-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação .Net Core para gerir os dados da API SQL do Azure Cosmos DB
 
@@ -190,7 +190,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 }
 ```
 
-Pode criar a sua [base de dados](sql-api-resources.md#databases) do Azure Cosmos DB através do método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) da classe **DocumentClient**. Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
+Pode criar a sua [base de dados](databases-containers-items.md#azure-cosmos-databases) do Azure Cosmos DB através do método [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) da classe **DocumentClient**. Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
 
 Copie e cole o seguinte código no seu método **GetStartedDemo**, por baixo da criação de cliente. Esta ação cria uma base de dados designada *FamilyDB*.
 
@@ -212,7 +212,7 @@ Parabéns! Criou uma base de dados do Azure Cosmos DB com êxito.
 > [!WARNING]
 > O **CreateDocumentCollectionAsync** cria uma nova coleção com débito reservado, o que causa repercussões sobre os preços. Para obter mais detalhes, visite a nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-Pode criar uma [coleção](sql-api-resources.md#collections) utilizando o método [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) da classe **DocumentClient**. Uma coleção é um contentor de documentos JSON e a lógica da aplicação associada JavaScript.
+Uma coleção pode ser criada utilizando o [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) método o **DocumentClient** classe. Uma coleção é um contentor de documentos JSON e a lógica da aplicação associada JavaScript.
 
 Copie e cole o seguinte código no seu método **GetStartedDemo**, por baixo da criação da base de dados. Este código cria uma coleção de documentos com o nome *FamilyCollection_oa*.
 
@@ -231,7 +231,7 @@ Parabéns! Criou uma coleção de documentos do Azure Cosmos DB com êxito.
 
 ## <a id="CreateDoc"></a>Passo 6: Criar documentos JSON
 
-Pode criar um [documento](sql-api-resources.md#documents) utilizando o método [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) da classe **DocumentClient**. Os documentos são conteúdos JSON (arbitrários) definidos pelo utilizador. Podemos agora inserir um ou mais documentos. Se já tiver dados que pretende armazenar na sua base de dados, pode utilizar a [ferramenta de Migração de Dados](import-data.md) do Azure Cosmos DB.
+Um documento pode ser criado utilizando o [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) método o **DocumentClient** classe. Os documentos são conteúdos JSON (arbitrários) definidos pelo utilizador. Podemos agora inserir um ou mais documentos. Se já tiver dados que pretende armazenar na sua base de dados, pode utilizar a [ferramenta de Migração de Dados](import-data.md) do Azure Cosmos DB.
 
 Em primeiro lugar, irá criar uma classe **Família** que representa objetos armazenados no Azure Cosmos DB. Também irá criar subclasses **Principal**, **Subordinado**, **Animal de estimação** e **Endereço** utilizadas dentro da **Família**. Os documentos têm de ter uma propriedade de **Id** serializado como **id** no JSON. Crie estas classes ao adicionar as seguintes subclasses internas a seguir ao método **GetStartedDemo**.
 
@@ -584,7 +584,7 @@ Para criar a solução GetStarted que contém todos os exemplos deste artigo, de
 
 Para restaurar as referências para a API SQL do SDK .NET do Azure Cosmos DB no Visual Studio, clique com o botão direito do rato na solução **GetStarted** no Explorador de Soluções e, em seguida, selecione **Ativar Restauro do Pacote NuGet**. Em seguida, no ficheiro Program.cs, atualize os valores EndpointUrl e AuthorizationKey, conforme descrito em [Ligar a uma conta do Azure Cosmos DB](#Connect).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a criar uma aplicação .Net Core para gerir dados da API SQL do Azure Cosmos DB. Pode agora avançar para o artigo seguinte:
 

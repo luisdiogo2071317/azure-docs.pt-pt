@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 100ea0147bf56242ba15bee39e4bda1b65af27da
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 31f4c64296c180ac441f2fb691514a4b9fb35a57
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390096"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687202"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
 
@@ -130,7 +130,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 6. Sobre o **SharePoint no local configuração** secção, clique em **configurar o SharePoint no local** para abrir **configurar início de sessão** janela. Cópia a **ID de entidade de SAML** partir o **secção de referência rápida.** Para **único URL de início de sessão no serviço**, utilizar o valor seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
     > [!Note]
-    > _my_directory_id_ é a id de inquilino da subscrição do Azure Ad.
+    > _my_directory_id_ é o id de inquilino da subscrição do Azure Ad.
 
     ![Configuração do SharePoint no local](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 

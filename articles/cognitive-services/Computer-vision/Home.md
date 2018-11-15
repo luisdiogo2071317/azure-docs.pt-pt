@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
-ms.translationtype: HT
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250619"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634333"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -54,6 +54,10 @@ Também pode [reconhecer texto impresso e manuscrito](concept-recognizing-text.m
 
 Pode utilizar a Imagem Digitalizada para [detetar conteúdo para adultos e profano](concept-detecting-adult-content.md) numa imagem, classificar a probabilidade de a imagem conter conteúdo para adultos ou profano e gerar uma pontuação de confiança para ambos. O filtro para a deteção de conteúdo para adultos ou profano pode ser definido numa escala móvel para se adaptar às suas preferências.
 
+## <a name="using-containers"></a>Através de contentores
+
+[Utilize contentores de imagem digitalizada](computer-vision-how-to-install-containers.md) reconhecer texto impresso e manuscritos localmente, mediante a instalação de um contentor Docker padronizado mais perto aos seus dados.
+
 ## <a name="image-requirements"></a>Requisitos de imagem
 
 A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
@@ -63,7 +67,7 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 - As dimensões da imagem têm de ser superiores a 50 x 50 píxeis  
   Para OCR, as dimensões da imagem têm de ser entre 50 x 50 e 4200 x 4200 píxeis
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Comece a utilizar a Imagem Digitalizada com um dos nossos manuais de início rápido:
 

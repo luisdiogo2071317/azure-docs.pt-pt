@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d4f44deac1e8833af064e0abea4e65c5ca2b2f93
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314252"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686199"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Resolver problemas de autenticação de pass-through do Azure Active Directory
 
@@ -125,7 +125,7 @@ Para erros relacionados com a instalação, verifique os registos do Azure AD Co
 
 Para erros relacionados com o agente de autenticação, abra a aplicação de Visualizador de eventos no servidor e verifique sob **aplicação e serviço Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
-Análises detalhadas, ative o registo de "Session". Não execute o agente de autenticação com este registo ativado durante operações normais; Utilize apenas para resolução de problemas. Os conteúdos dos registos são visíveis apenas após o registo está desativado novamente.
+Análises detalhadas, ative o registo de "Session" (botão direito do mouse no aplicativo Visualizador de eventos para encontrar esta opção). Não execute o agente de autenticação com este registo ativado durante operações normais; Utilize apenas para resolução de problemas. Os conteúdos dos registos são visíveis apenas após o registo está desativado novamente.
 
 ### <a name="detailed-trace-logs"></a>Logs de rastreamento detalhadas
 

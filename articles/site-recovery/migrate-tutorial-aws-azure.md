@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252144"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567099"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -241,7 +241,10 @@ Execute uma ativação pós-falha real para as instâncias do EC2, para migrá-l
 1. Em **Itens protegidos** > **Itens replicados**, selecione instâncias do AWS e seguidamente selecione **Ativação Pós-falha**.
 2. Em **Ativação Pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Selecione o ponto de recuperação mais recente e inicie a recuperação pós-falha. Pode seguir o progresso da ativação pós-falha na página **Trabalhos**.
 1. Assegure-se de que a VM aparece em **Itens replicados**.
-2. Clique com o botão direito do rato em cada VM, e selecione **Concluir a Migração**. Desta forma, o processo de migração é concluído, a replicação da VM do AWS é parada e a faturação do Site Recovery para a VM também é parada.
+2. Clique com o botão direito do rato em cada VM, e selecione **Concluir a Migração**. Isso faz o seguinte:
+
+    - Desta forma, o processo de migração é concluído, a replicação da VM do AWS é parada e a faturação do Site Recovery para a VM também é parada.
+    - Este passo limpa os dados de replicação. Não elimina as VMs migradas. 
 
     ![Concluir a migração](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
@@ -249,7 +252,7 @@ Execute uma ativação pós-falha real para as instâncias do EC2, para migrá-l
 > *Não cancele uma ativação pós-falha que está em curso*. Antes de iniciar a ativação pós-falha, a replicação de VM é interrompida. Se cancelar uma ativação pós-falha que está em curso, a mesma parará, mas a VM não será replicada outra vez.  
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a migrar instâncias do AWS EC2 para VMs do Azure. Para saber mais sobre as VMs do Azure, avance para os tutoriais relativos às VMs do Windows.
 

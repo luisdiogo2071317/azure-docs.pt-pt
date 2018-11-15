@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914197"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633466"
 ---
 # <a name="what-is-the-azure-face-api"></a>O que é o API Face do Azure?
 
@@ -64,6 +64,10 @@ Depois de ter sido criada e preparada uma base de dados, pode fazer a identifica
 
 Para obter mais informações sobre a identificação de pessoas, veja [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (API Identificação).
 
+## <a name="use-containers"></a>Utilize contentores
+
+[Usar o contêiner de Face](face-how-to-install-containers.md) para detectar, reconhecer e identifique rostos, ao instalar um contentor Docker padronizado mais perto aos seus dados.
+
 ## <a name="sample-apps"></a>Exemplos de aplicações
 
 Os exemplos de aplicações seguintes mostram algumas das formas como a API Face pode ser utilizada.
@@ -71,7 +75,7 @@ Os exemplos de aplicações seguintes mostram algumas das formas como a API Face
 - [API Face da Microsoft: biblioteca de cliente do Windows e exemplo](https://github.com/Microsoft/Cognitive-Face-Windows) - aplicação WPF que demonstra vários cenários de deteção, análise e identificação facial.
 - [Aplicação FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes) - aplicação da Plataforma Universal do Windows (UWP) que utiliza a identificação facial juntamente com voz, Cortana, tinta e câmera num cenário de partilha de notas familiar.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Siga um início rápido para implementar um cenário simples de deteção facial em código.
 - [Início Rápido: Utilizar o SDK .NET com C# para detetar rostos numa imagem](quickstarts/csharp.md) (outras linguagens disponíveis)

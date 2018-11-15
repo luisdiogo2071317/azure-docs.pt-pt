@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d99f077449529fb4a4a7f124fe1c0263d4113dee
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 49d0840ff7a41ed48151b65e1351628d32d46d24
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363450"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623253"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início Rápido: Configurar localizações com nome no Azure Active Directory
 
@@ -58,12 +58,10 @@ Para concluir este guia de início rápido, necessita de:
     
     ![Novo painel](./media/quickstart-configure-named-locations/61.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações, consulte:
 
-- [Acesso condicional no Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
-
+- [Acesso do Azure AD condicional](../active-directory-conditional-access-azure-portal.md).
 - [Condições de localização no acesso condicional do Microsoft Azure AD](../conditional-access/location-condition.md)
-
-- [Relatório de inícios de sessão de risco no portal do Microsoft Azure AD](concept-risky-sign-ins.md).  
+- [Relatório de inícios de sessão arriscados](concept-risky-sign-ins.md).  

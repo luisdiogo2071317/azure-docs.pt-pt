@@ -1,5 +1,5 @@
 ---
-title: O Hive com ferramentas do Data Lake (Hadoop) para o Visual Studio - Azure HDInsight
+title: Apache Hive com ferramentas do Data Lake (Apache Hadoop) para o Visual Studio - Azure HDInsight
 description: Saiba como utilizar as ferramentas do Data Lake para Visual Studio para executar consultas do Apache Hive com o Apache Hadoop no HDInsight do Azure.
 services: hdinsight
 author: hrasheed-msft
@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cc2012e40fad9e1343804149cdffaa3a1ab9db4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011090"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634112"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Hive com as ferramentas do Data Lake para Visual Studio
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Executar consultas do Apache Hive com as ferramentas do Data Lake para Visual Studio
 
-Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consultar Apache Hive. As ferramentas do Data Lake permitem-lhe facilmente criar, submeter e monitorizar consultas do Hive ao Hadoop no HDInsight do Azure.
+Saiba como utilizar as ferramentas do Data Lake para Visual Studio para consultar Apache Hive. As ferramentas do Data Lake permitem-lhe facilmente criar, submeter e monitorizar consultas do Hive para Apache Hadoop no HDInsight do Azure.
 
 ## <a id="prereq"></a>Pré-requisitos
 
-* Um cluster do Azure HDInsight (Hadoop no HDInsight)
+* Um cluster do Azure HDInsight (Apache Hadoop no HDInsight)
 
   > [!IMPORTANT]
   > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).

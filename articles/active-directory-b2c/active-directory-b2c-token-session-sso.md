@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012450"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636905"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Token, sessão e configuração de início de sessão única no Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Esta funcionalidade dá-lhe um controlo detalhado, por um [base por política](a
 - Formatos de importantes declarações nos tokens de segurança emitidos pelo Azure AD B2C.
 - Início de sessão único (SSO) o comportamento em várias aplicações e políticas no seu inquilino do Azure AD B2C.
 
-Para as políticas incorporadas, pode utilizar esta funcionalidade no seu diretório do Azure AD B2C da seguinte forma:
+Pode utilizar esta funcionalidade em qualquer tipo de política, mas neste exemplo mostram como utilizar a funcionalidade com uma política de inscrição ou início de sessão. Para as políticas incorporadas, pode utilizar esta funcionalidade no seu diretório do Azure AD B2C da seguinte forma:
 
-1. Clique em **políticas de inscrição ou início de sessão**. * Nota: Pode utilizar esta funcionalidade em qualquer tipo de política, não apenas nos * * as políticas de inscrição ou início de sessão ***.
+1. Clique em **políticas de inscrição ou início de sessão**.
 2. Abra uma política ao clicar no mesmo. Por exemplo, clique em **B2C_1_SiUpIn**.
 3. Clique em **editar** na parte superior do menu.
 4. Clique em **Token, sessão e configuração de início de sessão única**.

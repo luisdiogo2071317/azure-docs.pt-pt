@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956436"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286695"
 ---
 # <a name="about-v20"></a>Sobre o v2.0
 
@@ -32,7 +32,7 @@ A plataforma e o ponto final do v2.0 estão em pré-visualização e são contin
 
 A experiência do programador do portal do Azure foi significativamente atualizada para incluir todas as suas aplicações criadas com a ADAL ou a MSAL, e para melhorar a usabilidade.
 
-No passado, os programadores de aplicações que queriam suportar as contas pessoais e profissionais da Microsoft do Azure Active Directory (Azure AD) tinham de se integrar em dois sistemas separados. A plataforma e o ponto final do v2.0 oferece uma versão da API de autenticação que simplifica este processo. Permite inícios de sessão de ambos os tipos de contas, através de uma única integração. As aplicações que utilizam o ponto final do v2.0 também podem consumir as APIs REST do [Microsoft Graph API](https://graph.microsoft.io) ao utilizar ambos os tipos de contas.
+No passado, os programadores de aplicações que queriam suportar as contas pessoais e profissionais da Microsoft do Azure Active Directory (Azure AD) tinham de se integrar em dois sistemas separados. A plataforma e o ponto final do v2.0 oferece uma versão da API de autenticação que simplifica este processo. Permite inícios de sessão de ambos os tipos de contas, através de uma única integração. As aplicações que utilizam o ponto final do v2.0 também podem consumir as APIs REST do [Microsoft Graph API](https://developer.microsoft.com/graph) ao utilizar ambos os tipos de contas.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -56,10 +56,10 @@ Explore informações aprofundadas sobre o v2.0:
 
 * [Referência de protocolos do v2.0](active-directory-v2-protocols.md)
 * [Referência de tokens de acesso](access-tokens.md)
-* [`id_tokens` referência](id-tokens.md)
+* [Referência de tokens de ID](id-tokens.md)
 * [Referência de bibliotecas de autenticação d v2.0](reference-v2-libraries.md)
-* [Âmbitos e consentimento no v2.0](v2-permissions-and-consent.md)
-* [A Microsoft Graph API](https://graph.microsoft.io)
+* [Permissões e consentimento na v2.0](v2-permissions-and-consent.md)
+* [Microsoft Graph API](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > Se apenas tiver de iniciar sessão nas contas profissionais e escolares do Azure Active Directory, comece com o [Guia do programador do Azure AD](v1-overview.md). O ponto final do v2.0 destina-se a programadores que precisam explicitamente de iniciar sessão em contas pessoais da Microsoft.

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f344424c372f65cd8bfe5779cc65f0e866e58a11
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252552"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633976"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Como utilizar entradas alternativas
 
@@ -137,9 +137,11 @@ Vamos adicionar entradas alternativas para a primeira caixa de diálogo:
     3. Clique em submeter as alterações.
 4. Clique para selecionar 'denver' no painel esquerdo:
     1. Na entrada alternativa de adicionar, introduza "de denver'.
-    2. Introduza 'Previsão de austin'.
-        - A frase completa é realçada. Clique na frase, em seguida, x vermelho. Em seguida, selecione a austin e clique em cidade.
-        - Clique em submeter alterações
+    1. Introduza 'Previsão de austin'.
+        - É apresentada uma mensagem de erro: "Variações de texto tem de conter as mesmas entidades detetadas como o texto de entrada original."
+        - Clique na palavra 'austin'.
+        - Um pop-up é apresentada que lhe permite selecionar a entidade para 'austin'. Clique em **Cidade**.
+        - Clique em submeter as alterações.
     1. Clique em concluído que fará com que o modelo para voltar a preparar.
 
 ![](../media/tutorial8_altcities.png)

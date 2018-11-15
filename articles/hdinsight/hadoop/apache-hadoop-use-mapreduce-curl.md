@@ -1,6 +1,6 @@
 ---
-title: Utilizar o MapReduce e o Curl com o Hadoop no HDInsight - Azure
-description: Saiba como executar remotamente tarefas de MapReduce com o Hadoop no HDInsight com o Curl.
+title: Utilizar o MapReduce e o Curl com o Apache Hadoop no HDInsight - Azure
+description: Saiba como executar remotamente tarefas de MapReduce com o Apache Hadoop no HDInsight com o Curl.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 496b7dacdb30507fe5eb2d4d7c5602003a944269
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010903"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632299"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>Executar tarefas de MapReduce com o Hadoop no HDInsight com REST
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Executar tarefas de MapReduce com o Apache Hadoop no HDInsight com REST
 
-Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce num Hadoop num cluster do HDInsight. Curl é utilizado para demonstrar como pode interagir com o HDInsight através da utilização de pedidos HTTP não processados para executar tarefas de MapReduce.
+Saiba como utilizar a API de REST do WebHCat para executar tarefas de MapReduce num Apache Hadoop num cluster do HDInsight. Curl é utilizado para demonstrar como pode interagir com o HDInsight através da utilização de pedidos HTTP não processados para executar tarefas de MapReduce.
 
 > [!NOTE]
 > Se já estiver familiarizado com a utilização do Hadoop baseado em Linux servidores, mas estiver familiarizado com o HDInsight, consulte a [o que precisa saber sobre o Hadoop baseado em Linux no HDInsight](../hdinsight-hadoop-linux-information.md) documento.

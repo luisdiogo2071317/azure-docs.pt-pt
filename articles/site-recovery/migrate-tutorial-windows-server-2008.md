@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 1f537a381bbd595e519aaeb4cadb5b9be4657b6b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210470"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566572"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores com o Windows Server 2008 para o Azure
 
@@ -71,7 +71,7 @@ O resto deste tutorial mostra como pode migrar máquinas virtuais de VMware no l
 
 - Pode não ser possível fazer o RDP para servidores Windows Server 2008 SP2 com o sistema operativo de 32 bits imediatamente após a respetiva ativação pós-falha ou ativação pós-falha de teste no Azure. Reinicie a máquina virtual na qual foi feita a ativação pós-falha a partir do portal do Azure e tente ligar novamente. Se ainda assim não conseguir ligar, verifique se o servidor está configurado para permitir ligações ao ambiente de trabalho remoto e certifique-se de que não existem regras de firewall ou grupos de segurança de rede que estejam a bloquear a ligação. 
   > [!TIP]
-  > Antes de migrar servidores, é altamente recomendada uma ativação pós-falha de teste. Certifique-se de que já realizou, pelo menos, uma ativação pós-falha de teste em cada servidor que está a migrar. Como parte da ativação pós-falha de teste, ligue à máquina na qual foi executada a ativação pós-falha de teste e certifique-se de que tudo está a funcionar como esperado.
+  > Antes de migrar servidores, é altamente recomendada uma ativação pós-falha de teste. Certifique-se de que, feita pelo menos uma ativação pós-falha de teste em cada servidor que está a migrar. Como parte da ativação pós-falha de teste, ligue à máquina na qual foi executada a ativação pós-falha de teste e certifique-se de que tudo está a funcionar como esperado.
   >
   >A operação de ativação pós-falha de teste não é disruptiva e ajuda a testar as migrações através da criação de máquinas virtuais numa rede isolada à sua escolha. Ao contrário da operação de ativação pós-falha, durante a operação de ativação pós-falha de teste, a replicação de dados continua a ser executada. Pode executar a quantidade de ativações pós-falha de teste que quiser até estar preparado para executar a migração. 
   >
@@ -154,7 +154,10 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 2. Em **Ativação pós-falha**, selecione um **Ponto de Recuperação** para o qual fazer a ativação pós-falha. Selecione o ponto de recuperação mais recente.
 3. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tentará encerrar o servidor antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 4. Certifique-se de que a VM do Azure é apresentada no Azure conforme esperado.
-5. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Desta forma, o processo de migração é concluído, a replicação para a VM é parada e a faturação do Site Recovery para a VM também é parada.
+5. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Isso faz o seguinte:
+
+    - O processo de migração é concluído, para a replicação para a VM do AWS e interrompe a faturação do Site Recovery para a VM.
+    - Este passo limpa os dados de replicação. Não elimina as VMs migradas.
 
    ![Concluir a migração](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

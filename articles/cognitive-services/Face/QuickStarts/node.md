@@ -1,47 +1,35 @@
 ---
-title: 'Início rápido: detetar rostos numa imagem com a API REST e Node.js'
+title: 'Início rápido: Detetar rostos numa imagem com a API REST do Azure e o node. js'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá detetar rostos de uma imagem com a API Face com Node.js nos Serviços Cognitivos.
+description: Neste início rápido, irá utilizar a API de REST de Face do Azure com node. js para detetar rostos numa imagem.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b5258f1c465732df257a7db85e828effff200ee0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954103"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577999"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-nodejs"></a>Início rápido: detetar rostos numa imagem com a API REST e Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início rápido: Detetar rostos numa imagem usando a API de REST de rostos e o node. js
 
-Neste início rápido, irá detetar rostos humanos numa imagem com a API Face.
+Neste início rápido, irá utilizar a API de REST de Face do Azure com node. js para detetar rostos humanos numa imagem.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma chave de subscrição para executar o exemplo. Pode obter chaves de subscrição de avaliação gratuita em [Experimente os Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
 
-## <a name="face---detect-request"></a>Rosto – Pedido de deteção
+## <a name="create-the-nodejs-script"></a>Criar o script de node. js
 
-Utilize o método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (Rosto – Detetar) para detetar rostos numa imagem e devolver atributos, incluindo:
-
-* Face ID: ID exclusivo utilizado em vários cenários da API Face.
-* Retângulo de Rostos: a esquerda, o topo, a largura e a altura indicam a localização do rosto na imagem, a largura e a altura indicam a localização do rosto na imagem.
-* Marcos: uma matriz de marcos de rosto com 27 pontos aponta para as posições importantes dos componentes do rosto.
-* Atributos faciais, como a idade, o sexo, a intensidade do sorriso, a posição da cabeça e os pelos faciais.
-
-Para executar o exemplo, siga os seguintes passos:
-
-1. Copie o código seguinte para um editor.
-1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-1. Altere o valor `uriBase` para a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, defina `imageUri` para a imagem que pretende analisar.
-1. Guarde o ficheiro com uma extensão `.js`.
-1. Abra a linha de comandos do Node.js e execute o ficheiro, por exemplo: `node myfile.js`.
+O seguinte código chamará a API Face e obter dados de atributo de face a partir de uma imagem. Em primeiro lugar, copie o código para um editor de texto&mdash;terá de fazer algumas alterações antes de pode executá-lo.
 
 ```nodejs
 'use strict';
@@ -88,9 +76,29 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Rosto – Detetar a resposta
+### <a name="subscription-key"></a>Chave de subscrição
+Substitua `<Subscription Key>` com a sua chave de subscrição de Face válido.
 
-É devolvida uma resposta com êxito em JSON, por exemplo:
+### <a name="face-endpoint-url"></a>URL de ponto final de rostos
+
+O URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de final do Azure Face a consulta. Terá de alterar a primeira parte deste URL de acordo com a região que corresponde à sua chave de subscrição (a menos que já está correto).
+
+### <a name="url-query-string"></a>Cadeia de consulta de URL
+
+O `returnFaceAttributes` campo especifica atributos de qual face a obter. Talvez deseje alterar essa cadeia de caracteres consoante o uso pretendido.
+
+### <a name="image-source-url"></a>URL da imagem de origem
+O `imageUrl` campo indica a imagem a utilizar como entrada. Pode alterá-lo para apontar para qualquer imagem que pretende analisar.
+
+## <a name="save-and-run-the-script"></a>Salve e execute o script
+
+Após fazer as alterações, salve o arquivo como um script de JavaScript (. js). Em seguida, abra uma linha de comandos e executá-lo com o `node` comando.
+
+```
+node myfile.js
+```
+
+Deverá ver as informações de face apresentadas como dados JSON na janela da consola. Por exemplo:
 
 ```json
 [
@@ -271,9 +279,9 @@ request.post(options, (error, response, body) => {
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Explore as API Face utilizadas para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos, como a idade e o sexo.
+Neste início rápido, Escrevi um comando cURL que chama a API de rostos do Azure para detetar rostos numa imagem e retornar seus atributos. Em seguida, explore a documentação de referência da Face API para saber mais.
 
 > [!div class="nextstepaction"]
-> [APIs Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+> [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

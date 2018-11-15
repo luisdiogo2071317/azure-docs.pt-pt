@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: e208c8b52c14b99129bf3fce9ae54ba11f1c0a28
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: 18141e0f58a0b5227c3f5f5c36210017da101780
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584307"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625339"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder à Graph API do Azure AD
 
@@ -35,15 +35,7 @@ Este tutorial mostra como utilizar uma identidade gerida atribuída pelo sistema
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Iniciar sessão no portal do Azure](https://portal.azure.com)
-
-- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Ativar a identidade gerida atribuída pelo sistema na sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - Para conceder acesso à identidade da VM ao Azure AD Graph, tem de atribuir a função **Administrador Global** à conta no Azure AD.
 
@@ -136,7 +128,7 @@ Vai precisar do Azure AD PowerShell para utilizar esta opção. Se não o tiver 
    Remove-AzureADServiceAppRoleAssignment -AppRoleAssignmentId $ServiceAppRoleAssignment.ObjectId -ObjectId $ManagedIdentitiesServicePrincipal.ObjectId
    ```
  
-## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obter um token de acesso com a identidade da VM para chamar o Azure AD Graph 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obter um token de acesso com a identidade da VM para chamar o Microsoft Azure AD Graph 
 
 Para utilizar a identidade gerida atribuída pelo sistema da VM para a autenticação no Azure AD Graph, terá de fazer pedidos a partir da VM.
 
@@ -175,7 +167,7 @@ Para utilizar a identidade gerida atribuída pelo sistema da VM para a autentica
    Content : {"odata.metadata":"https://graph.windows.net/<Tenant ID>/$metadata#Collection(Edm.String)","value":["<ObjectID of VM's group membership>"]}
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema da VM do Windows para aceder ao Azure AD Graph.  Para saber mais sobre o Azure AD Graph, veja:
 

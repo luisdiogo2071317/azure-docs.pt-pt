@@ -11,198 +11,167 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: 5e7a2150757afeecb6b0b100f3259f1628f42074
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a6d7fef902a3bd240b152cb15d6852a5fa0e7c6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262085"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687313"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma rede Virtual do Azure
-Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com as aplicações no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Se não estiver familiarizado com as redes virtuais do Azure (VNets), isso é uma funcionalidade que permite que colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando uma variedade de tecnologias VPN. Para saber mais sobre redes virtuais do Azure, comece com as informações aqui: [descrição geral de rede Virtual do Azure][VNETOverview]. 
+Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com as aplicações no [App Service do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure] [ VNETOverview] (VNets) permitem-lhe colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet. Estas redes, em seguida, podem ser ligadas às suas redes no local usando as tecnologias VPN. 
 
 O serviço de aplicações do Azure tem duas formas. 
 
-1. Os sistemas de vários inquilinos que suportam a gama completa de planos de preços
-2. O recurso de premium ambiente de serviço de aplicações (ASE), que implementa na sua VNet. 
+1. Os sistemas de vários inquilinos que suportam a gama completa de planos exceto Isolated de preços
+2. A aplicação ambiente de serviço (ASE), que implementa na sua VNet. 
 
-Este documento aborda a integração de VNet e de ambiente de serviço de aplicações não. Se quiser saber mais sobre a funcionalidade do ASE, comece com as informações aqui: [introdução de ambiente de serviço de aplicações][ASEintro].
+Este documento aborda o recurso de integração de VNet, o que é destinado à utilização no multi-inquilino de serviço de aplicações.  Se a sua aplicação está em [ambiente do serviço de aplicações][ASEintro], em seguida, ele já se encontra numa VNet e não requer a utilização da funcionalidade de integração de VNet para aceder aos recursos na mesma VNet.
 
-Integração VNet oferece o acesso a aplicações web a recursos na sua rede virtual, mas não lhe concede acesso privado à sua aplicação web da rede virtual. Acesso a sites privada refere-se para tornar a sua aplicação apenas acessível a partir de uma rede privada, tais como a partir de dentro de uma rede virtual do Azure. Acesso de sites privados só está disponível com um ASE configurado com uma carga balanceador interno (ILB). Para obter detalhes sobre como utilizar um ASE de ILB, começar com o artigo aqui: [criando e usando um ASE de ILB][ILBASE]. 
+Integração VNet oferece o acesso a aplicações web a recursos na sua rede virtual, mas não conceder acesso privado à sua aplicação web da rede virtual. Acesso a sites privada refere-se para tornar a sua aplicação apenas acessível a partir de uma rede privada, tais como a partir de dentro de uma rede virtual do Azure. Acesso de sites privados só está disponível com um ASE configurado com uma carga balanceador interno (ILB). Para obter detalhes sobre como utilizar um ASE de ILB, começar com o artigo aqui: [criando e usando um ASE de ILB][ILBASE]. 
 
-Um cenário comum onde usaria integração VNet está a permitir o acesso da sua aplicação web para uma base de dados ou um serviço da web em execução numa máquina virtual na sua rede virtual do Azure. Com a integração de VNet, não terá de expor um ponto final público para aplicações na sua VM, mas pode utilizam os endereços de encaminháveis privados não internet em vez disso. 
+Integração de VNet, muitas vezes, é utilizada para ativar o acesso a partir de aplicações para uma base de dados e web services em execução na sua VNet. Com a integração de VNet, não terá de expor um ponto final público para aplicações na sua VM, mas pode utilizam os endereços de encaminháveis privados não internet em vez disso. 
 
 A funcionalidade de integração de VNet:
 
-* requer uma Standard, Premium ou o plano de preços isolada 
+* requer um plano de preços Standard, Premium ou PremiumV2 
 * funciona com clássica ou VNet do Resource Manager 
 * oferece suporte a TCP e UDP
 * funciona com a Web, móveis, aplicações API e aplicações de funções
 * permite que uma aplicação para ligar a VNet apenas 1 cada vez
 * permite que até cinco VNets a ser integrado com um plano do serviço de aplicações 
 * permite que a mesma VNet ser utilizado por várias aplicações num plano do serviço de aplicações
-* suporta um SLA de 99,9% devido ao SLA no Gateway de VNet
+* requer um Gateway de rede Virtual que está configurado com o ponto de VPN de Site
+* suporta um SLA de 99,9% devido ao SLA no gateway
 
-Existem algumas coisas que a integração de VNet não suporta, incluindo:
+Existem algumas coisas que não suporta a integração de VNet, incluindo:
 
 * montar uma unidade
 * Integração do AD 
 * NetBios
 * acesso de sites privados
+* a aceder a recursos de ExpressRoute 
+* aceder a recursos nos pontos finais de serviço 
 
 ### <a name="getting-started"></a>Introdução
 Seguem-se alguns aspetos a ter em mente antes de ligar a sua aplicação web a uma rede virtual:
 
-* Integração VNet apenas funciona com aplicações numa **padrão**, **Premium**, ou **Isolated** plano de preços. Se ativar a funcionalidade e, depois, aumentar o seu plano do App Service para um plano de preços sem suporte as suas aplicações perdem as suas ligações para VNets que estão a utilizar. 
-* Se a rede virtual de destino já existir, tem de ter ativado com um gateway de encaminhamento dinâmico antes de ele pode ser conectado a uma aplicação VPN de ponto a site. Se o seu gateway está configurado com o encaminhamento estático, não é possível ativar o ponto-para-site de rede privada Virtual (VPN).
+* Uma rede virtual de destino tem de ter ativado com um gateway baseado na rota antes de pode ser ligada à aplicação VPN de ponto a site. 
 * A VNet tem de ser na mesma subscrição que sua Plan(ASP) do serviço de aplicações.
-* Se o gateway já existe com ponto a site ativado e não se encontra no SKU básico, IKEV2 tem de ser desativada na configuração ponto a site.
 * As aplicações que se integram com uma utilização de VNet, o DNS especificado para essa VNet.
-* Por predefinição é sua integração de aplicações apenas encaminham o tráfego para a VNet com base nas rotas definidas na sua VNet. 
 
 ## <a name="enabling-vnet-integration"></a>Ativar a integração de VNet
 
-Tem a opção para ligar a aplicação a uma rede virtual nova ou existente. Se criar uma nova rede como parte de sua integração, em seguida, além de simplesmente criar a VNet, um gateway de encaminhamento dinâmico está previamente configurado por si e ponto-para-Site VPN estiver ativada. 
+Há uma nova versão da funcionalidade de integração de VNet que está em pré-visualização. Ele não depende de VPN ponto a site e também suporta recursos ao aceder ao ExpressRoute ou pontos finais de serviço. Para saber mais sobre a nova capacidade de pré-visualização, vá para o final deste documento. 
 
-> [!NOTE]
-> Configurar uma nova integração da rede virtual pode demorar vários minutos. 
-> 
-> 
+### <a name="set-up-a-gateway-in-your-vnet"></a>Configurar um gateway na sua VNet ###
 
-Para ativar a integração de VNet, abra as definições de aplicação e selecione o sistema de rede. A interface do Usuário que se abre oferece três opções de funcionamento em rede. Este guia é apenas entrar em integração de VNet entanto ligações híbridas e ambientes de serviço de aplicações são abrangidas mais adiante neste documento. 
+Se já tiver um gateway configurado com endereços de ponto a site, pode ignorar a configuração de integração de VNet com a sua aplicação.  
+Para criar um gateway:
 
-Se a sua aplicação é não correto no plano de preços, a interface do Usuário permite-lhe dimensionar o seu plano para um plano de preços superior à sua escolha.
+1. [Criar uma sub-rede de gateway] [ creategatewaysubnet] na sua VNet.  
 
-![][1]
+1. [Criar o gateway VPN][creategateway]. Selecione um tipo VPN baseado na rota.
 
-### <a name="enabling-vnet-integration-with-a-pre-existing-vnet"></a>Ativar a integração de VNet com uma VNet já existente
-A interface do Usuário da integração de VNet permite-lhe selecionar a partir de uma lista das suas VNets. As VNets clássicas indicam que estão, tais com a palavra "Clássico" parênteses junto ao nome da VNet. A lista é ordenada, de modo a que as VNets do Resource Manager são listadas primeiro. Na imagem abaixo, pode ver o que pode ser selecionada apenas uma VNet. Existem vários motivos que uma VNet pode ser a cinzento incluindo:
+1. [Defina o ponto de como endereços de sites][setp2saddresses]. Se o gateway não está no SKU básico, em seguida, IKEV2 tem de ser desativada na configuração de ponto a site e SSTP tem de ser selecionado. O espaço de endereços tem de ser de uma das seguintes blocos de endereço:
 
-* a VNet é noutra subscrição que sua conta tem acesso ao
-* a VNet não tem ponto a Site ativado
-* a VNet não tem um gateway de encaminhamento dinâmico
+* 10.0.0.0/8 - isso significa um intervalo de endereço IP de 10.0.0.0 a 10.255.255.255
+* 172.16.0.0/12 - isso significa um intervalo de endereços IP de 172.16.0.0 para 172.31.255.255 
+* 192.168.0.0/16 - isso significa um intervalo de endereços IP de 192.168.0.0 para 192.168.255.255
 
-![][2]
+Se está a criar o gateway para utilização com a integração de VNet de serviço de aplicações, em seguida, apenas não é necessário carregar um certificado. Criar o gateway pode demorar 30 minutos. Não será capaz de integrar a sua aplicação com a sua VNet até que o gateway é aprovisionado. 
 
-Para ativar a integração, clique na VNet em modo de que pretende integrar. Depois de selecionar a VNet, a aplicação é automaticamente reiniciada para que as alterações entrem em vigor. 
+### <a name="configure-vnet-integration-with-your-app"></a>Configurar a integração de VNet com a sua aplicação ###
 
-##### <a name="enable-point-to-site-in-a-classic-vnet"></a>Ativar ponto a Site numa rede virtual clássica
+Para ativar a integração de VNet na sua aplicação: 
 
-Se a VNet não tem um gateway nem tem o ponto a Site, terá de configurar essa opção primeiro. Para configurar um gateway para uma VNet clássica, aceda ao portal e abrir a lista de Virtual Networks(classic). Selecione a rede que pretende integrar. Selecione ligações VPN. A partir daqui, pode criar seu ponto de VPN de site e até mesmo fazê-lo a criar um gateway. O gateway demora cerca de 30 minutos a surgir.
+1. Ir para a sua aplicação no portal do Azure e abrir as definições da aplicação e selecione o sistema de rede > integração de VNet. Dimensionar a sua ASP para um SKU padrão ou ainda melhores para poder configurar a integração de VNet. 
+ ![Integração de VNet da interface do Usuário][1]
 
-![][8]
+1. Selecione **adicionar VNet**. 
+ ![Adicionar a integração de VNet][2]
 
-##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>Ativar o ponto a Site numa VNet do Resource Manager
-Para configurar uma VNet do Resource Manager com um gateway e o ponto a Site, pode utilizar o PowerShell conforme documentado aqui, [configurar uma ligação de ponto a Site a uma rede virtual com o PowerShell] [ V2VNETP2S] ou utilizar o portal do Azure conforme documentado aqui [configurar uma ligação ponto a Site a uma VNet com o portal do Azure][V2VNETPortal]. A interface do Usuário para realizar esta capacidade ainda não está disponível. Não precisa de criar certificados para a configuração de ponto a Site. Certificados são criados automaticamente quando se liga a sua aplicação Web para a VNet com o portal. 
-
-### <a name="creating-a-pre-configured-vnet"></a>Criar uma VNet previamente configurada
-Se quiser criar uma nova VNet que está configurada com um gateway e ponto a Site, em seguida, o serviço de aplicações de rede da interface do Usuário tem a capacidade de fazer isso, mas apenas para uma VNet do Resource Manager. Se quiser criar uma VNet clássica com um gateway e o ponto a Site, terá de fazer isso manualmente por meio da interface de utilizador do sistema de rede. 
-
-Para criar uma VNet do Resource Manager através da IU de integração de VNet, selecione **criar nova rede Virtual** e fornecer a:
-
-* Nome da rede virtual
-* Bloco de Endereços de Rede Virtual
-* Nome da sub-rede
-* Bloco de Endereços de Sub-rede
-* Bloco de endereços de gateway
-* Bloco de Endereços Ponto a Site
-
-Se pretender que esta VNet ligar a quaisquer outras redes, em seguida, deve evitar escolher espaço de endereços IP que se sobreponha essas redes. 
-
-> [!NOTE]
-> Criação de VNet do Resource Manager com um gateway demora cerca de 30 minutos e atualmente não se integra a VNet com a sua aplicação. Depois de criar a VNet com o gateway, terá de voltar à sua aplicação da interface do Usuário de integração de VNet e selecione a sua nova VNet.
-> 
-> 
-
-![][3]
-
-VNets do Azure normalmente são criados dentro de endereços de rede privada. Por predefinição, a integração de VNet a funcionalidade encaminha qualquer tráfego destinado a esses intervalos de endereços IP na sua VNet. Os intervalos de endereços IP privados são:
-
-* 10.0.0.0/8 - Este é o mesmo que 10.0.0.0 - 10.255.255.255
-* 172.16.0.0/12 - este é o mesmo que 172.16.0.0 - 172.31.255.255 
-* 192.168.0.0/16 - este é o mesmo que 192.168.0.0 - 192.168.255.255
-
-O espaço de endereços da VNet tem de ser especificado na notação CIDR. Se não estiver familiarizado com notação CIDR, é um método para especificar os blocos de endereços com um endereço IP e um número inteiro que representa a máscara de rede. Como uma referência rápida, considere que 10.1.0.0/24 seria 256 endereços e 10.1.0.0/25 seria 128 endereços. Um endereço IPv4 com um /32 seria apenas 1 endereço. 
-
-Se definir aqui as informações do servidor DNS, que está definido para a sua VNet. Após a criação da VNet pode editar estas informações a partir das experiências de utilizador de VNet. Se alterar o DNS da VNet, em seguida, terá de efetuar uma operação de rede de sincronização.
-
-Quando cria uma VNet clássica, utilizando a interface do Usuário da integração de VNet, ele cria uma VNet no mesmo grupo de recursos que a sua aplicação. 
+1. Selecione a sua VNet. 
+  ![Selecione a sua VNet][8]
+  
+A aplicação vai ser reiniciada após este último passo.  
 
 ## <a name="how-the-system-works"></a>Como o sistema funciona
-Nos bastidores esta funcionalidade está baseado na tecnologia VPN ponto a Site para ligar a sua aplicação à sua VNet. As aplicações no serviço de aplicações do Azure têm uma arquitetura de sistema multi-inquilino, o que impede o aprovisionamento de uma aplicação diretamente numa VNet como é feito com máquinas virtuais. Com base em tecnologia de ponto a site, limitar o acesso de rede para apenas a máquina virtual que aloja a aplicação. Acesso à rede é mais restrito nos anfitriões de aplicação para que as suas aplicações apenas podem aceder as redes que configurá-las para aceder. 
+A funcionalidade de integração de VNet é criada sobre tecnologia VPN ponto a site. Aplicações no serviço de aplicações do Azure estão alojadas num sistema multi-inquilino, que impede o aprovisionamento de uma aplicação diretamente numa VNet. A tecnologia de ponto a site limita o acesso à rede para apenas a máquina virtual que aloja a aplicação. As aplicações são restritas apenas enviar tráfego para a internet, através de ligações híbridas ou por meio da integração de VNet. 
 
-![][4]
-
-Se ainda não configurou um servidor DNS com a sua rede virtual, a aplicação terá de utilizar endereços IP para chegar a recursos na VNet. Ao utilizar endereços IP, lembre-se de que o principal benefício desta funcionalidade é que ele permite-lhe utilizar os endereços privados dentro da sua rede privada. Se definir a sua aplicação para usar o endereços IP públicos para uma das suas VMs, em seguida, não estiver a utilizar a funcionalidade de integração de VNet e está a comunicar através da internet.
+![Como funciona a integração de VNet][3]
 
 ## <a name="managing-the-vnet-integrations"></a>Gerir as integrações de VNet
-A capacidade para se ligar e desligar a uma VNet é ao nível da aplicação. Operações que podem afetar a integração de VNet em várias aplicações estão num nível ASP. Desde a interface do Usuário que é mostrado ao nível da aplicação, pode obter os detalhes na sua VNet. A maioria das mesmas informações também é mostrado ao nível do ASP. 
+A capacidade para se ligar e desligar a uma VNet é ao nível da aplicação. As operações que podem afetar a integração de VNet em várias aplicações são ao nível do plano do serviço de aplicações. A partir da aplicação UID, pode obter os detalhes na sua VNet. As mesmas informações também são mostradas ao nível do ASP. 
 
-![][5]
+ ![Detalhes de VNet][4]
 
-A página de estado da funcionalidade de rede, pode ver se a sua aplicação está ligada a sua VNet. Se o gateway de VNet estiver em baixo por algum motivo, em seguida, isso mostrará como não-conectado. 
+A página de estado da funcionalidade de rede, pode ver se a sua aplicação está ligada a sua VNet. Se o seu gateway de VNet estiver em baixo por algum motivo, seu estado é apresentado como não-conectado. 
 
 As informações que tem agora disponível na aplicação da que IU de integração de VNet nível é o mesmo que as informações de detalhe, que obter a partir do ASP. Seguem-se esses itens:
 
-* Nome da VNet - esta ligação abre-se a rede virtual do Azure da interface do Usuário
-* Localização – isso reflete a localização da sua VNet. É possível integrar com uma VNet em outro local.
-* Estado do certificado - existem certificados usados para proteger a ligação VPN entre a aplicação e a VNet. Isto reflete um teste para garantir que estão em sincronização.
+* Nome da VNet - ligações para a rede virtual da interface do Usuário
+* Localização - reflete a localização da sua VNet. Integrar com uma VNet em outro local, pode causar problemas de latência para a sua aplicação. 
+* Estado de certificado - reflete se os certificados são sincronizados entre o seu plano do serviço de aplicações e a sua VNet.
 * Estado do gateway - devem seus gateways ficar indisponíveis por algum motivo, em seguida, a aplicação não é possível aceder aos recursos na VNet. 
-* Espaço de endereços da VNet – este é o espaço de endereços IP para a sua VNet. 
-* Espaço de endereços de ponto a Site - este é o ponto de site IP espaço de endereços da vnet. A aplicação mostra a comunicação como proveniente de um dos IPs neste espaço de endereço. 
-* Site de espaço de endereço do site - pode utilizar VPNs de Site a Site para ligar a VNet, aos seus recursos no local ou a outra VNet. Deve ter que configurado, em seguida, os intervalos de IP definidas com que a ligação de VPN mostra aqui.
-* Servidores de DNS – se tiver configurado com a sua VNet, de servidores de DNS, em seguida, eles estão listados aqui.
-* IPs encaminhado para a VNet - daí são uma lista de endereços IP que a VNet tem de encaminhamento definidas para e esses endereços mostrados aqui. 
+* Espaço de endereços da VNet - mostra o espaço de endereços IP para a sua VNet. 
+* Espaço de endereços de ponto a site - mostra o ponto de espaço de endereços IP do site para a sua VNet. Ao efetuar chamadas para a sua VNet, o seu endereço de aplicação será um destes endereços. 
+* Espaço de endereços de site a site - pode utilizar VPNs de site a site para ligar a VNet, aos seus recursos no local ou a outra VNet. Os intervalos IP definidos com essa conexão de VPN são mostrados aqui.
+* Servidores DNS - mostra os servidores DNS configurados com a sua VNet.
+* Endereços IP encaminhados para a VNet - mostra os blocos de endereços encaminhados utilizada para tráfego de unidade na sua VNet 
 
-É a única operação que pode demorar na vista de aplicação de sua integração de VNet para desligar a sua aplicação da VNet está atualmente ligada. Para desligar a sua aplicação a partir de uma VNet, desligue na parte superior. Esta ação não altera a sua VNet. A VNet e a respetiva configuração, incluindo os gateways permanece inalterado. Se desejar, em seguida, ao eliminar a sua VNet, terá de eliminar primeiro os recursos, incluindo os gateways. 
+É a única operação que pode demorar na vista de aplicação de sua integração de VNet para desligar a sua aplicação da VNet está atualmente ligada. Para desligar a sua aplicação a partir de uma VNet, selecione **desligar**. A aplicação será reiniciada quando desligar a partir de uma VNet. A desligar não altera a sua VNet. A VNet e a respetiva configuração, incluindo os gateways permanece inalterado. Se desejar, em seguida, ao eliminar a sua VNet, terá de eliminar primeiro os recursos, incluindo os gateways. 
 
-A vista do plano do serviço de aplicações tem um número de operações adicionais. Ele também é acessado diferente do que a partir da aplicação. Para aceder a IU de sistema de rede de ASP, abra a interface do Usuário do ASP e desloque-se para baixo. Selecione "Estado de recurso de rede" para abrir a IU de estado do recurso de rede. Selecione "Clique aqui para gerir" à lista as integrações de VNet neste ASP.
+Para aceder a IU de integração de VNet de ASP, abra a interface do Usuário do ASP e selecione **redes**.  Em integração de VNet, selecione **clique aqui para configurar** para abrir a IU de estado do recurso de rede.
 
-![][6]
+![Informações de integração de VNet ASP][5]
 
-A localização do ASP é bom lembrar ao observar as localizações das VNets que estiver a integrar com. Quando a VNet está em outro local são muito mais provável ver problemas de latência. 
+A interface de Usuário de integração de VNet ASP mostrará todas as VNets que são utilizadas pelas aplicações na sua ASP. Pode ter até 5 VNets conectados por qualquer número de aplicações no seu plano do serviço de aplicações. Cada aplicação pode ter apenas uma integração configurada. Para ver detalhes sobre cada VNet, clique na VNet que está interessado. Existem duas ações que pode efetuar aqui.
 
-As VNets integradas com é um lembrete em VNets quantas que as suas aplicações estão integradas neste ASP e quantos pode ter. 
+* **Sincronizar rede**. A operação de sincronização de rede certifica-se de que os seus certificados e informações de rede estão em sincronização. Se adicionar ou alterar o DNS da sua VNet, tem de efetuar uma **sincronizar rede** operação. Esta operação irá reiniciar quaisquer aplicações com esta VNet.
+* **Adicionar rotas** adicionar rotas irá orientar o tráfego de saída na sua VNet.
 
-Para ver foram adicionados detalhes sobre cada VNet, basta clicar na VNet em modo de interesse. Além dos detalhes que foram observados anteriormente, também pode ver uma lista de aplicações neste ASP que estão a utilizar essa VNet. 
+**Encaminhamento** as rotas definidas na sua VNet são utilizadas para direcionar o tráfego numa VNet a partir de seu aplicativo. Se precisar de enviar o tráfego de saída adicional na VNet, em seguida, pode adicionar esses blocos de endereços aqui.   
 
-Relativamente a ações, existem duas ações primárias. A primeira é a capacidade de adicionar as rotas que direcionam o tráfego que sai de seu aplicativo na sua VNet. A segunda ação é a capacidade de sincronizar certificados e informações de rede.
-
-![][7]
-
-**Encaminhamento** conforme observado anteriormente, as rotas definidas na sua VNet são o que é utilizado para direcionar o tráfego numa VNet a partir de seu aplicativo. Há alguns usos, embora em que os clientes pretendem enviar tráfego de saída adicional de uma aplicação na VNet e para os mesmos esta capacidade é fornecido. O que acontece ao tráfego depois que cabe como o cliente configura a sua VNet. 
-
-**Certificados** o estado do certificado reflete uma verificação a ser efetuada pelo serviço de aplicações para validar se os certificados que estamos a utilizar para a ligação VPN estão ainda é válidos. Quando a integração VNet ativada, em seguida, se esta for a integração de primeira para essa VNet de todas as aplicações neste ASP, há um exchange necessário de certificados para garantir a segurança da ligação. Juntamente com os certificados obtemos a configuração de DNS, as rotas e outros elementos semelhantes que descrevem a rede.
-Se esses certificados ou as informações de rede for alterado, terá de clicar em "Sincronizar rede". **Tenha em atenção**: ao clicar em "Sincronizar rede", em seguida, fará com que uma rápida interrupção na conectividade entre a aplicação e a sua VNet. Enquanto a aplicação não for reiniciada, a perda de conectividade pode fazer com que seu site não funcione corretamente. 
+**Certificados** a integração de VNet quando ativada, não existe uma troca de necessária de certificados para garantir a segurança da ligação. Juntamente com os certificados são a configuração de DNS, as rotas e outros elementos semelhantes que descrevem a rede.
+Se certificados ou informações de rede for alteradas, terá de clicar em "Sincronizar rede". Quando clicar em "Sincronizar rede", causar uma rápida interrupção na conectividade entre a aplicação e a sua VNet. Enquanto a aplicação não é reiniciada, a perda de conectividade pode fazer com que seu site não funcione corretamente. 
 
 ## <a name="accessing-on-premises-resources"></a>Aceder a recursos no local
-Um dos benefícios da funcionalidade de integração de VNet é que, se a VNet está ligada à sua rede no local com uma VPN de Site a Site, em seguida, as suas aplicações podem ter acesso aos seus recursos no local da sua aplicação. Para isso funcionar, embora poderá ter de atualizar o gateway de VPN no local com as rotas para o seu IP ponto a Site no intervalo. Quando a VPN de Site a Site é configurada em primeiro lugar, em seguida, os scripts utilizados para configurá-lo devem configurar as rotas, incluindo a VPN ponto a Site. Se adicionar a VPN ponto a Site depois de criar a VPN de Site a Site, terá de atualizar manualmente as rotas. Obter detalhes sobre como fazer isso variam por gateway e não são descritas aqui. 
+Aplicações podem aceder a recursos no local através da integração com VNets com ligações site a site. Para aceder a recursos no local, terá de atualizar as rotas de gateway VPN no local com os blocos de endereços de ponto a site. Quando a VPN de site a site é configurada em primeiro lugar, os scripts utilizados para configurá-lo devem configurar rotas corretamente. Se adicionar os endereços de ponto a site depois de criar a VPN de site a site, terá de atualizar manualmente as rotas. Obter detalhes sobre como fazer isso variam por gateway e não são descritas aqui. Além disso, não pode ter o BGP configurado com uma ligação de VPN de site a site.
 
 > [!NOTE]
-> A funcionalidade de integração de VNet não integra a uma aplicação com uma VNet com um Gateway do ExpressRoute. Mesmo que o Gateway do ExpressRoute está configurado nas [modo de coexistência] [ VPNERCoex] a integração de VNet não funciona. Se precisa aceder aos recursos através de uma ligação ExpressRoute, pode utilizar um [ambiente do serviço de aplicações][ASE], que é executada na sua VNet.
+> A funcionalidade de integração de VNet não se integra uma aplicação com uma VNet com um Gateway do ExpressRoute. Mesmo que o Gateway do ExpressRoute está configurado nas [modo de coexistência] [ VPNERCoex] a integração de VNet não funciona. Se precisa aceder aos recursos através de uma ligação ExpressRoute, pode utilizar um [ambiente do serviço de aplicações][ASE], que é executada na sua VNet. 
 > 
 > 
 
+## <a name="peering"></a>Peering
+Pode utilizar a integração de VNet para aceder a recursos em VNets em modo de peering para a VNet está ligado à. Para configurar o peering para trabalhar com a sua aplicação:
+
+1. Adicione que uma ligação de peering na VNet em modo de seu aplicativo se conecta ao. Ao adicionar a ligação peering, ative **permitir o acesso de rede virtual** e verifique **permitir tráfego reencaminhado** e **permitir trânsito de gateway**.
+1. Adicione uma ligação de peering na VNet que está no modo de peering à VNet que está ligado à. Ao adicionar a ligação peering no destino VNet, ative **permitir o acesso de rede virtual** e verifique **permitir tráfego reencaminhado** e **permitir gateways remotos**.
+1. Vá para o plano do serviço de aplicações > redes > interface de Usuário de integração de VNet no portal.  Selecione a VNet seu aplicativo se conecta ao. Na secção de encaminhamento, adicione o intervalo de endereços da VNet que está em modo de peering com a VNet à sua aplicação.  
+
+
 ## <a name="pricing-details"></a>Detalhes dos preços
-Existem algumas nuances que deve estar ciente de quando utilizar a funcionalidade de integração de VNet de preços. Existem 3 custos relacionados a utilização desta funcionalidade:
+Existem três custos relacionados ao uso da funcionalidade de integração de VNet:
 
 * Requisitos de escalão de preço de ASP
 * Custos da transferência de dados
 * Custos de Gateway de VPN.
 
-Para as suas aplicações poder utilizar esta funcionalidade, eles precisam estar num padrão ou o plano do serviço de aplicações Premium. Pode ver mais detalhes sobre esses custos aqui: [preços do App Service][ASPricing]. 
+As suas aplicações tem de estar no Standard, Premium ou plano de serviço de aplicações do PremiumV2. Pode ver mais detalhes sobre esses custos aqui: [preços do App Service][ASPricing]. 
 
-Devido a como são tratadas as VPNs ponto a Site, sempre tem um custo para dados de saída por meio de sua conexão de integração de VNet, mesmo que a VNet está no mesmo centro de dados. Para ver quais são esses custos, veja o seguinte: [detalhes de preços de transferência de dados][DataPricing]. 
+Existe um custo de saída de dados, mesmo se a VNet estiver no mesmo centro de dados. Esses custos são descritos num [detalhes de preços de transferência de dados][DataPricing]. 
 
-O último item é o custo dos gateways de VNet. Se não precisar dos gateways para algo mais, como as VPNs Site a Site, em seguida, tem de pagar para gateways suportar a funcionalidade de integração de VNet. Existem detalhes sobre esses custos aqui: [preços de Gateway de VPN][VNETPricing]. 
+Há um custo para o gateway de VNet é necessário para a VPN ponto a site. Os detalhes são sobre o [preços de Gateway de VPN] [ VNETPricing] página.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Embora a funcionalidade seja fácil de configurar, isso não significa que a sua experiência será problema gratuito. Caso encontre problemas para acessar o ponto de final desejado aqui estão alguns utilitários que pode usar para testar a conectividade a partir da consola de aplicação. Há duas experiências de consola, que pode utilizar. Uma é a partir da consola Kudu e o outro é a consola que pode entrar no portal do Azure. Para obter para a consola Kudu da sua aplicação go para ferramentas -> Kudu. Este é o mesmo que vai [sitename]. scm.azurewebsites.net. Uma vez que se abre, aceda ao separador consola de depuração. Para obter a consola alojada portal do Azure, em seguida, da sua aplicação go para ferramentas -> consola. 
+Embora a funcionalidade seja fácil de configurar, isso não significa que a sua experiência será problema gratuito. Caso encontre problemas para acessar o ponto de final desejado aqui estão alguns utilitários que pode usar para testar a conectividade a partir da consola de aplicação. Existem duas consolas, que pode utilizar. Uma é a consola Kudu e o outro é a consola no portal do Azure. Para aceder a consola Kudu a partir da sua aplicação, vá para ferramentas -> Kudu. Este é o mesmo que vai [sitename]. scm.azurewebsites.net. Uma vez que se abre, aceda ao separador consola de depuração. Para obter a consola alojada portal do Azure, em seguida, da sua aplicação go para ferramentas -> consola. 
 
 #### <a name="tools"></a>Ferramentas
-As ferramentas **ping**, **nslookup** e **tracert** não funcionará através da consola devido a restrições de segurança. Para preencher o daí void foram duas ferramentas separadas adicionadas. Para testar a funcionalidade DNS, adicionamos uma ferramenta denominada nameresolver.exe. A sintaxe é:
+As ferramentas **ping**, **nslookup** e **tracert** não funcionará através da consola devido a restrições de segurança. Para preencher essa lacuna, duas ferramentas separadas adicionadas. Para testar a funcionalidade DNS, adicionamos uma ferramenta denominada nameresolver.exe. A sintaxe é:
 
     nameresolver.exe hostname [optional: DNS Server]
 
@@ -217,9 +186,9 @@ O **tcpping** utilitário informa se, pode entrar num anfitrião específico e a
 #### <a name="debugging-access-to-vnet-hosted-resources"></a>Depuração de acesso a VNet recursos alojados
 Há uma série de coisas que pode impedir a sua aplicação de atingir um anfitrião específico e a porta. Na maioria das vezes ele é um dos três coisas:
 
-* **Existe uma firewall da forma** se tiver uma firewall da forma, atingirá o tempo limite TCP. Que neste caso, é 21 segundos. Utilize o **tcpping** ferramenta para testar a conectividade. Tempos limite TCP pode dever-se muitas coisas para além dos firewalls, mas começar por aqui. 
-* **DNS não está acessível** o DNS tempo-limite é de três segundos por servidor DNS. Se tiver dois servidores DNS, o tempo limite é de 6 segundos. Utilize nameresolver para ver se o DNS está a funcionar. Lembre-se de que não é possível utilizar o nslookup à medida que não utiliza o DNS a VNet está configurada com.
-* **Intervalo de IP de P2S inválido** o ponto de intervalo IP do site tem de ser nos intervalos de IP privados do RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). Se o intervalo de utiliza IPs fora isso, as coisas não funcionam. 
+* **É uma firewall da forma.** Se tiver uma firewall da forma, atingirá o tempo limite TCP. O tempo limite TCP neste caso é de 21 segundos. Utilize o **tcpping** ferramenta para testar a conectividade. Tempos limite TCP pode dever-se muitas coisas para além dos firewalls, mas começar por aqui. 
+* **DNS não está acessível.** O tempo limite DNS é três segundos por servidor DNS. Se tiver dois servidores DNS, o tempo limite é de 6 segundos. Utilize nameresolver para ver se o DNS está a funcionar. Lembre-se de que não é possível utilizar o nslookup à medida que não usa o DNS a VNet está configurada com.
+* **O intervalo de endereços de ponto a site é inválido.** O intervalo IP de ponto a site precisa de estar em intervalos de IP privados a RFC 1918 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255). Se o intervalo de utiliza IPs fora isso, as coisas não funcionam. 
 
 Se esses itens não responder seu problema, a olhar para as coisas simples, como: 
 
@@ -227,7 +196,7 @@ Se esses itens não responder seu problema, a olhar para as coisas simples, como
 * Certificados mostram como sendo sincronizados?
 * Qualquer pessoa alterou a configuração de rede sem fazer uma "rede de sincronização" nos ASPs afetados? 
 
-Se o gateway estiver em baixo, em seguida, colocá-lo de cópia de segurança. Se os certificados estão fora de sincronização, em seguida, ir para a vista ASP de sua integração de VNet e pressionar "Sincronizar rede". Se suspeitar que houve uma alteração efetuada à sua configuração de VNet e não era sincronização faria com sua ASPs, em seguida, ir para a vista ASP de sua integração de VNet e pressionar "Sincronizar rede" apenas como um lembrete, isso faz com que uma rápida interrupção com a ligação de VNet e as suas aplicações. 
+Se o gateway estiver em baixo, em seguida, colocá-lo de cópia de segurança. Se os certificados estão fora de sincronização, em seguida, ir para a vista ASP de sua integração de VNet e pressionar "Sincronizar rede". Se suspeitar que houve uma alteração efetuada à sua configuração de VNet que não foi sincronizada com o seu ASPs, em seguida, pressione "Sincronizar rede".  Uma operação de "Rede de sincronização" irá reiniciar quaisquer aplicações no ASP que estão integradas essa VNet. 
 
 Se tudo isso é tudo bem, em seguida, terá de aprofundar um pouco mais para o serviço:
 
@@ -240,14 +209,14 @@ Se qualquer um dos acima for VERDADEIRO, em seguida, a integração de VNet esti
 * o anfitrião de destino está inativo
 * seu aplicativo está inativo
 * teve o IP ou nome de anfitrião errado
-* a aplicação está a escutar numa porta diferente que esperava. Pode verificar isso indo até nesse anfitrião e usando "netstat - aon" prompt do cmd. Isto mostra que está a escutar na porta que ID de processo. 
+* a aplicação está a escutar numa porta diferente que esperava. Pode corresponder a seu ID de processo com a porta de escuta com o "netstat - aon" no anfitrião de ponto final. 
 * os grupos de segurança de rede são configurados de forma que eles impedem o acesso ao seu anfitrião de aplicação e a porta do seu ponto de intervalo IP do site
 
 Lembre-se de que não sabe quais IP no seu intervalo de IP de ponto a Site que a aplicação irá utilizar, por isso terá de autorizar o acesso o todo um intervalo. 
 
 Os passos de depuração adicionais incluem:
 
-* ligar a uma VM na sua VNet e tentam aceder a recursos anfitrião: porta a partir daí. Para testar para TCP acesso utilize o comando do PowerShell **test-netconnection**. A sintaxe é:
+* ligar a uma VM na sua VNet e tentam aceder a recursos anfitrião: porta a partir daí. Para testar o acesso TCP, utilize o comando do PowerShell **test-netconnection**. A sintaxe é:
 
       test-netconnection hostname [optional: -Port]
 
@@ -255,14 +224,14 @@ Os passos de depuração adicionais incluem:
 
 #### <a name="on-premises-resources"></a>Recursos no local ####
 
-Se a sua aplicação não é possível chegar a um recurso no local, em seguida, verifique se pode aceder o recursos da sua VNet. Utilize o **test-netconnection** comando do PowerShell para fazer isso. Se a VM não é possível contactar o seu recurso no local, em seguida, certifique-se da que ligação de VPN de Site para Site está a funcionar. Se estiver a funcionar, verifique as mesmas coisas observadas anteriormente, bem como a configuração do gateway no local e o estado. 
+Se a sua aplicação não é possível chegar a um recurso no local, em seguida, verifique se pode aceder o recursos da sua VNet. Utilize o **test-netconnection** comando do PowerShell para verificar a existência de acesso TCP. Se a VM não é possível contactar o seu recurso no local, em seguida, certifique-se da que ligação de VPN de Site para Site está a funcionar. Se estiver a funcionar, verifique as mesmas coisas observadas anteriormente, bem como a configuração do gateway no local e o estado. 
 
-Se a VNet alojada VM possa alcançar seu sistema de no local, mas a aplicação não é possível, em seguida, o motivo pelo qual se tratar de um dos seguintes procedimentos:
+Se a VNet alojada VM possa alcançar seu sistema de no local, mas a aplicação não pode, então a causa é tratar de um dos seguintes motivos:
 
 * as rotas não estão configuradas com o seu ponto de intervalos IP do site no seu gateway no local
 * os grupos de segurança de rede estão a bloquear o acesso para o seu intervalo IP de ponto a Site
 * as firewalls no local estão a bloquear o tráfego do seu intervalo de IP de ponto a Site
-* tem um Route(UDR) de definidas pelo utilizador na sua VNet que impede a atingir a sua rede no local seu tráfego de ponto a Site com base em
+
 
 ## <a name="powershell-automation"></a>Automatização de PowerShell
 
@@ -275,45 +244,67 @@ Existem três recursos que permitem o acesso aos recursos da VNet alojado. São:
 * Ligações Híbridas
 * Ambientes do App Service
 
-Ligações híbridas necessitam que instale um agente de retransmissão chamado Manager(HCM) de ligação híbrida na sua rede. O HCM tem de conseguir ligar-se para o Azure e também a sua aplicação. Esta solução é especialmente ótima de uma rede remota, como a sua rede no local ou até mesmo noutra cloud alojadas rede porque ele não requer um ponto de final de acesso de internet. O HCM só é executado no Windows e pode ter até cinco instâncias em execução para proporcionar elevada disponibilidade. Ligações híbridas só suporta TCP no entanto, e cada ponto de final do HC tem a correspondência com uma combinação de anfitrião: porta específica. 
+Ligações híbridas necessitam que instale um agente de retransmissão chamado Manager(HCM) de ligação híbrida na sua rede. O HCM tem de conseguir ligar-se para o Azure e também a sua aplicação. Ligações híbridas não requer um entrada internet ponto final de acesso para a sua rede remota, como é necessário para uma ligação VPN. O HCM só é executado no Windows e pode ter até cinco instâncias em execução para proporcionar elevada disponibilidade. Ligações híbridas só suporta TCP no entanto, e cada ponto de final do HC tem a correspondência com uma combinação de anfitrião: porta específica. 
 
-A funcionalidade Ambiente de serviço de aplicações permite-lhe executar uma instância do serviço de aplicações do Azure na sua VNet. Isso permite que os seus recursos de acesso de aplicações na sua VNet sem quaisquer etapas extras. Algumas das outras vantagens de um ambiente de serviço de aplicações são que pode usar o Dv2 com base em funções de trabalho com até 14 GB de RAM. Outra vantagem é que pode dimensionar o sistema para atender às suas necessidades. Ao contrário dos ambientes de multi-inquilinos em que o ASP está limitado a 20 instâncias, num ASE pode dimensionar até 100 instâncias ASP. Uma das coisas que obtém com um ASE que não com a integração de VNet é que um ambiente de serviço de aplicações pode trabalhar com uma VPN do ExpressRoute. 
+A funcionalidade Ambiente de serviço de aplicações permite-lhe executar uma instância de único inquilino do serviço de aplicações do Azure na sua VNet. Se as suas aplicações estão num ambiente de serviço de aplicações, em seguida, as suas aplicações podem aceder aos recursos na sua VNet sem quaisquer etapas extras. Com e o ambiente de serviço de aplicações, as suas aplicações executam em funções de trabalho mais potentes e podem ser dimensionado até 100 instâncias ASP. Ambientes de serviço de aplicações funcionam com todos os recursos de rede, incluindo o ExpressRoute e de pontos finais de serviço.  
 
 Embora haja que algumas utilizam a sobreposição de caso, nenhum desses recursos pode substituir qualquer um dos outros. Saber que o recurso a usar está associado às suas necessidades. Por exemplo:
 
-* Se for um desenvolvedor e pretende executar um site no Azure e tê-lo a acessar o banco de dados na estação de trabalho em sua mesa, em seguida, a coisa mais fácil de usar é ligações híbridas. 
+* Se for um programador e quer executar um site no Azure que pode aceder uma base de dados na estação de trabalho em sua mesa, em seguida, a coisa mais fácil de usar é ligações híbridas. 
 * Se for uma empresa de grande porte que deseja colocar um grande número de propriedades da web em público e geri-los na sua própria rede na cloud, em seguida, quer chegar com o ambiente de serviço de aplicações. 
 * Se tiver várias aplicações que precisam de aceder a recursos na sua VNet, integração de VNet é a melhor opção. 
 
-Se a VNet já está ligada à sua rede no local, em seguida, utilizar a integração de VNet ou um ambiente de serviço de aplicações é uma forma fácil de consumir recursos no local. Se a VNet não está ligada à sua rede no local, em seguida, é muito mais sobrecarga para configurar uma VPN de site a site com a sua VNet em comparação com a instalação de HCM. 
+Quando a VNet já está ligada à sua rede no local, em seguida, utilizar a integração de VNet ou um ambiente de serviço de aplicações é uma forma fácil de consumir recursos no local. Se a VNet não está ligada à sua rede no local, em seguida, é muito mais sobrecarga para configurar uma VPN de site a site com a sua VNet em comparação com a instalação de HCM. 
 
 Além das diferenças funcionais, lá são também as diferenças de preços. A funcionalidade Ambiente de serviço de aplicações é uma Premium oferta de serviço oferece, mas rede mais possibilidades de configuração, além de outros excelentes recursos. Integração VNet pode ser utilizada com Standard ou Premium ASPs e é perfeita para o consumo de forma segura recursos na sua VNet a partir do serviço de aplicações de multi-inquilino. Ligações híbridas atualmente depende de uma conta que possua a preços níveis que comece gratuitamente e, em seguida, se tornar cada vez mais caro consoante a quantidade que precisa de BizTalk. Quando se trata de trabalhar em várias redes, no entanto, não há nenhum outro recurso, como as ligações híbridas, que podem permitir-lhe aceder a recursos em mais de 100 redes separadas. 
 
 ## <a name="new-vnet-integration"></a>Nova integração de VNet ##
 
-Há uma nova versão da capacidade de integração de VNet não depende de tecnologia VPN ponto a Site. Esta nova versão está em pré-visualização. A nova capacidade de integração de VNet tem as seguintes características.
+Há uma nova versão da capacidade de integração de VNet não depende da tecnologia VPN ponto a Site. Ao contrário do recurso já existente, a nova funcionalidade de pré-visualização irá funcionar com o ExpressRoute e de pontos finais de serviço. 
 
-- O novo recurso exige uma sub-rede não utilizada na sua VNet do Resource Manager
-- Um endereço é utilizado para cada instância de plano de serviço de aplicações. Uma vez que o tamanho de sub-rede não pode ser alterado após a atribuição, utilize uma sub-rede que mais do que pode cobrir o tamanho de dimensionamento máximo. / 27 com 32 endereços é o tamanho recomendado, pois o que seria acomodar um plano de serviço de aplicações é dimensionado para 20 instâncias.
-- Pode consumir o ponto final de serviço a recursos protegidos pelo utilizando a nova capacidade de integração de VNet. Ativar o acesso a partir da sub-rede atribuída à aplicação configurar pontos finais de serviço com a sua aplicação
-- Pode aceder a recursos através de ligações do ExpressRoute sem qualquer configuração adicional
-- Nenhum gateway é necessário para utilizar a nova funcionalidade de integração de VNet
-- Seu plano do serviço de aplicações tem de ser um plano Standard, Premium ou PremiumV2
-- A nova capacidade só está disponível a partir de unidades de escala mais recente do serviço de aplicações do Azure. O portal informará se a sua aplicação pode utilizar a nova funcionalidade de integração de VNet. 
-- A aplicação e a VNet tem de estar na mesma região
+A nova capacidade só está disponível a partir de unidades de escala mais recente do serviço de aplicações do Azure. Se pode ser dimensionado para PremiumV2, em seguida, é numa unidade de escala mais recente do serviço de aplicações. A interface do Usuário de integração de VNet, no portal do informará se a sua aplicação pode utilizar a nova funcionalidade de integração de VNet. 
 
-A nova funcionalidade de integração de VNet inicialmente só está disponível nas regiões Europa do Norte e E.U.A. Leste.
+A nova versão está em pré-visualização e tem as seguintes características.
 
+* Nenhum gateway é necessário para utilizar a nova funcionalidade de integração de VNet
+* Pode aceder a recursos através de ligações do ExpressRoute sem qualquer configuração adicional para além da integração com o ExpressRoute ligado VNet.
+* A aplicação e a VNet tem de estar na mesma região
+* O novo recurso exige uma sub-rede não utilizada na sua VNet do Resource Manager.
+* Seu plano do serviço de aplicações tem de ser um plano Standard, Premium ou PremiumV2
+* Cargas de trabalho de produção não são suportadas no novo recurso enquanto estiverem em pré-visualização
+* A aplicação tem de ser numa implantação do App Service do Azure que seja capaz de aumentar verticalmente para Premium v2.
+* A nova funcionalidade de integração de VNet não funciona para aplicações num ambiente de serviço de aplicações.
+* Não é possível eliminar uma VNet com uma aplicação integrada.  
+* Tabelas de rotas e o global peering ainda não estão disponíveis com a nova integração de VNet.  
+* Um endereço é utilizado para cada instância de plano de serviço de aplicações. Uma vez que o tamanho de sub-rede não pode ser alterado após a atribuição, utilize uma sub-rede que mais do que pode cobrir o tamanho de dimensionamento máximo. / 27 com 32 endereços é o tamanho recomendado, pois o que seria acomodar um plano de serviço de aplicações é dimensionado para 20 instâncias.  Pode consumir recursos usando a nova capacidade de integração de VNet protegidos pelo ponto final de serviço. Para tal, ative pontos finais de serviço na sub-rede utilizada para a integração de VNet.
+
+Para utilizar o novo recurso:
+
+1. Vá para a interface do Usuário de rede no portal. Se a aplicação for capaz de usar o novo recurso, em seguida, irá ver uma capacidade para utilizar a nova funcionalidade de pré-visualização.  
+
+ ![Selecione a nova pré-visualização da integração de VNet][6]
+
+1. Selecione **VNet adicionar (pré-visualização)**.  
+
+1. Selecione a VNet do Resource Manager que pretende integrar com o e, em seguida, criar uma nova sub-rede ou escolha uma sub-rede já existente vazia. A integração leva menos de um minuto para concluir. Durante a integração, seu aplicativo é reiniciado.  Quando a integração é concluída, verá detalhes sobre a VNet estão integradas e uma faixa na parte superior que diz a que a funcionalidade está em pré-visualização.
+
+ ![Selecione a VNet e sub-rede][7]
+
+Para ativar a aplicação para utilizar o servidor DNS que a VNet está configurada com, crie uma definição da aplicação para a sua aplicação em que o nome é WEBSITE_DNS_SERVER e o valor é o endereço IP do servidor.  Se tiver um servidor DNS secundário, em seguida, criar outra definição de aplicação em que o nome é WEBSITE_DNS_ALT_SERVER e o valor é o endereço IP do servidor. 
+
+Para desligar a sua aplicação da VNet, selecione **desligar**. Esta ação irá reiniciar a aplicação web. 
+
+A nova funcionalidade de integração de VNet permite-lhe utilizar pontos finais de serviço.  Para utilizar pontos finais de serviço com a sua aplicação, utilize a nova integração de VNet para ligar a uma VNet selecionada e, em seguida, configurar pontos finais de serviço na sub-rede que utilizou para a integração. 
 
 <!--Image references-->
-[1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
-[2]: ./media/web-sites-integrate-with-vnet/vnetint-existingvnet.png
-[3]: ./media/web-sites-integrate-with-vnet/vnetint-createvnet.png
-[4]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png
-[5]: ./media/web-sites-integrate-with-vnet/vnetint-appmanage.png
-[6]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanage.png
-[7]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanagedetail.png
-[8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
+[1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
+[2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
+[3]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png
+[4]: ./media/web-sites-integrate-with-vnet/vnetint-details.png
+[5]: ./media/web-sites-integrate-with-vnet/vnetint-aspdetails.png
+[6]: ./media/web-sites-integrate-with-vnet/vnetint-newvnet.png
+[7]: ./media/web-sites-integrate-with-vnet/vnetint-newvnetdetails.png
+[8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
@@ -327,3 +318,6 @@ A nova funcionalidade de integração de VNet inicialmente só está disponível
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
+[creategatewaysubnet]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategateway]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
+[setp2saddresses]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

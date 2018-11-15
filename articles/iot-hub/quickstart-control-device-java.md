@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 3e936b3e08884c1728809aea9054278ffdb99045
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 172c3011221e04bfdb4a4f3ae1515fe0eb10065b
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416992"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515255"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT (Java)
 
@@ -26,6 +26,7 @@ O Hub IoT é um serviço do Azure que lhe permite ingerir elevados volumes de te
 O guia de início rápido utiliza duas aplicações Java pré-escritas:
 
 * Uma aplicação de dispositivo simulado que responde aos métodos diretos chamados a partir de uma aplicação back-end. Para receber as chamadas de método direto, esta aplicação liga-se a um ponto final específico do dispositivo no seu hub IoT.
+
 * Uma aplicação back-end que chama os métodos diretos no dispositivo simulado. Para chamar um método direto num dispositivo, esta aplicação liga-se a um ponto final do lado do serviço no seu hub IoT.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -58,7 +59,7 @@ Se ainda não o fez, transfira o projeto Java de exemplo do https://github.com/A
 
 Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-java.md), pode ignorar este passo.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
@@ -68,13 +69,14 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
 1. Execute os seguintes comandos no Azure Cloud Shell para adicionar a extensão da CLI do Hub IoT e para criar a identidade do dispositivo. 
 
-   **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+   **YourIoTHubName** : substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
    **MyJavaDevice**: este é o nome designado para o dispositivo registado. Utilize MyJavaDevice, conforme mostrado. Se escolher um nome diferente para o seu dispositivo, também irá precisar de utilizar esse nome através deste artigo, e atualize o nome do dispositivo em aplicações de exemplo antes de as executar.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
+    az iot hub device-identity create \
+      --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
@@ -82,7 +84,10 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
    **YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string \
+      -hub-name YourIoTHubName \
+      --device-id MyJavaDevice \
+      --output table
     ```
 
     Anote a cadeia de ligação do dispositivo, que se parece com:
@@ -95,7 +100,7 @@ Se concluiu o anterior [Guia de Início Rápido: enviar telemetria a partir de u
 
 Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT de modo a obter as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
    
-**YourIoTHubName**: substitua o marcador de posição abaixo pelo nome que escolher para o seu hub IoT.
+**YourIoTHubName** : substitua este marcador de posição abaixo com o nome que escolheu para o seu hub IoT.
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIoTHubName --output table
@@ -131,7 +136,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação de dispositivo simulado envia telemetria para o seu hub IoT:
 
-    ![Executar o dispositivo simulado](media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![Executar o dispositivo simulado](./media/quickstart-control-device-java/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>Chamar o método direto
 
@@ -157,19 +162,19 @@ A aplicação back-end liga-se a um ponto final do lado do serviço no seu Hub I
 
     A seguinte captura de ecrã mostra a saída à medida que a aplicação faz uma chamada de método direto para o dispositivo e obtém uma confirmação:
 
-    ![Executar a aplicação back-end](media/quickstart-control-device-java/BackEndApplication.png)
+    ![Executar a aplicação back-end](./media/quickstart-control-device-java/BackEndApplication.png)
 
     Depois de executar a aplicação back-end, verá uma mensagem na janela da consola a executar o dispositivo simulado e a velocidade à qual a aplicação envia mensagens muda:
 
-    ![Alteração no cliente simulado](media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![Alteração no cliente simulado](./media/quickstart-control-device-java/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia de início rápido, chamou um método direto num dispositivo a partir de uma aplicação back-end e respondeu a uma chamada de método direto numa aplicação de dispositivo simulado.
+Neste início rápido, chamado um método direto num dispositivo a partir de uma aplicação de back-end e respondeu à chamada de método direto num aplicativo de dispositivo simulado.
 
 Para saber como encaminhar mensagens do dispositivo para a cloud para diferentes destinos na cloud, avance para o tutorial seguinte.
 

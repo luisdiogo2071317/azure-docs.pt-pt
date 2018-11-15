@@ -1,25 +1,25 @@
 ---
 title: Automatizar a criação da imagem, teste e patch com tarefas do Azure Container Registry com vários passos
-description: Um tarefas de vários passos de introdução, uma funcionalidade do ACR tarefas no Azure Container Registry fornece fluxos de trabalho baseados em tarefas para criar, testar e aplicar patches em imagens de contentor na cloud.
+description: Uma introdução às tarefas de vários passos, uma funcionalidade do ACR tarefas no Azure Container Registry fornece fluxos de trabalho baseados em tarefas para criar, testar e aplicar patches em imagens de contentor na cloud.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: danlep
-ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856723"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632697"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Execução de vários passo compilação, teste e as tarefas de patch no ACR tarefas
 
 Tarefas de vários passos expandir a capacidade de compilação de push e de imagem única das tarefas de ACR com fluxos de trabalho com vários passos, baseado no várias container. Utilizar tarefas de vários passos para criar e enviar várias imagens, série ou paralelamente e executar essas imagens como comandos dentro de uma única tarefa executar. Cada passo define uma imagem de contentor compilar ou enviar a operação e também pode definir a execução de um contentor. Cada passo numa tarefa com vários passo utiliza um contentor, como o seu ambiente de execução.
 
 > [!IMPORTANT]
-> Se tiver criado anteriormente tarefas durante a pré-visualização com o `az acr build-task` comando, essas tarefas têm de ser recriado com o [tarefa do az acr] [ az-acr-task] comando.
+> Se anteriormente tiver criado tarefas durante a pré-visualização com o comando `az acr build-task`, essas tarefas têm de ser recriadas com o comando [az acr task][az-acr-task].
 
 Por exemplo, pode executar uma tarefa com os passos que automatizam o seguinte:
 
@@ -53,7 +53,7 @@ Uma tarefa de várias etapa nas tarefas do ACR é definida como uma série de pa
 * [`push`](container-registry-tasks-reference-yaml.md#push): Push criadas imagens para um registo de contentor. São suportados registos privados, como o Azure Container Registry, como é o Docker Hub público.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Execute um contentor, que ele pode operar como uma função dentro do contexto da tarefa em execução. Pode passar parâmetros para o contentor `[ENTRYPOINT]`e especifique propriedades como env, desligar e outro familiar `docker run` parâmetros. O `cmd` permite que o tipo de passo de unidade e testes funcionais, com a execução de contentor em simultâneo.
 
-Tarefas de vários passos podem ser tão simples quanto a criação e envio de uma única imagem:
+Os fragmentos seguintes mostram como combinar esses tipos de passo de tarefa. Tarefas de vários passos podem ser tão simples quanto criar uma única imagem a partir de um Dockerfile e enviar por push para o seu registo, com um ficheiro YAML semelhante a:
 
 ```yaml
 version: 1.0-preview-1
@@ -62,7 +62,7 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-Ou, mais complexo, por exemplo, esta tarefa, que inclui passos para a compilação, teste, o pacote do helm e o helm implementar:
+Ou, mais complexo, por exemplo, esta definição de vários passo fictícia que inclui passos para a compilação, teste, o pacote do helm e o helm implementar (registo de contentor e a configuração do repositório Helm não mostrado):
 
 ```yaml
 version: 1.0-preview-1
@@ -84,6 +84,8 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
+
+Ver [exemplos de tarefas] [ task-examples] para concluir vários passos da tarefa YAML ficheiros e Dockerfiles para vários cenários.
 
 ## <a name="run-a-sample-task"></a>Executar uma tarefa de exemplo
 
@@ -163,6 +165,7 @@ Pode encontrar a referência de tarefas de vários passos e exemplos aqui:
 
 * [Referência de tarefas](container-registry-tasks-reference-yaml.md) -passo tipos, suas propriedades e da utilização de tarefas.
 * [Exemplos de tarefas] [ task-examples] -exemplo `task.yaml` arquivos para vários cenários simples a complexas.
+* [Repositório de cmd](https://github.com/AzureCR/cmd) -uma coleção de contêineres, como comandos para tarefas do ACR.
 
 <!-- IMAGES -->
 

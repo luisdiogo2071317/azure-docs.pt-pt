@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296164"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685808"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Bloqueio inteligente de Active Directory do Azure
 
@@ -23,7 +23,15 @@ Bloqueio inteligente utiliza inteligência da cloud para bloquear mal-intenciona
 
 Por predefinição, o bloqueio inteligente bloqueia a conta de tentativas de início de sessão de um minuto após 10 tentativas falhadas. Os bloqueios de conta novamente após cada subsequente início de sessão tentativa falhada, durante um minuto em primeiro e mais tempo nas tentativas subsequentes.
 
+* Bloqueio inteligente controla os três últimos hashes de palavra-passe incorreta para evitar reincrementing o contador de bloqueio. Se alguém insere a mesma palavra-passe errada várias vezes, esse comportamento não fará com que a conta de bloqueio.
+   * Esta funcionalidade não está disponível para clientes com a autenticação pass-through ativada.
+
 Bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com estas definições predefinidas que oferecem a combinação certa de segurança e usabilidade. Personalização das definições de bloqueio inteligente, com valores específicos da sua organização, requer o Azure AD básico ou superior licenças para os seus utilizadores.
+
+Utilizar o bloqueio inteligente não garante que um utilizador original será nunca ser bloqueado. Quando o bloqueio inteligente bloqueia uma conta de utilizador, tentamos melhor para bloqueio o usuário original. O serviço de bloqueio tenta Certifique-se de que pessoas mal-intencionadas não é possível obter acesso a uma conta de utilizadores original.  
+
+* Cada Datacenter do Azure Active Directory controla o bloqueio de forma independente. Um usuário terá (threshold_limit * datacenter_count) número de tentativas, se o usuário acessa cada centro de dados.
+* Bloqueio inteligente utiliza localização desconhecida do vs localização familiar para diferenciar entre um ator indevido e o utilizador original. Localizações desconhecidas e familiares terão ambos os contadores de bloqueio separado.
 
 Bloqueio inteligente pode ser integrado em implementações híbridas, com a sincronização de hash de palavra-passe ou autenticação pass-through para proteger contas do Active Directory no local de que está a ser bloqueada pelos atacantes. Ao definir políticas de bloqueio inteligente no Azure AD adequadamente, ataques podem ser filtrados antes de atingirem o Active Directory no local.
 

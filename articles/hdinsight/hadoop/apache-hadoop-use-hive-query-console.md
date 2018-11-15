@@ -1,6 +1,6 @@
 ---
-title: Utilizar o Hive do Hadoop na consola de consulta no HDInsight - Azure
-description: Saiba como utilizar a consola de consulta baseada na web para executar consultas do Hive num cluster do Hadoop de HDInsight a partir do seu browser.
+title: Utilizar o Apache Hive na consola de consulta no HDInsight - Azure
+description: Saiba como utilizar a consola de consulta baseada na web para executar consultas do Apache Hive num cluster do HDInsight Hadoop a partir do seu browser.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4083ceca8c9181c8acb1a90e782cb5bca981e684
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013977"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634596"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>Executar consultas do Hive utilizando a consola de consulta
+# <a name="run-apache-hive-queries-using-the-query-console"></a>Executar consultas do Apache Hive, utilizando a consola de consulta
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Neste artigo, aprenderá a utilizar a consola de consulta do HDInsight para executar consultas do Hive num cluster do Hadoop de HDInsight a partir do seu browser.
+Neste artigo, aprenderá a utilizar a consola de consulta do HDInsight para executar consultas do Apache Hive num cluster do HDInsight Hadoop a partir do seu browser.
 
 > [!IMPORTANT]
 > A consola de consulta do HDInsight só está disponível em clusters do HDInsight baseado em Windows. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).

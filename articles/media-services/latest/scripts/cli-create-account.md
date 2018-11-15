@@ -12,22 +12,24 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 9e6279b2f93cb68043fa96866d8269b7d60b9b25
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: a0ca9d8b51bc3cd5ed46b56a4d7fedb45211b136
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379251"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613495"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>Exemplo de CLI: Criar uma conta dos Serviços de Multimédia do Azure
 
 O script da CLI do Azure neste tópico mostra como criar uma conta dos Serviços de Multimédia do Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Pré-requisitos 
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
 
 ## <a name="example-script"></a>Script de exemplo
 
@@ -37,7 +39,7 @@ Se optar por instalar e utilizar a CLI localmente, este artigo requer a execuç�
 
 Execute o seguinte comando para remover o grupo de recursos e todos os recursos associados ao mesmo.
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 
@@ -54,6 +56,6 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais exemplos, veja [Azure CLI samples](../cli-samples.md) (Exemplos de CLI do Azure).

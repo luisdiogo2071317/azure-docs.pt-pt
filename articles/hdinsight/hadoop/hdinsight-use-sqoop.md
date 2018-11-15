@@ -1,5 +1,5 @@
 ---
-title: Executar tarefas de Apache Sqoop com o Azure HDInsight (Hadoop)
+title: Executar tarefas de Apache Sqoop com o Azure HDInsight (Apache Hadoop)
 description: Saiba como utilizar o Azure PowerShell a partir de uma estação de trabalho para executar o Sqoop import e export entre um cluster de Hadoop e uma base de dados SQL do Azure.
 ms.reviewer: jasonh
 services: hdinsight
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c02fca7ba1ee5b7a93e54b4898290f0b84d88304
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622453"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684992"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilize o Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Saiba como utilizar o Sqoop para importar e exportar entre o cluster do HDInsight e a base de dados SQL do Azure ou a base de dados do SQL Server no HDInsight.
+Saiba como utilizar o Apache Sqoop para importar e exportar entre o cluster do HDInsight e a base de dados SQL do Azure ou a base de dados do SQL Server no HDInsight.
 
-Embora a Hadoop é uma opção natural para processar os dados não estruturados e semiestruturados, tais como registos e ficheiros, também pode haver a necessidade de processar dados estruturados que são armazenados em bases de dados relacionais.
+Embora o Apache Hadoop é uma opção natural para processar os dados não estruturados e semiestruturados, tais como registos e ficheiros, também pode haver a necessidade de processar dados estruturados que são armazenados em bases de dados relacionais.
 
-[Sqoop] [ sqoop-user-guide-1.4.4] é uma ferramenta projetada para transferir dados entre clusters do Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gerenciamento de banco de dados relacional (RDBMS), como SQL Server, MySQL ou Oracle para o sistema de ficheiros distribuído Hadoop (HDFS), transformar os dados no Hadoop com o MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS. Neste tutorial, está a utilizar uma base de dados do SQL Server da base de dados relacional.
+[Apache Sqoop] [ sqoop-user-guide-1.4.4] é uma ferramenta projetada para transferir dados entre clusters do Hadoop e bases de dados relacionais. Pode usá-lo para importar dados de um sistema de gerenciamento de banco de dados relacional (RDBMS), como SQL Server, MySQL ou Oracle para o sistema de ficheiros distribuído Hadoop (HDFS), transformar os dados no Hadoop com o MapReduce ou Hive e, em seguida, exportar os dados de volta para um RDBMS. Neste tutorial, está a utilizar uma base de dados do SQL Server da base de dados relacional.
 
 Para versões de Sqoop que são suportadas nos clusters do HDInsight, consulte [quais são as novidades nas versões do cluster fornecidas pelo HDInsight?][hdinsight-versions]
 
@@ -90,7 +90,7 @@ Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados S
         
         |Nome|Valor|
         |----|-----|
-        | Nome predefinido da conta de armazenamento | &lt;CluterName>store |
+        | Nome predefinido da conta de armazenamento | &lt;ClusterName > armazenar |
         | Nome de servidor de base de dados SQL do Azure | &lt;ClusterName>dbserver |
         | Nome de base de dados SQL do Azure | &lt;ClusterName>db |
      
@@ -102,7 +102,7 @@ Se optar por utilizar a base de dados SQL do Azure existente ou o Microsoft SQL 
 * **Base de dados SQL do Azure**: tem de configurar uma regra de firewall para o servidor de base de dados SQL do Azure permitir o acesso da sua estação de trabalho. Para obter instruções sobre como criar uma base de dados SQL do Azure e configurando o firewall, consulte [começar a utilizar a base de dados SQL do Azure][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Por predefinição, uma base de dados SQL do Azure permite ligações a partir de serviços do Azure, como o Azure HDInsight. Se esta definição de firewall estiver desativada, terá de ativá-la a partir do portal do Azure. Para obter instruções sobre como criar uma base de dados SQL do Azure e configurar regras de firewall, consulte [criar e configurar a base de dados do SQL][sqldatabase-create-configue].
+  > Por predefinição, uma base de dados SQL do Azure permite ligações a partir de serviços do Azure, como o Azure HDInsight. Se esta definição de firewall estiver desativada, terá de ativá-la a partir do portal do Azure. Para obter instruções sobre como criar uma base de dados SQL do Azure e configurar regras de firewall, consulte [criar e configurar a base de dados do SQL][sqldatabase-create-configure].
   > 
   > 
 * **SQL Server**: se o cluster do HDInsight na mesma rede virtual no Azure que o SQL Server, pode utilizar os passos neste artigo para importar e exportar dados para uma base de dados do SQL Server.
@@ -636,7 +636,7 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../../sql-database/sql-database-get-started.md
+[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs

@@ -3,7 +3,7 @@ title: Criar uma aplicação de contentor do Windows no Service Fabric no Azure 
 description: Neste guia de introdução, crie a sua primeira aplicação de contentor do Windows no Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: vturecek
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/30/2018
-ms.author: ryanwi
+ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: be6c13b998664cda65b1002c23726cbe89359a59
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2855d28a3d5414413ca1657a7bef9c060f6d4424
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261201"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300341"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Windows no Service Fabric
 
@@ -125,7 +125,7 @@ Cada aplicação no cluster tem de ter um nome exclusivo.  Contudo, os clusters 
 
 Abra um browser e navegue para o **Ponto final de ligação** especificado na página do cluster de Terceiros. Opcionalmente, pode preceder o identificador do esquema, `http://`, e acrescentar a porta, `:80`, ao URL. Por exemplo, http://zwin7fh14scd.westus.cloudapp.azure.com:80. Deverá ver a página Web predefinida do IIS: ![Página Web predefinida do IIS][iis-default]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a:
 

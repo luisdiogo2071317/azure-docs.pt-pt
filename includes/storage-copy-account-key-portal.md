@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 499ffdf7e91d4ff6926f59ff534142e0a1c5d6c5
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.openlocfilehash: 13e99f1dc84c5345ba04fcfc412b8ef4237cc581
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222223"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285684"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>Copiar as credenciais do Portal do Azure
 
-A aplicação de exemplo tem de autorizar o acesso à sua conta de armazenamento. Indique as credenciais da conta de armazenamento para a aplicação sob a forma de uma cadeia de ligação. Para ver as credenciais da conta de armazenamento:
+A aplicação de exemplo tem de autorizar o acesso à sua conta de armazenamento. Forneça as credenciais de conta de armazenamento para o aplicativo sob a forma de uma cadeia de ligação. Para ver as credenciais da conta de armazenamento:
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 2. Localize a sua conta de armazenamento.

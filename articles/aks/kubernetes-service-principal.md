@@ -7,14 +7,14 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394595"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578354"
 ---
-# <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Azure Kubernetes Service (AKS)
+# <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
 Para interagir com as APIs do Azure, os clusters do AKS requerem um [principal de serviço do Azure Active Directory (AD)][aad-service-principal]. O principal de serviço é necessário para criar e gerir dinamicamente outros recursos do Azure como um balanceador de carga ou registo de contentor do Azure (ACR).
 
@@ -24,7 +24,7 @@ Este artigo mostra como criar e utilizar um principal de serviço para os seus c
 
 Para criar um principal de serviço do Azure AD, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Se não tiver as permissões necessárias, poderá ter de pedir ao administrador do Microsoft Azure AD ou da subscrição para atribuir as permissões necessárias ou pré-criar um principal de serviço para utilizar com o cluster do AKS.
 
-Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
+Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e utilizar um principal de serviço automaticamente
 
@@ -75,6 +75,45 @@ Se implementar um cluster do AKS com o portal do Azure, na página *Autenticaç�
 
 ![Imagem de navegação para o Azure Vote](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## <a name="delegate-access-to-other-azure-resources"></a>Delegar o acesso a outros recursos do Azure
+
+O principal de serviço para o cluster do AKS pode ser utilizado para aceder a outros recursos. Por exemplo, se pretender utilizar o sistema de rede avançada para ligar às redes virtuais existentes ou ligar para o Azure Container Registry (ACR), terá de delegar o acesso ao principal de serviço.
+
+Delegar permissões, criar uma atribuição de função com o [criação da atribuição de função de az] [ az-role-assignment-create] comando. Atribuir o `appId` a um âmbito específico, tal como um grupo de recursos ou recurso de rede virtual. Uma função, em seguida, define quais as permissões que o principal de serviço tem no recurso, conforme mostrado no exemplo a seguir:
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+O `--scope` para um recurso tem de ser um ID de recurso completo, como */subscriptions/\<guid\>/resourceGroups/myResourceGroup* ou */subscriptions/\<guid \>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+As secções seguintes detalham as delegações comuns que poderá ter de fazer.
+
+### <a name="azure-container-registry"></a>Registo de Contentores do Azure
+
+Se utilizar o Azure Container Registry (ACR) como arquivo de imagem de contentor, tem de conceder permissões para o seu cluster do AKS ler e solicitar imagens. O principal de serviço do AKS cluster deve ser delegado a *leitor* função no Registro. Para obter passos detalhados, consulte [acesso AKS de concessão para o ACR][aks-to-acr].
+
+### <a name="networking"></a>Redes
+
+Pode utilizar as redes avançados em que a rede virtual e sub-rede ou endereços IP públicos são outro grupo de recursos. Atribua um conjunto de permissões de função seguinte:
+
+- Criar uma [função personalizada] [ rbac-custom-role] e definir as seguintes permissões de função:
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- Ou, atribuir os [contribuinte de rede] [ rbac-network-contributor] função incorporada na sub-rede na rede virtual
+
+### <a name="storage"></a>Armazenamento
+
+Terá de aceder aos recursos de disco existentes noutro grupo de recursos. Atribua um conjunto de permissões de função seguinte:
+
+- Criar uma [função personalizada] [ rbac-custom-role] e definir as seguintes permissões de função:
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- Ou, atribuir os [contribuinte de conta de armazenamento] [ rbac-storage-contributor] função incorporada no grupo de recursos
+
 ## <a name="additional-considerations"></a>Considerações adicionais
 
 Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em atenção as seguintes considerações.
@@ -92,7 +131,7 @@ Quando utilizar principais de serviço do AKS e do Microsoft Azure AD, tenha em 
         az ad app delete --id <appId>
         ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre os principais de serviço do Azure Active Directory, veja [Objetos de aplicação e de principal de serviço][service-principal]
 
@@ -107,3 +146,8 @@ Para obter mais informações sobre os principais de serviço do Azure Active Di
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr

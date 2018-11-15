@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: 66e937e92528e2f0a1fca9d9aac78f7265eef4f7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: f79455166ef0d1bec9a2fb1d6045005f844e55ac
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741237"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636752"
 ---
 # <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação Java com o SDK Java Async para gerir os dados da API SQL do Azure Cosmos DB
 
@@ -116,7 +116,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Passo 5: Criar uma base de dados
 
-Pode criar a sua [base de dados](sql-api-resources.md#databases) do Azure Cosmos DB com o método createDatabaseIfNotExists() da classe DocumentClient. Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
+Pode criar a sua [base de dados](databases-containers-items.md#azure-cosmos-databases) do Azure Cosmos DB com o método createDatabaseIfNotExists() da classe DocumentClient. Uma base de dados é o contentor lógico do armazenamento de documentos JSON particionado em coleções.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -203,7 +203,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>Passo 7: Criar documentos JSON
 
-Pode criar um [documento](sql-api-resources.md#documents) com o método createDocument da classe DocumentClient. Os documentos são conteúdos JSON (arbitrários) definidos pelo utilizador. Podemos agora inserir um ou mais documentos. O ficheiro "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" define a família de documentos JSON 
+Um documento pode ser criado usando o método createDocument da classe DocumentClient. Os documentos são conteúdos JSON (arbitrários) definidos pelo utilizador. Podemos agora inserir um ou mais documentos. O ficheiro "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" define a família de documentos JSON 
 
 ```java
 public static Family getJohnsonFamilyDocument() {
@@ -271,7 +271,7 @@ mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSM
 
 Parabéns! Concluiu este tutorial NoSQL e a sua aplicação de consola Java está a funcionar!
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a compilar uma aplicação Java com o SDK Java Async para gerir dados da API SQL do Azure Cosmos DB. Pode agora avançar para o artigo seguinte:
 

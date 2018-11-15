@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: 596bb31ea2734b389ac8b2d6741907da04730648
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3168593e30a7f5acf49960c8479da75529860a65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629379"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684550"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Feed de alterações de leitura do Azure Cosmos DB
 
@@ -27,7 +27,7 @@ As funções do Azure é a opção mais simples e recomendada. Quando cria um ac
 
 ## <a name="using-the-change-feed-processor-library"></a>Usando a alteração de biblioteca processador do feed
 
-A alteração biblioteca processador do feed oculta a complexidade e ainda lhe oferece um controlo total sobre o feed de alterações. A biblioteca segue o padrão observer, onde a sua função de processamento é chamada pela biblioteca. Se tiver um feed de alterações de alto débito, pode instanciar vários clientes para ler o feed de alterações. Como está usando a biblioteca de processamento de feed de alterações, ele dividirá automaticamente a carga entre os clientes diferentes sem ter de voltar a implementar esta lógica. Toda aquela complexidade é manipulada pela biblioteca. Se deseja ter seu próprio Balanceador de carga, então pode implementar `IParitionLoadBalancingStrategy` para uma partição personalizada feed estratégia para processar a alteração. Para obter mais informações, consulte [usando a alteração de biblioteca processador do feed](change-feed-processor.md).
+A alteração biblioteca processador do feed oculta a complexidade e ainda lhe oferece um controlo total sobre o feed de alterações. A biblioteca segue o padrão observer, onde a sua função de processamento é chamada pela biblioteca. Se tiver um feed de alterações de alto débito, pode instanciar vários clientes para ler o feed de alterações. Como está usando a biblioteca de processamento de feed de alterações, ele dividirá automaticamente a carga entre os clientes diferentes sem ter de voltar a implementar esta lógica. Toda aquela complexidade é manipulada pela biblioteca. Se deseja ter seu próprio Balanceador de carga, então pode implementar `IPartitionLoadBalancingStrategy` para uma partição personalizada feed estratégia para processar a alteração. Para obter mais informações, consulte [usando a alteração de biblioteca processador do feed](change-feed-processor.md).
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Utilizar o SDK do Azure Cosmos DB SQL API
 

@@ -2,19 +2,19 @@
 title: Início rápido do Azure IoT Edge + Windows | Microsoft Docs
 description: Experimentar o Azure IoT Edge executando análise num dispositivo Edge simulado
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 50c430d22f58ce9d2c122c630df1689c18e50aad
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: HT
+ms.openlocfilehash: 16c5b15612acebacfa034c6c55dd053a21eac0d2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946169"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566335"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o primeiro módulo IoT Edge do portal do Azure para um dispositivo Windows – pré-visualização
 
@@ -248,7 +248,7 @@ Elimine os contentores criados no seu dispositivo pelo runtime do IoT Edge. Alte
    docker rm -f edgeAgent
    ```
    
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou um novo dispositivo IoT Edge e utilizou a interface da cloud do Azure IoT Edge para implementar código no dispositivo. Agora tem um dispositivo de teste a gerar dados não processados sobre o seu ambiente.
 

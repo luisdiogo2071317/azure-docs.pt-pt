@@ -16,18 +16,18 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: 1809e7f72afd99de38387317daf2ecb92dbe3cf0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912999"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298726"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Início Rápido: Registar uma aplicação na plataforma de identidade da Microsoft (Pré-visualização)
 
 Os programadores empresariais e os fornecedores de software como serviço (SaaS) podem desenvolver serviços cloud comerciais ou aplicações de linha de negócio que podem ser integrados na plataforma de identidade da Microsoft, de modo a proporcionar início de sessão protegido e autorização para os serviços que oferecem.
 
-Este início rápido mostra como adicionar e registar uma aplicação com a experiência **Registos de aplicações (Pré-visualização)** no portal do Azure para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft.
+Este início rápido mostra como adicionar e registar uma aplicação com a experiência **Registos de aplicações (Pré-visualização)** no portal do Azure para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registos de aplicação, veja [nesta mensagem de blogue](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -63,7 +63,7 @@ O Azure AD atribui um ID de aplicação (cliente) exclusivo à sua aplicação e
 
 [![Página de descrição geral da aplicação recentemente registada](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [permissões e consentimentos](v2-permissions-and-consent.md).
 - Para ativar funcionalidades de configuração adicionais no registo da aplicação, como credenciais e permissões, e ativar o início de sessão para os utilizadores de outros inquilinos, veja os seguintes inícios rápidos:

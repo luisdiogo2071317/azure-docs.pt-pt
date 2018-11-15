@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 4ce693aa30159234ab0dbde29d5aa15e6da058fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 379d6cf589012e7b7e4d0f1ec2dc3ba40cec075f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361838"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514932"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Guia de Início Rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e ler a telemetria do hub com uma aplicação back-end (Node.js)
 
@@ -45,7 +45,8 @@ Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
 
 ## <a name="register-a-device"></a>Registar um dispositivo
 
@@ -101,7 +102,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
     Substitua o valor da variável `connectionString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.js**.
 
-1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e execute a aplicação de dispositivo simulado:
+1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e execute a aplicação de dispositivo simulado:
 
     ```cmd/sh
     npm install
@@ -122,7 +123,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     Substitua o valor da variável `connectionString` pela cadeia de ligação do serviço que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **ReadDeviceToCloudMessages.js**.
 
-1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e executar a aplicação back-end:
+1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e executar a aplicação back-end:
 
     ```cmd/sh
     npm install
@@ -137,7 +138,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub com uma aplicação Node.js e leu a telemetria do hub com uma simples aplicação back-end.
 

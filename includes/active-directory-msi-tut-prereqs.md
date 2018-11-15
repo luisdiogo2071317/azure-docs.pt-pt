@@ -5,14 +5,17 @@ services: active-directory
 author: daveba
 ms.service: active-directory
 ms.topic: include
-ms.date: 08/30/2018
+ms.date: 11/13/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 9dbd053aaafe07024bb80460d7a031a21705615b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
-ms.translationtype: HT
+ms.openlocfilehash: 5e4181c8b88b7321e525846ee60fd6916d796503
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339217"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51626240"
 ---
-- Para executar a criação de recursos e gestão de funções, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de função, veja [Utilizar Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos da sua subscrição do Azure](../articles/role-based-access-control/role-assignments-portal.md).
+- Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](../articles/active-directory/msi-overview.md). Se não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para executar a criação de recursos e gestão de funções, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, veja [Utilizar o Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos de subscrição do Azure](../articles/role-based-access-control/role-assignments-portal.md).
+- [Iniciar sessão no portal do Azure](https://portal.azure.com)
+- [Criar uma máquina virtual com a identidade atribuída por sistema ativada](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)

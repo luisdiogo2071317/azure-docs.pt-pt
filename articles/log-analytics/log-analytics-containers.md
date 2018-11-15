@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6bde2fb0fc9534d170be1d755856f6f779e47d7c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625866"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685944"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de monitorização de contentores no Log Analytics
 
@@ -108,7 +108,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
     - Se tiver um ambiente de Red Hat OpenShift, reveja [configurar um agente de Log Analytics para o Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
     - Se tiver um cluster do Kubernetes com o Azure Container Service:
        - Revisão [configurar um agente Linux do Log Analytics para o Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
-       - Revisão [configurar um agente do Windows da análise de registo para Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Revisão [configurar um agente do Windows do Log Analytics para Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
        - Revisão [Helm de utilização para implementar o agente do Log Analytics no Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - Se tiver um cluster do DC/OS do Azure Container Service, saiba mais em [monitorizar um cluster DC/OS do Azure Container Service com o Log Analytics](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - Se tiver um ambiente de modo Docker Swarm, saiba mais em [configurar um agente de Log Analytics para o Docker Swarm](#configure-an-oms-agent-for-docker-swarm).

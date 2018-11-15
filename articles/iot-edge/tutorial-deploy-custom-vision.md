@@ -3,18 +3,18 @@ title: Implementar a Visão Personalizada num dispositivo Azure IoT Edge | Micro
 description: Saiba como utilizar a Visão Personalizada e o IoT Edge para executar um modelo de visão personalizada como um contentor.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a3bd7cf5e7c29ee44d696c0a27566b1a73436794
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50749828"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566487"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -468,7 +468,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, preparou um modelo de Visão Personalizada e implementou-o como um módulo num dispositivo IoT Edge. Depois, compilou um módulo que pode consultar o servidor de classificação de imagens e comunicar os resultados ao Hub IoT. 
 

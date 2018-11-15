@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 92321b5e919f6703cb481d88f312a20fc7c62826
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: fc8fc1af51332df032e864c84791791a38bc8601
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49375467"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612225"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmitir ficheiros de vídeo – .NET
 
@@ -33,7 +33,12 @@ No final do início rápido, será capaz de transmitir um vídeo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver o Visual Studio instalado, poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Se não tiver o Visual Studio instalado, poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- Instalar e utilizar a CLI localmente, este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+
+    Atualmente, nem todos [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) comandos trabalham no Azure Cloud Shell. Recomenda-se para utilizar a CLI localmente.
+
+- [Criar uma conta de Media Services](create-account-cli-how-to.md).
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -56,14 +61,6 @@ O exemplo realiza as seguintes ações:
 7. Cria os URLs de transmissão.
 
 Para obter uma explicação sobre o que faz cada função no exemplo, examine o código e observe os comentários [neste ficheiro de origem](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
-
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-
-Inicie sessão no [Portal do Azure](http://portal.azure.com).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -93,11 +90,11 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou neste Início Rápido, elimine o grupo de recursos. Pode utilizar a ferramenta **CloudShell**.
+Se já não precisar de nenhum dos recursos presentes no grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou neste Início Rápido, elimine o grupo de recursos.
 
-No **CloudShell**, execute o seguinte comando:
+Execute o seguinte comando da CLI:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

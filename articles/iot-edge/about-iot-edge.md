@@ -2,7 +2,7 @@
 title: O que é o Azure IoT Edge | Microsoft Docs
 description: Descrição geral do serviço Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 107852bd2c4ec0b932008b498dde4ea77f8071a3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: 1a1281be1c1b58b21406dad5826e240ccac6c898
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116341"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567769"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Hub IoT Edge
 
@@ -73,7 +73,7 @@ O Azure IoT Edge integra-se facilmente com os aceleradores de soluções do Azur
 
 ![A telemetria, as informações e as ações dos dispositivos são coordenadas com a cloud](./media/about-iot-edge/cloud-interface.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente estes conceitos ao [implementar o IoT Edge num dispositivo simulado](quickstart.md).
 

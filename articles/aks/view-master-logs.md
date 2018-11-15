@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5f151db9cb2cf7a5ef242f777cd2ad1820c856a8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138174"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636694"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever o Kubernetes no Azure Kubernetes Service (AKS) de registos de nó principal
 
@@ -42,7 +42,7 @@ O portal de captura de ecrã de exemplo seguinte mostra os *as definições de d
 ![Ativar a área de trabalho do Log Analytics para o cluster do Log Analytics do AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->Áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+>As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Agendar um pod de teste no cluster do AKS
 
@@ -116,7 +116,7 @@ Para ajudar a analisar os dados de registo, a tabela seguinte fornece detalhes s
 | *resourceId*             | Recursos do Azure que produziu o registo |
 | *tempo*                   | Timestamp de quando o registo foi carregado |
 | *category*               | Nome do contentor/componente gerar o registo |
-| *operationName*          | Sempre *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *operationName*          | Sempre *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *Properties.log*         | Texto completo do registo do componente do |
 | *Properties.stream*      | *stderr* ou *stdout* |
 | *Properties.pod*         | Nome de pod que vieram com o registo |

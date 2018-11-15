@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/13/2018
-ms.openlocfilehash: 520656297fd2f31f02d127e8662c26617a42db83
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/14/2018
+ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629278"
+ms.locfileid: "51632633"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utilizar o Resource Health para resolver problemas de conectividade para a base de dados do Azure SQL
 
@@ -27,7 +27,7 @@ ms.locfileid: "51629278"
 
 ![Descrição geral](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
-## <a name="health-checks"></a>Verificações do Estado de Funcionamento
+## <a name="health-checks"></a>Verificações de estado de funcionamento
 
 Estado de funcionamento do recurso determina o estado de funcionamento do seu recurso SQL ao examinar o êxito e falha de inícios de sessão para o recurso. Atualmente, o estado de funcionamento de recursos para o seu recurso de BD SQL examina apenas falhas de início de sessão devido a erro de sistema e não a erro de utilizador. O estado de funcionamento do recurso é atualizado a cada 1 a 2 minutos.
 
@@ -65,7 +65,7 @@ Pode acessar até 14 dias do histórico de estado de funcionamento na secção d
 
 Quando a base de dados SQL sofrer um período de indisponibilidade, a análise é executada para determinar um motivo. Se estiver disponível, é comunicado o motivo de tempo de inatividade na secção de histórico de estado de funcionamento do Estado de funcionamento do recurso. Motivos de tempo de inatividade são publicados normalmente de 30 minutos após um evento.
 
-#### <a name="planned-maintenance"></a>Manutenção Planeada
+#### <a name="planned-maintenance"></a>Manutenção planeada
 
 A infraestrutura do Azure efetua periodicamente a manutenção planeada – atualização dos componentes de hardware ou software no Centro de dados. Enquanto a base de dados entra em manutenção, o SQL pode encerrar algumas ligações existentes e recusar novos. O início de sessão durante a manutenção planeada de falhas costumam ser transitórios e lógica de repetição ajuda a reduzir o impacto. Se continuar a ocorrer erros de início de sessão, contacte o suporte.
 
@@ -73,7 +73,7 @@ A infraestrutura do Azure efetua periodicamente a manutenção planeada – atua
 
 Reconfigurações são consideradas condições transitórias e espera-se de tempos em tempos. Esses eventos podem ser adicionados a falhas de software/hardware ou de balanceamento de carga. Qualquer aplicativo de produção do cliente que se liga a um serviço de base de dados em nuvem deve implementar uma lógica de repetição de ligação robusta com a lógica de backoff, ele poderia ajudar a reduzir tais situações e deve geralmente fazem os erros transparente para o utilizador final.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba mais sobre [repetir a lógica para erros transitórios](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [Resolução de problemas, diagnosticar e prevenir erros de ligação de SQL](./sql-database-connectivity-issues.md)

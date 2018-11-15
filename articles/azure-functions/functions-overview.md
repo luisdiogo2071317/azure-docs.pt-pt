@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f9b60b9365f8856db8ffd8e14d95d46af3808ffb
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: f2890fa4d8260485fa76478571aa66abe1efd35e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116492"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515408"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Uma introdução às Funções do Azure  
 Funções do Azure é uma solução para uma fácil execução de pequenos blocos de código, ou "funções", na nuvem. É possível escrever apenas o código que necessita para o problema em questão, sem ter de se preocupar com toda a aplicação ou a infraestrutura para executá-la. As funções podem tornar o desenvolvimento ainda mais produtivo, e podem utilizar uma linguagem de desenvolvimento à sua escolha, tal como C#, F#, Node.js, Java ou PHP. Paga apenas para a hora que o seu código é executado e confie no Azure para dimensionar conforme necessário. As Funções do Azure permitem desenvolver aplicações [sem servidor](https://azure.microsoft.com/solutions/serverless/) no Microsoft Azure.
@@ -47,7 +47,7 @@ Funções fornece modelos para ajudar a começar com cenários-chave, que inclue
 * **BlobTrigger** - Processa blobs de armazenamento do Azure quando são adicionados a contentores. Pode utilizar esta função para redimensionar a imagem. Para obter mais informações, veja [Blob storage bindings (Enlaces de armazenamento de blobs)](functions-bindings-storage-blob.md).
 * **QueueTrigger** - Responder a mensagens à medida que chegam a uma fila de Armazenamento do Azure. Para obter mais informações, veja [Enlaces do Armazenamento de filas do Azure](functions-bindings-storage-queue.md).
 * **EventGridTrigger** – Responder a eventos fornecidos a uma subscrição no Azure Event Grid. Suporta um modelo com base na subscrição para receber eventos, incluindo a filtragem. Uma boa solução para a criação de arquiteturas baseadas em eventos. Para obter um exemplo, veja [Automatizar o redimensionamento de imagens carregadas com o Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
-* **EventHubTrigger** - Responder a eventos fornecidos a um Hub de Eventos do Azure. É especialmente útil em cenários de instrumentação de aplicações, experiência do utilizador ou processamento de fluxo de trabalho e Internet das Coisas (IoT). Para obter mais informações, veja [Event Hubs bindings (Enlaces de Hubs de Eventos)](functions-bindings-event-hubs.md).
+* **EventHubTrigger** - Responder a eventos fornecidos a um Hub de Eventos do Azure. Particularmente útil em cenários de internet das coisas (IoT), de processamento de experiência ou fluxo de trabalho de utilizador e de instrumentação de aplicações. Para obter mais informações, veja [Event Hubs bindings (Enlaces de Hubs de Eventos)](functions-bindings-event-hubs.md).
 * **ServiceBusQueueTrigger** - Ligar o seu código a outros serviços do Azure ou serviços no local através da escuta de filas de mensagens. Para obter mais informações, veja [Service Bus bindings (Enlaces do Service Bus)](functions-bindings-service-bus.md).
 * **ServiceBusQueueTrigger** - Ligar o seu código a outros serviços do Azure ou serviços no local através da subscrição de tópicos. Para obter mais informações, veja [Service Bus bindings (Enlaces do Service Bus)](functions-bindings-service-bus.md).
 
@@ -73,7 +73,7 @@ As Funções do Azure têm dois tipos de planos de preços. Escolha o que melhor
 
 Para obter mais informações sobre os planos de alojamento, veja [Azure Functions hosting plan comparison (Comparação do plano de alojamento das Funções do Azure)](functions-scale.md). Os detalhes completos sobre os preços estão disponíveis na [Preços das Funções](https://azure.microsoft.com/pricing/details/functions/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Próximos Passos
 * [Criar a sua primeira Função do Azure](functions-create-first-azure-function.md)  
   Comece de imediato e crie a sua primeira função com o guia de introdução das Funções do Azure. 
 * [Referência para programadores das Funções do Azure](functions-reference.md)  

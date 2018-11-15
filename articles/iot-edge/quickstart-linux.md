@@ -2,19 +2,19 @@
 title: Início rápido do Azure IoT Edge + Linux | Microsoft Docs
 description: Neste início rápido, saiba como implementar código pré-construído remotamente num dispositivo IoT Edge.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a774873872d4b41c4ef5c005946db6b2a1b4e39e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: a392c4c20e54081ae5e4876b7c718759b8200ce5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955280"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566436"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo Linux x64
 
@@ -289,7 +289,7 @@ Remova o runtime do contentor.
    sudo apt-get remove --purge moby-engine
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este início rápido é o pré-requisito para todos os tutoriais do IoT Edge. Pode continuar para qualquer um dos outros tutoriais para saber mais sobre como o Azure IoT Edge o pode ajudar a transformar estes dados em informações empresariais no Edge.
 

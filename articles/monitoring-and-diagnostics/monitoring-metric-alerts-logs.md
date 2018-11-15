@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 55b86e0d23936e47a82aedf213e20eb6dec3d56d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 66a10cdd6324147509bcb45dad9e9b40b5335fef
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621824"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684921"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas de métricas para os registos no Azure Monitor  
 
@@ -48,7 +48,7 @@ Antes de métrica para os registos recolhidos sobre funciona de dados do Log Ana
 1. **Active Directory área de trabalho do Log Analytics**: uma área de trabalho do Log Analytics válida e ativa tem de estar presente. Para obter mais informações, consulte [criar uma área de trabalho do Log Analytics no portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 2. **Agente for configurado para a área de trabalho do Log Analytics**: agente tem de ser configuradas para as VMs do Azure (e/ou) VMs no local enviar dados para a área de trabalho de análise do registo utilizada no passo anterior. Para obter mais informações, consulte [descrição geral do agente do Log Analytics -](../monitoring/monitoring-overview-azure-agents.md).
 3. **Soluções de análise de registo suportada está instalada**: solução de análise de registo deve ser configurados e envio dados na área de trabalho do Log Analytics - suportado soluções são [contadores de desempenho para Windows e Linux](../log-analytics/log-analytics-data-sources-performance-counters.md), [Registos de heartbeat de agente de estado de funcionamento](../monitoring/monitoring-solution-agenthealth.md), [a gestão, de atualizações e [dados de eventos](../log-analytics/log-analytics-data-sources-windows-events.md).
-4. **Configurado para enviar registos de soluções de análise de registo**: solução da análise de registo deve ter dados/registos necessários correspondente para [métricas suportadas para áreas de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) ativada. Por exemplo, para *% de memória disponível* contador do mesmo tem de ser configurado na [contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) solução primeiro.
+4. **Configurado para enviar registos de soluções de análise de registo**: solução de análise de registo deve ter dados/registos necessários correspondente para [métricas suportadas para áreas de trabalho do Log Analytics](monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) ativada. Por exemplo, para *% de memória disponível* contador do mesmo tem de ser configurado na [contadores de desempenho](../log-analytics/log-analytics-data-sources-performance-counters.md) solução primeiro.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurar o alerta de métrica para os registos
  alertas de métricas podem ser criadas e geridos através do portal do Azure, modelos do Resource Manager, REST API, PowerShell e CLI do Azure. Como alertas de métrica para os registos, é uma variante de alertas de métricas - depois de terminar os pré-requisitos, o alerta de métrica para os registos pode ser criada para a área de trabalho do Log Analytics especificada. Todas as características e funcionalidades do [ alertas de métricas](monitoring-near-real-time-metric-alerts.md) serão aplicáveis a alertas de métricas para os registos, também, incluindo o esquema do payload, limites de quota aplicável e preços de faturação.
@@ -101,7 +101,7 @@ Para alcançar o mesmo, é possível usar o exemplo de modelo de Gestor de recur
             "type": "string",
             "defaultValue": "true",
             "metadata": {
-                "description": "Specifies whether the log convertion rule is enabled"
+                "description": "Specifies whether the log conversion rule is enabled"
             }
         },
         "convertRuleMetric": {

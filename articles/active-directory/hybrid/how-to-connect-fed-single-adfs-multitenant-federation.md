@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241740"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621267"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Federar várias instâncias do Azure AD com uma instância única do AD FS
 
@@ -47,7 +47,7 @@ Para o AD FS no contoso.com conseguir autenticar utilizadores no fabrikam.com, �
  
 O emissor predefinido num único domínio federado para o AD FS é “http://ADFSServiceFQDN/adfs/services/trust”, por exemplo, “http://fs.contoso.com/adfs/services/trust”. O Azure Active Directory requer um emissor exclusivo para cada domínio federado. Uma vez que o mesmo AD FS vai federar dois domínios, o valor do emissor tem de ser modificado para que seja exclusivo para cada domínio que o AD FS federa com o Azure Active Directory. 
  
-No servidor do AD FS, abra o Azure AD PowerShell e execute os seguintes passos:
+No servidor do AD FS, abra o PowerShell do Azure AD (Certifique-se de que o módulo MSOnline está instalado) e execute os seguintes passos:
  
 Ligue ao Azure Active Directory que contém o domínio contoso.com Connect-MsolService. Atualize as definições de federação para contoso.com Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  
@@ -64,5 +64,5 @@ Converta o domínio gerido fabrikam.com para federado:
  
 A operação acima irá federar o domínio fabrikam.com com o mesmo AD FS. Pode verificar as definições de domínio com o Get-MsolDomainFederationSettings para ambos os domínios.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 [Ligar o Active Directory ao Azure Active Directory](whatis-hybrid-identity.md)

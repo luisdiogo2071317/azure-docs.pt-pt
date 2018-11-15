@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bbc9ad4f15bdffa2c0f9b6f4b56f8b1701c83c47
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085880"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636623"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implementar o OpenShift no Azure
 
@@ -99,12 +99,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço 
-OpenShift comunica com o Azure através de um nome de utilizador e palavra-passe ou um principal de serviço. Um principal de serviço do Azure é uma identidade de segurança que pode utilizar com aplicações, serviços e ferramentas de automatização, como o OpenShift. Pode controlar e define as permissões em relação às quais operações o principal de serviço pode executar no Azure. Para melhorar a segurança para além de simplesmente fornecer um nome de utilizador e palavra-passe, este exemplo cria um serviço básico principal.
+OpenShift comunica com o Azure através de um nome de utilizador e palavra-passe ou um principal de serviço. Um principal de serviço do Azure é uma identidade de segurança que pode utilizar com aplicações, serviços e ferramentas de automatização, como o OpenShift. Pode controlar e define as permissões em relação às quais operações o principal de serviço pode executar no Azure. É melhor definir o âmbito as permissões de serviço principal para grupos de recursos específicos, em vez da subscrição completa.
 
 Criar um serviço principal com [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) e as credenciais que precisa de OpenShift de saída.
 
 O exemplo seguinte cria um serviço principal e o atribui permissões de contribuinte a um grupo de recursos com o nome openshiftrg.
-em separado e usar o resultado para alimentar a opção-- âmbitos.
 
 Primeiro, crie o grupo de recursos com o nome openshiftrg:
 

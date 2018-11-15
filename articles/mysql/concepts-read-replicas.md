@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412453"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632565"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na base de dados do Azure para MySQL
 
@@ -60,12 +60,15 @@ Servidores de réplica são criados usando as mesmas configurações de servidor
 - Período de retenção de cópia de segurança
 - Opção de redundância de cópia de segurança
 - Versão de motor do MySQL
+- Regras da firewall
 
 Depois de ter sido criada uma réplica, pode alterar o escalão de preço (exceto para e do Basic), geração, vCores, armazenamento e retenção de cópia de segurança independentemente do servidor mestre de computação.
 
 ### <a name="master-server-configuration"></a>Configuração do servidor mestre
 
-Se um mestre configuração do servidor (ex. vCores ou armazenamento) é atualizado, a configuração dos réplicas também deve ser atualizada para valores iguais ou superior. Sem isso, o servidor de réplica pode não ser capaz de acompanhar as alterações efetuadas a mestre e pode falhar assim. 
+Se um mestre configuração do servidor (ex. vCores ou armazenamento) é atualizado, a configuração dos réplicas também deve ser atualizada para valores iguais ou superior. Sem isso, o servidor de réplica pode não ser capaz de acompanhar as alterações efetuadas a mestre e pode falhar assim.
+
+Novas regras de firewall adicionadas ao servidor mestre, depois de criar um servidor de réplica não são replicadas para a réplica. A réplica deve ser atualizada com esta regra de firewall novas.
 
 ### <a name="deleting-the-master-server"></a>A eliminar o servidor mestre
 
@@ -87,7 +90,4 @@ Os utilizadores no servidor principal são replicados para as réplicas de leitu
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [criar e gerir réplicas de leitura com o portal do Azure](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- Saiba como [criar e gerir réplicas de leitura que utilizam a CLI do Azure](howto-read-replicas-cli.md)

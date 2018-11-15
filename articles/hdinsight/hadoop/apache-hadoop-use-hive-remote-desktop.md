@@ -1,5 +1,5 @@
 ---
-title: Utilizar o Hive do Hadoop e o ambiente de trabalho remoto no HDInsight - Azure
+title: Utilizar o Apache Hive e o ambiente de trabalho remoto no HDInsight - Azure
 description: Saiba como ligar ao cluster do Hadoop no HDInsight com o ambiente de trabalho remoto e, em seguida, executar consultas do Hive utilizando a Interface de linha de comandos do Hive.
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32fb2bc9514b911d0a1ce295eee651e4b6b6388a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015082"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634214"
 ---
-# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Utilizar o Hive com o Hadoop no HDInsight com o ambiente de trabalho remoto
+# <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Utilizar o Apache Hive com o Apache Hadoop no HDInsight com o ambiente de trabalho remoto
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Neste artigo, irá aprender a ligar a um cluster do HDInsight com o ambiente de trabalho remoto e, em seguida, executar consultas do Hive com o ramo de registo Interface de linha de comandos (CLI).

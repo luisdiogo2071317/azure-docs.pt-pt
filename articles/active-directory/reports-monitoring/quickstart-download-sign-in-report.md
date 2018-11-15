@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 334649dbe315cb54ba95a29f4c69441fcd2c3417
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362974"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621433"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Início Rápido: Transferir um relatório de início de sessão no portal do Azure
 
@@ -32,7 +32,7 @@ Neste início rápido, vai aprender a transferir os dados de início de sessão 
 É necessário:
 
 * Um inquilino do Azure Active Directory, com uma licença Premium para ver o relatório de atividade de início de sessão. 
-* Um utilizador que tenha a função de Administrador de Segurança, Leitor de Segurança, Leitor de Relatórios ou Administrador Global do inquilino. Além disso, qualquer utilizador no inquilino pode aceder aos seus inícios de sessão.
+* Um utilizador, o que está a **administrador de segurança**, **leitor de segurança**, **leitor de relatório** ou **Administrador Global** função para o inquilino. Além disso, qualquer utilizador no inquilino pode aceder aos seus inícios de sessão.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Início Rápido: Transferir um relatório de início de sessão
 
@@ -40,11 +40,11 @@ Neste início rápido, vai aprender a transferir os dados de início de sessão 
 2. Selecione **Azure Active Directory** no painel de navegação esquerdo e utilize o botão **Trocar diretório** para selecionar o Active Directory.
 3. No dashboard, selecione **Azure Active Directory** e, em seguida, selecione **Inícios de sessão**. 
 4. Escolha **últimas 24 horas** no filtro pendente **Data** e selecione **Aplicar** para ver os inícios de sessão das últimas 24 horas. 
-5. Selecione o botão **Transferir** para transferir um ficheiro CSV que contém os registos filtrados. 
+5. Selecione o botão **Transferir** para transferir um ficheiro CSV com os registos filtrados. 
 
 ![Relatórios](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Relatórios de atividade de início de sessão no portal do Azure Active Directory](concept-sign-ins.md)
 * [Retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md)

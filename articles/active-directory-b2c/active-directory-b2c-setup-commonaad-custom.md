@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d341f7328eb4a977d266c25f6746d4173393b54e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ef0becd55df43d7ae648a4cbaa5e1a2358fc1910
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887227"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636939"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão para o multi-inquilino do Azure Active Directory com as políticas personalizadas no Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Este artigo mostra-lhe como ativar o início de sessão para utilizadores com o ponto de extremidade do multi-inquilino do Azure Active Directory (Azure AD) utilizando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure AD B2c. Isto permite aos utilizadores a partir de múltiplos inquilinos do Azure AD para iniciar sessão no Azure AD B2C sem configurar um fornecedor de técnico para cada inquilino. No entanto, os convidados membros em qualquer um desses inquilinos **não irá** conseguir iniciar sessão. Para isso, precisa [configurar individualmente cada inquilino](active-directory-b2c-setup-aad-custom.md).
+Este artigo mostra-lhe como ativar o início de sessão para utilizadores com o ponto de extremidade do multi-inquilino do Azure Active Directory (Azure AD) utilizando [políticas personalizadas](active-directory-b2c-overview-custom.md) no Azure AD B2C. Isto permite aos utilizadores a partir de múltiplos inquilinos do Azure AD para iniciar sessão no Azure AD B2C sem configurar um fornecedor de técnico para cada inquilino. No entanto, os convidados membros em qualquer um desses inquilinos **não irá** conseguir iniciar sessão. Para isso, precisa [configurar individualmente cada inquilino](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 >`Contoso.com` é utilizado o organizacional para inquilino do Azure AD e `fabrikamb2c.onmicrosoft.com` é utilizado como o inquilino do Azure AD B2C nas instruções seguintes.
@@ -185,7 +185,7 @@ Agora que tem um botão no local, terá de ligá-lo a uma ação. A ação, nest
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Criar uma aplicação do Azure AD B2C
 
-Comunicação com o Azure AD B2c ocorre por meio de um aplicativo que criar no seu inquilino. Esta secção lista os passos opcionais que pode seguir para criar uma aplicação de teste, se ainda não o tiver feito.
+Comunicação com o Azure AD B2C ocorre por meio de um aplicativo que criar no seu inquilino. Esta secção lista os passos opcionais que pode seguir para criar uma aplicação de teste, se ainda não o tiver feito.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: de1ead165e1db3f78591f093edcc33781b9f4c78
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624187"
+ms.locfileid: "51636888"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Compreender os modelos de objeto de duplos Digital e gráfico de inteligência espaciais
 
@@ -79,13 +79,13 @@ Se implementar um serviço de duplos Digital na sua subscrição, se tornar o ad
 Depois de implementar duplos Digital do [portal do Azure](https://portal.azure.com), o [Swagger](https://swagger.io/tools/swagger-ui/) URL das APIs de gestão é gerado automaticamente. É apresentado no portal do Azure no **descrição geral** secção com o seguinte formato.
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome do atributo personalizado | Substituir |
+| Nome | Substituir |
 | --- | --- |
-| **yourInstanceName** | O nome da sua instância de duplos Digital |
-| **yourLocation** | Qual sua instância estiver alojada num servidor a região |
+| YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
+| YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |
 
  O formato de URL completo é apresentado nesta imagem.
 

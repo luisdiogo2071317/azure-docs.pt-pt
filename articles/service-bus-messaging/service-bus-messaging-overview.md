@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342212"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636599"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
-O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial totalmente gerido. O Service Bus é mais utilizado para dissociar aplicações e serviços e é uma plataforma fiável e segura para transferência de estados e dados assíncronos. Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. Uma mensagem está no formato binário, que pode conter JSON, XML ou apenas texto. 
+O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial totalmente gerido. O Service Bus é mais utilizado para dissociar aplicações e serviços e é uma plataforma fiável e segura para transferência de estados e dados assíncronos. Os dados são transferidos entre diferentes aplicações e serviços utilizando *mensagens*. É uma mensagem no formato binário, que pode conter somente texto, JSON ou XML. 
 
 Alguns cenários comuns de mensagens são:
 
@@ -39,7 +39,7 @@ As mensagens são enviadas e recebidas de *filas*. As filas permitem armazenar m
 
 ![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-As mensagens das filas são ordenadas e carimbadas com data/hora na chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues no modo *pull*, que entrega mensagens mediante pedido.
+As mensagens das filas são ordenadas e carimbadas com data/hora na chegada. Depois de aceite, a mensagem é mantida em segurança no armazenamento redundante. As mensagens são entregues na *pull* modo, que oferece a mensagens de pedido.
 
 ## <a name="topics"></a>Tópicos
 
@@ -93,7 +93,7 @@ A [eliminação automática em inatividade](/dotnet/api/microsoft.servicebus.mes
 
 ### <a name="duplicate-detection"></a>Deteção de duplicados
 
-Se houver um erro que faça com que o cliente tenha dúvidas sobre o resultado de uma operação de envio, a [deteção de duplicados](duplicate-detection.md) esclarecerá estas situações ao permitir que o remetente reenvie a mesma mensagem e a fila ou tópico elimine quaisquer cópias duplicadas.
+Se ocorrer um erro que faz com que o cliente tiver qualquer dúvida sobre o resultado de uma operação de envio [duplicar deteção](duplicate-detection.md) leva a dúvida fora essas situações, permitindo que o remetente enviar novamente a mesma mensagem e a fila ou tópico elimina quaisquer cópias duplicadas.
 
 ### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>SAS, RBAC e Identidades geridas para os recursos do Azure
 
@@ -115,13 +115,13 @@ O Service Bus suporta bibliotecas de cliente para [.NET](https://github.com/Azur
 
 O Service Bus integra-se totalmente nos seguintes serviços do Azure:
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Aplicações Lógicas](https://azure.microsoft.com/services/logic-apps/) 
-- [Funções](https://azure.microsoft.com/services/functions/) 
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Aplicações Lógicas](https://azure.microsoft.com/services/logic-apps/) 
+- [Funções](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a utilizar as mensagens do Service Bus, consulte os seguintes artigos:
 

@@ -8,16 +8,16 @@ ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a110c0a938e56c8ac276e0efed22ea3af23f111a
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 06dec64a55aaece4cd67ebf0485e34aa206a8936
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578540"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633738"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implementação contínua para o Azure IoT Edge
 
-Este artigo demonstra como pode utilizar a integração contínua e os recursos de implementação contínua do Microsoft Team Foundation Server (TFS) e serviços de DevOps do Azure para criar, testar e implementar aplicações rápida e eficiente para o Azure IoT Edge. 
+Pode adotar facilmente DevOps com as suas aplicações do Azure IoT Edge com [do Azure IoT Edge para o Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) ou [Plug-in do Azure IoT Edge do Jenkins](https://plugins.jenkins.io/azure-iot-edge). Este artigo demonstra como pode utilizar a integração contínua e funcionalidades de implementação contínua do Microsoft Team Foundation Server (TFS) e Pipelines do Azure para criar, testar e implementar aplicações de forma rápida e eficaz para o Azure IoT Edge. 
 
 Neste artigo, ficará a saber como:
 * Criar e verificar num exemplo de solução de IoT Edge.
@@ -42,28 +42,28 @@ Nesta secção, irá criar um exemplo do IoT Edge solução que contém testes d
 
 3. Agora seu exemplo de solução de IoT Edge está pronto. O módulo c# padrão funciona como um módulo de mensagem de pipe. Na `deployment.template.json`, verá essa solução contém dois módulos. A mensagem será gerada a partir da `tempSensor` módulo e será ser encaminhado diretamente através de `FilterModule`, em seguida, enviadas ao seu hub IoT.
 
-4. Guardar esses projetos, em seguida, verificá-lo no seu repositório de DevOps do Azure ou do TFS.
+4. Guardar esses projetos, em seguida, verificá-lo no seu repositório de repositórios do Azure ou do TFS.
     
 > [!NOTE]
 > Para obter mais informações sobre como utilizar o Azure repositórios, consulte [compartilhar seu código com o Visual Studio e Azure repositórios](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
-## <a name="configure-azure-pipeline-for-continuous-integration"></a>Configurar o Pipeline do Azure para integração contínua
-Nesta secção, irá criar um pipeline de compilação que está configurado para ser executada automaticamente quando fizer check-in todas as alterações para o exemplo de solução de IoT Edge e irá mostrar registos de compilação no Pipeline do Azure.
+## <a name="configure-azure-pipelines-for-continuous-integration"></a>Configurar Pipelines do Azure para integração contínua
+Nesta secção, irá criar um pipeline de compilação que está configurado para ser executada automaticamente quando fizer check-in todas as alterações para o exemplo de solução de IoT Edge e ele mostrará os registos de compilação em Pipelines do Azure.
 
-1. Inicie sessão na sua organização de DevOps do Azure (**https://**_sua conta_**. visualstudio.com**) e abra o projeto em que tiver selecionado na aplicação de exemplo.
+1. Inicie sessão na sua organização de DevOps do Azure ( **https://dev.azure.com/{your organização} /**) e abra o projeto em que tiver selecionado na aplicação de exemplo.
 
     ![Código de verificação](./media/how-to-ci-cd/init-project.png)
 
-1. Visite [do Azure IoT Edge, para o Pipeline do Azure](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) no mercado de DevOps do Azure. Clique em **obter gratuitamente** e siga o Assistente para instalar esta extensão para a sua organização de DevOps do Azure ou a transferência para o TFS.
+1. Visite [do Azure IoT Edge para Pipelines do Azure](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) no mercado de DevOps do Azure. Clique em **obter gratuitamente** e siga o Assistente para instalar esta extensão para a sua organização de DevOps do Azure ou a transferência para o TFS.
 
     ![Instalar a extensão](./media/how-to-ci-cd/install-extension.png)
 
-1. No seu Azure DevOps, abra a **criar e lançar** hub e, no **baseia-se** separador, escolha **+ novo pipeline**. Ou, se já tiver de criação de pipelines, escolha o **+ novo** botão.
+1. No seus Pipelines do Azure, abra a **criar e lançar** hub e, no **baseia-se** separador, escolha **+ novo pipeline**. Ou, se já tiver de criação de pipelines, escolha o **+ novo** botão.
 
     ![Novo pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. Se lhe for pedido, selecione o **Git de DevOps do Azure** tipo de origem. Em seguida, selecione o projeto, o repositório e o ramo em que o seu código está localizado. Escolher **continuar**.
+1. Se lhe for pedido, selecione **Git** o tipo de origem. Em seguida, selecione o projeto, o repositório e o ramo em que o seu código está localizado. Escolher **continuar**.
 
     ![Selecione o git](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -98,8 +98,8 @@ Nesta secção, irá criar um pipeline de compilação que está configurado par
     Guarde o novo pipeline de compilação. Clique no botão **Guardar**.
 
 
-## <a name="configure-azure-pipeline-for-continuous-deployment"></a>Configurar o Pipeline do Azure para a implementação contínua
-Nesta secção, irá criar um pipeline de versão que está configurado para ser executada automaticamente quando o pipeline de compilação cai artefactos e ele mostrará os registos de implementação no Pipeline do Azure.
+## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Configurar Pipelines do Azure para a implementação contínua
+Nesta secção, irá criar um pipeline de versão que está configurado para ser executada automaticamente quando o pipeline de compilação cai artefactos e ele mostrará os registos de implementação nos Pipelines do Azure.
 
 1. Na **versões** separador, escolha **+ novo pipeline**. Ou, se já tiver pipelines de versão, escolha o **+ novo** botão.  
 
@@ -165,7 +165,7 @@ Nesta secção, irá criar um pipeline de versão que está configurado para ser
     
 ## <a name="verify-iot-edge-cicd-with-the-build-and-release-pipelines"></a>Verifique se o IoT Edge CI/CD com a compilação e lançar pipelines
 
-Nesta secção, irá acionar uma compilação para tornar o pipeline de CI/CD trabalhar. Em seguida, verifique se o resultado com o portal do Azure DevOps. 
+Nesta secção, irá acionar uma compilação para tornar o pipeline de CI/CD trabalhar. Em seguida, verifique se que a implementação com êxito.
 
 1. Para acionar uma tarefa de compilação, pode emitir uma confirmação para o repositório de código fonte ou acionar manualmente. Pode acionar uma tarefa de compilação no seu pipeline de compilação clicando a **fila** botão como na seguinte captura de ecrã.
 

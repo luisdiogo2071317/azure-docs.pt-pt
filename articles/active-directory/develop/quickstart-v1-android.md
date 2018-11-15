@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970182"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287239"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Iniciar sessão dos utilizadores e chamar a Microsoft Graph API a partir de uma aplicação Android
 
@@ -30,7 +30,7 @@ ms.locfileid: "46970182"
 
 Se estiver a desenvolver uma aplicação Android, a Microsoft torna o processo de início de sessão dos utilizadores no Azure Active Directory (Azure AD) simples e direto. O Azure AD permite que a sua aplicação obtenha acesso a dados de utilizador através do Microsoft Graph ou da sua própria API WEB protegida.
 
-A biblioteca Android da Biblioteca de Autenticação do Azure AD (ADAL) dá à sua aplicação a possibilidade de começar a utilizar a [Cloud do Microsoft Azure](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) ao suportar [contas do Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) com os protocolos OAuth 2.0 e OpenID Connect padrão do setor.
+A biblioteca Android da Biblioteca de Autenticação do Azure AD (ADAL) dá à sua aplicação a possibilidade de começar a utilizar a [Cloud do Microsoft Azure](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) ao suportar [contas do Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/) com os protocolos OAuth 2.0 e OpenID Connect padrão do setor.
 
 Neste início rápido, vai aprender a:
 
@@ -123,7 +123,7 @@ Pode encontrar toda a configuração para este exemplo de código no ficheiro **
 2. Selecione **Executar > Executar aplicação**.
 3. A aplicação deve criar e mostrar alguma UX básica. Quando clica no botão `Call Graph API`, irá pedir um início de sessão e, em seguida, chamar silenciosamente a Microsoft Graph API com o novo token.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 1. Consulte o [Wiki ADAL Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) para obter mais informações sobre a mecânica da biblioteca e como configurar novos cenários e capacidades.
 2. Em cenários Nativos, a aplicação vai utilizar uma Webview incorporada e não deixará a aplicação. O `Redirect URI` pode ser arbitrário.

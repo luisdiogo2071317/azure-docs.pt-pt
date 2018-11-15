@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: a62ecd0201d6b29686abc186ee69f3d26dc5ca4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e32e281509da32d4816c9e137a462553891c82f1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516295"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686148"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
 
-Para a maioria dos usuários, uma combinação de permissões concedidas no portal do Azure e o portal Enterprise (EA) definem o nível de um utilizador de acesso aos dados do Azure Cost Management. Este artigo orienta-embora a atribuir acesso a dados de gestão de custos. Após a combinação de permissões é atribuída, os dados de vistas de utilizador no Cost Management com a base do âmbito que têm acesso a e no âmbito que selecionarem no portal do Azure.
+Para a maioria dos usuários, uma combinação de permissões concedidas no portal do Azure e o portal Enterprise (EA) definem o nível de um utilizador de acesso aos dados do Azure Cost Management. Este artigo orienta-o através da atribuição de acesso a dados de gestão de custos. Após a combinação de permissões é atribuída, os dados de vistas de utilizador no Cost Management com a base do âmbito que têm acesso a e no âmbito que selecionarem no portal do Azure.
 
 O âmbito do que um usuário selecionar é utilizado em toda a gestão de custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Quando utilizar âmbitos, os utilizadores não seleção múltipla-los. Em vez disso, eles selecionam um âmbito maior que âmbitos subordinados até implementar e, em seguida, eles filtro pendente para o que quer ver. Consolidação de dados é importante compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
 

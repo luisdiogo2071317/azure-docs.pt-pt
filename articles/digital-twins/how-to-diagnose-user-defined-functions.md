@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946101"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636276"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Como depurar problemas com as funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -42,12 +42,12 @@ Depois de enviar telemetria, abrir o Log Analytics do Azure para consultar os re
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Nome do atributo personalizado | Substituir por |
+| Valor de consulta | Substituir |
 | --- | --- |
-| *yourCorrelationIdentifier* | O ID de correlação que foi especificada nos dados de eventos |
+| YOUR_CORRELATION_IDENTIFIER | O ID de correlação que foi especificada nos dados de eventos |
 
 Se iniciar sessão sua função definida pelo usuário, esses logs irão aparecer na sua instância do Azure Log Analytics com a categoria `UserDefinedFunction`. Para obtê-las, introduza a seguinte condição de consulta no Azure Log Analytics:
 
@@ -62,6 +62,8 @@ Para obter mais informações sobre as operações de consulta poderosa, consult
 
 Diagnóstico e a identificação de problemas comuns são importantes quando a sua solução de resolução de problemas. Vários problemas comuns encontrados durante o desenvolvimento de funções definidas pelo utilizador são resumidas abaixo.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>Certifique-se de que foi criada uma atribuição de função
 
 Sem uma atribuição de função criada dentro de API de gestão, a função definida pelo utilizador não terá acesso a executar quaisquer ações como enviar notificações, obtenção de metadados, e calculada de definição de valores na topologia.
@@ -69,13 +71,12 @@ Sem uma atribuição de função criada dentro de API de gestão, a função def
 Verificar se uma atribuição de função que existe para a função definida pelo utilizador através da API de gestão:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Nome do atributo personalizado | Substituir por |
+| Parâmetro | Substituir |
 | --- | --- |
-| *yourManagementApiUrl* | O caminho do URL completo para a API de gestão  |
-| *yourUserDefinedFunctionId* | O ID da função definida pelo utilizador a obter atribuições de funções para|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | O ID da função definida pelo utilizador a obter atribuições de funções para|
 
 Se nenhuma atribuição de função é recuperada, siga este artigo no [como criar uma atribuição de função para a função definida pelo utilizador](./how-to-user-defined-functions.md).
 
@@ -84,14 +85,13 @@ Se nenhuma atribuição de função é recuperada, siga este artigo no [como cri
 Com a seguinte chamada em relação a API de gestão dos suas instâncias gémeos Digital do Azure, será capaz de determinar se um determinado na ferramenta de correspondência aplica-se para o sensor de determinado.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Nome do atributo personalizado | Substituir por |
+| Parâmetro | Substituir |
 | --- | --- |
-| *yourManagementApiUrl* | O caminho do URL completo para a API de gestão  |
-| *yourMatcherIdentifier* | O ID da na ferramenta de correspondência que deseja avaliar |
-| *yourSensorIdentifier* | O ID de sensor que deseja avaliar |
+| *YOUR_MATCHER_IDENTIFIER* | O ID da na ferramenta de correspondência que deseja avaliar |
+| *YOUR_SENSOR_IDENTIFIER* | O ID de sensor que deseja avaliar |
 
 Resposta:
 
@@ -109,13 +109,12 @@ Resposta:
 Com a seguinte chamada em relação a API de gestão dos suas instâncias gémeos Digital do Azure, será capaz de determinar os identificadores das suas funções definidas pelo utilizador que irão ser acionados por telemetria de entrada do sensor determinado:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Nome do atributo personalizado | Substituir por |
+| Parâmetro | Substituir |
 | --- | --- |
-| *yourManagementApiUrl* | O caminho do URL completo para a API de gestão  |
-| *yourSensorIdentifier* | O ID do sensor que irão enviar telemetria |
+| *YOUR_SENSOR_IDENTIFIER* | O ID do sensor que irão enviar telemetria |
 
 Resposta:
 

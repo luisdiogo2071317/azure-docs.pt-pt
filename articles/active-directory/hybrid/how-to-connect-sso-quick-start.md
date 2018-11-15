@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914095"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687338"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: início rápido
 
@@ -91,7 +91,7 @@ Siga estas instruções para verificar se tiver habilitado SSO totalmente integr
 ![Portal do Azure: painel do Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` (que representa o Azure AD) no seu local do Active Directory (AD) em cada floresta do AD. Esta conta de computador é necessária para a funcionalidade funcionar. Mover o `AZUREADSSOACC` conta de computador para uma unidade organizacional (UO) onde outras contas de computador são armazenadas para se certificar de que é gerido da mesma forma e não é eliminado.
+> SSO totalmente integrado cria uma conta de computador com o nome `AZUREADSSOACC` (que representa o Azure AD) no seu local do Active Directory (AD) em cada floresta do AD. Esta conta de computador é necessária para a funcionalidade funcionar. Se estiver a utilizar as arquiteturas de Pass-the-Hash e atenuação de roubo de credenciais no seu ambiente no local, certifique-se de que o `AZUREADSSOACC` conta de computador não acaba no contentor de quarentena. Faça as alterações apropriadas para criar a conta de computador no contentor de computadores. Depois do SSO totalmente integrado é ativado com êxito no Assistente do Azure AD Connect, mover o `AZUREADSSOACC` conta de computador para uma unidade organizacional (UO) onde outras contas de computador são geridas para se certificar de que ele não é eliminado acidentalmente.
 
 ## <a name="step-3-roll-out-the-feature"></a>Passo 3: Implementar a funcionalidade
 

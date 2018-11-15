@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/04/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
-ms.translationtype: HT
+ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394480"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345577"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Utilizar o Gestor de Implementação do Azure com modelos do Resource Manager (Pré-visualização privada)
 
@@ -52,7 +52,7 @@ Para concluir este artigo, precisa de:
 * Azure PowerShell. Para obter mais informações, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Cmdlets do Gestor de Implementações. Para instalar estes cmdlets de pré-lançamento, precisa da versão mais recente do PowerShellGet. Para obter a versão mais recente, veja [Installing PowerShellGet](/powershell/gallery/installing-psget) (Instalar o PowerShellGet). Depois de instalar o PowerShellGet, feche a janela do PowerShell. Abra uma janela nova do PowerShell e utilize o comando seguinte:
 
-    ```
+    ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
 * [Explorador de Armazenamento do Microsoft Azure](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409). O Explorador de Armazenamento do Azure não é necessário, mas facilita.
@@ -287,7 +287,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
 
 1. Execute o script para implementar a topologia de serviço.
 
-    ```powershell
+    ```azurepowershell-interactive
     $deploymentName = "<Enter a Deployment Name>"
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
@@ -312,7 +312,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
 
 3. Implementar o modelo de lançamento
 
-    ```powershell
+    ```azurepowershell-interactive
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -Name $deploymentName `
@@ -323,7 +323,7 @@ Para implementar os modelos, pode ser utilizado o Azure PowerShell.
 
 4. Utilize o seguinte script do PowerShell para verificar o progresso do lançamento:
 
-    ```powershell
+    ```azurepowershell-interactive
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>"
     Get-AzureRmDeploymentManagerRollout `
@@ -383,6 +383,6 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 5. Repita os dois últimos passos para eliminar outros grupos de recursos criados neste tutorial.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar o Gestor de Implementações do Azure. Para saber mais, veja a [Documentação do Azure Resource Manager](/azure/azure-resource-manager/).

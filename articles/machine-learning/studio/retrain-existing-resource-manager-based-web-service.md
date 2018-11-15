@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-ms.openlocfilehash: b06e3d742a0bed778dc7671128980708ba379e39
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1a30f9166c81c4757267c95b13b08f3202748467
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714898"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684652"
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Reenviar um serviço web preditivo existente
 Este documento descreve o processo de reparametrização para o seguinte cenário:
@@ -109,7 +109,7 @@ Localize a *StorageAccountName*, *StorageAccountKey*, e *StorageContainerName* d
 Também tem de garantir que o ficheiro de entrada está disponível na localização que especificou no código.
 
 ### <a name="specify-the-output-location"></a>Especifique a localização de saída
-Quando especificar a localização de saída no Payload do pedido, a extensão do ficheiro que é especificada na *RelativeLocation* deve ser especificado como `ilearner`. Veja o exemplo seguinte:
+Quando especificar a localização de saída no Payload do pedido, a extensão do ficheiro que é especificada na *RelativeLocation* deve ser especificado como `ilearner`. Veja o seguinte exemplo:
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {
@@ -156,7 +156,7 @@ Para determinar o nome do grupo de recursos de um serviço web existente, execut
 
 Em alternativa, para determinar o nome do grupo de recursos de um serviço web existente, inicie sessão no portal do Azure Machine Learning Web Services. Selecione o serviço web. O nome do grupo de recursos é o elemento quinto do URL do serviço web, logo a seguir a *resourceGroups* elemento. No exemplo a seguir, o nome do grupo de recursos é a predefinição-MachineLearning-SouthCentralUS.
 
-    https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
+    https://services.azureml.net/subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237
 
 
 ## <a name="export-the-web-service-definition-object-as-json"></a>Exportar o objeto de definição de serviço da Web como JSON

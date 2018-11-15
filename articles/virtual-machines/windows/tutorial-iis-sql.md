@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Criar VMs a executar uma pilha SQL&#47;IIS&#47;.NET no Azure | Microsoft Docs
+title: Tutorial - criar VMs a executar um SQL, IIS, .NET pilha no Azure | Documentos da Microsoft
 description: Neste tutorial, vai aprender a instalar a pilha do Azure SQL, IIS, .NET numa máquina virtual do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464915"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515493"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalar a pilha SQL&#47;IIS&#47;.NET numa VM do Windows com o Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalar o .NET de SQL, IIS, de pilha numa VM do Windows com o Azure PowerShell
 
-Neste tutorial, vamos instalar a pilha SQL&#47;IIS&#47;.NET com o Azure PowerShell. Este pilha consiste em duas VMs com o Windows Server 2016, uma com o IIS e .NET e a outra com o SQL Server.
+Neste tutorial, vamos instalar um .NET de SQL, IIS, pilha com o Azure PowerShell. Este pilha consiste em duas VMs com o Windows Server 2016, uma com o IIS e .NET e a outra com o SQL Server.
 
 > [!div class="checklist"]
 > * Criar uma VM 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Instale o IIS e o .NET Framework com a extensão de script personalizado.
+Instalar o IIS e o .NET framework usando a extensão de script personalizado com o [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `
@@ -126,7 +126,7 @@ Set-AzureRmVMSqlServerExtension `
    -Location "EastUS"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, instalou a pilha SQL&#92;IIS&#92;.NET com o Azure PowerShell. Aprendeu a:
 

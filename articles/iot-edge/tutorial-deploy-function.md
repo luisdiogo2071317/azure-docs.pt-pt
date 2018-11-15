@@ -2,21 +2,21 @@
 title: Implementar as funções do Azure com o Azure IoT Edge | Microsoft Docs
 description: Neste tutorial, vai implementar uma função do Azure como módulo para um dispositivo Edge.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 67540a02aab0880ea1a5c52e42036029b95c4f43
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 27aac9431c3f4cd801d090ddf11114c98edab405
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006265"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567320"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Tutorial: Implementar as funções do Azure como módulos do IoT Edge (pré-visualização)
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar o Azure funciona como módulos do IoT Edge
 
 Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial explica-lhe como criar e implementar uma função do Azure que filtra dados de sensores no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:     
 
@@ -261,7 +261,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos do Azure 
 [!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um módulo da função do Azure com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar os seus próprios módulos, pode saber mais sobre como [Desenvolver funções do Azure com o Azure IoT Edge para Visual Studio Code](how-to-develop-csharp-function.md). 
 

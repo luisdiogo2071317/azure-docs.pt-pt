@@ -1,5 +1,5 @@
 ---
-title: Utilizar Beeline com o Apache Hive - Azure HDInsight
+title: Utilizar Beeline do Apache com o Apache Hive - Azure HDInsight
 description: Saiba como utilizar o cliente de Beeline para executar consultas do Hive com o Hadoop no HDInsight. Beeline é um utilitário para trabalhar com HiveServer2 através de JDBC.
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1edf0a33db7df2435be55d5a9b36276e2702bd69
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1516c1a2802046b526688de703b565513789851b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013926"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633278"
 ---
-# <a name="use-the-beeline-client-with-apache-hive"></a>Utilizar o cliente de Beeline com Apache Hive
+# <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com Apache Hive
 
-Aprenda a usar [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para executar consultas do Hive no HDInsight.
+Aprenda a usar [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para executar consultas do Apache Hive no HDInsight.
 
 Beeline é um cliente de ramo de registo que está incluído nos nós principais do cluster do HDInsight. Beeline utiliza JDBC para ligar ao HiveServer2, um serviço hospedado no seu cluster do HDInsight. Também pode utilizar Beeline para acessar o Hive no HDInsight remotamente através da internet. Os exemplos seguintes mostram as cadeias de ligação mais comuns utilizadas para ligar ao HDInsight a partir Beeline:
 

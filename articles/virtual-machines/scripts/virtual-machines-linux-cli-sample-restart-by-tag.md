@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 4c409dfcfba14093d5e2cf28df4bb6c5d1bd9533
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: a5837a922f14a779260ad6719b01a9c882eb5768
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725977"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622946"
 ---
 # <a name="restart-vms"></a>Reiniciar VMs
 
@@ -37,7 +37,7 @@ A primeira permite reiniciar todas as VMs no grupo de recursos.
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-A segunda permite obter as VMs marcadas com `az resouce list` e filtra pelos recursos que são VMs e reinicia-as.
+A segunda permite obter as VMs marcadas com `az resource list` e filtra pelos recursos que são VMs e reinicia-as.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
@@ -94,7 +94,7 @@ Este script utiliza os seguintes comandos para criar um grupo de recursos, uma m
 | [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Reinicia as VMs. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 

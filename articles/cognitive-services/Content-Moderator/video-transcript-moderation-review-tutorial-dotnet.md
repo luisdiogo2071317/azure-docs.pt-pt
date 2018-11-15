@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227576"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567116"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderação de vídeos e transcrições
 
@@ -35,7 +35,7 @@ Transfira a [aplicação de consola C#](https://github.com/MicrosoftContentModer
 
 ## <a name="sample-program-outputs"></a>Saídas de exemplo do programa
 
-Antes de continuar, vejamos as saídas de exemplo do programa:
+Antes de continuarmos, vamos examinar as saídas de exemplo seguintes do programa:
 
 - [Saída da consola](#program-output)
 - [Revisão de vídeo](#video-review-default-view)
@@ -767,6 +767,6 @@ A seguinte saída da linha de comandos do programa mostra as diversas tarefas à
     Total Elapsed Time: 00:05:56.8420355
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Transfira a solução Visual Studio](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp), bem como os ficheiros de exemplo e as bibliotecas necessárias para este tutorial, e comece a sua integração.
