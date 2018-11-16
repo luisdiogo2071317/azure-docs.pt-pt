@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/9/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 02805f676a5ea9edbfa619c625bb11e94e16c12e
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.openlocfilehash: 1d7c880a56c79d516c3904c3f532eb7006f0b68c
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300001"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705842"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -97,46 +97,36 @@ Crie outra sub-rede com o nome **Jump-SN** e com o intervalo de endereços **10.
 
 Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque-as nas sub-redes adequadas.
 
-1. Na página de boas-vindas do portal do Azure, clique em **Todos os serviços**.
-2. Em **Computação**, clique em **Máquinas virtuais**.
-3. Clique em **Adicionar** > **Windows Server** > **Windows Server 2016 Datacenter** > **Criar**.
+1. No portal do Azure, clique em **Criar um recurso**.
+2. Clique em **computação** e, em seguida, selecione **do Windows Server 2016 Datacenter** na lista em destaque.
+3. Introduza estes valores para a máquina virtual:
 
-**Noções básicas**
+    - *Teste-FW-RG* para o grupo de recursos.
+    - *Atalhos de SRV* - no nome da máquina virtual.
+    - *azureuser* - no nome de utilizador do administrador.
+    - *Azure123456!* para a palavra-passe.
 
-1. Em **Nome**, escreva **Srv-Jump**.
-5. Escreva um nome de utilizador e uma palavra-passe.
-6. Em **Subscrição**, selecione a sua subscrição.
-7. Em **Grupo de recursos**, clique em **Utilizar existente** > **Test-FW-RG**.
-8. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
-9. Clique em **OK**.
+4. Sob **regras de porta de entrada**, para **portas de entrada públicas**, clique em **permitir portas selecionadas**.
+5. Para **Selecione as portas de entrada**, selecione **RDP (. 3389)**.
 
-**Tamanho**
-
-1. Escolha um tamanho adequado para uma máquina virtual de teste com o Windows Server. Por exemplo, **B2ms** (8 GB de RAM, 16 GB de armazenamento).
-2. Clique em **Selecionar**.
-
-**Definições**
-
-1. Em **Rede**, em **Rede virtual**, selecione **Test-FW-VN**.
-2. Em **Sub-rede**, selecione **Jump-SN**.
-3. Em **Selecionar portas de entrada públicas**, selecione **RDP (3389)**. 
-
-    Vai querer limitar o acesso ao seu endereço IP público, mas precisa de abrir a porta 3389 para conseguir ligar um ambiente de trabalho remoto ao servidor de ligação. 
-2. Mantenha as outras predefinições e clique em **OK**.
-
-**Resumo**
-
-Reveja o resumo e clique em **Criar**. Este processo irá demorar alguns minutos a concluir.
+6. Aceite as outras predefinições e clique em **seguinte: discos**.
+7. Aceite as predefinições de disco e clique em **seguinte: funcionamento em rede**.
+8. Certifique-se de que **FW-teste-VN** está selecionada para a rede virtual e a sub-rede é **atalhos SN**.
+9. Para **IP público**, clique em **criar nova**.
+10. Tipo **Srv-atalhos-PIP** para o nome do endereço IP e clique em público **OK**.
+11. Aceite as outras predefinições e clique em **seguinte: gestão**.
+12. Clique em **desativar** para desativar o diagnóstico de arranque. Aceite as outras predefinições e clique em **rever + criar**.
+13. Reveja as definições na página de resumo e, em seguida, clique em **criar**.
 
 Repita este processo para criar outra máquina virtual com o nome **Srv-Work**.
 
-Utilize as informações na tabela seguinte para configurar as **Definições** para a máquina virtual Srv-Work. O resto da configuração é igual à da máquina virtual Srv-Jump.
+Utilize as informações na tabela seguinte para configurar a máquina virtual de trabalho de Srv. O resto da configuração é igual à da máquina virtual Srv-Jump.
 
 |Definição  |Valor  |
 |---------|---------|
 |Subrede|Workload-SN|
-|Endereço IP público|Nenhuma|
-|Selecionar portas de entrada públicas|Sem portas de entrada públicas|
+|IP público|Nenhuma|
+|Portas de entrada públicas|Nenhuma|
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
 

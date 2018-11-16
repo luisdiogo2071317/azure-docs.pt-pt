@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0f0bee419fdb119fcd99f0e72cc61ddf20f6253a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612578"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712947"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Expandir alertas do Log Analytics para alertas do Azure
 Até recentemente, o Azure Log Analytics incluído sua própria funcionalidade alerta, o que foi notificado proativamente das condições com base nos dados do Log Analytics. Gerido regras de alerta no portal do Microsoft Operations Management Suite. A nova experiência de alertas está agora integrado alertas em vários serviços no Microsoft Azure. Isto está disponível como **alertas** em Azure Monitor no portal do Azure e suporta a alertas dos registos de atividades, métricas e inicia a partir do Log Analytics e Azure Application Insights. 
@@ -55,7 +55,7 @@ Quando tenta editar um alerta existente ou criar um novo alerta no portal do Ope
 > Certifique-se de que as permissões atribuídas aos indivíduos que tem de adicionar ou editar os alertas são corretamente atribuídas no Azure. Para compreender quais as permissões que tem de conceder, veja [permissões para utilizar o Azure Monitor e alertas](monitoring-roles-permissions-security.md).  
 > 
 
-Pode continuar a criar alertas a partir da [API do Log Analytics](../log-analytics/log-analytics-api-alerts.md) e [modelo de recursos do Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md). Quando fizer isso, deve incluir grupos de ação.
+Pode continuar a criar alertas a partir da [API do Log Analytics](../log-analytics/log-analytics-api-alerts.md) e [modelo de recursos do Log Analytics](../azure-monitor/insights/solutions-resources-searches-alerts.md). Quando fizer isso, deve incluir grupos de ação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

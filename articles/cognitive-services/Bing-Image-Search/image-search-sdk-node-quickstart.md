@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 2fa3a221d42a522f19b00a4cb5596d93039a85ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: fcef8d29ae7154633e19c118fd03d98d6489df6f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220229"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686573"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-nodejs"></a>Guia de Início Rápido: procurar imagens com o SDK de Pesquisa de Imagens do Bing e Node.js
 
@@ -38,7 +38,6 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
 
     ```javascript
     'use strict';
-    https = require('https');
     const Search = require('azure-cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
@@ -91,10 +90,10 @@ O código fonte deste exemplo está disponível no [GitHub](https://github.com/A
       .catch(err => console.error(err))
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial de aplicação de página única de Pesquisa de Imagens do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Image Search single-page app tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app) (Tutorial de aplicação de página única da Pesquisa de Imagens do Bing)
 
 ## <a name="see-also"></a>Consulte também
 

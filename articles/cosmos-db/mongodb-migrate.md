@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741033"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706981"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Tutorial: migrar os dados para a conta da API do MongoDB do Azure Cosmos DB
 
@@ -36,13 +36,13 @@ Antes de migrar dados para a conta da API do MongoDB, certifique-se de que tem a
 
 1. Crie previamente e dimensione as suas coleções:
         
-    * Por predefinição, o Azure Cosmos DB aprovisiona uma coleção do MongoDB nova com mil unidades de pedido por segundo (RU/seg.). Antes de começar a migração com mongoimport, mongorestore, crie previamente todas as coleções a partir do [portal do Azure](https://portal.azure.com) ou dos controladores e ferramentas do MongoDB. Se o tamanho dos dados for superior a 10 GB, certifique-se de que cria uma [coleção particionada](partition-data.md) com uma chave de fragmentação adequada.
+   * Por predefinição, o Azure Cosmos DB aprovisiona uma coleção do MongoDB nova com mil unidades de pedido por segundo (RU/seg.). Antes de começar a migração com mongoimport, mongorestore, crie previamente todas as coleções a partir do [portal do Azure](https://portal.azure.com) ou dos controladores e ferramentas do MongoDB. Se o tamanho dos dados for superior a 10 GB, certifique-se de que cria uma [coleção particionada](partition-data.md) com uma chave de fragmentação adequada. Recomenda o MongoDB para armazenar dados de entidade em coleções. Pode colocalizar entites de débito de tamanho e aprovisionar comparável ao nível da base de dados do Cosmos do Azure.
 
-    * No [portal do Azure](https://portal.azure.com), aumente o débito das coleções de 1000 RUs/seg. em coleções de partição individual e para 2500 RUs/seg. em coleções fragmentadas apenas para a migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Pode reduzir o débito imediatamente após a migração, para reduzir os custos.
+   * Partir do [portal do Azure](https://portal.azure.com), aumentar o débito de coleções do 1000 RUs/segundo, para uma coleção de partição única e 2.500 RUs/seg para uma coleção em partição horizontal apenas durante o período de migração. Com o débito mais elevado, pode evitar limitações de velocidade e realizar a migração em menos tempo. Pode reduzir o débito imediatamente após a migração, para reduzir os custos.
 
-    * Para além de aprovisionar RUs/seg. ao nível da coleção, também pode aprovisionar RU/seg. para um conjunto de coleções ao nível da base de dados principal. Para tal, é necessário criar previamente a base de dados e as coleções, bem como definir uma chave fragmentada para cada coleção.
+   * Para além de aprovisionar RUs/seg. ao nível da coleção, também pode aprovisionar RU/seg. para um conjunto de coleções ao nível da base de dados principal. Para tal, é necessário criar previamente a base de dados e as coleções, bem como definir uma chave fragmentada para cada coleção.
 
-    * Pode criar coleções fragmentadas através do seu controlador, da sua ferramenta ou do seu SDK preferido. Neste exemplo, utilizamos a shell do Mongo para criar uma coleção fragmentada:
+   * Pode criar coleções fragmentadas através do seu controlador, da sua ferramenta ou do seu SDK preferido. Neste exemplo, utilizamos a shell do Mongo para criar uma coleção fragmentada:
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
@@ -176,7 +176,7 @@ Exemplo:
 mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cosmosdb-mongodb-account -p <Your_MongoDB_password> --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode avançar para o próximo tutorial para ficar a saber como utilizar o Azure Cosmos DB para consultar dados do MongoDB. 
 

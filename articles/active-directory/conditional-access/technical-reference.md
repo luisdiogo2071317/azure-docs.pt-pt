@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 445611338b0b2895d83626e8cf450dc8d1cb27a6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406404"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706284"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -125,13 +125,13 @@ Esta definição funciona com todos os navegadores. No entanto, para satisfazer 
 
 | SO                     | Browsers                            | Suporte     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![Marcar][1] |
+| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     | ![Marcar][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Marcar][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Marcar][1] |
 | iOS                    | Safari, Browser gerido do Intune      | ![Marcar][1] |
 | Android                | Chrome, o Intune Managed Browser      | ![Marcar][1] |
-| Windows Phone          | Internet Explorer, Edge             | ![Marcar][1] |
-| Windows Server 2016    | Internet Explorer, Edge             | ![Marcar][1] |
+| Windows Phone          | Internet Explorer, Microsoft Edge             | ![Marcar][1] |
+| Windows Server 2016    | Internet Explorer, Microsoft Edge             | ![Marcar][1] |
 | Windows Server 2016    | Chrome                              | Brevemente |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Marcar][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Marcar][1] |

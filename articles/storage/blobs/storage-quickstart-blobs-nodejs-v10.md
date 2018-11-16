@@ -6,22 +6,22 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 09/19/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4aa78fe91d5813e9b1fa8abd30c8b8720ea510e4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 68d03a5e37559c6db2955cc966d4f074c9adbe64
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278406"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711247"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Início Rápido: Carregar, transferir, listar e eliminar blobs com o SDK do Armazenamento do Azure v10 para JavaScript (pré-visualização)
 
 Neste início rápido, vai aprender a utilizar o [SDK do Armazenamento do Azure v10 para JavaScript](https://github.com/Azure/azure-storage-js) em Node.js para carregar, transferir, listar e eliminar blobs, e gerir contentores.
 
-Para concluir este início rápido, precisa de uma [subscrição do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
@@ -343,10 +343,10 @@ console.log(`Container "${containerName}" is deleted`);
 ## <a name="clean-up-resources"></a>Limpar recursos
 Todos os dados escritos na conta de armazenamento são eliminados automaticamente no fim do código de exemplo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este início rápido demonstra como gerir blobs e contentores no armazenamento de Blobs do Azure com Node.js. Para saber mais sobre a utilização deste SDK, consulte o repositório do GitHub.
 
 > [!div class="nextstepaction"]
 > [SDK de Armazenamento do Azure v10 para o repositório de JavaScript](https://github.com/Azure/azure-storage-js)
-> [Referência de API do JavaScript](https://docs.microsoft.com/en-us/javascript/api/overview/azure/storage/client?view=azure-node-preview)
+> [Referência de API do JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/storage/client?view=azure-node-preview)

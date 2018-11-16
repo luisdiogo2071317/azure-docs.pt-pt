@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4dd56a55789952be0c1f72fb2d31b08b95ad10c8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613992"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712437"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
 
@@ -36,7 +36,7 @@ A solução utiliza a funcionalidade de syslog nativo do anfitrião ESXi para en
 ## <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes informações para instalar e configurar a solução.
 
-* Adicionar a solução de monitorização de VMware para sua assinatura usando o processo descrito em [instalar uma solução de gestão](../monitoring/monitoring-solutions.md#install-a-management-solution).
+* Adicionar a solução de monitorização de VMware para sua assinatura usando o processo descrito em [instalar uma solução de gestão](../azure-monitor/insights/solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Anfitriões do VMware ESXi suportados
 vSphere anfitrião ESXi 5.5, 6.0 e 6.5

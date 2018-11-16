@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ec84c87e047d6426d24ef339d1247c6cb53954dd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 17326fa60160e084d4c30347b1a765d1f80d01f5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299424"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711536"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
@@ -31,10 +31,12 @@ ms.locfileid: "51299424"
 ## <a name="compute-quota-types"></a>Tipos de quota de computação 
 | **Tipo** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
-| Número máx. de máquinas virtuais | 50 | O número máximo de máquinas virtuais que uma subscrição pode criar nesta localização. |
+| Número máximo de máquinas virtuais | 50 | O número máximo de máquinas virtuais que uma subscrição pode criar nesta localização. |
 | Número máximo de núcleos de máquina virtual | 100 | O número máximo de núcleos que uma subscrição pode criar nesta localização (por exemplo, uma VM A3 tem quatro núcleos). |
-| Número máximo de número de conjuntos de disponibilidade | 10 | O número máximo de conjuntos de disponibilidade que podem ser criadas nesta localização. |
+| Número máximo de conjuntos de disponibilidade | 10 | O número máximo de conjuntos de disponibilidade que podem ser criadas nesta localização. |
 | Define o número máximo de dimensionamento de máquinas virtuais | 100 | O número máximo de conjuntos de dimensionamento de máquinas virtuais que podem ser criadas nesta localização. |
+| Capacidade máxima (em GB) de disco gerido standard | 2048 | A capacidade máxima de discos geridos padrão que podem ser criadas nesta localização. |
+| Capacidade máxima (em GB) de um disco gerido premium | 2048 | A capacidade máxima do premium geridos os discos que podem ser criados nesta localização. |
 
 ## <a name="storage-quota-types"></a>Tipos de quota de armazenamento 
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
@@ -49,13 +51,13 @@ ms.locfileid: "51299424"
 ## <a name="network-quota-types"></a>Tipos de quota de rede
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
-| Máx. IPs públicos |50 |O número máximo de IPs públicos que uma subscrição pode criar nesta localização. |
-| Redes virtuais do máx. |50 |O número máximo de redes virtuais que uma subscrição pode criar nesta localização. |
-| Gateways de rede virtual máx. |1 |O número máximo de gateways de rede virtual (Gateways de VPN) que uma subscrição pode criar nesta localização. |
-| Máximo de ligações de rede |2 |O número máximo de ligações de rede (ponto a ponto ou site a site) que uma subscrição pode criar em todos os gateways de rede virtual nesta localização. |
-| Balanceadores de carga máx. |50 |O número máximo de balanceadores de carga que uma subscrição pode criar nesta localização. |
+| IPs públicos máximo |50 |O número máximo de IPs públicos que uma subscrição pode criar nesta localização. |
+| Redes virtuais máximos |50 |O número máximo de redes virtuais que uma subscrição pode criar nesta localização. |
+| Gateways de rede virtual máximo |1 |O número máximo de gateways de rede virtual (Gateways de VPN) que uma subscrição pode criar nesta localização. |
+| Ligações de rede máxima |2 |O número máximo de ligações de rede (ponto a ponto ou site a site) que uma subscrição pode criar em todos os gateways de rede virtual nesta localização. |
+| Balanceadores de carga máxima |50 |O número máximo de balanceadores de carga que uma subscrição pode criar nesta localização. |
 | NICs máximos |100 |O número máximo de interfaces de rede que uma subscrição pode criar nesta localização. |
-| Grupos de segurança de rede máx. |50 |O número máximo de grupos de segurança de rede que uma subscrição pode criar nesta localização. |
+| Grupos de segurança de rede máxima |50 |O número máximo de grupos de segurança de rede que uma subscrição pode criar nesta localização. |
 
 ## <a name="view-an-existing-quota"></a>Ver uma quota existente
 1. Encontrar no dashboard do portal de administração do padrão, o **fornecedores de recursos** mosaico.

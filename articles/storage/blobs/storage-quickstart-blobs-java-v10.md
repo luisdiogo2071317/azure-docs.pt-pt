@@ -6,14 +6,14 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: ea94a4e537a46ac8287e4454a2cfd10c59db590b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 43db4ca12fbdf8ee637ca86e1a90cc3baf4ec572
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416873"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713287"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Início Rápido: carregar, transferir e listar blobs com o SDK V10 de Armazenamento Java
 
@@ -21,14 +21,12 @@ Neste início rápido, vai aprender a utilizar o novo SDK de Armazenamento Java 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Instalar e configurar estas aplicações:
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-* [Maven](http://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos ou qualquer ambiente de desenvolvimento integrado Java que preferir
+Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
+
+* [Maven](http://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos, ou qualquer ambiente de desenvolvimento integrado Java que preferir.
 * [JDK](https://aka.ms/azure-jdks)
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 
@@ -284,7 +282,7 @@ Se não precisa dos blobs carregados neste início rápido, pode eliminar o cont
 containerURL.delete(null).blockingGet();
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com Java. 
 

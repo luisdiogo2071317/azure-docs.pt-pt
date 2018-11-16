@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: c51df7aeef136fee42b061cd422cc62d67f33e96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258923"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712148"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -427,7 +427,7 @@ As seguintes variáveis, funções e exibições devolvem resultados diferentes:
 
 Cada instância gerida tem para o armazenamento de 35 TB reservado para o espaço em disco do Azure Premium e cada arquivo de banco de dados é colocado no disco físico separado. Tamanhos de disco podem ser 128 GB, 256 GB, 512 GB, 1 TB ou 4 TB. Não é cobrado o espaço não utilizado no disco, mas a soma total dos tamanhos de disco do Azure Premium não pode ter mais de 35 TB. Em alguns casos, uma instância gerida que não precisa de 8 TB no total pode ter mais de 35 TB Azure limite para o tamanho de armazenamento, devido à fragmentação interna.
 
-Por exemplo, uma instância gerida pode ter um ficheiro 1,2 TB de tamanho que é colocado num disco de 4 TB e tamanho de ins de 1 GB de 248 ficheiros são colocados em discos separados de 128 GB. Neste exemplo:
+Por exemplo, uma instância gerida pode ter um ficheiro 1,2 TB de tamanho que é colocado num disco de 4 TB e 248 ficheiros cada 1 GB de tamanho que são colocadas em discos separados de 128 GB. Neste exemplo:
 
 - o tamanho de armazenamento total do disco é 1 x 4 TB + GB de 248 x 128 = 35 TB.
 - total de espaço reservado para bases de dados na instância é 1 x 1.2 TB + GB de 248 1 = 1,4 TB.

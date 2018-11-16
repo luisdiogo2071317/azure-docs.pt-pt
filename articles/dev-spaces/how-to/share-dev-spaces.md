@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 11c9f07731c58f619ff109def3ca5c436efac24e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 57ca0f7b7704b179a55ac75fea99d35e1024ee8e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977775"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706420"
 ---
 # <a name="share-azure-dev-spaces"></a>Espaços de desenvolvimento do Azure de partilha
 

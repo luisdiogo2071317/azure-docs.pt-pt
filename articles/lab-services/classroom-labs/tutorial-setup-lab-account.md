@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: b60c1e84eb5b62bfce0eb2ba96129deeee2fc3c3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 72acc4fe0febaa09d6deb82043795b6003af683f
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345313"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706784"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configurar uma conta de laboratório com o Azure Lab Services
 No Azure Lab Services, a conta de laboratório serve como a conta central em que são geridos os laboratórios na organização. Na conta de laboratório, conceda permissões para outros utilizadores criarem laboratórios e definir políticas aplicáveis a todos os laboratórios na conta de laboratório. Neste tutorial, aprenda como criar uma conta de laboratório como administrador de laboratório. 
@@ -91,7 +91,7 @@ Enquanto proprietário de uma conta de laboratório, pode especificar as imagens
     1. Selecione **... (reticências)** na última coluna e selecione **Ativar imagem**. 
     2. Selecione uma ou mais imagens a partir da lista ao selecionar as caixas de verificação antes dos nomes de imagem na lista e selecione **Ativar imagens selecionadas**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou uma conta de laboratório. Para saber mais sobre como criar um laboratório de sala de aula como uma profissão, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]

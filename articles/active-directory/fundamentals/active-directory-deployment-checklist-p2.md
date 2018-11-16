@@ -10,35 +10,35 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 7931cd8a6f8b3de826e8dd563a837f80fc15d88a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315120"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705656"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>O Azure Active Directory Premium P2 licenciamento funcionalidade lista de verificação
 
-Pode parecer assustadora para implementar o Azure Active Directory (Azure AD) para a sua organização e mantê-lo seguro. Este artigo identifica algumas tarefas comuns que os clientes encontrar útil para concluir ao longo de 30 dias, 90 dias, ou posterior para melhorar a sua postura de segurança. Até mesmo organizações que já implementaram do Azure AD podem utilizar esta lista de verificação para garantir que estão a obter o máximo proveito do seu investimento.
+Ele pode parecer assustadora para implementar o Azure Active Directory (Azure AD) para a sua organização e mantê-lo seguro. Este artigo identifica algumas tarefas comuns que os clientes ser úteis. Os clientes normalmente concluir estas tarefas no decorrer de 30 dias, 90 dias, ou for além para melhorar a sua postura de segurança. Até mesmo organizações que já implementaram do Azure AD podem utilizar esta lista de verificação para certificar-se de que eles esteja tirando o máximo de seus investimentos em.
 
 Uma infraestrutura de identidade bem planejada e executada abre o caminho para um acesso mais seguro às suas cargas de trabalho de produtividade e os dados apenas por dispositivos e utilizadores autenticados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este guia pressupõe que tem licenças do Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 ou um pacote de licença equivalente.
+Este guia pressupõe que tem licenças do Azure AD Premium P2, Enterprise Mobility + Security E5, Microsoft 365 E5 ou um pacote de licença semelhante.
 
 [Licenciamento Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## <a name="plan-and-deploy-day-1-30"></a>Planear e implementar: dia 1 e 30
 
 - Designar mais de um administrador global (break glass conta)
    - [Gerir o acesso de emergência de contas administrativas no Azure AD](../users-groups-roles/directory-emergency-access.md)
 - Ativar o Azure AD Privileged Identity Management (PIM) para ver relatórios
-   - [Começar a utilizar o PIM](../privileged-identity-management/pim-getting-started.md)
+   - [Comece a utilizar o PIM](../privileged-identity-management/pim-getting-started.md)
 - Sempre que possível, utilize as funções administrativas não global.
    - [Atribuir funções de administrador no Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
 - Autenticação

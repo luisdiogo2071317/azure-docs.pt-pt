@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 10/04/2018
 ms.topic: article
 description: Saiba como criar rapidamente um cluster do Kubernetes ativado para espaços de desenvolvimento do Azure diretamente a partir do seu browser, sem instalar nada.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 47c467e020a7a9253daa636352352d9a57dddf28
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 61a466efdacb56889a7e437d84d3c9de43927e65
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978158"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705757"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Criar um cluster de Kubernetes com o Azure Cloud Shell
 
@@ -23,7 +23,7 @@ Pode usar [Azure Cloud Shell](/azure/cloud-shell) para criar um cluster de espa�
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-Primeiro, crie o grupo de recursos. Utilize uma das regiões atualmente suportadas (EastUS, Eualeste2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast).
+Primeiro, crie o grupo de recursos. Utilize uma das regiões suportadas atualmente (EUA Leste, EUA Leste 2, EUA Central, EUA Oeste 2, Europa Ocidental, Sudeste Asiático, Canadá Central ou Leste do Canadá).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>

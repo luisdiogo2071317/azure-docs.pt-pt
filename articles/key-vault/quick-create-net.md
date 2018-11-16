@@ -1,6 +1,6 @@
 ---
 title: Início Rápido - Definir e obter um segredo do Azure Key Vault com uma aplicação Web do node | Microsoft Docs
-description: 'Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do node'
+description: 'Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do .NET'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230936"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686675"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com uma aplicação Web do .NET
 
@@ -173,9 +173,8 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 Agora quando executar a aplicação, deverá ver o seu valor secreto obtido. No comando acima, está a dar a Identidade (MSI) das permissões do Serviço de Aplicações para realizar operações **get** e **list** no Key Vault
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Home page do Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Documentação do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
+* [Saiba mais sobre o Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 * [SDK do Azure Para .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Referência à API REST do Azure](https://docs.microsoft.com/rest/api/keyvault/)

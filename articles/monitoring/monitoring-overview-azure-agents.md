@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: d07a89163d10026851dc26812ac248d92d6d5e8a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: eb8356b659647ec73be121f8a05ab5e1e8d5837f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684176"
+ms.locfileid: "51710146"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Descrição geral do Azure agentes de monitorização 
 O Microsoft Azure fornece várias formas de recolher diferentes tipos de dados de máquinas virtuais com o Microsoft Windows e Linux alojados no Azure, o seu datacenter ou outros fornecedores de cloud. Os três tipos de agentes disponíveis para monitorizar uma VM são:
@@ -60,7 +60,7 @@ Para a monitorização avançada em que precisa de mais do que recolher métrica
 O agente Log Analytics deve ser utilizado quando pretender:
 
 * Recolha dados de várias origens, tanto dentro do Azure, outros fornecedores de serviços cloud e os recursos no local. 
-* Utilizar uma das soluções de monitorização, tais como o Azure Monitor [do Azure Monitor para VMs](../monitoring/monitoring-vminsights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), [Monitor do Azure para contentores](../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), etc.  
+* Utilizar uma das soluções de monitorização, tais como o Azure Monitor [do Azure Monitor para VMs](../monitoring/../azure-monitor/insights/vminsights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), [Monitor do Azure para contentores](../monitoring/../azure-monitor/insights/container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), etc.  
 * Utilize um dos outros serviços de gestão do Azure, como [Centro de segurança do Azure](../security-center/security-center-intro.md), [automatização do Azure](../automation/automation-intro.md), etc.
 
 Anteriormente, os vários serviços do Azure foram agrupados como o *Operations Management Suite*, e assim o agente Log Analytics é partilhado entre os serviços, incluindo o Centro de segurança do Azure e o automatização do Azure.  Isto inclui o conjunto completo de recursos que elas oferecem, fornecendo gerenciamento abrangente das suas VMs do Azure através do respetivo ciclo de vida.  Alguns exemplos disso são:
@@ -71,7 +71,7 @@ Anteriormente, os vários serviços do Azure foram agrupados como o *Operations 
 * Serviços do Azure, tal como [Application Insights](https://docs.microsoft.com/azure/application-insights/) e [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/), nativamente que armazenam os dados diretamente no Log Analytics.  
 
 ## <a name="dependency-agent"></a>Agente de Dependência
-O agente de dependência foi desenvolvido como parte da solução mapa de serviço, que foi originalmente desenvolvida externamente da Microsoft. [Mapa de serviço](../monitoring/monitoring-service-map.md) e [do Azure Monitor para VMs](monitoring-vminsights-overview.md) requer um agente de dependência no Windows e Linux máquinas virtuais e ele se integra com o agente do Log Analytics recolhe detetados dados sobre os processos em execução no virtual máquina e dependências de processo externo. Ele armazena estes dados no Log Analytics e visualiza os componentes interconectados detetados.
+O agente de dependência foi desenvolvido como parte da solução mapa de serviço, que foi originalmente desenvolvida externamente da Microsoft. [Mapa de serviço](../monitoring/monitoring-service-map.md) e [do Azure Monitor para VMs](../azure-monitor/insights/vminsights-overview.md) requer um agente de dependência no Windows e Linux máquinas virtuais e ele se integra com o agente do Log Analytics recolhe detetados dados sobre os processos em execução no virtual máquina e dependências de processo externo. Ele armazena estes dados no Log Analytics e visualiza os componentes interconectados detetados.
 
 Poderá ter alguma combinação destes agentes para monitorizar a sua VM. Os agentes podem ser instalados lado a lado como extensões do Azure, no entanto no Linux, o agente Log Analytics *tem* ser instalado primeiro, caso contrário instalação irá falhar. 
 

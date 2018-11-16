@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2e59286822d49abeea522b5346ba531408559a7b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 554159f0eb22f2aaa1e45e69de7741f8764be0b3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014827"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711859"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solução de gestão de informações de conector de aplicações (pré-visualização)
 
@@ -57,7 +57,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 ## <a name="configuration"></a>Configuração
 
-1. Ativar a solução de análise de aplicações Web do Azure a partir do [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) ou utilizando o processo descrito na [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md).
+1. Ativar a solução de análise de aplicações Web do Azure a partir do [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) ou utilizando o processo descrito na [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md).
 2. Navegue para o [portal do Azure](https://portal.azure.com). Selecione **todos os serviços** para abrir o Application Insights. Em seguida, procure o Application Insights. 
 3. Sob **subscrições**, selecione uma subscrição que tem os recursos do Application Insights e, em **nome**, selecione uma ou mais aplicações.
 4. Clique em **Guardar**.

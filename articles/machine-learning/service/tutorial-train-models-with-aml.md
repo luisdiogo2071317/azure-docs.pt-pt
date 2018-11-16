@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e6e49a03ee76c50cb2fff492bfd50b2820abafe4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: 1887004b2a83ca5778ccb29cf996bcf2720ce3b8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343763"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711417"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial 1: Preparar um modelo de classificação de imagens com o serviço do Azure Machine Learning
 
@@ -33,7 +33,7 @@ Aprenda a:
 
 Na [parte dois deste tutorial](tutorial-deploy-models-with-aml.md), mais adiante, vai aprender a selecionar um modelo e implementá-lo. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
@@ -455,7 +455,7 @@ Também pode eliminar apenas o cluster da Computação Gerida do Azure. No entan
 compute_target.delete()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial do serviço do Azure Machine Learning, utilizou o Python para:
 

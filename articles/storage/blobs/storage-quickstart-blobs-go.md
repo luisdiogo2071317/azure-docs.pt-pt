@@ -6,14 +6,14 @@ author: seguler
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: d3f6f2c9a1ca5016eb9a6597ba32dc1471f77cb4
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
-ms.translationtype: HT
+ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038329"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711162"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início Rápido: carregar, transferir e listar blobs através de Go
 
@@ -21,17 +21,20 @@ Neste início rápido, vai aprender a utilizar a linguagem de programação Go p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido: 
-* Instale o [Go 1.8 ou superior](https://golang.org/dl/)
-* Transfira e instale o [SDK do Azure Storage Blob para Go](https://github.com/azure/azure-storage-blob-go/) com `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE]
-> Certifique-se de que escreve Azure em maiúscula no URL. Caso contrário, pode causar problemas na importação de maiúsculas e minúsculas ao trabalhar com o SDK. Também terá de escrever Azure em maiúscula nas declarações de importação.
+Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
+ 
+* [Go 1.8 ou superior](https://golang.org/dl/)
+* [SDK de Blob de armazenamento do Azure para Go](https://github.com/azure/azure-storage-blob-go/), com o seguinte comando:
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+    ```
+    go get -u github.com/Azure/azure-storage-blob-go/azblob
+    ``` 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    > [!NOTE]
+    > Certifique-se de que capitaliza `Azure` no URL para evitar problemas na importação de maiúsculas e, ao trabalhar com o SDK. Também aproveitar `Azure` em suas instruções de importação.
+    
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 O [exemplo de aplicação](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) utilizado neste início rápido é uma aplicação Go básica.  
 
@@ -242,6 +245,6 @@ Veja estes recursos adicionais para o desenvolvimento de Go com armazenamento de
 - Veja e instale o [código fonte da biblioteca de cliente do Go](https://github.com/Azure/azure-storage-blob-go) para o Armazenamento do Azure no GitHub.
 - Explore os [exemplos de armazenamento de blobs](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob#pkg-examples) escritos com a biblioteca de cliente Go.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
  
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com Go. Para obter mais informações sobre o SDK do Azure Storage Blob, veja as páginas [Código Fonte](https://github.com/Azure/azure-storage-blob-go/) e [Referência da API](https://godoc.org/github.com/Azure/azure-storage-blob-go/azblob).

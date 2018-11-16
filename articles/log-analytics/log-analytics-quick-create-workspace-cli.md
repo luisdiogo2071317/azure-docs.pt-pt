@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2d3d48db5a1eb329d854d1c062d23dfaf63ad9fa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cef080707d6745459f27450c2c66f4aa2ea50ec7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963137"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710686"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar uma área de trabalho do Log Analytics com a CLI 2.0 do Azure
 
@@ -131,4 +131,4 @@ Agora que tem uma área de trabalho disponível, pode configurar a recolha de mo
 * Para ativar a recolha de dados dos recursos do Azure com o diagnóstico do Azure ou o armazenamento do Azure, veja [registos do serviço de recolha do Azure e as métricas de utilização do Log Analytics](log-analytics-azure-storage.md).  
 * Adicione [System Center Operations Manager como origem de dados](log-analytics-om-agents.md) para recolher dados de agentes que reportam o grupo de gestão do Operations Manager e o armazenamos em sua área de trabalho do Log Analytics.  
 * Ligue-se [Configuration Manager](log-analytics-sccm.md) para importar computadores que são membros de coleções na hierarquia.  
-* Reveja os [soluções de gestão](../monitoring/monitoring-solutions.md) disponíveis e como adicionar ou remover uma solução da sua área de trabalho.
+* Reveja os [soluções de gestão](../azure-monitor/insights/solutions.md) disponíveis e como adicionar ou remover uma solução da sua área de trabalho.

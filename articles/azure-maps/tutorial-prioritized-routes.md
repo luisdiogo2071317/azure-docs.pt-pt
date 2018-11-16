@@ -3,18 +3,18 @@ title: Vários trajetos com o Azure Maps | Microsoft Docs
 description: Localizar trajetos para diferentes meios de deslocação com o Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/29/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 67b68489f2e06b9149f842f293a769fa7f688be0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 0a278eb1612ec9573c4d12611ccce2d1b5b971bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412708"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705284"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Localizar trajetos para diferentes meios de deslocação com o Azure Maps
 
@@ -275,7 +275,7 @@ Esta secção mostra como utilizar a API de serviço de trajetos do Maps para en
 
     O trajeto do camião é azul e mais espesso, ao passo que o do carro é roxo e mais fino. O trajeto do carro passa por Lake Washington através da autoestrada interestadual I-90, que passa por túneis em zonas residenciais, pelo que não são permitidas cargas com resíduos perigosos. O trajeto do camião, que especifica uma carga do tipo USHazmatClass2, é direcionado corretamente para outra autoestrada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 
@@ -291,12 +291,7 @@ Pode aceder ao código de exemplo deste tutorial aqui:
 
 [Veja o exemplo aqui ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
-Para saber mais sobre a cobertura e as capacidades do Azure Maps:
+O próximo tutorial demonstra o processo de criação de um localizador de arquivo simples com o Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Níveis de zoom e grelha de mosaico](zoom-levels-and-tile-grid.md)
-
-Para ver mais exemplos de código e uma experiência interativa de programação:
-
-> [!div class="nextstepaction"]
-> [Como utilizar o controlo de mapa](how-to-use-map-control.md)
+> [Criar um localizador de arquivo com o Azure Maps](./tutorial-create-store-locator.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f9acdacfad25a2154a23055dce136984177242e0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282684"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713015"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
 Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../log-analytics/log-analytics-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../log-analytics/log-analytics-azure-storage.md).  Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão.  Nestes casos, pode utilizar o [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API.  Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.   
@@ -213,7 +213,7 @@ Sempre que um runbook é iniciado, [é criada uma tarefa](../automation/automati
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Uso [estruturador de vistas](../log-analytics/log-analytics-view-designer.md) para criar uma vista de exibir os dados já recolhidos para o repositório do Log Analytics.
-- Empacotar o runbook numa [solução de gestão](monitoring-solutions-creating.md) para distribuição a clientes.
+- Empacotar o runbook numa [solução de gestão](../azure-monitor/insights/solutions-creating.md) para distribuição a clientes.
 - Saiba mais sobre [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Saiba mais sobre [automatização do Azure](https://docs.microsoft.com/azure/automation/).
 - Saiba mais sobre o [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md).

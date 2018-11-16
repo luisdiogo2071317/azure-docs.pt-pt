@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 78ffa42bcf57b7163afc13b2550abdbae240ef00
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: cf27864d691fe2fe13c9483348fb2abed121874d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729245"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713508"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -31,7 +31,7 @@ O primeiro bloco de código constrói um objeto de mapa e inicializa o serviço 
 
 O segundo bloco de código utiliza a [API de pesquisa difusa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. A resposta do serviço de pesquisa difusa, em seguida, é analisada para utilizar o formato GeoJSON a [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) método. Os pins, em seguida, são adicionados ao mapa para mostrar os pontos de interesse no mapa.
 
-O último bloco de código ajusta os limites de câmera para o mapa através do mapa [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) propriedade.
+O último bloco de código ajusta os limites de câmera para o mapa através do mapa [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) propriedade.
 
 ## <a name="make-a-search-request-via-xmlhttprequest"></a>Fazer um pedido de pesquisa via XMLHttpRequest
 
@@ -44,7 +44,7 @@ O segundo bloco de código adiciona uma camada de resultados de pesquisa ao mapa
 
 O terceiro bloco de código envia um [XMLHttpRequest](https://xhr.spec.whatwg.org/) ao [API de pesquisa do Azure Maps difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas.
 
-O último bloco de código analisa a resposta e ajusta o ajusta os limites de câmera para o mapa através do mapa [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) para renderizar os pins de resultado.
+O último bloco de código analisa a resposta e ajusta o ajusta os limites de câmera para o mapa através do mapa [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) para renderizar os pins de resultado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -62,6 +62,6 @@ Veja os artigos seguintes para obter exemplos de código completo:
 
 > [!div class="nextstepaction"]
 > [Obtenha informações a partir de uma coordenada](./map-get-information-from-coordinate.md)
-
+<!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
 > [Mostrar as direções da para B](./map-route.md)

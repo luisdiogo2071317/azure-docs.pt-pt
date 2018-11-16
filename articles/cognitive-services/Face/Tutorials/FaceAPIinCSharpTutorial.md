@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: a5763d3e250ec7641dafff89b2eadeec2a7d7b02
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616304"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685485"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Tutorial: Criar um aplicativo do WPF para exibir dados de rostos numa imagem
 
@@ -123,7 +123,7 @@ Execute a aplicação e procure uma imagem que tenha um rosto. Aguarde alguns se
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber o processo básico para utilizar o SDK de .NET do serviço de rostos e criou uma aplicação para detetar e quadro rostos numa imagem. Em seguida, veja como detetar rostos numa imagem para saber mais sobre os detalhes da deteção de rostos.
+Neste tutorial, ficou a saber o processo básico para utilizar o SDK de .NET do serviço de rostos e criou uma aplicação para detetar e quadro rostos numa imagem. Em seguida, saiba mais sobre os detalhes da deteção de rostos.
 
 > [!div class="nextstepaction"]
 > [Como Detetar Rostos numa Imagem](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: c8b5cda2376d76f9a22e72aeff9377e1c3c8cf99
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
-ms.translationtype: HT
+ms.openlocfilehash: b7cba2959bead5eeed72a87219c70f896b5a48b8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626623"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51682967"
 ---
 # <a name="what-is-custom-translator-preview"></a>O que é o Custom Translator (Pré-visualização)?
 
@@ -22,7 +22,7 @@ ms.locfileid: "51626623"
 
 Sistemas de tradução criados com [personalizado Translator](https://portal.customtranslator.azure.ai) estão disponíveis através da mesma com base na cloud [seguro](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), alto desempenho, altamente dimensionável Microsoft Translator [V3 de API de texto](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), que capacita a milhares de milhões de traduções todos os dias. 
 
-Tradutor personalizado oferece suporte a mais de três dezenas de linguagens e é mapeado diretamente para os idiomas disponíveis para NMT. Para obter uma lista completa, consulte [idiomas do Microsoft Translator]( https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Tradutor personalizado oferece suporte a mais de três dezenas de linguagens e é mapeado diretamente para os idiomas disponíveis para NMT. Para obter uma lista completa, consulte [idiomas do Microsoft Translator]( https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ## <a name="features"></a>Funcionalidades
 

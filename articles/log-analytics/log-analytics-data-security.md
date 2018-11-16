@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4220af0a93bd48074c29c7b8e25a822d28a8161b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244479"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712386"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados de análise de registo
 Este documento destina-se para fornecer informações específicas para o Log Analytics, que é um recurso do Azure Monitor, para complementar as informações sobre [Centro de fidedignidade do Azure](../security/security-microsoft-trust-center.md).  
@@ -158,7 +158,7 @@ Para o Operations Manager, o grupo de gestão do Operations Manager estabelece u
 
 Todas as comunicações entre sistemas conectados e o serviço Log Analytics são encriptadas. O protocolo TLS (HTTPS) é utilizado para encriptação.  O processo Microsoft SDL é seguido para garantir que o Log Analytics é atualizado com os mais recentes avanços em protocolos de criptografia.
 
-Cada tipo de agente recolhe dados para o Log Analytics. O tipo de dados que são recolhidos é dependerá dos tipos de soluções utilizadas. Pode ver um resumo de recolha de dados no [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md). Além disso, as informações mais detalhadas de recolha estão disponíveis para a maioria das soluções. Uma solução é um pacote de vistas predefinidas, consultas de pesquisa de registo, as regras de recolha de dados e lógica de processamento. Apenas os administradores podem utilizar o Log Analytics para importar uma solução. Após a importação a solução, é movido para os servidores de gestão do Operations Manager (se utilizado) e, em seguida, para quaisquer agentes que escolheu. Depois disso, os agentes de recolher os dados.
+Cada tipo de agente recolhe dados para o Log Analytics. O tipo de dados que são recolhidos é dependerá dos tipos de soluções utilizadas. Pode ver um resumo de recolha de dados no [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md). Além disso, as informações mais detalhadas de recolha estão disponíveis para a maioria das soluções. Uma solução é um pacote de vistas predefinidas, consultas de pesquisa de registo, as regras de recolha de dados e lógica de processamento. Apenas os administradores podem utilizar o Log Analytics para importar uma solução. Após a importação a solução, é movido para os servidores de gestão do Operations Manager (se utilizado) e, em seguida, para quaisquer agentes que escolheu. Depois disso, os agentes de recolher os dados.
 
 ## <a name="2-send-data-from-agents"></a>2. Enviar dados a partir de agentes
 Registar todos os tipos de agente com uma chave de registo e uma ligação segura é estabelecida entre o agente e o serviço do Log Analytics a utilizar autenticação baseada em certificados e o SSL com a porta 443. O log Analytics utiliza um arquivo de segredos para gerar e manter as chaves. As chaves privadas são revezadas de todos os 90 dias e são armazenadas no Azure e são geridas pelas operações do Azure que sigam práticas rigorosas de regulamentação e conformidade.

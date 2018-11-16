@@ -28,8 +28,8 @@
 ### [Avaliação da linha de base da Web](../security-center/security-center-customize-os-security-config.md)
 
 ## Utilizar soluções
-### [Soluções de gestão](../monitoring/monitoring-solutions.md)
-### [Soluções de destino](../monitoring/monitoring-solution-targeting.md)
+### [Soluções de gestão](../azure-monitor/insights/solutions.md)
+### [Soluções de destino](../azure-monitor/insights/solution-targeting.md)
 ### Insight & analytics
 #### [Avaliação do AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Estado de Replicação do AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [Avaliação de Antimalware](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Criar soluções
-### [Estrutura e compilação](../monitoring/monitoring-solutions-creating.md)
-### [Ficheiro de solução](../monitoring/monitoring-solutions-solution-file.md)
-### [Recursos de automatização](../monitoring/monitoring-solutions-resources-automation.md)
-### [Pesquisas de registos e alertas](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [Vistas](../monitoring/monitoring-solutions-resources-views.md)
-### [Melhores práticas](../monitoring/monitoring-solutions-best-practices.md)
+### [Estrutura e compilação](../azure-monitor/insights/solutions-creating.md)
+### [Ficheiro de solução](../azure-monitor/insights/solutions-solution-file.md)
+### [Recursos de automatização](../azure-monitor/insights/solutions-resources-automation.md)
+### [Pesquisas de registos e alertas](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [Vistas](../azure-monitor/insights/solutions-resources-views.md)
+### [Melhores práticas](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Cenários de gestão
 ### [Recolher dados de análise a partir de runbooks](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126317"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706131"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefas para o armazenamento do Azure com a API de serviço do Batch
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-A partir da versão 2017-05-01, a API do serviço Batch suporta manter dados de saída para o armazenamento do Azure para tarefas e tarefas de Gestor de tarefas serem executadas em conjuntos com a configuração de máquina virtual. Quando adiciona uma tarefa, pode especificar um contentor no armazenamento do Azure como o destino para a saída da tarefa. O serviço Batch escreve, em seguida, os dados de saída para esse contentor quando a tarefa estiver concluída.
+A API do serviço Batch suporta manter dados de saída para o armazenamento do Azure para tarefas e tarefas de Gestor de tarefas serem executadas em conjuntos com a configuração de máquina virtual. Quando adiciona uma tarefa, pode especificar um contentor no armazenamento do Azure como o destino para a saída da tarefa. O serviço Batch escreve, em seguida, os dados de saída para esse contentor quando a tarefa estiver concluída.
 
-Uma vantagem de utilizar a API de serviço do Batch para manter a saída de tarefa é que não é necessário modificar a aplicação que a tarefa é executada. Em vez disso, com algumas modificações simples para a aplicação cliente, pode manter a saída da tarefa de dentro do código que cria a tarefa.   
+Uma vantagem de utilizar a API de serviço do Batch para manter a saída de tarefa é que não é necessário modificar a aplicação que a tarefa é executada. Em vez disso, com algumas modificações para a aplicação cliente, pode manter a saída da tarefa de dentro do mesmo código que cria a tarefa.
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>Quando utiliza a API de serviço do Batch para manter a saída de tarefa?
 
@@ -36,7 +36,10 @@ O Azure Batch fornece mais de uma forma de manter a saída de tarefa. Com a API 
 - Pretende manter a saída para um contentor de armazenamento do Azure com um nome arbitrário.
 - Pretende manter a saída para um contentor de armazenamento do Azure com o nome em conformidade com o [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
-Se o seu cenário é diferente das listados acima, terá de considerar uma abordagem diferente. Por exemplo, a API de serviço do Batch não suporta atualmente transmissão em fluxo de saída para o armazenamento do Azure enquanto a tarefa está em execução. A saída do stream, considere utilizar a biblioteca convenções de ficheiros do Batch, disponível para .NET. Para outros idiomas, terá de implementar sua própria solução. Para obter mais informações sobre outras opções para manter o resultado da tarefa, consulte [manter a saída de trabalhos e tarefas para o armazenamento do Azure](batch-task-output.md). 
+> [!NOTE]
+> A API do serviço Batch suporta dados persistentes de tarefas em execução em conjuntos criados com a configuração do serviço cloud. Para obter informações sobre tarefas persistentes de saída de agrupamentos de executar a configuração de serviços cloud, consulte [manter os dados de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros do Batch para .NET manter ](batch-task-output-file-conventions.md).
+
+Se o seu cenário é diferente das listados acima, terá de considerar uma abordagem diferente. Por exemplo, a API de serviço do Batch não suporta atualmente transmissão em fluxo de saída para o armazenamento do Azure enquanto a tarefa está em execução. A saída do stream, considere utilizar a biblioteca convenções de ficheiros do Batch, disponível para .NET. Para outros idiomas, terá de implementar sua própria solução. Para obter mais informações sobre outras opções para manter o resultado da tarefa, consulte [manter a saída de trabalhos e tarefas para o armazenamento do Azure](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Criar um contentor no armazenamento do Azure
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>Especificar os ficheiros de saída para o resultado da tarefa
 
-Para especificar os ficheiros de saída para uma tarefa, crie uma coleção de [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objetos e atribuí-lo para o [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) propriedade quando cria a tarefa. 
+Para especificar os ficheiros de saída para uma tarefa, crie uma coleção de [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) objetos e atribuí-lo para o [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) propriedade quando cria a tarefa.
 
-O exemplo de código .NET seguinte cria uma tarefa que grava números aleatórios num arquivo chamado `output.txt`. O exemplo cria um ficheiro de saída para `output.txt` de escrita ao contentor. O exemplo também cria ficheiros de saída para quaisquer ficheiros de registo que correspondam ao padrão de arquivo `std*.txt` (_por exemplo,_, `stdout.txt` e `stderr.txt`). O URL de contentor requer a SAS que foi criada anteriormente para o contentor. O serviço Batch utiliza a SAS para autenticar o acesso ao contentor: 
+O seguinte C# exemplo de código cria uma tarefa que grava números aleatórios num arquivo chamado `output.txt`. O exemplo cria um ficheiro de saída para `output.txt` de escrita ao contentor. O exemplo também cria ficheiros de saída para quaisquer ficheiros de registo que correspondam ao padrão de arquivo `std*.txt` (_por exemplo,_, `stdout.txt` e `stderr.txt`). O URL de contentor requer a SAS que foi criada anteriormente para o contentor. O serviço Batch utiliza a SAS para autenticar o acesso ao contentor:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Quando especificar um ficheiro de saída, pode utilizar o [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) propriedade para especificar um padrão de arquivo para correspondência. O padrão de ficheiros pode corresponder ao nenhum arquivo, um único arquivo ou um conjunto de ficheiros que são criados pela tarefa.
 
-O **FilePattern** propriedade suporta carateres universais do sistema de ficheiros padrão, tal como `*` (para não recursiva corresponde a) e `**` (para recursiva corresponde). Por exemplo, o código de exemplo acima Especifica o padrão de ficheiro para corresponder `std*.txt` não recursivamente: 
+O **FilePattern** propriedade suporta carateres universais do sistema de ficheiros padrão, tal como `*` (para não recursiva corresponde a) e `**` (para recursiva corresponde). Por exemplo, o código de exemplo acima Especifica o padrão de ficheiro para corresponder `std*.txt` não recursivamente:
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ Para carregar um único arquivo, especifique um padrão de ficheiro com caratere
 
 O [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) propriedade permite condicional de carregamento de ficheiros de saída. Um cenário comum é carregar um conjunto de ficheiros se a tarefa tiver êxito e um conjunto diferente de ficheiros se falhar. Por exemplo, poderá carregar ficheiros de registo verboso, apenas quando a tarefa falha e será encerrada com um código de saída diferente de zero. Da mesma forma, poderá carregar ficheiros de resultado apenas se a tarefa for concluída com êxito, pois esses arquivos podem ser em falta ou incompletas se a tarefa falhar.
 
-O exemplo de código acima conjuntos a **UploadCondition** propriedade **TaskCompletion**. Esta definição especifica que o ficheiro está a ser carregado depois de concluir as tarefas, independentemente do valor do código de saída. 
+O exemplo de código acima conjuntos a **UploadCondition** propriedade **TaskCompletion**. Esta definição especifica que o ficheiro está a ser carregado depois de concluir as tarefas, independentemente do valor do código de saída.
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 Para obter mais informações sobre os diretórios virtuais no armazenamento do Azure, consulte [listar os blobs num contentor](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
-
 ## <a name="diagnose-file-upload-errors"></a>Diagnosticar erros de carregamento de ficheiros
 
-Se carregar ficheiros de saída para o armazenamento do Azure falha, então a tarefa se move para o **concluído** estado e o [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) propriedade está definida. Examine os **FailureInformation** propriedade para determinar o erro ocorreu. Por exemplo, aqui está um erro que ocorre no carregamento de ficheiros, se não é possível localizar o contentor: 
+Se carregar ficheiros de saída para o armazenamento do Azure falha, então a tarefa se move para o **concluído** estado e o [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) propriedade está definida. Examine os **FailureInformation** propriedade para determinar o erro ocorreu. Por exemplo, aqui está um erro que ocorre no carregamento de ficheiros, se não é possível localizar o contentor:
 
 ```
 Category: UserError

@@ -9,17 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 08/13/2018
-ms.openlocfilehash: c41ac2246386b8838d1310a9cd5c03dd0cf5d8e4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1c6a83626f86724bcaa61de03a49b5327af19d88
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244513"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706539"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Desenvolver scripts U-SQL com as Ferramentas do Data Lake para Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Saiba como utilizar o Visual Studio para criar contas do Azure Data Lake Analytics, definir tarefas em [U-SQL](data-lake-analytics-u-sql-get-started.md) e submeter tarefas para o serviço Data Lake Analytics. Para mais informações sobre a Data Lake Analytics, consulte [Descrição geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
+O Azure Data Lake e ferramentas do Stream Analytics incluem funcionalidades relacionadas aos dois serviços do Azure, Azure Data Lake Analytics e o Azure Stream Analytics. Para obter mais informações sobre os cenários do Azure Stream Analytics, consulte [ferramentas do Azure Stream Analytics para Visual Studio](../stream-analytics/stream-analytics-tools-for-visual-studio-install.md).
+
+Este artigo descreve como utilizar o Visual Studio para criar contas do Azure Data Lake Analytics, definir tarefas em [U-SQL](data-lake-analytics-u-sql-get-started.md)e submeter tarefas para o serviço Data Lake Analytics. Para mais informações sobre a Data Lake Analytics, consulte [Descrição geral da Análise do Azure Data Lake](data-lake-analytics-overview.md).
 
 >[!IMPORTANT]
 > A Microsoft recomenda que atualize as Ferramentas do Azure Data Lake para a versão do Visual Studio 2.3.3000.4 ou posterior. As versões anteriores já não estão disponíveis para transferência e foram preteridas. 

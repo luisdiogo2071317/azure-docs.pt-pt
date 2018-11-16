@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9d26c1d923294a149a57ef28ca03e77dfc2e1c87
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427867"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711910"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Use planos de manutenção para gerir atualizações de serviço e manutenção
 
@@ -27,7 +27,7 @@ Todos os recentemente criado Azure SQL Data Warehouse instâncias terá uma agen
 
 Cada janela de manutenção pode ser três a oito horas. Manutenção pode ocorrer em qualquer altura dentro da janela. Deve esperar uma breve perda de conectividade, como o service implementa o novo código para o armazém de dados. 
 
-Durante a pré-visualização de funcionalidade, que identifica a primárias e secundárias windows nos intervalos de dias separados. Todas as operações de manutenção devem ser concluído dentro as janelas de manutenção agendada. Sem manutenção terá lugar fora das janelas de manutenção especificado sem notificação anterior. Se o seu armazém de dados está em pausa durante a manutenção agendada, ele será atualizado durante a operação de retoma.  
+Para utilizar esta funcionalidade que tem de identificar uma janela primária e secundária nos intervalos de dias separados. Todas as operações de manutenção devem ser concluído dentro as janelas de manutenção agendada. Sem manutenção terá lugar fora das janelas de manutenção especificado sem notificação anterior. Se o seu armazém de dados está em pausa durante a manutenção agendada, ele será atualizado durante a operação de retoma.  
 
 
 ## <a name="alerts-and-monitoring"></a>Alertas e monitorização

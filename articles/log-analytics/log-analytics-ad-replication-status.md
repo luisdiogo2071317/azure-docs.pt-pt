@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08d17566faa61c5dcac01a49f99f0f39eb280946
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3092e8edf16e271826aef95575d92749b29f8b56
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009747"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711519"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorizar o estado de replicação do Active Directory com o Log Analytics
 
@@ -34,7 +34,7 @@ O pacote de solução de estado de replicação do AD monitora regularmente o am
 Utilize as seguintes informações para instalar e configurar a solução.
 
 * Tem de instalar agentes nos controladores de domínio que são membros do domínio a ser avaliada. Em alternativa, tem de instalar agentes nos servidores de membro e configurar os agentes para enviar dados de replicação do AD para o Log Analytics. Para compreender como ligar computadores Windows ao Log Analytics, veja [computadores Windows ligar ao Log Analytics](log-analytics-windows-agent.md). Se o seu controlador de domínio já faz parte de um ambiente existente do System Center Operations Manager que pretende ligar ao Log Analytics, consulte [ligar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
-* Adicionar a solução de estado de replicação do Active Directory à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md).  Não há nenhuma configuração adicional.
+* Adicionar a solução de estado de replicação do Active Directory à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md).  Não há nenhuma configuração adicional.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de recolha de dados de estado de replicação do AD
 A tabela seguinte mostra os métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o estado de replicação do AD.

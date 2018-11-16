@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
-ms.openlocfilehash: d5385ad5142c402a04bb6d5272573917b830754b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: fa322ee685d09717ac5b98398d4d1d61de2be1e9
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142614"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706641"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Início Rápido: ingerir dados através da biblioteca Node do Azure Data Explorer
 
@@ -149,8 +149,8 @@ kustoClient.execute(kustoDatabse, query, (err, results) => {
 Inicie sessão no [https://dataexplorer.azure.com](https://dataexplorer.azure.com) e ligue ao cluster. Execute o seguinte comando na base de dados para ver se ocorreram quaisquer falhas de ingestão nas últimas quatro horas. Substitua o nome da base de dados antes de executar.
     
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Execute o seguinte comando para ver o estado de todas as operações de ingestão nas últimas quatro horas. Substitua o nome da base de dados antes de executar.
@@ -169,7 +169,7 @@ Se tenciona seguir os nossos inícios rápidos e tutoriais, mantenha os recursos
 .drop table StormEvents
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Escrever consultas](write-queries.md)

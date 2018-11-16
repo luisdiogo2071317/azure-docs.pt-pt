@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c17c14b015531bf3f978ac30b013c80ad5be779e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 210e8a80d19f84058a059a3cfe34a14e037507db
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006520"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712369"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
@@ -212,7 +212,7 @@ Cada recomendação inclui documentação de orientação sobre por que é impor
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Recomendações de área de foco de verificação de integridade de utilização
 
-Antes de poder utilizar uma solução de verificação de estado de funcionamento no Log Analytics, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, veja [instalar uma solução de gestão](../monitoring/monitoring-solutions.md). Depois de ser instalado, pode ver o resumo de recomendações por meio do mosaico do Center Operations Manager estado de funcionamento da verificação do sistema no **descrição geral** page de sua área de trabalho no portal do Azure.
+Antes de poder utilizar uma solução de verificação de estado de funcionamento no Log Analytics, tem de ter a solução instalada. Para ler mais sobre a instalação de soluções, veja [instalar uma solução de gestão](../azure-monitor/insights/solutions.md). Depois de ser instalado, pode ver o resumo de recomendações por meio do mosaico do Center Operations Manager estado de funcionamento da verificação do sistema no **descrição geral** page de sua área de trabalho no portal do Azure.
 
 Ver as avaliações de conformidade resumidos para sua infraestrutura e, em seguida, no teste de recomendações.
 

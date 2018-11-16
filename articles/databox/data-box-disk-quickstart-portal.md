@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245074"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712267"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Início Rápido: Implementar o Azure Data Box Disk através do portal do Azure (Pré-visualização)
 
@@ -67,7 +67,7 @@ Este passo demora cerca de 5 minutos.
 
     1. No portal do Azure, aceda a **Geral > Detalhes do Dispositivo** e obtenha a chave de acesso.
     2. Transfira e extraia a ferramenta de desbloqueio do Data Box Disk específica do sistema no computador utilizado para copiar os dados para discos. 
-    3. Execute a ferramenta de desbloqueio do Data Box Disk e indique a chave de acesso. Para qualquer reinserção de discos, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não utilize a caixa de diálogo do BitLocker ou a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, aceda a [Desbloquear discos num cliente Windows]() ou [Desbloquear discos num cliente Linux]().
+    3. Execute a ferramenta de desbloqueio do Data Box Disk e indique a chave de acesso. Para qualquer reinserção de discos, execute a ferramenta de desbloqueio novamente e forneça a chave de acesso. **Não utilize a caixa de diálogo do BitLocker ou a chave do BitLocker para desbloquear o disco.** Para obter mais informações sobre como desbloquear discos, aceda a [desbloquear discos no cliente Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) ou [desbloquear discos no cliente de Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
     4. A letra de unidade atribuída ao disco é apresentada pela ferramenta. Anote a letra de unidade do disco. Esta será utilizada nos passos subsequentes.
 
 ## <a name="copy-data-and-validate"></a>Copiar os dados e validar
@@ -85,7 +85,6 @@ O tempo de conclusão desta operação depende do tamanho dos dados.
 2. (Opcional) Após a conclusão da cópia, recomendamos que execute o ficheiro `DataBoxDiskValidation.cmd` fornecido na pasta *DataBoxDiskImport* para gerar somas de verificação para validação. Consoante o tamanho dos dados, este passo pode demorar algum tempo. 
 3. Desligue a unidade. 
 
-
 ## <a name="ship-to-azure"></a>Enviar para o Azure
 
 Este passo demora entre 5 a 7 minutos.
@@ -94,7 +93,6 @@ Este passo demora entre 5 a 7 minutos.
 2. Deixe a embalagem selada na localização de envio.  
 
 O serviço Data Box Disk envia uma notificação por e-mail e atualiza o estado da encomenda no portal do Azure.
-
 
 ## <a name="verify-your-data"></a>Verificar os dados
 
@@ -120,11 +118,9 @@ Para limpar, pode cancelar a encomenda do Data Box e, em seguida, eliminá-la.
 
     Para eliminar a encomenda, aceda a **Descrição geral** e clique em **Eliminar** na barra de comandos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, implementou o Azure Data Box Disk para ajudar a importar os seus dados para o Azure. Para saber mais sobre a gestão do Azure Data Box Disk, avance para o tutorial seguinte: 
 
 > [!div class="nextstepaction"]
 > [Utilizar o portal do Azure para administrar o Data Box Disk](data-box-portal-ui-admin.md)
-
-

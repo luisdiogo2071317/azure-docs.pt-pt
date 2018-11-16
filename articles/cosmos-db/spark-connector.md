@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269416"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707185"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelerar a análise de macrodados utilizando o Apache Spark para o conector do Azure Cosmos DB
  
-O Apache Spark para o conector do Azure Cosmos DB permite que o Azure Cosmos DB para ser uma entrada ou saída para tarefas do Apache Spark. Ligar [Spark](http://spark.apache.org/) ao [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelerará a sua capacidade para resolver problemas de ciência de dados rápida evolução. Pode utilizar o Azure Cosmos DB para manter e consultar dados rapidamente. O conector utiliza forma eficiente os índices geridos do Azure Cosmos DB nativos. Os índices permitirá colunas atualizáveis ao realizar análises e filtragem contra dados distribuídos globalmente, mudança de predicado de push pendente. Esse tipo de dados pode variar de Internet das coisas (IoT) para cenários de análise e ciência de dados.
+O conector do Apache Spark para o Azure Cosmos DB permite ao Azure Cosmos DB ser uma entrada ou saída de tarefas do Apache Spark. Ligar [Spark](http://spark.apache.org/) ao [do Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelerará a sua capacidade para resolver problemas de ciência de dados rápida evolução. Pode utilizar o Azure Cosmos DB para manter e consultar dados rapidamente. O conector utiliza de forma eficiente os índices geridos do Azure Cosmos DB nativos. Os índices permitem colunas atualizáveis ao realizar análises e filtragens de predicados contra dados distribuídos globalmente. Esse tipo de dados pode variar de Internet das coisas (IoT) para cenários de análise e ciência de dados.
 
 ## <a name="connector-components"></a>Componentes de conector
 
@@ -83,7 +83,7 @@ Execute os seguintes passos para ligar o Spark para Azure Cosmos DB utilizando o
 
 6. Na **criar bloco de notas** caixa de diálogo, introduza um nome amigável de utilizador e escolha **Python** como a linguagem. Na lista pendente, selecione o cluster que criou anteriormente e selecione **criar**.  
 
-7. Executar algumas consultas de Spark através de voos amostra dos dados hospedados em "doctorwho" conta do Azure Cosmos DB. (Esta conta está acessível ao público). O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub aloja a versão HTML do bloco de notas. Transferir os ficheiros de repositório e aceda a `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`. Pode importar o bloco de notas à sua conta do Azure Databricks e executá-lo. A secção seguinte explica a funcionalidade dos blocos de código em detalhes.
+7. Executar algumas consultas de Spark através de voos amostra dos dados hospedados em "doctorwho" conta do Azure Cosmos DB. Esta conta está acessível ao público. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) anfitriões de repositório de GitHub a [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb) bloco de notas. Pode importar o bloco de notas à sua conta do Azure Databricks e executá-lo. A secção seguinte explica a funcionalidade dos blocos de código em detalhes.
 
 O fragmento de código seguinte mostra como importar o pyDocumentDB SDK e executar uma consulta no contexto do Spark. Conforme observado no fragmento de código, o pyDocumentDB SDK contém os parâmetros de ligação necessários para ligar a conta do Azure Cosmos DB. Importa as bibliotecas necessárias e configura a chave mestra e o anfitrião, para criar o cliente do Azure Cosmos DB (pydocumentdb.document_client).
 
@@ -209,7 +209,7 @@ Este artigo demonstra o uso do conector do Spark SDK de Java nos seguintes cená
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>Ler dados do Twitter a partir do Azure Cosmos DB
  
-Nesta secção, irá executar Spark consultas para ler um lote de dados do Twitter a partir do Azure Cosmos DB. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub aloja a versão HTML do bloco de notas. Transferir os ficheiros de repositório e aceda a `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
+Nesta secção, irá executar Spark consultas para ler um lote de dados do Twitter a partir do Azure Cosmos DB. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) anfitriões de repositório de GitHub a [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb) bloco de notas. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
 
 1. Aceda à sua conta do Azure Databricks e selecione **área de trabalho** > **Create** > **bloco de notas**. 
 
@@ -268,7 +268,7 @@ Dependendo do cenário, deve usar valores de configuração diferentes para otim
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Dados de leitura do Twitter que é de transmissão em fluxo para o Azure Cosmos DB
 
-Nesta seção, executa consultas para ler um feed de alterações de dados do Twitter de transmissão em fluxo do Spark. Enquanto executa as consultas nesta secção, certifique-se de que o feed de aplicação do Twitter está em execução e bombeando os dados para o Azure Cosmos DB. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub aloja a versão HTML do bloco de notas. Transferir os ficheiros de repositório e aceda a `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
+Nesta seção, executa consultas para ler um feed de alterações de dados do Twitter de transmissão em fluxo do Spark. Enquanto executa as consultas nesta secção, certifique-se de que o feed de aplicação do Twitter está em execução e bombeando os dados para o Azure Cosmos DB. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) anfitriões de repositório de GitHub a [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala) bloco de notas. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
 
 1. Aceda à sua conta do Azure Databricks e selecione **área de trabalho** > **Create** > **bloco de notas**.  
 
@@ -335,7 +335,7 @@ SDK de Java suporta as seguintes definições de ligação:
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>Escrever os dados do Twitter ao Azure Cosmos DB 
 
-Nesta secção, irá executar Spark consultas para escrever um lote de dados do Twitter para uma nova coleção na mesma base de dados. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub aloja a versão HTML do bloco de notas. Transferir os ficheiros de repositório e aceda a `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
+Nesta secção, irá executar Spark consultas para escrever um lote de dados do Twitter para uma nova coleção na mesma base de dados. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) anfitriões de repositório de GitHub a [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb) bloco de notas. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
 
 1. Aceda à sua conta do Azure Databricks e selecione **área de trabalho** > **Create** > **bloco de notas**.  
 
@@ -428,7 +428,7 @@ SDK de Java suporta os seguintes valores para o mapeamento de configuração:
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>Escrever os dados do Twitter que é a transmissão em fluxo para o Azure Cosmos DB 
 
-Nesta seção, executa consultas para escrever um feed de alterações de dados do Twitter para uma nova coleção na mesma base de dados de transmissão em fluxo do Spark. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) repositório do GitHub aloja a versão HTML do bloco de notas. Transferir os ficheiros de repositório e aceda a `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
+Nesta seção, executa consultas para escrever um feed de alterações de dados do Twitter para uma nova coleção na mesma base de dados de transmissão em fluxo do Spark. O [azure-cosmos DB-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) anfitriões de repositório de GitHub a [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala) bloco de notas. Pode importar o bloco de notas à sua conta do Azure Databricks e atualizar a conta URI, chave mestra, base de dados e nomes de coleções. Pode executar o bloco de notas ou criá-lo da seguinte forma:
 
 1. Aceda à sua conta do Azure Databricks e selecione **área de trabalho** > **Create** > **bloco de notas**.  
 

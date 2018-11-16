@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 55901d6f3bcbf5511b6921939fdcba03972efed3
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: d6cbd2992968a57cfba99117e9f1fc1ab9b5b5b3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182846"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711842"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligar a IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -195,7 +195,7 @@ Agora foram todos configurados com a preparar e configurar o ambiente de desenvo
 1. Na janela novo projeto aberto, clique em `F1` para abrir a paleta de comandos, tipo e selecione **Bancada de trabalho de IoT: Cloud**, em seguida, selecione **Azure aprovisionar**. Siga o guia passo a passo para concluir o aprovisionamento do seu IoT Hub do Azure e criar o dispositivo.
     ![Aprovisionamento de cloud](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. Clique em `F1` para abrir a paleta de comandos, tipo e selecione **Bancada de trabalho de IoT: dispositivo**, em seguida, selecione **definições de configuração de dispositivos > selecione o IoT Hub dispositivo Connection String**.
+1. Clique em `F1` para abrir a paleta de comandos, tipo e selecione **Bancada de trabalho de IoT: dispositivo**, em seguida, selecione **definições de configuração de dispositivos > cadeia de ligação do dispositivo de configuração > selecione IoT Hub dispositivo cadeia de ligação**.
 
 1. No DevKit, mantenha premida **botão A**, push e de versão do **repor** botão e, em seguida, versão **botão A**. Sua DevKit entra em modo de configuração e guarda a cadeia de ligação.
     ![Cadeia de ligação](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)

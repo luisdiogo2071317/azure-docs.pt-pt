@@ -9,12 +9,12 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159014"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710261"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início Rápido: Utilizar o portal do Azure para começar a trabalhar com o Azure Machine Learning
 
@@ -37,7 +37,7 @@ Os seguintes recursos do Azure são adicionados automaticamente à sua área de 
 
 Os recursos que criar podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço Machine Learning. Tal como noutros serviços do Azure, existem limites em certos recursos associados com Machine Learning. Um exemplo é o tamanho do cluster do Azure Batch AI. Para obter informações sobre os limites predefinidos e como aumentar a quota, veja [este artigo](how-to-manage-quotas.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho 
@@ -110,7 +110,7 @@ Uma vez que o código para obter uma estimativa do pi utiliza valores aleatório
 
 Também pode manter o grupo de recursos mas eliminar uma área de trabalho única. Apresente as propriedades de área de trabalho e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Criou os recursos necessários para experimentar e implementar modelos. Também executou algum código num bloco de notas. E explorou o histórico de execuções desse código na sua área de trabalho na cloud.
 

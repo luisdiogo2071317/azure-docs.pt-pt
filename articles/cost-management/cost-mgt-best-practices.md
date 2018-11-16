@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8958d2cde9f40aa1a7370894614a54bbd604bce7
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515357"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706335"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Como otimizar o seu investimento na cloud com o Azure Cost Management
 
@@ -26,12 +26,12 @@ O Azure Cost Management fornece as ferramentas para planejar, analisar e reduzir
 Gestão de custos é um problema de organizacional e deve ser uma prática em curso que começa antes de investir recursos em nuvem. Para implementar a gestão de custos e otimizar os custos com êxito, sua organização tem de:
 
 - Esteja preparado com as ferramentas apropriadas para o sucesso
-- Responsáveis pelos custos
+- Responsabilizar-se de que os custos de
 - Execute as ações apropriadas para otimizar os gastos
 
 Três grupos principais, descritos a seguir, devem obrigatoriamente estar alinhados na sua organização para se certificar de que gerencie com êxito os custos.
 
-- **Finanças** -responsáveis pela aprovação poderiam ser alterados a pedidos em toda a organização com base em previsões de gastos da cloud. Eles pagam a correspondente fatura e atribuir custos a várias equipes a responsabilidade de unidade.
+- **Finanças** -responsáveis pela aprovação de pedidos de orçamento em toda a organização com base em previsões de gastos da cloud. Eles pagam a correspondente fatura e atribuir custos a várias equipes a responsabilidade de unidade.
 - **Os gerentes** - Business decisores numa organização que tem de compreender os gastos para localizar os melhores resultados de gastos da cloud.
 - **As equipas de aplicações** - gerir recursos de nuvem em todos os dias, os engenheiros desenvolver serviços para atender às necessidades da organização. Essas equipes tem a flexibilidade de fornecer o máximo proveito de seus orçamentos definidos.
 
@@ -46,7 +46,7 @@ Planejamento abrangente e inicial permite que personalize a utilização da clou
 - Que problema de negócios que estou a resolver
 - Quais padrões de uso que espero do meus recursos?
 
-Suas respostas irão ajudá-lo a selecionar a oferta que é adequada para si. Eles determinam a infraestrutura de utilização e como são utilizadas para maximizar sua eficiência do Azure.
+Suas respostas irão ajudá-lo a selecionar as ofertas que são adequadas para si. Eles determinam a infraestrutura de utilização e como são utilizadas para maximizar sua eficiência do Azure.
 
 #### <a name="visibility"></a>Visibilidade
 
@@ -62,7 +62,7 @@ Act para reduzir os gastos. Aproveite ao máximo-lo com base em averiguações c
 
 #### <a name="iteration"></a>Iteração
 
-Todas as pessoas na sua organização devem fazer do ciclo de vida de gestão de custos. Eles precisam para se manter envolvidos de forma contínua para otimizar os custos. Ser rigoroso sobre esse processo interativo e torná-lo um inquilino de chave de governação de responsável de cloud na sua organização.
+Todas as pessoas na sua organização devem fazer do ciclo de vida de gestão de custos. Eles precisam para se manter envolvidos numa base contínua para otimizar os custos. Ser rigoroso sobre esse processo interativo e torná-lo um princípio importante de governação de responsável de cloud na sua organização.
 
 ![Princípios fundamentais](./media/cost-mgt-best-practices/principles.png)
 
@@ -105,7 +105,7 @@ Para saber mais sobre as várias opções, visite [como comprar o Azure](https:/
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Calcular o custo da sua solução
 
-Antes de implementar qualquer infraestrutura, avalie a sua solução quanto custará. A avaliação irá ajudá-lo a criar um orçamento para a sua organização para a carga de trabalho, inicial. Em seguida, pode utilizar o orçamento ao longo do tempo para efetuar testes de desempenho a validade das suas estimativas iniciais. E pode compará-lo com o custo real da sua solução implementada.
+Antes de implementar qualquer infraestrutura, avalie a sua solução quanto custará. A avaliação irá ajudá-lo a criar um orçamento para a sua organização para a carga de trabalho, inicial. Em seguida, pode usar um orçamento ao longo do tempo para efetuar testes de desempenho a validade de sua estimativa inicial. E pode compará-lo com o custo real da sua solução implementada.
 
 ### <a name="azure-pricing-calculator"></a>Calculadora de preços do Azure
 
@@ -157,7 +157,7 @@ Utilize as seguintes opções para otimizar os gastos.
 
 ### <a name="cut-out-waste"></a>Recortar desperdício
 
-Depois de implementar a infraestrutura no Azure, é importante certificar-se de que está a ser utilizado. A maneira mais fácil para começar a economizar imediatamente é rever seus recursos e remova qualquer um que não estão a ser utilizado. A partir daí, deve determinar que seus recursos estão a ser utilizados mais eficientemente possível.
+Depois de implementar a infraestrutura no Azure, é importante certificar-se de que está a ser utilizado. A maneira mais fácil para começar a economizar imediatamente é rever seus recursos e remova qualquer um que não estão a ser utilizado. A partir daí, deve determinar se seus recursos estão a ser utilizados mais eficientemente possível.
 
 #### <a name="azure-advisor"></a>Azure Advisor
 
@@ -177,7 +177,7 @@ O Azure tem muitas descontos que sua organização deve tirar vantagem para poup
 
 #### <a name="azure-reservations"></a>Reservas do Azure
 
-Reservas do Azure permitem-lhe efetue o pré-pagamento de um ano ou três anos de máquina virtual ou base de dados SQL a capacidade de computação. Pré-pagamento permitirá que obter um desconto sobre os recursos que utiliza. Reservas do Azure podem reduzir significativamente sua máquina virtual ou os custos de computação de base de dados do SQL — até 72% em preços pay as you go – compromisso inicial de um ano ou três anos. reservas de fornecem um desconto de faturação e não afetam o estado de tempo de execução das suas máquinas virtuais ou bases de dados SQL.
+Reservas do Azure permitem que efetue o pré-pagamento de um ano ou três anos de máquina virtual ou base de dados SQL a capacidade de computação. Pré-pagamento permitirá que obter um desconto sobre os recursos que utiliza. Reservas do Azure podem reduzir significativamente sua máquina virtual ou os custos de computação de base de dados do SQL — até 72% em preços pay as you go com o compromisso inicial de um ano ou três anos. reservas de fornecem um desconto de faturação e não afetam o estado de tempo de execução das suas máquinas virtuais ou bases de dados SQL.
 
 Para obter mais informações, consulte [quais são as reservas do Azure?](../billing/billing-save-compute-costs-reservations.md).
 

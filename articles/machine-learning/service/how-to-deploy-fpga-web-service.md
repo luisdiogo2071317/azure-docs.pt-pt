@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/29/2018
-ms.openlocfilehash: 35b24dc2f21e2504432521c53e2d0f41caa0eeb7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344064"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711723"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Implementar um modelo como um serviço web num FPGA com o Azure Machine Learning
 
@@ -22,7 +22,7 @@ Pode implementar um modelo como um serviço web no [campo matrizes de porta prog
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 - Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
  

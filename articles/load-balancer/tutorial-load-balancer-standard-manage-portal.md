@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar e gerir um Balanceador de Carga Standard – Portal do Azure | Microsoft Docs'
+title: 'Tutorial: carga balancear o tráfego de internet para VMs - portal do Azure | Documentos da Microsoft'
 description: Este tutorial mostra como criar e gerir um Balanceador de Carga Standard com o portal do Azure.
 services: load-balancer
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
-ms.translationtype: HT
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380051"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687320"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Tutorial: Criar e gerir um Balanceador de Carga Standard com o portal do Azure
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Balanceamento de carga de tráfego da internet para VMs com o portal do Azure
 
-O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, vai conhecer os diferentes componentes do Balanceador de Carga Standard do Azure que distribuem o tráfego e oferecem elevada disponibilidade. Saiba como:
+O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por várias máquinas virtuais. Neste tutorial, ficará a conhecer os diferentes componentes do Balanceador de carga Standard do Azure que distribuem o tráfego de internet para VMs e proporcionar elevada disponibilidade. Saiba como:
 
 
 > [!div class="checklist"]
@@ -206,7 +206,7 @@ Para adicionar *myVM1* novamente ao conjunto de back-end, siga o procedimento na
 
 Quando já não forem necessários, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um Balanceador de Carga Standard, ligou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, por fim, testou o balanceador de carga. Além disso, removeu uma VM do conjunto com balanceamento de carga e adicionou a VM de novo ao conjunto de endereços de back-end. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 

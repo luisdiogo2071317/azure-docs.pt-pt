@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7bfcbf2c72dbe33727097841f34f3f6869e9d2d8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053136"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706471"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: criar uma aplicação de consola da API do MongoDB com o Golang e o portal do Azure
 
@@ -42,7 +42,7 @@ Por outras palavras, a aplicação Golang sabe apenas que está a ligar a uma ba
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - O [Go](https://golang.org/dl/) e conhecimento básico da linguagem [Go](https://golang.org/).
-- Um IDE — [Gogland](https://www.jetbrains.com/go/) da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/) da Microsoft ou o [Atom](https://atom.io/). Neste tutorial, estamos a utilizar o Goglang.
+- Um IDE — [GoLand](https://www.jetbrains.com/go/) , da Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) pela Microsoft, ou [Atom](https://atom.io/). Neste tutorial, estamos a utilizar o Goglang.
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
@@ -65,7 +65,7 @@ Clone a aplicação de exemplo e instale os pacotes necessários.
     go get gopkg.in/mgo.v2
     ```
 
-O controlador [mgo](http://labix.org/mgo) (pronunciado *mango*) é um controlador [MongoDB](http://www.mongodb.org/) para a [linguagem Go](http://golang.org/), que implementa uma seleção avançada e bem testada de funcionalidades, numa API muito simples de acordo com idiomas Go padrão.
+O [mgo](http://labix.org/mgo) driver é um [MongoDB](http://www.mongodb.org/) controlador para o [linguagem Go](http://golang.org/) que implementa uma seleção avançada e bem testada de funcionalidades sob uma API muito simples, seguindo o padrão Go idiomas.
 
 <a id="connection-string"></a>
 
@@ -250,7 +250,7 @@ Regresse ao portal do Azure para ver o documento no Data Explorer.
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB e a executar uma aplicação Golang com a API do MongoDB. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 

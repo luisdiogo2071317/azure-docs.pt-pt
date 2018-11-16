@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fab4bcb62d15be11ab0a588b7a58447f05b4466a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 84c54ece905d0a3d68779e498a5bb66f555c08d5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014674"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712879"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Recolher e analisar registos de atividades do Azure no Log Analytics
 
@@ -67,7 +67,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 Execute os seguintes passos para configurar a solução Log Analytics da atividade para as áreas de trabalho.
 
-1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../monitoring/monitoring-solutions.md).
+1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../azure-monitor/insights/solutions.md).
 2. Configure registos de atividades para aceder à sua área de trabalho do Log Analytics.
     1. No portal do Azure, selecione a sua área de trabalho e, em seguida, clique em **registo de atividades do Azure**.
     2. Para cada subscrição, clique no nome da subscrição.  

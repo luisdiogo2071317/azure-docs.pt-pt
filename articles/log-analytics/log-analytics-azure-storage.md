@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d7359c4c151d93dcd40bd475e865c76399ff5355
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006537"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711785"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -158,5 +158,5 @@ A galeria do modelo do Azure tem [exemplos de como utilizar a automatização do
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar o armazenamento de BLOBs para o IIS e a tabela de armazenamento para eventos](log-analytics-azure-storage-iis-table.md) para ler os registos para esse diagnóstico de escrita para armazenamento de tabelas ou de registos do IIS escritos para armazenamento de BLOBs de serviços do Azure.
-* [Ativar soluções](../monitoring/monitoring-solutions.md) para fornecer informações sobre os dados.
+* [Ativar soluções](../azure-monitor/insights/solutions.md) para fornecer informações sobre os dados.
 * [Utilizar consultas de pesquisa](log-analytics-queries.md) para analisar os dados.

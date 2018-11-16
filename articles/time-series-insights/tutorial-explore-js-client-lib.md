@@ -8,12 +8,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
-ms.translationtype: HT
+ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366051"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706998"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 
@@ -36,7 +36,7 @@ Neste tutorial, ficará a saber mais sobre:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial utiliza a funcionalidade "Ferramentas de Programação" (também conhecida como DevTools ou F12), que está disponível na maioria dos browsers mais modernos, incluindo o [Edge](/microsoft-edge/devtools-guide), o [Chrome](https://developers.google.com/web/tools/chrome-devtools/), o [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), o [Safari](https://developer.apple.com/safari/tools/), entre outros. Se ainda não estiver familiarizado com esta funcionalidade, poderá explorá-la no browser antes de continuar.
+Este tutorial utiliza a funcionalidade "Ferramentas de programador" (também conhecido como DevTools ou F12) que se encontra na maioria dos browsers modernos, inclusive [Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)entre outros. Se ainda não estiver familiarizado com esta funcionalidade, poderá explorá-la no browser antes de continuar.
 
 ## <a name="time-series-insights-sample-application"></a>O exemplo de aplicação do Time Series Insights
 
@@ -273,7 +273,7 @@ O código que é utilizado para ilustrar os pincéis é apresentado no exemplo a
 
 ![Gráfico de linhas com menu de contexto para criar gráfico circular/de barras com pincéis](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

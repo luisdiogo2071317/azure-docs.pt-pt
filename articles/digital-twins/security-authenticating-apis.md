@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: f85ab05e785ea559962490b43e75b196d1602159
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016221"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711060"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Ligar e autenticar para APIs
 
@@ -35,39 +35,18 @@ A biblioteca de autenticação do Windows Azure oferece várias formas de adquir
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Chamar duplos Digital a partir de uma API da web de camada intermediária
 
-Quando os desenvolvedores arquitetar soluções digitais duplos, eles normalmente, criaram uma aplicação de camada intermediária ou a API. A aplicação ou a API em seguida, chama a API de duplos Digital downstream. Os usuários primeiro autenticar para o aplicativo de camada média e, em seguida, um fluxo em-nome-de token é utilizado para chamar a jusante. Para obter instruções sobre como orquestrar o fluxo em-nome-de, veja [esta página](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Também pode ver exemplos de código na [esta página](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+Quando os desenvolvedores arquitetar soluções digitais duplos, eles normalmente, criaram uma aplicação de camada intermediária ou a API. A aplicação ou a API em seguida, chama a API de duplos Digital downstream. Para suportar esta arquitetura de solução de web padrão, certifique-se de que os usuários primeiro:
 
+1. Autenticar com a aplicação de camada intermediária
 
-## <a name="test-with-the-postman-client"></a>Testar com o cliente do Postman
+1. Um token de OAuth 2.0 On-Behalf-Of é obtido durante a autenticação
 
-Para começar a trabalhar com as APIs de duplos Digital, pode utilizar um cliente, como o Postman como ambiente de API. Postman ajuda-o a criar pedidos HTTP complexos rapidamente. Os passos seguintes mostram como obter um token do Azure AD que é necessário chamar duplos digitais dentro da interface do Usuário do Postman.
+1. O token adquirido, em seguida, é utilizado para autenticar com o ou chamar as APIs que são utilizando o fluxo em-nome-de downstream
 
-
-1. Aceda a https://www.getpostman.com/ para transferir a aplicação.
-1. Siga os passos em [este guia de introdução](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) para criar uma aplicação do Azure AD. Ou pode reutilizar um registo existente. 
-1. Sob **permissões obrigatórias**, introduza "Duplos Digital do Azure" e selecione **permissões delegadas**. Em seguida, selecione **conceder permissões**.
-1. Abra o manifesto do aplicativo e defina **oauth2AllowImplicitFlow** como true.
-1. Configurar um URL de resposta para [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
-1. Selecione o **autorização** separador, selecione **OAuth 2.0**e, em seguida, selecione **obter novo Token de acesso**.
-
-    |**Campo**  |**Valor** |
-    |---------|---------|
-    | Tipo de concessão | Implícito |
-    | Url de chamada de retorno | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Auth URL | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/Authorize?Resource=0b07f429-9F4B-4714-9392-cc5e8e80c8b0 |
-    | ID de Cliente | Utilize o ID da aplicação para a aplicação do Azure AD que tenha sido criada ou redirecionado para outros objetivos do passo 2. |
-    | Âmbito | Deixe em branco. |
-    | Estado | Deixe em branco. |
-    | Autenticação de cliente | Envie como um cabeçalho de autenticação básica. |
-
-1. Selecione **pedir o Token**.
-
-    >[!NOTE]
-    >Se receber a mensagem de erro "Não foi possível concluir o OAuth 2", experimente o seguinte:
-    > * Feche o Postman e abri-lo novamente e tente novamente.
-   
-1. Role para baixo e selecione **utilização Token**.
+Para obter instruções sobre como orquestrar o fluxo em-nome-de, veja [fluxo de OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Também pode ver exemplos de código na [chamar uma API web a jusante](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Para configurar e testar duplos Digital do Azure com o fluxo de concessão implícita OAuth 2.0, leia [configurar o Postman](./how-to-configure-postman.md).
 
 Para saber mais sobre segurança de duplos Digital do Azure, leia [criar e gerir atribuições de funções](./security-create-manage-role-assignments.md).

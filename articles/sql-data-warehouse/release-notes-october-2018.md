@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 82f55c87c54fa5197a2bd5c24ea3863da1700c7b
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579714"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705383"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>O que há de novo no Azure SQL Data Warehouse? Outubro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Outubro de 2018.
@@ -32,7 +32,7 @@ Avançadas otimização para o Azure SQL Data Warehouse (SQL DW) apenas ficou ma
 2.  Distribuição da tabela – determinar quando replicar tabelas para reduzir o movimento de dados e aumentar o desempenho da carga de trabalho. 
 3.  Tempdb – compreender quando dimensionar e configurar recursos classes para reduzir a contenção do tempdb.
 
-Há uma integração mais profunda das métricas de armazém de dados com [do Azure Monitor](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) incluindo um gráfico monitorização personalizável aprimorado para métricas em tempo real quase no painel de descrição geral. Já não tem de deixar o painel de descrição geral do armazém de dados para aceder às métricas do Azure Monitor quando monitorizar a utilização, ou a validar e aplicar recomendações de armazém de dados. Além disso, existem novas métricas disponíveis, como tempdb e a utilização de cache adaptável para complementar as suas recomendações de desempenho.
+Há uma integração mais profunda das métricas de armazém de dados com [do Azure Monitor](https://azure.microsoft.com/blog/enhanced-capabilities-to-monitor-manage-and-integrate-sql-data-warehouse-in-the-azure-portal/) incluindo um gráfico monitorização personalizável aprimorado para métricas em tempo real quase no painel de descrição geral. Já não precisa de deixar que o painel de descrição geral do armazém de dados aceda às métricas do Azure Monitor quando monitorizar a utilização ou validar e aplicar as recomendações do armazém de dados. Além disso, existem novas métricas disponíveis, como tempdb e a utilização de cache adaptável para complementar as suas recomendações de desempenho.
 
 ## <a name="advanced-tuning-with-integrated-advisors"></a>Advanced ajuste com assistentes integrados
 Avançadas otimização para o Azure SQL Data Warehouse (SQL DW) apenas ficou mais simples com recomendações de armazém de dados adicionais e métricas e um novo projeto do painel de descrição geral do portal que fornece uma experiência integrada com o Assistente do Azure e o Azure Monitor.
@@ -41,7 +41,7 @@ Avançadas otimização para o Azure SQL Data Warehouse (SQL DW) apenas ficou ma
 Do Azure SQL Data Warehouse acelerada da base de dados recuperação (ADR) está agora em pré-visualização pública. Regras de implementação automática são um novo motor SQL Server que melhora significativamente a disponibilidade de base de dados, especialmente na presença de transações de longa execução, por redesenhar completamente o processo de recuperação atual desde o backup. Principais vantagens da ADR são recuperação rápida e consistente da base de dados e reversão de transação de instantâneo.
 
 ## <a name="azure-monitor-diagnostics-logs"></a>Registos de diagnóstico do Azure Monitor
-O SQL Data Warehouse (SQL DW) agora permite que informações melhoradas para cargas de trabalho analíticas integrando diretamente com os registos de diagnóstico do Azure Monitor. Esta nova capacidade permite aos programadores analisar o comportamento de carga de trabalho durante um período de tempo prolongado e tomar decisões informadas sobre o gerenciamento de otimização ou capacidade de consulta. Agora introduzimos um processo de Registro em log externos por meio [registos de diagnóstico do Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) que fornecem informações adicionais sobre a sua carga de trabalho do armazém de dados. Com um único clique de um botão, agora é possível configurar os registos de diagnóstico para através de capacidades de resolução de problemas de desempenho de consulta histórica [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Registos de diagnóstico de Monitor do Azure suportam períodos de retenção personalizável ao guardar os registos de uma conta de armazenamento para fins, de auditoria a capacidade de transmitir os registos para os hubs de eventos perto de informações de telemetria em tempo real e a capacidade de analisar registos com o Log Analytics com o [registar as consultas](). Os registos de diagnóstico são compostos por vistas de telemetria do seu armazém de dados equivalente para o desempenho mais comumente usado DMVs de resolução de problemas para o SQL Data Warehouse. Nesta versão inicial, ativámos vistas para as seguintes vistas de gestão dinâmica do sistema:
+O SQL Data Warehouse (SQL DW) agora permite que informações melhoradas para cargas de trabalho analíticas integrando diretamente com os registos de diagnóstico do Azure Monitor. Esta nova capacidade permite aos programadores analisar o comportamento de carga de trabalho durante um período de tempo prolongado e tomar decisões informadas sobre o gerenciamento de otimização ou capacidade de consulta. Agora introduzimos um processo de Registro em log externos por meio [registos de diagnóstico do Azure Monitor](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json#logs) que fornecem informações adicionais sobre a sua carga de trabalho do armazém de dados. Com um único clique de um botão, agora é possível configurar os registos de diagnóstico para através de capacidades de resolução de problemas de desempenho de consulta histórica [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-queries). Registos de diagnóstico de Monitor do Azure suportam períodos de retenção personalizável ao guardar os registos de uma conta de armazenamento para fins, de auditoria a capacidade de transmitir os registos para os hubs de eventos perto de informações de telemetria em tempo real e a capacidade de analisar registos com o Log Analytics com o [registar as consultas](). Os registos de diagnósticos consistem em visualizações de telemetria do seu armazém de dados equivalentes às DMVs de resolução de problemas de desempenho utilizadas com mais frequência para o SQL Data Warehouse. Nesta versão inicial, ativámos vistas para as seguintes vistas de gestão dinâmica do sistema:
 
 - [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)
 - [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)
@@ -49,11 +49,8 @@ O SQL Data Warehouse (SQL DW) agora permite que informações melhoradas para ca
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## <a name="instant-data-movement"></a>Movimento de dados instantânea 
-Além de Shuffle instantâneas movimento de dados agora se estende a difusão e movimentação de partição.
-
-## <a name="scale-up-column-store-columnstore-metadata-memory-management-sql-server"></a>Aumento vertical Store de coluna: O gerenciamento de memória de metadados Columnstore (SQL Server)
-Gerenciamento de memória otimizada para armazenar metadados da coluna 
+## <a name="columnstore-memory-management"></a>Gerenciamento de memória de Columnstore
+À medida que aumenta o número de grupos de linhas do arquivo de coluna comprimido, aumenta a memória necessária para gerir os metadados de segmento de coluna interna para esses grupos de linhas.  Como resultado, podem degradar o desempenho das consultas e as consultas executadas em relação a algumas as vistas de gestão dinâmica Columnstore (DMVs).  Aprimoramentos feitos nesta versão para otimizar o tamanho dos metadados interno para estes casos, que leva a experiência melhorada e desempenho para estas consultas. 
 
 ## <a name="azure-data-lake-storage-gen2-integration-ga"></a>Integração de geração 2 de armazenamento do Data Lake (GA) do Azure
 O Azure SQL Data Warehouse (SQL DW) agora tem uma integração nativa com geração 2 de armazenamento do Azure Data Lake. Os clientes agora podem carregar dados com tabelas externas de ABFS para o SQL DW. Esta funcionalidade permite aos clientes integrar com seus lakes de dados na geração 2 de armazenamento do Data Lake. 

@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734138"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712029"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Início Rápido: Utilizar o .NET para criar um blob no armazenamento de objetos
 
@@ -21,9 +21,7 @@ Neste início rápido, vai aprender a utilizar a biblioteca de cliente do Armaze
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-Para concluir este início rápido, primeiro crie uma conta de armazenamento do Azure no [Portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda na criação da conta, veja [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 Em seguida, transfira e instale o .NET Core 2.0 referente ao seu sistema operativo. Se estiver a executar o Windows, pode instalar o Visual Studio e utilizar o .NET Framework, se preferir. Também pode optar por instalar um editor para utilizar com o sistema operativo.
 
@@ -297,7 +295,7 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com Armazename
 - Consulte a [Referência da API de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage) para obter mais informações sobre a biblioteca de cliente .NET.
 - Explore os [Exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) escritos com a biblioteca de cliente .NET.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a carregar, transferir e listar blobs com o .NET. 
 

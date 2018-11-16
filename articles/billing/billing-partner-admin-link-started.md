@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 13748bf23ee70bfa77e15e7112b450637a231742
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686999"
+ms.locfileid: "51710720"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>ID de parceiro de ligação para suas contas do Azure
 
@@ -124,7 +124,7 @@ Junte-se a discussão no [Comunidade de parceiros da Microsoft](https://aka.ms/P
 
 **Quem pode associar o ID de parceiro?**
 
-Qualquer utilizador da organização parceira que está a gerir recursos do cliente pode associar o ID de parceiro na conta.
+Qualquer utilizador da organização parceira que está a gerir recursos do Azure do cliente pode ligar o ID de parceiro na conta.
 
 **Uma vez que está ligado um ID de parceiro pode ela ser alterada?**
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281299"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683505"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Início rápido: Reconhecer e transcrever voz com o SDK de Voz e o .NET Framework (Windows)
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281299"
 
 Utilize este guia para criar uma aplicação de consola de voz em texto com o .NET framework para Windows e o SDK de Voz. Quando terminar, pode utilizar o microfone do seu computador para converter voz em texto em tempo real.
 
-Este início rápido exige uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o Microsoft Speech ativado. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) para obter uma chave de subscrição.
+Este início rápido exige uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com o Microsoft Speech ativado. Se não tiver uma conta, pode utilizar a [avaliação gratuita](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) para obter uma chave de subscrição.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Para concluir este projeto, precisa de:
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 O código está disponível na pasta `quickstart/csharp-dotnet-windows`.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Reconhecer intenções de voz com o SDK de Voz para C#](how-to-recognize-intents-from-speech-csharp.md)

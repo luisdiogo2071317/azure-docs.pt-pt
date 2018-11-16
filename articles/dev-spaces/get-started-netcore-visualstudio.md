@@ -6,18 +6,18 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 83f38d6a04b90cfd8e056686f1a1539fd15e98b3
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: aeaa56d192899ef12b698ebbc5f19305f79f4ff1
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978302"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706267"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introdução ao Azure Dev Spaces com o .NET Core e o Visual Studio
 
@@ -104,6 +104,9 @@ Se optar por um cluster que não tenha sido preparado para funcionar com o Azure
 
 Escolha **OK**.
 
+> [!IMPORTANT]
+> O processo de configuração de espaços de desenvolvimento do Azure irá remover o `azds` espaço de nomes do cluster, se existir.
+
  Será iniciada uma tarefa em segundo plano para executar essa configuração. Esta operação demorará alguns minutos a ser concluída. Para ver se ainda está a ser criado, faça pairar o ponteiro sobre o ícone **Background tasks** (Tarefas em segundo plano) no canto inferior esquerdo da barra de tarefas, conforme mostrado na imagem abaixo.
 
 ![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
@@ -152,7 +155,7 @@ Em vez de reconstruir e reimplementar uma imagem de contentor nova sempre que fo
 
 Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá ver a mensagem personalizada apresentada na IU.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre desenvolvimento em equipa](team-development-netcore-visualstudio.md)

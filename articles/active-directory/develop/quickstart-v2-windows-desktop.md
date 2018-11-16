@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2018
+ms.date: 11/15/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7e7e5e16b6f7de1cee8312fd31801c202c3e16ef
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: c5db98f898bdab79588bfaedc7ceaa315ad14479
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962916"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706964"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
@@ -33,20 +33,21 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
-> [!div renderon="docs" class="sxs-lookup"]
 > Tem duas opções para iniciar a aplicação de início rápido:
 > * [Express] [Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Opção 2: registar e configurar manualmente a aplicação e o exemplo de código](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Aceda ao [Portal do Azure - Registo de Aplicação](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps)
+> 1. Aceda ao [Portal do Azure - Registo de Aplicação (Pré-visualização)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
-> [!div renderon="docs"]
+>
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
+> Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
+>
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização)** > **Novo registo**.
@@ -58,8 +59,8 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 > 1. Na secção **URIs de Redirecionamento**, localize a secção **URIs de Redirecionamento Sugeridos para clientes públicos (móvel, ambiente de trabalho)** e selecione **"urn:ietf:wg:oauth:2.0:oob**.
 > 1. Selecione **Guardar**.
 
-> [!div renderon="portal" class="sxs-lookup"]
-> #### <a name="step-1-configure-your-application"></a>Passo 1: Configurar a aplicação
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
 > Para o código de exemplo deste início rápido funcionar, terá de adicionar um URL de resposta como **urn: ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer esta alteração por mim]()
@@ -158,7 +159,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Experimente o tutorial do ambiente de trabalho do Windows para obter um guia passo a passo completo sobre a criação de aplicações e novas funcionalidades, incluindo uma explicação completa deste início rápido.
 

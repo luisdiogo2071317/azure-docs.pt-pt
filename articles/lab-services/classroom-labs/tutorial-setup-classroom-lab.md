@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856643"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706012"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -81,7 +81,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
         > [!WARNING]
         > Depois de publicar, não é possível anular a publicação. 
-    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte a secção [Publicar o modelo](how-to-manage-classroom-labs.md#publish-the-template)no artigo [Como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md).
+    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte a secção [Publicar o modelo](how-to-create-manage-template.md#publish-the-template-vm)no artigo [Como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md).
 
         ![Publicar modelo](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. Verá o **progresso da publicação** do modelo. Este processo pode demorar até uma hora. 
@@ -97,20 +97,36 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>Adicionar utilizadores ao laboratório
+
+1. Selecione **utilizadores** no menu da esquerda. Por predefinição, o **restringir o acesso** opção está ativada. Quando esta definição está ativado, um utilizador não é possível registar com o laboratório, mesmo que o utilizador tem a ligação de registo, a menos que o utilizador está na lista de utilizadores. Apenas os utilizadores da lista podem registar com o laboratório, utilizando a ligação de registo que envia. Neste procedimento, pode adicionar utilizadores à lista. Em alternativa, pode desativar **restringir o acesso**, que permite aos utilizadores para se registar com o laboratório, desde que tenham uma ligação de registo. 
+2. Selecione **adicionar utilizadores** na barra de ferramentas. 
+3. Sobre o **adicionar utilizadores** página, introduza os endereços de e-mail dos utilizadores em linhas separadas ou numa única linha, separados por ponto e vírgula. 
+
+    ![Endereços de e-mail do utilizador](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Selecione **Guardar**. Ver os endereços de e-mail dos utilizadores e os respetivos Estados (registados ou não) na lista. 
+
+    ![Lista de utilizadores](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>Enviar a ligação de registo para os alunos
 
-1. Mude para a vista do **Dashboard** através da seleção do **Dashboard** no menu da esquerda. 
-2. Selecione o mosaico **Registo de utilizador**.
+1. Mude para o **utilizadores** ver se ainda não está na página. 
+2. Selecione **obter a ligação de registo** mosaico.
 
     ![Ligação de registo do aluno](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. Na caixa de diálogo **Registo de utilizador**, selecione o botão **Copiar**. A ligação é copiada para a área de transferência. Cole-a num editor de e-mail e envie um e-mail para o aluno. 
+1. Na caixa de diálogo **Registo de utilizador**, selecione o botão **Copiar**. A ligação é copiada para a área de transferência. 
 
     ![Ligação de registo do aluno](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Na caixa de diálogo **Registo de utilizador**, selecione **Fechar**. 
-3. Partilhe a ligação de registo com um estudante, para que este possa registar-se na turma. 
+4. Partilhe a ligação de registo com um estudante, para que este possa registar-se na turma. Se tiver o **restringir a opção** definam enabled e tem uma lista de utilizadores na lista, fazer as seguintes ações:
+    1. Selecione o **endereço de e-mail** do utilizador na lista. 
+    2. Verá uma janela do seu programa de e-mail predefinida com o **TO** endereço preenchidos. 
+    3. Colar o **URL de registo** que copiou anteriormente. 
+    4. Enviar a **e-mail**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou um laboratório de sala de aula e configurou o laboratório. Para saber como um aluno pode aceder a uma VM no laboratório através da ligação de registo, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]

@@ -35,7 +35,7 @@
 # Procedimento
 ## Conectividade Internet
 ### [Servidores públicos de balanceamento de carga de rede](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Servidores públicos de balanceamento de carga de aplicação](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Servidores públicos de balanceamento de carga de aplicação](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Proteger aplicações Web](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Distribuir o tráfego por várias localizações](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## Conectividade interna

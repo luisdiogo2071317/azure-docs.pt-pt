@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469922"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712012"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utilizar "Texto em voz" no serviço de voz
 
@@ -92,7 +92,7 @@ Se ocorrer um erro, são utilizados os códigos de estado abaixo. O corpo da res
 429|Demasiados Pedidos|Excedeu a quota ou a taxa de pedidos permitidos na sua subscrição.
 |502|Gateway incorrecto    | Problema de rede ou do lado do servidor. Também pode indicar a cabeçalhos inválidos.
 
-Para obter mais informações sobre o texto a API de REST de voz, consulte [REST APIs](rest-apis.md#text-to-speech).
+Para obter mais informações sobre o texto a API de REST de voz, consulte [REST APIs](rest-apis.md#text-to-speech-api).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

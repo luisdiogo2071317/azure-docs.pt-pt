@@ -1,21 +1,21 @@
 ---
 title: Criar um espaço de programador do Kubernetes na cloud | Microsoft Docs
 titleSuffix: Azure Dev Spaces
-author: iainfoulds
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-ms.author: iainfou
+ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: f4c17f1f2d36e23fa4a3c1625e3da33b6fb4625d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 0638f908150c90c3b73dc3036f4407d17cceb9e3
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978217"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705711"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Início Rápido: Criar um espaço de programador do Kubernetes com os Espaços de Programador do Azure (.NET Core e VS Code)
 
@@ -142,7 +142,7 @@ Atualize a aplicação Web no browser e aceda à página About (Sobre). Deverá 
 
 **Agora, tem um método para iterar rapidamente no código e depurar diretamente no Kubernetes.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como os Espaços de Programador do Azure ajudam a desenvolver aplicações mais complexas em vários contentores e como pode simplificar o desenvolvimento de colaboração ao trabalhar com diferentes versões ou ramos do seu código em diferentes espaços. 
 

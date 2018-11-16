@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 88394d7da1aab52b752aee68de60e638d0c7e7f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: f6a163b151a6b9066ea58c5834204ed54e51cfc2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992767"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711230"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Início Rápido: carregar, transferir e listar blobs através de Ruby
 
@@ -21,18 +21,17 @@ Neste início rápido, vai aprender a utilizar Ruby para carregar, transferir e 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este guia de início rápido: 
-* Instalar o [Ruby](https://www.ruby-lang.org/en/downloads/)
-* Instale a [biblioteca de Armazenamento do Azure para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) através do pacote rubygem. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-```
-gem install azure-storage-blob
-```
+Certifique-se de que tem os seguintes pré-requisitos adicionais instalados:
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* [Ruby](https://www.ruby-lang.org/en/downloads/)
+* [Biblioteca de armazenamento do Azure para Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage), através do pacote rubygem: 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    ```
+    gem install azure-storage-blob
+    ```
+    
 ## <a name="download-the-sample-application"></a>Transferir a aplicação de exemplo
 A [aplicação de exemplo](https://github.com/Azure-Samples/storage-blobs-ruby-quickstart.git) utilizada neste início rápido é uma aplicação de Ruby básica.  
 
@@ -186,7 +185,7 @@ Veja estes recursos adicionais para desenvolvimento de Ruby com Armazenamento de
 - Veja e transfira o [código fonte da biblioteca de cliente Ruby](https://github.com/Azure/azure-storage-ruby) para o Armazenamento do Azure no GitHub.
 - Explore os [Exemplos de armazenamento de blobs](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=ruby&term=blob) escritos com a biblioteca de cliente Ruby.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
  
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de blobs do Azure com Ruby. Para saber mais sobre a utilização do armazenamento de blobs, avance para os Procedimentos do armazenamento de Blobs.
 

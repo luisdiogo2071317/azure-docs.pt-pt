@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 78d081fe3ba2bfa4b598dfb0cc62c03d66d3d356
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011056"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712318"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -103,7 +103,7 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorar o 
 
 ### <a name="configure-the-solution"></a>Configurar a solução 
 
-1. Adicionar a solução de Monitor de desempenho de rede à sua área de trabalho a partir da [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md). 
+1. Adicionar a solução de Monitor de desempenho de rede à sua área de trabalho a partir da [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md). 
 2. Abra a área de trabalho do Log Analytics e selecione o **descrição geral** mosaico. 
 3. Selecione o **Monitor de desempenho de rede** mosaico com a mensagem *solução requer configuração adicional*.
 

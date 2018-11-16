@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3160e8252ca8a5bed63d0fe9a9cdf84b1b5c6158
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 153d70f8fadfc0dbc3c9fba74c92862bab1ee7cb
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629212"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711825"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recolher dados de registo com o agente do Log Analytics do Azure
 
@@ -126,4 +126,4 @@ Ligar máquinas na sua subscrição do Azure ou um ambiente híbrido diretamente
 
 * Saiba mais sobre [registar as consultas](log-analytics-queries.md) para analisar os dados recolhidos a partir de origens de dados e soluções. 
 
-* Saiba mais sobre [soluções de monitorização](../monitoring/monitoring-solutions.md) que adicionar a funcionalidade para o Azure Monitor e também, recolher dados para a área de trabalho do Log Analytics.
+* Saiba mais sobre [soluções de monitorização](../azure-monitor/insights/solutions.md) que adicionar a funcionalidade para o Azure Monitor e também, recolher dados para a área de trabalho do Log Analytics.

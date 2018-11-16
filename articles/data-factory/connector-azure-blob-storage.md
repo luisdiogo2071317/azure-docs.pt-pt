@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7f69659767d9e98c9cf6ddf283c66dde65c74a36
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345781"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706631"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Especificamente, este conector de armazenamento de BLOBs suporta:
 
 - Copiar blobs entre contas de armazenamento do Azure para fins gerais e de armazenamento de BLOBs de acesso frequente/esporádico. 
 - Copiar blobs ao utilizar a chave da conta, assinatura de acesso partilhado do serviço, as identidades de serviço principal ou gerenciado para autenticações de recursos do Azure.
-- Copiar blobs de bloco, acrescentar ou blobs de páginas e copiar os dados apenas para blobs de blocos. Armazenamento Premium do Azure não é suportado como sink, porque ele é apoiado por blobs de página.
+- Copiar blobs de bloco, acrescentar ou blobs de páginas e copiar os dados apenas para blobs de blocos.
 - Copiar blobs, tal como estão ou análise ou gerar blobs com [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]

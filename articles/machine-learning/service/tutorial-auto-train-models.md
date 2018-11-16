@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 0b61b107e495bb42c6c4cadda35fe9099c612948
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426894"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711740"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Tutorial: Preparar um modelo de classificação com aprendizagem automática automatizada no serviço do Azure Machine Learning
 
@@ -34,7 +34,7 @@ Vai aprender a:
 > * Rever os resultados da preparação
 > * Registar o melhor modelo
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 ## <a name="get-the-notebook"></a>Obter o bloco de notas
 
@@ -531,7 +531,7 @@ plt.show()
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial do serviço do Azure Machine Learning, utilizou o Python para:
 

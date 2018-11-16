@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ea804899b04dad88ceeac14793d226cca47fc5c1
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252926"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713253"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
@@ -27,7 +27,7 @@ O Mapa de Serviço deteta automaticamente componentes de aplicações em sistema
 Este artigo descreve os detalhes de integração e a utilizar o mapa de serviço. Para obter informações sobre como configurar o mapa de serviço e o carregamento de agentes, consulte [solução mapa de serviço de configuração no Azure]( monitoring-service-map-configure.md).
 
 >[!NOTE]
->Se já tiver implementado o mapa de serviço, agora também pode ver seus mapas no Azure Monitor para as VMs, que inclui recursos adicionais para monitorizar o estado de funcionamento da VM e o desempenho. Para obter mais informações, consulte [do Azure Monitor para descrição geral de VMs](monitoring-vminsights-overview.md).
+>Se já tiver implementado o mapa de serviço, agora também pode ver seus mapas no Azure Monitor para as VMs, que inclui recursos adicionais para monitorizar o estado de funcionamento da VM e o desempenho. Para obter mais informações, consulte [do Azure Monitor para descrição geral de VMs](../azure-monitor/insights/vminsights-overview.md).
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure

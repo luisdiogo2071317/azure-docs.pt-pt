@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814887"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684125"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>Início Rápido: SDK de Pesquisa de Entidades do Bing com Node
 
@@ -24,7 +24,9 @@ O SDK de Pesquisa de Entidades do Bing contém a funcionalidade da API REST para
 O [código fonte dos exemplos de SDK de Pesquisa de Entidades do Bing em C#](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) está disponível no GitHub.
 ## <a name="application-dependencies"></a>Dependências da aplicação
 
-Para configurar uma aplicação de consola com o SDK de Pesquisa de Entidades do Bing, execute `npm install azure-cognitiveservices-entitysearch` no seu ambiente de desenvolvimento.
+Para configurar uma aplicação de consola com o SDK de pesquisa de entidades do Bing:
+* Executar `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
+* Executar `npm install azure-cognitiveservices-entitysearch` no seu ambiente de desenvolvimento.
 
 ## <a name="entity-search-client"></a>Cliente da Pesquisa de Entidades
 Obtenha uma [chave de acesso aos Serviços Cognitivos](https://azure.microsoft.com/try/cognitive-services/) em *Pesquisa*. Crie uma instância do `CognitiveServicesCredentials`:
@@ -55,6 +57,6 @@ O código imprime `result.value` itens na consola sem analisar o texto.  Os resu
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
 -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 [Exemplos de SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

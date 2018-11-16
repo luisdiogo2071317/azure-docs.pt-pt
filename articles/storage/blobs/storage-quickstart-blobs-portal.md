@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/22/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: e615585fbdbef634a13a19aca4b85eef5b21815f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+ms.openlocfilehash: 84753f2c3ab19a0cc9d72ef8ce5011dfc8e5a8da
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740379"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711893"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: carregar, transferir e listar blobs com o portal do Azure
 
@@ -21,9 +21,7 @@ Neste guia de introdução, irá aprender a utilizar o [portal do Azure](https:/
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="create-a-container"></a>Criar um contentor
 
@@ -72,7 +70,7 @@ Para eliminar o contentor:
 3. Selecione o botão **Mais** (**...** ) e selecione **Eliminar**.
 4. Certifique-se de que pretende eliminar o contentor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com o portal do Azure. Para saber mais sobre a utilização do armazenamento de Blobs, avance para os procedimentos do armazenamento de blobs.
 

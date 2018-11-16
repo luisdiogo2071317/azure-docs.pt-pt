@@ -8,14 +8,15 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 30b08062aa360c4a43dc1bfe9f574447b58521f5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7f10495e22cf6750fdc5891d760885a238175da8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095216"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711788"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam clássico dos serviços de Cloud 
+
 Com o Azure Monitor [extensão de diagnóstico](azure-diagnostics.md), pode coletar métricas e registos do sistema operativo convidado (SO convidado) em execução como parte de uma máquina virtual, um serviço em nuvem ou um cluster do Service Fabric. A extensão pode enviar telemetria para [vários locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
 Este artigo descreve o processo para o envio de métricas de desempenho do SO convidado para serviços Cloud clássico do Azure para o arquivo de métrica do Azure Monitor. A partir do diagnóstico versão 1.11, pode escrever métricas diretamente para o Azure Monitor armazenam métricas, onde as métricas de plataforma padrão já são recolhidas. 
@@ -23,16 +24,14 @@ Este artigo descreve o processo para o envio de métricas de desempenho do SO co
 Armazená-los nesta localização permite que acesse as mesmas ações que pode fazer para métricas de plataforma. As ações incluem quase em tempo real alerta, a criação de gráficos, encaminhamento, acesso a partir de uma API REST e muito mais.  No passado, a extensão de diagnóstico escreveu para o armazenamento do Azure, mas não para o arquivo de dados do Azure Monitor.  
 
 O processo que está descrito em funciona este artigo apenas para contadores de desempenho em serviços Cloud do Azure. Ele não funciona para outras métricas personalizadas. 
-   
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Tem de ser um [administrador de serviços ou coadministrador](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) na sua subscrição do Azure. 
+- Tem de ser um [administrador de serviços ou coadministrador](~/articles/billing/billing-add-change-azure-subscription-administrator.md) na sua subscrição do Azure. 
 
 - A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
 - Tem de ter [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
-
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Aprovisionar uma conta de serviço e o armazenamento na cloud 
 
@@ -42,15 +41,13 @@ O processo que está descrito em funciona este artigo apenas para contadores de 
 
    ![Chaves de contas de armazenamento](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
-
-
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço 
 
 Criar um principal de serviço no seu inquilino do Azure Active Directory com as instruções em [utilize o portal para criar um Azure Active Directory principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Enquanto vai por meio desse processo, tenha em atenção o seguinte: 
 
-  - Pode colocar qualquer URL para o URL de início de sessão.  
-  - Crie novo segredo do cliente para esta aplicação.  
-  - Guarde a chave e o ID de cliente para uso em passos posteriores.  
+- Pode colocar qualquer URL para o URL de início de sessão.  
+- Crie novo segredo do cliente para esta aplicação.  
+- Guarde a chave e o ID de cliente para uso em passos posteriores.  
 
 Dê à aplicação criada no passo anterior *Editor de métricas de monitorização* permissões para o recurso que pretende emitir métricas contra. Se planeia utilizar a aplicação para emitir métricas personalizadas em relação a muitos recursos, pode conceder estas permissões ao nível de grupo ou uma subscrição do recurso.  
 
@@ -136,7 +133,7 @@ Por fim, a configuração privada, adicione uma *conta do Azure Monitor* secçã
     </AzureMonitorAccount> 
 </PrivateConfig> 
 ```
- 
+
 Guarde este ficheiro de diagnóstico localmente.  
 
 ## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Implementar a extensão de diagnóstico ao seu serviço cloud 
@@ -153,19 +150,19 @@ Utilize os seguintes comandos para armazenar os detalhes da conta de armazenamen
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
- 
+
 Da mesma forma, defina o caminho do ficheiro de diagnóstico a uma variável com o seguinte comando:
 
 ```PowerShell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
- 
+
 Implemente a extensão de diagnóstico ao seu serviço cloud com o arquivo de diagnóstico com o sink de Monitor do Azure configurado com o seguinte comando:  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
- 
+
 > [!NOTE] 
 > É ainda obrigatório para fornecer uma conta de armazenamento como parte da instalação da extensão do diagnóstico. Quaisquer registos ou contadores de desempenho que são especificados no ficheiro de configuração de diagnóstico são escritos para a conta de armazenamento especificada.  
 
@@ -190,7 +187,5 @@ Utilize a dimensão de filtragem e a divisão de recursos para ver o total de me
  ![Métricas de portal do Azure](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 - Saiba mais sobre [métricas personalizadas](metrics-custom-overview.md).
-
-
-

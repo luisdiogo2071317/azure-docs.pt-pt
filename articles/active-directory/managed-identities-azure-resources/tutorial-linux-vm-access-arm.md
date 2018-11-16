@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 79aacd7160dd4e794681e9b182236d6946baf3b8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 6c4869c6ed392b8ae0fb33176435aa3f58abaa1e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107239"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706437"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure Resource Manager
 
@@ -33,15 +33,7 @@ Este início rápido mostra como utilizar uma identidade atribuída pelo sistema
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Iniciar sessão no portal do Azure](https://portal.azure.com)
-
-- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Ativar a identidade gerida atribuída pelo sistema na sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder o acesso da VM a um Grupo de Recursos no Azure Resource Manager 
 
@@ -61,22 +53,22 @@ Com as identidades geridas para recursos do Azure, o seu código pode obter toke
 
 Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar o Windows, pode utilizar o cliente SSH no [Subsistema Windows para Linux](https://msdn.microsoft.com/commandline/wsl/about). Se precisar de ajuda para configurar as chaves do seu cliente SSH, veja [Como utilizar chaves SSH com o Windows no Azure](../../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e utilizar um par de chaves SSH públicas e privadas para VMs do Linux no Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. No portal, navegue para a VM do Linux e, em **Descrição Geral**, clique em **Ligar**.  
-2. **Ligue** à VM com o cliente SSH que escolher. 
-3. Na janela de terminal, através do cURL, envie um pedido às identidades geridas locais para que o ponto final dos recursos do Azure obtenha um token de acesso ao Azure Resource Manager.  
- 
-    O pedido CURL para o token de acesso encontra-se abaixo.  
+1. No portal, navegue para a VM do Linux e, em **Descrição Geral**, clique em **Ligar**.  
+2. **Ligue** à VM com o cliente SSH que escolher. 
+3. Na janela de terminal, com o CURL, fazer um pedido para as locais identidades geridas para o ponto final de recursos do Azure obter um token de acesso para o Azure Resource Manager.  
+ 
+    O pedido CURL para o token de acesso encontra-se abaixo.  
     
     ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
     
     > [!NOTE]
-    > O valor do parâmetro "recurso" tem de ser uma correspondência exata para o que é esperado pelo Azure AD.  No caso do ID de recurso do Resource Manager, tem de incluir a barra à direita no URI. 
+    > O valor do parâmetro "recurso" tem de ser uma correspondência exata para o que é esperado pelo Azure AD.  No caso do ID de recurso do Resource Manager, tem de incluir a barra à direita no URI. 
     
-    A resposta inclui o token de acesso necessário para aceder ao Azure Resource Manager. 
+    A resposta inclui o token de acesso necessário para aceder ao Azure Resource Manager. 
     
-    Resposta:  
+    Resposta:  
 
     ```bash
     {"access_token":"eyJ0eXAiOi...",
@@ -85,27 +77,26 @@ Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar 
     "expires_on":"1504130527",
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
-    "token_type":"Bearer"} 
+    "token_type":"Bearer"} 
     ```
     
-    Pode utilizar este token de acesso para aceder ao Azure Resource Manager, por exemplo, para ler os detalhes do Grupo de Recursos ao qual concedeu anteriormente este acesso de VM. Substitua os valores de \<ID DA SUBSCRIÇÃO\>, \<GRUPO DE RECURSOS\> e \<TOKEN DE ACESSO\> pelos que criou anteriormente. 
+    Pode utilizar este token de acesso para aceder ao Azure Resource Manager, por exemplo, para ler os detalhes do Grupo de Recursos ao qual concedeu anteriormente este acesso de VM. Substitua os valores de \<ID DA SUBSCRIÇÃO\>, \<GRUPO DE RECURSOS\> e \<TOKEN DE ACESSO\> pelos que criou anteriormente. 
     
     > [!NOTE]
-    > O URL é sensível às maiúsculas de minúsculas, por isso, certifique-se de que utiliza as mesmas maiúsculas e minúsculas que utilizou anteriormente, quando atribuiu o nome ao Grupo de Recursos e a maiúscula "G" em "resourceGroup".  
+    > O URL é sensível às maiúsculas de minúsculas, por isso, certifique-se de que utiliza as mesmas maiúsculas e minúsculas que utilizou anteriormente, quando atribuiu o nome ao Grupo de Recursos e a maiúscula "G" em "resourceGroup".  
     
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    A resposta devolve as informações específicas do Grupo de Recursos: 
-     
+    A resposta devolve as informações específicas do Grupo de Recursos:    
     ```bash
-    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```     
+    {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
+    ```     
 
-## <a name="next-steps"></a>Passos seguintes
+## Next steps
 
-Este início rápido mostra como utilizar uma identidade gerida atribuída pelo sistema para aceder à API do Azure Resource Manager.  Para saber mais sobre o Azure Resource Manager, veja:
+In this quickstart, you learned how to use a system-assigned managed identity to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:
 
 > [!div class="nextstepaction"]
 >[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

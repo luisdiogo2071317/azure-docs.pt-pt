@@ -2,25 +2,21 @@
 title: Compreender os conectores de Proxy de aplicações do Azure AD | Documentos da Microsoft
 description: Abrange as noções básicas sobre os conectores de Proxy de aplicações do Azure AD.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 66fb98c166c8a0f4cec9f3b7e7be73fce6466b50
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036042"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713117"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -32,7 +28,23 @@ Os conectores são agentes leves que residem no local e facilitam a ligação de
 
 ## <a name="requirements-and-deployment"></a>Requisitos e Implantações.
 
-Para implementar o Proxy de aplicações com êxito, terá de, pelo menos, um conector, mas recomendamos dois ou mais para maior resiliência. Instale o conector no Windows Server 2012 R2 ou 2016 numa máquina. O conector tem de conseguir comunicar com o serviço de Proxy de aplicações, bem como as aplicações no local que publicar. Proxy de aplicações também requer o TLS 1.2 em execução no sistema operacional subjacente. Para alterar para TLS 1.2, siga os passos em [ativar o TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Embora seja o conteúdo do Azure AD Connect, este procedimento é o mesmo para todos os clientes .NET.
+Para implementar o Proxy de aplicações com êxito, terá de, pelo menos, um conector, mas recomendamos dois ou mais para maior resiliência. Instale o conector no Windows Server 2012 R2 ou 2016 numa máquina. O conector tem de conseguir comunicar com o serviço de Proxy de aplicações, bem como as aplicações no local que publicar. 
+
+### <a name="windows-server"></a>Servidor do Windows
+É necessário um servidor com o Windows Server 2012 R2 ou posterior, no qual pode instalar o conector de Proxy de aplicações. O servidor tem de ligar a serviços de Proxy de aplicações no Azure e as aplicações no local que está a publicar.
+
+O windows server tem de ter o TLS 1.2, ativado antes de instalar o conector do Proxy de aplicações. Os conectores existentes com versões anteriores ao 1.5.612.0 irão continuar a trabalhar em versões anteriores do TLS até indicações em contrário. Para ativar o TLS 1.2:
+
+1. Defina as seguintes chaves de registo:
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Reinicie o servidor
+
 
 Para obter mais informações sobre os requisitos de rede para o servidor do conector, consulte [introdução ao Proxy da aplicação e instalar um conector](application-proxy-enable.md).
 

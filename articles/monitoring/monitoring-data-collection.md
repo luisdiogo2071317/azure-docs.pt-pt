@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8aa79d66801ff30fedc725913696d5cfa3c9626f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 0cdc0b69405d726a7a661fb3e204e4f3ff8e50a5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282837"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713202"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>A monitorização dos dados recolhidos pelo Azure Monitor
 [O Azure Monitor](../azure-monitor/overview.md) é um serviço que o ajuda a monitorizar as suas aplicações e os recursos que dependem. Central para esta função é um armazenamento de telemetria e outros dados de recursos monitorizados. Este artigo fornece uma descrição completa de como os dados são armazenados e usados pelo Azure Monitor.
@@ -140,7 +140,7 @@ Log Analytics pode recolher dados de várias origens, tanto no Azure e de recurs
 - [Registos de atividades](../log-analytics/log-analytics-activity.md) dos recursos do Azure que incluem informações sobre a respetiva configuração e o estado de funcionamento e [registos de diagnóstico](../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) que fornecem informações sobre o funcionamento deles.
 - Agentes nas [Windows](../log-analytics/log-analytics-windows-agent.md) e [Linux](../log-analytics/log-analytics-quick-collect-linux-computer.md) máquinas virtuais que enviar telemetria a partir do sistema operativo convidado e aplicativos para o Log Analytics de acordo com [origens de dados](../log-analytics/log-analytics-data-sources.md) que configurar.
 - Aplicação dados recolhidos pelo [Application Insights](https://docs.microsoft.com/azure/application-insights/).
-- Dados fornecem informações sobre uma determinada aplicação ou serviço a partir [soluções de monitorização](../monitoring/monitoring-solutions.md) ou funcionalidades, como informações de contentor, informações de VM ou informações de grupo de recursos.
+- Dados fornecem informações sobre uma determinada aplicação ou serviço a partir [soluções de monitorização](../monitoring/../azure-monitor/insights/solutions.md) ou funcionalidades, como informações de contentor, informações de VM ou informações de grupo de recursos.
 - Dados de segurança recolhidos pelo [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/).
 - [Métricas](#metrics) dos recursos do Azure. Isto permite-lhe para armazenar métricas durante mais de 93 dias e analisá-lo com outros dados de registo.
 - Telemetria escrita [armazenamento do Azure](../log-analytics/log-analytics-azure-storage-iis-table.md).

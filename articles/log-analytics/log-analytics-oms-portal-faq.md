@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9aa90c5a99da70aa0803aad4894e928a422b8fcf
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283449"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712250"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics
 O log Analytics utilizado inicialmente o seu próprio portal chamado no portal do OMS para gerir a sua configuração e analisar os dados recolhidos.  Toda a funcionalidade deste portal foi movida para o portal do Azure onde irá continuar a ser desenvolvidas.
@@ -82,7 +82,7 @@ Gerir a maioria das definições de origem ligado na **definições avançadas**
 | Servidores Linux   | **Definições avançadas** menu para a área de trabalho. |
 | Storage do Azure     | **Definições avançadas** menu para a área de trabalho. |
 | System Center     | **Definições avançadas** menu para a área de trabalho. |
-| Office 365        | Consulte a [documentação para solução de gestão do Office 365](../monitoring/monitoring-solution-office-365.md) para obter detalhes de configuração. |
+| Office 365        | Consulte a [documentação para solução de gestão do Office 365](../azure-monitor/insights/solution-office-365.md) para obter detalhes de configuração. |
 | Telemetria Windows | Menu de definições para a solução. Ver [Windows Analytics no portal do Azure](/windows/deployment/update/windows-analytics-azure-portal) para obter detalhes de configuração. |
 | Conector ITSM    | Ver [produtos/serviços de estabelecer ligação ITSM com o conector de gestão do serviço de TI](../log-analytics/log-analytics-itsmc-connections.md) para obter instruções sobre como ligar o seu serviço ITSM com o Log Analytics. |
 
@@ -107,7 +107,7 @@ Gerir a maioria das definições de dados na **definições avançadas** menu pa
 Gerir soluções na **soluções** menu para a área de trabalho. 
 
 ## <a name="how-do-i-install-and-remove-management-solutions"></a>Como instalar e remover soluções de gestão?
-No portal do OMS, instalar soluções de gestão a partir da Galeria de soluções e removido-los a partir **definições**. No portal do Azure, [instalar soluções de gestão](../monitoring/monitoring-solutions.md#install-a-management-solution) no Azure Marketplace. [Remover soluções](../monitoring/monitoring-solutions.md#remove-a-management-solution) na lista de soluções instaladas.
+No portal do OMS, instalar soluções de gestão a partir da Galeria de soluções e removido-los a partir **definições**. No portal do Azure, [instalar soluções de gestão](../azure-monitor/insights/solutions.md#install-a-management-solution) no Azure Marketplace. [Remover soluções](../azure-monitor/insights/solutions.md#remove-a-management-solution) na lista de soluções instaladas.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Como criar e gerir alertas
 Regras de alerta com base em consultas do Log Analytics são agora geridas na [unified a experiência de alertas](../monitoring-and-diagnostics/alert-metric.md). Ver [como expandir alertas do Log Analytics para alertas do Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) para obter detalhes sobre como configurar e utilizar alertas no portal do Azure.
@@ -126,5 +126,5 @@ Por um período limitado, pode ainda aceder ao portal através deste URL, com se
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Encontrar e instalar soluções de gestão](../monitoring/monitoring-solutions.md) no portal do Azure.
+- [Encontrar e instalar soluções de gestão](../azure-monitor/insights/solutions.md) no portal do Azure.
 - Saiba mais sobre [pesquisa de registos no portal do Azure](log-analytics-log-search-portals.md).

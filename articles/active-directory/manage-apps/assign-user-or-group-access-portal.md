@@ -2,25 +2,21 @@
 title: Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory | Documentos da Microsoft
 description: Como selecionar uma aplicação empresarial para atribuir um utilizador ou grupo a ele no Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037979"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711315"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory
 Para atribuir um utilizador ou grupo a uma aplicação empresarial, tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.
@@ -32,7 +28,7 @@ Para atribuir um utilizador ou grupo a uma aplicação empresarial, tem de ter a
 > For Microsoft Applications (por exemplo, aplicações do Office 365), utilize o PowerShell para atribuir utilizadores a uma aplicação empresarial.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Como atribuir acesso de utilizador para uma aplicação empresarial no portal do Azure?
+## <a name="assign-a-user-to-an-app---portal"></a>Atribuir um utilizador a uma aplicação - portal
 1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Selecione **todos os serviços**, introduza Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
 3. Selecione **aplicações empresariais**.
@@ -51,7 +47,25 @@ Para atribuir um utilizador ou grupo a uma aplicação empresarial, tem de ter a
 10. Sobre o **adicionar atribuição** painel, selecione **função**. Em seguida, no **selecionar função** painel, selecione uma função para aplicar a utilizadores ou grupos selecionados e, em seguida, selecione a **OK** na parte inferior do painel.
 11. Sobre o **adicionar atribuição** painel, selecione a **atribuir** na parte inferior do painel. Os utilizadores atribuídos ou grupos têm as permissões definidas pela função selecionada para esta aplicação empresarial.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Como atribuir um utilizador para uma aplicação empresarial com o PowerShell?
+## <a name="allow-all-users-to-access-an-app---portal"></a>Permitir que todos os utilizadores acedam uma aplicação - portal
+Para permitir que todos os utilizadores acedam uma aplicação:
+
+1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
+2. Selecione **todos os serviços**, introduza Azure Active Directory na caixa de texto e, em seguida, selecione **Enter**.
+3. Selecione **aplicações empresariais**.
+4. Sobre o **aplicações empresariais** painel, selecione **todos os aplicativos**. Isto apresenta uma lista de aplicações que pode gerir.
+5. Sobre o **aplicações empresariais - todas as aplicações** painel, selecione uma aplicação.
+6. Sobre o ***appname*** painel, selecione **propriedades**.
+7. Sobre o  ***appname* -propriedades** painel, defina o **atribuição utiliz. necessária?** na definição de **não**. 
+
+O **atribuição utiliz. necessária?** opção:
+
+- Não afeta se ou não uma aplicação é apresentada no painel de acesso de aplicações. Para mostrar a aplicação no painel de acesso, terá de atribuir um utilizador apropriado ou grupo à aplicação.
+- Funcione apenas com as aplicações de cloud que estão configuradas para SAML início de sessão único e aplicações configuradas com o Proxy de aplicações no local. Ver [início de sessão único para aplicações](what-is-single-sign-on.md).
+- Requer que os utilizadores dar consentimento a uma aplicação. Um administrador pode conceder o consentimento para todos os utilizadores.  Ver [configurar os utilizadores finais de forma a autorizar uma aplicação](configure-user-consent.md).
+
+
+## <a name="assign-a-user-to-an-app---powershell"></a>Atribuir um utilizador a uma aplicação - PowerShell
 
 1. Abra uma linha de comandos elevada do Windows PowerShell.
 

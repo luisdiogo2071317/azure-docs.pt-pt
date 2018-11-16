@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 0f17cf7f2ef655f482b08b5c7163c0d85be77ce5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 3de1939ec4004c2709fb0e366fb492462cf2d216
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068708"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710771"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -67,7 +67,7 @@ O Azure Monitor pode recolher dados de registo de qualquer cliente REST utilizan
 
 
 ## <a name="insights"></a>Informações
-Dados de monitorização só é útil se ele pode aumentar a visibilidade sobre o funcionamento do seu ambiente informático. Monitor do Azure inclui vários recursos e ferramentas que fornecem informações importantes para seus aplicativos e outros recursos que eles dependem. [Soluções de monitorização](../monitoring/monitoring-solutions.md) e funcionalidades como [Application Insights](../application-insights/app-insights-overview.md) e informações de contentor fornecem informações mais detalhadas sobre diferentes aspetos da sua aplicação e os serviços específicos do Azure. 
+Dados de monitorização só é útil se ele pode aumentar a visibilidade sobre o funcionamento do seu ambiente informático. Monitor do Azure inclui vários recursos e ferramentas que fornecem informações importantes para seus aplicativos e outros recursos que eles dependem. [Soluções de monitorização](../azure-monitor/insights/solutions.md) e funcionalidades como [Application Insights](../application-insights/app-insights-overview.md) e informações de contentor fornecem informações mais detalhadas sobre diferentes aspetos da sua aplicação e os serviços específicos do Azure. 
 
 ### <a name="application-insights"></a>Application Insights
 [O Application Insights](../application-insights/app-insights-overview.md) monitoriza a disponibilidade, desempenho e utilização das suas aplicações web, se estão hospedados na nuvem ou no local. Ela aproveita a plataforma de análise de dados avançada no Log Analytics para lhe fornecer informações mais detalhadas sobre as operações de seu aplicativo e diagnosticar erros sem esperar por um utilizador para comunicá-las. Application Insights inclui pontos de ligação a uma variedade de ferramentas de desenvolvimento e integra-se com o Visual Studio para oferecer suporte a seus processos de DevOps.
@@ -86,9 +86,9 @@ Informações de VM de Monitor do Azure monitoriza máquinas de virtuais do Azur
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Soluções de monitorização
-[Soluções de monitorização](../monitoring/monitoring-solutions.md) no Azure Monitor são empacotados conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço. Recolher dados no Log Analytics, juntamente com outros dados de monitorização, usando [consultas](../log-analytics/log-analytics-queries.md) para análise e [vistas](../log-analytics/log-analytics-view-designer.md) para visualização. Soluções de monitorização são [disponibilizados pela Microsoft](../monitoring/monitoring-solutions-inventory.md) e parceiros para fornecer monitorização para vários serviços do Azure e outras aplicações.
+[Soluções de monitorização](../azure-monitor/insights/solutions.md) no Azure Monitor são empacotados conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço. Recolher dados no Log Analytics, juntamente com outros dados de monitorização, usando [consultas](../log-analytics/log-analytics-queries.md) para análise e [vistas](../log-analytics/log-analytics-view-designer.md) para visualização. Soluções de monitorização são [disponibilizados pela Microsoft](../azure-monitor/insights/solutions-inventory.md) e parceiros para fornecer monitorização para vários serviços do Azure e outras aplicações.
 
-![Soluções de monitorização](../monitoring/media/monitoring-solutions/overview.png)
+![Soluções de monitorização](media/overview/solutions-overview.png)
 
 ## <a name="responding-to-critical-situations"></a>Responder a situações críticas
 Além de lhe permitir analisar dados de monitorização interativamente, uma solução de monitorização eficaz tem de ser capaz de responder proativamente a condições críticas identificadas nos dados que recolhe. Isso pode ser enviar um email ou de texto para um administrador responsável para investigar um problema. Ou também pode iniciar um processo automatizado que tenta corrigir uma condição de erro.

@@ -2,8 +2,7 @@
 title: Configuração de controladores GPU da série N do Azure para Windows | Documentos da Microsoft
 description: Como configurar controladores de NVIDIA GPU para VMs de série N que executam o Windows Server ou Windows no Azure
 services: virtual-machines-windows
-documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4d259c7f9a139b3c31d96e75d588c7be162189c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 551d9da51abaeddfd22c72748a552ba0ae155de6
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033265"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707016"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Instalar controladores de NVIDIA GPU em VMs de série N que executam o Windows 
 
@@ -51,13 +50,13 @@ Para consultar o estado do dispositivo GPU, execute o [nvidia smi](https://devel
 
 1. Abra um prompt de comando e altere para o **C:\Program Files\NVIDIA Corporation\NVSMI** diretório.
 
-2. Execute `nvidia-smi`. Se o controlador está instalado, verá que o resultado semelhante ao seguinte. Tenha em atenção que **GPU Util** mostra **0%** , a menos que estiver executando atualmente uma carga de trabalho GPU na VM. Sua versão do controlador e detalhes GPU podem ser diferentes daqueles mostrados.
+2. Execute `nvidia-smi`. Se o controlador está instalado, verá um resultado semelhante ao seguinte. O **GPU Util** mostra **0%** , a menos que estiver executando atualmente uma carga de trabalho GPU na VM. Sua versão do controlador e detalhes GPU podem ser diferentes daqueles mostrados.
 
 ![Estado do dispositivo NVIDIA](./media/n-series-driver-setup/smi.png)  
 
 ## <a name="rdma-network-connectivity"></a>Conectividade de rede RDMA
 
-Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA como NC24r implementadas no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de dimensionamento VM. A extensão de HpcVmDrivers deve ser adicionada ao instalar controladores de dispositivo de rede do Windows que permitem a conectividade RDMA. Para adicionar a extensão de VM a uma VM de série N com RDMA ativado, utilize [do Azure PowerShell](/powershell/azure/overview) cmdlets para o Azure Resource Manager.
+Conectividade de rede RDMA pode ser ativada em VMs de série N com capacidade RDMA, como NC24r implementadas no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de dimensionamento de máquina virtual. A extensão de HpcVmDrivers deve ser adicionada ao instalar controladores de dispositivo de rede do Windows que permitem a conectividade RDMA. Para adicionar a extensão de VM a uma VM de série N com RDMA ativado, utilize [do Azure PowerShell](/powershell/azure/overview) cmdlets para o Azure Resource Manager.
 
 Para instalar a versão mais recente 1.1 HpcVMDrivers extensão numa VM com capacidade RDMA existente com o nome myVM na região Oeste dos E.U.A.:
   ```PowerShell

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: bba008bc6d1214aa4b2ca7cc609586a3d18159fd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 534c47e1c3189258617505808f7a8c7b2e3a3c6e
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613618"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711043"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de gestão de alerta no Log Analytics do Azure
 
@@ -36,7 +36,7 @@ A solução funciona com quaisquer registos no repositório do Log Analytics com
 - Para os alertas do System Center Operations Manager, [ligar o seu grupo de gestão do Operations Manager à sua área de trabalho do Log Analytics](log-analytics-om-agents.md).  Todos os alertas criados no System Center Operations Manager são importados para o Log Analytics.  
 
 ## <a name="configuration"></a>Configuração
-Adicionar a solução de gestão de alertas à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](../monitoring/monitoring-solutions.md). Não há nenhuma configuração adicional.
+Adicionar a solução de gestão de alertas à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções](../azure-monitor/insights/solutions.md). Não há nenhuma configuração adicional.
 
 ## <a name="management-packs"></a>Pacotes de gestão
 Se o grupo de gestão do System Center Operations Manager estiver ligado à sua área de trabalho do Log Analytics, os seguintes pacotes de gestão são instalados no System Center Operations Manager quando adicionar esta solução.  Não existe nenhuma configuração ou a manutenção dos pacotes de gestão necessário.

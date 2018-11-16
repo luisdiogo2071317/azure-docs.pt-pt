@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 65f740e23b68727bdffa4a966518b1581fb5b0a6
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604370"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705927"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: Bloquear o acesso quando um risco de sessão é detetado com o acesso condicional do Azure Active Directory  
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-Para concluir o cenário neste tutorial, terá de:
+Para concluir o cenário deste tutorial, precisa de:
 
 - **Acesso a uma edição do Azure AD Premium P2** -enquanto o acesso condicional é um recurso do Azure AD Premium P1, terá de uma edição de P2 porque o cenário neste início rápido requer a proteção de identidade. 
 
@@ -81,7 +81,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 **Para configurar a política de acesso condicional:**
 
-1. Inicie sessão no seu [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou um administrador de acesso condicional.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador global, administrador de segurança ou administrador de acesso condicional.
 
 2. No portal do Azure, na barra de navegação esquerda, clique em **do Azure Active Directory**. 
 
@@ -168,7 +168,7 @@ Esta secção mostra como criar a política de acesso condicional necessário. N
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Avaliar um simulado início de sessão
 
-Agora que configurou a política de acesso condicional, provavelmente quer saber se ele funciona conforme esperado. Como primeiro passo, utilize o acesso condicional **e se a ferramenta de política** para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto neste início de sessão tem em suas diretivas e gera um relatório de simulação.  
+Agora que configurou a política de acesso condicional, provavelmente quer saber se funciona conforme esperado. Como primeiro passo, utilize o acesso condicional **e se a ferramenta de política** para simular um início de sessão do seu utilizador de teste. A simulação estima o impacto deste início de sessão nas suas políticas e gera um relatório de simulação.  
 
 Quando executa o **e se a ferramenta de política** para este cenário, o **bloquear o acesso de nível de risco médio** deverá ser listada nas **políticas que serão aplicadas**. 
 
@@ -212,7 +212,7 @@ Quando já não for necessário, elimine o utilizador de teste, o navegador de T
 
     ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
 
-- Para obter instruções remover o navegador de Tor, consulte [desinstalar](https://tb-manual.torproject.org/en-US/uninstalling.html).
+- Para obter instruções remover o navegador de Tor, consulte [desinstalar](https://tb-manual.torproject.org/uninstalling/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

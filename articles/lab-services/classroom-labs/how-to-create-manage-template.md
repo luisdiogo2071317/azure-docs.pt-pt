@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142511"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706862"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Criar e gerir um modelo de sala de aula no Azure Lab Services
 Um modelo num laboratório é a imagem de máquina virtual de base da qual todas as máquinas virtuais dos utilizadores são criadas. Configure a máquina virtual do modelo para que seja configurado com exatamente o que pretende fornecer aos utilizadores do laboratório. Pode fornecer um nome e descrição do modelo que os utilizadores do laboratório vão ver. Em seguida, publicar o modelo para que as instâncias do modelo VM disponíveis aos seus utilizadores de laboratório. Ao publicar um modelo, o Azure Lab Services cria VMs no laboratório através do modelo. O número de VMs criadas neste processo é igual ao número máximo de utilizadores permitidos no laboratório, o que pode configurar na política de utilização do laboratório. Todas as máquinas virtuais têm a mesma configuração do modelo.
@@ -88,16 +88,14 @@ Em primeiro lugar, pode configurar e publicar um modelo ao criar um laboratório
 ## <a name="set-up-a-template-after-creating-a-lab"></a>Configurar um modelo depois de criar um laboratório 
 Também pode configurar um modelo depois de criar o laboratório.   
 
-### <a name="set-template-title-and-description"></a>Título do modelo de conjunto e uma descrição
-1. Na secção **Modelo**, selecione **Editar** (ícone de lápis) para o modelo. 
-2. Na janela **Vista do utilizador**, introduza um **título** para o modelo.
-3. Introduza a **descrição** do modelo.
-4. Selecione **Guardar**.
+## <a name="set-or-update-template-title-and-description"></a>Definir ou atualizar o modelo de título e descrição
+Utilize os seguintes passos para definir o título e descrição pela primeira vez e atualizá-los mais tarde. 
 
-    ![Descrição do laboratório da sala de aula](../media/how-to-manage-classroom-labs/lab-description.png)
+1. Na **modelo** secção, mova o rato sobre **nome** do modelo ou **Descrição** do modelo e selecioná-lo. 
+2. Introduza o **novo nome** ou **nova descrição** para o modelo e, prima **ENTER**.
 
-### <a name="set-up-the-template-vm"></a>Configurar a VM do modelo
- Ligue à VM do modelo e instale o software obrigatório na mesma antes de a disponibilizar aos seus estudantes. 
+## <a name="set-up-or-update-a-template-vm"></a>Configurar ou atualizar um modelo de VM
+ Ligue à VM do modelo e instale o software obrigatório na mesma antes de a disponibilizar aos seus estudantes. Utilize os seguintes passos para configurar um modelo VM pela primeira vez ou para atualizar a VM. 
 
 1. Aguarde até que a máquina virtual do modelo esteja pronta. Assim que estiver pronta, o botão **Iniciar** deve ser ativado. Para iniciar a VM, selecione **Iniciar**.
 
@@ -112,7 +110,7 @@ Também pode configurar um modelo depois de criar o laboratório.
     ![Parar a VM do modelo](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>Publicar o modelo 
+## <a name="publish-the-template-vm"></a>Publicar a VM do modelo
 Se não o publicar o modelo ao criar o laboratório, pode publicá-lo mais tarde. Antes de publicar, talvez queira ligar ao modelo de VM e atualize-o com qualquer software. Ao publicar um modelo, o Azure Lab Services cria VMs no laboratório através do modelo. O número de VMs criadas neste processo é igual ao número máximo de utilizadores permitidos no laboratório, o que pode configurar na política de utilização do laboratório. Todas as máquinas virtuais têm a mesma configuração do modelo. 
 
 1. Selecione **Publicar** na secção **Modelo**. 
@@ -125,7 +123,7 @@ Se não o publicar o modelo ao criar o laboratório, pode publicá-lo mais tarde
 4. Mude para a página **Máquinas virtuais** e confirme que vê as máquinas virtuais que estão no estado **Não atribuído**. Estas VMs ainda não estão atribuídas a estudantes. 
 
     ![Máquinas virtuais](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Aguarde até que as VMs sejam criadas. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
+5. Aguarde até que as VMs sejam criadas. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os estudantes iniciar as VMs. 
 
     ![Máquinas virtuais no estado parado](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -147,7 +145,9 @@ Depois de publicar um modelo, pode continuar a ligar ao modelo de VM, atualizá-
     ![Volte a publicar com êxito](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-Introdução à configuração de um laboratório com o Azure Lab Services:
+Consulte os seguintes artigos:
 
-- [Configurar um laboratório de sala de aula](how-to-manage-classroom-labs.md)
-- [Configurar um laboratório](../tutorial-create-custom-lab.md)
+- [Como administrador, criar e gerir contas de laboratório](how-to-manage-lab-accounts.md)
+- [Como proprietário de um laboratório, criar e gerir laboratórios](how-to-manage-classroom-labs.md)
+- [Como proprietário de um laboratório, configurar e controlar a utilização de um laboratório](how-to-configure-student-usage.md)
+- [Como um utilizador de laboratório, acessar os laboratórios de sala de aula](how-to-use-classroom-lab.md)

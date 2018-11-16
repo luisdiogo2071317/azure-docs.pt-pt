@@ -7,22 +7,25 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.author: tamram
-ms.date: 10/18/2018
+ms.date: 11/14/2018
 ms.topic: quickstart
 ms.component: blobs
-ms.openlocfilehash: 3b4bf95b0f5d275f6c8b4325e88a7ac326efa16b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: c72cd83af2b06b19b285d3c939c0d45b995464d9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139463"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711487"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Início Rápido: Utilizar JavaScript/HTML no browser para carregar, listar e eliminar blobs
+
 Este início rápido demonstra como gerir os blobs a partir do código em execução inteiramente no browser. A abordagem utilizada aqui mostra como utilizar as medidas de segurança necessárias para garantir acesso protegido para a sua conta do blob storage. Para concluir este início rápido, precisa de uma [subscrição do Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configurar regras de CORS da conta de armazenamento 
 Antes de a aplicação Web poder aceder a um armazenamento de blobs a partir do cliente, essa conta tem de ser configurada para permitir a [partilha de recursos de várias origens](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS. 
@@ -250,7 +253,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 ## <a name="clean-up-resources"></a>Limpar recursos
 Para limpar os recursos criados durante este início rápido, regresse ao [portal do Azure](https://portal.azure.com) e selecione a sua conta de armazenamento. Depois de selecionada, pode eliminar a conta de armazenamento ao aceder a **Descrição geral > Eliminar conta de armazenamento**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Explore os exemplos para saber como transferir blobs e comunicar o progresso durante o carregamentos de ficheiros.
 
 > [!div class="nextstepaction"]

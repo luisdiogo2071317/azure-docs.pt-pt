@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 38a7a4e80542551057b230e9d0217d1cecbc5c42
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945251"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710312"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools para IA: preparar e implementar modelos de ML a partir do VS Code
 Neste artigo, ficará a saber como utilizar o **VS Code Tools para IA** extensão para preparar e implementar modelos com o serviço Azure Machine Learning no VS Code de aprendizagem profunda e de aprendizagem automática.
@@ -29,7 +29,7 @@ E pode implantar esses modelos para suas necessidades de teste e produção.
 
 + Tem a [do Azure Machine Learning SDK para Python instalada](how-to-vscode-tools.md) com o VS Code.
 
-+ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
++ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 ## <a name="create-and-manage-compute-targets"></a>Criar e gerir os destinos de computação
 

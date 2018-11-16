@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/09/2018
+ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
-ms.translationtype: HT
+ms.openlocfilehash: eef05a5b52e807a4db058682f034f6762cb93b9f
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902982"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711196"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Início Rápido – Utilizar o Explorador de Armazenamento do Azure para criar um blob no armazenamento de objetos | Microsoft Docs
 
@@ -21,11 +21,9 @@ Neste início rápido, fica a saber como utilizar o[Explorador de Armazenamento 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 Este início rápido requer que instale o Explorador de Armazenamento do Azure. Para instalar o Explorador de Armazenamento do Azure para Windows, Macintosh ou Linux, consulte [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Iniciar sessão no Explorador de Armazenamento
 
@@ -95,7 +93,7 @@ As Assinaturas de Acesso Partilhado (SAS) podem ser obtidas através do Explorad
 
 ![Explorador de Armazenamento do Microsoft Azure – Listar os blobs num contentor](media/storage-quickstart-blobs-storage-explorer/sharedaccesssignature.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure através do **Explorador de Armazenamento do Azure**. Para saber mais sobre a utilização do armazenamento de Blobs, avance para os procedimentos do armazenamento de blobs.
 

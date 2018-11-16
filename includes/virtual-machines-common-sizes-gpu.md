@@ -2,22 +2,22 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 10/23/2018
-ms.author: danlep;azcspmt;jonbeck
+ms.date: 11/14/2018
+ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4fde34338d5606a1f431ff4b7f7074d9cd472e90
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b6df4ada1aa13e20c7ad52d2b58cdf9c783f9e24
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035130"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716248"
 ---
 VM com otimização de GPU são de tamanhos de máquinas virtuais especializadas disponíveis com GPUs NVIDIA únicas ou múltiplas. Estes tamanhos foram concebidos para cargas de trabalho de computação intensiva, grande intensidade de gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. Largura de banda de armazenamento, débito e de rede também estão incluídos para cada tamanho neste agrupamento. 
 
-* **NC, a NCv2, NCv3 e ND** tamanhos estão otimizados para aplicações de computação e rede intensivas e algoritmos. Alguns exemplos são aplicações baseadas em CUDA e OpenCL e simulações, IA e aprendizagem aprofundada. A série NCv3 se concentra em alto desempenho cargas de trabalho computacionais do placa GPU da NVIDIA Tesla V100.  A série ND destina-se a cenários de formação e inferência para aprendizagem aprofundada. Utiliza o GPU NVIDIA Tesla P40.
+* **NC, NCv2, NCv3, ND e NDv2** tamanhos estão otimizados para aplicações de computação e rede intensivas e algoritmos. Alguns exemplos são aplicações baseadas em CUDA e OpenCL e simulações, IA e aprendizagem aprofundada. A série NCv3 se concentra em alto desempenho cargas de trabalho computacionais do placa GPU da NVIDIA Tesla V100.  A série ND destina-se a cenários de formação e inferência para aprendizagem aprofundada. Utiliza o GPU NVIDIA Tesla P40.
 * **NV e NVv2** tamanhos são otimizados e concebidos para visualização remota, transmissão em fluxo, jogos, codificação e cenários VDI com arquiteturas, como OpenGL e DirectX.  Estas VMs são apoiadas por NVIDIA Tesla M60 GPU.
 
 
@@ -87,13 +87,33 @@ As VMs da série NCv3 têm a tecnologia [NVIDIA Tesla V100](http://www.nvidia.co
 
 *Com capacidade RDMA
 
+## <a name="ndv2-series-preview"></a>Série NDv2 (pré-visualização)
+
+
+O armazenamento Premium: suportado
+
+A cache de armazenamento Premium: suportado
+
+Infiniband: Não suportado
+
+
+Máquinas de virtuais de série NDv2 é uma nova adição à família de GPU concebida para satisfazer as necessidades do HPC, IA e aprendizagem automática cargas de trabalho. Tem tecnologia de 8 GPUs NVIDIA Tesla V100 NVLINK interligadas, 40 núcleos Intel Skylake e 672 GiB de memória do sistema. A instância NDv2 fornece um excelente desempenho FP32 e FP64 para cargas de trabalho de HPC e IA através das arquiteturas Cuda, TensorFlow, Pytorch, Caffe e de outro tipo.
+
+[Inscreva-se e obtenha acesso a essas máquinas durante a pré-visualização](https://aka.ms/ndv2signup).
+<br>
+
+
+| Tamanho              | da vCPU | GPU              | Memória  | NICs (Máx) | Um máximo de Tamanho do disco           | Um máximo de discos de dados (1023 GB cada) | Largura de banda de rede de máx. | 
+|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
+| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 giB | 8          | 1344 temporária / 2948XIO | 32    | 24.000 Mbps             | 
+
 ## <a name="nd-series"></a>Série ND
 
 O armazenamento Premium: suportado
 
 A cache de armazenamento Premium: suportado
 
-As máquinas de virtuais de série ND são uma novidade na família de GPU concebida para cargas de trabalho de IA e aprendizagem aprofundada. Eles oferecem excelente desempenho para formação e inferência. Instâncias de ND têm a tecnologia [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs. Estas instâncias oferecem excelente desempenho para precisão simples flutuante operações, para cargas de trabalho de IA que o Microsoft Cognitive Toolkit, TensorFlow, Caffe e outras estruturas. A série ND também oferece um tamanho de memória GPU muito maior (24 GB), que permite adaptar modelos de rede neuronal muito maiores. Como a série NC, a série ND oferece uma configuração com uma rede de baixa latência e alto débito secundária através de RDMA e conectividade InfiniBand para que possa executar tarefas de formação de larga escala que abrangem muitas GPUs.
+As máquinas de virtuais de série ND são que uma novidade na família de GPU concebida para IA e aprendizagem profunda, cargas de trabalho. Eles oferecem excelente desempenho para formação e inferência. Instâncias de ND têm a tecnologia [NVIDIA Tesla P40](http://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPUs. Estas instâncias oferecem excelente desempenho para precisão simples flutuante operações, para cargas de trabalho de IA que o Microsoft Cognitive Toolkit, TensorFlow, Caffe e outras estruturas. A série ND também oferece um tamanho de memória GPU muito maior (24 GB), que permite adaptar modelos de rede neuronal muito maiores. Como a série NC, a série ND oferece uma configuração com uma rede de baixa latência e alto débito secundária através de RDMA e conectividade InfiniBand para que possa executar tarefas de formação de larga escala que abrangem muitas GPUs.
 
 > [!IMPORTANT]
 > Para esta família de tamanho, a quota de vCPU (núcleo) por região na sua subscrição é inicialmente definida como 0. [Pedir um aumento de quota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para esta família num [região disponível](https://azure.microsoft.com/regions/services/).

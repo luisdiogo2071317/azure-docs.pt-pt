@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 531cfb32b3433e0a376845a81a3ea5e13e6f1d11
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 23c8098927a051da48c7da2bac0c96173da1d2f2
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278689"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713304"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Utilizar o Azure Log Analytics para monitorizar clusters do HDInsight
 
@@ -91,7 +91,7 @@ Estas são as soluções disponíveis do HDInsight:
 * Monitorização HDInsight Spark
 * Monitorização do HDInsight Storm
 
-Para as instruções para instalar uma solução de gestão, consulte [soluções de gestão do Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). Para experimentar, instale uma solução de Monotiring de Hadoop do HDInsight. Quando estiver concluído, verá uma **HDInsightHadoop** mosaico listado na **resumo**. Selecione o **HDInsightHadoop** mosaico. A solução de HDInsightHadoop é semelhante a:
+Para as instruções para instalar uma solução de gestão, consulte [soluções de gestão do Azure](../azure-monitor/insights/solutions.md#install-a-management-solution). Para experimentar, instale uma solução de Monotiring de Hadoop do HDInsight. Quando estiver concluído, verá uma **HDInsightHadoop** mosaico listado na **resumo**. Selecione o **HDInsightHadoop** mosaico. A solução de HDInsightHadoop é semelhante a:
 
 ![Vista de solução de monitorização HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

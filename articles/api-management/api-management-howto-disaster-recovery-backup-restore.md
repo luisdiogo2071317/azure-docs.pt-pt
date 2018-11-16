@@ -11,22 +11,22 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 0dc7e8836f1e6a11c44f5e0f337015cac53a92d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e729d163428723d099157ad62d1c89a7ed917900
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252807"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711434"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre com o serviço backup e restaurar na gestão de API do Azure
 
-Ao optar por publicar e gerir as suas APIs através da gestão de API do Azure, está a tirar partido de muitas tolerância a falhas e os recursos de infraestrutura que caso contrário, teria de conceber, implementar e gerir. A plataforma do Azure reduz uma grande parte de potenciais falhas por uma fração do custo.
+Ao publicar e gerir as suas APIs através da gestão de API do Azure, está aproveitando a tolerância a falhas e os recursos de infraestrutura que tinha o design, caso contrário, implementar e gerir manualmente. A plataforma do Azure reduz uma grande parte de potenciais falhas por uma fração do custo.
 
-Para recuperar os problemas de disponibilidade que afetam a região onde está alojado o serviço de gestão de API, deve estar pronto para reconstituir seu serviço numa região diferente em qualquer altura. Consoante os objetivos de disponibilidade e o objetivo de tempo de recuperação, pode querer reservar um serviço de cópia de segurança num ou mais regiões e tentar manter a configuração e o conteúdo em sincronia com o serviço do Active Directory. A funcionalidade de serviço "cópia de segurança e restaurar" fornece o bloco de construção necessário para implementar a sua estratégia de recuperação após desastre.
+Para recuperar os problemas de disponibilidade que afetam a região que aloja o seu serviço de gestão de API, esteja pronto para reconstituir seu serviço noutra região a qualquer momento. Dependendo da sua disponibilidade e os objetivos de tempo de recuperação, pode querer reservar um serviço de cópia de segurança num ou mais regiões. Também pode tentar manter a respetiva configuração e conteúdo em sincronia com o serviço do Active Directory. A funcionalidade de serviço "cópia de segurança e restaurar" fornece o bloco de construção necessário para implementar a sua estratégia de recuperação após desastre.
 
-Este guia mostra como autenticar os pedidos do Azure Resource Manager e como fazer cópias de segurança e restaurar as instâncias de serviço de gestão de API.
+Este guia mostra como autenticar os pedidos do Azure Resource Manager. Ela também mostra como criar cópias de segurança e restaurar as instâncias de serviço de gestão de API.
 
 > [!NOTE]
 > O processo para criar cópias de segurança e restaurar uma instância de serviço de gestão de API para recuperação após desastre também pode ser utilizado para replicar as instâncias do serviço de gestão de API para cenários como a transição.
@@ -48,17 +48,17 @@ Todas as tarefas que fazer em recursos com o Azure Resource Manager tem de ser a
 
 ### <a name="create-an-azure-active-directory-application"></a>Criar uma aplicação do Azure Active Directory
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Com a subscrição que contém a sua instância do serviço de gestão de API, navegue para o **registos de aplicações** separador **Azure Active Directory** (Azure Active Directory > registos de aplicações/gerir).
 
     > [!NOTE]
-    > Se o diretório do Azure Active Directory predefinido não está visível à sua conta, contacte o administrador da subscrição do Azure para conceder as permissões necessárias para a sua conta.
+    > Se o diretório predefinido do Azure Active Directory não estiver visível à sua conta, contacte o administrador da subscrição do Azure para conceder as permissões necessárias para a sua conta.
 3. Clique em **Novo registo de aplicação**.
 
     O **criar** janela aparece à direita. Que é onde introduz as informações relevantes da aplicação AAD.
 4. Introduza um nome para a aplicação.
 5. Para o tipo de aplicação, selecione **nativo**.
-6. Introduza um URL de marcador de posição, como `http://resources` para o **URI de redirecionamento**, conforme é um campo obrigatório, mas o valor não é utilizado mais tarde. Clique na caixa de verificação para guardar a aplicação.
+6. Introduza um URL de marcador de posição, como `http://resources` para o **URI de redirecionamento**, conforme é um campo obrigatório, mas não é utilizado o valor mais tarde. Clique na caixa de verificação para guardar a aplicação.
 7. Clique em **Criar**.
 
 ### <a name="add-an-application"></a>Adicionar uma aplicação
@@ -68,7 +68,7 @@ Todas as tarefas que fazer em recursos com o Azure Resource Manager tem de ser a
 3. Clique em **+ adicionar**.
 4. Prima **selecionar uma API**.
 5. Escolher **Windows** **API de gestão de serviço do Azure**.
-6. Prima **selecione**. 
+6. Prima **selecione**.
 
     ![Adicionar permissões](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
@@ -78,7 +78,7 @@ Todas as tarefas que fazer em recursos com o Azure Resource Manager tem de ser a
 
 ### <a name="configuring-your-app"></a>Configurar a sua aplicação
 
-Antes de invocar as APIs que gerar a cópia de segurança e restaurá-lo, é necessário obter um token. O exemplo seguinte utiliza a [ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) pacote NuGet para obter o token.
+Antes de chamar as APIs que gerar a cópia de segurança e restaurá-lo, terá de obter um token. O exemplo seguinte utiliza a [ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) pacote NuGet para obter o token.
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -105,9 +105,9 @@ namespace GetTokenResourceManagerRequests
 }
 ```
 
-Substitua `{tentand id}`, `{application id}`, e `{redirect uri}` com as instruções seguintes:
+Substitua `{tenant id}`, `{application id}`, e `{redirect uri}` com as instruções seguintes:
 
-1. Substitua `{tenant id}` com o id de inquilino da aplicação do Azure Active Directory que criou. Pode acessar o id de clicando **registos de aplicações** -> **pontos finais**.
+1. Substitua `{tenant id}` com o ID de inquilino da aplicação do Azure Active Directory que criou. Pode acessar o ID de clicando **registos de aplicações** -> **pontos finais**.
 
     ![Pontos Finais][api-management-endpoint]
 2. Substitua `{application id}` com o valor que obtém ao navegar para o **definições** página.
@@ -122,7 +122,7 @@ Substitua `{tentand id}`, `{application id}`, e `{redirect uri}` com as instruç
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chamar as operações de cópia de segurança e restauro
 
-As APIs REST são [serviço de gestão de Api - cópia de segurança](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) e [serviço de gestão de Api - restauro](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore).
+As APIs REST são [serviço de gestão de Api - cópia de segurança](/rest/api/apimanagement/apimanagementservice/backup) e [serviço de gestão de Api - restauro](/rest/api/apimanagement/apimanagementservice/restore).
 
 Antes de chamar as operações de "cópia de segurança e restauro" descritas nas seções a seguir, defina o cabeçalho do pedido de autorização para a chamada REST.
 
@@ -131,21 +131,21 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
 ### <a name="step1"> </a>Fazer cópias de segurança de um serviço de gestão de API
+
 Para fazer o backup de um problema do serviço de gestão de API da seguinte solicitação HTTP:
 
-```
+```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
 Em que:
 
-* `subscriptionId` -id da subscrição que contém o serviço de gestão de API está a tentar criar cópias de segurança
+* `subscriptionId` -ID da subscrição que contém o serviço de gestão de API que está a tentar criar cópias de segurança
 * `resourceGroupName` -nome do grupo de recursos do seu serviço de gestão de API do Azure
-* `serviceName` -o nome do serviço de gestão de API que está fazendo uma cópia de segurança especificado no momento da criação
+* `serviceName` -o nome do serviço de gestão de API que faz uma cópia de segurança especificado no momento da criação
 * `api-version` -Substituir por `2018-06-01-preview`
 
 No corpo do pedido, especifique o nome de conta de armazenamento do Azure de destino, a chave de acesso, o nome do contentor de blob e o nome de cópia de segurança:
-
 
 ```json
 {
@@ -158,32 +158,33 @@ No corpo do pedido, especifique o nome de conta de armazenamento do Azure de des
 
 Defina o valor do `Content-Type` cabeçalho do pedido para `application/json`.
 
-Cópia de segurança é uma operação de longa execução que pode demorar vários minutos a concluir.  Se o pedido foi concluída com êxito e o processo de cópia de segurança foi iniciado, receberá um `202 Accepted` código de estado de resposta com um `Location` cabeçalho.  Tornar "GET" pedidos para o URL no `Location` cabeçalho para saber o estado da operação. Enquanto a cópia de segurança está em curso, continua a receber um código de estado de "202 aceite". Um código de resposta de `200 OK` indica a conclusão com êxito da operação de cópia de segurança.
+Cópia de segurança é uma operação de longa execução que pode demorar mais de um minuto para concluir.  Se o pedido foi concluída com êxito e o processo de cópia de segurança começou, irá receber uma `202 Accepted` código de estado de resposta com um `Location` cabeçalho.  Tornar "GET" pedidos para o URL no `Location` cabeçalho para saber o estado da operação. Enquanto a cópia de segurança está em curso, continua a receber um código de estado de "202 aceite". Um código de resposta de `200 OK` indica a conclusão com êxito da operação de cópia de segurança.
 
-Tenha em atenção as seguintes restrições ao fazer um pedido de cópia de segurança.
+Quando efetua um pedido de cópia de segurança, tenha em atenção as seguintes restrições:
 
 * **Contentor** especificada no corpo do pedido **tem de existir**.
-* Enquanto a cópia de segurança está em curso que **não deve tentar quaisquer operações de gestão de serviço** como atualização SKU ou a mudança para versão anterior, alteração de nome de domínio, etc.
+* Enquanto a cópia de segurança está em curso **evitar alterações na gestão de serviço** como atualização SKU ou mudar, alterar em nome de domínio e muito mais.
 * Restauro de uma **cópia de segurança é garantida apenas durante 30 dias** desde o momento da criação.
 * **Dados de utilização** utilizado para a criação de relatórios de análise **não está incluído** na cópia de segurança. Uso [API de REST de gestão de API do Azure] [ Azure API Management REST API] periodicamente obter relatórios de análise para salvaguarda.
-* A frequência com que realizar cópias de segurança do serviço afetam o objetivo de ponto de recuperação. Para minimizá-lo, a recomendação é implementar cópias de segurança regulares, bem como efetuar cópias de segurança a pedido depois de fazer alterações importantes ao seu serviço de gestão de API.
-* **As alterações** feitas à configuração do serviço (por exemplo, APIs, as políticas, o aspeto do portal do programador) durante a cópia de segurança operação está em curso **podem não ser incluídas na cópia de segurança e, portanto, serão perdidas**.
+* A frequência com que realizar cópias de segurança do serviço afetam o objetivo de ponto de recuperação. Para minimizar ele, é recomendável implementar cópias de segurança regulares e efetuar cópias de segurança a pedido depois de efetuar alterações ao seu serviço de gestão de API.
+* **As alterações** feitas à configuração do serviço, (por exemplo, APIs, políticas e aspeto do portal do programador) durante a cópia de segurança operação está em curso **podem ser excluídos da cópia de segurança e serão perdidas**.
 
 ### <a name="step2"> </a>Restaurar um serviço de gestão de API
-Para restaurar uma gestão de API de serviço a partir de uma cópia de segurança criado anteriormente fazer o pedido HTTP seguinte:
 
-```
+Para restaurar um serviço de gestão de API de uma cópia de segurança criada anteriormente, fazer o seguinte pedido HTTP:
+
+```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
 Em que:
 
-* `subscriptionId` -id da subscrição que contém o serviço de gestão de API que está a restaurar uma cópia de segurança em
+* `subscriptionId` -ID da subscrição que contém o serviço de gestão de API que está a restaurar uma cópia de segurança em
 * `resourceGroupName` -nome do grupo de recursos que contém o serviço de gestão de API do Azure que está a restaurar uma cópia de segurança em
-* `serviceName` -o nome da gestão de API de serviço que está a ser restaurado na especificado no momento da criação
+* `serviceName` -o nome da gestão de API de serviço que está a ser restaurado na especificado em seu tempo de criação
 * `api-version` -Substituir por `2018-06-01-preview`
 
-No corpo do pedido, especifique a localização do ficheiro de cópia de segurança, que é, nome da conta de armazenamento do Azure, a chave de acesso, nome do contentor de BLOBs e nome de cópia de segurança:
+No corpo do pedido, especifique a localização do ficheiro de cópia de segurança. Ou seja, adicione o nome da conta de armazenamento do Azure, a chave de acesso, o nome do contentor de blob e o nome de cópia de segurança:
 
 ```json
 {
@@ -196,12 +197,14 @@ No corpo do pedido, especifique a localização do ficheiro de cópia de seguran
 
 Defina o valor do `Content-Type` cabeçalho do pedido para `application/json`.
 
-Restauro é uma operação de longa execução que poderá demorar até 30 ou mais minutos a concluir. Se o pedido foi concluída com êxito e o processo de restauro foi iniciado, receberá um `202 Accepted` código de estado de resposta com um `Location` cabeçalho. Tornar "GET" pedidos para o URL no `Location` cabeçalho para saber o estado da operação. Enquanto o restauro estiver em curso, continua a receber "aceite 202" código de estado. Um código de resposta de `200 OK` indica a conclusão com êxito da operação de restauro.
+Restauro é uma operação de longa execução que poderá demorar até 30 ou mais minutos a concluir. Se o pedido foi concluída com êxito e o processo de restauração começou, irá receber uma `202 Accepted` código de estado de resposta com um `Location` cabeçalho. Tornar "GET" pedidos para o URL no `Location` cabeçalho para saber o estado da operação. Enquanto o restauro estiver em curso, continua a receber "aceite 202" código de estado. Um código de resposta de `200 OK` indica a conclusão com êxito da operação de restauro.
 
 > [!IMPORTANT]
 > **O SKU** do serviço que está a ser restaurado na **tem de corresponder ao** o SKU do serviço de cópia de segurança a ser restaurado.
 >
 > **As alterações** efetuadas à configuração do serviço (por exemplo, APIs, as políticas, o aspeto do portal do programador) ao restauro operação está em curso **podem ser substituídos**.
+
+<!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
 > Operações de backup e restauração também podem ser realizadas com o PowerShell *Backup-AzureRmApiManagement* e *restauro-AzureRmApiManagement* comandos, respetivamente.

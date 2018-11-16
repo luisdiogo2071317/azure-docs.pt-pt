@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a881ea18558e49656dc165d1545250bffeac4303
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006503"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713084"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 
@@ -163,19 +163,19 @@ Utilize os seguintes passos para reduzir o volume de registos recolhidos:
 | Registos de eventos                 | Altere a [configuração do registo de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
 | Syslog                     | Altere a [configuração do syslog](log-analytics-data-sources-syslog.md) para: <br> - Reduzir o número de instalações recolhidas <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* e *Depuração* |
 | AzureDiagnostics           | Alterar a coleção de registo de recursos para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
-| Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../monitoring/monitoring-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
+| Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../azure-monitor/insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verificar se há mais nós do que o esperado
 Se estiver a utilizar o *por nó (Log Analytics)* escalão de preço, em seguida, é cobrado com base no número de nós e soluções que utiliza. Pode ver quantos nós de cada oferta estão a ser utilizados na secção *ofertas* do dashboard de utilização.<br><br> ![dashboard de utilização](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Clique em **Ver todos...** para ver a lista completa dos computadores que estão a enviar dados para a oferta selecionada.
 
-Utilize a [segmentação de soluções](../monitoring/monitoring-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
+Utilize a [segmentação de soluções](../azure-monitor/insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Veja [Pesquisas de registos no Log Analytics](log-analytics-queries.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.
 * Utilize os passos descritos em [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) (criar um novo alerta de registo) para ser notificado de quando um critério de pesquisa for cumprido.
-* Utilize a [segmentação de soluções](../monitoring/monitoring-solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
+* Utilize a [segmentação de soluções](../azure-monitor/insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 * Para configurar uma política de recolha de eventos de segurança eficaz, veja [Política de filtragem do Centro de Segurança do Azure](../security-center/security-center-enable-data-collection.md).
 * Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md).
 * Para modificar as definições da recolha de eventos, veja [configuração do registo de eventos](log-analytics-data-sources-windows-events.md).

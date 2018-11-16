@@ -2,24 +2,24 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 11/08/2018
-ms.author: danlep
+ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c829b8d6fedaabfb9b43c6352c8188128cf36701
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: eef61421de2a87750caac228d12888421f7442a8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51333781"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716249"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Distribuições e controladores suportados
 
 ### <a name="nvidia-cuda-drivers"></a>Controladores de NVIDIA CUDA
 
-Controladores de NVIDIA CUDA para NC, a NCv2, NCv3 e VMs de série ND (opcionais para a série NV) são suportados apenas nas distribuições de Linux listadas na tabela seguinte. Informações de controlador CUDA são atuais no momento da publicação. Para os mais recentes drivers executam CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site. Certifique-se de que instala ou atualizar para os mais recentes drivers CUDA para a sua distribuição. 
+Controladores de NVIDIA CUDA para NC, NCv2, NCv3, ND e as VMs da série NDv2 (opcionais para a série NV) são suportados apenas nas distribuições de Linux listadas na tabela seguinte. Informações de controlador CUDA são atuais no momento da publicação. Para os mais recentes drivers executam CUDA, visite o [NVIDIA](https://developer.nvidia.com/cuda-zone) Web site. Certifique-se de que instala ou atualizar para os mais recentes drivers CUDA para a sua distribuição. 
 
 > [!TIP]
 > Como alternativa à instalação de controlador CUDA manual numa VM do Linux, pode implementar do Azure [máquina de Virtual de ciência de dados](../articles/machine-learning/data-science-virtual-machine/overview.md) imagem. As edições DSVM para Ubuntu 16.04 LTS ou CentOS 7.4 previamente instalar controladores de NVIDIA CUDA, CUDA Deep Neural biblioteca de rede e outras ferramentas.

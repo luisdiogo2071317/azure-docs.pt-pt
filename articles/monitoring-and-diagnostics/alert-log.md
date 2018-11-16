@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 74b9673d7ef9dedbcc34682d4707103e696bece3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279112"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711706"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor  
 
@@ -132,7 +132,7 @@ Por conseguinte, a secção abaixo fornecem detalhes sobre como usar o modelo do
 ### <a name="azure-resource-template-for-log-analytics"></a>Modelo de recursos do Azure para o Log Analytics
 Alertas de registo para o Log Analytics são criadas por regras de alerta que executam uma procura guardada num intervalo regular. Se os resultados da correspondência de consulta especificados critérios, é criado um registo de alerta e uma ou mais ações são executadas. 
 
-Modelo de recurso para pesquisa e alertas do Log analytics de guardada do Log analytics estão disponíveis na seção do Log Analytics da documentação. Para obter mais informações, consulte [adicionando o Log Analytics guardar pesquisas e alertas](../monitoring/monitoring-solutions-resources-searches-alerts.md); que inclui exemplos ilustrativos, bem como detalhes de esquema.
+Modelo de recurso para pesquisa e alertas do Log analytics de guardada do Log analytics estão disponíveis na seção do Log Analytics da documentação. Para obter mais informações, consulte [adicionando o Log Analytics guardar pesquisas e alertas](../azure-monitor/insights/solutions-resources-searches-alerts.md); que inclui exemplos ilustrativos, bem como detalhes de esquema.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Modelo de recursos do Azure para o Application Insights
 Alerta de registo de recursos do Application Insights tem um tipo de `Microsoft.Insights/scheduledQueryRules/`. Para obter mais informações sobre este tipo de recurso, consulte [do Azure Monitor - referência da API de regras de consulta agendada](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).

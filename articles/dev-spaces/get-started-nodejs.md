@@ -4,18 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido do Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 662c324da3b644b7ccdb33fc428c0886ae93d78d
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
-ms.translationtype: HT
+ms.openlocfilehash: 85932862cc98e3f9d5ae08cc46087652d681f77e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515306"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706216"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introdução ao Azure Dev Spaces com o Node.js
 
@@ -84,6 +84,9 @@ Introduza o seguinte comando da CLI do Azure com o grupo de recursos que contém
    ```cmd
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
+
+> [!IMPORTANT]
+> O processo de configuração de espaços de desenvolvimento do Azure irá remover o `azds` espaço de nomes do cluster, se existir.
 
 ## <a name="get-kubernetes-debugging-for-vs-code"></a>Depurar o Kubernetes para o VS Code
 Estão disponíveis funcionalidades avançadas, como a depuração do Kubernetes, para programadores de .NET Core e o Node.js com o VS Code.

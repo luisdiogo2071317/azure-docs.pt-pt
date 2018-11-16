@@ -6,20 +6,22 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 78b6c2853eac62548b284361246e7d0472e0377d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: cb646eb67e0e0627a3c9ccbc6b4d25a97b157970
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982031"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711689"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início Rápido: carregar, transferir e listar blobs através da CLI do Azure
 
 A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode utilizá-la no seu browser com o Azure Cloud Shell. Também pode instalá-la no macOS, Linux ou Windows e executá-la a partir da linha de comandos. Neste início rápido, vai aprender a utilizar a CLI do Azure para carregar e transferir dados de e para o armazenamento de Blobs do Azure.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -109,7 +111,7 @@ Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, i
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste Início Rápido, aprendeu a transferir ficheiros entre o disco local e um contentor no armazenamento de Blobs do Azure. Para saber mais sobre a utilização de blobs no Armazenamento do Azure, avance para o tutorial para utilizar o armazenamento de Blobs do Azure.
 

@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092162"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685859"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
 
-A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional na cloud da Microsoft criado para programadores com base na versão da comunidade do motor de base de dados [PostgreSQL](https://www.postgresql.org/) de código aberto. A Base de Dados do Azure para PostgreSQL oferece:
+Base de dados do Azure para PostgreSQL é um serviço de base de dados relacional na cloud da Microsoft criado para programadores com base na versão de Comunidade de open source [PostgreSQL](https://www.postgresql.org/) motor de base de dados, as versões 9,5, 9.6 e 10. A Base de Dados do Azure para PostgreSQL oferece:
 
 - Elevada disponibilidade incorporada sem custos adicionais
 - Desempenho previsível com preços pay as you go inclusivos
@@ -40,7 +40,7 @@ Para obter um conjunto de amostras da CLI do Azure, veja:
 - [Amostras de CLI do Azure para a Base de Dados do Azure para PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
-O serviço da Base de Dados do Azure para PostgreSQL oferece três escalões de preço: Básico, Fins Gerais e Memória Otimizada. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](concepts-pricing-tiers.md) para obter mais detalhes.
+O serviço da Base de Dados do Azure para PostgreSQL oferece três escalões de preço: Básico, Fins Gerais e Memória Otimizada. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Ver [escalões de preço](concepts-pricing-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 Como decidir quando aumentar ou reduzir verticalmente? Utilize as funcionalidades de monitorização e alertas incorporadas do Azure. Com estas ferramentas, pode avaliar rapidamente o impacto do aumento ou redução verticais consoante as necessidades de desempenho ou armazenamento atuais ou estimadas. Consulte [Alertas](howto-alert-on-metric.md) para obter mais detalhes.
@@ -63,7 +63,7 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 - Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para ver as comparações de preços e as calculadoras.
 - Comece por [criar a sua primeira Base de Dados do Azure para PostgreSQL](./quickstart-create-server-database-portal.md).
 - Criar a sua primeira aplicação em Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de ligação](./concepts-connection-libraries.md)

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 710d157dcf4c6d060e59bcfbb69455e2ddc91bdd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 49d5761e3e37e1265938d1f1b27324de667a13ca
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450135"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707100"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutorial: Acompanhar a utilização de um laboratório no Azure Lab Services
 Este tutorial mostra-lhe como é que os criadores/proprietários de laboratórios podem acompanhar a utilização dos laboratórios.
@@ -44,23 +44,19 @@ Neste tutorial, irá realizar as seguintes ações:
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>Ver a utilização das VMs no laboratório 
 
 1. Selecione **Máquinas virtuais**, no menu do lado esquerdo. 
-2. Confirme que vê o estado das VMs e o número de horas que estiveram em execução. O tempo que despender na VM de um aluno não é contabilizado no tempo de utilização que aparece na última coluna. 
+2. Confirme que vê o estado das VMs e o número de horas que estiveram em execução. O tempo gasto num estudante que VM não contabiliza em relação ao tempo de utilização, mostrado na última coluna. 
 
     ![Utilização de VM](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Gerir VMs de alunos 
-Quando passa o cursor sobre uma linha na lista de máquinas virtuais, verá controlos para executar as tarefas abaixo: 
+Conforme passa o mouse sobre uma linha na lista de máquina virtual, verá controles para realizar as seguintes tarefas (como mostrado na imagem na secção anterior): 
 
 - Ligar a uma VM
 - Iniciar uma VM
 - Parar uma VM
 - Eliminar uma VM
 
-![Controlos de VMs](../media/tutorial-track-usage/vm-controls.png) 
 
 
-
-## <a name="next-steps"></a>Passos seguintes
-Neste tutorial, aprendeu a encontrar utilizadores que se registaram no laboratório, bem como a acompanhar a utilização e a gerir as VMs no mesmo.
-
-Para saber mais sobre os laboratórios de sala de aula, veja os tópicos nos [Guias de procedimentos](how-to-manage-lab-accounts.md).
+## <a name="next-steps"></a>Passos Seguintes
+Para saber mais sobre laboratórios de sala de aula, veja artigos sob [guias de procedimentos](how-to-manage-lab-accounts.md).

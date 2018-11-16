@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: alkohli
-ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232211"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685961"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>O que é o Azure Data Box Edge (Pré-visualização)? 
 
@@ -84,7 +84,7 @@ O dispositivo físico do Data Box Edge tem as seguintes funcionalidades:
 | Memória| 64 GB de RAM|
 | Discos| 8 SSDs NVMe, cada disco com 1,6 TB <br> O sistema falha se uma SSD NVMe falhar. |
 | Capacidade de armazenamento local| 12.8 TB de capacidade total|
-| Interfaces de rede| 2 interfaces de 1 GbE – 1 de gestão, não configurável pelo utilizador, utilizada para a configuração inicial. A outra interface de dados é configurável pelo utilizador e é DHCP por predefinição. <br>2 interfaces de 25 GbE – também podem funcionar como interfaces de 10 GbE. Estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas. <br> 2 interfaces de 25 GbE - estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas.|
+| Interfaces de rede| 2 interfaces de 1 GbE – 1 de gestão, não configurável pelo utilizador, utilizada para a configuração inicial. A outra interface é configurável de utilizador, pode ser utilizada para transferência de dados e é DHCP por predefinição. <br>2 interfaces de 25 GbE – também podem funcionar como interfaces de 10 GbE. Estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas. <br> 2 interfaces de 25 GbE - estas interfaces de dados podem ser configuradas pelo utilizador como DHCP (predefinição) ou estáticas.|
 
 ## <a name="components"></a>Componentes
 
@@ -135,7 +135,7 @@ O Data Box Edge está em pré-visualização e precisa de inscrever-se. Execute 
 
 4. Assim que estiver inscrito e ativado para pré-visualização, pode encomendar um dispositivo periférico Data Box Edge.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja os [requisitos de sistema do Data Box Edge](https://aka.ms/dbe-docs).
 - Compreenda os [Limites do Data Box Edge](https://aka.ms/dbe-docs).

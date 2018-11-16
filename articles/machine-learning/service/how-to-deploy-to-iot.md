@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091628"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710006"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>Preparar a implementação de modelos do IoT Edge
 
@@ -27,7 +27,7 @@ Antes de implementar um modelo para um dispositivo do edge, utilize os passos ne
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+* Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 * Uma área de trabalho de serviço do Azure Machine Learning. Para criar um, utilize os passos no [introdução ao serviço Azure Machine Learning](quickstart-get-started.md) documento.
 

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: db1915f23c33b5cc0d504f8fcc21b9533228247f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634401"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713066"
 ---
 # <a name="scaling-media-processing"></a>Dimensionar processamento de multimédia
 
-Serviços de multimédia do Azure permite-lhe dimensionar o processamento de multimédia na sua conta através da gestão de unidades reservadas de multimédia (MRUs). Para uma visão geral detalhada, consulte [Dimensionar processamento de multimédia](../previous/media-services-scale-media-processing-overview.md). Este artigo mostra como usar [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) Dimensionar MRUs.
+Serviços de multimédia do Azure permite-lhe dimensionar o processamento de multimédia na sua conta através da gestão de unidades reservadas de multimédia (MRUs). Para uma visão geral detalhada, consulte [Dimensionar processamento de multimédia](../previous/media-services-scale-media-processing-overview.md). 
 
-> [!IMPORTANT]
-> Rever considerações descritas [esta secção](#considerations).  
-> 
->
+Este artigo mostra como usar [dos serviços de multimédia v3 CLI](https://aka.ms/ams-v3-cli-ref) Dimensionar MRUs.
+
+> [!NOTE]
+> Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 MRUs de S3. <br/>Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
@@ -44,11 +44,6 @@ O seguinte procedimento [mru de contas do az ams](https://docs.microsoft.com/cli
 ```azurecli
 az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
-
-## <a name="considerations"></a>Considerações
-
-- Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 MRUs de S3.
-- Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
 
 ## <a name="billing"></a>Faturação
 

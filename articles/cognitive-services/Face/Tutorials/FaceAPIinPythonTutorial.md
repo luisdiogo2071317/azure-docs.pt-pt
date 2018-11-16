@@ -1,41 +1,43 @@
 ---
-title: 'Tutorial: Detetar e enquadrar rostos numa imagem – API Face, Python'
+title: 'Início rápido: Detetar e quadro rostos numa imagem com o SDK de Python'
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar a API Face com o SDK Python para detetar rostos numa imagem.
+description: Neste início rápido, irá criar um script de Python simples que utiliza a API de rostos para detetar e quadro rostos numa imagem remoto.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-ms.date: 03/01/2018
+ms.topic: quickstart
+ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127742"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684006"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Tutorial: Detetar e enquadrar rostos com API Face e Python 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Início rápido: Criar um script de Python para detetar e quadro enfrenta numa imagem
 
-Neste tutorial, irá aprender a invocar a API Face através do SDK Python para detetar rostos numa imagem.
+Neste início rápido, irá criar um script de Python simples que utiliza a API Face do Azure, através do SDK de Python, para detetar rostos humanos numa imagem remota. O aplicativo exibe uma imagem selecionada e desenha um quadro em torno de cada rosto detetado.
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar o tutorial, terá de fazer o seguinte:
+- Uma chave de assinatura da Face API. Pode obter uma chave de subscrição de avaliação gratuita de [experimentar os serviços cognitivos](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Em alternativa, siga as instruções em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever o serviço de API de rostos e obtenha a chave.
+- [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
+- Ferramenta [pip](https://pip.pypa.io/en/stable/installing/)
+- Face API do SDK de Python. Pode instalá-lo ao executar o seguinte comando:
+    ```bash
+    pip install cognitive_face
+    ```
 
-- Instale o Python 2.7+ ou Python 3.5+.
-- Instale o pip.
-- Instale o SDK Python para a API Face da seguinte forma:
+## <a name="detect-faces-in-an-image"></a>Detetar rostos numa imagem
 
-```bash
-pip install cognitive_face
-```
+Criar um novo script de Python, _FaceQuickstart.py_. Adicione o seguinte código. Esta é a principal funcionalidade de deteção de rostos. Terá de substituir `<Subscription Key>` com o valor da chave. Também poderá ter de alterar o valor de `BASE_URL` para utilizar o identificador de região corretos para a sua chave. Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Opcionalmente, defina `img_url` para o URL de qualquer imagem que pretende utilizar.
 
-- Obtenha uma [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/) dos Serviços Cognitivos da Microsoft. Pode utilizar a sua chave principal ou secundária neste tutorial. (Tenha em atenção que, para utilizar uma API Face, tem de ter uma chave de subscrição válida.)
-
-## <a name="detect-a-face-in-an-image"></a>Detetar um Rosto numa Imagem
+O script irá detetar rostos ao chamar o **cognitive_face.face.detect** método, que encapsula o [detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API e retorna uma lista de faces.
 
 ```python
 import cognitive_face as CF
@@ -52,15 +54,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Segue-se um resultado de exemplo. É uma `list` de rostos detetados. Cada item na lista é uma instância `dict` em que `faceId` é um ID exclusivo do rosto detetado e `faceRectangle` descreve a posição do rosto detetado. Um Face ID expira dentro de 24 horas.
+### <a name="try-the-app"></a>Experimente a aplicação
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+Execute a aplicação com o comando `python FaceQuickstart.py`. Obterá uma resposta de texto na janela da consola, semelhante ao seguinte:
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>Desenhar retângulos em torno dos rostos
+Esta é uma lista de rostos detetados. Cada item na lista é uma **dict** instância onde `faceId` é um ID exclusivo para o rosto detetado e `faceRectangle` descreve a posição do mostrador da detetado. 
 
-Utilizando as coordenadas do JSON que recebeu do comando anterior, pode desenhar retângulos na imagem para representar visualmente cada rosto. Precisará de `pip install Pillow` para utilizar o módulo de imagem `PIL`.  Na parte superior do ficheiro, adicione o seguinte:
+> [!NOTE]
+> IDs de face expirem após 24 horas; precisará armazenar dados de face explicitamente se quiser manter a longo prazo.
+
+## <a name="draw-face-rectangles"></a>Desenhar retângulos faciais nos pontos
+
+Utilizar as coordenadas que recebeu do comando anterior, pode desenhar retângulos na imagem para cada rosto de representar visualmente. Precisará instalar Pillow (`pip install pillow`) para utilizar o módulo de imagem Pillow. Na parte superior *FaceQuickstart.py*, adicione o seguinte código:
 
 ```python
 import requests
@@ -68,7 +77,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Em seguida, após `print(faces)`, inclua o seguinte no seu script:
+Em seguida, na parte inferior do seu script, adicione o seguinte código. Esta ação cria uma função simples para analisar as coordenadas do retângulo e utiliza Pillow para desenhar retângulos na imagem original. Em seguida, apresenta a imagem no seu Visualizador de imagem padrão.
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,21 +102,15 @@ for face in faces:
 img.show()
 ```
 
-## <a name="further-exploration"></a>Mais Exploração
+## <a name="run-the-app"></a>Executar a aplicação
 
-Para ajudá-lo a explorar a API Face, este tutorial fornece uma GUI de exemplo. Para executar, instale o [wxPython](https://wxpython.org/pages/downloads/) e, em seguida, execute os comandos abaixo.
+Poderá ser-lhe pedido para selecionar um Visualizador de imagem padrão em primeiro lugar. Em seguida, deverá ver uma imagem semelhante ao seguinte. Também verá os dados de retângulo impressos na janela da consola.
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![Uma moça com um retângulo vermelho desenhada em todo o Mostrador](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>Resumo
+## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu o processo básico para utilizar a API Face ao invocar o SDK Python. Para obter mais informações sobre os detalhes da API, veja o Guia de Procedimentos e a [Referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Neste início rápido, aprendeu o processo básico para utilizar o SDK de Python de API de rostos e criou um script para detetar e quadro rostos numa imagem. Em seguida, explore o uso do SDK do Python num exemplo mais complexo. Vá para o exemplo de Python de Face cognitivos no GitHub, clone-o para a pasta do projeto e siga as instruções no _README.md_ ficheiro.
 
-## <a name="related-topics"></a>Tópicos Relacionados
-
-- [Introdução à API Face no CSharp](FaceAPIinCSharpTutorial.md)
-- [Introdução à API Face em Java para Android](FaceAPIinJavaForAndroidTutorial.md)
+> [!div class="nextstepaction"]
+> [Exemplo de Python de Face cognitivo](https://github.com/Microsoft/Cognitive-Face-Python)

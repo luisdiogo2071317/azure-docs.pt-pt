@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376435"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685689"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
@@ -38,7 +38,7 @@ O que aprende com o saiba como:
 > * Conceder privilégios mínimos à identidade gerida na Base de Dados SQL
 
 > [!NOTE]
-> A autenticação do Azure Active Directory é _diferente_ da [Autenticação integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory (AD DS) no local. O AD DS e o Azure Active Directory utilizam protocolos de autenticação completamente diferentes. Para obter mais informações, veja [A diferença entre o Windows Server AD DS e o Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+>A autenticação do Azure Active Directory é _diferente_ da [Autenticação integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory (AD DS) no local. O AD DS e o Azure Active Directory utilizam protocolos de autenticação completamente diferentes. Para obter mais informações, consulte [documentação do Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -195,7 +195,7 @@ GO
 
 Escreva `EXIT` para regressar à linha de comandos do Cloud Shell. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 O que aprendeu:
 

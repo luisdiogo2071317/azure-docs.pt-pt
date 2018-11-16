@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973580"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711927"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados armazenados no Azure Monitor. Isto inclui [métricas no arquivo de métricas do Azure](../monitoring/monitoring-data-collection.md#metrics) e [registos de dados no Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
@@ -50,7 +50,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 - Desagregação contextual limitada.
 
 ## <a name="azure-monitor-views"></a>Modos de exibição de Monitor do Azure
-[Modos de exibição no Azure Monitor](../log-analytics/log-analytics-view-designer.md) permitem-lhe criar visualizações personalizadas com dados de registo armazenados no Log Analytics. Elas são usadas pelo [soluções de monitorização](../monitoring/monitoring-solutions.md) para apresentar os dados que recolher.
+[Modos de exibição no Azure Monitor](../log-analytics/log-analytics-view-designer.md) permitem-lhe criar visualizações personalizadas com dados de registo armazenados no Log Analytics. Elas são usadas pelo [soluções de monitorização](../azure-monitor/insights/solutions.md) para apresentar os dados que recolher.
 
 ![Vista](media/visualizations/view.png)
 

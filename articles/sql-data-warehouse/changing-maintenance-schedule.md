@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425965"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713270"
 ---
 # <a name="change-a-maintenance-schedule"></a>Alterar uma agenda de manutenção 
 
 ## <a name="portal"></a>Portal
 Um agendamento de manutenção pode ser atualizado ou alterado em qualquer altura. Se a instância selecionada está a passar por um ciclo de manutenção do Active Directory, as definições serão guardadas. Eles serão fique ativos durante o período de manutenção identificado seguinte. [Saiba mais](https://docs.microsoft.com/azure/service-health/resource-health-overview) sobre como monitorizar o seu armazém de dados durante um evento de manutenção do Active Directory. 
 
-Enquanto as agendas de manutenção do Azure estão em pré-visualização, selecione duas janelas de manutenção durante um período de sete dias. Cada janela de manutenção pode ser três a oito horas. Manutenção pode ocorrer em qualquer altura dentro de uma janela de manutenção, mas não ocorre fora das janelas de tempo sem notificação anterior. Também irá ocorrer uma breve perda de conectividade como o service implementa o novo código para o armazém de dados. 
+Para utilizar os agendamentos de manutenção, tem de selecionar duas janelas de manutenção durante um período de sete dias. Cada janela de manutenção pode ser três a oito horas. Manutenção pode ocorrer em qualquer altura dentro de uma janela de manutenção, mas não ocorre fora das janelas de tempo sem notificação anterior. Também irá ocorrer uma breve perda de conectividade como o service implementa o novo código para o armazém de dados. 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>Identificando as janelas principais e secundárias
 

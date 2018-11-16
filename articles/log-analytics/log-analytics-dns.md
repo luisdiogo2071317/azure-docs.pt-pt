@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: bd72b93d31a25a6aa848fc08a7db4d9d0fcece9f
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ed91c60393badcde1d3f31c86b1e4381788db17b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010750"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712097"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -58,7 +58,7 @@ A solução recolhe dados de relacionados a eventos DNS de inventário DNS e dos
 Utilize as seguintes informações para configurar a solução:
 
 - Tem de ter uma [Windows](log-analytics-agent-windows.md) ou [Operations Manager](log-analytics-om-agents.md) agente em cada servidor DNS que pretende monitorizar.
-- Pode adicionar a solução de análise de DNS para a área de trabalho do Log Analytics do [do Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md).
+- Pode adicionar a solução de análise de DNS para a área de trabalho do Log Analytics do [do Azure Marketplace](https://aka.ms/dnsanalyticsazuremarketplace). Também pode utilizar o processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md).
 
 A solução iniciar a recolha de dados sem a necessidade de configuração adicional. No entanto, pode utilizar a seguinte configuração para personalizar a recolha de dados.
 

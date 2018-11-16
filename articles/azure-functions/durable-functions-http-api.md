@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/15/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6d4a6b7aa2ad236fba6a8ea0b01578b4843d11f3
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354262"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712930"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -95,6 +95,7 @@ Todas as APIs de HTTP implementados, com a extensão take, os seguintes parâmet
 | createdTimeFrom  | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias devolvidas que foram criados nesta ou após o carimbo de hora ISO8601 determinado.|
 | createdTimeTo    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias devolvidas que foram criados em ou antes do carimbo de hora ISO8601 determinado.|
 | runtimeStatus    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtros a lista de instâncias devolvidas com base no respetivo estado de runtime. Para ver a lista de valores de estado de runtime possíveis, consulte a [consultar instâncias](durable-functions-instance-management.md) tópico. |
+| parte superior    | Cadeia de consulta    | Parâmetro opcional. Quando especificado, dividir os resultados da consulta em páginas e limitar o número máximo de resultados por página. |
 
 `systemKey` é uma chave de autorização gerado automaticamente pelo host as funções do Azure. Concede acesso para a extensão de tarefas durável APIs especificamente e podem ser gerida da mesma forma que [outras chaves de autorização](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). A forma mais simples para detetar os `systemKey` valor é usando o `CreateCheckStatusResponse` API mencionado anteriormente.
 
@@ -291,6 +292,26 @@ Eis um exemplo de payloads de resposta, incluindo o estado de orquestração (fo
 > [!NOTE]
 > Esta operação pode ser muito cara em termos de e/s de armazenamento de Azure se existirem muitas linhas da tabela de instâncias. Podem encontrar mais detalhes na tabela de instância na [desempenho e dimensionamento nas funções durável (funções do Azure)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentação.
 > 
+
+#### <a name="request-with-paging"></a>Pedido com paginação
+
+Pode definir o `top` parâmetro para dividir os resultados da consulta em páginas.
+
+Para as funções 1.0, o formato do pedido é o seguinte:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+O formato do Functions 2.0 tem todos os mesmos parâmetros, mas um prefixo de URL ligeiramente diferente: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+Se existir a página seguinte, é devolvido um token de continuação no cabeçalho de resposta.  O nome do cabeçalho é `x-ms-continuation-token`.
+
+Se definir o valor de token de continuação no cabeçalho do pedido seguinte, pode obter a página seguinte.  Esta chave no cabeçalho do pedido é `x-ms-continuation-token`.
 
 
 ### <a name="raise-event"></a>Gerar evento

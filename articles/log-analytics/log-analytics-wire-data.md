@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e3944defa24437fdddf8b61189034d330f89dd4c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ae34cc869dfb286a5a60f59fdab8733f611a6ec7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011957"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712165"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solução Wire Data 2.0 (Pré-visualização) no Log Analytics
 
@@ -31,7 +31,7 @@ Dados por fio são consolidados dados de rede e de desempenho recolhidos a parti
 Para além do agente do Log Analytics, a solução de dados por fio usa agentes de dependência da Microsoft que é instalado em computadores na sua infraestrutura de TI. Os Agentes de Dependência monitorizam os dados de rede enviados para e a partir dos seus computadores para níveis de rede 2-3 no [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), incluindo os vários protocolos e portas utilizados. Posteriormente, os dados são enviados para o Log Analytics através dos agentes.  
 
 >[!NOTE]
->Se já tiver implementado o mapa de serviço ou que estão Considerando o mapa de serviço ou [do Azure Monitor para VMs](../monitoring/monitoring-vminsights-overview.md), há um nova ligação métricas conjunto de dados que recolha e armazenam no Log Analytics que fornece informações comparáveis Wire data.
+>Se já tiver implementado o mapa de serviço ou que estão Considerando o mapa de serviço ou [do Azure Monitor para VMs](../azure-monitor/insights/vminsights-overview.md), há um nova ligação métricas conjunto de dados que recolha e armazenam no Log Analytics que fornece informações comparáveis Wire data.
 
 Por predefinição, o Log Analytics regista os dados da CPU, da memória, do disco e dos dados de desempenho da rede a partir de contadores incorporados no Windows e Linux, bem como outros contadores de desempenho que pode especificar. A recolha de redes e outros dados é realizada em tempo real para cada agente, incluindo sub-redes e protocolos ao nível das aplicações que estão a ser utilizados pelo computador.  O Wire Data analisa os dados de rede ao nível das aplicações e não na camada de transporte de TCP.  A solução não procura ACKs nem SYNs individuais.  Após a conclusão do handshake, é considerada uma ligação em direto e marcada como Ligada. Esta ligação permanece ativa enquanto ambos os lados aceitarem que o socket esteja aberto e que os dados possam circular entre ambos.  Assim que ambos os lados fecharem a ligação, será marcada como Desligada.  Desta forma, contabiliza apenas a largura de banda dos pacotes concluídos com êxito, não reporta os reenvios nem os pacotes com falhas.
 
@@ -197,7 +197,7 @@ As secções seguintes listam os sistemas operativos suportados para o Agente de
 
 Execute os seguintes passos para configurar a solução Wire Data para as áreas de trabalho.
 
-1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../monitoring/monitoring-solutions.md).
+1. Ative a solução Análise do Registo de Atividades do [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../azure-monitor/insights/solutions.md).
 2. Instale o Agente de Dependência em todos os computadores a partir dos quais pretende obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
 
 > [!NOTE]
@@ -373,7 +373,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 
 - A solução Wire Data adquire dados de computadores com o Windows Server 2012 R2, Windows 8.1 e sistemas operativos posteriores.
 - Os computadores dos quais pretende adquirir dados por fio precisam do Microsoft .NET Framework 4.0 ou posterior.
-- Adicione a solução Wire Data à área de trabalho do Log Analytics com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../monitoring/monitoring-solutions.md). Não há nenhuma configuração adicional.
+- Adicione a solução Wire Data à área de trabalho do Log Analytics com o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](../azure-monitor/insights/solutions.md). Não há nenhuma configuração adicional.
 - Se pretender ver os dados por fio de uma solução específica, terá de ter a solução já adicionada à sua área de trabalho.
 
 Depois de instalar os agentes e a solução, o mosaico Wire Data 2.0 é apresentado na área de trabalho.

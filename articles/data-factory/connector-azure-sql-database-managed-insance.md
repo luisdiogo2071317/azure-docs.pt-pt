@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 87ca7c10095f12c82137b6287fbb895c97676062
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49459062"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706726"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Database Managed Instance com o Azure Data Factory
 
@@ -115,7 +115,7 @@ Para copiar dados de/para a instância gerida da base de dados SQL do Azure, def
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo do conjunto de dados tem de ser definida como: **SqlServerTable** | Sim |
-| tableName |Nome da tabela ou vista na instância da base de dados pelo serviço ligado refere-se. | Sim |
+| tableName |Nome da tabela ou vista na instância da base de dados pelo serviço ligado refere-se. | Não para a origem, Sim para o sink |
 
 **Exemplo**
 
@@ -155,7 +155,6 @@ Para copiar dados de instância gerida da base de dados SQL do Azure, definir o 
 
 - Se o **sqlReaderQuery** é especificado para o SqlSource, a atividade de cópia executa esta consulta em relação à origem de instância gerida para obter os dados. Em alternativa, pode especificar um procedimento armazenado, especificando o **sqlReaderStoredProcedureName** e **storedProcedureParameters** (se o procedimento armazenado recebe parâmetros).
 - Se não especificar a propriedade "sqlReaderQuery" ou "sqlReaderStoredProcedureName", as colunas definidas na secção "estrutura" do conjunto de dados JSON são utilizadas para construir uma consulta (`select column1, column2 from mytable`) para executar a instância gerida. Se a definição do conjunto de dados não tiver a "estrutura", todas as colunas são selecionadas da tabela.
-- Quando utiliza **sqlReaderStoredProcedureName**, terá de especificar uma cópia **tableName** propriedade no conjunto de dados JSON.
 
 **Exemplo: Usando uma consulta SQL**
 
@@ -491,7 +490,7 @@ Ao copiar dados de/para instância gerida da base de dados SQL do Azure, os segu
 | Datetimeoffset |DateTimeOffset |
 | decimal |decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
-| número de vírgula flutuante |Valor de duplo |
+| Flutuante |Valor de duplo |
 | image |Byte[] |
 | int |Int32 |
 | dinheiro |decimal |

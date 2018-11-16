@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Analisar dados do Apache Spark com o Power BI no Azure HDInsight '
-description: Utilizar o Microsoft Power BI para ver dados do Spark armazenados em clusters do HDInsight
+description: Utilize o Microsoft Power BI para visualizar os dados do Apache Spark armazenados clusters do HDInsight
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 341346b290fc3dab94773f75f2269cc147e71b82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252467"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712420"
 ---
-# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Spark com o Power BI no HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados do Apache Spark no HDInsight com o Power BI 
 
 Saiba como utilizar o Microsoft Power BI para ver dados em clusters do Apache Spark no Azure HDInsight.
 
@@ -78,7 +78,7 @@ Os primeiros passos para começar a trabalhar com o Spark são ligar ao cluster 
     ![Obter dados no Power BI Desktop a partir do HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Obter dados no Power BI Desktop a partir do HDInsight Apache Spark")
 
 
-2. Introduza `Spark` na caixa de pesquisa, selecione **Azure HDInsight Spark (Beta)** e clique em **Connect** (Ligar).
+2. Introduza `Spark` na caixa de pesquisa, selecione **do Azure HDInsight Spark**e, em seguida, clique em **Connect**.
 
     ![Obter dados no Power BI a partir do Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Obter dados no Power BI a partir do Apache Spark BI")
 
@@ -210,7 +210,7 @@ O elemento visual é afixado ao dashboard. Pode adicionar outros elementos visua
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
 -->
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

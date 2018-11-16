@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 1d029a2ab214ba85932dad022e4c3cb862b8688a
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346325"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712998"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>Como implementar modelos de serviço do Azure Machine Learning no serviço Kubernetes do Azure
 
@@ -25,7 +25,7 @@ Implementar no AKS fornece o dimensionamento automático, registo, a recolha de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://aka.ms/AMLfree) antes de começar.
 
 - Uma Azure Machine Learning serviço área de trabalho, um diretório local que contém os scripts e o SDK do Azure Machine Learning para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
 

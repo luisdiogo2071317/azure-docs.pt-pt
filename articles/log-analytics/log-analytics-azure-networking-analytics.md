@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 7d93b8e37c2025ebe47f9351da26f0913107585d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c58f4f825effbd62d141b417f78c420ba08d921
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009373"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711213"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluções do Log Analytics de monitorização da rede do Azure
 
@@ -86,7 +86,7 @@ As métricas seguintes são suportadas para Gateways de aplicação: novamente
 ### <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes instruções para instalar e configurar a solução de análise do Gateway de aplicação do Azure:
 
-1. Ativar a solução de análise de Gateway de aplicação do Azure partir [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou utilizando o processo descrito [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md).
+1. Ativar a solução de análise de Gateway de aplicação do Azure partir [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureAppGatewayAnalyticsOMS?tab=Overview) ou utilizando o processo descrito [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md).
 2. Ativar diagnósticos de registo para o [Gateways de aplicação](../application-gateway/application-gateway-diagnostics.md) que pretende monitorizar.
 
 #### <a name="enable-azure-application-gateway-diagnostics-in-the-portal"></a>Ativar o diagnóstico do Gateway de aplicação do Azure no portal
@@ -157,7 +157,7 @@ Os seguintes registos são suportados para grupos de segurança de rede:
 ### <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes instruções para instalar e configurar a solução de análise de redes do Azure:
 
-1. Ativar a solução de análise do grupo de segurança de rede do Azure partir [do Azure marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) ou utilizando o processo descrito [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md).
+1. Ativar a solução de análise do grupo de segurança de rede do Azure partir [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) ou utilizando o processo descrito [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md).
 2. Ativar diagnósticos de registo para o [grupo de segurança de rede](../virtual-network/virtual-network-nsg-manage-log.md) recursos que pretende monitorizar.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Ativar diagnósticos de grupo de segurança de rede do Azure no portal
@@ -215,7 +215,7 @@ Para utilizar as soluções atualizadas:
 
 1. [Configurar diagnósticos para serem enviados diretamente para o Log Analytics a partir de Gateways de aplicação do Azure](#enable-azure-application-gateway-diagnostics-in-the-portal)
 2. [Configurar diagnóstico sejam enviadas diretamente para o Log Analytics do Azure grupos de segurança de rede](#enable-azure-network-security-group-diagnostics-in-the-portal)
-2. Ativar a *análise de Gateway de aplicação do Azure* e o *análise de grupo de segurança de rede do Azure* solução utilizando o processo descrito em [adicionar soluções Log Analytics dos Galeria de soluções](../monitoring/monitoring-solutions.md)
+2. Ativar a *análise de Gateway de aplicação do Azure* e o *análise de grupo de segurança de rede do Azure* solução utilizando o processo descrito em [adicionar soluções Log Analytics dos Galeria de soluções](../azure-monitor/insights/solutions.md)
 3. Atualizar quaisquer consultas guardadas, dashboards ou alertas para usar o novo tipo de dados
   + Tipo é AzureDiagnostics. Pode usar o ResourceType para filtrar registos de rede do Azure.
 

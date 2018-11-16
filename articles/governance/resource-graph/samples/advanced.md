@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: 43cf9f5ec0f9c265efa0e59eadbf6c9bbe4f7c3f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085381"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51682884"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -72,7 +72,7 @@ Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Máquinas virtuais correspondidas por regex
 
 Esta consulta procura máquinas virtuais que correspondam a uma [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_).
-**matches regex @** permite-nos definir a regex para obter correspondência, que é **^Contoso(.*)[0-9]+$**. Essa definição de regex é explicada como:
+O **coincide com regex @** permite definir o regex para fazer corresponder, que é `^Contoso(.*)[0-9]+$`. Essa definição de regex é explicada como:
 
 - `^` – A correspondência tem de começar no início da cadeia de caracteres.
 - `Contoso` - a cadeia sensível às maiúsculas e minúsculas.
@@ -99,7 +99,7 @@ az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name ma
 Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Ver exemplos de [Consultas de introdução](starter.md)
 - Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)

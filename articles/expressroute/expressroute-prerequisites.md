@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
-ms.author: cherylmc
-ms.openlocfilehash: 24cb21e81d2b4385423512ae58de2d6c0f94b93b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.date: 11/15/2018
+ms.author: mialdrid
+ms.openlocfilehash: 3e597e4f8be0af6e42f8ccc09c058cda619764a7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251905"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713440"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar se foram cumpridos os seguintes requisitos listados nas secções abaixo.
@@ -37,8 +37,8 @@ Para ligar a serviços cloud da Microsoft com o ExpressRoute, terá de verificar
 
 ## <a name="network-requirements"></a>Requisitos da rede
 * **Conectividade redundante**: não é necessário haver redundância na conectividade física entre o utilizador e o fornecedor. A Microsoft exige a configuração de sessões de BGP redundantes entre routers da Microsoft e routers de peering, mesmo se tiver apenas [uma ligação física a um Exchange de nuvem](expressroute-faqs.md#onep2plink).
-* **Encaminhamento**: dependendo do modo como se liga ao Microsoft Cloud, o utilizador ou o fornecedor precisa de configurar e gerir as sessões de BGP para [domínios de encaminhamento](expressroute-circuit-peerings.md). Alguns fornecedores de conectividade Ethernet ou fornecedores do Exchange na nuvem poderão oferecer gestão de BGP como um serviço de valor acrescentado.
-* **NAT**: a Microsoft só aceita endereços IP públicos através do peering da Microsoft. Se estiver a utilizar endereços IP privados na rede no local, o utilizador ou o fornecedor precisará de converter os endereços IP privados em endereços IP públicos [com o NAT](expressroute-nat.md).
+* **Encaminhamento**: consoante a forma como ligar a Cloud da Microsoft, utilizador ou o fornecedor tem de configurar e gerir as sessões de BGP para [domínios de encaminhamento](expressroute-circuit-peerings.md). Alguns fornecedores de conectividade Ethernet ou fornecedores do exchange na nuvem poderão oferecer gestão de BGP como um serviço de valor acrescentado.
+* **NAT**: a Microsoft só aceita endereços IP públicos através do peering da Microsoft. Se estiver a utilizar endereços IP privados na sua rede no local, utilizador ou o fornecedor tem de traduzir os endereços IP privados para os endereços IP públicos [com o NAT](expressroute-nat.md).
 * **QoS**: o Skype para Empresas tem vários serviços (por exemplo, voz, vídeo, texto) que exigem um tratamento QoS diferenciado. O utilizador e o fornecedor devem cumprir os [Requisitos de QoS](expressroute-qos.md).
 * **Segurança de Rede**: tenha em conta a [segurança de rede](../best-practices-network-security.md) ao ligar à Microsoft Cloud através do ExpressRoute.
 
@@ -60,7 +60,7 @@ Se planear ativar o Dynamics 365 no ExpressRoute, reveja os seguintes documentos
 * [Documento técnico do Dynamics 365 e ExpressRoute](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
 * [URL](https://support.microsoft.com/kb/2655102) e [intervalos de endereços de IP do Dynamics 365](https://support.microsoft.com/kb/2728473)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).
 * Localizar um fornecedor de conectividade do ExpressRoute. Veja [Parceiros e localizações de peering do ExpressRoute ](expressroute-locations.md).
 * Veja os requisitos de [Encaminhamento](expressroute-routing.md), [NAT](expressroute-nat.md) e [QoS](expressroute-qos.md).

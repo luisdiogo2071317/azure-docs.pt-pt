@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fe1557a6f9e5fd4e463af254fa1dd52726e73024
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960723"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713049"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream registos de diagnóstico do Azure para o Log Analytics
 
@@ -96,7 +96,7 @@ O `--resource-group` argumento só é necessária se `--workspace` não é um ID
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Como faço para consultar os dados no Log Analytics?
 
-No painel pesquisa de registos no portal ou na experiência de Advanced Analytics como parte do Log Analytics, pode consultar os registos de diagnóstico como parte da solução de gestão de registos na tabela AzureDiagnostics. Também existem [várias soluções para recursos do Azure](../monitoring/monitoring-solutions.md) pode instalar para obter informações imediatas sobre os dados de registo estão a enviar para o Log Analytics.
+No painel pesquisa de registos no portal ou na experiência de Advanced Analytics como parte do Log Analytics, pode consultar os registos de diagnóstico como parte da solução de gestão de registos na tabela AzureDiagnostics. Também existem [várias soluções para recursos do Azure](../azure-monitor/insights/solutions.md) pode instalar para obter informações imediatas sobre os dados de registo estão a enviar para o Log Analytics.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

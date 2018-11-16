@@ -10,18 +10,18 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 6e6f5b61f3e5e99d08e377bd5a78398a05fb4321
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
-ms.translationtype: HT
+ms.openlocfilehash: d2a98226895bbe5996785ca4726f20df9b98ffdd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577895"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683615"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>Início rápido: Detetar rostos numa imagem usando a API de REST de rostos e o Python
 
 Neste início rápido, irá utilizar a API de REST de Face do Azure com o Python para detetar rostos humanos numa imagem. O script irá desenhar quadros em torno de rostos e superimpose idade e género informações sobre a imagem.
 
-![Um homem e uma mulher, cada um com um retângulo desenhado em torno de seus rostos e idade e sex apresentado na imagem](../media/labelled-faces-python.png)
+![Um homem e uma mulher, cada um com um retângulo desenhado em torno de seus rostos e idade e sex apresentado na imagem](../images/labelled-faces-python.png)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 

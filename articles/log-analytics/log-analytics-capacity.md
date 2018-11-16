@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e1f33551c02562bbd8b7cc6a4187f7135a06c60f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 5ec4ba5f51837e879ba5106c40d466dafb571825
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961947"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711808"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planear a capacidade de máquina virtual de Hyper-V com a solução de capacidade e desempenho (pré-visualização)
 
@@ -64,7 +64,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 Execute o passo seguinte para adicionar a solução de capacidade e desempenho à sua área de trabalho.
 
-- Adicionar a solução de capacidade e desempenho à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../monitoring/monitoring-solutions.md).
+- Adicionar a solução de capacidade e desempenho à sua área de trabalho do Log Analytics através do processo descrito em [adicionar soluções Log Analytics da Galeria de soluções](../azure-monitor/insights/solutions.md).
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
