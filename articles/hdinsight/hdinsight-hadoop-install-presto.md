@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ea806a1004cf268fb7da75fa45013bdbaf882d86
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227506"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687083"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Instalar e utilizar o Presto em clusters do HDInsight Hadoop
 
 Neste documento, irá aprender a instalar prontamente em clusters Hadoop do HDInsight utilizando a ação de Script. Também irá aprender a instalar Airpal num cluster HDInsight Presto existente.
 
-HDInsight também oferece o aplicativo Starburst Presto para clusters do Apache Hadoop. Para obter mais informações, consulte [instalar aplicações de terceiros no Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apps-install-applications)
+HDInsight também oferece o aplicativo Starburst Presto para clusters do Apache Hadoop. Para obter mais informações, consulte [instalar aplicações de terceiros no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
 
 > [!IMPORTANT]
 > Os passos neste documento exigem uma **cluster de Hadoop do HDInsight 3.5** que utilizam o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte [versões do HDInsight](hdinsight-component-versioning.md).

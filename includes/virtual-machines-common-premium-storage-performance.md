@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50746678"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678213"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento Premium do Azure: Design de alto desempenho
 
@@ -32,8 +32,8 @@ Este artigo o ajudará a resposta a perguntas comuns sobre a otimização de des
 Nós fornecemos estas diretrizes especificamente para o armazenamento Premium como cargas de trabalho em execução no armazenamento Premium são altamente confidencial do desempenho. Nós fornecemos exemplos quando apropriado. Também pode aplicar alguns destas diretrizes para aplicativos em execução em VMs de IaaS com discos de armazenamento Standard.
 
 > [!NOTE]
-> Por vezes, o que parece ser um problema de desempenho é, na verdade, um afunilamento de rede. Nestas situações, deve otimizar seus [desempenho de rede](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
-> Deve também garantir o que funcionamento em rede acelerado oferece suporte a sua VM. Se existir, pode ativá-lo, mesmo após a implementação em ambos [windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) vms.
+> Por vezes, o que parece ser um problema de desempenho de disco é, na verdade, um afunilamento de rede. Nestas situações, deve otimizar seus [desempenho de rede](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Se a VM suportar redes aceleradas, certifique-se de que está ativada. Se não estiver ativada, pode ativá-la em VMs já implementadas em ambos [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) e [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 Antes de começar, se estiver familiarizado com o armazenamento Premium, leia primeiro o [o armazenamento Premium: armazenamento de elevado desempenho para cargas de trabalho do Azure Virtual Machine](../articles/virtual-machines/windows/premium-storage.md) e [escalabilidade do armazenamento do Azure e metas de desempenho](../articles/storage/common/storage-scalability-targets.md)artigos.
 
@@ -227,8 +227,8 @@ Armazenamento Premium do Azure oferece três tamanhos de disco que estão atualm
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 giB (1 TiB)    | 2.048 giB (2 TiB)    | 4095 giB (4 TiB)    | 8.192 giB (8 TiB)    | 16,384 giB (TiB de 16)    | 32.767 giB (32 GiB)    |
-| IOPs por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15 000              | 20,000              |
+| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1.024 GiB (1 TiB)    | 2.048 GiB (2 TiB)    | 4.095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16,384 giB (TiB de 16)    | 32.767 giB (32 GiB)    |
+| IOPs por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15 000              | 20,000              |
 | Débito por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |MiB 125 por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
 
 Quantos discos que escolher depende do disco de tamanho de escolhida. Poderia usar um disco de P50 único ou vários discos de P10 para atender às necessidades da sua aplicação. Tenha em considerações de conta listadas abaixo, ao fazer a escolha.

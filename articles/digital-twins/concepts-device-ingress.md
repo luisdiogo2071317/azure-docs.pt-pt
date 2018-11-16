@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: c15ce88bbd55becaf30098f2e3302d2e65bc11d2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9ce2f65af89e186a3cd32bd2900b5444fb556b08
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625730"
+ms.locfileid: "51636718"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrada de conectividade e telemetria de dispositivo
 
@@ -37,21 +37,25 @@ As secções seguintes, irá aprender a obter a cadeia de ligação de dispositi
 
 ## <a name="get-the-iot-hub-device-connection-string-from-the-management-api"></a>Obter a cadeia de ligação de dispositivos do IoT Hub a partir da API de gestão
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 Fazer uma chamada GET na API do dispositivo com um `includes=ConnectionString` parâmetro para obter a cadeia de ligação de dispositivos do IoT Hub. Filtre pelo dispositivo GUID ou o ID de hardware para encontrar o dispositivo especificado.
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices/yourDeviceGuid?includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
+
+| Parâmetro | Substituir |
+| --- | --- |
+| *YOUR_DEVICE_GUID* | O ID de dispositivo |
 
 ```plaintext
-https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
-| Nome do atributo personalizado | Substituir |
+| Valor do parâmetro | Substituir |
 | --- | --- |
-| **yourManagementApiUrl** | O caminho do URL completo para a API de gestão |
-| **yourDeviceGuid** | O ID de dispositivo |
-| **yourDeviceHardwareId** | O ID de hardware do dispositivo |
+| *YOUR_DEVICE_HARDWARE_ID* | O ID de hardware do dispositivo |
 
 No payload de resposta, copiar do dispositivo **connectionString** propriedade. Utilize-ao chamar o Azure IoT device SDK para enviar dados para o Digital duplos.
 

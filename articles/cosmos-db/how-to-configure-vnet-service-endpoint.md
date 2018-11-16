@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: b788490d588c217d97786f9306baad3083a9c03f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a7c2d1e41fa4ac26854e2e6ab57184cd6ed0bd0c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629387"
+ms.locfileid: "51633687"
 ---
 # <a name="how-to-access-azure-cosmos-db-resources-from-virtual-networks"></a>Como aceder a recursos do Azure Cosmos DB a partir de redes virtuais
 
@@ -31,7 +31,7 @@ As secções seguintes descrevem como configurar o ponto final de serviço VNET 
 
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configurar o ponto final de serviço para uma rede virtual do Azure existente e a sub-rede
 
-1. Partir **todos os recursos** painel, localização de rede virtual pretende proteger.
+1. Partir **todos os recursos** painel, localize a conta do Cosmos do Azure que pretende proteger.
 
 1. Selecione **Firewalls e redes virtuais** no menu de definições e selecione permitir o acesso a partir de **redes selecionadas**.
 
@@ -42,7 +42,7 @@ As secções seguintes descrevem como configurar o ponto final de serviço VNET 
    ![Selecione a rede virtual e sub-rede](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
 
-1. Depois da conta do Cosmos do Azure está ativada, apenas será permitido tráfego nesta escolhido sub-rede. A rede virtual e sub-rede adicionou devem aparecer como mostrado na captura de ecrã seguinte:
+1. Depois da conta do Cosmos do Azure está ativada para aceder a partir de uma rede virtual, irá permitir apenas tráfego nesta escolhido sub-rede. A rede virtual e sub-rede adicionou devem aparecer como mostrado na captura de ecrã seguinte:
 
    ![rede virtual e sub-rede configurada com êxito](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -183,6 +183,10 @@ Utilize os seguintes passos para configurar o ponto final de serviço para uma c
 1. Atualizar conta do Cosmos do Azure existente com as ACLs de sub-rede
 
    ```azurecli-interactive
+
+   name="<Azure Cosmos account name>"
+   resourceGroupName="<Resource group name>"
+
    az cosmosdb update \
       --name $name \
     --resource-group $resourceGroupName \

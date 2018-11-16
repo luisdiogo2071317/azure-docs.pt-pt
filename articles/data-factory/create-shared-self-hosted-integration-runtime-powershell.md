@@ -1,6 +1,6 @@
 ---
 title: Criar um runtime de integração autoalojado partilhado na fábrica de dados do Azure com o PowerShell | Documentos da Microsoft
-description: Saiba como criar um runtime de integração autoalojado partilhado no Azure Data Factory, que permite acesso de fábricas de dados múltiplos, o runtime de integração.
+description: Saiba como criar um runtime de integração autoalojado partilhado na fábrica de dados do Azure, para que várias fábricas de dados podem acessar o runtime de integração.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: d7f3fbcb3235c8c620876e68a62f3e491770779d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: b32ea4293daa9206c6b0da4bdee777677c5d340d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252139"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685519"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>Criar um runtime de integração autoalojado partilhado na fábrica de dados do Azure com o PowerShell
 
-Este guia passo a passo mostra-lhe como criar um runtime de integração autoalojado partilhada (IR) no Azure Data Factory com o Azure PowerShell. Em seguida, pode utilizar o runtime de integração autoalojado partilhado na fábrica de dados de outro. Neste tutorial, vai executar os seguintes passos: 
+Este guia passo a passo mostra-lhe como criar um runtime de integração autoalojado partilhado na fábrica de dados do Azure com o Azure PowerShell. Em seguida, pode utilizar o runtime de integração autoalojado partilhado na fábrica de dados de outro. Neste tutorial, siga os passos seguintes: 
 
 1. Criar uma fábrica de dados. 
 1. Criar um integration runtime autoalojado.
@@ -33,18 +33,16 @@ Este guia passo a passo mostra-lhe como criar um runtime de integração autoalo
 
 - **Subscrição do Azure**. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. 
 
-- **Azure PowerShell**. Siga as instruções em [instalar o Azure PowerShell no Windows](/powershell/azure/install-azurerm-ps). Utilizar o PowerShell para executar um script para criar um runtime de integração autoalojado que pode ser partilhado com outras fábricas de dados. 
+- **Azure PowerShell**. Siga as instruções em [instalar o Azure PowerShell no Windows com o PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). Utilizar o PowerShell para executar um script para criar um runtime de integração autoalojado que pode ser partilhado com outras fábricas de dados. 
 
-> [!NOTE]
-> Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que lhe interessam, na página seguinte: [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
+> [!NOTE]  
+> Para obter uma lista de regiões do Azure em que a fábrica de dados está atualmente disponível, selecione as regiões que interessam a no [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. Inicie o ISE do Windows PowerShell.
+1. Inicie o Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Crie variáveis.
-
-    Copie e cole o seguinte script e substitua as variáveis (SubscriptionName, ResourceGroupName, etc.) com valores reais. 
+1. Crie variáveis. Copie e cole o seguinte script. Substitua as variáveis, como **SubscriptionName** e **ResourceGroupName**, com valores reais: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -65,9 +63,7 @@ Este guia passo a passo mostra-lhe como criar um runtime de integração autoalo
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. Inicie sessão e selecione uma subscrição.
-
-    Adicione o seguinte código ao script para iniciar sessão e selecione a sua subscrição do Azure:
+1. Inicie sessão e selecione uma subscrição. Adicione o seguinte código ao script para iniciar sessão e selecione a sua subscrição do Azure:
 
     ```powershell
     Connect-AzureRmAccount
@@ -76,9 +72,10 @@ Este guia passo a passo mostra-lhe como criar um runtime de integração autoalo
 
 1. Crie um grupo de recursos e uma fábrica de dados.
 
-    *(Este passo é opcional. Se já tiver uma fábrica de dados, ignore este passo.)* 
+    > [!NOTE]  
+    > Este passo é opcional. Se já tiver uma fábrica de dados, ignore este passo. 
 
-    Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com o comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização WestEurope. 
+    Criar uma [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) utilizando o [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) comando. Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos como um grupo. O exemplo seguinte cria um grupo de recursos com o nome `myResourceGroup` na localização WestEurope: 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -94,7 +91,8 @@ Este guia passo a passo mostra-lhe como criar um runtime de integração autoalo
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 
-*(Este passo é opcional. Se já tiver o runtime de integração autoalojado que pretende partilhar com outras fábricas de dados, ignore este passo.)*
+> [!NOTE]  
+> Este passo é opcional. Se já tiver o runtime de integração autoalojado que pretende partilhar com outras fábricas de dados, ignore este passo.
 
 Execute o seguinte comando para criar um runtime de integração autoalojado:
 
@@ -132,7 +130,8 @@ A resposta contém a chave de autenticação para este integration runtime autoa
 
 ### <a name="create-another-data-factory"></a>Criar fábrica de dados de outro
 
-*(Este passo é opcional. Se já tiver a fábrica de dados com a qual pretende partilhar, ignore este passo.)*
+> [!NOTE]  
+> Este passo é opcional. Se já tiver a fábrica de dados que pretende partilhar com, ignore este passo.
 
 ```powershell
 $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
@@ -143,7 +142,7 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 Conceder permissão à fábrica de dados que precisa acessar o runtime de integração autoalojado que criou e registado.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Não ignore este passo!
 
 ```powershell
@@ -167,11 +166,11 @@ Set-AzureRmDataFactoryV2IntegrationRuntime `
     -Description $LinkedIntegrationRuntimeDescription
 ```
 
-Agora, pode utilizar este runtime de integração ligado em qualquer serviço ligado. O runtime de integração ligado está a utilizar o runtime de integração partilhado para executar atividades.
+Agora, pode utilizar este runtime de integração ligado em qualquer serviço ligado. O runtime de integração ligado utiliza o runtime de integração partilhado para executar atividades.
 
 ## <a name="revoke-integration-runtime-sharing-from-a-data-factory"></a>Revogar o runtime de integração de partilha de uma fábrica de dados
 
-Para revogar o acesso de uma fábrica de dados de acessar o runtime de integração partilhado, pode executar o seguinte comando:
+Para revogar o acesso de uma fábrica de dados do Runtime de integração partilhada, execute o seguinte comando:
 
 ```powershell
 Remove-AzureRMRoleAssignment `
@@ -180,7 +179,7 @@ Remove-AzureRMRoleAssignment `
     -Scope $SharedIR.Id
 ```
 
-Para remover o runtime de integração ligado existente, pode executar o seguinte comando contra o runtime de integração partilhado:
+Para remover o runtime de integração ligado existente, execute o seguinte comando contra o runtime de integração partilhado:
 
 ```powershell
 Remove-AzureRmDataFactoryV2IntegrationRuntime `
@@ -193,6 +192,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja conceitos de runtime de integração no [Integration runtime no Azure Data Factory](concepts-integration-runtime.md).
+- Revisão [conceitos de runtime de integração no Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
 
-- Saiba como criar um runtime de integração autoalojado no portal do Azure no [criar e configurar um runtime de integração autoalojado](create-self-hosted-integration-runtime.md).
+- Saiba como [criar um runtime de integração autoalojado no portal do Azure](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).

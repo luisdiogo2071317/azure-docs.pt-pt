@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0134f6c83548ae5ffb4924ecf7d652ce89910340
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 176f8bb6fbb7a1a6bb81525cd3833d57bf9a5086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210623"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568806"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -110,7 +110,10 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 3. A definição da chave de encriptação não é relevante para este cenário.
 4. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. O Site Recovery tentará fazer um encerramento das máquinas virtuais antes de acionar a ativação pós-falha. A ativação pós-falha continua, mesmo que o encerramento falhe. Pode seguir o progresso da ativação pós-falha na página **Tarefas**.
 5. Certifique-se de que a VM do Azure é apresentada no Azure conforme esperado.
-6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Desta forma, o processo de migração é concluído, a replicação para a VM é parada e a faturação do Site Recovery para a VM também é parada.
+6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Isso faz o seguinte:
+
+    - O processo de migração é concluído, para a replicação para a VM do AWS e interrompe a faturação do Site Recovery para a VM.
+    - Este passo limpa os dados de replicação. Não elimina as VMs migradas.
 
     ![Concluir a migração](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
@@ -155,7 +158,7 @@ Alguns passos podem ser automatizados como parte do processo de migração atrav
 - Atualize qualquer documentação interna para mostrar a nova localização e endereço IP das VMs do Azure.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, migrou VMs no local para VMs do Azure. Agora pode [configurar a recuperação após desastre](azure-to-azure-replicate-after-migration.md) para uma região secundária do Azure para as VMs do Azure.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304140"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614026"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiar dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure
 Neste tutorial, vai utilizar a interface de utilizador (IU) do Azure Data Factory para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server no local para o armazenamento de Blobs do Azure. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
@@ -111,7 +111,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 1. Na lista de contentores, clique em **adftutorial**.
 
-    ![Seleção de contentor](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Seleção de contentor](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Mantenha a janela do **contentor** de **adftutorial** aberta. Vai utilizá-la para verificar o resultado no final deste tutorial. O Data Factory cria automaticamente a pasta de saída neste contentor, pelo que não precisa de a criar.
 
@@ -197,7 +197,7 @@ O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguint
 
 1. Em **Opção 1: configuração rápida**, selecione **Clique aqui para iniciar a configuração rápida neste computador**. 
 
-    ![Ligação de configuração rápida](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Ligação de configuração rápida](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. Na janela **Configuração Rápida do Runtime de Integração (Autoalojado)**, selecione **Fechar**. 
 
@@ -237,7 +237,7 @@ O nome da fábrica de dados tem de ser *globalmente exclusivo*. Se vir a seguint
 
 1. Vá para o separador com **SQLServerToBlobPipeline** ou selecione **SQLServerToBlobPipeline** na vista de árvore. 
 
-    ![Separador do pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Separador do pipeline](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Vá para o separador **Sink**, na parte inferior da janela **Propriedades**, e selecione **+ Novo**. 
 
@@ -320,7 +320,7 @@ O pipeline cria automaticamente a pasta de saída com o nome *fromonprem* no con
 ![confirmar nome de ficheiro de saída](./media/tutorial-hybrid-copy-portal/sink-output.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 O pipeline neste exemplo copia dados de uma localização para outra localização no amazenamento de Blobs. Aprendeu a:
 
 > [!div class="checklist"]

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: ab47db7629c92b0e6a5b268c9d233135485a37a1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: dc2535bb8cae91e5df4554cdbc4239a5e81a4d90
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237723"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616270"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Enviar notificações push para dispositivos Android através dos Hubs de Notificação do Microsoft Azure e do Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -56,7 +56,7 @@ Neste tutorial, irá realizar as seguintes ações:
 
 ### <a name="configure-gcm-setting-for-the-notification-hub"></a>Configurar a definição do GCM para o hub de notificação
 
-1. Selecione **Google (GCM)** nas **DEFINIÇÕES DE NOTIFICAÇÃO**. 
+1. Selecione **Google (GCM)** na **definições de notificação**. 
 2. Introduza a **Chave de API** que recebeu do Google Cloud Console. 
 3. Selecione **Guardar** na barra de ferramentas. 
 
@@ -663,7 +663,7 @@ Normalmente, enviaria notificações através de um servidor de backend. Em algu
                         bodyStream.write(json.getBytes());
                         bodyStream.close();
 
-                        // Get reponse
+                        // Get response
                         urlConnection.connect();
                         int responseCode = urlConnection.getResponseCode();
                         if ((responseCode != 200) && (responseCode != 201)) {
@@ -692,7 +692,7 @@ Normalmente, enviaria notificações através de um servidor de backend. Em algu
     }
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, enviou notificações de difusão para todos os dispositivos Android registados no back-end. Para saber como enviar notificações push para dispositivos Android específicos, avance para o tutorial seguinte:  
 
  > [!div class="nextstepaction"] 

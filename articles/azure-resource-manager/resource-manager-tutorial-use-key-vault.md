@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/30/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 601d022917adc71ff3a3c728c7b674ae47a632c4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238483"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615760"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
 
@@ -30,7 +30,7 @@ Este tutorial abrange as seguintes tarefas:
 
 > [!div class="checklist"]
 > * Preparar o Key Vault
-> * Abrir um modelo de Início Rápido
+> * Abrir um modelo de Início rápido
 > * Editar o ficheiro de parâmetros
 > * Implementar o modelo
 > * Validar a implementação
@@ -205,7 +205,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, obteve um segredo do Azure Key Vault e utilizou-o na sua implementação do modelo.  Para saber como criar modelos ligados, veja:
 

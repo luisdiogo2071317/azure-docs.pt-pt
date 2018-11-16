@@ -1,6 +1,6 @@
 ---
 title: Desenvolver trabalhos de MapReduce com o HDInsight - Azure de transmissão de Python
-description: Saiba como utilizar o Python em tarefas de MapReduce de transmissão em fluxo. Hadoop fornece uma API de transmissão em fluxo para o MapReduce para escrever numa linguagem diferente de Java.
+description: Saiba como utilizar o Python em tarefas de MapReduce de transmissão em fluxo. Apache Hadoop fornece uma API de transmissão em fluxo para o MapReduce para escrever numa linguagem diferente de Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
 author: hrasheed-msft
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ed61eb05d0aa4360e042097d6b8c632c17ea59c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008730"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634027"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Desenvolver programas MapReduce de transmissão para HDInsight de Python
 
-Saiba como utilizar o Python em operações de MapReduce de transmissão em fluxo. Hadoop fornece uma API de transmissão em fluxo para MapReduce que permite-lhe escrever o mapa e reduzir as funções em linguagens diferentes de Java. Os passos neste documento implementam o mapa e reduzem os componentes em Python.
+Saiba como utilizar o Python em operações de MapReduce de transmissão em fluxo. Apache Hadoop fornece uma API de transmissão em fluxo para MapReduce que permite-lhe escrever o mapa e reduzir as funções em linguagens diferentes de Java. Os passos neste documento implementam o mapa e reduzem os componentes em Python.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um Hadoop baseado em Linux num cluster do HDInsight
+* Um Apache Hadoop baseado em Linux num cluster do HDInsight
 
   > [!IMPORTANT]
   > Os passos neste documento exigem um cluster do HDInsight que utilize o Linux. O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: 7c99cdbda2eeb2fc7f8aa615bbdb8b77f84e57be
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: db1915f23c33b5cc0d504f8fcc21b9533228247f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51617868"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634401"
 ---
 # <a name="scaling-media-processing"></a>Dimensionar processamento de multimédia
 
@@ -42,7 +42,7 @@ Serviços de multimédia do Azure permite-lhe dimensionar o processamento de mul
 O seguinte procedimento [mru de contas do az ams](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) comando conjuntos de unidades reservadas de multimédia "amsaccount" conta utilizando o **contagem** e **tipo** parâmetros.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 type S3
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
 
 ## <a name="considerations"></a>Considerações

@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263757"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686267"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Lidar com erros e exceções no Azure Logic Apps
 
@@ -73,7 +73,7 @@ Em alternativa, pode especificar manualmente a política de repetição no `inpu
 
 | Valor | Tipo | Descrição |
 |-------|------|-------------|
-| <*tipo de política de repetição*> | Cadeia | O tipo de política de repetição que pretende utilizar: "padrão", "none", "fixa" ou "exponencial" | 
+| <*tipo de política de repetição*> | Cadeia | O tipo de política de repetição que pretende utilizar: `default`, `none`, `fixed`, ou `exponential` | 
 | <*intervalo entre tentativas*> | Cadeia | O intervalo entre tentativas em que o valor tem de utilizar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D`. Quando utiliza a política de intervalo exponencial, pode especificar diferentes valores mínimos e máximos. | 
 | <*tentativas de repetição*> | Número inteiro | O número de tentativas de repetição, o que deve ser entre 1 e 90 | 
 ||||
@@ -221,9 +221,9 @@ Para limites em âmbitos, consulte [limites e configuração](../logic-apps/logi
 
 ### <a name="get-context-and-results-for-failures"></a>Obter o contexto e os resultados para falhas
 
-Embora a deteção de falhas de um âmbito é útil, também poderá contexto para o ajudar a compreender exatamente quais ações falha além de quaisquer erros ou códigos de estado que foram devolvidos. O "@result()" expressão fornece o contexto sobre o resultado de todas as ações num âmbito.
+Embora a deteção de falhas de um âmbito é útil, também poderá contexto para o ajudar a compreender exatamente quais ações falha além de quaisquer erros ou códigos de estado que foram devolvidos. O `@result()` expressão fornece o contexto sobre o resultado de todas as ações num âmbito.
 
-O "@result()" expressão aceita um parâmetro único (nome de âmbito) e retorna uma matriz de todos os ação resultados de dentro dele. Estes objetos de ação incluem os mesmos atributos como a  **@actions()** objeto, como a ação a hora de início, hora de fim, estado, entradas, IDs de correlação e saídas. Para enviar o contexto para todas as ações que falharam num âmbito, pode facilmente emparelhar um  **@result()** funcionar com uma **runAfter** propriedade.
+O `@result()` expressão aceita um parâmetro único (nome de âmbito) e retorna uma matriz de todos os ação resultados de dentro dele. Estes objetos de ação incluem os mesmos atributos como a  **@actions()** objeto, como a ação a hora de início, hora de fim, estado, entradas, IDs de correlação e saídas. Para enviar o contexto para todas as ações que falharam num âmbito, pode facilmente emparelhar um  **@result()** funcionar com uma **runAfter** propriedade.
 
 Para executar uma ação para cada ação num âmbito que tem um **falhada** resultado, e para filtrar a matriz de resultados e as ações com falha, pode emparelhar  **@result()** com um **[Matriz de filtro](../connectors/connectors-native-query.md)** ação e um [ **para cada** ](../logic-apps/logic-apps-control-flow-loops.md) loop. Pode demorar a matriz de resultado filtrado e executar uma ação para cada falha utilizando o **para cada** loop. 
 
@@ -270,22 +270,22 @@ Eis um exemplo, seguido de uma explicação detalhada, que envia um pedido de HT
 
 Aqui está um passo a passo detalhada que descreve o que acontece neste exemplo:
 
-1. Para obter o resultado de todas as ações de dentro "My_Scope", o **matriz de filtro** ação utiliza esta expressão de filtro: "@result('My_Scope')"
+1. Para obter o resultado de todas as ações de dentro "My_Scope", o **matriz de filtro** ação utiliza esta expressão de filtro: `@result('My_Scope')`
 
-2. A condição para **matriz de filtro** alguma "@result()" item que tem o Estado igual a **falha**. Esta condição filtra a matriz que tenha todos os ação resultados de "My_Scope" para baixo para uma matriz com apenas os resultados da ação com falha.
+2. A condição para **matriz de filtro** alguma `@result()` item que tem o Estado igual a **falha**. Esta condição filtra a matriz que tenha todos os ação resultados de "My_Scope" para baixo para uma matriz com apenas os resultados da ação com falha.
 
 3. Efetuar uma **para cada** loop ação no *matriz filtrado* saídas. Este passo executa uma ação para cada resultado da ação com falha que anteriormente foi filtrado.
 
    Se uma única ação no âmbito da falha, as ações no **para cada** loop executado apenas uma vez. 
    Várias ações falhadas fazer com que uma ação por falha.
 
-4. Enviar um HTTP POST sobre o **para cada** item corpo de resposta, o que é o "@item() ["saídas"] ["corpo"]" expressão. 
+4. Enviar um HTTP POST sobre o **para cada** item corpo de resposta, o que é o `@item()['outputs']['body']` expressão. 
 
-   A "@result()" forma de item é igual a "@actions()" Formatar e pode ser analisado da mesma forma.
+   O `@result()` forma de item é o mesmo que o `@actions()` formatar e pode ser analisado da mesma forma.
 
-5. Incluem dois cabeçalhos personalizados com o nome da ação falhou ("@item() ["name"]") e a executa o ID de controlo de cliente ("@item() ['clientTrackingId']").
+5. Incluem dois cabeçalhos personalizados com o nome da ação com falhas (`@item()['name']`) e a executa o cliente, ID de controlo (`@item()['clientTrackingId']`).
 
-Para referência, eis um exemplo de uma única "@result()" do item, que mostra a **name**, **corpo**, e **clientTrackingId** propriedades que são analisadas no anterior exemplo. Fora um **para cada** ação, "@result()" devolve uma matriz desses objetos.
+Para referência, eis um exemplo de uma única `@result()` item, que mostra a **name**, **corpo**, e **clientTrackingId** propriedades que são analisadas no anterior exemplo. Fora um **para cada** ação, `@result()` retorna uma matriz desses objetos.
 
 ```json
 {

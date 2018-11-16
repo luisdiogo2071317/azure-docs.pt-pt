@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: alinast
-ms.openlocfilehash: 33190472215e7a02b94951a73054ebe3e1994e54
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6a757dca48dc3ff41adfe6f8802fad40e7a4ca81
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623915"
+ms.locfileid: "51636837"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Como utilizar funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -44,7 +44,7 @@ Matchers são objetos de gráfico que determinam o que executar funções defini
 A seguinte na ferramenta de correspondência do exemplo é avaliada como true em qualquer evento de telemetria de sensores com `"Temperature"` como seu valor de tipo de dados. Pode criar vários matchers numa função definida pelo utilizador:
 
 ```plaintext
-POST yourManagementApiUrl/matchers
+POST YOUR_MANAGEMENT_API_URL/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -59,7 +59,7 @@ POST yourManagementApiUrl/matchers
 }
 ```
 
-| O valor | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Qual sua instância estiver alojada num servidor a região |
 
@@ -72,20 +72,20 @@ Depois dos matchers são criados, carregar o trecho de código de função com o
 > - O corpo é com várias partes:
 >   - A primeira parte é sobre metadados necessários para o UDF.
 >   - A segunda parte é a lógica de computação do JavaScript.
-> - Na **userDefinedBoundary** secção, substitua a **SpaceId** e **Machers** valores.
+> - Na **USER_DEFINED_BOUNDARY** secção, substitua a **SpaceId** e **Machers** valores.
 
 ```plaintext
-POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 ```
 
 | Valor do parâmetro | Substituir |
 | --- | --- |
-| *userDefinedBoundary* | Um nome de limites com várias partes de conteúdo |
+| *USER_DEFINED_BOUNDARY* | Um nome de limites com várias partes de conteúdo |
 
 ### <a name="body"></a>Corpo
 
 ```plaintext
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
@@ -95,7 +95,7 @@ Content-Disposition: form-data; name="metadata"
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
   "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
 Content-Type: text/javascript
 
@@ -103,10 +103,10 @@ function process(telemetry, executionContext) {
   // Code goes here.
 }
 
---userDefinedBoundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| O valor | Substituir |
+| Valor | Substituir |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | O identificador de espaço  |
 | YOUR_MATCHER_IDENTIFIER | O ID da na ferramenta de correspondência que pretende utilizar |
@@ -189,7 +189,7 @@ Para um exemplo de código mais complexo de UDF [verificar espaços disponíveis
 1. Para funções de consulta e obter o ID da função que pretende atribuir para o UDF. Passá-lo para **RoleId**:
 
     ```plaintext
-    GET yourManagementApiUrl/system/roles
+    GET YOUR_MANAGEMENT_API_URL/system/roles
     ```
 
 1. **ObjectId** será o ID de UDF criado anteriormente.
@@ -197,17 +197,17 @@ Para um exemplo de código mais complexo de UDF [verificar espaços disponíveis
 1. Copiar retornado `spacePaths` valor. Usará que no código a seguir:
 
     ```plaintext
-    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
     | Valor do parâmetro | Substituir |
     | --- | --- |
-    | *yourSpaceName* | O nome do espaço de que pretende utilizar |
+    | *YOUR_SPACE_NAME* | O nome do espaço de que pretende utilizar |
 
 1. Cole retornado `spacePaths` valor para **caminho** para criar uma atribuição de função UDF:
 
     ```plaintext
-    POST yourManagementApiUrl/roleassignments
+    POST YOUR_MANAGEMENT_API_URL/roleassignments
     {
       "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
       "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",

@@ -1,6 +1,6 @@
 ---
-title: Consulta do Hive através do controlador JDBC - Azure HDInsight
-description: Utilize o controlador JDBC a partir de uma aplicação de Java para submeter consultas do Hive ao Hadoop no HDInsight. Ligar através de programação e do cliente SQuirrel SQL.
+title: Consulte o Apache Hive através do controlador JDBC - Azure HDInsight
+description: Utilize o controlador JDBC a partir de uma aplicação de Java para submeter consultas do Apache Hive para o Hadoop no HDInsight. Ligar através de programação e do cliente SQuirrel SQL.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014419"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633449"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulta do Hive através do controlador JDBC no HDInsight
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>Consulte o Apache Hive através do controlador JDBC no HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Saiba como utilizar o controlador JDBC a partir de uma aplicação de Java para submeter consultas do Hive ao Hadoop no HDInsight do Azure. As informações neste documento demonstra como estabelecer ligação através de programação e do cliente SQuirrel SQL.
+Saiba como utilizar o controlador JDBC a partir de uma aplicação de Java para submeter consultas do Apache Hive, Apache hadoop no HDInsight do Azure. As informações neste documento demonstra como estabelecer ligação através de programação e do cliente SQuirrel SQL.
 
 Para obter mais informações sobre a Interface de JDBC do Hive, consulte [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 

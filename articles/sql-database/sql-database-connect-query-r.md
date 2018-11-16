@@ -12,12 +12,12 @@ ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
 ms.date: 11/07/2018
-ms.openlocfilehash: 75ec6a3fbfdd45575c46b763f1f5d0b69376e7a7
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 382ac23ea4c8e0ec54314bb754c00a8e6e43e9f6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285276"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300970"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início Rápido: Utilizar o Machine Learning Services (com R) na Base de Dados SQL do Azure (pré-visualização)
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="sign-up-for-the-preview"></a>Inscrever-se na pré-visualização
 
-A pré-visualização pública do Machine Learning Services (com R) na Base de Dados SQL do Azure não está ativada por predefinição. Envie um e-mail para a Microsoft, para o endereço [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com), para se inscrever na pré-visualização pública.
+A pré-visualização pública do Machine Learning Services (com R) na Base de Dados SQL do Azure não está ativada por predefinição. Enviar um e-mail à Microsoft em [ sqldbml@microsoft.com ](mailto:sqldbml@microsoft.com) para se inscrever na pré-visualização pública.
 
 Quando estiver inscrito no programa, a Microsoft incluí-lo-á na pré-visualização pública e migrará a sua base de dados já existente ou criará uma base de dados nova num serviço com R ativado.
 
@@ -519,11 +519,11 @@ Se precisar de utilizar um pacote que ainda não esteja instalado na sua Base de
 > [!NOTE]
 > Outra forma de instalar os pacotes R na Base de Dados SQL é carregá-los a partir do fluxo de bytes com [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para obter mais informações sobre o Machine Learning Services, veja os artigos abaixo sobre o Machine Learning Services para SQL Server. Embora os artigos digam respeito ao SQL Server, a maioria das informações também se aplicam ao Machine Learning Services (com R) na Base de Dados SQL do Azure.
 
-- [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning) (Machine Learning Services para SQL Server)
+- [Serviços de Machine Learning do SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
 - [Tutorial: Learn in-database analytics using R in SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Tutorial: Aprender o que são as análises na base de dados com R no SQL Server)
 - [End-to-end data science walkthrough for R and SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) (Instruções completas de ciência de dados para R e SQL Server)
 - [Tutorial: Use RevoScaleR R functions with SQL Server data](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages) (Tutorial: Utilizar funções RevoScaleR com dados do SQL Server)

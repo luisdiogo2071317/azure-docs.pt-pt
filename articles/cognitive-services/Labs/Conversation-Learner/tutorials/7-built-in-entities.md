@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cdd9ad16096c85db21829840b2bfd7acaced5942
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260062"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683512"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Como adicionar entidades criadas previamente
 Este tutorial mostra como adicionar entidades de "previamente criados" ao seu modelo de aprendiz de conversação.
@@ -44,27 +44,28 @@ Entidades criadas previamente reconhecem tipos comuns de entidades, como número
 
 1. Clique em entidades, em seguida, nova entidade.
 2. Clique no menu suspenso de EntityType e selecione datetimev2.
-    - Opções de programável e Negatable estão desativadas, porque eles não são aplicáveis a pré-criar entidades.
+    - Opções de programável e Negatable estão desativadas, porque eles não são aplicáveis a entidades criadas previamente.
 3. Clique em Criar.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### <a name="create-two-actions"></a>Criar duas ações
 
-1. Clique em ações, em seguida, nova ação
-2. Em resposta, escreva "a data é $luis-datetimev2'.
-3. Clique em Criar.
+1. Clique em ações, em seguida, nova ação.
+1. Em resposta, escreva "a data é $builtin-datetimev2'.
+1. Nas entidades necessário, introduza "$builtin-datetimev2'.
+1. Clique em Criar.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 Em seguida, crie a segunda ação:
 
 1. Clique em ações, em seguida, nova ação para criar uma segunda ação.
-3. Em resposta, escreva "O que é a data?".
-4. Nas entidades Disqualifying, introduza 'luis datetimev2'.
-4. Clique em Criar
+1. Em resposta, escreva "O que é a data?".
+1. Nas entidades Disqualifying, introduza "$builtin-datetimev2'.
+1. Clique em Criar.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 Agora tem duas ações.
 
@@ -75,11 +76,11 @@ Agora tem duas ações.
 3. Clique em ações de pontuação e selecione "O que é a data?"
 2. Introduza "hoje". 
     - Observe que hoje é marcado e aparece na segunda linha, uma vez que é uma entidade previamente criada e não editável.
-5. Clique em ações de pontuação
+5. Clique em ações de pontuação.
     - Observe que agora a data é apresentada na secção de memória de entidade. 
     - Se passa o mouse sobre a data, verá os dados adicionais fornecidos pela LUIS, que pode ser utilizado e ainda mais pode ser manipulado no código. 
-6. Selecione "a data é $luis-datetimev2'.
-7. Clique em concluído ensino
+6. Selecione "a data é $builtin-datetimev2'.
+7. Clique em concluído ensino.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
