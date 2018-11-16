@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 16e78784337771d1e31d826f475c92c86fe20411
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 470d08c13d5874283794fa9a2ce06fcaad4f60c2
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212323"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300545"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
-Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Não vê estes componentes como entidades separadas. Em vez disso, vê-os como partes relacionadas e interdependentes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utiliza um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, como de teste e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação. 
+Normalmente, a infraestrutura da sua aplicação é composta por vários componentes, como uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou uma aplicação Web, uma base de dados, um servidor de base de dados e serviços de terceiros. Poderá não ver esses componentes como entidades separadas, em vez disso, vê-los como relacionadas e interdependentes partes de uma única entidade. Deve implementá-los, geri-los e monitorizá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utiliza um modelo para a implementação e esse modelo pode funcionar para ambientes diferentes, como de teste e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação. 
 
 ## <a name="consistent-management-layer"></a>Camada de gestão consistente
 O Resource Manager oferece uma camada de gestão consistente para realizar tarefas através do Azure PowerShell, CLI do Azure, portal do Azure, API REST e SDKs de cliente. Todas as funcionalidades que estão disponíveis no portal do Azure também estão disponíveis no Azure PowerShell, na CLI do Azure, nas APIs REST do Azure e nos SDKs de cliente. A funcionalidade inicialmente lançada através de APIs será representada no portal dentro de 180 dias do lançamento inicial.
@@ -250,7 +250,7 @@ Para obter informações sobre como utilizar estas linguagens com os seus recurs
 > Se o SDK não fornecer a funcionalidade necessária, também pode ligar para a [API de REST do Azure](https://docs.microsoft.com/rest/api/resources/) diretamente.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste artigo, aprendeu a utilizar o Azure Resource Manager para a implementação, a gestão e o controlo de acesso de recursos no Azure. Avance para o artigo seguinte para aprender a criar o seu primeiro modelo do Azure Resource Manager.
 

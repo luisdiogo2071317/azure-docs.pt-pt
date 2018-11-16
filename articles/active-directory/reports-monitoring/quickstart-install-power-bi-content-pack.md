@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816655"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622539"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Início Rápido: instalar o pacote de conteúdos do Power BI para o Azure Active Directory
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816655"
 |Atualmente, o pacote de conteúdos do Power BI para o Azure AD utiliza as APIs do Azure AD Graph para obter dados do seu inquilino do Azure AD. Como resultado, poderá observar alguma disparidade entre os dados disponíveis no pacote de conteúdos e os dados obtidos com as [APIs do Microsoft Graph para relatórios](concept-reporting-api.md). |
 |  |
 
-O pacote de conteúdos do Power BI para o Azure Active Directory permite obter informações aprofundadas do que se passa no seu diretório ativo. Pode transferir o pacote de conteúdos pré-criado e utilizá-lo para reportar todas as atividades do seu diretório com a avançada experiência de visualização que o Power BI oferece. Também pode criar o seu próprio dashboard e partilhá-lo facilmente com qualquer pessoa da sua organização. 
+O pacote de conteúdos do Power BI para o Azure Active Directory (Azure AD) dá-lhe a capacidade de visualizar os dados de relatório do seu ambiente. Pode transferir o pacote de conteúdos pré-criado e utilizá-lo para reportar todas as atividades do seu diretório com a avançada experiência de visualização que o Power BI oferece. Também pode criar o seu próprio dashboard e partilhá-lo facilmente com qualquer pessoa da sua organização. 
 
 Neste início rápido, vai aprender a instalar o pacote de conteúdos.
 
@@ -57,7 +57,7 @@ Para concluir este guia de início rápido, necessita de:
 
    ![Pacote de Conteúdos do Power BI para o Azure Active Directory](./media/quickstart-install-power-bi-content-pack/dashboard.png) 
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Utilizar o pacote de conteúdos do Power BI](howto-power-bi-content-pack.md).
 * [Resolver erros do pacote de conteúdos](troubleshoot-content-pack.md).

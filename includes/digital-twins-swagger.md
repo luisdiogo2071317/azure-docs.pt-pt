@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: beae54dc36225dd26b4eb1d1a8f89d1005a33e93
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa99fa3b6ae9e809718121787cc986d02bcf824b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/14/2018
-ms.locfileid: "51626342"
+ms.locfileid: "51678214"
 ---
 > [!TIP]
 > Pré-estreia do Swagger é fornecido demonstrar o recurso de API definido.
@@ -22,10 +22,10 @@ ms.locfileid: "51626342"
 Pode acessar sua própria documentação Swagger da API de gestão gerada em:
 
 ```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome personalizado | Substituir |
+| Nome | Substituir |
 | --- | --- |
-| yourInstanceName | O nome da sua instância de duplos Digital do Azure |
-| yourLocation | Qual sua instância estiver alojada num servidor a região |
+| YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital do Azure |
+| YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |

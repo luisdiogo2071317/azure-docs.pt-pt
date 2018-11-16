@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854954"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634384"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referência de tarefas do ACR: YAML
 
@@ -30,7 +30,7 @@ Tarefas de ACR oferece suporte a declaração de tarefa de várias etapas na sin
 O nível superior `acr-task.yaml` primitivos são **propriedades da tarefa**, **passo tipos**, e **passo propriedades**:
 
 * [Propriedades da tarefa](#task-properties) aplicam-se a todos os passos em toda a execução da tarefa. Existem três propriedades de tarefa global:
-  * version
+  * versão
   * stepTimeout
   * totalTimeout
 * [Passo tipos de tarefas](#task-step-types) representam os tipos de ações que podem ser executadas numa tarefa. Existem três tipos de passo:
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-O `build` tipo de passo suporta os seguintes parâmetros:
+O `build` tipo de passo suporta os parâmetros na tabela seguinte. O `build` tipo de passo também oferece suporte a todas as opções de compilação do [compilação do docker](https://docs.docker.com/engine/reference/commandline/build/) comando, tal como `--build-arg` para definir as variáveis de tempo de compilação.
 
 | Parâmetro | Descrição | Opcional |
 | --------- | ----------- | :-------: |
@@ -122,7 +122,7 @@ O `build` tipo de passo suporta os seguintes parâmetros:
 
 ### <a name="properties-build"></a>Propriedades: criar
 
-O `build` tipo de passo suporta as seguintes propriedades, pode encontrar os detalhes destas propriedades no [propriedades do passo de tarefa](#task-step-properties) seção deste artigo.
+O `build` tipo de passo suporta as seguintes propriedades. Pode encontrar os detalhes destas propriedades no [propriedades do passo de tarefa](#task-step-properties) seção deste artigo.
 
 | | | |
 | -------- | ---- | -------- |

@@ -1,5 +1,5 @@
 ---
-title: 'Depure o Hadoop no HDInsight: ver registos e interpretar mensagens de erro - Azure '
+title: 'Depurar o Apache Hadoop no HDInsight: ver registos e interpretar mensagens de erro - Azure '
 description: Saiba mais sobre a mensagens de erro, que poderá receber ao administrar o HDInsight com o PowerShell e os passos que pode tomar para recuperar.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7600ff1a11435ee079fef80ecfa5ad88de1b4750
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569027"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634639"
 ---
 # <a name="analyze-hadoop-logs"></a>Analisar os registos de Hadoop
 
-Cada cluster do Hadoop no HDInsight do Azure tem uma conta de armazenamento do Azure utilizada como o sistema de ficheiros predefinido. A conta de armazenamento é referida como a conta de armazenamento predefinida. Cluster utiliza o armazenamento de tabelas do Azure e o armazenamento de BLOBs na conta de armazenamento predefinida para armazenar os seus registos.  Para obter a conta de armazenamento predefinida para o seu cluster, veja [Hadoop gerir clusters no HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Mantém os registos na conta de armazenamento, mesmo depois do cluster é eliminado.
+Cada cluster do Apache Hadoop no HDInsight do Azure tem uma conta de armazenamento do Azure utilizada como o sistema de ficheiros predefinido. A conta de armazenamento é referida como a conta de armazenamento predefinida. Cluster utiliza o armazenamento de tabelas do Azure e o armazenamento de BLOBs na conta de armazenamento predefinida para armazenar os seus registos.  Para obter a conta de armazenamento predefinida para o seu cluster, veja [Hadoop gerir clusters no HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Mantém os registos na conta de armazenamento, mesmo depois do cluster é eliminado.
 
 ## <a name="logs-written-to-azure-tables"></a>Registos escritos para as tabelas do Azure
 

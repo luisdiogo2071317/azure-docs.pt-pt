@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311018"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687406"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Do Azure Active Directory totalmente integrada início de sessão único: análise detalhada bastante técnica
 
@@ -79,8 +79,8 @@ O fluxo de início de sessão num cliente nativo é o seguinte:
 
 1. O utilizador tenta acessar um aplicativo nativo (por exemplo, o cliente do Outlook) a partir de um dispositivo da empresa associado a um domínio no interior da rede empresarial.
 2. Se o utilizador não está já iniciou sessão, o aplicativo nativo obtém o nome de utilizador do utilizador da sessão do Windows do dispositivo.
-3. A aplicação envia o nome de utilizador para o Azure AD e recupera o ponto de extremidade do seu inquilino MEX de WS-Trust.
-4. A aplicação, em seguida, consulta o ponto de extremidade de MEX de WS-Trust para ver se integrado o ponto final de autenticação está disponível.
+3. A aplicação envia o nome de utilizador para o Azure AD e recupera o ponto de extremidade do seu inquilino MEX de WS-Trust. Esse ponto de extremidade do WS-Trust é usado exclusivamente pela funcionalidade de SSO totalmente integrado e não é uma implementação geral do protocolo WS-Trust no Azure AD.
+4. A aplicação, em seguida, consulta o ponto de extremidade de MEX de WS-Trust para ver se integrado o ponto final de autenticação está disponível. O ponto de final de autenticação integrada é utilizado exclusivamente pela funcionalidade de SSO totalmente integrado.
 5. Se tiver êxito passo 4, é emitido um desafio de Kerberos.
 6. Se a aplicação é possível obter o tíquete Kerberos, ela encaminha até o ponto final de autenticação integrada do Azure AD.
 7. Azure AD desencripta o tíquete Kerberos e validá-lo.

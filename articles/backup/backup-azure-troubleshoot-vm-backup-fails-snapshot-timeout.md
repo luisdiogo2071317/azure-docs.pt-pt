@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 75e37d228d523347ee54794ead5fbba6f278702a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 496afab869d8cf1b7b00791913c3082e31b45327
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569085"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633925"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -28,11 +28,11 @@ Este artigo fornece passos de resolução de problemas que podem ajudar a resolv
 **Mensagem de erro**: agente de VM não é possível comunicar com o Azure Backup<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança, cópia de segurança inicia a tarefa através da comunicação com o agente da VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Quando um instantâneo não é acionado, a cópia de segurança poderá falhar. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:<br>
-**Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
-**Causa 2: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Causa 3: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 4: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Causa 5: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 1: [o agente está instalado na VM, mas está sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Causa 4: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 5: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - não foi possível comunicar com o agente VM para o estado do instantâneo
 
@@ -57,7 +57,6 @@ Para resolver este problema, remova o bloqueio do grupo de recursos e repita a o
 > [!NOTE]
     > Serviço de cópia de segurança cria um grupo de recursos separado que o grupo de recursos da VM para armazenar a coleção de ponto de restauro. Os clientes são aconselhados não para bloquear o grupo de recursos criado para utilização pelo serviço de cópia de segurança. O formato de nomenclatura do grupo de recursos criado pelo serviço de cópia de segurança é: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
-
 **Passo 1: [remover o bloqueio do grupo de recursos do ponto de restauro](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Passo 2: [limpar a coleção de ponto de restauro](#clean_up_restore_point_collection)**<br>
 
@@ -74,9 +73,9 @@ Para a operação de cópia de segurança com êxito em VMs encriptadas, tem de 
 **Mensagem de erro**: a operação falhou devido a nenhuma conectividade de rede na máquina virtual de instantâneo<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:    
-**Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
-**Causa 2: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 3: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 1: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 2: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 3: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - operação de extensão de VMSnapshot falhou
 
@@ -95,12 +94,12 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Mensagem de erro**: cópia de segurança falhou com um erro interno - repita a operação dentro de alguns minutos <br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
-**Causa 1: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**  
-**Causa 2: [o agente instalado na VM, mas não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**Causa 3: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Causa 4: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Causa 5: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
-**Causa 6: [serviço de cópia de segurança não tem permissão para eliminar os pontos de restauração antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+**Causa 1: [o agente instalado na VM, mas não está a responder (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**Causa 2: [o agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**Causa 3: [não é possível obter o estado do instantâneo ou não pode ser criado um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**Causa 4: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
+**Causa 5: [serviço de cópia de segurança não tem permissão para eliminar os pontos de restauração antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Causa 6: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - atualmente o Azure Backup não suporta tamanhos de disco superiores a 1023GB
 

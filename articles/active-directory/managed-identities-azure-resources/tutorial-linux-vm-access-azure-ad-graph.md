@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1d1e0d8f5a030daadb8dab1233dee52d5485c8fb
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
-ms.translationtype: HT
+ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237488"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623106"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Graph API do Azure AD
 
@@ -37,15 +37,7 @@ Neste tutorial, irá consultar a associação da identidade da sua VM em grupos 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Iniciar sessão no portal do Azure](https://portal.azure.com)
-
-- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
-
-- [Ativar a identidade gerida atribuída pelo sistema na sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - [Instalar a versão mais recente da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
@@ -175,7 +167,7 @@ Para concluir estes passos, precisará de um cliente SSH. Se estiver a utilizar 
    Content : {"odata.metadata":"https://graph.windows.net/myorganization/$metadata#Collection(Edm.String)","value":["<ObjectID of VM's group membership>"]}
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a utilizar uma identidade gerida atribuída pelo sistema de VM do Linux para aceder ao Azure AD Graph.  Para saber mais sobre o Azure AD Graph, veja:
 

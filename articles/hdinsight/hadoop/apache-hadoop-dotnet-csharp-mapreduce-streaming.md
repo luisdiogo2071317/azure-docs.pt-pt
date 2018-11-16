@@ -1,6 +1,6 @@
 ---
 title: Utilizar c# com o MapReduce do Hadoop no HDInsight - Azure
-description: Saiba como utilizar c# para criar soluções de MapReduce com o Hadoop no HDInsight do Azure.
+description: Saiba como utilizar C# para criar soluções de MapReduce com o Apache Hadoop no HDInsight do Azure.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cf68ba16cf19a20686f323832ccd7e7d1b543bb
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010954"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632599"
 ---
-# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Utilizar c# com o MapReduce de transmissão em fluxo do Hadoop no HDInsight
+# <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# com o MapReduce de transmissão em fluxo no Apache Hadoop no HDInsight
 
 Saiba como utilizar c# para criar uma solução de MapReduce no HDInsight.
 
 > [!IMPORTANT]
 > O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, consulte [controlo de versões de componente de HDInsight](../hdinsight-component-versioning.md).
 
-Transmissão em fluxo do Hadoop é um utilitário que permite-lhe executar tarefas de MapReduce com um script ou executável. Neste exemplo, o .NET é utilizado para implementar o mapeador de pontos e reducer para uma solução de contagem do word.
+Transmissão em fluxo do Apache Hadoop é um utilitário que permite-lhe executar tarefas de MapReduce com um script ou executável. Neste exemplo, o .NET é utilizado para implementar o mapeador de pontos e reducer para uma solução de contagem do word.
 
 ## <a name="net-on-hdinsight"></a>.NET no HDInsight
 

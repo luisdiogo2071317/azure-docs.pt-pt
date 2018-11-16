@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361716"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345713"
 ---
 # <a name="what-is-bing-spell-check-api"></a>O que é a API de Verificação de Ortografia do Bing?
 
@@ -42,9 +42,12 @@ O modo predefinido é `Proof`. O modo de ortografia `Proof` oferece as verifica�
 <br /><br/>**NOTA:** se o comprimento do texto de consulta exceder 4096, será truncado para 4096 carateres e, em seguida, processado. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Ortografia - para cenário de pesquisas/consultas da Web
 A `Spell` é mais agressiva para devolver resultados melhores de pesquisa. O modo `Spell` encontra a maioria dos erros de ortografia, mas não encontra alguns dos erros de gramática que o `Proof` encontra, por exemplo, a capitalização e as palavras repetidas.
-<br /></br>**NOTA:** o comprimento de consulta máximo suportado é o abaixo. Se a consulta exceder o limite, o resultado parece que a consulta não é alterada.
-<ul><li>130 carateres para o código de idioma de en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. </li>
-<li>65 carateres para outros</li></ul>
+
+> [!NOTE]
+> * O comprimento máximo de consulta suportados é inferior. Se a consulta excede o comprimento máximo, a consulta e seus resultados não serão alterados.
+>    * 130 carateres para os seguintes códigos de idioma: en, Alemanha, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, ele, zh, ko. 
+>    * 65 carateres para todos os outros.
+> * O modo de ortografia não oferece suporte a caracteres de parêntesis Reto de fecho (`[` e `]`) em consultas e pode gerar resultados inconsistentes. Recomendamos a removê-los a partir de suas consultas ao usar o modo de ortografia.
 
 ## <a name="market-setting"></a>Definição do mercado
 O mercado tem de ser especificado no parâmetro de consulta no URL do pedido, caso contrário, o corretor ortográfico ocupará o mercado padrão com base no endereço IP.
@@ -123,7 +126,7 @@ Se o campo `type` é RepeatedToken, ainda deveria substituir o token por `sugges
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para começar a trabalhar rapidamente com o seu primeiro pedido, veja [Fazer o Primeiro Pedido](quickstarts/csharp.md).
 

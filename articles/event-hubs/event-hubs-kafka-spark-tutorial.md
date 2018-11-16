@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 10/30/2018
 ms.author: bahariri
-ms.openlocfilehash: 2a9f1ea069bdb45adb1b8c6b52392f15a4660b5c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: a2ab9a77728509b794c2f5b810fb939f6d1a16e3
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285123"
+ms.locfileid: "51286780"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>Ligar a aplicação Apache Spark aos Hubs de Eventos do Azure com Kafka ativado
 Este tutorial mostra-lhe como ligar a sua aplicação Spark aos Hubs de Eventos com Kafka ativado, para transmissões em fluxo em tempo real. Esta integração ativa a transmitir em fluxo sem que seja necessário alterar os clientes de protocolo ou executar os seus próprios clusters do Kafka ou do Zookeeper. Este tutorial requer o Apache Spark v2.4+ e o Apache Kafka v2.0+.
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar o tutorial, confirme que tem:
--   Uma subscrição do Azure. Se não tiver uma subscrição, [crie uma conta gratuita](https://azure.microsoft.com/free/).
+-   Subscrição do Azure. Se não tiver uma subscrição, [crie uma conta gratuita](https://azure.microsoft.com/free/).
 -   [Apache Spark v2.4](https://spark.apache.org/downloads.html)
 -   [Apache Kafka v2.0]( https://kafka.apache.org/20/documentation.html)
 -   [Git](https://www.git-scm.com/downloads)
@@ -80,7 +80,7 @@ val df_write = df.writeStream
 ```
 
 ## <a name="write-to-event-hubs-for-kafka"></a>Escrever nos Hubs de Eventos para Kafka
-Também pode escrever nos Hubs de Eventos da mesma forma que escreve no Kafka. Não se esqueça de atualizar a configuração para alterar **BOOTSTRAP_SERVERS** e **EH_SASL** com as informações do espaço de nomes dos Hubs de Eventos.  Para obter o código de exemplo completo, veja o ficheiro sparkProducer.scala no GitHub. 
+Também pode escrever para os Hubs de eventos da mesma forma que escrever ao Kafka. Não se esqueça de atualizar a configuração para alterar **BOOTSTRAP_SERVERS** e **EH_SASL** com as informações do espaço de nomes dos Hubs de Eventos.  Para obter o código de exemplo completo, veja o ficheiro sparkProducer.scala no GitHub. 
 
 ```scala
 df = /**Dataframe**/
@@ -99,7 +99,7 @@ df.writeStream
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu utilizar o conector Spark-Kafka e os Hubs de Eventos para Kafka para transmitir em fluxo. Realizou os seguintes passos: 
 

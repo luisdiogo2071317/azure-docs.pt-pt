@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
-ms.translationtype: HT
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378436"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616032"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guia de Início Rápido: Criar um balanceador de carga Básico público com o portal do Azure
 
@@ -159,6 +159,7 @@ Para permitir ao balanceador de carga Básico monitorizar o estado da aplicaçã
    - **myHealthProbe** no nome da sonda de estado de funcionamento
    - **HTTP** no tipo de protocolo
    - **80** no número da porta
+   - **Healthprobe. aspx** para o caminho do URI. Pode substituir este valor com quaisquer outro URI ou mantenha o valor do caminho predefinido de **"\\"** para obter o URI predefinido.
    - **15** no **Intervalo**, o número de segundos entre tentativas da sonda
    - **2** no **Limiar de mau estado de funcionamento**, o número de falhas consecutivas da sonda que têm de ocorrer para que uma VM seja considerada como estando em mau estado de funcionamento
 
@@ -193,7 +194,7 @@ Crie uma regra de balanceador de carga com o nome **myLoadBalancerRuleWeb** para
 
 Pode eliminar o grupo de recursos, o balanceador de carga e todos os recursos relacionados, quando já não forem necessários. Selecione o grupo de recursos que contém o balanceador de carga e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste guia de início rápido, criou um grupo de recursos, recursos de rede e servidores de back-end. Em seguida, utilizou esses recursos para criar um Balanceador de Carga Básico. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 

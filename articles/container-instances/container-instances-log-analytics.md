@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 5d3ba4ac4a86b6051ea5dafbff8c038c9198108c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 7f4af06222141eb0e143e67ba4bfcdcb2f5f92fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279556"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614009"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registar instância de contentor com o Azure Log Analytics
 
@@ -128,14 +128,15 @@ ContainerInstanceLog_CL
 | where (TimeGenerated > ago(1h))
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 ### <a name="log-analytics"></a>Log Analytics
 
 Para obter mais informações sobre como consultar os registos e configurar alertas no Azure Log Analytics, consulte:
 
-* [Noções sobre pesquisas de registo no Log Analytics](../log-analytics/log-analytics-queries.md)
-* [Alertas unificados no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+* [Noções sobre pesquisas de registo no Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Alertas unificados no Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorizar a CPU e a memória do contentor
 

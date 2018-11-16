@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: a3c35057af883eb790c44b3547072031eaf4ad2f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: c85d3ce6ab3e84d454ddbc2550f430b87705c192
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962015"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622181"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente. 
 
@@ -520,7 +520,7 @@ A seguinte política tem de ser definida como **Todos**: **os utilizadores podem
 
 ### <a name="configure-on-premises-federation-service"></a>Configurar o serviço de federação no local 
 
-O serviço de federação no local tem de suportar a emissão das afirmações **authenticationmethod** e **wiaormultiauthn** quando recebe um pedido de autenticação na entidade confiadora do Azure AD que contém um parâmetro resouce_params com um valor codificado, conforme mostrado abaixo:
+O serviço de Federação no local tem de suportar a emitir a **authenticationmethod** e **wiaormultiauthn** afirmações quando recebe um pedido de autenticação à parte da entidade confiadora do Azure AD que contém um resource_params parâmetro com um valor codificado como mostrado abaixo:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
@@ -545,7 +545,7 @@ No AD FS, tem de adicionar uma regra de transformação de emissão que seja tra
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. No servidor de federação, escreva o seguinte comando do PowerShell depois de substituir **\<RPObjectName\>** pelo nome do objeto da entidade confiadora do seu objeto de confiança da entidade confiadora do Azure AD. Normalmente, este objeto é denominado **Plataforma de Identidade do Microsoft Objeto 365**.
+8. No servidor de Federação, escreva o comando do PowerShell abaixo depois de substituir **\<RPObjectName\>** com o nome de objeto de terceiros entidade confiadora para seu objeto de confiança de terceiros da entidade confiadora do AD do Azure. Normalmente, este objeto é denominado **Plataforma de Identidade do Microsoft Objeto 365**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -577,7 +577,7 @@ Se estiver a ter problemas a completar a associação ao Azure AD híbrido dos d
 - [Troubleshooting Hybrid Azure AD join for Windows current devices](troubleshoot-hybrid-join-windows-current.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows atuais)
 - [Troubleshooting Hybrid Azure AD join for Windows down-level devices](troubleshoot-hybrid-join-windows-legacy.md) (Resolver problemas com a associação híbrida ao Azure AD para dispositivos Windows de nível inferior)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Introduction to device management in Azure Active Directory](overview.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 

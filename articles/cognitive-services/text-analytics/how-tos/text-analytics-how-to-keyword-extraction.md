@@ -1,7 +1,6 @@
 ---
-title: 'Exemplo: como extrair expressões-chave na Análise de Texto'
-titleSuffix: Azure Cognitive Services
-description: Saiba como extrair expressões-chave com a API REST de Análise de Texto.
+title: Extração de expressões-chave procedimentos na API de REST de análise de texto (serviços cognitivos da Microsoft no Azure) | Documentos da Microsoft
+description: Como extrair expressões-chave com a API de REST de análise de texto nos serviços cognitivos da Microsoft no Azure neste tutorial passo a passo.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
-ms.translationtype: HT
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605492"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632395"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemplo: como extrair expressões-chave na Análise de Texto
 
@@ -24,6 +23,9 @@ A [API de Extração de Expressões-Chave](https://westus.dev.cognitive.microsof
 Esta funcionalidade é útil se precisar de identificar rapidamente os pontos principais numa coleção de documentos. Por exemplo, para o texto de entrada "The food was delicious and there were wonderful staff", o serviço devolve os pontos de conversa principais: "food" e "wonderful staff".
 
 Atualmente, a Extração de Expressões-Chave suporta inglês, alemão, espanhol e japonês. Os outros idiomas estão em pré-visualização. Para obter mais informações, veja [Idiomas suportados](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Análise de texto também fornece um Docker baseado em Linux imagem de contentor para extração de expressões-chave, para que possa [instalar e executar o contentor de análise de texto](text-analytics-how-to-install-containers.md) perto dos seus dados.
 
 ## <a name="preparation"></a>Preparação
 
@@ -71,7 +73,7 @@ Pode obter detalhes sobre a definição do pedido em [Como chamar a API de Anál
 
 + Crie um pedido **POST**. Reveja a documentação sobre a API para este pedido: [API de Expressões-Chave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Defina o ponto final HTTP para a extração de expressões-chave. Tem de incluir o recurso `/keyphrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Definir o ponto final HTTP para extração de expressões-chave, usando um recurso de análise de texto no Azure ou um instanciadas [contentor de análise de texto](text-analytics-how-to-install-containers.md). Tem de incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + Defina um cabeçalho de pedido para incluir a chave de acesso para operações de Análise de Texto. Para obter mais informações, veja [Como localizar pontos finais e chaves de acesso](text-analytics-how-to-access-key.md).
 
@@ -156,7 +158,7 @@ Neste artigo, aprendeu conceitos e fluxos de trabalho relativos à extração de
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712) 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [API de Análise de Texto](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
