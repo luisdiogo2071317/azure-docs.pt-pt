@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: f0849bf82acfd6bc72cd35fb1fc18bdb8aac2282
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091697"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819192"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Utilizar o portal do Azure para administrar o Data Box Disk (Pré-visualização)
 
@@ -109,7 +109,7 @@ Execute os seguintes passos para editar a encomenda.
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
-Poderá ter de alterar os utilizadores que pretende que recebam os e-mails do estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro utilizador poderá ter de manter-se informado sobre quando a cópia de dados é concluída, para poder verificar que os dados estão na conta de armazenamento do Azure antes de os eliminar da origem. Nestes casos, pode editar os detalhes de notificação.
+Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro utilizador poderá ter de manter-se informado sobre quando a cópia de dados é concluída, para poder verificar que os dados estão na conta de armazenamento do Azure antes de os eliminar da origem. Nestes casos, pode editar os detalhes de notificação.
 
 Execute os seguintes passos para editar os detalhes de notificação.
 
@@ -129,7 +129,7 @@ Execute os seguintes passos para editar os detalhes de notificação.
 |Processado     | O processamento da encomenda está concluído. <br> Durante o processamento da encomenda, ocorrem as ações seguintes:<li>Os discos são encriptados com a encriptação AES-128 BitLocker. </li> <li>O Data Box Disk está bloqueado para impedir qualquer acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante este processo.</li>        |
 |Expedido     | A encomenda foi enviada. Deverá receber a encomenda dentro de 1 a 2 dias.        |
 |Entregue     | A encomenda foi entregue no endereço especificado na encomenda.        |
-|Recolhido     |O envio para devolução foi recolhido. <br> Assim que o envio é recebido no datacenter do Azure, os dados são carregados automaticamente para o Azure.         |
+|Recolhido     |O envio para devolução foi recolhido. <br> Depois da remessa é recebida no datacenter do Azure, os dados serão automaticamente carregados para o Azure.         |
 |Recebido     | Os discos foram recebidos no datacenter do Azure. A cópia dos dados começará em breve.        |
 |Dados copiados     |A cópia dos dados está em curso.<br> Aguarde até que a cópia de dados esteja concluída.         |
 |Concluído       |A encomenda foi concluída com êxito.<br> Verifique se os seus dados estão no Azure antes de eliminar os dados no local dos servidores.         |
@@ -138,6 +138,6 @@ Execute os seguintes passos para editar os detalhes de notificação.
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [Resolver problemas do Data Box Disk](data-box-disk-troubleshoot.md).

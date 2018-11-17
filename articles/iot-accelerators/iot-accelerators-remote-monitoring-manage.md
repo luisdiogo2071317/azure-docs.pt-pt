@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222154"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821076"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Tutorial: Configurar e gerir dispositivos ligados à sua solução de monitorização
 
@@ -63,7 +63,7 @@ Para ver diagnósticos detalhados, desloque-se para baixo no painel **Detalhes d
 
 ## <a name="act-on-a-device"></a>Agir sobre um dispositivo
 
-Para testar se o dispositivo de motor simulado responde corretamente às ações iniciadas a partir do dashboard, execute o método **FirmwareUpdate**. Para agir sobre um dispositivo ao executar um método, selecione-o na lista de dispositivos e, em seguida, clique em **Tarefas**. Pode selecionar mais de um dispositivo se quiser agir sobre vários dispositivos. No painel **Tarefas**, selecione **Executar método**. O modelo de dispositivo **Motor** especifica três métodos: **FirmwareUpdate**, **FillTank** e **EmptyTank**:
+Para testar se o dispositivo de motor simulado responde corretamente às ações iniciadas a partir do dashboard, execute o método **FirmwareUpdate**. Para agir sobre um dispositivo ao executar um método, selecione-o na lista de dispositivos e, em seguida, clique em **Tarefas**. Pode selecionar mais de um dispositivo se quiser agir sobre vários dispositivos. Na **trabalhos** painel, selecione **métodos**. O modelo de dispositivo **Motor** especifica três métodos: **FirmwareUpdate**, **FillTank** e **EmptyTank**:
 
 [![Métodos de motor](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Se selecionar vários dispositivos de diferentes tipos na página **Dispositivos
 
 ## <a name="reconfigure-a-device"></a>Reconfigurar um dispositivo
 
-Para testar se pode atualizar as propriedades de configuração do mecanismo, selecione-o na lista de dispositivos na página **Dispositivos**. Em seguida, clique em **Tarefas** e, em seguida, selecione **Reconfigurar**. O painel de tarefas mostra os valores de propriedade atualizáveis para o dispositivo selecionado:
+Para testar se pode atualizar as propriedades de configuração do mecanismo, selecione-o na lista de dispositivos na página **Dispositivos**. Em seguida, clique em **trabalhos**e, em seguida, escolha **propriedades**. O painel de tarefas mostra os valores de propriedade atualizáveis para o dispositivo selecionado:
 
 [![Reconfigurar um dispositivo](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 
@@ -142,7 +142,7 @@ Agora, o operador da Contoso pode consultar dispositivos com base na equipa oper
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este tutorial mostrou como configurar e gerir os dispositivos ligados ao acelerador de soluções de Monitorização Remota. Para saber como utilizar o acelerador de soluções para efetuar uma análise da causa raiz num alerta inesperado, avance para o próximo tutorial.
 

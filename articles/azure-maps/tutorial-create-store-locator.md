@@ -3,18 +3,18 @@ title: Criar um localizador de arquivo com o Azure Maps | Documentos da Microsof
 description: Crie um localizador de arquivo com o Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7ee75b88863173a169d02b9e6b7a5ac1b0950578
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51708141"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820278"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de arquivo com o Azure Maps
 
@@ -943,6 +943,12 @@ Neste tutorial, saiba como criar um localizador de arquivo básico com o Azure M
 * Adicione suporte para especificar um valor inicial de pesquisa através de uma cadeia de consulta. Ao incluir esta opção na sua localização de arquivo, os usuários podem marcar e compartilhar pesquisas. Ele também fornece um método fácil para passe pesquisas para esta página a partir de outra página.  
 * Implementar o localizador de arquivo como um [aplicação de Web do serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 * Store seus dados numa base de dados e procure locais próximos. Para obter mais informações, consulte a [descrição geral de tipos de dados geográficos do SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [consultar dados geográficos para o vizinho mais próximo](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+
+Pode aceder ao código de exemplo deste tutorial aqui:
+
+> [Criar um localizador de arquivo com o Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
+
+[Veja o exemplo aqui ao vivo](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 Para saber mais sobre a cobertura e as capacidades do Azure Maps:
 

@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913568"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822369"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: criar e gerir dados exportados
 
-Se leu o tutorial de Análise de Custos, está familiarizado com a transferência manual dos dados do Cost Management. No entanto, pode criar uma tarefa periódica diária, que exporta diária e automaticamente os dados do Cost Management para o armazenamento do Azure. Os dados exportados estão no formato CSV e contêm todas as informações recolhidas pelo Cost Management. Pode utilizar os dados exportados no armazenamento do Azure com sistemas externos e combiná-los com os seus dados personalizados. E pode utilizar os dados exportados num sistema externo, como um dashboard ou outro sistema financeiro.
+Se leu o tutorial de Análise de Custos, está familiarizado com a transferência manual dos dados do Cost Management. No entanto, pode criar uma tarefa periódica que exporta automaticamente os seus dados de gestão de custos para o armazenamento do Azure numa base diária, semanal ou mensal. Os dados exportados estão no formato CSV e contêm todas as informações recolhidas pelo Cost Management. Pode utilizar os dados exportados no armazenamento do Azure com sistemas externos e combiná-los com os seus dados personalizados. E pode utilizar os dados exportados num sistema externo, como um dashboard ou outro sistema financeiro.
 
 Os exemplos neste tutorial orientam-no na exportação dos dados de gestão de custos e, em seguida, verificam se os dados foram exportados com êxito.
 
@@ -48,11 +48,17 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 Cost Management + Faturação &gt; Cost Management &gt; selecione um subscrição ou grupo de recursos numa subscrição &gt; Exportação &gt;  **Adicionar**.
 
-Escreva um nome para a exportação e especifique a subscrição, a conta de armazenamento do Azure, o contentor e o diretório de armazenamento de ficheiros ou o contentor de blobs e, em seguida, clique em **Criar**.
+Escreva um nome para a exportação e selecione a opção "Diariamente exportar dos custos de mês até à data". Clique em **Seguinte**.
 
-![Nova exportação](./media/tutorial-export-acm-data/new-export01.png)
+![Nova exportação: tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
 
-A nova exportação é apresentada na lista de exportações. Por predefinição, as novas exportações estão ativadas e são executadas diariamente. Se pretender desativar ou eliminar uma exportação agendada, clique em qualquer item na lista e, em seguida, clique em **Desativar** ou **Eliminar**.
+Especifique a subscrição para a sua conta de armazenamento do Azure, em seguida, selecione a sua conta de armazenamento.  Especifique o contentor de armazenamento e o caminho do diretório que pretende que o ficheiro de exportação para ir para.  Clique em **Seguinte**.
+
+![Nova exportação: armazenamento](./media/tutorial-export-acm-data/storage_exports.png)
+
+Reveja os detalhes de exportação e clique em **criar**.
+
+A nova exportação é apresentada na lista de exportações. Por predefinição, são ativadas exportações de novo. Se pretender desativar ou eliminar uma exportação agendada, clique em qualquer item na lista e, em seguida, clique em **Desativar** ou **Eliminar**.
 
 Inicialmente, pode demorar uma ou duas horas para que a exportação seja executada. No entanto, pode demorar até quatro horas antes de os dados serem apresentados nos ficheiros exportados.
 
@@ -76,7 +82,7 @@ O ficheiro abre com o programa ou a aplicação que definiu para abrir as extens
 
 Um dos objetivos de exportar os dados do Cost Management é aceder aos dados a partir de sistemas externos. Pode utilizar um sistema de dashboard ou outro sistema financeiro. Estes sistemas variam bastante, de modo que mostrar um exemplo seria impraticável.  No entanto, pode começar a perceber como aceder aos seus dados de aplicações em [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

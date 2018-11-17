@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684006"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853154"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Início rápido: Criar um script de Python para detetar e quadro enfrenta numa imagem
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="detect-faces-in-an-image"></a>Detetar rostos numa imagem
 
-Criar um novo script de Python, _FaceQuickstart.py_. Adicione o seguinte código. Esta é a principal funcionalidade de deteção de rostos. Terá de substituir `<Subscription Key>` com o valor da chave. Também poderá ter de alterar o valor de `BASE_URL` para utilizar o identificador de região corretos para a sua chave. Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Opcionalmente, defina `img_url` para o URL de qualquer imagem que pretende utilizar.
+Criar um novo script de Python, _FaceQuickstart.py_. Adicione o seguinte código. Esta é a principal funcionalidade de deteção de rostos. Terá de substituir `<Subscription Key>` com o valor da chave. Também poderá ter de alterar o valor de `BASE_URL` para utilizar o identificador de região corretos para a sua chave (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região). Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Opcionalmente, defina `img_url` para o URL de qualquer imagem que pretende utilizar.
 
 O script irá detetar rostos ao chamar o **cognitive_face.face.detect** método, que encapsula o [detetar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API e retorna uma lista de faces.
 

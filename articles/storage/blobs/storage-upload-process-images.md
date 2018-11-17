@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 237599a5dbd39147b02e9a85cbe34502d0d91923
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: c58bb19a18e6f0f78e07e403df5489f2f7342203
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227049"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853103"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carregar dados de imagem na cloud com o Armazenamento do Azure
 
@@ -103,7 +103,7 @@ Crie um plano do Serviço de Aplicações com o comando [az appservice plan crea
 O exemplo seguinte cria um plano do Serviço de Aplicações com o nome `myAppServicePlan`, que utiliza o escalão de preços **Gratuito**.
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
 ```
 
 ## <a name="create-a-web-app"></a>Criar uma aplicação Web
@@ -290,7 +290,7 @@ No contentor de **miniaturas** no portal do Azure, selecione a imagem que carreg
 
 A CDN pode ser ativada para o conteúdo da cache a partir da conta de armazenamento do Azure. Embora não esteja descrito neste tutorial, para saber como ativar a CDN com a sua conta de armazenamento do Azure, pode visitar: [Integrar uma conta de armazenamento do Azure na CDN do Azure](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Na primeira parte da série, aprendeu a configurar uma aplicação Web ao interagir com o armazenamento, como:
 

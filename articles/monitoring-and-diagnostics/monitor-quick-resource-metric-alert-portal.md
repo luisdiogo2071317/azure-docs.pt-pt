@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 965a35eb4cf33abe78ca802e8d59f13a649dec0a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: e0d25fc2ac84e9c9d71a9fd5971d4e57134e43a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279233"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819377"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Receber uma notificação quando um valor métrico cumpre uma condição
 
 O Azure Monitor disponibiliza métricas para diversos recursos do Azure. Estas métricas são indicadoras do desempenho e do estado de funcionamento desses recursos. Em muitos casos, as métricas identificam um problema com um recurso. Pode criar alertas de métricas para monitorizar comportamento anormal e ser notificado se tal ocorrer. Este Início Rápido descreve a criação de uma Aplicação Lógica, a criação de uma tarefa e a visualização das métricas da aplicação lógica. Em seguida, aborda a criação de um alerta e a receção de uma notificação para uma métrica para o recurso da Aplicação Lógica.
 
-Para obter mais informações sobre as métricas e os alertas de métricas, consulte [Descrição geral das métricas do Azure Monitor](../monitoring/monitoring-data-collection.md) e [Descrição geral dos alertas do Azure Monitor](./monitoring-overview-alerts.md). 
+Para obter mais informações sobre as métricas e os alertas de métricas, consulte [Descrição geral das métricas do Azure Monitor](../azure-monitor/platform/data-collection.md) e [Descrição geral dos alertas do Azure Monitor](./monitoring-overview-alerts.md). 
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -110,7 +110,7 @@ O conteúdo deste início rápido é aprofundado por outros inícios rápidos de
 
 5. No painel, clique na aplicação lógica que criou neste início rápido na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, aprendeu a criar um alerta de métrica para os seus recursos. Para obter mais informações sobre alertas de métricas, clique para aceder à descrição geral dos alertas.
 

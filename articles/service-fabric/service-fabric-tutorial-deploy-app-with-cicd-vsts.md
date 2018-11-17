@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
-ms.translationtype: HT
+ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380153"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853747"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação com CI/CD num cluster do Service Fabric
 
@@ -94,23 +94,23 @@ Um pipeline de versão do Azure DevOps descreve um fluxo de trabalho que impleme
 
 Abra um browser e navegue até ao novo projeto em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Selecione o separador **Compilar e Versão**, em seguida, **Compilações** e, em seguida, clique em **Novo Pipeline**.
+Selecione o **Pipelines** separador, em seguida, **baseia-se**, em seguida, clique em **novo Pipeline**.
 
 ![Novo Pipeline][new-pipeline]
 
-Selecione **Git do Azure DevOps** como origem, Projeto de **Voto**, Repositório de **Voto** e ramo Predefinido **mestre** ou manual e compilações programadas.  Em seguida, clique em **Continuar**.
+Selecione **Azure repositórios Git** como origem, **Voting** projeto de equipe **Voting** repositório, e **mestre** ramo predefinido para manual e compilações programadas.  Em seguida, clique em **Continuar**.
+
+![Selecione o repositório][select-repo]
 
 Em **Selecionar um modelo**, selecione o modelo **Aplicação do Azure Service Fabric** e clique em **Aplicar**.
 
 ![Escolher o modelo de compilação][select-build-template]
 
-Em **Tarefas**, introduza "Hosted VS2017" como a **Fila de agentes**.
+Na **tarefas**, introduza "Hosted VS2017" como o **conjunto de agentes**.
 
 ![Selecionar tarefas][save-and-queue]
 
-Em **Acionadores**, ative a integração contínua ao selecionar **Ativar a integração contínua**. Nos **Filtros de ramos**, clique em **+ Adicionar** e a **Especificação do ramo** será predefinida para **mestre**. Selecione **Guardar e colocar em fila de espera** para iniciar manualmente uma compilação.
-
-Na **caixa de diálogo Guardar pipeline de compilação e fila**, clique em **Guardar e colocar em fila**.
+Em **Acionadores**, ative a integração contínua ao selecionar **Ativar a integração contínua**. Dentro **filtros para filiais**, o **ramificar especificação** assume a predefinição **mestre**. Selecione **Guardar e colocar em fila de espera** para iniciar manualmente uma compilação.
 
 ![Selecionar acionadores][save-and-queue2]
 
@@ -118,7 +118,7 @@ As compilações também são acionadas após push ou dar entrada. Para verifica
 
 ### <a name="create-a-release-pipeline"></a>Criar um pipeline de versão
 
-Selecione o separador **Compilação e Versão**, **Versões** e, em seguida, **+ Novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
+Selecione o **Pipelines** separador, em seguida, **versões**, em seguida, **+ novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implementação do Azure Service Fabric** na lista e, em seguida, **Aplicar**.
 
 ![Escolher o modelo de versão][select-release-template]
 
@@ -198,6 +198,7 @@ Avance para o tutorial seguinte:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

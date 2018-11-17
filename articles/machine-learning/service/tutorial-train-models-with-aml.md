@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 1887004b2a83ca5778ccb29cf996bcf2720ce3b8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 11/16/2018
+ms.openlocfilehash: 221bca6cb11d488e38417280e16b5caa9133bd46
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711417"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853494"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial 1: Preparar um modelo de classificação de imagens com o serviço do Azure Machine Learning
 
@@ -42,7 +42,7 @@ Para sua comodidade, este tutorial está disponível como [bloco de notas do Jup
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> Este tutorial foi testado com a versão 0.168 do SDK do Azure Machine Learning 
+> Este tutorial foi testado com o Azure Machine Learning SDK versão 0.1.74 
 
 ## <a name="set-up-your-development-environment"></a>Configurar o ambiente de desenvolvimento
 
@@ -93,41 +93,44 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-remote-compute-target"></a>Criar o destino de computação remoto
 
-O Azure Batch AI é um serviço gerido que permite aos cientistas de dados preparar modelos de machine learning em clusters de máquinas virtuais do Azure, incluindo VMs com suporte de GPU.  Neste tutorial, vai criar um cluster do Azure Batch AI, que servirá de ambiente de preparação. Se o cluster ainda não existir no seu ambiente, este código cria um por si. 
+O Azure ML geridos computação do Azure é um serviço gerido que permite que os cientistas de dados preparar modelos de machine learning em clusters de máquinas virtuais do Azure, incluindo VMs com suporte GPU.  Neste tutorial, vai criar um cluster de computação do Azure geridos como o seu ambiente de treinamento. Se o cluster ainda não existir no seu ambiente, este código cria um por si. 
 
  **A criação do cluster demora, aproximadamente, cinco minutos.** Se o cluster já estiver na área de trabalho, este código utiliza-o e ignora o processo de criação.
 
 
 ```python
-from azureml.core.compute import ComputeTarget, BatchAiCompute
-from azureml.core.compute_target import ComputeTargetException
+from azureml.core.compute import BatchAiCompute
+from azureml.core.compute import ComputeTarget
+import os
 
 # choose a name for your cluster
-batchai_cluster_name = "traincluster"
+batchai_cluster_name = os.environ.get("BATCHAI_CLUSTER_NAME", ws.name + "gpu")
+cluster_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 1)
+cluster_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 3)
+vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_NC6")
+autoscale_enabled = os.environ.get("BATCHAI_CLUSTER_AUTOSCALE_ENABLED", True)
 
-try:
-    # look for the existing cluster by name
-    compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if type(compute_target) is BatchAiCompute:
-        print('found compute target {}, just use it.'.format(batchai_cluster_name))
-    else:
-        print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
-except ComputeTargetException:
+
+if batchai_cluster_name in ws.compute_targets:
+    compute_target = ws.compute_targets[batchai_cluster_name]
+    if compute_target and type(compute_target) is BatchAiCompute:
+        print('found compute target. just use it. ' + batchai_cluster_name)
+else:
     print('creating a new compute target...')
-    compute_config = BatchAiCompute.provisioning_configuration(vm_size="STANDARD_D2_V2", # small CPU-based VM
-                                                                #vm_priority='lowpriority', # optional
-                                                                autoscale_enabled=True,
-                                                                cluster_min_nodes=0, 
-                                                                cluster_max_nodes=4)
+    provisioning_config = BatchAiCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                vm_priority = 'lowpriority', # optional
+                                                                autoscale_enabled = autoscale_enabled,
+                                                                cluster_min_nodes = cluster_min_nodes, 
+                                                                cluster_max_nodes = cluster_max_nodes)
 
     # create the cluster
-    compute_target = ComputeTarget.create(ws, batchai_cluster_name, compute_config)
+    compute_target = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
     
     # can poll for a minimum number of nodes and for a specific timeout. 
-    # if no min node count is provided it uses the scale settings for the cluster
+    # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-    # Use the 'status' property to get a detailed status for the current cluster. 
+     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -143,7 +146,7 @@ Antes de preparar um modelo, tem de compreender os dados utilizados na preparaç
 
 ### <a name="download-the-mnist-dataset"></a>Transferir o conjunto de dados MNIST
 
-Transfira o conjunto de dados MNIST e guarde os ficheiros num diretório `data` localmente.  São transferidas imagens e etiquetas da preparação e do teste.  
+Transfira o conjunto de dados MNIST e guarde os ficheiros num diretório `data` localmente.  São transferidas imagens e etiquetas da preparação e do teste.
 
 
 ```python
@@ -160,7 +163,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Apresentar algumas imagens de exemplo
 
-Carregue os ficheiros comprimidos para matrizes `numpy`. Em seguida, utilize `matplotlib` para desenhar 30 imagens aleatórias do conjunto de dados com as respetivas etiquetas acima das mesmas. Tenha em conta que este passo precisa de uma função `load_data`, a qual está incluída no ficheiro `util.py`. Este ficheiro está incluído na pasta de exemplo. Confirme que está na mesma pasta que este bloco de notas. A função `load_data` analisa os ficheiros de compressão em matrizes numpy.
+Carregue os ficheiros comprimidos para matrizes `numpy`. Em seguida, utilize `matplotlib` para desenhar 30 imagens aleatórias do conjunto de dados com as respetivas etiquetas acima das mesmas. Tenha em atenção de que este passo requer uma `load_data` função que está incluída num `util.py` ficheiro. Este ficheiro está incluído na pasta de exemplo. Confirme que está na mesma pasta que este bloco de notas. O `load_data` função simplesmente analisa os arquivos compactados em matrizes de numpy.
 
 
 
@@ -209,9 +212,9 @@ ds.upload(src_dir='./data', target_path='mnist', overwrite=True, show_progress=T
 ```
 Tem agora tudo aquilo de que precisa para começar a preparar um modelo. 
 
-## <a name="train-a-model-locally"></a>Preparar um modelo localmente
+## <a name="train-a-local-model"></a>Preparar um modelo de local
 
-Prepare um modelo de regressão logística simples a partir do scikit-learn localmente.
+Preparar um modelo de regressão logística simples usando scikit-saiba localmente.
 
 **A preparação local pode demorar alguns minutos**, consoante a configuração do seu computador.
 
@@ -243,7 +246,7 @@ Agora, pode criar um modelo com uma taxa de regularização diferente para expan
 Para esta tarefa, submeta o trabalho para o cluster de preparação remoto que configurou anteriormente.  Para submeter um trabalho, tem de:
 * Criar um diretório
 * Criar um script de preparação
-* Criar simulador
+* Criar um objeto de Calculadora
 * Submeter o trabalho 
 
 ### <a name="create-a-directory"></a>Criar um diretório
@@ -314,11 +317,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Repare que o script obtém dados e guarda modelos:
 
-+ O script de preparação lê um argumento para localizar o diretório que contém os dados.  Quando submete o trabalho posteriormente, tem de apontar para o arquivo de dados deste argumento: `parser.add_argument('--data-folder', type = str, dest = 'data_folder', help = 'data directory mounting point')`
-
++ O script de preparação lê um argumento para localizar o diretório que contém os dados.  Quando submete o trabalho posteriormente, tem de apontar para o arquivo de dados deste argumento: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
     
 + O script de preparação guarda o modelo num diretório denominado “outputs”. <br/>
-`joblib.dump(value = clf, filename = 'outputs/sklearn_mnist_model.pkl')`<br/>
+`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 Tudo o que for escrito neste diretório é carregado automaticamente para a sua área de trabalho. Mais à frente no tutorial, vai aceder ao seu modelo a partir deste diretório.
 
 O ficheiro `utils.py` é referenciado a partir do script de preparação para carregar o conjunto de dados devidamente.  Copie este script para a pasta de scripts, de modo a que possa ser acedido, juntamente com o script de preparação, no recurso remoto.
@@ -341,7 +343,7 @@ Para submeter a execução, é utilizado um objeto de simulador.  Para criar o s
 * Os parâmetros necessários do script de preparação 
 * Os pacotes Python necessários para a preparação
 
-Neste tutorial, esse destino é o cluster do Batch AI. Todos os ficheiros no diretório do projeto são carregados para os nós do cluster, para execução. data_folder é definida para utilizar o arquivo de dados (`ds.as_mount()`).
+Neste tutorial, esse destino é o cluster do Batch AI. Todos os ficheiros na pasta de script são carregados os nós de cluster para execução. data_folder é definida para utilizar o arquivo de dados (`ds.as_mount()`).
 
 ```python
 from azureml.train.estimator import Estimator
@@ -423,7 +425,7 @@ A saída mostra que a precisão do modelo remoto é ligeiramente superior à do 
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
-Este modelo vai ser explorado mais detalhadamente no tutorial de implementação.
+O próximo tutorial irá explorar esse modelo em mais detalhes.
 
 ## <a name="register-model"></a>Registar o modelo
 

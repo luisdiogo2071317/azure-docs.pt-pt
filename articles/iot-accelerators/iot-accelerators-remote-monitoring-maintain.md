@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 3138f0ebb6316e69c873a37d479ddc0279a361ef
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
-ms.translationtype: HT
+ms.openlocfilehash: 8ea4a615cff02cad1030f10b408fe047f1208a60
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285082"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819225"
 ---
 # <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Tutorial: Resolver problemas e corrigir erros do dispositivo
 
@@ -82,7 +82,7 @@ Pode verificar que a temperatura do dispositivo diminuiu ao ver a telemetria na 
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Este tutorial mostrou-lhe como utilizar os alertas para identificar problemas com os seus dispositivos e como agir sobre estes dispositivos para resolver os problemas. Para saber como ligar um dispositivo físico ao acelerador de soluções, avance para os artigos de procedimentos.
 

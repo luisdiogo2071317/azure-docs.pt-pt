@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 355d3258392fa722fbdc3762a9125a22e8a69b67
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 0d0ff627ad2549ff9b6f09b6c934c5a17a102962
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954307"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852376"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início rápido: detetar rostos numa imagem com a API REST e JavaScript
 
@@ -37,10 +37,10 @@ Utilize o método [Face - Detect](https://westcentralus.dev.cognitive.microsoft.
 Para executar o exemplo, siga os seguintes passos:
 
 1. Copie o seguinte e guarde-o num ficheiro como `detectFaces.html`.
-2. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
-3. Altere o valor `uriBase` para utilizar a localização onde obteve as suas chaves de subscrição, caso seja necessário.
-4. Arraste e largue o ficheiro no seu browser.
-5. Clique no botão `Analyze faces`.
+1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
+1. Se necessário, altere a `uriBase` valor a utilizar a localização onde obteve as chaves de subscrição (consulte a [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região).
+1. Arraste e largue o ficheiro no seu browser.
+1. Clique no botão `Analyze faces`.
 
 ### <a name="face---detect-request"></a>Rosto – Pedido de deteção
 
@@ -63,7 +63,7 @@ Para executar o exemplo, siga os seguintes passos:
         // subscription keys from westus, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change 
         // this region.
         var uriBase =
@@ -242,7 +242,7 @@ Segue-se um exemplo de uma resposta bem-sucedida:
 ]
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Explore as API Face utilizadas para detetar rostos humanos numa imagem, demarcar os rostos com retângulos e devolver atributos, como a idade e o sexo.
 

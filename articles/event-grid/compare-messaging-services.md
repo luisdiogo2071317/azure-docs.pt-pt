@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003752"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852202"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre os serviços do Azure que entregam mensagens
 
@@ -55,6 +55,8 @@ O Event Grid é um backplane de eventos que permite a programação reativa e or
 
 O Event Grid está profundamente integrado nos serviços do Azure e pode ser integrado em serviços de terceiros. Ao eliminar a necessidade de consultas constantes, simplifica o consumo de eventos e reduz os custos. Encaminha, de forma eficiente e fiável, os eventos de recursos do Azure e não Azure. Distribui os eventos para pontos finais de subscritor registado. A mensagem do evento tem as informações que sã precisas para reagir a alterações em serviços e aplicações. O Event Grid não é um pipeline de dados e não entrega o objeto propriamente dito que foi atualizado.
 
+Event Grid suporta mensagens não entregues para os eventos que não são entregues a um ponto de extremidade.
+
 Tem as seguintes características:
 
 * dinamicamente dimensionável
@@ -93,7 +95,7 @@ Noutros casos, pode utilizá-los ao mesmo tempo para formar um pipeline de event
 
 ![Descrição geral dos dados de fluxo](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter mais informações sobre os serviços de mensagens do Azure, veja a mensagem do blogue [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/) (Eventos, Pontos de Dados e Mensagens - escolher o serviço de mensagens do Azure para os seus dados).
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).

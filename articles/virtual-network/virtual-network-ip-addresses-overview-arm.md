@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993600"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822240"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -75,7 +75,7 @@ Os endereços IP de SKU Standard:
 
 - São atribuídos apenas com o método de alocação estático.
 - São seguros por predefinição e fechados ao tráfego de entrada. Tem de especificar a lista de permissões para o tráfego de entrada com um [grupo de segurança de rede](security-overview.md#network-security-groups).
-- São atribuídos a interfaces de rede ou balanceadores de carga standard públicos. Para obter mais informações sobre os balanceadores de carga standard do Azure, veja [Balanceador de carga standard do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Atribuídos a interfaces de rede, balanceadores de carga standard público, Gateways de aplicação ou Gateways de VPN. Para obter mais informações sobre os balanceadores de carga standard do Azure, veja [Balanceador de carga standard do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Têm redundância de zona por predefinição. Podem ser criados zonais e garantidos numa zona de disponibilidade específica. Para obter mais informações sobre zonas de disponibilidade, veja [Descrição geral de zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Balanceador de Carga Standard e Zonas de Disponibilidade](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
@@ -132,8 +132,8 @@ A tabela seguinte mostra a propriedade específica através da qual os endereço
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
 | Balanceador de carga com acesso à Internet |Configuração de front-end |Sim |Sim |
-| Gateway de VPN |Configuração de IP do gateway |Sim |Não |
-| Gateway de aplicação |Configuração de front-end |Sim |Não |
+| Gateway de VPN |Configuração de IP do gateway |Sim |Sim |
+| Gateway de aplicação |Configuração de front-end |Sim |Sim |
 
 ## <a name="private-ip-addresses"></a>Endereços IP Privados
 Os endereços IP privados permitem aos recursos do Azure comunicar com outros recursos numa [rede virtual](virtual-networks-overview.md) ou numa rede no local através de um gateway de VPN ou de um circuito do ExpressRoute, sem utilizar um endereço IP acessível pela Interne.
@@ -188,6 +188,6 @@ Os limites impostos no endereçamento IP estão indicados no conjunto completo d
 ## <a name="pricing"></a>Preços
 Os endereços IP públicos podem ter custos nominais. Para saber mais sobre os preços dos endereços IP no Azure, reveja a página [Preços de Endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Deploy a VM with a static public IP using the Azure portal (Implementar uma VM com IP público estático através do portal do Azure)](virtual-network-deploy-static-pip-arm-portal.md)
 * [Deploy a VM with a static private IP address using the Azure portal (Implementar uma VM com um endereço IP privado estático através do portal do Azure)](virtual-networks-static-private-ip-arm-pportal.md)

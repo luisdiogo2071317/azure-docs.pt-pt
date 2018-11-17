@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686233"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852899"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: criar uma aplicação Android para detetar e enquadrar rostos numa imagem
 
@@ -92,11 +92,7 @@ Em seguida, insira o seguinte código no **MainActivity** classe superior a **on
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
 
-Terá de substituir `<Subscription Key>` com a sua chave de subscrição. Substitua, também, `<API endpoint>` com o seu ponto de final de Face API, com o identificador de região adequada para a sua chave. Chaves de subscrição de avaliação gratuita são geradas na **westus** região. Um valor de ponto final de API de exemplo seria:
-
-```java
-apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-```
+Terá de substituir `<Subscription Key>` com a sua chave de subscrição. Além disso, substitua `<API endpoint>` ao ponto final da Face API, utilizando o identificador de região adequada para a sua chave (consulte o [documentos da API de rostos](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos finais de região). Chaves de subscrição de avaliação gratuita são geradas na **westus** região.
 
 No painel **Projeto**, expanda **aplicação**, em seguida, **manifestos**, e abra *AndroidManifest.xml*. Insira o seguinte elemento como um subordinado direto do elemento `manifest`:
 

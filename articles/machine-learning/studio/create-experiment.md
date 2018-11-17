@@ -5,7 +5,8 @@ keywords: experimentação, regressão linear, algoritmos de machine learning, t
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: ac7b208c97ad82d06b8cdc75e04ccd0c787d335f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 414f594a1c9b65050d8da9d80e7e8be566bd2ce4
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951326"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823390"
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de Machine Learning: crie a sua primeira experimentação de ciência de dados no Azure Machine Learning Studio
 
@@ -321,7 +322,7 @@ A experimentação final deve ter este aspeto:
 <br/>
 ***A experimentação final***
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que concluiu o primeiro tutorial de machine learning e que a sua experimentação está configurada, pode continuar a melhorar o modelo e, depois, implementá-lo como um serviço Web preditivo.
 

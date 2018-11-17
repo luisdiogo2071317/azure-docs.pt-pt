@@ -3,17 +3,17 @@ title: Utilizar o Jenkins para implementar as suas aplicações Web no Azure
 description: Utilize o Jenkins e o Docker para configurar a integração contínua a partir do GitHub no Serviço de Aplicações do Azure para as suas aplicações Web.
 ms.service: jenkins
 keywords: jenkins, azure, devops, app service, continuous integration, ci, continuous deployment, cd
-author: tomarcher
+author: ecfan
 manager: jeconnoc
-ms.author: tarcher
+ms.author: estfan
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 81959159d4860512c184ada25930da814b5ae044
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: de1d89da041ede13741a804b3e77018fb48b4aa3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946583"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822063"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração e a implementação contínua no Serviço de Aplicações do Azure com o Jenkins
 
@@ -182,7 +182,7 @@ Configure o Jenkins para receber [webhooks do GitHub](https://developer.github.c
 
 Se se deparar com erros nos plug-ins do Jenkins, comunique os problemas com os componentes específicos no [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Use Azure VMs as build agents](/azure/jenkins/jenkins-azure-vm-agents) (Utilizar VMs do Azure como agentes de compilação)
