@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 58e913aa2b4a89a573f6d901803979e662c27af2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 39c72dde6bcfec2879efd05a1769ad443c9ffd2f
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954046"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823967"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Como configurar a Cache de Redis do Azure
 Este tópico descreve as configurações disponíveis para as suas instâncias de Cache de Redis do Azure. Este tópico também inclui a configuração do servidor predefinido Redis para instâncias da Cache de Redis do Azure.
@@ -353,7 +353,7 @@ Clique em **regras de alerta** para configurar alertas com base em métricas de 
 
 ### <a name="diagnostics"></a>Diagnóstico
 
-Por predefinição, são métricas de cache no Azure Monitor [armazenadas durante 30 dias](../monitoring/monitoring-data-collection.md#metrics) e, em seguida, eliminados. Para manter as suas métricas de cache durante mais de 30 dias, clique em **diagnóstico** ao [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) utilizada para armazenar o diagnóstico da cache.
+Por predefinição, são métricas de cache no Azure Monitor [armazenadas durante 30 dias](../azure-monitor/platform/data-collection.md#metrics) e, em seguida, eliminados. Para manter as suas métricas de cache durante mais de 30 dias, clique em **diagnóstico** ao [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) utilizada para armazenar o diagnóstico da cache.
 
 >[!NOTE]
 >Além de arquivamento de suas métricas de cache para o armazenamento, pode também [transmiti-los para um hub de eventos ou enviá-los para o Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).

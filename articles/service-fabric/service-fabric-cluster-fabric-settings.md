@@ -12,77 +12,23 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3186d580918d7451317ae58cac270556509c6e3e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884498"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854344"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
-Este artigo descreve como personalizar as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para clusters autónomos, personalizar definições ao atualizar o ficheiro de ClusterConfig.json e efetuar uma atualização de configuração no seu cluster. 
+Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
 
-> [!NOTE]
-> Nem todas as definições estão disponíveis no portal. No caso de uma definição indicada abaixo não está disponível através do portal de personalizá-lo a utilizar um modelo Azure Resource Manager.
-> 
-
-## <a name="description-of-the-different-upgrade-policies"></a>Descrição das políticas de atualização diferentes
+Existem três políticas de atualização diferentes:
 
 - **Dinâmica** – alterações a uma configuração dinâmica não causam os reinícios do processo de processos do Service Fabric ou seus processos de anfitrião do serviço. 
 - **Estático** – alterações a uma configuração estática fará com que o nó do Service Fabric reiniciar para consumir a alteração. Serviços em nós serão reiniciados.
 - **NotAllowed** – estas definições não podem ser modificadas. Alterar estas definições requer que o cluster ser destruído e criado um novo cluster. 
-
-## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalize as configurações de cluster utilizando modelos do Resource Manager
-Os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção com o Explorador de recursos do Azure.
-
-1. Ir para https://resources.azure.com
-2. Navegue até à sua subscrição ao expandir **subscrições** -> **\<subscrição Your >** -> **resourceGroups**  ->   **\<Seu grupo de recursos >** -> **fornecedores** -> **Microsoft.ServiceFabric**  ->  **clusters** -> **\<seu nome de Cluster >**
-3. No canto superior direito, selecione **leitura/escrita.**
-4. Selecione **edite** e atualizar o `fabricSettings` elemento JSON e adicione um novo elemento:
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-Também pode personalizar as definições de cluster em uma das seguintes formas com o Azure Resource Manager:
-
-- Utilize o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) para exportar e atualizar o modelo do Resource Manager.
-- Uso [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) para exportar e atualizar o modelo do Resource Manager.
-- Utilize o [CLI do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) para exportar e atualizar o modelo do Resource Manager.
-- Utilizar o Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) e [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) comandos para modificar a definição diretamente.
-- Utilizar a CLI do Azure [definição do az sf cluster](https://docs.microsoft.com/cli/azure/sf/cluster/setting) comandos para modificar a definição diretamente.
-
-## <a name="customize-cluster-settings-for-standalone-clusters"></a>Personalize as configurações de cluster para clusters autónomos
-Clusters autónomos são configurados por meio do arquivo de ClusterConfig.json. Para obter mais informações, consulte [definições de configuração para um cluster autónomo de Windows](./service-fabric-cluster-manifest.md).
-
-Pode adicionar, atualizar ou remover definições no `fabricSettings` secção sob o [propriedades de Cluster](./service-fabric-cluster-manifest.md#cluster-properties) secção ClusterConfig.json. 
-
-Por exemplo, o JSON seguinte adiciona uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção em `fabricSettings`:
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-Depois de modificar as definições no seu ficheiro ClusterConfig.json, siga as indicações [atualizar a configuração de cluster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) para aplicar as definições no seu cluster. 
-
 
 Segue-se uma lista dos recursos de infraestrutura, as definições que pode personalizar, organizados pela secção.
 
@@ -867,7 +813,4 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |X509StoreName | cadeia de caracteres, a predefinição é "Meu"|Dinâmica|X509StoreName para UpgradeService. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Leia os artigos seguintes para obter mais informações sobre o gerenciamento de cluster:
-
-[Adicionar, rollover, remover certificados de cluster do Azure ](service-fabric-cluster-security-update-certs-azure.md) 
-
+Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md) e [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).

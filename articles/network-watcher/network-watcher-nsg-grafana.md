@@ -15,16 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055852"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819039"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar registos de fluxo do grupo de segurança de rede com o observador de rede e o Grafana
 
 [Os registos de fluxo do grupo de segurança (NSG) de rede](network-watcher-nsg-flow-logging-overview.md) fornecem informações que podem ser utilizadas para compreender o tráfego IP de entrada e saída em interfaces de rede. Estes registos de fluxo mostram fluxos de saída e entrados num por base de regra NSG, o NIC o fluxo se aplica, informações de 5 cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo), e se o tráfego foi permitido ou negado.
+
+> [!Warning]  
+> Os seguintes passos funcionam com a versão de registos de fluxo 1. Para obter detalhes, consulte [introdução ao registo do fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md). As instruções seguintes não irão funcionar com a versão 2 dos ficheiros de registo, sem modificações.
 
 Pode ter muitos NSGs na sua rede com o registo de fluxo ativado. Esta quantidade de dados de registo torna complicado para analisar e obter informações a partir dos seus registos. Este artigo fornece uma solução para gerir centralmente estes registos de fluxo NSG com o Grafana, um gráfico de ferramenta, o ElasticSearch, um pesquisa distribuída e o motor de análise e o Logstash, que é um pipeline de processamento de dados do lado do servidor do código-fonte aberto de código aberto.  
 

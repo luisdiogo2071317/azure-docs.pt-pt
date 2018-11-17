@@ -1,11 +1,12 @@
 ---
-title: Copiar dos outros dados ciência exemplos – Azure Machine Learning | Microsoft Docs
-description: 'Segredo compromissos de ciência de dados: obter outras pessoas para realizar o seu trabalho por si. Obter exemplos de aprendizagem máquina na Galeria de AI do Azure.'
-keywords: Exemplos de ciência de dados, exemplo de aprendizagem máquina, algoritmo de clustering de exemplo de algoritmo de clustering
+title: Copiar dos outros dados ciência exemplos – Azure Machine Learning | Documentos da Microsoft
+description: 'Segredos comerciais da ciência de dados: obter outros o possam fazer seu trabalho por. Obtenha exemplos do machine learning a partir da Galeria de IA do Azure.'
+keywords: Exemplos de ciência de dados, exemplo de aprendizado de máquina, algoritmo de clustering de exemplo do algoritmo de clustering
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
@@ -16,86 +17,86 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: 84c6f4a1cedc0a04ee820f1de60f51e653f28425
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 66af7e21943fb82826717ffef6e6ed153f1f5dd7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833884"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823525"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
-## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciência de dados para a série de principiantes
-Um dos segredos de negócio de ciência de dados está a obter outras pessoas para realizar o seu trabalho por si. Encontrar um exemplo de algoritmo de clustering na Galeria de AI do Azure a utilizar para a suas próprias experimentação do machine learning.
+## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Ciência de dados para a série de iniciantes
+Um dos segredos comerciais da ciência de dados é obter a outras pessoas para fazer seu trabalho para. Encontre um exemplo de algoritmo de clustering na Galeria de IA do Azure a utilizar para a sua própria experimentação do machine learning.
 
 > [!IMPORTANT]
-> **Galeria da Cortana Intelligence** nome foi mudado **galeria do Azure AI**. Como resultado, texto e as imagens neste transcript variam ligeiramente de vídeo, que utiliza a name anteriores.
+> **Galeria do Cortana Intelligence** foi mudado **Galeria de IA do Azure**. Como resultado, texto e imagens desta transcrição são ligeiramente diferentes do vídeo, que utiliza o nome antigo.
 >
 
-Para tirar o máximo partido da série, veja todos eles. [Aceda à lista de vídeos](#other-videos-in-this-series)
+Para obter o máximo proveito da série, assista a todos eles. [Aceda à lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
 >
 >
 
-## <a name="other-videos-in-this-series"></a>Outros vídeos nesta série
-*Dados de ciência para principiantes* é uma introdução rápida aos ciência de dados em cinco vídeos curtos.
+## <a name="other-videos-in-this-series"></a>Outros vídeos desta série
+*Ciência de dados para principiantes* é uma introdução rápida à ciência dos dados em cinco vídeos curtos.
 
-* Vídeo 1: [a 5 questões de respostas de ciência de dados](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg.)*
-* Vídeo de 2: [está os seus dados pronto para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg.)*
-* Vídeo 3: [fazer uma pergunta, poderá responder com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg.)*
-* Vídeo 4: [prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg.)*
-* Vídeo 5: Copiar trabalho outras pessoas fazer ciência de dados
+* Vídeo 1: [respostas de ciência de dados de questões do 5](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 min 14 seg)*
+* Vídeo 2: [são os seus dados prontos para ciência de dados?](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 seg)*
+* Vídeo 3: [faça uma pergunta que pode ser respondidas com dados](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 seg)*
+* Vídeo 4: [prever uma resposta com um modelo simples](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 seg)*
+* Vídeo 5: Copiar o trabalho de outras pessoas para fazer ciência de dados
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcript: Copiar trabalho outras pessoas fazer ciência de dados
-Bem-vindo ao vídeo quinto na série de "Dados de ciência para principiantes."
+## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Transcrição: Copiar o trabalho de outras pessoas para fazer ciência de dados
+Bem-vindo à quinto vídeo da série "Ciência de dados para principiantes."
 
-Neste, irá detetar um local para encontrar exemplos que pode borrow de como um ponto de partida para o seu trabalho. Pode tirar o máximo partido este vídeo se, primeiro, veja os vídeos anteriores nesta série.
+Este aqui, descobrirá um local para encontrar exemplos que pode emprestados da como ponto de partida para o seu próprio trabalho. Pode aproveitar ao máximo este vídeo se primeiro, Assista aos vídeos anteriores desta série.
 
-Um dos segredos de negócio de ciência de dados está a obter outras pessoas para realizar o seu trabalho por si.
+Um dos segredos comerciais da ciência de dados é obter a outras pessoas para fazer seu trabalho para.
 
-## <a name="find-examples-in-the-azure-ai-gallery"></a>Localizar exemplos na Galeria de AI do Azure
+## <a name="find-examples-in-the-azure-ai-gallery"></a>Encontrar exemplos na Galeria de IA do Azure
 
-A Microsoft tem um serviço baseado na nuvem denominado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que está bem-vindo ao tentar gratuitamente. Disponibiliza uma área de trabalho em que pode experimentar algoritmos de aprendizagem diferentes e, quando já tem a sua solução trabalhada, pode iniciá-lo como um serviço web.
+A Microsoft tem um serviço baseado na nuvem chamado [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que está bem-vindo ao experimentar gratuitamente. Ele fornece uma área de trabalho em que pode experimentar com algoritmos de aprendizagem diferente e, quando tem sua solução esmiuçada, pode iniciá-lo como um serviço web.
 
-Parte deste serviço é algo chamado o  **[galeria do Azure AI](https://gallery.cortanaintelligence.com/)**. Contém recursos, incluindo uma coleção de experimentações do Azure Machine Learning ou modelos, que as pessoas tenham incorporado e contribuíram para que outros a utilizar. Estes experimentações são uma excelente forma de modo a tirar partido de profundamente e o trabalho de outros utilizadores para ajudá-lo a iniciar as suas próprias soluções. Todas as pessoas é bem-vindo ao procurar através do mesmo.
+Parte deste serviço é algo chamado de  **[Galeria de IA do Azure](https://gallery.cortanaintelligence.com/)**. Contém recursos, incluindo uma coleção de experiências do Azure Machine Learning ou de modelos, o que as pessoas tenham criado e contribuiu para utilização de terceiros. Estas experiências são uma excelente forma de aproveitar a reflexão e o trabalho pesado de outras pessoas para começar a usar em suas próprias soluções. Todas as pessoas são bem-vindo ao navegar por ele.
 
 ![Galeria de IA do Azure](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
-Se clicar em **experimentações** na parte superior, verá um número de mais recentes e mais populares experimentações na galeria. Pode pesquisar o resto do experimentações clicando **Procurar tudo** na parte superior do ecrã, e não existe pode introduzir termos de pesquisa e escolha filtros de pesquisa.
+Se clicar **experimentações** na parte superior, verá um número de experimentações mais recentes e populares na galeria. Pode pesquisar através de rest de experimentações clicando **Procurar tudo** na parte superior do ecrã, e aí pode inserir termos de pesquisa e escolha filtros de pesquisa.
 
-## <a name="find-and-use-a-clustering-algorithm-example"></a>Localizar e utilizar um exemplo de algoritmo de clustering
-Por isso, por exemplo, digamos que pretende ver um exemplo de como clustering funciona, para procurar **"clustering paramétrico"** experimentações.
+## <a name="find-and-use-a-clustering-algorithm-example"></a>Localizar e usar um exemplo de algoritmo de clustering
+Então, por exemplo, digamos que deseja ver um exemplo de como o clustering funciona, para que procure **"clustering paramétrico"** experimentações.
 
-![Pesquisa para clustering experimentações](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
+![Pesquisa para o clustering de experimentações](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 
-Eis um interessante que alguém contribuíram para a galeria.
+Aqui é interessante que alguém contribuíram para a galeria.
 
-![Clustering experimentação](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment.png)
+![Clustering de experimentação](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment.png)
 
-Clique em que a experimentação e obter uma página web que descreve o trabalho que criou este contribuinte, juntamente com algumas das respetivos resultados.
+Clique em desse experimento e obterá uma página da web que descreve o trabalho que este contribuinte fez, juntamente com alguns dos seus resultados.
 
-![Clustering de página de descrição da experimentação](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
+![Clustering de página de descrição de experimentação](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Tenha em atenção a ligação que indica **abrir no Studio**.
+Observe que a ligação que diz **abrir no Studio**.
 
 ![Abrir no botão do Studio](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-Posso pode clicar em que e demora-me direito para **Azure Machine Learning Studio**. Cria uma cópia de experimentação e coloca-o na minha própria área de trabalho. Isto inclui conjunto de dados o contribuinte, o processamento que fizeram, todos os algoritmos que são utilizadas e como de guardar os resultados.
+Pode clicar nessa opção e isso me leva diretamente ao **Azure Machine Learning Studio**. Ele cria uma cópia da experimentação e coloca-o na minha própria área de trabalho. Isto inclui conjunto de dados o colaborador, todo o processamento que eles fizeram, todos os algoritmos que utilizaram, e como eles salvá-la os resultados.
 
-![Abrir uma experimentação da galeria no Machine Learning Studio - exemplo de algoritmo clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
+![Abrir uma experimentação de galeria no Machine Learning Studio - exemplo de algoritmo clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
-E agora tiver um ponto de partida. Posso pode trocar os seus dados para o meu próprio e efetue o meu próprio ajuste do modelo. Isto permite-me um início de execução e permite-me a tirar o trabalho de pessoas que conhece o que está a fazer.
+E agora tenho um ponto de partida. Posso trocar os seus dados para o meu próprio e fazer a minha própria realização de alterações do modelo. Isso me dá um início de execução, e ele permite que eu crie no trabalho de pessoas que sabem realmente o que estão fazendo.
 
-## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Localizar experimentações que demonstram técnicas do machine learning
-Existem outras experiências de [galeria do Azure AI](https://gallery.cortanaintelligence.com) que foram contribuíram especificamente para fornecer exemplos de procedimentos para as pessoas a ciência de dados. Por exemplo, não há uma experimentação na galeria que demonstra como lidar com os valores em falta ([métodos para processar os valores em falta](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Explica-lhe como 15 formas diferentes de substituindo os valores em branco e aborda as vantagens de cada método e para utilizá-lo.
+## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Localizar experimentações que demonstra técnicas do machine learning
+Existem outras experiências de [Galeria de IA do Azure](https://gallery.cortanaintelligence.com) que foram fornecidos pela especificamente para fornecer exemplos de procedimentos para as pessoas iniciantes ciência de dados. Por exemplo, há uma experimentação na galeria que demonstra como lidar com valores em falta ([métodos para lidar com valores em falta](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Ele explica como 15 diferentes formas de substituir valores vazios e fala sobre os benefícios de cada método e quando usá-lo.
 
-![Abra o experimentações da galeria no Machine Learning Studio - métodos para os valores em falta](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Experimentações de galeria abrir no Machine Learning Studio - métodos para valores em falta](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Galeria de AI do Azure](https://gallery.cortanaintelligence.com) é um local para localizar experimentações de trabalho que pode utilizar como ponto de partida para as suas próprias soluções.
+[Galeria de IA do Azure](https://gallery.cortanaintelligence.com) é um lugar para procurar experimentações de trabalho que pode utilizar como ponto de partida para as suas próprias soluções.
 
-Lembre-se de que veja vídeos em "Dados de ciência para principiantes" do Microsoft Azure Machine Learning.
+Certifique-se de que consulta outros vídeos em "Dados ciência para principiantes" do Microsoft Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Tente a sua primeira experimentação de ciência de dados com o Azure Machine Learning](create-experiment.md)
+* [Experimente a sua primeira experimentação de ciência de dados com o Azure Machine Learning](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](what-is-machine-learning.md)

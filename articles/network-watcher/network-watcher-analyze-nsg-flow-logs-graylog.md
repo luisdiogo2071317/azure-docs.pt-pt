@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414782"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823049"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar a rede registos de fluxo do grupo de segurança no Azure com o observador de rede e o Graylog
 
 [Os registos de fluxo do grupo de segurança de rede](network-watcher-nsg-flow-logging-overview.md) fornecem informações que pode utilizar para compreender o tráfego IP de entrada e saída para interfaces de rede do Azure. Os registos de fluxo mostram fluxos de saída e entrados num por base de regra de grupo de segurança de rede, a interface de rede o fluxo se aplica, informações de 5 cadeias de identificação (IP de origem/destino, porta de origem/destino, protocolo) sobre o fluxo, e se o tráfego foi permitido ou negado .
 
 Pode ter vários grupos de segurança de rede na sua rede com o registo de fluxo ativado. Vários grupos de segurança de rede com o registo de fluxo ativado podem tornar complicado para analisar e obter informações a partir dos seus registos. Este artigo fornece uma solução para gerir centralmente estes registos de fluxo do grupo do rede segurança usando o Graylog, uma gestão de registos de código-fonte aberto e ferramenta de análise e Logstash, um pipeline de processamento de dados do lado do servidor do código-fonte aberto.
+
+> [!Warning]
+> Os seguintes passos funcionam com a versão de registos de fluxo 1. Para obter detalhes, consulte [introdução ao registo do fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md). As instruções seguintes não irão funcionar com a versão 2 dos ficheiros de registo, sem modificações.
 
 ## <a name="scenario"></a>Cenário
 

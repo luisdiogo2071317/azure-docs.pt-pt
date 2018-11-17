@@ -1,6 +1,6 @@
 ---
-title: Reveja as imagens no Moderator conteúdo do Azure | Microsoft Docs
-description: A ferramenta de revisão permite moderators humanos rever as imagens.
+title: Rever imagens no Azure Content Moderator | Documentos da Microsoft
+description: A ferramenta de revisão permite que os moderadores humanos rever as imagens.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,37 +9,37 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/06/2017
 ms.author: sajagtap
-ms.openlocfilehash: 97879747bbfde2247e41847d8d68bf7f19530ecb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 655c4b6d142c9f792a3b16c6b20d53efef51ea5b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351415"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852831"
 ---
-# <a name="review-moderated-images"></a>Reveja moderated imagens
+# <a name="review-moderated-images"></a>Imagens de revisão moderado
 
-Depois de se ter inscrito para conteúdo moderação de interrupção e obter uma chave de subscrição, pode experimentar as funcionalidades de revisão de imagem.
+Depois de se ter inscrito para moderação de conteúdos e de obteve uma chave de assinatura, pode experimentar as funcionalidades de revisão de imagem.
 
-1.  Abra o [revisão humana ferramenta](https://contentmoderator.cognitive.microsoft.com/) e iniciar sessão. 
-2.  Clique no separador de tente e carregar algumas imagens para rever.
+1.  Abra o [ferramenta de revisão humana](https://contentmoderator.cognitive.microsoft.com/) e iniciar sessão. 
+2.  Clique no separador de Try e carregar algumas imagens para rever.
 3.  Clique no separador de revisão e selecione a imagem.
 
-  ![Opção de imagens de revisão](images/review-images-1.png)
+  ![Browser do Chrome que mostra a ferramenta de revisão com a opção de imagem rever realçada](images/review-images-1.png)
 
-  Apresentam as imagens com qualquer das etiquetas que tenham sido atribuídas pela ferramenta de revisão. As imagens não estão disponíveis para outros revisores na sua equipa enquanto estiver a revê-los.
+  As imagens são apresentadas com quaisquer etiquetas que foram atribuídas pela ferramenta de revisão. As imagens não estão disponíveis para outros revisores em sua equipe enquanto estiver a consultá-los.
 
-4.  Mova o "Revê a apresentar" controlo de deslize (1) para ajustar o número de imagens apresentadas no ecrã. Clique em marcado ou requeira botões (2) para ordenar as imagens em conformidade. Clique numa tag (3) para alterná-lo ou desativar.
+4.  Mova o "Revisões para exibir" controlo de deslize (1) para ajustar o número de imagens exibidas na tela. Clique nos botões marcados ou não marcados (2) para classificar as imagens de acordo. Clique numa marca (3) para alternar entre ativada ou desativada.
 
-  ![Procurar revisões de imagem](images/review-images-2.png)
+  ![Browser do Chrome que mostra a ferramenta de revisão com imagens marcadas para revisão](images/review-images-2.png)
  
-5.  Para obter mais informações sobre uma imagem, clique no botão de reticências em miniatura, seguido de **ver detalhes** opção. Para atribuir a imagem para um subteam, selecione o **mover para** opção.
+5.  Para ver mais informações sobre uma imagem, clique nas reticências numa miniatura, seguido de **ver detalhes** opção. Para atribuir a imagem a um subteam, selecione o **mover para** opção.
  
-  ![Ver detalhes e avançar para a opção de subteam](images/review-images-3.png)
+  ![Uma imagem com a opção de detalhes da vista realçada](images/review-images-3.png)
 
-6. Procure as informações de moderação interrupção de imagens na página de detalhes.
+6. Procure as informações de moderação de imagem na página de detalhes.
 
-  ![Ver detalhes da imagem](images/review-images-4.png)
+  ![Uma imagem com detalhes de moderação listados num painel separado](images/review-images-4.png)
  
-7.  Depois de ter revisto e atualizar as atribuições de tag conforme necessário, clique em **seguinte** para submeter as suas revisões.
+7.  Depois de rever e atualizar as atribuições de etiqueta, conforme necessário, clique em **seguinte** para enviar suas revisões.
 
-Depois de submeter, terá de cerca de cinco segundos clique o **Prev** botão para regressar ao ecrã anterior e reveja imagens novamente. Depois disso, as imagens já não estão na fila de envio e a **Prev** botão já não está disponível.
+Depois de submeter, tem cerca de cinco segundos clicar o **anterior** botão para regressar ao ecrã anterior e reveja as imagens novamente. Depois disso, as imagens já não estão na fila de envio e o **anterior** botão já não está disponível.

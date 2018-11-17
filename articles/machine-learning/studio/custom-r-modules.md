@@ -4,7 +4,8 @@ description: Guia de introdução para a criação de módulos R personalizados 
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
@@ -15,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b920f0ae3acd253c0f1f698ae4415e5b759ef762
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261115"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819343"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Criar módulos R personalizados no Azure Machine Learning
 Este tópico descreve como criar e implementar um módulo R personalizado no Azure Machine Learning. Ele explica o que são módulos R personalizados e os ficheiros que são utilizados para defini-las. Ela ilustra como construir os ficheiros que definem um módulo e como registar o módulo para a implementação numa área de trabalho do Machine Learning. Os elementos e atributos usados na definição do módulo personalizado, em seguida, são descritos mais detalhadamente. Como utilizar a funcionalidade de auxiliar e de ficheiros e de várias saídas também é abordado. 
@@ -132,7 +133,7 @@ Resultados de um módulo podem ser determinísticos ou nondeterministic.* * por 
 Existem funções que são não determinística, como o RAND ou uma função que devolve a data atual ou a hora. Se o seu módulo utiliza uma função não determinística, pode especificar que o módulo é determinística ao definir o opcional **campos isDeterministic** para o atributo **falso**. Desta forma, assegura que o módulo será novamente executado sempre que a experimentação é executada, mesmo que o módulo de entrada e os parâmetros não foram alterados. 
 
 ### <a name="language-definition"></a>Definição de linguagem
-O **linguagem** elemento no seu ficheiro de definição XML é usado para especificar o idioma de módulo personalizado. Atualmente, o R é o único idioma suportado. O valor do **sourceFile** atributo tem de ser o nome do ficheiro de R que contém a função a ser chamada quando o módulo for executado. Este ficheiro tem de ser parte do pacote zip. O valor do **entryPoint** atributo é o nome da função a ser chamado e tem de coincidir com uma função válida definida com o ficheiro de origem.
+O **linguagem** elemento no seu ficheiro de definição XML é usado para especificar o idioma de módulo personalizado. Atualmente, a única linguagem suportada é R. O valor do **sourceFile** atributo tem de ser o nome do ficheiro de R que contém a função a ser chamada quando o módulo for executado. Este ficheiro tem de ser parte do pacote zip. O valor do **entryPoint** atributo é o nome da função a ser chamado e tem de coincidir com uma função válida definida com o ficheiro de origem.
 
     <Language name="R" sourceFile="CustomAddRows.R" entryPoint="CustomAddRows" />
 

@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958607"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822675"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que razão necessito de Application Insights?
@@ -82,7 +82,7 @@ As principais categorias de dados são:
 ## <a name="case-study-real-madrid-fc"></a>Estudo de caso: Real Madrid F.C.
 O serviço web do [clube de futebol do Real Madrid](http://www.realmadrid.com/) serve cerca de 450 milhões de fãs em todo o mundo. Os fãs acessá-lo através de browsers e aplicações móveis do clube. Fãs podem não apenas pedidos de suporte do livro, mas também acessar clipes de informações e vídeo nos resultados, jogadores e jogos futuros. Pode pesquisar com filtros, como números das metas classificada. Também existem links para mídia social. A experiência do usuário é altamente personalizada e foi concebida como uma comunicação bidirecional para interagir com os fãs.
 
-A solução [é um sistema de serviços e aplicações no Microsoft Azure](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx). Escalabilidade é um requisito-chave: tráfego é a variável e pode chegar a volumes muito elevados durante e em torno de correspondências.
+A solução [é um sistema de serviços e aplicações no Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). Escalabilidade é um requisito-chave: tráfego é a variável e pode chegar a volumes muito elevados durante e em torno de correspondências.
 
 Para o Real Madrid, é vital para monitorizar o desempenho do sistema. O Azure Application Insights oferece uma vista abrangente do sistema, garantindo um fiável e de alto nível de serviço. 
 

@@ -1,10 +1,11 @@
 ---
-title: Resolver problemas de reparametrização um serviço web clássico do Azure Machine Learning | Microsoft Docs
-description: Identificar e corrigir encontrou de problemas comuns quando são reparametrização o modelo para um serviço Web do Azure Machine Learning.
+title: Resolver problemas de reparametrização um serviço web clássico do Azure Machine Learning | Documentos da Microsoft
+description: Identificar e corrigir encontrou de problemas comuns quando são reparametrização do modelo para um serviço Web do Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -15,90 +16,90 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 989bf010320501050a37fbf2f0799f50a5a3e2ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2afbeef4a9c79a5d5c57718ff0bfbebc9b063f7a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835778"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820482"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Resolução de problemas a reparametrização de um serviço web clássico do Azure Machine Learning
-## <a name="retraining-overview"></a>Reparametrização descrição geral
-Ao implementar uma experimentação preditiva como um serviço web classificação é um modelo estático. Como novos dados ficarem disponíveis ou o consumidor da API tem os seus próprios dados, o modelo precise de ser retrained. 
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>Resolução de problemas relativos a novas preparações de um serviço web clássico do Azure Machine Learning
+## <a name="retraining-overview"></a>Descrição geral de reparametrização
+Ao implementar uma experimentação preditiva como um serviço web de pontuação é um modelo estático. À medida que novos dados torna-se disponível, ou quando o consumidor da API tem seus próprios dados, tem de reestruturar o modelo. 
 
-Para instruções completas do processo de reparametrização de um serviço de web clássico, consulte [reparametrização dos Machine Learning modelos através de programação](retrain-models-programmatically.md).
+Para obter instruções completas do processo reparametrização de um serviço web clássico, veja [Retrain Machine Learning modelos programaticamente](retrain-models-programmatically.md).
 
-## <a name="retraining-process"></a>Reparametrização processo
-Quando precisar de reparametrização do serviço web, tem de adicionar algumas partes adicionais:
+## <a name="retraining-process"></a>Reparametrização do processo
+Quando precisar de voltar a preparar o serviço web, tem de adicionar algumas partes adicionais:
 
-* Um serviço web implementado da experimentação de preparação. A experimentação tem de ter um **saída de serviço Web** módulo ligado à saída do **preparar modelo** módulo.  
+* Um serviço web implementado a partir da experimentação de preparação. A experimentação tem de ter uma **saída de serviço Web** módulo anexado à saída do **Train Model** módulo.  
   
-    ![Anexe a saída de serviço web para o modelo de formação.][image1]
-* Um novo ponto de final adicionado ao seu serviço web classificação.  Pode adicionar o ponto final através da programação com o código de exemplo referenciado nos modelos de Machine Learning reparametrização dos programaticamente tópico ou através do portal de serviços Web do Azure Machine Learning.
+    ![Anexe a saída de serviço da web para o modelo de formação.][image1]
+* Um novo ponto de final adicionado ao seu serviço web de pontuação.  Pode adicionar o ponto de extremidade por meio de programação com o código de exemplo referenciado nos modelos do Machine Learning voltar a preparar programaticamente tópico ou através do portal do Azure Machine Learning Web Services.
 
-Em seguida, pode utilizar o c# código de exemplo da página de ajuda de API do serviço de Web de formação para a reparametrização dos modelo. Depois de ter a avaliar os resultados e estiver satisfeito com os mesmos, atualizar o modelo treinado do serviço web utilizando o novo ponto final que adicionou de classificação.
+Em seguida, pode utilizar o exemplo C# código de página de ajuda de API do serviço de Web de treinamento para voltar a preparar modelo. Depois de ter avaliado os resultados e estiver satisfeito com os mesmos, atualize o modelo treinado classificação web service usando o novo ponto final que adicionou.
 
-Com todas as peças no local, os principais passos que deve efetuar para a reparametrização dos modelo são:
+Com todas as peças no lugar, os principais passos que tem de efetuar para voltar a preparar o modelo são os seguintes:
 
-1. Chamar o serviço Web de preparação: A chamada é para o Batch execução do serviço (BES), não o pedido de resposta de serviço (RRS). Pode utilizar o c# código de exemplo na página de ajuda de API para efetuar a chamada. 
-2. Localizar os valores para o *BaseLocation*, *RelativeLocation*, e *SasBlobToken*: estes valores são apresentados no resultado da sua chamada para o serviço Web de formação. 
-   ![Mostrar a saída de exemplo reparametrização e os valores BaseLocation, RelativeLocation e SasBlobToken.][image6]
-3. Atualizar o ponto de final adicionado do serviço web de classificação com o novo modelo treinado: utilizando o código de exemplo fornecido nos modelos de Machine Learning reparametrização dos programaticamente, atualize o novo ponto final que adicionou ao modelo de classificação com o modelo treinado recentemente do Serviço Web de formação.
+1. Chamar o Web Service de treinamento: A chamada é para o serviço BES (Batch Execution), não a resposta RRS (Request Service). Pode utilizar o exemplo C# código na página de ajuda da API para efetuar a chamada. 
+2. Localizar os valores para o *BaseLocation*, *RelativeLocation*, e *SasBlobToken*: estes valores são devolvidos na saída da sua chamada para o serviço da Web de treinamento. 
+   ![a mostrar a saída do exemplo reparametrização e os valores de BaseLocation RelativeLocation e SasBlobToken.][image6]
+3. Atualizar o ponto de final de adicionado do serviço web classificação com o novo modelo treinado: usando o código de exemplo fornecido nos modelos do Machine Learning voltar a preparar programaticamente, atualize o novo ponto final adicionado para o modelo de classificação com o modelo treinado recentemente a partir do Serviço da Web de treinamento.
 
-## <a name="common-obstacles"></a>Obstacles comuns
-### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verifique se tem o URL está correto
-O URL de aplicar o PATCH de mensagens em fila que estão a utilizar tem de ser um associado a classificação novo ponto final que adicionou ao serviço web de classificação. Existem várias formas de obter o URL de aplicar o PATCH:
+## <a name="common-obstacles"></a>Obstáculos comuns
+### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>Verifique se tem o URL correto do PATCH
+O URL de aplicar o PATCH de mensagens em fila que está a utilizar tem de ser um associados com o novo ponto de extremidade classificação adicionado para o serviço web de pontuação. Existem várias formas de obter o URL de PATCHES:
 
-**Opção 1: X509securitytokenparameters**
+**Opção 1: programaticamente**
 
-Para obter o URL está correto:
+Para obter o URL correto de PATCHES:
 
-1. Execute o [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) código de exemplo.
-2. Da saída das AddEndpoint, localizar o *HelpLocation* valor e copie o URL.
+1. Executar o [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) código de exemplo.
+2. A partir da saída de AddEndpoint, localize a *HelpLocation* valor e copie o URL.
    
-   ![HelpLocation na saída de exemplo addEndpoint.][image2]
-3. Cole o URL de um browser para navegar para uma página que fornece ligações de ajuda para o serviço web.
-4. Clique em de **atualização recursos** ligação para abrir a página de ajuda do patch.
+   ![HelpLocation na saída do exemplo addEndpoint.][image2]
+3. Cole o URL num browser para navegar para uma página que fornece ligações de ajuda para o serviço web.
+4. Clique nas **recursos de atualização** link para abrir a página de ajuda do patch.
 
-**Opção 2: Utilizar o portal de serviços Web do Azure Machine Learning**
+**Opção 2: Utilizar o portal de serviços da Web do Azure Machine Learning**
 
-1. Iniciar sessão para o [serviços Web do Azure Machine Learning](https://services.azureml.net/) portal.
+1. Inicie sessão para o [serviços da Web do Azure Machine Learning](https://services.azureml.net/) portal.
 2. Clique em **serviços Web** ou **serviços Web clássicos** na parte superior.
-4. Clique no serviço web classificação estiver a trabalhar com (se não modificar o nome predefinido do serviço web, vai terminar dentro de "[Scoring Exp.]").
+4. Clique em serviço web de pontuação está a trabalhar com (se não modificar o nome predefinido do serviço web, ele termina em "[Scoring Exp.]").
 5. Clique em **+ novo**.
-6. Depois do ponto final é adicionado, clique no nome de ponto final.
+6. Depois do ponto final é adicionado, clique no nome do ponto final.
 7. Sob o **Patch** URL, clique em **API ajuda** para abrir a página de ajuda de aplicação de patches.
 
 > [!NOTE]
-> Se adicionou o ponto final para o serviço Web de formação em vez do serviço Web preditiva, receberá o erro seguinte ao clicar no **atualização recursos** ligação: "Lamentamos, mas esta funcionalidade não é suportada ou disponível no Neste contexto. Este serviço Web tem não existem recursos atualizáveis. Iremos desculpa pelo incómodo e a trabalhar para melhorar este fluxo de trabalho."
+> Se tiver adicionado o ponto final para o serviço da Web de treinamento em vez do serviço Web preditivo, receberá o erro seguinte ao clicar o **recursos de atualização** ligação: "Pedimos, mas esta funcionalidade não é suportado ou disponíveis no Neste contexto. Este serviço Web tem não existem recursos atualizáveis. Podemos desculpa pelo inconveniente e estão a trabalhar na melhoria este fluxo de trabalho."
 > 
 > 
 
-A página de ajuda de PATCH contém o URL de aplicar o PATCH de mensagens em fila tem de utilizar e fornece o código de exemplo, que pode utilizar para chamá-lo.
+A página de ajuda de PATCH contém o URL de aplicar o PATCH de mensagens em fila tem de utilizar e fornece o código de exemplo, que pode usar para chamá-lo.
 
 ![URL de patch.][image5]
 
-### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Certifique-se que estão a atualizar o ponto final de classificação correto
-* Não aplicar o patch do serviço web de preparação: A operação de patch tem de ser efetuada do serviço web classificação.
-* Não aplicar o patch o ponto final predefinido do serviço web: A operação de patch tem de ser efetuada na nova classificação web ponto final do serviço que adicionou.
+### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>Verifique que está a atualizar o ponto de final de classificação correto
+* Não corrigir o serviço da web de treinamento: A operação de correção deve ser executada no serviço web de pontuação.
+* Não aplicar o patch o ponto final predefinido do serviço web: A operação de correção deve ser executada em nova classificação web ponto final do serviço que adicionou.
 
-Pode verificar o serviço web, o ponto final está ativada por aceder ao portal de serviços Web. 
+Pode verificar o serviço web, o ponto final está no, visite o portal de serviços da Web. 
 
 > [!NOTE]
-> Lembre-se de que está a adicionar o ponto final para o serviço Web preditiva, não o serviço Web de formação. Se tiver implementado corretamente uma formação e um serviço Web preditiva, deverá ver dois serviços de web separado listados. O serviço Web preditiva deve terminar com "[exp preditiva.]".
+> Certifique-se de que está a adicionar o ponto de extremidade ao serviço Web preditivo, não o serviço da Web de treinamento. Se tiver implementado um treinamento e um serviço Web preditivo corretamente, deverá ver dois serviços da web separado listados. O serviço Web preditivo deve terminar com "[exp preditiva.]".
 > 
 > 
 
-1. Iniciar sessão para o [serviços Web do Azure Machine Learning](https://services.azureml.net/) portal.
+1. Inicie sessão para o [serviços da Web do Azure Machine Learning](https://services.azureml.net/) portal.
 2. Clique em **serviços Web** ou **serviços Web clássicos**.
-3. Selecione o seu serviço Web preditiva.
-4. Certifique-se de que o novo ponto final foi adicionado ao serviço web.
+3. Selecione o seu serviço Web preditivo.
+4. Certifique-se de que o seu novo ponto final foi adicionado ao serviço web.
 
 ### <a name="check-that-your-workspace-is-in-the-same-region-as-the-web-service"></a>Verifique se a sua área de trabalho está na mesma região que o serviço web
-1. Inicie sessão no [Machine Learning Studio](https://studio.azureml.net/).
-2. Na parte superior, clique na lista pendente da sua áreas de trabalho.
+1. Inicie sessão no [do Machine Learning Studio](https://studio.azureml.net/).
+2. Na parte superior, clique na lista pendente as áreas de trabalho.
 
-   ![Machine learning região da IU.][image4]
+   ![Região de aprendizagem da máquina da interface do Usuário.][image4]
 
 3. Certifique-se a região na sua área de trabalho.
 

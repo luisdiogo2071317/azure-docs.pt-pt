@@ -1,10 +1,11 @@
 ---
-title: Gerir iterações de experimentação no Machine Learning Studio | Microsoft Docs
+title: Gerir iterações de experimentação no Machine Learning Studio | Documentos da Microsoft
 description: Como gerir iterações de experimentação no Azure Machine Learning Studio
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
@@ -15,69 +16,69 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 4dcae0bb3cb89e65079b88f7be68ddf360ce1b8c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3fd9a87ace7b78b394dc0c44a030efc5b4dffb09
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834816"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820074"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gerir iterações da experimentação no Azure Machine Learning Studio
-Desenvolver um modelo de Análise Preditiva é um processo iterativo - à medida que modifica as várias funções e os parâmetros da sua experimentação, os seus resultados convergem até achar que tem um modelo preparado e eficaz. Chave para este processo está a controlar vários iterações da sua experimentação parâmetros e configurações.
+Desenvolver um modelo de Análise Preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experimentação, os seus resultados convergem até achar que tem um modelo preparado e eficaz. A chave para este processo está acompanhando as várias interações de suas configurações e parâmetros de experimentação.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-Pode rever execuções anteriores das suas experimentações em qualquer altura para desafio, revê e, em última análise confirmar ou refinar pressupostos anteriores. Quando executa uma experimentação, o Machine Learning Studio mantém um histórico de execução, incluindo o conjunto de dados, módulo e ligações de porta e os parâmetros. Este histórico também captura resultados, informações de tempo de execução, tais como iniciar e parar vezes, as mensagens do registo e estado de execução. Pode ser novamente em qualquer um destes é executado em qualquer altura para rever o chronology da sua experimentação e resultados intermédios. Mesmo pode utilizar uma execução anterior da sua experimentação para iniciar numa fase de consulta e de deteção nova no seu caminho para a criação simples, complexas ou soluções de modelação de ensemble mesmo.
+Pode rever execuções anteriores de suas experimentações em qualquer altura para desafiar, revisitar e, por fim, confirme ou refinar suposições anteriores. Quando executa uma experimentação, o Machine Learning Studio mantém um histórico da execução, incluindo o conjunto de dados, módulo e ligações de porta e parâmetros. Esse histórico também captura os resultados, informações de tempo de execução, tais como iniciar e parar vezes, as mensagens de registo e estado de execução. Pode olhar novamente qualquer um dessas execuções em qualquer altura para rever a cronologia da sua experimentação e os resultados intermediários. Pode até usar uma execução anterior da sua experimentação para uma nova fase de consulta e deteção de iniciar no seu caminho para criar soluções de modelagem de ensemble até mesmo, complexo ou simples.
 
 > [!NOTE]
-> Quando visualiza uma execução anterior de uma experimentação, essa versão a experimentação está bloqueada e não pode ser editada. No entanto, pode, guarde uma cópia do mesmo ao clicar em **guardar como** e fornecer um novo nome para a cópia. O Machine Learning Studio abre-se a cópia novo, o que pode, em seguida, editar e executar. Esta cópia da sua experimentação está disponível no **EXPERIMENTAÇÕES** lista juntamente com todos os seus outras experimentações.
+> Quando vir uma execução anterior de uma experimentação, essa versão da experimentação está bloqueado e não pode ser editado. No entanto, pode, guarde uma cópia do mesmo clicando **guardar como** e fornecendo um novo nome para a cópia. O Machine Learning Studio abre-se a nova cópia, que, em seguida, pode editar e executar. Esta cópia da sua experimentação está disponível na **EXPERIMENTAÇÕES** lista juntamente com todas as suas outras experiências.
 > 
 > 
 
 ## <a name="viewing-the-prior-run"></a>Ver a execução anterior
-Quando tiver de abrir uma experimentação que executou, pelo menos, uma vez, pode ver a execução anterior a experimentação ao clicar **executar o anterior** no painel Propriedades.
+Quando tiver aberto uma experimentação que executou, pelo menos, uma vez, pode ver a execução anterior da experimentação ao clicar **executar anterior** no painel de propriedades.
 
-Por exemplo, suponha que criar uma experimentação e executam versões do mesmo às 11:23, 11:42 e 11:55. Se abrir a última execução da experimentação (11:55) e clique em **executar o anterior**, a versão que executou às 11:42 é aberta.
+Por exemplo, suponha que criar uma experimentação e executam versões do mesmo em 11:23, 11:42 e 11:55. Se abrir a última execução da experimentação (11:55) e clique em **executar anterior**, a versão que foi executada em 11:42 é aberta.
 
-## <a name="viewing-the-run-history"></a>Visualizar o histórico de execução
-Pode ver todas as execuções anteriores de uma experimentação, clicando em **ver histórico de execuções** numa experiência aberta.
+## <a name="viewing-the-run-history"></a>Visualizar o histórico de execuções
+Pode ver todas as execuções anteriores de uma experimentação ao clicar **ver histórico de execuções** numa experimentação aberta.
 
-Por exemplo, suponha que cria uma experimentação com o [regressão Linear] [ linear-regression] módulo e pretendido para observar o efeito de alterar o valor de **ritmo de aprendizagem** no seu resultados de experimentação. Executar a experimentação várias vezes com valores diferentes para este parâmetro, da seguinte forma:
+Por exemplo, suponha que crie uma experiência com o [regressão Linear] [ linear-regression] módulo e quiser observar o efeito da alteração do valor de **ritmo de aprendizagem** no seu resultados da experimentação. Executar a experimentação múltiplas vezes com valores diferentes para este parâmetro, da seguinte forma:
 
-| Valor de velocidade de aprendizagem | Hora de início de execução |
+| Valor da taxa de aprendizagem | Hora de início de execução |
 | --- | --- |
-| 0.1 |9/11/2014 4:18:58 pm |
+| 0.1 |9/11/2014 4 18:58 pm |
 | 0.2 |9/11/2014 4:24:33 pm |
 | 0.4 |9/11/2014 4:28:36 pm |
-| 0.5 |9/11/2014 4:33:31 pm |
+| 0,5 |9/11/2014 4 33:31 pm |
 
-Se clicar em **ver histórico de EXECUÇÕES**, é apresentada uma lista de todas as execuções destas:
+Se clicar **ver histórico de EXECUÇÕES**, verá uma lista de todas essas execuções:
 
-![Histórico de execução de exemplo][runhistory]
+![Exemplo de histórico de execuções][runhistory]
 
-Clique em qualquer uma destas executa para ver um instantâneo da experimentação o momento em que foi executada. A configuração, os valores de parâmetros, comentários e os resultados são todos preservados para lhe dar um registo de concluir essa execução da sua experimentação.
+Clique em qualquer um dessas execuções para ver um instantâneo da experimentação no momento que o executasse. A configuração, os valores de parâmetros, comentários e os resultados são todos preservados para que tenha um registo completo de que a execução da sua experimentação.
 
 > [!TIP]
-> Documentar as iterações de experimentação, pode modificar o título de cada vez executa, pode atualizar o **resumo** da experimentação nas propriedades de painel e, pode adicionar ou atualizar comentários sobre o módulos individuais para registar o alterações. Os comentários título, o resumo e módulo são guardados com cada execução da experimentação.
+> Documentar as iterações da experimentação, pode modificar o título de cada vez que executá-lo, pode atualizar o **resumo** da experimentação nas propriedades do painel e pode adicionar ou atualizar comentários nos módulos individuais para registrar sua alterações. Os comentários de título, resumo e módulo são guardados com cada execução da experimentação.
 > 
 > 
 
-A lista de experimentações no **EXPERIMENTAÇÕES** separador no Machine Learning Studio apresenta sempre a versão mais recente de uma experimentação. Se abrir uma execução anterior a experimentação (utilizando **executar o anterior** ou **ver histórico de EXECUÇÕES**), poderá regressar à versão de rascunho clicando **ver histórico de EXECUÇÕES** e selecionando a iteração que tenha um **estado** de **Editable**.
+A lista de experimentações no **EXPERIMENTAÇÕES** separador no Machine Learning Studio apresenta sempre a versão mais recente de uma experimentação. Se abrir uma execução anterior da experimentação (usando **executar anteriores** ou **ver histórico de EXECUÇÕES**), pode retornar para a versão de rascunho, clicando em **ver histórico de EXECUÇÕES** e selecionando o iteração, que tem um **estado** dos **Editable**.
 
-## <a name="iterating-on-a-previous-run"></a>Iterating numa execução anterior
-Ao clicar em **executar o anterior** ou **ver histórico de EXECUÇÕES** e abrir uma execução anterior, pode ver uma experimentação concluída no modo só de leitura.
+## <a name="iterating-on-a-previous-run"></a>Fazendo a iteração numa execução anterior
+Quando clica em **executar anteriores** ou **ver histórico de EXECUÇÕES** e abrir uma execução anterior, pode ver uma experimentação concluída no modo só de leitura.
 
-Se pretender começar uma iteração da sua experimentação começando com a forma como configurou para uma execução anterior, pode fazer isto, ao abrir a executar e clicar em **guardar como**. Esta ação cria uma nova experimentação, com um título de novo, vazio histórico, de execução e execute a todos os componentes e os valores de parâmetros de anterior. Esta nova experiência está listada no **EXPERIMENTAÇÕES** separador home page do Machine Learning Studio e pode modificar e executá-la, iniciar uma nova histórico de execução para esta iteração da sua experimentação. 
+Se pretender começar uma repetição da experimentação começando com a forma como tiver configurado para uma execução anterior, pode fazê-lo ao abrir a execução e clicar **guardar como**. Esta ação cria uma nova experimentação, com um título novo, vazio histórico, de execução e execute todos os componentes e os valores de parâmetro de anterior. Esta nova experiência está listada na **EXPERIMENTAÇÕES** guia na home page do Machine Learning Studio e pode modificar e executá-lo, iniciar um novo histórico de execuções por essa iteração da sua experimentação. 
 
-Por exemplo, suponha que tem a experimentação mostrado na secção anterior do histórico de execução. Pretendido para observar o que acontece quando definir o **ritmo de aprendizagem** parâmetro 0.4 e tente valores diferentes para o **diversas epochs formação** parâmetro.
+Por exemplo, suponha que tem a experimentação mostrado na secção anterior do histórico de execuções. Pretende observar o que acontece quando definir o **taxa de aprendizagem** parâmetro para 0.4 e tente valores diferentes para o **número de epochs de treinamento** parâmetro.
 
-1. Clique em **ver histórico de EXECUÇÕES** e abra a iteração da experimentação que tenha sido executada em 4:28:36 pm (na qual pode define o valor do parâmetro como 0.4).
+1. Clique em **ver histórico de EXECUÇÕES** e abra a iteração da experimentação que tenha sido executada às: 28:36 16:00 (em que definir o valor do parâmetro para 0.4).
 2. Clique em **guardar como**.
-3. Introduza um título nova e clique em de **OK** marca de verificação. É criada uma nova cópia a experimentação.
-4. Modificar o **diversas epochs formação** parâmetro.
+3. Introduza um título novo e clique nas **OK** marca de verificação. É criada uma nova cópia da experimentação.
+4. Modificar a **número de epochs de treinamento** parâmetro.
 5. Clique em **executar**.
 
-Pode agora continuar modificar e executar esta versão da sua experimentação, criar um novo histórico de execução para registar o seu trabalho.
+Pode continuar modificar e executar esta versão da sua experimentação, criando um histórico de execuções de novo para registrar seu trabalho.
 
 <!-- Images -->
 [runhistory]:./media/manage-experiment-iterations/viewrunhistory.jpg

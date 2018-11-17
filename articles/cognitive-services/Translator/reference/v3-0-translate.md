@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bebe9b6565d618cb773de0379122a17bf7f70403
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a096bd2f23910eb2eb3bc4aa36e34400ccfbb701
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914299"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853409"
 ---
 # <a name="translator-text-api-30-translate"></a>API 3.0 de texto de tradutor: traduzir
 
@@ -84,6 +84,11 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td>toScript</td>
     <td>*O parâmetro opcional*.<br/>Especifica o script do texto traduzido.</td>
   </tr>
+  <tr>
+    <td>AllowFallback</td>
+    <td>*O parâmetro opcional*.<br/>Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe. Os valores possíveis são: `true` (predefinição) ou `false`.<br/><br/>`AllowFallback=false` Especifica que a tradução só deve utilizar sistemas de preparação para o `category` especificado pelo pedido. Se precisar de uma tradução para a linguagem X para a linguagem Y encadeamento por meio de uma linguagem dinâmica E, em seguida, todos os sistemas na cadeia (X -> i e I -> Y) tem de ser personalizado e ter a mesma categoria. Se não for encontrado nenhum sistema com uma categoria específica, o pedido irá devolver um código de 400 estado. `AllowFallback=true` Especifica que o serviço tem permissão para contingência para um sistema geral, quando um sistema personalizado não existe.
+</td>
+  </tr>
 </table> 
 
 Cabeçalhos de pedido incluem:
@@ -106,6 +111,11 @@ Cabeçalhos de pedido incluem:
   <tr>
     <td>X ClientTraceId</td>
     <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de rastreio na cadeia de consulta com um parâmetro de consulta com o nome `ClientTraceId`.</td>
+  </tr>
+  <tr>
+    <td>Sistema de MT de X</td>
+    <td>*Opcional*.<br/>Especifica o tipo de sistema que foi utilizado para a tradução para cada idioma "para" pedido para a tradução. O valor é uma lista separada por vírgulas de cadeias de caracteres. Cada cadeia indica um tipo:<br/><ul><li>Custom - pedido inclui um sistema personalizado e, pelo menos, um sistema personalizado foi utilizado durante a tradução.</li><li>Equipe - todos os outros pedidos</li></ul>
+</td>
   </tr>
 </table> 
 
@@ -186,6 +196,10 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
   <tr>
     <td>403</td>
     <td>O pedido não está autorizado. Verifique os detalhes da mensagem de erro. Isso geralmente indica que foram utilizadas todas as conversões gratuitas fornecidas com uma subscrição de avaliação cópia de segurança.</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>O pedido não foi possível ser concluído porque um recurso está em falta. Verifique os detalhes da mensagem de erro. Quando utilizar um personalizado `category`, isso geralmente indica que o sistema de tradução personalizadas ainda não está disponível para servir pedidos. O pedido deve ser repetido após um período de espera (por exemplo, 10 minutos).</td>
   </tr>
   <tr>
     <td>429</td>

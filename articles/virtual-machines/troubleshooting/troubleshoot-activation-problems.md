@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235280"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824307"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Windows Azure
 
@@ -29,7 +29,7 @@ Se tiver problemas ao ativar a máquina de virtual de Windows Azure (VM) que é 
 O Azure utiliza diferentes pontos de extremidade para ativação do KMS consoante a região de cloud em que a VM reside. Ao utilizar este guia de resolução de problemas, utilize o ponto de final adequado do KMS aplica-se a sua região.
 
 * Regiões de cloud pública do Azure: kms.core.windows.net:1688
-* Regiões de cloud nacional do Azure China: kms.core.chinacloudapi.cn:1688
+* Regiões em nuvem nacionais do Azure China 21Vianet: kms.core.chinacloudapi.cn:1688
 * Regiões de cloud nacional do Azure Alemanha: kms.core.cloudapi.de:1688
 * Regiões de cloud nacional do Azure gov (US): kms.core.usgovcloudapi.net:1688
 
@@ -84,8 +84,7 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Ele usa a func
 3. Certifique-se de que a VM está configurada para utilizar o servidor correto do KMS do Azure. Para tal, execute o seguinte comando:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     O comando deverá devolver: nome da máquina de Key Management Service definido como kms.core.windows.net:1688 com êxito.
 

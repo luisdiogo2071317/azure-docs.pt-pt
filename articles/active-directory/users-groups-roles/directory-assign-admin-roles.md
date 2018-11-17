@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 0c8fe0759e115288e9f8cc2ea313f6dc3dc89b6b
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686131"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854011"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -179,11 +179,6 @@ As tabelas seguintes descrevem as permissões específicas no Azure Active Direc
 ### <a name="application-administrator"></a>Administrador de Aplicações
 Pode criar e gerir todos os aspetos de registos de aplicações e aplicações empresariais.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | Microsoft.aad.Directory/Applications/Audience/Update | Atualizar a propriedade applications.audience no Azure Active Directory. |
@@ -223,11 +218,6 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 ### <a name="application-developer"></a>Programador de Aplicações
 Pode criar registos de aplicações independentemente do "os utilizadores podem registar aplicações" definição.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | Criar aplicações no Azure Active Directory. Criador é adicionado como o primeiro proprietário e o objeto criado conta contra a quota de 250 objetos criados do criador. |
@@ -237,11 +227,6 @@ Pode criar registos de aplicações independentemente do "os utilizadores podem 
 
 ### <a name="billing-administrator"></a>Administrador de Faturação
 Pode executar tarefas de faturação comuns, como atualizar as informações de pagamento.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -263,11 +248,6 @@ Pode executar tarefas de faturação comuns, como atualizar as informações de 
 Pode aceder e gerir os serviços incluindo o Intune e de ferramentas de gerenciamento de Desktops.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -283,11 +263,6 @@ Pode aceder e gerir os serviços incluindo o Intune e de ferramentas de gerencia
 
 ### <a name="cloud-application-administrator"></a>Administrador da Aplicação Cloud
 Pode criar e gerir todos os aspetos de registos de aplicações e aplicações empresariais, exceto o Proxy de Aplicações.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -327,11 +302,6 @@ Pode criar e gerir todos os aspetos de registos de aplicações e aplicações e
 ### <a name="cloud-device-administrator"></a>Administrador de dispositivos de cloud
 Acesso total para gerir dispositivos no Azure AD.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | Microsoft.aad.Directory/Devices/DELETE | Eliminar dispositivos no Azure Active Directory. |
@@ -344,11 +314,6 @@ Acesso total para gerir dispositivos no Azure AD.
 
 ### <a name="company-administrator"></a>Administrador de Empresa
 Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam identidades do Azure AD.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -411,11 +376,6 @@ Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam iden
 Pode ler e gerir a configuração de conformidade e os relatórios no Azure AD e no Office 365.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -435,11 +395,6 @@ Pode ler e gerir a configuração de conformidade e os relatórios no Azure AD e
 ### <a name="conditional-access-administrator"></a>Administrador de Acesso Condicional
 Pode gerir capacidades de acesso condicional.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | Ler a propriedade policies.conditionalAccess no Azure Active Directory. |
@@ -452,11 +407,6 @@ Pode gerir capacidades de acesso condicional.
 
 ### <a name="crm-service-administrator"></a>Administrador de Serviço CRM
 Pode gerir todos os aspetos do produto Dynamics 365.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -476,11 +426,6 @@ Pode gerir todos os aspetos do produto Dynamics 365.
 Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizacionais do cliente.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -493,11 +438,6 @@ Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizaciona
 ### <a name="device-administrators"></a>Administradores de Dispositivo
 Os membros desta função são adicionados ao grupo Administradores local em dispositivos associados ao AD Azure.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | Ler as propriedades básicas em groupSettings no Azure Active Directory. |
@@ -505,11 +445,6 @@ Os membros desta função são adicionados ao grupo Administradores local em dis
 
 ### <a name="directory-readers"></a>Leitores de Diretório
 Pode ler as informações de diretório básicas. Para conceder acesso a aplicações, não se destina aos utilizadores.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função.
-  >
-  >
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -570,11 +505,6 @@ Pode ler as informações de diretório básicas. Para conceder acesso a aplica�
 ### <a name="directory-synchronization-accounts"></a>Contas de sincronização de diretório
 Só é utilizada pelo serviço do Azure AD Connect.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | Atualizar a propriedade organization.dirSync no Azure Active Directory. |
@@ -604,11 +534,6 @@ Só é utilizada pelo serviço do Azure AD Connect.
 ### <a name="directory-writers"></a>Escritores de Diretório
 Pode ler e gravar informações de diretório básicas. Para conceder acesso a aplicações, não se destina aos utilizadores.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | Microsoft.aad.Directory/Groups/Create | Criar grupos no Azure Active Directory. |
@@ -630,11 +555,6 @@ Pode ler e gravar informações de diretório básicas. Para conceder acesso a a
 
 ### <a name="exchange-service-administrator"></a>Administrador de Serviço Exchange
 Pode gerir todos os aspetos do produto Exchange.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -659,11 +579,6 @@ Pode gerir todos os aspetos do produto Exchange.
 ### <a name="guest-inviter"></a>Utilizador Que Convida Convidados
 Pode convidar utilizadores convidados independentemente da definição "Os membros podem convidar convidados".
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | Ler a propriedade users.appRoleAssignments no Azure Active Directory. |
@@ -682,11 +597,6 @@ Pode convidar utilizadores convidados independentemente da definição "Os membr
 ### <a name="helpdesk-administrator"></a>Administrador de Suporte Técnico
 Pode repor palavras-passe para não administradores e Administradores de Suporte Técnico.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalide todos os tokens de atualização de utilizador no Azure Active Directory. |
@@ -699,11 +609,6 @@ Pode repor palavras-passe para não administradores e Administradores de Suporte
 
 ### <a name="information-protection-administrator"></a>Administrador do Information Protection
 Pode gerir todos os aspetos do produto Azure Information Protection.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -720,11 +625,6 @@ Pode gerir todos os aspetos do produto Azure Information Protection.
 
 ### <a name="intune-service-administrator"></a>Administrador de Serviços do Intune
 Pode gerir todos os aspetos do produto Intune.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -761,11 +661,6 @@ Pode gerir todos os aspetos do produto Intune.
 ### <a name="license-administrator"></a>Administrador de Licenças
 Pode gerir licenças de produtos em utilizadores e grupos.
 
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | Gerir licenças em utilizadores no Azure Active Directory. |
@@ -776,11 +671,6 @@ Pode gerir licenças de produtos em utilizadores e grupos.
 
 ### <a name="lync-service-administrator"></a>Administrador do Serviço Lync
 Pode gerir todos os aspetos do produto Skype para Empresas.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -800,11 +690,6 @@ Pode gerir todos os aspetos do produto Skype para Empresas.
 Pode ler as mensagens e atualizações para a sua organização apenas no Centro de Mensagem do Office 365. 
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -816,11 +701,6 @@ Pode ler as mensagens e atualizações para a sua organização apenas no Centro
 
 ### <a name="partner-tier1-support"></a>Parceiro de Suporte de Escalão 1
 Não utilize – não se destina a utilização geral.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -853,11 +733,6 @@ Não utilize – não se destina a utilização geral.
 
 ### <a name="partner-tier2-support"></a>Parceiro de Suporte de Escalão 2
 Não utilize – não se destina a utilização geral.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -895,11 +770,6 @@ Não utilize – não se destina a utilização geral.
 Pode gerir todos os aspetos do produto Power BI.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -917,11 +787,6 @@ Pode gerir todos os aspetos do produto Power BI.
 Pode gerir atribuições de funções no Azure AD e todos os aspetos do Privileged Identity Management.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -933,11 +798,6 @@ Pode gerir atribuições de funções no Azure AD e todos os aspetos do Privileg
 
 ### <a name="reports-reader"></a>Leitor de Relatórios
 Pode ler relatórios de auditoria e inícios de sessão.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -954,11 +814,6 @@ Pode ler relatórios de auditoria e inícios de sessão.
 
 ### <a name="security-administrator"></a>Administrador de Segurança
 Pode ler as informações de segurança e de relatórios e gerir a configuração no Azure AD e o Office 365.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -988,11 +843,6 @@ Pode ler as informações de segurança e de relatórios e gerir a configuraçã
 Pode ler as informações de segurança e os relatórios no Azure AD e no Office 365.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -1012,11 +862,6 @@ Pode ler as informações de segurança e os relatórios no Azure AD e no Office
 Consegue ler as informações do Service Health e gerir pedidos de suporte.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -1031,11 +876,6 @@ Consegue ler as informações do Service Health e gerir pedidos de suporte.
 
 ### <a name="sharepoint-service-administrator"></a>Administrador de Serviços do SharePoint
 Pode gerir todos os aspetos do serviço do SharePoint.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -1061,11 +901,6 @@ Pode gerir todos os aspetos do serviço do SharePoint.
 Pode gerir funcionalidades de chamadas e reuniões no serviço Microsoft Teams.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -1084,11 +919,6 @@ Pode gerir funcionalidades de chamadas e reuniões no serviço Microsoft Teams.
 Pode resolver problemas de comunicação no Teams com ferramentas avançadas.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -1104,11 +934,6 @@ Pode resolver problemas de comunicação no Teams com ferramentas avançadas.
 Pode resolver problemas de comunicação no Teams com ferramentas básicas.
 
   > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
-
-  > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
@@ -1122,11 +947,6 @@ Pode resolver problemas de comunicação no Teams com ferramentas básicas.
 
 ### <a name="teams-service-administrator"></a>Administrador dos Serviços de Equipas
 Pode gerir o serviço Microsoft Teams.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -1152,11 +972,6 @@ Pode gerir o serviço Microsoft Teams.
 
 ### <a name="user-account-administrator"></a>Administrador de Conta de Utilizador
 Pode gerir todos os aspetos de utilizadores e grupos, incluindo repor palavras-passe para administradores limitados.
-
-  > [!NOTE]
-  > Esta função herda permissões adicionais da função leitores de diretório.
-  >
-  >
 
 | **Ações** | **Descrição** |
 | --- | --- |

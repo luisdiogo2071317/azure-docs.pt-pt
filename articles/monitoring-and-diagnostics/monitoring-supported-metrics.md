@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964191"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824919"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 O Azure Monitor proporciona várias formas de interagir com métricas, incluindo gráficos-las no portal, o acesso aos mesmos através da API REST ou consultando-os com o PowerShell ou CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis com o pipeline de métrico do Azure Monitor. Outras métricas poderão estar disponíveis no portal ou através de APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis com o pipeline de métrico do Azure Monitor consolidado. Para consultar e aceder a estas métricas, utilize o [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -819,7 +819,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |IsEngineAnsweringQuery|Keep Alive de|Contagem|Média|Verificação da funcionalidade indica o respondes de cluster para consultas|Nenhuma dimensão|
 |IngestCommandOriginalSizeInMb|Volume de ingestão (em MB)|Contagem|Total|Volume global dos dados ingeridos para o cluster (em MB)|Nenhuma dimensão|
 |EventAgeSeconds|Latência de ingestão (em segundos)|Segundos|Média|Tempo de ingestão da origem (por exemplo, mensagem estiver EventHub) para o cluster em segundos|Nenhuma dimensão|
-|EventRecievedFromEventHub|Eventos processados (para os Hubs de eventos)|Contagem|Total|Número de eventos processados pelo cluster, ao ingerir do Hub de eventos|Nenhuma dimensão|
+|EventReceivedFromEventHub|Eventos processados (para os Hubs de eventos)|Contagem|Total|Número de eventos processados pelo cluster, ao ingerir do Hub de eventos|Nenhuma dimensão|
 |IngestionResult|Resultado de ingestão|Contagem|Contagem|Número de operações de ingestão|IngestionResultDetails|
 |EngineCPU|CPU|Percentagem|Média|Nível de utilização da CPU|Nenhuma dimensão|
 
@@ -1570,6 +1570,6 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |MemoryPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Leia sobre as métricas no Azure Monitor](../monitoring/monitoring-data-collection.md)
+* [Leia sobre as métricas no Azure Monitor](../azure-monitor/platform/data-collection.md)
 * [Criar alertas em métricas](monitoring-overview-alerts.md)
 * [Exportar métricas para o armazenamento, o Hub de eventos ou o Log Analytics](monitoring-overview-of-diagnostic-logs.md)

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6debfaed28be2b5dee5e24a443b791f75f7bea8f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 10f76ea58b859611483c99c2f4accec607bc2939
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634197"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822913"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos de fluxo de NSG de observador de rede do Azure utilizando ferramentas open source
 
 Os registos de fluxo do grupo de segurança de rede fornecem informações que podem ser utilizadas compreender o tráfego IP de entrada e de saída nos grupos de segurança de rede. Estes registos de fluxo mostram fluxos de saída e entrados numa base por regra, o fluxo de mensagens em fila aplica-se a NIC, 5 de cadeias de identificação informações sobre o fluxo (IP de origem/destino, porta de origem/destino, protocolo) e se o tráfego foi permitido ou negado.
 
 Estes registos de fluxo podem ser difíceis de analisar e obter informações a partir de manualmente. No entanto, existem várias ferramentas de código-fonte aberto que podem ajudar a visualizar estes dados. Este artigo fornece uma solução para visualizar estes registos com a pilha elástica, que irá permitir-lhe rapidamente de índice e visualizar o fluxo faz logon num dashboard do Kibana.
+
+> [!Warning]  
+> Os seguintes passos funcionam com a versão de registos de fluxo 1. Para obter detalhes, consulte [introdução ao registo do fluxo para grupos de segurança de rede](network-watcher-nsg-flow-logging-overview.md). As instruções seguintes não irão funcionar com a versão 2 dos ficheiros de registo, sem modificações.
 
 ## <a name="scenario"></a>Cenário
 

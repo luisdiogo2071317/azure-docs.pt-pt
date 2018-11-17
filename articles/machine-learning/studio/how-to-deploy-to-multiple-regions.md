@@ -1,6 +1,6 @@
 ---
-title: Como implementar um serviço Web em várias regiões | Microsoft Docs
-description: Passos para implementar regiões (copiar) um novo serviço Web para si.
+title: Como implementar um serviço Web em várias regiões | Documentos da Microsoft
+description: Passos para implementar (copiar) um novo serviço Web para outras regiões.
 services: machine-learning
 documentationcenter: ''
 author: aashishb
@@ -14,40 +14,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
-ms.openlocfilehash: 78b37f0e7ac554c1823a0607e43718e5a0ac0067
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.custom: (previous ms.author aashishb)
+ms.author: amlstudiodocs
+ms.openlocfilehash: b3b5f8e5c4a1a4baee7b06c9ac2e766fa59996b5
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835139"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820380"
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Como implementar um serviço Web em várias regiões
-Novos serviços Web do Azure permitem-lhe facilmente implementar um serviço web para várias regiões sem necessitar de várias subscrições ou áreas de trabalho. 
+Os novos serviços de Web do Azure permitem-lhe facilmente implementar um serviço web em várias regiões sem a necessidade de várias subscrições ou áreas de trabalho. 
 
-Preços é a região específico, por conseguinte, tem de definir um plano de faturação para cada região na qual irá implementar o serviço web.
+O preço é a região específico, por isso deve definir um plano de faturação para cada região na qual irá implementar o serviço web.
 
 ## <a name="to-create-a-plan-in-another-region"></a>Para criar um plano noutra região
-1. Inicie sessão no [do Microsoft Azure serviços Web Machine Learning](https://services.azureml.net/).
-2. Clique em de **planos** opção do menu.
-3. Os planos através de página vista, clique em **novo**.
-4. Do **subscrição** lista pendente, selecione a subscrição na qual o novo plano irá residir.
-5. Do **região** lista pendente, selecione uma região do novo plano. As opções de plano para a região selecionada será apresentado no **planear opções** secção da página.
-6. Do **grupo de recursos** lista pendente, selecione um recurso de grupo para o plano. A partir de mais informações sobre grupos de recursos, consulte [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
-7. No **nome do plano** escreva o nome do plano.
-8. Em **as opções do plano**, clique o nível para o novo plano de faturação.
+1. Inicie sessão no [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/).
+2. Clique nas **planos** opção de menu.
+3. Nos planos pela página de exibição de mensagens em fila, clique em **New**.
+4. Partir do **subscrição** lista pendente, selecione a subscrição na qual o novo plano irá residir.
+5. Partir do **região** lista pendente, selecione uma região para o novo plano. As opções de plano de mensagens em fila para a região selecionada serão apresentados no **opções de plano** secção da página.
+6. Partir do **grupo de recursos** lista pendente, selecione um recurso de grupo para o plano. A partir de mais informações sobre grupos de recursos, veja [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+7. Na **nome do plano** escreva o nome do plano.
+8. Sob **as opções do plano**, clique em nível de faturação para o novo plano.
 9. Clique em **Criar**.
 
-## <a name="deploying-the-web-service-to-another-region"></a>Implementar o serviço web noutra região
-1. Clique em de **serviços Web** opção do menu.
-2. Selecione o serviço Web estiver a implementar uma região de novo.
+## <a name="deploying-the-web-service-to-another-region"></a>Implementar o serviço web para outra região
+1. Clique nas **serviços da Web** opção de menu.
+2. Selecione o serviço Web que está a implementar uma nova região.
 3. Clique em **cópia**.
-4. No **nome do serviço Web**, escreva um novo nome para o serviço web.
-5. No **Web descrição do serviço**, digite uma descrição para o serviço web.
+4. Na **nome do serviço Web**, escreva um novo nome para o serviço web.
+5. Na **descrição do serviço da Web**, escreva uma descrição para o serviço web.
 6. Do **subscrição** lista pendente, selecione a subscrição na qual o novo serviço web irá residir.
-7. Do **grupo de recursos** lista pendente, selecione um recurso de grupo para o serviço web. A partir de mais informações sobre grupos de recursos, consulte [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
-8. Do **região** lista pendente, selecione a região na qual pretende implementar o serviço web.
-9. Do **conta de armazenamento** lista pendente, selecione o armazenamento da conta na qual pretende armazenar o serviço web.
-10. Do **plano de preços** lista pendente, selecione um plano na região que selecionou no passo 8.
+7. Partir do **grupo de recursos** lista pendente, selecione um recurso de grupo para o serviço web. A partir de mais informações sobre grupos de recursos, veja [descrição geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+8. Partir do **região** lista pendente, selecione a região na qual implementar o serviço web.
+9. Partir do **conta de armazenamento** lista pendente, selecione um armazenamento de conta na qual armazenar o serviço web.
+10. Partir do **plano de preços** lista pendente, selecione um plano na região que selecionou no passo 8.
 11. Clique em **cópia**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441940"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Azure Active Directory com Leapsome
 
@@ -37,7 +37,7 @@ Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Az
 
 Para configurar a integração do Azure AD com Leapsome, terá dos seguintes itens:
 
-- Uma subscrição do Azure AD
+- Uma subscrição do Azure
 - Um Leapsome logon único habilitado subscrição
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Para configurar a integração do Leapsome com o Azure AD, terá de adicionar Le
 
 **Para adicionar Leapsome a partir da galeria, execute os seguintes passos:**
 
-1. Na  **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
 
     ![O botão do Azure Active Directory][1]
 
@@ -134,7 +134,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | imagem | URL para imagem o funcionário | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > O valor do atributo de imagem não é real. Atualize este valor com o URL da imagem real. Para obter este valor de contacto [equipa de suporte de cliente Leapsome](mailto:support@leapsome.com).
+    > O valor do atributo de imagem não é real. Atualize este valor com o URL da imagem real. Para obter este valor de contacto [equipa de suporte de cliente Leapsome](mailto:support@leapsome.com).
     
     a. Clique em **adicionar atributo** para abrir o **adicionar atributo** caixa de diálogo.
 
@@ -176,7 +176,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Copiar o **URL de início de sessão (indicar a seus usuários aqui para iniciar o início de sessão)** valor e cole-o no **URL de início de sessão** caixa de texto no **Leapsome domínio e URLs** secção no portal do Azure.
 
-    c. Copiar o **URL de resposta (recieves resposta do fornecedor de identidade)** valor e cole-o no **URL de resposta** caixa de texto no **Leapsome domínio e URLs** secção no portal do Azure.
+    c. Copiar o **URL de resposta (recebe a resposta do seu fornecedor de identidade)** valor e cole-o no **URL de resposta** caixa de texto no **Leapsome domínio e URLs** secção no portal do Azure.
 
     d. Na **URL de início de sessão de SSO (fornecido pelo fornecedor de identidade)** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
 
@@ -218,7 +218,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
  
 ### <a name="create-a-leapsome-test-user"></a>Criar um utilizador de teste Leapsome
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Leapsome. Trabalhar com [equipa de suporte de cliente Leapsome](mailto:support@leapsome.com) para adicionar os utilizadores ou o domínio, o qual tem de estar na lista de permissões na plataforma Leapsome. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de Leapsome. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Leapsome. Trabalhar com [equipa de suporte de cliente Leapsome](mailto:support@leapsome.com) para adicionar os utilizadores ou o domínio, o qual tem de estar na lista de permissões na plataforma Leapsome. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de Leapsome. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
@@ -250,7 +250,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
     
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

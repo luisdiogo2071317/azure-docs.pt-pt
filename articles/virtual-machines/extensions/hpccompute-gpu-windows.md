@@ -12,24 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 11/15/2018
 ms.author: roiyz
-ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 85ac478bf753d5bb0aed96eca538e48525354eff
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056500"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823797"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de controladores de NVIDIA GPU para Windows
 
 ## <a name="overview"></a>Descrição geral
 
-Esta extensão instala controladores NVIDIA GPU em VMs de série N do Windows. Dependendo da família VM, a instalação da extensão controladores CUDA ou GRADE. Quando instalar NVIDIA os controladores com essa extensão, é abertos ao recebimento e aceita os termos do contrato de licença de utilizador final NVIDIA. Durante o processo de instalação, a sua máquina virtual pode reiniciar para concluir a configuração de controlador.
+Esta extensão instala controladores NVIDIA GPU em VMs de série N do Windows. Dependendo da família VM, a instalação da extensão controladores CUDA ou GRADE. Quando instalar NVIDIA os controladores com essa extensão, é abertos ao recebimento e aceita os termos do [contrato de licença de utilizador final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM poderá reiniciar para concluir a configuração de controlador.
 
 Uma extensão também está disponível para instalar controladores NVIDIA GPU no [VMs de série N Linux](hpccompute-gpu-linux.md).
-
-Termos do contrato de licença de utilizador final NVIDIA estão localizados aqui- https://go.microsoft.com/fwlink/?linkid=874330
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +43,7 @@ Esta extensão oferece suporte a OSs seguintes:
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão do Microsoft Azure para controladores de GPU da NVIDIA requer que a máquina virtual de destino está ligada à internet e tem acesso.
+A extensão do Microsoft Azure para controladores de GPU da NVIDIA requer que a VM de destino está ligado à internet e tem acesso.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -71,15 +69,23 @@ O JSON seguinte mostra o esquema para a extensão.
 }
 ```
 
-### <a name="property-values"></a>Valores de propriedade
+### <a name="properties"></a>Propriedades
 
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | cadeia |
 | tipo | NvidiaGpuDriverWindows | cadeia |
-| typeHandlerVersion | 1.2 | Int |
+| typeHandlerVersion | 1.2 | int |
 
+### <a name="settings"></a>Definições
+
+Todas as definições são opcionais. O comportamento padrão é instalar o controlador mais recente suportado conforme aplicável.
+
+| Nome | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
+| ---- | ---- | ---- | ---- | ---- |
+| driverVersion | NV: Versão do controlador de GRADE<br> NC/ND: Versão do controlador CUDA | mais recente | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | cadeia |
+| installGridND | Instale o controlador de GRADE na série ND VMs | false | VERDADEIRO, FALSO | boolean |
 
 ## <a name="deployment"></a>Implementação
 
@@ -129,6 +135,8 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>CLI do Azure
 
+O exemplo seguinte Espelha o exemplo acima do ARM e o PowerShell e também adiciona definições personalizadas como um exemplo para a instalação de driver de não-padrão. Especificamente, ele instala um controlador específico de GRADE, mesmo que uma VM da série ND está a ser aprovisionada.
+
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -137,6 +145,8 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
+    "driverVersion": "391.03",
+    "installGridND": true
   }'
 ```
 

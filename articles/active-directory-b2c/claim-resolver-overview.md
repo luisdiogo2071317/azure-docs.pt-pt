@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49313054"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852389"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as resoluções de afirmação em políticas personalizadas do Azure Active Directory B2C
 
@@ -33,10 +33,10 @@ No exemplo seguinte, o nome de um tipo de afirmação `correlationId` está defi
 </ClaimType>
 ```
 
-No perfil técnico, mapear o Resolvedor de afirmação para o tipo de afirmação. O Azure AD B2C preenche o valor de resolução de afirmação `{context:corelationId}` para a afirmação `correlationId` e envia a afirmação para o perfil técnico.
+No perfil técnico, mapear o Resolvedor de afirmação para o tipo de afirmação. O Azure AD B2C preenche o valor de resolução de afirmação `{Context:CorrelationId}` para a afirmação `correlationId` e envia a afirmação para o perfil técnico.
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>Resolvedor de tipos de afirmação

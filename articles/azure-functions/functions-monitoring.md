@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9bb703f822a9b9cafe8318bfb7f7cc64c3854868
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457668"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853664"
 ---
 # <a name="monitor-azure-functions"></a>Monitorizar as Funções do Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "49457668"
 
 [As funções do Azure](functions-overview.md) oferece integração incorporada com [Azure Application Insights](../application-insights/app-insights-overview.md) para funções de monitorização. Este artigo mostra como configurar as funções para enviar dados de telemetria para o Application Insights.
 
-![Explorador de Métricas do Application Insights](media/functions-monitoring/metrics-explorer.png)
+![Explorador de métricas do Application Insights](media/functions-monitoring/metrics-explorer.png)
 
 As funções também têm [monitorização que incorporada não utiliza o Application Insights](#monitoring-without-application-insights). Recomendamos que o Application Insights porque oferece mais dados e melhores maneiras de analisar os dados.
 
@@ -193,7 +193,7 @@ Se escrever registos no código da função, a categoria é "Function".
 
 ### <a name="log-levels"></a>Níveis de registo
 
-O agente de log de funções do Azure também inclui um *nível de registo* com cada registo. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) é uma enumeração, e o código de número inteiro indica a importância relativa:
+O agente de log de funções do Azure também inclui um *nível de registo* com cada registo. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) é uma enumeração, e o código de número inteiro indica a importância relativa:
 
 |LogLevel    |Código|
 |------------|---|

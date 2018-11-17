@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Configurar o Netsuite para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Netsuite.
+title: 'Tutorial: Configurar o Netsuite OneWorld para aprovisionamento automático de utilizadores no Azure Active Directory | Documentos da Microsoft'
+description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o Netsuite OneWorld.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346751"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823861"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o Netsuite para aprovisionamento automático de utilizadores
 
-O objetivo deste tutorial é mostrar a os passos que necessários para executar no Netsuite e do Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD para o Netsuite automaticamente.
+O objetivo deste tutorial é mostrar a os passos que necessários para executar no Netsuite OneWorld e do Azure AD para aprovisionar e desaprovisionar contas de utilizador do Azure AD para o Netsuite automaticamente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
 
 *   Um inquilino do Azure Active directory.
-*   Um Netsuite início de sessão único na subscrição ativado.
-*   Uma conta de utilizador no Netsuite com permissões de administrador da equipa.
+*   Uma subscrição de Netsuite OneWorld. Tenha em atenção que o aprovisionamento automático de utilizadores é atualmente suportado apenas com o NetSuite OneWorld.
+*   Uma conta de utilizador no Netsuite com permissões de administrador.
 
-## <a name="assigning-users-to-netsuite"></a>Atribuir utilizadores a Netsuite
+## <a name="assigning-users-to-netsuite-oneworld"></a>Atribuir utilizadores a Netsuite OneWorld
 
 O Azure Active Directory utiliza um conceito chamado "atribuições" para determinar quais os utilizadores devem receber acesso às aplicações selecionadas. No contexto de aprovisionamento de contas de utilizadores automático, apenas os utilizadores e grupos que foram "atribuídos" a uma aplicação no Azure AD são sincronizados.
 
@@ -41,7 +41,7 @@ Antes de configurar e ativar o serviço de aprovisionamento, precisa decidir qua
 
 [Atribuir um utilizador ou grupo a uma aplicação empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>Dicas importantes para atribuir utilizadores a Netsuite
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>Dicas importantes para atribuir utilizadores a Netsuite OneWorld
 
 *   Recomenda-se que um único utilizador do Azure AD é atribuído a Netsuite para testar a configuração de aprovisionamento. Os utilizadores adicionais e/ou grupos podem ser atribuídos mais tarde.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0801e3a0e9217ab0855d09df8a054926b488d759
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013331"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821553"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no Guia do protocolo do Azure Service Bus e dos Hubs de eventos
 
@@ -258,7 +258,7 @@ As operações são agrupadas por um identificador `txn-id`.
 
 Para interação transacional, o cliente funciona como um `transaction controller` , que controla as operações que devem ser agrupadas. Serviço do Service Bus funciona como um `transactional resource` e realiza o trabalho conforme solicitado pelo `transaction controller`.
 
-O cliente e o serviço de comunicam através de um `control link` , que é estabelecido pelo cliente. O `declare` e `discharge` as mensagens são enviadas pelo controlador de através da ligação de controlo para alocar e concluir transações, respectivamente (não representam a demarcação de trabalho transacional). O envio/recieve real não é efetuada nesta ligação. Cada operação transacional pedida é explicitamente identificados com o desejado `txn-id` e, portanto, podem ocorrer em qualquer ligação na ligação. Se a ligação de controlo é fechada enquanto existem transações não discharged, que ele criou, em seguida, todas essas transações são imediatamente revertidas e tentativas para realizar mais trabalho transacional neles irão causar falha. As mensagens numa ligação de controlo não tem de ser pré liquidada.
+O cliente e o serviço de comunicam através de um `control link` , que é estabelecido pelo cliente. O `declare` e `discharge` as mensagens são enviadas pelo controlador de através da ligação de controlo para alocar e concluir transações, respectivamente (não representam a demarcação de trabalho transacional). O real de envio/receção não é efetuada nesta ligação. Cada operação transacional pedida é explicitamente identificados com o desejado `txn-id` e, portanto, podem ocorrer em qualquer ligação na ligação. Se a ligação de controlo é fechada enquanto existem transações não discharged, que ele criou, em seguida, todas essas transações são imediatamente revertidas e tentativas para realizar mais trabalho transacional neles irão causar falha. As mensagens numa ligação de controlo não tem de ser pré liquidada.
 
 Cada ligação tem de iniciar a sua própria ligação de controlo para poder começar e terminar de transações. O serviço define um destino especial que funciona como um `coordinator`. O cliente/controlador estabelece uma ligação de controlo para este destino. Ligação de controlo está fora do limite de uma entidade, ou seja, a mesma ligação de controlo pode ser utilizada para iniciar e proprietários de transações para várias entidades.
 

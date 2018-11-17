@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: f51673e628798f2c92e4ef7cf9327f4d5c6e5370
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 2fc21ffde5f3f4b84b2ed025cba5d228e592343f
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704687"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823423"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>Escolha o nível de consistência certo para a sua aplicação
 
@@ -52,7 +52,7 @@ Poderá receber mais garantias de consistência na prática. Garantias de consis
 
 * Para obter os níveis de três consistência restantes, a janela de envelhecimento é amplamente dependente de sua carga de trabalho. Por exemplo, se existirem não existem operações de escrita na base de dados, uma operação de leitura com **eventual**, **sessão**, ou **prefixo consistente** níveis de consistência é provável que produzem os mesmos resultados como uma operação de leitura com o nível de consistência forte.
 
-Se a sua conta do Cosmos DB está configurada com um nível de consistência que não seja a consistência forte, pode descobrir a probabilidade de que os clientes podem obter fortes e leituras consistentes das cargas de trabalho ao procurar no probabilístico estagnação limitada (PBS) métrica. Esta métrica está exposta no portal do Azure, para obter mais informações, consulte [monitorizar a métrica de roleta estagnação limitada](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Se a sua conta do Cosmos DB está configurada com um nível de consistência que não seja a consistência forte, pode descobrir a probabilidade de que os clientes podem obter fortes e leituras consistentes das cargas de trabalho ao procurar no probabilístico estagnação limitada (PBS) métrica. Esta métrica está exposta no portal do Azure, para obter mais informações, consulte [métrica de Monitor Roleta estagnação limitada (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
 Probabilístico estagnação limitada mostra como eventual é a consistência eventual. Esta métrica fornece uma visão geral de quantas vezes pode obter uma consistência mais forte que o nível de consistência que tenha configurado atualmente na sua conta do Cosmos DB. Em outras palavras, pode ver a probabilidade (medida em milissegundos) de leituras fortemente consistentes para uma combinação de escrita de introdução e regiões de leitura.
 
@@ -63,4 +63,4 @@ Leia mais sobre os níveis de consistência nos seguintes artigos:
 * [Mapeamento de nível de consistência entre as APIs do Cosmos DB](consistency-levels-across-apis.md)
 * [Desvantagens de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
 * [Como gerir o token de sessão para a sua aplicação](how-to-manage-consistency.md#utilize-session-tokens)
-* [Monitorizar a métrica de roleta estagnação limitada](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [Monitorizar a métrica de Roleta estagnação limitada (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

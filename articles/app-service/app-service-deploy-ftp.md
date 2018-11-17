@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231388"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820006"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
@@ -66,7 +66,7 @@ Para maior segurança, deve permitir FTP sobre SSL apenas. Também pode desativa
 
 Na página de recursos da sua aplicação no [portal do Azure](https://portal.azure.com), selecione **as definições da aplicação** na navegação à esquerda.
 
-Para desativar o FTP não encriptada, selecione **FTPS apenas**. Para desabilitar totalmente o FTP e FTPS, selecione **desativar**. Quando terminar, clique em **Guardar**. Se utilizar **FTPS só** têm de impor TLS 1.1 ou superior ao navegar para o **definições de SSL** painel da sua aplicação web. TLS 1.0 não é suportado com **FTPS apenas**.
+Para desativar o FTP não encriptada, selecione **FTPS apenas**. Para desabilitar totalmente o FTP e FTPS, selecione **desativar**. Quando terminar, clique em **Guardar**. Se utilizar **FTPS só** têm de impor TLS 1.2 ou superior ao navegar para o **definições de SSL** painel da sua aplicação web. O TLS 1.0 e 1.1 não são suportadas com **FTPS apenas**.
 
 ![Desativar FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

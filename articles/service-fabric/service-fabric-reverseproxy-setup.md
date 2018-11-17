@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/27/201
 ms.author: v-jamebr
-ms.openlocfilehash: c590c9d1ccbbb84a76ba09021a97464ec85c5784
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2f84550c83c646b44f4a59c3ae506df7c18d1555
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506270"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852984"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Definir e configurar o proxy inverso no Azure Service Fabric
 Proxy inverso é um serviço de Azure Service Fabric opcional que o ajuda a microsserviços em execução no cluster do Service Fabric detetar e comunicar com outros serviços que têm pontos finais de http. Para obter mais informações, consulte [proxy no Azure Service Fabric inverso](service-fabric-reverseproxy.md). Este artigo mostra-lhe como configurar e configurar o proxy inverso no cluster. 
@@ -231,7 +231,7 @@ Os passos seguintes mostram-lhe as definições a utilizar para ativar o proxy i
 
    Para saber mais sobre configurar e gerir certificados para um cluster autónomo, bem como mais detalhes sobre como configurar certificados usados para proteger o proxy inverso, veja [X509 segurança baseada em certificado](./service-fabric-windows-cluster-x509-security.md).
 
-Depois de modificar o ficheiro de ClusterConfig.json para ativar o proxy inverso, siga as instruções em [atualizar a configuração de cluster](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) para enviar por push as alterações ao seu cluster.
+Depois de modificar o ficheiro de ClusterConfig.json para ativar o proxy inverso, siga as instruções em [atualizar a configuração de cluster](service-fabric-cluster-config-upgrade-windows-server.md) para enviar por push as alterações ao seu cluster.
 
 
 ## <a name="expose-reverse-proxy-on-a-public-port-through-azure-load-balancer"></a>Expor o proxy inverso numa porta pública através do Balanceador de carga do Azure
@@ -332,7 +332,7 @@ Por exemplo, pode definir o valor de **DefaultHttpRequestTimeout** para definir 
    }
    ``` 
 
-Para obter mais informações sobre a atualizar as definições de recursos de infraestrutura para os clusters do Azure, consulte [personalizar definições do cluster através de modelos do Resource Manager](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-using-resource-manager-templates). Para clusters autónomos, consulte [personalizar definições do cluster para clusters autónomos](./service-fabric-cluster-fabric-settings.md#customize-cluster-settings-for-standalone-clusters). 
+Para obter mais informações sobre a atualizar as definições de recursos de infraestrutura para os clusters do Azure, consulte [personalizar definições do cluster através de modelos do Resource Manager](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, consulte [personalizar definições do cluster para clusters autónomos](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Várias definições de recursos de infraestrutura são utilizadas para ajudar a estabelecer uma comunicação segura entre o proxy inverso e serviços. Para obter informações detalhadas sobre esses setttings, consulte [ligar a um serviço seguro com o proxy inverso](service-fabric-reverseproxy-configure-secure-communication.md).
 

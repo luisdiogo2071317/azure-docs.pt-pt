@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/07/2018
+ms.date: 11/15/2018
 ms.author: juliako
-ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 41ad4b26247fa8037de01ff956921146a2238abc
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616015"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823393"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -65,9 +65,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 * As seguintes entidades foram renomeadas
     * JobOutput substitui a tarefa e agora é parte de uma tarefa.
     * StreamingLocator substitui o localizador.
-    * LiveEvent substitui o canal.
-        
-        LiveEvents a faturação baseia-se a medidores de canal em direto. Para obter mais informações, consulte [descrição geral de transmissão em direto](live-streaming-overview.md#billing) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveEvent substitui o canal.<br/>LiveEvents a faturação baseia-se a medidores de canal em direto. Para obter mais informações, consulte [descrição geral de transmissão em direto](live-streaming-overview.md#billing) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
     * LiveOutput substitui o programa.
 * LiveOutputs não têm de ser iniciados explicitamente, iniciar a criação e parar quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
 
@@ -75,10 +73,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
 
 A API de v3 tem os seguintes intervalos de funcionalidades em relação a API v2. Fechar as lacunas é o trabalho em curso.
 
-* O [codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e o legado [processadores de análise de multimédia](../previous/media-services-analytics-overview.md) (pré-visualização do Azure Media Services indexador 2, Editor de rostos, etc.) não estão acessíveis por meio de v3.
-
-    Os clientes que pretendem migrar a partir de 1 de indexador de multimédia ou 2 preview imediatamente podem utilizar o AudioAnalyzer predefinir na v3 API.  Esta configuração predefinida nova contém mais recursos do que o indexador 1 mais antigas do suporte de dados ou 2. 
-
+* O [codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e o legado [processadores de análise de multimédia](../previous/media-services-analytics-overview.md) (pré-visualização do Azure Media Services indexador 2, Editor de rostos, etc.) não estão acessíveis por meio de v3.<br/>Os clientes que pretendem migrar a partir de 1 de indexador de multimédia ou 2 preview imediatamente podem utilizar o AudioAnalyzer predefinir na v3 API.  Esta configuração predefinida nova contém mais recursos do que o indexador 1 mais antigas do suporte de dados ou 2. 
 * Muitas das funcionalidades avançadas do Media Encoder Standard no v2 APIs não estão atualmente disponíveis na v3, tais como:
     * Recorte (para cenários sob demanda e em direto)
     * Clips de ativos
@@ -103,13 +98,12 @@ A tabela seguinte mostra as diferenças de código entre v2 e v3 para cenários 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 * Atualmente, não é possível utilizar o portal do Azure para gerir os recursos de v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, ou um dos SDKs suportados.
-* Hoje em dia, unidades reservadas de multimédia podem apenas ser geridas com a API dos serviços de multimédia v2. Para obter mais informações, consulte [Dimensionar processamento de multimédia](../previous/media-services-scale-media-processing-overview.md).
+* Terá de aprovisionar unidades reservadas de multimédia (MRUs) na sua conta para controlar a simultaneidade e o desempenho das suas tarefas, especialmente aqueles envolvendo vídeo ou áudio de análise. Para obter mais informações, veja [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md) (Dimensionar o Processamento de Multimédia). Pode gerir os MRUs usando [CLI 2.0 para serviços de multimédia v3](media-reserved-units-cli-how-to.md), utilizando o [portal do Azure](../previous/media-services-portal-scale-media-processing.md), ou utilizando o[ v2 APIs](../previous/media-services-dotnet-encoding-units.md). Terá de aprovisionar MRUs, se estiver a utilizar os serviços de multimédia v2 ou v3 APIs.
 * Entidades de serviços de suporte de dados criadas com a v3 que API não pode ser gerida pela v2 API.  
 * Não é recomendado para gerir as entidades que foram criadas com as APIs do v2 por meio das APIs v3. Seguem-se exemplos das diferenças que tornam as entidades em duas versões incompatíveis:   
     * Trabalhos e tarefas que criou no v2 não aparecem na v3 à medida que não estiverem associados uma transformação. Recomenda-se mudar para a v3 transformações e tarefas. Haverá um período de tempo relativamente curto da necessidade de monitor a v2 em utilização tarefas durante a alternância de.
-    * Canais e programas criados com o v2 (que são mapeados para LiveEvents e LiveOutputs na v3) não é possível continuar a ser geridas com v3. Recomenda-se mudar para v3 LiveEvents e LiveOutputs num conveniente parar de canal.
-    
-        Atualmente, não é possível migrar canais continuamente em execução.  
+    * Canais e programas criados com o v2 (que são mapeados para LiveEvents e LiveOutputs na v3) não é possível continuar a ser geridas com v3. Recomenda-se mudar para v3 LiveEvents e LiveOutputs num conveniente parar de canal.<br/>Atualmente, não é possível migrar canais continuamente em execução.  
+
 > [!NOTE]
 > . Este artigo de marcador e manter a verificação de atualizações.
 

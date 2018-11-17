@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
 ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 8096f1b5b29c0445d8bae85fb56e2735469184d4
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568459"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823950"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres da VM de VMware
 
@@ -222,7 +222,14 @@ Para implementações de servidor de configuração antes de Maio de 2016, a exp
 2. A data de expiração é apresentado em **estado de funcionamento do servidor de configuração**.
 3. Selecione **renovar certificados**.
 
-## <a name="update-windows-licence"></a>Atualizar a licença do Windows
+## <a name="refresh-configuration-server"></a>Atualizar o servidor de configuração
+
+1. No portal do Azure, navegue até **cofre dos serviços de recuperação** > **gerir** > **infraestrutura do Site Recovery**  >   **Para máquinas do VMware e físicas** > **servidores de configuração**
+2. Clique no servidor de configuração que pretende atualizar.
+3. No painel com detalhes do servidor de configuração escolhido, clique em **mais** > **atualizar servidor**.
+4. Monitorizar o progresso da tarefa sob **cofre dos serviços de recuperação** > **monitorização** > **tarefas do Site Recovery**.
+
+## <a name="update-windows-license"></a>Atualizar a licença do Windows
 
 A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Para utilização sem interrupções, tem de ativar o Windows com uma licença procured.
 

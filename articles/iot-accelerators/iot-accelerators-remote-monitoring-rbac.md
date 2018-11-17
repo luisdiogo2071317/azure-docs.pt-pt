@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364300"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820227"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurar os controlos de acesso baseado em funções no solution accelerator monitorização remota
 
@@ -23,29 +23,33 @@ Este artigo fornece informações sobre como configurar os controlos de acesso b
 
 Ao implementar a solução de monitorização remota em primeiro lugar, existem duas funções: **administrador** e **só de leitura**.
 
-Nenhum utilizador dos **administrador** função tem acesso total à solução. Um utilizador a **só de leitura** função não pode fazer qualquer uma das seguintes tarefas:
+Nenhum utilizador dos **administrador** função tem acesso total à solução, incluindo as seguintes permissões abaixo. Um utilizador a **só de leitura** função apenas terá acesso para ver a solução.
 
-- Alarmes de atualização
-- Eliminar alarmes
-- Crie dispositivos
-- Atualizar os dispositivos
-- Eliminar dispositivos
-- Criar grupos de dispositivos
-- Grupos de atualizações de dispositivo
-- Eliminar grupos de dispositivos
-- Criar regras
-- Regras de atualização
-- Eliminar regras
-- Criar tarefas
-- Gestão de atualizações de SIM
+| Permissão            | Administração | Só de Leitura |
+|----------------       |-------|-----------|
+| Solução de vista         | Sim   | Sim       |
+| Alarmes de atualização         | Sim   | Não        |
+| Eliminar alarmes         | Sim   | Não        |
+| Crie dispositivos        | Sim   | Não        |
+| Atualizar os dispositivos        | Sim   | Não        |
+| Eliminar dispositivos        | Sim   | Não        |
+| Criar grupos de dispositivos  | Sim   | Não        |
+| Grupos de atualizações de dispositivo  | Sim   | Não        |
+| Eliminar grupos de dispositivos  | Sim   | Não        |
+| Criar regras          | Sim   | Não        |
+| Regras de atualização          | Sim   | Não        |
+| Eliminar regras          | Sim   | Não        |
+| Criar tarefas           | Sim   | Não        |
+| Gestão de atualizações de SIM | Sim   | Não        |
 
-A pessoa que implementa a solução de monitorização remota é atribuída automaticamente para o **administrador** função e é um proprietário da aplicação do Azure Active Directory. Como proprietário da aplicação podem atribuir funções a outros utilizadores no portal do Azure.
+Por predefinição, o utilizador que implementou a solução é atribuído automaticamente a **administrador** função e é um proprietário da aplicação do Azure Active Directory. Como proprietário da aplicação, pode atribuir funções para outros utilizadores através do portal do Azure. Se pretender que o outro utilizador para atribuir funções na solução, também deve ser definidas como um proprietário da aplicação no portal do Azure.
 
-Se pretender que o outro utilizador para atribuir funções na solução, também deve ser definidas como um proprietário da aplicação no portal do Azure.
+> [!NOTE]
+> O utilizador que implementou a solução é o **apenas a pessoa** quem pode visualizá-lo imediatamente após a respetiva foi criado. Para conceder outras pessoas acesso para ver a aplicação como um só de leitura, administrador ou uma função personalizada, consulte as orientações a seguir abaixo em Adicionar ou remover utilizadores.
 
 ## <a name="add-or-remove-users"></a>Adicionar ou remover utilizadores
 
-Utilize o portal do Azure para adicionar ou remover um utilizador de solução de monitorização remota. Os passos seguintes utilizam o [aplicação do Azure Active Directory empresarial](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que foi criada para si quando implementou a solução de monitorização remota.
+Como proprietário da aplicação do Azure Active Directory, pode utilizar o portal do Azure para adicionar ou remover um utilizador a uma função de solução de monitorização remota. Os passos seguintes utilizam o [aplicação do Azure Active Directory empresarial](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) que foi criada quando implementou a solução de monitorização remota.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 

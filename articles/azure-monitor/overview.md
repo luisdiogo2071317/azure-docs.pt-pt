@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3de1939ec4004c2709fb0e366fb492462cf2d216
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 6a3e33fe74199f0b9c02c6924d5e5e41b37f385c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710771"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820975"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -27,14 +27,14 @@ O Azure Monitor maximiza a disponibilidade e desempenho das suas aplicações, f
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Descrição geral
-O diagrama seguinte fornece uma visão geral do Azure Monitor. No centro do diagrama são arquivos de dados de métricas e registos que são os dois tipos fundamentais de utilização de dados pelo Azure Monitor. No lado esquerdo são os [monitorizados de origens que recolhem telemetria a partir de diferentes recursos](../monitoring/monitoring-data-sources.md) e preencher o [arquivos de dados](../monitoring/monitoring-data-collection.md). À direita são as diferentes funções do Azure Monitor executa com estes dados recolhidos, tais como análise, alertas e transmissão em fluxo a sistemas externos.
+O diagrama seguinte fornece uma visão geral do Azure Monitor. No centro do diagrama são arquivos de dados de métricas e registos que são os dois tipos fundamentais de utilização de dados pelo Azure Monitor. No lado esquerdo são os [monitorizados de origens que recolhem telemetria a partir de diferentes recursos](../azure-monitor/platform/data-sources.md) e preencher o [arquivos de dados](../azure-monitor/platform/data-collection.md). À direita são as diferentes funções do Azure Monitor executa com estes dados recolhidos, tais como análise, alertas e transmissão em fluxo a sistemas externos.
 
 
 ![Descrição geral do Azure Monitor](media/overview/overview.png)
 
 
 ## <a name="monitoring-data-platform"></a>Plataforma de dados de monitorização
-Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, [métricas e registos](../monitoring/monitoring-data-collection.md). [Métricas](../monitoring/monitoring-data-collection.md#metrics) são valores numéricos que descrevem algum aspeto de um sistema num momento específico no tempo. Elas são simples e capaz de oferecer suporte a cenários em tempo real em tempo quase. [Registos](../monitoring/monitoring-data-collection.md#logs) contêm diferentes tipos de dados organizados em registos com diferentes conjuntos de propriedades de cada tipo. Telemetria, como eventos e rastreios são armazenadas como registos além do mais dados de desempenho para que ele possível combinar tudo para análise.
+Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, [métricas e registos](../azure-monitor/platform/data-collection.md). [Métricas](../azure-monitor/platform/data-collection.md#metrics) são valores numéricos que descrevem algum aspeto de um sistema num momento específico no tempo. Elas são simples e capaz de oferecer suporte a cenários em tempo real em tempo quase. [Registos](../azure-monitor/platform/data-collection.md#logs) contêm diferentes tipos de dados organizados em registos com diferentes conjuntos de propriedades de cada tipo. Telemetria, como eventos e rastreios são armazenadas como registos além do mais dados de desempenho para que ele possível combinar tudo para análise.
 
 Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor do Azure na sua página de descrição geral no portal do Azure. Dê uma olhada em qualquer máquina virtual por exemplo, e verá vários gráficos de métricas de desempenho a apresentar. Clique em qualquer um dos gráficos para abrir os dados no [Explorador de métricas](../monitoring-and-diagnostics/monitoring-metric-charts.md) no portal do Azure, que permite-lhe os valores de várias métricas do gráfico ao longo do tempo.  Pode ver os gráficos interativamente ou afixá-los a um dashboard para visualizá-los com outras visualizações.
 
@@ -145,6 +145,6 @@ Várias APIs estão disponíveis para ler e escrever métricas e registos de e p
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba mais sobre:
 
-* [Métricas e registos](../monitoring/monitoring-data-collection.md) para os dados recolhidos pelo Monitor do Azure.
-* [Origens de dados](../monitoring/monitoring-data-sources.md) para como os diferentes componentes da sua aplicação enviam telemetria.
+* [Métricas e registos](../azure-monitor/platform/data-collection.md) para os dados recolhidos pelo Monitor do Azure.
+* [Origens de dados](../azure-monitor/platform/data-sources.md) para como os diferentes componentes da sua aplicação enviam telemetria.
 * [Log Analytics](../log-analytics/log-analytics-queries.md) para analisar os dados recolhidos.

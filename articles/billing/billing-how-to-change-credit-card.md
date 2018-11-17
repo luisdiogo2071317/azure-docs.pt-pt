@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 68f987daff5bc0ef81c248f6f5e75aaf1318b025
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 6a302c611b7c71dd8bc8c472330b79ea21504770
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395496"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824630"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito para o Azure
 
-No Centro de contas, pode adicionar um novo cartão de crédito, atualizar um cartão de crédito existente ou eliminar um cartão de crédito que não usa. Tem de ser [conta de administrador](billing-subscription-transfer.md#whoisaa) para efetuar estas alterações.
+No Centro de contas, pode adicionar um novo cartão de crédito, atualizar um cartão de crédito existente ou eliminar um cartão de crédito que não usa. Tem de ser um [conta de administrador](billing-subscription-transfer.md#whoisaa) para efetuar estas alterações.
 
 **Deseja mudar para pagar por fatura?** Ver [comprar subscrições do Azure por fatura](billing-how-to-pay-by-invoice.md).
  
@@ -40,7 +40,7 @@ No Centro de contas, pode adicionar um novo cartão de crédito, atualizar um ca
 1. Selecione "+" para adicionar um cartão.
 
     ![Captura de ecrã que mostra a opção de editar ao lado do método de pagamento.](./media/billing-how-to-change-credit-card/editcard_new.png)
-1. Detalhes do cartão de débito ou introduza o crédito.
+1. Introduza os detalhes do cartão de débito ou crédito.
 1. Selecione **Guardar**. 
 
 Se obtiver um erro depois de adicionar o cartão de crédito, consulte [recusado de cartão de crédito no Azure, inscreva-se](billing-credit-card-fails-during-azure-sign-up.md).
@@ -82,7 +82,7 @@ Se tiver de remover o seu cartão de crédito ou débito antes de terminar o per
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Por que posso continuar a receber "a sua sessão de início de sessão expirou. Clique aqui para voltar a iniciar sessão"?
 
-Se continuar a receber esta mensagem de erro, mesmo que já terminada e novamente no, tente novamente com uma sessão de navegação privada.
+Se continuar a receber esta mensagem de erro, mesmo que já tiver iniciado sessão e iniciá-la no, tente novamente com uma sessão de navegação privada.
 
 ### <a name="how-do-i-use-a-different-card-for-each-subscription-i-have"></a>Como posso utilizar um cartão diferente para cada subscrição que tenho?
 

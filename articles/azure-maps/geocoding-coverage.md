@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 3ab0edf4483763c1048b7026175ddce821624ac0
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989882"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821111"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificação do Azure Maps
 
@@ -72,7 +72,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | São Martinho (Saint-Martin)                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Geórgia do Sul e Sandwich do Sul        |                 |                |              |      ✓     |          ✓         |
 | Suriname                                            |                 |                |              |      ✓     |          ✓         |
-| Trinidad e Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| Trindade e Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Menores Afastadas dos Estados Unidos                |                 |                |              |      ✓     |          ✓         |
 | Estados Unidos da América                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguai                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -102,7 +102,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | RAE de Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Japão                                               |                 |                |              |      ✓     |          ✓         |
-| Quiribati                                            |                 |                |              |      ✓     |          ✓         |
+| Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
 | Macau                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malásia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -117,7 +117,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | Coreia do Norte                                         |                 |                |              |      ✓     |          ✓         |
 | Ilhas Marianas do Norte                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Paquistão                                            |                 |                |              |      ✓     |          ✓         |
-| Ilhas Palaus |                 |                |              |      ✓     |          ✓         |
+| Palau |                 |                |              |      ✓     |          ✓         |
 | Papua-Nova Guiné                                    |                 |                |              |      ✓     |          ✓         |
 | Ilhas Paracel                                     |                 |                |              |      ✓     |                    |
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -152,7 +152,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | Bélgica                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bósnia e Herzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgária                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belerus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bielorrússia|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croácia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chipre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | República Checa                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -176,7 +176,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cazaquistão                                          |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Kosovo                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Quirguizistão                                          |                 |                |              |      ✓     |          ✓         |
+| Quirguistão                                          |                 |                |              |      ✓     |          ✓         |
 | Letónia                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituânia                                           |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -205,7 +205,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | Turquemenistão                                        |                 |                |              |      ✓     |          ✓         |
 | Ucrânia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Reino Unido                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Usbequistão                                          |                 |                |              |      ✓     |          ✓         |
+| Uzbequistão                                          |                 |                |              |      ✓     |          ✓         |
 | Cidade do Vaticano                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
 
@@ -216,7 +216,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | Afeganistão                                         |                 |                |              |      ✓     |          ✓         |
 | Argélia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Bahrain                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Barém                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Benim                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botsuana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilha Bouvet                                       |                 |                |              |      ✓     |          ✓         |
@@ -251,7 +251,7 @@ Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demor
 | Libéria                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Líbia|                 |                |       ✓      |      ✓     |          ✓         |
 | Madagáscar                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Malavi                                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Maldivas |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Marshall |                 |                |              |      ✓     |          ✓         |

@@ -5,23 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632697"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854327"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Execução de vários passo compilação, teste e as tarefas de patch no ACR tarefas
 
-Tarefas de vários passos expandir a capacidade de compilação de push e de imagem única das tarefas de ACR com fluxos de trabalho com vários passos, baseado no várias container. Utilizar tarefas de vários passos para criar e enviar várias imagens, série ou paralelamente e executar essas imagens como comandos dentro de uma única tarefa executar. Cada passo define uma imagem de contentor compilar ou enviar a operação e também pode definir a execução de um contentor. Cada passo numa tarefa com vários passo utiliza um contentor, como o seu ambiente de execução.
+Tarefas de vários passos expandir a capacidade de compilação de push e de imagem única das tarefas de ACR com fluxos de trabalho com vários passos, baseado no várias container. Utilize tarefas de vários passos para criar e enviar várias imagens, série ou paralelamente. Em seguida, execute essas imagens como comandos dentro de uma execução de tarefa única. Cada passo define uma imagem de contentor compilar ou enviar a operação e também pode definir a execução de um contentor. Cada passo numa tarefa com vários passo utiliza um contentor, como o seu ambiente de execução.
 
 > [!IMPORTANT]
 > Se anteriormente tiver criado tarefas durante a pré-visualização com o comando `az acr build-task`, essas tarefas têm de ser recriadas com o comando [az acr task][az-acr-task].
 
-Por exemplo, pode executar uma tarefa com os passos que automatizam o seguinte:
+Por exemplo, pode executar uma tarefa com os passos que automatizam a seguinte lógica:
 
 1. Crie uma imagem de aplicação web
 1. Executar o contentor da aplicação web
@@ -37,11 +37,11 @@ Todos os passos são executados no Azure, descarregar o trabalho para recursos d
 
 ## <a name="common-task-scenarios"></a>Cenários comuns de tarefas
 
-Tarefas de vários passos ativar cenários como o seguinte:
+Tarefas de vários passos ativar cenários como a seguinte lógica:
 
 * Crie, marca e enviar por push uma ou mais imagens de contentor, em série ou paralelamente.
 * Execute e capturar os resultados de cobertura de código e teste de unidade.
-* Execute e capturar testes funcionais. Tarefas de ACR suporta a execução de vários contentores, execução de uma série de pedidos entre eles.
+* Execute e capturar testes funcionais. Tarefas de ACR suporta a execução de mais de um contêiner, execução de uma série de pedidos entre eles.
 * Execute tarefas com base em execução, incluindo os passos de pré/pós de uma compilação de imagem de contentor.
 * Implemente um ou mais contentores com o motor de implementação favorito para o seu ambiente de destino.
 
@@ -176,5 +176,5 @@ Pode encontrar a referência de tarefas de vários passos e exemplos aqui:
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

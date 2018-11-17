@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: terrylan
-ms.openlocfilehash: d005dd01de0dff0136c0a4e9775001dbe018228f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae6eeb2506eb82160c68e15e17eeb95c1e2ec046
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035288"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853622"
 ---
 # <a name="azure-operational-security-best-practices"></a>Segurança operacional melhores práticas do Azure
 Segurança operacional do Azure refere-se a serviços, controles e recursos disponíveis aos utilizadores para proteger seus dados, aplicativos e outros recursos no Azure. Segurança operacional do Azure baseia-se uma estrutura que incorpore os dados recolhidos através de capacidades que são exclusivas da Microsoft, incluindo o [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl), o [Microsoft Security Response Center](https://www.microsoft.com/msrc?rtc=1) programa e profundo entendimento do cenário de ameaças de cibersegurança.
@@ -55,38 +55,38 @@ Os clientes criam uma rede ponto a ponto no Azure através da combinação de re
 
 Seguem-se as práticas recomendadas para as ferramentas de monitorização e de disponibilidade de rede.
 
-**Melhor prática**: automatizar a monitorização remota de redes com captura de pacotes.   
+**Melhor prática**: automatizar a monitorização remota de redes com captura de pacotes.  
 **Detalhe**: monitorizar e diagnosticar problemas de rede sem iniciar sessão nas VMS com o observador de rede. Acionador [captura de pacotes](../network-watcher/network-watcher-alert-triggered-packet-capture.md) ao definir alertas e obter acesso a informações de desempenho em tempo real ao nível do pacote. Quando se deparar com um problema, pode investigar em pormenor para obter melhores diagnósticos.
 
-**Melhor prática**: obter informações sobre o seu tráfego de rede ao utilizar os registos de fluxo.   
+**Melhor prática**: obter informações sobre o seu tráfego de rede ao utilizar os registos de fluxo.  
 **Detalhe**: desenvolver uma compreensão mais aprofundada da sua rede padrões de tráfego utilizando [registos de fluxo do grupo de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-overview.md). Informações nos registos de fluxo ajudam-o a recolher dados de conformidade, auditoria e monitorização do seu perfil de segurança de rede.
 
-**Melhor prática**: problemas de conectividade de VPN de diagnosticar.   
+**Melhor prática**: problemas de conectividade de VPN de diagnosticar.  
 **Detalhe**: Utilize o observador de rede para [diagnosticar os problemas mais comuns de Gateway de VPN e ligação](../network-watcher/network-watcher-diagnose-on-premises-connectivity.md). Pode não só identificar o problema, mas também utilizar registos detalhados para continuar a investigar.
 
 ## <a name="secure-deployment-by-using-proven-devops-tools"></a>Proteger a implementação com as ferramentas de DevOps comprovadas
 Utilize as seguintes práticas recomendadas do DevOps para se certificar de que suas equipas de enterprise e produtiva e eficiente.
 
-**Melhor prática**: automatizar a compilação e implementação de serviços.   
-**Detalhe**: [infraestrutura como código](https://en.wikipedia.org/wiki/Infrastructure_as_Code) é um conjunto de técnicas e práticas recomendadas que ajudam os profissionais de TI remover o fardo da compilação diária e a gestão de infraestrutura modular. Permite que os profissionais de TI criar e manter seu ambiente de servidor modernas de forma que é semelhante a como os desenvolvedores de software criar e manter o código da aplicação.
+**Melhor prática**: automatizar a compilação e implementação de serviços.  
+**Detalhe**: [infraestrutura como código](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) é um conjunto de técnicas e práticas recomendadas que ajudam os profissionais de TI remover o fardo da compilação diária e a gestão de infraestrutura modular. Permite que os profissionais de TI criar e manter seu ambiente de servidor modernas de forma que é semelhante a como os desenvolvedores de software criar e manter o código da aplicação.
 
 Pode usar [do Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) para aprovisionar as suas aplicações ao utilizar um modelo declarativo. Num único modelo, pode implementar vários serviços, bem como as respetivas dependências. Utilize o mesmo modelo para implementar repetidamente a sua aplicação em cada fase do ciclo de vida do aplicativo.
 
-**Melhor prática**: automaticamente a criar e implementar aplicações web do Azure ou serviços em nuvem.   
-**Detalhe**: pode configurar seus projetos de equipe do Visual Studio Team Services (VSTS) para [automaticamente, criar e implementar](https://www.visualstudio.com/docs/build/overview) para aplicações web do Azure ou serviços cloud. VSTS implementa automaticamente os binários depois de fazer uma compilação para o Azure após cada check-in de código. O processo de compilação do pacote é equivalente ao comando do pacote no Visual Studio e os passos de publicação são equivalentes para o comando Publish no Visual Studio.
+**Melhor prática**: automaticamente a criar e implementar aplicações web do Azure ou serviços em nuvem.  
+**Detalhe**: pode utilizar Pipelines do Azure para [automaticamente, criar e implementar](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) para aplicações web do Azure ou serviços cloud. Pipelines do Azure implementa automaticamente os binários depois de fazer uma compilação para o Azure após cada check-in de código. O processo de compilação do pacote é equivalente ao comando do pacote no Visual Studio e os passos de publicação são equivalentes para o comando Publish no Visual Studio.
 
-**Melhor prática**: automatizar o release management.   
-**Detalhe**: Visual Studio [Release Management](https://msdn.microsoft.com/library/vs/alm/release/overview) é uma solução para automatizar a implementação de vários estágios e gerenciar o processo de lançamento. Crie pipelines de implementação contínua gerido para libertar rapidez, facilidade e, muitas vezes. Com o Release Management, pode automatizar o processo de liberação e pode predefinida fluxos de trabalho de aprovação. Implemente no local e na nuvem, expandir e personalizar conforme necessário.
+**Melhor prática**: Utilize a implementação contínua.  
+**Detalhe**: [Pipelines do Azure](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) é uma solução para automatizar a implementação de vários estágios e gerenciar o processo de lançamento. Crie pipelines de implementação contínua gerido para libertar rapidez, facilidade e, muitas vezes. Com os Pipelines do Azure, pode automatizar o processo de liberação e pode predefinida fluxos de trabalho de aprovação. Implemente no local e na nuvem, expandir e personalizar conforme necessário.
 
-**Melhor prática**: verificar o desempenho da sua aplicação antes de iniciá-lo ou implementar atualizações em produção.   
-**Detalhe**: execute com base na cloud [testes de carga](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) com o VSTS para:
+**Melhor prática**: verificar o desempenho da sua aplicação antes de iniciá-lo ou implementar atualizações em produção.  
+**Detalhe**: execute com base na cloud [testes de carga](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) ao utilizar planos de teste do Azure para:
 
 - Encontre problemas de desempenho na sua aplicação.
 - Melhore a qualidade de implementação.
 - Certifique-se de que a aplicação está sempre disponível.
 - Certifique-se de que a aplicação consegue processar o tráfego para a sua campanha de lançamento ou de marketing seguinte.
 
-**Melhor prática**: monitorizar o desempenho do aplicativo.   
+**Melhor prática**: monitorizar o desempenho do aplicativo.  
 **Detalhe**: [Azure Application Insights](../application-insights/app-insights-overview.md) é um serviço de gestão (APM) de desempenho de aplicações extensível para desenvolvedores da web em várias plataformas. Utilize o Application Insights para monitorizar a sua aplicação web em direto. Deteta automaticamente anomalias de desempenho. Ele inclui ferramentas de análise para ajudar a diagnosticar problemas e para compreender o que os utilizadores fazem realmente com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ## <a name="mitigate-and-protect-against-ddos"></a>Mitigar e proteção contra DDoS
@@ -96,19 +96,19 @@ Projetando e criando para resiliência contra DDoS requerem um planeamento e con
 
 Seguem-se as práticas recomendadas para criação de serviços de DDoS resilientes no Azure.
 
-**Melhor prática**: Certifique-se de que a segurança é uma prioridade ao longo de todo o ciclo de vida de um aplicativo, desde a conceção e implementação para implantação e operações. As aplicações podem ter bugs que permitem que um volume relativamente baixo de pedidos para utilizar muitos recursos, resultando numa indisponibilidade do serviço.    
+**Melhor prática**: Certifique-se de que a segurança é uma prioridade ao longo de todo o ciclo de vida de um aplicativo, desde a conceção e implementação para implantação e operações. As aplicações podem ter bugs que permitem que um volume relativamente baixo de pedidos para utilizar muitos recursos, resultando numa indisponibilidade do serviço.  
 **Detalhe**: para ajudar a proteger um serviço em execução no Microsoft Azure, deve ter uma boa compreensão da sua arquitetura de aplicativo e enfocar o [cinco pilares de qualidade de software](https://docs.microsoft.com/azure/architecture/guide/pillars). Deve saber volumes de tráfego típico, o modelo de conectividade entre a aplicação e outras aplicações e os pontos finais de serviço são expostos à Internet pública.
 
 É mais importante garantir que um aplicativo é resiliente para lidar com uma negação de serviço que é direcionada para a própria aplicação. Segurança e a privacidade são incorporadas na plataforma do Azure, começando com o [Security Development Lifecycle (SDL)](https://www.microsoft.com/en-us/sdl). O SDL aborda a segurança em todas as fases de desenvolvimento e garante que o Azure é continuamente atualizado para que seja ainda mais seguro.
 
-**Melhor prática**: conceber a sua aplicação para [Dimensionar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplified, especificamente no caso de um ataque DDoS. Se seu aplicativo depende de uma única instância de um serviço, ele cria um ponto único de falha. Várias instâncias de aprovisionamento torna o seu sistema, mais escalonável e mais resiliente.   
+**Melhor prática**: conceber a sua aplicação para [Dimensionar horizontalmente](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) para satisfazer a procura de uma carga amplified, especificamente no caso de um ataque DDoS. Se seu aplicativo depende de uma única instância de um serviço, ele cria um ponto único de falha. Várias instâncias de aprovisionamento torna o seu sistema, mais escalonável e mais resiliente.  
 **Detalhe**: para [serviço de aplicações do Azure](../app-service/app-service-value-prop-what-is.md), selecione uma [plano do App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) que oferece várias instâncias.
 
 Serviços Cloud do Azure, configure cada uma das suas funções para utilizar [várias instâncias](../cloud-services/cloud-services-choose-me.md).
 
 Para [máquinas virtuais do Azure](../virtual-machines/windows/overview.md), certifique-se de que a sua arquitetura VM inclui mais de uma VM e que cada VM está incluído num [conjunto de disponibilidade](../virtual-machines/virtual-machines-windows-manage-availability.md). É recomendável utilizar o dimensionamento de máquinas virtuais conjuntos para capacidades de dimensionamento automático.
 
-**Melhor prática**: Colocação de defesas de segurança num aplicativo reduz a chance de um ataque bem-sucedido. Implementar designs seguros para as suas aplicações com os recursos internos da plataforma do Azure.   
+**Melhor prática**: Colocação de defesas de segurança num aplicativo reduz a chance de um ataque bem-sucedido. Implementar designs seguros para as suas aplicações com os recursos internos da plataforma do Azure.  
 **Detalhe**: O risco de ataque aumenta com o tamanho (área de superfície) do aplicativo. Pode reduzir a área de superfície ao utilizar listas de permissões para fechar o espaço de endereços IP exposto e escutar as portas que não são necessários em balanceadores de carga ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) e [oGatewaydeaplicaçãodoAzure](../application-gateway/application-gateway-create-probe-portal.md)).
 
 [Grupos de segurança de rede](../virtual-network/security-overview.md) são outra maneira de reduzir a superfície de ataque. Pode usar [etiquetas de serviço](../virtual-network/security-overview.md#service-tags) e [grupos de segurança de aplicativo](../virtual-network/security-overview.md#application-security-groups) para minimizar a complexidade para criar as regras de segurança e configuração de segurança de rede, como uma extensão natural da estrutura de uma aplicação.

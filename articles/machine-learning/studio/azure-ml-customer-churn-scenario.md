@@ -1,10 +1,11 @@
 ---
-title: Analisar cliente Churn com Machine Learning | Microsoft Docs
-description: Caso prático de desenvolver um modelo para analisar e a classificação de volume de alterações de cliente integrado
+title: Analisar o abandono de clientes com o Machine Learning | Documentos da Microsoft
+description: Estudo de caso de desenvolvimento de um modelo integrado para analisar e classificação de abandono de clientes
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
@@ -15,222 +16,222 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1beba951a6785aa90eef22a63a8064e9da1bb27f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 66c8fcb54ef348ca9414d14eb80d00fa75e89ad9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835122"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823219"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analisar cliente Churn utilizando o Azure Machine Learning
+# <a name="analyzing-customer-churn-using-azure-machine-learning"></a>Analisar o abandono de clientes com o Azure Machine Learning
 ## <a name="overview"></a>Descrição geral
-Este artigo apresenta uma implementação de referência de um projeto de análise de volume de alterações de cliente que é criada utilizando o Azure Machine Learning. Neste artigo, vamos discutir modelos genéricos associados de forma holística resolver o problema de volume de alterações do cliente industriais. Podemos também medir a precisão dos modelos que são criados utilizando o Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
+Este artigo apresenta uma implementação de referência de um projeto de análise de alterações a dados de cliente que baseia-se com o Azure Machine Learning. Neste artigo, discutimos a modelos genéricos associados para holística resolver o problema de abandono de clientes industriais. Podemos também medir a precisão de modelos que são criadas com Machine Learning e avaliar as direções para o desenvolvimento ainda mais.  
 
 ### <a name="acknowledgements"></a>Confirmações
-Esta fase experimental foi desenvolvido e testado pela Serge Berger, Scientist de dados Principal na Microsoft e Roger Barga, anteriormente o Gestor de produto do Microsoft Azure Machine Learning. A equipa de documentação do Azure gratefully reconhece os seus conhecimentos e obrigado-los para partilhar este documento técnico.
+Esta experiência foi desenvolvida e testada pela Serge Berger, cientista de dados Principal da Microsoft e Roger Barga, anteriormente, Gestor de produto do Microsoft Azure Machine Learning. A equipe de documentação do Azure gratamente reconhece os seus conhecimentos e obrigado-los para partilhar este white paper.
 
 > [!NOTE]
-> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de machine learning para análise de volume de alterações, consulte: [revenda churn modelo](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) no [Galeria de AI do Azure](http://gallery.cortanaintelligence.com/)
+> Os dados utilizados para esta fase experimental não estão disponíveis publicamente. Para obter um exemplo de como criar um modelo de aprendizagem automática para análise de alterações a dados, consulte: [modelo de modelo de abandono de revenda](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) no [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)
 > 
 > 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="the-problem-of-customer-churn"></a>O problema de volume de alterações do cliente
-Empresas no mercado de consumidor e em todos os setores de enterprise tem de lidar com o volume de alterações. Por vezes, volume de alterações é excessivo e influencia as decisões de políticas. A solução tradicional é a prever churners propensity elevado e a abordar as respetivas necessidades através de um serviço concierge, marketing campanhas, ou ao aplicar dispensations especiais. Estas abordagens podem variar da indústria para o setor. Mesmo podem variar de um cluster de consumidor específica para outro dentro de uma indústria (por exemplo, telecomunicações).
+## <a name="the-problem-of-customer-churn"></a>O problema de abandono de clientes
+As empresas no mercado consumidor e em todos os setores de enterprise tem de lidar com alterações a dados. Por vezes, é excessiva e influencia as decisões de política de alterações. A solução tradicional é prever churners propensão alta e atender as suas necessidades através de um serviço de assistente, campanhas, de marketing ou ao aplicar dispensations especiais. Essas abordagens podem variar do setor para setor. Ainda pode variar de um cluster de consumidor específica para outra dentro de um setor (por exemplo, telecomunicações).
 
-O fator comum é que as empresas têm de minimizar os esforços de retenção estes cliente especiais. Assim, a metodologia natural seria para cada cliente com a probabilidade do volume de alterações de pontuação e resolver os principal N aqueles. Os clientes superiores poderão ser aqueles mais rentáveis. Por exemplo, em cenários mais sofisticados uma função de lucros estiver utilizada durante a seleção de candidatos para dispensation especial. No entanto, estas considerações são apenas uma parte da estratégia completa para lidar com o volume de alterações. Empresas também tem de ter em risco de conta (e tolerância ao risco associado), o nível e os custos da intervenção e segmentação plausible cliente.  
+O fator comum é que as empresas precisam minimizar esses esforços de retenção de clientes especial. Portanto, uma metodologia natural seria a classificar todos os clientes com a probabilidade de abandono e a abordar os N maiores aqueles. Os principais clientes podem ser as mais rentáveis. Por exemplo, em cenários mais sofisticados, uma função de lucro é empregada durante a seleção de candidatos para dispensation especial. No entanto, estas considerações são apenas uma parte da estratégia completa para lidar com alterações a dados. As empresas também deve levar em risco de conta (e tolerância a riscos associados), o nível e o custo da intervenção e segmentação de clientes plausível.  
 
-## <a name="industry-outlook-and-approaches"></a>Outlook da indústria e abordagens
-Processamento sofisticado volume de alterações é um sinal de um setor madura. O exemplo clássico é o setor do umts onde os subscritores são conhecidos frequentemente para mudar a partir de um fornecedor para outro. Este volume de alterações voluntário é uma preocupação prime. Além disso, fornecedores tem acumulados conhecimento significativo sobre *churn controladores*, quais são os fatores que os clientes para mudar de unidade.
+## <a name="industry-outlook-and-approaches"></a>Outlook do setor e abordagens
+Processamento sofisticado de alterações é um sinal de um setor madura. O exemplo clássico é a indústria de telecomunicações em que os assinantes são conhecidos com frequência alternar de um fornecedor para outro. Estas alterações voluntária é uma preocupação principal. Além disso, fornecedores acumulado um conhecimento significativo sobre *drivers de abandono*, que são os fatores que direcionam os clientes a mudar.
 
-Por exemplo, escolha handset ou o dispositivo é um controlador bem conhecido do volume de alterações no negócio telemóvel. Como resultado, uma política popular é subsidize o preço de um handset para novos subscritores e cobram um preço completo para clientes existentes para uma atualização. Historicamente, esta política gerou hopping a partir de um fornecedor para outro aos clientes obter um desconto de novo. Isto, por sua vez, foi-lhe pedido que Fornecedores para refinar as respetivas estratégias.
+Por exemplo, escolha aparelho ou o dispositivo é um driver bem conhecido de rotatividade a empresa de telefone celular. Como resultado, uma política de popular é subsidize o preço de um monofone para novos subscritores e cobrar um preço integral, para os clientes existentes para uma atualização. Historicamente, esta política levou aos clientes saltos de um fornecedor para outro, para obter um desconto de novo. Isso, por sua vez, possui solicitado fornecedores para refinar suas estratégias.
 
-Elevada volatility no ofertas handset é um fator que invalida rapidamente modelos do volume de alterações que se baseiam em modelos de handset atual. Além disso, telemóveis não apenas os dispositivos telecommunication, também são declarações de forma (considere o iPhone). Estas redes sociais predictors estão fora do âmbito dos conjuntos de dados do umts regular.
+Volatilidade elevada nas ofertas de aparelho é um fator que invalida rapidamente os modelos de alterações a dados que são baseados em modelos de aparelho atuais. Além disso, telemóveis não são apenas os dispositivos de telecomunicação, eles também são declarações de forma (considere iPhone). Estes indicadores sociais estão fora do escopo de conjuntos de dados de telecomunicações regular.
 
-O resultado para a modelação net é que não é possível devise uma política de som, simplesmente ao conhecido razões para volume, eliminando os. Na verdade, uma estratégia de modelação contínua, incluindo modelos clássicos que quantificar categórico variáveis (tais como árvores de decisões), é **obrigatório**.
+O resultado para a Modelagem é que não é possível planejar uma política de som simplesmente eliminando conhecidos motivos para o volume de alterações. Na verdade, é uma estratégia de modelagem contínua, incluindo modelos clássicos que quantificam as variáveis de categóricas (como árvores de decisão), **obrigatório**.
 
-Utilizar conjuntos de macrodados nos respetivos clientes, as organizações estiver a efetuar análise de macrodados (em especial, deteção de volume de alterações com base nos dados de grandes) como uma abordagem eficaz para o problema. Pode encontrar mais informações sobre a abordagem de macrodados para o problema de volume de alterações nas recomendações na secção ETL.  
+Utilizar conjuntos de macrodados em seus clientes, as organizações estão a efetuar análise de macrodados (em especial, deteção de alterações a dados com base em grandes volumes de dados) como uma abordagem eficaz para o problema. Pode encontrar mais informações sobre a abordagem de grandes volumes de dados para o problema de rotatividade as recomendações na seção ETL.  
 
-## <a name="methodology-to-model-customer-churn"></a>Metodologia para volume de alterações de cliente de modelo
-Um processo de resolução de problemas comuns para resolver o volume de alterações do cliente é descrito no números 1 a 3:  
+## <a name="methodology-to-model-customer-churn"></a>Metodologia para o abandono de clientes do modelo
+Um processo de resolução de problemas comuns para resolver o abandono de clientes está descrito em números de 1 a 3:  
 
-1. Um modelo de risco permite-lhe a ter em consideração o impacto das ações de probabilidade e risco.
-2. Um modelo de intervenção permite-lhe a ter em consideração a forma como o nível de intervenção pode afetar a probabilidade do volume de alterações e a quantidade de cliente (CLV) do valor de duração.
-3. Esta análise presta-se para uma análise de qualitative é escalada para uma campanha de marketing proativa que tenha como destino de segmentos de cliente para fornecer a oferta ideal.  
+1. Um modelo de risco permite que considere o impacto das ações probabilidade e o risco.
+2. Um modelo de intervenção permite que considere a forma como o nível de intervenção pode afetar a probabilidade de fluxo de dados e a quantidade de cliente o valor de tempo de vida (CLV).
+3. Esta análise se presta a uma análise de qualitativo será escalada para uma campanha de marketing proativa que tenha como destino os segmentos de clientes para fornecer a oferta ideal.  
 
 ![][1]
 
-Esta abordagem reencaminhar looking é a melhor forma para tratar do volume de alterações, mas vem com a complexidade: temos que desenvolver um modelo com múltiplos archetype e rastreio as dependências entre os modelos. A interação entre os modelos pode ser encapsulada conforme mostrado no diagrama seguinte:  
+Essa abordagem para a frente atraente é a melhor forma de tratar alterações a dados, mas ele vem com a complexidade: temos que desenvolver um mvn com vários modelo e as dependências de rastreamento entre os modelos. A interação entre os modelos pode ser encapsulada como mostrado no diagrama seguinte:  
 
 ![][2]
 
-*Figura 4: Unified archetype múltiplos modelo*  
+*Figura 4: Unified mvn com vários modelo*  
 
-Interação entre os modelos é chave se estamos fornecer uma abordagem holística a retenção de cliente. Cada modelo necessariamente degrada ao longo do tempo; Por conseguinte, a arquitetura é um ciclo implícito (semelhante ao archetype definido pela norma de extração de dados de CRISP DM, [***3***]).  
+Interação entre os modelos é a chave se estivermos fornecer uma abordagem holística para retenção de clientes. Cada modelo necessariamente degrada o ao longo do tempo; Por conseguinte, a arquitetura é um loop implícito (semelhante ao mvn definido pelo padrão de extração de dados de CRISP DM, [***3***]).  
 
-O ciclo de geral de marketing de decisão de risco segmentação/decomposição ainda é uma estrutura generalizada, o que é aplicável a muitos dos problemas empresariais. Análise de volume de alterações é simplesmente um representante forte deste grupo de problemas, porque-exhibits todos os traits um problema de comerciais complexos que não permite uma solução preditiva simplificada. Os aspetos da abordagem moderna para churn sociais não são particularmente realçados na abordagem, mas os aspetos de redes sociais são encapsulados em archetype modelação, como seriam em qualquer modelo.  
+O ciclo de geral de risco-decisão-marketing segmentação/hierárquica ainda é uma estrutura generalizada, o que é aplicável a vários problemas de negócios. A análise de alterações a dados é simplesmente um representante forte deste grupo de problemas, porque ele exibe um todos os traços de um problema de negócio complexa que não permite uma solução preditiva simplificada. Os aspectos de redes sociais da abordagem moderna para alterações a dados não são particularmente realçados na abordagem, mas os aspectos de redes sociais são encapsulados em mvn modelagem, como elas podem ser em qualquer modelo.  
 
-Um complemento interessante aqui é a análise de macrodados. Hoje telecommunication e as empresas de revenda recolhem dados exaustivas sobre os seus clientes e previr, pode facilmente que a necessidade de conectividade com múltiplos modelo irá tornar-se uma tendência comuns, determinada emergentes tendências, tais como a Internet das coisas e ubíqua dispositivos, que permite que o negócio recorrer a soluções smart em várias camadas.  
+Uma adição interessante aqui é a análise de macrodados. Hoje em dia telecomunicação e empresas de varejo recolhem dados exaustivos sobre os seus clientes e previr pode facilmente que a necessidade de conectividade com vários modelo irá tornar-se de uma tendência comuns, determinada emergentes tendências, como a Internet das coisas e mais usada dispositivos, que permitem empresa empregar soluções inteligentes em múltiplas camadas.  
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implementar o archetype modelação no Machine Learning Studio
-Tendo em conta o problema descrito apenas, o que é a melhor forma de implementar uma integrada modelação e a abordagem de classificação? Nesta secção, vamos demonstrar como podemos conseguida isto utilizando o Azure Machine Learning Studio.  
+## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implementando o mvn de modelação no Machine Learning Studio
+Tendo em conta o problema que acabei de descrever, o que é a melhor forma de implementar uma modelagem integrada e a abordagem de classificação? Nesta secção, vamos demonstrar como conseguimos isso com o Azure Machine Learning Studio.  
 
-A abordagem múltiplos modelo é um tem ao conceber uma archetype global para o volume de alterações. Mesmo a classificação (preditiva) parte da abordagem deve ser múltiplos modelo.  
+A abordagem com vários modelo é essencial ao projetar um mvn global para o volume de alterações. Até mesmo a classificação (preditiva) parte da abordagem deve ser com vários modelo.  
 
-O diagrama seguinte mostra o protótipo que foi criada, que utiliza quatro algoritmos classificação no Machine Learning Studio para prever o volume de alterações. O motivo para utilizar uma abordagem múltiplos modelo não é apenas criar um classificador de ensemble para aumentar a precisão, mas também para proteger contra ajuste superior e para melhorar a seleção de funcionalidades prescritiva.  
+O diagrama seguinte mostra o protótipo que criámos, que utiliza quatro algoritmos de classificação no Machine Learning Studio para prever o volume de alterações. O motivo para usar uma abordagem com vários modelo não é apenas para criar um classificador de ensemble para aumentar a precisão, mas também para proteger contra ajuste excessivo e para melhorar a seleção de funcionalidades prescritivas.  
 
 ![][3]
 
-*Figura 5: Protótipo de uma abordagem de modelação de volume de alterações*  
+*Figura 5: Protótipo de uma abordagem de modelagem de alterações*  
 
-As secções seguintes fornecem mais detalhes sobre o protótipo da classificação de modelo que são implementados utilizando o Machine Learning Studio.  
+As secções seguintes fornecem mais detalhes sobre o modelo que foi implementados com o Machine Learning Studio de classificação de protótipo.  
 
-### <a name="data-selection-and-preparation"></a>Seleção de dados e preparação
-Os dados utilizados para criar os modelos e clientes de pontuação foi obtido a partir de uma solução de vertical CRM, com os dados ocultados para proteger a privacidade do cliente. Os dados contêm informações sobre 8.000 subscrições nos E.U.A. e combina três origens: aprovisionamento de dados (metadados de subscrição), dados de atividade (utilização do sistema) e dados de suporte de cliente. Os dados não incluem qualquer empresariais relacionados com informações sobre os clientes; Por exemplo, não inclua pontuações de metadados ou crédito loyalty.  
+### <a name="data-selection-and-preparation"></a>Seleção de dados e a preparação
+Os dados utilizados para criar os modelos e os clientes de pontuação foi obtido a partir de uma solução de vertical de CRM, com os dados oculto para proteger a privacidade dos clientes. Os dados contêm informações sobre as assinaturas de 8.000 nos EUA e combina três origens: aprovisionamento de dados (metadados de subscrição), dados de atividade (utilização do sistema) e dados de suporte do cliente. Os dados não inclui qualquer negócio relacionados com informações sobre os clientes; Por exemplo, não inclui as pontuações de metadados ou o crédito de fidelização.  
 
-Para uma simplicidade ETL e processos de limpeza de dados estão fora do âmbito porque partimos do princípio que a preparação de dados já foi foi efetuados noutro local.   
+Para simplificar, ETL e processos de limpeza de dados estão fora do âmbito porque partimos do princípio de que a preparação de dados já foi feitos noutro local.   
 
-A seleção de funcionalidades para a modelação é com base na classificação preliminar significância do conjunto de predictors, incluídos no processo do que utiliza o módulo de floresta aleatório. Para a implementação no Machine Learning Studio, iremos calcular a média, mediana e os intervalos para funcionalidades representativos. Por exemplo, adicionámos agregados para os dados qualitativa, tais como os valores mínimos e máximos para a atividade do utilizador.    
+Seleção de funcionalidades para a Modelagem é baseada em significância preliminar de classificação do conjunto de indicadores, incluídos no processo que utiliza o módulo de floresta aleatório. Para a implementação no Machine Learning Studio, vamos calculada a média, mediana e intervalos para as funcionalidades representativas. Por exemplo, adicionamos agregados para os dados qualitativos, por exemplo, valores mínimos e máximo para a atividade do utilizador.    
 
-Podemos também capturadas informações temporais durante os mais recentes seis meses. Analisámos dados durante um ano e iremos estabelecido que, mesmo se existirem tendências estatisticamente significativas, o efeito no volume de alterações é significativamente o seu depois de seis meses.  
+Também capturamos o temporais informações para os mais recentes seis meses. Analisámos dados durante um ano e Estabelecemos que mesmo que haja tendências estatisticamente significativas, o efeito sobre o volume de alterações é muito reduzido depois de seis meses.  
 
-O ponto mais importante é que o processo completo, incluindo ETL, seleção de funcionalidades e modelação foi implementado no Machine Learning Studio, utilizando as origens de dados no Microsoft Azure.   
+O ponto mais importante é que o processo inteiro, incluindo ETL, seleção de funcionalidades e modelagem foi implementado no Machine Learning Studio, utilizar origens de dados no Microsoft Azure.   
 
 Os diagramas seguintes mostram os dados que foi utilizados.  
 
 ![][4]
 
-*Figura 6: Excerpt da origem de dados (ocultada)*  
+*Figura 6: Excerto da origem de dados (oculto)*  
 
 ![][5]
 
 *Figura 7: Funcionalidades extraídas da origem de dados*
  
 
-> Tenha em atenção que estes dados privados e, por conseguinte, não não possível partilhar o modelo e os dados.
-> No entanto, para um modelo semelhante utilizando dados publicamente disponíveis, consulte este exemplo experimentação no [galeria do Azure AI](http://gallery.cortanaintelligence.com/): [Telco cliente Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Tenha em atenção que estes dados são privados e, portanto, não não possível partilhar o modelo e os dados.
+> No entanto, para um modelo semelhante usando dados publicamente disponíveis, veja este exemplo na experimentação da [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/): [abandono de clientes de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Para saber mais sobre como implementar um modelo de análise de volume de alterações com o Cortana Intelligence Suite, também recomendamos [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) pelo Gestor de programa sénior Wee Hyong Tok. 
+> Para saber mais sobre como implementar um modelo de análise de alterações a dados com o Cortana Intelligence Suite, também é recomendável [este vídeo](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) pelo gerente de programas Sênior Wee Hyong Tok. 
 > 
 > 
 
 ### <a name="algorithms-used-in-the-prototype"></a>Algoritmos utilizados no protótipo
-Utilizamos os seguintes quatro algoritmos do machine learning para criar o protótipo (nenhuma personalização):  
+Usamos os seguintes quatro algoritmos de machine learning para criar o protótipo (nenhuma personalização):  
 
-1. Regressão logística da (LR)
+1. Regressão logística (LR)
 2. Árvore de decisões elevada (BT)
 3. Média perceptron (AP)
 4. Máquina de vetor com suporte (SVM)  
 
-O diagrama seguinte ilustra uma parte da superfície de desenho a experimentação, que indica a sequência em que os modelos foram criados:  
+O diagrama seguinte ilustra uma parte da superfície de design experimentação, que indica a seqüência em que foram criados os modelos:  
 
 ![][6]  
 
 *Figura 8: Criar modelos no Machine Learning Studio*  
 
 ### <a name="scoring-methods"></a>Métodos de classificação
-Iremos classificada quatro modelos utilizando um conjunto de dados de formação identificados.  
+Podemos classificadas de quatro modelos usando um conjunto de dados de treinamento etiquetadas.  
 
-Submetemos também o classificação do conjunto de dados para um modelo comparável criado utilizando a edição de ambiente de trabalho do SAS Enterprise Miner 12. Iremos medida a exatidão o modelo SAS e quatro modelos de Machine Learning Studio.  
+Podemos também submetido o classificação do conjunto de dados para um modelo comparável criado utilizando a ambiente de trabalho edição do SAS Enterprise Miner 12. Podemos medida a precisão do modelo SAS e todos os quatro modelos de Machine Learning Studio.  
 
 ## <a name="results"></a>Resultados
-Nesta secção, iremos apresentar nosso findings sobre a precisão dos modelos, com base no conjunto de dados classificação.  
+Nesta seção, Apresentaremos nossos descobertas sobre a precisão dos modelos, com base no conjunto de dados de classificação.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Precisão e a precisão da classificação
-Geralmente, a implementação no Azure Machine Learning é atrás SAS precisão por cerca de 10 a 15% (área em curva ou AUC).  
+Em geral, a implementação no Azure Machine Learning está por trás do SAS precisão em cerca de 10 a 15% (área em curva ou AUC).  
 
-No entanto, a métrica mais importante no volume de alterações é a taxa de misclassification: Isto é, de churners os principais N como previsto pelo classificador, qual deles, na verdade, de foi **não** churn e ainda recebeu um tratamento especial? O diagrama seguinte compara este taxa misclassification para todos os modelos:  
+No entanto, a métrica mais importante no volume de alterações é a taxa de misclassification: ou seja, de churners de principais N como previsto pelo classificador, que eles realmente de fez **não** alterações a dados e ainda recebeu um tratamento especial? O diagrama a seguir compara essa taxa de misclassification para todos os modelos:  
 
 ![][7]
 
 *Figura 9: Área de protótipo Passau em curva*
 
-### <a name="using-auc-to-compare-results"></a>Utilizar AUC para comparar os resultados
-Área na curva (AUC) é uma métrica que representa uma medida global de *separability* entre as distribuições de pontuações das classificações para populações positivos e negativos. É semelhante ao gráfico Recetor operador característica (ROC) tradicionais, mas uma diferença importante é que a métrica AUC não necessita de escolher um valor de limiar. Em vez disso, este resume os resultados de ativação pós-falha **todos os** possíveis opções. Em contrapartida, o gráfico ROC tradicional mostra a taxa de positiva no eixo vertical e a taxa de positiva falsa no eixo horizontal e varia de acordo com o limiar de classificação.   
+### <a name="using-auc-to-compare-results"></a>Usando AUC para comparar os resultados
+Área na curva (AUC) é uma métrica que representa uma medida global de *separability* entre as distribuições de pontuações para populações positivas e negativas. Ele é semelhante ao gráfico característica de operador de destinatário (ROC) tradicional, mas uma diferença importante é que a métrica AUC não requer que escolha um valor de limiar. Em vez disso, ele resume os resultados ao longo **todos os** opções possíveis. Por outro lado, o gráfico ROC tradicional mostra a taxa de positiva sobre o eixo vertical e a taxa de falsos positivos no eixo horizontal e o limiar de classificação varia.   
 
-AUC é geralmente utilizado como uma medida de vale para diferentes algoritmos (ou sistemas diferentes) porque permite modelos a ser comparada através dos respetivos valores AUC. Esta é uma abordagem mais popular no indústrias como meteorology e biosciences. Assim, AUC representa uma ferramenta para avaliar o desempenho de classificador popular.  
+AUC é geralmente utilizado como um indicador de que vale a pena para algoritmos diferentes (ou sistemas diferentes) porque permite que os modelos de ser comparadas por meio de seus valores AUC. Essa é uma abordagem popular em setores como meteorology e biosciences. Portanto, AUC representa uma ferramenta popular para avaliar o desempenho do classificador.  
 
-### <a name="comparing-misclassification-rates"></a>Comparar as taxas de misclassification
-Iremos comparar as taxas de misclassification no conjunto de dados em questão utilizando os dados do CRM de aproximadamente 8.000 subscrições.  
+### <a name="comparing-misclassification-rates"></a>Comparando as taxas de misclassification
+Estamos em comparação com as tarifas de misclassification no conjunto de dados em questão utilizando os dados CRM de aproximadamente 8.000 subscrições.  
 
-* A taxa de misclassification SAS foi 10 a 15%.
-* A taxa de misclassification do Machine Learning Studio foi 15 a 20% para os churners 200 300 primeiros.  
+* A taxa de misclassification SAS era de 10 a 15%.
+* A taxa de misclassification de Machine Learning Studio foi de 15 a 20% para os churners superior 200 e 300.  
 
-No setor telecomunicações, é importante apenas esses clientes que tenham o risco mais elevado para churn por oferta de um serviço concierge ou outro tratamento especial de endereços. No que que respeita a implementação de Machine Learning Studio distribui resultados com o modelo SAS.  
+No ramo de telecomunicações, é importante resolver apenas aqueles clientes que têm o risco mais elevado de abandono oferecendo um serviço de assistente ou outro tratamento especial. Nesse ponto, a implementação de Machine Learning Studio alcança resultados no mesmo nível do modelo SAS.  
 
-Mesmas token, exatidão é mais importante à precisão porque, principalmente se estiver interessados em corretamente classificar churners potenciais.  
+Pelo mesmo token, precisão é mais importante do que a precisão, uma vez que estão mais interessados corretamente classificar churners potenciais.  
 
-O diagrama seguinte do Wikipedia ilustra a relação de um gráfico lively, fácil de compreender:  
+O diagrama seguinte da Wikipedia descreve a relação num elemento de gráfico animada, fácil de compreender:  
 
 ![][8]
 
-*Figura 10: Compromisso entre precisão e a precisão*
+*Figura 10: Compromisso entre a precisão e a precisão*
 
-### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultados de precisão e a precisão do modelo de árvore de decisões elevada
-O gráfico seguinte apresenta os resultados em bruto de classificação utilizando o protótipo de Machine Learning para o modelo de árvore de decisões elevada que acontece ser mais exatos entre os modelos de quatro:  
+### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Resultados de precisão e a precisão para o modelo de árvore de decisões elevada
+A tabela a seguir apresenta os resultados brutos de usando o protótipo de Machine Learning para o modelo de árvore de decisões elevada, o que vem a ser mais precisos entre quatro modelos de classificação:  
 
 ![][9]
 
-*Figura 11: Características de modelo de árvore de decisões elevada*
+*Figura 11: Características do modelo de árvore de decisões elevada*
 
 ## <a name="performance-comparison"></a>Comparação de desempenho
-Iremos comparar a velocidade a que dados foi classificados utilizando os modelos de Machine Learning Studio e um modelo comparável criado utilizando a edição de ambiente de trabalho do SAS Enterprise Miner 12.1.  
+Estamos em comparação com a velocidade a que dados foi classificados com os modelos de Machine Learning Studio e um modelo de comparável criados com a edição de área de trabalho do SAS Enterprise Miner 12.1.  
 
 A tabela seguinte resume o desempenho dos algoritmos de:  
 
-*Tabela 1. Desempenho geral (precisão) dos algoritmos de*
+*Tabela 1. Gerais de desempenho (precisão) dos algoritmos*
 
 | LR | BT | AP | SVM |
 | --- | --- | --- | --- |
-| Modelo de média |O modelo melhores |Underperforming |Modelo de média |
+| Modelo de média |O melhor modelo |Com um desempenho baixo |Modelo de média |
 
-Os modelos alojados no Machine Learning Studio outperformed SAS por 15 25% para a velocidade de execução, mas precisão foi grande parte na par.  
+Os modelos alojados no Machine Learning Studio ultrapassou o desempenho do SAS por 15 a 25% para a velocidade de execução, mas precisão foi amplamente no mesmo nível.  
 
-## <a name="discussion-and-recommendations"></a>Debate e recomendações
-No setor telecomunicações, várias práticas tem emerged para analisar o volume de alterações, incluindo:  
+## <a name="discussion-and-recommendations"></a>Discussão e recomendações
+No ramo de telecomunicações, várias práticas surgiram para analisar a perda, incluindo:  
 
-* Deriva as métricas das quatro categorias fundamentais:
+* Obter métricas para quatro categorias fundamentais:
   * **Entidade (por exemplo, uma subscrição)**. Aprovisionar informações básicas sobre a subscrição e/ou o cliente que é o assunto do volume de alterações.
-  * **Atividade**. Obter todas as informações de utilização possíveis que está relacionado com a entidade, por exemplo, o número de inícios de sessão.
-  * **O suporte ao cliente**. Recolher informações a partir de registos de suporte de cliente para indicar se a subscrição tinha problemas ou interações com o suporte ao cliente.
-  * **Os dados empresariais e competitivos**. Obter quaisquer informações possíveis sobre o cliente (por exemplo, pode estar indisponível ou disco rígido controlar).
-* Utilize a importância a seleção de funcionalidades de unidade. Isto implica que o modelo de árvore de decisões elevada sempre é uma abordagem promising.  
+  * **Atividade**. Obter todas as informações de uso possível que está relacionado com a entidade, por exemplo, o número de inícios de sessão.
+  * **Suporte ao cliente**. Coletar informações dos registos de suporte de cliente para indicar se a subscrição tinha problemas ou as interações com o suporte ao cliente.
+  * **Dados empresariais e competitivos**. Obter todas as informações possíveis sobre o cliente (por exemplo, pode estar indisponível ou difíceis de rastrear).
+* Utilize a importância para seleção de funcionalidades de unidade. Isso implica que o modelo de árvore de decisões elevada sempre é uma abordagem promissor.  
 
-A utilização destas categorias quatro cria a ilusão simples *determinista* abordagem, com base em índices formados nos fatores razoáveis por categoria, deve suffice para identificar clientes em risco para o volume de alterações. Infelizmente, embora este noção parece plausible, é uma compreensão falsa. O motivo é que o volume de alterações é um efeito temporal e os fatores que contribuem para churn são normalmente nos Estados transitórios. O que servem como um cliente a ter em consideração que sai hoje poderão ser diferente amanhã e certamente será diferente seis meses a partir de agora. Por conseguinte, um *probabilistic* modelo é uma necessidade.  
+A utilização destas quatro categorias cria a ilusão de que um simples *determinística* abordagem, com base nos índices formados em fatores razoáveis por categoria, deve ser suficientes para identificar os clientes em risco para o volume de alterações. Infelizmente, embora essa noção parece plausível, é uma compreensão FALSO. O motivo é que o volume de alterações é um efeito temporal e os fatores que contribuem para alterações a dados normalmente estão a ser Estados transitórios. O que leva um cliente a serem considerados deixando hoje pode ser diferente, amanhã, e certamente será diferente seis meses de agora. Por conseguinte, um *probabilístico* modelo é uma necessidade.  
 
-Este observação importante é muitas vezes ignorada na empresa, que geralmente prefers uma abordagem de business intelligence e orientado para a análise, sobretudo porque é um mais fácil propor e admits automatização simples.  
+Esta observação importante é muitas vezes ignorada na empresas, que, geralmente, prefere uma abordagem de business intelligence e orientados a análise, principalmente porque é um mais fácil vender e admits automatização simples.  
 
-No entanto, a promessa de análise de self-service utilizando o Machine Learning Studio é que as quatro categorias de informações, graded por divisão ou departamento, uma origem para o machine learning sobre o volume de alterações importante.  
+No entanto, a promessa de análises de autoatendimento com o Machine Learning Studio é que as quatro categorias de informações, classificados pela divisão ou departamento, tornar-se uma fonte valiosa para machine learning sobre alterações a dados.  
 
-Outra funcionalidade e extraordinária futuras no Azure Machine Learning é a capacidade de adicionar um módulo personalizado para o repositório de módulos predefinidos que já estão disponíveis. Esta capacidade, essencialmente, cria uma oportunidade para selecionar bibliotecas e criar modelos para mercados verticais. É um differentiator importante do Azure Machine Learning no mercado local.  
+Outro recurso interessante do Azure Machine Learning é a capacidade de adicionar um módulo personalizado para o repositório de módulos predefinidos que já estão disponíveis. Esta capacidade, essencialmente, cria uma oportunidade de selecionar bibliotecas e criar modelos para mercados verticais. É um diferenciador importante do Azure Machine Learning no mercado.  
 
-Esperamos continue neste tópico no futuro, especialmente relacionadas com a análise de macrodados.
+Esperamos que continue neste tópico no futuro, principalmente relacionadas com a análise de macrodados.
   
 
 ## <a name="conclusion"></a>Conclusão
-Este documento descreve uma abordagem sensible para tackling o problema comum de fluxo de cliente através da utilização de uma estrutura genérica. É considerada um protótipo para modelos de classificação e implementado-lo utilizando o Azure Machine Learning. Por fim, vamos avaliado em matéria de precisão e o desempenho da solução protótipo em relação a algoritmos comparáveis em SAS.  
+Este documento descreve um método sensato para lidar com o problema comum de abandono de clientes utilizando uma estrutura genérica. É considerada um protótipo para modelos de classificação e a Implementei com o Azure Machine Learning. Por fim, temos avaliado a precisão e o desempenho da solução de protótipo em relação a algoritmos comparáveis no SAS.  
 
  
 
 ## <a name="references"></a>Referências
-[1] Análise Preditiva: para além da gestão de informações Predições, da McKnight, Julho/Agosto de 2011, p.18-20.  
+[1] Análise Preditiva: além do gerenciamento de informações Predições, McKnight Ocidental, Julho/Agosto de 2011, p.18 e 20.  
 
-[2] Wikipedia artigo: [precisão e a precisão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] artigo da Wikipedia: [precisão e a precisão](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0: Guia de extração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: Guia de mineração de dados passo a passo](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [Marketing de macrodados: interagir com os seus clientes de forma mais eficaz e valor de unidade](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Marketing de grandes volumes de dados: interaja com os seus clientes com mais eficiência e o valor da unidade](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn modelo](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) no [Galeria de AI do Azure](http://gallery.cortanaintelligence.com/) 
+[5] [modelo de modelo de abandono de telecomunicações](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) no [Galeria de IA do Azure](http://gallery.cortanaintelligence.com/) 
  
 
 ## <a name="appendix"></a>Anexo
 ![][10]
 
-*Figura 12: Instantâneo de uma apresentação no protótipo de volume de alterações*
+*Figura 12: Instantâneo de uma apresentação no protótipo de alterações a dados*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978183"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820363"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -205,6 +205,9 @@ Este erro indica que, devido a uma carga pesada na região em que está a tentar
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Não é possível estabelecer ligação à API subjacente do Docker ou executar contentores com privilégios
 
 O Azure Container Instances não expõe o acesso direto para a infraestrutura subjacente que aloja a grupos de contentores. Isto inclui o acesso à API do Docker em execução no anfitrião do contentor e contentores com privilégios em execução. Se necessitar de interação de Docker, verifique os [documentação de referência do REST](https://aka.ms/aci/rest) para ver o que suporta da API ACI. Se houver algo em falta, submeta um pedido no [fóruns de comentários do ACI](https://aka.ms/aci/feedback).
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IPs não estar acessível devido a portas não correspondentes
+O Azure Container Instances não suporta atualmente mapeamento de porta, como com a configuração de regular docker, no entanto, esta correção está nas previsões. Se encontrar IPs não estão acessíveis quando considerar que deve ser, certifique-se de que configurou a sua imagem de contentor para ouvir as mesmas portas expor no seu grupo de contentores com o `ports` propriedade.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Saiba como [obter eventos e registos de contentor](container-instances-get-logs.md) para ajudar a depurar os contentores.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1fcbbce87c822c49882f8e42a1eaccfd389ee310
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961896"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852933"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do registo de atividade nas notificações do serviço
 ## <a name="overview"></a>Descrição geral
@@ -70,7 +70,7 @@ Para obter informações sobre como configurar alertas de notificação de estad
 
 1. Defina uma lista de destinatários ao indicar o recetor:
 
-    a. **Nome**: introduza o nome do destinatário s, o alias ou o identificador.
+    a. **Nome**: introduza o nome, o alias ou o identificador do recetor.
 
     b. **Tipo de ação**: selecione SMS, e-mail, webhook, aplicações do Azure e muito mais.
 

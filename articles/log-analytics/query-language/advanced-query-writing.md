@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958562"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854191"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Escrever avançadas consultas do Log Analytics
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Funções
-Pode salvar uma consulta com um alias de função para que ele pode ser referenciado por outras consultas. Por exemplo, a seguinte consulta padrão retorna todas as atualizações de segurança em falta comunicadas no último dia:
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-Pode guardar esta consulta como uma função e conceda-lhe um alias, como _security_updates_last_day_. Em seguida, pode usá-lo na outra consulta para procurar atualizações de segurança necessário relacionados com o SQL:
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-Para guardar uma consulta como uma função, selecione o **salvar** botão no portal e alteração **guardar como** para _função_. O alias de função pode conter letras, dígitos ou carateres de sublinhado, mas tem de começar com uma letra ou um caráter de sublinhado.
-
-> [!NOTE]
-> A guardar uma função é possível, em consultas do Log Analytics, mas, atualmente, não para consultas do Application Insights.
-
 
 ## <a name="print"></a>Imprimir
 `print` Devolve uma tabela com uma única coluna e uma única linha, que mostra o resultado de um cálculo. Isto é frequentemente utilizado em casos em que é necessário um calcuation simple. Por exemplo, para encontrar a hora atual no PST e adicionar uma coluna com EST:

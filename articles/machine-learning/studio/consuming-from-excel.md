@@ -1,10 +1,11 @@
 ---
-title: Consumir um serviço Web do Machine Learning a partir do Excel | Microsoft Docs
-description: Consumir um serviço Web do Azure Machine Learning a partir do Excel
+title: Consumir um serviço Web do Machine Learning a partir do Excel | Documentos da Microsoft
+description: Consumir um serviço de Web do Azure Machine Learning a partir do Excel
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
@@ -15,28 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: 14621e50a397bc1f1922a4c8fae638d6b42ab8ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 88150763d7deeda2e4fcba896df56d012d58cd1d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837070"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821961"
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Consumir um serviço Web do Azure Machine Learning a partir do Excel
- Azure Machine Learning Studio facilita chamar serviços web diretamente a partir do Excel sem a necessidade de escrever qualquer código.
+ O Azure Machine Learning Studio facilita chamar serviços web diretamente a partir do Excel sem a necessidade de escrever qualquer código.
 
-Se estiver a utilizar o Excel 2013 (ou posterior) ou o Excel Online, em seguida, recomendamos que utilize o Excel [suplemento do Excel](excel-add-in-for-web-services.md).
+Se estiver a utilizar o Excel 2013 (ou posterior) ou o Excel Online, recomendamos que utilize o Excel [suplemento do Excel](excel-add-in-for-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="steps"></a>Passos
-Publica um serviço web. [Esta página](walkthrough-5-publish-web-service.md) explica como fazê-lo. Atualmente, a funcionalidade de livro do Excel só é suportada para os serviços de pedido/resposta com uma saída único (ou seja, uma classificação simples). 
+Publica um serviço web. [Esta página](walkthrough-5-publish-web-service.md) explica como fazer isso. Atualmente, a funcionalidade de livro do Excel só é suportada para os serviços de solicitação/resposta com uma única saída (ou seja, uma etiqueta classificação única). 
 
-Depois de ter um serviço web, clique em de **serviços WEB** secção à esquerda do studio e, em seguida, selecione o serviço web para consumir a partir do Excel.
+Depois de ter um serviço da web, clique nas **serviços da WEB** secção à esquerda do studio e, em seguida, selecione o serviço web para consumir a partir do Excel.
 
 **Serviço Web clássico**
 
-1. No **DASHBOARD** separador para o serviço web é uma linha para o **pedido/resposta** serviço. Se este serviço tinha de saída única, deverá ver o **Transferir livro do Excel** ligação nessa linha.
+1. Sobre o **DASHBOARD** separador para o serviço web é uma linha para o **SOLICITAÇÃO/resposta** serviço. Se este serviço teve uma única saída, deverá ver o **transferir o livro do Excel** ligação nessa linha.
    
     ![][1]
 2. Clique em **transferir o livro do Excel**.
@@ -44,32 +45,32 @@ Depois de ter um serviço web, clique em de **serviços WEB** secção à esquer
 **Novo serviço Web**
 
 1. No portal do serviço Web do Azure Machine Learning, selecione **Consume**.
-2. Na página Consume, no **Web opções de consumo do serviço** secção, clique no ícone do Excel.
+2. Na página Consume, no **opções de consumo do serviço Web** secção, clique no ícone do Excel.
 
 **Utilizar o livro**
 
 1. Abra o livro.
-2. É apresentado um aviso de segurança; Clique em de **ativar editar** botão.
+2. É apresentado um aviso de segurança; Clique nas **Enable Editing** botão.
    
     ![][2]
-3. É apresentado um aviso de segurança. Clique em de **ativar conteúdo** botão para executar macros no seu folha de cálculo.
+3. É apresentado um aviso de segurança. Clique nas **ativar conteúdo** botão para executar macros na folha de cálculo.
    
     ![][3]
-4. Depois de macros estiverem ativadas, é gerada uma tabela. As colunas na azul são necessárias como entrada para o serviço web RRS, ou **parâmetros**. Tenha em atenção a saída do serviço RRS, **PREVER valores** verde. Quando todas as colunas para uma determinada linha estão preenchidas, o livro automaticamente chama a API de classificação e apresenta os resultados classificados.
+4. Assim que as macros estejam habilitadas, é gerada uma tabela. Colunas azul são necessários como entrada para o serviço web RRS, ou **parâmetros**. Tenha em atenção a saída do serviço RRS, **valores previstos** em verde. Quando todas as colunas para uma determinada linha estiverem preenchidas, a pasta de trabalho automaticamente chama a API de classificação e exibe os resultados com a pontuação.
    
     ![][4]
-5. Para mais de uma linha de pontuação, são produzidos preenchimento a segunda linha com dados e os valores previstos. Ainda pode colar linhas várias em simultâneo.
+5. Para mais de uma linha de pontuação, a segunda linha com dados e os valores previstos de preenchimento são produzidos. Pode até mesmo colar várias linhas ao mesmo tempo.
 
-Pode utilizar qualquer uma das funcionalidades Excel (gráficos, mapa de energia, formatação condicional, etc.) com os valores previstos para ajudar a visualizar os dados.    
+Pode utilizar qualquer uma das funcionalidades do Excel (gráficos, mapa de energia, formatação condicional, etc.) com os valores previstos para o ajudar a visualizar os dados.    
 
-## <a name="sharing-your-workbook"></a>Partilhar o seu livro
-Para as macros funcione, a chave de API têm de constar da folha de cálculo. Isto significa que devem partilhar o livro apenas com entidades/indivíduos que confia.
+## <a name="sharing-your-workbook"></a>O livro de partilha
+As macros trabalhar, a chave de API deve ser parte da folha de cálculo. Isso significa que deve compartilhá-la apenas com entidades/indivíduos que confia.
 
 ## <a name="automatic-updates"></a>Atualizações automáticas
-É efetuada uma chamada RRS nestas duas situações:
+É feita uma chamada RRS nessas duas situações:
 
-1. Na primeira vez uma linha possui conteúdo em todos os respetivos **parâmetros**
-2. Sempre que qualquer um do **parâmetros** alterações numa linha que tinha todos os respetivos **parâmetros** introduzido.
+1. Na primeira vez numa linha tem conteúdo em todos os seus **parâmetros**
+2. Sempre que qualquer um da **parâmetros** alterações numa linha que tinha todos seus **parâmetros** introduzido.
 
 [1]: ./media/consuming-from-excel/excellink.png
 [2]: ./media/consuming-from-excel/enableeditting.png

@@ -10,16 +10,16 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219656"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852712"
 ---
 # <a name="image-moderation"></a>Moderação de imagens
 
-Utilize a moderação de imagens de assistida do Content Moderator e [ferramenta de revisão humana](Review-Tool-User-Guide/human-in-the-loop.md) moderar as imagens para o conteúdo para adultos. Analise imagens para o conteúdo de texto e extrair esse texto para detetar rostos. Pode corresponder a imagens face às listas personalizadas e qualquer ação adicional.
+Utilize a moderação de imagens de assistida do Content Moderator e [ferramenta de revisão humana em loop](Review-Tool-User-Guide/human-in-the-loop.md) moderar as imagens para o conteúdo para adultos. Analise imagens para o conteúdo de texto e extrair esse texto para detetar rostos. Pode corresponder a imagens face às listas personalizadas e qualquer ação adicional.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Avaliar o conteúdo para adultos
 
@@ -36,8 +36,8 @@ O **Evaluate** operação devolve uma pontuação de confiança entre 0 e 1. Ele
 
 > [!NOTE]
 
-> - `isImageAdultClassified` representa a presença de potencial de imagens que podem ser considerados sexualmente explícita ou para adultos em determinadas situações.
-> - `isImageRacyClassified` representa a presença de potencial de imagens que podem ser considerados sexualmente suggestive ou madura e em determinadas situações.
+> - `isImageAdultClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente explícitas ou para adultos em determinadas situações.
+> - `isImageRacyClassified` representa a presença potencial de imagens que podem ser consideradas sexualmente sugestivas ou para adultos em determinadas situações.
 > - As pontuações são entre 0 e 1. Quanto maior for a pontuação, maior será o modelo é a previsão que a categoria pode ser aplicável. Esta pré-visualização depende de um modelo estatístico em vez de resultados codificados manualmente. Recomendamos que teste com o seu próprio conteúdo para determinar a forma como cada categoria alinha os seus requisitos.
 > - Os valores booleanos são true ou false dependendo da pontuação interna limiares. Os clientes devem avaliar se pretende utilizar este valor ou opte por utilizar limiares personalizados com base em suas diretivas de conteúdo.
 >
@@ -107,7 +107,7 @@ Em muitas comunidades online, depois dos utilizadores carregar imagens ou outro 
 Em vez de moderating a mesma imagem várias vezes, é possível adicionar as imagens ofensivas à sua lista personalizada de conteúdo bloqueado. Dessa forma, o seu sistema de moderação de conteúdos compara as imagens de entrada face às suas listas personalizadas e para a qualquer processamento adicional.
 
 > [!NOTE]
-> Existe um limite máximo de **listas de imagem de 5** cada lista para **não pode exceder 10 000 imagens**.
+> Existe um limite máximo de **5 listas de imagens**, sendo que cada lista **não pode exceder 10 000 imagens**.
 >
 
 O Content Moderator fornece uma completa [API de gestão da lista de imagens](try-image-list-api.md) com operações de gerenciamento de listas de imagens personalizadas. Começar com o [consola de API de lista de imagem](try-image-list-api.md) e utilize os exemplos de código da REST API. Verifique também a [guia de introdução do .NET de lista de imagem](image-lists-quickstart-dotnet.md) se estiver familiarizado com o Visual Studio e c#.

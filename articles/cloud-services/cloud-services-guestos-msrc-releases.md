@@ -11,17 +11,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: raiye
-ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578778"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854276"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+## <a name="november-2018-guest-os"></a>SO de convidado de Novembro de 2018
+
+>[!NOTE]
+>O sistema operacional convidado de Novembro está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado Novembro. Esta lista está sujeita a alterações.
+
+| Categoria de Produtos | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | 13 de Novembro de 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | 13 de Novembro de 2018 |
+| Rel 18-11 | [4467106] | Segurança do Windows | 2.80 | 13 de Novembro de 2018 |
+| Rel 18-11 | [4467678] | Segurança do Windows | 3.67 | 13 de Novembro de 2018 |
+| Rel 18-11 | [4467703] | Segurança do Windows | 4.60 | 13 de Novembro de 2018 |
+| Rel 18-11 | [4467691] | Segurança do Windows 10 | 5.25 | 13 de Novembro de 2018 |
+| N/A | [3173426] | Atualização de pilha de manutenção | 3.67 | 12 de Julho de 2016 |
+| N/A | [4465659] | Atualização de pilha de manutenção | 5.25 | 13 de Novembro de 2018 |
+| N/A | [4462923] | Rollup de Outubro sem segurança | 2.80 | 9 de outubro de 2018 |
+| N/A | [4462929] | Rollup de Outubro sem segurança | 3.67 | 9 de outubro de 2018 |
+| N/A | [4462926] | Rollup de Outubro sem segurança | 4.60 | 9 de outubro de 2018 |
+| N/A | [3109976] | Shims de compatibilidade de aplicações | 4.60 | 12 de Abril de 2016 |
+| N/A | [4457037] | Shims de compatibilidade de aplicações | 4.60| 12 de junho de 2018 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
 
 ## <a name="october-2018-guest-os"></a>SO de convidado de Outubro de 2018
 

@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430039"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853358"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -135,6 +135,7 @@ O código de erro é uma combinação de número de 6 dígitos o código de esta
 | 403000| A operação não é permitida.|
 | 403001| A operação não é permitida porque a subscrição excedeu a quota gratuita.|
 | 405000| O método de pedido não é suportado para o recurso pedido.|
+| 408001| O sistema de tradução personalizadas solicitado ainda não está disponível. Tente novamente dentro de alguns minutos.|
 | 415000| O cabeçalho Content-Type está em falta ou é inválido.|
 | 429000, 429001, 429002| O servidor rejeitou o pedido porque o cliente está a enviar demasiados pedidos. Reduza a frequência de pedidos para evitar a limitação.|
 | 500000| Ocorreu um erro inesperado. Se o erro persistir, relatá-lo com a data/hora do erro, solicitar o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente a partir do cabeçalho de pedido X-ClientTraceId.|

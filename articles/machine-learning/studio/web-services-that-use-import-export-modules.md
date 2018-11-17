@@ -1,10 +1,11 @@
 ---
-title: Utilizar dados de importação/exportação em serviços web do Azure Machine Learning | Microsoft Docs
-description: Saiba como utilizar os módulos de importar dados e exportar dados para enviar e receber dados de um serviço web.
+title: Utilizar os dados de importação/exportação no serviços web Azure Machine Learning | Documentos da Microsoft
+description: Saiba como utilizar os módulos importar dados e exportar dados para enviar e receber dados de um serviço web.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
@@ -15,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 27873930ebef75923088f8bf2170c8e6a383cfa8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 55b64ead0b410346f36de5c45700c019c44c00a6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837417"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824426"
 ---
 # <a name="deploying-azure-ml-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços Web do Azure ML que utilizam módulos Importar Dados e Exportar Dados
 
-Quando cria uma experimentação preditiva, normalmente, adicione uma entrada de serviço web e de saída. Quando implementa a experimentação, os consumidores podem enviar e receber dados do serviço web através de entradas e saídas. Para algumas aplicações, dados de um consumidor poderão estar disponível a partir de um feed de dados ou já residirem numa origem de dados externos, como o armazenamento de Blobs do Azure. Nestes casos, não precisa de ler e escrever dados através do web service entradas e saídas. Podem, em vez disso, utilize o serviço de execução de lote (BES) para ler dados a partir da origem de dados utilizando um módulo de importar dados e escrever os resultados de classificação para uma localização de dados diferentes, utilizando um módulo de exportar dados.
+Quando cria uma experimentação preditiva, normalmente, adicione uma entrada do serviço web e a saída. Quando implementa a experimentação, os consumidores podem enviar e receber dados do serviço web através de entradas e saídas. Para algumas aplicações, dados de um consumidor poderão estar disponível a partir de um feed de dados ou já estejam na origem de dados externa, como o armazenamento de Blobs do Azure. Nestes casos, eles não precisam de leitura e escrita de dados com o web service entradas e saídas. Podem, em vez disso, utilize o serviço de execução de lote (BES) para ler dados de origem de dados com um módulo de importar dados e escrever os resultados de classificação para uma localização de dados diferentes usando um módulo de exportar dados.
 
-Os dados de importação e exportação de módulos de dados, pode ler a partir do e escrever dados de várias localizações como um URL de Web através de HTTP, uma consulta do Hive, uma SQL database do Azure, Table storage do Azure, Blob storage do Azure, um Feed de dados fornecem ou uma base de dados do SQL Server no local.
+Os dados de importação e exportação módulos de dados, pode ler a partir do e gravar dados de várias localizações, como um URL de Web via HTTP, uma consulta do Hive, uma base de dados SQL do Azure, armazenamento de tabelas do Azure, armazenamento de Blobs do Azure, um Feed de dados fornecem ou uma base de dados do SQL no local.
 
-Este tópico utiliza o "exemplo 5: Evaluate de comboio, teste, para classificação do binária: conjunto de dados para adultos" de exemplo e pressupõe que já foi carregado o conjunto de dados para uma tabela SQL do Azure com o nome censusdata.
+Este tópico utiliza o "exemplo 5: Train, teste, avaliação de classificação binária: conjunto de dados para adultos" de exemplo e pressupõe que o conjunto de dados já foi carregado para uma tabela de SQL do Azure com o nome censusdata.
 
 ## <a name="create-the-training-experiment"></a>Criar a experimentação de preparação
-Ao abrir o "exemplo 5: Evaluate de comboio, teste, para classificação do binária: conjunto de dados para adultos" exemplo utiliza o conjunto de dados de classificação de binário para adultos Census receitas de exemplo. E a experimentação na tela será semelhante a imagem seguinte:
+Ao abrir o "exemplo 5: Train, teste, avaliação de classificação binária: conjunto de dados para adultos" exemplo utiliza o conjunto de dados de classificação de binário para adultos recenseamento receitas de exemplo. E a experimentação na tela será semelhante à seguinte imagem:
 
 ![Configuração inicial da experimentação.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -39,13 +40,13 @@ Para ler os dados da tabela SQL do Azure:
 
 1. Elimine o módulo de conjunto de dados.
 2. Na caixa de pesquisa de componentes, tipo de importação.
-3. Na lista de resultados, adicione um *importar dados* módulo para a tela de experimentação.
-4. Ligar o resultado a *importar dados* a entrada do módulo do *apagar dados em falta* módulo.
-5. No painel de propriedades, selecione **SQL Database do Azure** no **origem de dados** pendente.
-6. No **nome do servidor de base de dados**, **nome de base de dados**, **nome de utilizador**, e **palavra-passe** campos, introduza as informações adequadas para o base de dados.
+3. A partir da lista de resultados, adicione uma *importar dados* módulo para a tela da experimentação.
+4. Ligue a saída do *importar dados* a entrada do módulo da *Clean Missing Data* módulo.
+5. No painel de propriedades, selecione **Azure SQL Database** no **origem de dados** lista pendente.
+6. Na **nome do servidor de base de dados**, **nome da base de dados**, **nome de utilizador**, e **palavra-passe** campos, introduza as informações apropriadas para seu base de dados.
 7. No campo de consulta de base de dados, introduza a seguinte consulta.
    
-     Selecione [idade]
+     Selecione [idade],
    
         [workclass],
         [fnlwgt],
@@ -65,49 +66,49 @@ Para ler os dados da tabela SQL do Azure:
 8. Na parte inferior da tela de experimentação, clique em **executar**.
 
 ## <a name="create-the-predictive-experiment"></a>Criar a experimentação preditiva
-Em seguida, configurar a experimentação preditiva a partir da qual implementar o serviço web.
+Em seguida, configure a experimentação preditiva a partir do qual implementar o serviço web.
 
-1. Na parte inferior da tela de experimentação, clique em **segurança serviço Web** e selecione **preditiva Web Service [Recomendado]**.
-2. Remova o *entrada de serviço Web* e *módulos de saída de serviço Web* da experimentação preditiva. 
-3. Na caixa de pesquisa de componentes, escreva a exportação.
-4. Na lista de resultados, adicione um *exportar dados* módulo para a tela de experimentação.
-5. Ligar o resultado a *Pontuar modelo* a entrada do módulo do *exportar dados* módulo. 
-6. No painel de propriedades, selecione **SQL Database do Azure** na lista pendente de destino de dados.
-7. No **nome do servidor de base de dados**, **nome de base de dados**, **nome de conta de utilizador do servidor**, e **palavra-passe de conta de utilizador do** campos, introduza o informações adequadas para a base de dados.
-8. No **lista de colunas a ser guardado separados por vírgulas** , digite etiquetas classificadas.
-9. No **campo de nome de tabela de dados**, escreva dbo. ScoredLabels. Se a tabela não existe, é criado quando a experimentação é executada ou o serviço web é chamado.
-10. No **lista de colunas de datatable separados por vírgulas** campo, escreva ScoredLabels.
+1. Na parte inferior da tela de experimentação, clique em **segurança de serviço Web** e selecione **preditiva Web Service [Recomendado]**.
+2. Remover os *entrada de serviço Web* e *módulos de saída de serviço da Web* da experimentação preditiva. 
+3. Na caixa de pesquisa de componentes, tipo de exportação.
+4. A partir da lista de resultados, adicione uma *exportar dados* módulo para a tela da experimentação.
+5. Ligue a saída do *modelo de pontuação* a entrada do módulo da *exportar dados* módulo. 
+6. No painel de propriedades, selecione **base de dados do Azure SQL** na lista pendente de destino de dados.
+7. Na **nome do servidor de base de dados**, **nome da base de dados**, **nome de conta de utilizador do servidor**, e **palavra-passe de conta de utilizador servidor** campos, introduza o obter informações apropriadas para sua base de dados.
+8. Na **lista de colunas a serem salvos separados por vírgulas** , digite etiquetas classificadas.
+9. Na **campo de nome de tabela de dados**, escreva o dbo. ScoredLabels. Se a tabela não existir, é criado quando a experimentação é executada ou denomina-se o serviço web.
+10. Na **lista de colunas da datatable separados por vírgulas** campo, escreva ScoredLabels.
 
-Quando escreve uma aplicação que chama o serviço final web, pode pretender especificar uma consulta de entrada diferente ou tabela de destino em tempo de execução. Para configurar estas entradas e saídas, utilize a funcionalidade de parâmetros de serviço Web para definir o *importar dados* módulo *origem de dados* propriedade e o *exportar dados* dados do modo de propriedade de destino.  Para obter mais informações sobre os parâmetros do serviço Web, consulte o [entrada de parâmetros de serviço Web de AzureML](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) no blogue do Machine Learning e Cortana Intelligence.
+Quando escreve uma aplicação que chama o serviço final web, poderá especificar uma consulta de entrada diferente ou de uma tabela de destino no tempo de execução. Para configurar essas entradas e saídas, utilize a funcionalidade de parâmetros do serviço Web para definir o *importar dados* módulo *origem de dados* propriedade e o *exportar dados* dados de modo propriedade de destino.  Para obter mais informações sobre parâmetros do serviço Web, consulte a [entrada de parâmetros do serviço Web AzureML](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) sobre o Cortana Intelligence e o blogue de Machine Learning.
 
-Para configurar os parâmetros de serviço Web para a consulta de importação e a tabela de destino:
+Para configurar os parâmetros de serviço da Web para a consulta de importação e a tabela de destino:
 
-1. No painel de propriedades para o *importar dados* módulo, clique no ícone na parte superior direita do **consulta de base de dados** campo e selecione **definido como parâmetro de serviço web**.
-2. No painel de propriedades para o *exportar dados* módulo, clique no ícone na parte superior direita do **nome da tabela de dados** campo e selecione **definido como parâmetro de serviço web**.
-3. Na parte inferior do *exportar dados* painel de propriedades do módulo, no **parâmetros de serviço Web** secção, clique em consulta de base de dados e alterá-lo a consulta.
-4. Clique em **nome da tabela de dados** e renomeie- **tabela**.
+1. No painel de propriedades para o *importar dados* módulo, clique no ícone na parte superior direita do **consulta de base de dados** campo e selecione **definido como parâmetro de serviço da web**.
+2. No painel de propriedades para o *exportar dados* módulo, clique no ícone na parte superior direita do **nome da tabela de dados** campo e selecione **definido como parâmetro de serviço da web**.
+3. Na parte inferior a *exportar dados* painel de propriedades do módulo, na **parâmetros do serviço Web** secção, clique em consulta de base de dados e renomeá-lo a consulta.
+4. Clique em **nome da tabela de dados** e mude o nome **tabela**.
 
-Quando tiver terminado, sua experimentação deve ter um aspeto semelhante ao seguinte imagem:
+Quando tiver terminado, sua experimentação deve ter um aspeto semelhante à seguinte imagem:
 
-![Aspeto final da experimentação.](./media/web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
+![Aparência final da experimentação.](./media/web-services-that-use-import-export-modules/experiment-with-import-data-added.png)
 
 Agora pode implementar a experimentação como um serviço web.
 
 ## <a name="deploy-the-web-service"></a>Implementar o serviço web
-Pode implementar um clássico ou o novo serviço web.
+Pode implementar um clássico ou um novo serviço web.
 
 ### <a name="deploy-a-classic-web-service"></a>Implementar um serviço Web clássico
-Para implementar como um serviço Web clássico e criar uma aplicação para utilizadores o consomem:
+Para implementar como um serviço Web clássico e criar uma aplicação de consumi-las:
 
 1. Na parte inferior da tela de experimentação, clique em executar.
-2. Quando a execução foi concluída, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássico]**.
-3. No dashboard do serviço web, localize a chave de API. Copie e guarde-a para utilizar mais tarde.
-4. No **ponto final predefinido** tabela, clique em de **de execução de lote** ligação para abrir a página de ajuda de API.
-5. No Visual Studio, crie uma aplicação de consola c#: **novo** > **projeto** > **Visual c#** > **Windows Ambiente de trabalho clássico** > **(.NET Framework) de aplicação de consola**.
-6. Na página de ajuda de API, localizar o **código de exemplo** secção na parte inferior da página.
-7. Copie e cole o código de exemplo do c# no seu ficheiro Program.cs e remova todas as referências para o armazenamento de Blobs.
-8. Atualize o valor da *apiKey* variável com a chave de API que guardou anteriormente.
-9. Localize a declaração de pedido e atualize os valores de parâmetros de serviço Web que são transmitidos para o *importar dados* e *exportar dados* módulos. Neste caso, utilize a consulta original, mas definir um novo nome de tabela.
+2. Quando a execução for concluída, clique em **implementar serviço Web** e selecione **implementar o serviço Web [clássica]**.
+3. No dashboard do serviço web, localize a chave de API. Copie e guarde-o para utilizar mais tarde.
+4. Na **ponto final predefinido** da tabela, clique no **execução de lotes** link para abrir a página de ajuda da API.
+5. No Visual Studio, crie um C# aplicação de consola: **New** > **projeto** > **Visual C#**   >   **Ambiente de trabalho clássico do Windows** > **aplicação da consola (.NET Framework)**.
+6. A página Ajuda da API, encontrará a **código de exemplo** seção na parte inferior da página.
+7. Copie e cole o C# código de exemplo para o ficheiro Program.cs e remover todas as referências para o armazenamento de Blobs.
+8. Atualize o valor do *apiKey* variável com a chave de API que guardou anteriormente.
+9. Localize a declaração de pedido e atualizar os valores dos parâmetros do serviço Web que são transmitidos para o *importar dados* e *exportar dados* módulos. Neste caso, usa a consulta original, mas define um novo nome de tabela.
    
         var request = new BatchExecutionRequest() 
         {           
@@ -118,24 +119,24 @@ Para implementar como um serviço Web clássico e criar uma aplicação para uti
         };
 10. Execute a aplicação. 
 
-A execução após a conclusão, é adicionada uma nova tabela na base de dados que contém os resultados de classificação.
+Após a conclusão da execução, uma nova tabela é adicionada à base de dados que contém os resultados de classificação.
 
 ### <a name="deploy-a-new-web-service"></a>Implementar um novo serviço Web
 
 > [!NOTE] 
-> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição aos quais pode implementar o serviço web. Para obter mais informações, consulte [gira um serviço Web utilizando o portal de serviços Web do Azure Machine Learning](manage-new-webservice.md). 
+> Para implementar um novo serviço web tem de ter permissões suficientes na subscrição para a qual estiver a implementar o serviço web. Para obter mais informações, consulte [gerir um serviço Web através do portal do Azure Machine Learning Web Services](manage-new-webservice.md). 
 
-Para implementar como um novo serviço Web e criar uma aplicação para utilizadores o consomem:
+Para implementar como um novo serviço Web e criar uma aplicação de consumi-las:
 
 1. Na parte inferior da tela de experimentação, clique em **executar**.
-2. Quando a execução foi concluída, clique em **implementar serviço Web** e selecione **implementar o serviço Web do [New]**.
-3. Na página de experimentação implementar, introduza um nome para o seu serviço web e selecione um plano de preços, em seguida, clique em **implementar**.
-4. No **início rápido** página, clique em **Consume**.
-5. No **código de exemplo** secção, clique em **Batch**.
-6. No Visual Studio, crie uma aplicação de consola c#: **novo** > **projeto** > **Visual c#** > **Windows Ambiente de trabalho clássico** > **(.NET Framework) de aplicação de consola**.
-7. Copie e cole o código de exemplo do c# no seu ficheiro Program.cs.
-8. Atualize o valor da *apiKey* variável com o **chave primária** localizado no **informações de consumo básico** secção.
-9. Localize o *scoreRequest* declaração e atualize os valores de parâmetros de serviço Web que são transmitidos para o *importar dados* e *exportar dados* módulos. Neste caso, utilize a consulta original, mas definir um novo nome de tabela.
+2. Quando a execução for concluída, clique em **implementar serviço Web** e selecione **implementar o Web Service [novo]**.
+3. Na página de experimentação de implementar, introduza um nome para o seu serviço web e selecione um plano de preços, em seguida, clique em **Deploy**.
+4. Sobre o **início rápido** página, clique em **Consume**.
+5. Na **código de exemplo** secção, clique em **Batch**.
+6. No Visual Studio, crie um C# aplicação de consola: **New** > **projeto** > **Visual C#**   >   **Ambiente de trabalho clássico do Windows** > **aplicação da consola (.NET Framework)**.
+7. Copie e cole o C# código de exemplo para o ficheiro Program.cs.
+8. Atualize o valor do *apiKey* variável com o **chave primária** localizado no **informações de consumo básica** secção.
+9. Localize a *scoreRequest* declaração e atualizar os valores dos parâmetros do serviço Web que são transmitidos para o *importar dados* e *exportar dados* módulos. Neste caso, usa a consulta original, mas define um novo nome de tabela.
    
         var scoreRequest = new
         {       

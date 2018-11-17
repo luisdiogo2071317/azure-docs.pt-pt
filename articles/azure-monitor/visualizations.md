@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: e44d267fcc9986c5e215fc4844f49b28918a3111
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+ms.openlocfilehash: 2fff332665652516e4ac25c4eb1a4612c15e2412
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711927"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824681"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
-Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados armazenados no Azure Monitor. Isto inclui [métricas no arquivo de métricas do Azure](../monitoring/monitoring-data-collection.md#metrics) e [registos de dados no Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados armazenados no Azure Monitor. Isto inclui [métricas no arquivo de métricas do Azure](../azure-monitor/platform/data-collection.md#metrics) e [registos de dados no Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de monitorização para desagregação em problemas e identificar padrões. Dependendo da ferramenta utilizada, pode também optar por partilhar visualizações com outros utilizadores dentro e fora da sua organização.
 
@@ -138,7 +138,7 @@ Pode acessar dados em métricas do Azure e o Log Analytics através da API atrav
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre o [dados recolhidos pelo Azure Monitor](../monitoring/monitoring-data-collection.md).
+- Saiba mais sobre o [dados recolhidos pelo Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Saiba mais sobre [dashboards do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](../log-analytics/log-analytics-view-designer.md).
 - Saiba mais sobre [pastas de trabalho no Application Insights](../application-insights/app-insights-usage-workbooks.md).

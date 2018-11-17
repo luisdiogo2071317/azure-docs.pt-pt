@@ -9,23 +9,23 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212204"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854225"
 ---
-# <a name="human-in-the-loop"></a>Humanos no Loop
+# <a name="review-tool-overview"></a>Descrição geral da ferramenta de revisão
 
 Obter os melhores resultados quando pessoas e máquinas que trabalham em conjunto em moderação de conteúdos. Máquinas efetivamente aumentam revisões realizadas por pessoas, em que a confiança da previsão tem auxiliado ou ser moderadas dentro de um contexto do mundo real. O resultado é um processo de moderação de conteúdos de híbrido que tem um desempenho melhor do que se os humanos ou máquinas foram trabalhando sozinho.
 
-## <a name="how-the-review-tool-helps"></a>Como o ajuda a ferramenta de revisão ##
+## <a name="what-it-does"></a>O que faz
 
-A ferramenta de revisão humana quando utilizado em conjunto com as APIs de moderação assistida permite-lhe realizar estas tarefas importantes em relação ao ciclo de vida de moderação de conteúdos.
+A ferramenta de revisão humana, quando utilizado em conjunto com as APIs, de moderação assistida permite-lhe realizar estas tarefas importantes em relação ao ciclo de vida de moderação de conteúdos.
 
 1. Automatizar a criação de revisões realizadas por pessoas subjacente resultados da API de moderação
-2. Usar uma ferramenta (ferramenta de revisão e API) para moderada de vários formatos (texto, imagem e vídeo)
+2. Usar uma ferramenta (ferramenta de revisão e API) a moderadas vários formatos (texto, imagem e vídeo)
 3. Atribuir ou escalar revisões de conteúdo a várias de revisão de equipes, organizados por nível de categoria ou a experiência de conteúdo.
 4. Usar fluxos de trabalho padrão ou definir fluxos de trabalho personalizados com regras flexíveis e sem escrever nenhum código.
 5. Adicionar revisão humana para qualquer API ou business processos ao simplesmente criar um conector.

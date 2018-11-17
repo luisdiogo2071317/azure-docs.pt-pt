@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960162"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821519"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Resolver problemas relacionados com um erro geral do RDP na VM do Azure
 
@@ -65,7 +65,7 @@ Para resolver este problema, [cópia de segurança de disco do sistema operativo
 
 ### <a name="serial-console"></a>Consola de série
 
-#### <a name="step-1-turn-on-remote-desktop"></a>Passo 1: Ativar o ambiente de trabalho remoto
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>Passo 1: Instância CMD aberto na consola de série
 
 1. Acesso a [consola de série](serial-console-windows.md) ao selecionar **suporte e resolução de problemas** > **consola de série (pré-visualização)**. Se a funcionalidade está ativada na VM, pode ligar a VM com êxito.
 

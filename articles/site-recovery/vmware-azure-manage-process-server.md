@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ac317eaa4c7e69e4a01fe932569b999e502bc3cf
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568857"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822437"
 ---
 # <a name="manage-process-servers"></a>Gerir servidores de processos
 
@@ -31,7 +31,41 @@ Atualize um servidor de processos em execução no local ou no Azure (para fins 
 > [!NOTE]
   Normalmente, quando utiliza a imagem de galeria do Azure para criar um servidor de processos no Azure para fins de reativação pós-falha, ele é executado a versão mais recente disponível. A recuperação de Site equipas versão correções e aprimoramentos em intervalos regulares, e recomendamos que mantenha atualizados os servidores de processos.
 
+## <a name="balance-the-load-on-process-server"></a>Balancear a carga no servidor de processos
 
+Para balancear a carga entre dois servidores de processo,
+
+1. Navegue para **Cofre de serviços de recuperação** > **gerir** > **infraestrutura do Site Recovery** > **para Máquinas do VMware e físicas** > **servidores de configuração**.
+2. Clique no servidor de configuração para que os servidores de processo são registados com.
+3. Lista de servidores de processos registrado para os servidores de configuração estão disponíveis na página.
+4. Clique no servidor de processos no qual deseja modificar a carga de trabalho.
+
+    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. Pode utilizar **balanceamento de carga** ou **comutador** opções, conforme explicado abaixo, de acordo com o requisito.
+
+### <a name="load-balance"></a>O balanceamento de carga
+
+Através desta opção, pode selecionar uma ou mais máquinas virtuais e podem ser transferidos para outro servidor de processos.
+
+1. Clique em **balanceamento de carga**, selecione o servidor de processos de destino no menu pendente. Clique em **OK**
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. Clique em **selecionar máquinas**, escolha as máquinas virtuais que pretende mover do servidor de processo atual para o servidor de processos de destino. Detalhes de alteração de dados de média são exibidos em relação a cada máquina virtual.
+3. Clique em **OK**. Monitorizar o progresso da tarefa sob **cofre dos serviços de recuperação** > **monitorização** > **tarefas do Site Recovery**.
+4. Demora 15 minutos para que as alterações refletir o post conclusão desta operação ou [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para efeito imediato.
+
+### <a name="switch"></a>Comutador
+
+Através desta opção, a carga de trabalho total protegida num servidor de processos é movida para um servidor de processos diferentes.
+
+1. Clique em **comutador**, selecione o servidor de processos de destino, clique em **OK**.
+
+    ![Comutador](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. Monitorizar o progresso da tarefa sob **cofre dos serviços de recuperação** > **monitorização** > **tarefas do Site Recovery**.
+3. Demora 15 minutos para que as alterações refletir o post conclusão desta operação ou [atualizar o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) para efeito imediato.
 
 ## <a name="reregister-a-process-server"></a>Voltar a registar um servidor de processos
 

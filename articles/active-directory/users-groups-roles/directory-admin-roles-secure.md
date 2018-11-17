@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240108"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821094"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implementações híbridas e na cloud no Azure AD
 
@@ -82,9 +82,9 @@ Fase 1 do plano se concentra em tarefas críticas que são rápidos e fáceis de
 
 #### <a name="turn-on-azure-ad-privileged-identity-management"></a>Ativar o Azure AD Privileged Identity Management
 
-Se já não tiver ativado o Azure AD Privileged Identity Management (PIM), faça-o no seu inquilino de produção. Depois de ativar a Privileged Identity Management, irá receber uma notificação de e-mail mensagens para acesso privilegiado alterações de função. Estas notificações de fornecer um aviso antecipado quando os utilizadores adicionais são adicionados às funções de privilégios elevados no seu diretório.
+Se já não tiver ativado o Azure AD Privileged Identity Management (PIM), faça-o no seu inquilino de produção. Depois de ativar a Privileged Identity Management, irá receber uma notificação de e-mail mensagens para acesso privilegiado alterações de função. Estas notificações fornecem aviso antecipado quando os utilizadores adicionais são adicionados a funções com privilégios elevados no seu diretório.
 
-O Azure AD Privileged Identity Management está incluído no Azure AD Premium P2 ou EMS E5. Estas soluções ajudam a proteger o acesso aos recursos e aplicações em todo o ambiente no local e na nuvem. Se ainda não tiver P2 do Azure AD Premium ou EMS E5 e pretende avaliar mais os recursos referenciados neste plano, inscreva-se para o [Enterprise Mobility + Security avaliação gratuita de 90 dias](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Utilize estas versões de avaliação de licença para experimentar o Azure AD Privileged Identity Management e o Azure AD Identity Protection, para monitorizar a atividade com o Azure AD avançadas de relatórios de segurança, auditoria e alertas.
+O Azure AD Privileged Identity Management está incluído no Azure AD Premium P2 ou EMS E5. Estas soluções ajudam a proteger o acesso aos recursos e aplicações em todo o ambiente no local e na nuvem. Se já não tiver o Azure AD Premium P2 ou EMS E5 e pretende avaliar mais dos recursos referenciados neste plano, inscreva-se para o [Enterprise Mobility + Security avaliação gratuita de 90 dias](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-trial). Utilize estas versões de avaliação de licença para experimentar o Azure AD Privileged Identity Management e o Azure AD Identity Protection, para monitorizar a atividade com o Azure AD avançadas de relatórios de segurança, auditoria e alertas.
 
 Depois de ter ativado no Azure AD Privileged Identity Management:
 
@@ -102,7 +102,7 @@ A primeira pessoa a utilizar o Azure AD Privileged Identity Management no seu in
 
 Depois de ativar o Azure AD Privileged Identity Management, veja os utilizadores que estão no Administrador Global de funções de diretório, o administrador com função privilegiada, o administrador do Exchange Online e o administrador do SharePoint Online. Se não tiver o PIM do Azure AD no seu inquilino, pode utilizar o [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0). Iniciar com a função de administrador global, pois esta função é genérica: um utilizador a quem é atribuído esta função de administrador tem as mesmas permissões em todos os serviços de cloud para o qual a sua organização tem subscritas, independentemente de eles já foi atribuídos esta função no portal do Office 365 , o Azure portal, ou utilizando o módulo do Azure AD para o Microsoft PowerShell. 
 
-Remova as contas que já não são necessários nessas funções e categorizar as contas restantes são atribuídas às funções de administrador:
+Remova as contas que já não são necessários nessas funções. Em seguida, categorize as contas restantes são atribuídas às funções de administrador:
 
 * Individualmente atribuídas a utilizadores administrativos e também podem ser utilizadas para fins não administrativos (por exemplo, e-mail pessoal)
 * Individualmente designada para fins administrativos apenas e atribuídas a utilizadores administrativos
@@ -113,7 +113,7 @@ Remova as contas que já não são necessários nessas funções e categorizar a
 
 #### <a name="define-at-least-two-emergency-access-accounts"></a>Definir, pelo menos, duas contas de acesso de emergência 
 
-Certifique-se de que não obterá o numa situação onde eles poderiam ser inadvertidamente impedidos de aceder a administração de inquilino do Azure AD devido a uma incapacidade para iniciar sessão ou ativar a conta de um usuário individual existente como administrador. Por exemplo, se a organização estiver federada para um fornecedor de identidade no local, esse fornecedor de identidade pode estar indisponível, para que os utilizadores não podem iniciar sessão no local. Pode mitigar o impacto de acidental falta de acesso administrativo ao armazenar duas ou mais contas de acesso de emergência no seu inquilino.
+Certifique-se de que não obtém com uma situação onde eles poderiam ser inadvertidamente impedidos de aceder a administração de inquilino do Azure AD devido a uma incapacidade para iniciar sessão ou ativar a conta de um usuário individual existente como administrador. Por exemplo, se a organização estiver federada para um fornecedor de identidade no local, esse fornecedor de identidade pode estar indisponível, para que os utilizadores não podem iniciar sessão no local. Pode mitigar o impacto de acidental falta de acesso administrativo ao armazenar duas ou mais contas de acesso de emergência no seu inquilino.
 
 Contas de acesso de emergência ajudam as organizações a restringir o acesso privilegiado num ambiente do Azure Active Directory existente. Estas contas são altamente privilegiadas e não estão atribuídas a indivíduos específicos. Contas de acesso de emergência estão limitadas a emergência para "break glass" cenários onde não não possível utilizar contas administrativas normais. As organizações devem garantir o objetivo de controlar e reduzir a utilização da conta de emergência para apenas esse tempo para os quais é necessário. 
 
@@ -127,11 +127,11 @@ Exigir multi-factor Authentication (MFA) do Azure ao iniciar sessão para todos 
 
 ![Fase 2](./media/directory-admin-roles-secure/stage-two.png)
 
-Estágio 2 do mapa concentra-se na mitigação as técnicas de ataque utilizadas com mais frequência de roubo de credenciais e abuso e foi concebido para ser implementada em aproximadamente 2-4 semanas. Nesta fase do plano protegida acesso privilegiado inclui as seguintes ações.
+Estágio 2 dos focos de mapa na mitigação mais frequentemente utilizadas técnicas de ataque de roubo de credenciais e abuso e pode ser implementado em aproximadamente 2-4 semanas. Nesta fase do plano protegida acesso privilegiado inclui as seguintes ações.
 
 ### <a name="general-preparation"></a>Preparação gerais
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>Realizar um inventário dos serviços, os proprietários e os administradores
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>Conduzir um inventário dos serviços, os proprietários e os administradores
 
 Com o aumento no bring-your-own device (BYOD) e políticas de trabalho a partir de casa e o crescimento de conectividade sem fio em empresas, é fundamental monitorizar que estiver a ligar à sua rede. Uma auditoria de segurança efetivas revela, muitas vezes, dispositivos, aplicações e programas em execução na sua rede que não são suportadas pelo IT e, portanto, potencialmente não segura. Para obter mais informações, consulte [gestão de segurança do Azure e a descrição geral da monitorização](../../security/security-management-and-monitoring-overview.md). Certifique-se de que inclui todas as tarefas seguintes no processo de inventário. 
 
@@ -337,7 +337,7 @@ Além de gerir as contas de acesso privilegiado, recomendamos que reveja o segui
 * Só conceder o acesso com privilégios quando necessário e removê-lo mais tarde (just-in-time).
 * Retenção e a análise de atividade de auditoria relativas a contas com privilégios.
 
-Para obter mais informações sobre como criar um plano de segurança completo, consulte [recursos de arquitetura de TI da Microsoft cloud](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para obter mais informações sobre como utilizar os serviços da Microsoft para ajudá-lo em qualquer um destes tópicos, contacte o seu representante da Microsoft ou consulte [criar defesas informáticos críticos, para proteger a sua empresa](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Para obter mais informações sobre como criar um plano de segurança completo, consulte [recursos de arquitetura de TI da Microsoft cloud](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para obter mais informações sobre como utilizar os serviços da Microsoft para ajudá-lo em qualquer um destes tópicos, contacte o seu representante da Microsoft ou consulte [criar defesas informáticos críticos, para proteger a sua empresa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Neste estágio final em curso do plano protegida acesso privilegiado inclui os seguintes componentes.
 

@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ae4edb82fa5e192a30d297dae82199bb7efca0c2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: addd901e1b3a9bb537278082763081a7e39b21da
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056065"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824290"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo do fluxo para grupos de segurança de rede
 
-Registos de fluxo de grupo (NSG) de segurança de rede são uma funcionalidade do observador de rede permite-lhe ver informações sobre o tráfego IP de entrada e de saída através de um NSG. Registos de fluxo são escritos no formato json e mostram fluxos de saída e entrados numa base por regra, o fluxo de mensagens em fila aplica-se a interface de rede (NIC), informações de 5 cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino e protocolo), e se o tráfego foi permitido ou negado.
+Registos de fluxo de grupo (NSG) de segurança de rede são uma funcionalidade do observador de rede permite-lhe ver informações sobre o tráfego IP de entrada e de saída através de um NSG. Registos de fluxo são escritos no formato JSON e mostram saídos e fluxos de entrada numa base por regra, a interface de rede (NIC) o fluxo se aplica, informações de 5 cadeias de identificação sobre o fluxo (IP de origem/destino, porta de origem/destino e protocolo), se o tráfego foi permitido ou negado e na versão 2, informações de débito (Bytes e pacotes).
+
 
 ![Descrição geral de registos de fluxo](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
@@ -32,8 +33,11 @@ Embora os registos de fluxo NSGs de destino, não são apresentados os mesmos co
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
-
+ 
 As mesmas políticas de retenção vistas para outros registos aplicam-se aos registos de fluxo. Pode definir a política de retenção do registo de 1 dia para dias 2147483647. Se não definir uma política de retenção, os registos são mantidos para sempre.
+
+Também pode analisar os registos de fluxo usando [análise de tráfego](traffic-analytics.md).
+
 
 ## <a name="log-file"></a>Ficheiro de registo
 
@@ -58,15 +62,116 @@ Os registos de fluxo incluem as seguintes propriedades:
                     * **Porta de destino** -a porta de destino
                     * **Protocolo** -o protocolo do fluxo. Os valores válidos são **T** para TCP e **U** para UDP
                     * **Fluxo de tráfego** -a direção do fluxo de tráfego. Os valores válidos são **eu** de entrada e **s** para saída.
-                    * **Tráfego** - se o tráfego foi permitido ou negado. Os valores válidos são **uma** para permitido e **1!d** para negado.
+                    * **Decisão de tráfego** - se o tráfego foi permitido ou negado. Os valores válidos são **uma** para permitido e **1!d** para negado.
+                    * **Estado do fluxo - versão 2 apenas** -captura o estado do fluxo. Estados possíveis **B**: Begin, quando um fluxo é criado. Estatísticas não são fornecidas. **C**: continuar para um fluxo em curso. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: final, quando um fluxo é terminado. As estatísticas são fornecidas.
+                    * **Pacotes de - de origem para destino - versão 2 apenas** o número total de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização.
+                    * **Bytes enviados - origem para destino - versão 2 apenas** o número total de bytes de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload.
+                    * **Pacotes - destino para origem - versão 2 apenas** o número total de pacotes TCP ou UDP enviadas do destino para origem, desde a última atualização.
+                    * **Bytes enviados - destino para origem - versão 2 apenas** o número total de bytes de pacotes TCP e UDP enviadas do destino para origem, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload.
+
+## <a name="nsg-flow-logs-version-2"></a>Versão 2 de registos de fluxo NSG
+> [!NOTE] 
+> Versão de registos de fluxo 2 só estão disponíveis no Central região E.u.a. oeste. A configuração está disponível através do Portal do Azure e a REST API. Ativar a versão 2 registos numa região não suportada resultará nos registos de versão 1 debitados à sua conta de armazenamento.
+
+Versão 2 dos logs de apresenta o estado do fluxo. Pode configurar qual é a versão dos registos de fluxo de recebe. Para saber como ativar os registos de fluxo, veja [registo do fluxo do NSG ativar](network-watcher-nsg-flow-logging-portal.md).
+
+Estado do fluxo *B* é registado quando um fluxo é iniciado. Estado do fluxo *C* e o estado do fluxo *i* são Estados que marcam a continuação de um fluxo e a terminação de fluxo, respectivamente. Ambos *C* e *i* Estados contêm informações de largura de banda do tráfego.
+
+Para continuação *C* e de fim *i* Estados de fluxo, as contagens de byte e pacotes são agregadas contagens desde o momento do registo anterior para a cadeia de identificação de fluxo. O número total de pacotes transferidos referenciar a conversação do exemplo anterior, é 1021 + 52 + 8005 + 47 = 9125. É o número total de bytes transferidos 588096 + 29952 + 4610880 + 27072 = 5256000.
+
+**Exemplo**: fluxo de cadeias de identificação de uma conversa de TCP entre 185.170.185.105:35370 e 10.2.0.4:23:
+
+"1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,," "1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880" "1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072"
+
+Para continuação *C* e de fim *i* Estados de fluxo, as contagens de byte e pacotes são agregadas contagens desde o momento do registo anterior para a cadeia de identificação de fluxo. O número total de pacotes transferidos referenciar a conversação do exemplo anterior, é 1021 + 52 + 8005 + 47 = 9125. É o número total de bytes transferidos 588096 + 29952 + 4610880 + 27072 = 5256000.
 
 O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existem vários registos que se seguem a lista de propriedades descrita na secção anterior.
+
+## <a name="sample-log-records"></a>Registros de log de exemplo
+
+O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existem vários registos que se seguem a lista de propriedades descrita na secção anterior.
+
 
 > [!NOTE]
 > Os valores no **flowTuples* propriedade são uma lista separada por vírgulas.
  
+### <a name="version-1-nsg-flow-log-format-sample"></a>Exemplo de formato de registo de fluxo NSG de versão 1
 ```json
 {
+    "records": [
+        {
+            "time": "2017-02-16T22:00:32.8950000Z",
+            "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+            "category": "NetworkSecurityGroupFlowEvent",
+            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "operationName": "NetworkSecurityGroupFlowEvents",
+            "properties": {
+                "Version": 1,
+                "flows": [
+                    {
+                        "rule": "DefaultRule_DenyAllInBound",
+                        "flows": [
+                            {
+                                "mac": "000D3AF8801A",
+                                "flowTuples": [
+                                    "1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "rule": "UserRule_default-allow-rdp",
+                        "flows": [
+                            {
+                                "mac": "000D3AF8801A",
+                                "flowTuples": [
+                                    "1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A",
+                                    "1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A",
+                                    "1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A",
+                                    "1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "time": "2017-02-16T22:01:32.8960000Z",
+            "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+            "category": "NetworkSecurityGroupFlowEvent",
+            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "operationName": "NetworkSecurityGroupFlowEvents",
+            "properties": {
+                "Version": 1,
+                "flows": [
+                    {
+                        "rule": "DefaultRule_DenyAllInBound",
+                        "flows": [
+                            {
+                                "mac": "000D3AF8801A",
+                                "flowTuples": [
+                                    "1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "rule": "UserRule_default-allow-rdp",
+                        "flows": [
+                            {
+                                "mac": "000D3AF8801A",
+                                "flowTuples": [
+                                    "1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A",
+                                    "1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A",
+                                    "1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
     "records":
     [
         
@@ -97,6 +202,77 @@ O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existe
              "properties": {"Version":1,"flows":[{"rule":"DefaultRule_DenyAllInBound","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282492,175.182.69.29,10.1.0.4,28918,5358,T,I,D","1487282505,71.6.216.55,10.1.0.4,8080,8080,T,I,D"]}]},{"rule":"UserRule_default-allow-rdp","flows":[{"mac":"000D3AF8801A","flowTuples":["1487282512,91.224.160.154,10.1.0.4,59046,3389,T,I,A"]}]}]}
         }
         ,
+        ...
+```
+### <a name="version-2-nsg-flow-log-format-sample"></a>Exemplo de formato de registo de fluxo NSG de versão 2
+```json
+ {
+    "records": [
+        {
+            "time": "2018-11-13T12:00:35.3899262Z",
+            "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+            "category": "NetworkSecurityGroupFlowEvent",
+            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "operationName": "NetworkSecurityGroupFlowEvents",
+            "properties": {
+                "Version": 2,
+                "flows": [
+                    {
+                        "rule": "DefaultRule_DenyAllInBound",
+                        "flows": [
+                            {
+                                "mac": "000D3AF87856",
+                                "flowTuples": [
+                                    "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                                    "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                                    "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "rule": "DefaultRule_AllowInternetOutBound",
+                        "flows": [
+                            {
+                                "mac": "000D3AF87856",
+                                "flowTuples": [
+                                    "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                                    "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                                    "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                                    "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "time": "2018-11-13T12:01:35.3918317Z",
+            "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+            "category": "NetworkSecurityGroupFlowEvent",
+            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "operationName": "NetworkSecurityGroupFlowEvents",
+            "properties": {
+                "Version": 2,
+                "flows": [
+                    {
+                        "rule": "DefaultRule_DenyAllInBound",
+                        "flows": [
+                            {
+                                "mac": "000D3AF87856",
+                                "flowTuples": [
+                                    "1542110437,125.64.94.197,10.5.16.4,59752,18264,T,I,D,B,,,,",
+                                    "1542110475,80.211.72.221,10.5.16.4,37433,8088,T,I,D,B,,,,",
+                                    "1542110487,46.101.199.124,10.5.16.4,60577,8088,T,I,D,B,,,,",
+                                    "1542110490,176.119.4.30,10.5.16.4,57067,52801,T,I,D,B,,,,"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
         ...
 ```
 

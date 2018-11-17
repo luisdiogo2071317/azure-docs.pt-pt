@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 41b5383dd319f2cb6fad4316e963f86dd7a4bc61
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 128eff5f628a0a4bf9f67e988ab7d3e2f22ed767
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036613"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823746"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Como utilizar o Twilio para voz e SMS capacidades em Ruby
 Este guia demonstra como realizar tarefas comuns de programação com o serviço de Twilio API no Azure. Os cenários abrangidos incluem uma ligação telefônica e enviar uma mensagem de serviço de mensagens curtas (SMS). Para obter mais informações sobre o Twilio e voz e SMS a utilizar nas suas aplicações, consulte a [passos seguintes](#NextSteps) secção.
@@ -146,7 +146,7 @@ Se abrir-up `http://yourdomain.cloudapp.net/make_call` num browser, que irá dis
 
 O terceiro parâmetro (`url`) é o URL que solicita a Twilio para obter instruções sobre o que fazer depois da chamada está ligada. Neste caso, vamos configurar um URL (`http://yourdomain.cloudapp.net`) que devolve um documento de TwiML simple e utiliza o `<Say>` verbo fazer algumas voz e dizer "Hello Monkey" para a pessoa receber a chamada.
 
-## <a id="howto_recieve_sms"></a>Como: Recieve uma mensagem SMS
+## <a id="howto_receive_sms"></a>Como: receber uma mensagem SMS
 No exemplo anterior, iniciou um **saída** chamada telefónica. Desta vez, vamos utilizar o número de telefone Twilio deu-nos durante Inscreva-se ao processo de um **recebidos** mensagem SMS.
 
 Em primeiro lugar, iniciar sessão na sua [dashboard do Twilio][twilio_account]. Clique em "Números de" na barra de navegação superior e, em seguida, clique no número do Twilio, foram fornecidos. Verá dois URLs que pode configurar. URL do pedido de um URL de pedido de voz e uma SMS. Estes são os URLs que o Twilio chama sempre que for feita uma chamada telefónica ou um SMS é enviado para o seu número. Os URLs também são conhecidos como "webhooks".
