@@ -1,6 +1,6 @@
 ---
 title: Diagnosticar e resolver problemas relacionados com o SDK de Async Java do Azure Cosmos DB | Documentos da Microsoft
-description: Utilizar funcionalidades como o registo do lado do cliente, e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas do Azure Cosmos DB.
+description: Utilizar funcionalidades como o registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas do Azure Cosmos DB.
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
@@ -9,61 +9,67 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 2c73cda19a3f8b9b7c5ab493c0dfcd6c2e7be745
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632939"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820244"
 ---
-# <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Resolução de problemas ao utilizar o SDK do Java assíncrono com contas do Azure Cosmos DB SQL API
-Este artigo aborda problemas, soluções alternativas, passos de diagnóstico e ferramentas comuns ao utilizar [ADK de Async Java](sql-api-sdk-async-java.md) com contas de API de SQL do Azure Cosmos DB.
-SDK de Async Java fornece uma representação lógica do lado do cliente para acessar a API de SQL do Azure Cosmos DB. Este artigo descreve as ferramentas e abordagens para ajudá-lo caso se depare com quaisquer problemas.
+# <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>Resolver problemas ao utilizar o SDK de Async Java com contas do Azure Cosmos DB SQL API
+Este artigo aborda problemas comuns, soluções alternativas, passos de diagnóstico e ferramentas, ao utilizar o [SDK do Java Async](sql-api-sdk-async-java.md) com contas de API de SQL do Azure Cosmos DB.
+O SDK de Async Java fornece uma representação lógica do lado do cliente para acessar a API de SQL do Azure Cosmos DB. Este artigo descreve ferramentas e abordagens para ajudá-lo caso se depare com quaisquer problemas.
 
 Começar com esta lista:
-    * Dê uma olhada a [problemas comuns e soluções alternativas] secção deste artigo.
-    * É o nosso SDK [aberto no github](https://github.com/Azure/azure-cosmosdb-java) e temos [emite secção](https://github.com/Azure/azure-cosmosdb-java/issues) que iremos monitorizar ativamente. Verifique se encontrar algum problema semelhante com uma solução alternativa já o arquivou.
-    * Revisão [sugestões de desempenho](performance-tips-async-java.md) e siga as práticas sugeridas.
-    * Siga o resto deste artigo, se não encontrar uma solução, envie um [problema do GitHub](https://github.com/Azure/azure-cosmosdb-java/issues).
+
+* Dê uma olhada a [problemas comuns e soluções alternativas] secção deste artigo.
+* Examinar o SDK, que está disponível [código-fonte aberto no GitHub](https://github.com/Azure/azure-cosmosdb-java). Ele tem um [emite secção](https://github.com/Azure/azure-cosmosdb-java/issues) que está a ser monitorizado ativamente. Verifique se qualquer problema semelhante com uma solução alternativa é já o arquivou.
+* Reveja os [sugestões de desempenho](performance-tips-async-java.md)e siga as práticas sugeridas.
+* Leia o restante deste artigo, se não encontrar uma solução. Ficheiro, em seguida, um [problema do GitHub](https://github.com/Azure/azure-cosmosdb-java/issues).
 
 ## <a name="common-issues-workarounds"></a>Problemas comuns e soluções alternativas
 
 ### <a name="network-issues-netty-read-timeout-failure-low-throughput-high-latency"></a>Problemas, de rede Netty ler falha de tempo limite, baixo débito, latência elevada
 
 #### <a name="general-suggestions"></a>Sugestões gerais
-* Certificar-se de que a aplicação está em execução na mesma região que a sua conta do Cosmos DB. 
-* Verifique a utilização da CPU no anfitrião onde a aplicação está em execução. Se a utilização da CPU é 90% ou mais, considere executar a aplicação num anfitrião com configuração superior ou distribuir a carga em máquinas mais.
+* Certificar-se de que a aplicação está em execução na mesma região que a sua conta do Azure Cosmos DB. 
+* Verifique a utilização da CPU no anfitrião onde a aplicação está em execução. Se a utilização da CPU é igual ou superior a 90 por cento, execute a aplicação num anfitrião com uma configuração superior. Ou pode distribuir a carga em máquinas mais.
 
 #### <a name="connection-throttling"></a>Limitação de conexão
-Limitação de conexão pode acontecer devido a uma [Limite de ligação na máquina de anfitrião], ou [Exaustão de porta de SNAT (PAT) do Azure]:
+Limitação de conexão pode acontecer devido a um [Limite de ligações numa máquina de anfitrião] ou [Exaustão de porta de SNAT (PAT) do Azure].
 
-##### <a name="connection-limit-on-host"></a>Limite de ligação na máquina de anfitrião
-Alguns sistemas Linux (como 'Red Hat') tem um limite superior no número total de ficheiros abertos. Sockets no Linux são implementados como arquivos, para que este número limita o número total de ligações demasiado.
-Execute o seguinte comando:
+##### <a name="connection-limit-on-host"></a>Limite de ligações numa máquina de anfitrião
+Alguns sistemas de Linux, como Red Hat, tem um limite superior no número total de ficheiros abertos. Sockets no Linux são implementados como arquivos, para que este número limita o número total de ligações, demasiado.
+Execute o seguinte comando.
 
 ```bash
 ulimit -a
 ```
-O número de abrir os arquivos ("nofile") tem de ser suficientemente grande (no mínimo, como aspas como o tamanho do conjunto de ligação). Leia mais detalhes nas [sugestões de desempenho](performance-tips-async-java.md).
+O número de máximos permitidos ficheiros abertos, que são identificadas como "nofile", tem de ser double, pelo menos, o tamanho do conjunto de ligação. Para obter mais informações, consulte [sugestões de desempenho](performance-tips-async-java.md).
 
 ##### <a name="snat"></a>Exaustão de porta de SNAT (PAT) do Azure
 
-Se a aplicação é implementada numa VM do Azure sem um endereço IP público, por predefinição [portas de SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) são utilizadas para estabelecer ligações para qualquer ponto de extremidade fora da sua VM. O número de ligações permitido da VM para o ponto de final do Cosmos DB é limitado pelos [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Se a aplicação é implementada em máquinas de virtuais do Azure sem um endereço IP público, por predefinição [portas de SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) estabelecer ligações para qualquer ponto de extremidade fora da sua VM. O número de ligações permitido da VM para o ponto de final do Azure Cosmos DB é limitado pelos [configuração do Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
-As portas de SNAT do Azure são utilizadas apenas quando a sua VM do Azure tem um endereço IP privado e um processo da VM tenta estabelecer uma ligação para um endereço IP público. Portanto, há duas soluções alternativas para evitar a limitação de SNAT do Azure:
-    * Adicionar o ponto de final de serviço do Azure Cosmos DB para a sub-rede de VNET de VM do Azure, conforme explicado na [ponto final de serviço de VNET ativar](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Quando o ponto final de serviço é ativado, os pedidos já não são enviados de um IP público ao cosmos DB em vez disso, a VNET e identidade do sub-rede é enviada. Esta alteração poderá resultar em quedas de firewall se só são permitidos IPs públicos. Se estiver a utilizar a firewall, quando ativar o ponto final de serviço, adicionar a sub-rede para através da firewall [ACLs de VNET](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
-    * Atribua um IP público à VM do Azure.
+ Portas SNAT do Azure são utilizadas apenas quando a VM tem um endereço IP privado e um processo da VM tenta estabelecer ligação com um endereço IP público. Existem duas soluções alternativas para evitar a limitação de SNAT do Azure:
 
-#### <a name="http-proxy"></a>Proxy de HTTP
+* Adicione o ponto de final de serviço do Azure Cosmos DB para a sub-rede da sua rede virtual de máquinas virtuais do Azure. Para obter mais informações, consulte [pontos finais de serviço de rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
 
-Se usar um HttpProxy, certificar-se de que sua HttpProxy pode suportar o número de ligações configuradas no SDK `ConnectionPolicy`.
+    Quando o ponto final de serviço está ativado, os pedidos não são mais enviados de um IP público para o Azure Cosmos DB. Em vez disso, a rede virtual e a identidade do sub-rede são enviados. Esta alteração poderá resultar em quedas de firewall se só são permitidos IPs públicos. Se utilizar uma firewall, quando ativar o ponto final de serviço, adicionar uma sub-rede para o firewall usando [ACLs de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+* Atribua um IP público à VM do Azure.
+
+#### <a name="http-proxy"></a>Proxy HTTP
+
+Se utilizar um proxy de HTTP, certificar-se de que pode suportar o número de ligações configuradas no SDK `ConnectionPolicy`.
 Caso contrário, o que enfrenta problemas de ligação.
 
 #### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Padrão de codificação de inválido: a bloquear o thread de e/s de Netty
 
-O SDK utiliza [Netty](https://netty.io/) biblioteca de e/s para comunicar com o serviço do Azure Cosmos DB. Temos a API de Async e podemos usar APIs de e/s de netty de sem bloqueio. Trabalho de e/s do SDK é executado em threads netty de e/s. O número de threads de e/s netty está configurado para ser o mesmo que o número de núcleos de CPU da máquina de aplicação. Os threads de e/s netty apenas se destinam a ser utilizado para o trabalho de e/s netty sem bloqueio. O SDK devolve o resultado da invocação de API em um dos threads de e/s netty ao código das aplicações. Se a aplicação depois de receber os resultados no netty thread realiza uma operação de longa duração no thread netty, que pode resultar em SDK não ter um número suficiente de threads de e/s para executar seu trabalho de e/s interno. Esse tipo de codificação de aplicação pode resultar em baixo débito, latência alta, e `io.netty.handler.timeout.ReadTimeoutException` falhas. A solução é o thread de alternar quando sabe que a operação irá demorar tempo.
+O SDK utiliza o [Netty](https://netty.io/) biblioteca de e/s para comunicar com o Azure Cosmos DB. O SDK tem APIs de Async e utiliza as APIs de e/s de Netty de sem bloqueio. Trabalho de e/s do SDK é executado em threads de e/s Netty. O número de threads de e/s Netty está configurado para ser o mesmo que o número de núcleos de CPU da máquina de aplicação. 
 
-   Por exemplo, o fragmento de código seguinte mostra que se realizar o trabalho de longa duração, o que demora mais do que alguns milissegundos, no netty thread, eventualmente, pode chegar a um Estado em que nenhum thread de e/s netty está presente para processar trabalho de e/s e assim obtém ReadTimeou tException:
+Os threads de e/s de Netty se destinam a ser utilizado apenas para o trabalho de e/s de Netty sem bloqueio. O SDK retorna o resultado da invocação de API em um dos threads de e/s de Netty ao código da aplicação. Se a aplicação executa uma operação de longa duração, depois de receber os resultados no Netty thread, o SDK pode não ter suficiente threads de e/s para realizar o trabalho de e/s interno. Esse tipo de codificação de aplicação pode resultar em baixo débito, latência alta, e `io.netty.handler.timeout.ReadTimeoutException` falhas. A solução é mudar o thread quando sabe que a operação demora algum tempo.
+
+Por exemplo, veja o seguinte trecho de código. Pode executar o trabalho de longa duração, que demora mais do que alguns milissegundos no Netty thread. Se assim for, eventualmente, pode obter para um Estado em que nenhum thread de e/s de Netty está presente para processar trabalho de e/s. Como resultado, ocorre uma falha de ReadTimeoutException.
 ```java
 @Test
 public void badCodeWithReadTimeoutException() throws Exception {
@@ -89,19 +95,19 @@ public void badCodeWithReadTimeoutException() throws Exception {
                 .createDocument(getCollectionLink(), docDefinition, null, false);
         createObservable.subscribe(r -> {
                     try {
-                        // time consuming work. For example:
-                        // writing to a file, computationally heavy work, or just sleep
-                        // basically anything which takes more than a few milliseconds
-                        // doing such operation on the IO netty thread
-                        // without a proper scheduler, will cause problems.
-                        // The subscriber will get ReadTimeoutException failure.
+                        // Time-consuming work is, for example,
+                        // writing to a file, computationally heavy work, or just sleep.
+                        // Basically, it's anything that takes more than a few milliseconds.
+                        // Doing such operations on the IO Netty thread
+                        // without a proper scheduler will cause problems.
+                        // The subscriber will get a ReadTimeoutException failure.
                         TimeUnit.SECONDS.sleep(2 * requestTimeoutInSeconds);
                     } catch (Exception e) {
                     }
                 },
 
                 exception -> {
-                    //will be io.netty.handler.timeout.ReadTimeoutException
+                    //It will be io.netty.handler.timeout.ReadTimeoutException.
                     exception.printStackTrace();
                     failureCount.incrementAndGet();
                     latch.countDown();
@@ -115,42 +121,42 @@ public void badCodeWithReadTimeoutException() throws Exception {
     assertThat(failureCount.get()).isGreaterThan(0);
 }
 ```
-   A solução alternativa é alterar o thread no qual executar o trabalho de anotações do tempo. Defina uma instância singleton do agendador para a sua aplicação:
+   A solução alternativa é alterar o thread no qual executar o trabalho que demora algum tempo. Defina uma instância singleton do scheduler para a sua aplicação.
    ```java
-// have a singleton instance of executor and scheduler
+// Have a singleton instance of an executor and a scheduler.
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
    ```
-   Sempre que precisar de tempo e tirar trabalho (por exemplo, trabalho computacionalmente pesado, bloquear e/s), mude o thread para uma função de trabalho fornecida pelo seu `customScheduler` usando `.observeOn(customScheduler)` API.
+   Poderá ter de fazer o trabalho que leva tempo, por exemplo, trabalho computacionalmente pesado ou e/s de bloqueio. Neste caso, mude o thread para uma função de trabalho fornecida pelo seu `customScheduler` utilizando o `.observeOn(customScheduler)` API.
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
 
 createObservable
-        .observeOn(customScheduler) // switches the thread.
+        .observeOn(customScheduler) // Switches the thread.
         .subscribe(
             // ...
         );
 ```
-Ao utilizar `observeOn(customScheduler)`, o thread de e/s netty de versão e mude para o seu próprio thread personalizado fornecido pelo customScheduler. Essa modificação irá resolver o problema e não obterá `io.netty.handler.timeout.ReadTimeoutException` deixa de poder falha.
+Ao utilizar `observeOn(customScheduler)`, o thread de e/s de Netty de versão e mude para o seu próprio thread personalizado fornecido pelo scheduler personalizado. Essa modificação resolve o problema. Não obterá um `io.netty.handler.timeout.ReadTimeoutException` deixa de poder falha.
 
 ### <a name="connection-pool-exhausted-issue"></a>Conjunto de ligação esgotado o problema
 
-`PoolExhaustedException` é uma falha do lado do cliente. Se obtiver, muitas vezes, esta falha, que é a indicação de que sua carga de trabalho de aplicação é maior do que o conjunto de ligações de SDK que possa servir. Pode ajudar a aumentar o tamanho do conjunto de ligação ou distribuir a carga em várias aplicações.
+`PoolExhaustedException` é uma falha do lado do cliente. Esta falha indica que a sua carga de trabalho de aplicação é maior do que o que pode servir o conjunto de ligações de SDK. Aumentar o tamanho do conjunto de ligação ou distribuir a carga em várias aplicações.
 
 ### <a name="request-rate-too-large"></a>Taxa de pedido demasiado grande
-Esta falha é uma falha de servidor indicando que consumidos débito aprovisionado e deve ser repetida mais tarde. Se obtiver, muitas vezes, esta falha, considere aumentar o débito da coleção.
+Esta falha é uma falha do lado do servidor. Ele indica que consumido débito aprovisionado. Tente novamente mais tarde. Se obtiver, muitas vezes, esta falha, considere um aumento no débito de coleção.
 
 ### <a name="failure-connecting-to-azure-cosmos-db-emulator"></a>Falha ao ligar ao emulador do Azure Cosmos DB
 
-Certificado HTTPS de emulador do cosmos DB é autoassinado. Para o SDK trabalhar com o emulador, deve importar o certificado de emulador para TrustStore de Java. Conforme explicado [aqui](local-emulator-export-ssl-certificates.md).
+O certificado do Azure Cosmos DB emulator HTTPS está autoassinado. Para o SDK trabalhar com o emulador, importe o certificado do emulador para um TrustStore de Java. Para obter mais informações, consulte [certificados de emulador do Azure Cosmos DB exportar](local-emulator-export-ssl-certificates.md).
 
 
 ## <a name="enable-client-sice-logging"></a>Ativar o registo do SDK de cliente
 
 As utilizações de SDK do Java Async SLF4j como a fachada de registo que suporta o início de sessão em arquiteturas de registo populares, como log4j e logback.
 
-Por exemplo, se pretender utilizar log4j como a arquitetura de registo, adicione as seguintes bibliotecas no caminho da sua classe Java:
+Por exemplo, se pretender utilizar log4j como a arquitetura de registo, adicione as seguintes bibliotecas no caminho da sua classe Java.
 
 ```xml
 <dependency>
@@ -165,7 +171,7 @@ Por exemplo, se pretender utilizar log4j como a arquitetura de registo, adicione
 </dependency>
 ```
 
-Também adicione uma configuração log4j:
+Também adicione uma configuração log4j.
 ```
 # this is a sample log4j configuration
 
@@ -183,25 +189,25 @@ log4j.appender.A1.layout=org.apache.log4j.PatternLayout
 log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 ```
 
-Revisão [sfl4j registo manual](https://www.slf4j.org/manual.html) para obter mais informações.
+Para obter mais informações, consulte a [sfl4j registo manual](https://www.slf4j.org/manual.html).
 
 ## <a name="netstats"></a>Estatísticas de rede do SO
-Execute o comando netstat para ter uma ideia de quantos ligações estão na `Established` Estado, `CLOSE_WAIT` de estado, etc.
+Execute o comando netstat para ter uma ideia de quantos ligações encontram-se nos Estados como `ESTABLISHED` e `CLOSE_WAIT`.
 
-No Linux pode executar o seguinte comando:
+No Linux, pode executar o seguinte comando.
 ```bash
 netstat -nap
 ```
-Filtre o resultado para apenas as ligações para o ponto final do Cosmos DB.
+Filtre o resultado para apenas as ligações para o ponto de final do Azure Cosmos DB.
 
-Aparentemente, o número de ligações para o ponto final do Cosmos DB no `Established` Estado deve não ser maior que o tamanho do conjunto de ligação configurada.
+O número de ligações para o ponto de final do Azure Cosmos DB no `ESTABLISHED` Estado não pode ser maior do que o tamanho do conjunto de ligação configurada.
 
-Se existirem várias ligações para o ponto final do Cosmos DB no `CLOSE_WAIT` de estado, para o exemplo mais do que 1000 ligações, essa é uma indicação de ligações são estabelecidas e destruídas rapidamente, que pode causar potencialmente problemas. Revisão [problemas comuns e soluções alternativas] secção para obter mais detalhes.
+Várias ligações para o ponto de final do Azure Cosmos DB podem estar a ser o `CLOSE_WAIT` estado. Podem existir mais do que 1.000. Um número que alta indica que as ligações são estabelecidas e subdivididas rapidamente. Esta situação potencialmente causa problemas. Para obter mais informações, consulte a [problemas comuns e soluções alternativas] secção.
 
  <!--Anchors-->
 [Problemas comuns e soluções alternativas]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Limite de ligação na máquina de anfitrião]: #connection-limit-on-host
+[Limite de ligações numa máquina de anfitrião]: #connection-limit-on-host
 [Exaustão de porta de SNAT (PAT) do Azure]: #snat
 
 
