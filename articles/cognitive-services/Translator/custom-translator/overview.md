@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: b7cba2959bead5eeed72a87219c70f896b5a48b8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 76e6bc006ff6049b631409a3515628fbd169f713
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51682967"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976983"
 ---
 # <a name="what-is-custom-translator-preview"></a>O que é o Custom Translator (Pré-visualização)?
 
@@ -32,7 +32,7 @@ Tradutor personalizado fornece diferentes funcionalidades para criar o sistema d
 |---------|---------|
 |[Tirar partido de tecnologia de tradução automática neural](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Aprimorar a tradução ao tirar partido da tradução automática neuronal (NMT) fornecida pelo translator personalizado.       |
 |[Criar sistemas que sabe seu terminologia de negócios](what-are-parallel-documents.md)     |  Personalizar e criar sistemas de tradução com documentos paralelos, o que compreender as terminologias utilizadas no seu próprio negócio e do setor.       |
-|[Utilizar o dicionário para criar os seus modelos](what-is-dictionary.md)     |   Se não tiver o conjunto de dados de treinamento, pode preparar um modelo com apenas os dados de dicionário.       |
+|[Utilizar um dicionário para criar os seus modelos](what-is-dictionary.md)     |   Se não tiver o conjunto de dados de treinamento, pode preparar um modelo com apenas os dados de dicionário.       |
 |[Colaborar com outras pessoas](how-to-manage-settings.md#share-your-workspace)     |   Colabore com sua equipe ao partilhar o seu trabalho com diferentes pessoas.     |
 |[Aceder ao seu modelo de tradução personalizadas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Seu modelo de tradução personalizadas pode ser acessado por seus aplicativos existentes / programas por meio da API de texto do Microsoft Translator V3.       |
 

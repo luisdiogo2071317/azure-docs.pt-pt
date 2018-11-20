@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: fb9b919621174f38520ab5365d4a67abc8095631
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854800"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977289"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início rápido: Visualizar dados utilizando o conector do Explorador de dados do Azure para o Power BI
 
@@ -53,7 +53,7 @@ Geralmente usa a linguagem de consulta nativa com o Explorador de dados do Azure
     |---|---|---|
     | Servidor | *Help.kusto.Windows.NET* | O URL para o cluster de ajuda (sem *https://*). Para outros clusters, o URL está no formato  *\<ClusterName\>.\< Região\>. kusto.windows.net*. |
     | Base de Dados | *Amostras* | A base de dados de exemplo que está alojado no cluster que está a ligar. |
-    | Modo de conectividade de dados | *Importar* | Determina se o Power BI importa os dados ou ligar diretamente à origem de dados. |
+    | Modo de conectividade de dados | *Importar* | Determina se o Power BI importa os dados ou ligar diretamente à origem de dados. Pode usar qualquer uma das opções com este conector. |
     | Tempo limite do comando | Deixar em branco | O tempo que a consulta é executada antes de ele emite um erro de tempo limite. |
     | Instrução SQL | Copiar consulta abaixo desta tabela | A instrução de SQL que o Explorador de dados do Azure que se traduz numa consulta nativa. |
     | Outras opções | Deixe como valores predefinidos | As opções não se aplicam aos clusters do Explorador de dados do Azure. |

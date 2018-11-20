@@ -2,20 +2,20 @@
 title: Início Rápido do Azure – Executar trabalho do Batch – .NET
 description: Execute rapidamente um trabalho do Batch com a biblioteca de cliente .NET do Batch.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/06/2018
-ms.author: danlep
+ms.date: 11/16/2018
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: d6d1fb9631af06f6bfbb2c360661779281a08905
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814836"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975114"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: executar o seu primeiro trabalho do Azure Batch com a API .NET
 
@@ -73,7 +73,7 @@ Para ver o fluxo de trabalho do Batch em ação, crie e execute a aplicação no
 Em seguida, execute-o. Quando executar a aplicação de exemplo, o resultado da consola é semelhante ao seguinte. Durante a execução, ocorre uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do conjunto são iniciados. As tarefas são colocadas em fila para serem executadas assim que o primeiro nó de computação estiver em execução. Aceda à conta do Batch no [portal do Azure](https://portal.azure.com) para monitorizar o conjunto, os nós de computação, o trabalho e as tarefas.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/16/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -150,7 +150,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 Para criar um conjunto do Batch, a aplicação utiliza o método [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) para definir o número de nós, o tamanho da VM e uma configuração de conjuntos. Aqui, um objeto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) especifica uma [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) para uma imagem do Windows Server publicada no Azure Marketplace. O Batch suporta inúmeras imagens do Linux e Windows Server no Azure Marketplace, bem como imagens da VM personalizadas.
 
-O número de nós (`PoolNodeCount`) e o tamanho da VM (`PoolVMSize`) são constantes definidas. O exemplo predefinido cria um conjunto de dois nós de tamanho *Standard_A1_v2*. O tamanho sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido. 
+O número de nós (`PoolNodeCount`) e o tamanho da VM (`PoolVMSize`) são constantes definidas. O exemplo predefinido cria um conjunto de dois nós de tamanho *Standard_A1_v2*. O tamanho sugerido oferece um bom equilíbrio de desempenho em comparação com o custo deste exemplo rápido.
 
 O método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) submete o conjunto para o serviço Batch.
 
@@ -158,7 +158,7 @@ O método [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) submete o
 ImageReference imageReference = new ImageReference(
     publisher: "MicrosoftWindowsServer",
     offer: "WindowsServer",
-    sku: "2012-R2-Datacenter-smalldisk",
+    sku: "2016-Datacenter-smalldisk",
     version: "latest");
 
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -238,7 +238,7 @@ A aplicação elimina automaticamente o contentor de armazenamento criado e ofer
 
 Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para tal, no portal do Azure, selecione o grupo de recursos da conta do Batch e clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, executou a compilação de uma pequena aplicação com a API .NET do Batch para criar um conjunto e um trabalho do Batch. A tarefa executou tarefas de exemplo e transferiu os resultados criados nos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para obter mais informações sobre o Azure Batch e saber utilizar uma carga de trabalho paralela com uma aplicação do mundo real, avance para o tutorial .NET do Batch.
 

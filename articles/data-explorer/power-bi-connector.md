@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 7948d1d765f597bd25d94447ce704b44f3c97a98
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854808"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974276"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Início rápido: Visualizar dados utilizando o conector do Explorador de dados do Azure para o Power BI
 
@@ -55,7 +55,7 @@ Em primeiro lugar, crie uma ligar para o cluster de ajuda do Explorador de dados
     | Base de Dados | Deixar em branco | Uma base de dados que está alojado no cluster que está a ligar. Vamos selecionar isto num passo posterior. |
     | Nome da tabela | Deixar em branco | Uma das tabelas na base de dados ou uma consulta como "StormEvents | Tire 1000'. Vamos selecionar isto num passo posterior. |
     | Opções avançadas | Deixar em branco | Opções para as suas consultas, por exemplo, o resultado de definir o tamanho. |
-    | Modo de conectividade de dados | *DirectQuery* | Determina se o Power BI importa os dados ou ligar diretamente à origem de dados. |
+    | Modo de conectividade de dados | *DirectQuery* | Determina se o Power BI importa os dados ou ligar diretamente à origem de dados. Pode usar qualquer uma das opções com este conector. |
     | | | |
 
 1. Se ainda não tiver uma ligação ao cluster de ajuda, inicie sessão. Inicie sessão com uma conta da organização, em seguida, selecione **Connect**.

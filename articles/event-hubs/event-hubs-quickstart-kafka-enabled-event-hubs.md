@@ -1,24 +1,19 @@
 ---
-title: Transmitir em fluxo para os Hubs de Eventos do Azure para o Apache Kafka | Microsoft Docs
+title: Stream para os Hubs de eventos do Azure para o Apache Kafka
 description: Transmita para os Hubs de Eventos, com o protocol Kafka e APIs.
 services: event-hubs
-documentationcenter: ''
 author: basilhariri
-manager: timlt
+ms.author: bahariri
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/01/2018
-ms.author: bahariri
-ms.openlocfilehash: 18224c3ebf3b5dd9920dcc4b4868ee8bb42e5f91
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 748ed7dde98d81de6e1d2661c6ce50d10357ba3d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418794"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975316"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Transmitir em fluxo para os Hubs de Eventos para o Apache Kafka
 Este início rápido mostra como transmitir para Hubs de Eventos ativados pelo Kafka, sem alterar os clientes de protocolo nem a execução dos seus próprios clusters. Vai aprender a utilizar os seus produtores e consumidores para comunicar com Hubs de Eventos ativados pelo Kafka, com apenas uma alteração de configuração nas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
@@ -47,7 +42,7 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
  
 3. Indique um nome exclusivo e ative o Kafka no espaço de nomes. Clique em **Criar**.
     
-    ![Criar um espaço de nomes](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![Criar um espaço de nomes](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. Quando o espaço de nomes for criado, no separador **Definições**, clique em **Políticas de acesso partilhado** para obter a cadeia de ligação.
 
@@ -103,7 +98,7 @@ Agora, já pode transmitir em fluxo eventos das suas aplicações que utilizam o
 
 Se o cluster Kafka dos Hubs de Eventos tiver eventos, começará agora a recebê-los do consumidor.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a transmitir para os Hubs de Eventos ativados para Kafka, sem alterar os clientes de protocolo nem executar os seus próprios clusters. Para obter mais informações, avance para o próximo tutorial:
 
 * [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)

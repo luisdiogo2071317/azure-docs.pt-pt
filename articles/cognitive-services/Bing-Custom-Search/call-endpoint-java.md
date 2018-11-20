@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 99ce1b982296387423ec6e8fdfb592ee9fd32b73
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814122"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974231"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Início Rápido: ponto final de Pesquisa Personalizada do Bing (Java)
 
@@ -27,7 +27,7 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma instância de pesquisa personalizada e pronta a utilizar. Veja [Criar a sua primeira instância de Pesquisa Personalizada do Bing](quick-start.md).
 - [Java](https://www.java.com) instalado.
-- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga do dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Uma chave de subscrição. Pode obter uma chave de subscrição ao ativar a sua [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) ou pode utilizar uma chave de subscrição paga no dashboard do Azure (veja [Conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Executar o código
 
@@ -122,7 +122,7 @@ Para executar este exemplo, siga estes passos:
     }
     
     // Container class for search results encapsulates relevant headers and JSON data
-    class SearchResults{
+    static class SearchResults{
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {
@@ -135,7 +135,7 @@ Para executar este exemplo, siga estes passos:
   
 4. Execute o programa.
     
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 - [Configurar a sua experiência de IU alojada](./hosted-ui.md)
 - [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
-- [Páginas Web da página](./page-webpages.md)
+- [Paginação de páginas Web](./page-webpages.md)
