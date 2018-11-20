@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 81a156f3c3d211caffbc33a1f0b45a6c6cd56cb4
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035650"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975147"
 ---
 # <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>Registos de aplicações do Apache YARN de acesso no HDInsight baseado em Windows
 Este documento explica como acessar os registos para aplicativos de Apache YARN que tem concluído a num cluster de Hadoop baseado em Windows no Azure HDInsight
@@ -28,7 +28,7 @@ Este documento explica como acessar os registos para aplicativos de Apache YARN 
 * Um cluster do HDInsight baseado em Windows.  Ver [Hadoop baseado em Windows criar clusters no HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>Servidor de linha cronológica do YARN
-O <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">servidor de linha cronológica do YARN</a> fornece informações genéricas sobre aplicações concluídas, bem como framework informações específicas da aplicação através de duas interfaces diferentes. Especificamente:
+O <a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">servidor de linha cronológica do YARN</a> fornece informações genéricas sobre aplicações concluídas, bem como framework informações específicas da aplicação através de duas interfaces diferentes. Especificamente:
 
 * Armazenamento e obtenção de informações de aplicação genérica em clusters de HDInsight foi ativado com a versão 3.1.1.374 ou superior.
 * O componente de informações de aplicações com arquiteturas específicas do servidor de linha cronológica não está atualmente disponível em clusters do HDInsight.

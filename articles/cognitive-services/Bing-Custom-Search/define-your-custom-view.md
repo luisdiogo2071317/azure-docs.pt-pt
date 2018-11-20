@@ -3,19 +3,19 @@ title: Definir uma vista personalizada - pesquisa personalizada do Bing
 titlesuffix: Azure Cognitive Services
 description: Descreve como criar sites e serviços de pesquisa vertical
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.author: aahi
+ms.openlocfilehash: ab1b8b011a6523fe3760c233c83d59fd9768ad0c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282928"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163305"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurar a sua experiência de pesquisa personalizada
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 496afab869d8cf1b7b00791913c3082e31b45327
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: d8b78551a762b4388344aaf3b44e7472127737ae
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633925"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977119"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: problemas com o agente ou a extensão
 
@@ -77,9 +77,9 @@ Depois de registar e agendar uma VM para o serviço de cópia de segurança do A
 **Causa 2: [a extensão de cópia de segurança não consegue atualizar ou de carga](#the-backup-extension-fails-to-update-or-load)**  
 **Causa 3: [a VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - operação de extensão de VMSnapshot falhou
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - operação de extensão de VMSnapshot falhou
 
-**Código de erro**: ExtentionOperationFailed <br>
+**Código de erro**: ExtentionOperationFailedForManagedDisks <br>
 **Mensagem de erro**: a operação de extensão do VMSnapshot falhou<br>
 
 Depois de registar e agendar uma VM para o serviço de cópia de segurança do Azure, a cópia de segurança inicia a tarefa através da comunicação com a extensão de cópia de segurança de VM para tirar um instantâneo de ponto no tempo. Qualquer uma das seguintes condições poderá impedir que o instantâneo que está a ser acionado. Se o instantâneo não é acionado, pode ocorrer uma falha de cópia de segurança. Conclua os seguintes passos de resolução de problemas na ordem listada e, em seguida, repita a operação:  
@@ -205,7 +205,7 @@ As seguintes condições poderão provocar a falha na tarefa de instantâneo:
 | Causa | Solução |
 | --- | --- |
 | O estado da VM é informado incorretamente, uma vez que a VM é encerrada no protocolo RDP (Remote Desktop). | Se encerrar a VM na RDP, consulte o portal para determinar se o estado da VM está correto. Se não estiver correto, encerre a VM no portal, utilizando o **encerramento** opção no dashboard de VM. |
-| A VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura do DHCP. | DHCP tem de estar ativado no computador convidado para a cópia de segurança de VM de IaaS para trabalhar. Se a VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, configurá-lo através da plataforma. A opção de DHCP no interior da VM deve ser ativada à esquerda. Para obter mais informações, consulte [definir um IP estático de privada interno](../virtual-network/virtual-networks-reserved-private-ip.md). |
+| A VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura do DHCP. | DHCP tem de estar ativado no computador convidado para a cópia de segurança de VM de IaaS para trabalhar. Se a VM não é possível obter o endereço de anfitrião ou de recursos de infraestrutura da resposta DHCP 245, não é possível transferir ou executar quaisquer extensões. Se precisar de um IP privado estático, estes devem ser configurado através da **Portal do Azure** ou **PowerShell** e certifique-se a opção de DHCP no interior da VM é ativada. Para obter mais informações, sobre como configurar um IP estático através do PowerShell, consulte [VM clássica](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm) e [VM do Resource Manager](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface).
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de cópia de segurança não consegue atualizar ou de carga
 Se não é possível carregar extensões, a cópia de segurança falha porque não pode ser criado um instantâneo.

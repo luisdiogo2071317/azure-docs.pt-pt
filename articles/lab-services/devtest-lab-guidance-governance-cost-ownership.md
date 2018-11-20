@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 623e4392ff8ff75d09da92c54b9e4dc620146432
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251078"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975078"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Governação da infraestrutura do Azure DevTest Labs - gerir o custo e a propriedade
 Custo e a propriedade são principais preocupações, considere a criação de seu desenvolvimento e teste de ambientes. Nesta secção, encontrará informações que ajuda a otimizar o custo e alinhar a propriedade em todo o ambiente.
@@ -57,7 +57,7 @@ O recurso de DevTest Labs deve ser propriedade de proprietários que estiverem p
 
 Os membros da equipe de projeto/aplicação devem ser adicionados à função de utilizadores de laboratórios DevTest. Estes utilizadores podem criar máquinas virtuais (em linha com o laboratório e as políticas ao nível da subscrição). Também podem gerir suas próprias máquinas virtuais. Eles não consegue gerir máquinas virtuais que pertencem a outros utilizadores.
 
-Para obter mais informações, consulte [estrutura empresarial do Azure – governação de subscrições prescritiva](/architecture/cloud-adoption/appendix/azure-scaffold) documentação.
+Para obter mais informações, consulte [estrutura empresarial do Azure – governação de subscrições prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold) documentação.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

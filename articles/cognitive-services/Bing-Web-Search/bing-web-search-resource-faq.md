@@ -3,21 +3,21 @@ title: Perguntas mais frequentes (FAQ) - API de pesquisa Web Bing
 titleSuffix: Azure Cognitive Services
 description: Obtenha respostas a perguntas comuns sobre a API de pesquisa Web Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 2d43a73d93b24599b28af849ee9d1532441ef6bc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.author: aahi
+ms.openlocfilehash: dbff161f96949100703451a64875079288574014
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233565"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162441"
 ---
-# <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
  Encontre respostas para perguntas freqüentes sobre conceitos, código e cenários relacionados à API de pesquisa Web do Bing nos serviços cognitivos da Microsoft no Azure.
 

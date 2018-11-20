@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4e99656319f543fb40d8509cb4ae9e1c25cfc75b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ef95351c961b4fe2937e59179780326dea2309b1
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622487"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975708"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ligar computadores Windows ao serviço Log Analytics no Azure
 
@@ -46,10 +46,29 @@ Antes de instalar o agente Microsoft Monitoring para Windows, precisa do ID e da
 4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Windows**.   
 5. Copie e cole no seu editor favorito, o **ID da área de trabalho** e **chave primária**.    
    
-## <a name="install-the-agent-using-setup-wizard"></a>Instalar o agente utilizando o Assistente de configuração
-Os seguintes passos instale e configure o agente do Log Analytics na cloud do Azure e o Azure Government, utilizando o Assistente de configuração para o Microsoft Monitoring Agent no seu computador.  
+## <a name="configure-agent-to-use-tls-12"></a>Configurar o agente para utilizar o TLS 1.2
+Para configurar a utilização do [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protocolo para comunicação entre o agente do Windows e o serviço Log Analytics, pode seguir os passos abaixo para ativar antes do agente está instalado na máquina virtual ou posteriormente.   
 
-1. Na sua área de trabalho do Log Analytics, do **servidores do Windows** página navegada anteriormente, selecionar o **transferir o agente do Windows** versão para transferir consoante a arquitetura de processador do o sistema operativo do Windows.   
+1. Localize a seguinte subchave do registo: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
+2. Criar uma subchave no **protocolos** para o TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+3. Criar uma **cliente** subchave subchave de versão do protocolo TLS 1.2 que criou anteriormente. Por exemplo, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+4. Criar os seguintes valores DWORD em **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
+
+    * **Ativado** [valor = 1]
+    * **DisabledByDefault** [valor = 0]  
+
+Configurar o .NET Framework 4.6 ou posterior para dar suporte seguro criptografia, como, por padrão, ele está desabilitada. O [criptografia segura](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) utiliza protocolos de rede mais seguros, como o TLS 1.2 e bloqueia protocolos que não são seguros. 
+
+1. Localize a seguinte subchave do registo: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319**.  
+2. Criar o valor DWORD **SchUseStrongCrypto** esta subchave com um valor de **1**.  
+3. Localize a seguinte subchave do registo: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319**.  
+4. Criar o valor DWORD **SchUseStrongCrypto** esta subchave com um valor de **1**. 
+5. Reinicie o sistema para as definições entrem em vigor. 
+
+## <a name="install-the-agent-using-setup-wizard"></a>Instalar o agente utilizando o Assistente de configuração
+Os seguintes passos instale e configure o agente do Log Analytics na cloud do Azure e o Azure Government, utilizando o Assistente de configuração para o Microsoft Monitoring Agent no seu computador. Se quiser saber como configurar o agente para também reportar a um grupo de gestão do System Center Operations Manager, consulte [implementar o agente do Operations Manager com o Assistente de configuração do agente](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard).
+
+1. Na área de trabalho do Log Analytics, do **servidores do Windows** página navegada anteriormente, selecionar o **transferir o agente do Windows** versão para transferir consoante a arquitetura de processador do o sistema operativo do Windows.   
 2. Execute a Configuração para instalar o agente no seu computador.
 2. Na página **Bem-vindo**, clique em **Seguinte**.
 3. Na página **Termos de Licenciamento**, leia a licença e clique em **Aceito**.
@@ -76,7 +95,7 @@ A tabela seguinte realça os parâmetros específicos do Log Analytics, suportad
 |---------------------------------------|--------------|
 | NOAPM=1                               | Parâmetro opcional. Instala o agente sem monitorização de desempenho de aplicações de .NET.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = configurar o agente para reportar a uma área de trabalho                |
-|OPINSIGHTS_WORKSPACE_ID                | Id de área de trabalho (guid) para a área de trabalho para adicionar                    |
+|OPINSIGHTS_WORKSPACE_ID                | ID de área de trabalho (guid) para a área de trabalho para adicionar                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Chave da área de trabalho utilizado para autenticar inicialmente com a área de trabalho |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Especificar o ambiente de nuvem onde está localizada a área de trabalho <br> 0 = cloud comercial do azure (predefinição) <br> 1 = o azure Government |
 |OPINSIGHTS_PROXY_URL               | URI de proxy a utilizar |
@@ -87,13 +106,13 @@ A tabela seguinte realça os parâmetros específicos do Log Analytics, suportad
 2. Para instalar o agente e configurá-lo para reportar a uma área de trabalho na cloud comercial do Azure, a partir da pasta silenciosamente extraiu os ficheiros de configuração para o tipo: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    ou para configurar o agente para reportar a cloud do Azure US Government, escreva: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalar o agente através do DSC na automatização do Azure

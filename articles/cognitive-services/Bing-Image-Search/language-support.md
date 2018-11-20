@@ -3,19 +3,19 @@ title: Suporte de idiomas - API de pesquisa de imagens do Bing
 titleSuffix: Azure Cognitive Services
 description: Descubra que países/regiões e idiomas são compatíveis com a API de pesquisa de imagens do Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: db9e1acec881a182b111cb1c913da607e4f8311a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: aahi
+ms.openlocfilehash: e5c9a4291501c657a94509aec2edd90d00ab795d
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435511"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160432"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de pesquisa de imagens do Bing
 
@@ -39,28 +39,28 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 |Argentina|AR|
 |Austrália|AU|
 |Áustria|AT|
-|Bélgica|SER|
+|Bélgica|BE|
 |Brasil|BR|
-|Canadá|AC|
+|Canadá|CA|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
-|Alemanha|ALEMANHA|
+|Alemanha|DE|
 |RAE de Hong Kong|HK|
-|Índia|ÍNDIA|
+|Índia|IN|
 |Indonésia|ID|
 |Itália|TI|
 |Japão|JP|
-|Coreia|COREIA|
-|Malásia|MEU|
+|Coreia|KR|
+|Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
 |Nova Zelândia|NZ|
-|Noruega|NÃO|
+|Noruega|NO|
 |China|CN|
 |Polónia|PL|
-|Portugal|HORA DO PACÍFICO|
+|Portugal|PT|
 |Filipinas|PH|
 |Rússia|RU|
 |Arábia Saudita|SA|

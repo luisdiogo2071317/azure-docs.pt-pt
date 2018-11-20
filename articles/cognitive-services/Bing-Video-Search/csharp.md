@@ -3,19 +3,19 @@ title: 'Início Rápido: API da Pesquisa de Vídeos do Bing, C#'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a utilizar rapidamente a API da Pesquisa de Vídeos do Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 00522ac87a74226c9af1920bd884792ff2956a95
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 6078ab0ac5b5fbde64def2bb79f23ad804fd1149
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225774"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160525"
 ---
 # <a name="quickstart-bing-video-search-api-with-c"></a>Início Rápido: API da Pesquisa de Vídeos do Bing com C#
 
@@ -23,11 +23,11 @@ Este artigo mostra como utilizar a API da Pesquisa de Vídeos do Bing, que faz p
 
 O código de exemplo foi escrito em C# como uma aplicação .NET Core, com dependências externas mínima, para que consiga executá-lo no Linux ou Mac OS X com o Mono.
 
-Consulte a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes técnicos sobre as APIs.
+Veja a [Referência da API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) para obter detalhes técnicos sobre as APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este início rápido. Precisará da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para este guia de início rápido. Precisará da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
 
 ## <a name="bing-video-search"></a>Pesquisa de Vídeos do Bing
 
@@ -299,10 +299,10 @@ namespace BingVideoSearchCSharpCore
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Paginar vídeos](paging-videos.md)
+> [Vídeos da página](paging-videos.md)
 > [Redimensionar e recortar imagens em miniatura](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Consulte também 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 67cddf5eb3f675337afbb7e620bd135383f20960
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685451"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976082"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Processador de Feed de alterações de .NET SDK: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -43,8 +43,15 @@ ms.locfileid: "51685451"
 
 ### <a name="v2-builds"></a>compilações de v2
 
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* Foi adicionado suporte para utilizar o arquivo personalizado para manter os tokens de continuação por partição.
+  * Por exemplo, um arquivo de concessão personalizado pode ser a coleção de concessão do Azure Cosmos DB particionada de forma alguma personalizada.
+  * Arquivos de concessão personalizadas podem utilizar o novo ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) de ponto de extensibilidade e a interface pública de ILeaseStoreManager.
+  * Refatorada a interface de ILeaseManager em várias interfaces de função.
+* Alteração significativa secundárias: extensibilidade removida ponto ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), utilize ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) em vez disso.
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* Foi corrigido um problema que possam ocorrer durante o processamento de dividir quando a coleção de concessão está particionada. O problema pode levar a concessões para não ser eliminadas da coleção de concessão de partições de já era. O problema é resolvido com esta versão.
+* Esta versão corrige um problema que ocorre durante o processamento de uma divisão na coleção monitorizada e utilizar uma coleção de concessão particionada. Ao processar uma concessão para a partição de divisão, a concessão correspondente a essa partição não pode ser eliminada. O problema é resolvido nesta versão.
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * Cálculo da Calculadora fixo para contas de principal múltiplo e o novo formato de Token de sessão.

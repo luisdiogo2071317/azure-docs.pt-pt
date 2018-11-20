@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f890fc6e854f1d56d396c56ddfd8cc5a0481282f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012518"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976949"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Voltar a proteger efetuar a ativação pós-falha de VMs do Azure para a região primária
 
@@ -83,4 +83,4 @@ Quando aciona uma tarefa de reproteção e discos VM de destino e não existem, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois da VM está protegida, pode iniciar uma ativação pós-falha. A ativação pós-falha encerra a VM na região secundária e cria e inicializa a VM na região primária, com um pequeno período de indisponibilidade. Recomendamos que escolha um período de tempo em conformidade e que execute uma ativação pós-falha de teste, mas iniciando um failover completo para o site primário. [Saiba mais](site-recovery-failover.md) sobre a ativação pós-falha.
+Depois da VM está protegida, pode iniciar uma ativação pós-falha. A ativação pós-falha encerra a VM na região secundária e cria e inicializa a VM na região primária, com um pequeno período de indisponibilidade. Recomendamos que escolha um período de tempo em conformidade, e que execute uma ativação pós-falha de teste antes de iniciar uma ativação pós-falha completa para o site primário. [Saiba mais](site-recovery-failover.md) sobre a ativação pós-falha.

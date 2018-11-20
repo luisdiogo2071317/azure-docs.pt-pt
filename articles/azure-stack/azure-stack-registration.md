@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288242"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976371"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -431,7 +431,7 @@ Para executar o cmdlet, terá de:
 | ResourceGroupName | Cadeia |  |
 | ResourceGroupLocation | Cadeia |  |
 | BillingModel | Cadeia | O modelo de faturação que utiliza a sua subscrição. Valores para este parâmetro permitidos são: capacidade, PayAsYouUse e desenvolvimento. |
-| MarketplaceSyndicationEnabled |  |  |
+| MarketplaceSyndicationEnabled | Verdadeiro/Falso | Determina se é ou não a funcionalidade de gestão do marketplace está disponível no portal. Definido como VERDADEIRO se registar com ligação à internet. Definido como FALSO se registar em ambientes desligados. Para registros desconectados, o [ferramenta de distribuição offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) pode ser utilizado para transferência de itens do marketplace. |
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado terá de desativar os relatórios de utilização. Valores para este parâmetro permitidos são: True, False. |
 | AgreementNumber | Cadeia |  |
 | registrationName | Cadeia | Defina um nome exclusivo para o registo, se estiver a executar o script de Registro em mais de uma instância do Azure Stack com o mesmo Azure ID de subscrição. O parâmetro tem um valor predefinido de **AzureStackRegistration**. No entanto, se utilizar o mesmo nome em mais de uma instância do Azure Stack, o script falhará. |

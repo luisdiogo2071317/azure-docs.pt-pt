@@ -3,19 +3,19 @@ title: Pesquisa do site, utilize o hospedado da interface do Usuário personaliz
 titlesuffix: Azure Cognitive Services
 description: Descreve como configurar a pesquisa personalizada do Bing hospedado da interface do Usuário.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: v-brapel
-ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 566990ea7c6ac8498b47528c906710ed4c9078e4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813979"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163032"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de interface do Usuário alojada
 
@@ -29,7 +29,7 @@ Para configurar uma interface de Usuário para a sua aplicação web alojada, si
   
 2. Clique numa instância de pesquisa personalizada. Para criar uma instância, veja [criar a primeira instância de pesquisa personalizada do Bing](quick-start.md).  
 
-3. Clique nas **alojada a interface do Usuário** separador.  
+3. Clique no separador **IU Alojada**.  
   
 4. Selecione um esquema.
   
@@ -43,7 +43,7 @@ Para configurar uma interface de Usuário para a sua aplicação web alojada, si
   - Escuro
   - Skyline azul
 
-  Clique em cada um dos temas para ver o tema funciona melhor com a sua aplicação web. Se precisar de ajustar o tema de cores para melhor integração com a sua aplicação web, clique em **personalizar tema**. Nem todas as configurações de cor aplicam-se a todos os temas de layout. Para alterar uma cor, introduza o valor de RGB HEXADECIMAL a cor (por exemplo, #366eb8) na caixa de texto correspondente. Em alternativa, clique no botão de cor e, em seguida, clique no tom que funcione para si. 
+  Clique em cada um dos temas para ver o tema funciona melhor com a sua aplicação web. Se precisar de ajustar o tema de cores para uma melhor integração na sua aplicação Web, clique em **Personalizar tema**. Nem todas as configurações de cores se aplicam a todos os temas de esquema. Para alterar uma cor, introduza o valor HEX de RGB (por exemplo, #366eb8) na caixa de texto correspondente. Em alternativa, clique no botão de cor e, em seguida, clique no tom que funcione para si. 
   
   Depois de alterar uma cor, veja como a alteração afetará o exemplo de pré-visualização do lado direito. Pode sempre clicar **repor para predefinição** para voltar às cores predefinidas para o tema que selecionou.
 
@@ -143,5 +143,5 @@ Para obter mais informações, incluindo o seu ID de configuração personalizad
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Utilizar marcadores decoration para realçar o texto](./hit-highlighting.md)
-- [Páginas Web de página](./page-webpages.md)
+- [Utilizar marcadores decorativos para realçar o texto](./hit-highlighting.md)
+- [Paginação de páginas Web](./page-webpages.md)

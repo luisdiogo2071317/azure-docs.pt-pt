@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 06/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f5ac49f20404f8734e833da754aacb615663afbf
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344942"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161808"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para a API de SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -105,7 +105,7 @@ O SDK de Java API do SQL oferece suporte a operações síncronas. Para obter su
 * Corrigir alguns bugs no contentor de sessão que pode fazer com que uma exceção de "Recurso de proprietário não encontrado" para pedidos imediatamente após a criação de coleção.
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](sql-api-sql-query.md#Aggregates).
+* Foi adicionado suporte para consultas de agregação (COUNT, MIN, MAX, soma e média). Ver [suporte de agregação](how-to-sql-query.md#Aggregates).
 * Foi adicionado suporte para o feed de alterações.
 * Foi adicionado suporte para obter informações de quota de coleção por meio de RequestOptions.setPopulateQuotaInfo.
 * Foi adicionado suporte para o registo de script do procedimento armazenado por meio de RequestOptions.setScriptLoggingEnabled.
@@ -206,7 +206,7 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
 | [1.16.2](#1.16.2) |29 de Junho de 2018 |--- |
-| [1.16.1](#1.16.1) |16 de Maio de 2018 |--- |
+| [1.16.1](#1.16.1) |16 de maio de 2018 |--- |
 | [1.16.0](#1.16.0) |15 de Março de 2018 |--- |
 | [1.15.0](#1.15.0) |14 de Novembro de 2017 |--- |
 | [1.14.0](#1.14.0) |28 de Outubro de 2017 |--- |

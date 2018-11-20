@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: aba023667094fb00647861fb2dd300eda64e4897
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634510"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163176"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -48,15 +48,20 @@ Os seguintes passos, adicione um filtro de núcleos NAS:
 
 1. No painel de controlo Avere, clique nas **definições** separador na parte superior.
 
-2. Clique em **filtro de núcleo** > **gerir se filtram de núcleo** à esquerda.
+1. Clique em **filtro de núcleo** > **gerir se filtram de núcleo** à esquerda.
 
-3. Clique em **Criar**.
+1. Clique em **Criar**.
 
-   ![Captura de ecrã da página Adicionar novo-filtro core com o nome do filtro de núcleos e o respetivo nome de domínio completamente qualificado](media/avere-vfxt-add-core-filer.png)
+   ![Captura de ecrã da página Adicionar novo-filtro core com um cursor sobre o botão Criar](media/avere-vfxt-add-core-filer-start.png)
+
+1. Preencha as informações necessárias no assistente: 
 
    * Nome de seu filtro de núcleo.
    * Forneça um nome de domínio completamente qualificado (FQDN) se estiver disponível. Caso contrário, fornece um endereço IP ou nome de anfitrião que resolva para o seu filtro de núcleo.
    * Escolha a sua classe de filtro na lista. Se não souber, escolha **outros**.
+
+     ![Captura de ecrã da página Adicionar novo-filtro core com o nome do filtro de núcleos e o respetivo nome de domínio completamente qualificado](media/avere-vfxt-add-core-filer.png)
+  
    * Clique em **seguinte** e escolha uma política de cache. 
    * Clique em **Adicionar filtro de**.
    * Para obter mais informações, consulte [adicionando uma novo NAS principais filtro](http://library.averesystems.com/ops_guide/4_7/new_core_filer_nas.html) no Avere guia de configurações de cluster.
@@ -110,7 +115,7 @@ Para adicionar armazenamento de BLOBs depois de criar o cluster, siga estes pass
 
 1. Abra o painel de controle de Avere para o seu cluster. Clique em **configurações**, em seguida, abra **Cluster** > **credênciais de Cloud** no painel de navegação esquerdo. Na página de credenciais na nuvem, clique em **adicionar credencial**.
 
-   ![Clicar no botão Adicionar credencial na página de configuração de credenciais de Cloud](media/avere-vfxt-new-credential-button.png)
+   ![Clique no botão Adicionar credencial na página de configuração de credenciais de Cloud](media/avere-vfxt-new-credential-button.png)
 
 1. Preencha as seguintes informações para criar uma credencial para o filtro de núcleos na cloud: 
 

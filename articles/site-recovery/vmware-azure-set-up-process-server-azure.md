@@ -2,18 +2,18 @@
 title: Configurar um servidor de processos no Azure para a VM de VMware e a reativação pós-falha do servidor físico com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como configurar um servidor de processos no Azure, a reativação pós-falha de VMs do Azure para VMware.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
-ms.author: raynew
-ms.openlocfilehash: a54fe3099854e6e5200a50ec6ef5db1401a223bf
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 6bdbb60da2a135b5f53f6119377c703d88df6ed9
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077617"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975350"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurar um servidor de processos no Azure para reativação pós-falha
 
@@ -24,6 +24,7 @@ Depois de efetuar a ativação pós-falha de VMs de VMware ou servidores físico
 Saiba mais sobre o [nova proteção](vmware-azure-reprotect.md) e [reativação pós-falha](vmware-azure-failback.md) processo.
 
 [!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+
 
 ## <a name="deploy-a-process-server-in-azure"></a>Implementar um servidor de processos no Azure
 

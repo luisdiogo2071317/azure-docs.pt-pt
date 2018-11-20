@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: e198a85d1c04cbc437ad23dadfa3005a72eaa2ce
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239018"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161638"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET
 
@@ -293,7 +293,7 @@ foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
 }
 ```
 
-O Azure Cosmos DB suporta a mesma funcionalidade de consultas que o armazenamento de Tabelas do Azure para a API de Tabelas. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. As funcionalidades adicionais serão fornecidas na API de Tabelas numa atualização futura do serviço. Veja [Azure Cosmos DB query](sql-api-sql-query.md) (Consulta do Azure Cosmos DB) para obter uma descrição geral destas capacidades. 
+O Azure Cosmos DB suporta a mesma funcionalidade de consultas que o armazenamento de Tabelas do Azure para a API de Tabelas. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. Veja [Azure Cosmos DB query](how-to-sql-query.md) (Consulta do Azure Cosmos DB) para obter uma descrição geral destas capacidades. 
 
 ## <a name="replace-an-entity"></a>Substituir uma entidade
 Para atualizar uma entidade, recupere-a do serviço Tabela, modifique o objeto de entidade e, em seguida, guarde as alterações novamente no serviço Tabela. O código seguinte altera o número de telefone de um cliente existente. 
@@ -324,7 +324,7 @@ table.DeleteIfExists();
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, mostrámos como começar a utilizar o Azure Cosmos DB com a API de Tabelas e fizemos o seguinte: 
 

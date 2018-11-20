@@ -3,23 +3,23 @@ title: 'Início Rápido: API de Pesquisa de Notícias do Bing, C#'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Pesquisa de Notícias do Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 48c6bf413ab2b5a45b5daa54ad31afe2c0fdf8f1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: f28e19e6081ceb2b99139f07fcafcce2659ed967
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804271"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162927"
 ---
 # <a name="quickstart-bing-news-search-api-with-c"></a>Início Rápido: API de Pesquisa de Notícias do Bing com C#
 
-Este artigo mostra como utilizar a API de Pesquisa do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize C#, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
+Este artigo mostra como utilizar a API da Pesquisa do Bing, que faz parte dos Serviços Cognitivos da Microsoft no Azure. Embora este artigo utilize C#, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que consiga fazer pedidos HTTP e analisar JSON. 
 
 O código de exemplo foi escrito em C# como uma aplicação .NET Core, com dependências externas mínima, para que consiga executá-lo no Linux ou Mac OS X com o Mono.
 
@@ -284,7 +284,7 @@ namespace BingNewsSearchCSharpCore
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Paginação de notícias](paging-news.md)

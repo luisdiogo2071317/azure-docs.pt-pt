@@ -6,20 +6,20 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 334b4c912c40949cbecab2173425927d46350d07
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 21b5dae6fda857a3a69aa06e461fdf3b716b5eb8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634525"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163322"
 ---
-# <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT para perguntas frequentes do Azure
+# <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT para Azure
 
 Este artigo responde às perguntas que podem ajudar a decidir se a solução de vFXT Avere é ideal para suas necessidades. Ele fornece informações básicas sobre as capacidades do Avere vFXT e explica como ela funciona com outros componentes do Azure e com produtos de fornecedores externos. 
 
 ## <a name="general"></a>Geral 
 
-### <a name="what-is-avere-vfxt-for-azure"></a>O que é Avere vFXT para o Azure?
+### <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT para Azure?
 
 Avere vFXT para o Azure é um sistema de ficheiros de elevado desempenho que armazena em cache dados ativos na computação do Azure para o processamento eficiente de cargas de trabalho críticas.
 
@@ -277,4 +277,4 @@ Para obter uma introdução Avere vFXT para o Azure, leia estas ligações para 
 * [Preparar para criar o vFXT Avere](avere-vfxt-prereqs.md)
 * [Implementar o cluster vFXT](avere-vfxt-deploy.md)
 
-Para saber mais sobre as funcionalidades do Avere vFXT e casos de utilização, visite [Avere vFXT para o Azure (pré-visualização)](https://azure.microsoft.com/services/storage/avere-vfxt/).
+Para saber mais sobre as funcionalidades do Avere vFXT e casos de utilização, visite [Avere vFXT para o Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

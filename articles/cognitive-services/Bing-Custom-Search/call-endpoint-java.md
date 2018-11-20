@@ -3,19 +3,19 @@ title: 'Início Rápido: chamar o ponto final com Java - Pesquisa Personalizada 
 titlesuffix: Azure Cognitive Services
 description: Este início rápido mostra como pedir os resultados de pesquisa da sua instância de pesquisa personalizada com Java para chamar o ponto final de Pesquisa Personalizada do Bing.
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: 99ce1b982296387423ec6e8fdfb592ee9fd32b73
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: edbeda3245ab2e91ef1b3e7e5812a49e11d57d98
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974231"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165017"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Início Rápido: ponto final de Pesquisa Personalizada do Bing (Java)
 

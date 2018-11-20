@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: f71a7ad538e22359a2a0dd9c2e3f6c4448ee5a2d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e86630ff9143a75e5b0502a64c7661cc2822c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232398"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161089"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Introdução à API do Azure Cosmos DB: API de SQL
 
@@ -24,7 +24,7 @@ O [Azure Cosmos DB](introduction.md) é um serviço de bases de dados com vário
 
 ![API do Azure SQL](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
-Com a API do SQL, o Azure Cosmos DB oferece [capacidades de consulta SQL](sql-api-sql-query.md) avançadas e familiares com baixas latências consistentes em dados JSON sem esquemas. Neste artigo, apresentamos uma descrição geral da API do SQL do Azure Cosmos DB e informações sobre como pode utilizá-la para armazenar grandes volumes de dados JSON, consultá-los dentro da ordem de latência de milissegundos e evoluir o esquema facilmente. 
+Com a API do SQL, o Azure Cosmos DB oferece [capacidades de consulta SQL](how-to-sql-query.md) avançadas e familiares com baixas latências consistentes em dados JSON sem esquemas. Neste artigo, apresentamos uma descrição geral da API do SQL do Azure Cosmos DB e informações sobre como pode utilizá-la para armazenar grandes volumes de dados JSON, consultá-los dentro da ordem de latência de milissegundos e evoluir o esquema facilmente. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Que capacidades e funcionalidades chave oferece o Azure Cosmos DB?
 O Azure Cosmos DB, através da API do SQL, oferece as principais capacidades e vantagens seguintes:
@@ -34,7 +34,7 @@ O Azure Cosmos DB, através da API do SQL, oferece as principais capacidades e v
 
 * **Replicação de multirregião:** o Azure Cosmos DB replica de forma transparente os dados para todas as regiões que associou à conta do Azure Cosmos DB, permitindo-lhe desenvolver aplicações que necessitam de acesso global aos dados ao apresentar as responsabilidades entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. O Azure Cosmos DB oferece ativação pós-falha regional transparente com APIs multi-homing e a capacidade e dimensionar de forma elástica o débito e o armazenamento a nível global. Saiba mais em [Distribute data globally with Azure Cosmos DB](distribute-data-globally.md) (Distribuir dados globalmente com o Azure Cosmos DB).
 
-* **Consultas ad hoc com a sintaxe familiar do SQL:** Armazenar documentos JSON heterogéneos e consultar estes documentos através de uma sintaxe familiar de SQL. O Azure Cosmos DB utiliza uma tecnologia de indexação estruturada em registos, sem bloqueio e de elevada simultaneidade, para indexar automaticamente todos os conteúdos do documento. Isto permite consultas em tempo real sem ter de especificar sugestões de esquema, índices secundários ou vistas. Saiba mais em [Query Azure Cosmos DB](sql-api-sql-query.md) (Consultar o Azure Cosmos DB). 
+* **Consultas ad hoc com a sintaxe familiar do SQL:** Armazenar documentos JSON heterogéneos e consultar estes documentos através de uma sintaxe familiar de SQL. O Azure Cosmos DB utiliza uma tecnologia de indexação estruturada em registos, sem bloqueio e de elevada simultaneidade, para indexar automaticamente todos os conteúdos do documento. Isto permite consultas em tempo real sem ter de especificar sugestões de esquema, índices secundários ou vistas. Saiba mais em [Query Azure Cosmos DB](how-to-sql-query.md) (Consultar o Azure Cosmos DB). 
 * **Execução de JavaScript na base de dados:** Expressar a lógica de aplicação como procedimentos armazenados, acionadores e funções definidas pelo utilizador (UDFs) com o JavaScript padrão. Isto permite que a lógica da sua aplicação funcione através de dados sem ter de se preocupar sobre o erro de correspondência entre a aplicação e o esquema da base de dados. A API do SQL oferece a execução transacional completa da lógica de aplicação do JavaScript diretamente dentro do motor da base de dados. A integração profunda do JavaScript permite a execução das operações INSERIR, SUBSTITUIR, ELIMINAR e SELECIONAR de um programa de JavaScript como uma transação isolada. Saiba mais em [SQL server-side programming (Programação do lado do servidor do SQL)](programming.md).
 
 * **Níveis de consistência sincronizáveis:** Selecione um dos cinco níveis de consistência bem definidos para alcançar compromissos ótimos entre a consistência e o desempenho. Para consultas e operações de leitura, o Azure Cosmos DB oferece cinco níveis de consistência distintos: forte, consistência vinculada, sessão, prefixo de consistência e eventual. Estes níveis de consistência granular e bem definidos permitem-lhe efetuar compromissos sonoros entre a consistência, a disponibilidade e a latência. Saiba mais em [Using consistency levels to maximize availability and performance](consistency-levels.md) (Utilizar níveis de consistência para maximizar a disponibilidade e desempenho).
@@ -88,7 +88,7 @@ A API do SQL permite-lhe escrever a lógica da aplicação como programas com no
 
 A execução do JavaScript na CosmosDB é modelada após os conceitos suportados pelos sistemas de base de dados relacional, tendo o JavaScript como um substituto moderno para Transact-SQL. Toda a lógica do JavaScript é executada numa transação do ambiente ACID, com o isolamento do instantâneo. Durante a sua execução, se o JavaScript emitir uma exceção, toda a transação será abortada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Já tem uma conta do Azure? Em seguida pode começar a utilizar o Azure Cosmos DB ao seguir o nosso [início rápido](../cosmos-db/create-sql-api-dotnet.md), que o irá guiar para criar uma conta e começar a trabalhar com o Cosmos DB.
 
 [1]: ./media/sql-api-introduction/json-database-resources1.png

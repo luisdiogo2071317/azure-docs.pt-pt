@@ -3,19 +3,19 @@ title: Respostas da pesquisa - API de pesquisa Web Bing
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre os tipos de resposta e respostas pela API de pesquisa Web do Bing.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
-ms.author: erhopf
-ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123781"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164783"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos de estrutura e a resposta de resposta de API de pesquisa Web Bing  
 
@@ -128,7 +128,7 @@ A seguir mostra um exemplo da utilização da consultas relacionados no Bing.com
 
 ## <a name="videos-answer"></a>Resposta de vídeos
 
-O [vídeos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) resposta contém uma lista de vídeos do Bing achava que foram relevantes para a consulta. Cada [vídeo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) na lista incluem o URL do vídeo, sua duração, suas dimensões e seu formato de codificação. O objeto de vídeo também inclui o URL de uma miniatura de vídeo e dimensões da miniatura.
+O [vídeos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) resposta contém uma lista de vídeos do Bing achava que foram relevantes para a consulta. Cada [vídeo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) na lista incluem o URL do vídeo, sua duração, suas dimensões e seu formato de codificação. O objeto de vídeo também inclui o URL de uma miniatura do vídeo e as dimensões da miniatura.
 
 ```json
 {
@@ -166,13 +166,13 @@ Consoante o dispositivo do utilizador, normalmente seria exibe um subconjunto do
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
 -->
 
-Conforme o usuário focalizar a miniatura é possível usar `motionThumbnailUrl` para reproduzir uma versão em miniatura do vídeo. Certifique-se de que a miniatura de movimento de atributo, quando apresentá-lo.
+Conforme o usuário focalizar a miniatura é possível usar `motionThumbnailUrl` para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
 -->
 
-Se o usuário clica na miniatura, seguem-se as opções de exibição de vídeo:
+Se o utilizador clicar na miniatura, seguem-se as opções de visualização do vídeo:
 
 - Utilize `hostPageUrl` para ver o vídeo no site do anfitrião (por exemplo, YouTube)
 - Utilize `webSearchUrl` para ver o vídeo no navegador de vídeo Bing
@@ -182,7 +182,7 @@ Para obter detalhes sobre os vídeos e a resposta de vídeo, consulte [API de pe
 
 ## <a name="news-answer"></a>Resposta de notícias
 
-O [notícias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) resposta contém uma lista de artigos de notícias Bing achava que foram relevantes para a consulta. Cada [artigo de notícias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) na lista inclui o nome, descrição e URL do artigo para o artigo no site do anfitrião. Se o artigo contém uma imagem, o objeto inclui uma miniatura da imagem.
+O [notícias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) resposta contém uma lista de artigos de notícias Bing achava que foram relevantes para a consulta. Cada [artigo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) na lista inclui o nome, a descrição e o URL do artigo no site do anfitrião. Se o artigo contiver uma imagem, o objeto inclui uma miniatura da imagem.
 
 ```json
 {
@@ -205,7 +205,7 @@ O [notícias](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-ap
 }, ...
 ```
 
-Consoante o dispositivo do utilizador, seria exibida um subconjunto dos artigos de notícias com uma opção para o utilizador veja os artigos restantes. Uso `name` e `url` para criar um hiperlink que direciona o utilizador para o artigo de notícias no site do anfitrião. Se o artigo inclui uma imagem, fazer a imagem clicáveis com `url`. Certifique-se de que utilize `provider` para o artigo de atributo.
+Consoante o dispositivo do utilizador, seria exibida um subconjunto dos artigos de notícias com uma opção para o utilizador veja os artigos restantes. Utilize `name` e `url` para criar uma hiperligação que direcione o utilizador para o artigo no site do anfitrião. Se o artigo inclui uma imagem, fazer a imagem clicáveis com `url`. Certifique-se de que utiliza `provider` para atribuir o artigo.
 
 <!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.

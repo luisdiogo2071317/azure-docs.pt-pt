@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166899"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977102"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho do Intelligent Insights SQL Database do Azure
 
@@ -39,9 +39,7 @@ O cabeçalho do registo é comum e consiste o carimbo de hora (TimeGenerated) qu
 
 ## <a name="issue-id-and-database-affected"></a>ID do problema e a base de dados afetados
 
-A propriedade de identificação do problema (issueId_d) fornece uma forma de forma exclusiva rastrear problemas de desempenho até que eles estiverem resolvidos. Informações inteligentes observa cada ciclo de vida do problema como "Ativo", "Verificando" ou "Concluído". Por meio de cada uma dessas fases de estado, informações inteligentes pode gravar vários registos de eventos no registo. Para cada uma dessas entradas, o número de ID do problema permanece exclusivo. Informações inteligentes controla o problema por meio de seu ciclo de vida e gera uma informação no registo de diagnóstico a cada 15 minutos.
-
-Quando é detetado um problema de desempenho e para, desde que ele tem uma duração, o problema é reportado como "Ativo" sob a propriedade de estado (status_s). Assim que foi detetado um problema for minimizado, tem de verificar e reportado como "Verificando" sob a propriedade de estado (status_s). Se o problema já não estiver presente, a propriedade de estado (status_s) relatórios este problema, como "Complete".
+A propriedade de identificação do problema (issueId_d) fornece uma forma de forma exclusiva rastrear problemas de desempenho até resolvido. Vários registos de eventos no registo de comunicar o estado do mesmo problema irão partilhar o mesmo ID de problema.
 
 Juntamente com o ID de problema, o registo de diagnóstico relatórios de início (intervalStartTime_t) e de carimbos de hora de fim (intervalEndTme_t) do evento específico relacionado com um problema que é relatado no log de diagnóstico.
 

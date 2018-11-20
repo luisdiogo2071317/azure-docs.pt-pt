@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1039cde45824491bcc82f324c05e4819e66355e0
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628550"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975997"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados de ODBC os arquivos de dados com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,7 +49,7 @@ Pode criar um pipeline com uma atividade de cópia que move os dados de um arqui
 
 A maneira mais fácil para criar um pipeline é utilizar o **Assistente para copiar**. Ver [Tutorial: criar um pipeline com o Assistente para copiar](data-factory-copy-data-wizard-tutorial.md) para um rápido passo a passo sobre como criar um pipeline com o Assistente para copiar dados.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager **, **API de .NET**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **portal do Azure**, **Visual Studio**, **Azure PowerShell**, **modelo Azure Resource Manager** , **API de .NET**, e **REST API**. Ver [tutorial da atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo Criar um pipeline com uma atividade de cópia. 
 
 Se usar as ferramentas ou APIs, que execute os seguintes passos para criar um pipeline que move os dados de um arquivo de dados de origem para um arquivo de dados de sink: 
 
@@ -355,33 +355,6 @@ Para saber mais sobre as colunas de mapeamento no conjunto de dados de origem pa
 
 ## <a name="repeatable-read-from-relational-sources"></a>Leitura passível de repetição de fontes relacionais
 Quando armazena a cópia de dados de dados relacionais, tenha a capacidade de repetição em mente para evitar resultados indesejados. No Azure Data Factory, pode voltar a executar um setor manualmente. Também pode configurar a política de repetição para um conjunto de dados para que um setor será novamente executado quando ocorre uma falha. Quando um setor será novamente executado de qualquer forma, terá de certificar-se de que os mesmos dados é de leitura não questão número de vezes que um setor é executado. Ver [Repeatable ler a partir de origens relacionais](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
-
-## <a name="ge-historian-store"></a>Arquivo de GE Historian
-Criar um serviço ODBC ligado para ligar a uma [GE Historian de Proficy (agora GE Historian)](http://www.geautomation.com/products/proficy-historian) do arquivo de dados para uma fábrica de dados do Azure conforme mostrado no exemplo a seguir:
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-Instale o Gateway de gestão de dados numa máquina no local e registar o gateway com o portal. O gateway instalado no seu computador no local utiliza o controlador ODBC para GE Historian para ligar ao arquivo de dados de GE Historian. Portanto, instale o controlador se não estiver já instalado no computador gateway. Ver [ativar a conectividade](#enabling-connectivity) secção para obter detalhes.
-
-Antes de utilizar o armazenamento de GE Historian numa solução de fábrica de dados, certifique-se de que se o gateway pode ligar ao arquivo de dados com as instruções na secção seguinte.
-
-Leia o artigo desde o início para uma visão geral detalhada da utilização de dados ODBC armazena como arquivos de dados de origem de uma operação de cópia.  
 
 ## <a name="troubleshoot-connectivity-issues"></a>Resolver problemas de conectividade
 Para resolver problemas de ligação, utilize o **diagnóstico** separador de **Gestor de configuração do Data Management Gateway**.

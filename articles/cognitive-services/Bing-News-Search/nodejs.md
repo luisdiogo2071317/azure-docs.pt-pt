@@ -3,19 +3,19 @@ title: 'Início Rápido: API de Pesquisa de Notícias do Bing, Node.js'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Pesquisa de Notícias do Bing.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 923566dc2764037164725f795e411beef939d92a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 2551e950630821a31c86b3d27f6ff5e74c09695a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802075"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159887"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Início Rápido da API de Pesquisa de Notícias do Bing com Node.js
 
@@ -191,7 +191,7 @@ bing_news_search(term);
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Paginação de notícias](paging-news.md)

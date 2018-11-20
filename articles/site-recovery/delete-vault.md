@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6827bcc561ced0d346d79e60b3f2b2fde83bc2d8
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212425"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977057"
 ---
-# <a name="delete-a-site-recovery-recovery-services-vault"></a>Eliminar um cofre dos serviços de recuperação de recuperação de Site
+# <a name="delete-a-site-recovery-services-vault"></a>Eliminar um cofre dos serviços de recuperação de Site
 
 As dependências que podem impedir que a eliminar um cofre do Azure Site Recovery. As ações que necessárias variam consoante o cenário de recuperação de sites. Para eliminar um cofre utilizado na cópia de segurança do Azure, veja [eliminar um cofre de cópia de segurança no Azure](../backup/backup-azure-delete-vault.md).
 

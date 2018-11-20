@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 01a52941a452ae7e4fa283959b071d31d3ad80c7
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624832"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162361"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
 
@@ -49,7 +49,7 @@ Os SLAs abrangentes fornecidos pela garantia do Azure Cosmos DB que 100% de pedi
 
   Estagnação limitada ofertas total global do pedido, exceto dentro da "janela limitada". As garantias de leitura monotónica existem dentro de uma região dentro e fora da "limitada janela." Consistência forte tem a mesma semântica, como os oferecidos pelo estagnação limitada e com uma "janela de envelhecimento" igual a zero. Estagnação limitada é também referida como **atraso de tempo de transação atómica**. Quando um cliente executa operações de leitura numa região que aceita escritas, as garantias fornecidas pelo consistência de estagnação limitada são idênticas com a consistência forte.
 
-- **Nível de consistência = "session"**: as leituras são garantidas para honrar o prefixo consistente, leituras monotónicas, escritas monotónica, garantias de leitura-your-escritas, escrita de acordo com leituras. Consistência da sessão é confinada a uma sessão de cliente.
+- **Nível de consistência = "session"**: as leituras são garantidas para honrar o prefixo consistente (supondo que uma sessão de escritor"única"), leituras monotónicas, escritas monotónica, garantias de leitura-your-escritas, escrita de acordo com leituras. Consistência da sessão é confinada a uma sessão de cliente.
 
 - **Nível de consistência = "prefixo consistente"**: atualizações devolvidas contêm alguns prefixos de todas as atualizações, sem intervalos. Garantia de prefixo consistente que leituras nunca veem escritas fora de ordem.
 

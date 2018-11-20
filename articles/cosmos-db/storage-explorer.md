@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261165"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162471"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gerir o Azure Cosmos DB no Explorador de Armazenamento do Azure
 
@@ -152,7 +152,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 - Clique no botão **Eliminar** para eliminar o documento selecionado.
 
 #### <a name="query-for-documents"></a>Consulta de documentos
-- Edite o filtro de documentos ao introduzir uma [consulta SQL](sql-api-sql-query.md) e, em seguida, clique em **Aplicar**.
+- Edite o filtro de documentos ao introduzir uma [consulta SQL](how-to-sql-query.md) e, em seguida, clique em **Aplicar**.
 
     ![Filtro de Documento](./media/storage-explorer/document-filter.png)
 

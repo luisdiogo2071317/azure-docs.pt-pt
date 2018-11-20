@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915930"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976253"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Sobre o funcionamento em rede no Azure para replicação
 
@@ -60,10 +60,9 @@ Se estiver a utilizar um proxy de firewall baseado em IP ou regras do NSG para c
 - Todos os intervalos de endereços IP que correspondem às contas de armazenamento na região de origem
     - Criar uma [etiquetas de serviço de armazenamento](../virtual-network/security-overview.md#service-tags) com base em regras NSG para a região de origem.
     - Permitir que estes endereços, de modo a que os dados podem ser escritos para a conta de armazenamento de cache, a partir da VM.
-- Todos os intervalos de endereços IP que correspondem ao Office 365 [pontos finais do endereço IP V4 autenticação e identidade](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - Se novos endereços são adicionados para os intervalos do Office 365 no futuro, terá de criar novas regras NSG.
+- Criar uma [etiquetas de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regras NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
+    - Se novos endereços são adicionados ao Azure Active Directory (AAD) no futuro, terá de criar novas regras NSG.
 - Site Recovery service endpoint endereços IP - disponíveis numa [arquivo XML](https://aka.ms/site-recovery-public-ips) e dependem de sua localização de destino.
--  Pode [transferir e utilizar este script](https://aka.ms/nsg-rule-script), para criar automaticamente as regras necessárias no NSG.
 - Recomendamos que crie as regras do NSG necessárias num NSG de teste e certifique-se de que não existem problemas antes de criar as regras num NSG de produção.
 
 
@@ -96,9 +95,9 @@ Intervalos de endereços de IP de recuperação de site são os seguintes:
    Reino Unido Sul | 51.140.43.158 | 51.140.189.52
    Sul do Reino Unido 2 | 13.87.37.4| 13.87.34.139
    Norte do Reino Unido | 51.142.209.167 | 13.87.102.68
-   Coreia Central | 52.231.28.253 | 52.231.32.85
+   Coreia do Sul Central | 52.231.28.253 | 52.231.32.85
    Coreia do Sul | 52.231.298.185 | 52.231.200.144
-   Centro de França | 52.143.138.106 | 52.143.136.55
+   França Central | 52.143.138.106 | 52.143.136.55
    Sul de França | 52.136.139.227 |52.136.136.62
 
 

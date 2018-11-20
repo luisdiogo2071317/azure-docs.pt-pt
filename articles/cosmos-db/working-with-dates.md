@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: sngun
-ms.openlocfilehash: d7188270ff5b1edd3b5e396be0cd5fd22e6123c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d85cada87a6934921bf2775f12c016a88d9fbe9e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855511"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164027"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com datas no Azure Cosmos DB
 O Azure Cosmos DB oferece flexibilidade de esquema e indexação avançada através de um nativo [JSON](http://www.json.org) modelo de dados. Todos os recursos do Azure Cosmos DB incluindo bases de dados, contentores, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como um requisito para estar portátil, JSON (e o Azure Cosmos DB) suporta apenas um pequeno conjunto de tipos básicos: cadeia de caracteres, número, booleano, matriz, objeto e Null. No entanto, o JSON é flexível e permitir que desenvolvedores e estruturas representar os tipos mais complexos, usar esses primitivos e compor-los como objetos ou matrizes. 
@@ -68,7 +68,7 @@ Consultas de intervalo são comuns com valores de DateTime. Por exemplo, se prec
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
-Pode saber mais sobre como configurar políticas de indexação ao [políticas de indexação do Azure Cosmos DB](indexing-policies.md).
+Pode saber mais sobre como configurar políticas de indexação ao [políticas de indexação do Azure Cosmos DB](index-policy.md).
 
 ## <a name="querying-datetimes-in-linq"></a>Consultar DateTimes no LINQ
 O SDK de .NET de SQL automaticamente suporta a consulta de dados armazenados no Azure Cosmos DB através de LINQ. Por exemplo, o fragmento seguinte mostra uma consulta LINQ que ordens de filtros que foram enviados nos últimos três dias.
@@ -79,11 +79,11 @@ O SDK de .NET de SQL automaticamente suporta a consulta de dados armazenados no 
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-Pode saber mais sobre a linguagem de consulta SQL do Azure Cosmos DB e o fornecedor de LINQ [consultar o Cosmos DB](sql-api-sql-query.md).
+Pode saber mais sobre a linguagem de consulta SQL do Azure Cosmos DB e o fornecedor de LINQ [consultar o Cosmos DB](how-to-sql-query.md).
 
 Neste artigo, vimos como armazenar, indexar e consultar DateTimes no Azure Cosmos DB.
 
 ## <a name="next-steps"></a>Próximos Passos
 * Transfira e execute o [amostras de código no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Saiba mais sobre [consultas SQL](sql-api-sql-query.md)
-* Saiba mais sobre [políticas de indexação do Azure Cosmos DB](indexing-policies.md)
+* Saiba mais sobre [consultas SQL](how-to-sql-query.md)
+* Saiba mais sobre [políticas de indexação do Azure Cosmos DB](index-policy.md)

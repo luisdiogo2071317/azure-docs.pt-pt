@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214686"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976193"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Informações inteligentes com ia para monitorizar e resolver problemas de desempenho de base de dados
 
@@ -41,7 +41,7 @@ Informações inteligentes é um recurso exclusivo de inteligência incorporada 
 
 Informações inteligentes analisa o desempenho da base de dados ao comparar a carga de trabalho da base de dados de última hora com a carga de trabalho de linha de base de sete dias anteriores. Carga de trabalho de base de dados é composta por consultas identificadas como sendo o mais significativo para o desempenho de base de dados, tais como as consultas de maiores e mais repetidas. Uma vez que cada base de dados é exclusivo com base na sua estrutura, a dados, a utilização e a aplicação, cada linha de base de carga de trabalho que é gerada é específico e exclusivo para uma instância individual. Informações inteligentes, independentemente da linha de base de carga de trabalho, também monitora os limiares de operacionais absolutos e Deteta os problemas com tempos de espera excessivos, exceções críticas e problemas com parameterizations de consulta que podem afetar o desempenho.
 
-Depois de um problema de degradação do desempenho é detectado a partir de várias métricas observadas, ao utilizar a inteligência artificial, análise é executada. Um registo de diagnóstico é gerado com informações inteligentes sobre o que acontece com a base de dados. Informações inteligentes torna mais fácil controlar o problema de desempenho da base de dados da sua aparência primeiro até à resolução. Cada detetou o problema é controlado por meio do seu ciclo de vida de deteção inicial do problema e a verificação de melhoria de desempenho para a sua conclusão. As atualizações são fornecidas no registo de diagnóstico a cada 15 minutos.
+Depois de um problema de degradação do desempenho é detectado a partir de várias métricas observadas, ao utilizar a inteligência artificial, análise é executada. Um registo de diagnóstico é gerado com informações inteligentes sobre o que acontece com a base de dados. Informações inteligentes torna mais fácil controlar o problema de desempenho da base de dados da sua aparência primeiro até à resolução. Cada detetou o problema é controlado por meio do seu ciclo de vida de deteção inicial do problema e a verificação de melhoria de desempenho para a sua conclusão.
 
 ![Fluxo de trabalho de análise de desempenho de base de dados](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 

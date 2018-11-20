@@ -9,13 +9,13 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: f6f669bd9ab45ba3800722eb3bcdba88f2e72f5e
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 11/20/2018
+ms.openlocfilehash: 72a6e7fdc8bd5887782ab23d29812bed792fd53f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710244"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164596"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Preparar dados para modelagem com o Azure Machine Learning
  
@@ -25,15 +25,18 @@ Pode se preparar seus dados em Python com o [SDK do Azure Machine Learning Data 
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Do Azure Machine Learning de preparação de dados SDK
 
-O SDK de Prep de dados do Azure Machine Learning é uma biblioteca de Python que inclui diversas ferramentas de pré-processamento de dados comuns. Ele também adiciona funcionalidades avançadas, como a engenharia de funcionalidades automatizadas e transformações derivam de exemplos. O SDK é semelhante em funcionalidade principal para bibliotecas populares, como o Pandas e PySpark, ainda que oferece mais flexibilidade. Pandas é normalmente mais úteis em conjuntos de dados menores (< 2 a 5 GB) antes de restrições de capacidade de memória afetam o desempenho. Por outro lado, PySpark é, geralmente, para aplicações de macrodados, mas também apresenta uma sobrecarga que torna o trabalho com pequenos conjuntos de dados muito mais lentos.
+O [SDK do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) é uma biblioteca de Python que inclui:
++ Muitas ferramentas de pré-processamento de dados comuns
++ Engenharia de funcionalidades automatizadas e transformações derivam de exemplos
 
-O SDK oferece:
+O SDK é semelhante na funcionalidade principal para bibliotecas populares, como **Pandas** e **PySpark**, ainda oferece mais flexibilidade. Pandas é normalmente mais úteis em conjuntos de dados menores (< 2 a 5 GB) antes de restrições de capacidade de memória afetam o desempenho. Por outro lado, PySpark é, geralmente, para aplicações de macrodados, mas também apresenta uma sobrecarga que torna o trabalho com pequenos conjuntos de dados muito mais lentos.
 
+O SDK de Prep de dados do Azure Machine Learning oferece:
 - Viabilidade e conveniência, ao trabalhar com pequenos conjuntos de dados
-- Escalabilidade para aplicativos modernos de grandes volumes de dados
-- A capacidade de utilizar e dimensionar o mesmo código para ambos os casos de utilização
 
-Os exemplos seguintes realçam algumas da funcionalidade exclusiva do SDK.
+- Escalabilidade para aplicativos modernos de grandes volumes de dados
+
+- A capacidade de utilizar e dimensionar o mesmo código para ambos os casos de utilização
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
@@ -49,7 +52,16 @@ Utilize o seguinte código para importar o pacote.
 import azureml.dataprep as dprep
 ```
 
-### <a name="automatic-file-type-detection"></a>Deteção do tipo automática de ficheiros
+### <a name="examples-and-reference"></a>Referência e exemplos
+
+Para saber mais sobre os módulos e funções deste SDK, consulte a [documentos de referência do SDK de preparação de dados](https://aka.ms/data-prep-sdk).
+
+Os exemplos seguintes realçam algumas das funcionalidades exclusivas do SDK, incluindo:
++ Deteção do tipo automática de ficheiros
++ Engenharia de funcionalidades automatizadas
++ Estatísticas de resumo
+
+#### <a name="automatic-file-type-detection"></a>Deteção do tipo automática de ficheiros
 
 Utilize o `smart_read_file()` função para carregar os seus dados sem ter de especificar o tipo de ficheiro. Esta função automaticamente reconhece e analisa o tipo de ficheiro.
 
@@ -57,7 +69,7 @@ Utilize o `smart_read_file()` função para carregar os seus dados sem ter de es
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
-### <a name="automated-feature-engineering"></a>Engenharia de funcionalidades automatizadas
+#### <a name="automated-feature-engineering"></a>Engenharia de funcionalidades automatizadas
 
 Utilize o SDK para dividir e derivar colunas por exemplo e inferência de tipos para automatizar a engenharia de funcionalidades. Suponha que tem um campo no seu objeto de fluxo de dados chamado `datetime` com um valor de `2018-09-15 14:30:00`.
 
@@ -77,7 +89,7 @@ new_dataflow = dataflow.derive_column_by_example(
     )
 ```
 
-### <a name="summary-statistics"></a>Estatísticas de resumo
+#### <a name="summary-statistics"></a>Estatísticas de resumo
 
 Pode gerar estatísticas de resumo rápidas para um fluxo de dados com uma linha de código. Este método oferece uma forma conveniente para compreender os seus dados e a forma como é distribuída.
 

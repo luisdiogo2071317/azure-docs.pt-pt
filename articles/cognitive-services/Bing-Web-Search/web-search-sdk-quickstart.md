@@ -3,19 +3,19 @@ title: 'Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para C#'
 titleSuffix: Azure Cognitive Services
 description: O SDK de Pesquisa na Web do Bing facilita a integração da Pesquisa na Web do Bing na sua aplicação C#. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 04a70c2afbd499d3965e23487cd49540b38e08af
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 0c5ac37b5a3992c3f9e80fd8f155f368fa61615c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318661"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163814"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Início Rápido: Utilizar o SDK de Pesquisa na Web do Bing para C#
 
@@ -409,7 +409,7 @@ Este exemplo utiliza os parâmetros `answer_count`, `promote` e `safe_search` pa
 
 Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de remover a sua chave de subscrição do código da aplicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Exemplos do SDK Node.js dos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)

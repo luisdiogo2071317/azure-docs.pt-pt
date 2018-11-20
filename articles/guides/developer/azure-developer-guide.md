@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956447"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976813"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -92,7 +92,7 @@ Em vez de se preocupar sobre a criação e gestão de toda a aplicação ou a in
 
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita a criar, empacotar, implementar e gerir micro-serviços dimensionáveis e fiáveis. Também fornece recursos de gerenciamento de aplicativo abrangente para o aprovisionamento, implementação, monitorização, aplicação de patches e a atualizar e eliminar aplicações implementadas. Aplicações que executam num conjunto partilhado de máquinas, podem começar com pouco e aumente para centenas ou milhares de máquinas, conforme necessário.
 
-O Service Fabric suporta WebAPI com Open Web Interface para .NET (OWIN) e ASP.NET Core. Ele disponibiliza SDKs para criar serviços no Linux em .NET Core e Java. Para saber mais sobre o Service Fabric, veja a [percurso de aprendizagem do Service Fabric](https://azure.microsoft.com/documentation/learning-paths/service-fabric/).
+O Service Fabric suporta WebAPI com Open Web Interface para .NET (OWIN) e ASP.NET Core. Ele disponibiliza SDKs para criar serviços no Linux em .NET Core e Java. Para saber mais sobre o Service Fabric, veja a [documentação do Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/).
 
 >**Quando utilizar:** Service Fabric é uma boa opção quando está criando um aplicativo ou reescrever uma aplicação existente para utilizar uma arquitetura de microsserviços. Utilize o Service Fabric quando precisar de mais controle sobre acesso direto ou para a infraestrutura subjacente.
 

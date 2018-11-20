@@ -3,19 +3,19 @@ title: 'Início Rápido: API de Pesquisa de Notícias do Bing, Java'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para o ajudar a começar rapidamente a utilizar a API de Pesquisa de Notícias do Bing nos Serviços Cognitivos da Microsoft no Azure.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: f7011ceb51d4fb4a5a92c6aeb56a0c26e7d86388
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.author: aahi
+ms.openlocfilehash: 7cd15addcb5e717a0dd3f13b3979b4f342fe9f0a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803635"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162590"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-java"></a>Início Rápido da API de Pesquisa de Notícias do Bing com Java
 
@@ -34,7 +34,7 @@ Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.co
 A [API de Pesquisa de Notícias do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) devolve resultados de notícias do motor de busca do Bing.
 
 1. Transfira ou instale a [biblioteca gson](https://github.com/google/gson).
-2. Crie um novo projeto de Java no seu IDE ou editor favorito.
+2. Crie um novo projeto Java no seu IDE ou editor favorito.
 3. Adicione o código indicado abaixo.
 4. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua subscrição.
 5. Execute o programa.
@@ -243,7 +243,7 @@ class SearchResults{
 ```
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
 > [Paginação de notícias](paging-news.md)
