@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810511"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974472"
 ---
 <a name="retrieve-operations"></a>Obter operações
 ===================
@@ -189,7 +189,7 @@ Obtém todas as operações na oferta de ou para obter uma determinada operaçã
 |  submissionType              | Identifica o tipo de operação a ser comunicado para a oferta, por exemplo `Publish/GGoLive`      |
 |  createdDateTime             | Datetime UTC em que a operação foi criada                                                       |
 |  lastActionDateTime          | Datetime UTC quando a última atualização foi realizada na operação                                       |
-|  status                      | Estado da operação, qualquer um dos "não foi iniciada | em execução | falhou | concluído`. Only one operation can have status `em execução "cada vez. |
+|  status                      | Estado da operação, qualquer um dos `not started` \| `running` \| `failed` \| `completed`. Apenas uma operação pode ter estado `running` cada vez. |
 |  erro                       | Mensagem de erro para operações com falhas                                                               |
 |  |  |
 

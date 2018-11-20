@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 5f5a98f0f28eba499b7ea3fa76944c21cf8bf8db
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
-ms.translationtype: HT
+ms.openlocfilehash: a56147432d4ef1cc9ac2568259cc2bbf2c7da7ab
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958873"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162675"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
@@ -65,7 +65,7 @@ As consultas de SQL neste artigo utilizam o documento de exemplo seguinte.
 Pode executar consultas utilizando o Data Explorer no portal do Azure, através de [REST API e SDK](sql-api-sdk-dotnet.md)e até mesmo [Teste de consulta](https://www.documentdb.com/sql/demo), que executada consultas num conjunto de dados de exemplo.
 
 Para obter mais informações sobre as consultas SQL, consulte:
-* [Consulta SQL e sintaxe SQL](sql-api-sql-query.md)
+* [Consulta SQL e sintaxe SQL](how-to-sql-query.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -128,7 +128,7 @@ A seguinte consulta devolve todos os nomes de elementos subordinados na família
 [ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, fez o seguinte:
 

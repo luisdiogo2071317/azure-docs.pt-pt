@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140862"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824783"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Início Rápido: Experimentar uma solução de monitorização remota baseada na cloud
 
@@ -32,7 +32,7 @@ Ao implementar o acelerador de soluções na sua subscrição do Azure, tem de d
 
 Inicie sessão em [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) com as credenciais da conta do Azure.
 
-Clique em **Experimentar Agora** no mosaico **Monitorização Remota**.
+Clique nas **monitorização remota** mosaico. Sobre o **monitorização remota** página, clique em **experimentar agora**:
 
 ![Selecionar a Monitorização Remota](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ Na página **Criar solução de Monitorização Remota**, selecione uma implemen
 
 Selecione **.NET** como linguagem. As implementações de Java e .NET têm as mesmas funcionalidades.
 
-Introduza um **Nome da solução** exclusivo para o acelerador de soluções de Monitorização Remota. Neste início rápido, vamos atribuir o nome **contoso-rm2**.
+Introduza um **Nome da solução** exclusivo para o acelerador de soluções de Monitorização Remota. Neste início rápido, estamos a telefonar para nosso **contoso-rm**.
 
-Selecione a **Subscrição** e a **Região** que quer utilizar para implementar o acelerador de soluções. Normalmente, pode escolher a região mais próxima para si. Neste início rápido, vamos utilizar **Visual Studio Enterprise** e **Europa Ocidental**. Tem de ser um [administrador global ou de utilizador](iot-accelerators-permissions.md) na subscrição.
+Selecione a **Subscrição** e a **Região** que quer utilizar para implementar o acelerador de soluções. Normalmente, pode escolher a região mais próxima para si. Neste início rápido, estamos usando **E.U.A. Leste**.
+Pode escolher **Visual Studio Enterprise**, mas tem de ser um [administrador global ou de utilizador](iot-accelerators-permissions.md) para fazer isso.
 
 Para iniciar a implementação, clique em **Criar Solução**. Este processo demora, pelo menos, cinco minutos a ser executado:
 
@@ -134,7 +135,7 @@ Se já não precisar do acelerador de soluções, elimine-o na página [Soluçõ
 
 ![Eliminar solução](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, implementou o acelerador de soluções de Monitorização Remota e concluiu uma tarefa de monitorização com os dispositivos simulados na implementação predefinida da Contoso.
 
