@@ -4,8 +4,8 @@ description: Uma comparação dos modelos de regressão linear no Excel e no Azu
 metakeywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 0e7004cca1d64270a2b48ea1e41c74b3e7555317
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b96143ff587cbf5828f4a1d2d1dc11f5bcc33412
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823780"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261399"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Utilizar a regressão linear no Azure Machine Learning
 > *Kate Baroni* e *Ben Boatman* é enterprise arquitetos de soluções em Data Insights Center of Excellence do Microsoft. Neste artigo, eles descrevem sua experiência de migrar um pacote de análise de regressão existente para uma solução baseada na cloud com o Azure Machine Learning. 

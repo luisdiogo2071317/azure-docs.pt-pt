@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a517597c2c4586b59594415f2361e3e4166d4c5a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d9afc62b4ab5d5d83394dcaaacf85a7642a2ba22
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299661"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260602"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -123,7 +123,7 @@ Para aplicar todas as etiquetas de um grupo de recursos para todos os respetivos
 
 ```azurepowershell-interactive
 $group = Get-AzureRmResourceGroup "examplegroup"
-if ($group.Tags -ne $null) {
+if ($null -ne $group.Tags) {
     $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
@@ -272,8 +272,6 @@ Para operações de REST API, consulte [referência de API de REST de faturaçã
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+* Nem todos os tipos de recursos suportam etiquetas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, veja [marca o suporte para recursos do Azure](tag-support.md).
 * Pode aplicar restrições e convenções na sua subscrição ao utilizar políticas personalizadas. Uma política que definir pode exigir que todos os recursos tenham um valor para uma etiqueta específica. Para obter mais informações, consulte [o que é o Azure Policy?](../azure-policy/azure-policy-introduction.md)
-* Para uma introdução à utilização do Azure PowerShell, quando estiver a implementar recursos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](powershell-azure-resource-manager.md).
-* Para uma introdução à utilização da CLI do Azure, quando estiver a implementar recursos, consulte [com a CLI do Azure para Mac, Linux e Windows com o Azure Resource Manager](xplat-cli-azure-resource-manager.md).
 * Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](resource-group-portal.md).  
-* Para obter documentação de orientação sobre como as empresas podem utilizar o Resource Manager para gerir subscrições de forma eficaz, consulte [Azure enterprise scaffold - prescriptive subscription governance (Andaime empresarial do Azure - governação de subscrições prescritivas)](/azure/architecture/cloud-adoption-guide/subscription-governance).

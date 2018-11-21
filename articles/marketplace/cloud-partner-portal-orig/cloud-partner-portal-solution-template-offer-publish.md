@@ -1,5 +1,5 @@
 ---
-title: Publicar um modelo de solução | Documentos da Microsoft
+title: Publicar um modelo de solução do Azure | Documentos da Microsoft
 description: Publicar um modelo de solução no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345594"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261622"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicar um modelo de solução no Azure Marketplace
 
@@ -31,31 +31,22 @@ Os seguintes pré-requisitos de técnicos e aplicam-se para a listagem de um mod
 
 ### <a name="technical"></a>Técnico
 
-- [Compreender os modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [Compreender os modelos Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 - Modelos de início rápido do Azure:
-
     - [Documentação do modelo de início rápido do Azure](https://azure.microsoft.com/documentation/templates/)
-
     - [Documentação de início rápido do Azure no GitHub](https://github.com/azure/azure-quickstart-templates)
-
  - [Criar ficheiro de interface de utilizador do portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - Ativar [atribuição de utilização do cliente](./../azure-partner-customer-usage-attribution.md) para ajudar a controlar a utilização do Azure de implementações de cliente de software no Azure.
 
 ### <a name="non-technical-business-requirements"></a>Não técnicas (requisitos de negócios)
 
--   A sua empresa (ou respetiva subsidiária) tem de estar localizada num destino de venda do país suportado pelo Azure Marketplace.
-
--   Seu produto têm de estar licenciado de forma que seja compatível com modelos de faturação suportados pelo Azure Marketplace.
-
--   É responsável para disponibilizar suporte técnico aos clientes de forma que sejam comercialmente razoável, quer gratuito, pago ou através de suporte da Comunidade.
-
--   É responsável pelo licenciamento do software e as dependências de software de terceiros.
-
--   Fornece conteúdo de que cumpre os critérios para a sua oferta seja incluída no Azure Marketplace e no Portal de gestão do Azure.
-
--   Aceite os termos do contrato de publicador e políticas de participação do Azure Marketplace.
-
--   Aceite cumprir Termos de Utilização, a Declaração de Privacidade da Microsoft e o Contrato do Programa Microsoft Azure Certified.
+- A sua empresa (ou respetiva subsidiária) tem de estar localizada num destino de venda do país suportado pelo Azure Marketplace.
+- Seu produto têm de estar licenciado de forma que seja compatível com modelos de faturação suportados pelo Azure Marketplace.
+- É responsável para disponibilizar suporte técnico aos clientes de forma que sejam comercialmente razoável, quer gratuito, pago ou através de suporte da Comunidade.
+- É responsável pelo licenciamento do software e as dependências de software de terceiros.
+- Fornece conteúdo de que cumpre os critérios para a sua oferta seja incluída no Azure Marketplace e no portal do Azure.
+- Aceite os termos do contrato de publicador e políticas de participação do Azure Marketplace.
+- Aceite cumprir Termos de Utilização, a Declaração de Privacidade da Microsoft e o Contrato do Programa Microsoft Azure Certified.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -101,7 +92,7 @@ Cada vista contém um conjunto de campos para que possa preencher. Necessário c
 
     **ID de oferta**
 
-     Um identificador exclusivo para a oferta de um perfil do publicador. Este ID está visível no produto URLs, modelos ARM, e relatórios de faturação. Pode utilizar apenas carateres alfanuméricos em minúsculas ou traços (-). O ID não pode terminar com um travessão e pode ter um máximo de 50 carateres. 
+     Um identificador exclusivo para a oferta de um perfil do publicador. Este ID está visível no produto URLs, modelos do Azure Resource Manager, e relatórios de faturação. Pode utilizar apenas carateres alfanuméricos em minúsculas ou traços (-). O ID não pode terminar com um travessão e pode ter um máximo de 50 carateres. 
     >[!Note]
     >Este campo é bloqueado quando uma oferta entra no ar.
 
@@ -113,7 +104,7 @@ Cada vista contém um conjunto de campos para que possa preencher. Necessário c
 
     **Nome**
 
-    O nome a apresentar para a sua oferta. Este nome é apresentado no Azure Marketplace e no Portal do Azure. Pode ter um máximo de 50 carateres. Utilize as seguintes orientações para o nome da oferta:
+    O nome a apresentar para a sua oferta. Este nome é apresentado no Azure Marketplace e no portal do Azure. Pode ter um máximo de 50 carateres. Utilize as seguintes orientações para o nome da oferta:
     -  Inclua um nome de marca reconhecível para o produto. 
     - Não inclua o nome da sua empresa aqui, a menos que essa é a forma como a oferta é comercializada.
     - Se estiver marketing esta oferta em seu próprio Web site, certifique-se de que o nome é idêntico ao nome no seu Web site.
@@ -128,7 +119,7 @@ para a sua oferta.
 
     ![Novo SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    ID do SKU é um identificador exclusivo para o SKU dentro de uma oferta. Este ID está visível no produto URLs, modelos ARM, e relatórios de faturação. O ID de SKU:
+    ID do SKU é um identificador exclusivo para o SKU dentro de uma oferta. Este ID é visível nos URLs do produto, nos modelos do Resource Manager e nos relatórios de faturação. O ID de SKU:
     - Só pode ter um máximo de 50 carateres.
     - Só pode ser composto por carateres alfanuméricos em minúsculas ou traços (-).
     - O ID não pode terminar com um hífen.
@@ -146,14 +137,10 @@ para a sua oferta.
 Forneça as seguintes definições de SKU.
 
 - **Título** -um título para o SKU. Este título é apresentado na Galeria para este item.
-
 - **Resumo** - uma breve descrição de resumo do SKU. (O comprimento máximo é 100 carateres.)
-
 - **Descrição** - uma descrição do SKU de detalhadas.
-
 - **Tipo de SKU** -uma lista suspensa com estes valores: "Aplicação de gerida (pré-visualização)" e "Modelo de solução". Para este cenário, selecione **modelo de solução**.
-
-- **Disponibilidade da cloud** -a localização do SKU. A predefinição é público do Azure.
+- **Disponibilidade da cloud** -a localização do SKU. A predefinição é **público do Azure**.
 
 ### <a name="package-details"></a>Detalhes do pacote
 
@@ -162,19 +149,16 @@ Depois de concluir as definições de SKU, forneça os seguintes detalhes do pac
 ![Detalhes do pacote](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
 - **Versão atual** -a versão do pacote que irá carregar. Etiquetas de versão tem de ser do formulário x.y. z, em que X, Y e Z são números inteiros.
-
 - **Ficheiro do pacote** -este pacote contém os seguintes arquivos, que são salvas num arquivo. zip.
-
     -   Maintemplate. JSON - o ficheiro de modelo de implementação que é utilizado para implementar a solução/aplicação e criar os recursos definidos para a solução. Para obter mais informações, consulte [como criar arquivos de modelo de implementação](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-
-    -   Createuidefinition - este ficheiro é utilizado pelo Portal do Azure para gerar a interface do usuário para o aprovisionamento desta solução/aplicação. Para obter mais informações, consulte [interface de utilizador do portal do Azure criar para a aplicação gerida](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+    -   Createuidefinition - este ficheiro é utilizado pelo portal do Azure para gerar a interface do usuário para o aprovisionamento desta solução/aplicação. Para obter mais informações, consulte [interface de utilizador do portal do Azure criar para a aplicação gerida](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
 
     >[!IMPORTANT]
     >Este pacote deve conter quaisquer outros modelos aninhados ou scripts que são necessários para aprovisionar esta aplicação. O maintemplate. JSON e Createuidefinition tem de ser na pasta raiz.
 
 ## <a name="to-configure-the-marketplace"></a>Para configurar o Marketplace
 
-Utilize a vista do Marketplace para configurar os campos que são apresentados para a oferta no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e, no [Portal do Azure](https://portal.azure.com/).
+Utilize a vista do Marketplace para configurar os campos que são apresentados para a oferta no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e, no [portal do Azure](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Ids de subscrição de pré-visualização
 
@@ -182,9 +166,9 @@ A lista de IDs de subscrição do Azure que gostaria de ter acesso para a oferta
 
 ### <a name="suggested-categories"></a>Categorias sugeridas
 
-Selecione até 5 categorias na lista fornecida que sua oferta pode ser melhor associada. Categorias selecionadas serão utilizadas para mapear a sua oferta para as categorias de produtos disponíveis no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [Portal do Azure](https://portal.azure.com/).
+Selecione até cinco categorias na lista fornecida que sua oferta pode ser melhor associada. Categorias selecionadas serão utilizadas para mapear a sua oferta para as categorias de produtos disponíveis no [do Azure Marketplace](https://azuremarketplace.microsoft.com) e [Portal do Azure](https://portal.azure.com/).
 
-Os exemplos seguintes mostram a informação do marketplace no Azure Marketplace e o Portal do Azure.
+Os exemplos seguintes mostram a informação do marketplace no Azure Marketplace e o portal do Azure.
 
 **O Azure Marketplace**
 
@@ -219,7 +203,7 @@ Siga estas diretrizes para logótipos carregados para o Portal de parceiro de Cl
 
 -   Não utilize um fundo de gradação no logótipo.
 
--   Evite colocar texto no logótipo. Isto inclui a sua empresa ou o nome da marca. Deve ser o aspeto e funcionalidade do seu logótipo *simples* e deve evitar gradientes.
+-   Evite colocar texto no logótipo. Esta diretriz inclui a sua empresa ou o nome da marca. Deve ser o aspeto e funcionalidade do seu logótipo *simples* e deve evitar gradientes.
 
 -   O logótipo não deve ser ampliado.
 
@@ -229,7 +213,7 @@ O logótipo de Hero é opcional. O publicador pode optar por não carregue um lo
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Diretrizes para o ícone de logótipo de Hero
 
--   O nome de exibição do publicador, título de plano e resumo completo da oferta são exibidos usando uma fonte colorida branca. Evite usar qualquer cor leve em segundo plano. Preto, planos de fundo brancas e transparentes não são permitidos para os ícones de Hero.
+-   O nome de exibição do publicador, título de plano e resumo completo da oferta são exibidos usando uma fonte de cores branco. Evite usar qualquer cor leve em segundo plano. Planos de fundo transparentes, pretas e brancas não são permitidos para os ícones de Hero.
 
 -   Nome de exibição publicador, título, a oferta resumo há muito tempo e no botão Criar incorporados por meio de programação dentro o logótipo de Hero quando listados da oferta de plano. Não introduza qualquer texto quando estiver a conceber o logótipo de Hero. Deixe um espaço em branco à direita do logótipo de. Este espaço deve ser 415 x 100 pixéis e é contrabalançado por 370 px da esquerda.
 

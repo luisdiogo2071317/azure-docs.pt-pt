@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83fff9fa322431983c1d385705ae235a8e818570
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237269"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275287"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrar do Orchestrator a automatização do Azure (Beta)
 Os Runbooks do [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) baseiam-se nas atividades dos pacotes de integração que são escritas especificamente para o Orchestrator, enquanto os runbooks na automatização do Azure são baseados no Windows PowerShell.  [Os runbooks gráficos](automation-runbook-types.md#graphical-runbooks) na automatização do Azure têm uma aparência semelhante para os runbooks do Orchestrator com suas atividades que representa os cmdlets do PowerShell, os runbooks subordinados e ativos.
@@ -79,7 +79,9 @@ Segue-se o processo básico para converter um runbook do Orchestrator e importe-
 ### <a name="using-runbook-converter"></a>Usando o conversor de Runbook
 A sintaxe para **ConvertFrom-SCORunbook** é o seguinte:
 
-    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```powershell
+ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```
 
 * RunbookPath - o caminho do ficheiro de exportação que contém os runbooks para converter.
 * Módulo - delimitado por vírgula lista de módulos de integração que contêm atividades nos runbooks.
@@ -87,8 +89,9 @@ A sintaxe para **ConvertFrom-SCORunbook** é o seguinte:
 
 O seguinte comando de exemplo converte os runbooks num arquivo de exportação chamado **MyRunbooks.ois_export**.  Estes runbooks, utilize os pacotes de integração do Active Directory e o Data Protection Manager.
 
-    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
-
+```powershell
+ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
+```
 
 ### <a name="log-files"></a>Ficheiros de registo
 O conversor de Runbook criará os seguintes ficheiros de registo na mesma localização que o runbook convertido.  Se os ficheiros já existirem, em seguida, estas serão substituídas com as informações de conversão último.

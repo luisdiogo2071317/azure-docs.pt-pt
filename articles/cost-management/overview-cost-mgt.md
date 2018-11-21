@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 09/21/2018
 ms.topic: overview
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 470802c1119c1c367dcd72f782dfc1036f75f6db
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 16e2da864d51cbc44457715813e851fd873c8746
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035951"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276674"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Azure Cost Management?
 
@@ -53,7 +53,7 @@ O Azure tem outras ferramentas que não fazem parte do conjunto de funcionalidad
 - [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/): utilize as suas licenças do Windows Server ou SQL Server atuais no local para que as VMs no Azure as guardem.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que está familiarizado com o Cost Management, o próximo passo é começar a utilizar o serviço.
 

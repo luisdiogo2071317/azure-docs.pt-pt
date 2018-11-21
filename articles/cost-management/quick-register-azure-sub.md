@@ -9,13 +9,13 @@ ms.date: 08/07/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: e49be3d61cfbbf71a0e9cbeef4c171f3af222544
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+manager: benshy
+ms.openlocfilehash: 4b0c0a6fdf8d84b6519d1228f148342b8486c282
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979561"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276402"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registe uma subscrição do Azure individual e veja os dados de custos
 
@@ -45,7 +45,7 @@ Para ver um vídeo tutorial sobre como registar a sua subscrição do Azure, con
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, utilizou as suas informações de subscrição do Azure para efetuar o registo na Cloudyn. Também iniciou sessão no portal Cloudyn e começou a ver os dados dos custos. Para saber mais sobre a Cloudyn, continue para o tutorial da Cloudyn.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ada5f55cf356ca79efb7cb45c76a4812804400c5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222068"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262623"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
@@ -268,8 +268,8 @@ Quando definido como true, esta definição configura o codificador em direto pa
 Opcional. Especifica o Id de recurso do recurso de serviços de suporte de dados que contém a imagem fixa. A predefinição é nulo. 
 
 
->[!NOTE] 
->Antes de criar o canal, a imagem fixa com as seguintes restrições deve ser enviada como um recurso dedicado (não existem outros ficheiros devem ser deste recurso). Esta imagem é utilizada apenas quando o codificador em direto é inserir um slate devido a uma quebra de ad ou tiver sido assinalado explicitamente para inserir uma imagem fixa. O codificador em direto pode também aceder num modo de imagem fixa durante determinadas condições de erro – por exemplo se o sinal de entrada é perdido. Atualmente, não existe nenhuma opção para utilizar uma imagem personalizada quando o codificador em direto entra tais num estado "sinal de entrada perdido". Pode votar para esta funcionalidade [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> [!NOTE] 
+> Antes de criar o canal, a imagem fixa com as seguintes restrições deve ser enviada como um recurso dedicado (não existem outros ficheiros devem ser deste recurso). Esta imagem é utilizada apenas quando o codificador em direto é inserir um slate devido a uma quebra de ad ou tiver sido assinalado explicitamente para inserir uma imagem fixa. Atualmente, não existe nenhuma opção para utilizar uma imagem personalizada quando o codificador em direto entra tais num estado "sinal de entrada perdido". Pode votar para esta funcionalidade [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
 
 
 * No máximo 1920 x 1080 na resolução.

@@ -9,13 +9,13 @@ ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
-manager: dougeby
-ms.openlocfilehash: 8e1c85b345acdce6f50cfa169977c513ba0ae2a3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
-ms.translationtype: HT
+manager: benshy
+ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740438"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274428"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através da Cloudyn
 
@@ -131,7 +131,7 @@ Pode facilmente criar e guardar relatórios que se concentrem em serviços espec
 Se precisar de fornecer dados de instantâneos a outras equipas, pode exportar qualquer relatório no formato PDF ou CSV.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/23/2018
 ms.author: pareshmu
-ms.openlocfilehash: a55e57c2cc1c0ff2ba44f681cbae90ba69fdc434
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: ead7ad9178264bc2cfa323eb440c235ab52c069b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957796"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275858"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -40,18 +40,18 @@ Terá acesso aos serviços do Azure em todas as regiões numa região geopolíti
 ### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Regiões do Azure para localizações do ExpressRoute numa região geopolítica
 A tabela seguinte fornece um mapa de regiões do Azure para localizações do ExpressRoute numa região geopolítica.
 
-| **Região geopolítica** | **Regiões do Azure** | **Localizações do ExpressRoute** |
-| --- | --- | --- |
-| **América do Norte** |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Washington D.C., Montreal, Cidade do Quebeque, Toronto |
-| **América do Sul** |Sul do Brasil |São Paulo |
-| **Europa** |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Amesterdão2, Dublin, Marselha, Londres, Newport (Gales), Paris |
-| **Ásia** |Ásia Oriental, Sudeste Asiático |RAE de Hong Kong, Kuala Lumpur, Singapura, Singapura2 |
-| **Japão** |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
-| **Austrália** |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney |
-| **Governo da Austrália** | Austrália Central, Austrália Central 2 |Camberra, Camberra2 | 
-| **Índia** |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Coreia do Sul** |Centro da Coreia, Sul da Coreia do Sul |Busan, Seul |
-| **África do Sul** |[Oeste da África do Sul+, Norte da África do Sul+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cidade do Cabo, Joanesburgo |
+| **Região geopolítica** | **zona** | **Regiões do Azure** | **Localizações do ExpressRoute** |
+| --- | --- | --- | --- |
+| **Governo da Austrália** |Zona 1 | Austrália Central, Austrália Central 2 |Camberra, Camberra2 |
+| **Europa** |Zona 1 |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Amesterdão2, Dublin, Londres, Marselha, Newport (Gales), Paris |
+| **América do Norte** |Zona 1 |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Washington D.C., Montreal, Cidade do Quebeque, Toronto |
+| **Ásia** |Zona 2 |Ásia Oriental, Sudeste Asiático |RAE de Hong Kong, Kuala Lumpur, Singapura, Singapura2 |
+| **Austrália** |Zona 2 |Sudeste da Austrália, Leste da Austrália |Melbourne, Sydney | 
+| **Índia** |Zona 2 |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japão** |Zona 2 |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
+| **Coreia do Sul** |Zona 2 |Centro da Coreia, Sul da Coreia do Sul |Busan, Seul|
+| **África do Sul** |Zona 3 |[Oeste da África do Sul+, Norte da África do Sul+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |Cidade do Cabo, Joanesburgo |
+| **América do Sul** |Zona 3 |Sul do Brasil |São Paulo |
 
  **+** brevemente disponível
 
@@ -198,7 +198,7 @@ A ativação da conectividade privada para atender as suas necessidades pode ser
 | **Europa** |Avanade Inc., Altogee, Bright Skies GmbH, Inframon, MSG Services, New Signature, Nelite, Orange Networks, sol-tec |
 | **América do Norte** |Avanade Inc., Equinix Professional Services, FlexManage, Lightstream, Perficient, Presidio |
 | **América do Sul** |Avanade Inc., Venha Pra Nuvem |
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).
 * Confirme que todos os pré-requisitos são cumpridos. Veja os [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md).
 

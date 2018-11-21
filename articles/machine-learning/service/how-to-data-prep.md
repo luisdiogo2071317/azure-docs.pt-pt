@@ -10,18 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 11/20/2018
-ms.openlocfilehash: 72a6e7fdc8bd5887782ab23d29812bed792fd53f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 08510961616d2be8eac9b6a19063d5f0d613321f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164596"
+ms.locfileid: "52263303"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Preparar dados para modelagem com o Azure Machine Learning
  
 Neste artigo, ficará a conhecer os recursos exclusivos do SDK de Prep de dados do Azure Machine Learning e casos de utilização. Preparação de dados é a parte mais importante de um fluxo de trabalho de aprendizagem automática. Dados do mundo real, muitas vezes, são apresentados, inconsistentes ou não é possível ser utilizado como dados de treinamento sem significativo limpeza e transformação. Correção de erros e anomalias nos dados não processados e a criação de novos recursos que são relevantes para o problema que está a tentar resolver, irão aumentar a precisão do modelo.
 
-Pode se preparar seus dados em Python com o [SDK do Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py).
+Pode se preparar seus dados em Python com o [SDK do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk).
 
 ## <a name="azure-machine-learning-data-prep-sdk"></a>Do Azure Machine Learning de preparação de dados SDK
 

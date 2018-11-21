@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42312168"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275691"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para Oracle com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,11 +65,46 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 >[!TIP]
 >Se tiver atingido o ditado de erro "ORA 01025: parâmetro UPI fora do intervalo" e o Oracle é de versões 8i, adicionar `WireProtocolMode=1` para sua cadeia de ligação e tente novamente.
 
-Para ativar a encriptação na ligação do Oracle, tem duas opções:
+**Para ativar a encriptação numa ligação de Oracle**, tem duas opções:
 
-1.  No lado do servidor Oracle, vá para Oracle Advanced Security (OAS) e configure as definições de encriptação, que suporta a encriptação de Triple-DES (3DES) e encriptação AES (Advanced Standard), consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Conector ADF Oracle negocia automaticamente o método de encriptação a utilizar um que configurar no OAS quando estabelecer ligação ao Oracle.
+1.  Para utilizar **Encryption de Triple-DES (3DES) e Advanced Encryption Standard (AES)**, no lado do servidor Oracle, vá para Oracle Advanced Security (OAS) e configurar as definições de encriptação, consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Conector ADF Oracle negocia automaticamente o método de encriptação a utilizar um que configurar no OAS quando estabelecer ligação ao Oracle.
 
-2.  No lado do cliente, pode adicionar `EncryptionMethod=1` na cadeia de ligação. Isto irá utilizar SSL/TLS como método de encriptação. Para utilizá-lo, terá de desativar o SSL não as definições de encriptação no OAS no lado do servidor Oracle para evitar conflitos de encriptação.
+2.  Para utilizar **SSL**, siga os passos abaixo:
+
+    1.  Obtenha informações do certificado de SSL. Obter as informações do certificado codificado em DER do seu certificado SSL e guarde a saída (---Begin Certificate... Terminar certificado---) como um ficheiro de texto.
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **Exemplo:** extrair informações de certificado de DERcert.cer; em seguida, guarde a saída para cert.txt
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.  Crie o keystore ou truststore. O comando seguinte cria o ficheiro de truststore com ou sem uma palavra-passe no formato PKCS 12.
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **Exemplo:** cria um ficheiro de trustsotre PKCS12 denominado MyTrustStoreFile com uma palavra-passe
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.  Coloque o arquivo de truststore no computador do Runtime de integração autoalojado, por exemplo, em C:\MyTrustStoreFile.
+    4.  No ADF, configurar a cadeia de ligação do Oracle com `EncryptionMethod=1` e correspondente `TrustStore` / `TrustStorePassword`valor, por exemplo, `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Exemplo:**
 

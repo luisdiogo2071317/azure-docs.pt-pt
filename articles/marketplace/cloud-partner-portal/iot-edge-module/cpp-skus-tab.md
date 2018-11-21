@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684822"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276045"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Separador de SKUs de módulo do IoT Edge
 
@@ -125,7 +125,7 @@ A tabela seguinte descreve a finalidade, conteúdo e formatação de campos para
 
 |  **Campo**       |     **Descrição**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Rotas predefinidas**        | Cada nome da rota predefinida e o valor tem de ter menos de 512 carateres. Pode definir rotas predefinidas que até 5. Certifique-se de usar um correto [encaminhar sintaxe](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) no seu valor de rota. Para fazer referência a seu módulo, utilize o seu nome de módulo padrão, que será sua **título do SKU** sem espaços e carateres especiais. Para fazer referência a outros módulos ainda não conhecidos, utilize o `<FROM_MODULE_NAME>` Convenção para permitir que os seus clientes saibam que têm de atualizar estas informações. Saiba mais sobre [encaminha o IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Por exemplo, se módulo `ContosoModule` escuta para entradas `ContosoInput` e a saída de dados em `ContosoOutput`, faz sentido definir as rotas 2 padrão seguintes:<br/>-Nome #1: `ToContosoModule`<br/>-Valor #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-Nome #2: `FromContosoModuleToCloud`<br/>-Valor #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **Rotas predefinidas**        | Cada nome da rota predefinida e o valor tem de ter menos de 512 carateres. Pode definir rotas predefinidas que até 5. Certifique-se de usar um correto [encaminhar sintaxe](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) no seu valor de rota. Para fazer referência a seu módulo, utilize o seu nome de módulo padrão, que será sua **título do SKU** sem espaços e carateres especiais. Para fazer referência a outros módulos ainda não conhecidos, utilize o `<FROM_MODULE_NAME>` Convenção para permitir que os seus clientes saibam que têm de atualizar estas informações. Saiba mais sobre [encaminha o IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Por exemplo, se módulo `ContosoModule` escuta para entradas `ContosoInput` e a saída de dados em `ContosoOutput`, faz sentido definir as rotas 2 padrão seguintes:<br/>-Nome #1: `ToContosoModule`<br/>-Valor #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-Nome #2: `FromContosoModuleToCloud`<br/>-Valor #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **Propriedades pretendida do duplo do padrão**      | Cada nome de propriedades pretendidas do duplo predefinido e o valor tem de ter menos de 512 carateres. Pode definir as propriedades pretendida do duplo do nome/valor até 5. Valores de propriedades de twin pretendido tem de ser um JSON válido, não escape, sem matrizes e com uma hierarquia aninhada máxima de 4. Saiba mais sobre [propriedades pretendidas do duplo](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Por exemplo, se um módulo de oferecer suporte a uma taxa de atualização configuráveis dinamicamente através de propriedades de twin assim o desejar, faz sentido para definir a propriedade de duplo pretendido padrão seguinte:<br/> -Nome #1: `RefreshRate`<br/>-Valor #1: `60`|
 | **Variáveis de ambiente de predefinição**  | Cada nome de variáveis de ambiente predefinido e o valor tem de ter menos de 512 carateres. Pode definir variáveis de ambiente de nome/valor até 5. <br/>Por exemplo, se precisar de um módulo para aceitar os termos de utilização antes de a ser iniciada, pode definir a variável de ambiente seguintes:<br/> -Nome #1: `ACCEPT_EULA`<br/>-Valor #1: `Y`|
 | **CreateOptions padrão**  | O createOptions tem de ter menos de 512 carateres. Tem de ser um JSON válido, não caracteres de escape. Saiba mais sobre [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Por exemplo, se precisar de um módulo de ligar uma porta, pode definir o createOptions seguintes:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

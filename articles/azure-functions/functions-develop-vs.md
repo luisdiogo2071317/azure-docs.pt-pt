@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515380"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275841"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -83,7 +83,7 @@ O modelo de projeto cria um projeto c#, instala o `Microsoft.NET.Sdk.Functions` 
 * **Settings**: mantém as definições utilizadas ao executar as funções localmente. Estas definições não são utilizadas pelo Azure, elas são usadas pelos [ferramentas de núcleo de funções do Azure](functions-run-local.md). Utilize este ficheiro para especificar as definições da aplicação para variáveis necessárias para as suas funções. Adicione um novo item para o **valores** matriz para cada ligação exigida pelos enlaces de funções no seu projeto. Para obter mais informações, consulte [arquivo de configurações Local](functions-run-local.md#local-settings-file) no artigo de ferramentas de núcleo de funções do Azure.
 
     >[!IMPORTANT]
-    >Porque o ficheiro Settings pode conter segredos, deve exclui-lo de seu controle de origem do projeto. O **copiar para diretório de saída** definição para este ficheiro deve ser sempre **copiar se for mais recente**. 
+    >Porque o ficheiro Settings pode conter segredos, deve exclui-lo de seu controle de origem do projeto. O **Copy to Output Directory** definição para este ficheiro deve ser sempre **copiar se for mais recente**. 
 
 Para obter mais informações, consulte [projeto de biblioteca de classes de funções](functions-dotnet-class-library.md#functions-class-library-project).
 

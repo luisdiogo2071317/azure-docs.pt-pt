@@ -3,8 +3,8 @@ title: Reenviar um serviço web clássico | Documentos da Microsoft
 description: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning programaticamente.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: be4f1e4705d1f8357198f01e2fa6d5aae83159c7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bd8fb59390bc54e5819183d13f16a557d62ec7ce
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820091"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260754"
 ---
 # <a name="retrain-a-classic-web-service"></a>Voltar a preparar um Serviço Web Clássico
 O serviço Web preditivo implementou predefinição é o ponto final de classificação. Pontos de extremidade padrão são mantidos em sincronização com a formação original e experiências de classificação e, portanto, o modelo preparado para o ponto final predefinido não pode ser substituído. Para voltar a preparar o serviço web, tem de adicionar um novo ponto final para o serviço web. 

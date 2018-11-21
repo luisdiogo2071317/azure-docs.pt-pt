@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963823"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261756"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola de série de máquina virtual para Linux
 
@@ -95,7 +95,7 @@ Por predefinição, todas as subscrições têm acesso de consola de série ativ
 > Para ativar ou desativar a consola de série para uma subscrição, tem de ter permissões de escrita para a subscrição. Estas permissões incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
 ### <a name="subscription-level-disable"></a>Desativar o nível de assinatura
-A consola de série pode ser desabilitada para uma subscrição completa através da [chamada à API de REST de consola desativar](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). Pode utilizar o **experimentar** função disponível nesta página de documentação de API para desativar e ativar a consola de série para uma subscrição. Introduza o seu ID de subscrição **subscriptionId**, introduza **predefinido** para **predefinição**e, em seguida, selecione **executar**. Os comandos da CLI do Azure ainda não estão disponíveis.
+A consola de série pode ser desabilitada para uma subscrição completa através da [chamada à API de REST de consola desativar](/rest/api/serialconsole/console/disableconsole). Pode utilizar o **experimentar** função disponível nesta página de documentação de API para desativar e ativar a consola de série para uma subscrição. Introduza o seu ID de subscrição **subscriptionId**, introduza **predefinido** para **predefinição**e, em seguida, selecione **executar**. Os comandos da CLI do Azure ainda não estão disponíveis.
 
 ![Experimente-o API de REST](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

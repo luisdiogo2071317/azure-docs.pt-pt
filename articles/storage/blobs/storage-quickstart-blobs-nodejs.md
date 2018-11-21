@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: d47878502816a0a61829859cc166c125448a2850
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710890"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260772"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Como carregar, transferir e listar blobs através de node. js SDK v2
 
@@ -124,7 +124,7 @@ const listContainers = async () => {
 };
 ```
 
-O tamanho dos grupos pode ser configurado através do método [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Chamar o método *listContainersSegmented* devolve os metadados do blob como uma matriz de instâncias [ContainerResult](/nodejs/api/azure-storage/blobresult). Os resultados são devolvidos em lotes (segmentos) de 5000 incrementos. Se existirem mais de 5000 blobs num contentor, os resultados incluem um valor para *continuationToken*. Para listar os segmentos subsequentes do contentor de blobs, pode transmitir o token de continuação novamente para o método *listContainersSegment* como um segundo argumento.
+O tamanho dos grupos pode ser configurado através do método [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest). Chamar o método *listContainersSegmented* devolve os metadados do blob como uma matriz de instâncias [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest). Os resultados são devolvidos em lotes (segmentos) de 5000 incrementos. Se existirem mais de 5000 blobs num contentor, os resultados incluem um valor para *continuationToken*. Para listar os segmentos subsequentes do contentor de blobs, pode transmitir o token de continuação novamente para o método *listContainersSegment* como um segundo argumento.
 
 ### <a name="create-a-container"></a>Criar um contentor
 
@@ -167,7 +167,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>Carregar um ficheiro local
 
-A função *uploadLocalFile* utiliza o método [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) para carregar e escrever (ou substituir) um ficheiro do sistema de ficheiros no armazenamento de blobs. 
+A função *uploadLocalFile* utiliza o método [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) para carregar e escrever (ou substituir) um ficheiro do sistema de ficheiros no armazenamento de blobs. 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -184,11 +184,11 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-Outras abordagens disponíveis para carregar conteúdo nos blobs incluem trabalhar com [texto](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) e [fluxos](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream). Para confirmar se o ficheiro está carregado no armazenamento de blobs, pode utilizar o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ver os dados na sua conta.
+Outras abordagens disponíveis para carregar conteúdo nos blobs incluem trabalhar com [texto](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--) e [fluxos](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--). Para confirmar se o ficheiro está carregado no armazenamento de blobs, pode utilizar o [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) para ver os dados na sua conta.
 
 ### <a name="list-the-blobs"></a>Listar os blobs
 
-A função *listBlobs* chama o método [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) para devolver uma lista de metadados do blob num contentor. 
+A função *listBlobs* chama o método [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) para devolver uma lista de metadados do blob num contentor. 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -228,7 +228,7 @@ A implementação aqui apresentada altera a origem e devolve os conteúdos do bl
 
 ### <a name="delete-a-blob"></a>Eliminar um blob
 
-A função *deleteBlob* chama a função [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists). Tal como o nome sugere, esta função não devolve um erro se o blob já tiver sido eliminado.
+A função *deleteBlob* chama a função [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--). Tal como o nome sugere, esta função não devolve um erro se o blob já tiver sido eliminado.
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {

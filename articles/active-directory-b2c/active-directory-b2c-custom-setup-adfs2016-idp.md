@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d94542e0c6c19fd3a79f465b69fadb6f3f28330e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7f74da682c72f9effb4dbac49b316ff17f03b534
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685774"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275892"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -175,7 +175,7 @@ Abra um browser e navegue para o URL. Certifique-se de que digite a URL correta 
     | Endereço do correio electrónico | e-mail |
     | Nome a apresentar | nome |
     
-12.  Com base no seu tipo de certificado, poderá ter de definir o algoritmo HASH. A janela Propriedades de confiança (demonstração de B2C) da parte da entidade confiadora, selecione o **avançadas** separador e altere a **algoritmo hash seguro** para `SHA-1` ou `SHA-256`e clique em **Ok**.  
+12.  Com base no seu tipo de certificado, poderá ter de definir o algoritmo HASH. A janela Propriedades de confiança (demonstração de B2C) da parte da entidade confiadora, selecione o **avançadas** separador e altere a **algoritmo hash seguro** para `SHA-256`e clique em **Ok**.  
 13. No Gestor de servidor, selecione **ferramentas**e, em seguida, selecione **gestão de ADFS**.
 14. Selecione a confiança de entidade confiadora que criou, selecione **atualização de metadados de Federação**e, em seguida, clique em **atualização**. 
 

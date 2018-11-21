@@ -1,5 +1,5 @@
 ---
-title: TÍTULO | Documentos da Microsoft
+title: Tornar a sua aplicação do Azure em direto oferta no Azure Marketplace | Documentos da Microsoft
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810495"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263597"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Tornar a sua aplicação do Azure em direto oferta no Azure Marketplace 
 ===========================================================
@@ -33,19 +33,22 @@ Permitir que\'s esse processo mais detalhadamente para compreender melhor o que 
 <a name="publishing-process"></a>Processo de publicação 
 ------------------
 
-Vai clicar \"publicar\" no separador Editor para iniciar o processo de publicação.
+Deverá clicar em \"Publish\" sob a **Editor** separador para iniciar o processo de publicação.
 
 ![Oferecer sequência em direto do Go 1 - publicar](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-No separador Estado, poderá ver os passos de publicação e passo que a oferta está no.
+Sob o **estado** guia, verá os passos de publicação e passo que a oferta é a parte.
 
 ![Oferecer sequência em direto do Go 2 - fluxo de trabalho](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
-Em qualquer momento no processo de publicação, também pode iniciar sessão e clique no separador de todas as ofertas para ver o estado mais recente para qualquer uma das suas ofertas. Pode clicar diretamente no status da sua oferta e consulte os detalhes sobre onde a sua oferta está no processo de publicação.
+Em qualquer momento no processo de publicação, também pode iniciar sessão e clique nas **oferece todos os** separador para ver o estado mais recente para qualquer uma das suas ofertas. Pode clicar diretamente no status da sua oferta e consulte os detalhes sobre onde a sua oferta está no processo de publicação.
 
-Permitir que\'s percorra cada um dos passos publicação, abordarei o que acontece em cada passo e quanto deve calcular cada passo irá demorar.
+> [!WARNING]
+> Se a atribuição de utilização do cliente não estiver ativada, obterá a seguinte mensagem de erro durante o processo de publicação: "parceiros do Azure ao cliente utilização atribuição em falta num ou mais modelos do Azure Resource Manager. Para resolver, adicione um controlo de GUID para o modelo Azure Resource Manager em pacotes de maintemplate. JSON para o seguinte plano: servicenow. Para obter mais detalhes, consulte http://aka.ms/customerusageattribution. " 
 
-### <a name="validate-pre-requisites-1-day"></a>Validar a pré-requisitos (\<1 dia) 
+Vamos percorrer cada um dos passos publicação e falar sobre o que acontece em cada passo e quanto deve calcular a que cada passo irá demorar.
+
+### <a name="validate-prerequisites-1-day"></a>Validar a pré-requisitos (\<1 dia) 
 
 Quando clica em \"Publish\", será realizada uma verificação automatizada para garantir que\'ve preenchido todos os campos obrigatórios na sua oferta. Se quaisquer campos não são preenchidos, será apresentado um aviso junto ao campo da e terá de preenchê-lo com precisão, em seguida, clique em \'publicar\' novamente.
 
@@ -59,7 +62,7 @@ Este passo é onde podemos executar vários testes para garantir que o pacote de
 
 Uma vez que este passo pode demorar vários dias, pode iniciar sessão fora do Portal do Cloud Partner. Nós lhe enviaremos uma notificação por e-mail se existirem quaisquer erros. Se tudo o que passar com êxito, o processo será automaticamente avançar para o passo de aprovisionamento.
 
-### <a name="packaging-and-lead-generation-registration-1-hour"></a>Empacotamento e registo de geração de levar (\<1 hora) 
+### <a name="packaging-and-lead-generation-registration-1-hour"></a>Empacotamento e levar o registo de geração (\<1 hora) 
 
 Durante esta fase, podemos está a combinar o conteúdo técnico e marketing para o qual será a página de produto no Web site.
 
@@ -83,7 +86,7 @@ Assim que estiver pronto para começar e clicado em \"Go Live\", um worksite ser
 
 A oferta está agora em direto no Azure Marketplace e o Portal do Azure. Os clientes poderão ver e implementar a sua aplicação gerida do azure nas suas subscrições do Azure. Pode clicar na guia todas as ofertas e ver o estado para todas as suas ofertas listadas na coluna da direita. Pode clicar no estado para ver o estado de fluxo de publicação em detalhes para a sua oferta.
 
-### <a name="error-handling"></a>Tratamento de erros 
+### <a name="error-handling"></a>Processamento de erros 
 
 Se ocorrer um erro, receberá um e-mail de notificação informando-o que ocorreu um erro com instruções sobre os passos seguintes. Também pode ver erros em qualquer altura durante este processo ao clicar no separador de estado. Verá a partir do qual o processo que ocorreu o erro, juntamente com uma mensagem de erro que descreva o que precisa de ser resolvido.
 

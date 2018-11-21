@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740387"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262079"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Governação da infraestrutura do Azure DevTest Labs - recursos
 Este artigo aborda o alinhamento e a gestão de recursos para laboratórios Dev/Test na sua organização. 
@@ -35,7 +35,7 @@ Antes de uma organização começa a utilizar o Azure para desenvolvimento de ap
 - É necessária para separar os ambientes de desenvolvimento e produção de segmentação? 
 - Quais controles são introduzidas para facilitar a longo prazo de gerenciamento, estabilidade e crescimento?
 
-O **primeiro recomendado prática** é examinar a taxonomia de organizações do Azure em que são descritas as divisões entre a produção e de subscrições de desenvolvimento. No diagrama seguinte, a taxonomia sugerida permite uma separação lógica de ambientes de desenvolvimento/teste e produção. Com esta abordagem, uma organização pode introduzir códigos de faturas para controlar os custos associados a cada ambiente separadamente. Para obter mais informações, consulte [governação de subscrições prescritiva](/architecture/cloud-adoption/appendix/azure-scaffold). Além disso, pode usar [etiquetas do Azure](../azure-resource-manager/resource-group-using-tags.md) para organizar recursos para controlar e fins de faturação.
+O **primeiro recomendado prática** é examinar a taxonomia de organizações do Azure em que são descritas as divisões entre a produção e de subscrições de desenvolvimento. No diagrama seguinte, a taxonomia sugerida permite uma separação lógica de ambientes de desenvolvimento/teste e produção. Com esta abordagem, uma organização pode introduzir códigos de faturas para controlar os custos associados a cada ambiente separadamente. Para obter mais informações, consulte [governação de subscrições prescritiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold). Além disso, pode usar [etiquetas do Azure](../azure-resource-manager/resource-group-using-tags.md) para organizar recursos para controlar e fins de faturação.
 
 O **prática recomendada segundo** consiste em ativar a subscrição de Dev/Test no portal do Azure Enterprise. Ele permite que uma organização executar sistemas operativos cliente que não estão normalmente disponíveis numa subscrição do Azure enterprise. Em seguida, utilize o software empresarial em que paga apenas a computação e não não se preocupe sobre o licenciamento. Ele garante que serviços designados, incluindo imagens da galeria no IaaS, como o Microsoft SQL Server, a faturação baseia-se no consumo apenas. Pode encontrar detalhes sobre a subscrição do Azure DevTest [aqui](https://azure.microsoft.com/offers/ms-azr-0148p/) para clientes Enterprise Agreement (EA) e [aqui](https://azure.microsoft.com/offers/ms-azr-0023p/) para clientes Pay as you Go.
 

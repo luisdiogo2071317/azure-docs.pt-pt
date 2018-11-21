@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435053"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274743"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Gerir o acesso a gestão do Azure com o acesso condicional
 
@@ -32,7 +32,7 @@ Para criar uma política de gestão do Azure, selecione **Microsoft Azure Manage
 
 ![Acesso condicional para a gestão do Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-A política a que criar aplica-se a todos os pontos finais de gestão do Azure, incluindo o portal clássico do Azure, o portal do Azure, o fornecedor do Azure Resource Manager, clássico APIs de gestão de serviço e o Azure PowerShell.
+A política a que criar aplica-se a todos os pontos finais de gestão do Azure, incluindo o portal clássico do Azure, o portal do Azure, o fornecedor do Azure Resource Manager, clássico APIs de gestão de serviço e o Azure PowerShell. Tenha em atenção que a política se aplica ao Azure PowerShell, que chama a API do Azure Resource Manager. Não é aplicável a [do Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), que chama o Microsoft Graph.
 
 > [!CAUTION]
 > Certifique-se de que compreende como o acesso condicional funciona antes de configurar uma política para gerir o acesso a gestão do Azure. Certifique-se de que não criar condições que podem bloquear o seu próprio acesso ao portal.

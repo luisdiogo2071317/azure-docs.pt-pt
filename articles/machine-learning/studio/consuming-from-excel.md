@@ -3,8 +3,8 @@ title: Consumir um serviço Web do Machine Learning a partir do Excel | Document
 description: Consumir um serviço de Web do Azure Machine Learning a partir do Excel
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: 88150763d7deeda2e4fcba896df56d012d58cd1d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 241f482aa24d45788277813a0f11cde326057222
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821961"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265037"
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Consumir um serviço Web do Azure Machine Learning a partir do Excel
  O Azure Machine Learning Studio facilita chamar serviços web diretamente a partir do Excel sem a necessidade de escrever qualquer código.

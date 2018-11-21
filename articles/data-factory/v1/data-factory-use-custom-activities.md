@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730720"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276011"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -212,7 +212,7 @@ O método retorna um dicionário que pode ser utilizado para encadear atividades
         foreach (LinkedService ls in linkedServices)
             logger.Write("linkedService.Name {0}", ls.Name);
     
-        // get the first Azure Storate linked service from linkedServices object
+        // get the first Azure Storage linked service from linkedServices object
         // using First method instead of Single since we are using the same
         // Azure Storage linked service for input and output.
         inputLinkedService = linkedServices.First(
@@ -358,7 +358,7 @@ O método retorna um dicionário que pode ser utilizado para encadear atividades
     }
     ```
 
-    O método GetFolderPath retorna o caminho para a pasta que o conjunto de dados aponta para e o método GetFileName devolve o nome do que o conjunto de dados aponta para ficheiro/blob. Se havefolderPath define a utilização de variáveis, como {Year}, {Month}, devolve {Day} etc., o método a cadeia de caracteres como ele é sem substituí-los com os valores de tempo de execução. Ver [acesso a Propriedades estendidas](#access-extended-properties) secção para obter detalhes sobre como acessar SliceStart, SliceEnd, etc.    
+    O método GetFolderPath retorna o caminho para a pasta que o conjunto de dados aponta para e o método GetFileName devolve o nome do que o conjunto de dados aponta para ficheiro/blob. Se tiver folderPath define a utilização de variáveis, como {Year}, {Month}, devolve {Day} etc., o método a cadeia de caracteres como ele é sem substituí-los com os valores de tempo de execução. Ver [acesso a Propriedades estendidas](#access-extended-properties) secção para obter detalhes sobre como acessar SliceStart, SliceEnd, etc.    
 
     ```JSON
     "name": "InputDataset",
@@ -640,7 +640,7 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
    ![Setores de saída](./media/data-factory-use-custom-activities/OutputSlices.png)
 4. Certifique-se de que os ficheiros de saída são gerados no armazenamento de BLOBs no **adftutorial** contentor.
 
-   ![saída da atividade personalizada][image-data-factory-ouput-from-custom-activity]
+   ![saída da atividade personalizada][image-data-factory-output-from-custom-activity]
 5. Se abrir o ficheiro de saída, deverá ver uma saída semelhante à seguinte saída:
 
     ```
@@ -1063,6 +1063,6 @@ O [do Azure Data Factory - ambiente local](https://github.com/gbrueckl/Azure.Dat
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
 
-[image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
+[image-data-factory-output-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png

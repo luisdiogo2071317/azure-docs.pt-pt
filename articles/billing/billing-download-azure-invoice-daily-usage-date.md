@@ -1,11 +1,11 @@
 ---
 title: Transferir fatura do Azure e dados de uso diário | Microsoft Docs
-description: Descreve como transferir ou visualizar seus dados do Azure faturas da fatura e diário utilização.
-keywords: cobrança de fatura, a transferência de faturas, a fatura do azure, utilização do azure
+description: Descreve como transferir ou visualizar seus dados do Azure faturas da nota fiscal e diário utilização.
+keywords: cobrança de nota fiscal, a transferência de faturas, a fatura do azure, utilização do azure
 services: billing
 documentationcenter: ''
 author: genlin
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 ms.service: billing
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: f0cdfef50c07674a08766933f2f7edfc946462a4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9067162c6f1bd95b0a1c25bef17836b19ecf6946
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395020"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276114"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixe ou exiba sua fatura do Azure e dados de utilização diária
 Pode transferir a fatura do [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) ou enviá-lo no e-mail. Para transferir a sua utilização diária, vá para o [Centro de contas do Azure](https://account.azure.com/Subscriptions). Apenas determinadas funções do utilizador tem permissão para obter fatura e as informações de utilização, como o administrador de conta. Para saber mais sobre como obter acesso a informações de faturação, veja [Gerir acesso às funções de utilização de faturação do Azure](billing-manage-access.md).
@@ -102,13 +102,13 @@ Para obter mais informações sobre a sua utilização diária, veja [Compreende
 
 Pode haver vários motivos para não ver uma fatura:
 
-- Tem um montante de crédito mensal com a sua subscrição que não foi excedido ou tiver uma avaliação gratuita. Uma fatura é gerada apenas quando deve dinheiro.
+- A sua subscrição inclui um montante de crédito mensal que não excedeu ou tem uma Avaliação Gratuita. Uma fatura é gerada apenas quando deve dinheiro.
 
-- É menos de 30 dias a partir do dia que subscrito para o Azure.
+- Passaram menos de 30 dias desde o dia em que subscreveu o Azure.
 
 - A fatura ainda não foi gerada. Aguarde até ao fim do período de faturação.
 
-- Se não for o administrador de conta, as faturas mais antigas podem não estar disponíveis para.
+- Se não for o Administrador de Conta, as faturas mais antigas podem não estar disponíveis para si.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 Se ainda tiver mais perguntas, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para a sua questão resolvidos rapidamente.

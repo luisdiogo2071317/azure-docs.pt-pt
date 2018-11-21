@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 984d4675aa96a890e7fa14f45eb6412bbd2ddc6f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161689"
+ms.locfileid: "52263898"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Débito de aprovisionar em contentores de Cosmos do Azure e bases de dados
 
@@ -67,7 +67,6 @@ Pode combinar os dois modelos, aprovisionamento de débito no banco de dados e o
 
 |**Quota**  |**Débito aprovisionado num banco de dados**  |**Débito aprovisionado num contentor**|
 |---------|---------|---------|
-|Unidade de escalabilidade|Contentor|Contentor|
 |RUs mínimo |400 |400|
 |RUs mínimas por contentor|100|400|
 |RUs mínimas necessária para consumir a 1 GB de armazenamento|40|40|

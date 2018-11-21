@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a881ea18558e49656dc165d1545250bffeac4303
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 01603655be9b6051be9b894da4e55338ff4df810
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713084"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262130"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar a utilização de dados do Log Analytics
 
@@ -29,37 +29,127 @@ ms.locfileid: "51713084"
 > - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](log-analytics-manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
 > - [Monitorizar a utilização e custos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como ver a utilização e custos estimados no Azure de várias funcionalidades para diferentes modelos de preços de monitorização. Também descreve como alterar o modelo de preços.
 
-O Log Analytics inclui informações sobre a quantidade de dados recolhidos, as origens que enviaram dados e os diferentes tipos de dados enviados.  Utilize o dashboard **Utilização do Log Analytics** para rever e analisar a utilização de dados. O dashboard mostra quantos dados são recolhidos por cada solução e a quantidade de dados que os seus computadores estão a enviar.
+## <a name="understand-usage"></a>Compreender a utilização
 
-## <a name="understand-the-usage-dashboard"></a>Compreender o dashboard Utilização
-O dashboard **Utilização do Log Analytics** apresenta as informações seguintes:
+Uso **utilização do Log Analytics e os custos estimados** para rever e analisar a utilização de dados. Mostra a quantidade de dados é recolhido por cada solução, a quantidade de dados está a ser retido e uma estimativa dos seus custos com base na quantidade de dados ingeridos e qualquer retenção adicional que ultrapassem o montante incluído.
 
-- Volume de dados
-    - Volume de dados ao longo do tempo (baseado no seu âmbito de período de tempo atual)
-    - Volume de dados por solução
-    - Dados não associados a um computador
-- Computadores
-    - Computadores que estão a enviar dados
-    - Computadores sem dados nas últimas 24 horas
-- Ofertas
-    - Nós das Informações e Análise de Dados
-    - Nós de Automatização e Controlo
-    - Nós de segurança  
-- Desempenho
-    - Tempo decorrido para recolher e indexar dados  
-- Lista de consultas
+![Utilização e custos estimados](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 
-![Dashboard de utilização e custo](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
+Para explorar os seus dados em mais detalhes, clique no ícone na parte superior direita do qualquer um dos gráficos no **utilização e custos estimados** página. Agora pode trabalhar com esta consulta para explorar mais detalhes da sua utilização.  
+
+![Ver registos](media/log-analytics-usage/logs.png)<br>
+
+## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Resolver o motivo pelo qual a utilização é superior ao esperado
+A utilização superior deve-se a um ou a ambos os motivos abaixo:
+- Estão a ser enviados para o Log Analytics mais dados do que o esperado
+- Estão a ser enviados dados para o Log Analytics por mais nós do que o esperado
+
+### <a name="data-volume"></a>Volume de dados 
+Sobre o **utilização e custos estimados** página, o *ingestão de dados por solução* gráfico mostra o volume total de dados enviados e a quantidade está a ser enviado por cada solução. Isto permite-lhe determinar as tendências, como se a utilização de dados global (ou a utilização por uma solução específica) está a crescer, permanece estável ou diminui. É a consulta usada para gerar este
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Tenha em atenção que a cláusula "onde IsBillable = true" filtra tipos de dados de algumas soluções para o qual não é cobrado ingestão. 
+
+Pode explorar mais a ver as tendências de dados para tipos de dados específicos, por exemplo, se quiser estudar os dados devido a registos do IIS:
+
+`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="nodes-sending-data"></a>Nós a enviar dados
+
+Para undersand o número de nós de dados de relatórios no mês passado, utilize
+
+`Heartbeat | where TimeGenerated > startofday(ago(31d))
+| summarize dcount(ComputerIP) by bin(TimeGenerated, 1d)    
+| render timechart`
+
+Para ver a contagem de eventos ingeridos por computador, utilize
+
+`union withsource = tt *
+| summarize count() by Computer |sort by count_ nulls last`
+
+Utilize esta consulta moderadamente, uma vez que é dispendiosa. Se quiser ver os tipos de dados são sendng dados a um computador específico, utilize:
+
+`union withsource = tt *
+| where Computer == "*computer name*"
+| summarize count() by tt |sort by count_ nulls last `
+
+> [!NOTE]
+> Alguns dos campos do tipo de dados de utilização, enquanto ainda está no esquema, foram preteridos e serão que seus valores já não são preenchidos. Estes são **computador** , bem como campos relacionados com a ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**,  **BatchesCapped** e **AverageProcessingTimeMs**.
+
+Para saber mais sobre a origem de dados para um tipo de dados específico, aqui estão algumas consultas de exemplo úteis:
+
++ Solução de **Segurança**
+  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
++ Solução de **Gestão de Registos**
+  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
++ Tipo de dados de **Desempenho**
+  - `Perf | summarize AggregatedValue = count() by CounterPath`
+  - `Perf | summarize AggregatedValue = count() by CounterName`
++ Tipo de dados de **Evento**
+  - `Event | summarize AggregatedValue = count() by EventID`
+  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
++ Tipo de dados de **Syslog**
+  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
+  - `Syslog | summarize AggregatedValue = count() by ProcessName`
++ Tipo de dados de **AzureDiagnostics**
+  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
+
+### <a name="tips-for-reducing-data-volume"></a>Dicas para reduzir o volume de dados
+
+Algumas sugestões para reduzir o volume de registos recolhidos incluem:
+
+| Origem do volume de dados elevado | Como reduzir o volume de dados |
+| -------------------------- | ------------------------- |
+| Eventos de segurança            | Selecione [eventos de segurança comuns ou mínimos](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Altere a política de auditoria de segurança para recolher apenas os eventos necessários. Em particular, reveja a necessidade de recolher eventos para <br> - [auditar a plataforma de filtragem](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar o registo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar o sistema de ficheiros](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar o objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar a manipulação de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> -Auditar o armazenamento amovível |
+| Contadores de desempenho       | Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md) para: <br> - Reduzir a frequência da recolha <br> - Reduzir o número de contadores de desempenho |
+| Registos de eventos                 | Altere a [configuração do registo de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
+| Syslog                     | Altere a [configuração do syslog](log-analytics-data-sources-syslog.md) para: <br> - Reduzir o número de instalações recolhidas <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* e *Depuração* |
+| AzureDiagnostics           | Alterar a coleção de registo de recursos para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
+| Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../azure-monitor/insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
+
+### <a name="getting-node-counts"></a>Ao obter contagens de nó 
+
+Se estiver a utilizar "Por nó (OMS)" escalão de preço, em seguida, é cobrado com base no número de nós e soluções utilizar, o número de informações e nós de análise que lhe está a ser cobrada serão apresentados na tabela no **utilização e custos estimados**página.  
+
+Para ver o número de nós de segurança distintas, pode utilizar a consulta:
+
+`union
+(
+    Heartbeat
+    | where (Solutions has 'security' or Solutions has 'antimalware' or Solutions has 'securitycenter')
+    | project Computer
+),
+(
+    ProtectionStatus
+    | where Computer !in~
+    (
+        (
+            Heartbeat
+            | project Computer
+        )
+    )
+    | project Computer
 )
+| distinct Computer
+| project lowComputer = tolower(Computer)
+| distinct lowComputer
+| count`
 
-### <a name="to-work-with-usage-data"></a>Trabalhar com dados de utilização
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](media/log-analytics-usage/azure-portal-01.png)<br><br>  
-3. Na lista de áreas de trabalho do Log Analytics, selecione uma área de trabalho.
-4. Selecione **Utilização e custos estimados** da lista no painel esquerdo.
-5. No dashboard **Utilização e custos estimados**, pode modificar o intervalo de tempo ao selecionar **Período: últimas 24 horas** e alterar o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Veja os painéis da categoria de utilização que mostra áreas em que está interessado. Escolha um painel e clique num item no mesmo para ver mais detalhes na [Pesquisa de Registos](log-analytics-queries.md).<br><br> ![exemplo de kpi de utilização de dados](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
-7. No dashboard da Pesquisa de Registos, reveja os resultados devolvidos pela pesquisa.<br><br> ![exemplo de pesquisa de registos de utilização](./media/log-analytics-usage/usage-log-search-01.png)
+Para ver o número de nós de automatização distintos, utilize a consulta:
+
+` ConfigurationData 
+ | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
+ | extend lowComputer = tolower(Computer) | summarize by lowComputer 
+ | join (
+     Heartbeat 
+       | where SCAgentChannel == "Direct"
+       | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
+ ) on lowComputer
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Criar um alerta quando a recolha de dados for superior ao esperado
 Esta secção descreve como criar um alerta se:
@@ -109,68 +199,6 @@ Quando criar o alerta para a segunda consulta – quando se previr que vai haver
 Especifique um existente ou crie um novo [Grupo de Ação](../monitoring-and-diagnostics/monitoring-action-groups.md), para que quando o alerta de registo corresponda aos critérios, seja notificado.
 
 Quando receber um alerta, utilize os passos da secção seguinte para resolver o motivo pelo qual a utilização é superior ao esperado.
-
-## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Resolver o motivo pelo qual a utilização é superior ao esperado
-O dashboard de utilização ajuda-o a identificar o porquê de a utilização (e consequentemente o custo) ser superior ao que estava à espera.
-
-A utilização superior deve-se a um ou a ambos os motivos abaixo:
-- Estão a ser enviados para o Log Analytics mais dados do que o esperado
-- Estão a ser enviados dados para o Log Analytics por mais nós do que o esperado
-
-### <a name="check-if-there-is-more-data-than-expected"></a>Verificar se há mais dados do que o esperado 
-Há duas secções principais da página de utilização que ajudam a identificar o porquê de estarem a ser recolhidos mais dados.
-
-O gráfico *Volume de dados ao longo do tempo* mostra o volume total de dados enviados e os computadores que enviam mais dados. O gráfico na parte superior permite-lhe ver se a utilização de dados global está a crescer, permanece estável ou diminui. A lista de computadores mostra os dez computadores que estão a enviar mais dados.
-
-O gráfico *Volume de dados por solução* mostra o volume de dados que são enviados por cada solução e as soluções que estão a enviar mais dados. O gráfico na parte superior mostra o volume total de dados que são enviados por cada solução ao longo do tempo. Com estas informações, pode determinar se uma solução está a enviar mais dados, mais ou menos a mesma quantidade de dados ou menos dados ao longo do tempo. A lista de soluções mostra as dez soluções que estão a enviar mais dados. 
-
-Estes dois gráficos apresentam todos os dados. Alguns dados estão sujeitos a faturação, enquanto outros dados são gratuitos. Para se centrar apenas nos dados sujeitos a faturação, modifique a consulta na página de pesquisa de forma a incluir `IsBillable=true`.  
-
-![gráficos de volumes de dados](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
-
-Observe o gráfico *Volume de dados ao longo do tempo*. Para ver as soluções e os tipos de dados que estão a enviar mais dados relativamente a um determinado computador, clique no nome do computador. Clique no nome do primeiro computador na lista.
-
-Na captura de ecrã seguinte, o tipo de dados *Gestão de Registos / Desempenho* está a enviar mais dados para o computador.<br><br> ![volume de dados de um computador](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)<br><br>
-
-Em seguida, regresse ao dashboard *Utilização* e veja o gráfico *Volume de dados por solução*. Para ver que computadores estão a enviar mais dados relativamente a uma solução, clique no nome da solução na lista. Clique no nome da primeira solução na lista. 
-
-Na captura de ecrã seguinte, confirma-se que é o computador *mycon* que está a enviar mais dados para a solução Gestão de Registos.<br><br> ![volume de dados de uma solução](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
-
-Se for necessário, execute uma análise adicional para identificar volumes de grandes dimensões dentro de uma solução ou tipo de dados. As consultas de exemplo incluem:
-
-+ Solução de **Segurança**
-  - `SecurityEvent | summarize AggregatedValue = count() by EventID`
-+ Solução de **Gestão de Registos**
-  - `Usage | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | summarize AggregatedValue = count() by DataType`
-+ Tipo de dados de **Desempenho**
-  - `Perf | summarize AggregatedValue = count() by CounterPath`
-  - `Perf | summarize AggregatedValue = count() by CounterName`
-+ Tipo de dados de **Evento**
-  - `Event | summarize AggregatedValue = count() by EventID`
-  - `Event | summarize AggregatedValue = count() by EventLog, EventLevelName`
-+ Tipo de dados de **Syslog**
-  - `Syslog | summarize AggregatedValue = count() by Facility, SeverityLevel`
-  - `Syslog | summarize AggregatedValue = count() by ProcessName`
-+ Tipo de dados de **AzureDiagnostics**
-  - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
-
-Utilize os seguintes passos para reduzir o volume de registos recolhidos:
-
-| Origem do volume de dados elevado | Como reduzir o volume de dados |
-| -------------------------- | ------------------------- |
-| Eventos de segurança            | Selecione [eventos de segurança comuns ou mínimos](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Altere a política de auditoria de segurança para recolher apenas os eventos necessários. Em particular, reveja a necessidade de recolher eventos para <br> - [auditar a plataforma de filtragem](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [auditar o registo](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditar o sistema de ficheiros](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditar o objeto de kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditar a manipulação de identificadores](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> -Auditar o armazenamento amovível |
-| Contadores de desempenho       | Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md) para: <br> - Reduzir a frequência da recolha <br> - Reduzir o número de contadores de desempenho |
-| Registos de eventos                 | Altere a [configuração do registo de eventos](log-analytics-data-sources-windows-events.md) para: <br> - Reduzir o número de registos de eventos recolhidos <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* |
-| Syslog                     | Altere a [configuração do syslog](log-analytics-data-sources-syslog.md) para: <br> - Reduzir o número de instalações recolhidas <br> - Recolher apenas níveis de eventos necessários. Por exemplo, não recolher eventos de nível *Informação* e *Depuração* |
-| AzureDiagnostics           | Alterar a coleção de registo de recursos para: <br> - Reduzir o número de registos de envio de recursos do Log Analytics <br> - Recolher apenas registos necessários |
-| Dados de solução de computadores que não precisam da solução | Utilize a [segmentação de soluções](../azure-monitor/insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários. |
-
-### <a name="check-if-there-are-more-nodes-than-expected"></a>Verificar se há mais nós do que o esperado
-Se estiver a utilizar o *por nó (Log Analytics)* escalão de preço, em seguida, é cobrado com base no número de nós e soluções que utiliza. Pode ver quantos nós de cada oferta estão a ser utilizados na secção *ofertas* do dashboard de utilização.<br><br> ![dashboard de utilização](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
-
-Clique em **Ver todos...** para ver a lista completa dos computadores que estão a enviar dados para a oferta selecionada.
-
-Utilize a [segmentação de soluções](../azure-monitor/insights/solution-targeting.md) para recolher dados apenas de grupos de computadores necessários.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Veja [Pesquisas de registos no Log Analytics](log-analytics-queries.md) para aprender a utilizar a linguagem de pesquisa. Pode utilizar as consultas de pesquisa para executar análises adicionais aos dados de utilização.

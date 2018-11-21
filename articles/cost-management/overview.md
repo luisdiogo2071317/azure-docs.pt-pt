@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: overview
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 9f0eac454d6ac937fc3313e4c50f8872e320c7ca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 2125863f212b9e79b88e9f46ed0eb0def71d79b4
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985389"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276198"
 ---
 # <a name="what-is-cloudyn"></a>O que é a Cloudyn?
 
@@ -23,7 +23,7 @@ A Cloudyn, uma subsidiária da Microsoft, permite-lhe controlar a utilização d
 
 Para ver um vídeo introdutório, veja [Introduction to Azure Cloudyn (Introdução à Azure Cloudyn)](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
-O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar custos, a criar e gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com recomendações de otimização para economizar dinheiro. Para obter mais informações, consulte [Azure Cost Management](overview-cost-mgt.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="monitor-usage-and-spending"></a>Monitorizar a utilização e os gastos
 
@@ -47,7 +47,7 @@ Pode determinar a utilização da VM ideal e identificar as VM inativas ou remov
 
 Se aprovisionou Instâncias Reservadas do AWS, pode melhorar a sua utilização de instâncias reservadas com relatórios de Otimização, onde pode ver recomendações de compra, modificar reservas e planear o aprovisionamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que está familiarizado com a Cloudyn, o passo seguinte é registar o seu ambiente cloud e começar a explorar os seus dados.
 

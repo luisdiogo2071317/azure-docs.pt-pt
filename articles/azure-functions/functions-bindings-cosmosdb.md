@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 6f3b568fb23de51990f96a86cdc2b1814afe4530
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249927"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276215"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB enlaces das funções do Azure 1.x
 
@@ -1103,9 +1103,9 @@ Eis o código JavaScript:
 
 <a name="infsharp"></a>
 
-### <a name="input---f-examples"></a>Introdução - exemplos do F #
+### <a name="input---f-examples"></a>Entrada - F# exemplos
 
-O exemplo seguinte mostra um enlace de entrada do Cosmos DB num *Function* ficheiro e uma [função F #](functions-reference-fsharp.md) que utiliza o enlace. A função lê um único documento e atualiza o valor de texto do documento.
+O exemplo seguinte mostra um enlace de entrada do Cosmos DB num *Function* ficheiro e uma [ F# função](functions-reference-fsharp.md) que utiliza o enlace. A função lê um único documento e atualiza o valor de texto do documento.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -1123,7 +1123,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 
 O [configuração](#input---configuration) seção explica essas propriedades.
 
-Eis o código F #:
+Aqui está o F# código:
 
 ```fsharp
     (* Change input document contents using Azure Cosmos DB input binding *)
@@ -1147,7 +1147,7 @@ Este exemplo requer um `project.json` ficheiro que especifica o `FSharp.Interop.
 }
 ```
 
-Para adicionar um `project.json` de ficheiros, consulte [gestão de pacotes do F #](functions-reference-fsharp.md#package).
+Para adicionar um `project.json` de ficheiros, consulte [ F# gestão de pacotes](functions-reference-fsharp.md#package).
 
 ## <a name="input---attributes"></a>Introdução - atributos
 
@@ -1175,7 +1175,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="input---usage"></a>Introdução - utilização
 
-No c# e F # funções, quando a função é encerrado com êxito, todas as alterações efetuadas ao documento de entrada através de parâmetros nomeados de entrada são mantidas automaticamente. 
+No C# e F# funções, quando a função é encerrado com êxito, todas as alterações efetuadas ao documento de entrada por meio de entrada nomeada parâmetros são mantidos automaticamente. 
 
 Nas funções de JavaScript, as atualizações não são feitas automaticamente ao sair de função. Em alternativa, utilize `context.bindings.<documentName>In` e `context.bindings.<documentName>Out` para disponibilizar as atualizações. Consulte a [exemplo de JavaScript](#input---javascript-example).
 
@@ -1196,7 +1196,7 @@ Consulte também os [entrado de exemplo](#input---c-examples) que utiliza `Docum
 
 [Ignorar os exemplos de saída](#output---attributes)
 
-### <a name="ouput---c-examples"></a>Saída - exemplos de c#
+### <a name="output---c-examples"></a>Saída - C# exemplos
 
 Esta secção contém os exemplos seguintes:
 
@@ -1477,9 +1477,9 @@ Eis o código JavaScript:
 
 [Ignorar os exemplos de saída](#output---attributes)
 
-### <a name="output---f-examples"></a>Saída - exemplos do F #
+### <a name="output---f-examples"></a>Saída - F# exemplos
 
-O exemplo seguinte mostra uma saída de Azure Cosmos DB ligando uma *Function* ficheiro e uma [função F #](functions-reference-fsharp.md) que utiliza o enlace. A função usa um enlace de entrada de fila de uma fila que recebe JSON no seguinte formato:
+O exemplo seguinte mostra uma saída de Azure Cosmos DB ligando uma *Function* ficheiro e uma [ F# função](functions-reference-fsharp.md) que utiliza o enlace. A função usa um enlace de entrada de fila de uma fila que recebe JSON no seguinte formato:
 
 ```json
 {
@@ -1515,7 +1515,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 ```
 O [configuração](#output---configuration) seção explica essas propriedades.
 
-Eis o código F #:
+Aqui está o F# código:
 
 ```fsharp
     open FSharp.Interop.Dynamic
@@ -1553,7 +1553,7 @@ Este exemplo requer um `project.json` ficheiro que especifica o `FSharp.Interop.
 }
 ```
 
-Para adicionar um `project.json` de ficheiros, consulte [gestão de pacotes do F #](functions-reference-fsharp.md#package).
+Para adicionar um `project.json` de ficheiros, consulte [ F# gestão de pacotes](functions-reference-fsharp.md#package).
 
 ## <a name="output---attributes"></a>Saída - atributos
 

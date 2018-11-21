@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 614d6aef4a2b7be551574fd3c8e25e2a3e3c1c07
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028654"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275998"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento do SAP HANA (instâncias grandes)
 
-O esquema de armazenamento para o SAP HANA no Azure (instâncias grandes) é configurado pelo SAP HANA no modelo de implementação clássica através do SAP diretrizes recomendada. As diretrizes estão documentadas no [requisitos de armazenamento do SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
+O esquema de armazenamento para o SAP HANA no Azure (instâncias grandes) é configurado pelo SAP HANA no modelo de implementação clássica por SAP diretrizes recomendada. As diretrizes estão documentadas no [requisitos de armazenamento do SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
 Instância grande do HANA, do tipo de classe que é fornecido com quatro vezes o volume de memória como volume de armazenamento. Para a classe de tipo II de unidades de instância grande do HANA, o armazenamento não mais de quatro vezes. As unidades são fornecidos com um volume que pretende armazenar os backups de log de transação do HANA. Para obter mais informações, consulte [instalar e configurar o SAP HANA (instâncias grandes) no Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -33,6 +33,7 @@ Consulte a tabela seguinte em termos de alocação de armazenamento. A tabela li
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
+| S96 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S192 | 4,608 GB | 1024 GB | 1,536 GB | 1024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
@@ -72,7 +73,7 @@ Consultar [cenários suportados de HLI](hana-supported-scenario.md) para obter d
 
 É possível hospedar mais de uma instância ativa do SAP HANA nas unidades de instância grande do HANA. Para fornecer os recursos de instantâneos de armazenamento e recuperação após desastre, esta configuração requer que um volume definido por instância. Atualmente, as unidades de instância grande do HANA puderem ser subdivididas da seguinte forma:
 
-- **S72, S72m, S144, S192**: em incrementos de 256 GB, com 256 GB a unidade de partida mais pequeno. Incrementos diferentes, como 256 GB e 512 GB podem ser combinados para o máximo da memória da unidade.
+- **S72, S72m, S96, S144, S192**: em incrementos de 256 GB, com 256 GB a unidade de partida mais pequeno. Incrementos diferentes, como 256 GB e 512 GB podem ser combinados para o máximo da memória da unidade.
 - **S144m e S192m**: em incrementos de 256 GB, com a menor unidade de 512 GB. Incrementos diferentes, como 512 GB e 768 GB podem ser combinados para o máximo da memória da unidade.
 - **Tipo de classe II**: em incrementos de 512 GB, com a unidade de partida mais pequeno de 2 TB. Incrementos diferentes como 512 GB, 1 TB e 1,5 TB podem ser combinados para o máximo da memória da unidade.
 
@@ -83,7 +84,7 @@ Alguns exemplos de várias instâncias do SAP HANA em execução podem ser semel
 | S72 | 768 GB | 3 TB | instância HANA 1 x 768 GB<br /> ou instância de 1 x 512 GB + 1 x 256 GB de instância<br /> ou instâncias de 3 x 256 GB | 
 | S72m | 1,5 TB | 6 TB | 3x512GB HANA nas instâncias<br />ou a instância de 1 x 512 GB + a instância de 1 x 1 TB<br />ou instâncias de 6 x 256 GB<br />ou instância de 1x1.5 TB | 
 | S192m | 4 TB | 16 TB | instâncias de 8 x 512 GB<br />ou instâncias de 4 x 1 TB<br />ou instâncias de 4 x 512 GB + instâncias de 2 x 1 TB<br />ou instâncias de 4 x 768 GB + 2 x 512 GB instâncias<br />ou instância de 1 x 4 TB |
-| S384xm | 8 TB | 22 TB | instâncias de 4 x 2 TB<br />ou instâncias de 2 4 TB<br />ou instâncias de 2 x 3 TB + instâncias de 1 x 2 TB<br />ou instâncias de 2x2.5 TB + instâncias de 1 x 3 TB<br />ou instância de 1 x 8 TB |
+| S384xm | 8 TB | 22 TB | instâncias de 4 x 2 TB<br />ou instâncias de 2 x 4 TB<br />ou instâncias de 2 x 3 TB + instâncias de 1 x 2 TB<br />ou instâncias de 2x2.5 TB + instâncias de 1 x 3 TB<br />ou instância de 1 x 8 TB |
 
 
 Existem também outras variações. 
@@ -91,7 +92,7 @@ Existem também outras variações.
 ## <a name="encryption-of-data-at-rest"></a>Encriptação de dados inativos
 O armazenamento utilizado para a instância grande do HANA permite a criptografia transparente de dados quando ele é armazenado nos discos. Quando uma unidade de instância grande do HANA é implementada, pode ativar este tipo de criptografia. Também pode alterar para volumes criptografados após a implantação se efetivar. A mudança de não encriptadas para volumes criptografados é transparente e não exige período de indisponibilidade. 
 
-Com o tipo de a classe de SKUs, o volume de arranque LUN é armazenado no é encriptado. Para a classe de tipo II de SKUs de instância grande do HANA, tem de encriptar o arranque LUN com métodos de SO. Para obter mais informações, contacte a equipa de gestão de serviço da Microsoft.
+Com o tipo de a classe de SKUs, o volume de arranque LUN é armazenado, são encriptados. Para a classe de tipo II de SKUs de instância grande do HANA, tem de encriptar o arranque LUN com métodos de SO. Para obter mais informações, contacte a equipa de gestão de serviço da Microsoft.
 
 **Passos seguintes?**
 - Consulte [cenários suportados para instâncias grandes do HANA](hana-supported-scenario.md)

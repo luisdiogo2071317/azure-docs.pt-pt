@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8197e3695da8869806e44775f601d95b17fcb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 902c4c94cc7366af342816e9b4776af603711c8b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028675"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275452"
 ---
 # <a name="know-the-terms"></a>Saber os termos
 
@@ -39,7 +39,7 @@ Várias definições de comuns são amplamente utilizadas na arquitetura e guia 
    Os utilizadores de domínio do domínio no local podem aceder aos servidores e executam serviços nessas VMS (como serviços do DBMS). Resolução de nomes e de comunicação entre VMs implementadas no local e VMs implementadas no Azure, é possível. Este cenário é típico de forma em que a maioria dos ativos SAP são implementados. Para obter mais informações, consulte [planear e conceber para o Gateway de VPN do Azure](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [criar uma rede virtual com uma ligação site a site com o portal do Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Inquilino**: um cliente implementado num carimbo de data / instância grande do HANA obtém isolado num *inquilino.* Um inquilino seja isolado no funcionamento em rede, armazenamento e a camada de computação de outros inquilinos. Unidades de armazenamento e computação atribuídas a diferentes inquilinos não é possível ver uns aos outros ou comunicar entre si no nível de carimbo de data / instância grande do HANA. Um cliente pode optar por implementações em inquilinos diferentes. Mesmo assim, não existe nenhuma comunicação entre inquilinos no nível de carimbo de data / instância grande do HANA.
 - **Categoria SKU**: para a instância grande do HANA, as seguintes duas categorias de SKUs são oferecidas:
-    - **Tipo de classe eu**: S72, S72m, S144, S144m, S192, S192m e S192xm
+    - **Tipo de classe eu**: S72, S72m, S96, S144, S144m, S192, S192m e S192xm
     - **Tipo de classe II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m
 
 

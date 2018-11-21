@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578502"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261076"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a sua opção de publicação
 A opção de publicação que escolher para a oferta está relacionada diretamente para os requisitos de elegibilidade e os benefícios GTM do marketplace. Mais importante, a seleção da opção e o tipo de oferta de publicação no Portal de parceiros de nuvem define como os utilizadores irão interagir com a oferta do marketplace.
@@ -64,26 +64,18 @@ Loja onde sua oferta será apresentada, Azure Marketplace e/ou AppSource, será 
 
 As opções de publicação disponíveis oferecem o envolvimento do cliente diferenciado dando-lhe acesso à partilha de oportunidades potenciais e [benefícios Go-To-Market](https://partner.microsoft.com/en-US/reach-customers/gtm). Selecione entre três opções de publicação possíveis antes de utilizar o Portal de parceiros da Cloud para criar uma oferta do marketplace. Tenha em atenção a chamadas de ação que correspondem a opção de publicação:
 
-**Lista** – simples de listagem do seu aplicativo ou serviço que permite que um utilizador de mercado pedir-lhe ligar-se com o cliente através do **contactar-Me** chamada de ação.
+| **Opção de publicação**    | **Descrição**  |
+| :------------------- | :-------------------|
+| **Lista** | Simples de listagem do seu aplicativo ou serviço que permite que um utilizador de mercado pedir-lhe ligar-se com o cliente através da **contactar-Me** chamada de ação. |
+| **Avaliação** | Utilize o marketplace para otimizar a deteção e automatizar o aprovisionamento de experiência de avaliação da sua aplicação, permitindo que usuários em potencial utilizar a sua experiência de aplicação SaaS, IaaS ou Microsoft sem qualquer custo por tempo limitado antes que compraram. As chamadas de ação utilizada para a opção de publicação de avaliação é: **avaliação gratuita** ou **Test-Drive**. |
+| **Transact** | Seu aplicativo é executado no Azure e pode ser aprovisionado como um recurso diretamente para a subscrição do cliente do Azure quando o cliente seleciona o Get-lo agora de plano de ação. As taxas de licença de software, opcionalmente, podem ser adquiridas e cobradas por meio da opção do cliente do instrumento de pagamento e os termos e pode optar por oferecer acesso de tempo limitado para sua **avaliação gratuita de Software** (disponível apenas para o Azure Marketplace). |
 
-**Avaliação** – marketplace de utilização para melhorar a capacidade de deteção e automatizar o aprovisionamento de experiência de avaliação da sua aplicação, permitindo que usuários em potencial utilizar a sua experiência de aplicação SaaS, IaaS ou Microsoft sem qualquer custo por tempo limitado antes que compraram. As chamadas de ação utilizada para a opção de publicação de avaliação é: **avaliação gratuita** ou **Test-Drive**.
-
-**Transact** – seu aplicativo é executado no Azure e pode ser aprovisionado como um recurso diretamente para a subscrição do cliente do Azure quando o cliente seleciona o Get-lo agora de plano de ação. As taxas de licença de software, opcionalmente, podem ser adquiridas e cobradas por meio da opção do cliente do instrumento de pagamento e os termos e pode optar por oferecer acesso de tempo limitado para sua **avaliação gratuita de Software** (disponível apenas para o Azure Marketplace). 
-
-## <a name="select-an-offer-type"></a>Selecione um tipo de oferta
-
-Uma vez que opte por utilizar uma opção de publicação, está pronto para selecionar o tipo de oferta que será utilizado para apresentar a sua oferta. 
-
-A oferta é o objeto de publicação que irá criar, publicar e gerir no Portal de parceiros de nuvem. A estrutura de oferta, incluindo os metadados, artefactos e outros conteúdos utilizado para apresentar a oferta no marketplace é definida pelo tipo de oferta.
-
-Antes de poder criar uma oferta, tem de escolher um tipo de oferta. O tipo de oferta irão corresponder ao tipo de solução, aplicação, ou oferta de serviço que pretende publicar, bem como o alinhamento de produtos e serviços Microsoft. 
-
-Um tipo de oferta único pode ser configurado de forma diferente no Portal de parceiros na Cloud para ativar as diferentes opções de publicação, chamadas de ação, preços ou aprovisionamento. A opção de publicação e a configuração do tipo de oferta também se alinham com os requisitos técnicos e de elegibilidade de oferta. 
-
-Certifique-se de que reveja loja e oferecem os requisitos de elegibilidade de tipo desta [Guia do publicador](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) e a técnica de publicação requisitos antes de criar a sua oferta.
+>[!Note]
+>Ao utilizar o Transact a opção de publicação, é importante compreender os preços, faturação, faturação e considerações de dividendos antes de selecionar um tipo de oferta e a criar a sua oferta. Reveja os [comerciais considerações de faturação do Marketplace e artigo para saber mais](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## <a name="next-steps"></a>Próximos Passos
 
+*   Quando decidir qual uma opção de publicação, estará pronto para [selecione o tipo de oferta](./publisher-guide-by-offer-type.md) que será utilizado para apresentar a sua oferta.
 *   Reveja os requisitos de elegibilidade nas opções de publicação pela secção de tipo de oferta para finalizar a seleção e a configuração da sua oferta.
 *   Consulte os padrões de publicação, a loja para obter exemplos sobre como sua solução é mapeada para um tipo de oferta e a configuração.
 *   Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com) para criar e configurar a sua oferta.

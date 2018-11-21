@@ -3,8 +3,8 @@ title: Reparametrizar modelos do Machine Learning programaticamente | Documentos
 description: Saiba como voltar a preparar um modelo e atualize o serviço web para utilizar o modelo treinado recentemente no Azure Machine Learning programaticamente.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: e6be52dbfbe6f5d51589f3a3738013dedeee6bdd
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 2dd72446bd1238b7c70535bf848d52909f82d990
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824766"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262232"
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Voltar a preparar modelos do Machine Learning programaticamente
 Nestas instruções, irá aprender a reenviar programaticamente do Azure Machine Learning Web Service usando C# e o serviço de Machine Learning Batch Execution.

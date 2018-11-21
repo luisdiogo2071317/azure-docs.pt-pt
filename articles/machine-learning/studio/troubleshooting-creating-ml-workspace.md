@@ -3,8 +3,8 @@ title: 'Resolução de problemas: Criar e ligar a uma área de trabalho do Machi
 description: Soluções para problemas comuns de criar e ligar a uma área de trabalho do Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 678d422cc241a75c1e3dc0c644f0ac5055750ca3
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f86018c78de842717bf387c007fdd4c7cd048ef1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824154"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265207"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guia de resolução de problemas: criar e ligar a uma área de trabalho do Machine Learning
 Este guia fornece soluções para alguns encontrados com freqüência desafios quando estiver a configurar áreas de trabalho do Azure Machine Learning.

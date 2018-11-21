@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: bbd232c819a11de691c4d3c3209273b064eddf62
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963442"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275509"
 ---
 # <a name="manage-budgets"></a>Gerir orçamentos
 
@@ -27,7 +27,7 @@ Com base nos orçamentos atribuídos, pode definir alertas de limiar com base na
 
 Os relatórios de orçamento mostram o orçamento atribuído. Os utilizadores podem ver quando seus gastos é através de, em ou semelhante com o respetivo consumo ao longo do tempo. Quando seleciona **Mostrar/ocultar campos** na parte superior de um relatório de orçamento, pode ver o custo, o orçamento, o custo acumulado ou o orçamento total.
 
-O Azure Cost Management oferece uma funcionalidade semelhante ao Cloudyn. O Azure Cost Management é uma solução de gestão de custos do Azure nativo. Ele ajuda a analisar os custos, crie e gira orçamentos, exportar dados e reveja e atuar em recomendações de otimização para poupar dinheiro. Para obter mais informações sobre os orçamentos no Cost Management, consulte [criar e gerir orçamentos](tutorial-acm-create-budgets.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações sobre os orçamentos no Cost Management, consulte [criar e gerir orçamentos](tutorial-acm-create-budgets.md).
 
 ## <a name="create-budgets"></a>Criar orçamentos
 

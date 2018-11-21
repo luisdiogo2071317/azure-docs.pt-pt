@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: roiyz
-ms.openlocfilehash: c0d9494d24feaee80a9be92f047ca1d91d42c82c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 87d15f7b351f2b8b6a8c010651d82faa66b28918
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452229"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276470"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utilizar a versão 2 do Azure Custom Script extensão com máquinas virtuais do Linux
 A versão 2 do Custom Script extensão transfere e executa scripts em máquinas virtuais do Azure. Esta extensão é útil para configuração de pós-implementação, instalação de software ou qualquer outra tarefa de gestão de configuração /. Pode baixar scripts a partir do armazenamento do Azure ou noutra localização acessível da internet ou pode fornecê-los para o tempo de execução de extensão. 
@@ -92,7 +92,7 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":123456789,          
+      "timestamp":123456789          
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",
@@ -109,10 +109,10 @@ Esses itens devem ser tratados como dados confidenciais e especificados na confi
 
 | Nome | Valor / exemplo | Tipo de Dados | 
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.Compute.Extensions | cadeia |
 | tipo | CustomScript | cadeia |
-| typeHandlerVersion | 2.0 | Int |
+| typeHandlerVersion | 2.0 | int |
 | fileUris (por exemplo) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (por exemplo) | Python MyPythonScript.py < my param1 > | cadeia |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | cadeia |
