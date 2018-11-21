@@ -2,7 +2,7 @@
 title: Resolver problemas de vistas de custo de enterprise do Azure | Documentos da Microsoft
 description: Saiba como resolver quaisquer problemas que poderá ter com exibições de custo organizacional no portal do Azure.
 author: rthorn17
-manager: rithorn
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: billing
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 853307f24574e6cea5841bcace815fea2bbcf2c8
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: be74714667c2fed57a797a972ddcd7949cae5933
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47390669"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274675"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Resolver problemas de vistas de custos empresariais 
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 88df62b6e8c4eb519c51d82763634cf7d6d14418
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625832"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262657"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
@@ -37,7 +37,7 @@ R: eles são a mesma coisa. [O log Analytics está a ser integrado como uma func
 R: pesquisa de registos de atualmente, está ainda disponível no portal do OMS e no portal do Azure com o nome **registos (clássico)**. Portal do OMS será oficialmente retirado a 15 de Janeiro de 2019. A experiência de registos clássica no portal do Azure vai ser descontinuada gradualmente e substituído a nova experiência de registos. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>P. Posso continuar a utilizar Portal de análise avançadas? 
-A nova experiência de registos no portal do Azure se baseia a [Portal da análise avançada](https://portal.loganalytics.io/), mas ele ainda pode ser acessado fora do portal do Azure. O mapa para extinguir este portal externo será anunciado em breve.
+A nova experiência de registos no portal do Azure baseia-se no Portal da análise avançada, mas ele ainda pode ser acessado fora do portal do Azure. O mapa para extinguir este portal externo será anunciado em breve.
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>P. Por que não é possível ver o Explorador de consultas e guardar os botões na nova experiência de registos?
 
@@ -71,7 +71,7 @@ R: para aceder a uma área de trabalho no Azure, tem de ter permissões do Azure
 R: estruturador de vistas de só está disponível nos registos para os utilizadores com permissões de Contribuidor ou superior.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>P. Posso continuar a utilizar o portal do Analytics fora do Azure?
-R. Sim, os registos de página no Azure e o [portal da análise avançada](https://portal.loganalytics.io) baseiam-se no mesmo código. O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor para fornecer uma experiência de monitorização mais unificada. Pode continuar a aceder através do URL do portal da análise: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+R. Sim, a página de registos no Azure e o portal da análise avançada baseiam-se no mesmo código. O log Analytics está a ser integrado como uma funcionalidade no Azure Monitor para fornecer uma experiência de monitorização mais unificada. Pode continuar a aceder através do URL do portal da análise: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 

@@ -1,12 +1,11 @@
 ---
-title: Cenários de utilização e considerações de implementação para associação do Azure AD | Documentos da Microsoft
-description: Explica como os administradores podem configurar associação do Azure AD para os utilizadores finais (funcionários, estudantes, outros utilizadores). Ele também aborda os diferentes cenários de mundo real para utilizar a associação do Azure AD.
+title: Como planear a implementação de associação do Azure Active Directory (Azure AD) | Documentos da Microsoft
+description: Explica os passos necessários para implementar o Azure AD dispositivos associados no seu ambiente.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
-tags: azure-classic-portal
 ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
@@ -14,67 +13,230 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/20/2018
 ms.author: markvi
-ms.openlocfilehash: a145b4184fbebd9c4f447face1c47bec20c0ec32
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.reviewer: sandeo
+ms.openlocfilehash: fdc8b5db9316e463f8ec46ca5e235ea53cf44265
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414890"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275977"
 ---
-# <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Cenários de utilização e considerações de implementação para associação do Azure AD
-## <a name="usage-scenarios-for-azure-ad-join"></a>Cenários de utilização de associação do Azure AD
-### <a name="scenario-1-businesses-largely-in-the-cloud"></a>Cenário 1: Empresas em grande parte na cloud
-O Azure Active Directory Join (associação do Azure AD) podem beneficiá-lo se atualmente operar e gerir identidades para o seu negócio na cloud ou estiver a mover para a cloud em breve. Pode utilizar uma conta que tenha criado no Azure AD para iniciar sessão no Windows 10. Por meio [processo (FRX) de experiência de primeira execução](azuread-joined-devices-frx.md), ou por associação do Azure AD a partir de [o menu de definições](../user-help/device-management-azuread-joined-devices-setup.md), os utilizadores podem associar seus computadores ao Azure AD.  Os utilizadores também podem desfrutar único início de sessão (SSO) acesso a recursos na cloud, como o Office 365, em seus navegadores ou em aplicativos do Office.
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: planear a implementação de associação do Azure AD
 
-### <a name="scenario-2-educational-institutions"></a>Cenário 2: Instituições de ensino
-Instituições de ensino normalmente têm dois tipos de utilizador: corpo docente e estudantes. Membros do corpo docente são considerados membros de longo prazo da organização. A criação de contas no local para os mesmos é desejável. Mas os estudantes são shorter-term membros da organização e das respetivas contas podem ser geridas no Azure AD. Isso significa que o dimensionamento de diretório pode ser enviado para a cloud em vez de serem armazenados no local. Também significa que os alunos serão capazes de iniciar sessão no Windows com as suas contas do Azure AD e obter acesso aos recursos do Office 365 em aplicativos do Office.
 
-### <a name="scenario-3-retail-businesses"></a>Cenário 3: As empresas de varejo
-As empresas de varejo têm trabalhadores sazonais e funcionários de longo prazo. Normalmente, criar contas no local e utilizar máquinas associadas a domínios para os funcionários a tempo inteiro longo prazo. Mas trabalhadores sazonais são shorter-term membros da organização e é desejável para gerenciar essas contas em que licenças de utilizador podem ser mais facilmente movidas. Quando cria as contas de utilizador na cloud com licenças do Office 365, estes utilizadores obtém os benefícios do início de sessão para Windows e Office aplicativos com uma conta do Azure AD, enquanto mantém o maior flexibilidade com suas licenças após eles os deixam.
+Associação do Azure AD permite-lhe associar dispositivos diretamente para o Azure AD sem a necessidade de associar ao Active Directory no local, mantendo os seus utilizadores produtivos e seguros.  
 
-### <a name="scenario-4-additional-scenarios"></a>Cenário de 4: Cenários adicionais
-Assim como os benefícios discutidos anteriormente, se beneficiar da que os seus utilizadores se associem os seus dispositivos com o Azure AD devido a uma experiência simplificada de junção, gestão de dispositivos eficiente, inscrição da gestão de dispositivos móveis automática e início de sessão único para o Azure AD e recursos no local.  
+Este artigo pressupõe que tenha familiaridade com o Azure AD e [Estados do dispositivo no Azure AD](overview.md). 
 
-## <a name="deployment-considerations-for-azure-ad-join"></a>Considerações de implementação para associação do Azure AD
-### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a>Permitir que os utilizadores associar um dispositivo da empresa diretamente ao Azure AD
-As empresas podem fornecer contas apenas na cloud para empresas associadas e as organizações. Estes parceiros, em seguida, podem aceder facilmente aplicações da empresa e de recursos com o início de sessão único. Este cenário se aplica a utilizadores que acedem a recursos principalmente na cloud, como as aplicações do Office 365 ou SaaS que dependem do Azure AD para autenticação.
+ 
 
-### <a name="prerequisites"></a>Pré-requisitos
-**No nível empresarial (administrador)**
+## <a name="review-your-scenarios"></a>Analisar os seus cenários 
 
-* Subscrição do Azure com o Azure Active Directory  
+Enquanto a associação do Azure AD é aplicável a maioria dos cenários numa definição organizacional, podem existir certos casos de utilização em que pode querer implementar em vez disso, a associação ao Azure AD híbrido. Associação do Azure AD está pronto para empresas para implementações à escala ou âmbito. 
 
-**No nível do usuário**
+ 
+Considere Azure associação com o AD com base nos seguintes critérios para a sua organização:  
 
-* Windows 10 (edições Professional e Enterprise)
+- O plano ou ter a maior parte dos seus dispositivos Windows no Windows 10. 
 
-### <a name="administrator-tasks"></a>Tarefas de administrador
-* [Configurar o registo do dispositivo](device-management-azure-portal.md)
+- Planear mover para uma implementação de orientado pela cloud e gestão de dispositivos do Windows. 
 
-### <a name="user-tasks"></a>Tarefas de utilizador
-* [Configurar um novo dispositivo Windows 10 com o Azure AD durante a configuração](azuread-joined-devices-frx.md)
-* [Configurar um dispositivo Windows 10 com o Azure AD no menu Definições](../user-help/device-management-azuread-registered-devices-windows10-setup.md)
-* [Junte-se um dispositivo pessoal do Windows 10 para a sua organização](../user-help/device-management-azuread-joined-devices-setup.md)
+- Limitaram a infraestrutura no local ou pretende reduzir sua pegada no local. 
 
-## <a name="enable-byod-in-your-organization-for-windows-10"></a>Ativar o BYOD na sua organização para o Windows 10
-Pode configurar seus funcionários e de utilizadores para utilizar os seus dispositivos Windows pessoais (BYOD) para aceder a aplicações da empresa e os recursos. Os utilizadores podem adicionar as suas contas do Azure AD (contas profissionais ou escolares) para um dispositivo pessoal do Windows para aceder aos recursos de forma segura e em conformidade.
+- Não tem uma dependência pesada nas políticas de grupo para gerir dispositivos. 
 
-### <a name="prerequisites"></a>Pré-requisitos
-**No nível empresarial (administrador)**
+- Não tem aplicativos herdados que dependem de autenticação de computador do Active Directory. 
 
-* Subscrição do Azure AD
+- Todos os ou utilizadores selecionados na sua organização não tem como estando ligado à rede empresarial para aceder a recursos e as aplicações necessárias.  
 
-**No nível do usuário**
+ 
 
-* Windows 10 (edições Professional e Enterprise)
+Analisar os seus cenários com base na avaliação do seguinte  
 
-### <a name="administrator-tasks"></a>Tarefas de administrador
-* [Configurar o registo do dispositivo](device-management-azure-portal.md)
+ 
 
-### <a name="user-tasks"></a>Tarefas de utilizador
-* [Junte-se um dispositivo pessoal do Windows 10 para a sua organização](../user-help/device-management-azuread-joined-devices-setup.md)
+## <a name="assess-infrastructure"></a>Avaliar a infraestrutura  
+
+ 
+
+### <a name="users"></a>Utilizadores 
+
+Se os utilizadores são criados no Active Directory no local, terá de ser sincronizados com o Azure AD através do Azure AD Connect. Para saber mais sobre a sincronização de utilizadores, veja [o que é o Azure AD Connect?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity#what-is-azure-ad-connect) 
+
+Se os utilizadores são criados diretamente no Azure AD, nenhuma configuração adicional é necessária 
+
+ 
+
+IDs de início de sessão alternativo não são suportadas em dispositivos associados ao Azure AD. Os utilizadores devem ter um UPN válido no Azure AD.  
+
+ 
+
+### <a name="identity-infrastructure"></a>Infraestrutura de identidade 
+
+Associação do Azure AD funciona com ambientes federados e não geridos.  
+
+#### <a name="managed-environment"></a>Ambiente gerenciado 
+
+Um ambiente gerenciado pode ser implementado por meio de sincronização de Hash de palavra-passe ou Pass-through Authentication com o início de sessão único totalmente integrado. <read more here> 
+
+#### <a name="federated-environment"></a>Ambiente federado  
+
+Ambiente federado, deve ter um fornecedor de identidade que oferece suporte a protocolos WS-Trust e WS-Fed. WS-Fed é necessário para associar um dispositivo ao Azure AD e WS-Trust é necessária para iniciar sessão num dispositivo associado ao Azure AD. Portanto, se o fornecedor de identidade não suportá-los, a associação do Azure AD não pode funcionar. 
+
+
+#### <a name="smartcards-and-certificate-based-authentication"></a>Autenticação baseada em certificados e smart cards 
+
+ 
+
+Autenticação baseada em certificados e smart cards não são atualmente suportadas no Azure AD, portanto, podem não funcionar em dispositivos associados ao Azure AD 
+
+ 
+
+### <a name="devices"></a>Dispositivos 
+
+ 
+
+#### <a name="supported-devices"></a>Dispositivos suportados 
+
+Associação do Azure AD é exclusiva para dispositivos Windows 10. Não é aplicável a versões anteriores do Windows ou outros sistemas operacionais. Se ainda tiver o Windows 7/8.1, tem de atualizar para o Windows 10 para implementar a associação do Azure AD 
+
+ 
+
+Recomendação: Utilize sempre a versão mais recente do Windows 10 para recursos atualizados 
+
+ 
+
+### <a name="applications--other-resources"></a>Aplicações e de outros recursos 
+
+Recomendamos que migra as suas aplicações no local para a nuvem para uma melhor experiência de utilizador e controlo de acesso. No entanto, associado ao Azure AD dispositivos forma totalmente integrada podem fornecer acesso a ambos os locais e aplicações na cloud. Para obter mais informações, consulte [dispositivos associados ao como SSO para funciona de recursos no local no Azure AD](azuread-join-sso.md).  
+
+
+Seguem-se considerações para um tipo diferente de aplicativos e recursos 
+
+ 
+
+- **Aplicativos baseados na nuvem:** se um aplicativo é adicionado à Galeria de aplicações do Azure AD, os utilizadores get SSO através do Azure AD associado dispositivos. É necessária nenhuma configuração adicional 
+
+ 
+
+- **Aplicativos da web no local:** se as suas aplicações são personalizadas criadas e/ou alojadas no local, terá de adicioná-los para sites fidedignos do seu browser. Isso permitirá a autenticação integrada do Windows trabalhar e proporcionar uma experiência SSO de linha de comandos não aos utilizadores. Se estiver a utilizar o AD FS, veja [Certifique-se e gerir o início de sessão único com o AD FS](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/jj151809(v%3dazure.100)) para obter mais informações. Recomendação: Considere de alojamento na cloud (por exemplo, o Azure) e a integração com o Azure AD para uma melhor experiência. 
+
+- **Aplicações contando com protocolos legados no local:** usuários façam SSO do Azure AD dispositivos associados ao se o dispositivo tem de linha de visão para o controlador de domínio. Recomendação: Implemente o proxy de aplicações do Azure AD para permitir o acesso seguro para estas aplicações. Para obter mais informações, consulte [por que é uma solução melhor de Proxy de aplicações?](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy#why-is-application-proxy-a-better-solution) 
+
+- **Partilhas de rede no local:** usuários façam SSO para seus compartilhamentos de rede do Azure AD de dispositivos associados ao respetivo dispositivo tenha conectividade com um controlador de domínio. Para obter mais informações, consulte [dispositivos associados ao como SSO para funciona de recursos no local no Azure AD](azuread-join-sso.md).
+
+ 
+
+- **Impressoras:** dispositivos associados ao imprimir de cloud híbrida de implementar para detetar impressoras do Azure AD. Em alternativa, os utilizadores também podem utilizar caminho UNC dos impressoras diretamente adicioná-los. Impressoras não puderem ser detetadas automaticamente num ambiente apenas na cloud. 
+
+ 
+
+- **Contando com autenticação de máquina de aplicações no local:** esses aplicativos não são suportados em dispositivos associados ao Azure AD. Recomendação: Considere extinguir esses aplicativos e mover a respetivas alternativas modernas.  
+
+ 
+
+### <a name="device-management"></a>Gestão de dispositivos  
+
+ 
+
+Gestão de dispositivos para dispositivos associados ao Azure AD é principalmente por meio de uma plataforma EMM (por exemplo, o Intune) e os CSPs de MDM. Windows 10 tem agente MDM incorporados, que funciona com todas as soluções EMM compatíveis.  
+
+ 
+
+As políticas de grupo não são suportadas em dispositivos associados ao Azure AD, como não estiverem ligados ao Active Directory.  
+
+ 
+
+Avaliar a paridade de política MDM com políticas de grupo usando a [ferramenta de análise de migração de MDM [MMAT](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/THR3002R). Reveja as políticas de suportados e não suportadas para determinar a aplicabilidade da utilização de uma solução EMM em vez de políticas de grupo. Para as políticas não suportadas, considere:  
+
+- São as políticas não suportadas necessário aos utilizadores ou dispositivos do Azure AD join está a ser implementado para? 
+
+- São aplicáveis as políticas não suportadas numa nuvem controlado por implementação? 
+
+ 
+
+Se a sua solução EMM não está disponível através da Galeria de aplicações do Azure AD, adicione-o conforme o processo descrito em [integração do Azure Active Directory com o MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm).
+
+ 
+
+Por meio do comanagement, SCCM pode ser utilizado para gerir determinados aspetos dos dispositivos, enquanto as políticas são fornecidas por meio de sua plataforma EMM. O Microsoft Intune permite comanagement com o SCCM. Para obter mais informações, consulte [cogestão para dispositivos Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Se estiver a utilizar um produto EMM que não seja o Intune, consulte o seu fornecedor EMM em cenários de cogestão aplicável.  
+
+ 
+
+Existem duas formas de amplo de gestão de dispositivos associados ao Azure AD: 
+
+ 
+
+- **Só de MDM** -dispositivo exclusivamente é gerido por um fornecedor EMM, como o Intune. Todas as políticas são fornecidas como parte do processo de inscrição de MDM. Para os clientes do Azure AD Premium ou EMS, a inscrição MDM é automatizada como parte da associação do Azure AD. 
+
+- **Cogestão** -dispositivo for gerido em simultâneo, o fornecedor EMM e o SCCM. Nesta abordagem, o agente do SCCM é instalado num dispositivo gerido pelo MDM para administrar determinados aspetos. 
+
+Recomendação: Considere MDM, só os dispositivos associados ao gerenciamento para o Azure AD.  
+
+ 
+
+## <a name="configuration"></a>Configuração 
+
+ 
+
+Associação do Azure AD pode ser configurada no portal do Azure AD com base em algumas definições específicas. Aceda a `Devices -> Device settings` e configure as seguintes opções:   
+
+- Os utilizadores podem associar dispositivos ao Azure AD: defina esta opção para "Todos" ou "Selecionado" com base no âmbito da sua implementação.  
+
+- Dispositivos associados de administradores locais adicionais no Azure AD: definido como "Selecionado" e seleciona utilizadores que pretende adicionar ao grupo de administradores local em todos os do Azure AD associado a um dispositivos implementados na sua organização. Para obter mais informações, consulte [dispositivos associados ao como gerir o grupo de administradores locais no Azure AD](assign-local-admin.md). 
+
+- Exigir autenticação multifator associar dispositivos: definido como "Sim" se exigir que os utilizadores a executar o MFA durante a associação de dispositivos para o Azure AD. Para o utilizador que aderirem ao dispositivo para o Azure AD através do MFA, o dispositivo deixa de ser um fator 2nd. 
+
+Se pretender ativar o roaming de estado para o Azure AD para que os dispositivos podem sincronizar suas configurações, consulte [o que é enterprise roaming de estado?](enterprise-state-roaming-overview.md). Recomendamos que ative esta definição, mesmo para o Hybrid Azure dispositivos associados ao AD 
+
+### <a name="deployment-options"></a>Opções de implementação 
+
+ 
+
+Associação do Azure AD pode ser implementada por meio de três abordagens diferentes:  
+
+- **Self-service no/definições de OOBE** – o modo de self-service, os utilizadores go por meio da associação do Azure AD processar a Windows fora do Box Experience (OOBE) ou durante a partir do Windows, as definições.  
+
+- **Windows Autopilot** -Windows Autopilot permite pré-configuração de dispositivos para uma experiência mais suave no OOBE para efetuar a associação do Azure AD.   
+
+- **Inscrição em massa** -inscrição em massa permite uma associação do Azure AD de administrador controlado por através de uma em massa aprovisionamento ferramenta para configurar os dispositivos.  
+
+
+Aqui está uma comparação dessas três abordagens 
+
+ 
+||Configuração de self-service|Windows Autopilot|Inscrição em massa|
+|---|---|---|---|
+|Exigir a interação do usuário para configurar|Sim|Sim|Não|
+|Exigir esforço IT|Não|Sim|Sim|
+|Fluxos aplicável|OOBE & definições|OOBE apenas|OOBE apenas|
+|Direitos de administrador local para o utilizador primário|Sim, por predefinição|Configurável|Não|
+|Precisam de suporte do OEM do dispositivo|Não|Sim|Não|
+|Versões suportadas|versão 1511 +|1709 +|1703 +|
+ 
+Escolha a abordagem de implantação ou abordagens ao rever a tabela acima e rever as seguintes considerações para a adoção de qualquer uma das abordagens:  
+
+- São sua tecnologia de usuários experientes para ir até a configuração propriamente ditas? 
+
+    - Self-Service pode funcionam melhor para estes utilizadores. Considere o Windows Autopilot para melhorar a experiência de utilizador.  
+
+- São os utilizadores remotos ou dentro de locais empresariais? 
+
+    - Self-Service ou trabalho Autopilot melhor para usuários remotos para uma configuração sem preocupações. 
+ 
+- Prefere um controlada pelo usuário ou uma configuração de administrador gerido? 
+
+    - Inscrição em massa funciona melhor para administração controlado por implementação configurar dispositivos antes de entregar aos utilizadores.     
+
+- Comprar o dispositivos a partir de 1 a 2 OEMS, ou tem uma distribuição ampla de dispositivos de OEM?  
+
+    - Se comprar da limitado OEMs que também suportam Autopilot, pode beneficiar de uma integração maior com Autopilot. 
+ 
+
+ 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

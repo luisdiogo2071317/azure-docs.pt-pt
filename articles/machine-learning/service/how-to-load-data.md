@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f8092c7a05935dcb2ca176bee2c5820b50f3c814
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237590"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263558"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Carregar e ler dados com o Azure Machine Learning
 
-Utilize o [SDK do Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) para carregar diferentes tipos de dados de entrada. 
+Utilize o [SDK do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) para carregar diferentes tipos de dados de entrada. 
 
 Para carregar os dados, especifique o tipo de ficheiro de dados e seus parâmetros
 
@@ -149,11 +149,11 @@ dataflow.head(5)
 Resultado do exemplo:
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|
 |------|------|------|-----|------|-----|-------|----|-----|
-|0|Hoba|Iron, IVB|60000000.0|Encontrado|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
-|1|Cabo York|Iron, IIIAB|58200000.0|Encontrado|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
-|2|Campo del Cielo|Iron, IAB MG|50000000.0|Encontrado|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
-|3|Canyon Diablo|Iron, IAB MG|30000000.0|Encontrado|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
-|4|Armanty|Iron, IIIE|28000000.0|Encontrado|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
+|0|Hoba|Iron, IVB|60000000.0|Foi encontrado|1920.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-19.58333|17.91667|
+|1|Cabo York|Iron, IIIAB|58200000.0|Foi encontrado|1818.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |76.13333|-64.93333|
+|2|Campo del Cielo|Iron, IAB MG|50000000.0|Foi encontrado|1576.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |-27.46667|-60.58333|
+|3|Canyon Diablo|Iron, IAB MG|30000000.0|Foi encontrado|1891.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |35.05000|-111.03333|
+|4|Armanty|Iron, IIIE|28000000.0|Foi encontrado|1898.0|http://www.lpi.usra.edu/meteor/metbull.php?cod... |47.00000|88.00000|
 
 Carregou a primeira planilha de ficheiro do Excel. Pode atingir o mesmo resultado ao especificar explicitamente o nome da folha que pretende carregar. Se pretender carregar a folha de cálculo do segundo em vez disso, pode fornecer seu nome como um argumento. Por exemplo:
 ```python
@@ -194,13 +194,13 @@ dataflow.head(5)
 ```
 
 Resultado do exemplo:
-||010000|99999|NORUEGA FALSAS|NÃO|NO_1|ENRS|Column7|Column8|Column9|
+||010000|99999|NORUEGA FALSAS|NO|NO_1|ENRS|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010003|99999|NORUEGA FALSAS|NÃO|NÃO|ENSO||||
-|1|010010|99999|JAN MAYEN|NÃO|JN|ENJA|+70933|-008667|+00090|
-|2|010013|99999|ROST|NÃO|NÃO|||||
-|3|010014|99999|SOERSTOKKEN|NÃO|NÃO|ENSO|+59783|+005350|+00500|
-|4|010015|99999|BRINGELAND|NÃO|NÃO|ENBL|+61383|+005867|+03270|
+|0|010003|99999|NORUEGA FALSAS|NO|NO|ENSO||||
+|1|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|2|010013|99999|ROST|NO|NO|||||
+|3|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|4|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 
 Se não existirem não existem cabeçalhos nos arquivos, desejará tratar a primeira linha como dados. Passando `PromoteHeadersMode.NONE` para o argumento de palavra-chave do cabeçalho, pode evitar a detecção de cabeçalho e obter os dados corretos. Por exemplo:
@@ -217,12 +217,12 @@ Resultado do exemplo:
 
 ||Column1|Column2|Column3|Column4|Column5|Column6|Column7|Column8|Column9|
 |------|------|------|-----|------|-----|-------|----|-----|----|
-|0|010000|99999|NORUEGA FALSAS|NÃO|NO_1|ENRS|Column7|Column8|Column9|
-|1|010003|99999|NORUEGA FALSAS|NÃO|NÃO|ENSO||||
-|2|010010|99999|JAN MAYEN|NÃO|JN|ENJA|+70933|-008667|+00090|
-|3|010013|99999|ROST|NÃO|NÃO|||||
-|4|010014|99999|SOERSTOKKEN|NÃO|NÃO|ENSO|+59783|+005350|+00500|
-|5|010015|99999|BRINGELAND|NÃO|NÃO|ENBL|+61383|+005867|+03270|
+|0|010000|99999|NORUEGA FALSAS|NO|NO_1|ENRS|Column7|Column8|Column9|
+|1|010003|99999|NORUEGA FALSAS|NO|NO|ENSO||||
+|2|010010|99999|JAN MAYEN|NO|JN|ENJA|+70933|-008667|+00090|
+|3|010013|99999|ROST|NO|NO|||||
+|4|010014|99999|SOERSTOKKEN|NO|NO|ENSO|+59783|+005350|+00500|
+|5|010015|99999|BRINGELAND|NO|NO|ENBL|+61383|+005867|+03270|
 
 ## <a name="use-sql-data"></a>Utilizar dados SQL
 O SDK do Azure Machine Learning Data Prep também pode carregar dados do SQL servers. Atualmente, apenas o Microsoft SQL Server é suportado.
@@ -343,7 +343,7 @@ dataflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.a
 dataflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Site|Rua|city|Concelho|
+||FMID|MarketName|Web site|Rua|city|Concelho|
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledónia agricultores mercado associação - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledónia|
 |1|1011871|Stearns Homestead agricultores ' mercado|http://Stearnshomestead.com |6975 ridge estrada|Parma|Cuyahoga|

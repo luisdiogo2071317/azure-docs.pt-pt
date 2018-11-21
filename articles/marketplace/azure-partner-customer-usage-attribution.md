@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685706"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262606"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
-Como um parceiro de software para o Azure, as soluções necessitam de componentes do Azure ou precisam de ser implementadas diretamente da infraestrutura do Azure. Os clientes que implementar uma solução de parceiro e aprovisionar os seus próprios recursos do Azure podem encontrar dificuldades para ganhar visibilidade para o estado da implementação e obter óptica sobre o impacto no crescimento do Azure. Quando adiciona um nível mais elevado de visibilidade, se alinham com a equipa de vendas da Microsoft e obter crédito para programas de parceria da Microsoft.   
+Como um parceiro de software para o Azure, as soluções necessitam de componentes do Azure ou precisam de ser implementadas diretamente da infraestrutura do Azure. Os clientes que implementar uma solução de parceiro e aprovisionar os seus próprios recursos do Azure podem encontrar dificuldades para ganhar visibilidade para o estado da implementação e obter óptica sobre o impacto no crescimento do Azure. Quando adiciona um nível mais elevado de visibilidade, se alinham com a equipa de vendas da Microsoft e obter crédito para programas de parceria da Microsoft. 
 
 Agora, a Microsoft oferece um método para ajudar os parceiros a controlar melhor a utilização do Azure de implementações dos clientes de seu software no Azure. O novo método utiliza o Azure Resource Manager para orquestrar a implementação de serviços do Azure.
 
 Como um parceiro da Microsoft, pode associar a utilização do Azure com todos os recursos do Azure que for aprovisionado em nome de um cliente. É possível formar a associação através do Azure Marketplace, o repositório início rápido, repositórios de GitHub privados e captação de clientes de um para um. Para ativar o controlo, existem duas abordagens:
 
 - Modelos Azure Resource Manager: modelos do Resource Manager ou modelos de soluções para implementar os serviços do Azure para executar o software do parceiro. Parceiros, podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração da sua solução do Azure. Um modelo do Resource Manager permite que e seus clientes, para implementar a solução durante seu ciclo de vida. Pode ter a certeza de que os recursos são implementados num estado consistente. 
-
 - APIs do Resource Manager do Azure: Parceiros podem chamar as APIs do Resource Manager diretamente a implementar um modelo do Resource Manager ou a gerar as chamadas à API para aprovisionar diretamente os serviços do Azure. 
+
+Atribuição de utilização do cliente é necessária em todos os [modelos de soluções](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publicadas no Azure Marketplace. 
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
 

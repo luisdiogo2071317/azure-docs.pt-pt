@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: e84d2a446de537924f55f1b784731e54c94c768d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51851575"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275032"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Remover o fornecedor de recursos do SQL
 
@@ -28,20 +28,16 @@ Antes de remover o fornecedor de recursos do SQL, tem de remover todas as depend
 > [!NOTE]
 > Pode encontrar as ligações de transferência para o recurso de programas de instalação do fornecedor na [implementar os pré-requisitos do fornecedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
+Remover o fornecedor de recursos do SQL não eliminar bases de dados do inquilino de alojar servidores.
+
 ## <a name="dependency-cleanup"></a>Limpeza de dependência
 
 Existem várias tarefas de limpeza para o fazer antes de executar o script de DeploySqlProvider.ps1 para remover o fornecedor de recursos.
 
-Os utilizadores de inquilino do Azure Stack são responsáveis pelas seguintes tarefas de limpeza:
-
-* Elimine todos os seus bancos de dados do fornecedor de recursos. (A eliminar as bases de dados do inquilino não elimina os dados.)
-* Anular o registo do espaço de nomes do fornecedor.
-
 O operador de pilha do Azure é responsável pelas seguintes tarefas de limpeza:
 
-* Elimina os servidores de hospedagem do adaptador de MySQL.
-* Elimina os planos que referenciam o adaptador do MySQL.
-* Elimina quaisquer quotas que estão associados com o adaptador do MySQL.
+* Elimine os planos que referenciam o adaptador de SQL.
+* Elimine quaisquer quotas que estão associados com o adaptador de SQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Para remover o fornecedor de recursos do SQL
 
@@ -50,9 +46,9 @@ O operador de pilha do Azure é responsável pelas seguintes tarefas de limpeza:
    > [!NOTE]
    > Desinstalar o fornecedor de recursos do SQL irá continuar mesmo que os recursos dependentes estiver a utilizar atualmente o fornecedor de recursos.
   
-2. Obtenha uma cópia do fornecedor de recursos do SQL de binários e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário.
+2. Obtenha uma cópia do pacote de instalação de fornecedor de recursos do SQL e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário.
 
-3. Abra uma janela de consola novo elevada do PowerShell e altere o diretório onde extraiu arquivos binários de fornecedor de recursos do SQL.
+3. Abra uma janela de consola novo elevada do PowerShell e altere o diretório onde extraiu os ficheiros de instalação do fornecedor de recursos SQL.
 
 4. Execute o script de DeploySqlProvider.ps1 utilizando os seguintes parâmetros:
 

@@ -1,6 +1,6 @@
 ---
 title: Armazenamento imutável para Blobs de armazenamento do Azure | Documentos da Microsoft
-description: O armazenamento do Azure oferece suporte WORM (escrita uma vez, muitos de leitura) para armazenamento de Blob (objeto) que permite aos utilizadores armazenar dados num Estado não apagável e não modificável para um intervalo especificado.
+description: O armazenamento do Azure oferece suporte WORM (escrever uma vez, muitos de leitura) para armazenamento de Blob (objeto) que permite aos utilizadores armazenar dados num Estado não apagável e não modificável para um intervalo especificado.
 services: storage
 author: xyh1
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037007"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261477"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store dados críticos da empresa no armazenamento de Blobs do Azure
 
-Armazenamento imutável para armazenamento de Blobs do Azure (objeto) permite aos utilizadores armazenar dados críticos da empresa num Estado WORM (escrita uma vez, muitos de leitura). Este estado não apagável e não modificável os dados faz para um intervalo especificado pelo utilizador. BLOBs podem ser criadas e ler, mas não modificados ou eliminados, durante o intervalo de retenção.
+Armazenamento imutável para armazenamento de Blobs do Azure (objeto) permite aos utilizadores armazenar dados críticos da empresa num Estado WORM (escrever uma vez, muitos de leitura). Este estado não apagável e não modificável os dados faz para um intervalo especificado pelo utilizador. BLOBs podem ser criadas e ler, mas não modificados ou eliminados, durante o intervalo de retenção.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -47,7 +47,7 @@ Armazenamento imutável está ativado em todas as regiões públicas do Azure.
 
 ## <a name="how-it-works"></a>Como funciona
 
-Armazenamento imutável para armazenamento de Blobs do Azure suporta dois tipos de políticas de imutáveis ou WORM: retenção com base no tempo e retenções jurídicas. Para obter detalhes sobre como criar estas políticas imutáveis, consulte a [introdução ao](#Getting-started) secção.
+Armazenamento imutável para armazenamento de Blobs do Azure suporta dois tipos de políticas de imutáveis ou WORM: retenção com base no tempo e retenções jurídicas. Para obter detalhes sobre como criar estas políticas imutáveis, consulte a [introdução ao](#getting-started) secção.
 
 Quando uma política de retenção com base no tempo ou a suspensão legal é aplicada num contêiner, todos os blobs existentes mover para o imutável (escrita e eliminação protegidos) Estado. Todos os novos blobs, que são carregados para o contentor também irão mudar para o estado imutável.
 
@@ -69,7 +69,7 @@ Para novos blobs, o período de retenção efetivo é igual ao intervalo de rete
 
 ### <a name="legal-holds"></a>Retenções legais
 
-Ao definir uma retenção legal, todos os blobs novos e existentes permanecem no Estado imutável até que a suspensão legal está desmarcada. Para obter mais informações sobre como conjunto e retenções jurídicas clear, consulte a [introdução ao](#Getting-started) secção.
+Ao definir uma retenção legal, todos os blobs novos e existentes permanecem no Estado imutável até que a suspensão legal está desmarcada. Para obter mais informações sobre como conjunto e retenções jurídicas clear, consulte a [introdução ao](#getting-started) secção.
 
 Um contentor pode ter uma retenção legal e uma política de retenção com base no tempo, ao mesmo tempo. Todos os blobs existentes nesse contentor permanecem no Estado imutável até que todos os retenções jurídicas forem verificadas, mesmo que o seu período de retenção em vigor expirou. Por outro lado, um blob permanece num Estado imutável até expira o período de retenção em vigor, apesar de tem sido limpo retenções jurídicas todos os.
 

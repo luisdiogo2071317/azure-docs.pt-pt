@@ -1,6 +1,19 @@
-## <a name="webapi-project"></a>End WebAPI projeto
-1. No Visual Studio, abra o **AppBackend** projeto que criou no **notificam os utilizadores** tutorial.
-2. No Notifications.cs, substitua o inteiro **notificações** classe com o seguinte código. Não se esqueça de substituir os marcadores de posição pela cadeia de ligação (com acesso total) para o notification hub e o nome do hub. Pode obter estes valores no [portal do Azure](http://portal.azure.com). Este módulo agora representa as diferentes notificações seguras que serão enviadas. Uma implementação completa, as notificações serão armazenadas numa base de dados; de simplicidade, neste caso, iremos armazená-las na memória.
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: spelluru
+ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52271694"
+---
+## <a name="webapi-project"></a>Projeto WebAPI
+1. No Visual Studio, abra a **AppBackend** projeto que criou no **notificar utilizadores** tutorial.
+2. Em Notifications.cs, substitua o todo **notificações** classe com o código a seguir. Certifique-se de que substitua os marcadores de posição pela cadeia de ligação (com acesso total) para o hub de notificação e o nome do hub. Pode obter estes valores a partir da [portal do Azure](http://portal.azure.com). Este módulo agora representa as notificações de segurança diferentes que serão enviadas. Uma implementação completa, as notificações serão armazenadas numa base de dados; Para simplificar, neste caso, armazená-las na memória.
    
         public class Notification
         {
@@ -40,7 +53,7 @@
             }
         }
 
-1. No NotificationsController.cs, substitua o código no interior do **NotificationsController** classe definição com o seguinte código. Este componente implementa uma forma do dispositivo obter a notificação de forma segura e também fornece uma forma (para efeitos deste tutorial) para acionar um push seguro para os seus dispositivos. Tenha em atenção que ao enviar a notificação para o hub de notificação, apenas Enviámos uma notificação não processada, com o ID de notificação (e não existem mensagens real):
+1. No NotificationsController.cs, substitua o código dentro do **NotificationsController** definição com o seguinte código de classe. Este componente implementa uma forma do dispositivo obtenha a notificação de forma segura e também fornece uma forma (para efeitos deste tutorial) para acionar um envio seguro para os seus dispositivos. Tenha em atenção que ao enviar a notificação para o hub de notificação, estamos apenas enviar uma notificação não processada com o ID de notificação (e nenhuma mensagem real):
    
        public NotificationsController()
        {
@@ -75,8 +88,8 @@
         }
 
 
-Tenha em atenção que o `Post` método agora não enviar uma notificação de alerta. Envia uma notificação em bruto que contém apenas o ID de notificação e não a qualquer conteúdo confidencial. Além disso, certifique-se comente a operação de envio para as plataformas que não tem credenciais configuradas no seu hub de notificação, conforme irá causar erros.
+Tenha em atenção que o `Post` método agora não envia uma notificação de alerta. Envia uma notificação não processada que contém apenas o ID de notificação e não qualquer conteúdo confidencial. Além disso, lembre-se de que a operação de envio para as plataformas para o qual não tem credenciais configuradas no seu hub de notificação, pois eles irão resultar em erros de comentário.
 
-1. Agora iremos novamente implementar esta aplicação para um Web site do Azure para o tornam acessível a partir de todos os dispositivos. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
-2. Selecione o Web site do Azure como o destino da publicação. Inicie sessão com a sua conta do Azure e selecione um Web site existente ou novo e anote o **URL de destino** propriedade no **ligação** separador. Vamos referir-nos a este URL como o *ponto final do seu back-end* mais adiante neste tutorial. Clique em **Publicar**.
+1. Agora, vamos voltar implementar esta aplicação num website do Azure para que seja acessível a partir de todos os dispositivos. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
+2. Selecione o Web site do Azure como o destino da publicação. Inicie sessão com a sua conta do Azure, selecione um site novo ou existente e anote o **URL de destino** propriedade no **ligação** separador. Vamos referir-nos a este URL como o *ponto final do seu back-end* mais adiante neste tutorial. Clique em **Publicar**.
 

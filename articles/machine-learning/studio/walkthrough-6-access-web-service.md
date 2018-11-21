@@ -3,8 +3,8 @@ title: 'Passo 6: Aceder ao serviço de Web do Machine Learning | Documentos da M
 description: 'Passo 6 da desenvolver uma solução preditiva instruções: aceder a um serviço Web do Azure Machine Learning Active Directory.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: abb94165d08a9f4e45924d71ed11a088d662339e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: b71f98c9ba4e21f2a33b62977ec54f6230443e1b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822165"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264153"
 ---
 # <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Passo 6 das Instruções: Aceder ao serviço Web do Azure Machine Learning
 

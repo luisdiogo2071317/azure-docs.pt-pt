@@ -11,12 +11,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1865fcf47510bbaae82f98ccad85993a85ffc1ab
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 92e3935167f5665ee8cda164a8fe9b1cfcc39f73
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959142"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275603"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
@@ -72,7 +72,7 @@ Para pesquisar os registos através da execução de consultas, selecione **Log 
 Os dados de Controlo de alterações são armazenados abaixo do tipo **ConfigurationChange**.
 O exemplo de consulta do Log Analytics que se segue devolve todos os Serviços do Windows que foram parados.
 
-```
+```loganalytics
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
@@ -214,7 +214,7 @@ A imagem seguinte é um e-mail de exemplo recebido quando o serviço W3SVC para.
 
 ![e-mail](./media/automation-tutorial-troubleshoot-changes/email.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

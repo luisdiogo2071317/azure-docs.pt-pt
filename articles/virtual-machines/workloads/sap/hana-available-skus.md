@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ed7291333e7baa764b09e66aa5cfaedc77072fb
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9358f280efb847bdce802cc3a20e64710ffc3214
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028254"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275389"
 ---
 # <a name="available-skus-for-hli"></a>SKUs disponíveis para HLI
 
@@ -31,16 +31,16 @@ SAP HANA no serviço do Azure (instâncias grandes) está disponível em várias
 | --- | --- | --- | --- | --- |
 | Otimizado para OLAP: SAP BW, BW/4HANA<br /> ou SAP HANA para carga de trabalho OLAP genérica | SAP HANA no Azure S72<br /> – 2 x Intel® Xeon® processador E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  768 GB |  3 TB | Disponível |
 | --- | SAP HANA no Azure S144<br /> – 4 x Intel® Xeon® processador E7 8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  1,5 TB |  6 TB | Não é fornecido já |
-| --- | SAP HANA em Azure S192<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU |  2.0 TB DE |  8 TB | Disponível |
-| --- | SAP HANA no Azure S384<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  4.0 TB |  16 TB | Disponível |
+| --- | SAP HANA em Azure S192<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU |  2.0 TB DE |  8 TB | Disponível |
+| --- | SAP HANA no Azure S384<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  4.0 TB |  16 TB | Disponível |
 | Otimizado para OLTP: SAP Business Suite<br /> no SAP HANA ou S/4HANA (OLTP),<br /> OLTP genérico | SAP HANA no Azure S72m<br /> – 2 x Intel® Xeon® processador E7 8890 v3<br /> 36 núcleos de CPU e 72 threads de CPU |  1,5 TB |  6 TB | Disponível |
 |---| SAP HANA no Azure S144m<br /> – 4 x Intel® Xeon® processador E7 8890 v3<br /> 72 núcleos de CPU e 144 threads de CPU |  3.0 TB |  12 TB | Não é fornecido já |
-|---| SAP HANA em Azure S192m<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU  |  4.0 TB |  16 TB | Disponível |
-|---| SAP HANA no Azure S384m<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6.0 TB |  18 TB | Disponível |
-|---| SAP HANA no Azure S384xm<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8.0 TB |  22 TB |  Disponível |
-|---| SAP HANA no Azure S576m<br /> – 12 x processadores Intel® Xeon® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 DE TB | Disponível |
-|---| SAP HANA no Azure S768m<br /> – 16 x processadores Intel® Xeon® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16.0 TB |  36 TB | Disponível |
-|---| SAP HANA no Azure S960m<br /> a 20 x processadores Intel® Xeon® E7 8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20.0 TB |  46 TB | Disponível |
+|---| SAP HANA em Azure S192m<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU  |  4.0 TB |  16 TB | Disponível |
+|---| SAP HANA no Azure S384m<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  6.0 TB |  18 TB | Disponível |
+|---| SAP HANA no Azure S384xm<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  8.0 TB |  22 TB |  Disponível |
+|---| SAP HANA no Azure S576m<br /> – 12 x processadores Intel® Xeon® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  12.0 TB |  28 DE TB | Disponível |
+|---| SAP HANA no Azure S768m<br /> – 16 x processadores Intel® Xeon® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  16.0 TB |  36 TB | Disponível |
+|---| SAP HANA no Azure S960m<br /> a 20 x processadores Intel® Xeon® E7 8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20.0 TB |  46 TB | Disponível |
 
 
 Em TDIv5 do SAP HANA, SAP permite o dimensionamento de específicas do cliente e projetos de específicas do cliente que podem levar a configurações de servidor que não estão listadas como a certificação na:
@@ -50,13 +50,17 @@ Em TDIv5 do SAP HANA, SAP permite o dimensionamento de específicas do cliente e
 
 Em muitos casos, estas configurações de servidor específicas do cliente realizar mais memória do que as unidades de servidor com certificação SAP. Ao trabalhar com o SAP, os clientes têm a possibilidade de obter suporte do SAP e certificar-se para as respetivas configurações de servidor específicas do cliente de tamanho. No Azure, os seguintes SKU standard de instância grande do HANA estão disponíveis e no Microsoft preço de lista para tais projetos de dimensionamento de específicas do cliente TDIv5.
 
+| SKU|CPU | Memória | Armazenamento | Disponibilidade |
+| ---| --- | --- | --- | --- |
+| S96 | SAP HANA no Azure S96<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 48 núcleos de CPU e 96 threads de CPU |  768 TB |  3 TB | Disponível |
+
 
 | SKU do original que pode ser <br /> expandido na memória | CPU | Memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- |
 | S192m podem ser estendidos para | SAP HANA no Azure S192xm<br /> – 4 x Intel® Xeon® processador E7 8890 v4<br /> 96 núcleos de CPU e de 192 threads de CPU |  6.0 TB |  16 TB | Disponível |
-| S384xm podem ser estendidos para | SAP HANA no Azure S384xxm<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  12.0 TB |  28 DE TB | Disponível |
-| S576m podem ser estendidos para | SAP HANA no Azure S576xm<br /> – 12 x processadores Intel® Xeon® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  VERSÕES 18.0 TB |  41 TB | Disponível |
-| S768m podem ser estendidos para | SAP HANA no Azure S768xm<br /> – 16 x processadores Intel® Xeon® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  24.0 TB |  56 TB | Disponível |
+| S384xm podem ser estendidos para | SAP HANA no Azure S384xxm<br /> e 8 x processadores Intel® Xeon® E7 8890 v4<br /> 192 núcleos de CPU e 384 threads de CPU |  12.0 TB |  28 DE TB | Disponível |
+| S576m podem ser estendidos para | SAP HANA no Azure S576xm<br /> – 12 x processadores Intel® Xeon® E7 8890 v4<br /> 288 núcleos de CPU e 576 threads de CPU |  VERSÕES 18.0 TB |  41 TB | Disponível |
+| S768m podem ser estendidos para | SAP HANA no Azure S768xm<br /> – 16 x processadores Intel® Xeon® E7 8890 v4<br /> 384 núcleos de CPU e 768 threads de CPU |  24.0 TB |  56 TB | Disponível |
 
 - Núcleos de CPU = sum não-hyper-thread de núcleos de CPU da soma de processadores da unidade do servidor.
 - Threads de CPU = sum de threads de computação fornecidos pelo hyper-thread núcleos de CPU da soma de processadores da unidade do servidor. A maioria das unidades são configuradas por predefinição para utilizar a tecnologia Hyper-Threading.
@@ -67,7 +71,7 @@ As configurações específicas escolhidas são dependentes de carga de trabalho
 
 O hardware base para as ofertas, exceto unidades para projetos de dimensionamento de específicas do cliente, são com certificação TDI do SAP HANA. Duas classes diferentes de hardware dividem os SKUs em:
 
-- S72, S72m, S144, S144m, S192, S192m e S192xm, que são referidas como "Tipo de classe," de SKUs.
+- S72, S72m, S96, S144, S144m, S192, S192m e S192xm, que são referidas como "Tipo de classe," de SKUs.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, que são conhecidos como o "Tipo de classe II" dos SKUs.
 
 Um carimbo de data / instância grande do HANA completo não está alocada exclusivamente para um único cliente&#39;s de utilização. Esse fato aplica-se para os bastidores de recursos de computação e armazenamento ligados através de um recurso de infraestrutura de rede implementado no Azure, também. Infraestrutura de instância grande do HANA, como o Azure, implementa o outro cliente &quot;inquilinos&quot; que são isolados uns dos outros nos seguintes três níveis:

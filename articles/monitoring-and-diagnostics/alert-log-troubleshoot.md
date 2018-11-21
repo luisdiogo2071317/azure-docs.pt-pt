@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e2326f56ad367f744bc7895bc8c4bfd6f32d0310
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616491"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264884"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Resolução de problemas de alertas de registo no Azure Monitor  
 ## <a name="overview"></a>Descrição geral
@@ -61,7 +61,7 @@ Uma vez que o comando inclui *resumir... por* e fornecidas duas variáveis (time
 
 ![Execução da consulta medida métrica com vários valores](./media/monitor-alerts-unified/LogMMQuery.png)
 
-Como "Agregadas após" é $table – os dados são ordenados na coluna de $table (como em vermelho); em seguida, podemos de grupo e procurar por tipos de campo "Agregado com" (ou seja) $table – por exemplo: os valores do availabilityResults será considerado como um desenho/entidade (como destacado na cor de laranja). Nesta plotagem de valor/entidade – Serviço de alertas verifica a existência de falhas consecutivas três ocorrendo (como mostra a verde) para a alerta irá obter acionada para o valor de tabela "availabilityResults". Da mesma forma, se em qualquer outro valor de $table se são visualizadas três falhas consecutivas - outra notificação de alertas será acionada para o mesmo; com o serviço de alertas classificar automaticamente os valores num desenho/entidade (como cor de laranja) por vez.
+Como "Agregadas após" é $table – os dados são ordenados na coluna de $table (como em vermelho); em seguida, podemos de grupo e procurar por tipos de campo "Agregado com" (ou seja) $table – por exemplo: os valores do availabilityResults será considerado como um desenho/entidade (como destacado na cor de laranja). Nesta plotagem de valor/entidade – Serviço de alertas verifica a existência de falhas consecutivas três ocorrendo (como mostra a verde) para a alerta irá obter acionada para o valor de tabela "availabilityResults". Da mesma forma, se em qualquer outro valor de $table se são visualizadas três falhas consecutivas - outra notificação de alertas será acionada para a mesma coisa; com o serviço de alertas classificar automaticamente os valores num desenho/entidade (como cor de laranja) por vez.
 
 Agora suponha que, medida da métrica regra de alerta de registo foi modificada e a consulta foi `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)` com o restante da configuração restante mesmo que antes de incluir a lógica de alerta de falhas consecutivas três. Opção "Aggregate após" nesse caso será por predefinição: timestamp. Uma vez que apenas um valor é fornecido na consulta para resumir... por timestamp (ou seja) semelhante ao exemplo anterior, no final da execução a saída seria conforme ilustrado abaixo. 
 

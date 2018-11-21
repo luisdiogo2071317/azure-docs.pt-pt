@@ -10,16 +10,16 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 76b417d1592671006d3d5cfa2363e306e4db48fd
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945676"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263048"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
-O [SDK do Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) oferece métodos diferentes de transformação para limpar os dados. Esses métodos tornam mais fácil adicionar colunas, filtrar indesejadas linhas ou colunas e impute valores em falta.
+O [SDK do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) oferece métodos diferentes de transformação para limpar os dados. Esses métodos tornam mais fácil adicionar colunas, filtrar indesejadas linhas ou colunas e impute valores em falta.
 
 Atualmente, existem métodos para as seguintes tarefas:
 - [Adicionar coluna utilização de uma expressão](#column)

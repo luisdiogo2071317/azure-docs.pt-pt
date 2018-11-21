@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637972"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264391"
 ---
 # <a name="prediction-score"></a>Classificação da predição
 Uma pontuação de predição indica o grau de confiança que Luis tem para resultados de predição. 
@@ -62,7 +62,7 @@ Quando treinar o mesmo modelo num aplicativo diferente, e as pontuações não n
 Se sua chatbot exigir uma pontuação de LUIS específica para indicar a confiança numa intenção, deve usar a diferença de pontuação entre os objetivos de duas principais. Isto proporciona flexibilidade para variações no treinamento. 
 
 ## <a name="punctuation"></a>Pontuação
-Pontuação é um token separado no LUIS. Uma expressão que contém um ponto no final em comparação com uma expressão que não são duas expressões separados e poderá receber duas previsões diferentes. Certificar-se de que o modelo processa tanto a pontuação no [expressões de exemplo](luis-concept-utterance.md) (com e sem pontuação) ou no [patterns}(luis-concept-patterns.md) onde é mais fácil Ignorar pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
+Pontuação é um token separado no LUIS. Uma expressão que contém um ponto no final em comparação com uma expressão que não são duas expressões separados e poderá receber duas previsões diferentes. Certificar-se de que o modelo processa pontuação ou no [expressões de exemplo](luis-concept-utterance.md) (com e sem pontuação) ou no [padrões](luis-concept-patterns.md) onde é mais fácil Ignorar pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>Passos Seguintes
 

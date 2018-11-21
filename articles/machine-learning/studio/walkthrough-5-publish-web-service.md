@@ -3,8 +3,8 @@ title: 'Passo 5: Implementar o serviço web do Machine Learning | Documentos da 
 description: 'Passo 5 da desenvolver uma solução preditiva passo a passo: implementar uma experimentação preditiva no Machine Learning Studio, como um serviço web.'
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 81375dd1a6321482b8d80ad248643fe9a98f8483
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 2de409d0f12d4ef393901eab78918edd33bc53f9
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822420"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263830"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Passo 5 das Instruções: Implementar o serviço Web do Azure Machine Learning
 Este é o quinto passo do passo a passo, [desenvolver uma solução de Análise Preditiva no Azure Machine Learning](walkthrough-develop-predictive-solution.md)

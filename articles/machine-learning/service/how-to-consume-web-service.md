@@ -9,18 +9,18 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: larryfr
 ms.date: 10/30/2018
-ms.openlocfilehash: 75faf344c64dc330a98b836a8852b42531645c49
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685179"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262912"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
 Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço web com C#, Go, Java e Python.
 
-Um serviço web é criado quando implementa uma imagem para uma instância de contentor do Azure, o serviço Kubernetes do Azure ou o Project Brainwave (matrizes de porta programável por campo). Imagens são criadas a partir de modelos de registado e classificação de ficheiros. O URI utilizado para aceder a um serviço web pode ser obtido com o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
+Um serviço web é criado quando implementa uma imagem para uma instância de contentor do Azure, o serviço Kubernetes do Azure ou o Project Brainwave (matrizes de porta programável por campo). Imagens são criadas a partir de modelos de registado e classificação de ficheiros. O URI utilizado para aceder a um serviço web pode ser obtido com o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
 
 O fluxo de trabalho geral, quando criar um cliente que utiliza um serviço da web de ML é:
 

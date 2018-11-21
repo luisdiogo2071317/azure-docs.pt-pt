@@ -1,6 +1,6 @@
 ---
-title: Rever o acesso ao utilizar o Azure AD as revisões de acesso | Documentos da Microsoft
-description: Saiba como rever acesso utilizando as revisões de acesso do Azure Active Directory.
+title: Iniciar uma revisão de acesso com as revisões de acesso do Azure AD | Documentos da Microsoft
+description: Saiba como iniciar uma revisão de acesso utilizando as revisões de acesso do Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -14,14 +14,14 @@ ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 09247a430d2ece44c307297838b7f4dc2819d56d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 455a4922dfd0832c49729bed007dd696562be07a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607872"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263431"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>Rever o acesso com o Azure AD as revisões de acesso
+# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>Iniciar uma revisão de acesso com as revisões de acesso do Azure AD
 
 Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a aplicações e membros dos grupos no Azure AD e outros serviços Online da Microsoft com um recurso chamado acesso revisões. Talvez recebeu uma mensagem de e-mail da Microsoft que lhe pede para rever o acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação. 
 

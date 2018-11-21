@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 751c2df42ee8e4ace22fe94e1fef8d734ab81c3c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240737"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275671"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Resultado do Runbook e mensagens na automatização do Azure
 A maioria dos runbooks de automatização do Azure têm alguma forma de resultado, como uma mensagem de erro para o utilizador ou um objeto complexo destinado a ser utilizada por outro fluxo de trabalho. Windows PowerShell fornece [vários fluxos](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) para enviar a saída de um script ou o fluxo de trabalho. A automatização do Azure funciona com cada um desses fluxos de forma diferente e deve seguir as melhores práticas para saber como utilizar cada quando estiver a criar um runbook.
@@ -64,13 +64,17 @@ Workflow Test-Runbook
 
 O fluxo de saída da tarefa de runbook seria:
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 O fluxo verboso da tarefa de runbook seria:
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 Uma vez que publica o runbook e antes de iniciá-la, deve também ativar o registo verboso nas definições de runbook para que a saída de fluxo verboso.
 

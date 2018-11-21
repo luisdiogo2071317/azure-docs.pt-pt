@@ -8,20 +8,20 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976793"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276028"
 ---
 # <a name="use-cloudyn-reports"></a>Utilizar relatórios do Cloudyn
 
 Este artigo descreve a finalidade dos relatórios do Cloudyn que estão incluídos no portal do Cloudyn. Ele também descreve como pode usar com eficiência os relatórios. A maioria dos relatórios são intuitivos e tem uma aparência uniforme. A maioria das ações que pode fazer num relatório, também pode fazer de outros relatórios. Para obter uma descrição geral sobre como utilizar relatórios do Cloudyn, incluindo como personalizar e guardar ou para agendar relatórios, consulte [Noções básicas sobre relatórios de custos](understanding-cost-reports.md).
 
-O Azure Cost Management oferece uma funcionalidade semelhante ao Cloudyn. O Azure Cost Management é uma solução de gestão de custos do Azure nativo. Ele ajuda a analisar os custos, crie e gira orçamentos, exportar dados e reveja e atuar em recomendações de otimização para poupar dinheiro. Para obter mais informações, consulte [Azure Cost Management](overview-cost-mgt.md).
+O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Tipos de relatório
 

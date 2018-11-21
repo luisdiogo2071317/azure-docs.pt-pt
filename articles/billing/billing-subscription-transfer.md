@@ -5,7 +5,7 @@ keywords: Transferir a subscrição de transferência de subscrição do azure, 
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e9b5d1a84417cf6e6264211ea6e542ab712f9fe
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 66ad7c4eb07946daa278589e4a1a819f12315270
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422610"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276375"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -106,13 +106,13 @@ Transferência de subscrição Self-Service está disponível para ofertas ou ti
 
 <a id="faq"></a>
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 ### <a name="whoisaa"></a> Quem é o administrador de conta da subscrição?
 
-O administrador de conta é a pessoa que inscreveu ou comprou a subscrição do Azure. Eles estão autorizados a aceder a [Centro de contas](https://account.azure.com/Subscriptions) e realizar várias tarefas de gestão, como criar subscrições, cancelar subscrições, alterar a faturação de uma subscrição ou alterar o administrador de serviço. Se não tiver a certeza que o administrador de conta destina-se uma subscrição, utilize os seguintes passos para descobrir.
+O administrador de conta é a pessoa que inscreveu ou comprou a subscrição do Azure. Eles estão autorizados a aceder a [Centro de contas](https://account.azure.com/Subscriptions) e realizar várias tarefas de gestão, como criar subscrições, cancelar subscrições, alterar a faturação de uma subscrição ou alterar o administrador de serviço. Se não tiver a certeza de quem é o administrador de conta de uma subscrição, utilize os seguintes passos para descobrir.
 
-1. Visite o [página de subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Visite a [página de Subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecione a subscrição que pretende verificar e, em seguida, procure em **definições**.
 1. Selecione **propriedades**. O administrador de conta da subscrição é apresentado na **administrador de conta** caixa.
 
