@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4d8e8dabf9d6977393158ad716c8e8f3dc8d1512
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710495"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263320"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell
 
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Criar VMs a partir da imagem
 
-Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Criar uma VM a partir de uma imagem personalizada é semelhante à criação de uma VM com uma imagem do Marketplace. Quando utiliza uma imagem do Marketplace, tem de fornecer as informações sobre a imagem, o fornecedor da imagem, a oferta, o SKU e a versão. Com o parâmetro simplificado definido para o cmdlet [New-AzureRMVM](), apenas terá de fornecer o nome da imagem personalizada, desde que esteja no mesmo grupo de recursos. 
+Agora que tem uma imagem, pode criar uma ou mais VMs novas a partir da imagem. Criar uma VM a partir de uma imagem personalizada é semelhante à criação de uma VM com uma imagem do Marketplace. Quando utiliza uma imagem do Marketplace, tem de fornecer as informações sobre a imagem, o fornecedor da imagem, a oferta, o SKU e a versão. Com o parâmetro simplificado definido para o cmdlet [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm), apenas terá de fornecer o nome da imagem personalizada, desde que esteja no mesmo grupo de recursos. 
 
 Este exemplo cria uma VM com o nome *myVMfromImage* de *myImage*, no *myResourceGroup*.
 

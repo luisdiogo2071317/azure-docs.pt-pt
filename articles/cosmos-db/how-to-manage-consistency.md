@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: be2c68922221af848c9e484d03527d02808c071a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 68c8c3767ff3a3d2873c1ff50928ab8d2cada4b1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283823"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263756"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
@@ -34,7 +34,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-O exemplo a seguir cria uma nova conta do Cosmos DB com multimestre ativado nas regiões E.U.A. Leste e E.U.A. Oeste, ao definir a política de consistência predefinida como Estagnação Limitada, com um intervalo de estagnação máxima de 10 segundos e o número máximo de pedidos de estagnação até 200.
+O exemplo a seguir cria uma nova conta do Cosmos DB com vários mestres ativado nas regiões E.U.A. leste e E.U.A. oeste, definir a política de consistência predefinida como sessão.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -42,9 +42,7 @@ $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
 
 $iprangefilter = ""
 
-$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
-                       "maxIntervalInSeconds"= "10";
-                       "maxStalenessPrefix"="200"}
+$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
 
 $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "locations"=$locations;
@@ -216,7 +214,7 @@ Para ver a métrica de PBS, aceda à sua Conta do Cosmos DB no portal do Azure e
 
 Utilize o menu de métricas do Cosmos DB para ver esta métrica. Ele não irá aparecer na experiência de métricas de monitorização do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Pode saber mais sobre a gestão de conflitos de dados ou mover para o próximo conceito-chave no Cosmos DB com os documentos seguintes:
 

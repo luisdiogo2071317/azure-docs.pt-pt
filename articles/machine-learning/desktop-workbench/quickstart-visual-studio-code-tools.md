@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 935ddfdee34462a0156a6b013282a01fe9ea145b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: f767da10b3607cb24c981b3eaffe988eff1f4f9e
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239295"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261195"
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools para IA
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
-O Visual Studio Code Tools para IA é uma extensão de desenvolvimento para criar, testar e implementar soluções de Aprendizagem Profunda e IA. Proporciona integração total com o Azure Machine Learning, nomeadamente uma vista de histórico de execução que detalha o desempenho de preparações anteriores e métricas personalizadas. Oferece uma vista de explorador de amostras que permite procurar e efetuar o arranque de sistema do novo projeto com o [Microsoft Cognitive Toolkit (anteriormente designado CNTK)](https://www.microsoft.com/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org)e outra arquitetura de aprendizagem profunda. Por fim, fornece um explorador de destinos de computação que permite submeter tarefas de preparação de modelos em ambientes remotos como as Máquinas Virtuais do Azure ou os servidores Linux com GPU. 
+O Visual Studio Code Tools para IA é uma extensão de desenvolvimento para criar, testar e implementar soluções de Aprendizagem Profunda e IA. Proporciona integração total com o Azure Machine Learning, nomeadamente uma vista de histórico de execução que detalha o desempenho de preparações anteriores e métricas personalizadas. Oferece uma vista de explorador de amostras que permite procurar e efetuar o arranque de sistema do novo projeto com o [Microsoft Cognitive Toolkit (anteriormente designado CNTK)](https://docs.microsoft.com/cognitive-toolkit/), [Google TensorFlow](https://www.tensorflow.org)e outra arquitetura de aprendizagem profunda. Por fim, fornece um explorador de destinos de computação que permite submeter tarefas de preparação de modelos em ambientes remotos como as Máquinas Virtuais do Azure ou os servidores Linux com GPU. 
  
 ## <a name="getting-started"></a>Introdução 
 Para começar, terá primeiro de transferir e instalar o [Visual Studio Code](https://code.visualstudio.com/Download). Assim que abrir o Visual Studio Code, efetue os seguintes passos:
@@ -81,6 +81,6 @@ Depois de submeter as tarefas, pode listá-las a partir do histórico de execuç
 Com a Vista de Lista de Tarefas ainda aberta, clique na primeira execução na lista.
 Para obter uma descrição profunda dos resultados de uma tarefa, clique no primeiro **ID da tarefa** para ver as informações detalhadas. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Como configurar o Azure Machine Learning para trabalhar com um IDE](./how-to-configure-your-IDE.md)

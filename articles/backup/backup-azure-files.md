@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 09bddd1c1d9589dbba0acf319ba43ea54c0c737b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 14a6e295eebcc3a7cb3f190a09afd65b0e959d7e
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221462"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265343"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
@@ -31,7 +31,7 @@ Neste guia, ficará a saber como:
 Antes de fazer uma cópia de segurança de uma partilha de ficheiros do Azure, garanta que está presente num dos [tipos de Conta de Armazenamento suportados](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Depois de verificar esta situação, pode proteger as suas partilhas de ficheiros.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da partilha de ficheiros do Azure durante a Pré-visualização
-A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualização. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
+A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualização. Partilhas de ficheiros do Azure em contas de armazenamento para fins gerais v2 e para fins gerais v1 são suportadas. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
 - Não pode proteger partilhas de ficheiros do Azure em Contas de Armazenamento com a replicação* do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Não pode proteger partilhas de ficheiros do Azure em contas de armazenamento que têm Redes Virtuais ou Firewall ativadas.
 - Não existe PowerShell ou CLI disponível para proteger Ficheiros do Azure com o Azure Backup.
@@ -39,10 +39,11 @@ A cópia de segurança de Partilhas de ficheiros do Azure está em Pré-visualiz
 - O número máximo de cópias de segurança a pedido por dia é de quatro.
 - Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
 - Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
+- Não elimine as partilhas de ficheiros que estão protegidas pelo Azure Backup. A solução atual irá eliminar todos os instantâneos tirados pelo Azure Backup, assim que a partilha de ficheiros é eliminada e, por conseguinte, perder todos os pontos de restauro
 
 \*Partilhas de Ficheiros do Azure em Contas de Armazenamento com a função de [replicação do armazenamento georredundante](../storage/common/storage-redundancy-grs.md) com acesso de leitura (RA-GRS) como GRS e cobrada a preços de GRS.
 
-A cópia de segurança de Partilhas de Ficheiros do Azure em Contas de Armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está atualmente disponível apenas nos E.U.A. Central (CUS), nos E.U.A. Leste 2 (EUS2), na Europa do Norte (NE), no Sudeste Asiático (SEA) e na Europa Ocidental (WE).
+Cópia de segurança para partilhas de ficheiros do Azure em contas de armazenamento com [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) replicação (ZRS) está atualmente disponível apenas na Central US (CUS), Leste E.u.a. (EUS), este dos E.U.A. 2 (EUS2), Norte da Europa (m), Sudeste Asiático (SEA), Europa Ocidental (WE) e E.U.A. oeste 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurar cópia de segurança de uma partilha de ficheiros do Azure
 Todos os dados de cópia de segurança são armazenados nos cofres dos Serviços de Recuperação. Este tutorial parte do princípio que já estabeleceu uma partilha de ficheiros do Azure. Para criar cópias de segurança da partilha de ficheiros do Azure:

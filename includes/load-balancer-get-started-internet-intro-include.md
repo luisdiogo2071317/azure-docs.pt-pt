@@ -1,3 +1,16 @@
+---
+author: kumudD
+ms.service: load-balancer
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: kumud
+ms.openlocfilehash: 459c99d1b45af9c98cc1a6d0d7dd7a9a04c824ec
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52271684"
+---
 Um balanceador de carga do Azure é um balanceador de carga de Camada 4 (TCP, UDP). O balanceador de carga fornece elevada disponibilidade, ao distribuir o tráfego de entrada entre instâncias de serviço com bom estado de funcionamento nos serviços cloud ou máquinas virtuais num conjunto de balanceador de carga. O Balanceador de Carga do Azure pode também apresentar esses serviços em várias portas, vários endereços IP ou ambos.
 
 Pode configurar um balanceador de carga para:

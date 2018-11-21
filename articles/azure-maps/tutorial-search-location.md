@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412725"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262062"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -178,7 +178,7 @@ Esta secção mostra como utilizar a API de Pesquisa do Maps para localizar um p
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. Em seguida, adicione o seguinte bloco de script para criar a consulta de pesquisa. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como quaisquer endereços, lugares e pontos de interesse (POI). Este código procura Postos de Gasolina nas proximidades dentro do raio especificado. A resposta, em seguida, é analisada em formato GeoJSON e adicionada à origem de dados, o que resulta automaticamente nos dados que estão a ser compostos no mapa através da camada de símbolo. A última parte do script define a vista da câmera dos mapas com a caixa delimitadora dos resultados através da propriedade [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) do Mapa. É adicionado um preenchimento para compensar as dimensões de píxel dos ícones de símbolo, dado que a caixa delimitadora é calculada com base nas coordenadas. 
+2. Em seguida, adicione o seguinte bloco de script para criar a consulta de pesquisa. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como quaisquer endereços, lugares e pontos de interesse (POI). Este código procura Postos de Gasolina nas proximidades dentro do raio especificado. A resposta, em seguida, é analisada em formato GeoJSON e adicionada à origem de dados, o que resulta automaticamente nos dados que estão a ser compostos no mapa através da camada de símbolo. A última parte do script define a vista da câmera dos mapas com a caixa delimitadora dos resultados através da propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa. É adicionado um preenchimento para compensar as dimensões de píxel dos ícones de símbolo, dado que a caixa delimitadora é calculada com base nas coordenadas. 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.
@@ -258,7 +258,7 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
 
     ![Search Service e Controlo de Mapas do Azure](./media/tutorial-search-location/popup-map.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, ficou a saber como:
 

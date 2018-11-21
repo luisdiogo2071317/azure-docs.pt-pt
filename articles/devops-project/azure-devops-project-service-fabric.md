@@ -1,6 +1,6 @@
 ---
-title: Implementar a Aplicação ASP.NET Core no Azure Service Fabric com o Azure DevOps Project | Tutorial dos Serviços de DevOps do Azure
-description: O Projeto de DevOps permite começar a utilizar o Azure facilmente. O Azure DevOps Project facilita a implementação da Aplicação ASP.NET Core com o Azure Service Fabric com alguns passos rápidos.
+title: 'Tutorial: Implementar a aplicação de ASP.NET Core no Azure Service Fabric usando os projetos de DevOps do Azure'
+description: Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Com os projetos de DevOps, pode implementar a sua aplicação ASP.NET Core no Azure Service Fabric em alguns passos rápidos.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -9,22 +9,27 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6a0539b2213b99e09021a4f90d914172eac62560
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300404"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264765"
 ---
-# <a name="tutorial--deploy-your-aspnet-core-app-to-azure-service-fabric-with-the-azure-devops-project"></a>Tutorial: Implementar a Aplicação ASP.NET Core no Azure Service Fabric com o Projeto de DevOps do Azure
+# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutorial: Implementar a aplicação de ASP.NET Core no Azure Service Fabric usando os projetos de DevOps do Azure
 
-O Projeto de DevOps do Azure apresenta uma experiência simplificada com a qual pode utilizar o seu código existente e o repositório de Git, ou escolher um dos exemplos de aplicação, para criar um pipeline de integração contínua (CI) e entrega contínua (CD) para o Azure.  O DevOps Project cria automaticamente recursos do Azure, como o Azure Service Fabric, cria e configura um pipeline de versão no Azure DevOps que inclui um pipeline de CI/CD e, em seguida, cria um recurso do Azure Application Insights para monitorização.
+Projetos de DevOps do Azure apresenta uma experiência simplificada de onde pode colocar o seu código existente e o repositório de Git ou escolha um aplicativo de exemplo para criar um pipeline de entrega contínua (CD) para o Azure e a integração contínua (CI). 
 
-Irá:
+Projetos de DevOps também:
+* Cria automaticamente os recursos do Azure, como o Azure Service Fabric.
+* Cria e configura um pipeline de lançamento em DevOps do Azure que configura um pipeline CI/CD.
+* Cria um recurso do Application Insights do Azure para monitorização.
+
+Neste tutorial, irá:
 
 > [!div class="checklist"]
-> * Criar um Azure DevOps Project para uma Aplicação ASP.NET Core e Service Fabric
-> * Configurar os Serviços de DevOps do Azure e uma subscrição do Azure 
+> * Utilizar projetos de DevOps para criar uma aplicação ASP.NET Core e implementá-lo para o Service Fabric
+> * Configurar o Azure DevOps e uma subscrição do Azure 
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
 > * Consolidar as alterações ao Git e implementar automaticamente no Azure
@@ -34,119 +39,139 @@ Irá:
 
 * Uma subscrição do Azure. Pode obter uma subscrição gratuita através do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-an-azure-devops-project-for-an-aspnet-core-app-and-service-fabric"></a>Criar um Azure DevOps Project para uma Aplicação ASP.NET Core e Service Fabric
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Utilizar projetos de DevOps para criar uma aplicação ASP.NET Core e implementá-la Fabricc de serviço
 
-O Azure DevOps Project cria um pipeline de CI/CD.  Pode criar uma organização **nova dos Serviços de DevOps do Azure** ou utilizar uma **organização existente**.  O Projeto de DevOps do Azure também cria **recursos do Azure**, como um cluster do Service Fabric na **subscrição do Azure** que escolher.
+Projetos de DevOps cria um pipeline CI/CD em Pipelines do Azure. Pode criar uma nova organização de DevOps do Azure ou utilizar uma organização existente. Projetos de DevOps também cria os recursos do Azure, como um cluster do Service Fabric, na subscrição do Azure à sua escolha.
 
-1. Inicie sessão no [portal do Microsoft Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Selecione o ícone **Criar um recurso** na barra de navegação esquerda e, em seguida, procure **DevOps Project**.  Escolha **Criar**.
+1. No painel esquerdo, selecione **criar um recurso**.
 
-    ![A Iniciar a Entrega Contínua](_img/azure-devops-project-service-fabric/fullbrowser.png)
+1. Na caixa de pesquisa, escreva **projetos de DevOps**e, em seguida, selecione **criar**.
 
-1. Selecione **.NET** e **Seguinte**.
+    ![O dashboard de projetos de DevOps](_img/azure-devops-project-github/fullbrowser.png)
 
-1. Em **Escolha uma arquitetura de aplicação**, selecione **ASP.NET Core** e selecione **Seguinte**.
+1. Selecione **.NET**e, em seguida, selecione **próxima**.
 
-1. Selecione **Cluster do Service Fabric** e, em seguida, selecione **Seguinte**.  
+1. Sob **escolher uma estrutura de aplicações**, selecione **ASP.NET Core**e, em seguida, selecione **seguinte**.
 
-## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configurar os Serviços de DevOps do Azure e uma subscrição do Azure
+1. Selecione **Cluster do Service Fabric**e, em seguida, selecione **próxima**. 
 
-1. Crie uma organização **nova** dos Serviços de DevOps do Azure ou utilize uma organização **existente**.  Escolha um **nome** para o seu Azure DevOps Project.  
+## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma subscrição do Azure
 
-1. Selecione a sua **subscrição do Azure**.
+1. Crie uma nova organização do Azure DevOps ou selecione uma organização existente. 
 
-1. Selecione a ligação **Alterar** para ver as definições de configuração do Azure adicionais e identifique o **tamanho da máquina virtual de nós** e o **sistema operativo** do **Cluster do Service Fabric**.  Aqui, existem várias opções para configurar o tipo e a localização de serviços do Azure.
+1. Introduza um nome para o seu projeto de DevOps do Azure. 
+
+1. Selecione a sua subscrição do Azure.
+
+1. Para ver as definições de configuração do Azure adicionais e para identificar o tamanho de máquina virtual do nó e o sistema operativo para o cluster do Service Fabric, selecione **alteração**.  
+    Este painel apresenta várias opções de configuração, o tipo e a localização de serviços do Azure.
  
-1. Saia da área de configuração do Azure e selecione **Concluído**.
+1. Sair da área de configuração do Azure e, em seguida, selecione **feito**.  
+    Após alguns minutos, o processo é concluído. Um exemplo de aplicação ASP.NET Core é configurado num repositório de Git na sua organização de DevOps do Azure, é criado um cluster do Service Fabric, um pipeline CI/CD é executado e a aplicação é implementada para o Azure. 
 
-1. Irá demorar alguns minutos até que o processo esteja concluído.  Uma aplicação ASP.NET Core de exemplo é configurada num repositório da sua organização de Serviços de DevOps do Azure, é criado um cluster do Service Fabric, é executado um pipeline de CI/CD e a sua aplicação é implementada no Azure.  
+    Depois de tudo isso é concluído, é apresentado o dashboard de projetos de DevOps no portal do Azure. Também pode ir para o dashboard de projetos de DevOps diretamente a partir **todos os recursos** no portal do Azure. 
 
-    Depois de concluído, o **dashboard do Projeto** do Azure DevOps é carregado no portal do Azure.  Também pode navegar para o **Dashboard do Projeto de DevOps do Azure** diretamente a partir de **Todos os recursos** no **portal do Azure**.  
+    Este dashboard fornece visibilidade em seu repositório de código de DevOps do Azure, o seu pipeline CI/CD e o cluster do Service Fabric. Pode configurar opções adicionais para o seu pipeline de CI/CD no Azure repositórios. No lado direito, selecione **procurar** para ver a sua aplicação em execução.
 
-    Este dashboard oferece visibilidade para o **repositório de código** dos Serviços de DevOps do Azure, o **pipeline de CI/CD dos Serviços de DevOps do Azure** e o **cluster do Service Fabric**.  Pode configurar opções adicionais nos Serviços de DevOps do Azure.  No lado direito do dashboard, selecione **Procurar** para ver a sua aplicação em execução.
+## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 
-## <a name="examine-the-azure-devops-services-ci-pipeline"></a>Examinar o pipeline de CI dos Serviços de DevOps do Azure
+Projetos de DevOps configura automaticamente um pipeline CI/CD em Pipelines do Azure. Pode explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
 
-O Azure DevOps Project configura automaticamente um pipeline de CI/CD dos Serviços de DevOps do Azure na sua organização de Serviços de DevOps do Azure.  Pode explorar e personalizar o pipeline.  Siga os passos abaixo para familiarizar-se com o pipeline de compilação dos Serviços de DevOps do Azure.
+1. Aceda ao dashboard Projectss de DevOps.
 
-1. Navegue para o **dashboard do Projeto de DevOps do Azure**.
+1. Na parte superior do dashboard de projetos de DevOps, selecione **Criar pipelines**.  
+    Um separador do browser apresenta o pipeline de compilação para o novo projeto.
 
-1. Selecione **Pipelines de Compilação** na **parte superior** do **dashboard do Azure DevOps Project**.  Esta ligação abre um separador do browser e abre o pipeline de compilação dos Serviços de DevOps do Azure para o novo projeto.
-
-1. Mova o cursor do rato para o lado direito do pipeline de compilação junto ao campo **Estado**. Selecione as **reticências** que são apresentadas.  Esta ação abre um menu onde pode iniciar várias atividades, como **colocar uma nova compilação em fila**, **colocar uma compilação em pausa** e **editar o pipeline de compilação**.
+1. Aponte para o **estado** campo e, em seguida, selecione as reticências (...).  
+    Um menu apresenta várias opções, como a colocação em fila uma nova compilação, colocar em pausa uma compilação e editar o pipeline de compilação.
 
 1. Selecione **Editar**.
 
-1. Nesta vista, **examine as várias tarefas** do seu pipeline de compilação.  A compilação executa várias tarefas, como obter as origens do repositório Git dos Serviços de DevOps do Azure, restaurar dependências e publicar saídas utilizadas para implementações.
+1. Neste painel, pode examinar as várias tarefas para o seu pipeline de compilação.  
+    A compilação executa várias tarefas, tais como origens ao obter a partir do Git saídas do repositório, a restauração de dependências e a publicação é utilizada para implementações.
 
-1. Na parte superior do pipeline de compilação, selecione o **nome do pipeline de compilação**. 
+1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação. 
 
-1. No nome do pipeline de compilação, selecione **Histórico**.  Verá um registo de auditoria das alterações recentes da compilação.  Os Serviços de DevOps do Azure mantêm um registo de todas as alterações efetuadas no pipeline de compilação e permitem-lhe comparar versões.
+1. No nome do pipeline de compilação, selecione **Histórico**.  
+    Este painel apresenta uma trilha de auditoria das alterações recentes para a compilação. DevOps do Azure mantém um registro de todas as alterações feitas no pipeline de compilação e permite-lhe comparar versões.
 
-1. Selecione **Acionadores**.  O Azure DevOps Project criou automaticamente um acionador de CI e cada consolidação no repositório inicia uma nova compilação.  Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
+1. Selecione **Acionadores**.  
+    Projetos de DevOps cria automaticamente um acionador de CI e cada consolidação para o repositório inicia uma nova compilação. Opcionalmente, pode optar por incluir ou excluir os ramos do processo de CI.
 
-1. Selecione **Retenção**.  Com base no seu cenário, pode especificar políticas para manter ou remover um determinado número de compilações.
+1. Selecione **Retenção**.  
+    Dependendo do seu cenário, pode especificar políticas de manter ou remover um determinado número de compilações.
 
-## <a name="examine-the-azure-devops-services-cd-pipeline"></a>Examinar o pipeline de CD dos Serviços de DevOps do Azure
+## <a name="examine-the-cd-pipeline"></a>Examinar o pipeline de CD
 
-O Azure DevOps Project cria e configura automaticamente os passos necessários para implementar da sua organização de Serviços de DevOps do Azure para a sua subscrição do Azure.  Estes passos incluem a configuração de uma ligação ao serviço do Azure para autenticar os Serviços de DevOps do Azure para a sua subscrição do Azure.  A automatização também cria um pipeline de versão dos Serviços de DevOps do Azure e esta versão disponibiliza a CD para o Azure.  Siga os passos abaixo para examinar mais sobre o pipeline de versão dos Serviços de DevOps do Azure.
+Projetos de DevOps automaticamente cria e configura os passos necessários para implementar a partir de sua organização de DevOps do Azure à sua subscrição do Azure. Estes passos incluem a configuração de uma ligação de serviço do Azure para autenticar o DevOps do Azure à sua subscrição do Azure. A automação também cria um pipeline de lançamento, que fornece o CD para o Azure. Para saber mais sobre o pipeline de lançamento, faça o seguinte:
 
-1. Selecione **Compilação e Versão** e, em seguida, escolha **Versões**.  O Azure DevOps Project criou um pipeline de versão dos Serviços de DevOps do Azure para gerir as implementações no Azure.
+1. Selecione **criar e lançar**e, em seguida, selecione **versões**.  
+    Projetos de DevOps cria um pipeline de lançamento para gerir implementações para o Azure.
 
-1. No lado esquerdo do browser, selecione as **reticências** junto ao pipeline de versão e, em seguida, selecione **Editar**.
+1. Selecione as reticências (...) junto ao seu pipeline de lançamento e, em seguida, selecione **editar**.  
+    O pipeline de lançamento contém um *pipeline*, que define o processo de lançamento.
 
-1. O pipeline de versão contém um **pipeline**, que define o processo da versão.  Em **Artefactos**, selecione **Remover**.  O pipeline de compilação que examinou nos passos anteriores produz a saída utilizada para o artefacto. 
+1. Em **Artefactos**, selecione **Remover**.  
+    O pipeline de compilação que é examinado anteriormente produz a saída que é utilizada para o artefacto. 
 
-1. No lado direito do ícone **Remover**, selecione o **ícone** **Acionador de implementação contínua** (que é apresentado como um relâmpago.)  Este pipeline de versão tem um acionador de CD ativado.  O acionador inicia uma implementação sempre que estiver disponível um novo artefacto de compilação.  Opcionalmente, pode desativar o acionador, para que as suas implementações requeiram execução manual. 
+1. No lado direito do **Drop** ícone, selecione **acionador de implementação contínua**.  
+    Esta versão de pipeline tem um acionador de CD ativado, o que é executada uma implantação sempre que um novo artefacto de compilação está disponível. Opcionalmente, pode desativar o acionador para que as suas implementações exigem execução manual. 
 
-1. No lado direito do browser, selecione **Ver versões**.  Esta vista mostra um histórico das versões.
+1. No lado direito, selecione **ver versões** para apresentar um histórico de versões.
 
-1. Selecione as **reticências** junto a uma das versões e escolha **Abrir**.  Existem vários menus para explorar a partir desta vista, como um **resumo da versão**, **itens relacionados com trabalho** e **Testes**.
+1. Selecione as reticências (...) junto a uma versão e, em seguida, selecione **aberto**.  
+    Pode explorar vários menus, como um resumo de lançamento, itens de trabalho associados e testes.
 
-1. Selecione **Consolidações**.  Esta vista mostra as consolidações de código associadas à implementação específica. Pode comparar versões para ver as diferenças de consolidação entre implementações.
+1. Selecione **Consolidações**.  
+    Esta vista mostra as confirmações de código que estão associadas esta implementação. Compare as versões para ver as diferenças de consolidação entre implementações.
 
-1. Selecionar **Registos**.  Os registos contêm informações úteis sobre o processo de implementação.  Podem ser vistos durante e após as implementações.
+1. Selecione **Registos**.  
+    Os registos contêm informações úteis sobre o processo de implementação. Pode visualizá-las durante e depois das implementações.
 
-## <a name="commit-changes-to-git-and-automatically-deploy-to-azure"></a>Consolidar as alterações ao Git e implementar automaticamente no Azure 
+## <a name="commit-changes-to-git-and-automatically-deploy-them-to-azure"></a>Consolide as alterações com o Git e implementá-las automaticamente para o Azure 
 
  > [!NOTE]
- > Os passos abaixo testam o pipeline de CI/CD com uma alteração de texto simples à sua aplicação Web.
+ > O procedimento seguinte testa o pipeline de CI/CD ao fazer uma alteração de texto simples.
 
-Agora, está pronto para colaborar com uma equipa na sua aplicação, com um processo de CI/CD que implementa automaticamente o seu trabalho mais recente no seu site.  Cada alteração ao repositório git inicia uma compilação e uma versão implementa as suas alterações no Azure.  Siga os passos abaixo ou utilize outras técnicas para consolidar as alterações ao seu repositório.  Por exemplo, pode **clonar** o repositório Git na sua ferramenta favorita ou IDE e, em seguida, enviar as alterações para este repositório.
+Agora, está pronto para colaborar com uma equipa na sua aplicação ao utilizar um processo de CI/CD que implementa automaticamente o seu trabalho mais recente ao seu Web site. Cada alteração para o repositório de Git inicia uma compilação, e uma versão implementa as suas alterações para o Azure. Siga o procedimento nesta secção, ou utilize outra técnica para consolidar as alterações ao seu repositório. Por exemplo, pode clonar o repositório de Git na sua ferramenta favorita ou IDE, e, em seguida, enviar alterações para este repositório.
 
-1. Selecione **Código** e, em seguida, **Ficheiros** no menu dos Serviços de DevOps do Azure e navegue para o seu repositório.
-1. Navegue para o diretório **Vistas\Home**, selecione as **reticências** junto ao ficheiro **Index.cshtml** e, em seguida, selecione **Editar**.
+1. No menu de DevOps do Azure, selecione **código** > **ficheiros**e, em seguida, aceda ao seu repositório.
 
-1. Faça uma alteração ao ficheiro, como algum texto dentro de uma das **etiquetas div**.  No canto superior direito, selecione **Consolidar**.  Selecione **Consolidar** novamente para emitir a alteração. 
+1. Vá para o *vistas \ início* diretório, selecione as reticências (...) junto aos *Index. cshtml* de ficheiros e, em seguida, selecione **editar**.
 
-1. Dentro de momentos, **é iniciada uma compilação** e, em seguida, é executada uma versão para implementar as alterações.  Pode monitorizar o **estado da compilação** com o dashboard do DevOps Project ou no browser com o registo em tempo real dos Serviços de DevOps do Azure.
+1. Fazer uma alteração para o ficheiro, por exemplo, adicionar algum texto dentro de uma das etiquetas div. 
 
-1. Assim que a versão estiver concluída, **atualize a aplicação** no browser para verificar as alterações.
+1. Na parte superior direita, selecione **consolidar**e, em seguida, selecione **consolidar** novamente para enviar sua alteração.  
+    Após alguns instantes, uma compilação é iniciada e, em seguida, uma versão executa para implementar as alterações. Pode monitorizar o estado de compilação no dashboard de projetos de DevOps ou no browser com o registo em tempo real de DevOps do Azure.
+
+1. Depois de concluída a versão, atualize a aplicação para verificar as suas alterações.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
- > [!NOTE]
- > Os passos abaixo irão eliminar permanentemente os recursos.  Utilize esta funcionalidade só depois de ler atentamente as instruções.
+Se estiver a testar, pode evitar acumulação de encargos de faturas por limpar seus recursos. Quando já não são necessários, pode eliminar o cluster do Azure Service Fabric e os recursos relacionados que criou neste tutorial. Para tal, utilize o **eliminar** funcionalidade no dashboard de projetos de DevOps.
 
-Se estiver a testar, pode limpar os recursos para evitar a acumulação de encargos de faturação.  Quando já não for necessário, pode eliminar o cluster do Azure Service Fabric e os recursos relacionados que criou neste tutorial através da funcionalidade **Eliminar** do dashboard do Projeto de DevOps do Azure.  **Tenha cuidado**, uma vez que a funcionalidade de eliminação destrói os dados criados pelo Azure DevOps Project, tanto no Azure como nos Serviços de DevOps do Azure, e não conseguirá recuperá-los depois.
+> [!IMPORTANT]
+> O procedimento seguinte elimina permanentemente recursos. O *eliminar* funcionalidade destrói os dados que são criados pelo projeto em projetos de DevOps no Azure e do Azure DevOps, e não será possível recuperá-la. Utilize este procedimento apenas depois de ler atentamente as instruções.
 
-1. No **portal do Azure**, navegue para o **Projeto de DevOps do Azure**.
-2. No **canto superior direito** do dashboard, selecione **Eliminar**.  Depois de ler a instrução, selecione **Sim** para **eliminar permanentemente** os recursos.
+1. No portal do Azure, vá para o dashboard de projetos de DevOps.
+1. Na parte superior direita, selecione **eliminar**. 
+1. Na linha de comandos, selecione **Sim** ao *eliminar permanentemente* os recursos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
-Opcionalmente, pode modificar os pipelines de CI/CD do Azure para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como um modelo para outros projetos.  Aprendeu a:
+Opcionalmente, pode modificar os pipelines de CI/CD do Azure para satisfazer as necessidades da sua equipa. Também pode utilizar este padrão de CI/CD como modelo para outros pipelines. Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Criar um Azure DevOps Project para uma Aplicação ASP.NET Core e Service Fabric
-> * Configurar os Serviços de DevOps do Azure e uma subscrição do Azure 
+> * Utilizar projetos de DevOps para criar uma aplicação ASP.NET Core e implementá-lo para o Service Fabric
+> * Configurar o Azure DevOps e uma subscrição do Azure 
 > * Examinar o pipeline de CI
 > * Examinar o pipeline de CD
-> * Consolidar as alterações ao Git e implementar automaticamente no Azure
+> * Consolide as alterações com o Git e implementá-las automaticamente para o Azure
 > * Limpar recursos
 
-Para saber mais sobre o Service Fabric e microsserviços, veja abaixo:
+Para saber mais sobre o Service Fabric e os microsserviços, veja:
 
 > [!div class="nextstepaction"]
 > [Utilizar a abordagem de microsserviços para criar aplicações](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
