@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966964"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275586"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote do SSIS com a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote do SSIS de um pipeline do Azure Data Factory através de uma atividade de procedimento armazenado. 
@@ -115,7 +115,7 @@ Este conjunto de dados de saída é um conjunto de dados fictício que pauta a a
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Criar um pipeline com atividade de procedimento armazenado 
 Neste passo, vai criar um pipeline com uma atividade de procedimento armazenado. A atividade invoca o procedimento de sp_executesql armazenados para executar o seu pacote do SSIS. 
 
-1. No painel esquerdo, clique em **... Mais** e clique em **Novo pipeline**.
+1. No painel esquerdo, clique em **... Mais** e clique em **Novo pipeline.
 2. Copie o seguinte fragmento JSON para o editor de JSON: 
 
     > [!IMPORTANT]
@@ -236,7 +236,7 @@ Crie um serviço ligado para ligar a sua base de dados SQL do Azure que aloja o 
 ### <a name="create-an-output-dataset"></a>Criar um conjunto de dados de saída
 Este conjunto de dados de saída é um conjunto de dados fictício que pauta a agenda do pipeline. Tenha em atenção que a frequência está definida como hora e intervalo está definida como 1. Por conseguinte, o pipeline é executado depois de uma hora no pipeline de começar e terminar vezes. 
 
-1. Crie um ficheiro de OuputDataset.json com o seguinte conteúdo: 
+1. Crie um ficheiro de outputdataset. JSON com o seguinte conteúdo: 
     
     ```json
     {

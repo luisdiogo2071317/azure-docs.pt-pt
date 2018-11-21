@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 474cae69353555064f4e866e9f3fc756a127a64f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7a813d091378a0cef3193f7da1937eb0db00c1d1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403292"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264034"
 documentType: LandingData
 title: Documentação de Utilizador do Azure Stack
 metadata:
@@ -73,7 +73,7 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Criar uma solução de análise de dados pré-configurados com o Azure e o Azure Stack </a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Criar soluções entre Clouds de dimensionamento com o Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Criar uma solução de aplicação distribuída geograficamente com o Azure e o Azure Stack</a>
-    - html: <a href="/azure/azure-stack/userazure-stack-solution-hybrid-cloud">Implementar uma solução de cloud híbrida com o Azure e o Azure Stack</a>
+    - html: <a href="azure-stack-solution-hybrid-cloud.md">Implementar uma solução de cloud híbrida com o Azure e o Azure Stack</a>
 - title: Referência
   items:
   - type: list
